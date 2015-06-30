@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>21840007</td>
+          <td>date of last menstrual period</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>248986005</td>
+          <td>estimated date of conception</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>16310003</td>
+          <td>ultrasound</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>34536000</td>
+          <td>amniocentesis</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11881-0</td>
+          <td>Uterus Fundal height Tape measure</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11850-5</td>
+          <td>Gestational sac Mean diameter US</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11957-8</td>
+          <td>Fetal Crown Rump length US</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11820-8</td>
+          <td>Fetal Head Diameter.biparietal US</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11963-6</td>
+          <td>Fetal Femur diaphysis [Length] US</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11979-2</td>
+          <td>Fetal Abdomen Circumference US</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11984-2</td>
+          <td>Fetal Head Circumference US</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/hspc-gestagemeasmethdev"/><version value="0.01"/><name value="HSPC Gestational Age at Birth Meas Method Device"/><immutable value="true"/><publisher value="Health Services Platform Consortium (HSPC)"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><telecom><system value="email"/><value value="fhir@lists.hl7.org"/></telecom></contact><description value="SELECT SNOMED CT code system values and LOINC system code values."/><copyright value="TBD"/><status value="draft"/><experimental value="true"/><extensible value="true"/><date value="2015-02-09"/><compose><include><system value="http://snomed.info/sct"/><concept><code value="21840007"/><display value="date of last menstrual period"/></concept><concept><code value="248986005"/><display value="estimated date of conception"/></concept><concept><code value="16310003"/><display value="ultrasound"/></concept><concept><code value="34536000"/><display value="amniocentesis"/></concept></include><include><system value="http://loinc.org"/><concept><code value="11881-0"/><display value="Uterus Fundal height Tape measure"/></concept><concept><code value="11850-5"/><display value="Gestational sac Mean diameter US"/></concept><concept><code value="11957-8"/><display value="Fetal Crown Rump length US"/></concept><concept><code value="11820-8"/><display value="Fetal Head Diameter.biparietal US"/></concept><concept><code value="11963-6"/><display value="Fetal Femur diaphysis [Length] US"/></concept><concept><code value="11979-2"/><display value="Fetal Abdomen Circumference US"/></concept><concept><code value="11984-2"/><display value="Fetal Head Circumference US"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-hspc-gestagemeasmethdev"/></valueReference></extension><identifier value="urn:uuid:f2fcd0fa-eace-4062-a84d-cea19cb307ed"/><timestamp value="2015-06-29T08:15:23Z"/><contains><system value="http://snomed.info/sct"/><code value="21840007"/><display value="date of last menstrual period"/></contains><contains><system value="http://snomed.info/sct"/><code value="248986005"/><display value="estimated date of conception"/></contains><contains><system value="http://snomed.info/sct"/><code value="16310003"/><display value="ultrasound"/></contains><contains><system value="http://snomed.info/sct"/><code value="34536000"/><display value="amniocentesis"/></contains><contains><system value="http://loinc.org"/><code value="11881-0"/><display value="Uterus Fundal height Tape measure"/></contains><contains><system value="http://loinc.org"/><code value="11850-5"/><display value="Gestational sac Mean diameter US"/></contains><contains><system value="http://loinc.org"/><code value="11957-8"/><display value="Fetal Crown Rump length US"/></contains><contains><system value="http://loinc.org"/><code value="11820-8"/><display value="Fetal Head Diameter.biparietal US"/></contains><contains><system value="http://loinc.org"/><code value="11963-6"/><display value="Fetal Femur diaphysis [Length] US"/></contains><contains><system value="http://loinc.org"/><code value="11979-2"/><display value="Fetal Abdomen Circumference US"/></contains><contains><system value="http://loinc.org"/><code value="11984-2"/><display value="Fetal Head Circumference US"/></contains></expansion></ValueSet>

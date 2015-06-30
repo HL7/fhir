@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>103241</td>
+          <td>Last known menstrual period</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>205940</td>
+          <td>Uterine size</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>268445003</td>
+          <td>Ultrasound scan - obstetric</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>525694996</td>
+          <td>Estimated date of conception</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/hspc-fetalestimationmethod"/><version value="0.01"/><name value="HSPC Fetal Estimation Method value set"/><immutable value="true"/><publisher value="Health Services Platform Consortium (HSPC)"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><telecom><system value="email"/><value value="fhir@lists.hl7.org"/></telecom></contact><description value="Select SNOMED CT code system values and selected local codes from Intermountain Healthcare."/><copyright value="TBD"/><status value="draft"/><experimental value="true"/><extensible value="true"/><date value="2015-06-15"/><define><system value="Intermountain Healthcare"/><caseSensitive value="true"/><concept><code value="103241"/><display value="Last known menstrual period"/><definition value="A method to estimate due date based on the reported date of the last known menstrual period."/></concept><concept><code value="205940"/><display value="Uterine size"/><definition value="A method to estimate due date by measuring the size of the uterus."/></concept></define><compose><include><system value="http://snomed.info/sct"/><concept><code value="268445003"/><display value="Ultrasound scan - obstetric"/></concept><concept><code value="525694996"/><display value="Estimated date of conception"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-hspc-fetalestimationmethod"/></valueReference></extension><identifier value="urn:uuid:ad35f57d-eb58-48f9-8d5a-a7c85b8bd569"/><timestamp value="2015-06-29T08:15:08Z"/><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="A method to estimate due date based on the reported date of the last known menstrual period."/></extension><system value="Intermountain Healthcare"/><code value="103241"/><display value="Last known menstrual period"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="A method to estimate due date by measuring the size of the uterus."/></extension><system value="Intermountain Healthcare"/><code value="205940"/><display value="Uterine size"/></contains><contains><system value="http://snomed.info/sct"/><code value="268445003"/><display value="Ultrasound scan - obstetric"/></contains><contains><system value="http://snomed.info/sct"/><code value="525694996"/><display value="Estimated date of conception"/></contains></expansion></ValueSet>

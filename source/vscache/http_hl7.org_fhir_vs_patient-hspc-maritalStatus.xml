@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>2326000</td>
+          <td>Marriage annulment (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>3071008</td>
+          <td>Widow (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>9906005</td>
+          <td>Trial separation (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>13184001</td>
+          <td>Separated (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>14012001</td>
+          <td>Common law partnership (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>20295000</td>
+          <td>Divorced (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>22187004</td>
+          <td>Polygamous (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>33553000</td>
+          <td>Widowed (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>36629006</td>
+          <td>Legally married (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>38070000</td>
+          <td>Cohabiting (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>54986009</td>
+          <td>Engaged to be married (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>55876004</td>
+          <td>Bachelor (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>63708008</td>
+          <td>Spinster (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>78061006</td>
+          <td>Widower (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>87915002</td>
+          <td>Married (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>105415009</td>
+          <td>Broken engagement (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>105433003</td>
+          <td>Homosexual marriage (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>105434009</td>
+          <td>Homosexual marriage, male (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>105435005</td>
+          <td>Homosexual marriage, female (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>125681006</td>
+          <td>Single person (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>125725006</td>
+          <td>Marital status: single, never married</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>160504008</td>
+          <td>Marital state unknown (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>225520003</td>
+          <td>Monogamous (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>266945001</td>
+          <td>Broken with partner (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>276125006</td>
+          <td>Separated from cohabitee (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>276126007</td>
+          <td>Husband left home (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>276127003</td>
+          <td>Wife left home (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>276128008</td>
+          <td>Cohabitee left home (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>276129000</td>
+          <td>Spouse left home (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>278836005</td>
+          <td>Remarried (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>278837001</td>
+          <td>Newly wed (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>302756003</td>
+          <td>Eloped (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>430617007</td>
+          <td>Legally separated with interlocutory decree (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>430618002</td>
+          <td>Domestic partnership (finding)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>473022002</td>
+          <td>Purposely unmarried and sexually abstinent (finding)</td>
+        </tr>
+      </table>
+      <p style="color: Navy">Because of the way that this value set is defined, not all the possible codes can be listed in advance</p>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/patient-hspc-maritalStatus"/><version value="0.01"/><name value="HSPC Marital Status value set"/><immutable value="true"/><publisher value="Health Services Platform Consortium (HSPC)"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><telecom><system value="email"/><value value="fhir@lists.hl7.org"/></telecom></contact><description value="SELECT SNOMED CT code system values descending from &#39;change values&#39; (288533004)."/><copyright value="TBD"/><status value="draft"/><experimental value="true"/><extensible value="true"/><date value="2015-02-09"/><compose><include><system value="http://snomed.info/sct"/><filter><property value="concept"/><op value="is-a"/><value value="365581002"/></filter></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-patient-hspc-maritalStatus"/></valueReference></extension><extension url="http://hl7.org/fhir/StructureDefinition/valueset-unclosed"><valueBoolean value="true"/></extension><identifier value="urn:uuid:605534d0-37a2-49d7-b982-ca813f276f91"/><timestamp value="2015-06-29T08:15:04Z"/><contains><system value="http://snomed.info/sct"/><code value="2326000"/><display value="Marriage annulment (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="3071008"/><display value="Widow (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="9906005"/><display value="Trial separation (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="13184001"/><display value="Separated (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="14012001"/><display value="Common law partnership (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="20295000"/><display value="Divorced (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="22187004"/><display value="Polygamous (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="33553000"/><display value="Widowed (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="36629006"/><display value="Legally married (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="38070000"/><display value="Cohabiting (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="54986009"/><display value="Engaged to be married (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="55876004"/><display value="Bachelor (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="63708008"/><display value="Spinster (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="78061006"/><display value="Widower (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="87915002"/><display value="Married (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="105415009"/><display value="Broken engagement (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="105433003"/><display value="Homosexual marriage (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="105434009"/><display value="Homosexual marriage, male (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="105435005"/><display value="Homosexual marriage, female (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="125681006"/><display value="Single person (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="125725006"/><display value="Marital status: single, never married"/></contains><contains><system value="http://snomed.info/sct"/><code value="160504008"/><display value="Marital state unknown (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="225520003"/><display value="Monogamous (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="266945001"/><display value="Broken with partner (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="276125006"/><display value="Separated from cohabitee (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="276126007"/><display value="Husband left home (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="276127003"/><display value="Wife left home (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="276128008"/><display value="Cohabitee left home (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="276129000"/><display value="Spouse left home (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="278836005"/><display value="Remarried (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="278837001"/><display value="Newly wed (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="302756003"/><display value="Eloped (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="430617007"/><display value="Legally separated with interlocutory decree (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="430618002"/><display value="Domestic partnership (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="473022002"/><display value="Purposely unmarried and sexually abstinent (finding)"/></contains></expansion></ValueSet>

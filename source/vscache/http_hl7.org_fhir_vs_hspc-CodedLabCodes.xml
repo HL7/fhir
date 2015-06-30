@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://loinc.org</td>
+          <td>1006-6</td>
+          <td>Direct antiglobulin test.IgG specific reagent [interpretation] on Red Blood Cells</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10333-3</td>
+          <td>Appearance of Cerebral spinal fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10335-8</td>
+          <td>Color of Cerebral spinal fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10524-7</td>
+          <td>Microscopic observation [Identifier] in Cervix by Cyto stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10569-2</td>
+          <td>Color of Semen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10573-4</td>
+          <td>Ferning [Type] in Cervical mucus</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10701-1</td>
+          <td>Ova and parasites identified in Stool by Concentration</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10762-3</td>
+          <td>Microscopic observation [Identifier] in Blood by Hemosiderin stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11019-7</td>
+          <td>Microscopic observation [Identifier] in Blood or Marrow by Sudan black B stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11158-3</td>
+          <td>Appearance of Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11546-9</td>
+          <td>Microscopic observation [Identifier] in Unspecified specimen by Other stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>12286-1</td>
+          <td>Drugs identified in Urine by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>1250-0</td>
+          <td>Major crossmatch [interpretation]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13306-6</td>
+          <td>HLA-DR beta [Type]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13440-3</td>
+          <td>Immunofixation [interpretation] for Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13501-2</td>
+          <td>Herpes simplex virus 2 Ab pattern [interpretation] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13510-3</td>
+          <td>Microscopic observation [Identifier] in Bone marrow by Myeloperoxidase stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14575-5</td>
+          <td>Blood group antibody investigation [interpretation] in Plasma or RBC</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14611-8</td>
+          <td>Nuclear Ab pattern [interpretation] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14618-3</td>
+          <td>Appearance of Stone</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14869-2</td>
+          <td>Pathologist review of Blood tests</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14884-1</td>
+          <td>Porphyrins [interpretation] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>15200-9</td>
+          <td>Osmolality of Body fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>16112-5</td>
+          <td>Estrogen receptor [interpretation] in Tissue</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>16113-3</td>
+          <td>Progesterone receptor [interpretation] in Tissue</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>16793-2</td>
+          <td>Drugs identified in Unknown substance by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>19066-0</td>
+          <td>Blood bank comment</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>19144-5</td>
+          <td>Reason for drug test [interpretation]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>19146-0</td>
+          <td>Reference lab test results</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>19156-9</td>
+          <td>Susceptibility method [Identifier] in Unspecified specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20431-3</td>
+          <td>Microscopic observation [Identifier] in Unspecified specimen by Smear</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20510-4</td>
+          <td>Lipoprotein fractions [interpretation] in Serum or Plasma by Electrophoresis</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20671-4</td>
+          <td>Amino acids [interpretation] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20785-2</td>
+          <td>Drugs identified in Serum or Plasma by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20787-8</td>
+          <td>Drugs identified in Unspecified specimen by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20990-8</td>
+          <td>APC gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21299-3</td>
+          <td>Gestational age method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21412-2</td>
+          <td>Myocardium Ab pattern [interpretation] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21667-1</td>
+          <td>F5 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>27034-8</td>
+          <td>Drugs identified in Hair by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29495-9</td>
+          <td>Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30554-0</td>
+          <td>HIV reverse transcriptase gene mutations detected [Identifier] in Isolate</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30934-4</td>
+          <td>Natriuretic peptide B [Mass/volume] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31208-2</td>
+          <td>Specimen source [Identifier] of Unspecified specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3152-6</td>
+          <td>Inhaled oxygen mechanism Dose</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31868-3</td>
+          <td>Legionella pneumophila 1 Ag [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32286-7</td>
+          <td>Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32297-4</td>
+          <td>Amino acids [interpretation] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32624-9</td>
+          <td>Race</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32700-7</td>
+          <td>Microscopic observation [Identifier] in Blood by Malaria smear</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32769-2</td>
+          <td>Alpha 1 antitrypsin phenotyping [interpretation] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33050-6</td>
+          <td>Pseudocholinesterase phenotype [Identifier] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33271-8</td>
+          <td>Microscopic observation [Identifier] in Blood by Malaria thin smear</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33511-7</td>
+          <td>Appearance of Unspecified specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33630-5</td>
+          <td>HIV protease gene mutations detected [Identifier] in Isolate</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34474-7</td>
+          <td>ABO and Rh group [Type] in Cord blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34477-0</td>
+          <td>Blood group antibodies present [Identifier] in Serum or Plasma by Elution</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34478-8</td>
+          <td>Blood group antibodies present [Identifier] in Blood by Chromogenic method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34479-6</td>
+          <td>Blood group antibodies present [Identifier] in Serum or Plasma by Cold absorption</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34480-4</td>
+          <td>Blood group antibodies present [Identifier] in Serum or Plasma by Cold incubation</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34481-2</td>
+          <td>Blood group antibodies present [Identifier] in Serum or Plasma by Warm incubation</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34482-0</td>
+          <td>Blood group antibodies present [Identifier] in Serum or Plasma by Warm absorption</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34959-7</td>
+          <td>Microscopic observation [Identifier] in Blood by Myeloperoxidase stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34960-5</td>
+          <td>HLA Ab [Identifier]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34961-3</td>
+          <td>Rh [Type] in Blood by Confirmatory method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34964-7</td>
+          <td>Osmotic fragility [interpretation] of Red Blood Cells</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>38348-9</td>
+          <td>Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>41048-0</td>
+          <td>TPMT gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>41273-4</td>
+          <td>Alpha-1-Fetoprotein interpretation [interpretation] in Amniotic fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>41274-2</td>
+          <td>Alpha-1-Fetoprotein interpretation [interpretation] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>42675-9</td>
+          <td>HLA Ag [interpretation]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>43284-9</td>
+          <td>Spermatozoa IgA binding location [Identifier] in Semen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>43287-2</td>
+          <td>Spermatozoa IgG binding location [Identifier] in Semen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>43370-6</td>
+          <td>CFTR gene p.IVS8 PolyT [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>43804-4</td>
+          <td>Amino acids [interpretation] in Cerebral spinal fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>44014-9</td>
+          <td>Porphyrins [interpretation] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>44074-3</td>
+          <td>Arbovirus Ab [interpretation] in Serum by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>4465-1</td>
+          <td>Hamster Ova Penetration Test [interpretation] in Semen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>44838-1</td>
+          <td>Catecholamines [interpretation] in Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>45175-7</td>
+          <td>HIV nucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>45176-5</td>
+          <td>HIV nonnucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>47938-6</td>
+          <td>Specimen source [Identifier] of Body fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>48818-9</td>
+          <td>Karyotype [Identifier] in Blood or Tissue by High resolution Nominal</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>49024-3</td>
+          <td>Differential cell count method - Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>49541-6</td>
+          <td>Fasting status [Presence] - Reported</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>50008-2</td>
+          <td>Mixing studies [interpretation] in Platelet poor plasma Narrative</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>50595-8</td>
+          <td>Pathologist interpretation of Unspecified specimen tests</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>50722-8</td>
+          <td>VKORC1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>55192-9</td>
+          <td>Chromosome analysis.interphase [interpretation] in Amniotic fluid by Fluorescent in situ hybridization (FISH) Narrative</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>56164-7</td>
+          <td>CYP2C9 gene allele 2 [Identifier] in Blood by Molecular genetics method Nominal</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>56165-4</td>
+          <td>CYP2C9 gene allele 3 [Identifier] in Blood by Molecular genetics method Nominal</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5767-9</td>
+          <td>Appearance of Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5778-6</td>
+          <td>Color of Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5779-4</td>
+          <td>Crystals [type] in Bile fluid by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5781-0</td>
+          <td>Crystals [type] in Synovial fluid by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5909-7</td>
+          <td>Blood smear finding [Identifier] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>59465-5</td>
+          <td>Pathologist review [interpretation] in Unspecified specimen Narrative</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6013-7</td>
+          <td>von Willebrand factor (vWf) multimers in Platelet poor plasma by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6262-0</td>
+          <td>Swine epithelium IgE Ab [Units/volume] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>62862-8</td>
+          <td>Microsatellite instability [Presence] in Tissue by Immune stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>63558-1</td>
+          <td>HLA-DQB1*0602 [Presence]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>637-9</td>
+          <td>Microscopic observation [Identifier] in Blood by Malaria thick smear</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>64013-6</td>
+          <td>Escherichia coli shiga-like toxin 1 and 2 Ag [Identifier] in Stool by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>675-9</td>
+          <td>Enterobius vermicularis [Presence] in Unspecified specimen by Pinworm exam</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6824-7</td>
+          <td>Color of Body fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6825-4</td>
+          <td>Crystals [type] in Body fluid by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>881-3</td>
+          <td>ABO and Rh group [Type] in Serum or Plasma from Blood product unit</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>882-1</td>
+          <td>ABO and Rh group [Type] in Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>883-9</td>
+          <td>ABO group [Type] in Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>888-8</td>
+          <td>Blood group antibodies identified in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>906-8</td>
+          <td>Blood group antigens present [Identifier] in Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>9109-0</td>
+          <td>Blood loss.total intraoperative [Volume] Cell saver</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>9194-2</td>
+          <td>Type of Urine collection method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>925-8</td>
+          <td>Blood product disposition [Type]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>927-4</td>
+          <td>Blood product.pooled [Identifier]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>933-2</td>
+          <td>Blood product type</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>9335-1</td>
+          <td>Appearance of Body fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>9409-4</td>
+          <td>Anabolic steroids [Identifier] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>9785-7</td>
+          <td>Microscopic observation [Identifier] in Stool by Ova and Parasite Preparation</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>9795-6</td>
+          <td>Composition in Stone</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>66759-2</td>
+          <td>Heparin neutralization [Presence] in Blood by Thromboelastography</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/hspc-CodedLabCodes"/><version value="0.5.0"/><name value="HSPC Coded Labs"/><publisher value="HSPC"/><contact><telecom><system value="url"/><value value="http://healthcaresoa.org"/></telecom></contact><description value="Ordinal LOINC codes used in HSPC"/><copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/><status value="draft"/><experimental value="true"/><date value="2015-02-20T13:44:49+11:00"/><compose><include><system value="http://loinc.org"/><concept><code value="1006-6"/><display value="Direct antiglobulin test.IgG specific reagent [interpretation] on Red Blood Cells"/></concept><concept><code value="10333-3"/><display value="Appearance of Cerebral spinal fluid"/></concept><concept><code value="10335-8"/><display value="Color of Cerebral spinal fluid"/></concept><concept><code value="10524-7"/><display value="Microscopic observation [Identifier] in Cervix by Cyto stain"/></concept><concept><code value="10569-2"/><display value="Color of Semen"/></concept><concept><code value="10573-4"/><display value="Ferning [Type] in Cervical mucus"/></concept><concept><code value="10701-1"/><display value="Ova and parasites identified in Stool by Concentration"/></concept><concept><code value="10762-3"/><display value="Microscopic observation [Identifier] in Blood by Hemosiderin stain"/></concept><concept><code value="11019-7"/><display value="Microscopic observation [Identifier] in Blood or Marrow by Sudan black B stain"/></concept><concept><code value="11158-3"/><display value="Appearance of Serum"/></concept><concept><code value="11546-9"/><display value="Microscopic observation [Identifier] in Unspecified specimen by Other stain"/></concept><concept><code value="12286-1"/><display value="Drugs identified in Urine by Screen method"/></concept><concept><code value="1250-0"/><display value="Major crossmatch [interpretation]"/></concept><concept><code value="13306-6"/><display value="HLA-DR beta [Type]"/></concept><concept><code value="13440-3"/><display value="Immunofixation [interpretation] for Urine"/></concept><concept><code value="13501-2"/><display value="Herpes simplex virus 2 Ab pattern [interpretation] in Serum"/></concept><concept><code value="13510-3"/><display value="Microscopic observation [Identifier] in Bone marrow by Myeloperoxidase stain"/></concept><concept><code value="14575-5"/><display value="Blood group antibody investigation [interpretation] in Plasma or RBC"/></concept><concept><code value="14611-8"/><display value="Nuclear Ab pattern [interpretation] in Serum"/></concept><concept><code value="14618-3"/><display value="Appearance of Stone"/></concept><concept><code value="14869-2"/><display value="Pathologist review of Blood tests"/></concept><concept><code value="14884-1"/><display value="Porphyrins [interpretation] in Stool"/></concept><concept><code value="15200-9"/><display value="Osmolality of Body fluid"/></concept><concept><code value="16112-5"/><display value="Estrogen receptor [interpretation] in Tissue"/></concept><concept><code value="16113-3"/><display value="Progesterone receptor [interpretation] in Tissue"/></concept><concept><code value="16793-2"/><display value="Drugs identified in Unknown substance by Screen method"/></concept><concept><code value="19066-0"/><display value="Blood bank comment"/></concept><concept><code value="19144-5"/><display value="Reason for drug test [interpretation]"/></concept><concept><code value="19146-0"/><display value="Reference lab test results"/></concept><concept><code value="19156-9"/><display value="Susceptibility method [Identifier] in Unspecified specimen"/></concept><concept><code value="20431-3"/><display value="Microscopic observation [Identifier] in Unspecified specimen by Smear"/></concept><concept><code value="20510-4"/><display value="Lipoprotein fractions [interpretation] in Serum or Plasma by Electrophoresis"/></concept><concept><code value="20671-4"/><display value="Amino acids [interpretation] in Serum or Plasma"/></concept><concept><code value="20785-2"/><display value="Drugs identified in Serum or Plasma by Screen method"/></concept><concept><code value="20787-8"/><display value="Drugs identified in Unspecified specimen by Screen method"/></concept><concept><code value="20990-8"/><display value="APC gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/></concept><concept><code value="21299-3"/><display value="Gestational age method"/></concept><concept><code value="21412-2"/><display value="Myocardium Ab pattern [interpretation] in Serum"/></concept><concept><code value="21667-1"/><display value="F5 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/></concept><concept><code value="27034-8"/><display value="Drugs identified in Hair by Screen method"/></concept><concept><code value="29495-9"/><display value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="30554-0"/><display value="HIV reverse transcriptase gene mutations detected [Identifier] in Isolate"/></concept><concept><code value="30934-4"/><display value="Natriuretic peptide B [Mass/volume] in Serum or Plasma"/></concept><concept><code value="31208-2"/><display value="Specimen source [Identifier] of Unspecified specimen"/></concept><concept><code value="3152-6"/><display value="Inhaled oxygen mechanism Dose"/></concept><concept><code value="31868-3"/><display value="Legionella pneumophila 1 Ag [Presence] in Urine"/></concept><concept><code value="32286-7"/><display value="Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe and target amplification method"/></concept><concept><code value="32297-4"/><display value="Amino acids [interpretation] in Urine"/></concept><concept><code value="32624-9"/><display value="Race"/></concept><concept><code value="32700-7"/><display value="Microscopic observation [Identifier] in Blood by Malaria smear"/></concept><concept><code value="32769-2"/><display value="Alpha 1 antitrypsin phenotyping [interpretation] in Serum or Plasma"/></concept><concept><code value="33050-6"/><display value="Pseudocholinesterase phenotype [Identifier] in Serum or Plasma"/></concept><concept><code value="33271-8"/><display value="Microscopic observation [Identifier] in Blood by Malaria thin smear"/></concept><concept><code value="33511-7"/><display value="Appearance of Unspecified specimen"/></concept><concept><code value="33630-5"/><display value="HIV protease gene mutations detected [Identifier] in Isolate"/></concept><concept><code value="34474-7"/><display value="ABO and Rh group [Type] in Cord blood"/></concept><concept><code value="34477-0"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Elution"/></concept><concept><code value="34478-8"/><display value="Blood group antibodies present [Identifier] in Blood by Chromogenic method"/></concept><concept><code value="34479-6"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Cold absorption"/></concept><concept><code value="34480-4"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Cold incubation"/></concept><concept><code value="34481-2"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Warm incubation"/></concept><concept><code value="34482-0"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Warm absorption"/></concept><concept><code value="34959-7"/><display value="Microscopic observation [Identifier] in Blood by Myeloperoxidase stain"/></concept><concept><code value="34960-5"/><display value="HLA Ab [Identifier]"/></concept><concept><code value="34961-3"/><display value="Rh [Type] in Blood by Confirmatory method"/></concept><concept><code value="34964-7"/><display value="Osmotic fragility [interpretation] of Red Blood Cells"/></concept><concept><code value="38348-9"/><display value="Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="41048-0"/><display value="TPMT gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/></concept><concept><code value="41273-4"/><display value="Alpha-1-Fetoprotein interpretation [interpretation] in Amniotic fluid"/></concept><concept><code value="41274-2"/><display value="Alpha-1-Fetoprotein interpretation [interpretation] in Serum or Plasma"/></concept><concept><code value="42675-9"/><display value="HLA Ag [interpretation]"/></concept><concept><code value="43284-9"/><display value="Spermatozoa IgA binding location [Identifier] in Semen"/></concept><concept><code value="43287-2"/><display value="Spermatozoa IgG binding location [Identifier] in Semen"/></concept><concept><code value="43370-6"/><display value="CFTR gene p.IVS8 PolyT [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="43804-4"/><display value="Amino acids [interpretation] in Cerebral spinal fluid"/></concept><concept><code value="44014-9"/><display value="Porphyrins [interpretation] in Urine"/></concept><concept><code value="44074-3"/><display value="Arbovirus Ab [interpretation] in Serum by Immunofluorescence"/></concept><concept><code value="4465-1"/><display value="Hamster Ova Penetration Test [interpretation] in Semen"/></concept><concept><code value="44838-1"/><display value="Catecholamines [interpretation] in Plasma"/></concept><concept><code value="45175-7"/><display value="HIV nucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate"/></concept><concept><code value="45176-5"/><display value="HIV nonnucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate"/></concept><concept><code value="47938-6"/><display value="Specimen source [Identifier] of Body fluid"/></concept><concept><code value="48818-9"/><display value="Karyotype [Identifier] in Blood or Tissue by High resolution Nominal"/></concept><concept><code value="49024-3"/><display value="Differential cell count method - Blood"/></concept><concept><code value="49541-6"/><display value="Fasting status [Presence] - Reported"/></concept><concept><code value="50008-2"/><display value="Mixing studies [interpretation] in Platelet poor plasma Narrative"/></concept><concept><code value="50595-8"/><display value="Pathologist interpretation of Unspecified specimen tests"/></concept><concept><code value="50722-8"/><display value="VKORC1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/></concept><concept><code value="55192-9"/><display value="Chromosome analysis.interphase [interpretation] in Amniotic fluid by Fluorescent in situ hybridization (FISH) Narrative"/></concept><concept><code value="56164-7"/><display value="CYP2C9 gene allele 2 [Identifier] in Blood by Molecular genetics method Nominal"/></concept><concept><code value="56165-4"/><display value="CYP2C9 gene allele 3 [Identifier] in Blood by Molecular genetics method Nominal"/></concept><concept><code value="5767-9"/><display value="Appearance of Urine"/></concept><concept><code value="5778-6"/><display value="Color of Urine"/></concept><concept><code value="5779-4"/><display value="Crystals [type] in Bile fluid by Light microscopy"/></concept><concept><code value="5781-0"/><display value="Crystals [type] in Synovial fluid by Light microscopy"/></concept><concept><code value="5909-7"/><display value="Blood smear finding [Identifier] in Blood by Light microscopy"/></concept><concept><code value="59465-5"/><display value="Pathologist review [interpretation] in Unspecified specimen Narrative"/></concept><concept><code value="6013-7"/><display value="von Willebrand factor (vWf) multimers in Platelet poor plasma by Immunoblot (IB)"/></concept><concept><code value="6262-0"/><display value="Swine epithelium IgE Ab [Units/volume] in Serum"/></concept><concept><code value="62862-8"/><display value="Microsatellite instability [Presence] in Tissue by Immune stain"/></concept><concept><code value="63558-1"/><display value="HLA-DQB1*0602 [Presence]"/></concept><concept><code value="637-9"/><display value="Microscopic observation [Identifier] in Blood by Malaria thick smear"/></concept><concept><code value="64013-6"/><display value="Escherichia coli shiga-like toxin 1 and 2 Ag [Identifier] in Stool by Immunoassay"/></concept><concept><code value="675-9"/><display value="Enterobius vermicularis [Presence] in Unspecified specimen by Pinworm exam"/></concept><concept><code value="6824-7"/><display value="Color of Body fluid"/></concept><concept><code value="6825-4"/><display value="Crystals [type] in Body fluid by Light microscopy"/></concept><concept><code value="881-3"/><display value="ABO and Rh group [Type] in Serum or Plasma from Blood product unit"/></concept><concept><code value="882-1"/><display value="ABO and Rh group [Type] in Blood"/></concept><concept><code value="883-9"/><display value="ABO group [Type] in Blood"/></concept><concept><code value="888-8"/><display value="Blood group antibodies identified in Serum or Plasma"/></concept><concept><code value="906-8"/><display value="Blood group antigens present [Identifier] in Blood"/></concept><concept><code value="9109-0"/><display value="Blood loss.total intraoperative [Volume] Cell saver"/></concept><concept><code value="9194-2"/><display value="Type of Urine collection method"/></concept><concept><code value="925-8"/><display value="Blood product disposition [Type]"/></concept><concept><code value="927-4"/><display value="Blood product.pooled [Identifier]"/></concept><concept><code value="933-2"/><display value="Blood product type"/></concept><concept><code value="9335-1"/><display value="Appearance of Body fluid"/></concept><concept><code value="9409-4"/><display value="Anabolic steroids [Identifier] in Urine"/></concept><concept><code value="9785-7"/><display value="Microscopic observation [Identifier] in Stool by Ova and Parasite Preparation"/></concept><concept><code value="9795-6"/><display value="Composition in Stone"/></concept><concept><code value="66759-2"/><display value="Heparin neutralization [Presence] in Blood by Thromboelastography"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-hspc-CodedLabCodes"/></valueReference></extension><identifier value="urn:uuid:1d455bef-aa91-471a-8331-ed379008c678"/><timestamp value="2015-06-29T08:14:58Z"/><contains><system value="http://loinc.org"/><code value="1006-6"/><display value="Direct antiglobulin test.IgG specific reagent [interpretation] on Red Blood Cells"/></contains><contains><system value="http://loinc.org"/><code value="10333-3"/><display value="Appearance of Cerebral spinal fluid"/></contains><contains><system value="http://loinc.org"/><code value="10335-8"/><display value="Color of Cerebral spinal fluid"/></contains><contains><system value="http://loinc.org"/><code value="10524-7"/><display value="Microscopic observation [Identifier] in Cervix by Cyto stain"/></contains><contains><system value="http://loinc.org"/><code value="10569-2"/><display value="Color of Semen"/></contains><contains><system value="http://loinc.org"/><code value="10573-4"/><display value="Ferning [Type] in Cervical mucus"/></contains><contains><system value="http://loinc.org"/><code value="10701-1"/><display value="Ova and parasites identified in Stool by Concentration"/></contains><contains><system value="http://loinc.org"/><code value="10762-3"/><display value="Microscopic observation [Identifier] in Blood by Hemosiderin stain"/></contains><contains><system value="http://loinc.org"/><code value="11019-7"/><display value="Microscopic observation [Identifier] in Blood or Marrow by Sudan black B stain"/></contains><contains><system value="http://loinc.org"/><code value="11158-3"/><display value="Appearance of Serum"/></contains><contains><system value="http://loinc.org"/><code value="11546-9"/><display value="Microscopic observation [Identifier] in Unspecified specimen by Other stain"/></contains><contains><system value="http://loinc.org"/><code value="12286-1"/><display value="Drugs identified in Urine by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="1250-0"/><display value="Major crossmatch [interpretation]"/></contains><contains><system value="http://loinc.org"/><code value="13306-6"/><display value="HLA-DR beta [Type]"/></contains><contains><system value="http://loinc.org"/><code value="13440-3"/><display value="Immunofixation [interpretation] for Urine"/></contains><contains><system value="http://loinc.org"/><code value="13501-2"/><display value="Herpes simplex virus 2 Ab pattern [interpretation] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="13510-3"/><display value="Microscopic observation [Identifier] in Bone marrow by Myeloperoxidase stain"/></contains><contains><system value="http://loinc.org"/><code value="14575-5"/><display value="Blood group antibody investigation [interpretation] in Plasma or RBC"/></contains><contains><system value="http://loinc.org"/><code value="14611-8"/><display value="Nuclear Ab pattern [interpretation] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="14618-3"/><display value="Appearance of Stone"/></contains><contains><system value="http://loinc.org"/><code value="14869-2"/><display value="Pathologist review of Blood tests"/></contains><contains><system value="http://loinc.org"/><code value="14884-1"/><display value="Porphyrins [interpretation] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="15200-9"/><display value="Osmolality of Body fluid"/></contains><contains><system value="http://loinc.org"/><code value="16112-5"/><display value="Estrogen receptor [interpretation] in Tissue"/></contains><contains><system value="http://loinc.org"/><code value="16113-3"/><display value="Progesterone receptor [interpretation] in Tissue"/></contains><contains><system value="http://loinc.org"/><code value="16793-2"/><display value="Drugs identified in Unknown substance by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="19066-0"/><display value="Blood bank comment"/></contains><contains><system value="http://loinc.org"/><code value="19144-5"/><display value="Reason for drug test [interpretation]"/></contains><contains><system value="http://loinc.org"/><code value="19146-0"/><display value="Reference lab test results"/></contains><contains><system value="http://loinc.org"/><code value="19156-9"/><display value="Susceptibility method [Identifier] in Unspecified specimen"/></contains><contains><system value="http://loinc.org"/><code value="20431-3"/><display value="Microscopic observation [Identifier] in Unspecified specimen by Smear"/></contains><contains><system value="http://loinc.org"/><code value="20510-4"/><display value="Lipoprotein fractions [interpretation] in Serum or Plasma by Electrophoresis"/></contains><contains><system value="http://loinc.org"/><code value="20671-4"/><display value="Amino acids [interpretation] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="20785-2"/><display value="Drugs identified in Serum or Plasma by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="20787-8"/><display value="Drugs identified in Unspecified specimen by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="20990-8"/><display value="APC gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/></contains><contains><system value="http://loinc.org"/><code value="21299-3"/><display value="Gestational age method"/></contains><contains><system value="http://loinc.org"/><code value="21412-2"/><display value="Myocardium Ab pattern [interpretation] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="21667-1"/><display value="F5 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/></contains><contains><system value="http://loinc.org"/><code value="27034-8"/><display value="Drugs identified in Hair by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="29495-9"/><display value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="30554-0"/><display value="HIV reverse transcriptase gene mutations detected [Identifier] in Isolate"/></contains><contains><system value="http://loinc.org"/><code value="30934-4"/><display value="Natriuretic peptide B [Mass/volume] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="31208-2"/><display value="Specimen source [Identifier] of Unspecified specimen"/></contains><contains><system value="http://loinc.org"/><code value="3152-6"/><display value="Inhaled oxygen mechanism Dose"/></contains><contains><system value="http://loinc.org"/><code value="31868-3"/><display value="Legionella pneumophila 1 Ag [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="32286-7"/><display value="Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="32297-4"/><display value="Amino acids [interpretation] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="32624-9"/><display value="Race"/></contains><contains><system value="http://loinc.org"/><code value="32700-7"/><display value="Microscopic observation [Identifier] in Blood by Malaria smear"/></contains><contains><system value="http://loinc.org"/><code value="32769-2"/><display value="Alpha 1 antitrypsin phenotyping [interpretation] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="33050-6"/><display value="Pseudocholinesterase phenotype [Identifier] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="33271-8"/><display value="Microscopic observation [Identifier] in Blood by Malaria thin smear"/></contains><contains><system value="http://loinc.org"/><code value="33511-7"/><display value="Appearance of Unspecified specimen"/></contains><contains><system value="http://loinc.org"/><code value="33630-5"/><display value="HIV protease gene mutations detected [Identifier] in Isolate"/></contains><contains><system value="http://loinc.org"/><code value="34474-7"/><display value="ABO and Rh group [Type] in Cord blood"/></contains><contains><system value="http://loinc.org"/><code value="34477-0"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Elution"/></contains><contains><system value="http://loinc.org"/><code value="34478-8"/><display value="Blood group antibodies present [Identifier] in Blood by Chromogenic method"/></contains><contains><system value="http://loinc.org"/><code value="34479-6"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Cold absorption"/></contains><contains><system value="http://loinc.org"/><code value="34480-4"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Cold incubation"/></contains><contains><system value="http://loinc.org"/><code value="34481-2"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Warm incubation"/></contains><contains><system value="http://loinc.org"/><code value="34482-0"/><display value="Blood group antibodies present [Identifier] in Serum or Plasma by Warm absorption"/></contains><contains><system value="http://loinc.org"/><code value="34959-7"/><display value="Microscopic observation [Identifier] in Blood by Myeloperoxidase stain"/></contains><contains><system value="http://loinc.org"/><code value="34960-5"/><display value="HLA Ab [Identifier]"/></contains><contains><system value="http://loinc.org"/><code value="34961-3"/><display value="Rh [Type] in Blood by Confirmatory method"/></contains><contains><system value="http://loinc.org"/><code value="34964-7"/><display value="Osmotic fragility [interpretation] of Red Blood Cells"/></contains><contains><system value="http://loinc.org"/><code value="38348-9"/><display value="Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="41048-0"/><display value="TPMT gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/></contains><contains><system value="http://loinc.org"/><code value="41273-4"/><display value="Alpha-1-Fetoprotein interpretation [interpretation] in Amniotic fluid"/></contains><contains><system value="http://loinc.org"/><code value="41274-2"/><display value="Alpha-1-Fetoprotein interpretation [interpretation] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="42675-9"/><display value="HLA Ag [interpretation]"/></contains><contains><system value="http://loinc.org"/><code value="43284-9"/><display value="Spermatozoa IgA binding location [Identifier] in Semen"/></contains><contains><system value="http://loinc.org"/><code value="43287-2"/><display value="Spermatozoa IgG binding location [Identifier] in Semen"/></contains><contains><system value="http://loinc.org"/><code value="43370-6"/><display value="CFTR gene p.IVS8 PolyT [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="43804-4"/><display value="Amino acids [interpretation] in Cerebral spinal fluid"/></contains><contains><system value="http://loinc.org"/><code value="44014-9"/><display value="Porphyrins [interpretation] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="44074-3"/><display value="Arbovirus Ab [interpretation] in Serum by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="4465-1"/><display value="Hamster Ova Penetration Test [interpretation] in Semen"/></contains><contains><system value="http://loinc.org"/><code value="44838-1"/><display value="Catecholamines [interpretation] in Plasma"/></contains><contains><system value="http://loinc.org"/><code value="45175-7"/><display value="HIV nucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate"/></contains><contains><system value="http://loinc.org"/><code value="45176-5"/><display value="HIV nonnucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate"/></contains><contains><system value="http://loinc.org"/><code value="47938-6"/><display value="Specimen source [Identifier] of Body fluid"/></contains><contains><system value="http://loinc.org"/><code value="48818-9"/><display value="Karyotype [Identifier] in Blood or Tissue by High resolution Nominal"/></contains><contains><system value="http://loinc.org"/><code value="49024-3"/><display value="Differential cell count method - Blood"/></contains><contains><system value="http://loinc.org"/><code value="49541-6"/><display value="Fasting status [Presence] - Reported"/></contains><contains><system value="http://loinc.org"/><code value="50008-2"/><display value="Mixing studies [interpretation] in Platelet poor plasma Narrative"/></contains><contains><system value="http://loinc.org"/><code value="50595-8"/><display value="Pathologist interpretation of Unspecified specimen tests"/></contains><contains><system value="http://loinc.org"/><code value="50722-8"/><display value="VKORC1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/></contains><contains><system value="http://loinc.org"/><code value="55192-9"/><display value="Chromosome analysis.interphase [interpretation] in Amniotic fluid by Fluorescent in situ hybridization (FISH) Narrative"/></contains><contains><system value="http://loinc.org"/><code value="56164-7"/><display value="CYP2C9 gene allele 2 [Identifier] in Blood by Molecular genetics method Nominal"/></contains><contains><system value="http://loinc.org"/><code value="56165-4"/><display value="CYP2C9 gene allele 3 [Identifier] in Blood by Molecular genetics method Nominal"/></contains><contains><system value="http://loinc.org"/><code value="5767-9"/><display value="Appearance of Urine"/></contains><contains><system value="http://loinc.org"/><code value="5778-6"/><display value="Color of Urine"/></contains><contains><system value="http://loinc.org"/><code value="5779-4"/><display value="Crystals [type] in Bile fluid by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5781-0"/><display value="Crystals [type] in Synovial fluid by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5909-7"/><display value="Blood smear finding [Identifier] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="59465-5"/><display value="Pathologist review [interpretation] in Unspecified specimen Narrative"/></contains><contains><system value="http://loinc.org"/><code value="6013-7"/><display value="von Willebrand factor (vWf) multimers in Platelet poor plasma by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="6262-0"/><display value="Swine epithelium IgE Ab [Units/volume] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="62862-8"/><display value="Microsatellite instability [Presence] in Tissue by Immune stain"/></contains><contains><system value="http://loinc.org"/><code value="63558-1"/><display value="HLA-DQB1*0602 [Presence]"/></contains><contains><system value="http://loinc.org"/><code value="637-9"/><display value="Microscopic observation [Identifier] in Blood by Malaria thick smear"/></contains><contains><system value="http://loinc.org"/><code value="64013-6"/><display value="Escherichia coli shiga-like toxin 1 and 2 Ag [Identifier] in Stool by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="675-9"/><display value="Enterobius vermicularis [Presence] in Unspecified specimen by Pinworm exam"/></contains><contains><system value="http://loinc.org"/><code value="6824-7"/><display value="Color of Body fluid"/></contains><contains><system value="http://loinc.org"/><code value="6825-4"/><display value="Crystals [type] in Body fluid by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="881-3"/><display value="ABO and Rh group [Type] in Serum or Plasma from Blood product unit"/></contains><contains><system value="http://loinc.org"/><code value="882-1"/><display value="ABO and Rh group [Type] in Blood"/></contains><contains><system value="http://loinc.org"/><code value="883-9"/><display value="ABO group [Type] in Blood"/></contains><contains><system value="http://loinc.org"/><code value="888-8"/><display value="Blood group antibodies identified in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="906-8"/><display value="Blood group antigens present [Identifier] in Blood"/></contains><contains><system value="http://loinc.org"/><code value="9109-0"/><display value="Blood loss.total intraoperative [Volume] Cell saver"/></contains><contains><system value="http://loinc.org"/><code value="9194-2"/><display value="Type of Urine collection method"/></contains><contains><system value="http://loinc.org"/><code value="925-8"/><display value="Blood product disposition [Type]"/></contains><contains><system value="http://loinc.org"/><code value="927-4"/><display value="Blood product.pooled [Identifier]"/></contains><contains><system value="http://loinc.org"/><code value="933-2"/><display value="Blood product type"/></contains><contains><system value="http://loinc.org"/><code value="9335-1"/><display value="Appearance of Body fluid"/></contains><contains><system value="http://loinc.org"/><code value="9409-4"/><display value="Anabolic steroids [Identifier] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="9785-7"/><display value="Microscopic observation [Identifier] in Stool by Ova and Parasite Preparation"/></contains><contains><system value="http://loinc.org"/><code value="9795-6"/><display value="Composition in Stone"/></contains><contains><system value="http://loinc.org"/><code value="66759-2"/><display value="Heparin neutralization [Presence] in Blood by Thromboelastography"/></contains></expansion></ValueSet>

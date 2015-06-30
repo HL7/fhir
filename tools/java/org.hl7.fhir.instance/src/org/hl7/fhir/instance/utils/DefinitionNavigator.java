@@ -146,7 +146,8 @@ public class DefinitionNavigator {
     if (sd != null) {
       DefinitionNavigator dn = new DefinitionNavigator(context, sd, 0, path, names, sd.getSnapshot().getElement().get(0).getPath());
       typeChildren = dn.children();
-    }
+    } else
+      throw new Exception("Unable to find definition for "+type.getCode());
     typeOfChildren = type;
   }
 

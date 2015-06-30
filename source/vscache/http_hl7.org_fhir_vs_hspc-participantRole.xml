@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>158965000</td>
+          <td>Doctor</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>106262003</td>
+          <td>Nurse</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>46255001</td>
+          <td>Pharmacist</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>442867008</td>
+          <td>Respiratory therapist</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>22515006</td>
+          <td>Medical assistant</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>449161006</td>
+          <td>Physician assistant</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/hspc-participantRole"/><version value="0.01"/><name value="HSPC Participant Type Value Set"/><immutable value="true"/><publisher value="Health Services Platform Consortium (HSPC)"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><telecom><system value="email"/><value value="fhir@lists.hl7.org"/></telecom></contact><description value="SELECT SNOMED CT code system values descending from &#39;Healthcare professional&#39; (223366009)."/><copyright value="TBD"/><status value="draft"/><experimental value="true"/><extensible value="true"/><date value="2015-06-09"/><compose><include><system value="http://snomed.info/sct"/><concept><code value="158965000"/><display value="Doctor"/></concept><concept><code value="106262003"/><display value="Nurse"/></concept><concept><code value="46255001"/><display value="Pharmacist"/></concept><concept><code value="442867008"/><display value="Respiratory therapist"/></concept><concept><code value="22515006"/><display value="Medical assistant"/></concept><concept><code value="449161006"/><display value="Physician assistant"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-hspc-participantRole"/></valueReference></extension><identifier value="urn:uuid:147f4f82-8148-4818-ae54-842ed58a950f"/><timestamp value="2015-06-29T08:15:28Z"/><contains><system value="http://snomed.info/sct"/><code value="158965000"/><display value="Doctor"/></contains><contains><system value="http://snomed.info/sct"/><code value="106262003"/><display value="Nurse"/></contains><contains><system value="http://snomed.info/sct"/><code value="46255001"/><display value="Pharmacist"/></contains><contains><system value="http://snomed.info/sct"/><code value="442867008"/><display value="Respiratory therapist"/></contains><contains><system value="http://snomed.info/sct"/><code value="22515006"/><display value="Medical assistant"/></contains><contains><system value="http://snomed.info/sct"/><code value="449161006"/><display value="Physician assistant"/></contains></expansion></ValueSet>

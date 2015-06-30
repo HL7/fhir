@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>55561003</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>73425007</td>
+          <td>Inactive</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>413322009</td>
+          <td>Resolved</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.68"/></extension><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/daf-concern-status"/><version value="0.5.0"/><name value="HITSP Problem Status"/><publisher value="HL7 (FHIR Project) / DAF  Project"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><contact><telecom><system value="url"/><value value="http://wiki.siframework.org/Data+Access+Framework+Homepage"/></telecom></contact><description value="The clinical status of the Condition or diagnosis - that is, the status of the concern about the problem"/><copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/><status value="draft"/><experimental value="true"/><date value="2014-12-05T23:40:31.198+11:00"/><compose><include><system value="http://snomed.info/sct"/><concept><code value="55561003"/><display value="Active"/></concept><concept><code value="73425007"/><display value="Inactive"/></concept><concept><code value="413322009"/><display value="Resolved"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-daf-concern-status"/></valueReference></extension><identifier value="urn:uuid:ea5b4659-aeff-4834-81f3-f27cbe71a070"/><timestamp value="2015-06-29T08:15:00Z"/><contains><system value="http://snomed.info/sct"/><code value="55561003"/><display value="Active"/></contains><contains><system value="http://snomed.info/sct"/><code value="73425007"/><display value="Inactive"/></contains><contains><system value="http://snomed.info/sct"/><code value="413322009"/><display value="Resolved"/></contains></expansion></ValueSet>

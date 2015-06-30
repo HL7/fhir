@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><OperationOutcome xmlns="http://hl7.org/fhir"><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Unable to find 113021 in http://nema.org/dicom/dicm</p>
+    </div></text><extension url="http://tools/cache"><valueString value="http://hl7.org/fhir/vs/kos-title"/></extension><issue><severity value="error"/><details value="Unable to find 113021 in http://nema.org/dicom/dicm"/></issue></OperationOutcome>

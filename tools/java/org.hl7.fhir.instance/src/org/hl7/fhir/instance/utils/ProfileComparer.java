@@ -185,6 +185,21 @@ public class ProfileComparer {
       return jp.composeString(val, "value");
     }
     
+    public String getErrorCount() {
+      int c = 0;
+      for (ValidationMessage vm : messages)
+        if (vm.getLevel() == IssueSeverity.ERROR)
+          c++;
+      return Integer.toString(c);
+    }
+
+    public String getWarningCount() {
+      int c = 0;
+      for (ValidationMessage vm : messages)
+        if (vm.getLevel() == IssueSeverity.INFORMATION || vm.getLevel() == IssueSeverity.WARNING)
+          c++;
+      return Integer.toString(c);
+    }
   }
   
   /**
@@ -192,6 +207,12 @@ public class ProfileComparer {
    */
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<ProfileComparison> comparisons = new ArrayList<ProfileComparison>();
+  private String id; 
+  private String title;
+  private String leftLink;
+  private String leftName;
+  private String rightLink;
+  private String rightName;
   
   
   public List<ValueSet> getValuesets() {
@@ -230,10 +251,10 @@ public class ProfileComparer {
       throw new Exception("StructureDefinition snapshot is empty (right: "+outcome.rightName()+")");
 
     for (ProfileComparison pc : comparisons) 
-      if (pc.left.getUrl().equals(left.getUrl()) && pc.right.getUrl().equals(left.getUrl()))
+      if (pc.left.getUrl().equals(left.getUrl()) && pc.right.getUrl().equals(right.getUrl()))
         return pc;
 
-    outcome.id = Integer.toString(comparisons.size());
+    outcome.id = Integer.toString(comparisons.size()+1);
     comparisons.add(outcome);
     
     DefinitionNavigator ln = new DefinitionNavigator(context, left);
@@ -519,14 +540,21 @@ public class ProfileComparer {
       ValueSet cvs = intersectByDefinition(lvs, rvs);
       if(cvs == null) {
         // if that didn't work, we'll do it by expansion
-        ValueSet le = context.getTerminologyServices().expandVS(lvs);
-        ValueSet re = context.getTerminologyServices().expandVS(rvs);
-        if (!closed(le) || !closed(re)) 
-          throw new Exception("not handled yet");
-        cvs = intersectByExpansion(lvs, rvs);
-        if (!cvs.getCompose().hasInclude()) {
-          outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" and "+rvs.getUrl()+" do not intersect", IssueSeverity.ERROR));
-          return false;
+        ValueSet le;
+        ValueSet re;
+        try {
+          le = context.getTerminologyServices().expandVS(lvs);
+          re = context.getTerminologyServices().expandVS(rvs);
+          if (!closed(le) || !closed(re)) 
+            throw new Exception("unclosed value sets are not handled yet");
+          cvs = intersectByExpansion(lvs, rvs);
+          if (!cvs.getCompose().hasInclude()) {
+            outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" and "+rvs.getUrl()+" do not intersect", IssueSeverity.ERROR));
+            return false;
+          }
+        } catch (Exception e){
+          outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Unable to expand or process value sets "+lvs.getUrl()+" and "+rvs.getUrl()+": "+e.getMessage(), IssueSeverity.ERROR));
+          return false;          
         }
       }
       subBinding.setValueSet(new Reference().setReference("#"+addValueSet(cvs)));
@@ -683,14 +711,14 @@ public class ProfileComparer {
     List<TypeRefComponent> result = new ArrayList<TypeRefComponent>();
     for (TypeRefComponent l : left) {
       if (l.getProfile().size() > 1)
-        throw new Exception("Multiple profiles not supported: "+path);
+        throw new Exception("Multiple profiles not supported: "+path+": "+listProfiles(l.getProfile()));
       if (l.hasAggregation())
         throw new Exception("Aggregation not supported: "+path);
       boolean found = false;
       TypeRefComponent c = l.copy();
       for (TypeRefComponent r : right) {
         if (r.getProfile().size() > 1)
-          throw new Exception("Multiple profiles not supported: "+path);
+          throw new Exception("Multiple profiles not supported: "+path+": "+listProfiles(l.getProfile()));
         if (r.hasAggregation())
           throw new Exception("Aggregation not supported: "+path);
         if (!l.hasProfile() && !r.hasProfile()) {
@@ -712,7 +740,7 @@ public class ProfileComparer {
               c.getProfile().clear();
               c.getProfile().add(r.getProfile().get(0));
               found = true;
-            } else {
+            } else if (sdl.getSnapshot().getElement().get(0).getPath().equals(sdr.getSnapshot().getElement().get(0).getPath())) {
               ProfileComparison comp = compareProfiles(sdl, sdr);
               if (comp.getSubset() != null) {
                 found = true;
@@ -746,6 +774,7 @@ public class ProfileComparer {
     
   private void checkAddTypeUnion(String path, List<TypeRefComponent> results, TypeRefComponent nw) throws Exception {
     boolean found = false;
+    nw = nw.copy();
     if (nw.getProfile().size() > 1)
       throw new Exception("Multiple profiles not supported: "+path);
     if (nw.hasAggregation())
@@ -763,19 +792,22 @@ public class ProfileComparer {
           // both have profiles. Is one derived from the other? 
           StructureDefinition sdex = context.getProfiles().get(ex.getProfile().get(0).getValueAsString());
           StructureDefinition sdnw = context.getProfiles().get(nw.getProfile().get(0).getValueAsString());
-          if (sdex == sdnw) {
-            found = true;
-          } else if (derivesFrom(sdex, sdnw)) {
-            ex.getProfile().clear();
-            ex.getProfile().add(nw.getProfile().get(0));
-            found = true;
-          } else if (derivesFrom(sdnw, sdex)) {
-            found = true;
-          } else {
-            ProfileComparison comp = compareProfiles(sdex, sdnw);
-            if (comp.getSuperset() != null) {
+          if (sdex != null && sdnw != null) {
+            if (sdex == sdnw) {
               found = true;
-              ex.addProfile("#"+comp.id);
+            } else if (derivesFrom(sdex, sdnw)) {
+              ex.getProfile().clear();
+              ex.getProfile().add(nw.getProfile().get(0));
+              found = true;
+            } else if (derivesFrom(sdnw, sdex)) {
+              found = true;
+            } else if (sdnw.getSnapshot().getElement().get(0).getPath().equals(sdex.getSnapshot().getElement().get(0).getPath())) {
+              ProfileComparison comp = compareProfiles(sdex, sdnw);
+              if (comp.getSuperset() != null) {
+                found = true;
+                ex.getProfile().clear();
+                ex.addProfile("#"+comp.id);
+              }
             }
           }
         }        
@@ -995,6 +1027,57 @@ public class ProfileComparer {
     valuesets.add(cvs);
     return id;
   }
+
+  
+  
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getLeftLink() {
+    return leftLink;
+  }
+
+  public void setLeftLink(String leftLink) {
+    this.leftLink = leftLink;
+  }
+
+  public String getLeftName() {
+    return leftName;
+  }
+
+  public void setLeftName(String leftName) {
+    this.leftName = leftName;
+  }
+
+  public String getRightLink() {
+    return rightLink;
+  }
+
+  public void setRightLink(String rightLink) {
+    this.rightLink = rightLink;
+  }
+
+  public String getRightName() {
+    return rightName;
+  }
+
+  public void setRightName(String rightName) {
+    this.rightName = rightName;
+  }
+
 
   
   

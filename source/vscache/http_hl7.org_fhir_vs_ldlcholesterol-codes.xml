@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://loinc.org</td>
+          <td>18262-6</td>
+          <td>LDL Cholesterol (Assay)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13457-7</td>
+          <td>LDL Cholesterol (Calc)</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.444"/></extension><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.444"/></extension><url value="http://hl7.org/fhir/vs/ldlcholesterol-codes"/><version value="0.5.0"/><name value="LDLCodes"/><publisher value="HL7 (FHIR Project)"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><telecom><system value="email"/><value value="fhir@lists.hl7.org"/></telecom></contact><description value="LDL Cholesterol codes - measured or calculated"/><copyright value="This content from LOINC??LOINC?? is copyright ?? 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/><status value="draft"/><experimental value="true"/><date value="2015-06-23T10:59:44+10:00"/><compose><include><system value="http://loinc.org"/><concept><code value="18262-6"/><display value="LDL Cholesterol (Assay)"/><designation><use><system value="http://snomed.info/sct"/><code value="900000000000003001"/><display value="Fully specified name"/></use><value value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"/></designation></concept><concept><code value="13457-7"/><display value="LDL Cholesterol (Calc)"/><designation><use><system value="http://snomed.info/sct"/><code value="900000000000003001"/><display value="Fully specified name"/></use><value value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"/></designation></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-ldlcholesterol-codes"/></valueReference></extension><identifier value="urn:uuid:8ccb25ff-c246-4b38-babc-e458cb5352c3"/><timestamp value="2015-06-29T08:05:28Z"/><contains><system value="http://loinc.org"/><code value="18262-6"/><display value="LDL Cholesterol (Assay)"/></contains><contains><system value="http://loinc.org"/><code value="13457-7"/><display value="LDL Cholesterol (Calc)"/></contains></expansion></ValueSet>

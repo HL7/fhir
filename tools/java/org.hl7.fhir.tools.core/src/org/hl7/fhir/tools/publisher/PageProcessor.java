@@ -125,6 +125,8 @@ import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.ProfileComparer;
+import org.hl7.fhir.instance.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
@@ -426,13 +428,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
 
   public String processPageIncludes(String file, String src, String type, Map<String, String> others, Resource resource, List<String> tabs, String crumbTitle) throws Exception {
-    return processPageIncludes(file, src, type, others, file, resource, tabs, crumbTitle);
+    return processPageIncludes(file, src, type, others, file, resource, tabs, crumbTitle, null);
   }
   
   public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs, String crumbTitle) throws Exception {
+    return processPageIncludes(file, src, type, others, pagePath, resource, tabs, crumbTitle, null);
+  }
+  
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs, String crumbTitle, Object object) throws Exception {
     String workingTitle = null;
     int level = 0;
-    boolean even = false;
+    boolean even = false;    
+    String name = file.substring(0,file.lastIndexOf("."));
     
     while (src.contains("<%") || src.contains("[%"))
     {
@@ -445,7 +452,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String s1 = src.substring(0, i1);
       String s2 = src.substring(i1 + 2, i2).trim();
       String s3 = src.substring(i2+2);
-      String name = file.substring(0,file.lastIndexOf(".")); 
 
       String[] com = s2.split(" ");
       if (com.length == 4 && com[0].equals("edt")) {
@@ -792,11 +798,86 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
       else if (com[0].equals("txsummary"))
-        src = s1 + txsummary((ValueSet) resource) + s3;        
+        src = s1 + txsummary((ValueSet) resource) + s3;
+      else if (com[0].equals("pc.title"))
+        src = s1 +Utilities.escapeXml(((ProfileComparer) object).getTitle()) + s3;
+      else if (com[0].equals("pc.left"))
+        src = s1 + genPCLink(((ProfileComparer) object).getLeftName(), ((ProfileComparer) object).getLeftLink()) + s3;
+      else if (com[0].equals("pc.right"))
+        src = s1 + genPCLink(((ProfileComparer) object).getRightName(), ((ProfileComparer) object).getRightLink()) + s3;
+      else if (com[0].equals("pc.table"))
+        src = s1 + genPCTable((ProfileComparer) object) + s3;
+      else if (com[0].equals("pc.valuesets"))
+        src = s1 + "<p>todo</p>"+s3;
+      else if (com[0].equals("cmp.left"))
+        src = s1 + genPCLink(((ProfileComparison) object).getLeft().getName(), ((ProfileComparison) object).getLeft().getId()+".html") + s3;
+      else if (com[0].equals("cmp.right"))
+        src = s1 + genPCLink(((ProfileComparison) object).getRight().getName(), ((ProfileComparison) object).getRight().getId()+".html") + s3;
+      else if (com[0].equals("cmp.messages"))
+        src = s1 + "<p>"+genCmpMessages(((ProfileComparison) object))+"</p>"+s3;
+      else if (com[0].equals("cmp.subset"))
+        src = s1 + genCompModel(((ProfileComparison) object).getSubset(), "intersection", file.substring(0,file.indexOf(".")))+s3;
+      else if (com[0].equals("cmp.superset"))
+        src = s1 + genCompModel(((ProfileComparison) object).getSuperset(), "union", file.substring(0,file.indexOf(".")))+s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genCompModel(StructureDefinition sd, String name, String base) throws Exception {
+    if (sd == null)
+      return "<p style=\"color: maroon\">No "+name+" could be generated</p>\r\n";
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable("??", sd, false, folders.dstDir, false, this, base, true)); 
+  }
+
+  private String genCmpMessages(ProfileComparison cmp) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul>\r\n");
+    for (ValidationMessage vm : cmp.getMessages())
+      if (vm.getLevel() == IssueSeverity.INFORMATION)
+        b.append("<li>"+Utilities.escapeXml(vm.summary()).replace("\r\n", "<br/>")+"</li>\r\n");
+    for (ValidationMessage vm : cmp.getMessages())
+      if (vm.getLevel() == IssueSeverity.WARNING)
+        b.append("<li>"+Utilities.escapeXml(vm.summary()).replace("\r\n", "<br/>")+"</li>\r\n");
+    for (ValidationMessage vm : cmp.getMessages())
+      if (vm.getLevel() == IssueSeverity.ERROR)
+        b.append("<li>"+Utilities.escapeXml(vm.summary()).replace("\r\n", "<br/>")+"</li>\r\n");
+    for (ValidationMessage vm : cmp.getMessages())
+      if (vm.getLevel() == IssueSeverity.FATAL)
+        b.append("<li>"+Utilities.escapeXml(vm.summary()).replace("\r\n", "<br/>")+"</li>\r\n");
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private String genPCTable(ProfileComparer pc) {
+    StringBuilder b = new StringBuilder();
+    
+    b.append("<table class=\"grid\">\r\n");
+    b.append("<tr>");
+    b.append(" <td><b>Left</b></td>");
+    b.append(" <td><b>Right</b></td>");
+    b.append(" <td><b>Comparison</b></td>");
+    b.append(" <td><b>Error #</b></td>");
+    b.append(" <td><b>Warning #</b></td>");
+    b.append("</tr>");
+    
+    for (ProfileComparison cmp : pc.getComparisons()) {
+      b.append("<tr>");
+      b.append(" <td><a href=\""+cmp.getLeft().getId()+".html"+"\">"+Utilities.escapeXml(cmp.getLeft().getName())+"</a></td>");
+      b.append(" <td><a href=\""+cmp.getRight().getId()+".html"+"\">"+Utilities.escapeXml(cmp.getRight().getName())+"</a></td>");
+      b.append(" <td><a href=\""+pc.getId()+"."+cmp.getId()+".html\">Click Here</a></td>");
+      b.append(" <td>"+cmp.getErrorCount()+"</td>");
+      b.append(" <td>"+cmp.getWarningCount()+"</td>");
+      b.append("</tr>");
+    }
+    b.append("</table>\r\n");
+    
+    return b.toString();
+  }
+
+  private String genPCLink(String leftName, String leftLink) {
+    return "<a href=\""+leftLink+"\">"+Utilities.escapeXml(leftName)+"</a>";
   }
 
   private String genScList(String path) throws Exception {

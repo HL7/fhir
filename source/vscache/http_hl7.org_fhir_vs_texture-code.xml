@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>228053002</td>
+          <td>Cut-up food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>439091000124107</td>
+          <td>Easy to chew food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>228049004</td>
+          <td>Chopped food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>441881000124103</td>
+          <td>Ground food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>441761000124103</td>
+          <td>Minced food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>441751000124100</td>
+          <td>Mashed food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>228059003</td>
+          <td>Soft food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>441791000124106</td>
+          <td>Strained food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>228055009</td>
+          <td>Liquidized food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>228056005</td>
+          <td>Lumpy food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>441771000124105</td>
+          <td>Moist food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>228057001</td>
+          <td>Semi-solid food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>228058006</td>
+          <td>Single texture food</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>228060008</td>
+          <td>Solid food</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.419"/></extension><url value="http://hl7.org/fhir/vs/texture-code"/><version value="0.5.0"/><name value="Texture Modifier Codes"/><publisher value="FHIR NutritionOrder team"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><!--   Set of SNOMED CT - Children of SCTID: food consistency types "229961002"   --><description value="TextureModifier: Codes for food consistency types or texture modifications to apply to foods. This value set is composed of SNOMED CT (US Extension and Core) Concepts from SCTID 229961002 Food consistency types (substance) heirarchy and is provided as a suggestive example"/><copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/><status value="draft"/><experimental value="true"/><date value="2015-06-29T18:03:36+10:00"/><compose><include><system value="http://snomed.info/sct"/><version value="http://snomed.info/sct/US1000124/version/20140901"/><concept><code value="228053002"/><display value="Cut-up food"/></concept><concept><code value="439091000124107"/><display value="Easy to chew food"/></concept><concept><code value="228049004"/><display value="Chopped food"/></concept><concept><code value="441881000124103"/><display value="Ground food"/></concept><concept><code value="441761000124103"/><display value="Minced food"/></concept><concept><code value="441751000124100"/><display value="Mashed food"/></concept><concept><code value="228059003"/><display value="Soft food"/></concept><concept><code value="441791000124106"/><display value="Strained food"/></concept><concept><code value="228055009"/><display value="Liquidized food"/></concept><concept><code value="228056005"/><display value="Lumpy food"/></concept><concept><code value="441771000124105"/><display value="Moist food"/></concept><concept><code value="228057001"/><display value="Semi-solid food"/></concept><concept><code value="228058006"/><display value="Single texture food"/></concept><concept><code value="228060008"/><display value="Solid food"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-texture-code"/></valueReference></extension><identifier value="urn:uuid:6ff0e5d7-711d-46aa-a342-4faf85730261"/><timestamp value="2015-06-29T08:14:46Z"/><contains><system value="http://snomed.info/sct"/><code value="228053002"/><display value="Cut-up food"/></contains><contains><system value="http://snomed.info/sct"/><code value="439091000124107"/><display value="Easy to chew food"/></contains><contains><system value="http://snomed.info/sct"/><code value="228049004"/><display value="Chopped food"/></contains><contains><system value="http://snomed.info/sct"/><code value="441881000124103"/><display value="Ground food"/></contains><contains><system value="http://snomed.info/sct"/><code value="441761000124103"/><display value="Minced food"/></contains><contains><system value="http://snomed.info/sct"/><code value="441751000124100"/><display value="Mashed food"/></contains><contains><system value="http://snomed.info/sct"/><code value="228059003"/><display value="Soft food"/></contains><contains><system value="http://snomed.info/sct"/><code value="441791000124106"/><display value="Strained food"/></contains><contains><system value="http://snomed.info/sct"/><code value="228055009"/><display value="Liquidized food"/></contains><contains><system value="http://snomed.info/sct"/><code value="228056005"/><display value="Lumpy food"/></contains><contains><system value="http://snomed.info/sct"/><code value="441771000124105"/><display value="Moist food"/></contains><contains><system value="http://snomed.info/sct"/><code value="228057001"/><display value="Semi-solid food"/></contains><contains><system value="http://snomed.info/sct"/><code value="228058006"/><display value="Single texture food"/></contains><contains><system value="http://snomed.info/sct"/><code value="228060008"/><display value="Solid food"/></contains></expansion></ValueSet>

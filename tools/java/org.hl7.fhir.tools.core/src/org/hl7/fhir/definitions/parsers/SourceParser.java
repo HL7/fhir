@@ -644,6 +644,7 @@ public class SourceParser {
       t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
       t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
       context.getProfiles().put(t.getProfile().getUrl(), t.getProfile());
+      context.getProfiles().put(t.getProfile().getName(), t.getProfile());
     } catch (Exception e) {
       throw new Exception("Error generating profile for '"+t.getName()+"': "+e.getMessage(), e);
     }

@@ -1,0 +1,1775 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://loinc.org</td>
+          <td>1004-1</td>
+          <td>Direct antiglobulin test.complement specific reagent [Presence] on Red Blood Cells</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>1007-4</td>
+          <td>Direct antiglobulin test.poly specific reagent [Presence] on Red Blood Cells</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10374-7</td>
+          <td>Helmet cells [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10378-8</td>
+          <td>Polychromasia [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10380-4</td>
+          <td>Stomatocytes [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10381-2</td>
+          <td>Target cells [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>10900-9</td>
+          <td>Hepatitis B virus surface Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11060-1</td>
+          <td>Reducing substances [Presence] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11259-9</td>
+          <td>Hepatitis C virus RNA [Presence] in Serum or Plasma by Probe and target amplification method|Hepatitis C virus RNA [Presence] in Serum or Plasma by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11281-3</td>
+          <td>Auer rods [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>11483-5</td>
+          <td>Varicella zoster virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Varicella zoster virus DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>12239-0</td>
+          <td>Oligosaccharides [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>12454-5</td>
+          <td>Urate crystals amorphous [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>12598-9</td>
+          <td>Fat.neutral [Presence] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>12853-8</td>
+          <td>Purkinje cells Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13248-0</td>
+          <td>Hepatitis D virus Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13532-7</td>
+          <td>Xanthochromia [Presence] of Cerebral spinal fluid|Xanthochromia of Cerebral spinal fluid Qualitative</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13533-5</td>
+          <td>Acid hemolysis [Presence] of Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13578-0</td>
+          <td>Promazine [Presence] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13655-6</td>
+          <td>Leukocytes [Presence] in Stool by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13931-1</td>
+          <td>Striated muscle Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13949-3</td>
+          <td>Cytomegalovirus IgG Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13950-1</td>
+          <td>Hepatitis A virus IgM Ab [Presence] in Serum by Immunoassay|Hepatitis A virus IgM Ab [Presence] in Serum or Plasma by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13951-9</td>
+          <td>Hepatitis A virus Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13952-7</td>
+          <td>Hepatitis B virus core Ab [Presence] in Serum by Immunoassay|Hepatitis B virus core Ab [Presence] in Serum or Plasma by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>13953-5</td>
+          <td>Hepatitis B virus e Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14249-7</td>
+          <td>Purkinje cells Ab [Presence] in Serum by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14273-7</td>
+          <td>Reticulin IgA Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14564-9</td>
+          <td>Hemoglobin.gastrointestinal [Presence] in Stool --2nd specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>14565-6</td>
+          <td>Hemoglobin.gastrointestinal [Presence] in Stool --3rd specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>15151-4</td>
+          <td>Aspergillus fumigatus 3 Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>15179-5</td>
+          <td>Fibrin D-dimer [Presence] in Platelet poor plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>16128-1</td>
+          <td>Hepatitis C virus Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>16369-1</td>
+          <td>Amphetamines [Presence] in Urine by Confirmatory method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>16933-4</td>
+          <td>Hepatitis B virus core Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>16942-5</td>
+          <td>Herpes simplex virus Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>16955-7</td>
+          <td>Herpes simplex virus 2 IgG Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>17257-7</td>
+          <td>Mesothelial cells [Presence] in Body fluid by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>17726-1</td>
+          <td>Treponema pallidum IgG Ab [Presence] in Serum by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>17783-2</td>
+          <td>Hemosiderin [Presence] in Urine by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>17850-9</td>
+          <td>Herpes simplex virus 1 IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>18282-4</td>
+          <td>Cannabinoids [Presence] in Urine by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>18311-1</td>
+          <td>Pelger Huet cells [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>18312-9</td>
+          <td>Platelet satellitism [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>18390-5</td>
+          <td>Opiates [Presence] in Urine by Confirmatory method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>18481-2</td>
+          <td>Streptococcus pyogenes Ag [Presence] in Throat</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>19162-7</td>
+          <td>Varicella zoster virus IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>19252-6</td>
+          <td>Megakaryocytes/100 leukocytes in Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>1928-1</td>
+          <td>Immunoglobulin light chains [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>19429-0</td>
+          <td>Propoxyphene [Presence] in Urine by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>19554-5</td>
+          <td>Methamphetamine [Presence] in Urine by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>1977-8</td>
+          <td>Bilirubin [Presence] in Urine|Bilirubin.total [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20404-0</td>
+          <td>Fibronectin.fetal [Presence] in Vaginal fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20411-5</td>
+          <td>Barbiturates [Mass/volume] in Urine by Confirmatory method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20421-4</td>
+          <td>Barbiturates [Presence] in Serum or Plasma by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>20507-0</td>
+          <td>Reagin Ab [Presence] in Serum by RPR</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2106-3</td>
+          <td>Choriogonadotropin (pregnancy test) [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2118-8</td>
+          <td>Choriogonadotropin (pregnancy test) [Presence] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21233-2</td>
+          <td>Cryptosporidium sp Ag [Presence] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21348-8</td>
+          <td>HTLV 1+2 IgG Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21518-6</td>
+          <td>SCL-70 extractable nuclear IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21523-6</td>
+          <td>Smith extractable nuclear IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21560-8</td>
+          <td>Thermoactinomyces candidus Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21561-6</td>
+          <td>Thermoactinomyces sacchari Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21695-2</td>
+          <td>HFE gene p.C282Y [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21696-0</td>
+          <td>HFE gene p.H63D [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21747-1</td>
+          <td>HC gene rearrangements [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>21753-9</td>
+          <td>TCRG gene rearrangements [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>22239-8</td>
+          <td>Cytomegalovirus Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>22295-0</td>
+          <td>Epstein Barr virus early IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>22310-7</td>
+          <td>Helicobacter pylori Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>22362-8</td>
+          <td>HTLV 1+2 Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>22415-4</td>
+          <td>Mumps virus IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>22566-4</td>
+          <td>Streptococcus pyogenes enzyme Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>22572-2</td>
+          <td>Saccharomonospora viridis Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2334-1</td>
+          <td>Hemoglobin.gastrointestinal [Presence] in Gastric fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2335-8</td>
+          <td>Hemoglobin.gastrointestinal [Presence] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2349-9</td>
+          <td>Glucose [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2350-7</td>
+          <td>Glucose [Mass/volume] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>23785-9</td>
+          <td>Trypanosoma cruzi Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>23820-4</td>
+          <td>Aspergillus flavus Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>23826-1</td>
+          <td>Bordetella pertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method|Bordetella pertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>23867-5</td>
+          <td>Hantavirus sin nombre IgG Ab [Titer] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>23868-3</td>
+          <td>Hantavirus sin nombre IgM Ab [Titer] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>23929-3</td>
+          <td>Ribonucleoprotein extractable nuclear IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>23980-6</td>
+          <td>Borrelia burgdorferi IgG Ab [Presence] in Body fluid by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>23982-2</td>
+          <td>Borrelia burgdorferi IgM Ab [Presence] in Body fluid by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>24015-0</td>
+          <td>Influenza virus A+B Ag [Presence] in Unspecified specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>24027-5</td>
+          <td>Streptococcus pneumoniae Ag [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>24111-7</td>
+          <td>Neisseria gonorrhoeae DNA [Presence] in Unspecified specimen by Probe and target amplification method|Neisseria gonorrhoeae DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>24113-3</td>
+          <td>Hepatitis B virus core IgM Ab [Presence] in Serum by Immunoassay|Hepatitis B virus core IgM Ab [Presence] in Serum or Plasma by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>24114-1</td>
+          <td>Epstein Barr virus capsid IgG Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>24115-8</td>
+          <td>Epstein Barr virus capsid IgM Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>24119-0</td>
+          <td>Cytomegalovirus IgM Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>24312-1</td>
+          <td>Treponema pallidum Ab [Presence] in Serum by Agglutination</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2432-3</td>
+          <td>Homogentisate [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2474-5</td>
+          <td>Indicans [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2514-8</td>
+          <td>Ketones [Presence] in Urine by Test strip</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>25514-1</td>
+          <td>Rubella virus IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2606-2</td>
+          <td>Melanin [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>26620-5</td>
+          <td>Hantavirus IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>26960-5</td>
+          <td>Trypsin [Presence] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>27270-8</td>
+          <td>4-Hydroxyphenylacetate [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>27420-9</td>
+          <td>Phosphatidylglycerol [Units/volume] in Amniotic fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2761-5</td>
+          <td>Phenylketones [Presence] in Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>28005-7</td>
+          <td>MTHFR gene p.C677T [Presence] in Blood or Tissue by Molecular genetics method|MTHFR gene c.677C&gt;T [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>28060-2</td>
+          <td>MTHFR gene p.A1298C [Presence] in Blood or Tissue by Molecular genetics method|MTHFR gene c.1298A&gt;C [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>28067-7</td>
+          <td>Hemoglobin F [Presence] in Amniotic fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2887-8</td>
+          <td>Protein [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29257-3</td>
+          <td>Mycoplasma pneumoniae DNA [Presence] in Unspecified specimen by Probe and target amplification method|Mycoplasma pneumoniae DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29495-9</td>
+          <td>Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method|Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29497-5</td>
+          <td>Platelet associated IgG Ab [Presence] in Blood by Flow cytometry (FC)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29498-3</td>
+          <td>Platelet associated IgM Ab [Presence] in Blood by Flow cytometry (FC)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29591-5</td>
+          <td>Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29610-3</td>
+          <td>Hepatitis B virus DNA [Presence] in Serum or Plasma by Probe and target amplification method|Hepatitis B virus DNA [Presence] in Serum or Plasma by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29672-3</td>
+          <td>Bordetella pertussis IgA Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29673-1</td>
+          <td>Bordetella pertussis IgM Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29674-9</td>
+          <td>Bordetella pertussis IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29723-4</td>
+          <td>Bordetella parapertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method|Bordetella parapertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29771-3</td>
+          <td>Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29778-8</td>
+          <td>West Nile virus IgM Ab [Presence] in Unspecified specimen by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29891-9</td>
+          <td>Helicobacter pylori [Presence] in Stomach by urea breath test</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29899-2</td>
+          <td>Gamma globulin [Presence] in 24 hour Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29901-6</td>
+          <td>HTLV 1+2 Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29908-1</td>
+          <td>Parainfluenza virus 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29909-9</td>
+          <td>Parainfluenza virus 2 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 2 RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29910-7</td>
+          <td>Parainfluenza virus 3 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 3 RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29945-3</td>
+          <td>Alpha 1 globulin [Presence] in 24 hour Urine by Electrophoresis</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29947-9</td>
+          <td>Alpha 2 globulin [Presence] in 24 hour Urine by Electrophoresis</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29950-3</td>
+          <td>Nuclear IgG Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29951-1</td>
+          <td>Beta globulin [Presence] in 24 hour Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29990-9</td>
+          <td>Spermatozoa [Presence] in Semen by Light microscopy --post vasectomy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29994-1</td>
+          <td>Basement membrane IgG Ab [Presence] in Serum by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>29995-8</td>
+          <td>Basement membrane IgA Ab [Presence] in Serum by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30036-8</td>
+          <td>Aspergillus fumigatus 2 Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30167-1</td>
+          <td>Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe and signal amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30219-0</td>
+          <td>Coxsackievirus A9 Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30246-3</td>
+          <td>Cytomegalovirus DNA [Presence] in Serum or Plasma by Probe and target amplification method|Cytomegalovirus DNA [Presence] in Serum or Plasma by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30361-0</td>
+          <td>HIV 2 Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30557-3</td>
+          <td>Smooth muscle IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>30577-1</td>
+          <td>2-methyl,3-hydroxybutyrate (C5-OH) [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31153-0</td>
+          <td>Coccidioides sp Ab [Presence] in Unspecified specimen by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31201-7</td>
+          <td>HIV 1+2 Ab [Presence] in Serum by Immunoassay|HIV 1+2 Ab [Presence] in Serum or Plasma by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31539-0</td>
+          <td>Neuronal nuclear type 2 Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31545-7</td>
+          <td>Nuclear IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31588-7</td>
+          <td>Ribonucleoprotein extractable nuclear IgG Ab [Units/volume] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31625-7</td>
+          <td>Sjogrens syndrome-A extractable nuclear IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31626-5</td>
+          <td>Sjogrens syndrome-B extractable nuclear IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31627-3</td>
+          <td>Smith extractable nuclear Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31788-3</td>
+          <td>Cryptococcus sp Ag [Presence] in Cerebral spinal fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31843-6</td>
+          <td>Helicobacter pylori Ag [Presence] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31859-2</td>
+          <td>Influenza virus A Ag [Presence] in Unspecified specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31864-2</td>
+          <td>Influenza virus B Ag [Presence] in Unspecified specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>31969-9</td>
+          <td>Streptococcus pneumoniae Ag [Presence] in Unspecified specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32131-5</td>
+          <td>Hantavirus IgM Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32356-8</td>
+          <td>Yeast [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32358-4</td>
+          <td>Protein fractions.oligoclonal bands [Presence] in Cerebral spinal fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3241-7</td>
+          <td>Coagulation factor XIII coagulum dissolution at 24H [Presence] in Platelet poor plasma by Coagulation assay|Coagulation factor XIII coagulum dissolution at 24 hours [Presence] in Platelet poor plasma by Coagulation assay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32637-1</td>
+          <td>Urease [Presence] in Tissue</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32765-0</td>
+          <td>Yeast [Presence] in Unspecified specimen by Wet preparation</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>32789-0</td>
+          <td>Viscosity of Semen Qualitative</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33031-6</td>
+          <td>Sodium urate crystals [#/area] in Urine sediment by Microscopy low power field</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33032-4</td>
+          <td>Spermatozoa Progressive [Presence] in Semen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33291-6</td>
+          <td>Herpes simplex virus 1 IgG Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33422-7</td>
+          <td>Amphiphysin Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3349-8</td>
+          <td>Amphetamines [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33615-6</td>
+          <td>Neuronal nuclear type 1 Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3376-1</td>
+          <td>Barbiturates [Presence] in Serum, Plasma or Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3377-9</td>
+          <td>Barbiturates [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33861-6</td>
+          <td>Starch granules [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3390-2</td>
+          <td>Benzodiazepines [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33923-4</td>
+          <td>Hemosiderin [Presence] in Unspecified specimen</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>33930-9</td>
+          <td>Lupus anticoagulant neutralization hexagonal phase phospholipid [Presence] in Platelet poor plasma|aPTT W excess hexagonal phospholipid (StaClot LA confirm)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3414-0</td>
+          <td>Buprenorphine [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34469-7</td>
+          <td>Leukocytes [Presence] in Bile fluid by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34470-5</td>
+          <td>Giardia lamblia Ag [Presence] in Bile fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34471-3</td>
+          <td>Calcium bilirubinate crystals [Presence] in Bile fluid by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34472-1</td>
+          <td>Cholesterol crystals [Presence] in Bile fluid by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34473-9</td>
+          <td>Neutrophils.vacuolated+Segmented [Presence] in Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34487-9</td>
+          <td>Influenza virus A RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34701-3</td>
+          <td>Ab [Presence] in Serum|Platelet Ab.heparin induced [Presence] in Serum|Heparin induced platelet Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34706-2</td>
+          <td>CFTR gene p.3199 del6 [Presence] in Blood or Tissue by Molecular genetics method|CFTR gene c.3199del6 [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34713-8</td>
+          <td>Clostridium difficile toxin A+B [Presence] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34729-4</td>
+          <td>CFTR gene p.R117H+5T variant [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>34892-0</td>
+          <td>West Nile virus RNA [Presence] in Unspecified specimen by Probe and target amplification method|West Nile virus RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35270-8</td>
+          <td>Candida sp Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35271-6</td>
+          <td>Candida sp Ag [Presence] in Serum by Latex agglutination</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35272-4</td>
+          <td>Centromere IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35277-3</td>
+          <td>Myocardium IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35284-9</td>
+          <td>Histone IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35471-2</td>
+          <td>HLA Ab [Presence]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35492-8</td>
+          <td>Methicillin resistant Staphylococcus aureus (MRSA) DNA [Presence] by Probe and target amplification method|Methicillin resistant Staphylococcus aureus (MRSA) DNA [Presence] by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35503-2</td>
+          <td>Arterial patency Wrist artery --pre arterial puncture</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>35729-3</td>
+          <td>Chlamydia sp DNA [Presence] in Unspecified specimen by Probe and target amplification method|Chlamydia sp DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3773-9</td>
+          <td>Methadone [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>38380-2</td>
+          <td>HFE gene p.S65C [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3879-4</td>
+          <td>Opiates [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>38917-1</td>
+          <td>Human metapneumovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human metapneumovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3936-2</td>
+          <td>Phencyclidine [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>39528-5</td>
+          <td>Adenovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Adenovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>4027-9</td>
+          <td>Secobarbital [Presence] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>40473-1</td>
+          <td>Thermoactinomyces vulgaris 1 Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>40703-1</td>
+          <td>Lactoferrin [Presence] in Stool by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>40729-6</td>
+          <td>Herpes simplex virus IgM Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>4073-3</td>
+          <td>Tricyclic antidepressants [Presence] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>4093-1</td>
+          <td>Verapamil [Presence] in Serum or Plasma</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>40982-1</td>
+          <td>Influenza virus B RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus B RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>40988-8</td>
+          <td>Respiratory syncytial virus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Respiratory syncytial virus RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>40991-2</td>
+          <td>Rhinovirus+Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Rhinovirus+Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>41005-0</td>
+          <td>Human coronavirus NL63 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human coronavirus NL63 RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>41010-0</td>
+          <td>Parainfluenza virus 4 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 4 RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>41400-3</td>
+          <td>Yersinia sp IgA Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>41401-1</td>
+          <td>Yersinia sp IgG Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>42241-0</td>
+          <td>Cocaine+Benzoylecgonine [Presence] in Urine by Screen method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>42481-2</td>
+          <td>Human papilloma virus 6+11+42+43+44 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 6+11+42+43+44 DNA [Presence] in Cervix by Probe and signal amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>42714-6</td>
+          <td>t(9,22)(ABL1,BCR) p210 Translocation [Presence] in Blood or Tissue by Molecular genetics method|t(9;22)(q34.1;q11)(ABL1,BCR) b2a2+b3a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>42938-1</td>
+          <td>CFTR gene allele 1 [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>42939-9</td>
+          <td>CFTR gene allele 2 [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>43249-2</td>
+          <td>X ray dye crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>43399-5</td>
+          <td>JAK2 gene p.V617F [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>43597-4</td>
+          <td>Inner Ear 68kD Ab [Presence] in Serum or Plasma by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>44099-0</td>
+          <td>Galactomannan Ag [Presence] in Serum or Plasma by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>44332-5</td>
+          <td>Jo-1 extractable nuclear IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>44754-0</td>
+          <td>Hepatitis D virus Ag [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>44877-9</td>
+          <td>Insulin dependent diabetes mellitus [Presence]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>44938-9</td>
+          <td>Hepatitis D virus IgM Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>45153-4</td>
+          <td>HLA Ab in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>4579-9</td>
+          <td>Hemoglobin F [Presence] in Blood</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>4631-8</td>
+          <td>Hemoglobin F [Presence] in Stool by Apt-Downey method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>4639-1</td>
+          <td>Unstable Hemoglobin [Presence] in Red Blood Cells</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>46740-7</td>
+          <td>Hemoglobin disorders newborn screen interpretation</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>46771-2</td>
+          <td>Classical galactosemia newborn screen interpretation</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>47238-1</td>
+          <td>Treponema pallidum IgG Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>47251-4</td>
+          <td>BK virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|BK virus DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>49524-2</td>
+          <td>Influenza virus A H3 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A H3 RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>49541-6</td>
+          <td>Fasting status [Presence] - Reported|Fasting status - Reported</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>49795-8</td>
+          <td>t(9,22)(ABL1,BCR) p190 Translocation [Presence] in Blood or Tissue by Molecular genetics method|t(9;22)(q34.1;q11)(ABL1,BCR) e1a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5000-5</td>
+          <td>Cytomegalovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Cytomegalovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5005-4</td>
+          <td>Epstein Barr virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Epstein Barr virus DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5010-4</td>
+          <td>Hepatitis C virus RNA [Presence] in Blood by Probe and target amplification method|Hepatitis C virus RNA [Presence] in Blood by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5014-6</td>
+          <td>Herpes simplex virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Herpes simplex virus DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5018-7</td>
+          <td>HIV 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|HIV 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5020-3</td>
+          <td>Legionella sp rRNA [Presence] in Unspecified specimen by DNA probe</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5028-6</td>
+          <td>Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by DNA probe</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>50322-7</td>
+          <td>MLH-1 Ag [Presence] in Tissue by Immune stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>50323-5</td>
+          <td>MSH-2 Ag [Presence] in Tissue by Immune stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>50324-3</td>
+          <td>MSH-6 Ag [Presence] in Tissue by Immune stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>50328-4</td>
+          <td>PMS-2 Ag [Presence] in Tissue by Immune stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>50385-4</td>
+          <td>Alpha-1-Microglobulin.placental [Presence] in Vaginal fluid</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5052-6</td>
+          <td>Aspergillus sp Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5058-3</td>
+          <td>Blastomyces dermatitidis Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>51006-5</td>
+          <td>Direct antiglobulin test.unspecified reagent [Presence] on Red Blood Cells</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5117-7</td>
+          <td>Cryoglobulin [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5156-5</td>
+          <td>Epstein Barr virus nuclear IgG Ab [Presence] in Serum by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5195-3</td>
+          <td>Hepatitis B virus surface Ag [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5196-1</td>
+          <td>Hepatitis B virus surface Ag [Presence] in Serum by Immunoassay|Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5199-5</td>
+          <td>Hepatitis C virus Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5213-4</td>
+          <td>Heterophile Ab [Presence] in Serum by Latex agglutination</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5218-3</td>
+          <td>Histoplasma capsulatum Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5290-2</td>
+          <td>Reagin Ab [Presence] in Cerebral spinal fluid by VDRL</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5292-8</td>
+          <td>Reagin Ab [Presence] in Serum by VDRL</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5297-7</td>
+          <td>Rheumatoid factor [Presence] in Serum by Latex agglutination</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5358-7</td>
+          <td>Smooth muscle Ab [Titer] in Serum by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5393-4</td>
+          <td>Treponema pallidum Ab [Presence] in Serum by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>54067-4</td>
+          <td>Clostridium difficile toxin genes [Presence] in Stool by Probe and target amplification method|Clostridium difficile toxin genes [Presence] in Stool by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>54142-5</td>
+          <td>Candida sp DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Candida sp DNA [Presence] in Vaginal fluid by Probe and signal amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>54143-3</td>
+          <td>Gardnerella vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Gardnerella vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>54144-1</td>
+          <td>Trichomonas vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Trichomonas vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>54905-5</td>
+          <td>Norovirus 1 RNA [Presence] in Stool by Probe and target amplification method|Norovirus 1 RNA [Presence] in Stool by Probe and target amplification method|Norovirus Genogroup I RNA [Presence] in Stool by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>54906-3</td>
+          <td>Norovirus 2 RNA [Presence] in Stool by Probe and target amplification method|Norovirus 2 RNA [Presence] in Stool by Probe and target amplification method|Norovirus Genogroup II RNA [Presence] in Stool by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>550-4</td>
+          <td>Bordetella pertussis Ag [Presence] in Unspecified specimen by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>55464-2</td>
+          <td>Influenza virus A swine origin RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A swine origin RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>55465-9</td>
+          <td>Influenza virus A H1 2009 pandemic RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A H1 2009 pandemic RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5766-1</td>
+          <td>Ammonium urate crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5770-3</td>
+          <td>Bilirubin [Presence] in Urine by Test strip|Bilirubin.total [Presence] in Urine by Test strip</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5771-1</td>
+          <td>Bilirubin crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5773-7</td>
+          <td>Calcium carbonate crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5774-5</td>
+          <td>Calcium oxalate crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5775-2</td>
+          <td>Calcium phosphate crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5777-8</td>
+          <td>Cholesterol crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5783-6</td>
+          <td>Unidentified crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5784-4</td>
+          <td>Cystine crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>57901-1</td>
+          <td>Clostridium difficile glutamate dehydrogenase [Presence] in Stool</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5794-3</td>
+          <td>Hemoglobin [Presence] in Urine by Test strip</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5795-0</td>
+          <td>Hippurate crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5799-2</td>
+          <td>Leukocyte esterase [Presence] in Urine by Test strip</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>58012-6</td>
+          <td>Natalizumab Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5802-4</td>
+          <td>Nitrite [Presence] in Urine by Test strip</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5809-9</td>
+          <td>Reducing substances [Presence] in Urine</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5813-1</td>
+          <td>Trichomonas vaginalis [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5814-9</td>
+          <td>Triple phosphate crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5815-6</td>
+          <td>Tyrosine crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5817-2</td>
+          <td>Urate crystals [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>58415-1</td>
+          <td>BRAF gene p.V600E [Presence] in Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>58416-9</td>
+          <td>MLH1 gene methylation [Presence] in Tissue by Molecular genetics method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5846-1</td>
+          <td>Herpes simplex virus 1 Ag [Presence] in Unspecified specimen by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5849-5</td>
+          <td>Herpes simplex virus 2 Ag [Presence] in Unspecified specimen by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5863-6</td>
+          <td>Influenza virus A Ag [Presence] in Unspecified specimen by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5867-7</td>
+          <td>Influenza virus B Ag [Presence] in Unspecified specimen by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>58751-9</td>
+          <td>Treponema pallidum IgG Ab [Presence] in Cerebral spinal fluid by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5876-8</td>
+          <td>Respiratory syncytial virus Ag [Presence] in Unspecified specimen by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>5880-0</td>
+          <td>Rotavirus Ag [Presence] in Stool by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>588-4</td>
+          <td>Legionella pneumophila Ag [Presence] in Unspecified specimen by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>59262-6</td>
+          <td>Leukocyte esterase [Presence] in Cerebral spinal fluid by Test strip</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>59420-0</td>
+          <td>Human papilloma virus16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe and signal amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>59838-3</td>
+          <td>Cytomegalovirus Ab [Presence] in Serum or Plasma by Latex agglutination</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>59839-1</td>
+          <td>Urate crystals [Presence] in Tissue by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>60340-7</td>
+          <td>Crystals.amorphous [Presence] in Urine sediment by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>61404-0</td>
+          <td>Staphylococcus aureus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Staphylococcus aureus DNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>62423-9</td>
+          <td>Human coronavirus HKU1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human coronavirus HKU1 RNA [Presence] in Unspecified specimen by Probe and target amplification method</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>62862-8</td>
+          <td>Microsatellite instability [Presence] in Tissue by Immune stain</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6306-5</td>
+          <td>Adenovirus C(40)+B(41) Ag [Presence] in Stool by Immunoassay|Adenovirus 40+41 Ag [Presence] in Stool by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6320-6</td>
+          <td>Borrelia burgdorferi IgG Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6321-4</td>
+          <td>Borrelia burgdorferi IgM Ab [Presence] in Serum by Immunoblot (IB)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>63379-2</td>
+          <td>DNA double strand IgG Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6355-2</td>
+          <td>Chlamydia trachomatis Ag [Presence] in Unspecified specimen by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>63558-1</td>
+          <td>HLA-DQB1*0602 [Presence]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6362-8</td>
+          <td>Clostridium difficile toxin A+B [Presence] in Stool by Cytotoxin tissue culture assay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6443-6</td>
+          <td>Lactoferrin [Presence] in Stool by Latex agglutination</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6447-7</td>
+          <td>Legionella pneumophila Ag [Presence] in Urine by Immunoassay</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6733-0</td>
+          <td>Pigeon serum Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6808-0</td>
+          <td>Aspergillus fumigatus 1 Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6809-8</td>
+          <td>Aspergillus fumigatus 6 Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6810-6</td>
+          <td>Aureobasidium pullulans Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>6818-9</td>
+          <td>Saccharopolyspora rectivirgula Ab [Presence] in Serum by Immune diffusion (ID)</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>700-5</td>
+          <td>Pneumocystis jiroveci Ag [Presence] in Unspecified specimen by Immunofluorescence</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>702-1</td>
+          <td>Anisocytosis [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>703-9</td>
+          <td>Basophilic stippling [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>716-1</td>
+          <td>Heinz bodies [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>728-6</td>
+          <td>Hypochromia [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>733-6</td>
+          <td>Lymphocytes Variant [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>738-5</td>
+          <td>Macrocytes [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>741-9</td>
+          <td>Microcytes [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>765-8</td>
+          <td>Neutrophils.hypersegmented [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>774-0</td>
+          <td>Ovalocytes [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7789-1</td>
+          <td>Acanthocytes [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7790-9</td>
+          <td>Burr cells [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7791-7</td>
+          <td>Dacrocytes [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7792-5</td>
+          <td>Dohle body [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7793-3</td>
+          <td>Howell-Jolly bodies [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7795-8</td>
+          <td>Pappenheimer bodies [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7796-6</td>
+          <td>Platelet clump [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7797-4</td>
+          <td>Rouleaux [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7798-2</td>
+          <td>Smudge cells [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>779-9</td>
+          <td>Poikilocytosis [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>7918-6</td>
+          <td>HIV 1+2 Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>800-3</td>
+          <td>Schistocytes [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>801-1</td>
+          <td>Sickle cells [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>802-9</td>
+          <td>Spherocytes [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>803-7</td>
+          <td>Toxic granules [Presence] in Blood by Light microscopy</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8041-6</td>
+          <td>Treponema pallidum Ab [Presence] in Serum by Hemagglutination</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8061-4</td>
+          <td>Nuclear Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8091-1</td>
+          <td>Ribonucleoprotein extractable nuclear Ab [Presence] in Serum</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8092-9</td>
+          <td>SCL-70 extractable nuclear Ab [Presence] in Serum</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/hspc-OrdinalLabCodes"/><version value="0.5.0"/><name value="HSPC Ordinal Labs"/><publisher value="HSPC"/><contact><telecom><system value="url"/><value value="http://healthcaresoa.org"/></telecom></contact><description value="Ordinal LOINC codes used in HSPC"/><copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/><status value="draft"/><experimental value="true"/><date value="2015-02-20T13:44:49+11:00"/><compose><include><system value="http://loinc.org"/><concept><code value="1004-1"/><display value="Direct antiglobulin test.complement specific reagent [Presence] on Red Blood Cells"/></concept><concept><code value="1007-4"/><display value="Direct antiglobulin test.poly specific reagent [Presence] on Red Blood Cells"/></concept><concept><code value="10374-7"/><display value="Helmet cells [Presence] in Blood by Light microscopy"/></concept><concept><code value="10378-8"/><display value="Polychromasia [Presence] in Blood by Light microscopy"/></concept><concept><code value="10380-4"/><display value="Stomatocytes [Presence] in Blood by Light microscopy"/></concept><concept><code value="10381-2"/><display value="Target cells [Presence] in Blood by Light microscopy"/></concept><concept><code value="10900-9"/><display value="Hepatitis B virus surface Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="11060-1"/><display value="Reducing substances [Presence] in Stool"/></concept><concept><code value="11259-9"/><display value="Hepatitis C virus RNA [Presence] in Serum or Plasma by Probe and target amplification method|Hepatitis C virus RNA [Presence] in Serum or Plasma by Probe and target amplification method"/></concept><concept><code value="11281-3"/><display value="Auer rods [Presence] in Blood by Light microscopy"/></concept><concept><code value="11483-5"/><display value="Varicella zoster virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Varicella zoster virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="12239-0"/><display value="Oligosaccharides [Presence] in Urine"/></concept><concept><code value="12454-5"/><display value="Urate crystals amorphous [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="12598-9"/><display value="Fat.neutral [Presence] in Stool"/></concept><concept><code value="12853-8"/><display value="Purkinje cells Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="13248-0"/><display value="Hepatitis D virus Ab [Presence] in Serum"/></concept><concept><code value="13532-7"/><display value="Xanthochromia [Presence] of Cerebral spinal fluid|Xanthochromia of Cerebral spinal fluid Qualitative"/></concept><concept><code value="13533-5"/><display value="Acid hemolysis [Presence] of Blood"/></concept><concept><code value="13578-0"/><display value="Promazine [Presence] in Serum or Plasma"/></concept><concept><code value="13655-6"/><display value="Leukocytes [Presence] in Stool by Light microscopy"/></concept><concept><code value="13931-1"/><display value="Striated muscle Ab [Presence] in Serum"/></concept><concept><code value="13949-3"/><display value="Cytomegalovirus IgG Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="13950-1"/><display value="Hepatitis A virus IgM Ab [Presence] in Serum by Immunoassay|Hepatitis A virus IgM Ab [Presence] in Serum or Plasma by Immunoassay"/></concept><concept><code value="13951-9"/><display value="Hepatitis A virus Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="13952-7"/><display value="Hepatitis B virus core Ab [Presence] in Serum by Immunoassay|Hepatitis B virus core Ab [Presence] in Serum or Plasma by Immunoassay"/></concept><concept><code value="13953-5"/><display value="Hepatitis B virus e Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="14249-7"/><display value="Purkinje cells Ab [Presence] in Serum by Immunofluorescence"/></concept><concept><code value="14273-7"/><display value="Reticulin IgA Ab [Presence] in Serum"/></concept><concept><code value="14564-9"/><display value="Hemoglobin.gastrointestinal [Presence] in Stool --2nd specimen"/></concept><concept><code value="14565-6"/><display value="Hemoglobin.gastrointestinal [Presence] in Stool --3rd specimen"/></concept><concept><code value="15151-4"/><display value="Aspergillus fumigatus 3 Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="15179-5"/><display value="Fibrin D-dimer [Presence] in Platelet poor plasma"/></concept><concept><code value="16128-1"/><display value="Hepatitis C virus Ab [Presence] in Serum"/></concept><concept><code value="16369-1"/><display value="Amphetamines [Presence] in Urine by Confirmatory method"/></concept><concept><code value="16933-4"/><display value="Hepatitis B virus core Ab [Presence] in Serum"/></concept><concept><code value="16942-5"/><display value="Herpes simplex virus Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="16955-7"/><display value="Herpes simplex virus 2 IgG Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="17257-7"/><display value="Mesothelial cells [Presence] in Body fluid by Light microscopy"/></concept><concept><code value="17726-1"/><display value="Treponema pallidum IgG Ab [Presence] in Serum by Immunofluorescence"/></concept><concept><code value="17783-2"/><display value="Hemosiderin [Presence] in Urine by Light microscopy"/></concept><concept><code value="17850-9"/><display value="Herpes simplex virus 1 IgG Ab [Presence] in Serum"/></concept><concept><code value="18282-4"/><display value="Cannabinoids [Presence] in Urine by Screen method"/></concept><concept><code value="18311-1"/><display value="Pelger Huet cells [Presence] in Blood by Light microscopy"/></concept><concept><code value="18312-9"/><display value="Platelet satellitism [Presence] in Blood by Light microscopy"/></concept><concept><code value="18390-5"/><display value="Opiates [Presence] in Urine by Confirmatory method"/></concept><concept><code value="18481-2"/><display value="Streptococcus pyogenes Ag [Presence] in Throat"/></concept><concept><code value="19162-7"/><display value="Varicella zoster virus IgG Ab [Presence] in Serum"/></concept><concept><code value="19252-6"/><display value="Megakaryocytes/100 leukocytes in Blood"/></concept><concept><code value="1928-1"/><display value="Immunoglobulin light chains [Presence] in Urine"/></concept><concept><code value="19429-0"/><display value="Propoxyphene [Presence] in Urine by Screen method"/></concept><concept><code value="19554-5"/><display value="Methamphetamine [Presence] in Urine by Screen method"/></concept><concept><code value="1977-8"/><display value="Bilirubin [Presence] in Urine|Bilirubin.total [Presence] in Urine"/></concept><concept><code value="20404-0"/><display value="Fibronectin.fetal [Presence] in Vaginal fluid"/></concept><concept><code value="20411-5"/><display value="Barbiturates [Mass/volume] in Urine by Confirmatory method"/></concept><concept><code value="20421-4"/><display value="Barbiturates [Presence] in Serum or Plasma by Screen method"/></concept><concept><code value="20507-0"/><display value="Reagin Ab [Presence] in Serum by RPR"/></concept><concept><code value="2106-3"/><display value="Choriogonadotropin (pregnancy test) [Presence] in Urine"/></concept><concept><code value="2118-8"/><display value="Choriogonadotropin (pregnancy test) [Presence] in Serum or Plasma"/></concept><concept><code value="21233-2"/><display value="Cryptosporidium sp Ag [Presence] in Stool"/></concept><concept><code value="21348-8"/><display value="HTLV 1+2 IgG Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="21518-6"/><display value="SCL-70 extractable nuclear IgG Ab [Presence] in Serum"/></concept><concept><code value="21523-6"/><display value="Smith extractable nuclear IgG Ab [Presence] in Serum"/></concept><concept><code value="21560-8"/><display value="Thermoactinomyces candidus Ab [Presence] in Serum"/></concept><concept><code value="21561-6"/><display value="Thermoactinomyces sacchari Ab [Presence] in Serum"/></concept><concept><code value="21695-2"/><display value="HFE gene p.C282Y [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="21696-0"/><display value="HFE gene p.H63D [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="21747-1"/><display value="HC gene rearrangements [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="21753-9"/><display value="TCRG gene rearrangements [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="22239-8"/><display value="Cytomegalovirus Ab [Presence] in Serum"/></concept><concept><code value="22295-0"/><display value="Epstein Barr virus early IgG Ab [Presence] in Serum"/></concept><concept><code value="22310-7"/><display value="Helicobacter pylori Ab [Presence] in Serum"/></concept><concept><code value="22362-8"/><display value="HTLV 1+2 Ab [Presence] in Serum"/></concept><concept><code value="22415-4"/><display value="Mumps virus IgG Ab [Presence] in Serum"/></concept><concept><code value="22566-4"/><display value="Streptococcus pyogenes enzyme Ab [Presence] in Serum"/></concept><concept><code value="22572-2"/><display value="Saccharomonospora viridis Ab [Presence] in Serum"/></concept><concept><code value="2334-1"/><display value="Hemoglobin.gastrointestinal [Presence] in Gastric fluid"/></concept><concept><code value="2335-8"/><display value="Hemoglobin.gastrointestinal [Presence] in Stool"/></concept><concept><code value="2349-9"/><display value="Glucose [Presence] in Urine"/></concept><concept><code value="2350-7"/><display value="Glucose [Mass/volume] in Urine"/></concept><concept><code value="23785-9"/><display value="Trypanosoma cruzi Ab [Presence] in Serum"/></concept><concept><code value="23820-4"/><display value="Aspergillus flavus Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="23826-1"/><display value="Bordetella pertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method|Bordetella pertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="23867-5"/><display value="Hantavirus sin nombre IgG Ab [Titer] in Serum"/></concept><concept><code value="23868-3"/><display value="Hantavirus sin nombre IgM Ab [Titer] in Serum"/></concept><concept><code value="23929-3"/><display value="Ribonucleoprotein extractable nuclear IgG Ab [Presence] in Serum"/></concept><concept><code value="23980-6"/><display value="Borrelia burgdorferi IgG Ab [Presence] in Body fluid by Immunoblot (IB)"/></concept><concept><code value="23982-2"/><display value="Borrelia burgdorferi IgM Ab [Presence] in Body fluid by Immunoblot (IB)"/></concept><concept><code value="24015-0"/><display value="Influenza virus A+B Ag [Presence] in Unspecified specimen"/></concept><concept><code value="24027-5"/><display value="Streptococcus pneumoniae Ag [Presence] in Urine"/></concept><concept><code value="24111-7"/><display value="Neisseria gonorrhoeae DNA [Presence] in Unspecified specimen by Probe and target amplification method|Neisseria gonorrhoeae DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="24113-3"/><display value="Hepatitis B virus core IgM Ab [Presence] in Serum by Immunoassay|Hepatitis B virus core IgM Ab [Presence] in Serum or Plasma by Immunoassay"/></concept><concept><code value="24114-1"/><display value="Epstein Barr virus capsid IgG Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="24115-8"/><display value="Epstein Barr virus capsid IgM Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="24119-0"/><display value="Cytomegalovirus IgM Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="24312-1"/><display value="Treponema pallidum Ab [Presence] in Serum by Agglutination"/></concept><concept><code value="2432-3"/><display value="Homogentisate [Presence] in Urine"/></concept><concept><code value="2474-5"/><display value="Indicans [Presence] in Urine"/></concept><concept><code value="2514-8"/><display value="Ketones [Presence] in Urine by Test strip"/></concept><concept><code value="25514-1"/><display value="Rubella virus IgG Ab [Presence] in Serum"/></concept><concept><code value="2606-2"/><display value="Melanin [Presence] in Urine"/></concept><concept><code value="26620-5"/><display value="Hantavirus IgG Ab [Presence] in Serum"/></concept><concept><code value="26960-5"/><display value="Trypsin [Presence] in Stool"/></concept><concept><code value="27270-8"/><display value="4-Hydroxyphenylacetate [Presence] in Urine"/></concept><concept><code value="27420-9"/><display value="Phosphatidylglycerol [Units/volume] in Amniotic fluid"/></concept><concept><code value="2761-5"/><display value="Phenylketones [Presence] in Blood"/></concept><concept><code value="28005-7"/><display value="MTHFR gene p.C677T [Presence] in Blood or Tissue by Molecular genetics method|MTHFR gene c.677C&gt;T [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="28060-2"/><display value="MTHFR gene p.A1298C [Presence] in Blood or Tissue by Molecular genetics method|MTHFR gene c.1298A&gt;C [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="28067-7"/><display value="Hemoglobin F [Presence] in Amniotic fluid"/></concept><concept><code value="2887-8"/><display value="Protein [Presence] in Urine"/></concept><concept><code value="29257-3"/><display value="Mycoplasma pneumoniae DNA [Presence] in Unspecified specimen by Probe and target amplification method|Mycoplasma pneumoniae DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="29495-9"/><display value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method|Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="29497-5"/><display value="Platelet associated IgG Ab [Presence] in Blood by Flow cytometry (FC)"/></concept><concept><code value="29498-3"/><display value="Platelet associated IgM Ab [Presence] in Blood by Flow cytometry (FC)"/></concept><concept><code value="29591-5"/><display value="Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="29610-3"/><display value="Hepatitis B virus DNA [Presence] in Serum or Plasma by Probe and target amplification method|Hepatitis B virus DNA [Presence] in Serum or Plasma by Probe and target amplification method"/></concept><concept><code value="29672-3"/><display value="Bordetella pertussis IgA Ab [Presence] in Serum"/></concept><concept><code value="29673-1"/><display value="Bordetella pertussis IgM Ab [Presence] in Serum"/></concept><concept><code value="29674-9"/><display value="Bordetella pertussis IgG Ab [Presence] in Serum"/></concept><concept><code value="29723-4"/><display value="Bordetella parapertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method|Bordetella parapertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="29771-3"/><display value="Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"/></concept><concept><code value="29778-8"/><display value="West Nile virus IgM Ab [Presence] in Unspecified specimen by Immunoassay"/></concept><concept><code value="29891-9"/><display value="Helicobacter pylori [Presence] in Stomach by urea breath test"/></concept><concept><code value="29899-2"/><display value="Gamma globulin [Presence] in 24 hour Urine"/></concept><concept><code value="29901-6"/><display value="HTLV 1+2 Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="29908-1"/><display value="Parainfluenza virus 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="29909-9"/><display value="Parainfluenza virus 2 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 2 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="29910-7"/><display value="Parainfluenza virus 3 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 3 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="29945-3"/><display value="Alpha 1 globulin [Presence] in 24 hour Urine by Electrophoresis"/></concept><concept><code value="29947-9"/><display value="Alpha 2 globulin [Presence] in 24 hour Urine by Electrophoresis"/></concept><concept><code value="29950-3"/><display value="Nuclear IgG Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="29951-1"/><display value="Beta globulin [Presence] in 24 hour Urine"/></concept><concept><code value="29990-9"/><display value="Spermatozoa [Presence] in Semen by Light microscopy --post vasectomy"/></concept><concept><code value="29994-1"/><display value="Basement membrane IgG Ab [Presence] in Serum by Immunofluorescence"/></concept><concept><code value="29995-8"/><display value="Basement membrane IgA Ab [Presence] in Serum by Immunofluorescence"/></concept><concept><code value="30036-8"/><display value="Aspergillus fumigatus 2 Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="30167-1"/><display value="Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe and signal amplification method"/></concept><concept><code value="30219-0"/><display value="Coxsackievirus A9 Ab [Presence] in Serum"/></concept><concept><code value="30246-3"/><display value="Cytomegalovirus DNA [Presence] in Serum or Plasma by Probe and target amplification method|Cytomegalovirus DNA [Presence] in Serum or Plasma by Probe and target amplification method"/></concept><concept><code value="30361-0"/><display value="HIV 2 Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="30557-3"/><display value="Smooth muscle IgG Ab [Presence] in Serum"/></concept><concept><code value="30577-1"/><display value="2-methyl,3-hydroxybutyrate (C5-OH) [Presence] in Urine"/></concept><concept><code value="31153-0"/><display value="Coccidioides sp Ab [Presence] in Unspecified specimen by Immune diffusion (ID)"/></concept><concept><code value="31201-7"/><display value="HIV 1+2 Ab [Presence] in Serum by Immunoassay|HIV 1+2 Ab [Presence] in Serum or Plasma by Immunoassay"/></concept><concept><code value="31539-0"/><display value="Neuronal nuclear type 2 Ab [Presence] in Serum"/></concept><concept><code value="31545-7"/><display value="Nuclear IgG Ab [Presence] in Serum"/></concept><concept><code value="31588-7"/><display value="Ribonucleoprotein extractable nuclear IgG Ab [Units/volume] in Serum"/></concept><concept><code value="31625-7"/><display value="Sjogrens syndrome-A extractable nuclear IgG Ab [Presence] in Serum"/></concept><concept><code value="31626-5"/><display value="Sjogrens syndrome-B extractable nuclear IgG Ab [Presence] in Serum"/></concept><concept><code value="31627-3"/><display value="Smith extractable nuclear Ab [Presence] in Serum"/></concept><concept><code value="31788-3"/><display value="Cryptococcus sp Ag [Presence] in Cerebral spinal fluid"/></concept><concept><code value="31843-6"/><display value="Helicobacter pylori Ag [Presence] in Stool"/></concept><concept><code value="31859-2"/><display value="Influenza virus A Ag [Presence] in Unspecified specimen"/></concept><concept><code value="31864-2"/><display value="Influenza virus B Ag [Presence] in Unspecified specimen"/></concept><concept><code value="31969-9"/><display value="Streptococcus pneumoniae Ag [Presence] in Unspecified specimen"/></concept><concept><code value="32131-5"/><display value="Hantavirus IgM Ab [Presence] in Serum"/></concept><concept><code value="32356-8"/><display value="Yeast [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="32358-4"/><display value="Protein fractions.oligoclonal bands [Presence] in Cerebral spinal fluid"/></concept><concept><code value="3241-7"/><display value="Coagulation factor XIII coagulum dissolution at 24H [Presence] in Platelet poor plasma by Coagulation assay|Coagulation factor XIII coagulum dissolution at 24 hours [Presence] in Platelet poor plasma by Coagulation assay"/></concept><concept><code value="32637-1"/><display value="Urease [Presence] in Tissue"/></concept><concept><code value="32765-0"/><display value="Yeast [Presence] in Unspecified specimen by Wet preparation"/></concept><concept><code value="32789-0"/><display value="Viscosity of Semen Qualitative"/></concept><concept><code value="33031-6"/><display value="Sodium urate crystals [#/area] in Urine sediment by Microscopy low power field"/></concept><concept><code value="33032-4"/><display value="Spermatozoa Progressive [Presence] in Semen"/></concept><concept><code value="33291-6"/><display value="Herpes simplex virus 1 IgG Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="33422-7"/><display value="Amphiphysin Ab [Presence] in Serum"/></concept><concept><code value="3349-8"/><display value="Amphetamines [Presence] in Urine"/></concept><concept><code value="33615-6"/><display value="Neuronal nuclear type 1 Ab [Presence] in Serum"/></concept><concept><code value="3376-1"/><display value="Barbiturates [Presence] in Serum, Plasma or Blood"/></concept><concept><code value="3377-9"/><display value="Barbiturates [Presence] in Urine"/></concept><concept><code value="33861-6"/><display value="Starch granules [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="3390-2"/><display value="Benzodiazepines [Presence] in Urine"/></concept><concept><code value="33923-4"/><display value="Hemosiderin [Presence] in Unspecified specimen"/></concept><concept><code value="33930-9"/><display value="Lupus anticoagulant neutralization hexagonal phase phospholipid [Presence] in Platelet poor plasma|aPTT W excess hexagonal phospholipid (StaClot LA confirm)"/></concept><concept><code value="3414-0"/><display value="Buprenorphine [Presence] in Urine"/></concept><concept><code value="34469-7"/><display value="Leukocytes [Presence] in Bile fluid by Light microscopy"/></concept><concept><code value="34470-5"/><display value="Giardia lamblia Ag [Presence] in Bile fluid"/></concept><concept><code value="34471-3"/><display value="Calcium bilirubinate crystals [Presence] in Bile fluid by Light microscopy"/></concept><concept><code value="34472-1"/><display value="Cholesterol crystals [Presence] in Bile fluid by Light microscopy"/></concept><concept><code value="34473-9"/><display value="Neutrophils.vacuolated+Segmented [Presence] in Blood"/></concept><concept><code value="34487-9"/><display value="Influenza virus A RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="34701-3"/><display value="Ab [Presence] in Serum|Platelet Ab.heparin induced [Presence] in Serum|Heparin induced platelet Ab [Presence] in Serum"/></concept><concept><code value="34706-2"/><display value="CFTR gene p.3199 del6 [Presence] in Blood or Tissue by Molecular genetics method|CFTR gene c.3199del6 [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="34713-8"/><display value="Clostridium difficile toxin A+B [Presence] in Stool"/></concept><concept><code value="34729-4"/><display value="CFTR gene p.R117H+5T variant [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="34892-0"/><display value="West Nile virus RNA [Presence] in Unspecified specimen by Probe and target amplification method|West Nile virus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="35270-8"/><display value="Candida sp Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="35271-6"/><display value="Candida sp Ag [Presence] in Serum by Latex agglutination"/></concept><concept><code value="35272-4"/><display value="Centromere IgG Ab [Presence] in Serum"/></concept><concept><code value="35277-3"/><display value="Myocardium IgG Ab [Presence] in Serum"/></concept><concept><code value="35284-9"/><display value="Histone IgG Ab [Presence] in Serum"/></concept><concept><code value="35471-2"/><display value="HLA Ab [Presence]"/></concept><concept><code value="35492-8"/><display value="Methicillin resistant Staphylococcus aureus (MRSA) DNA [Presence] by Probe and target amplification method|Methicillin resistant Staphylococcus aureus (MRSA) DNA [Presence] by Probe and target amplification method"/></concept><concept><code value="35503-2"/><display value="Arterial patency Wrist artery --pre arterial puncture"/></concept><concept><code value="35729-3"/><display value="Chlamydia sp DNA [Presence] in Unspecified specimen by Probe and target amplification method|Chlamydia sp DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="3773-9"/><display value="Methadone [Presence] in Urine"/></concept><concept><code value="38380-2"/><display value="HFE gene p.S65C [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="3879-4"/><display value="Opiates [Presence] in Urine"/></concept><concept><code value="38917-1"/><display value="Human metapneumovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human metapneumovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="3936-2"/><display value="Phencyclidine [Presence] in Urine"/></concept><concept><code value="39528-5"/><display value="Adenovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Adenovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="4027-9"/><display value="Secobarbital [Presence] in Serum or Plasma"/></concept><concept><code value="40473-1"/><display value="Thermoactinomyces vulgaris 1 Ab [Presence] in Serum"/></concept><concept><code value="40703-1"/><display value="Lactoferrin [Presence] in Stool by Immunoassay"/></concept><concept><code value="40729-6"/><display value="Herpes simplex virus IgM Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="4073-3"/><display value="Tricyclic antidepressants [Presence] in Serum or Plasma"/></concept><concept><code value="4093-1"/><display value="Verapamil [Presence] in Serum or Plasma"/></concept><concept><code value="40982-1"/><display value="Influenza virus B RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus B RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="40988-8"/><display value="Respiratory syncytial virus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Respiratory syncytial virus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="40991-2"/><display value="Rhinovirus+Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Rhinovirus+Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="41005-0"/><display value="Human coronavirus NL63 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human coronavirus NL63 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="41010-0"/><display value="Parainfluenza virus 4 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 4 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="41400-3"/><display value="Yersinia sp IgA Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="41401-1"/><display value="Yersinia sp IgG Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="42241-0"/><display value="Cocaine+Benzoylecgonine [Presence] in Urine by Screen method"/></concept><concept><code value="42481-2"/><display value="Human papilloma virus 6+11+42+43+44 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 6+11+42+43+44 DNA [Presence] in Cervix by Probe and signal amplification method"/></concept><concept><code value="42714-6"/><display value="t(9,22)(ABL1,BCR) p210 Translocation [Presence] in Blood or Tissue by Molecular genetics method|t(9;22)(q34.1;q11)(ABL1,BCR) b2a2+b3a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="42938-1"/><display value="CFTR gene allele 1 [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="42939-9"/><display value="CFTR gene allele 2 [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="43249-2"/><display value="X ray dye crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="43399-5"/><display value="JAK2 gene p.V617F [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="43597-4"/><display value="Inner Ear 68kD Ab [Presence] in Serum or Plasma by Immunoblot (IB)"/></concept><concept><code value="44099-0"/><display value="Galactomannan Ag [Presence] in Serum or Plasma by Immunoassay"/></concept><concept><code value="44332-5"/><display value="Jo-1 extractable nuclear IgG Ab [Presence] in Serum"/></concept><concept><code value="44754-0"/><display value="Hepatitis D virus Ag [Presence] in Serum by Immunoassay"/></concept><concept><code value="44877-9"/><display value="Insulin dependent diabetes mellitus [Presence]"/></concept><concept><code value="44938-9"/><display value="Hepatitis D virus IgM Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="45153-4"/><display value="HLA Ab in Serum"/></concept><concept><code value="4579-9"/><display value="Hemoglobin F [Presence] in Blood"/></concept><concept><code value="4631-8"/><display value="Hemoglobin F [Presence] in Stool by Apt-Downey method"/></concept><concept><code value="4639-1"/><display value="Unstable Hemoglobin [Presence] in Red Blood Cells"/></concept><concept><code value="46740-7"/><display value="Hemoglobin disorders newborn screen interpretation"/></concept><concept><code value="46771-2"/><display value="Classical galactosemia newborn screen interpretation"/></concept><concept><code value="47238-1"/><display value="Treponema pallidum IgG Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="47251-4"/><display value="BK virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|BK virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="49524-2"/><display value="Influenza virus A H3 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A H3 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="49541-6"/><display value="Fasting status [Presence] - Reported|Fasting status - Reported"/></concept><concept><code value="49795-8"/><display value="t(9,22)(ABL1,BCR) p190 Translocation [Presence] in Blood or Tissue by Molecular genetics method|t(9;22)(q34.1;q11)(ABL1,BCR) e1a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method"/></concept><concept><code value="5000-5"/><display value="Cytomegalovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Cytomegalovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="5005-4"/><display value="Epstein Barr virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Epstein Barr virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="5010-4"/><display value="Hepatitis C virus RNA [Presence] in Blood by Probe and target amplification method|Hepatitis C virus RNA [Presence] in Blood by Probe and target amplification method"/></concept><concept><code value="5014-6"/><display value="Herpes simplex virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Herpes simplex virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="5018-7"/><display value="HIV 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|HIV 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="5020-3"/><display value="Legionella sp rRNA [Presence] in Unspecified specimen by DNA probe"/></concept><concept><code value="5028-6"/><display value="Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by DNA probe"/></concept><concept><code value="50322-7"/><display value="MLH-1 Ag [Presence] in Tissue by Immune stain"/></concept><concept><code value="50323-5"/><display value="MSH-2 Ag [Presence] in Tissue by Immune stain"/></concept><concept><code value="50324-3"/><display value="MSH-6 Ag [Presence] in Tissue by Immune stain"/></concept><concept><code value="50328-4"/><display value="PMS-2 Ag [Presence] in Tissue by Immune stain"/></concept><concept><code value="50385-4"/><display value="Alpha-1-Microglobulin.placental [Presence] in Vaginal fluid"/></concept><concept><code value="5052-6"/><display value="Aspergillus sp Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="5058-3"/><display value="Blastomyces dermatitidis Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="51006-5"/><display value="Direct antiglobulin test.unspecified reagent [Presence] on Red Blood Cells"/></concept><concept><code value="5117-7"/><display value="Cryoglobulin [Presence] in Serum"/></concept><concept><code value="5156-5"/><display value="Epstein Barr virus nuclear IgG Ab [Presence] in Serum by Immunoassay"/></concept><concept><code value="5195-3"/><display value="Hepatitis B virus surface Ag [Presence] in Serum"/></concept><concept><code value="5196-1"/><display value="Hepatitis B virus surface Ag [Presence] in Serum by Immunoassay|Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"/></concept><concept><code value="5199-5"/><display value="Hepatitis C virus Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="5213-4"/><display value="Heterophile Ab [Presence] in Serum by Latex agglutination"/></concept><concept><code value="5218-3"/><display value="Histoplasma capsulatum Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="5290-2"/><display value="Reagin Ab [Presence] in Cerebral spinal fluid by VDRL"/></concept><concept><code value="5292-8"/><display value="Reagin Ab [Presence] in Serum by VDRL"/></concept><concept><code value="5297-7"/><display value="Rheumatoid factor [Presence] in Serum by Latex agglutination"/></concept><concept><code value="5358-7"/><display value="Smooth muscle Ab [Titer] in Serum by Immunofluorescence"/></concept><concept><code value="5393-4"/><display value="Treponema pallidum Ab [Presence] in Serum by Immunofluorescence"/></concept><concept><code value="54067-4"/><display value="Clostridium difficile toxin genes [Presence] in Stool by Probe and target amplification method|Clostridium difficile toxin genes [Presence] in Stool by Probe and target amplification method"/></concept><concept><code value="54142-5"/><display value="Candida sp DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Candida sp DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/></concept><concept><code value="54143-3"/><display value="Gardnerella vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Gardnerella vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/></concept><concept><code value="54144-1"/><display value="Trichomonas vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Trichomonas vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/></concept><concept><code value="54905-5"/><display value="Norovirus 1 RNA [Presence] in Stool by Probe and target amplification method|Norovirus 1 RNA [Presence] in Stool by Probe and target amplification method|Norovirus Genogroup I RNA [Presence] in Stool by Probe and target amplification method"/></concept><concept><code value="54906-3"/><display value="Norovirus 2 RNA [Presence] in Stool by Probe and target amplification method|Norovirus 2 RNA [Presence] in Stool by Probe and target amplification method|Norovirus Genogroup II RNA [Presence] in Stool by Probe and target amplification method"/></concept><concept><code value="550-4"/><display value="Bordetella pertussis Ag [Presence] in Unspecified specimen by Immunofluorescence"/></concept><concept><code value="55464-2"/><display value="Influenza virus A swine origin RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A swine origin RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="55465-9"/><display value="Influenza virus A H1 2009 pandemic RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A H1 2009 pandemic RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="5766-1"/><display value="Ammonium urate crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5770-3"/><display value="Bilirubin [Presence] in Urine by Test strip|Bilirubin.total [Presence] in Urine by Test strip"/></concept><concept><code value="5771-1"/><display value="Bilirubin crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5773-7"/><display value="Calcium carbonate crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5774-5"/><display value="Calcium oxalate crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5775-2"/><display value="Calcium phosphate crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5777-8"/><display value="Cholesterol crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5783-6"/><display value="Unidentified crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5784-4"/><display value="Cystine crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="57901-1"/><display value="Clostridium difficile glutamate dehydrogenase [Presence] in Stool"/></concept><concept><code value="5794-3"/><display value="Hemoglobin [Presence] in Urine by Test strip"/></concept><concept><code value="5795-0"/><display value="Hippurate crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5799-2"/><display value="Leukocyte esterase [Presence] in Urine by Test strip"/></concept><concept><code value="58012-6"/><display value="Natalizumab Ab [Presence] in Serum"/></concept><concept><code value="5802-4"/><display value="Nitrite [Presence] in Urine by Test strip"/></concept><concept><code value="5809-9"/><display value="Reducing substances [Presence] in Urine"/></concept><concept><code value="5813-1"/><display value="Trichomonas vaginalis [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5814-9"/><display value="Triple phosphate crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5815-6"/><display value="Tyrosine crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="5817-2"/><display value="Urate crystals [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="58415-1"/><display value="BRAF gene p.V600E [Presence] in Tissue by Molecular genetics method"/></concept><concept><code value="58416-9"/><display value="MLH1 gene methylation [Presence] in Tissue by Molecular genetics method"/></concept><concept><code value="5846-1"/><display value="Herpes simplex virus 1 Ag [Presence] in Unspecified specimen by Immunofluorescence"/></concept><concept><code value="5849-5"/><display value="Herpes simplex virus 2 Ag [Presence] in Unspecified specimen by Immunofluorescence"/></concept><concept><code value="5863-6"/><display value="Influenza virus A Ag [Presence] in Unspecified specimen by Immunofluorescence"/></concept><concept><code value="5867-7"/><display value="Influenza virus B Ag [Presence] in Unspecified specimen by Immunofluorescence"/></concept><concept><code value="58751-9"/><display value="Treponema pallidum IgG Ab [Presence] in Cerebral spinal fluid by Immunofluorescence"/></concept><concept><code value="5876-8"/><display value="Respiratory syncytial virus Ag [Presence] in Unspecified specimen by Immunoassay"/></concept><concept><code value="5880-0"/><display value="Rotavirus Ag [Presence] in Stool by Immunoassay"/></concept><concept><code value="588-4"/><display value="Legionella pneumophila Ag [Presence] in Unspecified specimen by Immunofluorescence"/></concept><concept><code value="59262-6"/><display value="Leukocyte esterase [Presence] in Cerebral spinal fluid by Test strip"/></concept><concept><code value="59420-0"/><display value="Human papilloma virus16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe and signal amplification method"/></concept><concept><code value="59838-3"/><display value="Cytomegalovirus Ab [Presence] in Serum or Plasma by Latex agglutination"/></concept><concept><code value="59839-1"/><display value="Urate crystals [Presence] in Tissue by Light microscopy"/></concept><concept><code value="60340-7"/><display value="Crystals.amorphous [Presence] in Urine sediment by Light microscopy"/></concept><concept><code value="61404-0"/><display value="Staphylococcus aureus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Staphylococcus aureus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="62423-9"/><display value="Human coronavirus HKU1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human coronavirus HKU1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></concept><concept><code value="62862-8"/><display value="Microsatellite instability [Presence] in Tissue by Immune stain"/></concept><concept><code value="6306-5"/><display value="Adenovirus C(40)+B(41) Ag [Presence] in Stool by Immunoassay|Adenovirus 40+41 Ag [Presence] in Stool by Immunoassay"/></concept><concept><code value="6320-6"/><display value="Borrelia burgdorferi IgG Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="6321-4"/><display value="Borrelia burgdorferi IgM Ab [Presence] in Serum by Immunoblot (IB)"/></concept><concept><code value="63379-2"/><display value="DNA double strand IgG Ab [Presence] in Serum"/></concept><concept><code value="6355-2"/><display value="Chlamydia trachomatis Ag [Presence] in Unspecified specimen by Immunofluorescence"/></concept><concept><code value="63558-1"/><display value="HLA-DQB1*0602 [Presence]"/></concept><concept><code value="6362-8"/><display value="Clostridium difficile toxin A+B [Presence] in Stool by Cytotoxin tissue culture assay"/></concept><concept><code value="6443-6"/><display value="Lactoferrin [Presence] in Stool by Latex agglutination"/></concept><concept><code value="6447-7"/><display value="Legionella pneumophila Ag [Presence] in Urine by Immunoassay"/></concept><concept><code value="6733-0"/><display value="Pigeon serum Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="6808-0"/><display value="Aspergillus fumigatus 1 Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="6809-8"/><display value="Aspergillus fumigatus 6 Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="6810-6"/><display value="Aureobasidium pullulans Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="6818-9"/><display value="Saccharopolyspora rectivirgula Ab [Presence] in Serum by Immune diffusion (ID)"/></concept><concept><code value="700-5"/><display value="Pneumocystis jiroveci Ag [Presence] in Unspecified specimen by Immunofluorescence"/></concept><concept><code value="702-1"/><display value="Anisocytosis [Presence] in Blood by Light microscopy"/></concept><concept><code value="703-9"/><display value="Basophilic stippling [Presence] in Blood by Light microscopy"/></concept><concept><code value="716-1"/><display value="Heinz bodies [Presence] in Blood by Light microscopy"/></concept><concept><code value="728-6"/><display value="Hypochromia [Presence] in Blood by Light microscopy"/></concept><concept><code value="733-6"/><display value="Lymphocytes Variant [Presence] in Blood by Light microscopy"/></concept><concept><code value="738-5"/><display value="Macrocytes [Presence] in Blood by Light microscopy"/></concept><concept><code value="741-9"/><display value="Microcytes [Presence] in Blood by Light microscopy"/></concept><concept><code value="765-8"/><display value="Neutrophils.hypersegmented [Presence] in Blood by Light microscopy"/></concept><concept><code value="774-0"/><display value="Ovalocytes [Presence] in Blood by Light microscopy"/></concept><concept><code value="7789-1"/><display value="Acanthocytes [Presence] in Blood by Light microscopy"/></concept><concept><code value="7790-9"/><display value="Burr cells [Presence] in Blood by Light microscopy"/></concept><concept><code value="7791-7"/><display value="Dacrocytes [Presence] in Blood by Light microscopy"/></concept><concept><code value="7792-5"/><display value="Dohle body [Presence] in Blood by Light microscopy"/></concept><concept><code value="7793-3"/><display value="Howell-Jolly bodies [Presence] in Blood by Light microscopy"/></concept><concept><code value="7795-8"/><display value="Pappenheimer bodies [Presence] in Blood by Light microscopy"/></concept><concept><code value="7796-6"/><display value="Platelet clump [Presence] in Blood by Light microscopy"/></concept><concept><code value="7797-4"/><display value="Rouleaux [Presence] in Blood by Light microscopy"/></concept><concept><code value="7798-2"/><display value="Smudge cells [Presence] in Blood by Light microscopy"/></concept><concept><code value="779-9"/><display value="Poikilocytosis [Presence] in Blood by Light microscopy"/></concept><concept><code value="7918-6"/><display value="HIV 1+2 Ab [Presence] in Serum"/></concept><concept><code value="800-3"/><display value="Schistocytes [Presence] in Blood by Light microscopy"/></concept><concept><code value="801-1"/><display value="Sickle cells [Presence] in Blood by Light microscopy"/></concept><concept><code value="802-9"/><display value="Spherocytes [Presence] in Blood by Light microscopy"/></concept><concept><code value="803-7"/><display value="Toxic granules [Presence] in Blood by Light microscopy"/></concept><concept><code value="8041-6"/><display value="Treponema pallidum Ab [Presence] in Serum by Hemagglutination"/></concept><concept><code value="8061-4"/><display value="Nuclear Ab [Presence] in Serum"/></concept><concept><code value="8091-1"/><display value="Ribonucleoprotein extractable nuclear Ab [Presence] in Serum"/></concept><concept><code value="8092-9"/><display value="SCL-70 extractable nuclear Ab [Presence] in Serum"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-hspc-OrdinalLabCodes"/></valueReference></extension><identifier value="urn:uuid:73cc573a-7512-49f6-92ae-8d4892621144"/><timestamp value="2015-06-29T08:15:09Z"/><contains><system value="http://loinc.org"/><code value="1004-1"/><display value="Direct antiglobulin test.complement specific reagent [Presence] on Red Blood Cells"/></contains><contains><system value="http://loinc.org"/><code value="1007-4"/><display value="Direct antiglobulin test.poly specific reagent [Presence] on Red Blood Cells"/></contains><contains><system value="http://loinc.org"/><code value="10374-7"/><display value="Helmet cells [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="10378-8"/><display value="Polychromasia [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="10380-4"/><display value="Stomatocytes [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="10381-2"/><display value="Target cells [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="10900-9"/><display value="Hepatitis B virus surface Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="11060-1"/><display value="Reducing substances [Presence] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="11259-9"/><display value="Hepatitis C virus RNA [Presence] in Serum or Plasma by Probe and target amplification method|Hepatitis C virus RNA [Presence] in Serum or Plasma by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="11281-3"/><display value="Auer rods [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="11483-5"/><display value="Varicella zoster virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Varicella zoster virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="12239-0"/><display value="Oligosaccharides [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="12454-5"/><display value="Urate crystals amorphous [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="12598-9"/><display value="Fat.neutral [Presence] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="12853-8"/><display value="Purkinje cells Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="13248-0"/><display value="Hepatitis D virus Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="13532-7"/><display value="Xanthochromia [Presence] of Cerebral spinal fluid|Xanthochromia of Cerebral spinal fluid Qualitative"/></contains><contains><system value="http://loinc.org"/><code value="13533-5"/><display value="Acid hemolysis [Presence] of Blood"/></contains><contains><system value="http://loinc.org"/><code value="13578-0"/><display value="Promazine [Presence] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="13655-6"/><display value="Leukocytes [Presence] in Stool by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="13931-1"/><display value="Striated muscle Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="13949-3"/><display value="Cytomegalovirus IgG Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="13950-1"/><display value="Hepatitis A virus IgM Ab [Presence] in Serum by Immunoassay|Hepatitis A virus IgM Ab [Presence] in Serum or Plasma by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="13951-9"/><display value="Hepatitis A virus Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="13952-7"/><display value="Hepatitis B virus core Ab [Presence] in Serum by Immunoassay|Hepatitis B virus core Ab [Presence] in Serum or Plasma by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="13953-5"/><display value="Hepatitis B virus e Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="14249-7"/><display value="Purkinje cells Ab [Presence] in Serum by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="14273-7"/><display value="Reticulin IgA Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="14564-9"/><display value="Hemoglobin.gastrointestinal [Presence] in Stool --2nd specimen"/></contains><contains><system value="http://loinc.org"/><code value="14565-6"/><display value="Hemoglobin.gastrointestinal [Presence] in Stool --3rd specimen"/></contains><contains><system value="http://loinc.org"/><code value="15151-4"/><display value="Aspergillus fumigatus 3 Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="15179-5"/><display value="Fibrin D-dimer [Presence] in Platelet poor plasma"/></contains><contains><system value="http://loinc.org"/><code value="16128-1"/><display value="Hepatitis C virus Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="16369-1"/><display value="Amphetamines [Presence] in Urine by Confirmatory method"/></contains><contains><system value="http://loinc.org"/><code value="16933-4"/><display value="Hepatitis B virus core Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="16942-5"/><display value="Herpes simplex virus Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="16955-7"/><display value="Herpes simplex virus 2 IgG Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="17257-7"/><display value="Mesothelial cells [Presence] in Body fluid by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="17726-1"/><display value="Treponema pallidum IgG Ab [Presence] in Serum by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="17783-2"/><display value="Hemosiderin [Presence] in Urine by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="17850-9"/><display value="Herpes simplex virus 1 IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="18282-4"/><display value="Cannabinoids [Presence] in Urine by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="18311-1"/><display value="Pelger Huet cells [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="18312-9"/><display value="Platelet satellitism [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="18390-5"/><display value="Opiates [Presence] in Urine by Confirmatory method"/></contains><contains><system value="http://loinc.org"/><code value="18481-2"/><display value="Streptococcus pyogenes Ag [Presence] in Throat"/></contains><contains><system value="http://loinc.org"/><code value="19162-7"/><display value="Varicella zoster virus IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="19252-6"/><display value="Megakaryocytes/100 leukocytes in Blood"/></contains><contains><system value="http://loinc.org"/><code value="1928-1"/><display value="Immunoglobulin light chains [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="19429-0"/><display value="Propoxyphene [Presence] in Urine by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="19554-5"/><display value="Methamphetamine [Presence] in Urine by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="1977-8"/><display value="Bilirubin [Presence] in Urine|Bilirubin.total [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="20404-0"/><display value="Fibronectin.fetal [Presence] in Vaginal fluid"/></contains><contains><system value="http://loinc.org"/><code value="20411-5"/><display value="Barbiturates [Mass/volume] in Urine by Confirmatory method"/></contains><contains><system value="http://loinc.org"/><code value="20421-4"/><display value="Barbiturates [Presence] in Serum or Plasma by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="20507-0"/><display value="Reagin Ab [Presence] in Serum by RPR"/></contains><contains><system value="http://loinc.org"/><code value="2106-3"/><display value="Choriogonadotropin (pregnancy test) [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="2118-8"/><display value="Choriogonadotropin (pregnancy test) [Presence] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="21233-2"/><display value="Cryptosporidium sp Ag [Presence] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="21348-8"/><display value="HTLV 1+2 IgG Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="21518-6"/><display value="SCL-70 extractable nuclear IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="21523-6"/><display value="Smith extractable nuclear IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="21560-8"/><display value="Thermoactinomyces candidus Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="21561-6"/><display value="Thermoactinomyces sacchari Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="21695-2"/><display value="HFE gene p.C282Y [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="21696-0"/><display value="HFE gene p.H63D [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="21747-1"/><display value="HC gene rearrangements [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="21753-9"/><display value="TCRG gene rearrangements [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="22239-8"/><display value="Cytomegalovirus Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="22295-0"/><display value="Epstein Barr virus early IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="22310-7"/><display value="Helicobacter pylori Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="22362-8"/><display value="HTLV 1+2 Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="22415-4"/><display value="Mumps virus IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="22566-4"/><display value="Streptococcus pyogenes enzyme Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="22572-2"/><display value="Saccharomonospora viridis Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="2334-1"/><display value="Hemoglobin.gastrointestinal [Presence] in Gastric fluid"/></contains><contains><system value="http://loinc.org"/><code value="2335-8"/><display value="Hemoglobin.gastrointestinal [Presence] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="2349-9"/><display value="Glucose [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="2350-7"/><display value="Glucose [Mass/volume] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="23785-9"/><display value="Trypanosoma cruzi Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="23820-4"/><display value="Aspergillus flavus Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="23826-1"/><display value="Bordetella pertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method|Bordetella pertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="23867-5"/><display value="Hantavirus sin nombre IgG Ab [Titer] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="23868-3"/><display value="Hantavirus sin nombre IgM Ab [Titer] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="23929-3"/><display value="Ribonucleoprotein extractable nuclear IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="23980-6"/><display value="Borrelia burgdorferi IgG Ab [Presence] in Body fluid by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="23982-2"/><display value="Borrelia burgdorferi IgM Ab [Presence] in Body fluid by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="24015-0"/><display value="Influenza virus A+B Ag [Presence] in Unspecified specimen"/></contains><contains><system value="http://loinc.org"/><code value="24027-5"/><display value="Streptococcus pneumoniae Ag [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="24111-7"/><display value="Neisseria gonorrhoeae DNA [Presence] in Unspecified specimen by Probe and target amplification method|Neisseria gonorrhoeae DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="24113-3"/><display value="Hepatitis B virus core IgM Ab [Presence] in Serum by Immunoassay|Hepatitis B virus core IgM Ab [Presence] in Serum or Plasma by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="24114-1"/><display value="Epstein Barr virus capsid IgG Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="24115-8"/><display value="Epstein Barr virus capsid IgM Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="24119-0"/><display value="Cytomegalovirus IgM Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="24312-1"/><display value="Treponema pallidum Ab [Presence] in Serum by Agglutination"/></contains><contains><system value="http://loinc.org"/><code value="2432-3"/><display value="Homogentisate [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="2474-5"/><display value="Indicans [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="2514-8"/><display value="Ketones [Presence] in Urine by Test strip"/></contains><contains><system value="http://loinc.org"/><code value="25514-1"/><display value="Rubella virus IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="2606-2"/><display value="Melanin [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="26620-5"/><display value="Hantavirus IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="26960-5"/><display value="Trypsin [Presence] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="27270-8"/><display value="4-Hydroxyphenylacetate [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="27420-9"/><display value="Phosphatidylglycerol [Units/volume] in Amniotic fluid"/></contains><contains><system value="http://loinc.org"/><code value="2761-5"/><display value="Phenylketones [Presence] in Blood"/></contains><contains><system value="http://loinc.org"/><code value="28005-7"/><display value="MTHFR gene p.C677T [Presence] in Blood or Tissue by Molecular genetics method|MTHFR gene c.677C&gt;T [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="28060-2"/><display value="MTHFR gene p.A1298C [Presence] in Blood or Tissue by Molecular genetics method|MTHFR gene c.1298A&gt;C [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="28067-7"/><display value="Hemoglobin F [Presence] in Amniotic fluid"/></contains><contains><system value="http://loinc.org"/><code value="2887-8"/><display value="Protein [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="29257-3"/><display value="Mycoplasma pneumoniae DNA [Presence] in Unspecified specimen by Probe and target amplification method|Mycoplasma pneumoniae DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="29495-9"/><display value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method|Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="29497-5"/><display value="Platelet associated IgG Ab [Presence] in Blood by Flow cytometry (FC)"/></contains><contains><system value="http://loinc.org"/><code value="29498-3"/><display value="Platelet associated IgM Ab [Presence] in Blood by Flow cytometry (FC)"/></contains><contains><system value="http://loinc.org"/><code value="29591-5"/><display value="Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="29610-3"/><display value="Hepatitis B virus DNA [Presence] in Serum or Plasma by Probe and target amplification method|Hepatitis B virus DNA [Presence] in Serum or Plasma by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="29672-3"/><display value="Bordetella pertussis IgA Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="29673-1"/><display value="Bordetella pertussis IgM Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="29674-9"/><display value="Bordetella pertussis IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="29723-4"/><display value="Bordetella parapertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method|Bordetella parapertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="29771-3"/><display value="Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"/></contains><contains><system value="http://loinc.org"/><code value="29778-8"/><display value="West Nile virus IgM Ab [Presence] in Unspecified specimen by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="29891-9"/><display value="Helicobacter pylori [Presence] in Stomach by urea breath test"/></contains><contains><system value="http://loinc.org"/><code value="29899-2"/><display value="Gamma globulin [Presence] in 24 hour Urine"/></contains><contains><system value="http://loinc.org"/><code value="29901-6"/><display value="HTLV 1+2 Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="29908-1"/><display value="Parainfluenza virus 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="29909-9"/><display value="Parainfluenza virus 2 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 2 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="29910-7"/><display value="Parainfluenza virus 3 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 3 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="29945-3"/><display value="Alpha 1 globulin [Presence] in 24 hour Urine by Electrophoresis"/></contains><contains><system value="http://loinc.org"/><code value="29947-9"/><display value="Alpha 2 globulin [Presence] in 24 hour Urine by Electrophoresis"/></contains><contains><system value="http://loinc.org"/><code value="29950-3"/><display value="Nuclear IgG Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="29951-1"/><display value="Beta globulin [Presence] in 24 hour Urine"/></contains><contains><system value="http://loinc.org"/><code value="29990-9"/><display value="Spermatozoa [Presence] in Semen by Light microscopy --post vasectomy"/></contains><contains><system value="http://loinc.org"/><code value="29994-1"/><display value="Basement membrane IgG Ab [Presence] in Serum by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="29995-8"/><display value="Basement membrane IgA Ab [Presence] in Serum by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="30036-8"/><display value="Aspergillus fumigatus 2 Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="30167-1"/><display value="Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe and signal amplification method"/></contains><contains><system value="http://loinc.org"/><code value="30219-0"/><display value="Coxsackievirus A9 Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="30246-3"/><display value="Cytomegalovirus DNA [Presence] in Serum or Plasma by Probe and target amplification method|Cytomegalovirus DNA [Presence] in Serum or Plasma by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="30361-0"/><display value="HIV 2 Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="30557-3"/><display value="Smooth muscle IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="30577-1"/><display value="2-methyl,3-hydroxybutyrate (C5-OH) [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="31153-0"/><display value="Coccidioides sp Ab [Presence] in Unspecified specimen by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="31201-7"/><display value="HIV 1+2 Ab [Presence] in Serum by Immunoassay|HIV 1+2 Ab [Presence] in Serum or Plasma by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="31539-0"/><display value="Neuronal nuclear type 2 Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="31545-7"/><display value="Nuclear IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="31588-7"/><display value="Ribonucleoprotein extractable nuclear IgG Ab [Units/volume] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="31625-7"/><display value="Sjogrens syndrome-A extractable nuclear IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="31626-5"/><display value="Sjogrens syndrome-B extractable nuclear IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="31627-3"/><display value="Smith extractable nuclear Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="31788-3"/><display value="Cryptococcus sp Ag [Presence] in Cerebral spinal fluid"/></contains><contains><system value="http://loinc.org"/><code value="31843-6"/><display value="Helicobacter pylori Ag [Presence] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="31859-2"/><display value="Influenza virus A Ag [Presence] in Unspecified specimen"/></contains><contains><system value="http://loinc.org"/><code value="31864-2"/><display value="Influenza virus B Ag [Presence] in Unspecified specimen"/></contains><contains><system value="http://loinc.org"/><code value="31969-9"/><display value="Streptococcus pneumoniae Ag [Presence] in Unspecified specimen"/></contains><contains><system value="http://loinc.org"/><code value="32131-5"/><display value="Hantavirus IgM Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="32356-8"/><display value="Yeast [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="32358-4"/><display value="Protein fractions.oligoclonal bands [Presence] in Cerebral spinal fluid"/></contains><contains><system value="http://loinc.org"/><code value="3241-7"/><display value="Coagulation factor XIII coagulum dissolution at 24H [Presence] in Platelet poor plasma by Coagulation assay|Coagulation factor XIII coagulum dissolution at 24 hours [Presence] in Platelet poor plasma by Coagulation assay"/></contains><contains><system value="http://loinc.org"/><code value="32637-1"/><display value="Urease [Presence] in Tissue"/></contains><contains><system value="http://loinc.org"/><code value="32765-0"/><display value="Yeast [Presence] in Unspecified specimen by Wet preparation"/></contains><contains><system value="http://loinc.org"/><code value="32789-0"/><display value="Viscosity of Semen Qualitative"/></contains><contains><system value="http://loinc.org"/><code value="33031-6"/><display value="Sodium urate crystals [#/area] in Urine sediment by Microscopy low power field"/></contains><contains><system value="http://loinc.org"/><code value="33032-4"/><display value="Spermatozoa Progressive [Presence] in Semen"/></contains><contains><system value="http://loinc.org"/><code value="33291-6"/><display value="Herpes simplex virus 1 IgG Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="33422-7"/><display value="Amphiphysin Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="3349-8"/><display value="Amphetamines [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="33615-6"/><display value="Neuronal nuclear type 1 Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="3376-1"/><display value="Barbiturates [Presence] in Serum, Plasma or Blood"/></contains><contains><system value="http://loinc.org"/><code value="3377-9"/><display value="Barbiturates [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="33861-6"/><display value="Starch granules [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="3390-2"/><display value="Benzodiazepines [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="33923-4"/><display value="Hemosiderin [Presence] in Unspecified specimen"/></contains><contains><system value="http://loinc.org"/><code value="33930-9"/><display value="Lupus anticoagulant neutralization hexagonal phase phospholipid [Presence] in Platelet poor plasma|aPTT W excess hexagonal phospholipid (StaClot LA confirm)"/></contains><contains><system value="http://loinc.org"/><code value="3414-0"/><display value="Buprenorphine [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="34469-7"/><display value="Leukocytes [Presence] in Bile fluid by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="34470-5"/><display value="Giardia lamblia Ag [Presence] in Bile fluid"/></contains><contains><system value="http://loinc.org"/><code value="34471-3"/><display value="Calcium bilirubinate crystals [Presence] in Bile fluid by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="34472-1"/><display value="Cholesterol crystals [Presence] in Bile fluid by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="34473-9"/><display value="Neutrophils.vacuolated+Segmented [Presence] in Blood"/></contains><contains><system value="http://loinc.org"/><code value="34487-9"/><display value="Influenza virus A RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="34701-3"/><display value="Ab [Presence] in Serum|Platelet Ab.heparin induced [Presence] in Serum|Heparin induced platelet Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="34706-2"/><display value="CFTR gene p.3199 del6 [Presence] in Blood or Tissue by Molecular genetics method|CFTR gene c.3199del6 [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="34713-8"/><display value="Clostridium difficile toxin A+B [Presence] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="34729-4"/><display value="CFTR gene p.R117H+5T variant [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="34892-0"/><display value="West Nile virus RNA [Presence] in Unspecified specimen by Probe and target amplification method|West Nile virus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="35270-8"/><display value="Candida sp Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="35271-6"/><display value="Candida sp Ag [Presence] in Serum by Latex agglutination"/></contains><contains><system value="http://loinc.org"/><code value="35272-4"/><display value="Centromere IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="35277-3"/><display value="Myocardium IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="35284-9"/><display value="Histone IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="35471-2"/><display value="HLA Ab [Presence]"/></contains><contains><system value="http://loinc.org"/><code value="35492-8"/><display value="Methicillin resistant Staphylococcus aureus (MRSA) DNA [Presence] by Probe and target amplification method|Methicillin resistant Staphylococcus aureus (MRSA) DNA [Presence] by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="35503-2"/><display value="Arterial patency Wrist artery --pre arterial puncture"/></contains><contains><system value="http://loinc.org"/><code value="35729-3"/><display value="Chlamydia sp DNA [Presence] in Unspecified specimen by Probe and target amplification method|Chlamydia sp DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="3773-9"/><display value="Methadone [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="38380-2"/><display value="HFE gene p.S65C [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="3879-4"/><display value="Opiates [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="38917-1"/><display value="Human metapneumovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human metapneumovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="3936-2"/><display value="Phencyclidine [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="39528-5"/><display value="Adenovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Adenovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="4027-9"/><display value="Secobarbital [Presence] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="40473-1"/><display value="Thermoactinomyces vulgaris 1 Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="40703-1"/><display value="Lactoferrin [Presence] in Stool by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="40729-6"/><display value="Herpes simplex virus IgM Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="4073-3"/><display value="Tricyclic antidepressants [Presence] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="4093-1"/><display value="Verapamil [Presence] in Serum or Plasma"/></contains><contains><system value="http://loinc.org"/><code value="40982-1"/><display value="Influenza virus B RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus B RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="40988-8"/><display value="Respiratory syncytial virus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Respiratory syncytial virus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="40991-2"/><display value="Rhinovirus+Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method|Rhinovirus+Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="41005-0"/><display value="Human coronavirus NL63 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human coronavirus NL63 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="41010-0"/><display value="Parainfluenza virus 4 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Parainfluenza virus 4 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="41400-3"/><display value="Yersinia sp IgA Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="41401-1"/><display value="Yersinia sp IgG Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="42241-0"/><display value="Cocaine+Benzoylecgonine [Presence] in Urine by Screen method"/></contains><contains><system value="http://loinc.org"/><code value="42481-2"/><display value="Human papilloma virus 6+11+42+43+44 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 6+11+42+43+44 DNA [Presence] in Cervix by Probe and signal amplification method"/></contains><contains><system value="http://loinc.org"/><code value="42714-6"/><display value="t(9,22)(ABL1,BCR) p210 Translocation [Presence] in Blood or Tissue by Molecular genetics method|t(9;22)(q34.1;q11)(ABL1,BCR) b2a2+b3a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="42938-1"/><display value="CFTR gene allele 1 [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="42939-9"/><display value="CFTR gene allele 2 [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="43249-2"/><display value="X ray dye crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="43399-5"/><display value="JAK2 gene p.V617F [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="43597-4"/><display value="Inner Ear 68kD Ab [Presence] in Serum or Plasma by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="44099-0"/><display value="Galactomannan Ag [Presence] in Serum or Plasma by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="44332-5"/><display value="Jo-1 extractable nuclear IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="44754-0"/><display value="Hepatitis D virus Ag [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="44877-9"/><display value="Insulin dependent diabetes mellitus [Presence]"/></contains><contains><system value="http://loinc.org"/><code value="44938-9"/><display value="Hepatitis D virus IgM Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="45153-4"/><display value="HLA Ab in Serum"/></contains><contains><system value="http://loinc.org"/><code value="4579-9"/><display value="Hemoglobin F [Presence] in Blood"/></contains><contains><system value="http://loinc.org"/><code value="4631-8"/><display value="Hemoglobin F [Presence] in Stool by Apt-Downey method"/></contains><contains><system value="http://loinc.org"/><code value="4639-1"/><display value="Unstable Hemoglobin [Presence] in Red Blood Cells"/></contains><contains><system value="http://loinc.org"/><code value="46740-7"/><display value="Hemoglobin disorders newborn screen interpretation"/></contains><contains><system value="http://loinc.org"/><code value="46771-2"/><display value="Classical galactosemia newborn screen interpretation"/></contains><contains><system value="http://loinc.org"/><code value="47238-1"/><display value="Treponema pallidum IgG Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="47251-4"/><display value="BK virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|BK virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="49524-2"/><display value="Influenza virus A H3 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A H3 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="49541-6"/><display value="Fasting status [Presence] - Reported|Fasting status - Reported"/></contains><contains><system value="http://loinc.org"/><code value="49795-8"/><display value="t(9,22)(ABL1,BCR) p190 Translocation [Presence] in Blood or Tissue by Molecular genetics method|t(9;22)(q34.1;q11)(ABL1,BCR) e1a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="5000-5"/><display value="Cytomegalovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Cytomegalovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="5005-4"/><display value="Epstein Barr virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Epstein Barr virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="5010-4"/><display value="Hepatitis C virus RNA [Presence] in Blood by Probe and target amplification method|Hepatitis C virus RNA [Presence] in Blood by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="5014-6"/><display value="Herpes simplex virus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Herpes simplex virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="5018-7"/><display value="HIV 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|HIV 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="5020-3"/><display value="Legionella sp rRNA [Presence] in Unspecified specimen by DNA probe"/></contains><contains><system value="http://loinc.org"/><code value="5028-6"/><display value="Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by DNA probe"/></contains><contains><system value="http://loinc.org"/><code value="50322-7"/><display value="MLH-1 Ag [Presence] in Tissue by Immune stain"/></contains><contains><system value="http://loinc.org"/><code value="50323-5"/><display value="MSH-2 Ag [Presence] in Tissue by Immune stain"/></contains><contains><system value="http://loinc.org"/><code value="50324-3"/><display value="MSH-6 Ag [Presence] in Tissue by Immune stain"/></contains><contains><system value="http://loinc.org"/><code value="50328-4"/><display value="PMS-2 Ag [Presence] in Tissue by Immune stain"/></contains><contains><system value="http://loinc.org"/><code value="50385-4"/><display value="Alpha-1-Microglobulin.placental [Presence] in Vaginal fluid"/></contains><contains><system value="http://loinc.org"/><code value="5052-6"/><display value="Aspergillus sp Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="5058-3"/><display value="Blastomyces dermatitidis Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="51006-5"/><display value="Direct antiglobulin test.unspecified reagent [Presence] on Red Blood Cells"/></contains><contains><system value="http://loinc.org"/><code value="5117-7"/><display value="Cryoglobulin [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="5156-5"/><display value="Epstein Barr virus nuclear IgG Ab [Presence] in Serum by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="5195-3"/><display value="Hepatitis B virus surface Ag [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="5196-1"/><display value="Hepatitis B virus surface Ag [Presence] in Serum by Immunoassay|Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="5199-5"/><display value="Hepatitis C virus Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="5213-4"/><display value="Heterophile Ab [Presence] in Serum by Latex agglutination"/></contains><contains><system value="http://loinc.org"/><code value="5218-3"/><display value="Histoplasma capsulatum Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="5290-2"/><display value="Reagin Ab [Presence] in Cerebral spinal fluid by VDRL"/></contains><contains><system value="http://loinc.org"/><code value="5292-8"/><display value="Reagin Ab [Presence] in Serum by VDRL"/></contains><contains><system value="http://loinc.org"/><code value="5297-7"/><display value="Rheumatoid factor [Presence] in Serum by Latex agglutination"/></contains><contains><system value="http://loinc.org"/><code value="5358-7"/><display value="Smooth muscle Ab [Titer] in Serum by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="5393-4"/><display value="Treponema pallidum Ab [Presence] in Serum by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="54067-4"/><display value="Clostridium difficile toxin genes [Presence] in Stool by Probe and target amplification method|Clostridium difficile toxin genes [Presence] in Stool by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="54142-5"/><display value="Candida sp DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Candida sp DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/></contains><contains><system value="http://loinc.org"/><code value="54143-3"/><display value="Gardnerella vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Gardnerella vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/></contains><contains><system value="http://loinc.org"/><code value="54144-1"/><display value="Trichomonas vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method|Trichomonas vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/></contains><contains><system value="http://loinc.org"/><code value="54905-5"/><display value="Norovirus 1 RNA [Presence] in Stool by Probe and target amplification method|Norovirus 1 RNA [Presence] in Stool by Probe and target amplification method|Norovirus Genogroup I RNA [Presence] in Stool by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="54906-3"/><display value="Norovirus 2 RNA [Presence] in Stool by Probe and target amplification method|Norovirus 2 RNA [Presence] in Stool by Probe and target amplification method|Norovirus Genogroup II RNA [Presence] in Stool by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="550-4"/><display value="Bordetella pertussis Ag [Presence] in Unspecified specimen by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="55464-2"/><display value="Influenza virus A swine origin RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A swine origin RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="55465-9"/><display value="Influenza virus A H1 2009 pandemic RNA [Presence] in Unspecified specimen by Probe and target amplification method|Influenza virus A H1 2009 pandemic RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="5766-1"/><display value="Ammonium urate crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5770-3"/><display value="Bilirubin [Presence] in Urine by Test strip|Bilirubin.total [Presence] in Urine by Test strip"/></contains><contains><system value="http://loinc.org"/><code value="5771-1"/><display value="Bilirubin crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5773-7"/><display value="Calcium carbonate crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5774-5"/><display value="Calcium oxalate crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5775-2"/><display value="Calcium phosphate crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5777-8"/><display value="Cholesterol crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5783-6"/><display value="Unidentified crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5784-4"/><display value="Cystine crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="57901-1"/><display value="Clostridium difficile glutamate dehydrogenase [Presence] in Stool"/></contains><contains><system value="http://loinc.org"/><code value="5794-3"/><display value="Hemoglobin [Presence] in Urine by Test strip"/></contains><contains><system value="http://loinc.org"/><code value="5795-0"/><display value="Hippurate crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5799-2"/><display value="Leukocyte esterase [Presence] in Urine by Test strip"/></contains><contains><system value="http://loinc.org"/><code value="58012-6"/><display value="Natalizumab Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="5802-4"/><display value="Nitrite [Presence] in Urine by Test strip"/></contains><contains><system value="http://loinc.org"/><code value="5809-9"/><display value="Reducing substances [Presence] in Urine"/></contains><contains><system value="http://loinc.org"/><code value="5813-1"/><display value="Trichomonas vaginalis [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5814-9"/><display value="Triple phosphate crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5815-6"/><display value="Tyrosine crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="5817-2"/><display value="Urate crystals [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="58415-1"/><display value="BRAF gene p.V600E [Presence] in Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="58416-9"/><display value="MLH1 gene methylation [Presence] in Tissue by Molecular genetics method"/></contains><contains><system value="http://loinc.org"/><code value="5846-1"/><display value="Herpes simplex virus 1 Ag [Presence] in Unspecified specimen by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="5849-5"/><display value="Herpes simplex virus 2 Ag [Presence] in Unspecified specimen by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="5863-6"/><display value="Influenza virus A Ag [Presence] in Unspecified specimen by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="5867-7"/><display value="Influenza virus B Ag [Presence] in Unspecified specimen by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="58751-9"/><display value="Treponema pallidum IgG Ab [Presence] in Cerebral spinal fluid by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="5876-8"/><display value="Respiratory syncytial virus Ag [Presence] in Unspecified specimen by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="5880-0"/><display value="Rotavirus Ag [Presence] in Stool by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="588-4"/><display value="Legionella pneumophila Ag [Presence] in Unspecified specimen by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="59262-6"/><display value="Leukocyte esterase [Presence] in Cerebral spinal fluid by Test strip"/></contains><contains><system value="http://loinc.org"/><code value="59420-0"/><display value="Human papilloma virus16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe and signal amplification method|Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe and signal amplification method"/></contains><contains><system value="http://loinc.org"/><code value="59838-3"/><display value="Cytomegalovirus Ab [Presence] in Serum or Plasma by Latex agglutination"/></contains><contains><system value="http://loinc.org"/><code value="59839-1"/><display value="Urate crystals [Presence] in Tissue by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="60340-7"/><display value="Crystals.amorphous [Presence] in Urine sediment by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="61404-0"/><display value="Staphylococcus aureus DNA [Presence] in Unspecified specimen by Probe and target amplification method|Staphylococcus aureus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="62423-9"/><display value="Human coronavirus HKU1 RNA [Presence] in Unspecified specimen by Probe and target amplification method|Human coronavirus HKU1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/></contains><contains><system value="http://loinc.org"/><code value="62862-8"/><display value="Microsatellite instability [Presence] in Tissue by Immune stain"/></contains><contains><system value="http://loinc.org"/><code value="6306-5"/><display value="Adenovirus C(40)+B(41) Ag [Presence] in Stool by Immunoassay|Adenovirus 40+41 Ag [Presence] in Stool by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="6320-6"/><display value="Borrelia burgdorferi IgG Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="6321-4"/><display value="Borrelia burgdorferi IgM Ab [Presence] in Serum by Immunoblot (IB)"/></contains><contains><system value="http://loinc.org"/><code value="63379-2"/><display value="DNA double strand IgG Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="6355-2"/><display value="Chlamydia trachomatis Ag [Presence] in Unspecified specimen by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="63558-1"/><display value="HLA-DQB1*0602 [Presence]"/></contains><contains><system value="http://loinc.org"/><code value="6362-8"/><display value="Clostridium difficile toxin A+B [Presence] in Stool by Cytotoxin tissue culture assay"/></contains><contains><system value="http://loinc.org"/><code value="6443-6"/><display value="Lactoferrin [Presence] in Stool by Latex agglutination"/></contains><contains><system value="http://loinc.org"/><code value="6447-7"/><display value="Legionella pneumophila Ag [Presence] in Urine by Immunoassay"/></contains><contains><system value="http://loinc.org"/><code value="6733-0"/><display value="Pigeon serum Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="6808-0"/><display value="Aspergillus fumigatus 1 Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="6809-8"/><display value="Aspergillus fumigatus 6 Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="6810-6"/><display value="Aureobasidium pullulans Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="6818-9"/><display value="Saccharopolyspora rectivirgula Ab [Presence] in Serum by Immune diffusion (ID)"/></contains><contains><system value="http://loinc.org"/><code value="700-5"/><display value="Pneumocystis jiroveci Ag [Presence] in Unspecified specimen by Immunofluorescence"/></contains><contains><system value="http://loinc.org"/><code value="702-1"/><display value="Anisocytosis [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="703-9"/><display value="Basophilic stippling [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="716-1"/><display value="Heinz bodies [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="728-6"/><display value="Hypochromia [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="733-6"/><display value="Lymphocytes Variant [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="738-5"/><display value="Macrocytes [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="741-9"/><display value="Microcytes [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="765-8"/><display value="Neutrophils.hypersegmented [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="774-0"/><display value="Ovalocytes [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7789-1"/><display value="Acanthocytes [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7790-9"/><display value="Burr cells [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7791-7"/><display value="Dacrocytes [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7792-5"/><display value="Dohle body [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7793-3"/><display value="Howell-Jolly bodies [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7795-8"/><display value="Pappenheimer bodies [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7796-6"/><display value="Platelet clump [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7797-4"/><display value="Rouleaux [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7798-2"/><display value="Smudge cells [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="779-9"/><display value="Poikilocytosis [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="7918-6"/><display value="HIV 1+2 Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="800-3"/><display value="Schistocytes [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="801-1"/><display value="Sickle cells [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="802-9"/><display value="Spherocytes [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="803-7"/><display value="Toxic granules [Presence] in Blood by Light microscopy"/></contains><contains><system value="http://loinc.org"/><code value="8041-6"/><display value="Treponema pallidum Ab [Presence] in Serum by Hemagglutination"/></contains><contains><system value="http://loinc.org"/><code value="8061-4"/><display value="Nuclear Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="8091-1"/><display value="Ribonucleoprotein extractable nuclear Ab [Presence] in Serum"/></contains><contains><system value="http://loinc.org"/><code value="8092-9"/><display value="SCL-70 extractable nuclear Ab [Presence] in Serum"/></contains></expansion></ValueSet>

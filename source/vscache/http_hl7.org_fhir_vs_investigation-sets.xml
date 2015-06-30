@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>271336007</td>
+          <td>Examination / signs</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>160237006</td>
+          <td>History/symptoms</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/investigation-sets"/><version value="0.5.0"/><name value="Condition/Diagnosis Certainty"/><publisher value="FHIR Project team"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><description value="Example value set for Condition/Problem/Diagnosis certainty"/><copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/><status value="draft"/><experimental value="true"/><date value="2015-06-29T18:03:36+10:00"/><compose><include><system value="http://snomed.info/sct"/><!--   todo: this needs a lot of work   --><concept><code value="271336007"/><display value="Examination / signs"/></concept><concept><code value="160237006"/><display value="History/symptoms"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-investigation-sets"/></valueReference></extension><identifier value="urn:uuid:40be8d78-29f1-4315-9b4a-f98751b7bbfe"/><timestamp value="2015-06-29T08:14:47Z"/><contains><system value="http://snomed.info/sct"/><code value="271336007"/><display value="Examination / signs"/></contains><contains><system value="http://snomed.info/sct"/><code value="160237006"/><display value="History/symptoms"/></contains></expansion></ValueSet>

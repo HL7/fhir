@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>399166001</td>
+          <td>Fatal (qualifier value)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>24484000</td>
+          <td>Severe (severity modifier) (qualifier value)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>6736007</td>
+          <td>Moderate (severity modifier) (qualifier value)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>255604002</td>
+          <td>Mild (qualifier value)</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.227"/></extension><url value="http://hl7.org/fhir/vs/condition-severity"/><version value="0.5.0"/><name value="Condition/Diagnosis Severity"/><publisher value="FHIR Project team"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><description value="Example value set for Condition/Diagnosis severity grading"/><copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/><status value="draft"/><experimental value="true"/><date value="2015-06-29T18:03:36+10:00"/><compose><include><system value="http://snomed.info/sct"/><concept><code value="399166001"/></concept><concept><code value="24484000"/></concept><concept><code value="6736007"/></concept><concept><code value="255604002"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-condition-severity"/></valueReference></extension><identifier value="urn:uuid:2d309a1f-d2bd-4703-9194-f82eed1b37b9"/><timestamp value="2015-06-29T08:14:42Z"/><contains><system value="http://snomed.info/sct"/><code value="399166001"/><display value="Fatal (qualifier value)"/></contains><contains><system value="http://snomed.info/sct"/><code value="24484000"/><display value="Severe (severity modifier) (qualifier value)"/></contains><contains><system value="http://snomed.info/sct"/><code value="6736007"/><display value="Moderate (severity modifier) (qualifier value)"/></contains><contains><system value="http://snomed.info/sct"/><code value="255604002"/><display value="Mild (qualifier value)"/></contains></expansion></ValueSet>

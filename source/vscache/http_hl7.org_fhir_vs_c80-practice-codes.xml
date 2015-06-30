@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T08:03:36.659+00:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408467006</td>
+          <td>Adult mental illness</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394577000</td>
+          <td>Anesthetics</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394578005</td>
+          <td>Audiological medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>421661004</td>
+          <td>Blood banking and transfusion medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408462000</td>
+          <td>Burns care</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394579002</td>
+          <td>Cardiology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394804000</td>
+          <td>Clinical cytogenetics and molecular genetics</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394580004</td>
+          <td>Clinical genetics</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394803006</td>
+          <td>Clinical hematology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408480009</td>
+          <td>Clinical immunology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408454008</td>
+          <td>Clinical microbiology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394809005</td>
+          <td>Clinical neuro-physiology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394592004</td>
+          <td>Clinical oncology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394600006</td>
+          <td>Clinical pharmacology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394601005</td>
+          <td>Clinical physiology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394581000</td>
+          <td>Community medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408478003</td>
+          <td>Critical care medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394812008</td>
+          <td>Dental medicine specialties</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408444009</td>
+          <td>Dental-General dental practice</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394582007</td>
+          <td>Dermatology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408475000</td>
+          <td>Diabetic medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>410005002</td>
+          <td>Dive medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394583002</td>
+          <td>Endocrinology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419772000</td>
+          <td>Family practice</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394584008</td>
+          <td>Gastroenterology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408443003</td>
+          <td>General medical practice</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394802001</td>
+          <td>General medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394915009</td>
+          <td>General pathology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394814009</td>
+          <td>General practice</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394808002</td>
+          <td>Genito-urinary medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394811001</td>
+          <td>Geriatric medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408446006</td>
+          <td>Gynecological oncology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394586005</td>
+          <td>Gynecology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394916005</td>
+          <td>Hematopathology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408472002</td>
+          <td>Hepatology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394597005</td>
+          <td>Histopathology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394598000</td>
+          <td>Immunopathology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394807007</td>
+          <td>Infectious diseases</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419192003</td>
+          <td>Internal medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408468001</td>
+          <td>Learning disability</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394593009</td>
+          <td>Medical oncology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394813003</td>
+          <td>Medical ophthalmology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>410001006</td>
+          <td>Military medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394589003</td>
+          <td>Nephrology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394591006</td>
+          <td>Neurology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394599008</td>
+          <td>Neuropathology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394649004</td>
+          <td>Nuclear medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408470005</td>
+          <td>Obstetrics</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394585009</td>
+          <td>Obstetrics and gynecology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394821009</td>
+          <td>Occupational medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>422191005</td>
+          <td>Ophthalmic surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394594003</td>
+          <td>Ophthalmology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>416304004</td>
+          <td>Osteopathic manipulative medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>418960008</td>
+          <td>Otolaryngology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394882004</td>
+          <td>Pain management</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394806003</td>
+          <td>Palliative medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394588006</td>
+          <td>Pediatric (Child and adolescent) psychiatry</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408459003</td>
+          <td>Pediatric cardiology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394607009</td>
+          <td>Pediatric dentistry</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419610006</td>
+          <td>Pediatric endocrinology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>418058008</td>
+          <td>Pediatric gastroenterology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>420208008</td>
+          <td>Pediatric genetics</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>418652005</td>
+          <td>Pediatric hematology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>418535003</td>
+          <td>Pediatric immunology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>418862001</td>
+          <td>Pediatric infectious diseases</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419365004</td>
+          <td>Pediatric nephrology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>418002000</td>
+          <td>Pediatric oncology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419983000</td>
+          <td>Pediatric ophthalmology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419170002</td>
+          <td>Pediatric pulmonology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419472004</td>
+          <td>Pediatric rheumatology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394539006</td>
+          <td>Pediatric surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>420112009</td>
+          <td>Pediatric surgery-bone marrow transplantation</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>409968004</td>
+          <td>Preventive medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394587001</td>
+          <td>Psychiatry</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394913002</td>
+          <td>Psychotherapy</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408440000</td>
+          <td>Public health medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>418112009</td>
+          <td>Pulmonary medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419815003</td>
+          <td>Radiation oncology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394914008</td>
+          <td>Radiology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408455009</td>
+          <td>Radiology-Interventional radiology  </td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394602003</td>
+          <td>Rehabilitation</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408447002</td>
+          <td>Respite care</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394810000</td>
+          <td>Rheumatology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408450004</td>
+          <td>Sleep studies</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408476004</td>
+          <td>Surgery-Bone and marrow transplantation</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408469009</td>
+          <td>Surgery-Breast surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408466002</td>
+          <td>Surgery-Cardiac surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408471009</td>
+          <td>Surgery-Cardiothoracic transplantation</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408464004</td>
+          <td>Surgery-Colorectal surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408441001</td>
+          <td>Surgery-Dental-Endodontics</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408465003</td>
+          <td>Surgery-Dental-Oral and maxillofacial surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394605001</td>
+          <td>Surgery-Dental-Oral surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394608004</td>
+          <td>Surgery-Dental-Orthodontics</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408461007</td>
+          <td>Surgery-Dental-Periodontal surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408460008</td>
+          <td>Surgery-Dental-Prosthetic dentistry (Prosthodontics)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394606000</td>
+          <td>Surgery-Dentistry-Restorative dentistry</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408449004</td>
+          <td>Surgery-Dentistry--surgical</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>418018006</td>
+          <td>Surgery-Dermatologic surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394604002</td>
+          <td>Surgery-Ear, nose and throat surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394609007</td>
+          <td>Surgery-general</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408474001</td>
+          <td>Surgery-Hepatobiliary and pancreatic surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394610002</td>
+          <td>Surgery-Neurosurgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394611003</td>
+          <td>Surgery-Plastic surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408477008</td>
+          <td>Surgery-Transplantation surgery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394801008</td>
+          <td>Surgery-Trauma and orthopedics</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408463005</td>
+          <td>Surgery-Vascular</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419321007</td>
+          <td>Surgical oncology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394576009</td>
+          <td>Surgical-Accident &amp; emergency</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394590007</td>
+          <td>Thoracic medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>409967009</td>
+          <td>Toxicology </td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>408448007</td>
+          <td>Tropical medicine</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>419043006</td>
+          <td>Urological oncology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394612005</td>
+          <td>Urology</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394733009</td>
+          <td>Medical specialty--OTHER--NOT LISTED</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394732004</td>
+          <td>Surgical specialty--OTHER-NOT LISTED</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.72"/></extension><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.1769"/></extension><url value="http://hl7.org/fhir/vs/c80-practice-codes"/><version value="20091109"/><name value="Practice Setting Code Value Set"/><publisher value="HITSP"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><telecom><system value="email"/><value value="fhir@lists.hl7.org"/></telecom></contact><description value="This is the code representing the clinical specialty of the clinician or provider who     interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty     has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition."/><copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International    Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/><status value="active"/><experimental value="true"/><date value="2015-06-29T18:03:36+10:00"/><compose><include><system value="http://snomed.info/sct"/><concept><code value="408467006"/><display value="Adult mental illness"/></concept><concept><code value="394577000"/><display value="Anesthetics"/></concept><concept><code value="394578005"/><display value="Audiological medicine"/></concept><concept><code value="421661004"/><display value="Blood banking and transfusion medicine"/></concept><concept><code value="408462000"/><display value="Burns care"/></concept><concept><code value="394579002"/><display value="Cardiology"/></concept><concept><code value="394804000"/><display value="Clinical cytogenetics and molecular genetics"/></concept><concept><code value="394580004"/><display value="Clinical genetics"/></concept><concept><code value="394803006"/><display value="Clinical hematology"/></concept><concept><code value="408480009"/><display value="Clinical immunology"/></concept><concept><code value="408454008"/><display value="Clinical microbiology"/></concept><concept><code value="394809005"/><display value="Clinical neuro-physiology"/></concept><concept><code value="394592004"/><display value="Clinical oncology"/></concept><concept><code value="394600006"/><display value="Clinical pharmacology"/></concept><concept><code value="394601005"/><display value="Clinical physiology"/></concept><concept><code value="394581000"/><display value="Community medicine"/></concept><concept><code value="408478003"/><display value="Critical care medicine"/></concept><concept><code value="394812008"/><display value="Dental medicine specialties"/></concept><concept><code value="408444009"/><display value="Dental-General dental practice"/></concept><concept><code value="394582007"/><display value="Dermatology"/></concept><concept><code value="408475000"/><display value="Diabetic medicine"/></concept><concept><code value="410005002"/><display value="Dive medicine"/></concept><concept><code value="394583002"/><display value="Endocrinology"/></concept><concept><code value="419772000"/><display value="Family practice"/></concept><concept><code value="394584008"/><display value="Gastroenterology"/></concept><concept><code value="408443003"/><display value="General medical practice"/></concept><concept><code value="394802001"/><display value="General medicine"/></concept><concept><code value="394915009"/><display value="General pathology"/></concept><concept><code value="394814009"/><display value="General practice"/></concept><concept><code value="394808002"/><display value="Genito-urinary medicine"/></concept><concept><code value="394811001"/><display value="Geriatric medicine"/></concept><concept><code value="408446006"/><display value="Gynecological oncology"/></concept><concept><code value="394586005"/><display value="Gynecology"/></concept><concept><code value="394916005"/><display value="Hematopathology"/></concept><concept><code value="408472002"/><display value="Hepatology"/></concept><concept><code value="394597005"/><display value="Histopathology"/></concept><concept><code value="394598000"/><display value="Immunopathology"/></concept><concept><code value="394807007"/><display value="Infectious diseases"/></concept><concept><code value="419192003"/><display value="Internal medicine"/></concept><concept><code value="408468001"/><display value="Learning disability"/></concept><concept><code value="394593009"/><display value="Medical oncology"/></concept><concept><code value="394813003"/><display value="Medical ophthalmology"/></concept><concept><code value="410001006"/><display value="Military medicine"/></concept><concept><code value="394589003"/><display value="Nephrology"/></concept><concept><code value="394591006"/><display value="Neurology"/></concept><concept><code value="394599008"/><display value="Neuropathology"/></concept><concept><code value="394649004"/><display value="Nuclear medicine"/></concept><concept><code value="408470005"/><display value="Obstetrics"/></concept><concept><code value="394585009"/><display value="Obstetrics and gynecology"/></concept><concept><code value="394821009"/><display value="Occupational medicine"/></concept><concept><code value="422191005"/><display value="Ophthalmic surgery"/></concept><concept><code value="394594003"/><display value="Ophthalmology"/></concept><concept><code value="416304004"/><display value="Osteopathic manipulative medicine"/></concept><concept><code value="418960008"/><display value="Otolaryngology"/></concept><concept><code value="394882004"/><display value="Pain management"/></concept><concept><code value="394806003"/><display value="Palliative medicine"/></concept><concept><code value="394588006"/><display value="Pediatric (Child and adolescent) psychiatry"/></concept><concept><code value="408459003"/><display value="Pediatric cardiology"/></concept><concept><code value="394607009"/><display value="Pediatric dentistry"/></concept><concept><code value="419610006"/><display value="Pediatric endocrinology"/></concept><concept><code value="418058008"/><display value="Pediatric gastroenterology"/></concept><concept><code value="420208008"/><display value="Pediatric genetics"/></concept><concept><code value="418652005"/><display value="Pediatric hematology"/></concept><concept><code value="418535003"/><display value="Pediatric immunology"/></concept><concept><code value="418862001"/><display value="Pediatric infectious diseases"/></concept><concept><code value="419365004"/><display value="Pediatric nephrology"/></concept><concept><code value="418002000"/><display value="Pediatric oncology"/></concept><concept><code value="419983000"/><display value="Pediatric ophthalmology"/></concept><concept><code value="419170002"/><display value="Pediatric pulmonology"/></concept><concept><code value="419472004"/><display value="Pediatric rheumatology"/></concept><concept><code value="394539006"/><display value="Pediatric surgery"/></concept><concept><code value="420112009"/><display value="Pediatric surgery-bone marrow transplantation"/></concept><concept><code value="409968004"/><display value="Preventive medicine"/></concept><concept><code value="394587001"/><display value="Psychiatry"/></concept><concept><code value="394913002"/><display value="Psychotherapy"/></concept><concept><code value="408440000"/><display value="Public health medicine"/></concept><concept><code value="418112009"/><display value="Pulmonary medicine"/></concept><concept><code value="419815003"/><display value="Radiation oncology"/></concept><concept><code value="394914008"/><display value="Radiology"/></concept><concept><code value="408455009"/><display value="Radiology-Interventional radiology  "/></concept><concept><code value="394602003"/><display value="Rehabilitation"/></concept><concept><code value="408447002"/><display value="Respite care"/></concept><concept><code value="394810000"/><display value="Rheumatology"/></concept><concept><code value="408450004"/><display value="Sleep studies"/></concept><concept><code value="408476004"/><display value="Surgery-Bone and marrow transplantation"/></concept><concept><code value="408469009"/><display value="Surgery-Breast surgery"/></concept><concept><code value="408466002"/><display value="Surgery-Cardiac surgery"/></concept><concept><code value="408471009"/><display value="Surgery-Cardiothoracic transplantation"/></concept><concept><code value="408464004"/><display value="Surgery-Colorectal surgery"/></concept><concept><code value="408441001"/><display value="Surgery-Dental-Endodontics"/></concept><concept><code value="408465003"/><display value="Surgery-Dental-Oral and maxillofacial surgery"/></concept><concept><code value="394605001"/><display value="Surgery-Dental-Oral surgery"/></concept><concept><code value="394608004"/><display value="Surgery-Dental-Orthodontics"/></concept><concept><code value="408461007"/><display value="Surgery-Dental-Periodontal surgery"/></concept><concept><code value="408460008"/><display value="Surgery-Dental-Prosthetic dentistry (Prosthodontics)"/></concept><concept><code value="408460008"/><display value="Surgery-Dental-surgical-Prosthodontics"/></concept><concept><code value="394606000"/><display value="Surgery-Dentistry-Restorative dentistry"/></concept><concept><code value="408449004"/><display value="Surgery-Dentistry--surgical"/></concept><concept><code value="394608004"/><display value="Surgery-Dentistry-surgical-Orthodontics"/></concept><concept><code value="418018006"/><display value="Surgery-Dermatologic surgery"/></concept><concept><code value="394604002"/><display value="Surgery-Ear, nose and throat surgery"/></concept><concept><code value="394609007"/><display value="Surgery-general"/></concept><concept><code value="408474001"/><display value="Surgery-Hepatobiliary and pancreatic surgery"/></concept><concept><code value="394610002"/><display value="Surgery-Neurosurgery"/></concept><concept><code value="394611003"/><display value="Surgery-Plastic surgery"/></concept><concept><code value="408477008"/><display value="Surgery-Transplantation surgery"/></concept><concept><code value="394801008"/><display value="Surgery-Trauma and orthopedics"/></concept><concept><code value="408463005"/><display value="Surgery-Vascular"/></concept><concept><code value="419321007"/><display value="Surgical oncology"/></concept><concept><code value="394576009"/><display value="Surgical-Accident &amp; emergency"/></concept><concept><code value="394590007"/><display value="Thoracic medicine"/></concept><concept><code value="409967009"/><display value="Toxicology "/></concept><concept><code value="408448007"/><display value="Tropical medicine"/></concept><concept><code value="419043006"/><display value="Urological oncology"/></concept><concept><code value="394612005"/><display value="Urology"/></concept><concept><code value="394733009"/><display value="Medical specialty--OTHER--NOT LISTED"/></concept><concept><code value="394732004"/><display value="Surgical specialty--OTHER-NOT LISTED"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-c80-practice-codes"/></valueReference></extension><identifier value="urn:uuid:d1489061-4558-4230-ab70-6e08124fb102"/><timestamp value="2015-06-29T08:08:28Z"/><contains><system value="http://snomed.info/sct"/><code value="408467006"/><display value="Adult mental illness"/></contains><contains><system value="http://snomed.info/sct"/><code value="394577000"/><display value="Anesthetics"/></contains><contains><system value="http://snomed.info/sct"/><code value="394578005"/><display value="Audiological medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="421661004"/><display value="Blood banking and transfusion medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="408462000"/><display value="Burns care"/></contains><contains><system value="http://snomed.info/sct"/><code value="394579002"/><display value="Cardiology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394804000"/><display value="Clinical cytogenetics and molecular genetics"/></contains><contains><system value="http://snomed.info/sct"/><code value="394580004"/><display value="Clinical genetics"/></contains><contains><system value="http://snomed.info/sct"/><code value="394803006"/><display value="Clinical hematology"/></contains><contains><system value="http://snomed.info/sct"/><code value="408480009"/><display value="Clinical immunology"/></contains><contains><system value="http://snomed.info/sct"/><code value="408454008"/><display value="Clinical microbiology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394809005"/><display value="Clinical neuro-physiology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394592004"/><display value="Clinical oncology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394600006"/><display value="Clinical pharmacology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394601005"/><display value="Clinical physiology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394581000"/><display value="Community medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="408478003"/><display value="Critical care medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="394812008"/><display value="Dental medicine specialties"/></contains><contains><system value="http://snomed.info/sct"/><code value="408444009"/><display value="Dental-General dental practice"/></contains><contains><system value="http://snomed.info/sct"/><code value="394582007"/><display value="Dermatology"/></contains><contains><system value="http://snomed.info/sct"/><code value="408475000"/><display value="Diabetic medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="410005002"/><display value="Dive medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="394583002"/><display value="Endocrinology"/></contains><contains><system value="http://snomed.info/sct"/><code value="419772000"/><display value="Family practice"/></contains><contains><system value="http://snomed.info/sct"/><code value="394584008"/><display value="Gastroenterology"/></contains><contains><system value="http://snomed.info/sct"/><code value="408443003"/><display value="General medical practice"/></contains><contains><system value="http://snomed.info/sct"/><code value="394802001"/><display value="General medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="394915009"/><display value="General pathology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394814009"/><display value="General practice"/></contains><contains><system value="http://snomed.info/sct"/><code value="394808002"/><display value="Genito-urinary medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="394811001"/><display value="Geriatric medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="408446006"/><display value="Gynecological oncology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394586005"/><display value="Gynecology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394916005"/><display value="Hematopathology"/></contains><contains><system value="http://snomed.info/sct"/><code value="408472002"/><display value="Hepatology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394597005"/><display value="Histopathology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394598000"/><display value="Immunopathology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394807007"/><display value="Infectious diseases"/></contains><contains><system value="http://snomed.info/sct"/><code value="419192003"/><display value="Internal medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="408468001"/><display value="Learning disability"/></contains><contains><system value="http://snomed.info/sct"/><code value="394593009"/><display value="Medical oncology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394813003"/><display value="Medical ophthalmology"/></contains><contains><system value="http://snomed.info/sct"/><code value="410001006"/><display value="Military medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="394589003"/><display value="Nephrology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394591006"/><display value="Neurology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394599008"/><display value="Neuropathology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394649004"/><display value="Nuclear medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="408470005"/><display value="Obstetrics"/></contains><contains><system value="http://snomed.info/sct"/><code value="394585009"/><display value="Obstetrics and gynecology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394821009"/><display value="Occupational medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="422191005"/><display value="Ophthalmic surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="394594003"/><display value="Ophthalmology"/></contains><contains><system value="http://snomed.info/sct"/><code value="416304004"/><display value="Osteopathic manipulative medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="418960008"/><display value="Otolaryngology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394882004"/><display value="Pain management"/></contains><contains><system value="http://snomed.info/sct"/><code value="394806003"/><display value="Palliative medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="394588006"/><display value="Pediatric (Child and adolescent) psychiatry"/></contains><contains><system value="http://snomed.info/sct"/><code value="408459003"/><display value="Pediatric cardiology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394607009"/><display value="Pediatric dentistry"/></contains><contains><system value="http://snomed.info/sct"/><code value="419610006"/><display value="Pediatric endocrinology"/></contains><contains><system value="http://snomed.info/sct"/><code value="418058008"/><display value="Pediatric gastroenterology"/></contains><contains><system value="http://snomed.info/sct"/><code value="420208008"/><display value="Pediatric genetics"/></contains><contains><system value="http://snomed.info/sct"/><code value="418652005"/><display value="Pediatric hematology"/></contains><contains><system value="http://snomed.info/sct"/><code value="418535003"/><display value="Pediatric immunology"/></contains><contains><system value="http://snomed.info/sct"/><code value="418862001"/><display value="Pediatric infectious diseases"/></contains><contains><system value="http://snomed.info/sct"/><code value="419365004"/><display value="Pediatric nephrology"/></contains><contains><system value="http://snomed.info/sct"/><code value="418002000"/><display value="Pediatric oncology"/></contains><contains><system value="http://snomed.info/sct"/><code value="419983000"/><display value="Pediatric ophthalmology"/></contains><contains><system value="http://snomed.info/sct"/><code value="419170002"/><display value="Pediatric pulmonology"/></contains><contains><system value="http://snomed.info/sct"/><code value="419472004"/><display value="Pediatric rheumatology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394539006"/><display value="Pediatric surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="420112009"/><display value="Pediatric surgery-bone marrow transplantation"/></contains><contains><system value="http://snomed.info/sct"/><code value="409968004"/><display value="Preventive medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="394587001"/><display value="Psychiatry"/></contains><contains><system value="http://snomed.info/sct"/><code value="394913002"/><display value="Psychotherapy"/></contains><contains><system value="http://snomed.info/sct"/><code value="408440000"/><display value="Public health medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="418112009"/><display value="Pulmonary medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="419815003"/><display value="Radiation oncology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394914008"/><display value="Radiology"/></contains><contains><system value="http://snomed.info/sct"/><code value="408455009"/><display value="Radiology-Interventional radiology  "/></contains><contains><system value="http://snomed.info/sct"/><code value="394602003"/><display value="Rehabilitation"/></contains><contains><system value="http://snomed.info/sct"/><code value="408447002"/><display value="Respite care"/></contains><contains><system value="http://snomed.info/sct"/><code value="394810000"/><display value="Rheumatology"/></contains><contains><system value="http://snomed.info/sct"/><code value="408450004"/><display value="Sleep studies"/></contains><contains><system value="http://snomed.info/sct"/><code value="408476004"/><display value="Surgery-Bone and marrow transplantation"/></contains><contains><system value="http://snomed.info/sct"/><code value="408469009"/><display value="Surgery-Breast surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="408466002"/><display value="Surgery-Cardiac surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="408471009"/><display value="Surgery-Cardiothoracic transplantation"/></contains><contains><system value="http://snomed.info/sct"/><code value="408464004"/><display value="Surgery-Colorectal surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="408441001"/><display value="Surgery-Dental-Endodontics"/></contains><contains><system value="http://snomed.info/sct"/><code value="408465003"/><display value="Surgery-Dental-Oral and maxillofacial surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="394605001"/><display value="Surgery-Dental-Oral surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="394608004"/><display value="Surgery-Dental-Orthodontics"/></contains><contains><system value="http://snomed.info/sct"/><code value="408461007"/><display value="Surgery-Dental-Periodontal surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="408460008"/><display value="Surgery-Dental-Prosthetic dentistry (Prosthodontics)"/></contains><contains><system value="http://snomed.info/sct"/><code value="394606000"/><display value="Surgery-Dentistry-Restorative dentistry"/></contains><contains><system value="http://snomed.info/sct"/><code value="408449004"/><display value="Surgery-Dentistry--surgical"/></contains><contains><system value="http://snomed.info/sct"/><code value="418018006"/><display value="Surgery-Dermatologic surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="394604002"/><display value="Surgery-Ear, nose and throat surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="394609007"/><display value="Surgery-general"/></contains><contains><system value="http://snomed.info/sct"/><code value="408474001"/><display value="Surgery-Hepatobiliary and pancreatic surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="394610002"/><display value="Surgery-Neurosurgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="394611003"/><display value="Surgery-Plastic surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="408477008"/><display value="Surgery-Transplantation surgery"/></contains><contains><system value="http://snomed.info/sct"/><code value="394801008"/><display value="Surgery-Trauma and orthopedics"/></contains><contains><system value="http://snomed.info/sct"/><code value="408463005"/><display value="Surgery-Vascular"/></contains><contains><system value="http://snomed.info/sct"/><code value="419321007"/><display value="Surgical oncology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394576009"/><display value="Surgical-Accident &amp; emergency"/></contains><contains><system value="http://snomed.info/sct"/><code value="394590007"/><display value="Thoracic medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="409967009"/><display value="Toxicology "/></contains><contains><system value="http://snomed.info/sct"/><code value="408448007"/><display value="Tropical medicine"/></contains><contains><system value="http://snomed.info/sct"/><code value="419043006"/><display value="Urological oncology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394612005"/><display value="Urology"/></contains><contains><system value="http://snomed.info/sct"/><code value="394733009"/><display value="Medical specialty--OTHER--NOT LISTED"/></contains><contains><system value="http://snomed.info/sct"/><code value="394732004"/><display value="Surgical specialty--OTHER-NOT LISTED"/></contains></expansion></ValueSet>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://hl7.org/fhir/icd-10</td>
+          <td>123456</td>
+          <td/>
+        </tr>
+        <tr>
+          <td>http://hl7.org/fhir/icd-10</td>
+          <td>987654</td>
+          <td/>
+        </tr>
+        <tr>
+          <td>http://hl7.org/fhir/icd-10</td>
+          <td>123987</td>
+          <td/>
+        </tr>
+        <tr>
+          <td>http://hl7.org/fhir/icd-10</td>
+          <td>112233</td>
+          <td/>
+        </tr>
+        <tr>
+          <td>http://hl7.org/fhir/icd-10</td>
+          <td>997755</td>
+          <td/>
+        </tr>
+        <tr>
+          <td>http://hl7.org/fhir/icd-10</td>
+          <td>321789</td>
+          <td/>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.450"/></extension><url value="http://hl7.org/fhir/vs/icd-10"/><version value="0.5.0"/><name value="ICD-10 Codes"/><publisher value="Financial Management"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><description value="This value set includes sample ICD-10 codes."/><copyright value="This is an example set"/><status value="draft"/><experimental value="true"/><date value="2015-06-29T18:03:36+10:00"/><compose><include><system value="http://hl7.org/fhir/icd-10"/><concept><code value="123456"/></concept><concept><code value="987654"/></concept><concept><code value="123987"/></concept><concept><code value="112233"/></concept><concept><code value="997755"/></concept><concept><code value="321789"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-icd-10"/></valueReference></extension><identifier value="urn:uuid:93d21aa5-6539-4016-bfcc-a7938a732ff2"/><timestamp value="2015-06-29T08:05:26Z"/><contains><system value="http://hl7.org/fhir/icd-10"/><code value="123456"/><display value="123456"/></contains><contains><system value="http://hl7.org/fhir/icd-10"/><code value="987654"/><display value="987654"/></contains><contains><system value="http://hl7.org/fhir/icd-10"/><code value="123987"/><display value="123987"/></contains><contains><system value="http://hl7.org/fhir/icd-10"/><code value="112233"/><display value="112233"/></contains><contains><system value="http://hl7.org/fhir/icd-10"/><code value="997755"/><display value="997755"/></contains><contains><system value="http://hl7.org/fhir/icd-10"/><code value="321789"/><display value="321789"/></contains></expansion></ValueSet>

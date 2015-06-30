@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>181332001</td>
+          <td>Radial artery</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>13383001</td>
+          <td>Apex of heart</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/hspc-heartratemeasbodylocationprecoord"/><version value="0.01"/><name value="HSPC Heart Rate Measurement Body Location Precoodinated"/><immutable value="true"/><publisher value="Health Services Platform Consortium (HSPC)"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><telecom><system value="email"/><value value="fhir@lists.hl7.org"/></telecom></contact><description value="SELECT SNOMED CT code system values."/><copyright value="TBD"/><status value="draft"/><experimental value="true"/><extensible value="true"/><date value="2015-06-11"/><compose><include><system value="http://snomed.info/sct"/><concept><code value="181332001"/><display value="Radial artery"/></concept><concept><code value="13383001"/><display value="Apex of heart"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-hspc-heartratemeasbodylocationprecoord"/></valueReference></extension><identifier value="urn:uuid:b4d24577-07b0-4a3b-bd86-2284e877b90a"/><timestamp value="2015-06-29T08:15:25Z"/><contains><system value="http://snomed.info/sct"/><code value="181332001"/><display value="Radial artery"/></contains><contains><system value="http://snomed.info/sct"/><code value="13383001"/><display value="Apex of heart"/></contains></expansion></ValueSet>

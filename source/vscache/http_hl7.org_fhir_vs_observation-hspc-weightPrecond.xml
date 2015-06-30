@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84123</td>
+          <td>Weight with street clothes</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84124</td>
+          <td>Weight without street clothes</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84127</td>
+          <td>Weight with diapers</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84128</td>
+          <td>Weight without diapers</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84129</td>
+          <td>Weight with cast</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84130</td>
+          <td>Weight without cast</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84131</td>
+          <td>Weight with limb prosthesis</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84132</td>
+          <td>Weight without limb prosthesis</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84133</td>
+          <td>Weight with brace</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84134</td>
+          <td>Weight without brace</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84135</td>
+          <td>Weight with gown or drape</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84136</td>
+          <td>Weight with added-on weight</td>
+        </tr>
+        <tr>
+          <td>Intermountain Healthcare</td>
+          <td>84137</td>
+          <td>Weight without added-on weight</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>445541000</td>
+          <td>Dry body weight (observable entity)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>424927000</td>
+          <td>Body weight with shoes (observable entity)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>425024002</td>
+          <td>Body weight without shoes (observable entity)</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/observation-hspc-weightPrecond"/><version value="0.01"/><name value="HSPC Body Weight Associated Precondition"/><immutable value="true"/><publisher value="HSPC"/><contact><telecom><system value="url"/><value value="http://healthcaresoa.org"/></telecom></contact><description value="SNOMED CT code system values descending from the following:&#39;body position finding&#39; 9851009"/><copyright value="TBD"/><status value="draft"/><experimental value="true"/><extensible value="true"/><date value="2015-05-19"/><define><system value="Intermountain Healthcare"/><caseSensitive value="true"/><concept><code value="84123"/><display value="Weight with street clothes"/><definition value="Body weight measured while clothed"/></concept><concept><code value="84124"/><display value="Weight without street clothes"/><definition value="Body weight measured while unclothed"/></concept><concept><code value="84127"/><display value="Weight with diapers"/><definition value="Infant weight while wearing a diaper"/></concept><concept><code value="84128"/><display value="Weight without diapers"/><definition value="Infant weight without a diaper"/></concept><concept><code value="84129"/><display value="Weight with cast"/><definition value="Body weight that includes a cast"/></concept><concept><code value="84130"/><display value="Weight without cast"/><definition value="Body weight minus the weight of a cast"/></concept><concept><code value="84131"/><display value="Weight with limb prosthesis"/><definition value="Body weight including a prosthetic limb"/></concept><concept><code value="84132"/><display value="Weight without limb prosthesis"/><definition value="Body weight minus the weight of a prosthetic limb"/></concept><concept><code value="84133"/><display value="Weight with brace"/><definition value="Body weight including a brace"/></concept><concept><code value="84134"/><display value="Weight without brace"/><definition value="Body weight minus the weight of a brace"/></concept><concept><code value="84135"/><display value="Weight with gown or drape"/><definition value="Body weight including a gown or drape"/></concept><concept><code value="84136"/><display value="Weight with added-on weight"/><definition value="Body weight the includes some other weight"/></concept><concept><code value="84137"/><display value="Weight without added-on weight"/><definition value="Body weight after subtracting some other included weight"/></concept></define><compose><include><system value="http://snomed.info/sct"/><concept><code value="445541000"/><display value="Dry body weight (observable entity)"/></concept><concept><code value="424927000"/><display value="Body weight with shoes (observable entity)"/></concept><concept><code value="425024002"/><display value="Body weight without shoes (observable entity)"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-observation-hspc-weightPrecond"/></valueReference></extension><identifier value="urn:uuid:27c5ddc8-6929-47b2-9441-858b14c3332d"/><timestamp value="2015-06-29T08:14:57Z"/><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight measured while clothed"/></extension><system value="Intermountain Healthcare"/><code value="84123"/><display value="Weight with street clothes"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight measured while unclothed"/></extension><system value="Intermountain Healthcare"/><code value="84124"/><display value="Weight without street clothes"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Infant weight while wearing a diaper"/></extension><system value="Intermountain Healthcare"/><code value="84127"/><display value="Weight with diapers"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Infant weight without a diaper"/></extension><system value="Intermountain Healthcare"/><code value="84128"/><display value="Weight without diapers"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight that includes a cast"/></extension><system value="Intermountain Healthcare"/><code value="84129"/><display value="Weight with cast"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight minus the weight of a cast"/></extension><system value="Intermountain Healthcare"/><code value="84130"/><display value="Weight without cast"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight including a prosthetic limb"/></extension><system value="Intermountain Healthcare"/><code value="84131"/><display value="Weight with limb prosthesis"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight minus the weight of a prosthetic limb"/></extension><system value="Intermountain Healthcare"/><code value="84132"/><display value="Weight without limb prosthesis"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight including a brace"/></extension><system value="Intermountain Healthcare"/><code value="84133"/><display value="Weight with brace"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight minus the weight of a brace"/></extension><system value="Intermountain Healthcare"/><code value="84134"/><display value="Weight without brace"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight including a gown or drape"/></extension><system value="Intermountain Healthcare"/><code value="84135"/><display value="Weight with gown or drape"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight the includes some other weight"/></extension><system value="Intermountain Healthcare"/><code value="84136"/><display value="Weight with added-on weight"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Body weight after subtracting some other included weight"/></extension><system value="Intermountain Healthcare"/><code value="84137"/><display value="Weight without added-on weight"/></contains><contains><system value="http://snomed.info/sct"/><code value="445541000"/><display value="Dry body weight (observable entity)"/></contains><contains><system value="http://snomed.info/sct"/><code value="424927000"/><display value="Body weight with shoes (observable entity)"/></contains><contains><system value="http://snomed.info/sct"/><code value="425024002"/><display value="Body weight without shoes (observable entity)"/></contains></expansion></ValueSet>

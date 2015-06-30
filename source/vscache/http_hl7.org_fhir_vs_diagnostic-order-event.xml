@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>440622005</td>
+          <td>Specimen received (situation)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>394838008</td>
+          <td>Test request (procedure)</td>
+        </tr>
+        <tr>
+          <td>http://snomed.info/sct</td>
+          <td>26895000</td>
+          <td>Laboratory test order cancelation (procedure)</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.2139"/></extension><url value="http://hl7.org/fhir/vs/diagnostic-order-event"/><version value="0.5.0"/><name value="Diagnostic Order Event Codes"/><publisher value="Orders and Observations Working Group"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><description value="Additional information about an event that occurred to a diagnostic order"/><copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/><status value="draft"/><experimental value="true"/><date value="2015-06-29T18:03:36+10:00"/><compose><include><system value="http://snomed.info/sct"/><concept><code value="440622005"/></concept><concept><code value="394838008"/></concept><concept><code value="26895000"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-diagnostic-order-event"/></valueReference></extension><identifier value="urn:uuid:beaed262-8667-460b-a95a-ed20419d6c58"/><timestamp value="2015-06-29T08:14:56Z"/><contains><system value="http://snomed.info/sct"/><code value="440622005"/><display value="Specimen received (situation)"/></contains><contains><system value="http://snomed.info/sct"/><code value="394838008"/><display value="Test request (procedure)"/></contains><contains><system value="http://snomed.info/sct"/><code value="26895000"/><display value="Laboratory test order cancelation (procedure)"/></contains></expansion></ValueSet>

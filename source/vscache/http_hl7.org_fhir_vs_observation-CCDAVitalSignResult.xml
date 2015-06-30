@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><meta><lastUpdated value="2015-06-29T18:03:36.659+10:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="grid">
+        <tr>
+          <td>http://loinc.org</td>
+          <td>9279-1</td>
+          <td>Respiratory rate</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8867-4</td>
+          <td>Heart rate</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>2710-2</td>
+          <td>Oxygen saturation in Capillary blood by Oximetry</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>55284-4</td>
+          <td>Blood pressure systolic and diastolic</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8480-6</td>
+          <td>Systolic blood pressure</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8462-4</td>
+          <td>Diastolic blood pressure</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8310-5</td>
+          <td>Body temperature</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8302-2</td>
+          <td>Body height</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8306-3</td>
+          <td>Body height --lying</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>8287-5</td>
+          <td>Head Occipital-frontal circumference by Tape measure</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3141-9</td>
+          <td>Body weight Measured</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>39156-5</td>
+          <td>Body mass index (BMI) [Ratio]</td>
+        </tr>
+        <tr>
+          <td>http://loinc.org</td>
+          <td>3140-1</td>
+          <td>Body surface area Derived from formula</td>
+        </tr>
+      </table>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/></extension><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.4.642.2.0"/></extension><url value="http://hl7.org/fhir/vs/observation-CCDAVitalSignResult"/><version value="0.5.0"/><name value="C-CDA Vital Sign Result "/><publisher value="FHIR OO CDA Template team"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><!--  Value Set: HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC
+		Code System(s)  LOINC 2.16.840.1.113883.6.1  Note the base resource does not allow for display terms -Gforge ticket Item and expansion doesn;t allow for time less than a seconde for instantiation so assume is to be machine generated.  --><description value="This value set indicates the allowed vital sign result types. The vocabulary selected for this value set align with requirements in the Meaningful Use (MU) Stage 2.    Note the concept Blood pressure systolic and diastolic (55284-4) is used to group the related observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4). It SHALL NOT be used alone."/><copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/><status value="active"/><experimental value="true"/><date value="2015-06-29T18:03:36+10:00"/><compose><include><system value="http://loinc.org"/><concept><code value="9279-1"/></concept><concept><code value="8867-4"/></concept><concept><code value="2710-2"/></concept><concept><code value="55284-4"/></concept><concept><code value="8480-6"/></concept><concept><code value="8462-4"/></concept><concept><code value="8310-5"/></concept><concept><code value="8302-2"/></concept><concept><code value="8306-3"/></concept><concept><code value="8287-5"/></concept><concept><code value="3141-9"/></concept><concept><code value="39156-5"/></concept><concept><code value="3140-1"/></concept></include></compose><expansion><extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/source-valueset"><valueReference><reference value="ValueSet/valueset-observation-CCDAVitalSignResult"/></valueReference></extension><identifier value="urn:uuid:a362eb62-995f-4aeb-9e9d-9255ce80dce7"/><timestamp value="2015-06-29T08:15:21Z"/><contains><system value="http://loinc.org"/><code value="9279-1"/><display value="Respiratory rate"/></contains><contains><system value="http://loinc.org"/><code value="8867-4"/><display value="Heart rate"/></contains><contains><system value="http://loinc.org"/><code value="2710-2"/><display value="Oxygen saturation in Capillary blood by Oximetry"/></contains><contains><system value="http://loinc.org"/><code value="55284-4"/><display value="Blood pressure systolic and diastolic"/></contains><contains><system value="http://loinc.org"/><code value="8480-6"/><display value="Systolic blood pressure"/></contains><contains><system value="http://loinc.org"/><code value="8462-4"/><display value="Diastolic blood pressure"/></contains><contains><system value="http://loinc.org"/><code value="8310-5"/><display value="Body temperature"/></contains><contains><system value="http://loinc.org"/><code value="8302-2"/><display value="Body height"/></contains><contains><system value="http://loinc.org"/><code value="8306-3"/><display value="Body height --lying"/></contains><contains><system value="http://loinc.org"/><code value="8287-5"/><display value="Head Occipital-frontal circumference by Tape measure"/></contains><contains><system value="http://loinc.org"/><code value="3141-9"/><display value="Body weight Measured"/></contains><contains><system value="http://loinc.org"/><code value="39156-5"/><display value="Body mass index (BMI) [Ratio]"/></contains><contains><system value="http://loinc.org"/><code value="3140-1"/><display value="Body surface area Derived from formula"/></contains></expansion></ValueSet>

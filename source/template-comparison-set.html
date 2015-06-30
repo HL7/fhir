@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-9">
+
+<h2>Comparison <%pc.title%></h2>
+
+<p> 
+This is a comparison between the 2 implementation guides <%pc.left%> and <%pc.right%>, 
+generated to help compare the interoperability of implementations based on the two 
+implementation guides, or, alternatively, for implementers to understand what is required
+to conform to both implementation guides. 
+</p>
+
+<p>
+The comparison consists of a series of comparisons between the constraint 
+definitions defined in the implementation guide. For each comparison, 
+implementers can review:
+</p>
+<ul>
+ <li>A series of messages from the comparison algorithm. Errors indicate that solutions cannot be interoperable across both implementation guides (or that there are structural flaws in the definition of at least one)</li>
+ <li>The intersection of the 2 constraint statements. This is what resource authors (either client or server) would need to conform to produce content valid against both implementation guides</li>
+ <li>The union of the 2 constraint statements. This is what resource authors (either client or server) would need to be able to handle to accept content valid against either implementation guides</li>
+</ul>
+
+<h3>Comparisons</h3>
+
+<%pc.table%>
+
+<h3>ValueSets</h3>
+
+<%pc.valuesets%>
+
+</div>
+
+<%file newfooter%>
+
+</body>
+</html>

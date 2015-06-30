@@ -176,6 +176,8 @@ import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.ProfileComparer;
+import org.hl7.fhir.instance.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.QuestionnaireBuilder;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
@@ -730,6 +732,7 @@ public class Publisher implements URIResolver {
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
     StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(t);
     page.getProfiles().put(profile.getUrl(), profile);
+    page.getProfiles().put(profile.getName(), profile);
     t.setProfile(profile);
 
     //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
@@ -742,6 +745,7 @@ public class Publisher implements URIResolver {
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
     StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(t);
     page.getProfiles().put(profile.getUrl(), profile);
+    page.getProfiles().put(profile.getName(), profile);
     t.setProfile(profile);
     //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
     //    t.setProfile(profile);
@@ -1846,6 +1850,8 @@ public class Publisher implements URIResolver {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
       s.close();
 
+      produceComparisons();
+      
       page.log("....validator", LogMessageType.Process);
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
@@ -1912,6 +1918,55 @@ public class Publisher implements URIResolver {
       checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  private void produceComparisons() throws Exception {
+    for (String n : page.getIni().getPropertyNames("comparisons")) {
+      produceComparison(n);
+    }
+  }
+
+  private void produceComparison(String n) throws Exception {
+    int t = page.getIni().getIntegerProperty(n, "pairs");
+    ProfileComparer pc = new ProfileComparer(page.getWorkerContext());
+    pc.setId(n);
+    pc.setTitle(page.getIni().getStringProperty("comparisons", n));
+    page.log("...Comparison: "+pc.getTitle(), LogMessageType.Process);
+    pc.setLeftLink(page.getIni().getStringProperty(n, "left-link"));
+    pc.setLeftName(page.getIni().getStringProperty(n, "left-name"));
+    pc.setRightLink(page.getIni().getStringProperty(n, "right-link"));
+    pc.setRightName(page.getIni().getStringProperty(n, "right-name"));
+    for (int i = 1; i <= t; i++) {
+      String[] pair = page.getIni().getStringProperty(n, "pair"+Integer.toString(i)).split(",");
+      if (pair.length != 2)
+        throw new Exception("Didn't find a pair for "+n+".pair"+Integer.toString(i));
+      StructureDefinition sdl = page.getWorkerContext().getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+pair[0]);
+      if (sdl == null)
+        throw new Exception("Unable to find structure "+pair[0]);
+      StructureDefinition sdr = page.getWorkerContext().getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+pair[1]);
+      if (sdr == null)
+        throw new Exception("Unable to find structure "+pair[1]);
+      pc.compareProfiles(sdl, sdr);
+    }  
+    
+    // ok, all compared; now produce the output 
+    // first page we produce is simply the index
+    page.log("   ... generate", LogMessageType.Process);
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-comparison-set.html");
+    src = page.processPageIncludes(n+".html", src, "?type", null, "??path", null, null, "Comparison", pc);
+    TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, n+".html"));
+    cachePage(n + ".html", src, "Comparison "+pc.getTitle());
+    
+    // then we produce a comparison page for each pair
+    for (ProfileComparison cmp : pc.getComparisons()) {
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-comparison.html");
+      src = page.processPageIncludes(n+"."+cmp.getId()+".html", src, "?type", null, "??path", null, null, "Comparison", cmp);
+      TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, n+"."+cmp.getId()+".html"));
+      cachePage(n +"."+cmp.getId()+".html", src, "Comparison "+pc.getTitle());      
+    }
+      //   and also individual pages for each pair outcome
+    // then we produce value set pages for each value set
+    
   }
 
   private void minify(String srcFile, String dstFile) throws Exception {
