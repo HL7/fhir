@@ -2446,11 +2446,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (cs != null) {
       ref = (String) cs.getUserData("filename");
       if (Utilities.noString(ref))
-        ref = (String) cs.getUserData("filename");
+        ref = (String) cs.getUserData("path");
     }
     if (cs != null && ref != null) {
       if (!Utilities.noString(prefix) && ref.startsWith("http://hl7.org/fhir/"))
         ref = ref.substring(20)+"/index.html";
+      else if (!ref.endsWith(".html"))
+          ref = ref + ".html";
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", prefix+ref.replace("\\", "/"));
       a.addText(inc.getSystem().toString());
@@ -2460,8 +2462,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private  <T extends Resource> String getCsRef(T cs) {
     String ref = (String) cs.getUserData("filename");
-    if (Utilities.noString(ref))
-      ref = (String) cs.getUserData("filename");
+//    if (Utilities.noString(ref))
+//      ref = (String) cs.getUserData("path");
     return ref == null ? "??" : ref.replace("\\", "/");
   }
 
