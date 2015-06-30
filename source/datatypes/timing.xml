@@ -1060,7 +1060,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Duration | Period</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Duration | Range | Period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1069,9 +1069,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Length, or (Start and/or end) limits</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Length/Range of lengths, or (Start and/or end) limits</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3691,7 +3691,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>12</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3706,8 +3706,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>20</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
