@@ -123,6 +123,11 @@
     <display value="Free-standing ambulatory surgery facility"/>
     <display value="Free-standing ambulatory surgery facility (environment)"/>
   </concept>
+  <concept id="106292003" display="Professional nurse (occupation)">
+    <display value="Nurse"/>
+    <display value="Professional nurse"/>
+    <display value="Professional nurse (occupation)"/>
+  </concept>
   <concept id="108241001" display="Dialysis procedure (procedure)">
     <display value="Dialysis procedure"/>
     <display value="Dialysis procedure (procedure)"/>
@@ -5754,6 +5759,10 @@
     <display value="Do not stop taking this medicine except on your doctor&#39;s advice (qualifier value)"/>
     <display value="Do not stop taking this medicine except on your doctor&#39;s advice"/>
   </concept>
+  <concept id="419465000" display="Unilateral right (qualifier value)">
+    <display value="Unilateral right (qualifier value)"/>
+    <display value="Unilateral right"/>
+  </concept>
   <concept id="419472004" display="Pediatric rheumatology (qualifier value)">
     <display value="Paediatric rheumatology (qualifier value)"/>
     <display value="Pediatric rheumatology"/>
@@ -6336,6 +6345,11 @@
     <display value="Adult hepatic specialty formula (product)"/>
     <display value="Adult hepatic specialty formula"/>
     <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to meet the nutritional needs of adults with hepatic disease and reduce metabolic end products."/>
+  </concept>
+  <concept id="443031000124106" display="Adult critical care formula (product)">
+    <display value="Adult critical care formula (product)"/>
+    <display value="Adult critical care formula"/>
+    <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to meet the nutritional needs of adult critical care patients."/>
   </concept>
   <concept id="443051000124104" display="Adult diabetic specialty formula (product)">
     <display value="Adult diabetic specialty formula (product)"/>

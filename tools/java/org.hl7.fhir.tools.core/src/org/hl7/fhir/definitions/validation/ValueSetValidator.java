@@ -7,6 +7,7 @@ import java.util.Set;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.WorkerContext;
@@ -57,12 +58,53 @@ public class ValueSetValidator extends BaseValidator {
         }
       }
     }
+    if (vs.hasCompose()) {
+      for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+        if (canValidate(inc.getSystem())) {
+          int i = 0;
+          for (ConceptReferenceComponent cc : inc.getConcept()) {
+            i++;
+            if (inc.getSystem().equals("http://nema.org/dicom/dicm"))
+              warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
+                  "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem());
+            else
+              rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
+                "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem());
+          }
+        }
+      }
+    }
     int warnings = 0;
     for (ValidationMessage em : errors) {
       if (em.getLevel() == IssueSeverity.WARNING)
         warnings++;
     }
     vs.setUserData("warnings", o_warnings - warnings);
+  }
+
+  private boolean isValidCode(String code, String system) {
+    ValueSet cs = context.getCodeSystems().get(system);
+    if (cs == null) 
+      return context.getTerminologyServices().validateCode(system, code, null) == null;
+    else {
+      if (hasCode(code, cs.getDefine().getConcept()))
+        return true;
+      return false;
+    }
+  }
+
+  private boolean hasCode(String code, List<ConceptDefinitionComponent> list) {
+    for (ConceptDefinitionComponent cc : list) {
+      if (cc.getCode().equals(code))
+        return true;
+      if (hasCode(code, cc.getConcept()))
+        return true;
+    }
+    return false;
+  }
+
+  private boolean canValidate(String system) {
+    return context.getCodeSystems().containsKey(system) || context.getTerminologyServices().supportsSystem(system);
   }
 
   private void fixup(ValueSet vs) {
