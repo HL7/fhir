@@ -998,8 +998,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private void genExtensionRow(StringBuilder s, StructureDefinition ed) throws Exception {
     s.append("<tr>");
-    s.append("<td>"+ed.getId()+"</td>");
-    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+".html\">"+Utilities.escapeXml(ed.getName())+"</a></td>");
+    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+".html\">"+ed.getId()+"</a></td>");
+    s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
     s.append("<td>");
     boolean first = true;
     if (ed.getContextType() == ExtensionContext.RESOURCE) {
@@ -1033,8 +1033,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     } else
       throw new Error("Not done yet");
     s.append("</td>");
-    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".xml.html\">XML</a></td>");
-    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".json.html\">JSON</a></td>");
+//    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".xml.html\">XML</a></td>");
+//    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".json.html\">JSON</a></td>");
     s.append("</tr>");
   }
 
