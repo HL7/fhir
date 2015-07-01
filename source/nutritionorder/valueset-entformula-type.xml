@@ -15,7 +15,7 @@
 			<system value="http://snomed.info/sct"/>
 			<version value="http://snomed.info/sct/US1000124/version/20140901"/>
 			<concept>
-				<code value="4430310000124106"/>
+				<code value="443031000124106"/>
 				<display value="Adult critical care formula"/>
 			</concept>
 			<concept>
@@ -99,7 +99,7 @@
 				<display value="Pediatric standard formula"/>
 			</concept>
 			<concept>
-				<code value="441561000124106 "/>
+				<code value="441561000124106"/>
 				<display value="Standard enteral formula with fiber"/>
 			</concept>
 			<concept>
