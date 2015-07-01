@@ -74,11 +74,7 @@ application/x-www-form-urlencoded submission for a POST:
 </pre>
 <p>
 The server returns the results in the HTTP response as a <a href="bundle.html">bundle</a>
-which includes the resources that are the results of the search. The server can also
-include additional resources in the result set, such as <a href="operationoutcome.html">OperationOutcome</a>
-resources. Clients should ignore resources that don't have the expected type.
-A HTTP status code of 403 signifies that the server refused to perform the search,
-while some other 4xx or 5xx code signifies that some error occurred.
+which includes the resources that are the results of the search. 
 </p>
 <p>
 <a href="http.html#search">Search operations</a> are executed in one of 3 defined contexts that control which set of resources are being searched:
@@ -89,10 +85,40 @@ while some other 4xx or 5xx code signifies that some error occurred.
  <li>All resources: GET [base]/_search?parameter(s) (parameters common to all types only)</li>
 </ul>
 <p>
-Search operations can also be initiated by other more complex and flexible
-methods described below, which change both the way the search is initiated, and
-the results that are returned.
+Search operations can also be implemented in <a href="messaging.html#search">the messaging framework</a>.
 </p>
+
+<a name="errors"> </a>
+<h3>Handling Errors</h3>
+<p>
+If a server is unable to execute a search request, it may return an error. 
+A HTTP status code of 403 signifies that the server refused to perform the search,
+while some other 4xx or 5xx code signifies that some error occurred. When
+the search fails, a server SHOULD return an <a href="operationoutcome.html">OperationOutcome</a>
+detailing the cause of the failure. Note that an empty search result is not a failure.
+</p>
+<p>
+In some cases, some of the parameters may have problems. For instance:
+</p>
+<ul>
+ <li>A parameter may refer to a non-existent resource e.g. GET [base]/Observation?subject=101, where 101 does not exist</li>
+ <li>A parameter may refer to an unknown code e.g. GET [base]/Observation?code=loinc|1234-1, where the LOINC code 1234-1 is not known to the server</li>
+ <li>A parameter may refer to a time that is out of scope e.g. GET [base]/Condition?onset=&lt;1995, where the system only has data going back to 2001</li>
+ <li>A data time parameter may have incorrect format e.g. GET [base]/Condition?onset=23%20May%202009</li>
+</ul>
+<p>
+Where the content of the parameter is syntactically correct, servers SHOULD return an error. 
+However where the issue is a logical condition (e.g. unknown subject or code), the server 
+SHOULD process the search, including processing the parameter - with the effect of returning
+an empty search set, since the parameter cannot be satisfied. 
+</p>
+<p>
+In such cases, the search process MAY include an <a href="operationoutcome.html">OperationOutcome</a>
+in the search set that contains additional hints and warnings about the search process.
+This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="search-entry-mode.html">outcome</a>.
+Clients can use this information to improve future searches.
+</p>
+
 <a name="standard"> </a>
 <h3>Standard Parameters</h3>
 
@@ -1135,16 +1161,6 @@ There can only ever be one _query parameter in a set of search
 parameters. Servers processing search requests SHALL
 refuse to process a search request if they do not recognize
 the _query parameter value.
-</p>
-
-<h3>Executing Searches</h3>
-<p>
-In addition to the standard <a href="http.html#search">search</a> operation on a
-RESTful interface (as described above), searches can also be performed using
-the messaging framework.
-</p>
-<p>
-<i>TODO: describe how this is done</i>
 </p>
 
 <a name="currency"> </a>
