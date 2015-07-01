@@ -306,7 +306,7 @@ public class HeirarchicalTableGenerator  {
         tc.setAttribute("style", "width: "+Integer.toString(t.width)+"px");
     }
     if (tc != null && model.getDocoRef() != null)
-      tc.addTag("span").setAttribute("style", "float: right").addTag("a").setAttribute("title", "Legend for this format").setAttribute("href", model.getDocoRef()).addTag("img").setAttribute("alt", "doco").setAttribute("src", model.getDocoImg());
+      tc.addTag("span").setAttribute("style", "float: right").addTag("a").setAttribute("title", "Legend for this format").setAttribute("href", model.getDocoRef()).addTag("img").setAttribute("alt", "doco").setAttribute("style", "background-color: inherit").setAttribute("src", model.getDocoImg());
       
     for (Row r : model.getRows()) {
       renderRow(table, r, 0, new ArrayList<Boolean>());
@@ -345,24 +345,24 @@ public class HeirarchicalTableGenerator  {
     XhtmlNode tc = tr.addTag(name);
     tc.setAttribute("class", "heirarchy");
     if (indents != null) {
-      tc.addTag("img").setAttribute("src", srcFor("tbl_spacer.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
+      tc.addTag("img").setAttribute("src", srcFor("tbl_spacer.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
       tc.setAttribute("style", "vertical-align: top; text-align : left; background-color: "+color+"; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url("+checkExists(indents, hasChildren)+")");
       for (int i = 0; i < indents.size()-1; i++) { 
         if (indents.get(i))
-          tc.addTag("img").setAttribute("src", srcFor("tbl_blank.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
+          tc.addTag("img").setAttribute("src", srcFor("tbl_blank.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
         else
-          tc.addTag("img").setAttribute("src", srcFor("tbl_vline.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
+          tc.addTag("img").setAttribute("src", srcFor("tbl_vline.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
       }
       if (!indents.isEmpty())
         if (indents.get(indents.size()-1))
-          tc.addTag("img").setAttribute("src", srcFor("tbl_vjoin_end.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
+          tc.addTag("img").setAttribute("src", srcFor("tbl_vjoin_end.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
         else
-          tc.addTag("img").setAttribute("src", srcFor("tbl_vjoin.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
+          tc.addTag("img").setAttribute("src", srcFor("tbl_vjoin.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
     }
     else
       tc.setAttribute("style", "vertical-align: top; text-align : left; background-color: "+color+"; padding:0px 4px 0px 4px");
     if (!Utilities.noString(icon)) {
-      XhtmlNode img = tc.addTag("img").setAttribute("src", srcFor(icon)).setAttribute("class", "heirarchy").setAttribute("style", "background-color: "+color+";").setAttribute("alt", ".");
+      XhtmlNode img = tc.addTag("img").setAttribute("src", srcFor(icon)).setAttribute("class", "heirarchy").setAttribute("style", "background-color: "+color+"; background-color: inherit").setAttribute("alt", ".");
       if (hint != null)
         img.setAttribute("title", hint);
       tc.addText(" ");
@@ -496,16 +496,21 @@ public class HeirarchicalTableGenerator  {
 
 
   private void genImage(List<Boolean> indents, boolean hasChildren, OutputStream stream) throws IOException {
-    BufferedImage bi = new BufferedImage(800, 2, BufferedImage.TYPE_BYTE_BINARY);
-    Graphics2D graphics = bi.createGraphics();
-    graphics.setBackground(Color.WHITE);
-    graphics.clearRect(0, 0, 800, 2);
+    BufferedImage bi = new BufferedImage(800, 2, BufferedImage.TYPE_INT_ARGB);
+    // i have no idea why this works to make these pixels transparent. It defies logic. 
+    // But this combination of INT_ARGB and filling with grey magically worked when nothing else did. So it stays as is.
+    Color grey = new Color(99,99,99,0); 
+    for (int i = 0; i < 800; i++) {
+      bi.setRGB(i, 0, grey.getRGB());
+      bi.setRGB(i, 1, grey.getRGB());
+    }
+    Color black = new Color(0, 0, 0);
     for (int i = 0; i < indents.size(); i++) {
       if (!indents.get(i))
-        bi.setRGB(12+(i*16), 0, 0);
+        bi.setRGB(12+(i*16), 0, black.getRGB());
     }
     if (hasChildren)
-      bi.setRGB(12+(indents.size()*16), 0, 0);
+      bi.setRGB(12+(indents.size()*16), 0, black.getRGB());
     ImageIO.write(bi, "PNG", stream);
   }
 
