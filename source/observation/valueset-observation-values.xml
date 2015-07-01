@@ -60,7 +60,7 @@
 				<!--  the children of SNOMED CT Concepts from SCTID 123037004 Body structure (body structure).  -->
 				<property value="concept"/>
 				<op value="is-a"/>
-				<value value="123037004 "/>
+				<value value="123037004"/>
 			</filter>
 		</include>
 	</compose>
