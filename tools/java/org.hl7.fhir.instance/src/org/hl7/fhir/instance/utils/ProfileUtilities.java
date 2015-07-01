@@ -1522,7 +1522,7 @@ public class ProfileUtilities {
           String p = child.getSelf().getPath().substring(ed.getPath().length()-3);
           ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+p).getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else {
-          throw new Error("Not handled yet");
+          throw new Error("Not handled yet (sortElements)");
         }
         sortElements(child, ccmp, errors);
       }
