@@ -477,7 +477,7 @@ HTTP/1.1 200 OK
 
 <p>
 It's also possible to validate a set of concepts against their relevant value
-sets in <a href="valueset-operations.html#batch">a single batch operation</a>, to support high-volume process and reduce network
+sets in <a href="valueset-operations.html#batch-validate">a single batch operation</a>, to support high-volume process and reduce network
 latency effects. In this case, the client passes the server the following information:
 </p>
 <ul>
@@ -506,7 +506,7 @@ CDA document, by converting from the CDA CD data type to CodeableConcepts.
 A request to validate 2 concepts from a CDA document, with OIDs for value set identifiers:
 </p>
 <pre class="http">
-POST [base]/ValueSet/$batch
+POST [base]/ValueSet/$batch-validate
 [other headers]
 
 {
@@ -652,7 +652,7 @@ HTTP/1.1 200 OK
 <h3>Batch Translation</h3>
 
 <p>
-It's also possible to translate a set of concepts in <a href="conceptmap-operations.html#batch">a single batch operation</a>, to support high-volume process and reduce network
+It's also possible to translate a set of concepts in <a href="conceptmap-operations.html#batch-translate">a single batch operation</a>, to support high-volume process and reduce network
 latency effects. In this case, the client passes the server the following information:
 </p>
 <ul>

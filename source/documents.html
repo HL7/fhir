@@ -292,25 +292,13 @@ of posting to them:
    server can reassemble the document (see below), the result cannot be expected to be in the same order, etc.  Thus a document signature will
    very likely be invalid.)</td> </tr>
 
- <tr> <td><a href="messaging.html#mailbox">[baseurl]/$mailbox</a></td> <td>Document Bundle</td> <td>Submit the
- document to the server for processing. The exact processing the server performs is at the discretion of the
- server. It MAY perform one or more of these actions:
-  <ul>
-    <li>Resend the document elsewhere</li>
-    <li>Break it up into individually accessible resources and make them available on a RESTful interface</li>
-    <li>Retain the document in its binary form and make it available on /Binary and perhaps also create a DocumentReference</li>
-  </ul>
-  The server is not obliged to process the document in any particular fashion. The client does not know what action
-  the server will take, only that the server has accepted responsibility for the document.
-  <br/><br/>
-  Implementation Profiles should be careful when making rules about what happens when a document is submitted to the
-  mailbox, as it would be easy to make rules such that a server cannot conform to more than one profile at a time.
-  </td> </tr>
 </table>
 
 <p>
 Note: While these end-points are defined for use with document resources and document bundles,
 it is not necessary to use them. Documents may be transferred between systems using any method desired.
+In addition, servers and/or specifications may define additional <a href="operations.html">operations</a>
+for handling documents beyond the options described above.
 </p>
 
 <h3>Generating a Document</h3>

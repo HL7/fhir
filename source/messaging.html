@@ -90,7 +90,7 @@ must be determined by the content, or the context.
 <p>
 Each FHIR request message has one or more response messages. There must be at least
 one response message so that the sender can know that the message was properly
-received. Multiple response SHALL NOT be returned for messages of consequence,
+received. Multiple response messages SHALL NOT be returned for messages of consequence,
 and SHOULD not be returned for notifications.
 </p>
 <p>
@@ -103,8 +103,9 @@ delivery of messages.
 <p>
 For this reason, a synchronous exchange pattern - where the sender sends a
 message, and waits on the same channel for a single response, and then
-sends the next message - are the easiest to understand and manage. The
-<a href="#mailbox">mailbox</a> described below works in this fashion.
+sends the next message - is the easiest to understand and manage. The
+<a href="#process">$process-message</a> <a href="operations.html">operation</a>
+described below works in this fashion.
 </p>
 <p>
 However synchronous message exchange does not cater for multiple response
@@ -256,77 +257,89 @@ statement is a <a href="conformance.html">resource with the name
 "Conformance"</a>.
 </p>
 
-<a name="mailbox"></a>
-<h2>Mailbox: Synchronous Messaging</h2>
+<a name="process"></a>
+<h2>$process-message</h2>
 <p>
-The mailbox is the standard name for a service hosted on a <a href="http.html">RESTful server</a>
-that accepts messages and processes them in a synchronous fashion as transactions and returns
-a message response appropriate for the message received. The server is under no obligation
-to do anything particular with the resources except as required by the semantics of the
-event code in the message resource. e.g. In addition to processing the message event, a server
+The simplest way to handle messages where there are also <a href="http.html">RESTful interactions</a>
+occurring is to use the <a href="messageheader-operations.html">$process-message</a>. 
+This operation that accept a messages, processes it according to the definition of the event in the message header, and returns a one or more response messages. 
+e.g. In addition to processing the message event, a server
 may choose to retain all or some the resources and make them available on a RESTful interface, but
 is not required to do so.
 </p>
 <p>
 When processing messages, a server may return a status code of 200 OK, or an process/error code (300+).
 If the server returns 200 OK, it SHALL return a bundle that is the message response.
-For any other response code, the message has not been processed. The server MAY return an
+For any other response code, the message has not been succesfully processed. The server MAY return an
 <a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD
 do so if the response code is 400 or greater.
 The client SHALL interpret a 4xx response to indicate that there is no point resubmitting the unaltered
-message, and a 5xx response to indicate an unexpected error on the part of the server, which means that
-it is worth resubmitting (and doing so should not result in a duplicate message response).
-Repeated failures indicate either a fatal problem with the submission or a problem with the
-receiving application.
+message, and a 5xx response to indicate an unexpected error occurred on the part of the server, with
+the implication that it may be appropriate to resubmit the original message. Doing so SHOULD NOT result 
+in a duplicate message response). Repeated failures indicate either a fatal problem with the submission 
+or a problem with the receiving application.
 </p>
 <p>
-The following rules apply to the mailbox:
+The following rules apply when using $process-message:
 </p>
 <ul>
- <li>The mailbox only accepts POST transactions - any other HTTP method will result in an HTTP error</li>
+ <li>The operation only accepts POST transactions - any other HTTP method will result in an HTTP error</li>
  <li>The request content type submitted is always <a href="bundle.html">a Bundle</a> with type "message" containing a <a href="messageheader.html">Message Header</a> resource as the first resource</li>
- <li>The response content type returned is always an HTTP error, or <a href="bundle.html">a Bundle</a> with type "message" containing a <a href="messageheader.html">Message Header</a> resource as the first resource</li>
+ <li>The response content type returned is always <a href="bundle.html">a Bundle</a> with type "message" containing a <a href="messageheader.html">Message Header</a> resource as the first resource, or an HTTP error</li>
  <li>If the response is an error, the body SHOULD be an <a href="operationoutcome.html">Errors &amp; Warning</a> resource with full details</li>
- <li>The URL never takes any parameters</li>
  <li>The mailbox may be authenticated using standard HTTP authentication methods, including OAuth</li>
 </ul>
 <p>
-This simple mailbox profile can be used by any HTTP end point that accepts FHIR messages, not just FHIR RESTful servers.
+The $process-message operation can be used by any HTTP end point that accepts FHIR messages, not just FHIR RESTful servers.
 </p>
 <p>
 In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of Bundle.id and
-message id described above</a> SHALL be followed when messages are processed using the mailbox. Servers SHALL
-accept multiple concurrent message submissions and process them correctly.
+message id described above</a> SHALL be followed when messages are processed using this operation. 
 </p>
 
-<h2>Asynchronous Messaging</h2>
 <p>
-Asynchronous messaging may be implemented by using the RESTful interface and the Bundle End-point, by following
-this general pattern between "sender" and "receiver" systems, using a "MTA" (message transfer agent):
+The <a href="messageheader-operations.html">$process-message</a> operation may be used 
+synchronously, or asynchronously.
 </p>
-<ol>
- <li>The sender constructs a bundle with type message, and a first entry which is a <a href="messageheader.html">Message Header</a> with a known MessageHeader.identifier ("src-id")</li>
- <li>The sender creates this message on the MTA using its <a href="bundle.html">Bundle</a> end-point</li>
- <li>The receiver system is notified of the creation of the message. The receiver can do this by
-   <ul>
-     <li>using the <a href="http.html#history">history</a> operation to track new messages</li>
-     <li><a href="http.html#search">searching</a> the Bundle end-point (e.g. GET [base]/Bundle?message.source.endpoint=http://acme.com/systems/pas to search for messages from the system at endpoint "http://acme.com/systems/pas")</li>
-     <li>Subscribing to bundle updates using the <a href="subscription.html">Subscription</a> resource</li>
-   </ul>
-   In the first 2 approaches, the receiver polls the MTA, and in the 3rd, the MTA pushes the event to the receiver
- </li>
- <li>The receiver fetches the message, processes it as specified in the event.code, and builds one or more response messages</li>
- <li>For each response message, the receiver constructs a bundle with type message, and a first entry which is a <a href="messageheader.html">Message Header</a> with the <i>src-id</i> in MessageHeader.response.identifier</li>
- <li>When the receiver has finished processing the message, it marks it as processed using the tag ?? and the meta operation (POST to [base]/[type]/[id]/_meta where [id] is MTA id for the source message)</li>
- <li>The source system can check on the status of messages and track responses using the same approaches as listed above for the receiver system.
- For the search mechanism, the operation would be GET [base]/Bundle?message.response-id=[src-id]</li>
-</ol>
+<h3>Synchronous Operation</h3>
 <p>
-The MTA may either be hosted on the the sender, the receiver, or on a 3rd party server.
+Synchronous messaging is the easiest to understand; the sender sends a message to the 
+receiver (the server), the server processes it, and then returns a response. Usually
+(though not always) the sender waits for the response to the current message before  
+sending the next message. This kind of messaging exchange is the most common because
+it's the simplest to understand.
 </p>
-
-
-
+<p>
+The following rules apply when using the $process-message operation synchronously:
+</p>
+<ul>
+ <li>The URL (http://server/base/$process-message) has no parameters</li>
+ <li>It is an error if the sender POSTs a message that requires multiple response messages</li>
+ <li>Servers SHALL accept multiple concurrent message submissions and process them correctly (they are allowed to process them sequentially internally, but multiple concurrent submissions is not an error in it's own right)</li>
+</ul>
+<h3>Asynchronous Operation</h3>
+<p>
+in Asynchronous messaging, the server acknowledges receipt of them message immediately,
+and responds to the sender separately. The server may respond more than once to any
+given message. 
+</p>
+<p>
+The following rules apply when using the $process-message operation synchronously:
+</p>
+<ul>
+ <li>The URL has at least one parameter: http://server/base/$process-message?async=true</li>
+ <li>The server acknowledges the message with a 200OK with no body, or returns an HTTP error if the message cannot be processed. An <a href="operationoutcome.html">OperationOutcome</a> SHOULD be returned in such a case</li>
+ <li>Accepting the message means that the server has understood the message enough to know where to respond</li>
+ <li>By default, the server responds by invoking the $process-message using the sender's stated end-point in the message: POST [MessageHeader.source.endpoint]/$process-messages]</li>
+ <li>Since the source end point may be manipulated by message transfer engines, an alternative response address may be specified using the parameter "response-url": http://server/base/$process-message?async=true&amp;response-url=http://server2.com/base/anything. 
+   The endpoint at the specified URL SHALL implement the signature of the $process-message operation (parameter async=true, accept a Bundle, return a 200 OK or an error)</li>
+ <li>The server submits response messages to the appropriate end point with the parameter async=true. There is no response message for the response messages</li>
+</ul>
+<p>
+When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent. 
+Note that asynchronous messaging is less reliable than synchronous messaging; more can go wrong. 
+This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
+</p>
 
 <a name="endpoints"></a>
 <h2>Relationship between Messaging and REST</h2>
@@ -403,6 +416,82 @@ Additional events may be defined elsewhere, though this specification does not y
 </p>
 </blockquote>
 
+<a name="operations"></a>
+<h2>Invoking Operations via Messages</h2>
+
+<p>
+A message can be used to invoke an operation as defined for a RESTful interface using
+an operation definition. To invoke an operation using a message:
+</p>
+<ul>
+ <li>The requester sends a message (a bundle with type = message, and a message header resource)</li>
+ <li>The message header has an event.system of <code>urn:ietf:rfc:3986</code></li>
+ <li>The event.code is the URL from the operation definition <code>OperationDefinition.url</code></li>
+ <li>The <code>MessageHeader.data</code> refers to a <a href="parameters.html">Parameters</a> resource</li>
+ <li>The parameters resource is populated appropriately as specified by the nominated operation definition</li>
+</ul>
+<p>
+The recipient executes the operation as specified, and then:
+</p>
+<ul>
+ <li>The receiver sends a message (a bundle with type = message, and a message header resource)</li>
+ <li>The message header has the same event as the original message</li>
+ <li>The MessageHeader contains a response that refers to the original request message, and a code for the outcome, with details if the operation failed</li>
+ <li>The <code>MessageHeader.data</code> refers to a <a href="parameters.html">Parameters</a> resource</li>
+ <li>The parameters resource is populated appropriately as specified for the response by the nominated operation definition</li>
+ <li>If the operation definition specifies a single return, then this is returned as the target of the MesssageHeader.data directly</li>
+</ul>
+<p>
+Here's an example:
+</p>
+<pre class="xml">
+&lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;id value=&quot;urn:uuid:77831928-2a35-4c08-9496-8232323bf48c&quot;/&gt;
+  &lt;!-- normal bundle stuff --&gt;
+  &lt;entry&gt;
+    &lt;resource&gt;
+      &lt;MessageHeader&gt;
+        &lt;id value=&quot;urn:uuid:6080d4a7-5e05-45dc-96d5-f75329564d1f&quot;/&gt;
+        &lt;!-- normal message header stuff --&gt;
+        &lt;event&gt;
+          &lt;system value=&quot;urn:ietf:rfc:3986&quot;/&gt;
+          &lt;!-- value set expansion --&gt;
+          &lt;code value=&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-expand&quot;/&gt; 
+        &lt;/event&gt;
+        &lt;!-- more normal message header stuff --&gt;
+        &lt;data&gt;
+          &lt;reference value=&quot;Parameters/1&quot;/&gt;
+        &lt;/data&gt;
+      &lt;/MessageHeader&gt;
+    &lt;/resource&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;resource&gt;
+      &lt;Parameters&gt;
+        &lt;!- this is the one place where Parameters gets an id --&gt;
+        &lt;id value=&quot;1&quot;/&gt;
+        &lt;parameter&gt;
+          &lt;name value=&quot;identifier&quot;/&gt;
+          &lt;valueUri value=&quot;http://hl7.org/fhir/vs/identifier-type&quot;/&gt;
+        &lt;/parameter&gt; 
+      &lt;/Parameters&gt;
+    &lt;/resource&gt;
+  &lt;/entry&gt;
+&lt;/Bundle&gt;
+</pre>
+<p>
+Note that there's no way to anchor the execution of the operation against a URL.
+The only operations that can be executed in this way are defined to be executed
+at the System or Resource level for a particular resource.
+</p>
+<!--
+<a name="search"></a>
+<h3>Invoking Search via Messages</h3>
+<p>
+In the same way that a defined operation can be invoked, a regular search operation
+can be invoked. 
+</p>
+-->
 
 
 </div>
@@ -414,3 +503,20 @@ Additional events may be defined elsewhere, though this specification does not y
 </html>
 
 
+
+ <tr> <td><a href="messaging.html#mailbox">[baseurl]/$mailbox</a></td> <td>Document Bundle</td> <td>Submit the
+ document to the server for processing. The exact processing the server performs is at the discretion of the
+ server. It MAY perform one or more of these actions:
+  <ul>
+    <li>Resend the document elsewhere</li>
+    <li>Break it up into individually accessible resources and make them available on a RESTful interface</li>
+    <li>Retain the document in its binary form and make it available on /Binary and perhaps also create a DocumentReference</li>
+  </ul>
+  The server is not obliged to process the document in any particular fashion. The client does not know what action
+  the server will take, only that the server has accepted responsibility for the document.
+  <br/><br/>
+  Implementation Profiles should be careful when making rules about what happens when a document is submitted to the
+  mailbox, as it would be easy to make rules such that a server cannot conform to more than one profile at a time.
+  </td> </tr>
+
+	
