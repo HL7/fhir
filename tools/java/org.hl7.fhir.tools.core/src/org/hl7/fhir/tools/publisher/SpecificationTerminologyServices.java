@@ -3,7 +3,9 @@ package org.hl7.fhir.tools.publisher;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -37,8 +39,11 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.terminologies.ITerminologyServices;
+import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
@@ -76,6 +81,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
   private boolean serverOk = false;
   private String cache;
   private String tsServer;
+  private IFHIRClient client; 
   
   public SpecificationTerminologyServices(String cache, String tsServer) {
     super();
@@ -288,62 +294,6 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     }
   }
 
-  @Override
-  public ValueSet expandVS(ValueSet vs) throws Exception {
-    ByteArrayOutputStream b = new  ByteArrayOutputStream();
-    JsonParser parser = new JsonParser();
-    parser.setOutputStyle(OutputStyle.NORMAL);
-    parser.compose(b, vs);
-    b.close();
-    String hash = Integer.toString(new String(b.toByteArray()).hashCode());
-    String fn = Utilities.path(cache, hash+".json");
-    if (new File(fn).exists()) {
-      Resource r = parser.parse(new FileInputStream(fn));
-      if (r instanceof OperationOutcome)
-        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
-      else
-        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource());
-    }
-    vs.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
-        
-    if (!triedServer || serverOk) {
-      try {
-        triedServer = true;
-        serverOk = false;
-        // for this, we use the FHIR client
-        IFHIRClient client = new FHIRSimpleClient();
-        client.initialize(tsServer);
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("_query", "expand");
-        params.put("limit", "500");
-        ValueSet result = client.expandValueset(vs);
-        serverOk = true;
-        FileOutputStream s = new FileOutputStream(fn);
-        parser.compose(s, result);
-        s.close();
-
-        return result;
-      } catch (EFhirClientException e) {
-        serverOk = true;
-        FileOutputStream s = new FileOutputStream(fn);
-        parser.compose(s, e.getServerErrors().get(0));
-        s.close();
-
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
-      } catch (Exception e) {
-        serverOk = false;
-        throw e;
-      }
-    } else
-      throw new Exception("Server is not available");
-  }
-  @Override
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
-    ValueSet vs = new ValueSet();
-    vs.setCompose(new ValueSetComposeComponent());
-    vs.getCompose().getInclude().add(inc);
-    return expandVS(vs).getExpansion();
-  }
 
   @Override
   public boolean checkVS(ConceptSetComponent inc, String system, String code) {
@@ -413,6 +363,160 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
   @Override
   public boolean verifiesSystem(String system) {
     return true;
+  }
+
+  
+  @Override
+  public ValueSetExpansionOutcome expand(ValueSet vs) {
+    try {
+      if (vs.hasExpansion()) {
+        return new ValueSetExpansionOutcome(vs);
+      }
+      String cacheFn = Utilities.path(cache, determineCacheId(vs)+".json");
+      if (new File(cacheFn).exists())
+        return loadFromCache(vs, cacheFn);
+      return expandOnServer(vs, cacheFn);
+    } catch (Exception e) {
+      return new ValueSetExpansionOutcome(e.getMessage());
+    }
+  }
+
+  private String determineCacheId(ValueSet vs) throws Exception {
+    // just the content logical definition is hashed
+    ValueSet vsid = new ValueSet();
+    vsid.setDefine(vs.getDefine());
+    vsid.setCompose(vs.getCompose());
+    vsid.setLockedDate(vs.getLockedDate());
+    JsonParser parser = new JsonParser();
+    parser.setOutputStyle(OutputStyle.NORMAL);
+    ByteArrayOutputStream b = new  ByteArrayOutputStream();
+    parser.compose(b, vsid);
+    b.close();
+    String s = new String(b.toByteArray());
+    String r = Integer.toString(s.hashCode());
+//    TextFile.stringToFile(s, Utilities.path(cache, r+".id.json"));
+    return r;
+  }
+
+  private ValueSetExpansionOutcome loadFromCache(ValueSet vs, String cacheFn) throws FileNotFoundException, Exception {
+    JsonParser parser = new JsonParser();
+    Resource r = parser.parse(new FileInputStream(cacheFn));
+    if (r instanceof OperationOutcome)
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails());
+    else {
+      vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
+      return new ValueSetExpansionOutcome(vs);
+    }
+  }
+  
+  private ValueSetExpansionOutcome expandOnServer(ValueSet vs, String cacheFn) throws Exception {
+    if (!triedServer || serverOk) {
+      JsonParser parser = new JsonParser();
+      try {
+        triedServer = true;
+        serverOk = false;
+        // for this, we use the FHIR client
+        if (client == null) {
+          client = new FHIRSimpleClient();
+          client.initialize(tsServer);
+        }
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("_query", "expand");
+        params.put("limit", "500");
+        ValueSet result = client.expandValueset(vs);
+        serverOk = true;
+        FileOutputStream s = new FileOutputStream(cacheFn);
+        parser.compose(s, result);
+        s.close();
+
+        return new ValueSetExpansionOutcome(result);
+      } catch (EFhirClientException e) {
+        serverOk = true;
+        FileOutputStream s = new FileOutputStream(cacheFn);
+        parser.compose(s, e.getServerErrors().get(0));
+        s.close();
+
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
+      } catch (Exception e) {
+        serverOk = false;
+        throw e;
+      }
+    } else
+      throw new Exception("Server is not available");
+  }
+
+//  if (expandedVSCache == null)
+//    expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
+//  ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
+//  private ValueSetExpansionCache expandedVSCache;
+//  if (expandedVSCache == null)
+//    expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
+//  private ValueSetExpansionOutcome loadFromCache(String cachefn) {
+//    // TODO Auto-generated method stub
+//    return null;
+//  }
+//
+//  ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
+//  if (expandedVSCache == null)
+//    expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
+//  ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
+//
+//  @Override
+//  public ValueSet expandVS(ValueSet vs) throws Exception {
+//    JsonParser parser = new JsonParser();
+//    parser.setOutputStyle(OutputStyle.NORMAL);
+//    parser.compose(b, vs);
+//    b.close();
+//    String hash = Integer.toString(new String(b.toByteArray()).hashCode());
+//    String fn = Utilities.path(cache, hash+".json");
+//    if (new File(fn).exists()) {
+//      Resource r = parser.parse(new FileInputStream(fn));
+//      if (r instanceof OperationOutcome)
+//        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
+//      else
+//        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource());
+//    }
+//    vs.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
+//        
+//    if (!triedServer || serverOk) {
+//      try {
+//        triedServer = true;
+//        serverOk = false;
+//        // for this, we use the FHIR client
+//        IFHIRClient client = new FHIRSimpleClient();
+//        client.initialize(tsServer);
+//        Map<String, String> params = new HashMap<String, String>();
+//        params.put("_query", "expand");
+//        params.put("limit", "500");
+//        ValueSet result = client.expandValueset(vs);
+//        serverOk = true;
+//        FileOutputStream s = new FileOutputStream(fn);
+//        parser.compose(s, result);
+//        s.close();
+//
+//        return result;
+//      } catch (EFhirClientException e) {
+//        serverOk = true;
+//        FileOutputStream s = new FileOutputStream(fn);
+//        parser.compose(s, e.getServerErrors().get(0));
+//        s.close();
+//
+//        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
+//      } catch (Exception e) {
+//        serverOk = false;
+//        throw e;
+//      }
+//    } else
+//      throw new Exception("Server is not available");
+//  }
+  
+  @Override
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
+    ValueSet vs = new ValueSet();
+    vs.setCompose(new ValueSetComposeComponent());
+    vs.getCompose().getInclude().add(inc);
+    ValueSetExpansionOutcome vse = expand(vs);
+    return vse.getValueset().getExpansion();
   }
 
 }

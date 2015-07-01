@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationOutcome xmlns="http://hl7.org/fhir"><text><status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>unable to provide support for code system urn:oid:2.16.840.1.113883.3.1937.98.5.8</p>
-    </div></text><extension url="http://tools/cache"><valueString value="http://hl7.org/fhir/vs/template-status-code"/></extension><issue><severity value="error"/><details value="unable to provide support for code system urn:oid:2.16.840.1.113883.3.1937.98.5.8"/></issue></OperationOutcome>

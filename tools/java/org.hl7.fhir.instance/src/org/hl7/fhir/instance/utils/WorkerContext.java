@@ -31,6 +31,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.terminologies.ITerminologyServices;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.utilities.CSFileInputStream;
 
 /*
@@ -456,7 +457,7 @@ public class WorkerContext implements NameResolver {
     }
 
     @Override
-    public ValueSet expandVS(ValueSet vs) {
+    public ValueSetExpansionOutcome expand(ValueSet vs) {
       throw new Error("call to NullTerminologyServices");
     }
 

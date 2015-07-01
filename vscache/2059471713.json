@@ -1,0 +1,1 @@
+{"resourceType":"OperationOutcome","text":{"status":"generated","div":"<div><p>unable to provide support for code system http://www.ama-assn.org/go/cpt</p></div>"},"issue":[{"severity":"error","details":"unable to provide support for code system http://www.ama-assn.org/go/cpt"}]}

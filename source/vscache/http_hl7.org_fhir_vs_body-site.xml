@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationOutcome xmlns="http://hl7.org/fhir"><text><status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Too many codes to display (&gt;10000) (A text filter may reduce the number of codes in the expansion)</p>
-    </div></text><extension url="http://tools/cache"><valueString value="http://hl7.org/fhir/vs/body-site"/></extension><issue><severity value="error"/><code><coding><system value="http://hl7.org/fhir/issue-type"/></coding></code><details value="Too many codes to display (&gt;10000) (A text filter may reduce the number of codes in the expansion)"/></issue></OperationOutcome>

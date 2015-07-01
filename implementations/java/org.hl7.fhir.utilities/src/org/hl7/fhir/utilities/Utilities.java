@@ -559,6 +559,12 @@ public class Utilities {
   }
 
 
+  public static String oidRoot(String id) {
+    if (id == null || !id.contains("."))
+      return id;
+    return id.substring(0, id.indexOf("."));
+  }
+
   public static String escapeJava(String doco) {
     if (doco == null)
       return "";
@@ -811,4 +817,5 @@ public class Utilities {
       return false;
     return one.equals(two);
   }
+
 }

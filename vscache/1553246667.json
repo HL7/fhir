@@ -1,0 +1,1 @@
+{"resourceType":"OperationOutcome","text":{"status":"generated","div":"<div><p>The filter &quot;Scale = OrdQn&quot; was not understood in the context of http://loinc.org</p></div>"},"issue":[{"severity":"error","details":"The filter \"Scale = OrdQn\" was not understood in the context of http://loinc.org"}]}

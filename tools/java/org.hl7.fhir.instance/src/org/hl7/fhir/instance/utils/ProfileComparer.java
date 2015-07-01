@@ -31,6 +31,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -571,12 +572,12 @@ public class ProfileComparer {
       ValueSet cvs = intersectByDefinition(lvs, rvs);
       if(cvs == null) {
         // if that didn't work, we'll do it by expansion
-        ValueSet le;
-        ValueSet re;
+        ValueSetExpansionOutcome le;
+        ValueSetExpansionOutcome re;
         try {
-          le = context.getTerminologyServices().expandVS(lvs);
-          re = context.getTerminologyServices().expandVS(rvs);
-          if (!closed(le) || !closed(re)) 
+          le = context.getTerminologyServices().expand(lvs);
+          re = context.getTerminologyServices().expand(rvs);
+          if (!closed(le.getValueset()) || !closed(re.getValueset())) 
             throw new Exception("unclosed value sets are not handled yet");
           cvs = intersectByExpansion(lvs, rvs);
           if (!cvs.getCompose().hasInclude()) {

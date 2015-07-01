@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationOutcome xmlns="http://hl7.org/fhir"><text><status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>unable to find code 428041000124106 in http://snomed.info/sct</p>
-    </div></text><extension url="http://tools/cache"><valueString value="http://hl7.org/fhir/vs/observation-ccdasmokingstatus"/></extension><issue><severity value="error"/><details value="unable to find code 428041000124106 in http://snomed.info/sct"/></issue></OperationOutcome>

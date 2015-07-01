@@ -1,1 +1,0 @@
-{"resourceType":"OperationOutcome","text":{"status":"generated","div":"<div><p>Unable to find UDI in http://hl7.org/fhir/v2/0203</p></div>"},"issue":[{"severity":"error","details":"Unable to find UDI in http://hl7.org/fhir/v2/0203"}]}

@@ -114,6 +114,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
@@ -971,7 +972,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String genExtensionsTable() {
+  private String genExtensionsTable() throws Exception {
     StringBuilder s = new StringBuilder();
     
     s.append("<table class=\"list\">\r\n");
@@ -987,12 +988,54 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             started = true;
             genStructureExampleCategory(s, ig.getName());            
           }
-          genStructureExample(s, "extension-"+ed.getId().toLowerCase()+".html", "extension-"+ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
+          genExtensionRow(s, ed);
         }
       }
     }
     s.append("</table>\r\n");
     return s.toString();
+  }
+
+  private void genExtensionRow(StringBuilder s, StructureDefinition ed) throws Exception {
+    s.append("<tr>");
+    s.append("<td>"+ed.getId()+"</td>");
+    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+".html\">"+Utilities.escapeXml(ed.getName())+"</a></td>");
+    s.append("<td>");
+    boolean first = true;
+    if (ed.getContextType() == ExtensionContext.RESOURCE) {
+      for (StringType t : ed.getContext()) {
+        if (first) 
+          first = false;
+        else
+          s.append(",<br/> ");
+        String ref = Utilities.oidRoot(t.getValue());
+        if (ref.startsWith("@"))
+          ref = ref.substring(1);
+        if (definitions.hasResource(ref))
+          s.append("<a href=\""+ref.toLowerCase()+".html\">"+t.getValue()+"</a>");
+        else
+          s.append(t.getValue());
+      }
+    } else if (ed.getContextType() == ExtensionContext.DATATYPE) {
+        for (StringType t : ed.getContext()) {
+          if (first) 
+            first = false;
+          else
+            s.append(",<br/> ");
+          String ref = Utilities.oidRoot(t.getValue());
+          if (ref.startsWith("@"))
+            ref = ref.substring(1);
+          if (definitions.hasElementDefn(ref)) {
+            s.append("<a href=\""+definitions.getSrcFile(ref)+".html#"+Utilities.oidRoot(t.getValue())+"\">"+t.getValue()+"</a>");
+          } else
+            s.append(t.getValue());
+        }
+    } else
+      throw new Error("Not done yet");
+    s.append("</td>");
+    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".xml.html\">XML</a></td>");
+    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".json.html\">JSON</a></td>");
+    s.append("</tr>");
   }
 
   private String vsSource(ValueSet vs) {
@@ -3232,9 +3275,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (!hasDynamicContent(vs))
       return "";
     try {
-      if (expandedVSCache == null)
-        expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
-      ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
+      ValueSetExpansionOutcome result = workerContext.getTerminologyServices().expand(vs);
       if (result.getError() != null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--1-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
       ValueSet exp = result.getValueset();
@@ -3291,9 +3332,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   public ValueSet expandValueSet(ValueSet vs) throws Exception {
-    if (expandedVSCache == null)
-      expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
-    ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
+    ValueSetExpansionOutcome result = workerContext.getTerminologyServices().expand(vs);
     if (result.getError() != null)
       return null;
     else
@@ -4414,7 +4453,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private static final String HTML_PREFIX1 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_PREFIX2 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";
-  private ValueSetExpansionCache expandedVSCache;
   
   public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition, ResourceDefn r, List<String> tabs) throws Exception {
     if (!new CSFile(filename).exists()) {
@@ -5313,7 +5351,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setFolders(FolderManager folders) {
     this.folders = folders;
-    terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.srcDir, "terminologies", "cache"), tsServer);
+    terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.rootDir, "vscache"), tsServer);
     workerContext.setTerminologyServices(terminologyServices);
     epub = new EPubManager(this, validationErrors);
   }
@@ -5491,7 +5529,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public void loadLoinc() throws Exception {
     log("Load Loinc", LogMessageType.Process);
     terminologyServices.loadLoinc(Utilities.path(folders.srcDir, "loinc", "loinc.xml"));
-    log("Loinc Loaded", LogMessageType.Process);
   }
 
   public SpecificationTerminologyServices getConceptLocator() {
@@ -5644,26 +5681,31 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           br.url = vs.getUserString("path");
           br.display = vs.getName(); 
         }
-      } else { // if (ref.startsWith("http://hl7.org/fhir/vs/")) {
-        ValueSet vs = valueSets.get(ref);
-        if (vs != null) { 
-          br.url = (String) vs.getUserData("path");
-          if (Utilities.noString(br.url))
+      } else { 
+        if (ref.startsWith("http://hl7.org/fhir/vs/")) {
+          ValueSet vs = valueSets.get(ref);
+          if (vs != null) { 
+            br.url = (String) vs.getUserData("path");
+            if (Utilities.noString(br.url))
+              br.url = ref.substring(23)+".html";
+            br.display = vs.getName(); 
+          } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created 
+            br.url = "valueset-"+ref.substring(23)+".html";
+            br.display = "Context of Use ValueSet";
+          } else { 
+            br.display = ref.substring(23);
             br.url = ref.substring(23)+".html";
-          br.display = vs.getName(); 
-        } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created 
-          br.url = "valueset-"+ref.substring(23)+".html";
-          br.display = "Context of Use ValueSet";
-        } else { 
-          br.display = ref.substring(23);
-          br.url = ref.substring(23)+".html";
+          }
+        }  else if (ref.startsWith("http://hl7.org/fhir/v3/vs/")) {
+          br.url = "v3/"+ref.substring(26)+"/index.html"; 
+          br.display = ref.substring(26);
+        }  else if (ref.startsWith("http://hl7.org/fhir/v2/vs/")) {
+          br.url = "v2/"+ref.substring(26)+"/index.html"; 
+          br.display = ref.substring(26);
+        } else {
+          br.url = ref;
+          br.display = "????";
         }
-//      }  else if (ref.startsWith("http://hl7.org/fhir/v3/vs/")) {
-//        br.url = "v3/"+ref.substring(26)+"/index.html"; 
-//        br.display = ref.substring(26);
-//      } else {
-//        br.url = ref;
-//        br.display = "????";
       }
     }
     return br;
@@ -6014,9 +6056,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public String expandVS(ValueSet vs, String prefix) {
     try {
-      if (expandedVSCache == null)
-        expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
-      ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
+      ValueSetExpansionOutcome result = workerContext.getTerminologyServices().expand(vs);
       if (result.getError() != null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--3-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
 

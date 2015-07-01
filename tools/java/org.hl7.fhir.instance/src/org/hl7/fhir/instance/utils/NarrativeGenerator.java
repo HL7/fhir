@@ -110,6 +110,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -1879,9 +1880,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (vs.hasCompose()) {
         if (vs.getCompose().hasExclude()) {
           try {
-            ValueSet vse = context.getTerminologyServices().expandVS(vs);
+            ValueSetExpansionOutcome vse = context.getTerminologyServices().expand(vs);
             count = 0;
-            count += conceptCount(vse.getExpansion().getContains());
+            count += conceptCount(vse.getValueset().getExpansion().getContains());
             return count;
           } catch (Exception e) {
             return null;

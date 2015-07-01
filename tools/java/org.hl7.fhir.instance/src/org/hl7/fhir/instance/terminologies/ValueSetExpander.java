@@ -50,6 +50,12 @@ public interface ValueSetExpander {
     private ValueSet valueset;
     private ValueSetChecker service;
     private String error;
+    public ValueSetExpansionOutcome(ValueSet valueset) {
+      super();
+      this.valueset = valueset;
+      this.service = null;
+      this.error = null;
+    }
     public ValueSetExpansionOutcome(ValueSet valueset, String error) {
       super();
       this.valueset = valueset;
