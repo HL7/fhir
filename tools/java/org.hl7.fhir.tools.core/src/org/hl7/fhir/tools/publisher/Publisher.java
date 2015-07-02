@@ -4415,7 +4415,20 @@ public class Publisher implements URIResolver {
     page.log("Round Trip #2", LogMessageType.Process);
     if (buildFlags.get("all")) {
       list = new ArrayList<String>();
-      listCollections(list);
+      listCollections1(list);
+    }
+   
+    for (PlatformGenerator gen : page.getReferenceImplementations()) {
+      if (gen.doesTest()) {
+        page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
+        gen.test(page.getFolders(), list);
+      }
+    }
+
+    page.log("Round Trip #2", LogMessageType.Process);
+    if (buildFlags.get("all")) {
+      list = new ArrayList<String>();
+      listCollections2(list);
     }
    
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
@@ -4428,7 +4441,8 @@ public class Publisher implements URIResolver {
     list = new ArrayList<String>();
     
     listExamples(list);
-    listCollections(list);
+    listCollections1(list);
+    listCollections2(list);
     Collections.sort(list);
     
     for (String n : list) {
@@ -4450,7 +4464,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void listCollections(List<String> list) {
+  private void listCollections1(List<String> list) {
     list.add("profiles-types");
     list.add("profiles-resources");
     list.add("profiles-others");
@@ -4458,8 +4472,11 @@ public class Publisher implements URIResolver {
     list.add("search-parameters");
     list.add("v2-tables");
     list.add("v3-codesystems");
-    list.add("valuesets");
     list.add("conceptmaps");
+  }
+
+  private void listCollections2(List<String> list) {
+    list.add("valuesets");
   }
 
   private void listExamples(List<String> list) {
