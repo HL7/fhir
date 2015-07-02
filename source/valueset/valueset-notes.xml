@@ -11,7 +11,7 @@ implementations as they can make use of the innate identifier and versioning mec
 <h2>Value Sets that define codes</h2>
 
 <p>
-Valuesets can define their own codes. A value set that defines codes automatically includes all 
+Value sets can define their own codes. A value set that defines codes automatically includes all 
 the codes it defines, and is useful for simple sets of codes that are highly 
 specific and context-dependent. The value set and the code system are both 
 given URI identifiers by which they may be identified from elsewhere 

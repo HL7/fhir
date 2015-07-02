@@ -1779,7 +1779,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">Identifies the units of measure in which the element should be captured or expressed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Use a value set if more than one unit of measure is possible.  Valuesets will typically be short enough to display in a drop-down selection list.</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Use a value set if more than one unit of measure is possible.  Value sets will typically be short enough to display in a drop-down selection list.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell
