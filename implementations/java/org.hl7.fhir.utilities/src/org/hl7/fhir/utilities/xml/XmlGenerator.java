@@ -57,6 +57,7 @@ public class XmlGenerator {
 		xml.exit();
 		xml.end();
 		xml.flush();
+		stream.close();
 	}
 	
   public String generate(Element element) throws Exception {

@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.hl7.fhir.utilities;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -35,6 +36,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.channels.FileChannel;
@@ -849,5 +851,57 @@ public class Utilities {
     }
     
   }
+
+  public static boolean compareIgnoreWhitespace(File f1, File f2) throws IOException {
+    InputStream in1 = null;
+    InputStream in2 = null;
+    try {
+      in1 = new BufferedInputStream(new FileInputStream(f1));
+      in2 = new BufferedInputStream(new FileInputStream(f2));
+
+      int expectedByte = in1.read();
+      while (expectedByte != -1) {
+        boolean w1 = isWhitespace(expectedByte);
+        if (w1)
+          while (isWhitespace(expectedByte))
+            expectedByte = in1.read();
+        int foundByte = in2.read();
+        if (w1) {
+          if (!isWhitespace(foundByte))
+            return false;
+          while (isWhitespace(foundByte))
+            foundByte = in2.read();
+        }
+        if (expectedByte != foundByte) 
+          return false;
+        expectedByte = in1.read();
+      }
+      if (in2.read() != -1) {
+        return false;
+      }
+      return true;
+    } finally {
+      if (in1 != null) {
+        try {
+          in1.close();
+        } catch (IOException e) {}
+      }
+      if (in2 != null) {
+        try {
+          in2.close();
+        } catch (IOException e) {}
+      }
+    }
+  }
+  
+  private static boolean isWhitespace(int b) {
+    return b == 9 || b == 10 || b == 13 || b == 32;
+  }
+
+
+  public static boolean compareIgnoreWhitespace(String fn1, String fn2) throws IOException {
+    return compareIgnoreWhitespace(new File(fn1), new File(fn2));
+  }
+
 
 }
