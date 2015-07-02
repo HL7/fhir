@@ -1,0 +1,27 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="Genomic Observation Panel"/>
+	<!--Eric Haas Health eData Inc - editor-->
+	<publisher value="HL7 International - Orders and Observations WG"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="This value set defines the set ofLOINcs for genomic panels
+"/>
+	<copyright value="blah blah blah"/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://loinc.org"/>
+			<version value="2.52"/>
+			<concept>
+				<code value="21665-5"/>
+			</concept>
+			<concept>
+				<code value="21636-6"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
