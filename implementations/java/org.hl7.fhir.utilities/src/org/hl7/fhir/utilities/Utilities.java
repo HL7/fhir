@@ -818,4 +818,18 @@ public class Utilities {
     return one.equals(two);
   }
 
+
+  public static void deleteAllFiles(String folder, String type) {
+    File src = new File(folder);
+    String[] files = src.list();
+    for (String f : files) {
+      if (new File(folder+File.separator+f).isDirectory()) {
+        deleteAllFiles(folder+File.separator+f, type);
+      } else if (f.endsWith(type)) {
+        new File(folder+File.separator+f).delete();
+      }
+    }
+    
+  }
+
 }

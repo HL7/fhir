@@ -379,6 +379,7 @@ public boolean doesCompile() {
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
     assert(this.folders.rootDir.equals(rootDir));
     char sl = File.separatorChar;
+    Utilities.deleteAllFiles(rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.instance", ".class");
     Map<String, JavaClass> classes = new HashMap<String, JavaClass>();
     List<String> paths = new ArrayList<String>();
     
