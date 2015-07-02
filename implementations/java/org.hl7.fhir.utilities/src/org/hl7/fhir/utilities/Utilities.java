@@ -625,6 +625,24 @@ public class Utilities {
 	  return b.toString().trim();
   }
 
+  public static String normalizeSameCase(String s) {
+    if (noString(s))
+      return null;
+    StringBuilder b = new StringBuilder();
+    boolean isWhitespace = false;
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (!Character.isWhitespace(c)) { 
+        b.append(c);
+        isWhitespace = false;
+      } else if (!isWhitespace) {
+        b.append(' ');
+        isWhitespace = true;        
+      } 
+    }
+    return b.toString().trim();
+  }
+
 
   public static void copyFileToDirectory(File source, File destDir) throws IOException {
   	copyFile(source, new File(path(destDir.getAbsolutePath(), source.getName())));
