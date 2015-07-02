@@ -563,8 +563,8 @@ set of codes. See <a href="terminologies.html#strength">Binding Strength</a>.
 <a name="tx"> </a>
 <h3>Mixing Custom and Standard Terminologies</h3>
 <p>
-<a href="valueset.html">Value Set</a> resources can be used to define local codes (Example) and 
-to mix a combination of local codes and standard codes (examples: LOINC, SNOMED), or just
+<a href="valueset.html">Value Set</a> resources can be used to define local codes (<a href="valueset-example-inline.html">Example</a>) and 
+to mix a combination of local codes and standard codes (e.g. LOINC, SNOMED), or just
 to choose a particular set of standard codes (examples: LOINC, SNOMED, RxNorm). 
 Profiles can bind to these value sets instead of the ones defined in the base
 specification, following these rules:
@@ -576,6 +576,9 @@ specification, following these rules:
  <tr> <td>Incomplete</td> <td>conformance = preferred and extensible = true</td> <td>The value set can contain codes not found in the base value set. These additional codes SHOULD not have the same meaning as existing codes in the base value set</td> </tr>
  <tr> <td>Example</td> <td>conformance = example</td> <td>The value set can contain whatever is appropriate for local use</td> </tr> 
 </table> 
+<p>
+Note that local codes are not as interoperable as standard published code systems (e.g. LOINC, SNOMED C, so it is preferable to use standard code systems.
+</p>
 
 <a name="mustSupport"> </a>
 <h3>Must Support</h3>

@@ -257,6 +257,11 @@
       <definition value="Intravascular Ultrasound device"/>
     </concept>
     <concept>
+       <code value="IVOCT"/>
+       <display value="Intravascular Optical Coherence Tomography"/>
+       <definition value="An acquisition device that performs Intravascular Optical Coherence Tomography"/>
+     </concept>    
+		 <concept>
       <code value="KER"/>
       <display value="Keratometry"/>
       <definition value="Keratometry device"/>
