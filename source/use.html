@@ -41,7 +41,7 @@ straight <a href="messaging.html">messaging based implementation framework</a> f
 <p>
 Alternatively, it is not necessary to use any of these approaches. Resources can be exchanged or persisted
 using any technical means that is appropriate to the context at hand. A common use of FHIR 
-resources or <a href="extras.html#bundle">bundles</a> is as parameters of service interfaces. FHIR itself does not define
+resources or <a href="compartments.html#bundle">bundles</a> is as parameters of service interfaces. FHIR itself does not define
 any particular service interface. Instead, other standards and implementations define their 
 own service interfaces and architecture that use FHIR resources and optionally build extra features on top of the base 
 repository-mediated exchange that the FHIR RESTful specification provides. As long as the resources that
@@ -68,7 +68,7 @@ The resolution to these issues should be documented and published with the servi
 <p>
 Each resource has a known identity. The identity is not stored inside the resource, but must be tracked by 
 systems handling resources. For RESTful systems, the resource identity is the same as the URL by which it is found. 
-When a resource is packaged in a <a href="extras.html#bundle">bundle</a>, the id is included along with the resource. 
+When a resource is packaged in a <a href="compartments.html#bundle">bundle</a>, the id is included along with the resource. 
 Real-world use of FHIR resources creates the need to manage resource identification.
 </p>
 <p>
@@ -99,7 +99,7 @@ references are updated.
 The normal case is that a client/receiving system accepts the server/sender's identification of a resource 
 at the face value, whether it is a relative or absolute reference. When the client/receiver wants to follow
 resource references, they are done using the server id (typically either by http calls or locating them 
-in a <a href="extras.html#bundle">bundle</a>). In such cases, there is no need for re-identification. 
+in a <a href="compartments.html#bundle">bundle</a>). In such cases, there is no need for re-identification. 
 </p>
 <p>
 Another scenario is for a client to retrieve a resource from a server, and make its own local persistent

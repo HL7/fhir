@@ -44,7 +44,7 @@ a resource is updated so that it no longer meets the criteria.
 </p>
 <p>
 As an alternative to subscriptions, the RESTful API describes a 
-polling-based subscription method using <a href="extras.html#bundle">bundles</a> 
+polling-based subscription method using <a href="compartments.html#bundle">bundles</a> 
 and the <a href="http.html#history">history operation</a>. This method 
 of polling allows for a much tighter relationship between the client and 
 the server that doesn't involve missing updates and/or deletes. 

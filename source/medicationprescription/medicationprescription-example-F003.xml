@@ -9,7 +9,7 @@
     <dateWritten value="2011-05-01"/>
     <status value="active"/>
     <patient> <!-- Linked to the resource patient who needs the medication -->
-        <reference value="patient/patient-example-F001.xml"/>
+        <reference value="Patient/patient-example-F001.xml"/>
         <display value="P. van den Heuvel"/>         
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->

@@ -718,6 +718,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + compTitle(name) + s3;
       else if (com[0].equals("comp-desc"))
         src = s1 + compDesc(name) + s3;
+      else if (com[0].equals("comp-uri"))
+        src = s1 + compUri(name) + s3;
       else if (com[0].equals("comp-identity"))
         src = s1 + compIdentity(name) + s3;
       else if (com[0].equals("comp-membership"))
@@ -1417,6 +1419,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return definitions.getCompartmentByName(n).getDescription();
   }
 
+  private String compUri(String name) {
+    String n = name.split("\\-")[1];
+    return definitions.getCompartmentByName(n).getUri();
+  }
+
   private String compIdentity(String name) {
     String n = name.split("\\-")[1];
     return definitions.getCompartmentByName(n).getIdentity();
@@ -1457,9 +1464,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String compartmentlist() {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
-    b.append(" <tr><td><b>URI</b></td><td><b>Title</b></td><td><b>Description</b></td><td><b>Identity</b></td><td><b>Membership</b></td></tr>\r\n");
+    b.append(" <tr><td><b>Title</b></td><td><b>Description</b></td><td><b>Identity</b></td><td><b>Membership</b></td></tr>\r\n");
     for (Compartment c : definitions.getCompartments()) {
-      b.append(" <tr><td><a href=\"compartment-").append(c.getName()).append(".html\">http://hl7.org/fhir/compartment/").append(c.getName()).append("</a></td><td>").append(c.getTitle()).append("</td><td>")
+      b.append(" <tr><td><a href=\"compartment-").append(c.getName()).append(".html\">").append(c.getTitle()).append("</a></td><td>")
               .append(Utilities.escapeXml(c.getDescription())).append("</td>").append("<td>").append(Utilities.escapeXml(c.getIdentity())).append("</td><td>").append(Utilities.escapeXml(c.getMembership())).append("</td></tr>\r\n");
     }
     b.append("</table>\r\n");
@@ -3611,6 +3618,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + compTitle(name) + s3;
       else if (com[0].equals("comp-desc"))
         src = s1 + compDesc(name) + s3;
+      else if (com[0].equals("comp-uri"))
+        src = s1 + compUri(name) + s3;
       else if (com[0].equals("comp-identity"))
         src = s1 + compIdentity(name) + s3;
       else if (com[0].equals("comp-membership"))
@@ -3817,7 +3826,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("profiles")) 
         src = s1+produceProfiles(resource)+s3;
       else if (com[0].equals("wg")) 
-        src = s1+(resource.getWg() == null ? "<p><a href=\"resource.html#maturity\">Maturity Level</a>: "+resource.getFmmLevel()+"</p>" : "<p>This resource maintained by the <a _target=\"blank\" href=\""+resource.getWg().getUrl()+"\">"+resource.getWg().getName()+"</a> Work Group. <a href=\"resource.html#maturity\">Maturity Level</a>: "+resource.getFmmLevel()+"</p>\r\n")+s3;
+        src = s1+(resource.getWg() == null ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+resource.getWg().getUrl()+"\">"+resource.getWg().getName()+"</a> Work Group")+s3;
+      else if (com[0].equals("fmm")) 
+        src = s1+"<a href=\"resource.html#maturity\">Maturity Level</a>: "+resource.getFmmLevel()+s3;
+      else if (com[0].equals("complinks")) 
+        src = s1+getCompLinks(resource)+s3;
       else if (com[0].equals("example-list")) 
         src = s1+produceExampleList(resource)+s3;
       else if (com[0].equals("name"))
@@ -3894,6 +3907,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
     }
     return src;
+  }
+
+  private String getCompLinks(ResourceDefn resource) {
+    List<String> names = new ArrayList<String>();
+    for (Compartment comp : definitions.getCompartments()) {
+      if (comp.getResources().containsKey(resource) && !Utilities.noString(comp.getResources().get(resource)))
+        names.add(comp.getName());
+    }
+    StringBuilder b = new StringBuilder();
+    b.append("<a href=\"compartments.html\">Compartments</a>: ");
+    if (names.isEmpty())
+      b.append("Not linked to any defined compartments");
+    else {
+      Collections.sort(names);
+      boolean first = true;
+      for (String name : names) {
+        if (first)
+          first = false;
+        else
+          b.append(", ");
+        b.append("<a href=\"compartment-"+name+".html\">"+definitions.getCompartmentByName(name).getTitle()+"</a>");
+      }
+    }
+    return b.toString();
   }
 
   private String getDraftNote(ResourceDefn resource) {

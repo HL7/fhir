@@ -166,7 +166,7 @@ information needed/available.  This creates two challenges:
 multiple resource instances - often 10s or even 100s of resource instances.  To maintain consistency 
 with the V2 messaging paradigm, all resource data will typically be sent over the wire as part of the 
 FHIR message rather than being sent by reference as would be typical in a RESTful implementation.  
-However, FHIR provides two different ways of communicating the resources as part of the message <a href="extras.html#bundle">bundle</a>: 
+However, FHIR provides two different ways of communicating the resources as part of the message <a href="compartments.html#bundle">bundle</a>: 
 they can either be sent as "fully identified" resources (direct entries in the bundle with their 
 own identity, and able to be the subject of independent transactions), or they can be sent as <a href="references.html#contained">contained</a> 
 resources, meaning they are only identified relative to another resources and cannot be retrieved or 

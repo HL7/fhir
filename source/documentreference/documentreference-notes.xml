@@ -40,7 +40,7 @@ return or generate document references for the following types of content:
 <table class="grid">
   <tr> <td><b>Type</b></td> <td><b>Comments</b></td> </tr>
   <tr> <td><a href="documents.html">FHIR Documents</a></td> <td>The uri refers to an existing Document</td> </tr>
-  <tr> <td>CDA Document</td> <td>The uri is a reference to a <a href="extras.html#Binary">Binary</a> end-point that returns either a CDA 
+  <tr> <td>CDA Document</td> <td>The uri is a reference to a <a href="compartments.html#Binary">Binary</a> end-point that returns either a CDA 
     document, or some kind of CDA Package that the server knows how to process (e.g. an IHE .zip) </td> </tr>
   <tr> <td>Other</td> <td>The server can be asked to generate a document reference for other kinds of 
     documents. For some of these documents (e.g. PDF documents) a server could only provide a 

@@ -81,7 +81,7 @@ which includes the resources that are the results of the search.
 </p>
 <ul>
  <li>A specified resource type: GET [base]/[ResourceType]?parameter(s)</li>
- <li>A specified <a href="extras.html#compartments">compartment</a>, perhaps with a specified resource type in that compartment: GET [base]/patient/[id]/[ResourceType]?parameter(s)</li>
+ <li>A specified <a href="compartments.html#compartments">compartment</a>, perhaps with a specified resource type in that compartment: GET [base]/Patient/[id]/[ResourceType]?parameter(s)</li>
  <li>All resources: GET [base]/_search?parameter(s) (parameters common to all types only)</li>
 </ul>
 <p>
@@ -598,19 +598,19 @@ the type explicitly using the syntax in the second example above).
 <h4>Composite Search Parameters</h4>
 <p>
 The result of the search operation is the intersection of the resources that match the criteria specified by each
-individual search parameter. If a parameter repeats, such as /patient?language=FR&amp;language=NL, then
+individual search parameter. If a parameter repeats, such as /Patient?language=FR&amp;language=NL, then
 this matches a patient who speaks both languages. This is known as an AND search parameter, since the
 server is expected to respond only with results which match both values.
 </p>
 <p>
 If, instead, the search is to find patients that speak either
 language, then this is a single parameter with multiple values, separated by a ','.
-For example: "/patient?language=FR,NL". This is known as an OR search parameter,
+For example: "/Patient?language=FR,NL". This is known as an OR search parameter,
 since the server is expected to respond with results which match either value.
 </p>
 <p>
 AND parameters and OR parameters may also be combined, for example:
-"/patient?language=FR,NL&amp;language=EN" would refer to any patient who speaks
+"/Patient?language=FR,NL&amp;language=EN" would refer to any patient who speaks
 English as well as either French or Dutch.
 </p>
 <p>
@@ -1023,7 +1023,7 @@ of the client.
 <p>
 If the _include path selects a reference that refers to an entity that is not a Resource
 (e.g. an image attachment), the server may also elect to include this in the returned
-results as a <a href="extras.html#binary">Binary</a> resource. For example, the include
+results as a <a href="compartments.html#binary">Binary</a> resource. For example, the include
 path may point to an attachment which is by reference, like this:
 </p>
 <pre>

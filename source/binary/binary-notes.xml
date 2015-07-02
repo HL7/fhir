@@ -31,7 +31,7 @@ malicious or malformed content. For more details see <a href="security.html#narr
 <a name="binary"> </a>
 <h3>Binary Support</h3>
 <p>
-FHIR servers can choose to support <a href="extras.html#binary">Binary Resources</a>
+FHIR servers can choose to support <a href="compartments.html#binary">Binary Resources</a>
 at the end point [base]/Binary. The binary end-point accepts
 any kind of content, such as images and other media, documents (CDA, 
 PDF, Word etc.), plain text, XML or anything else, and stores the 

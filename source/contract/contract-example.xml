@@ -10,7 +10,7 @@
   <issued value="2014-08-17"/>
  
   <subject>
-     <reference value="http://www.somewhere.org/patient/12345"/>
+     <reference value="http://www.somewhere.org/Patient/12345"/>
   </subject>
 
   <type>

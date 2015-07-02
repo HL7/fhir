@@ -52,6 +52,10 @@ public class Compartment {
     }
     return "";
   }
+  public String getUri() {
+    return "http://hl7.org/fhir/compartment/"+getTitle();
+
+  }
   
   
 }

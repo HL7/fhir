@@ -69,7 +69,7 @@
       http://example.org/patients is the fictional namespace that the 
       organization's identifiers are in.
      -->
-		<link rel="search" href="http://localhost/patient/search?identifier=http://example.org/patients#89765a87b"/>
+		<link rel="search" href="http://localhost/Patient/search?identifier=http://example.org/patients#89765a87b"/>
 		<lastUpdated value="2013-01-07T01:15:36Z"/>
 		<category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
 		

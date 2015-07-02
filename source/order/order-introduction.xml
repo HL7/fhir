@@ -49,7 +49,7 @@ with no matching responses (see below)</p>
 		<h3>Using Orders with messaging</h3>
 		<p>Two message event codes are defined for sending orders: synchronous and asynchronous.</p>
 		<p>
-In a  <a href="messaging.html#synchronous">synchronous message</a>, an order message (i.e. a <a href="extras.html#bundle">bundle</a> with a
+In a  <a href="messaging.html#synchronous">synchronous message</a>, an order message (i.e. a <a href="compartments.html#bundle">bundle</a> with a
 <a href="messageheader.html">Message Header</a> resource, an order resource and a <i>detail</i> resource for the order - see below) 
 is sent to a system, and it responds with a message that includes the <a href="orderresponse.html">response</a> 
 (a Message Header resource, and Order Response resource, along with additional details as appropriate). This 

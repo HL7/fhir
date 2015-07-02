@@ -31,7 +31,7 @@ signatures.html
 			<page title="References" filename="references.html">
 				<page title="Definitions" filename="references-definitions.html"/>
 			</page>
-			<page title="Compartment Based Access" filename="extras.html">
+			<page title="Compartment Based Access" filename="compartments.html">
 				<page title="Patient Compartment" filename="compartment-patient.html"/>
 				<page title="Encounter Compartment" filename="compartment-encounter.html"/>
 				<page title="RelatedPerson Compartment" filename="compartment-relatedPerson.html"/>

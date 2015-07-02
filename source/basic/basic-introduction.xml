@@ -33,7 +33,7 @@ Implementers don't need to be concerned with which of the three categories their
 <h2>Background and Context</h2>
 <p>
 Basic defines only a minimal set of data elements - those necessary to identify what kind of resource it
-represents and those necessary to support resource <a href="extras.html#compartments">compartmenting</a>.  All other data elements
+represents and those necessary to support resource <a href="compartments.html#compartments">compartmenting</a>.  All other data elements
 are represented using the <a href="extensibility.html">extension</a> mechanism.  It's entirely possible to have a
 Basic resource instance with nothing other than narrative, a subject and code.  And, in practice, that's all many systems will understand.
 </p>
