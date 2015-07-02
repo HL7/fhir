@@ -69,7 +69,7 @@
             <code value="01.015"/>
             <display value="Physician"/>
         </coding>
-        <text value="specialisation"/>
+        <text value="specialization"/>
     </specialty>
 	</practitionerRole>
 </Practitioner>

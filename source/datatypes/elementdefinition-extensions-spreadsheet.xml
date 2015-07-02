@@ -1847,7 +1847,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">equivalent | equal | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">The level of equivalence between the element containing the mapping and the element mapped to</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

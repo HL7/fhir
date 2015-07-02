@@ -1793,7 +1793,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">equivalent | equal | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from source to target (e.g. the source is 'wider' than the target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
