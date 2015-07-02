@@ -39,11 +39,12 @@ their own distributions formats .
  <li>Value sets are used in <a href="structuredefinition.html">StructureDefinitions</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
  <li>In addition, a specific <a href="datatypes.html#Coding">Coding</a> can reference the value set it was picked from</li>
  <li><a href="conceptmap.html">Concept Maps</a> describe mappings between value sets</li>
- <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. Value set
-resources can be converted to CTS2 value set and code system resources</li>
+ <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification, along 
+ with metadata in the HL7 Value Set Definition specification. Value set resources can be converted to CTS2 
+ value set and code system resources</li>
  <li>The value set resource is aligned with the <a href="http://wiki.hl7.org/index.php?title=Value_Set_Definition_Standard_Project">Value Set Definition</a> (VSD) project. 
  Not all the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
- In the ValueSet resource, the <code>compose</code> and <code>define</code> elements make up the VSD Content Logical definition</li>
+ In the ValueSet resource, the <code>lockedDate</code>, <code>compose</code> and <code>define</code> elements make up the VSD Content Logical definition</li>
 </ul>
 </div>
 
