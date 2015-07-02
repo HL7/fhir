@@ -103,7 +103,7 @@ facility is provided to cover the following circumstances:
 <ul>
  <li>The system that defines the code or expression doesn't provide a display for this code (or any codes)</li>
  <li>The system that defines the code or expression defines multiple choices for display</li>
- <li>The system provides a very long display name that is unnecssary or innappropriate in the context of this value set (e.g. a display name of "Glucose [Mass/volume] in Serum or Plasma --10 PM specimen" for LOINC code 48991-4, when the value set only includes Glucose mass/vol in serum/plasma codes). As the display names get longer, this becomes more important</li>
+ <li>The system provides a very long display name that is unnecessary or inappropriate in the context of this value set (e.g. a display name of "Glucose [Mass/volume] in Serum or Plasma --10 PM specimen" for LOINC code 48991-4, when the value set only includes Glucose mass/vol in serum/plasma codes). As the display names get longer, this becomes more important</li>
 </ul>
 <p>
 Note that care must be taken in order to avoid "changing the meaning" of the concept by
