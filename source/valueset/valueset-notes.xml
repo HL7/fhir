@@ -123,10 +123,18 @@ specified in the value set would go in <a href="datatypes.html#CodeableConcept">
 How filters are used with various code systems:
 </p>
 <ul>
- <li>LOINC: See <a href="loinc.html">Using LOINC with FHIR</a></li>
- <li>SNOMED-CT: See <a href="snomedct.html">Using SNOMED CT with FHIR</a></li>
- <li>RxNorm: See <a href="rxnorm.html">Using RxNorm with FHIR</a></li>
+ <li><a href="loinc.html">Using LOINC with FHIR</a></li>
+ <li><a href="snomedct.html">Using SNOMED CT with FHIR</a></li>
+ <li><a href="rxnorm.html">Using RxNorm with FHIR</a></li>
+ <li><a href="ucum.html">Using UCUM with FHIR</a></li>
+ <li><a href="ncimeta.html">Using NCI Metathesaurus with FHIR</a></li>
+ <li><a href="cpt.html">Using CPT with FHIR</a></li>
+ <li><a href="ndfrt.html">Using NDF-RT with FHIR</a></li>
+ <li><a href="unii.html">Using UNII with FHIR</a></li>
+ <li><a href="ndc.html">Using NDC with FHIR</a></li>
+ <li><a href="cvx.html">Using CVX with FHIR</a></li>
 </ul>
+
 <table class="grid">
  <tr>
    <th>System</th>    
@@ -137,11 +145,6 @@ How filters are used with various code systems:
    <th>Example</th>
  </tr>
  <tr>
-   <td colspan="4"><hr/></td>
- </tr>
- 
- 
- <tr>
    <td>V3 Code systems</td> 
    <td>concept</td>
    <td>is-a</td>       
@@ -149,7 +152,14 @@ How filters are used with various code systems:
    <td>Includes all codes that have a transitive is-a relationship with the concept identified by the value</td> 
    <td><a href="valueset-relatedperson-relationshiptype.html">Relationship Type</a></td>
  </tr>
- 
+ <tr>
+   <td>V2 Tables</td> 
+   <td></td>
+   <td></td>       
+   <td></td>    
+   <td>(no filters defined)</td> 
+   <td></td>
+ </tr>
 </table>
 
 <a name="expansion"> </a>
