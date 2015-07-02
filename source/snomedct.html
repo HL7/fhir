@@ -149,20 +149,18 @@ references are allowed to reference these value sets directly (by reference as a
 by a value set reference, which is a literal reference).
 </p>
 <p>
-A Snomed implicit value set URL has two parts, the base part is the URI for the edition
-version, in the format specified by the IHTSDO the <a href="http://snomed.org/uristandard.pdf">SNOMED 
-URI Specification</a>, with one exception: the URI 
+A SNOMED CT implicit value set URL has two parts:
 </p>
-<pre>
-  http://snomed.info/sct
-</pre>
+<ul>
+  <li>the base URL is either "http://snomed.info/sct", or the URI for the edition version, in the format specified by the IHTSDO the <a href="http://snomed.org/uristandard.pdf">SNOMED URI Specification</a></li>
+  <li>a query portion that specifies the scope of the content</li>
+</ul>
 <p>
-should be understood to mean an unspecified edition/version. This defines an incomplete value set whose
+"http://snomed.info/sct" should be understood to mean an unspecified edition/version. This defines an incomplete value set whose
 actual membership will depend on the particular edition used when it is expanded. 
 </p>
 <p>
-The second part of the URL is a query portion that specifies the scope of the content. For this,
-3 possible values are:
+For the second part of the URL (the query part), the 3 possible values are:
 </p>
 <ul>
   <li>?fhir_vs - all Concept IDs in the edition/version. If the base URI is http://snomed.info/sct, this means all possible SNOMED CT concepts</li>
