@@ -4347,7 +4347,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4360,10 +4360,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5617,7 +5619,7 @@
     <Cell ss:StyleID="s134"><Data ss:Type="String">A text filter that is applied to restrict the codes that are returned (this is useful in a UI context)</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s119"><Data ss:Type="String">expand.profile</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">0</Data></Cell>
@@ -5625,7 +5627,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">A reference to an external definition that provides additional control information about how the expansion is performed.&#10;&#10;At this time, there is no agreed format or funtionality for the target of this URI. The [VSAC Documentation](http://www.nlm.nih.gov/vsac/support/authorguidelines/updatingvaluesets.html) provides one example of the use of this parameter.  Implementers using this element will need to agree on an appropriate mechanism for use within their interoperability community</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">A reference to an external definition that provides additional control information about how the expansion is performed.&#10;&#10;At this time, there is no agreed format or funtionality for the target of this URI. The [VSAC Documentation](http://www.nlm.nih.gov/vsac/support/authorguidelines/updatingvaluesets.html) provides one example of the use of this parameter.  Implementers using this element will need to agree on an appropriate mechanism for use within their interoperability community.&#10;&#10;Known uses for profile include:&#10;* whether to return the value set content logical definition with the expansion&#10;* whether to include inactive concepts</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -6285,7 +6287,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6298,12 +6300,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
