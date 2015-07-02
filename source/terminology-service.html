@@ -21,11 +21,6 @@ A server that supports all the functionality described here can be described as 
 and SHALL conform to this conformance statement: [link to be provided].
 </p>
 
-<h3>Open issues to be addressed</h3>
-<ul>
-  <li> improve the definitions of mapping equivalence, and change "inexact" map to "overlap"</li>
-</ul>
-
 <h3>Security</h3>
 <p>
 Generally, SSL SHOULD be used for all production health care data exchange.
@@ -136,6 +131,21 @@ list above extended.</i>
 Note: A terminology service may choose to expose additional external code system specific
 related functionality such as exploration, or structured search, but these services are
 outside the scope of the FHIR terminology service.
+</p>
+
+<h4>Operations across all value sets</h4>
+<p>
+For some of the operations below, it can be useful to perform them across all value sets known to the system.
+For example, $expand using a text filter, and searching all value sets at once. A special value set is 
+defined that means "all value sets known to the server":
+</p>
+<pre>
+http://hl7.org/fhir/ValueSet/@all
+</pre>
+<p>
+Technically, this value set automatically imports all the existing value sets on the server.
+Note that this URL has no fixed meaning - it's interpretation is server specific. This URL 
+can only be used as a parameter to the operations described on this page. 
 </p>
 
 <h4>Terminology Maintenance</h4>
