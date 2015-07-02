@@ -5616,7 +5616,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">A text filter that is applied to restrict the codes that are returned (this is useful in a UI context)</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">A text filter that is applied to restrict the codes that are returned (this is useful in a UI context). The interpretation of this is delegated to the server in order to allow to determine the most optimal search approach for the context</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -5638,7 +5638,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">The date for which the expansion should be generated. Normally, this is the current conditions (which is the default value) but under some circumstances, systems need to generate an expansion as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">The date for which the expansion should be generated.  if a date is provided, it means that the server should use the value set / code system definitions as they were on the given date, or return an error if this is not possible.&#10;&#10;Normally, the date is the current conditions (which is the default value) but under some circumstances, systems need to generate an expansion as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6303,7 +6303,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
