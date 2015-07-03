@@ -261,6 +261,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
           "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
           "</p>\r\n";
+
+  private static final String TOO_MANY_CODES_TEXT = "This value set has >10,000 codes in it. In order to keep the publication size manageable, value sets this large are not expanded here";
+  private static final String NO_CODESYSTEM_TEXT = "This value set refers to code systems that the FHIR Publication Tooling does not support";
       
 //  private boolean notime;
   
@@ -3284,7 +3287,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     try {
       ValueSetExpansionOutcome result = workerContext.getTerminologyServices().expand(vs);
       if (result.getError() != null)
-        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--1-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--1-->"+processExpansionError(result.getError())+"</div>";
       ValueSet exp = result.getValueset();
       exp.setCompose(null);
       exp.setDefine(null);
@@ -3293,10 +3296,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       new NarrativeGenerator("", workerContext).generate(exp);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
-      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--2-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e.getMessage())+"</div>";
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--2-->"+processExpansionError(e.getMessage())+"</div>";
     }
   }
   
+  private String processExpansionError(String error) {
+    if (error.contains("Too many codes"))
+      return TOO_MANY_CODES_TEXT;
+    if (error.contains("unable to provide support"))
+      return NO_CODESYSTEM_TEXT;
+    return "This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(error);
+  }
+
   private String expandValueSet(String fileTitle, ValueSet vs) throws Exception {
     if (vs == null) 
       throw new Exception("no vs?");
@@ -6095,10 +6106,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     try {
       ValueSetExpansionOutcome result = workerContext.getTerminologyServices().expand(vs);
       if (result.getError() != null)
-        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--3-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--3-->"+processExpansionError(result.getError())+"</div>";
 
       if (result.getValueset() == null)
-        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--4-->This value set could not be expanded by the publication tooling (no error returned)</div>";
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--4-->"+processExpansionError("(no error returned)")+"</div>";
       ValueSet exp = result.getValueset();
       exp.setCompose(null);
       exp.setDefine(null);
@@ -6109,9 +6120,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       e.printStackTrace();
-      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--5-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+" </div>";
-
-      //      return "<!-- <!--6-->This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--5-->"+processExpansionError(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+" </div>";
     }
   }
 
