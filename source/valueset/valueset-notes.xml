@@ -225,8 +225,9 @@ returned expansion (ValueSet.expansion.identifier).
 <h3>Code systems with detailed metadata</h3>
 <p>
 Sometimes code systems may be used to represent more complex information than just 
-code, display name and code system.  For example a code system of drug information, 
-of observation types, of locations, and other similar registry-type information.  
+code, display name and code system.  For example, a code system of drug information
+which contains information about the content of the medication (e.g. RxNorm), or a set of  
+observation types, that contain methods, units, etc (e.g. LOINC).  
 In FHIR, these are handled by splitting the concept into two distinct parts - the 
 <b>ValueSet</b> resource is used to manage the codes, display names and relationships.  
 A separate "detail" resource (e.g. <a href="medication.html">Medication</a> for 
