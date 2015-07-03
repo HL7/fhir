@@ -4711,7 +4711,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Allows representing the ISO 21090 notion of &quot;permitted values&quot; as distinct from the typical value set's &quot;value meaning&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">The permitted value value set must have a 1..1 set of codes for each code in the value meaning value set</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The permitted value set must have a 1..1 set of codes for each code in the value meaning value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.valueSetReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4751,7 +4751,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Allows representing the ISO 21090 notion of &quot;permitted values&quot; as distinct from the typical value set's &quot;value meaning&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">The permitted value value set must have a 1..1 set of codes for each code in the value meaning value set</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The permitted value set must have a 1..1 set of codes for each code in the value meaning value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.valueSetReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
