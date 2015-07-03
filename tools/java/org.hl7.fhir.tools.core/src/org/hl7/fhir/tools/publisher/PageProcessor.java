@@ -107,6 +107,9 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingCom
 import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
+import org.hl7.fhir.instance.model.NamingSystem;
+import org.hl7.fhir.instance.model.NamingSystem.NamingSystemIdentifierType;
+import org.hl7.fhir.instance.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Reference;
@@ -827,10 +830,44 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genCompModel(((ProfileComparison) object).getSubset(), "intersection", file.substring(0,file.indexOf(".")))+s3;
       else if (com[0].equals("cmp.superset"))
         src = s1 + genCompModel(((ProfileComparison) object).getSuperset(), "union", file.substring(0,file.indexOf(".")))+s3;
+      else if (com[0].equals("identifierlist"))
+        src = s1 + genIdentifierList()+s3;
+      else if (com[0].equals("internalsystemlist"))
+        src = s1 + genCSList()+s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genIdentifierList() {
+    StringBuilder b = new StringBuilder();
+    for (NamingSystem ns : definitions.getNamingSystems()) {
+      b.append("<tr>\r\n");
+      b.append("  <td>"+Utilities.escapeXml(ns.getName())+"</td>\r\n");
+      String uri = getUri(ns);
+      String oid = getOid(ns);
+      b.append("  <td>"+Utilities.escapeXml(uri)+(oid == null || uri.endsWith(oid) ? "" : " / "+oid)+"</td>\r\n");
+      b.append("  <td>"+""+"</td>\r\n");
+      b.append("</tr>\r\n");
+    }
+    return b.toString();
+  }
+
+  private String getOid(NamingSystem ns) {
+    for (NamingSystemUniqueIdComponent ui : ns.getUniqueId()) {
+      if (ui.getType() == NamingSystemIdentifierType.OID && ui.hasValue())
+        return ui.getValue();
+    }
+    return "";
+  }
+
+  private String getUri(NamingSystem ns) {
+    for (NamingSystemUniqueIdComponent ui : ns.getUniqueId()) {
+      if (ui.getType() == NamingSystemIdentifierType.URI && ui.hasValue())
+        return ui.getValue();
+    }
+    return "";
   }
 
   private String genCompModel(StructureDefinition sd, String name, String base) throws Exception {
@@ -2397,7 +2434,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
     b.append("<ul class=\"nav nav-tabs\">");    
     b.append(makeHeaderTab("Using Codes", pfx + "terminologies.html", mode==null || "content".equals(mode)));
-    b.append(makeHeaderTab("Systems", pfx + "terminologies-systems.html", "systems".equals(mode)));
+    b.append(makeHeaderTab("Code Systems", pfx + "terminologies-systems.html", "systems".equals(mode)));
     b.append(makeHeaderTab("Value Sets", pfx + "terminologies-valuesets.html", "valuesets".equals(mode)));
     b.append(makeHeaderTab("v2 Tables", pfx + "terminologies-v2.html", "v2".equals(mode)));
     b.append(makeHeaderTab("v3 Namespaces", pfx + "terminologies-v3.html", "v3".equals(mode)));
@@ -3678,7 +3715,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("dictionary.view"))
         src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-QuantitativeLab-dataelements") + s3;        
       else if (com[0].startsWith("!"))
-        src = s1 + s3;  
+        src = s1 + s3;
+      else if (com[0].equals("identifierlist"))
+        src = s1 + genIdentifierList()+s3;
+      else if (com[0].equals("internalsystemlist"))
+        src = s1 + genCSList()+s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -6174,5 +6215,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     else
       return "<span style=\"color: grey\">N</span>";
   }
-  
+
+  private String genCSList() {
+    StringBuilder b = new StringBuilder();
+    List<String> names = new ArrayList<String>();
+    names.addAll(definitions.getCodeSystems().keySet());
+    Collections.sort(names);
+    for (String n : names) {
+      ValueSet vs = definitions.getCodeSystems().get(n);
+      if (vs.hasDefine() && vs.getDefine().hasSystem() && vs.getDefine().getSystem().startsWith("http://hl7.org/fhir") && !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/")) {
+        b.append("  <tr>\r\n");
+        b.append("    <td>"+vs.getDefine().getSystem()+"</td>\r\n");
+        b.append("    <td><a href=\""+vs.getUserString("path")+"\">"+vs.getName()+"</a></td>\r\n");
+        b.append("    <td>"+vs.getDescription()+"</td>\r\n");
+        String oid = ToolingExtensions.getOID(vs.getDefine());
+        b.append("    <td>"+(oid == null ? "" : oid.substring(8))+"</td>\r\n");
+        b.append("  </tr>\r\n");
+      }
+    }
+    return b.toString();
+  }
 }

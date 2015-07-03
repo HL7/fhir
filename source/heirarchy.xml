@@ -57,6 +57,7 @@ signatures.html
 				<page title="Examples" filename="datatypes-examples.html"/>
 				<page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
 				<page title="Mappings" filename="datatypes-mappings.html"/>
+				<page title="identifier Registry" filename="identifier-registry.html"/>
 			</page>
 			<page type="resource" resource="DomainResource"/>
 			<page title="Element Definition" filename="element.html">

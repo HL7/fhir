@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Defined Systems%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>Known Identifier Systems</h2>
+
+<p>
+The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> data type.
+If a URI is defined here, it SHALL be used in preference to any other identifying mechanisms. If an identifier system is not listed
+here, the correct URI may be determined by working through the following list, in order:
+</p>
+<ul>
+ <li>the HL7 OID Registry</li>
+ <li>the documentation associated with the identifier</li>
+ <li>consulting the owner of the identifier</li>
+ <li>asking on the HL7 vocabulary mailing list</li>
+</ul>
+
+<p>
+<b>Important Note:</b> This list of URIs is incomplete and subject to change.
+Some values may be dropped and others will likely be added in the coming months as HL7
+institutes formal processes around URIs in vocabulary.
+</p>
+
+<table class="grid">
+ <tr>
+   <th>identifier</th>
+   <th width="150">URI / OID</th>
+   <th>Comment</th>
+ </tr>
+
+ <tr style="border-bottom: 0px">
+   <td>URIs (<a href="http://www.w3.org">W3C</a>): when the identifier is a URI</td>
+   <td>urn:ietf:rfc:3986 <a name="rn:ietf:rfc:3986"> </a></td>
+   <td>As defined by <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a> (with many schemes defined in many RFCs). 
+   OIDs and UUIDs are represented in their URN form (<a href="http://www.ietf.org/rfc/rfc3001.txt">urn:oid:</a> and <a href="http://www.ietf.org/rfc/rfc4122.txt">urn:uuid:</a> 
+   - plain <a href="http://tools.ietf.org/id/draft-larmouth-oid-iri-04.txt">oid:</a> and uuid: are not used). Note that UUIDs are always lowercase in a IRI<br/>No OID</td>
+ </tr>
+ <tr style="border-bottom: 0px">
+   <td>SSN (<a href="http://www.ssa.gov/ssnumber/">US Government</a>)</td>
+   <td>http://hl7.org/fhir/sid/us-ssn <a name="ttp://hl7.org/fhir/sid/us-ssn"> </a> / 2.16.840.1.113883.4.1</td>
+   <td colspan="2">US SSNs are represented with dashes removed</td>
+ </tr>
+ <%identifierlist%>
+
+</table>
+
+
+
+</div>
+
+	[%file newfooter%]
+    
+</body>
+</html>

@@ -24,6 +24,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -75,7 +76,7 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 		p_in.addParameter().setName("system").setValue(new UriType(system));
 		p_in.addParameter().setName("code").setValue(new CodeType(code));
 		if (!Utilities.noString(display))
-  		p_in.addParameter().setName("display").setValue(new StringType(display));
+		p_in.addParameter().setName("display").setValue(new StringType(display));
 		p_in.addParameter().setName("identifier").setValue(new UriType("http://www.healthintersections.com.au/fhir/ValueSet/anything"));
 		Parameters p_out = client.operateType(ValueSet.class, "validate", p_in);
 		boolean ok = false;
@@ -93,7 +94,7 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 		return validateCodeCache.get(system+"|"+code+"|"+display);
   }
 
-	@Override
+  @Override
   public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
 		String key = keyFor(inc);
 		if (expansionCache.containsKey(key))
@@ -148,7 +149,7 @@ public class FHIRTerminologyServices implements ITerminologyServices {
   }
 
   @Override
-  public ValueSet expandVS(ValueSet vs) throws Exception {
+  public ValueSetExpansionOutcome expand(ValueSet vs) {
     throw new Error("Not done yet");
   }
 

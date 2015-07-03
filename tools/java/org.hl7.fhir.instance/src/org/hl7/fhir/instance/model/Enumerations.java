@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jun 28, 2015 23:38+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -404,9 +404,9 @@ public class Enumerations {
          */
         NARROWER, 
         /**
-         * The target mapping specialises the meaning of the source concept (e.g. the target is-a source)
+         * The target mapping specializes the meaning of the source concept (e.g. the target is-a source)
          */
-        SPECIALISES, 
+        SPECIALIZES, 
         /**
          * The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally
          */
@@ -436,8 +436,8 @@ public class Enumerations {
           return SUBSUMES;
         if ("narrower".equals(codeString))
           return NARROWER;
-        if ("specialises".equals(codeString))
-          return SPECIALISES;
+        if ("specializes".equals(codeString))
+          return SPECIALIZES;
         if ("inexact".equals(codeString))
           return INEXACT;
         if ("unmatched".equals(codeString))
@@ -453,7 +453,7 @@ public class Enumerations {
             case WIDER: return "wider";
             case SUBSUMES: return "subsumes";
             case NARROWER: return "narrower";
-            case SPECIALISES: return "specialises";
+            case SPECIALIZES: return "specializes";
             case INEXACT: return "inexact";
             case UNMATCHED: return "unmatched";
             case DISJOINT: return "disjoint";
@@ -467,7 +467,7 @@ public class Enumerations {
             case WIDER: return "http://hl7.org/fhir/concept-map-equivalence";
             case SUBSUMES: return "http://hl7.org/fhir/concept-map-equivalence";
             case NARROWER: return "http://hl7.org/fhir/concept-map-equivalence";
-            case SPECIALISES: return "http://hl7.org/fhir/concept-map-equivalence";
+            case SPECIALIZES: return "http://hl7.org/fhir/concept-map-equivalence";
             case INEXACT: return "http://hl7.org/fhir/concept-map-equivalence";
             case UNMATCHED: return "http://hl7.org/fhir/concept-map-equivalence";
             case DISJOINT: return "http://hl7.org/fhir/concept-map-equivalence";
@@ -481,7 +481,7 @@ public class Enumerations {
             case WIDER: return "The target mapping is wider in meaning than the source concept";
             case SUBSUMES: return "The target mapping subsumes the meaning of the source concept (e.g. the source is-a target)";
             case NARROWER: return "The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally";
-            case SPECIALISES: return "The target mapping specialises the meaning of the source concept (e.g. the target is-a source)";
+            case SPECIALIZES: return "The target mapping specializes the meaning of the source concept (e.g. the target is-a source)";
             case INEXACT: return "The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally";
             case UNMATCHED: return "There is no match for this concept in the destination concept system";
             case DISJOINT: return "This is an explicit assertion that there is no mapping between the source and target concept";
@@ -495,7 +495,7 @@ public class Enumerations {
             case WIDER: return "Wider";
             case SUBSUMES: return "Subsumes";
             case NARROWER: return "Narrower";
-            case SPECIALISES: return "Specialises";
+            case SPECIALIZES: return "Specializes";
             case INEXACT: return "Inexact";
             case UNMATCHED: return "Unmatched";
             case DISJOINT: return "Disjoint";
@@ -519,8 +519,8 @@ public class Enumerations {
           return ConceptMapEquivalence.SUBSUMES;
         if ("narrower".equals(codeString))
           return ConceptMapEquivalence.NARROWER;
-        if ("specialises".equals(codeString))
-          return ConceptMapEquivalence.SPECIALISES;
+        if ("specializes".equals(codeString))
+          return ConceptMapEquivalence.SPECIALIZES;
         if ("inexact".equals(codeString))
           return ConceptMapEquivalence.INEXACT;
         if ("unmatched".equals(codeString))
@@ -540,8 +540,8 @@ public class Enumerations {
         return "subsumes";
       if (code == ConceptMapEquivalence.NARROWER)
         return "narrower";
-      if (code == ConceptMapEquivalence.SPECIALISES)
-        return "specialises";
+      if (code == ConceptMapEquivalence.SPECIALIZES)
+        return "specializes";
       if (code == ConceptMapEquivalence.INEXACT)
         return "inexact";
       if (code == ConceptMapEquivalence.UNMATCHED)

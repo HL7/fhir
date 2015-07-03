@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jun 28, 2015 23:38+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -431,10 +431,10 @@ public class Timing extends Type implements ICompositeType {
     @Block()
     public static class TimingRepeatComponent extends Element implements IBaseDatatypeElement {
         /**
-         * Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.
+         * Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.
          */
-        @Child(name = "bounds", type = {Duration.class, Period.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Length, or (Start and/or end) limits", formalDefinition="Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule." )
+        @Child(name = "bounds", type = {Duration.class, Range.class, Period.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Length/Range of lengths, or (Start and/or end) limits", formalDefinition="Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule." )
         protected Type bounds;
 
         /**
@@ -517,14 +517,14 @@ public class Timing extends Type implements ICompositeType {
       }
 
         /**
-         * @return {@link #bounds} (Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.)
+         * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
         public Type getBounds() { 
           return this.bounds;
         }
 
         /**
-         * @return {@link #bounds} (Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.)
+         * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
         public Duration getBoundsDuration() throws Exception { 
           if (!(this.bounds instanceof Duration))
@@ -537,7 +537,20 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #bounds} (Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.)
+         * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
+         */
+        public Range getBoundsRange() throws Exception { 
+          if (!(this.bounds instanceof Range))
+            throw new Exception("Type mismatch: the type Range was expected, but "+this.bounds.getClass().getName()+" was encountered");
+          return (Range) this.bounds;
+        }
+
+        public boolean hasBoundsRange() throws Exception { 
+          return this.bounds instanceof Range;
+        }
+
+        /**
+         * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
         public Period getBoundsPeriod() throws Exception { 
           if (!(this.bounds instanceof Period))
@@ -554,7 +567,7 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #bounds} (Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.)
+         * @param value {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
         public TimingRepeatComponent setBounds(Type value) { 
           this.bounds = value;
@@ -1041,7 +1054,7 @@ public class Timing extends Type implements ICompositeType {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("bounds[x]", "Duration|Period", "Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.", 0, java.lang.Integer.MAX_VALUE, bounds));
+          childrenList.add(new Property("bounds[x]", "Duration|Range|Period", "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.", 0, java.lang.Integer.MAX_VALUE, bounds));
           childrenList.add(new Property("count", "integer", "A total count of the desired number of repetitions.", 0, java.lang.Integer.MAX_VALUE, count));
           childrenList.add(new Property("duration", "decimal", "How long this thing happens for when it happens.", 0, java.lang.Integer.MAX_VALUE, duration));
           childrenList.add(new Property("durationMax", "decimal", "The upper limit of how long this thing happens for when it happens.", 0, java.lang.Integer.MAX_VALUE, durationMax));

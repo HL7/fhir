@@ -149,6 +149,7 @@ import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Meta;
+import org.hl7.fhir.instance.model.NamingSystem;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
@@ -3366,6 +3367,13 @@ public class Publisher implements URIResolver {
                   s = new XmlGenerator().generate(div);
                 if (s != null)
                   narrative = narrative == null ? s : narrative +"<hr/>\r\n"+s;
+              }
+              if (ert.equals("NamingSystem")) {
+                ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                new XmlGenerator().generate(ers, bs);
+                bs.close();
+                NamingSystem ns = (NamingSystem) new XmlParser().parse(new ByteArrayInputStream(bs.toByteArray()));
+                page.getDefinitions().getNamingSystems().add(ns);
               }
             }
           }

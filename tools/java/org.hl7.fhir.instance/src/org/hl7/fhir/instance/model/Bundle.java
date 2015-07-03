@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jun 28, 2015 23:38+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -199,6 +199,10 @@ public class Bundle extends Resource implements IBaseBundle {
          */
         INCLUDE, 
         /**
+         * An OperationOutcome that provides additional information about the processing of a search
+         */
+        OUTCOME, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -209,12 +213,15 @@ public class Bundle extends Resource implements IBaseBundle {
           return MATCH;
         if ("include".equals(codeString))
           return INCLUDE;
+        if ("outcome".equals(codeString))
+          return OUTCOME;
         throw new Exception("Unknown SearchEntryMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case MATCH: return "match";
             case INCLUDE: return "include";
+            case OUTCOME: return "outcome";
             default: return "?";
           }
         }
@@ -222,6 +229,7 @@ public class Bundle extends Resource implements IBaseBundle {
           switch (this) {
             case MATCH: return "http://hl7.org/fhir/search-entry-mode";
             case INCLUDE: return "http://hl7.org/fhir/search-entry-mode";
+            case OUTCOME: return "http://hl7.org/fhir/search-entry-mode";
             default: return "?";
           }
         }
@@ -229,6 +237,7 @@ public class Bundle extends Resource implements IBaseBundle {
           switch (this) {
             case MATCH: return "This resource matched the search specification";
             case INCLUDE: return "This resource is returned because it is referred to from another resource in the search set";
+            case OUTCOME: return "An OperationOutcome that provides additional information about the processing of a search";
             default: return "?";
           }
         }
@@ -236,6 +245,7 @@ public class Bundle extends Resource implements IBaseBundle {
           switch (this) {
             case MATCH: return "match";
             case INCLUDE: return "include";
+            case OUTCOME: return "outcome";
             default: return "?";
           }
         }
@@ -250,6 +260,8 @@ public class Bundle extends Resource implements IBaseBundle {
           return SearchEntryMode.MATCH;
         if ("include".equals(codeString))
           return SearchEntryMode.INCLUDE;
+        if ("outcome".equals(codeString))
+          return SearchEntryMode.OUTCOME;
         throw new IllegalArgumentException("Unknown SearchEntryMode code '"+codeString+"'");
         }
     public String toCode(SearchEntryMode code) {
@@ -257,6 +269,8 @@ public class Bundle extends Resource implements IBaseBundle {
         return "match";
       if (code == SearchEntryMode.INCLUDE)
         return "include";
+      if (code == SearchEntryMode.OUTCOME)
+        return "outcome";
       return "?";
       }
     }
@@ -821,7 +835,7 @@ public class Bundle extends Resource implements IBaseBundle {
          * Why this entry is in the result set - whether it's included as a match or because of an _include requirement.
          */
         @Child(name = "mode", type = {CodeType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="match | include - why this is in the result set", formalDefinition="Why this entry is in the result set - whether it's included as a match or because of an _include requirement." )
+        @Description(shortDefinition="match | include | outcome - why this is in the result set", formalDefinition="Why this entry is in the result set - whether it's included as a match or because of an _include requirement." )
         protected Enumeration<SearchEntryMode> mode;
 
         /**

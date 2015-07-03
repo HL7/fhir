@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jun 28, 2015 23:38+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -977,10 +977,10 @@ public class ImagingStudy extends DomainResource {
         protected Enumeration<InstanceAvailability> availability;
 
         /**
-         * WADO-RS resource where the Series is available.
+         * URI/URL specifying the location of the referenced series using WADO-RS.
          */
         @Child(name = "url", type = {UriType.class}, order=7, min=0, max=1)
-        @Description(shortDefinition="Retrieve URI (0008,1115 > 0008,1190)", formalDefinition="WADO-RS resource where the Series is available." )
+        @Description(shortDefinition="Location of the referenced instance(s) (0008,1115 in 0008,1190)", formalDefinition="URI/URL specifying the location of the referenced series using WADO-RS." )
         protected UriType url;
 
         /**
@@ -1309,7 +1309,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #url} (WADO-RS resource where the Series is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #url} (URI/URL specifying the location of the referenced series using WADO-RS.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
           if (this.url == null)
@@ -1329,7 +1329,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #url} (WADO-RS resource where the Series is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @param value {@link #url} (URI/URL specifying the location of the referenced series using WADO-RS.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public ImagingStudySeriesComponent setUrlElement(UriType value) { 
           this.url = value;
@@ -1337,14 +1337,14 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return WADO-RS resource where the Series is available.
+         * @return URI/URL specifying the location of the referenced series using WADO-RS.
          */
         public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
-         * @param value WADO-RS resource where the Series is available.
+         * @param value URI/URL specifying the location of the referenced series using WADO-RS.
          */
         public ImagingStudySeriesComponent setUrl(String value) { 
           if (Utilities.noString(value))
@@ -1502,7 +1502,7 @@ public class ImagingStudy extends DomainResource {
           childrenList.add(new Property("description", "string", "A description of the series.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("numberOfInstances", "unsignedInt", "Number of SOP Instances in Series.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
           childrenList.add(new Property("availability", "code", "Availability of series (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
-          childrenList.add(new Property("url", "uri", "WADO-RS resource where the Series is available.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("url", "uri", "URI/URL specifying the location of the referenced series using WADO-RS.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("bodySite", "Coding", "Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("laterality", "Coding", "Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code, map from (0020, 0060).", 0, java.lang.Integer.MAX_VALUE, laterality));
           childrenList.add(new Property("dateTime", "dateTime", "The date and time when the series was started.", 0, java.lang.Integer.MAX_VALUE, dateTime));
@@ -1986,10 +1986,11 @@ public class ImagingStudy extends DomainResource {
     protected OidType uid;
 
     /**
-     * Accession Number.
+     * Accession Number is an identifier related to some aspect of imaging workflow and data management, and usage may vary across different institutions. 
+See for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf).
      */
     @Child(name = "accession", type = {Identifier.class}, order=3, min=0, max=1)
-    @Description(shortDefinition="Accession Number (0008,0050)", formalDefinition="Accession Number." )
+    @Description(shortDefinition="Related workflow identifier ('Accession Number') (0008,0050)", formalDefinition="Accession Number is an identifier related to some aspect of imaging workflow and data management, and usage may vary across different institutions. \nSee for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf)." )
     protected Identifier accession;
 
     /**
@@ -2262,7 +2263,8 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #accession} (Accession Number.)
+     * @return {@link #accession} (Accession Number is an identifier related to some aspect of imaging workflow and data management, and usage may vary across different institutions. 
+See for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf).)
      */
     public Identifier getAccession() { 
       if (this.accession == null)
@@ -2278,7 +2280,8 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @param value {@link #accession} (Accession Number.)
+     * @param value {@link #accession} (Accession Number is an identifier related to some aspect of imaging workflow and data management, and usage may vary across different institutions. 
+See for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf).)
      */
     public ImagingStudy setAccession(Identifier value) { 
       this.accession = value;
@@ -2906,7 +2909,7 @@ public class ImagingStudy extends DomainResource {
         childrenList.add(new Property("started", "dateTime", "Date and Time the study started. Timezone Offset From UTC.", 0, java.lang.Integer.MAX_VALUE, started));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient imaged in the study.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("uid", "oid", "Formal identifier for the study.", 0, java.lang.Integer.MAX_VALUE, uid));
-        childrenList.add(new Property("accession", "Identifier", "Accession Number.", 0, java.lang.Integer.MAX_VALUE, accession));
+        childrenList.add(new Property("accession", "Identifier", "Accession Number is an identifier related to some aspect of imaging workflow and data management, and usage may vary across different institutions. \nSee for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf).", 0, java.lang.Integer.MAX_VALUE, accession));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers for the study.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("order", "Reference(DiagnosticOrder)", "A list of the diagnostic orders that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, order));
         childrenList.add(new Property("modalityList", "Coding", "A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).", 0, java.lang.Integer.MAX_VALUE, modalityList));

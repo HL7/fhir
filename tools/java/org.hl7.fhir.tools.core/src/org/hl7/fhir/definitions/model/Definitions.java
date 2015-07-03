@@ -38,6 +38,7 @@ import java.util.Set;
 
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.NamingSystem;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -302,6 +303,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   private List<String> sortedNames;
   private List<String> vsFixups = new ArrayList<String>();
+  private List<NamingSystem> namingSystems = new ArrayList<NamingSystem>();
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -572,6 +574,10 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   public Map<String, Set<String>> getSearchRules() {
     return searchRules;
+  }
+
+  public List<NamingSystem> getNamingSystems() {
+    return namingSystems ;
   }
 
   

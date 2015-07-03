@@ -21,12 +21,12 @@ public class DefinitionNavigator {
   private TypeRefComponent typeOfChildren;
   private String path;
   
-  public DefinitionNavigator(WorkerContext context, StructureDefinition structure, int index) throws Exception {
+  public DefinitionNavigator(WorkerContext context, StructureDefinition structure) throws Exception {
     if (!structure.hasSnapshot())
       throw new Exception("Snapshot required");
     this.context = context;
     this.structure = structure;
-    this.index = index;
+    this.index = 0;
     this.path = current().getPath();
     names.add(nameTail());
   }
@@ -66,8 +66,21 @@ public class DefinitionNavigator {
     return structure.getSnapshot().getElement().get(index);
   }
   
+  public List<DefinitionNavigator> slices() throws Exception {
+    if (children == null) {
+      loadChildren();
+    }
+    return slices;
+  }
+  
   public List<DefinitionNavigator> children() throws Exception {
     if (children == null) {
+      loadChildren();
+    }
+    return children;
+  }
+
+  private void loadChildren() throws Exception {
       children = new ArrayList<DefinitionNavigator>();
       String prefix = current().getPath()+".";
       Map<String, DefinitionNavigator> nameMap = new HashMap<String, DefinitionNavigator>();
@@ -92,8 +105,6 @@ public class DefinitionNavigator {
           break;
       }
     }
-    return children;
-  }
 
   public String path() {
     return path;
@@ -135,7 +146,8 @@ public class DefinitionNavigator {
     if (sd != null) {
       DefinitionNavigator dn = new DefinitionNavigator(context, sd, 0, path, names, sd.getSnapshot().getElement().get(0).getPath());
       typeChildren = dn.children();
-    }
+    } else
+      throw new Exception("Unable to find definition for "+type.getCode());
     typeOfChildren = type;
   }
 

@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+	<id value="registry"/>
+  <type value="collection"/>
+	<base value="http://hl7.org/fhir"/>
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.2"/>
+			  <type value="identifier"/>
+				<name value="Alaska Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.2"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.2"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.1"/>
+			  <type value="identifier"/>
+				<name value="Alabama Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.1"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.1"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.5"/>
+			  <type value="identifier"/>
+				<name value="Arkansas Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.5"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.5"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.4"/>
+			  <type value="identifier"/>
+				<name value="Arizona Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.4"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.4"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.6"/>
+			  <type value="identifier"/>
+				<name value="California Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.6"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.6"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.8"/>
+			  <type value="identifier"/>
+				<name value="Colorado Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.8"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.8"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.9"/>
+			  <type value="identifier"/>
+				<name value="Connecticut Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.9"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.9"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.11"/>
+			  <type value="identifier"/>
+				<name value="DC Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.11"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.11"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.10"/>
+			  <type value="identifier"/>
+				<name value="Delaware Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.10"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.10"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.12"/>
+			  <type value="identifier"/>
+				<name value="Florida Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.12"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.12"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.13"/>
+			  <type value="identifier"/>
+				<name value="Georgia Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.13"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.13"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.15"/>
+			  <type value="identifier"/>
+				<name value="Hawaii Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.15"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.15"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.18"/>
+			  <type value="identifier"/>
+				<name value="Indiana Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.18"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.18"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.19"/>
+			  <type value="identifier"/>
+				<name value="Iowa Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.19"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.19"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.16"/>
+			  <type value="identifier"/>
+				<name value="Idaho Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.16"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.16"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.17"/>
+			  <type value="identifier"/>
+				<name value="Illinois Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.17"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.17"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.20"/>
+			  <type value="identifier"/>
+				<name value="Kansas Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.20"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.20"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.21"/>
+			  <type value="identifier"/>
+				<name value="Kentucky Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.21"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.21"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.22"/>
+			  <type value="identifier"/>
+				<name value="Louisiana Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.22"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.22"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.25"/>
+			  <type value="identifier"/>
+				<name value="Massachusetts Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.25"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.25"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.24"/>
+			  <type value="identifier"/>
+				<name value="Maryland Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.24"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.24"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.23"/>
+			  <type value="identifier"/>
+				<name value="Maine Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.23"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.23"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.26"/>
+			  <type value="identifier"/>
+				<name value="Michigan Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.26"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.26"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.27"/>
+			  <type value="identifier"/>
+				<name value="Minnesota Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.27"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.27"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.29"/>
+			  <type value="identifier"/>
+				<name value="Missouri Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.29"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.29"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.28"/>
+			  <type value="identifier"/>
+				<name value="Mississippi Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.28"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.28"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.30"/>
+			  <type value="identifier"/>
+				<name value="Montana Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.30"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.30"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.36"/>
+			  <type value="identifier"/>
+				<name value="New York Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.36"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.36"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.37"/>
+			  <type value="identifier"/>
+				<name value="North Carolina Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.37"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.37"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.38"/>
+			  <type value="identifier"/>
+				<name value="North Dakota Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.38"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.38"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.31"/>
+			  <type value="identifier"/>
+				<name value="Nebraska Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.31"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.31"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.33"/>
+			  <type value="identifier"/>
+				<name value="New Hampshire Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.33"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.33"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.34"/>
+			  <type value="identifier"/>
+				<name value="New Jersey Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.34"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.34"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.35"/>
+			  <type value="identifier"/>
+				<name value="New Mexico Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.35"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.35"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.32"/>
+			  <type value="identifier"/>
+				<name value="Nevada Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.32"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.32"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.39"/>
+			  <type value="identifier"/>
+				<name value="Ohio Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.39"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.39"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.40"/>
+			  <type value="identifier"/>
+				<name value="Oklahoma Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.40"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.40"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.41"/>
+			  <type value="identifier"/>
+				<name value="Oregon Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.41"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.41"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.42"/>
+			  <type value="identifier"/>
+				<name value="Pennsylvania Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.42"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.42"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.44"/>
+			  <type value="identifier"/>
+				<name value="Rhode Island Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.44"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.44"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.45"/>
+			  <type value="identifier"/>
+				<name value="South Carolina Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.45"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.45"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.46"/>
+			  <type value="identifier"/>
+				<name value="South Dakota Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.46"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.46"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.47"/>
+			  <type value="identifier"/>
+				<name value="Tennessee Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.47"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.47"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.48"/>
+			  <type value="identifier"/>
+				<name value="Texas Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.48"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.48"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.49"/>
+			  <type value="identifier"/>
+				<name value="Utah Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.49"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.49"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.51"/>
+			  <type value="identifier"/>
+				<name value="Virginia Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.51"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.51"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.50"/>
+			  <type value="identifier"/>
+				<name value="Vermont Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.50"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.50"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.53"/>
+			  <type value="identifier"/>
+				<name value="Washington Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.53"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.53"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.55"/>
+			  <type value="identifier"/>
+				<name value="Wisconsin Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.55"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.55"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.54"/>
+			  <type value="identifier"/>
+				<name value="West Virginia Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.54"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.54"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+
+	<entry>
+	  <resource>
+		  <NamingSystem>
+			  <id value="4.3.56"/>
+			  <type value="identifier"/>
+				<name value="Wyoming Driver's License"/>
+				<date value="2015-07-03"/>
+				<status value="active"/>
+				<country value="USA"/>
+				<uniqueId>
+				  <type value="oid"/>
+					<value value="2.16.840.1.113883.4.3.56"/>
+				</uniqueId>
+				<uniqueId>
+				  <type value="uri"/>
+					<value value="urn:oid:2.16.840.1.113883.4.3.56"/>
+				</uniqueId>
+				<publisher value="HL7 International"/>
+			</NamingSystem>
+		</resource>
+	</entry>
+			
+</Bundle>
+
+ 
+ 
+
+
+
