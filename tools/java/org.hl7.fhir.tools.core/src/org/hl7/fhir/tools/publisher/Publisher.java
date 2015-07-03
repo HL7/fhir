@@ -1731,6 +1731,7 @@ public class Publisher implements URIResolver {
 
       produceV2();
       produceV3();
+      page.getVsValidator().checkDuplicates(page.getValidationErrors());
 
       if (buildFlags.get("all")) {
         page.getToc().put("1.1", new TocEntry("1.1", "Table Of Contents", "toc.html"));
@@ -2491,7 +2492,7 @@ public class Publisher implements URIResolver {
     vs.setText(new Narrative());
     vs.getText().setStatus(NarrativeStatus.GENERATED);
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
+    page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
 
     return vs;
   }
@@ -2640,7 +2641,7 @@ public class Publisher implements URIResolver {
 
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
+    page.getVsValidator().validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
     return vs;
   }
 
@@ -2736,7 +2737,7 @@ public class Publisher implements URIResolver {
     }
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
+    page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
     return vs;
 
   }
@@ -3403,7 +3404,7 @@ public class Publisher implements URIResolver {
     if (rt.equals("ValueSet")) {
       ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
       vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
-      new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), "Value set Example "+n, vs, false, false);
+      page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+n, vs, false, false);
       if (vs.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
       vs.setUserData("path", n + ".html");
@@ -4804,7 +4805,7 @@ public class Publisher implements URIResolver {
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
           new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
 
-        new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), name, vs, true, false);
+        page.getVsValidator().validate(page.getValidationErrors(), name, vs, true, false);
 
         addToResourceFeed(vs, valueSetsFeed, null); // todo - what should the Oids be
 
@@ -4847,7 +4848,7 @@ public class Publisher implements URIResolver {
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
       new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
-    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), n, vs, true, false);
+    page.getVsValidator().validate(page.getValidationErrors(), n, vs, true, false);
 
     if (isGenerate) {
 //       page.log(" ... "+n, LogMessageType.Process);
@@ -4900,7 +4901,7 @@ public class Publisher implements URIResolver {
         if (ToolingExtensions.getOID(vs.getDefine()) == null)
           throw new Exception("No OID on value set define for "+vs.getUrl());
       }
-      new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
+      page.getVsValidator().validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
 
       page.getValueSets().put(vs.getUrl(), vs);
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);

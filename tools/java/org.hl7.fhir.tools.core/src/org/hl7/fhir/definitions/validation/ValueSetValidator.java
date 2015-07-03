@@ -1,10 +1,13 @@
 package org.hl7.fhir.definitions.validation;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.definitions.validation.ValueSetValidator.VSDuplicateList;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
@@ -17,8 +20,40 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class ValueSetValidator extends BaseValidator {
 
+  public class VSDuplicateList {
+    private ValueSet vs;
+    private String name;
+    private List<String> words = new ArrayList<String>();
+    private List<String> codes = new ArrayList<String>();
+    
+    public VSDuplicateList(ValueSet vs) {
+      super();
+      this.vs = vs;
+      name = vs.getName();
+      for (String w : stripPunctuation(splitByCamelCase(vs.getDescription())).split(" "))
+        if (!Utilities.noString(w) && !grammarWord(w.toLowerCase())) {
+          String wp = Utilities.pluralizeMe(w.toLowerCase());
+          if (!words.contains(wp))
+            words.add(wp);
+        }
+      Collections.sort(words);
+      if (vs.hasDefine()) 
+        listCodes(vs.getDefine().getConcept());
+      Collections.sort(codes);
+    }
+      
+    private void listCodes(List<ConceptDefinitionComponent> concept) {
+      for (ConceptDefinitionComponent cc : concept) {
+        if (cc.hasCode())
+          codes.add(cc.getCode().toLowerCase());
+        listCodes(cc.getConcept());      
+      }    
+    }
+  }
+
   private WorkerContext context;
   private List<String> fixups;
+  private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
 
   public ValueSetValidator(WorkerContext context, List<String> fixups) {
     this.context = context;
@@ -31,6 +66,7 @@ public class ValueSetValidator extends BaseValidator {
       if (em.getLevel() == IssueSeverity.WARNING)
         o_warnings++;
     }
+    duplicateList.add(new VSDuplicateList(vs));
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
       Set<String> sources = getListOfSources(vs);
       for (String s : sources) {
@@ -165,5 +201,46 @@ public class ValueSetValidator extends BaseValidator {
     return sources;
   }
 
+  public void checkDuplicates(List<ValidationMessage> errors) {
+//    for (int i = 0; i < duplicateList.size()-1; i++) {
+//      for (int j = i+1; j < duplicateList.size(); j++) {
+//        VSDuplicateList vd1 = duplicateList.get(i);
+//        VSDuplicateList vd2 = duplicateList.get(j);
+//        boolean int1 = getisInternal(vd1.vs);
+//        boolean int2 = getisInternal(vd2.vs);
+//        if (!vd1.vs.getUrl().equals(vd2.vs.getUrl())) {
+//          if (int1 || int2) { 
+//            float c = compareLists(vd1.codes, vd2.codes, 1);
+//            float w = compareLists(vd1.words, vd2.words, 4);
+//            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", c < 0.75 && w < 0.75, "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" ("+Float.toString(c)+" / "+Float.toString(w)+")");
+//          }
+//        }
+//      }
+//    }
+  }
+
+//  private boolean getisInternal(ValueSet vs) {
+//    String url = vs.getUrl();
+//    return url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://hl7.org/fhir/v2") && !url.startsWith("http://hl7.org/fhir/v3");
+//  }
+//
+//  private float compareLists(List<String> codes1, List<String> codes2, int min) {
+//    if (codes1.size() + codes2.size() == 0)
+//      return 0;
+//    if (codes1.size() <= min)
+//      return 0;
+//    if (codes2.size() <= min)
+//      return 0;
+//    int t = codes1.size() + codes2.size();
+//    int i = 0;
+//    for (String c : codes1) 
+//      if (codes2.contains(c))
+//        i++;
+//    for (String c : codes2) 
+//      if (codes1.contains(c))
+//        i++;
+//    return (float) i / (float) t;
+//  }
+  
 
 }

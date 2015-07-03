@@ -494,30 +494,6 @@ public class ResourceValidator extends BaseValidator {
     warning(errors, IssueType.STRUCTURE, path, ok, "Short description doesn't add any new content: '"+e.getShortDefn()+"'");
   }
 
-  private String splitByCamelCase(String s) {
-    StringBuilder b = new StringBuilder();
-    for (char c : s.toCharArray()) {
-      if (Character.isUpperCase(c))
-        b.append(' ');
-      b.append(c);
-    }
-    return b.toString();
-  }
-
-  private boolean grammarWord(String w) {
-    return w.equals("and") || w.equals("or") || w.equals("a") || w.equals("the") || w.equals("for") || w.equals("this") || w.equals("of");
-  }
-
-  private String stripPunctuation(String s) {
-    StringBuilder b = new StringBuilder();
-    for (char c : s.toCharArray()) {
-      int t = Character.getType(c);
-      if (t == Character.UPPERCASE_LETTER || t == Character.LOWERCASE_LETTER || t == Character.TITLECASE_LETTER || t == Character.MODIFIER_LETTER || t == Character.OTHER_LETTER || t == Character.LETTER_NUMBER || c == ' ')
-        b.append(c);
-    }
-    return b.toString();
-  }
-
   private boolean nameOverlaps(String name, String parentName) {
 	  if (Utilities.noString(parentName))
 	    return false;

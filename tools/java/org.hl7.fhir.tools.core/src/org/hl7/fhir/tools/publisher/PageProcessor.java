@@ -87,6 +87,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
+import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.IParser;
@@ -235,7 +236,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private List<ValidationMessage> validationErrors = new ArrayList<ValidationMessage>();
   private long lastSecs = 0;
   private Set<String> searchTypeUsage = new HashSet<String>();
-
+  private ValueSetValidator vsValidator;
 
   public PageProcessor(String tsServer) throws URISyntaxException {
     super();
@@ -5431,6 +5432,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public void setDefinitions(Definitions definitions) {
     this.definitions = definitions;
     breadCrumbManager.setDefinitions(definitions);
+    vsValidator = new ValueSetValidator(workerContext, definitions.getVsFixups());
   }
 
   public void setVersion(String version) {
@@ -6235,4 +6237,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     return b.toString();
   }
+
+  public ValueSetValidator getVsValidator() {
+    return vsValidator;
+  }
+  
+  
 }
