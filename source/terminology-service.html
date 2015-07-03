@@ -903,6 +903,59 @@ Notes:
  <li>The combination of the system and code is the key to the closure table; if the server encounters two different codes that have the same meaning (e.g. syntactical variation), it should create an "equals" relationship between them</li>
 </ul>
 
+<p>
+The client uses the result of the closure operation to maintain a closure table. Simplistically, 
+it might look like this:
+</p>
+<table class="grid">
+ <tr>
+   <td><b>Scope</b></td>
+   <td><b>Source</b></td>
+   <td><b>Target</b></td>
+   <td><b></b></td>
+ </tr>
+ <tr>
+   <td>patient-problems</td>
+   <td>http://snomed.info/sct|22298006</td>
+   <td>http://snomed.info/sct|128599005</td>
+ </tr>
+ <tr>
+   <td>patient-problems</td>
+   <td>http://snomed.info/sct|24595009</td>
+   <td>http://snomed.info/sct|90560007</td>
+ </tr>
+ <tr>
+   <td>obs-code</td>
+   <td>http://loinc.org|14682-9</td>
+   <td>http://loinc.org|LP41281-4</td>
+ </tr>
+</table>
+
+<p>
+The client can then use a table like this as part of it's general search conditions. Using the example from above:
+"Find any observations for male patients over the age of 50 who attended a particular clinic within a particular 
+2 week period, with a diagnosis of gout, and who had an elevated serum creatinine." This query could be done, for 
+instance, with an SQL query like this:
+</p>
+<pre>
+ Select * from Observations, Patients, Encounters, Conditions, Observations as Obs2 where
+   Observations.patient = Patients.Key and Patients.Age > 50 and 
+   Observations.encounter = Encounters.Key and Encounter.clinic = [key] 
+	   and encounter.date >= [date] and encounter.date &lt;= [date] and
+	 Conditions.patient = Patients.Key and Conditions.code 
+	   in (<span style="color: DarkGreen">select Source From ClosureTable 
+		   where Scope = "patient-problems" and Target = "http://snomed.info/sct|90560007"</span>) and
+	 Obs2.patient = Patients.Key and Obs2.value > 0.19 and Obs2.code 
+	   in (<span style="color: DarkGreen">select Source From ClosureTable 
+		   where Scope = "obs-code" and Target = "http://loinc.org|LP41281-4"</span>)
+</pre>
+<p>
+Note that in real clinical systems, tables are usually far more structured than this 
+example implies, and the query is correspondingly more complex. The closure table
+would usually be normalised - this example is kept simple to demonstrate the concept. 
+</p>
+
+
 
 <h3> Functional Operations </h3>
 
