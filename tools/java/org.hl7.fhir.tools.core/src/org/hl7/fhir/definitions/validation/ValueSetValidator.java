@@ -22,37 +22,34 @@ public class ValueSetValidator extends BaseValidator {
 
   public class VSDuplicateList {
     private ValueSet vs;
-    private String name;
-    private List<String> words = new ArrayList<String>();
-    private List<String> codes = new ArrayList<String>();
+    private String id;
+    private String url;
+    private Set<String> name = new HashSet<String>();
+    private Set<String> description = new HashSet<String>();
     
     public VSDuplicateList(ValueSet vs) {
       super();
       this.vs = vs;
-      name = vs.getName();
+      id = vs.getId();
+      url = vs.getUrl();
+      for (String w : stripPunctuation(splitByCamelCase(vs.getName())).split(" "))
+        if (!Utilities.noString(w) && !grammarWord(w.toLowerCase())) {
+          String wp = Utilities.pluralizeMe(w.toLowerCase());
+          if (!name.contains(wp) && wp.length() > 2)
+            name.add(wp);
+        }
       for (String w : stripPunctuation(splitByCamelCase(vs.getDescription())).split(" "))
         if (!Utilities.noString(w) && !grammarWord(w.toLowerCase())) {
           String wp = Utilities.pluralizeMe(w.toLowerCase());
-          if (!words.contains(wp))
-            words.add(wp);
+          if (!description.contains(wp) && wp.length() > 2)
+            description.add(wp);
         }
-      Collections.sort(words);
-      if (vs.hasDefine()) 
-        listCodes(vs.getDefine().getConcept());
-      Collections.sort(codes);
-    }
-      
-    private void listCodes(List<ConceptDefinitionComponent> concept) {
-      for (ConceptDefinitionComponent cc : concept) {
-        if (cc.hasCode())
-          codes.add(cc.getCode().toLowerCase());
-        listCodes(cc.getConcept());      
-      }    
     }
   }
 
   private WorkerContext context;
   private List<String> fixups;
+  private Set<ValueSet> handled = new HashSet<ValueSet>();
   private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
 
   public ValueSetValidator(WorkerContext context, List<String> fixups) {
@@ -66,7 +63,10 @@ public class ValueSetValidator extends BaseValidator {
       if (em.getLevel() == IssueSeverity.WARNING)
         o_warnings++;
     }
-    duplicateList.add(new VSDuplicateList(vs));
+    if (!handled.contains(vs)) {
+      handled.add(vs);
+      duplicateList.add(new VSDuplicateList(vs));
+    }
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
       Set<String> sources = getListOfSources(vs);
       for (String s : sources) {
@@ -202,45 +202,39 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   public void checkDuplicates(List<ValidationMessage> errors) {
-//    for (int i = 0; i < duplicateList.size()-1; i++) {
-//      for (int j = i+1; j < duplicateList.size(); j++) {
-//        VSDuplicateList vd1 = duplicateList.get(i);
-//        VSDuplicateList vd2 = duplicateList.get(j);
-//        boolean int1 = getisInternal(vd1.vs);
-//        boolean int2 = getisInternal(vd2.vs);
-//        if (!vd1.vs.getUrl().equals(vd2.vs.getUrl())) {
-//          if (int1 || int2) { 
-//            float c = compareLists(vd1.codes, vd2.codes, 1);
-//            float w = compareLists(vd1.words, vd2.words, 4);
-//            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", c < 0.75 && w < 0.75, "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" ("+Float.toString(c)+" / "+Float.toString(w)+")");
-//          }
-//        }
-//      }
-//    }
+    for (int i = 0; i < duplicateList.size()-1; i++) {
+      for (int j = i+1; j < duplicateList.size(); j++) {
+        VSDuplicateList vd1 = duplicateList.get(i);
+        VSDuplicateList vd2 = duplicateList.get(j);
+        if (rule(errors, IssueType.BUSINESSRULE, "ValueSetComparison", !vd1.id.equals(vd2.id), "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" (id)") &&
+            rule(errors, IssueType.BUSINESSRULE, "ValueSetComparison", !vd1.url.equals(vd2.url), "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" (url)")) {
+          if (isInternal(vd1.url) || isInternal(vd2.url)) {
+            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", areDisjoint(vd1.name, vd2.name), "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" (name)");
+            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", areDisjoint(vd1.description, vd2.description), "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" (description)");
+          }
+        }
+      }
+    }
   }
 
-//  private boolean getisInternal(ValueSet vs) {
-//    String url = vs.getUrl();
-//    return url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://hl7.org/fhir/v2") && !url.startsWith("http://hl7.org/fhir/v3");
-//  }
-//
-//  private float compareLists(List<String> codes1, List<String> codes2, int min) {
-//    if (codes1.size() + codes2.size() == 0)
-//      return 0;
-//    if (codes1.size() <= min)
-//      return 0;
-//    if (codes2.size() <= min)
-//      return 0;
-//    int t = codes1.size() + codes2.size();
-//    int i = 0;
-//    for (String c : codes1) 
-//      if (codes2.contains(c))
-//        i++;
-//    for (String c : codes2) 
-//      if (codes1.contains(c))
-//        i++;
-//    return (float) i / (float) t;
-//  }
-  
+  private boolean isInternal(String url) {
+    return url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://hl7.org/fhir/v2") && !url.startsWith("http://hl7.org/fhir/v3");
+  }
+
+  private boolean areDisjoint(Set<String> set1, Set<String> set2) {
+    if (set1.isEmpty() || set2.isEmpty())
+      return true;
+    
+    Set<String> set = new HashSet<String>();
+    for (String s : set1) 
+      if (!set2.contains(s))
+        set.add(s);
+    for (String s : set2) 
+      if (!set1.contains(s))
+        set.add(s);
+    float r = (float)set.size() / (float) (set1.size() + set2.size());
+    boolean ret = !set.isEmpty() && r > 0.1;
+    return ret;
+  }
 
 }

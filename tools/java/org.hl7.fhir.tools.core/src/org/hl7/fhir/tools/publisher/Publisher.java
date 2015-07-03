@@ -549,13 +549,14 @@ public class Publisher implements URIResolver {
       page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
     } catch (Exception e) {
 
-    	try {
-      	processWarnings();
-      } catch (Exception e2) {
-      	page.log("  ERROR: Unable to process warnings: " + e.getMessage(), LogMessageType.Error);
-				e.printStackTrace();
+      if (!(e instanceof NullPointerException)) { // because this is unexpected...
+        try {
+          processWarnings();
+        } catch (Exception e2) {
+          page.log("  ERROR: Unable to process warnings: " + e.getMessage(), LogMessageType.Error);
+          e.printStackTrace();
+        }
       }
-      
       if (!buildFlags.get("all")) {
         page.log("This was a Partial Build", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -2711,6 +2712,9 @@ public class Publisher implements URIResolver {
             f.setProperty("concept");
             f.setValue(cnt.getAttribute("code"));
             imp.getFilter().add(f);
+            if ("false".equals(cnt.getAttribute("includeHeadCode"))) {
+              compose.addExclude().setSystem(imp.getSystem()).addConcept().setCode(cnt.getAttribute("code"));
+            }
           } else if (cnt.getNodeName().equals("codeBasedContent") && cnt.hasAttribute("code")) {
             codes.add(cnt.getAttribute("code"));
           }
