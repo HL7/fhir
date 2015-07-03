@@ -21,7 +21,7 @@
  <tr><td>Source</td><td>LOINC is made available by the <a href="https://www.regenstrief.org/">Regenstrief Institute</a> at <a href="http://loinc.org">http://loinc.org</a></td></tr>
  <tr><td>System</td><td>The URI <a href="http://loinc.org">http://loinc.org</a> identifies LOINC codes</td></tr>
  <tr><td>Version</td><td>Where a version is used, it should be the standard LOINC version e.g. 2.48</td></tr>
- <tr><td>Code</td><td>The LOINC Code Identifier e.g. 21176-3. LOINC codes are not case sensitive</td></tr>
+ <tr><td>Code</td><td>The LOINC Code Identifier e.g. 21176-3. LOINC codes are not case sensitive. In addition, LOINC part codes and LOINC answer string ids can be used where appropriate</td></tr>
  <tr><td>Display</td><td>Use either the SHORTNAME or LONG_COMMON_NAME field for the display</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
@@ -60,8 +60,25 @@ the LOINC license, these part codes may be used in the following ways:
  <li>In a <a href="conceptmap.html">ConceptMap</a> resource, where mappings between LOINC codes and other codes are being defined</li>
 </ul>
 <p>
-Part codes are the same LOINC URI (http://loinc.org), and SHALL be represented in uppercase (e.g. LP31755-9).
+Part codes are the same LOINC system(http://loinc.org), and SHALL be represented in uppercase (e.g. LP31755-9).
 </p>
+
+<h3>Use of LOINC Answer Lists</h3>
+<p>
+LOINC also allocates Answer List and Answer String Ids for use in various forms and questionnaires.
+LOINC Answer String IDs are also valid LOINC codes:
+</p>
+<pre>
+  &lt;coding&gt;
+    &lt;system value=&quot;http://loinc.org&quot;/&gt;
+    &lt;code value=&quot;LA11165-0&quot;/&gt;
+    &lt;display value=&quot;Platelet anisocytosis&quot;/&gt;
+  &lt;/coding&gt;
+</pre>
+<p>
+LOINC Answer List Ids are actually value set identifiers. See <a href="#alist">below</a> for how to use these.
+</p>
+
 
 <h3>LOINC Filter Properties</h3>
 
@@ -121,6 +138,90 @@ references are allowed to reference these value sets directly. <i>todo: can LOIN
 <p>
 The value set identifier http://loinc.org/vs is a value set that contains all LOINC codes.
 </p>
+
+<a name="alist"> </a>
+<h4>LOINC Answer List</h4>
+
+<p>
+LOINC defines a set of Answer lists, each of which contains a set of LOINC codes. 
+LOINC answer lists are value sets. The value set identifier "http://loinc.org/vs/[id]"
+identifies a value set that contains a set of LOINC codes. For instance, the value
+set identifier http://loinc.org/vs/LL715-4 has the following definition for LOINC 2.52:
+</p>
+<pre>
+&lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      [some html that identifies that this value set 
+      includes all LOINC codes in this answer list]
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;identifier value=&quot;http://loinc.org/vs/LL715-4&quot;/&gt;
+  &lt;version value=&quot;2.52&quot;/&gt;
+  &lt;name value=&quot;Platelet morph&quot;/&gt;
+  &lt;description value=&quot;LOINC Answer List for Platelet morph&quot;/&gt;
+  &lt;status value=&quot;active&quot;/&gt;
+  &lt;date value=&quot;[optional date of LOINC release]&quot;/&gt;
+  &lt;compose&gt;
+    &lt;include&gt;
+      &lt;system value=&quot;http://loinc.org&quot;/&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;LA11165-0&quot;/&gt;
+        &lt;display value=&quot;Platelet anisocytosis&quot;/&gt;
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;LA11168-4&quot;/&gt;
+        &lt;display value=&quot;Platelet clump&quot;/&gt;
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;LA11167-6&quot;/&gt;
+        &lt;display value=&quot;Platelet large fragments&quot;/&gt;
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;LA11166-8&quot;/&gt;
+        &lt;display value=&quot;Platelet satellitism&quot;/&gt;
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;LA11169-2&quot;/&gt;
+        &lt;display value=&quot;Platelets.agranular&quot;/&gt;
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;LA11170-0&quot;/&gt;
+        &lt;display value=&quot;Platelets.giant&quot;/&gt;
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;LA11172-6&quot;/&gt;
+        &lt;display value=&quot;Platelets.large&quot;/&gt;
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;LA11171-8&quot;/&gt;
+        &lt;display value=&quot;Platelets.small&quot;/&gt;
+      &lt;/concept&gt;
+    &lt;/include&gt;
+  &lt;/compose&gt;
+&lt;/ValueSet&gt;
+</pre>
+
+<p>
+Here is an example of a LOINC Answer list used in a Questionnaire
+question:
+</p>
+<pre>
+&lt;question&gt;
+  &lt;concept&gt;
+    &lt;system value=&quot;http://loinc.org&quot;/&gt;
+    &lt;code value=&quot;11125-2&quot;/&gt;
+    &lt;display value=&quot;Plat morph Bld&quot;/&gt;
+  &lt;/concept&gt;
+  &lt;type value=&quot;choice&quot;/&gt;
+  &lt;options&gt;
+    &lt;reference value=&quot;http://loinc.org/vs/LL715-4&quot;/&gt;
+  &lt;/options&gt;
+&lt;/question&gt;
+</pre>
+
+
 
 <h4>Multi-Axial Hierarchy Entry</h4>
 
