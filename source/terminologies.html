@@ -334,7 +334,16 @@ system.code may be used instead.</i>
 </p>
 <p>
 If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the <i>coding</i> values SHALL
-be from the specified value set if a code applies, but if no suitable code can be found, text may provided in its place.
+be from the specified value set if a code applies, but if no suitable code exists in the value set, alternate code(s) may 
+be provided in its place. If no codes, including local codes, are available, then just text may be used.
+</p>
+<p>
+If the data type is <a href="datatypes.html#Coding">Coding</a>, then the code/system SHALL be from the specified value set
+if a code applies, but if no suitable code exists in the value set, an alternate code may provided in its place.
+</p>
+<p>
+Identified gaps in value sets should be submitted to the organization administering the value 
+set in order to improve interoperability in the future.
 </p>
 <p>
 Extensible bindings are used when there is consensus at the specification or profiling level about the coded values
