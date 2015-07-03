@@ -168,7 +168,7 @@ How filters are used with various code systems:
 A value set can be "expanded", where the definition of the value set is 
 used to create a simple collection of codes suitable for use for data 
 entry or validation. This is most useful when a value set includes 
-all the children of a code or a set of codes by filter. 
+all the codes in a code system, or a set of codes by filter. 
 </p>
 <p>
 A resource that represents a value set expansion includes the same
@@ -176,7 +176,7 @@ identification details as the definition of the value set, and MAY
 include the definition of the value set (<i>define</i> and <i>compose</i>
 elements). In addition it has a <i>expansion</i> element which contains
 the list of codes that constitute the value set expansion. If the 
-expansion is heirarchical (codes contain other concepts), there 
+expansion is hierarchical (codes contain other concepts), there 
 is no implication about the logical relationship between them; this 
 is guidance for helping human user navigate the choice of codes that 
 may or may not relate to the logical definitions of the codes or concepts.
@@ -212,13 +212,17 @@ extensions or other knowledge to introduce such groups as an implementation feat
 </p>
 <p>
 Whether to store expanded value sets, or simply to store their definitions, and expand on the fly is 
-a matter for system deployment. Any system that stores an expansion must be concerned with how to determine
-whether it is current, which requires deep knowledge of how the expansion was created. A system with a 
-dedicated terminology server that returns expansions on demand avoids this problem, but leaves open
-the question of how to audit the specific expansion that was used for a particular case. One solution
-to this is to use a dedicated terminology server, and have the clients ask for expansions on demand
-based on the value set definitions, and for the server to store (and reuse as appropriate) the 
-returned expansion (ValueSet.expansion.identifier).
+a matter for system deployment. Some servers, including public value sets servers, only store expansions. 
+However any system that stores an expansion must be concerned with how to determine whether the expansion 
+is still current, and this requires deep knowledge of how the expansion was created. 
+</p>
+<p>
+A system with a dedicated terminology server that returns expansions on demand avoids this problem, but 
+leaves open the question of how to audit the specific expansion that was used for a particular case. 
+One solution to this is to use a dedicated terminology server, and have the clients ask for 
+expansions on demand based on the value set definitions, and for the server to store (and reuse as 
+appropriate) the returned expansion (when it reuses the expansion, ValueSet.expansion.identifier will
+be the same).
 </p>
 
 <a name="detailed-metadata"/>
