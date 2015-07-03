@@ -84,11 +84,7 @@ references to value sets can either be logical or literal URL.
 
 </blockquote>
 
-
-</div>
-
-<div>
-<h2>ValueSet Identification</h2>
+<h3>ValueSet Identification</h3>
 <p>
 A value set has 3 identifiers:
 </p>
