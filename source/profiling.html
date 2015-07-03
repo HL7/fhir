@@ -570,11 +570,11 @@ Profiles can bind to these value sets instead of the ones defined in the base
 specification, following these rules:
 </p>
 <table class="grid">
- <tr> <td><b>Binding Type in base specification</b></td> <td><b>Matching Profile Properties</b></td> <td><b>Customization Rules in Profiles</b></td> </tr>
-
- <tr> <td>Complete</td> <td>conformance = required, extensible = false</td> <td>The value set can only contain codes contained in the value set specified by the FHIR specification</td> </tr>
- <tr> <td>Incomplete</td> <td>conformance = preferred and extensible = true</td> <td>The value set can contain codes not found in the base value set. These additional codes SHOULD not have the same meaning as existing codes in the base value set</td> </tr>
- <tr> <td>Example</td> <td>conformance = example</td> <td>The value set can contain whatever is appropriate for local use</td> </tr> 
+ <tr> <td><b><a href="terminologies.html#binding">Binding Strength</a> in base specification</b></td> </td> <td><b>Customization Rules in Profiles</b></td> </tr>
+ <tr> <td>required</td> <td>The value set can only contain codes contained in the value set specified by the FHIR specification</td> </tr>
+ <tr> <td>extensible</td>  <td>The value set can contain codes not found in the base value set. These additional codes SHOULD NOT have the same meaning as existing codes in the base value set</td> </tr>
+ <tr> <td>preferred</td>  <td>The value set can contain whatever is appropriate for local use</td> </tr> 
+ <tr> <td>example</td>  <td>The value set can contain whatever is appropriate for local use</td> </tr> 
 </table> 
 <p>
 Note that local codes are not as interoperable as standard published code systems (e.g. LOINC, SNOMED C, so it is preferable to use standard code systems.
