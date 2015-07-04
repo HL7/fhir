@@ -21,7 +21,7 @@
       <display value="Drug Interaction Alert"/>
     </coding>
   </category>
-  <severity value="H"/>
+  <severity value="high"/>
   <implicated>
     <reference value="MedicationStatement/tylenol"/>
     <display value="500 mg Acetaminophen tablet 1/day, PRN since 2010"/>
