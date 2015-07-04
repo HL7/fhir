@@ -594,7 +594,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Suministro</translation>
         <translation lang="fr">Approvisionnement</translation>
     </item>
-        <item id="SupplyDelivery">
+    <item id="SupplyDelivery">
         <translation lang="en">SupplyDelivery</translation>
         <translation lang="zh">供应交货</translation>
         <translation lang="es">Entrega de Suministro</translation>
@@ -605,10 +605,6 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="zh">供应请求</translation>
         <translation lang="es">Solicitud de Suministro</translation>
         <translation lang="fr">Demande d'approvisionnement</translation>
-    </item>
-    <item id="SupportingDocumentation">
-        <translation lang="en">SupportingDocumentation</translation>
-        <translation lang="fr">DocumentationJustificative</translation>
     </item>
     <item id="User">
         <translation lang="en">User</translation>
