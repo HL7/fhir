@@ -484,7 +484,7 @@ public class ResourceValidator extends BaseValidator {
         defn.add(Utilities.pluralizeMe(n.toLowerCase()));
     
     Set<String> provided = new HashSet<String>();
-    for (String w : stripPunctuation(splitByCamelCase(e.getShortDefn())).split(" "))
+    for (String w : stripPunctuation(splitByCamelCase(e.getShortDefn()), false).split(" "))
       if (!Utilities.noString(w) && !grammarWord(w.toLowerCase()))
         provided.add(Utilities.pluralizeMe(w.toLowerCase()));
     boolean ok = false;

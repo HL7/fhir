@@ -32,18 +32,22 @@ public class ValueSetValidator extends BaseValidator {
       this.vs = vs;
       id = vs.getId();
       url = vs.getUrl();
-      for (String w : stripPunctuation(splitByCamelCase(vs.getName())).split(" "))
-        if (!Utilities.noString(w) && !grammarWord(w.toLowerCase())) {
-          String wp = Utilities.pluralizeMe(w.toLowerCase());
-          if (!name.contains(wp) && wp.length() > 2)
+      for (String w : stripPunctuation(splitByCamelCase(vs.getName()), true).split(" ")) {
+        String wl = w.toLowerCase();
+        if (!Utilities.noString(w) && !grammarWord(wl) && !nullVSWord(wl)) {
+          String wp = Utilities.pluralizeMe(wl);
+          if (!name.contains(wp))
             name.add(wp);
         }
-      for (String w : stripPunctuation(splitByCamelCase(vs.getDescription())).split(" "))
-        if (!Utilities.noString(w) && !grammarWord(w.toLowerCase())) {
-          String wp = Utilities.pluralizeMe(w.toLowerCase());
-          if (!description.contains(wp) && wp.length() > 2)
+      }
+      for (String w : stripPunctuation(splitByCamelCase(vs.getDescription()), true).split(" ")) {
+        String wl = w.toLowerCase();
+        if (!Utilities.noString(w) && !grammarWord(wl) && !nullVSWord(wl)) {
+          String wp = Utilities.pluralizeMe(wl);
+          if (!description.contains(wp))
             description.add(wp);
         }
+      }
     }
   }
 
@@ -57,6 +61,25 @@ public class ValueSetValidator extends BaseValidator {
     this.fixups = fixups;
   }
 
+  public boolean nullVSWord(String wp) {
+    return 
+        wp.equals("vs") ||
+        wp.equals("valueset") ||
+        wp.equals("value") ||
+        wp.equals("set") ||
+        wp.equals("includes") ||
+        wp.equals("code") ||
+        wp.equals("system") ||
+        wp.equals("contents") ||
+        wp.equals("definition") ||
+        wp.equals("hl7") ||
+        wp.equals("v2") ||
+        wp.equals("v3") ||
+        wp.equals("table") ||
+        wp.equals("codes");
+  }
+ 
+  
   public void validate(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, boolean internal, boolean exemptFromCopyrightRule) {
     int o_warnings = 0;
     for (ValidationMessage em : errors) {
@@ -206,11 +229,13 @@ public class ValueSetValidator extends BaseValidator {
       for (int j = i+1; j < duplicateList.size(); j++) {
         VSDuplicateList vd1 = duplicateList.get(i);
         VSDuplicateList vd2 = duplicateList.get(j);
-        if (rule(errors, IssueType.BUSINESSRULE, "ValueSetComparison", !vd1.id.equals(vd2.id), "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" (id)") &&
-            rule(errors, IssueType.BUSINESSRULE, "ValueSetComparison", !vd1.url.equals(vd2.url), "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" (url)")) {
+        if (rule(errors, IssueType.BUSINESSRULE, "ValueSetComparison", !vd1.id.equals(vd2.id), "Duplicate Value Set ids : "+vd1.id+"("+vd1.vs.getName()+") & "+vd2.id+"("+vd2.vs.getName()+") (id)") &&
+            rule(errors, IssueType.BUSINESSRULE, "ValueSetComparison", !vd1.url.equals(vd2.url), "Duplicate Value Set URLs: "+vd1.id+"("+vd1.vs.getName()+") & "+vd2.id+"("+vd2.vs.getName()+") (url)")) {
           if (isInternal(vd1.url) || isInternal(vd2.url)) {
-            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", areDisjoint(vd1.name, vd2.name), "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" (name)");
-            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", areDisjoint(vd1.description, vd2.description), "Apparent Duplicated Valuesets: "+vd1.vs.getName()+" & "+vd2.vs.getName()+" (description)");
+            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", areDisjoint(vd1.name, vd2.name), "Duplicate Valueset Names: "+vd1.vs.getUserString("path")+" ("+vd1.vs.getName()+") & "+vd2.vs.getUserString("path")+" ("+vd2.vs.getName()+") (name: "+vd1.name.toString()+" / "+vd2.name.toString()+"))", 
+                "Duplicate Valueset Names: <a href=\""+vd1.vs.getUserString("path")+"\">"+vd1.id+"</a> ("+vd1.vs.getName()+") & <a href=\""+vd2.vs.getUserString("path")+"\">"+vd2.id+"</a> ("+vd2.vs.getName()+") (name: "+vd1.name.toString()+" / "+vd2.name.toString()+"))");
+            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", areDisjoint(vd1.description, vd2.description), "Duplicate Valueset Definitions: "+vd1.vs.getUserString("path")+" ("+vd1.vs.getName()+") & "+vd2.vs.getUserString("path")+" ("+vd2.vs.getName()+") (description: "+vd1.description.toString()+" / "+vd2.description.toString()+")",
+                "Duplicate Valueset descriptions: <a href=\""+vd1.vs.getUserString("path")+"\">"+vd1.id+"</a> ("+vd1.vs.getName()+") & <a href=\""+vd2.vs.getUserString("path")+"\">"+vd2.id+"</a> ("+vd2.vs.getName()+") (description: "+vd1.description.toString()+" / "+vd2.description.toString()+"))");
           }
         }
       }
@@ -232,9 +257,7 @@ public class ValueSetValidator extends BaseValidator {
     for (String s : set2) 
       if (!set1.contains(s))
         set.add(s);
-    float r = (float)set.size() / (float) (set1.size() + set2.size());
-    boolean ret = !set.isEmpty() && r > 0.1;
-    return ret;
+    return !set.isEmpty();
   }
 
 }
