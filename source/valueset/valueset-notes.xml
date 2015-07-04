@@ -175,11 +175,12 @@ A resource that represents a value set expansion includes the same
 identification details as the definition of the value set, and MAY
 include the definition of the value set (<i>define</i> and <i>compose</i>
 elements). In addition it has a <i>expansion</i> element which contains
-the list of codes that constitute the value set expansion. If the 
-expansion is hierarchical (codes contain other concepts), there 
-is no implication about the logical relationship between them; this 
-is guidance for helping human user navigate the choice of codes that 
-may or may not relate to the logical definitions of the codes or concepts.
+the list of codes that constitute the value set expansion. 
+If the expansion has nested <code>contains</code> elements, there is 
+no implication about the logical relationship between them, and the 
+structure cannot be used for logical inferencing. The structure 
+exists to provide navigational assistance for helping human users to 
+locate codes in the expansion.
 </p>
 <p>
 When a request for an expansion is received (e.g. for the <a href="valueset-operations.html#expand">$expand</a> operation,
