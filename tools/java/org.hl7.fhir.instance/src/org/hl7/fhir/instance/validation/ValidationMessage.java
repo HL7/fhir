@@ -68,6 +68,7 @@ public class ValidationMessage
     this.col = -1;
     this.location = path;
     this.message = message;
+    this.html = Utilities.escapeXml(message);
     this.level = level;
     this.source = source;
     this.type = type;
@@ -81,6 +82,7 @@ public class ValidationMessage
     this.col = col;
     this.location = path;
     this.message = message;
+    this.html = Utilities.escapeXml(message);
     this.level = level;
     this.source = source;
     this.type = type;
