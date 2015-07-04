@@ -1953,6 +1953,20 @@ public class Publisher implements URIResolver {
       pc.compareProfiles(sdl, sdr);
     }  
     
+    // assign file namea and paths to all the structures
+    int i = 0;
+    for (ProfileComparison cmp : pc.getComparisons()) {
+      i++;
+      if (cmp.getSubset() != null) {
+        cmp.getSubset().setUserData("filename", n+".intersection."+Integer.toString(i)+".xml");
+        cmp.getSubset().setUserData("filename", n+".intersection."+Integer.toString(i)+".html");
+      }
+      if (cmp.getSuperset() != null) {
+        cmp.getSuperset().setUserData("filename", n+".intersection."+Integer.toString(i)+".xml");
+        cmp.getSuperset().setUserData("filename", n+".intersection."+Integer.toString(i)+".html");
+      }      
+    }
+    
     // ok, all compared; now produce the output 
     // first page we produce is simply the index
     page.log("   ... generate", LogMessageType.Process);

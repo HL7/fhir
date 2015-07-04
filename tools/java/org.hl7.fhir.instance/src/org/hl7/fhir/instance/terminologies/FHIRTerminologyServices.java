@@ -98,7 +98,8 @@ public class FHIRTerminologyServices implements ITerminologyServices {
   public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
 		String key = keyFor(inc);
 		if (expansionCache.containsKey(key))
-			return expansionCache.get(key);
+			// return expansionCache.get(key);
+		  throw new Error("Hey - why are you here?");
 		
 		Parameters p_in = new Parameters();
 		ValueSet vs = new ValueSet();
@@ -150,7 +151,20 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 
   @Override
   public ValueSetExpansionOutcome expand(ValueSet vs) {
-    throw new Error("Not done yet");
+    try {
+      Parameters p_in = new Parameters();
+      p_in.addParameter().setName("valueset").setResource(vs);
+      Parameters p_out = client.operateType(ValueSet.class, "expand", p_in);
+      boolean ok = false;
+      for (ParametersParameterComponent p : p_out.getParameter()) {
+        if (p.getName().equals("return")) {
+          return new ValueSetExpansionOutcome(((ValueSet) p.getResource()));
+        }
+      }
+      return new ValueSetExpansionOutcome("No value set returned");
+    } catch (Exception e) {
+      return new ValueSetExpansionOutcome(e.getMessage());
+    }
   }
 
 }

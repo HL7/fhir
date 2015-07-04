@@ -356,25 +356,13 @@ value. The Value Set reference provides context information about the selection 
 code. 
 </p>
 <p>
-The <i>system</i> is a URI that references the code system that defines the <i>code</i>. 
-The URI may be: 
+The <code>system</code> is a URI that references the code system that defines the <i>code</i>. 
+Choosing the correct system is important; for more information about the code system 
+URI, read <a href="terminologies.html#system">Managing Terminology System URIs</a>.
+The system URI SHALL NOT contain a reference to a value set (e.g. ValueSet.url). 
+(if the code is taken from a ValueSet with an inline code system, <i>ValueSet.define.system</i>,
+is the correct value for the system uri.
 </p>
-<ul>
- <li>a URI defined in the <a href="terminologies-systems.html">named systems list</a></li>
- <li>an OID (urn:oid:) or a UUID (urn:uuid:). OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a></li>
- <li>a URL that references a definition of the system directly, which may be a reference to a code system defined as part of <a href="valueset.html">ValueSet</a> resource (i.e. the value in <i>ValueSet.define.system</i>)</li>
- <li>or any other URI that uniquely identifies the code system definition</li>
-</ul>
-<p>
-The correct value to use in the <i>system</i> for a given code system can be determined by working through the following list, in order:
-</p>
-<ul>
- <li>the <a href="terminologies-systems.html">Named Systems List</a> section</li>
- <li>the <a href="http://www.hl7.org/oid/index.cfm?ref=common">HL7 OID Registry</a></li>
- <li>the documentation associated with the code system</li>
- <li>consulting the owner of the code system</li>
- <li>asking on the HL7 vocabulary mailing list</li>
-</ul>
 <p>
 A code system version may also be supplied. If the meaning of codes within the code system is consistent across releases, this is not required. 
 The version SHOULD be exchanged when this the system does not maintain consistent definitions across versions.
@@ -426,16 +414,6 @@ how they codes are related can only be determined by consulting the definitions 
 A coding may be marked as a "userSelected" if a user selected the particular coded value 
 in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, 
 it is the preferred choice for performing translations etc. 
-</p>
-<p>
-A reference to a <a href="valueset.html">value set</a> may be provided to help a user or system processing the code
-to understand the context in which the code arose. In some contexts, the possible
-set of codes from which the code was chosen influences how the code should be 
-interpreted. A value set reference is not an acceptable substitute for a logical
-URI in the system. The system URI SHALL NOT contain a reference to a value set. 
-(If the value set defines its own codes, then the correct value for the 
-system is <i>ValueSet.define.system</i>, and the value set contains a direct reference
-to the value set resource.
 </p>
 
 <!--<h3>Version Management</h3>

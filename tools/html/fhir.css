@@ -589,7 +589,10 @@ img.heirarchy {
   counter-reset: listing 
 }
 
-code { counter-increment: listing; }
+
+code { 
+  counter-increment: listing; 
+}
 
 .linecounter  i:before { 
   content: counter(listing) ". "; color: black; 
