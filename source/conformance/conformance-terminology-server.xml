@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conformance.xsd">
+  <id value="conformance-terminology-server"/>
+	<!--
+    in addition to the code systems defined in line in value sets, 
+	  terminology servers also provide terminology functionality on 
+		additional code systems. Typically, LOINC, SNOMED CT, RcNorm in USA, etc). 
+		
+		These extra code systems are declared here in this extension. It's a todo 
+		for a future version to standardise things like which versions are supported etc. 
+	-->
+	<extension url="http://hl7.org/fhir/StructureDefinition/supported-system">
+     <valueUri value="http://loinc.org"/>
+	</extension>
+  <url value="http://hl7.org/fhir/terminology-server"/>
+  <name value="Terminology Service Conformance Statement"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <name value="FHIR Project"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Basic conformance statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
+  <status value="draft"/>
+  <date value="2015-07-05"/>
+  <fhirVersion value="0.5.0"/>
+  <!-- this can be either, but accepting unknown elements is 
+    preferred for forwards compatibility. Not that it matters during the DSTU period -->
+  <acceptUnknown value="true"/>
+  
+  <!-- json is mandatory, for support of mobile clients -->
+  <format value="json"/>
+  <!-- xml is optional, but strongly recommended -->
+  <format value="xml"/>
+  
+  <!-- profile - terminology servers may consider 
+    supporting the shareable value set directly, but
+    are not required. HL7 servers will
+  <profile>
+    <reference value="StructureDefinition/valueset-shareable-definition"/>  
+  </profile>   
+  -->
+  <rest>
+    <mode value="server"/>
+    <documentation value="RESTful Terminology Server"/>
+    <security>
+      <!-- yes - terminology servers are expected to be used from web applications, and need to implement CORS -->
+      <cors value="true"/>
+      <!-- this bit is optional: security using registered client certificates -->
+      <service>
+        <coding>
+          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <code value="Certificates"/>
+        </coding>
+      </service>
+      <!-- Server could implement value set & concept map editing using 
+         SMART-on-FHIR, but this doesn't make sense for the actual terminology services API
+      <service>
+        <coding>
+          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <code value="SMART-on-FHIR"/>
+        </coding>
+      </service>
+      -->
+    </security>
+    <!-- value set. Must provide read and search -->
+    <resource>
+      <type value="ValueSet"/>
+      <profile>
+        <!-- terminology servers are expected to support the whole value set resource
+          (though actual functionality can vary considerably) -->
+        <reference value="StructureDefinition/ValueSet"/>
+      </profile>
+      <interaction>
+		<code value="read"/>
+		<documentation value="Read allows clients to get the logical definitions of the value sets"/>
+	  </interaction>
+      <interaction>
+		<code value="search-type"/>
+		<documentation value="Search allows clients to find value sets on the server"/>
+	  </interaction>
+	  <!-- 
+        servers should also consider offering these interactions to allow clients 
+        to edit the content on the server, but are not required to do so
+      <interaction>
+		<code value="create"/>
+	  </interaction>
+      <interaction>
+		<code value="update"/>
+	  </interaction>
+      <interaction>
+		<code value="delete"/>
+	  </interaction>
+      
+      this bit is up to servers - if they support editing, they should do so version safely
+      <versioning value="versioned-update"/>
+      -->
+      <!-- no need for version history (though servers can), and no need to conditional updates etc -->
+      <!-- search parameters: at least code, date, name, reference, status, system, url and version. More is recommended -->
+      <searchParam>
+		<name value="code"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-code"/>
+		<type value="token"/>
+	  </searchParam>
+      <searchParam>
+		<name value="date"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-date"/>
+		<type value="date"/>
+	  </searchParam>
+      <searchParam>
+		<name value="name"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-name"/>
+		<type value="string"/>
+	  </searchParam>
+      <searchParam>
+		<name value="reference"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-reference"/>
+		<type value="token"/>
+	  </searchParam>
+      <searchParam>
+		<name value="status"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-status"/>
+		<type value="token"/>
+	  </searchParam>
+      <searchParam>
+		<name value="system"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-system"/>
+		<type value="uri"/>
+	  </searchParam>
+      <searchParam>
+		<name value="url"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-url"/>
+		<type value="uri"/>
+	  </searchParam>
+      <searchParam>
+		<name value="version"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-version"/>
+		<type value="token"/>
+	  </searchParam>
+    </resource>
+    <resource>
+      <type value="ConceptMap"/>
+      <profile>
+        <!-- terminology servers are expected to support the whole concept map resource
+          (though actual functionality can vary considerably) -->
+        <reference value="StructureDefinition/ConceptMap"/>
+      </profile>
+      <interaction>
+		<code value="read"/>
+		<documentation value="Read allows clients to get the logical definitions of the concept maps"/>
+	  </interaction>
+      <interaction>
+		<code value="search-type"/>
+		<documentation value="Search allows clients to find concept maps on the server"/>
+	  </interaction>
+	  <!-- 
+        servers should also consider offering these interactions to allow clients 
+        to edit the content on the server, but are not required to do so
+      <interaction>
+		<code value="create"/>
+	  </interaction>
+      <interaction>
+		<code value="update"/>
+	  </interaction>
+      <interaction>
+		<code value="delete"/>
+	  </interaction>
+      
+      this bit is up to servers - if they support editing, they should do so version safely
+      <versioning value="versioned-update"/>
+      -->
+      <!-- no need for version history (though servers can), and no need to conditional updates etc -->
+      <!-- search parameters: at least date, name, status, source, target, url, version. More is recommended -->
+      <searchParam>
+		<name value="date"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-date"/>
+		<type value="date"/>
+	  </searchParam>
+      <searchParam>
+		<name value="name"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-name"/>
+		<type value="string"/>
+	  </searchParam>
+      <searchParam>
+		<name value="status"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-status"/>
+		<type value="token"/>
+	  </searchParam>
+      <searchParam>
+		<name value="source"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-source"/>
+		<type value="uri"/>
+	  </searchParam>
+      <searchParam>
+		<name value="target"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-target"/>
+		<type value="uri"/>
+	  </searchParam>
+      <searchParam>
+		<name value="url"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-url"/>
+		<type value="uri"/>
+	  </searchParam>
+      <searchParam>
+		<name value="version"/>
+		<definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-version"/>
+		<type value="token"/>
+	  </searchParam>
+    </resource>
+    <!-- now, operations. We expect terminology services to implement these 
+      named services, though not necessarily actually these profiles -->
+    <operation>
+	  <name value="expand"/>
+	  <definition>
+	    <reference value="OperationDefinition/ValueSet-expand"/>
+	  </definition>
+	</operation>
+    <operation>
+	  <name value="lookup"/>
+	  <definition>
+	    <reference value="OperationDefinition/ValueSet-lookup"/>
+	  </definition>
+	</operation>
+    <operation>
+	  <name value="validate-code"/>
+	  <definition>
+	    <reference value="OperationDefinition/ValueSet-validate-code"/>
+	  </definition>
+	</operation>
+    <operation>
+	  <name value="batch-validate"/>
+	  <definition>
+	    <reference value="OperationDefinition/ValueSet-batch-validate"/>
+	  </definition>
+	</operation>
+    <operation>
+	  <name value="translate"/>
+	  <definition>
+	    <reference value="OperationDefinition/ConceptMap-translate"/>
+	  </definition>
+	</operation>
+    <operation>
+	  <name value="batch-translate"/>
+	  <definition>
+	    <reference value="OperationDefinition/ConceptMap-batch-translate"/>
+	  </definition>
+	</operation>
+    <operation>
+	  <name value="closure"/>
+	  <definition>
+	    <reference value="OperationDefinition/ConceptMap-closure"/>
+	  </definition>
+	</operation>
+  </rest>
+</Conformance>

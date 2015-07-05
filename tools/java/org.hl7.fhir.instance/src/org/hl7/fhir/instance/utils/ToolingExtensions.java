@@ -192,13 +192,13 @@ public class ToolingExtensions {
     return !Utilities.noString(((StringType) ex.getValue()).getValue());
   }
 
-  public static String readBooleanExtension(Element c, String uri) {
+  public static Boolean readBooleanExtension(Element c, String uri) {
     Extension ex = ExtensionHelper.getExtension(c, uri);
     if (ex == null)
       return null;
     if (!(ex.getValue() instanceof BooleanType))
       return null;
-    return java.lang.Boolean.toString(((BooleanType) ex.getValue()).getValue());
+    return ((BooleanType) ex.getValue()).getValue();
   }
 
   public static boolean findBooleanExtension(Element c, String uri) {
@@ -214,7 +214,7 @@ public class ToolingExtensions {
     return readStringExtension(c, EXT_COMMENT);    
   }
 
-  public static String getDeprecated(ConceptDefinitionComponent c) {
+  public static Boolean getDeprecated(ConceptDefinitionComponent c) {
     return readBooleanExtension(c, EXT_DEPRECATED);    
   }
 

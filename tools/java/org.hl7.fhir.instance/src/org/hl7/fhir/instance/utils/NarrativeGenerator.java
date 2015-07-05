@@ -2207,9 +2207,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
       smartAddText(td, c.getDefinition());
     if (deprecated) {
       td = tr.addTag("td");
-      String s = ToolingExtensions.getDeprecated(c);
-      if (s != null) {
-        smartAddText(td, s);
+      Boolean b = ToolingExtensions.getDeprecated(c);
+      if (b !=  null && b) {
+        smartAddText(td, "Deprecated");
         hasExtensions = true;
         if (ToolingExtensions.hasExtension(c, ToolingExtensions.EXT_REPLACED_BY)) {
           Coding cc = (Coding) ToolingExtensions.getExtension(c, ToolingExtensions.EXT_REPLACED_BY).getValue();
