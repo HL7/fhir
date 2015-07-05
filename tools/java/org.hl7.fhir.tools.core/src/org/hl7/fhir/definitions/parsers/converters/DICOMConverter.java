@@ -17,7 +17,9 @@ import java.io.InputStream;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -52,6 +54,9 @@ public class DICOMConverter {
   private static final String DST = "C:\\work\\org.hl7.fhir\\build\\source\\valueset\\valueset-dicom-dcim.xml";
   
   public static void main(String[] args) throws Exception {
+    Map<String, String> sctTrans = new HashMap<String, String>();
+    loadSCTTrans(sctTrans);
+    
     // converts from DICOM generated HTML to value set.
     ValueSet vs = new ValueSet();
     vs.setId("valueset-dicom-dcim");
@@ -103,7 +108,11 @@ public class DICOMConverter {
                 if (parts[1].equals("UMLS")) {
                   // ignore these
                 } else {
-                  Coding c = new Coding().setCode(parts[1]).setSystem(getSystem(parts[1])).setDisplay(parts[2]);
+                  Coding c;
+                  if (parts[1].equals("SRT") && sctTrans.containsKey(parts[0]))
+                    c = new Coding().setCode(sctTrans.get(parts[0])).setSystem(getSystem(parts[1])).setDisplay(parts[2]);
+                  else
+                    c = new Coding().setCode(parts[0]).setSystem(getSystem(parts[1])).setDisplay(parts[2]);
                   ToolingExtensions.setExtension(cc, ToolingExtensions.EXT_REPLACED_BY, c);
                 }
               }
@@ -122,6 +131,20 @@ public class DICOMConverter {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(DST), vs);
     
     System.out.println("done");
+  }
+
+  private static void loadSCTTrans(Map<String, String> sctTrans) throws Exception {
+    System.out.println("load SCT Translations");
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document xdoc = builder.parse(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\source\\dicom\\sct-trans.xml"));
+    Element e = XMLUtil.getFirstChild(xdoc.getDocumentElement());
+    while (e != null) {
+      String ss = XMLUtil.getNamedChild(e, "SnomedId").getTextContent();
+      String sd = XMLUtil.getNamedChild(e, "ConceptId").getTextContent();
+      sctTrans.put(ss,  sd);
+      e = XMLUtil.getNextSibling(xdoc.getDocumentElement());
+    }
   }
 
   private static String getSystem(String sys) {

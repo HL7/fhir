@@ -2021,7 +2021,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     addMapHeaders(addTableHeaderRowStandard(t, heirarchy, display, true, commentS, deprecated), mymaps);
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, heirarchy, display, commentS, deprecated, mymaps) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, c, 0, heirarchy, display, commentS, deprecated, mymaps, vs.getDefine().getSystem()) || hasExtensions;
     }    
     if (langs.size() > 0) {
       Collections.sort(langs);
@@ -2179,7 +2179,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }    
   }
 
-  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHeirarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps) {
+  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHeirarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
@@ -2211,6 +2211,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (s != null) {
         smartAddText(td, s);
         hasExtensions = true;
+        if (ToolingExtensions.hasExtension(c, ToolingExtensions.EXT_REPLACED_BY)) {
+          Coding cc = (Coding) ToolingExtensions.getExtension(c, ToolingExtensions.EXT_REPLACED_BY).getValue();
+          td.addText(" (replaced by ");
+          String url = getCodingReference(cc, system);
+          if (url != null) {
+            td.addTag("a").setAttribute("href", url).addText(cc.getCode());
+            td.addText(": "+cc.getDisplay()+")");
+          } else
+            td.addText(cc.getCode()+" '"+cc.getDisplay()+"' in "+cc.getSystem()+")");
+        }
       }
     }
     if (comment) {
@@ -2250,11 +2260,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
       a.addText(c.getCode());
     }
     for (ConceptDefinitionComponent cc : c.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHeirarchy, hasDisplay, comment, deprecated, maps) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHeirarchy, hasDisplay, comment, deprecated, maps, system) || hasExtensions;
     }    
     return hasExtensions;
   }
 
+
+  private String getCodingReference(Coding cc, String system) {
+    if (cc.getSystem().equals(system))
+      return "#"+cc.getCode();
+    if (cc.getSystem().equals("http://snomed.info/sct"))
+      return "http://snomed.info/sct/"+cc.getCode();
+    if (cc.getSystem().equals("http://loinc.org"))
+      return "http://s.details.loinc.org/LOINC/"+cc.getCode()+".html";
+    return null;
+  }
 
   private String getCharForEquivalence(TargetElementComponent mapping) {
     if (!mapping.hasEquivalence())

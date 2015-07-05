@@ -104,6 +104,10 @@ public class ToolingExtensions {
     return getExtension(de, url) != null;
   }
   
+  public static boolean hasExtension(Element e, String url) {
+    return getExtension(e, url) != null;
+  }
+  
   public static void addStringExtension(DomainResource dr, String url, String content) throws Exception {
     if (!Utilities.noString(content)) {
       Extension ex = getExtension(dr, url);

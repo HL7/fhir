@@ -75,7 +75,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="US"/>
           <display value="Ultrasound"/>
         </valueCoding>
       </extension>
@@ -90,7 +90,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="RF"/>
           <display value="Radiofluoroscopy"/>
         </valueCoding>
       </extension>
@@ -136,7 +136,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="US"/>
           <display value="Ultrasound"/>
         </valueCoding>
       </extension>
@@ -151,7 +151,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="RF"/>
           <display value="Radiofluoroscopy"/>
         </valueCoding>
       </extension>
@@ -184,7 +184,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="XA"/>
           <display value="X-Ray Angiography"/>
         </valueCoding>
       </extension>
@@ -209,7 +209,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="US"/>
           <display value="Ultrasound"/>
         </valueCoding>
       </extension>
@@ -244,7 +244,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="OP"/>
           <display value="Ophthalmic photography"/>
         </valueCoding>
       </extension>
@@ -350,7 +350,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="MR"/>
           <display value="Magnetic resonance"/>
         </valueCoding>
       </extension>
@@ -395,7 +395,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="MR"/>
           <display value="Magnetic resonance"/>
         </valueCoding>
       </extension>
@@ -560,7 +560,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="NM"/>
           <display value="Nuclear Medicine"/>
         </valueCoding>
       </extension>
@@ -600,7 +600,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="RF"/>
           <display value="Radiofluoroscopy"/>
         </valueCoding>
       </extension>
@@ -730,7 +730,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="314453003"/>
           <display value="Average diastolic blood pressure"/>
         </valueCoding>
       </extension>
@@ -745,7 +745,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-00E1F"/>
           <display value="Minimum diastolic blood pressure"/>
         </valueCoding>
       </extension>
@@ -760,7 +760,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-32011"/>
           <display value="End diastole"/>
         </valueCoding>
       </extension>
@@ -795,7 +795,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-31150"/>
           <display value="Mean blood pressure"/>
         </valueCoding>
       </extension>
@@ -830,7 +830,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-00E14"/>
           <display value="Average systolic blood pressure"/>
         </valueCoding>
       </extension>
@@ -845,7 +845,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-00E11"/>
           <display value="Maximum systolic blood pressure"/>
         </valueCoding>
       </extension>
@@ -975,7 +975,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="G-72BB"/>
           <display value="Catheterization Procedure Phase"/>
         </valueCoding>
       </extension>
@@ -1015,7 +1015,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="R-FAB5B"/>
           <display value="End systole"/>
         </valueCoding>
       </extension>
@@ -1064,7 +1064,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-05019"/>
           <display value="Cardiac stress state"/>
         </valueCoding>
       </extension>
@@ -1094,7 +1094,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-05028"/>
           <display value="Peak stress state"/>
         </valueCoding>
       </extension>
@@ -1109,7 +1109,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-05018"/>
           <display value="Cardiac stress Recovery state"/>
         </valueCoding>
       </extension>
@@ -2823,7 +2823,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="112031"/>
           <display value="Attenuation Coefficient"/>
         </valueCoding>
       </extension>
@@ -3048,7 +3048,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-01710"/>
           <display value="Breast composition"/>
         </valueCoding>
       </extension>
@@ -3461,7 +3461,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-01796"/>
           <display value="Mammography breast density"/>
         </valueCoding>
       </extension>
@@ -3476,7 +3476,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-01776"/>
           <display value="Individual Calcification"/>
         </valueCoding>
       </extension>
@@ -3491,7 +3491,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-01775"/>
           <display value="Calcification Cluster"/>
         </valueCoding>
       </extension>
@@ -3586,7 +3586,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="P5-B0099"/>
           <display value="Ultrasound procedure"/>
         </valueCoding>
       </extension>
@@ -3605,7 +3605,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="P5-40060"/>
           <display value="Mammary ductogram"/>
         </valueCoding>
       </extension>
@@ -3720,7 +3720,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-78060"/>
           <display value="Scar tissue"/>
         </valueCoding>
       </extension>
@@ -3735,7 +3735,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-1016B"/>
           <display value="J Wire"/>
         </valueCoding>
       </extension>
@@ -3750,7 +3750,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-11101"/>
           <display value="Cardiac Pacemaker"/>
         </valueCoding>
       </extension>
@@ -3765,7 +3765,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-10042"/>
           <display value="Compression paddle"/>
         </valueCoding>
       </extension>
@@ -3780,7 +3780,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-10044"/>
           <display value="Collimator"/>
         </valueCoding>
       </extension>
@@ -3795,7 +3795,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-16016"/>
           <display value="ID Plate"/>
         </valueCoding>
       </extension>
@@ -4133,7 +4133,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-83240"/>
           <display value="Adenolipoma"/>
         </valueCoding>
       </extension>
@@ -4148,7 +4148,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-72170"/>
           <display value="Ductal hyperplasia, Usual"/>
         </valueCoding>
       </extension>
@@ -4162,7 +4162,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-89830"/>
           <display value="Adenomyoepithelioma"/>
         </valueCoding>
       </extension>
@@ -4192,7 +4192,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-8A063"/>
           <display value="Asynchronous involution of breast"/>
         </valueCoding>
       </extension>
@@ -4216,7 +4216,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-85040"/>
           <display value="Intracystic papilloma"/>
         </valueCoding>
       </extension>
@@ -4241,7 +4241,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-88211"/>
           <display value="Extra abdominal desmoid"/>
         </valueCoding>
       </extension>
@@ -4256,7 +4256,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-33410"/>
           <display value="Epidermal inclusion cyst"/>
         </valueCoding>
       </extension>
@@ -4281,7 +4281,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-44140"/>
           <display value="Foreign body (reaction"/>
         </valueCoding>
       </extension>
@@ -4295,7 +4295,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="D7-90364"/>
           <display value="Galactocele"/>
         </valueCoding>
       </extension>
@@ -4310,7 +4310,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="D3-F0620"/>
           <display value="Hemangioma of subcutaneous tissue"/>
         </valueCoding>
       </extension>
@@ -4325,7 +4325,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-72000"/>
           <display value="Hyperplasia, usual"/>
         </valueCoding>
       </extension>
@@ -4344,7 +4344,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-82040"/>
           <display value="Lactating adenoma"/>
         </valueCoding>
       </extension>
@@ -4369,7 +4369,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-88250"/>
           <display value="Myofibroblastoma"/>
         </valueCoding>
       </extension>
@@ -4404,7 +4404,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-95401"/>
           <display value="Neurofibromatosis"/>
         </valueCoding>
       </extension>
@@ -4434,7 +4434,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-78731"/>
           <display value="Radial scar"/>
         </valueCoding>
       </extension>
@@ -4449,7 +4449,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-74220"/>
           <display value="Sclerosing adenosis"/>
         </valueCoding>
       </extension>
@@ -4494,7 +4494,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-91203"/>
           <display value="Angiosarcoma"/>
         </valueCoding>
       </extension>
@@ -4534,7 +4534,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-85733"/>
           <display value="Carcinoma with metaplasia"/>
         </valueCoding>
       </extension>
@@ -4558,7 +4558,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-89803"/>
           <display value="Carcinosarcoma"/>
         </valueCoding>
       </extension>
@@ -4583,7 +4583,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-85072"/>
           <display value="Intraductal carcinoma micro-papillary"/>
         </valueCoding>
       </extension>
@@ -4607,7 +4607,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-85203"/>
           <display value="Invasive lobular carcinoma"/>
         </valueCoding>
       </extension>
@@ -4631,7 +4631,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-95903"/>
           <display value="Lymphoma"/>
         </valueCoding>
       </extension>
@@ -4691,7 +4691,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-88303"/>
           <display value="Malignant fibrous histiocytoma"/>
         </valueCoding>
       </extension>
@@ -4720,7 +4720,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="D0-F035F"/>
           <display value="Neoplasm of the mammary skin"/>
         </valueCoding>
       </extension>
@@ -4734,7 +4734,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-80502"/>
           <display value="Papillary carcinoma in-situ"/>
         </valueCoding>
       </extension>
@@ -4763,7 +4763,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="M-82013"/>
           <display value="Invasive cribriform carcinoma"/>
         </valueCoding>
       </extension>
@@ -5242,7 +5242,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="111123"/>
           <display value="Marker placement"/>
         </valueCoding>
       </extension>
@@ -5602,7 +5602,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="10160-0"/>
           <display value="History Of Medication Use"/>
         </valueCoding>
       </extension>
@@ -5622,7 +5622,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="11450-4"/>
           <display value="Problem List"/>
         </valueCoding>
       </extension>
@@ -6022,7 +6022,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-010E2"/>
           <display value="Green optical filter"/>
         </valueCoding>
       </extension>
@@ -6037,7 +6037,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-010DF"/>
           <display value="Red optical filter"/>
         </valueCoding>
       </extension>
@@ -6052,7 +6052,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-010DA"/>
           <display value="Blue optical filter"/>
         </valueCoding>
       </extension>
@@ -6067,7 +6067,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-010E0"/>
           <display value="Yellow-green optical filter"/>
         </valueCoding>
       </extension>
@@ -6082,7 +6082,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-010D8"/>
           <display value="Blue-green optical filter"/>
         </valueCoding>
       </extension>
@@ -6097,7 +6097,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-010DC"/>
           <display value="Infrared optical filter"/>
         </valueCoding>
       </extension>
@@ -6112,7 +6112,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="A-010E1"/>
           <display value="Polarizing optical filter"/>
         </valueCoding>
       </extension>
@@ -8037,7 +8037,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-0517E"/>
           <display value="Difference in border shape"/>
         </valueCoding>
       </extension>
@@ -8052,7 +8052,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-05166"/>
           <display value="Difference in border definition"/>
         </valueCoding>
       </extension>
@@ -8067,7 +8067,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-0516C"/>
           <display value="Difference in distribution"/>
         </valueCoding>
       </extension>
@@ -8082,7 +8082,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-05170"/>
           <display value="Difference in site involvement"/>
         </valueCoding>
       </extension>
@@ -8097,7 +8097,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-05167"/>
           <display value="Difference in substance"/>
         </valueCoding>
       </extension>
@@ -8112,7 +8112,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-0516A"/>
           <display value="Difference in texture"/>
         </valueCoding>
       </extension>
@@ -9762,7 +9762,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="C-1190E"/>
           <display value="Niobium or Niobium compound"/>
         </valueCoding>
       </extension>
@@ -9777,7 +9777,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="C-1190F"/>
           <display value="Europium or Europium compound"/>
         </valueCoding>
       </extension>
@@ -9867,7 +9867,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="113824"/>
           <display value="Exposure Time"/>
         </valueCoding>
       </extension>
@@ -10587,7 +10587,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="73569-6"/>
           <display value="Radiation Exposure and Protection Information"/>
         </valueCoding>
       </extension>
@@ -11072,7 +11072,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="11951-1"/>
           <display value="Fetus ID"/>
         </valueCoding>
       </extension>
@@ -11086,7 +11086,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55281-0"/>
           <display value="Number of Fetuses"/>
         </valueCoding>
       </extension>
@@ -11118,7 +11118,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="R-00254"/>
           <display value="Specimen Type"/>
         </valueCoding>
       </extension>
@@ -11133,7 +11133,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="111700"/>
           <display value="Specimen Container Identifier"/>
         </valueCoding>
       </extension>
@@ -11196,7 +11196,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="G-A203"/>
           <display value="Present"/>
         </valueCoding>
       </extension>
@@ -11210,7 +11210,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="R-4089B"/>
           <display value="Absent"/>
         </valueCoding>
       </extension>
@@ -11244,7 +11244,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="R-4089B"/>
           <display value="Undetermined"/>
         </valueCoding>
       </extension>
@@ -11259,7 +11259,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="11329-0"/>
           <display value="History"/>
         </valueCoding>
       </extension>
@@ -11273,7 +11273,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55115-0"/>
           <display value="Request"/>
         </valueCoding>
       </extension>
@@ -11287,7 +11287,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55111-9"/>
           <display value="Current Procedure Descriptions"/>
         </valueCoding>
       </extension>
@@ -11306,7 +11306,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55114-3"/>
           <display value="Prior Procedure Descriptions"/>
         </valueCoding>
       </extension>
@@ -11320,7 +11320,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="18834-2"/>
           <display value="Previous Findings"/>
         </valueCoding>
       </extension>
@@ -11339,7 +11339,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="59776-5"/>
           <display value="Findings"/>
         </valueCoding>
       </extension>
@@ -11358,7 +11358,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="19005-8"/>
           <display value="Impressions"/>
         </valueCoding>
       </extension>
@@ -11377,7 +11377,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="18783-1"/>
           <display value="Recommendations"/>
         </valueCoding>
       </extension>
@@ -11396,7 +11396,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55110-1"/>
           <display value="Conclusions"/>
         </valueCoding>
       </extension>
@@ -11415,7 +11415,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55107-7"/>
           <display value="Addendum"/>
         </valueCoding>
       </extension>
@@ -11439,7 +11439,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-004E8"/>
           <display value="Physician"/>
         </valueCoding>
       </extension>
@@ -11453,7 +11453,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-07100"/>
           <display value="Nurse"/>
         </valueCoding>
       </extension>
@@ -11467,7 +11467,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-00187"/>
           <display value="Radiologic Technologist"/>
         </valueCoding>
       </extension>
@@ -11481,7 +11481,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-00187"/>
           <display value="Radiographer"/>
         </valueCoding>
       </extension>
@@ -11502,7 +11502,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-005E6"/>
           <display value="Resident"/>
         </valueCoding>
       </extension>
@@ -11516,7 +11516,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-00172"/>
           <display value="Registrar"/>
         </valueCoding>
       </extension>
@@ -11535,7 +11535,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-005E8"/>
           <display value="Attending"/>
         </valueCoding>
       </extension>
@@ -11549,7 +11549,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-0714A"/>
           <display value="Scrub nurse"/>
         </valueCoding>
       </extension>
@@ -11563,7 +11563,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-00556"/>
           <display value="Surgeon"/>
         </valueCoding>
       </extension>
@@ -11622,7 +11622,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="J-0714B"/>
           <display value="Circulating Nurse"/>
         </valueCoding>
       </extension>
@@ -11670,7 +11670,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="18785-6"/>
           <display value="Indications for Procedure"/>
         </valueCoding>
       </extension>
@@ -11685,7 +11685,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55108-5"/>
           <display value="Patient Presentation"/>
         </valueCoding>
       </extension>
@@ -11700,7 +11700,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55112-7"/>
           <display value="Summary"/>
         </valueCoding>
       </extension>
@@ -11720,7 +11720,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55109-3"/>
           <display value="Complications"/>
         </valueCoding>
       </extension>
@@ -12010,7 +12010,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://loinc.org"/>
-          <code value="LN"/>
+          <code value="55113-5"/>
           <display value="Key Images"/>
         </valueCoding>
       </extension>
@@ -12080,7 +12080,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="121056"/>
           <display value="Area Outline"/>
         </valueCoding>
       </extension>
@@ -12094,7 +12094,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="G-A16A"/>
           <display value="Area of defined region"/>
         </valueCoding>
       </extension>
@@ -12123,7 +12123,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="121055"/>
           <display value="Path"/>
         </valueCoding>
       </extension>
@@ -12142,7 +12142,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="121057"/>
           <display value="Perimeter Outline"/>
         </valueCoding>
       </extension>
@@ -12631,7 +12631,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="R-10260"/>
           <display value="Estimated"/>
         </valueCoding>
       </extension>
@@ -12646,7 +12646,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="R-41D2D"/>
           <display value="Calculated"/>
         </valueCoding>
       </extension>
@@ -12696,7 +12696,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="P2-31011"/>
           <display value="Pharmacologic and exercise stress test"/>
         </valueCoding>
       </extension>
@@ -12711,7 +12711,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="P2-3110B"/>
           <display value="Stress test using cardiac pacing"/>
         </valueCoding>
       </extension>
@@ -12726,7 +12726,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="P1-080B4"/>
           <display value="Correction of congenital cardiovascular deformity"/>
         </valueCoding>
       </extension>
@@ -13101,7 +13101,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://nema.org/dicom/dicm"/>
-          <code value="DCM"/>
+          <code value="110501"/>
           <display value="Equipment failure"/>
         </valueCoding>
       </extension>
@@ -13181,7 +13181,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="P2-3120E"/>
           <display value="15-Lead ECG"/>
         </valueCoding>
       </extension>
@@ -13356,7 +13356,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="R-101BB"/>
           <display value="Lumen Diameter Stenosis"/>
         </valueCoding>
       </extension>
@@ -13371,7 +13371,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="R-101BB"/>
           <display value="Lumen Diameter Stenosis"/>
         </valueCoding>
       </extension>
@@ -15686,7 +15686,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="F-61FDB"/>
           <display value="Radiopharmaceutical agent"/>
         </valueCoding>
       </extension>
@@ -16174,7 +16174,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="P0-02241"/>
           <display value="Power Doppler"/>
         </valueCoding>
       </extension>
@@ -16189,7 +16189,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
         <valueCoding>
           <system value="http://snomed.info/sct"/>
-          <code value="SRT"/>
+          <code value="P0-02242"/>
           <display value="3D mode"/>
         </valueCoding>
       </extension>
