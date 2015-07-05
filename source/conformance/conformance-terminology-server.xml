@@ -9,7 +9,7 @@
 		These extra code systems are declared here in this extension. It's a todo 
 		for a future version to standardise things like which versions are supported etc. 
 	-->
-	<extension url="http://hl7.org/fhir/StructureDefinition/supported-system">
+	<extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-supported-system">
      <valueUri value="http://loinc.org"/>
 	</extension>
   <url value="http://hl7.org/fhir/terminology-server"/>
