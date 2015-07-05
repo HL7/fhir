@@ -35,6 +35,7 @@ import java.util.List;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.CodeableConcept;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
@@ -70,6 +71,7 @@ public class ToolingExtensions {
   private static final String EXT_TRANSLATION = "http://hl7.org/fhir/StructureDefinition/translation";
   public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source";
   public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"; 
+  public static final String EXT_REPLACED_BY = "http://hl7.org/fhir/StructureDefinition/valueset-replacedby";
 
   // unregistered?
   
@@ -126,7 +128,7 @@ public class ToolingExtensions {
   }
 
   public static void markDeprecated(Element nc) throws Exception {
-    nc.getExtension().add(Factory.newExtension(EXT_DEPRECATED, Factory.newBoolean(true), true));   
+    setDeprecated(nc);   
   }
 
   public static void addSubsumes(ConceptDefinitionComponent nc, String code) throws Exception {
@@ -389,5 +391,23 @@ public class ToolingExtensions {
         return;
       }
     de.getExtension().add(new Extension().setUrl(EXT_CIMI_REFERENCE).setValue(new UriType(value)));
+  }
+
+  public static void setDeprecated(Element nc) {
+    for (Extension e : nc.getExtension()) 
+      if (e.getUrl().equals(EXT_DEPRECATED)) {
+        e.setValue(new BooleanType(true));
+        return;
+      }
+    nc.getExtension().add(new Extension().setUrl(EXT_DEPRECATED).setValue(new BooleanType(true)));    
+  }
+
+  public static void setExtension(Element focus, String url, Coding c) {
+    for (Extension e : focus.getExtension()) 
+      if (e.getUrl().equals(url)) {
+        e.setValue(c);
+        return;
+      }
+    focus.getExtension().add(new Extension().setUrl(url).setValue(c));    
   }
 }

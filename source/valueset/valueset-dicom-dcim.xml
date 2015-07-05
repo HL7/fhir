@@ -31,8 +31,8 @@
       <definition value="Autorefraction device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="AS"/>
       <display value="Angioscopy"/>
@@ -69,16 +69,30 @@
       <definition value="Image Capture Device, includes video capture"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (US, DCM, &quot;Ultrasound&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Ultrasound"/>
+        </valueCoding>
       </extension>
       <code value="CD"/>
       <display value="Color flow Doppler"/>
       <definition value="Color flow Doppler"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (RF, DCM, &quot;Radiofluoroscopy&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Radiofluoroscopy"/>
+        </valueCoding>
       </extension>
       <code value="CF"/>
       <display value="Cinefluorography"/>
@@ -90,8 +104,8 @@
       <definition value="Computation Server; includes radiotherapy planning"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="CP"/>
       <display value="Culposcopy"/>
@@ -103,8 +117,8 @@
       <definition value="Computed Radiography device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="CS"/>
       <display value="Cystoscopy"/>
@@ -116,16 +130,30 @@
       <definition value="Computed Tomography device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (US, DCM, &quot;Ultrasound&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Ultrasound"/>
+        </valueCoding>
       </extension>
       <code value="DD"/>
       <display value="Duplex Doppler"/>
       <definition value="Duplex Doppler"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (RF, DCM, &quot;Radiofluoroscopy&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Radiofluoroscopy"/>
+        </valueCoding>
       </extension>
       <code value="DF"/>
       <display value="Digital fluoroscopy"/>
@@ -137,8 +165,8 @@
       <definition value="Diaphanography device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="DM"/>
       <display value="Digital microscopy"/>
@@ -150,8 +178,15 @@
       <definition value="Equipment that digitized hardcopy documents and imported them"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (XA, DCM, &quot;X-Ray Angiography&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="X-Ray Angiography"/>
+        </valueCoding>
       </extension>
       <code value="DS"/>
       <display value="Digital Subtraction Angiography"/>
@@ -168,8 +203,15 @@
       <definition value="Digital Radiography device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (US, DCM, &quot;Ultrasound&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Ultrasound"/>
+        </valueCoding>
       </extension>
       <code value="EC"/>
       <display value="Echocardiography"/>
@@ -196,8 +238,15 @@
       <definition value="Female sex"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (OP, DCM, &quot;Ophthalmic photography&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Ophthalmic photography"/>
+        </valueCoding>
       </extension>
       <code value="FA"/>
       <display value="Fluorescein angiography"/>
@@ -219,8 +268,8 @@
       <definition value="Female Pseudohermaphrodite"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="FS"/>
       <display value="Fundoscopy"/>
@@ -257,11 +306,6 @@
       <definition value="Intravascular Ultrasound device"/>
     </concept>
     <concept>
-       <code value="IVOCT"/>
-       <display value="Intravascular Optical Coherence Tomography"/>
-       <definition value="An acquisition device that performs Intravascular Optical Coherence Tomography"/>
-     </concept>    
-		 <concept>
       <code value="KER"/>
       <display value="Keratometry"/>
       <definition value="Keratometry device"/>
@@ -282,8 +326,8 @@
       <definition value="Procedure Logging device; includes cath lab logging"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="LP"/>
       <display value="Laparoscopy"/>
@@ -300,8 +344,15 @@
       <definition value="Male sex"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (MR, DCM, &quot;Magnetic resonance&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Magnetic resonance"/>
+        </valueCoding>
       </extension>
       <code value="MA"/>
       <display value="Magnetic resonance angiography"/>
@@ -338,8 +389,15 @@
       <definition value="Magnetic Resonance device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (MR, DCM, &quot;Magnetic resonance&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Magnetic resonance"/>
+        </valueCoding>
       </extension>
       <code value="MS"/>
       <display value="Magnetic resonance spectroscopy"/>
@@ -496,8 +554,15 @@
       <definition value="Subjective Refraction device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (NM, DCM, &quot;Nuclear Medicine&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Nuclear Medicine"/>
+        </valueCoding>
       </extension>
       <code value="ST"/>
       <display value="Single-photon emission computed tomography"/>
@@ -529,8 +594,15 @@
       <definition value="Visual Acuity device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (RF, DCM, &quot;Radiofluoroscopy&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Radiofluoroscopy"/>
+        </valueCoding>
       </extension>
       <code value="VF"/>
       <display value="Videofluorography"/>
@@ -652,24 +724,45 @@
       <definition value="An identified cardiac beat not used in the determination of a measurement"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-00E22, SRT, &quot;Average diastolic blood pressure&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Average diastolic blood pressure"/>
+        </valueCoding>
       </extension>
       <code value="109020"/>
       <display value="Diastolic pressure, average"/>
       <definition value="The average of several diastolic pressure measurements"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-00E1F, SRT, &quot;Minimum diastolic blood pressure&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Minimum diastolic blood pressure"/>
+        </valueCoding>
       </extension>
       <code value="109021"/>
       <display value="Diastolic pressure nadir"/>
       <definition value="The lowest pressure value excluding any undershoot artifact"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-32011, SRT, &quot;End diastole&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="End diastole"/>
+        </valueCoding>
       </extension>
       <code value="109022"/>
       <display value="End diastole"/>
@@ -696,8 +789,15 @@
       <definition value="The maximum negative rate of change of pressure"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-31150, SRT, &quot;Mean blood pressure&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Mean blood pressure"/>
+        </valueCoding>
       </extension>
       <code value="109027"/>
       <display value="Mean blood pressure"/>
@@ -724,16 +824,30 @@
       <definition value="The first discernible blood temperature change following the injectate during a thermal cardiac output measurement"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-00E14, SRT, &quot;Average systolic blood pressure&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Average systolic blood pressure"/>
+        </valueCoding>
       </extension>
       <code value="109032"/>
       <display value="Systolic pressure, average"/>
       <definition value="The average of several systolic blood pressure measurements"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-00E11, SRT, &quot;Maximum systolic blood pressure&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Maximum systolic blood pressure"/>
+        </valueCoding>
       </extension>
       <code value="109033"/>
       <display value="Systolic peak pressure"/>
@@ -855,8 +969,15 @@
       <definition value="A series of physiological challenges designed to progressively increase the work of the heart"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (G-72BB, SRT, &quot;Catheterization Procedure Phase&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Catheterization Procedure Phase"/>
+        </valueCoding>
       </extension>
       <code value="109057"/>
       <display value="Catheterization Procedure Phase"/>
@@ -888,8 +1009,15 @@
       <definition value="A means of defining a series of cardiac stimulation pulses"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (R-FAB5B, SRT, &quot;End systole&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="End systole"/>
+        </valueCoding>
       </extension>
       <code value="109070"/>
       <display value="End of systole"/>
@@ -930,8 +1058,15 @@
       <definition value="There is a constant RR interval, which makes thresholding not required; see Cardiac Synchronization Technique (0018,9037). E.g., Pacemaker"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-05019, SRT, &quot;Cardiac stress state&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Cardiac stress state"/>
+        </valueCoding>
       </extension>
       <code value="109091"/>
       <display value="Cardiac Stress State"/>
@@ -953,16 +1088,30 @@
       <definition value="Imaging after allowing an extended amount of time for tracer to move from its initial sites of uptake. Example: For Thallium imaging this would correspond to imaging more than 6 hours after injection"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-05028, SRT, &quot;Peak stress state&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Peak stress state"/>
+        </valueCoding>
       </extension>
       <code value="109095"/>
       <display value="Peak stress state"/>
       <definition value="Peak Cardiac stress state"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-05018, SRT, &quot;Cardiac stress Recovery state&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Cardiac stress Recovery state"/>
+        </valueCoding>
       </extension>
       <code value="109096"/>
       <display value="Recovery state"/>
@@ -2668,8 +2817,15 @@
       <definition value="Decrease in the number of photons in an X-Ray beam due to interactions with the atoms of a material substance. Attenuation is due primarily to two processes, absorption and scattering"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (112031, DCM, &quot;Attenuation Coefficient&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Attenuation Coefficient"/>
+        </valueCoding>
       </extension>
       <code value="110851"/>
       <display value="X-Ray Attenuation Coefficient"/>
@@ -2886,8 +3042,15 @@
       <definition value="Assignment of intermediate or overall interpretation results to a general category"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-01710, SRT, &quot;Breast composition&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Breast composition"/>
+        </valueCoding>
       </extension>
       <code value="111006"/>
       <display value="Breast composition"/>
@@ -3292,24 +3455,45 @@
       <definition value="A finding or feature that is identified as a non-anatomic foreign object"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-01796, SRT, &quot;Mammography breast density&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Mammography breast density"/>
+        </valueCoding>
       </extension>
       <code value="111103"/>
       <display value="Density"/>
       <definition value="A space-occupying lesion identified in a single image or projection"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-01776, SRT, &quot;Individual Calcification&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Individual Calcification"/>
+        </valueCoding>
       </extension>
       <code value="111104"/>
       <display value="Individual Calcification"/>
       <definition value="A single identified calcification"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-01775, SRT, &quot;Calcification Cluster&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Calcification Cluster"/>
+        </valueCoding>
       </extension>
       <code value="111105"/>
       <display value="Calcification Cluster"/>
@@ -3396,8 +3580,15 @@
       <definition value="A spot or coned down compression of the breast providing a reduction in the thickness and a magnification of the localized area of interest and improved separation of breast tissue"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (P5-B0099, SRT, &quot;Ultrasound procedure&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Ultrasound procedure"/>
+        </valueCoding>
       </extension>
       <code value="111137"/>
       <display value="Ultrasound"/>
@@ -3408,8 +3599,15 @@
       <definition value="Obtain previous mammography studies to compare to present study"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (P5-40060, SRT, &quot;Mammary ductogram&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Mammary ductogram"/>
+        </valueCoding>
       </extension>
       <code value="111139"/>
       <display value="Ductography"/>
@@ -3516,48 +3714,90 @@
       <definition value="The interpreted data set contains images from multiple modalities"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-78060, SRT, &quot;Scar tissue&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Scar tissue"/>
+        </valueCoding>
       </extension>
       <code value="111168"/>
       <display value="Scar tissue"/>
       <definition value="The fibrous tissue replacing normal tissues destroyed by disease or injury"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-1016B, SRT, &quot;J Wire&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="J Wire"/>
+        </valueCoding>
       </extension>
       <code value="111170"/>
       <display value="J Wire"/>
       <definition value="A medical appliance used for localization of non palpable breast lesions to insure that the proper area is removed in a surgical biopsy"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-11101, SRT, &quot;Cardiac Pacemaker&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Cardiac Pacemaker"/>
+        </valueCoding>
       </extension>
       <code value="111171"/>
       <display value="Pacemaker"/>
       <definition value="A medical appliance used for regulating cardiac rhythms"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-10042, SRT, &quot;Compression paddle&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Compression paddle"/>
+        </valueCoding>
       </extension>
       <code value="111172"/>
       <display value="Paddle"/>
       <definition value="A compression device used for obtaining mammographic images"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-10044, SRT, &quot;Collimator&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Collimator"/>
+        </valueCoding>
       </extension>
       <code value="111173"/>
       <display value="Collimator"/>
       <definition value="A device used for restricting an X-Ray beam"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-16016, SRT, &quot;ID Plate&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="ID Plate"/>
+        </valueCoding>
       </extension>
       <code value="111174"/>
       <display value="ID Plate"/>
@@ -3887,23 +4127,44 @@
       <definition value="All of the attempted computer-aided detection and/or analysis failed, so there could be no findings"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-83240, SRT, &quot;Adenolipoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Adenolipoma"/>
+        </valueCoding>
       </extension>
       <code value="111248"/>
       <display value="Adenolipoma"/>
       <definition value="A benign tumor having glandular characteristics but composed of fat, with the presence of normal mammary ducts"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-72170, SRT, &quot;Ductal hyperplasia, Usual&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Ductal hyperplasia, Usual"/>
+        </valueCoding>
       </extension>
       <code value="111249"/>
       <display value="Ductal hyperplasia"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-89830, SRT, &quot;Adenomyoepithelioma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Adenomyoepithelioma"/>
+        </valueCoding>
       </extension>
       <code value="111250"/>
       <display value="Adenomyoepithelioma"/>
@@ -3925,8 +4186,15 @@
       <definition value="Excessive proliferation of normal tissue arrangement of the axillary node"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-8A063, SRT, &quot;Asynchronous involution of breast&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Asynchronous involution of breast"/>
+        </valueCoding>
       </extension>
       <code value="111254"/>
       <display value="Asynchronous involution"/>
@@ -3942,8 +4210,15 @@
       <definition value="Calcifications having typically benign morphology. They are not of intermediate or high probability of concern for malignancy"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-85040, SRT, &quot;Intracystic papilloma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Intracystic papilloma"/>
+        </valueCoding>
       </extension>
       <code value="111257"/>
       <display value="Intracystic papilloma"/>
@@ -3960,16 +4235,30 @@
       <definition value="The occurrence of fibrous tumor-forming stromal proliferation in patients with diabetes mellitus"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-88211, SRT, &quot;Extra abdominal desmoid&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Extra abdominal desmoid"/>
+        </valueCoding>
       </extension>
       <code value="111260"/>
       <display value="Extra abdominal desmoid"/>
       <definition value="A deep seated firm tumor frequently occurring on the chest consisting of collagenous tissue that infiltrates surround muscle; frequently recurs but does not metastasize"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-33410, SRT, &quot;Epidermal inclusion cyst&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Epidermal inclusion cyst"/>
+        </valueCoding>
       </extension>
       <code value="111262"/>
       <display value="Epidermal inclusion cyst"/>
@@ -3986,31 +4275,59 @@
       <definition value="A lipoma with an abundant stroma of fibrous tissue"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-44140, SRT, &quot;Foreign body (reaction) &quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Foreign body (reaction"/>
+        </valueCoding>
       </extension>
       <code value="111265"/>
       <display value="Foreign body (reaction)"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (D7-90364, SRT, &quot;Galactocele&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Galactocele"/>
+        </valueCoding>
       </extension>
       <code value="111269"/>
       <display value="Galactocele"/>
       <definition value="Retention cyst caused by occlusion of a lactiferous duct"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (D3-F0620, SRT, &quot;Hemangioma of subcutaneous tissue&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Hemangioma of subcutaneous tissue"/>
+        </valueCoding>
       </extension>
       <code value="111271"/>
       <display value="Hemangioma - nonparenchymal, subcutaneous"/>
       <definition value="A congenital anomaly that leads to a proliferation of blood vessels leading to a mass that resembles a neoplasm, not located in parenchymal areas but subcutaneous"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-72000, SRT, &quot;Hyperplasia, usual&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Hyperplasia, usual"/>
+        </valueCoding>
       </extension>
       <code value="111273"/>
       <display value="Hyperplasia, usual"/>
@@ -4021,8 +4338,15 @@
       <definition value="A form of fibrocystic disease in young woman with florid and sclerosing adenosis that microscopically may suggest carcinoma"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-82040, SRT, &quot;Lactating adenoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Lactating adenoma"/>
+        </valueCoding>
       </extension>
       <code value="111278"/>
       <display value="Lactating adenoma"/>
@@ -4039,8 +4363,15 @@
       <definition value="A papilloma pertaining to large mammary duct"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-88250, SRT, &quot;Myofibroblastoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Myofibroblastoma"/>
+        </valueCoding>
       </extension>
       <code value="111283"/>
       <display value="Myofibroblastoma"/>
@@ -4067,8 +4398,15 @@
       <definition value="Normal breast tissue"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-95401, SRT, &quot;Neurofibromatosis&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Neurofibromatosis"/>
+        </valueCoding>
       </extension>
       <code value="111288"/>
       <display value="Neurofibromatosis"/>
@@ -4090,16 +4428,30 @@
       <definition value="A benign stromal lesion composed of intermixed stromal and epithelial elements. The lobular and duct structures of the breast parenchyma are separated by an increased amount of stroma, non specific proliferative epithelial changes include hyperplasia of duct and lobular epithelium often with accentuation of myoepithelial cells and aprocine metaplasia with or without cyst formation"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-78731, SRT, &quot;Radial scar&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Radial scar"/>
+        </valueCoding>
       </extension>
       <code value="111293"/>
       <display value="Radial scar"/>
       <definition value="An nonencapsulated stellate lesion consisting of a fibroelastic core and radiating bands of fibrous connective tissue containing lobules manifesting adenosis and ducts with papillary or diffuse intraductal hyperplasia"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-74220, SRT, &quot;Sclerosing adenosis&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Sclerosing adenosis"/>
+        </valueCoding>
       </extension>
       <code value="111294"/>
       <display value="Sclerosing adenosis"/>
@@ -4136,8 +4488,15 @@
       <definition value="Metastatic disease to the axillary node"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-91203, SRT, &quot;Angiosarcoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Angiosarcoma"/>
+        </valueCoding>
       </extension>
       <code value="111302"/>
       <display value="Angiosarcoma"/>
@@ -4169,8 +4528,15 @@
       <definition value="A basal cell carcinoma that arises in the nipple of the breast"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-85733, SRT, &quot;Carcinoma with metaplasia&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Carcinoma with metaplasia"/>
+        </valueCoding>
       </extension>
       <code value="111308"/>
       <display value="Carcinoma with metaplasia"/>
@@ -4186,8 +4552,15 @@
       <definition value="Carcinoma of the breast presenting during pregnancy or lactation"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-89803, SRT, &quot;Carcinosarcoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Carcinosarcoma"/>
+        </valueCoding>
       </extension>
       <code value="111311"/>
       <display value="Carcinosarcoma"/>
@@ -4204,8 +4577,15 @@
       <definition value="A non-invasive carcinoma restricted to the glandular lumen characterized by less aggressive malignant cytologic features and behavior"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-85072, SRT, &quot;Intraductal carcinoma micro-papillary&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Intraductal carcinoma micro-papillary"/>
+        </valueCoding>
       </extension>
       <code value="111314"/>
       <display value="Intraductal carcinoma micro-papillary"/>
@@ -4221,8 +4601,15 @@
       <definition value="Carcinoma with both characteristics of localized and spreading disease"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-85203, SRT, &quot;Invasive lobular carcinoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Invasive lobular carcinoma"/>
+        </valueCoding>
       </extension>
       <code value="111317"/>
       <display value="Invasive lobular carcinoma"/>
@@ -4238,8 +4625,15 @@
       <definition value="Histological changes to the lymphatic system related to an invasive process"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-95903, SRT, &quot;Lymphoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Lymphoma"/>
+        </valueCoding>
       </extension>
       <code value="111321"/>
       <display value="Lymphoma"/>
@@ -4291,8 +4685,15 @@
       <definition value="A malignant lesion in an axillary node arising from a non-axillary neoplasm"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-88303, SRT, &quot;Malignant fibrous histiocytoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Malignant fibrous histiocytoma"/>
+        </valueCoding>
       </extension>
       <code value="111331"/>
       <display value="Malignant fibrous histiocytoma"/>
@@ -4313,15 +4714,29 @@
       <definition value="A malignant melanoma of the skin that arises in the nipple of the breast"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (D0-F035F, SRT, &quot;Neoplasm of the mammary skin&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Neoplasm of the mammary skin"/>
+        </valueCoding>
       </extension>
       <code value="111335"/>
       <display value="Neoplasm of the mammary skin"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-80502, SRT, &quot;Papillary carcinoma in-situ&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Papillary carcinoma in-situ"/>
+        </valueCoding>
       </extension>
       <code value="111336"/>
       <display value="Papillary carcinoma in-situ"/>
@@ -4342,8 +4757,15 @@
       <definition value="A non-invasive carcinoma restricted to the glandular lumen characterized by more aggressive malignant cytologic features and behavior"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (M-82013, SRT, &quot;Invasive cribriform carcinoma&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Invasive cribriform carcinoma"/>
+        </valueCoding>
       </extension>
       <code value="111342"/>
       <display value="Invasive cribriform carcinoma"/>
@@ -4814,8 +5236,15 @@
       <definition value="An indicator of whether or not an incision was made in the anatomy during an interventional procedure"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (111123, DCM, &quot;Marker placement&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Marker placement"/>
+        </valueCoding>
       </extension>
       <code value="111441"/>
       <display value="Microclip placed"/>
@@ -5167,8 +5596,15 @@
       <definition value="Historical patient health information of interest to the breast health clinician"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (10160-0, LN, &quot;History Of Medication Use&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="History Of Medication Use"/>
+        </valueCoding>
       </extension>
       <code value="111512"/>
       <display value="Medication History"/>
@@ -5180,8 +5616,15 @@
       <definition value="Interventional or non-interventional procedures previously performed on the patient, such as breast biopsies"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (11450-4, LN, &quot;Problem List&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Problem List"/>
+        </valueCoding>
       </extension>
       <code value="111514"/>
       <display value="Relevant Indicated Problems"/>
@@ -5573,56 +6016,105 @@
       <definition value="Number of births with low birth weight or intrauterine growth restriction"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-010E2, SRT, &quot;Green optical filter&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Green optical filter"/>
+        </valueCoding>
       </extension>
       <code value="111601"/>
       <display value="Green filter"/>
       <definition value="Filter that transmits green light while blocking the other colors, typically centered at 510-540 nm"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-010DF, SRT, &quot;Red optical filter&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Red optical filter"/>
+        </valueCoding>
       </extension>
       <code value="111602"/>
       <display value="Red filter"/>
       <definition value="Filter that transmits red light while blocking the other colors, typically centered at 630-680 nm"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-010DA, SRT, &quot;Blue optical filter&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Blue optical filter"/>
+        </valueCoding>
       </extension>
       <code value="111603"/>
       <display value="Blue filter"/>
       <definition value="Filter that transmits blue while blocking the other colors, typically centered at 460-480 nm"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-010E0, SRT, &quot;Yellow-green optical filter&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Yellow-green optical filter"/>
+        </valueCoding>
       </extension>
       <code value="111604"/>
       <display value="Yellow-green filter"/>
       <definition value="A filter of 560nm that is used for retinal imaging and can provide good contrast and good visibility of the retinal vasculature"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-010D8, SRT, &quot;Blue-green optical filter&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Blue-green optical filter"/>
+        </valueCoding>
       </extension>
       <code value="111605"/>
       <display value="Blue-green filter"/>
       <definition value="A filter of 490nm that is used for retinal imaging because of excessive scattering of some retinal structures at very short wavelengths"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-010DC, SRT, &quot;Infrared optical filter&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Infrared optical filter"/>
+        </valueCoding>
       </extension>
       <code value="111606"/>
       <display value="Infrared filter"/>
       <definition value="Filter that transmits the infrared spectrum, which is light that lies outside of the visible spectrum, with wavelengths longer than those of red light, while blocking visible light"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (A-010E1, SRT, &quot;Polarizing optical filter&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Polarizing optical filter"/>
+        </valueCoding>
       </extension>
       <code value="111607"/>
       <display value="Polarizing filter"/>
@@ -7539,48 +8031,90 @@
       <definition value="Calcifications made up of loosely aggregated particles, resembling wool"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-0517E, SRT, &quot;Difference in border shape&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Difference in border shape"/>
+        </valueCoding>
       </extension>
       <code value="112165"/>
       <display value="Difference in border shape"/>
       <definition value="A change in the shape formed by the boundary or edges of a finding or feature"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-05166, SRT, &quot;Difference in border definition&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Difference in border definition"/>
+        </valueCoding>
       </extension>
       <code value="112166"/>
       <display value="Difference in border definition"/>
       <definition value="A change in the clarity of the boundary or edges of a finding or feature"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-0516C, SRT, &quot;Difference in distribution&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Difference in distribution"/>
+        </valueCoding>
       </extension>
       <code value="112167"/>
       <display value="Difference in distribution"/>
       <definition value="A change in the extent of spreading of a finding or feature"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-05170, SRT, &quot;Difference in site involvement&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Difference in site involvement"/>
+        </valueCoding>
       </extension>
       <code value="112168"/>
       <display value="Difference in site involvement"/>
       <definition value="A change in the part(s) of the anatomy affected or encompassed by a finding or feature"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-05167, SRT, &quot;Difference in substance&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Difference in substance"/>
+        </valueCoding>
       </extension>
       <code value="112169"/>
       <display value="Difference in Type of Content"/>
       <definition value="A change in the matter or substance within a finding or feature"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-0516A, SRT, &quot;Difference in texture&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Difference in texture"/>
+        </valueCoding>
       </extension>
       <code value="112170"/>
       <display value="Difference in Texture"/>
@@ -9222,16 +9756,30 @@
       <definition value="X-Ray dose data for a single Irradiation Event"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (C-1190E, SRT, &quot;Niobium or Niobium compound&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Niobium or Niobium compound"/>
+        </valueCoding>
       </extension>
       <code value="113710"/>
       <display value="Niobium or Niobium compound"/>
       <definition value="Material containing Niobium or a Niobium compound"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (C-1190F, SRT, &quot;Europium or Europium compound&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Europium or Europium compound"/>
+        </valueCoding>
       </extension>
       <code value="113711"/>
       <display value="Europium or Europium compound"/>
@@ -9313,8 +9861,15 @@
       <definition value="Mean value of applied Tube Current"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (113824, DCM, &quot;Exposure Time&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Exposure Time"/>
+        </valueCoding>
       </extension>
       <code value="113735"/>
       <display value="Exposure Time"/>
@@ -10026,8 +10581,15 @@
       <definition value="Type, amount and route of radioactive substance administered"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (73569-6, LN, &quot;Radiation Exposure and Protection Information&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Radiation Exposure and Protection Information"/>
+        </valueCoding>
       </extension>
       <code value="113923"/>
       <display value="Radiation Exposure and Protection Information"/>
@@ -10504,15 +11066,29 @@
       <definition value="Name of mother of fetus that is the subject of observations"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (11951-1, LN, &quot;Fetus ID&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Fetus ID"/>
+        </valueCoding>
       </extension>
       <code value="121037"/>
       <display value="Fetus number"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55281-0, LN, &quot;Number of Fetuses&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Number of Fetuses"/>
+        </valueCoding>
       </extension>
       <code value="121038"/>
       <display value="Number of Fetuses"/>
@@ -10523,8 +11099,8 @@
       <definition value="Unique Identifier of specimen that is the subject of observations"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="121040"/>
       <display value="Specimen Accession Number"/>
@@ -10536,24 +11112,38 @@
       <definition value="Identifier of specimen that is the subject of observations"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (R-00254, SRT, &quot;Specimen Type&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Specimen Type"/>
+        </valueCoding>
       </extension>
       <code value="121042"/>
       <display value="Specimen Type"/>
       <definition value="Coded category of specimen that is the subject of observations"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (111700, DCM, &quot;Specimen Container Identifier&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Specimen Container Identifier"/>
+        </valueCoding>
       </extension>
       <code value="121043"/>
       <display value="Slide Identifier"/>
       <definition value="Identifier of specimen microscope slide that is the subject of observations"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="121044"/>
       <display value="Slide UID"/>
@@ -10600,15 +11190,29 @@
       <definition value="Whether or not the property concept being modified is present or absent"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (G-A203, SRT, &quot;Present&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Present"/>
+        </valueCoding>
       </extension>
       <code value="121053"/>
       <display value="Present"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (R-4089B, SRT, &quot;Absent&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Absent"/>
+        </valueCoding>
       </extension>
       <code value="121054"/>
       <display value="Absent"/>
@@ -10634,30 +11238,58 @@
       <definition value="The imaging procedure whose results are reported"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (R-4089B, SRT, &quot;Undetermined&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Undetermined"/>
+        </valueCoding>
       </extension>
       <code value="121059"/>
       <display value="Presence Undetermined"/>
       <definition value="Presence or absence of a property is undetermined"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (11329-0, LN, &quot;History&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="History"/>
+        </valueCoding>
       </extension>
       <code value="121060"/>
       <display value="History"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55115-0, LN, &quot;Request&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Request"/>
+        </valueCoding>
       </extension>
       <code value="121062"/>
       <display value="Request"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55111-9, LN, &quot;Current Procedure Descriptions&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Current Procedure Descriptions"/>
+        </valueCoding>
       </extension>
       <code value="121064"/>
       <display value="Current Procedure Descriptions"/>
@@ -10668,15 +11300,29 @@
       <definition value="A description of the imaging procedure"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55114-3, LN, &quot;Prior Procedure Descriptions&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Prior Procedure Descriptions"/>
+        </valueCoding>
       </extension>
       <code value="121066"/>
       <display value="Prior Procedure Descriptions"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (18834-2, LN, &quot;Previous Findings&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Previous Findings"/>
+        </valueCoding>
       </extension>
       <code value="121068"/>
       <display value="Previous Findings"/>
@@ -10687,8 +11333,15 @@
       <definition value="An observation found on a prior imaging study"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (59776-5, LN, &quot;Findings&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Findings"/>
+        </valueCoding>
       </extension>
       <code value="121070"/>
       <display value="Findings"/>
@@ -10699,8 +11352,15 @@
       <definition value="An observation found on an imaging study"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (19005-8, LN, &quot;Impressions&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Impressions"/>
+        </valueCoding>
       </extension>
       <code value="121072"/>
       <display value="Impressions"/>
@@ -10711,8 +11371,15 @@
       <definition value="An interpretation in the clinical context of the finding(s) on an imaging study"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (18783-1, LN, &quot;Recommendations&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Recommendations"/>
+        </valueCoding>
       </extension>
       <code value="121074"/>
       <display value="Recommendations"/>
@@ -10723,8 +11390,15 @@
       <definition value="A recommendation for management or investigation based on the findings and impressions of an imaging study"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55110-1, LN, &quot;Conclusions&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Conclusions"/>
+        </valueCoding>
       </extension>
       <code value="121076"/>
       <display value="Conclusions"/>
@@ -10735,8 +11409,15 @@
       <definition value="An interpretation in the clinical context of the finding(s) on an imaging study"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55107-7, LN, &quot;Addendum&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Addendum"/>
+        </valueCoding>
       </extension>
       <code value="121078"/>
       <display value="Addendum"/>
@@ -10752,50 +11433,92 @@
       <definition value="A selection of composite instances that best illustrates a particular finding. E.g., an image slice at the location of the largest extent of a tumor"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-004E8, SRT, &quot;Physician&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Physician"/>
+        </valueCoding>
       </extension>
       <code value="121081"/>
       <display value="Physician"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-07100, SRT, &quot;Nurse&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Nurse"/>
+        </valueCoding>
       </extension>
       <code value="121082"/>
       <display value="Nurse"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-00187, SRT, &quot;Radiologic Technologist&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Radiologic Technologist"/>
+        </valueCoding>
       </extension>
       <code value="121083"/>
       <display value="Technologist"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-00187, SRT, &quot;Radiographer&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Radiographer"/>
+        </valueCoding>
       </extension>
       <code value="121084"/>
       <display value="Radiographer"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (C1144859, UMLS, &quot;Intern&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="121085"/>
       <display value="Intern"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-005E6, SRT, &quot;Resident&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Resident"/>
+        </valueCoding>
       </extension>
       <code value="121086"/>
       <display value="Resident"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-00172, SRT, &quot;Registrar&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Registrar"/>
+        </valueCoding>
       </extension>
       <code value="121087"/>
       <display value="Registrar"/>
@@ -10806,22 +11529,43 @@
       <definition value="A medical practitioner undergoing sub-specialty training. E.g., during the period after specialty training (residency)"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-005E8, SRT, &quot;Attending&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Attending"/>
+        </valueCoding>
       </extension>
       <code value="121089"/>
       <display value="Attending [Consultant]"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-0714A, SRT, &quot;Scrub nurse&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Scrub nurse"/>
+        </valueCoding>
       </extension>
       <code value="121090"/>
       <display value="Scrub nurse"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-00556, SRT, &quot;Surgeon&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Surgeon"/>
+        </valueCoding>
       </extension>
       <code value="121091"/>
       <display value="Surgeon"/>
@@ -10832,8 +11576,8 @@
       <definition value="A medical practitioner with sub-specialty training in Ultrasound"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (C1954848, UMLS, &quot;Sonographer&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="121093"/>
       <display value="Sonographer"/>
@@ -10844,8 +11588,8 @@
       <definition value="The person responsible for performing the procedure"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (C1709880, UMLS, &quot;Referring physician&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="121095"/>
       <display value="Referring"/>
@@ -10872,8 +11616,15 @@
       <definition value="The person responsible for assisting with the procedure"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (J-0714B, SRT, &quot;Circulating Nurse&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Circulating Nurse"/>
+        </valueCoding>
       </extension>
       <code value="121100"/>
       <display value="Circulating"/>
@@ -10900,8 +11651,8 @@
       <definition value="Ambiguous sex"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (C2985483, UMLS, &quot;Radiation Physicist&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
       </extension>
       <code value="121105"/>
       <display value="Radiation Physicist"/>
@@ -10913,24 +11664,45 @@
       <definition value="Comment"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (18785-6, LN, &quot;Indications for Procedure&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Indications for Procedure"/>
+        </valueCoding>
       </extension>
       <code value="121109"/>
       <display value="Indications for Procedure"/>
       <definition value="Indications for Procedure"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55108-5, LN, &quot;Patient Presentation&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Patient Presentation"/>
+        </valueCoding>
       </extension>
       <code value="121110"/>
       <display value="Patient Presentation"/>
       <definition value="Patient condition at the beginning of a healthcare encounter"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55112-7, LN, &quot;Summary&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Summary"/>
+        </valueCoding>
       </extension>
       <code value="121111"/>
       <display value="Summary"/>
@@ -10942,8 +11714,15 @@
       <definition value="Image or waveform used as source for measurement"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55109-3, LN, &quot;Complications&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Complications"/>
+        </valueCoding>
       </extension>
       <code value="121113"/>
       <display value="Complications"/>
@@ -11225,8 +12004,15 @@
       <definition value="General procedural note"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (55113-5, LN, &quot;Key Images&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://loinc.org"/>
+          <code value="LN"/>
+          <display value="Key Images"/>
+        </valueCoding>
       </extension>
       <code value="121180"/>
       <display value="Key Images"/>
@@ -11288,15 +12074,29 @@
       <definition value="Illustration of a region of interest"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (121056, DCM, &quot;Area Outline&quot;) ."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Area Outline"/>
+        </valueCoding>
       </extension>
       <code value="121201"/>
       <display value="Area Outline"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (G-A16A, SRT, &quot;Area of defined region&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Area of defined region"/>
+        </valueCoding>
       </extension>
       <code value="121202"/>
       <display value="Area of Defined Region"/>
@@ -11317,8 +12117,15 @@
       <definition value="Distance between marks on a device of calibrated size. E.g., a ruler"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (121055, DCM, &quot;Path&quot;) ."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Path"/>
+        </valueCoding>
       </extension>
       <code value="121210"/>
       <display value="Path"/>
@@ -11329,8 +12136,15 @@
       <definition value="A one dimensional, or linear, numeric measurement along a polyline"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (121057, DCM, &quot;Perimeter Outline&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Perimeter Outline"/>
+        </valueCoding>
       </extension>
       <code value="121213"/>
       <display value="Perimeter Outline"/>
@@ -11811,16 +12625,30 @@
       <definition value="Factor (divisor or multiplicand) for normalizing a measurement. E.g., body surface area used for normalizing hemodynamic measurements"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (R-10260, SRT, &quot;Estimated&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Estimated"/>
+        </valueCoding>
       </extension>
       <code value="121427"/>
       <display value="Estimated"/>
       <definition value="Measurement obtained by observer estimation, rather than with a measurement tool or by calculation"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (R-41D2D, SRT, &quot;Calculated&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Calculated"/>
+        </valueCoding>
       </extension>
       <code value="121428"/>
       <display value="Calculated"/>
@@ -11862,24 +12690,45 @@
       <definition value="Type or identifier of a medical device used on, in, or by a patient"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (P2-31011, SRT, &quot;Pharmacologic and exercise stress test&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Pharmacologic and exercise stress test"/>
+        </valueCoding>
       </extension>
       <code value="121437"/>
       <display value="Pharmacologic and exercise stress test"/>
       <definition value="Cardiac stress test using pharmacologic and exercise stressors"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (P2-3110B, SRT, &quot;Stress test using cardiac pacing&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Stress test using cardiac pacing"/>
+        </valueCoding>
       </extension>
       <code value="121438"/>
       <display value="Paced stress test"/>
       <definition value="Cardiac stress test using an implanted or external cardiac pacing device"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (P1-080B4, SRT, &quot;Correction of congenital cardiovascular deformity&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Correction of congenital cardiovascular deformity"/>
+        </valueCoding>
       </extension>
       <code value="121439"/>
       <display value="Correction of congenital cardiovascular deformity"/>
@@ -12246,8 +13095,15 @@
       <definition value="Office of identified personnel or staff was called"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (110501, DCM, &quot;Equipment failure&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://nema.org/dicom/dicm"/>
+          <code value="DCM"/>
+          <display value="Equipment failure"/>
+        </valueCoding>
       </extension>
       <code value="122046"/>
       <display value="Equipment failure"/>
@@ -12319,8 +13175,15 @@
       <definition value="Percutaneous Coronary Intervention"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (P2-3120E, SRT, &quot;15-Lead ECG&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="15-Lead ECG"/>
+        </valueCoding>
       </extension>
       <code value="122062"/>
       <display value="15-Lead ECG"/>
@@ -12487,16 +13350,30 @@
       <definition value="Duration of Intervention"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (R-101BB, SRT, &quot;Lumen Diameter Stenosis&quot;), post-coordinated with (G-7293, SRT, &quot;Baseline Phase&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Lumen Diameter Stenosis"/>
+        </valueCoding>
       </extension>
       <code value="122107"/>
       <display value="Baseline Stenosis Measurement"/>
       <definition value="Lesion stenosis measured prior to any interventional procedure"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (R-101BB, SRT, &quot;Lumen Diameter Stenosis&quot;), post-coordinated with (G-7298, SRT, &quot;Post-intervention Phase&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Lumen Diameter Stenosis"/>
+        </valueCoding>
       </extension>
       <code value="122108"/>
       <display value="Post-Intervention Stenosis Measurement"/>
@@ -14803,8 +15680,15 @@
       <definition value="Group of symptoms heralding angina pectoris that does not include chest pain (dyspnea, diaphoresis, profuse vomiting in a diabetic patient, or arm or jaw pain)"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired. Replaced by (F-61FDB, SRT, &quot;Radiopharmaceutical agent&quot;)."/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Radiopharmaceutical agent"/>
+        </valueCoding>
       </extension>
       <code value="123001"/>
       <display value="Radiopharmaceutical"/>
@@ -15284,16 +16168,30 @@
       <definition value="Bullet method of estimating ventricular volume. Volume = 5/6 * L * S L: Left ventricle long axis length S: Left ventricle area, SAX view at level of Mitral Valve"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (P0-02241, SRT, &quot;Power Doppler&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="Power Doppler"/>
+        </valueCoding>
       </extension>
       <code value="125230"/>
       <display value="Power Doppler"/>
       <definition value="Color coded ultrasound images of blood flow, which depict the amplitude, or power, of Doppler signals"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Retired Replaced by (P0-02242, SRT, &quot;3D mode&quot;)"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
+        <valueBoolean value="true"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-replacedby">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="SRT"/>
+          <display value="3D mode"/>
+        </valueCoding>
       </extension>
       <code value="125231"/>
       <display value="3D mode"/>

@@ -2,6 +2,7 @@ package org.hl7.fhir.definitions.parsers.converters;
 
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
@@ -14,7 +15,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -30,6 +33,7 @@ import org.apache.http.impl.cookie.DateUtils;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.utilities.CSVReader;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -83,11 +87,35 @@ public class DICOMConverter {
       if (definition != null && definition.endsWith("."))
         definition = definition.substring(0, definition.length()-1);
       td = XMLUtil.getNextSibling(td);
-      String comments = Utilities.normalizeSameCase(td.getTextContent().trim());
       ConceptDefinitionComponent cc = vs.getDefine().addConcept();
       cc.setCode(code).setDisplay(display).setDefinition(definition);
-      if (!Utilities.noString(comments))
-        ToolingExtensions.addComment(cc, comments);
+
+      String comments = Utilities.normalizeSameCase(td.getTextContent().trim());
+      if (!Utilities.noString(comments)) {
+        if (comments.toLowerCase().contains("retired")) {
+          ToolingExtensions.setDeprecated(cc);
+          if (comments.toLowerCase().contains("replaced by")) {
+            int is = comments.indexOf("(");
+            int ie = comments.indexOf(")");
+            if (ie > 1 && is > 1 && ie > is) {
+              String parts[] = parseLine(comments.substring(is+1, ie));
+              if (parts.length == 3) {
+                if (parts[1].equals("UMLS")) {
+                  // ignore these
+                } else {
+                  Coding c = new Coding().setCode(parts[1]).setSystem(getSystem(parts[1])).setDisplay(parts[2]);
+                  ToolingExtensions.setExtension(cc, ToolingExtensions.EXT_REPLACED_BY, c);
+                }
+              }
+              else 
+                throw new Exception("Unable to parse "+comments);
+            } else
+              throw new Exception("Unable to parse "+comments);
+          }
+        }  else {
+          ToolingExtensions.addComment(cc, comments);
+        }
+      }
       tr = XMLUtil.getNextSibling(tr);
     }
     System.out.println("save");
@@ -95,7 +123,41 @@ public class DICOMConverter {
     
     System.out.println("done");
   }
-  
+
+  private static String getSystem(String sys) {
+    if (sys.equals("DCM")) {
+      return "http://nema.org/dicom/dicm";
+    } else if (sys.equals("SRT")) {
+      return "http://snomed.info/sct";
+    } else if (sys.equals("LN")) {
+      return "http://loinc.org";
+    } else {
+      throw new Error("unknown: "+sys);
+    }
+  }
+
+  private static String[] parseLine(String s) {
+    List<String> res = new ArrayList<String>();
+    StringBuilder b = new StringBuilder();
+    boolean inQuote = false;
+
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (c == '"') 
+        inQuote = !inQuote;
+      else if (!inQuote && c == ',') {
+        res.add(b.toString().trim());
+        b = new StringBuilder();
+      }
+      else 
+        b.append(c);
+    }
+    res.add(b.toString().trim());
+    String[] r = new String[] {};
+    r = res.toArray(r);
+    return r;
+  }
+
   private static Date getLastModifiedDate(HttpResponse response) throws DateParseException {
     Header header = response.getFirstHeader("Date");
     if (header != null) {
