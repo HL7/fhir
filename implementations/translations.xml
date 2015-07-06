@@ -31,6 +31,9 @@ NOTE: while translations on Resources are possible they should be used for rende
       only, and not in the URI, as XML node name, or JSON label.
 -->
     <!-- Resources -->
+    <item id="Account">
+        <translation lang="en">Account</translation>
+    </item>
     <item id="AdverseReaction">
         <translation lang="en">AdverseReaction</translation>
         <translation lang="zh">不良反应</translation>

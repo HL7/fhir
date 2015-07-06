@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13275</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>9624</WindowHeight>
+  <WindowWidth>14628</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
@@ -163,16 +163,22 @@
   <Style ss:ID="s82" ss:Parent="s62">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s83" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="60" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="61" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="314.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:StyleID="s63" ss:Width="314.39999999999998"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
    <Column ss:Index="7" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
+   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.6"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.4"/>
    <Column ss:Index="35" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -263,6 +269,26 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="23.25">
+    <Cell><Data ss:Type="String" x:Ticked="1">Account.status</Data></Cell>
+    <Cell ss:StyleID="s83"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
@@ -912,7 +938,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -931,7 +957,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1382,9 +1408,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>30</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1392,6 +1418,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1399,8 +1426,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>36</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
