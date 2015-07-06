@@ -78,6 +78,12 @@ public class BaseValidator {
     return b;
   }
 
+  protected boolean rule(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg, String html) {
+    if (!b)
+      errors.add(new ValidationMessage(source, type, -1, -1, path, msg, html, IssueSeverity.ERROR));
+    return b;
+  }
+
   protected boolean hint(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
     if (!b)
       errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.INFORMATION));
