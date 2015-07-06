@@ -177,7 +177,7 @@ public class ValidationMessage
   }
   
   public String toXML() {
-  	return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + location + "\" type=\"" + type + "\" level=\"" + level + "\">" + Utilities.escapeXml(message) + "</message>";
+  	return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + location + "\" type=\"" + type + "\" level=\"" + level + "\"><html>"+html+"</html>" + Utilities.escapeXml(message) + "</message>";
   }
 
   public String getHtml() {
