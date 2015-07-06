@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1759,7 +1759,7 @@ public class Conformance extends DomainResource {
          * Types of security services are supported/required by the system.
          */
         @Child(name = "service", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="OAuth | OAuth2 | NTLM | Basic | Kerberos", formalDefinition="Types of security services are supported/required by the system." )
+        @Description(shortDefinition="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates", formalDefinition="Types of security services are supported/required by the system." )
         protected List<CodeableConcept> service;
 
         /**

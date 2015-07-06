@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2163,20 +2163,34 @@ public class ValueSet extends DomainResource {
         protected DateTimeType timestamp;
 
         /**
+         * The total nober of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.
+         */
+        @Child(name = "total", type = {IntegerType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Total number of codes in the expansion", formalDefinition="The total nober of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter." )
+        protected IntegerType total;
+
+        /**
+         * If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.
+         */
+        @Child(name = "count", type = {IntegerType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Offset at which this resource starts", formalDefinition="If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present." )
+        protected IntegerType count;
+
+        /**
          * A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.
          */
-        @Child(name = "parameter", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "parameter", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Parameter that controlled the expansion process", formalDefinition="A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion." )
         protected List<ValueSetExpansionParameterComponent> parameter;
 
         /**
          * The codes that are contained in the value set expansion.
          */
-        @Child(name = "contains", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "contains", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Codes in the value set", formalDefinition="The codes that are contained in the value set expansion." )
         protected List<ValueSetExpansionContainsComponent> contains;
 
-        private static final long serialVersionUID = 148339098L;
+        private static final long serialVersionUID = -831777781L;
 
     /*
      * Constructor
@@ -2285,6 +2299,96 @@ public class ValueSet extends DomainResource {
         }
 
         /**
+         * @return {@link #total} (The total nober of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
+         */
+        public IntegerType getTotalElement() { 
+          if (this.total == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ValueSetExpansionComponent.total");
+            else if (Configuration.doAutoCreate())
+              this.total = new IntegerType(); // bb
+          return this.total;
+        }
+
+        public boolean hasTotalElement() { 
+          return this.total != null && !this.total.isEmpty();
+        }
+
+        public boolean hasTotal() { 
+          return this.total != null && !this.total.isEmpty();
+        }
+
+        /**
+         * @param value {@link #total} (The total nober of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
+         */
+        public ValueSetExpansionComponent setTotalElement(IntegerType value) { 
+          this.total = value;
+          return this;
+        }
+
+        /**
+         * @return The total nober of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.
+         */
+        public int getTotal() { 
+          return this.total == null || this.total.isEmpty() ? 0 : this.total.getValue();
+        }
+
+        /**
+         * @param value The total nober of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.
+         */
+        public ValueSetExpansionComponent setTotal(int value) { 
+            if (this.total == null)
+              this.total = new IntegerType();
+            this.total.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #count} (If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         */
+        public IntegerType getCountElement() { 
+          if (this.count == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ValueSetExpansionComponent.count");
+            else if (Configuration.doAutoCreate())
+              this.count = new IntegerType(); // bb
+          return this.count;
+        }
+
+        public boolean hasCountElement() { 
+          return this.count != null && !this.count.isEmpty();
+        }
+
+        public boolean hasCount() { 
+          return this.count != null && !this.count.isEmpty();
+        }
+
+        /**
+         * @param value {@link #count} (If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         */
+        public ValueSetExpansionComponent setCountElement(IntegerType value) { 
+          this.count = value;
+          return this;
+        }
+
+        /**
+         * @return If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.
+         */
+        public int getCount() { 
+          return this.count == null || this.count.isEmpty() ? 0 : this.count.getValue();
+        }
+
+        /**
+         * @param value If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.
+         */
+        public ValueSetExpansionComponent setCount(int value) { 
+            if (this.count == null)
+              this.count = new IntegerType();
+            this.count.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #parameter} (A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.)
          */
         public List<ValueSetExpansionParameterComponent> getParameter() { 
@@ -2368,6 +2472,8 @@ public class ValueSet extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "uri", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("timestamp", "dateTime", "The time at which the expansion was produced by the expanding system.", 0, java.lang.Integer.MAX_VALUE, timestamp));
+          childrenList.add(new Property("total", "integer", "The total nober of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.", 0, java.lang.Integer.MAX_VALUE, total));
+          childrenList.add(new Property("count", "integer", "If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.", 0, java.lang.Integer.MAX_VALUE, count));
           childrenList.add(new Property("parameter", "", "A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.", 0, java.lang.Integer.MAX_VALUE, parameter));
           childrenList.add(new Property("contains", "", "The codes that are contained in the value set expansion.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
@@ -2377,6 +2483,8 @@ public class ValueSet extends DomainResource {
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
+        dst.total = total == null ? null : total.copy();
+        dst.count = count == null ? null : count.copy();
         if (parameter != null) {
           dst.parameter = new ArrayList<ValueSetExpansionParameterComponent>();
           for (ValueSetExpansionParameterComponent i : parameter)
@@ -2398,7 +2506,8 @@ public class ValueSet extends DomainResource {
           return false;
         ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(timestamp, o.timestamp, true)
-           && compareDeep(parameter, o.parameter, true) && compareDeep(contains, o.contains, true);
+           && compareDeep(total, o.total, true) && compareDeep(count, o.count, true) && compareDeep(parameter, o.parameter, true)
+           && compareDeep(contains, o.contains, true);
       }
 
       @Override
@@ -2409,13 +2518,13 @@ public class ValueSet extends DomainResource {
           return false;
         ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
         return compareValues(identifier, o.identifier, true) && compareValues(timestamp, o.timestamp, true)
-          ;
+           && compareValues(total, o.total, true) && compareValues(count, o.count, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (timestamp == null || timestamp.isEmpty())
-           && (parameter == null || parameter.isEmpty()) && (contains == null || contains.isEmpty())
-          ;
+           && (total == null || total.isEmpty()) && (count == null || count.isEmpty()) && (parameter == null || parameter.isEmpty())
+           && (contains == null || contains.isEmpty());
       }
 
   }

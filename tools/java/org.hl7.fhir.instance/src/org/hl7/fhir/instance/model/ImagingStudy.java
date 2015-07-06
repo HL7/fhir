@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1970,7 +1970,7 @@ public class ImagingStudy extends DomainResource {
      * The patient imaged in the study.
      */
     @Child(name = "patient", type = {Patient.class}, order=1, min=1, max=1)
-    @Description(shortDefinition="Who the images are of", formalDefinition="The patient imaged in the study." )
+    @Description(shortDefinition="Who the images are of (0010/*)", formalDefinition="The patient imaged in the study." )
     protected Reference patient;
 
     /**

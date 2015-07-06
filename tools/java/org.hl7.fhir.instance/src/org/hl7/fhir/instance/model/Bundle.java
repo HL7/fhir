@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1003,10 +1003,10 @@ public class Bundle extends Resource implements IBaseBundle {
         protected Enumeration<HTTPVerb> method;
 
         /**
-         * The URL for this transaction, relative to the root.
+         * The URL for this entry, relative to the root.
          */
         @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="The URL for the transaction", formalDefinition="The URL for this transaction, relative to the root." )
+        @Description(shortDefinition="URL for HTTP equivalent of this entry", formalDefinition="The URL for this entry, relative to the root." )
         protected UriType url;
 
         /**
@@ -1101,7 +1101,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return {@link #url} (The URL for this transaction, relative to the root.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #url} (The URL for this entry, relative to the root.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
           if (this.url == null)
@@ -1121,7 +1121,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @param value {@link #url} (The URL for this transaction, relative to the root.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @param value {@link #url} (The URL for this entry, relative to the root.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public BundleEntryTransactionComponent setUrlElement(UriType value) { 
           this.url = value;
@@ -1129,14 +1129,14 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return The URL for this transaction, relative to the root.
+         * @return The URL for this entry, relative to the root.
          */
         public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
-         * @param value The URL for this transaction, relative to the root.
+         * @param value The URL for this entry, relative to the root.
          */
         public BundleEntryTransactionComponent setUrl(String value) { 
             if (this.url == null)
@@ -1344,7 +1344,7 @@ public class Bundle extends Resource implements IBaseBundle {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("method", "code", "The HTTP verb for this entry in either a update history, or a transaction/ transaction response.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("url", "uri", "The URL for this transaction, relative to the root.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("url", "uri", "The URL for this entry, relative to the root.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("ifNoneMatch", "string", "If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.", 0, java.lang.Integer.MAX_VALUE, ifNoneMatch));
           childrenList.add(new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifMatch));
           childrenList.add(new Property("ifModifiedSince", "instant", "Only perform the operation if the last updated date matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifModifiedSince));

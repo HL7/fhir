@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -4124,7 +4124,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
     if (json.has("severity"))
-      res.setSeverityElement(parseCode(json.get("severity").getAsString()));
+      res.setSeverityElement(parseEnumeration(json.get("severity").getAsString(), Contraindication.ContraindicationSeverity.NULL, new Contraindication.ContraindicationSeverityEnumFactory()));
     if (json.has("_severity"))
       parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverityElement());
     if (json.has("implicated")) {
@@ -10514,6 +10514,14 @@ public class JsonParser extends JsonParserBase {
       res.setTimestampElement(parseDateTime(json.get("timestamp").getAsString()));
     if (json.has("_timestamp"))
       parseElementProperties(json.getAsJsonObject("_timestamp"), res.getTimestampElement());
+    if (json.has("total"))
+      res.setTotalElement(parseInteger(json.get("total").getAsLong()));
+    if (json.has("_total"))
+      parseElementProperties(json.getAsJsonObject("_total"), res.getTotalElement());
+    if (json.has("count"))
+      res.setCountElement(parseInteger(json.get("count").getAsLong()));
+    if (json.has("_count"))
+      parseElementProperties(json.getAsJsonObject("_count"), res.getCountElement());
     if (json.has("parameter")) {
       JsonArray array = json.getAsJsonArray("parameter");
       for (int i = 0; i < array.size(); i++) {
@@ -16523,8 +16531,8 @@ public class JsonParser extends JsonParserBase {
         composeCodeableConcept("category", element.getCategory());
       }
       if (element.hasSeverityElement()) {
-        composeCodeCore("severity", element.getSeverityElement(), false);
-        composeCodeExtras("severity", element.getSeverityElement(), false);
+        composeEnumerationCore("severity", element.getSeverityElement(), new Contraindication.ContraindicationSeverityEnumFactory(), false);
+        composeEnumerationExtras("severity", element.getSeverityElement(), new Contraindication.ContraindicationSeverityEnumFactory(), false);
       }
       if (element.hasImplicated()) {
         openArray("implicated");
@@ -24522,6 +24530,14 @@ public class JsonParser extends JsonParserBase {
       if (element.hasTimestampElement()) {
         composeDateTimeCore("timestamp", element.getTimestampElement(), false);
         composeDateTimeExtras("timestamp", element.getTimestampElement(), false);
+      }
+      if (element.hasTotalElement()) {
+        composeIntegerCore("total", element.getTotalElement(), false);
+        composeIntegerExtras("total", element.getTotalElement(), false);
+      }
+      if (element.hasCountElement()) {
+        composeIntegerCore("count", element.getCountElement(), false);
+        composeIntegerExtras("count", element.getCountElement(), false);
       }
       if (element.hasParameter()) {
         openArray("parameter");

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -3673,7 +3673,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
         res.setCategory(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("severity")) {
-        res.setSeverityElement(parseCode(xpp));
+        res.setSeverityElement(parseEnumeration(xpp, Contraindication.ContraindicationSeverity.NULL, new Contraindication.ContraindicationSeverityEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("implicated")) {
         res.getImplicated().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("detail")) {
@@ -9256,6 +9256,10 @@ public class XmlParser extends XmlParserBase {
         res.setIdentifierElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("timestamp")) {
         res.setTimestampElement(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("total")) {
+        res.setTotalElement(parseInteger(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("count")) {
+        res.setCountElement(parseInteger(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("parameter")) {
         res.getParameter().add(parseValueSetValueSetExpansionParameterComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contains")) {
@@ -14096,9 +14100,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCategory()) {
         composeCodeableConcept("category", element.getCategory());
       }
-      if (element.hasSeverityElement()) {
-        composeCode("severity", element.getSeverityElement());
-      }
+      if (element.hasSeverityElement())
+        composeEnumeration("severity", element.getSeverityElement(), new Contraindication.ContraindicationSeverityEnumFactory());
       if (element.hasImplicated()) { 
         for (Reference e : element.getImplicated()) 
           composeReference("implicated", e);
@@ -20169,6 +20172,12 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasTimestampElement()) {
         composeDateTime("timestamp", element.getTimestampElement());
+      }
+      if (element.hasTotalElement()) {
+        composeInteger("total", element.getTotalElement());
+      }
+      if (element.hasCountElement()) {
+        composeInteger("count", element.getCountElement());
       }
       if (element.hasParameter()) { 
         for (ValueSet.ValueSetExpansionParameterComponent e : element.getParameter()) 

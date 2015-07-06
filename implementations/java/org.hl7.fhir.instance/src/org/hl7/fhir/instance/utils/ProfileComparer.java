@@ -364,7 +364,7 @@ public class ProfileComparer {
     
     superset.getType().addAll(unionTypes(path, left.current().getType(), right.current().getType()));
     subset.getType().addAll(intersectTypes(subset, outcome, path, left.current().getType(), right.current().getType()));
-    outcome.rule(subset, !subset.getType().isEmpty(), path, "Type Mismatch:\r\n  "+typeCode(left)+"\r\n  "+typeCode(right));
+    outcome.rule(subset, !subset.getType().isEmpty() || (!left.current().hasType() && !right.current().hasType()), path, "Type Mismatch:\r\n  "+typeCode(left)+"\r\n  "+typeCode(right));
 //    <fixed[x]><!-- ?? 0..1 * Value must be exactly this --></fixed[x]>
 //    <pattern[x]><!-- ?? 0..1 * Value must have at least these property values --></pattern[x]>
     superset.setMaxLengthElement(unionMaxLength(left.current().getMaxLength(), right.current().getMaxLength()));
@@ -475,8 +475,9 @@ public class ProfileComparer {
       for (int i = 0; i < lc.size(); i++) {
         DefinitionNavigator l = lc.get(i);
         DefinitionNavigator r = rc.get(i);
-        if (l.path().equals(r.path())) {
-          if (!compareElements(outcome, path+"."+l.nameTail(), l, r))
+        String cpath = comparePaths(l.path(), r.path(), path, l.nameTail(), r.nameTail());
+        if (cpath != null) {
+          if (!compareElements(outcome, cpath, l, r))
             return false;
         } else {
           outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Different path at "+path+"["+Integer.toString(i)+"] ("+l.path()+"/"+r.path()+")", IssueSeverity.ERROR));
@@ -486,6 +487,17 @@ public class ProfileComparer {
       }
     }
     return true;
+  }
+
+  private String comparePaths(String path1, String path2, String path, String tail1, String tail2) {
+    if (tail1.equals(tail2)) {
+      return path+"."+tail1;
+    } else if (tail1.endsWith("[x]") && tail2.startsWith(tail1.substring(0, tail1.length()-3))) {
+      return path+"."+tail1;
+    } else if (tail2.endsWith("[x]") && tail1.startsWith(tail2.substring(0, tail2.length()-3))) {
+      return path+"."+tail2;
+    } else 
+      return null;
   }
 
   private boolean compareBindings(ProfileComparison outcome, ElementDefinition subset, ElementDefinition superset, String path, ElementDefinition lDef, ElementDefinition rDef) throws Exception {
@@ -563,11 +575,23 @@ public class ProfileComparer {
       subBinding.setValueSet(left.getValueSet());
       superBinding.setValueSet(left.getValueSet());
       return true;
+    } else if (!left.hasValueSet()) {
+      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "No left Value set at "+path, IssueSeverity.ERROR));
+      return true;      
+    } else if (!right.hasValueSet()) {
+      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "No right Value set at "+path, IssueSeverity.ERROR));
+      return true;      
     } else {
       // ok, now we compare the value sets. This may be unresolvable. 
       ValueSet lvs = resolveVS(outcome.left, left.getValueSet());
       ValueSet rvs = resolveVS(outcome.right, right.getValueSet());
-      
+      if (lvs == null) {
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Unable to resolve left value set "+left.getValueSet().toString()+" at "+path, IssueSeverity.ERROR));
+        return true;
+      } else if (rvs == null) {
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Unable to resolve right value set "+right.getValueSet().toString()+" at "+path, IssueSeverity.ERROR));
+        return true;        
+      } else {
       // first, we'll try to do it by definition
       ValueSet cvs = intersectByDefinition(lvs, rvs);
       if(cvs == null) {
@@ -593,6 +617,7 @@ public class ProfileComparer {
       }
       subBinding.setValueSet(new Reference().setReference("#"+addValueSet(cvs)));
       superBinding.setValueSet(new Reference().setReference("#"+addValueSet(unite(superset, outcome, path, lvs, rvs))));
+    }
     }
     return false;
   }
@@ -642,7 +667,7 @@ public class ProfileComparer {
         if (!vs.getCompose().hasImport(imp.getValue()))
           vs.getCompose().getImport().add(imp);
       for (ConceptSetComponent inc : rvs.getCompose().getInclude())
-        if (mergeIntoExisting(vs.getCompose().getInclude(), inc))
+        if (!mergeIntoExisting(vs.getCompose().getInclude(), inc))
           vs.getCompose().getInclude().add(inc);
       if (rvs.getCompose().hasExclude()) {
         outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" has exclude statements, and no union involving it can be correctly determined", IssueSeverity.ERROR));
@@ -657,8 +682,8 @@ public class ProfileComparer {
       if (Base.compareDeep(dst,  inc, false))
         return true; // they're actually the same
       if (dst.getSystem().equals(inc.getSystem())) {
-        if (!inc.hasFilter() || dst.hasFilter()) {
-          throw new Error("not done yet");
+        if (inc.hasFilter() || dst.hasFilter()) {
+          return false; // just add the new one as a a parallel
         } else if (inc.hasConcept() && dst.hasConcept()) {
           for (ConceptReferenceComponent cc : inc.getConcept()) {
             boolean found = false;

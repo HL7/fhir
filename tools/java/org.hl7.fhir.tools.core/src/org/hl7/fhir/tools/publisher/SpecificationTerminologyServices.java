@@ -229,7 +229,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
       }
       return null;
     } else {
-      ConceptDefinitionComponent cc = findCode(vs.getDefine().getConcept(), code);
+      ConceptDefinitionComponent cc = findCodeInConcept(vs.getDefine().getConcept(), code);
       if (cc == null)
         return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getDefine().getSystem());
       if (display == null)
@@ -260,11 +260,11 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     return null;
   }
 
-  private ConceptDefinitionComponent findCode(List<ConceptDefinitionComponent> concept, String code) {
+  private ConceptDefinitionComponent findCodeInConcept(List<ConceptDefinitionComponent> concept, String code) {
     for (ConceptDefinitionComponent cc : concept) {
       if (code.equals(cc.getCode()))
         return cc;
-      ConceptDefinitionComponent c = findCode(cc.getConcept(), code);
+      ConceptDefinitionComponent c = findCodeInConcept(cc.getConcept(), code);
       if (c != null)
         return c;
     }

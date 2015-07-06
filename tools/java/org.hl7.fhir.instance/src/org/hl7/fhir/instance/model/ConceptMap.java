@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 3, 2015 12:36+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -209,10 +209,10 @@ public class ConceptMap extends DomainResource {
     @Block()
     public static class SourceElementComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).
+         * An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
         @Child(name = "codeSystem", type = {UriType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Code System (if value set crosses code systems)", formalDefinition="An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system)." )
+        @Description(shortDefinition="Code System (if value set crosses code systems)", formalDefinition="An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system)." )
         protected UriType codeSystem;
 
         /**
@@ -239,7 +239,7 @@ public class ConceptMap extends DomainResource {
       }
 
         /**
-         * @return {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @return {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
         public UriType getCodeSystemElement() { 
           if (this.codeSystem == null)
@@ -259,7 +259,7 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @param value {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @param value {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
         public SourceElementComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
@@ -267,14 +267,14 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @return An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).
+         * @return An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
         public String getCodeSystem() { 
           return this.codeSystem == null ? null : this.codeSystem.getValue();
         }
 
         /**
-         * @param value An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).
+         * @param value An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
         public SourceElementComponent setCodeSystem(String value) { 
           if (Utilities.noString(value))
@@ -378,7 +378,7 @@ public class ConceptMap extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
+          childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
           childrenList.add(new Property("code", "code", "Identity (code or path) or the element/item being mapped.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("target", "", "A concept from the target value set that this concept maps to.", 0, java.lang.Integer.MAX_VALUE, target));
         }
