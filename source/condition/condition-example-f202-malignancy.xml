@@ -21,7 +21,7 @@
    <category>
       <coding>
          <system value="http://hl7.org/fhir/condition-category"/>
-         <code value="diagnose"/>
+         <code value="diagnosis"/>
       </coding>
    </category>
    <clinicalStatus value="confirmed"/>

@@ -40,7 +40,7 @@
         <coding>
           <system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
           <code value="recommended"/>
-          <display value="Recommended Date"/>
+          <display value="Recommended"/>
         </coding>
       </code>
       <value value="2015-12-01T00:00:00-05:00"/>
@@ -49,7 +49,7 @@
       <code>
         <coding>
           <system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
-          <code value="pastdue"/>
+          <code value="overdue"/>
           <display value="Past Due Date"/>
         </coding>
       </code>

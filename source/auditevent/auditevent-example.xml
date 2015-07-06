@@ -47,7 +47,7 @@
     <identifier>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/v2/0203"/>
+          <system value="http://hl7.org/fhir/identifier-type"/>
           <code value="SNO"/>
         </coding>
         <text value="Dell Serial Number"/>

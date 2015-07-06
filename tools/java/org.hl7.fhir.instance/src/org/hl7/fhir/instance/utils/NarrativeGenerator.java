@@ -2006,7 +2006,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         generateCopyright(x, vs);
     }
     XhtmlNode p = x.addTag("p");
-    p.addText("This value set defines its own terms in the system "+vs.getDefine().getSystem());
+    p.addText("This value set has an inline code system "+vs.getDefine().getSystem()+", which defines the following codes:");
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     boolean commentS = false;
     boolean deprecated = false;

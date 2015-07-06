@@ -20,8 +20,18 @@
      <definition value="Date the next dose is considered due"/>
     </concept>
     <concept>
+     <code value="recommended"/>
+     <display value="recommended" />
+     <definition value="At the recommended date"/>
+    </concept>
+    <concept>
+     <code value="earliest"/>
+     <display value="Earliest Date" />
+     <definition value="As early as possible"/>
+    </concept>
+    <concept>
       <code value="overdue"/>
-      <display value="overdue" />
+      <display value="Past Due Date" />
       <definition value="Date the next dose is considered overdue"/>
     </concept>
     <concept>

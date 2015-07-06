@@ -416,7 +416,7 @@
         <coding>
         <system value="http://hl7.org/fhir/v3/RoleCode"/>
           <code value="BROINLAW"/>
-          <display value="brother in law"/>
+          <display value="brother-in-law"/>
         </coding>
       </relationship>
       <ageAge>
@@ -471,7 +471,7 @@
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
           <code value="NEPHEW"/>
-          <display value="newphew"/>
+          <display value="Nephew"/>
         </coding>
       </relationship>
       <ageAge>
@@ -619,7 +619,7 @@
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
           <code value="DAU"/>
-          <display value="daughter"/>
+          <display value="natural daughter"/>
         </coding>
       </relationship>
       <ageAge>

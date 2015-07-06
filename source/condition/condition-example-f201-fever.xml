@@ -27,7 +27,7 @@
     </coding>
     <coding>
         <system value="http://hl7.org/fhir/condition-category" />
-        <code value="condition" />
+        <code value="finding" />
     </coding>
  </category>
  <clinicalStatus value="confirmed"/>

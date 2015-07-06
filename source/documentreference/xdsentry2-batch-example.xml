@@ -84,7 +84,7 @@
           <type>
             <coding>
               <system value="http://hl7.org/fhir/v2/0203"/>
-              <code value="MRN"/>
+              <code value="MR"/>
             </coding>
           </type>
 					<system value="http://healthintersections.com.au/xds/patients"/>

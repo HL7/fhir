@@ -64,7 +64,7 @@ editor Eric Haas Health eData Inc
 			<coding>
 				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
 				<code value="NGT"/>
-				<display value="Instillation, nasogastrostomy tube"/>
+				<display value="Instillation, nasogastric tube"/>
 			</coding>
 		<!--step up rate of tube feeding by 20 ml/hr every 4 hours -->
 		</routeofAdministration>

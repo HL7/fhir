@@ -35,9 +35,11 @@ import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueCompone
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ITerminologyServices;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
@@ -77,16 +79,18 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
 
   private Map<String, Concept> snomedCodes = new HashMap<String, Concept>();
   private Map<String, Concept> loincCodes = new HashMap<String, Concept>();
+  private Map<String, ValueSet> codeSystems;
   private boolean triedServer = false;
   private boolean serverOk = false;
   private String cache;
   private String tsServer;
   private IFHIRClient client; 
   
-  public SpecificationTerminologyServices(String cache, String tsServer) {
+  public SpecificationTerminologyServices(String cache, String tsServer, Map<String, ValueSet> codeSystems) {
     super();
     this.cache = cache;
     this.tsServer = tsServer;
+    this.codeSystems = codeSystems;
   }
 
   @Override
@@ -211,6 +215,62 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     return null;
   }
 
+  private ValidationResult verifyCode(ValueSet vs, String code, String display) throws Exception {
+    if (vs.hasExpansion() && !vs.hasDefine()) {
+      ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
+      if (cc == null)
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getDefine().getSystem());
+      if (display == null)
+        return null;
+      if (cc.hasDisplay()) {
+        if (display.equalsIgnoreCase(cc.getDisplay()))
+          return null;
+        return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be '"+cc.getDisplay()+"'");
+      }
+      return null;
+    } else {
+      ConceptDefinitionComponent cc = findCode(vs.getDefine().getConcept(), code);
+      if (cc == null)
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getDefine().getSystem());
+      if (display == null)
+        return null;
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      if (cc.hasDisplay()) {
+        b.append(cc.getDisplay());
+        if (display.equalsIgnoreCase(cc.getDisplay()))
+          return null;
+      }
+      for (ConceptDefinitionDesignationComponent ds : cc.getDesignation()) {
+        b.append(ds.getValue());
+        if (display.equalsIgnoreCase(ds.getValue()))
+          return null;
+      }
+      return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be one of '"+b.toString()+"'");
+    }
+  }
+
+  private ValueSetExpansionContainsComponent findCode(List<ValueSetExpansionContainsComponent> contains, String code) {
+    for (ValueSetExpansionContainsComponent cc : contains) {
+      if (code.equals(cc.getCode()))
+        return cc;
+      ValueSetExpansionContainsComponent c = findCode(cc.getContains(), code);
+      if (c != null)
+        return c;
+    }
+    return null;
+  }
+
+  private ConceptDefinitionComponent findCode(List<ConceptDefinitionComponent> concept, String code) {
+    for (ConceptDefinitionComponent cc : concept) {
+      if (code.equals(cc.getCode()))
+        return cc;
+      ConceptDefinitionComponent c = findCode(cc.getConcept(), code);
+      if (c != null)
+        return c;
+    }
+    return null;
+  }
+
   @Override
   public ValidationResult validateCode(String system, String code, String display) {
     try {
@@ -218,6 +278,9 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
         return verifySnomed(code, display);
       if (system.equals("http://loinc.org"))
         return verifyLoinc(code, display);
+      if (codeSystems.containsKey(system)) {
+        return verifyCode(codeSystems.get(system), code, display);
+      }
       if (system.startsWith("http://example.org"))
         return null;
     } catch (Exception e) {

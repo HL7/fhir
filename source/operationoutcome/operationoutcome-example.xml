@@ -12,8 +12,8 @@
     <code>
       <coding>
         <system value="http://hl7.org/fhir/issue-type"/>
-        <code value="code-unknown"/>
-        <display value="Code Unknown"/>
+        <code value="code-invalid"/>
+        <display value="Invalid Code"/>
       </coding>
       <text value="Unknown code"/>
     </code>

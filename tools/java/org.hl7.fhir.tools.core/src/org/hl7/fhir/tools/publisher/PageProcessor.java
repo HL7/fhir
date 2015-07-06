@@ -5442,7 +5442,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setFolders(FolderManager folders) {
     this.folders = folders;
-    terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.rootDir, "vscache"), tsServer);
+    terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.rootDir, "vscache"), tsServer, codeSystems);
     workerContext.setTerminologyServices(terminologyServices);
     epub = new EPubManager(this, validationErrors);
   }

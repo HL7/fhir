@@ -21,7 +21,7 @@
       <coding>
          <system value="http://hl7.org/fhir/v2/0078"/>
          <code value="L"/>
-         <display value="low"/>
+         <display value="Below low normal"/>
       </coding>
    </interpretation>
    <issued value="2013-04-04T14:34:00+01:00"/>

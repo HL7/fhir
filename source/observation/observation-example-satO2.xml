@@ -25,7 +25,7 @@
     <coding>
       <system value="http://hl7.org/fhir/v2/0078"/>
       <code value="N"/>
-      <display value="normal"/>
+      <display value="Normal (applies to non-numeric results)"/>
     </coding>
   </interpretation>
 

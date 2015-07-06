@@ -28,7 +28,7 @@
      </coding>
      <coding>
          <system value="http://hl7.org/fhir/condition-category"/>
-         <code value="condition"/>
+         <code value="finding"/>
      </coding>
  </category>
  <clinicalStatus value="working"/><!--The patient is being treated on the basis that this is the problem, but it is still not confirmed (<certainty> is therewith also working)-->

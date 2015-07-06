@@ -39,7 +39,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
-        <code value="30"/>
+        <code value="13"/>
         <display value="Stopped Concurrent Therapy"/>
       </coding>
       <text value="Asked patient to discontinue regular use of Tylenol and to consult with clinician if they need to resume to allow appropriate INR monitoring"/>

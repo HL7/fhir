@@ -43,7 +43,7 @@
         <valueString value="Every resource should have an author"/>
       </extension>
       <code value="author"/>
-      <code value="Author"/>
+      <display value="Author"/>
       <definition value="A party that originates the resource and therefore has responsibility for the information given in the resource and ownership of this resource"/>
     </concept>
     <concept>
@@ -51,7 +51,7 @@
         <valueString value="This is often used in association with the institution that hosts an activity. Verification and Authentication are synonymous"/>
       </extension>
       <code value="verifier"/>
-      <code value="Verifier"/>
+      <display value="Verifier"/>
       <definition value="A person who verifies the correctness and appropriateness of activity"/>
   	  <concept>
       	<code value="legal"/>
@@ -61,7 +61,7 @@
     </concept>
     <concept>
       <code value="attester"/>
-      <code value="Attester"/>
+      <display value="Attester"/>
       <definition value="A verifier who attests to the accuracy of the resource"/>
     </concept>
     <concept>
@@ -69,7 +69,7 @@
         <valueString value="e.g., a next of kin who answers questions about the patient's history"/>
       </extension>
       <code value="informant"/>
-      <code value="Informant"/>
+      <display value="Informant"/>
       <definition value="A person who reported information that contributed to the resource"/>
     </concept>
   </define>
