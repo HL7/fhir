@@ -127,6 +127,11 @@ public class ResourceValidator extends BaseValidator {
     return errors;
   }
   
+  protected boolean rule(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
+    String rn = path.contains(".") ? path.substring(0, path.indexOf(".")) : path;
+    return super.rule(errors, type, path, b, msg, "<a href=\""+(rn.toLowerCase())+".html\">"+rn+": "+Utilities.escapeXml(msg));
+  }
+
   public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) throws Exception {    
     rule(errors, IssueType.STRUCTURE, parent.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, parent.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
