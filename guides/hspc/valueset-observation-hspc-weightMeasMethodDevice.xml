@@ -39,12 +39,7 @@
 			<code value="2142"/>
 			<display value="Standing scale"/>
 			<definition value="A scale upon which an individual will stand to measure body weight"/>
-		</concept>	
-		<concept>	
-			<code value="2179"/>
-			<display value="Weight, estimated by provider"/>
-			<definition value="An estimation of body weight made by a provider"/>
-		</concept>	
+		</concept>
 		<concept>	
 			<code value="2180"/>
 			<display value="Weight, lean; immersion"/>
@@ -54,21 +49,11 @@
 			<code value="2181"/>
 			<display value="Weight, lean; skin fold"/>
 			<definition value="A measurement of lean body weight made by measuring the thickness of a fold of skin."/>
-		</concept>	
-		<concept>	
-			<code value="2182"/>
-			<display value="Weight, measured"/>
-			<definition value="The body weight was directly measured"/>
-		</concept>	
+		</concept>
 		<concept>	
 			<code value="2185"/>
 			<display value="Weight, percentile"/>
 			<definition value="A body weight based on other measurements plotted on a percentile chart."/>
-		</concept>	
-		<concept>	
-			<code value="2187"/>
-			<display value="Weight, stated (reported)"/>
-			<definition value="The body weight was stated to the provider and not measured"/>
 		</concept>	
 		<concept>	
 			<code value="50550851"/>
@@ -79,11 +64,6 @@
 			<code value="521443011"/>
 			<display value="Broselow tape"/>
 			<definition value="A measuring tape created to relate a child's height, as measured by the tape to the child's weight"/>
-		</concept>	
-		<concept>	
-			<code value="525949867"/>
-			<display value="Estimated/stated"/>
-			<definition value="The body weight is an estimation reported to the provider"/>
 		</concept>
   </define>
 </ValueSet>

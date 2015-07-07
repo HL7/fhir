@@ -14,20 +14,25 @@
 	    <system value="Intermountain Healthcare HDD"/>
 	    <caseSensitive value="true"/>
 	    <concept>
-			<code value="294f6cff-d17a-4203-9ce6-0f9d3be101b4"/>
+			<code value="14610118"/>
 			<display value="Stated"/>
 			<definition value="Information that has been given verbally"/>
+		</concept>
+		<concept>
+			<code value="527697370"/>
+			<display value="Derived"/>
+			<definition value="Data that has been arrived at through processing other data"/>
 		</concept>
   </define>
   <compose>
     <include>
         <system value="http://snomed.info/sct"/>
         <concept>
-			<code value="525835519"/>
+			<code value="414135002"/>
 			<display value="Estimated"/>
 	    </concept>
 	    <concept>
-			<code value="525704945"/>
+			<code value="258104002"/>
 			<display value="Measured"/>
 	    </concept>
     </include>
