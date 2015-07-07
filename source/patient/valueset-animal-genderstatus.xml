@@ -25,11 +25,16 @@
         <concept>
             <code value="intact"/>
             <display value="Intact"/>
-            <definition value="The animals reproductive organs are intact"/>
+            <definition value="The animal's reproductive organs are intact"/>
             <designation>
                 <language value="nl"/>
                 <value value="intact"/>
             </designation>
+        </concept>
+        <concept>
+            <code value="unknown"/>
+            <display value="Unknown"/>
+            <definition value="The animal's reproductive organs have not been identified"/>
         </concept>
     </define>
 </ValueSet>
