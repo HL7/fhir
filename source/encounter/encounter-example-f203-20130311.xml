@@ -49,6 +49,11 @@
        <display value="Clinical Oncology Department"/>
     </coding>
   </admitSource>
+  <reAdmission>
+	  <coding>
+		  <display value="readmitted"/>
+	  </coding>
+  </reAdmission>
   <!--accomodation details are not available-->
   <dietPreference>
     <coding>
@@ -61,7 +66,6 @@
 <!--  <destination><!-\-Fictive-\->
      <reference value="Location/f202"/>  
   </destination>-->
-  <reAdmission value="false"/>
  </hospitalization>
  <serviceProvider>
      <reference value="Organization/f201"/>

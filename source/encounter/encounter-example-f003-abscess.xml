@@ -77,7 +77,6 @@
                 <display value="Discharge to home"/>
             </coding>
         </dischargeDisposition>
-        <reAdmission value="false"/>
     </hospitalization>
     <serviceProvider>
         <reference value="Organization/f001"/>
