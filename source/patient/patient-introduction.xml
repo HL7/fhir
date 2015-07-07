@@ -20,6 +20,12 @@ information necessary to support the administrative, financial and logistic proc
 created and maintained by each organization providing care for a patient. A patient or animal receiving care at multiple
 organizations may therefore have its information present in multiple Patient Resources.
 </p>
+<p>
+Not all concepts are included within the base resource (such as race, ethnicity, organ donor status, nationailty etc) 
+but may be found in <a href="patient-profiles.html">profiles</a> defined for specific jurisdictions (e.g. US Meaningful Use Program), or <a href="patient-extensions.html">standard extensions</a>"<br/>
+Such fields vary widely between jurisdictions and often have different names and valuesets for the similar concepts,
+but they are not similar enough to be able to map and exchange
+</p>
 </div>
 
 </div>
