@@ -42,14 +42,19 @@
                     "valueCoding": {
                         "system": "http://demo.org/id/4",
                         "code": "AB45",
-                        "extension": [{
-                            "url": "http://example.org/fhir/StructureDefinition/extraforcoding",
-                            "extension": [{
-                                "url": "extra1",
-                                "valueString": "extra info"
-                            }],
-                            "valueInteger": 45
-                        }]
+                        "extension": [
+                            {
+                                "url": "http://example.org/fhir/StructureDefinition/extraforcodingWithExt",
+                                "extension": [{
+                                    "url": "extra1",
+                                    "valueString": "extra info"
+                                }]
+                            },
+                            {
+                                "url": "http://example.org/fhir/StructureDefinition/extraforcodingWithValue",
+                                "valueInteger": 45
+                            }
+			]
                     }
                 },
                 {
