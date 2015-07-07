@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+      
+[%settitle Clinical Quality Improvement Framework (CQIF) Implementation Guide%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body> 
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="CQIF"> </a> 
+
+<h2>Clinical Quality Improvement Framework (CQIF) Implementation Guide</h2>
+
+<p><i>In September 2015, this FHIR Implementation Guide will undergo a comment-only ballot. The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets, and conformance statements it defines. This implementation Guide will be balloted separately from the FHIR specification itself.</i></p>
+
+<h3>Summary</h3>
+
+<p>This Implementation Guide is prepared as a Universal Realm Specification with support from the <a href="http://cqframework.info">Clinical Quality Framework (CQF) initiative</a>, which is a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator (ONC) to harmonize standards for clinical decision support and electronic clinical quality measurement.</p>
+
+<p>The CQIF Implementation Guide provides profiles and operation definitions to enable multiple quality-related use cases, including decision support request/response, quality measurement evaluation, as well as knowledge artifact representation and sharing.</p>
+
+<h3>Background</h3>
+
+<p>The QIF Implementation Guide is built by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure, Service Oriented Architecture (pending approval) and Healthcare Standards Integration (pending approval) HL7 Work Groups. The CQF initiative has focused on harmonizing the historically disjoint specifications used by the Clinical Quality Measurement and Clinical Decision Support communities. </p>
+
+<p>This implementation guide focuses on several primary use cases:</p>
+
+<ul>
+	<li>Sharing - The representation of computable, shareable knowledge artifacts</li>
+	<li>Evaluation - The evaluation of knowledge artifacts with respect to a particular patient or population</li>
+	<li>Distribution - Functionality required to enable a searchable artifact repository</li>
+</ul>
+
+<p>Specifically, the initiative has focused on the specifications used to represent knowledge artifacts within the two communities. The strategy employed has been to break the conceptual content of knowledge artifacts into three core components:</p>
+
+<ul>
+	<li>Metadata - Descriptive information about the artifact and its content</li>
+	<li>Clinical Information - The representation used to carry clinical information about the patient or population of concern within a given artifact</li>
+	<li>Logic - The representation used to convey the logic involved in the artifact</li>
+</ul>
+
+<p>The first component has resulted in the Clinical Quality Common Metadata Conceptual Model, an informative document harmonizing metadata requirements between Quality Measurement and Decision Support artifacts.</p>
+
+<p>The second component has resulted in the QUICK Conceptual and Logical Models, a harmonization of the Virtual Medical Record (vMR) used in Decision Support and the Quality Data Model (QDM) used in Quality Measurement, and realized in FHIR as the QI-Core profiles.</p>
+
+<p>And finally, the third component has resulted in the Clinical Quality Language Specification, a harmonization of the expressive capabilities of the Clinical Decision Support Knowledge Artifact Specification (CDS KAS) (produced by the Health eDecisions (HeD) S&amp;I Framework Initiative), and the Health Quality Measures Format (HQMF).</p>
+
+<h3>Scope</h3>
+
+<p>The CQIF Implementation Guide currently focuses on the Decision Support aspects of the Clinical Quality domain. However, note that the CQIF Implementation Guide has been developed in coordination with the Clinical Quality Information Work Group sponsored project to build FHIR representations for Clinical Quality Measures. As a result of that coordination, many of the profiles defined in this implementation guide are shared by that effort. For this comment-only ballot, the shared material is reproduced in both ballots to facilitate review during the balloting process. Prior to DSTU balloting, the CQIF and CQMF Implementation Guides will be merged into a single Clinical Quality Framework Implementation Guide.</p>
+
+<p>The scope of this implementation guide therefore broadly falls into two categories:</p>
+
+<ul>
+	<li>Common aspects of clinical quality</li>
+	<li>Decision Support-specific aspects of clinical quality</li>
+</ul>
+
+<p>The common aspects include profiles for defining quality evaluation request/response protocols, as well as representation of knowledge modules generally. The Decision Support-specific aspects then build on those profiles to define guidance request/response protocols, and representation of Decision Support-specific artifacts including rules, order sets, and documentation templates.</p>
+
+<a name="contents"></a>
+<h3>Contents</h3>
+
+<p>The following table lists the CQIF profiles that are part of the IG, and the underlying FHIR resources:</p>
+
+<table class="grid">
+	<thead>
+		<tr>
+			<th>CQIF FHIR Profile</th>
+			<th>Base FHIR Resource</th>
+			<th>Focus</th>
+		</tr>
+	</thead>
+	<tbody>
+        <tr>
+			<td><a href="knowledgerequest-cqif-cqif-knowledgerequest.html">CQIF-KnowledgeRequest</a></td>
+			<td><a href="basic.html">Basic</a></td>
+			<td>Common</td>
+		</tr>
+		<tr>
+			<td><a href="knowledgeresponse-cqif-cqif-knowledgeresponse.html">CQIF-KnowledgeResponse</a></td>
+			<td><a href="basic.html">Basic</a></td>
+			<td>Common</td>
+		</tr>
+		<tr>
+			<td><a href="knowledgemodule-cqif-cqif-knowledgemodule.html">CQIF-KnowledgeModule</a></td>
+			<td><a href="basic.html">Basic</a></td>
+			<td>Common</td>
+		</tr>
+		<tr>
+			<td><a href="evidence-cqif-cqif-evidence.html">CQIF-Evidence</a></td>
+			<td><a href="documentreference.html">DocumentReference</a></td>
+			<td>Common</td>
+		</tr>
+        <tr>
+			<td><a href="guidancerequest-cqif-cqif-guidancerequest.html">CQIF-GuidanceRequest</a></td>
+			<td><a href="basic.html">Basic</a></td>
+			<td>Decision Support</td>
+		</tr>
+		<tr>
+			<td><a href="guidanceresponse-cqif-cqif-guidanceresponse.html">CQIF-GuidanceResponse</a></td>
+			<td><a href="basic.html">Basic</a></td>
+			<td>Decision Support</td>
+		</tr>
+	</tbody>
+</table>
+
+<a name="authors"></a>
+<h3>Author Information</h3>
+
+<table class="grid">
+	<thead>
+		<tr>
+			<th>Author Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Bryn Rhodes</td>
+		</tr>
+		<tr>
+			<td>Marc Hadley (Supporting)</td>
+		</tr>
+		<tr>
+			<td>Lloyd McKenzie (Supporting)</td>
+		</tr>
+		<tr>
+			<td>Chris Moesel (Supporting)</td>
+		</tr>
+		<tr>
+			<td>Jason Walonoski(Supporting)</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+[%file newfooter%]
+</body>
+</html>
