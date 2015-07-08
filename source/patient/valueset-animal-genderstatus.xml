@@ -34,7 +34,11 @@
         <concept>
             <code value="unknown"/>
             <display value="Unknown"/>
-            <definition value="The animal's reproductive organs have not been identified"/>
-        </concept>
+            <definition value="Unable to determine whether the animal has been neutered"/>
+			<designation>
+				<language value="nl"/>
+				<value value="onbekend"/>
+			</designation>
+		</concept>
     </define>
 </ValueSet>
