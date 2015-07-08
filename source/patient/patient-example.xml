@@ -103,11 +103,17 @@
       <family value="Marché"/>
       <given value="Bénédicte"/>
     </name>
-
+	  
     <telecom>
       <system value="phone"/>
       <value value="+33 (237) 998327"/>
     </telecom>
+	  
+	<gender value="female"/>
+	<period>
+		<!-- The contact relationship started in 2012 -->
+		<start value="2012"/>
+	</period>
   </contact>
 
   <managingOrganization>
