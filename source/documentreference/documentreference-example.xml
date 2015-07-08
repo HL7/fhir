@@ -19,17 +19,17 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
           <value value="john.doe@healthcare.example.org"/>
         </telecom>
       <practitionerRole>
-				
-      <managingOrganization>
-        <display value="Cleveland Clinic"/>
-      </managingOrganization>
-<!--
-      <organization>
-        <display value="Berea Community"/>
-      </organization>      
--->
-      <role><text value="Primary Surgon"/></role>
-      <specialty><text value="Orthopedic"/></specialty>
+					
+				<managingOrganization>
+					<display value="Cleveland Clinic"/>
+				</managingOrganization>
+	<!--
+				<organization>
+					<display value="Berea Community"/>
+				</organization>      
+	-->
+				<role><text value="Primary Surgon"/></role>
+				<specialty><text value="Orthopedic"/></specialty>
 			</practitionerRole>
     </Practitioner>
   </contained>
