@@ -55,6 +55,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.utils.WorkerContextFactory;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.TextFile;
@@ -122,7 +123,7 @@ public class ToolsHelper {
 	  String address = args[1];
 	  String definitions = args[3];
 	  
-    WorkerContext context = WorkerContext.fromDefinitions(getDefinitions(definitions));
+    WorkerContext context = WorkerContextFactory.fromDefinitions(getDefinitions(definitions));
 
     if (address.startsWith("http:") || address.startsWith("http:")) {
     	// this is on a restful interface

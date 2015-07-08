@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.api.IBaseConformance;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -151,7 +152,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       } else if ("DomainResource".equals(upFirst(name))) {
         hierarchy = root.typeCode() + " implements IBaseHasExtensions, IBaseHasModifierExtensions, IDomainResource";        
       } else if ("Binary".equals(upFirst(name))) {
-        hierarchy = "BaseBinary implements IBaseBinary";        
+        hierarchy = "BaseBinary implements IBaseBinary";
+      } else if ("Conformance".equals(upFirst(name))) {
+        hierarchy = root.typeCode() + " implements IBaseConformance";
+      } else if ("OperationOutcome".equals(upFirst(name))) {
+        hierarchy = root.typeCode() + " implements IBaseOperationOutcome";
       } else {
         hierarchy = root.typeCode();
       }
