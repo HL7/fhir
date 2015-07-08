@@ -30,7 +30,7 @@
     <xsl:variable name="message" as="element(message)">
       <message id="{position()}">
         <xsl:apply-templates mode="fix" select="@*"/>
-        <xsl:attribute name="text" select="text()"/>
+        <xsl:attribute name="text" select="plain/text()"/>
         <xsl:choose>
           <xsl:when test="starts-with(@location, 'ValueSet[')">
             <xsl:attribute name="valueset" select="substring-before(substring-after(@location, '['), ']')"/>
@@ -68,12 +68,14 @@
             <xsl:message terminate="yes" select="'Unable to categorize error'"/>
           </xsl:otherwise>
         </xsl:choose>
+        <xsl:copy-of select="html/node()"/>
       </message>
     </xsl:variable>
     <xsl:for-each select="$message">
       <xsl:copy>
         <xsl:copy-of select="@*"/>
         <xsl:attribute name="display" select="concat(@level, ': ', if (not(@location='')) then concat(@location, ': ') else '', @text)"/>
+        <xsl:copy-of select="node()"/>
       </xsl:copy>
     </xsl:for-each>
   </xsl:template>

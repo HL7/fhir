@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:output method="xml" version="1.0" encoding="UTF-8" omit-xml-declaration="yes"/>
+	<xsl:output method="xml" version="1.0" encoding="UTF-8"/>
 	<xsl:template match="warnings">
     <table border="1">
       <tbody>
@@ -65,7 +65,7 @@
     <h3>
       <xsl:choose>
         <xsl:when test="@type='Resource'">
-          <a href="{@id}.html">
+          <a href="{lower-case(@id)}.html">
             <xsl:value-of select="concat(@type, ' ', @id)"/>
           </a>
         </xsl:when>
@@ -85,7 +85,10 @@
 	</xsl:template>
 	<xsl:template match="message">
     <li>
-      <xsl:value-of select="@display"/>
+      <span>
+        <xsl:value-of select="concat(@level, '&#xA0;')"/>
+      </span>
+      <xsl:copy-of select="node()"/>
     </li>
 	</xsl:template>
 </xsl:stylesheet>
