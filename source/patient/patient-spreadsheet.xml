@@ -9,19 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-07T04:39:46Z</LastSaved>
+  <LastSaved>2015-07-07T07:09:26Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4368</WindowHeight>
+  <WindowHeight>7608</WindowHeight>
   <WindowWidth>22632</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>808</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4030,9 +4030,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>11</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4040,7 +4040,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4048,8 +4047,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4971,11 +4969,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4988,10 +4985,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>19</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -6260,7 +6258,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="38" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s137" ss:DefaultColumnWidth="260.39999999999998"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s137" ss:Width="89.4"/>
@@ -6328,6 +6326,24 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Patient 2 for linking</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">pat2</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">patient-example-b.xml</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Patient3</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Deceased patient (using time)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pat3</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">patient-example-c.xml</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Patient4</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Deceased patient (using boolean)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pat4</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">patient-example-d.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -6637,6 +6653,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6656,8 +6673,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6665,19 +6682,19 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R16C6,R17C6:R37C6</Range>
+   <Range>R2C6:R39C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Profiles!A2:A40&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R37C7</Range>
+   <Range>R2C7:R39C7</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R37C2</Range>
+   <Range>R2C2:R39C2</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;xml,csv,tool&quot;</Value>
@@ -7223,8 +7240,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

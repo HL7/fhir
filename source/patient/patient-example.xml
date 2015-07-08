@@ -27,9 +27,6 @@
       </table>    
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
-    <valueDateTime value="2001-05-06T14:35:45-05:00"/>
-  </extension>
   <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
   <identifier>
     <use value="usual"/>
@@ -73,7 +70,11 @@
 
   <!-- use FHIR code system for male / female -->
   <gender value="male" />
-  <birthDate value="1974-12-25"/>
+  <birthDate value="1974-12-25">
+	<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+		<valueDateTime value="1974-12-25T14:35:45-05:00"/>
+	</extension>
+  </birthDate>
   <deceasedBoolean value="false"/>
 
   <address>
