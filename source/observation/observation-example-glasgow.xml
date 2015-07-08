@@ -38,13 +38,31 @@
 					<code value="9268-4"/>
 					<display value="Glasgow coma score motor"/>
 				</coding>
-				<text value="Motor"/>
+				<text value="GCS motor"/>
 			</code>
-			<valueQuantity>
-				<value value="5"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="{score}"/>
-			</valueQuantity>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http:/acme.ec/gcsmotor"/>
+					<code value="5"/>
+					<display value="Localizes painful stimuli"/>
+				</coding>
+				<coding>
+					<extension url="http://example.org/fhir/StructureDefinition/score">
+						<valueQuantity>
+							<value value="5"/>
+							<system value="http://unitsofmeasure.org"/>
+							<code value="{score}"/>
+						</valueQuantity>
+					</extension>
+					<system value="http://r.details.loinc.org/AnswerList/LL357-5"/>
+					<!--technicallly the code is '5' and the LA is the identifier to do hav e both  would require an extention-->
+					<code value="LA6566-9">
+					
+					</code>
+					<display value="Localizing pain"/>
+				</coding>
+				<text value="5 (Localizes painful stimuli)"/>
+			</valueCodeableConcept>
 			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
 			<reliability value="ok"/>
@@ -60,16 +78,33 @@
 			<code>
 				<coding>
 					<system value="http://loinc.org"/>
-					<code value="9270-0"/>
+					<code value="9270-0">
+					</code>
 					<display value="Glasgow coma score verbal"/>
 				</coding>
 				<text value="Verbal"/>
 			</code>
-			<valueQuantity>
-				<value value="4"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="{score}"/>
-			</valueQuantity>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http:/acme.ec/gcsverbal"/>
+					<code value="4"/>
+					<display value="Confused, disoriented"/>
+				</coding>
+				<coding>
+					<extension url="http://example.org/fhir/StructureDefinition/score">
+						<valueQuantity>
+							<value value="4"/>
+							<system value="http://unitsofmeasure.org"/>
+							<code value="{score}"/>
+						</valueQuantity>
+					</extension>
+					<system value="http://r.details.loinc.org/AnswerList/LL356-7"/>
+					<!--technicallly the code is '5' and the LA is the identifier to do hav e both  would require an extention-->
+					<code value="LA6560-2"/>
+					<display value="Confused"/>
+				</coding>
+				<text value="4 (Confused, disoriented)"/>
+			</valueCodeableConcept>
 			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
 			<reliability value="ok"/>
@@ -90,11 +125,27 @@
 				</coding>
 				<text value="Eyes"/>
 			</code>
-			<valueQuantity>
-				<value value="4"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="{score}"/>
-			</valueQuantity>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http:/acme.ec/gcseye"/>
+					<code value="4"/>
+					<display value="Opens eyes spontaneously"/>
+				</coding>
+				<coding>
+					<extension url="http://example.org/fhir/StructureDefinition/score">
+						<valueQuantity>
+							<value value="4"/>
+							<system value="http://unitsofmeasure.org"/>
+							<code value="{score}"/>
+						</valueQuantity>
+					</extension>
+					<system value="http://r.details.loinc.org/AnswerList/LL355-9"/>
+					<!--technicallly the code is '4' and the LA is the identifier to do hav e both  would require an extention-->
+					<code value="LA6556-0"/>
+					<display value="Eyes open spontaneously"/>
+				</coding>
+				<text value="4 (Opens eyes spontaneously)"/>
+			</valueCodeableConcept>
 			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
 			<reliability value="ok"/>
@@ -175,25 +226,25 @@
 		</meaning>
 	</referenceRange>
 	<!-- put the references to the contained components here using the derived-From type  -->
-	  <related>
-	    <type value="derived-from"/>
-	    <target>
-	      <reference value="#motor"/>
-	      <display value="Motor score"/>
-	    </target>
-	  </related>
-	  <related>
-	    <type value="derived-from"/>
-	    <target>
-	      <reference value="#verbal"/>
-	      <display value="Verbal score"/>
-	    </target>
-	  </related>
-	  <related>
-	    <type value="derived-from"/>
-	    <target>
-	      <reference value="#eyes"/>
-	      <display value="Eyes score"/>
-	    </target>
-  </related>
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="#motor"/>
+			<display value="Motor score"/>
+		</target>
+	</related>
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="#verbal"/>
+			<display value="Verbal score"/>
+		</target>
+	</related>
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="#eyes"/>
+			<display value="Eyes score"/>
+		</target>
+	</related>
 </Observation>

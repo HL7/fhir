@@ -17,8 +17,8 @@
     <interpretation>
         <coding>
             <system value="http://hl7.org/fhir/v2/0078"/>
-            <code value="A"/>
-            <display value="Abnormal (applies to non-numeric results)"/>
+            <code value="H"/>
+            <display value="Above high normal"/>
         </coding>
     </interpretation>
     <effectivePeriod>
@@ -28,20 +28,6 @@
     <issued value="2013-04-03T15:30:10+01:00"/>
     <status value="final"/> <!--  urn:oid:2.16.840.1.113883.4.642.1.7  -->
     <reliability value="ok"/> <!--  2.16.840.1.113883.4.642.1.118  -->
-    <bodySiteCodeableConcept>
-        <coding>
-            <system value="http://snomed.info/id"/>
-            <code value="308046002"/>
-            <display value="Superficial forearm vein"/>
-        </coding>
-    </bodySiteCodeableConcept>
-    <method>
-        <coding>
-            <system value="http://snomed.info/id"/>
-            <code value="120220003"/>
-            <display value="Injection to forearm"/>
-        </coding>
-    </method>
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>

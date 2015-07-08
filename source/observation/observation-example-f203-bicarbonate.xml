@@ -3,9 +3,14 @@
   <id value="f203"/>
  <code><!--Kind of observation = Bicarbonate-->
     <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="365722008"/>
-        <display value="Bicarbonate level"/>
+        <system value="http://loinc.org"/>
+        <code value="1963-8"/>
+        <display value="Bicarbonate [Moles/?volume] in Serum"/>
+     </coding>
+      <coding>
+	     <system value="http://snomed.info/sct"/>
+	     <code value="365722008"/>
+	     <display value="Bicarbonate level"/>
      </coding>
  </code>
  <valueQuantity><!--Bicarbonate=28mmol/L-->
@@ -28,12 +33,9 @@
  <issued value="2013-04-04T14:34:00+01:00"/><!--Bicarbonate was measured on April fourth-->
  <status value="final"/><!--The observation is complete-->
  <reliability value="ok"/><!--No reliability concerns-->
- <method><!--Method was serum measurement-->
-    <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="271239003"/>
-        <display value="Serum bicarbonate measurement"/>
-    </coding>
+ <method><!--Method was enzymatic method-->
+    
+    <text value="enzymatic method"></text>
  </method>
  <identifier>
     <system value="https://intranet.aumc.nl/labvalues"/><!--Does not exist-->

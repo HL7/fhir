@@ -6,24 +6,15 @@
       <!-- Kind of observation = eGFR -->
       <coding>
          <system value="http://loinc.org"/>
-         <code value="69405-9"/>
-         <display value="Glomerular filtration rate/1.73 sq M.predicted"/>
+         <code value="33914-3"/>
+         <display value="Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"/>
       </coding>
    </code>
-   <valueQuantity>
-      <!-- eGFR=54mL/min/1.73m2 -->
-      <value value="54"/>
-      <units value="mL/min/1.73m2"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="mL/min/{1.73_m2}"/>
-   </valueQuantity>
+   <!--no value element since have only component values and unable to interpret results needs clinical interpretation-->
    <interpretation>
-      <coding>
-         <system value="http://hl7.org/fhir/v2/0078"/>
-         <code value="L"/>
-         <display value="Below low normal"/>
-      </coding>
+<text value="interpretation of results should be assigned based upon the level of kindey function"></text>
    </interpretation>
+   <comments value = "GFR estimating equations developed by the Modification of Diet in Renal Disease (MDRD) Study Group and the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI)...."></comments>
    <issued value="2013-04-04T14:34:00+01:00"/>
    <!-- eGFR was measured on April fourth -->
    <status value="final"/>
@@ -31,11 +22,11 @@
    <reliability value="ok"/>
    <!-- No reliability concerns -->
    <method>
-      <!-- Method was serum measurement -->
+      <!-- Method was MDRD -->
       <coding>
          <system value="http://snomed.info/id"/>
-         <code value="117337005"/>
-         <display value="Calculated laboratory test method"/>
+         <code value="702668005"/>
+         <display value="MDRD"/>
       </coding>
    </method>
    <identifier>
@@ -53,7 +44,25 @@
       <reference value="Practitioner/f202"/>
       <display value="Luigi Maas"/>
    </performer>
-   <referenceRange>
+   <!-- The MDRD equation does require race (African American or non-African American), which also may not be readily available. For this reason, eGFR values for both African Americans and non-African Americans are reported. so use component elements here-->
+   <component> <code>
+      <!-- Kind of observation = eGFR for AA -->
+      <coding>
+         <system value="http://loinc.org"/>
+         <code value="48643-1"/>
+         <display value="Glomerular filtration rate/1.73 sq M predicted among blacks [Volume Rate/?Area] in Serum or Plasma by Creatinine-based formula (MDRD)"/>
+      </coding>
+   </code>
+   <valueQuantity>
+      <!-- eGFR=54mL/min/1.73m2 -->
+      <value value="60"/>
+      <comparator value= "&gt;"/>
+      <units value="mL/min/1.73m2"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mL/min/{1.73_m2}"/>
+   </valueQuantity>
+   
+    <referenceRange>
       <low>
          <value value="60"/>
          <units value="mL/min/1.73m2"/>
@@ -61,4 +70,29 @@
          <code value="mL/min/{1.73_m2}"/>
       </low>
    </referenceRange>
+   </component>
+    <component> <code>
+         <!-- Kind of observation = eGFR for non AA -->
+         <coding>
+            <system value="http://loinc.org"/>
+            <code value="48642-3"/>
+            <display value="Glomerular filtration rate/1.73 sq M predicted among non-blacks [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"/>
+         </coding>
+      </code>
+      <valueQuantity>
+         <!-- eGFR=54mL/min/1.73m2 -->
+         <value value="60"/>
+         <units value="mL/min/1.73m2"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="mL/min/{1.73_m2}"/>
+   </valueQuantity>
+    <referenceRange>
+         <low>
+            <value value="60"/>
+            <units value="mL/min/1.73m2"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mL/min/{1.73_m2}"/>
+         </low>
+   </referenceRange>
+   </component>
 </Observation>

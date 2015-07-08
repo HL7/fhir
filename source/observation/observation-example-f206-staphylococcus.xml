@@ -4,9 +4,14 @@
   <id value="f206"/>
  <code><!--Kind of observation = Blood culture-->
     <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="104177005"/>
-       <display value="Blood culture for bacteria, including anaerobic screen"/>
+       <system value="http://acmelabs.org"/>
+       <code value="104177"/>
+       <display value="Blood culture"/>
+    </coding>
+    <coding>
+           <system value="http://loinc.org"/>
+           <code value="600-7"/>
+           <display value="Bacteria identified in Blood by Culture"/>
     </coding>
  </code>
  <valueCodeableConcept>

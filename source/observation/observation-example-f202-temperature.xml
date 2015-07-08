@@ -2,11 +2,13 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
   <id value="f202"/>
  <code><!--Kind of observation = Oral Temperature-->
+    <!--local code here-->
     <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="415945006"/>
-       <display value="Oral temperature"/>
+       <system value="http://acme.lab"/>
+       <code value="BT"/>
+       <display value="Body temperature"/>
     </coding>
+    <!--LOINC translation here-->
     <coding>
        <system value="http://loinc.org"/>
        <code value="8310-5"/>
@@ -32,8 +34,8 @@
  <bodySiteCodeableConcept>
     <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="38266002"/>
-        <display value="Entire body as a whole"/>
+        <code value="74262004"/>
+        <display value="Oral cavity"/>
     </coding>
  </bodySiteCodeableConcept>
  <method>
