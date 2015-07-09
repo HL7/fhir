@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <id value="knowledgemodule-datarequirements-example"/>
+  <!-- This example demonstrates the KnowledgeModule profile used to represent data requirements -->
+  <meta>
+	  <profile value="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule"/>
+  </meta>
+  <!-- Patient -->
+  <extension url="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-data">
+	  <extension url="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-data#type">
+		  <valueCode value="Patient"/>
+	  </extension>
+	  <extension url="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-data#profile">
+		  <valueReference reference="http://hl7.org/fhir/StructureDefinition/patient-gao-gao-patient"/>
+	  </extension>
+	  <extension url="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-data#codeFilter">
+		  <extension url="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-data#codeFilter-path">
+			  <valueString value="gender"/>
+		  </extension>
+	  </extension>
+  </extension>
+  <!-- Order -->
+  <extension url="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-data">
+	  <extension url="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-data#type">
+		  <valueCode value="Order"/>
+	  </extension>
+	  <extension url="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-data#profile">
+		  <valueReference reference="http://hl7.org/fhir/StructureDefinition/order-gao-gao-order"/>
+	  </extension>
+  </extension>
+</Basic>
+

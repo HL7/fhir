@@ -47,16 +47,23 @@
   <profile source="basic-knowledgeresponse-cqif-profile-spreadsheet.xml" type="spreadsheet">
   </profile>
   <profile source="basic-guidancerequest-cqif-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="CQIF GuidanceRequest" description="Example of a CQIF GuidanceRequest as part of a $guidance operation" source="guidance-operation-request-example-v2.xml"/>
   </profile>
   <profile source="basic-guidanceresponse-cqif-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="CQIF GuidanceResponse" description="Example of a CQIF GuidanceResponse as part of the result of a $guidance operation" source="guidance-operation-response-example-v2.xml"/>
   </profile>
   <profile source="documentreference-evidence-cqif-profile-spreadsheet.xml" type="spreadsheet">
   </profile>
   <profile source="basic-knowledgemodule-cqif-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="CQIF KnowledgeModule DataRequirements" description="KnowledgeModule used to represent aggregate data requirements as the response of a $guidanceRequirements operation" source="knowledgemodule-datarequirements-example.xml"/>
+    <example name="CQIF KnowledgeModule Module" description="KnowledgeModule used to define a Knowledge Module" source="knowledgemodule-module-example.xml"/>
+    <example name="CQIF KnowledgeModule Artifact" description="KnowledgeModule used to define the common aspects of a knowledge artifact" source="knowledgemodule-artifact-example.xml"/>
   </profile>
   <!--
     dictionaries
     <dictionary name="" source="">
   -->
   <page source="cqif.html"/>
+  <page source="cqif-common.html"/>
+  <page source="cqif-cds-on-fhir.html"/>
 </ig>

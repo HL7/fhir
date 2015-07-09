@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<!-- This example demonstrates the response to a guidance operation using the GuidanceResponse proposed resource. -->
+	<id value="guidance-operation-response-example-v2"/>
+	<parameter>
+		<name value="response"/>
+		<resource>
+			<!-- GuidanceResponse, profile of Basic -->
+			<Basic>
+				<id value="guidanceResponse1"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/knowledgeresponse-qif-qif-knowledgeresponse"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/guidanceresponse-qif-qif-guidanceresponse"/>
+				</meta>
+				<!--text status="generated">
+					<xhtml:div xmlns:xhtml="">The procedure CT, head, wo iv contrast is probably appropriate for a subject presenting with Headache, Chronic, no new features.</xhtml:div>
+				</text-->
+				<extension url="http://hl7.org/fhir/StructureDefinition/knowledgeresponse-qif-responseIdentifier">
+					<valueIdentifier>
+						<value value="guidanceResponse1"/>
+					</valueIdentifier>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/knowledgeresponse-qif-requestIdentifier">
+					<valueIdentifier>
+						<value value="guidanceRequest1"/>
+					</valueIdentifier>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/knowledgeresponse-qif-moduleIdentifier">
+					<valueIdentifier>
+						<value value="guideline-appropriate-ordering"/>
+					</valueIdentifier>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/knowledgeresponse-qif-status">
+					<valueCode value="ok"/>
+				</extension>
+			</Basic>
+		</resource>
+	</parameter>
+	<parameter>
+		<name value="outputResource"/>
+		<resource>
+			<!-- GAO Result, profile of Basic -->
+			<Basic>
+				<id value="result1"/> <!-- Could also be the Response Identifier (guidanceResponse1 in this example)? -->
+				<meta>
+					<!-- TODO: Profile url for GAO Result profile -->
+					<profile value="http://hl7.org/fhir/StructureDefinition/result-gao-gao-result"/>
+				</meta>
+				<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-resultIdentifier">
+					<valueIdentifier>
+						<value value="result1"/>
+					</valueIdentifier>
+				</extension>
+				<!-- NOTE: This is called code in the profile document, renamed to status to avoid data type name clash... -->
+				<!-- NOTE: Also seems that code would be a more appropriate type than CodeableConcept? -->
+				<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-status"> 
+					<valueCode value="within"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-subject">
+					<valueReference reference="#order1"/>
+				</extension>
+				<!-- NOTE: The IHE Radiology profile just has this as a decimal, suggest we use this extension as defined in the procedure request AUC profile -->
+				<extension url="http://hl7.org/fhir/StructureDefinition/procedurerequest-appropriatenessScore">
+					<valueCoding>
+						<system value="http://rand.org/auc-scoring"/> <!-- TBD, made up for now... -->
+						<code id="7" value="probably-appropriate"/>
+						<display value="Probably Appropriate"/>
+					</valueCoding>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-item">
+					<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-item#code">
+						<valueCodeableConcept>
+							<coding>
+								<!-- TODO: This will need to use the ACR Commons code -->
+								<system value="http://www.ama-assn.org/go/cpt"/>
+								<code value="70450"/>
+								<display value="CT, head, wo iv contrast"/>
+							</coding>  
+						</valueCodeableConcept>
+					</extension>
+				</extension>
+				<!-- NOTE: The IHE Radiology profile has this as a URI, we should also extend that to support the use of Evidence (a profile of DocumentReference) -->
+				<!-- Appropriate Use Criteria Identifier -->
+				<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-guideline">
+					<valueUri value="http://someguidelineprovider.org/radiology-appropriateness-guidelines.html"/>
+				</extension>
+				<!-- Certified HealthCare Information Technology Identifier -->
+				<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-device">
+					<valueReference reference="#device1"/>
+				</extension>
+				<!-- Provider NPI -->
+				<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-practitioner">
+					<valueIdentifier>
+						<value value="example"/>
+					</valueIdentifier>
+				</extension>
+			</Basic>
+		</resource>
+	</parameter>
+</Parameters>
+

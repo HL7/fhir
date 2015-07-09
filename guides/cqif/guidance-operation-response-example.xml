@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <!-- This example demonstrates the response to a guidance operation using the GuidanceResponse proposed resource. -->
+  <id value="responseId"/>
+  <status value="success"/>
+  <action>
+  	  <text>The procedure CT, head, wo iv contrast is probably appropriate for a subject presenting with Headache, Chronic, no new features.</text>
+  	  <contained>
+		<ProcedureRequest>
+		  <id value="procedureRequest1"/>
+		  <meta>
+			  <profile value="http://hl7.org/fhir/StructureDefinition/procedurerequest-qicore-qicore-procedurerequest"/>
+			  <profile value="http://hl7.org/fhir/StructureDefinition/procedurerequest-aucrad-aucrad-procedurerequest"/>
+		  </meta>
+		  <extension url="http://hl7.org/fhir/StructureDefinition/procedurerequest-appropriatenessScore">
+			  <valueCoding>
+				  <system value="http://rand.org/auc-scoring"/> <!-- TBD, made up for now... -->
+				  <code id="7" value="probably-appropriate"/>
+				  <display value="Probably Appropriate"/>
+			  </valueCoding>
+		  </extension>
+		  <text>
+			<status value="generated"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">To be added</div>
+		  </text>
+		  <subject>
+			<reference value="Patient/example"/>
+		  </subject>
+		  <type>
+			<coding>
+				<!-- TODO: This will need to use the ACR Commons code -->
+			  <system value="http://www.ama-assn.org/go/cpt"/>
+			  <code value="70450"/>
+			  <display value="CT, head, wo iv contrast"/>
+			</coding>  
+		  </type>
+		  <indication>
+			  <coding>
+				  <!-- TODO: This will need to use the ACR Commons code -->
+				  <system value="http://hl7.org/fhir/sid/icd-9"/>
+				  <code value="70450"/>
+				  <display value="Headache, Chronic, no new features"/>
+			  </coding>
+		  </indication>
+		</ProcedureRequest>
+  	  </contained>
+	  <actionId value="1"/>
+	  <number value="1"/>
+	  <evidence>
+		  <reference value="#evidence1"/>
+	  </evidence>
+	  <title value="The procedure CT, head, wo iv contrast is probably appropriate for a subject presenting with Headache, Chronic, no new features."/>
+	  <type value="update"/>
+	  <resource>
+		  <reference value="#procedureRequest1"/>
+	  </resource>
+  </action>
+</GuidanceResponse>
