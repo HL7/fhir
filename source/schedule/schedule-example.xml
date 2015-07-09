@@ -7,6 +7,11 @@
       Burgers UMC, South Wing, second floor Physiotherapy Schedule
     </div>
 	</text>
+	<identifier>
+		<use value="usual"/>
+		<system value="http://example.org/scheduleid"/>
+		<value value="45"/>
+	</identifier>
 	<type>
 		<coding>
 			<code value="45"/>
