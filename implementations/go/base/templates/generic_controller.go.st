@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 	<if(searchBySubject || searchByPatient || searchByCode)>
 	"strings"
 	<endif>
@@ -33,14 +32,14 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 		for key, value := range r.Form {
 			splitKey := strings.Split(key, ":")
 			<if(searchByPatient)>
-			if (len(splitKey) > 1) && (splitKey[0] == "patient") {
+			if splitKey[0] == "patient" {
 				err := c.Find(bson.M{"patient.referenceid": value[0]}).All(&result)
 				if err != nil {
 					http.Error(rw, err.Error(), http.StatusInternalServerError)
 				}
 			}
 			<else>
-			if (len(splitKey) > 1) && (splitKey[0] == "subject") {
+			if splitKey[0] == "subject" {
 				err := c.Find(bson.M{"subject.referenceid": value[0]}).All(&result)
 				if err != nil {
 					http.Error(rw, err.Error(), http.StatusInternalServerError)
@@ -80,18 +79,15 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 	var <LowerCaseModelName>EntryList []models.<ModelName>BundleEntry
 	for _, <LowerCaseModelName> := range result {
 		var entry models.<ModelName>BundleEntry
-		entry.Title = "<ModelName> " + <LowerCaseModelName>.Id
 		entry.Id = <LowerCaseModelName>.Id
-		entry.Content = <LowerCaseModelName>
+		entry.Resource = <LowerCaseModelName>
 		<LowerCaseModelName>EntryList = append(<LowerCaseModelName>EntryList, entry)
 	}
 
 	var bundle models.<ModelName>Bundle
-	bundle.Type = "Bundle"
-	bundle.Title = "<ModelName> Index"
 	bundle.Id = bson.NewObjectId().Hex()
-	bundle.Updated = time.Now()
-	bundle.TotalResults = len(result)
+	bundle.Type = "searchset"
+	bundle.Total = len(result)
 	bundle.Entry = <LowerCaseModelName>EntryList
 
 	log.Println("Setting <LowerCaseModelName> search context")

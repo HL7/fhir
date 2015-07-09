@@ -115,7 +115,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
-            generateMgoModel(entry.getKey(), dirs.get("modelDir"), definitions, "encoding/json", "time");
+            generateMgoModel(entry.getKey(), dirs.get("modelDir"), definitions, "encoding/json");
             generateModelAppendix(entry.getKey(), dirs.get("modelDir"), genericModelAppendixTemplate);
             generateGoController(entry.getKey(), entry.getValue(), dirs.get("serverDir"), genericControllerTemplate);
         }
