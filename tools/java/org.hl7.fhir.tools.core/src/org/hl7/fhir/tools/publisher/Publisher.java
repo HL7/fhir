@@ -1082,7 +1082,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameterDefn i) {
+  private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameterDefn i) throws Exception {
     ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
     result.setName(i.getCode());
     result.setDefinition("http://hl7.org/fhir/SearchParameter/"+rn.toLowerCase()+"-"+i.getCode().replace("-[x]", ""));

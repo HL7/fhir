@@ -3,7 +3,8 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This resource applies to various circumstances where there is a concern about an existing or proposed set of clinical activity.  The issue could relate to multiple actions/proposed actions or could be specific to a single action.  It does not apply to administrative issues (e.g. lack of user permissions) but could relate to violation of patient consent limitations.  Examples include:
+This resource applies to various circumstances where there is a concern about an existing or proposed set of clinical activity.  The issue could relate to multiple actions/proposed actions or could be specific to a single action.  
+It does not apply to technical issues (e.g. lack of user permissions) but could relate to violation of patient consent limitations.  Examples include:
 </p>
 <ul>
   <li>Drug-drug interactions</li>
@@ -24,7 +25,7 @@ Similarly this resource is not to be used to capture clinical facts that may imp
 <p>
 This resources only applies to documenting a risk associated with a specific planned or ongoing action, not a general propensity to risk.  The latter would be handled using <a href="allergyintolerance.html">AllergyIntolerance</a> for substance-specific issues or <a href="flag.html">Flag</a> for other types of issues.
 </p>
-<p>This resource is limited to clinical issues associated with a proposed or ongoing action.  It does not cover business/technical issues such as lack of permission, duplicate identifiers and other business rule violations.  Business and technical issues are conveyed using the <a href="operationoutcome.html">OperationOutcome</a> resource.  
+<p>This resource is limited to clinical issues associated with a proposed or ongoing action.  It does not cover technical issues such as lack of permission, duplicate identifiers and other business rule violations. Technical issues are conveyed using the <a href="operationoutcome.html">OperationOutcome</a> resource.  
 It is possible to have both <a href="operationoutcome.html">OperationOutcome</a> and <b>Contraindication together</b>, where the OperationOutcome might 
 indicate that a requested action was rejected due to a clinical issue and the Contraindication provides the details of the issue.</p>
 </div>
