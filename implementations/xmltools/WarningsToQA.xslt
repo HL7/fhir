@@ -86,7 +86,7 @@
 	<xsl:template match="message">
     <li>
       <span>
-        <xsl:value-of select="concat(@level, '&#xA0;')"/>
+        <xsl:value-of select="concat(@level, if (not(@location='')) then concat(':', @location) else '', '&#xA0;')"/>
       </span>
       <xsl:copy-of select="node()"/>
     </li>
