@@ -86,7 +86,7 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionContac
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
@@ -137,7 +137,7 @@ public class ProfileGenerator {
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ type.getCode());
     p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
-    p.setType(StructureDefinitionType.TYPE);
+    p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -224,7 +224,7 @@ public class ProfileGenerator {
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ type.getCode());
     p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
-    p.setType(StructureDefinitionType.TYPE);
+    p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -305,7 +305,7 @@ public class ProfileGenerator {
     p.setId(t.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ t.getName());
     p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
-    p.setType(StructureDefinitionType.TYPE);
+    p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -349,7 +349,8 @@ public class ProfileGenerator {
     p.setId(pt.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ pt.getName());
     p.setBase("http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType());
-    p.setType(StructureDefinitionType.CONSTRAINT);
+    p.setKind(StructureDefinitionKind.DATATYPE);
+    p.setConstrainedType(pt.getBaseType());
     p.setAbstract(false);
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -420,7 +421,7 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
-    p.setType(StructureDefinitionType.RESOURCE);
+    p.setKind(StructureDefinitionKind.RESOURCE);
     if (r.getName().equals("Resource")) {
       p.setBase("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
       p.setAbstract(false);
@@ -505,7 +506,8 @@ public class ProfileGenerator {
       p.setBase(resource.getRoot().getTypes().get(0).getProfile());
     else
       p.setBase("http://hl7.org/fhir/StructureDefinition/"+resource.getName());    
-    p.setType(StructureDefinitionType.CONSTRAINT);
+    p.setKind(StructureDefinitionKind.RESOURCE);
+    p.setConstrainedType(resource.getName());    
     p.setAbstract(false);
 
     
@@ -554,7 +556,7 @@ public class ProfileGenerator {
       issues.add(new ValidationMessage(Source.ProfileValidator, IssueType.STRUCTURE, -1, -1, p.getUrl(), s, IssueSeverity.WARNING));
     reset();
     // ok, c is the differential. now we make the snapshot
-    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getType(), p.getName(), pkp);
+    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getConstrainedType(), p.getName(), pkp);
     reset();
 
     p.getDifferential().getElement().get(0).getType().clear();

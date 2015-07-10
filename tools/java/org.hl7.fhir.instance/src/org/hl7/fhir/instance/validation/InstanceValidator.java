@@ -32,8 +32,8 @@ import org.hl7.fhir.instance.model.SampledData;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
@@ -834,8 +834,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         profile = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+resourceName);
           ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile != null, "No profile found for resource type '"+resourceName+"'");
       } else {
-        String type = profile.getType() == StructureDefinitionType.RESOURCE ? profile.getSnapshot().getElement().get(0).getPath() : profile.getSnapshot().getElement().get(0).getType().get(0).getCode();
-          ok = rule(errors, IssueType.INVALID, -1, -1, stack.addToLiteralPath(resourceName), type.equals(resourceName), "Specified profile type was '"+profile.getType()+"', but resource type was '"+resourceName+"'");
+        String type = profile.hasConstrainedType() ? profile.getConstrainedType() : profile.getName();
+          ok = rule(errors, IssueType.INVALID, -1, -1, stack.addToLiteralPath(resourceName), type.equals(resourceName), "Specified profile type was '"+profile.getConstrainedType()+"', but resource type was '"+resourceName+"'");
       }
     }
 
@@ -853,7 +853,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   // the instance validator had no issues against the base resource profile
   private void start(List<ValidationMessage> errors, WrapperElement element, StructureDefinition profile, NodeStack stack) throws Exception {
     // profile is valid, and matches the resource name
-    if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), profile.hasSnapshot(), "StructureDefinition has no snapshort - validation is against the snapshot, so it must be provided")) {
+    if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), profile.hasSnapshot(), "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
       validateElement(errors, profile, profile.getSnapshot().getElement().get(0), null, null, element, element.getName(), stack);
 
       checkDeclaredProfiles(errors, element, stack);
@@ -891,7 +891,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (rule(errors, IssueType.INVALID, element.line(), element.col(), p, !Utilities.noString(ref), "StructureDefinition reference invalid")) {
           StructureDefinition pr = context.getProfiles().get(ref);
           if (warning(errors, IssueType.INVALID, element.line(), element.col(), p, pr != null, "StructureDefinition reference could not be resolved")) {
-            if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), p, pr.hasSnapshot(), "StructureDefinition has no snapshort - validation is against the snapshot, so it must be provided")) {
+            if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), p, pr.hasSnapshot(), "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
               validateElement(errors, pr, pr.getSnapshot().getElement().get(0), null, null, element, element.getName(), stack);
             }
           }
@@ -1436,7 +1436,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       StructureDefinition p = resolveProfile(profile, pr);
       if (p == null)
         return null;
-      else if (p.getType() == StructureDefinitionType.RESOURCE)
+      else if (p.getKind() == StructureDefinitionKind.RESOURCE)
         return p.getSnapshot().getElement().get(0).getPath();
       else
         return p.getSnapshot().getElement().get(0).getType().get(0).getCode();

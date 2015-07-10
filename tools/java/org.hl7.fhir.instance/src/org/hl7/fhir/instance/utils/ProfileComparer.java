@@ -23,7 +23,6 @@ import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -289,11 +288,15 @@ public class ProfileComparer {
       if (compareElements(outcome, ln.path(), ln, rn)) {
         outcome.subset.setName("intersection of "+outcome.leftName()+" and "+outcome.rightName());
         outcome.subset.setStatus(ConformanceResourceStatus.DRAFT);
-        outcome.subset.setType(StructureDefinitionType.CONSTRAINT);
+        outcome.subset.setKind(outcome.left.getKind());
+        outcome.subset.setConstrainedType(outcome.left.getConstrainedType());
+        outcome.subset.setBase("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getConstrainedType());
         outcome.subset.setAbstract(false);
         outcome.superset.setName("union of "+outcome.leftName()+" and "+outcome.rightName());
         outcome.superset.setStatus(ConformanceResourceStatus.DRAFT);
-        outcome.superset.setType(StructureDefinitionType.CONSTRAINT);
+        outcome.superset.setKind(outcome.left.getKind());
+        outcome.superset.setConstrainedType(outcome.left.getConstrainedType());
+        outcome.superset.setBase("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getConstrainedType());
         outcome.superset.setAbstract(false);
       } else {
         outcome.subset = null;
@@ -803,7 +806,7 @@ public class ProfileComparer {
               c.getProfile().clear();
               c.getProfile().add(r.getProfile().get(0));
               found = true;
-            } else if (sdl.getSnapshot().getElement().get(0).getPath().equals(sdr.getSnapshot().getElement().get(0).getPath())) {
+            } else if (sdl.hasConstrainedType() && sdr.hasConstrainedType() && sdl.getConstrainedType().equals(sdr.getConstrainedType())) {
               ProfileComparison comp = compareProfiles(sdl, sdr);
               if (comp.getSubset() != null) {
                 found = true;

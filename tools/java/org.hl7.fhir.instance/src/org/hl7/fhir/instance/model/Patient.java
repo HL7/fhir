@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 10, 2015 13:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1052,10 +1052,10 @@ public class Patient extends DomainResource {
     protected List<ContactComponent> contact;
 
     /**
-     * This element has a value if the patient is an animal.
+     * This patient is known to be an animal.
      */
     @Child(name = "animal", type = {}, order=11, min=0, max=1)
-    @Description(shortDefinition="If this patient is an animal (non-human)", formalDefinition="This element has a value if the patient is an animal." )
+    @Description(shortDefinition="This patient is known to be an animal (non-human)", formalDefinition="This patient is known to be an animal." )
     protected AnimalComponent animal;
 
     /**
@@ -1565,7 +1565,7 @@ public class Patient extends DomainResource {
     }
 
     /**
-     * @return {@link #animal} (This element has a value if the patient is an animal.)
+     * @return {@link #animal} (This patient is known to be an animal.)
      */
     public AnimalComponent getAnimal() { 
       if (this.animal == null)
@@ -1581,7 +1581,7 @@ public class Patient extends DomainResource {
     }
 
     /**
-     * @param value {@link #animal} (This element has a value if the patient is an animal.)
+     * @param value {@link #animal} (This patient is known to be an animal.)
      */
     public Patient setAnimal(AnimalComponent value) { 
       this.animal = value;
@@ -1819,7 +1819,7 @@ public class Patient extends DomainResource {
         childrenList.add(new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple or indicates the actual birth order.", 0, java.lang.Integer.MAX_VALUE, multipleBirth));
         childrenList.add(new Property("photo", "Attachment", "Image of the patient.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("animal", "", "This element has a value if the patient is an animal.", 0, java.lang.Integer.MAX_VALUE, animal));
+        childrenList.add(new Property("animal", "", "This patient is known to be an animal.", 0, java.lang.Integer.MAX_VALUE, animal));
         childrenList.add(new Property("communication", "", "Languages which may be used to communicate with the patient about his or her health.", 0, java.lang.Integer.MAX_VALUE, communication));
         childrenList.add(new Property("careProvider", "Reference(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, careProvider));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "Organization that is the custodian of the patient record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));

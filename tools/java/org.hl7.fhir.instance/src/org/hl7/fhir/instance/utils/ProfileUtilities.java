@@ -31,7 +31,7 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
@@ -1338,7 +1338,7 @@ public class ProfileUtilities {
   				String[] ps = parts[0].split("\\/StructureDefinition\\/");
   				if (ps.length != 2)
   					throw new Exception("Unable to understand address of profile: "+parts[0]);
-  				IFHIRClient client = new FHIRSimpleClient();
+  				IFHIRClient client = context.getClient();
   				client.initialize(ps[0]);
   				StructureDefinition ae = client.read(StructureDefinition.class, ps[1]);
   				context.getProfiles().put(parts[0], ae);
@@ -1575,7 +1575,7 @@ public class ProfileUtilities {
   // generate schematroins for the rules in a structure definition
   
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws Exception {
-    if (structure.getType() != StructureDefinitionType.CONSTRAINT)
+    if (!structure.hasConstrainedType())
       throw new Exception("not the right kind of structure to generate schematrons for");
       if (!structure.hasSnapshot())
       throw new Exception("needs a snapshot");

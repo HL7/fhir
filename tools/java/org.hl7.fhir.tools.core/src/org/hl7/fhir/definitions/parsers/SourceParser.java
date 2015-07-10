@@ -89,7 +89,7 @@ import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.tools.publisher.PageProcessor;
@@ -546,7 +546,7 @@ public class SourceParser {
         String base = ae.hasBase() ? ae.getBase() : b.getBase();
         if (ae.getResource() instanceof Composition)
           pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
-        else if (ae.getResource() instanceof StructureDefinition && ((StructureDefinition) ae.getResource()).getType() != StructureDefinitionType.EXTENSION) {
+        else if (ae.getResource() instanceof StructureDefinition && !((StructureDefinition) ae.getResource()).getConstrainedType().equals("Extension")) {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
           for (StringType s : ed.getContext())
             definitions.checkContextValid(ed.getContextType(), s.getValue(), file.getName());

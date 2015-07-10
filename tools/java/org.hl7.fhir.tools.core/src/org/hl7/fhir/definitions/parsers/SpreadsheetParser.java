@@ -91,7 +91,7 @@ import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.TimeType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UnsignedIntType;
@@ -1460,7 +1460,8 @@ public class SpreadsheetParser {
   private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap) throws Exception {
 	  // first, we build the extension definition
     StructureDefinition ex = new StructureDefinition();
-    ex.setType(StructureDefinitionType.EXTENSION);
+    ex.setKind(StructureDefinitionKind.DATATYPE);
+    ex.setConstrainedType("Extension");
     ex.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setAbstract(false);
     ToolResourceUtilities.updateUsage(ex, ap.getCategory());

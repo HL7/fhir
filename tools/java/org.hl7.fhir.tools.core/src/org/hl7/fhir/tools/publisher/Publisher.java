@@ -163,7 +163,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -2154,7 +2154,7 @@ public class Publisher implements URIResolver {
     if (rd.getConformancePack() == null) {
       for (SearchParameterDefn spd : rd.getSearchParams().values()) {
         StructureDefinition p = new StructureDefinition();
-        p.setType(StructureDefinitionType.CONSTRAINT);
+        p.setKind(StructureDefinitionKind.RESOURCE);
         p.setAbstract(true);
         p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
         p.setName(rd.getName());

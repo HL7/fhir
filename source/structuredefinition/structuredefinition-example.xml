@@ -13,9 +13,12 @@
   </contact>
   <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
   <status value="draft"/>
+	<experimental value="true"/>
   <date value="2012-05-12"/>
-  <type value="constraint"/>
+  <kind value="resource"/>
+	<constrainedType value="DiagnosticReport"/>
   <abstract value="false"/>
+	<base value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
   <snapshot>
     <element>
       <path value="DiagnosticReport"/>

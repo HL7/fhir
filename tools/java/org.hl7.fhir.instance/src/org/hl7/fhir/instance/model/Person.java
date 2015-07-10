@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 10, 2015 13:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -345,9 +345,9 @@ public class Person extends DomainResource {
     /**
      * The birth date for the person.
      */
-    @Child(name = "birthDate", type = {DateTimeType.class}, order=4, min=0, max=1)
+    @Child(name = "birthDate", type = {DateType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="The date on which the person was born", formalDefinition="The birth date for the person." )
-    protected DateTimeType birthDate;
+    protected DateType birthDate;
 
     /**
      * One or more addresses for the person.
@@ -389,7 +389,7 @@ public class Person extends DomainResource {
     @Description(shortDefinition="Link to a resource that concerns the same actual person", formalDefinition="Link to a resource that concerns the same actual person." )
     protected List<PersonLinkComponent> link;
 
-    private static final long serialVersionUID = -2072707611L;
+    private static final long serialVersionUID = -117464654L;
 
   /*
    * Constructor
@@ -570,12 +570,12 @@ public class Person extends DomainResource {
     /**
      * @return {@link #birthDate} (The birth date for the person.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateTimeType getBirthDateElement() { 
+    public DateType getBirthDateElement() { 
       if (this.birthDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.birthDate");
         else if (Configuration.doAutoCreate())
-          this.birthDate = new DateTimeType(); // bb
+          this.birthDate = new DateType(); // bb
       return this.birthDate;
     }
 
@@ -590,7 +590,7 @@ public class Person extends DomainResource {
     /**
      * @param value {@link #birthDate} (The birth date for the person.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public Person setBirthDateElement(DateTimeType value) { 
+    public Person setBirthDateElement(DateType value) { 
       this.birthDate = value;
       return this;
     }
@@ -610,7 +610,7 @@ public class Person extends DomainResource {
         this.birthDate = null;
       else {
         if (this.birthDate == null)
-          this.birthDate = new DateTimeType();
+          this.birthDate = new DateType();
         this.birthDate.setValue(value);
       }
       return this;
@@ -815,7 +815,7 @@ public class Person extends DomainResource {
         childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("gender", "code", "Administrative Gender.", 0, java.lang.Integer.MAX_VALUE, gender));
-        childrenList.add(new Property("birthDate", "dateTime", "The birth date for the person.", 0, java.lang.Integer.MAX_VALUE, birthDate));
+        childrenList.add(new Property("birthDate", "date", "The birth date for the person.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("address", "Address", "One or more addresses for the person.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("photo", "Attachment", "An image that can be displayed as a thumbnail of the person to enhance the identification of the individual.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The Organization that is the custodian of the person record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));

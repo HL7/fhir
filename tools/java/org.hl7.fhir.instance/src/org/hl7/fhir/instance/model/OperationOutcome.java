@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 10, 2015 13:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import org.hl7.fhir.instance.model.api.*;
  * A collection of error, warning or information messages that result from a system action.
  */
 @ResourceDef(name="OperationOutcome", profile="http://hl7.org/fhir/Profile/OperationOutcome")
-public class OperationOutcome extends DomainResource {
+public class OperationOutcome extends DomainResource implements IBaseOperationOutcome {
 
     public enum IssueSeverity {
         /**

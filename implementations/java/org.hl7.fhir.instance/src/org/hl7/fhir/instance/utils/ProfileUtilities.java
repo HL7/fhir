@@ -9,19 +9,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Reference;
@@ -30,7 +31,7 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
@@ -1574,9 +1575,9 @@ public class ProfileUtilities {
   // generate schematroins for the rules in a structure definition
   
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws Exception {
-    if (structure.getType() != StructureDefinitionType.CONSTRAINT)
-      throw new Exception("not the right kind of structure to generate schematrons for");
-      if (!structure.hasSnapshot())
+    if (!structure.hasConstrainedType())
+    	throw new Exception("not the right kind of structure to generate schematrons for");
+    if (!structure.hasSnapshot())
       throw new Exception("needs a snapshot");
     
   	StructureDefinition base = context.getProfiles().get(structure.getBase());

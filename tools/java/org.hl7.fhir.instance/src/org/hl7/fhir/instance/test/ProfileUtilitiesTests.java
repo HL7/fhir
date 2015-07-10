@@ -12,6 +12,7 @@ import org.hl7.fhir.instance.utils.ProfileComparer;
 import org.hl7.fhir.instance.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.utils.WorkerContextFactory;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 
 public class ProfileUtilitiesTests {
@@ -27,7 +28,7 @@ public class ProfileUtilitiesTests {
   
   public void execute(String[] args) throws Exception {
     System.out.println("loading context");
-    context = WorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip").setTerminologyServices(new FHIRTerminologyServices("http://localhost:980/open"));
+    context = WorkerContextFactory.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip").setTerminologyServices(new FHIRTerminologyServices("http://localhost:980/open"));
     comp = new ProfileComparer(context);
     
     compare("patient-daf-dafpatient.profile.xml", "patient-qicore-qicore-patient.profile.xml");

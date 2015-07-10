@@ -120,7 +120,7 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -982,7 +982,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (resource == null || !(resource instanceof StructureDefinition))
       return "";
     StructureDefinition sd = (StructureDefinition) resource;
-    if (sd.getType() == StructureDefinitionType.RESOURCE)
+    if (!sd.hasConstrainedType())
       return "";
     String pack = "";
     if (sd.hasUserData("pack")) {

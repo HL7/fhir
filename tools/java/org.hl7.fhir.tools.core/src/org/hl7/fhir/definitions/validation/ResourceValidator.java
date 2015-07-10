@@ -129,7 +129,7 @@ public class ResourceValidator extends BaseValidator {
   
   protected boolean rule(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
     String rn = path.contains(".") ? path.substring(0, path.indexOf(".")) : path;
-    return super.rule(errors, type, path, b, msg, "<a href=\""+(rn.toLowerCase())+".html\">"+rn+": "+Utilities.escapeXml(msg));
+    return super.rule(errors, type, path, b, msg, "<a href=\""+(rn.toLowerCase())+".html\">"+rn+"</a>: "+Utilities.escapeXml(msg));
   }
 
   public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) throws Exception {    

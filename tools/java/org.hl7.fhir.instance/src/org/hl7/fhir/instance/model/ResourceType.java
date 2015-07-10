@@ -1,8 +1,9 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 10, 2015 13:40+1000 for FHIR v0.5.0
 
 public enum ResourceType {
+    Account,
     AllergyIntolerance,
     Appointment,
     AppointmentResponse,
@@ -101,6 +102,8 @@ public enum ResourceType {
 
     public String getPath() {;
       switch (this) {
+    case Account:
+      return "account";
     case AllergyIntolerance:
       return "allergyintolerance";
     case Appointment:

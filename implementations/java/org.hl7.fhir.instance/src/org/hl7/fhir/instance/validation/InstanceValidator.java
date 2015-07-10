@@ -32,8 +32,8 @@ import org.hl7.fhir.instance.model.SampledData;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
@@ -45,6 +45,7 @@ import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOut
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.validation.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -93,6 +94,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   // configuration items
   private CheckDisplayOption checkDisplay;
+  private BestPracticeWarningLevel bpWarnings;
   @Override
   public CheckDisplayOption getCheckDisplay() {
     return checkDisplay;
@@ -101,6 +103,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   public void setCheckDisplay(CheckDisplayOption checkDisplay) {
     this.checkDisplay = checkDisplay;
   }
+  
+  public BestPracticeWarningLevel getBasePracticeWarningLevel() {
+    return bpWarnings;
+  }
+  
+  public void setBestPracticeWarningLevel(BestPracticeWarningLevel value) {
+    bpWarnings = value;
+  }
+  
   
 
   // used during the build process to keep the overall volume of messages down
@@ -823,8 +834,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         profile = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+resourceName);
           ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile != null, "No profile found for resource type '"+resourceName+"'");
       } else {
-        String type = profile.getType() == StructureDefinitionType.RESOURCE ? profile.getSnapshot().getElement().get(0).getPath() : profile.getSnapshot().getElement().get(0).getType().get(0).getCode();
-          ok = rule(errors, IssueType.INVALID, -1, -1, stack.addToLiteralPath(resourceName), type.equals(resourceName), "Specified profile type was '"+profile.getType()+"', but resource type was '"+resourceName+"'");
+        String type = profile.hasConstrainedType() ? profile.getConstrainedType() : profile.getName();
+          ok = rule(errors, IssueType.INVALID, -1, -1, stack.addToLiteralPath(resourceName), type.equals(resourceName), "Specified profile type was '"+profile.getConstrainedType()+"', but resource type was '"+resourceName+"'");
       }
     }
 
@@ -850,6 +861,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // specific known special validations 
       if (element.getResourceType().equals("Bundle"))
         validateBundle(errors, element, stack);
+      if (element.getResourceType().equals("Observation"))
+        validateObservation(errors, element, stack);
     }
   }
 
@@ -999,10 +1012,28 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     else
       return tbase+"/";
   }
+  
   private StructureDefinition getProfileForType(String type) throws Exception {
     return context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+type);
   }
 
+  private void validateObservation(List<ValidationMessage> errors, WrapperElement element, NodeStack stack) {
+    // all observations should have a subject, a performer, and a time
+    
+    bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("subject") != null, "All observations should have a subject");
+    bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("performer") != null, "All observations should have a performer");
+    bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("effectiveDateTime") != null || element.getNamedChild("effectivePeriod") != null , "All observations should have an effectiveDateTime or an effectivePeriod");
+  }
+
+  private void bpCheck(List<ValidationMessage> errors, IssueType invalid, int line, int col, String literalPath, boolean test, String message) {
+    switch (bpWarnings) {
+    case Error: rule(errors, invalid, line, col, literalPath, test, message);
+    case Warning: warning(errors, invalid, line, col, literalPath, test, message);
+    case Hint: hint(errors, invalid, line, col, literalPath, test, message);
+    default: // do nothing
+    }
+  }
+  
   private void validateElement(List<ValidationMessage> errors, StructureDefinition profile, ElementDefinition definition, StructureDefinition cprofile, ElementDefinition context, WrapperElement element, String actualType, NodeStack stack) throws Exception {
     // irrespective of what element it is, it cannot be empty
   	if (element.isXml()) {
@@ -1405,7 +1436,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       StructureDefinition p = resolveProfile(profile, pr);
       if (p == null)
         return null;
-      else if (p.getType() == StructureDefinitionType.RESOURCE)
+      else if (p.getKind() == StructureDefinitionKind.RESOURCE)
         return p.getSnapshot().getElement().get(0).getPath();
       else
         return p.getSnapshot().getElement().get(0).getType().get(0).getCode();

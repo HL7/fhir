@@ -144,7 +144,7 @@ public class DefinitionNavigator {
     typeOfChildren = null;
     StructureDefinition sd = context.getTypeStructure(type);
     if (sd != null) {
-      DefinitionNavigator dn = new DefinitionNavigator(context, sd, 0, path, names, sd.getSnapshot().getElement().get(0).getPath());
+      DefinitionNavigator dn = new DefinitionNavigator(context, sd, 0, path, names, sd.getConstrainedType());
       typeChildren = dn.children();
     } else
       throw new Exception("Unable to find definition for "+type.getCode());

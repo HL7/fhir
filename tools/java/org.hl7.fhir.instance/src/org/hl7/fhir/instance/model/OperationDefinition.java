@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 6, 2015 16:44+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 10, 2015 13:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1072,10 +1072,10 @@ public class OperationDefinition extends DomainResource {
     protected StringType version;
 
     /**
-     * A free text natural language name identifying the Profile.
+     * A free text natural language name identifying the operation.
      */
     @Child(name = "name", type = {StringType.class}, order=2, min=1, max=1)
-    @Description(shortDefinition="Informal name for this profile", formalDefinition="A free text natural language name identifying the Profile." )
+    @Description(shortDefinition="Informal name for this operation", formalDefinition="A free text natural language name identifying the operation." )
     protected StringType name;
 
     /**
@@ -1316,7 +1316,7 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A free text natural language name identifying the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -1336,7 +1336,7 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A free text natural language name identifying the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public OperationDefinition setNameElement(StringType value) { 
       this.name = value;
@@ -1344,14 +1344,14 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
-     * @return A free text natural language name identifying the Profile.
+     * @return A free text natural language name identifying the operation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the Profile.
+     * @param value A free text natural language name identifying the operation.
      */
     public OperationDefinition setName(String value) { 
         if (this.name == null)
@@ -2102,7 +2102,7 @@ public class OperationDefinition extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute url that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique uri).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the Profile.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("name", "string", "A free text natural language name identifying the operation.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the operation definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "string", "A free text natural language description of the profile and its use.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -2227,7 +2227,7 @@ public class OperationDefinition extends DomainResource {
   public static final String SP_PUBLISHER = "publisher";
   @SearchParamDefinition(name="system", path="OperationDefinition.system", description="Invoke at the system level?", type="token" )
   public static final String SP_SYSTEM = "system";
-  @SearchParamDefinition(name="name", path="OperationDefinition.name", description="Informal name for this profile", type="string" )
+  @SearchParamDefinition(name="name", path="OperationDefinition.name", description="Informal name for this operation", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="base", path="OperationDefinition.base", description="Marks this as a profile of the base", type="reference" )
   public static final String SP_BASE = "base";

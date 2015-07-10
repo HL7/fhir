@@ -175,7 +175,7 @@ public class QuestionnaireBuilder {
       throw new Exception("QuestionnaireBuilder.build: no profile found");
 
     if (resource != null)
-      if (!profile.getType().equals(resource.getResourceType().toString()))
+      if (!profile.getConstrainedType().equals(resource.getResourceType().toString()))
         throw new Exception("Wrong Type");
 
     if (prebuiltQuestionnaire != null)
