@@ -11,7 +11,7 @@
     </xsl:for-each>
     <xsl:value-of select="fn:concat('&#x0a;Errors: ', count(//message[@level='ERROR']), ' Warnings: ', count(//message[@level='WARNING']), ' Hints: ', count(//message[@level='INFORMATION']), '&#x0a;')"/>
     <xsl:text>&#x0a;===Resources with FMM forced to 0===&#x0a;</xsl:text>
-    <xsl:for-each select="group[resource[(@basefmm or @fmm&gt;0) and message[@level!='Information']]]">
+    <xsl:for-each select="group[resource[(@basefmm or @fmm&gt;0) and message[@level!='INFORMATION']]]">
       <xsl:value-of select="concat(@name, ':&#x0a;  ')"/>
       <xsl:for-each select="resource[@basefmm or @fmm&gt;0]">
         <xsl:if test="position()!=1">, </xsl:if>
