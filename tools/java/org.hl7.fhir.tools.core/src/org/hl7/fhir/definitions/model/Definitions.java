@@ -304,6 +304,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private List<String> sortedNames;
   private List<String> vsFixups = new ArrayList<String>();
   private List<NamingSystem> namingSystems = new ArrayList<NamingSystem>();
+  private Set<String> structuralPages = new HashSet<String>();
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -578,6 +579,10 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   public List<NamingSystem> getNamingSystems() {
     return namingSystems ;
+  }
+
+  public Set<String> getStructuralPages() {
+    return structuralPages;
   }
 
   

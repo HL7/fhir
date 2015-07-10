@@ -10,6 +10,7 @@ signatures.html
 		<page title="Documentation" filename="documentation.html">
 
     <page title="Table of Contents" filename="toc.html"/>
+			<page title="Documentation Guidance and Glossary" filename="help.html"/>
 			<page title="License and Legal Terms" filename="license.html"/>
 			<page title="Community and Credits" filename="credits.html"/>
 			<page title="Version History" filename="history.html"/>
