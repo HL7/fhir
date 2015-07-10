@@ -184,6 +184,7 @@ import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.QuestionnaireBuilder;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.instance.validation.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ProfileValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -4363,6 +4364,7 @@ public class Publisher implements URIResolver {
     InstanceValidator validator = new InstanceValidator(page.getWorkerContext());
     validator.setSuppressLoincSnomedMessages(true);
     validator.setRequireResourceId(true);
+    validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
     page.log(".... done", LogMessageType.Process);
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {

@@ -45,6 +45,7 @@ import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOut
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.validation.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -93,6 +94,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   // configuration items
   private CheckDisplayOption checkDisplay;
+  private BestPracticeWarningLevel bpWarnings;
   @Override
   public CheckDisplayOption getCheckDisplay() {
     return checkDisplay;
@@ -101,6 +103,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   public void setCheckDisplay(CheckDisplayOption checkDisplay) {
     this.checkDisplay = checkDisplay;
   }
+
+  public BestPracticeWarningLevel getBasePracticeWarningLevel() {
+    return bpWarnings;
+  }
+  
+  public void setBestPracticeWarningLevel(BestPracticeWarningLevel value) {
+    bpWarnings = value;
+  }
+  
   
 
   // used during the build process to keep the overall volume of messages down
@@ -850,6 +861,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // specific known special validations 
       if (element.getResourceType().equals("Bundle"))
         validateBundle(errors, element, stack);
+      if (element.getResourceType().equals("Observation"))
+        validateObservation(errors, element, stack);
     }
   }
 
@@ -923,7 +936,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (bundle.getNamedChildValue("type").equals("message"))
       validateMessage(errors, bundle);
   }
-  
+
   private void validateMessage(List<ValidationMessage> errors, WrapperElement bundle) {
     // TODO Auto-generated method stub
                                                                                                                                            
@@ -999,10 +1012,28 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     else
       return tbase+"/";
   }
+  
   private StructureDefinition getProfileForType(String type) throws Exception {
     return context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+type);
   }
 
+  private void validateObservation(List<ValidationMessage> errors, WrapperElement element, NodeStack stack) {
+    // all observations should have a subject, a performer, and a time
+    
+    bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("subject") != null, "All observations should have a subject");
+    bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("performer") != null, "All observations should have a performer");
+    bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("effectiveDateTime") != null || element.getNamedChild("effectivePeriod") != null , "All observations should have an effectiveDateTime or an effectivePeriod");
+  }
+
+  private void bpCheck(List<ValidationMessage> errors, IssueType invalid, int line, int col, String literalPath, boolean test, String message) {
+    switch (bpWarnings) {
+    case Error: rule(errors, invalid, line, col, literalPath, test, message);
+    case Warning: warning(errors, invalid, line, col, literalPath, test, message);
+    case Hint: hint(errors, invalid, line, col, literalPath, test, message);
+    default: // do nothing
+    }
+  }
+  
   private void validateElement(List<ValidationMessage> errors, StructureDefinition profile, ElementDefinition definition, StructureDefinition cprofile, ElementDefinition context, WrapperElement element, String actualType, NodeStack stack) throws Exception {
     // irrespective of what element it is, it cannot be empty
   	if (element.isXml()) {
