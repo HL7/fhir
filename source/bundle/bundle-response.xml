@@ -39,56 +39,56 @@
       </Patient>
     </resource>
     <!-- now, details about the action to take with the resource -->
-    <transactionResponse>
+    <response>
       <!-- important responses from the server -->
       <status value="201 Created"/>
       <location value="Patient/12423/_history/1"/>
       <etag value="W/1"/>
-    </transactionResponse>
+    </response>
   </entry>
   
   <entry>
     <!-- response to the conditional create operation -->
     <!-- in this case, there was a match to the If-None-Exist header -->
-    <transactionResponse>
+    <response>
       <!-- no action taken -->
       <status value="200 OK"/>
-    </transactionResponse>
+    </response>
   </entry>
   <entry>
     <!-- response to a simple update operation -->
     <!-- no return resource for this example, though in a 
       real transaction, all entries would have a resource or all would not 
     -->
-    <transactionResponse>
+    <response>
       <status value="200 OK"/>
       <location value="Patient/123/_history/4"/>
       <etag value="W/4"/>
-    </transactionResponse>
+    </response>
   </entry>
   <entry>
     <!-- response to the conditional update operation -->
-    <transactionResponse>
+    <response>
       <!-- created a new resource for this one -->
       <status value="201 Created"/>
       <location value="Patient/12424/_history/1"/>
       <etag value="W/1"/>
-    </transactionResponse>
+    </response>
   </entry>
   <entry>
     <!-- response to the simple delete operation -->
-    <transactionResponse>
+    <response>
       <!-- successful deletion -->
       <status value="202 Accepted"/>
-    </transactionResponse>
+    </response>
   </entry>
   <entry>
     <!-- response to the conditional delete operation -->
-    <transactionResponse>
+    <response>
       <!-- delete matching resource - but which was it? no way 
        to find out. So don't use this method if that would be a problem -->
       <status value="DELETE"/>
-    </transactionResponse>
+    </response>
   </entry>
   <entry>
     <!-- operation response -->
@@ -101,10 +101,10 @@
         <!-- etc -->
       </Parameters>
     </resource>
-    <transactionResponse>
+    <response>
       <!-- POST to [base]/ValueSet/$lookup - invoking a lookup operation (see Terminology Service) -->
       <status value="200 ok"/>
-    </transactionResponse>
+    </response>
   </entry>
   <entry>
     <!-- response to search -->
@@ -115,9 +115,9 @@
         <!-- etc -->
       </Bundle>
     </resource>    
-    <transactionResponse>
+    <response>
       <status value="200 OK"/>
-    </transactionResponse>
+    </response>
   </entry>
 </Bundle>
 

@@ -44,13 +44,13 @@
       </Patient>
     </resource>
     <!-- now, details about the action to take with the resource -->
-    <transaction>
+    <request>
       <!-- POST to [base]/Patient - that's a create -->
       <method value="POST"/>
       <!-- actually, in a transaction, you don't specify the [base], 
          so [base]/Patient becomes just 'Patient': -->
       <url value="Patient"/>
-    </transaction>
+    </request>
   </entry>
   
   <entry>
@@ -76,7 +76,7 @@
       </Patient>
     </resource>
     <!-- transaction details -->
-    <transaction>
+    <request>
       <!-- POST to [base]/Patient - that's a create -->
       <method value="POST"/>
       <!-- actually, in a transaction, you don't specify the [base], 
@@ -86,7 +86,7 @@
       there isn't already one for this patient. If there is one,
       the content of this resource will be ignored -->
       <ifNoneExist value="Patient?identifier=234234"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <!-- a simple update operation -->
@@ -112,13 +112,13 @@
       </Patient>
     </resource>
     <!-- transaction details -->
-    <transaction>
+    <request>
       <!-- PUT to [base]/Patient/[id] - that's an update -->
       <method value="PUT"/>
       <!-- actually, in a transaction, you don't specify the [base], 
          so [base]/Patient becomes just 'Patient': -->
       <url value="Patient/123"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <!-- a conditional update operation -->
@@ -143,19 +143,19 @@
       </Patient>
     </resource>
     <!-- transaction details -->
-    <transaction>
+    <request>
       <!-- PUT to [base]/Patient?search_params - that's a conditional update -->
       <method value="PUT"/>
       <!-- actually, in a transaction, you don't specify the [base], 
          so [base]/Patient?params becomes just 'Patient?params': -->
       <url value="Patient?identifier=234234"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <!-- a simple delete operation -->
     <!-- no resource in this case -->
     <!-- transaction details -->
-    <transaction>
+    <request>
       <!-- DELETE to [base]/Patient/[id]- that's a delete operation -->
       <method value="DELETE"/>
       <!-- actually, in a transaction, you don't specify the [base], 
@@ -164,19 +164,19 @@
         the transaction couldn't do two different operations on the
         same resource -->
       <url value="Patient/234"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <!-- a conditional delete operation -->
     <!-- no resource in this case -->
     <!-- transaction details -->
-    <transaction>
+    <request>
       <!-- DELETE to [base]/Patient?params- that's a conditional delete operation -->
       <method value="DELETE"/>
       <!-- actually, in a transaction, you don't specify the [base], 
          so [base]/Patient?params becomes just 'Patient?params': -->
       <url value="Patient?identifier=123456"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <!-- can do more than just create/update/delete. 
@@ -192,11 +192,11 @@
         </parameter>
       </Parameters>
     </resource>
-    <transaction>
+    <request>
       <!-- POST to [base]/ValueSet/$lookup - invoking a lookup operation (see Terminology Service) -->
       <method value="POST"/>
       <url value="ValueSet/$lookup"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <!-- can also do read-only operations. 
@@ -204,11 +204,11 @@
     Note that these do not 'fail' - see discussion on transaction 
     atomicity for further information 
     -->
-    <transaction>
+    <request>
       <!-- GET from [base]/Patient?params - searching for a patient -->
       <method value="GET"/>
       <url value="Patient?name=peter"/>
-    </transaction>
+    </request>
   </entry>
 </Bundle>
 

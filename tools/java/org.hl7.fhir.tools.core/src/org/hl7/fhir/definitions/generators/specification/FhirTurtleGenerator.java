@@ -23,6 +23,7 @@ import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DecimalType;
@@ -511,6 +512,8 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         section.triple("fhir:"+tn+"."+en, "fhir:default", complex().predicate("a", "fhir:boolean").predicate("fhir:value", literal(((BooleanType) e.getDefaultValue()).asStringValue())));
       else if (e.getDefaultValue() instanceof IntegerType) 
         section.triple("fhir:"+tn+"."+en, "fhir:default", complex().predicate("a", "fhir:integer").predicate("fhir:value", literal(((IntegerType) e.getDefaultValue()).asStringValue())));
+      else if (e.getDefaultValue() instanceof CodeType) 
+        section.triple("fhir:"+tn+"."+en, "fhir:default", complex().predicate("a", "fhir:integer").predicate("fhir:value", literal(((CodeType) e.getDefaultValue()).asStringValue())));
       else
         throw new Error("default of type "+e.getDefaultValue().getClass().getName()+" not handled yet");
     }

@@ -67,10 +67,10 @@
         </context>
       </DocumentReference>
     </resource>
-    <transaction>
+    <request>
       <method value="POST"/>
       <url value="DocumentReference"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <!-- if the server can find a matching resource, use that, else create a new 
@@ -98,11 +98,11 @@
         <birthDate value="1956-05-27"/>
       </Patient>
     </resource>
-    <transaction>
+    <request>
       <method value="POST"/>
       <url value="Patient"/>
       <ifNoneExist value="Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
-    </transaction> 
+    </request> 
   </entry>
   <entry>
     <resource>  
@@ -143,10 +143,10 @@
       </Practitioner>
 
     </resource>
-    <transaction>
+    <request>
       <method value="POST"/>
       <url value="Practitioner"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <resource>  
@@ -188,10 +188,10 @@
       </Practitioner>
 
     </resource>
-    <transaction>
+    <request>
       <method value="POST"/>
       <url value="Practitioner"/>
-    </transaction>
+    </request>
   </entry>
   <entry>
     <resource>  
@@ -204,9 +204,9 @@
         <content value="YXNkYXNkYXNkYXNkYXNk"/>
       </Binary>    
     </resource>
-    <transaction>
+    <request>
       <method value="POST"/>
       <url value="Binary"/>
-    </transaction>
+    </request>
   </entry>
 </Bundle>
