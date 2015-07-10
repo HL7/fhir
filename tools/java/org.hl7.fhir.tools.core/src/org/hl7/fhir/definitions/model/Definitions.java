@@ -37,6 +37,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
+import org.hl7.fhir.definitions.model.Definitions.PageInformation;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.NamingSystem;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -55,6 +56,53 @@ import org.hl7.fhir.instance.model.ValueSet;
  * 
  */
 public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
+
+  public class PageInformation {
+
+    private String fmm;
+    private String wg;
+    private String wgCode;
+    private String name;
+
+    public PageInformation(String name) {
+      super();
+      this.name = name;
+    }
+
+    public String getFmm() {
+      return fmm;
+    }
+
+    public void setFmm(String fmm) {
+      this.fmm = fmm;
+    }
+
+    public String getWg() {
+      return wg;
+    }
+
+    public void setWg(String wg) {
+      this.wg = wg;
+    }
+
+    public String getWgCode() {
+      return wgCode;
+    }
+
+    public void setWgCode(String code) {
+      wgCode = code;
+    }
+
+    public String getName() {
+      return name;
+    }
+
+    public void setName(String name) {
+      this.name = name;
+    }
+
+    
+  }
 
   public static final String RIM_MAPPING = "http://hl7.org/v3";
   public static final String v2_MAPPING = "http://hl7.org/v2";
@@ -305,6 +353,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private List<String> vsFixups = new ArrayList<String>();
   private List<NamingSystem> namingSystems = new ArrayList<NamingSystem>();
   private Set<String> structuralPages = new HashSet<String>();
+  private Map<String, PageInformation> pageInfo = new HashMap<String, Definitions.PageInformation>();
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -583,6 +632,17 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   public Set<String> getStructuralPages() {
     return structuralPages;
+  }
+
+  public PageInformation page(String file) {
+    if (!pageInfo.containsKey(file)) 
+      pageInfo.put(file, new PageInformation(file));
+    
+    return pageInfo.get(file);
+  }
+
+  public Map<String, PageInformation> getPageInfo() {
+    return pageInfo;
   }
 
   

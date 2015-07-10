@@ -578,7 +578,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("fmm")) {
         src = s1+getFmm(com[1])+s3;
       } else if (com[0].equals("wg")) {
-        src = s1+getWgLink(com[1])+s3;
+        src = s1+getWgLink(file, com[1])+s3;
       } else if (com[0].equals("wgt")) {
         src = s1+getWgTitle(com[1])+s3;
       } else if (com.length != 1)
@@ -845,7 +845,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   }
 
-  private String getWgLink(String code) {
+  private String getWgLink(String filename, String code) {
+    definitions.page(filename).setWgCode(code);
     return definitions.getWorkgroups().containsKey(code) ? definitions.getWorkgroups().get(code).getUrl() : "?"+code+"?";
   }
 
@@ -3547,7 +3548,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("fmm")) {
         src = s1+getFmm(com[1])+s3;
       } else if (com[0].equals("wg")) {
-        src = s1+getWgLink(com[1])+s3;
+        src = s1+getWgLink(file, com[1])+s3;
       } else if (com[0].equals("wgt")) {
         src = s1+getWgTitle(com[1])+s3;
       } else if (com[0].equals("setlevel")) {

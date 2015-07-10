@@ -39,6 +39,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -96,6 +97,7 @@ import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.Definitions.PageInformation;
 import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Example;
@@ -111,6 +113,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
@@ -196,6 +199,7 @@ import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.emf.EMFGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
+import org.hl7.fhir.tools.publisher.Publisher.DocumentHolder;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
@@ -244,6 +248,12 @@ import com.google.gson.JsonObject;
  *
  */
 public class Publisher implements URIResolver {
+
+  public class DocumentHolder {
+
+    public XhtmlDocument doc;
+
+  }
 
   public static class Fragment {
     private String type;
@@ -1268,18 +1278,23 @@ public class Publisher implements URIResolver {
 
   private void processWarnings() throws Exception {
     String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "OwnerResources.xslt");
-    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "warnings.xml");
-    s.write("<warnings>".getBytes());
-
-    s.write(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt).getBytes("UTF8"));
-    s.write(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt).getBytes("UTF8"));
-    s.write(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt).getBytes("UTF8"));
+    OutputStreamWriter s = new OutputStreamWriter(new FileOutputStream(page.getFolders().dstDir + "warnings.xml"), "UTF-8");
+    s.write("<warnings>");
+    for (WorkGroup wg : page.getDefinitions().getWorkgroups().values()) {
+      s.write("<wg code=\""+wg.getCode()+"\" name=\""+wg.getName()+"\" url=\""+wg.getUrl()+"\"/>\r\n");
+    }
+    for (PageInformation pn : page.getDefinitions().getPageInfo().values()) {
+      s.write("<page name=\""+pn.getName()+"\" wg=\""+pn.getWgCode()+"\" fmm=\""+pn.getFmm()+"\"/>\r\n");
+    }
+    s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt)));
+    s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt)));
+    s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
 
     for (ValidationMessage e : page.getValidationErrors()) {
-    	s.write(e.toXML().getBytes());
+    	s.write(e.toXML());
     }
 
-    s.write("</warnings>".getBytes());
+    s.write("</warnings>");
     s.flush();
     s.close();
 
@@ -3895,13 +3910,31 @@ public class Publisher implements URIResolver {
       logicalName = Utilities.fileTitle(file);
 
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
-    src = addSectionNumbers(file, logicalName, src, null, page.getDefinitions().getStructuralPages().contains(file) ? null : new String[] {"fmm", "wg"});
+    DocumentHolder doch = new DocumentHolder();
+    src = addSectionNumbers(file, logicalName, src, null, doch);
 
+    if (!page.getDefinitions().getStructuralPages().contains(file)) {
+      XhtmlNode fmm = findId(doch.doc, "fmm");
+      XhtmlNode wg = findId(doch.doc, "wg");
+      if (fmm == null)
+        page.getValidationErrors().add(new   ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, file, "Page has no fmm level", IssueSeverity.ERROR));
+      else
+        page.getDefinitions().page(file).setFmm(get2ndPart(fmm.allText()));
+      if (wg == null)
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, file, "Page has no workgroup", IssueSeverity.ERROR));
+      else
+        page.getDefinitions().page(file).setWg(wg.getChildNodes().get(0).allText());
+    }
+    
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
 
     src = TextFile.fileToString(page.getFolders().srcDir + file).replace("<body>", "<body style=\"margin: 10px\">");
     src = page.processPageIncludesForBook(file, src, "page", null);
     cachePage(file, src, logicalName);
+  }
+
+  private String get2ndPart(String t) {
+    return t.substring(t.indexOf(":")+1).trim();
   }
 
   private void produceIgPage(String file, ImplementationGuide ig) throws Exception {
@@ -4120,7 +4153,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, dstName);
   }
 
-  private String addSectionNumbers(String file, String logicalName, String src, String id, String[] idsToFind) throws Exception {
+  private String addSectionNumbers(String file, String logicalName, String src, String id, DocumentHolder doch) throws Exception {
     if (!page.getSectionTrackerCache().containsKey(logicalName)) {
       // String prefix =
       // page.getNavigation().getIndexPrefixForFile(logicalName+".html");
@@ -4131,7 +4164,7 @@ public class Publisher implements URIResolver {
     }
     SectionTracker st = page.getSectionTrackerCache().get(logicalName);
     st.start(id);
-    src = insertSectionNumbers(src, st, file, idsToFind);
+    src = insertSectionNumbers(src, st, file, doch);
     return src;
   }
 
@@ -4164,15 +4197,13 @@ public class Publisher implements URIResolver {
     cachePage(file, src, "Compartments");
   }
 
-  private String insertSectionNumbers(String src, SectionTracker st, String link, String[] idsToFind) throws Exception {
+  private String insertSectionNumbers(String src, SectionTracker st, String link, DocumentHolder doch) throws Exception {
     try {
       // TextFile.stringToFile(src, "c:\\temp\\text.html");
       XhtmlDocument doc = new XhtmlParser().parse(src, "html");
       insertSectionNumbersInNode(doc, st, link);
-      if (idsToFind != null)
-        for (String id : idsToFind)
-          if (!findId(doc, id))
-            page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, link, "Unable to find an element with the id "+id, IssueSeverity.ERROR));
+      if (doch != null)
+        doch.doc = doc;
       return new XhtmlComposer().compose(doc);
     } catch (Exception e) {
       System.out.println(e.getMessage());
@@ -4183,13 +4214,15 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private boolean findId(XhtmlNode node, String id) {
+  private XhtmlNode findId(XhtmlNode node, String id) {
     if (id.equals(node.getAttribute("id"))) 
-        return true;
-    for (XhtmlNode n : node.getChildNodes()) 
-      if (findId(n, id))
-        return true;
-    return false;
+      return node;
+    for (XhtmlNode n : node.getChildNodes()) { 
+      XhtmlNode xn = findId(n, id);
+      if (xn != null)
+        return xn;
+    }
+    return null;
   }
 
   private void insertSectionNumbersInNode(XhtmlNode node, SectionTracker st, String link) throws Exception {
