@@ -92,11 +92,11 @@
     <SheetIndex>10</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>8700</WindowHeight>
-  <WindowWidth>19170</WindowWidth>
+  <WindowHeight>16875</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4313,7 +4313,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4688,12 +4687,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">10</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Ensure that the constrainedType is not inconsistent with the other information in the structure</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Ensure that there's a base unless the type is abstract and there's no constrainedType</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a constrained type, there SHALL be a base, and vice versa</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If the struture is not abstract, or there's a constrained type, then there SHALL be a base</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">(not(exists(f:constrainedType)) and not(exists(f:base))) or (exists(f:constrainedType) and exists(f:base))</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">(not(exists(f:constrainedType)) and not(exists(f:abstract/@value='true'))) or exists(f:base)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">11</Data><NamedCell
@@ -4703,7 +4702,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a constrained type, it's content must match the path name in the first element of a snapshot</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:constrainedType)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value)</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:constrainedType)) and (not(exists(f:snapshot)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5052,6 +5051,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5071,7 +5071,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>

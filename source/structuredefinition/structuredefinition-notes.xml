@@ -15,20 +15,118 @@ Names of elements that are choices retain the "[x]" in the name, even if a const
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
 </ul>
 
-<h3>Different types of Structure</h3>
+<h3>Different uses for StructureDefinition</h3>
 <p>
-<code>StructureDefinition.type</code> indicates what kind of structure is being defined. There are 5 kinds of structures:
+The base structure definition is used in a number of different ways to support
+the FHIR specification. The various uses of the StructureDefinition are 
+controlled by the elements <code>kind</code>, <code>constrainedType</code>, <code>base</code>, and <code>url</code>,
+using this basic pattern:
+</p>
+<pre class="json">
+{
+  "url": the identity of this structure definition,
+  "kind": (datatype | resource),
+  "constrainedType": the type being constrained (if it's a constraint)
+  "base": the structure definition from which this is derived
+}
+</pre>
+<p>
+This list shows a number of examples, with links to real examples for each:
 </p>
 <ol>
- <li><b>abstract</b>: "Abstract type" - one of the underlying base types defined as part of the specification (e.g. <a href="resource.html">Resource</a>)</li>
- <li><b>type</b>: "Data Type" - a primitive or complex structure that defines a set of data elements, most of which are defined in the <a href="datatypes.html">Data Types</a> section</li>
- <li><b>resource</b>: "Resource" - A resource defined by the FHIR specification (see the <a href="resourcelist.html">resource list</a>)</li>
- <li><b>constraint</b>: "Constrained Type" - A set of constraints on a resource or data type that describe how it is used for a particular use</li>
- <li><b>extension</b>: "Extension Definition" - A definition of an extension that can be used in a FHIR resource (or a set of constraints on an exsting extension)</li>
+ <li>Base definition of a data type (example: <a href="datatypes.html#Quantity">Quantity</a> - <a href="quantity.profile.xml.html">XML</a>, <a href="quantity.profile.json.html">JSON</a>):<br/>
+<pre class="json">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/Quantity",
+  "name": "Quantity",
+  "kind": "datatype",
+  "base": "http://hl7.org/fhir/StructureDefinition/Element",
+}
+</pre>
+ </li>
+
+ <li>A constrained data type (example: <a href="datatypes.html#Money">Money</a>  - <a href="money.profile.xml.html">XML</a>, <a href="money.profile.json.html">JSON</a>):<br/>
+<pre class="json">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/Money",
+  "name": "Money",
+  "kind": "datatype",
+  "constrainedType": "Quantity",
+  "base": "http://hl7.org/fhir/StructureDefinition/Quantity"
+}
+</pre>
+	</li>
+
+ <li>Base definition of a resource (example: <a href="patient.html">Patient</a> - <a href="patient.profile.xml.html">XML</a>, <a href="patient.profile.json.html">JSON</a>): <br/>
+<pre class="json">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/Quantity",
+  "name": "Patient",
+  "kind": "resource",
+  "base":"http://hl7.org/fhir/StructureDefinition/DomainResource"
+}
+</pre>
+ </li>
+
+ <li>Constraint on a resource (example: <a href="patient-daf-dafpatient.html">DAF Patient</a> - <a href="patient-daf-dafpatient.profile.xml.html">XML</a>, <a href="patient-daf-dafpatient.profile.json.html">JSON</a>): <br/>
+<pre class="json">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient",
+  "name": "U.S. Data Access Framework (DAF) Patient Profile",
+  "kind": "resource",
+  "constrainedType": "Patient"
+  "base":"http://hl7.org/fhir/StructureDefinition/Patient"
+}
+</pre>
+ </li>
+
+ <li>Base Extension (a standard data type) (example: <a href="extensibility.html#Extension">Extension</a> - <a href="extension.profile.xml.html">XML</a>, <a href="extension.profile.json.html">JSON</a>): <br/>
+<pre class="json">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "name": "Extension",
+  "kind": "datatype",
+  "base":"http://hl7.org/fhir/StructureDefinition/Element",
+}
+</pre>
+ </li>
+
+ <li>A defined Extension  (example: <a href="extension-us-core-race.html">Extension</a>  - <a href="extension-us-core-race.xml.html">XML</a>, <a href="extension-us-core-race.json.html">JSON</a>): <br/>
+<pre class="json">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/us-core-race",
+  "name": "A category of humans sharing history, origin or nationality",
+  "kind": "datatype",
+  "constrainedType": "Extension",
+  "base": "http://hl7.org/fhir/StructureDefinition/Extension"
+}
+</pre>
+ </li>
+ 
+ <li>A contraint on a defined extension (no examples currently defined): <br/>
+<pre class="json">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://example.org/fhir/StructureDefinition/race",
+  "name": "Race codes used by institution (a subset of meaningful use codes)",
+  "kind": "datatype",
+  "constrainedType": "Extension",
+  "base": "http://hl7.org/fhir/StructureDefinition/us-core-race"
+}
+</pre>
+ </li>
+
 </ol>
+
 <p>
-The first 3 types can only be defined by the FHIR specification. Types 4 and 5 are used in profiles and implementation guides, and may be published
-by any implementer of the specification. 
+On this list, structure definitions of type 1, 3, and 5 can only be defined by the FHIR specification itself. The other kinds of structure definitions 
+are (or may be) created by the specification, but can also be defined by other implementers.
 </p>
 
 <h3>Rules for Constrained Types</h3>
@@ -87,7 +185,7 @@ is able to generate reference implementation based object models that express
 the profiled model natively, where the object interface does not include 
 prohibited elements, treats declared extensions as primary properties and 
 slices lists according to the profile. This eases the burden on an implementer, 
-though this object model can only be used with a sub-set of the possible resources. <!--only if it enforces maxOccurs.  Extra elements can be mapped into extensions -!->
+though this object model can only be used with a sub-set of the possible resources. <!-.-only if it enforces maxOccurs.  Extra elements can be mapped into extensions -!->
 </p>
 <p>
 The tooling is also able to generate bi-directional transforms between the 
@@ -98,7 +196,7 @@ extension code as the XML name and sliced lists are renamed to use the
 Profile.resource.element.name as the XML element name. Profiles are only suitable
 for this use if they ensure that there are no clashing extension names when
 the extension definition spaces are ignored and that the sliced list names are 
-appropriate.<!-- Any reason we limit this to only XML? - because transforms are XML things -!->
+appropriate.<!-.- Any reason we limit this to only XML? - because transforms are XML things -!->
 </p>
 
 <p>
