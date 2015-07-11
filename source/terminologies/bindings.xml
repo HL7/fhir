@@ -631,9 +631,9 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">#administrative-gender</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/AdministrativeGender</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/v2/vs/0001"><Data
-      ss:Type="String">http://hl7.org/fhir/v2/vs/0001</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-AdministrativeGender</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/v2-0001"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0001</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">ConformanceResourceStatus</Data></Cell>
@@ -646,8 +646,8 @@
     <Cell><Data ss:Type="String">Used to specify why the normally expected content of the data element is missing</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#data-absent-reason</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s74" ss:HRef="http://hl7.org/fhir/v3/vs/NullFlavor"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/NullFlavor</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s74" ss:HRef="http://hl7.org/fhir/ValueSet/v3-NullFlavor"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-NullFlavor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s72"><Data ss:Type="String">DocumentReferenceStatus</Data></Cell>
@@ -657,7 +657,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">#document-reference-status</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActStatus</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActStatus</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -799,7 +799,7 @@
     <Cell><Data ss:Type="String">The gender of a person used for clinical purposes . This has the same base codes as [[[AdministrativeGender]]], but is extensible to allow for finer differentiation of uncertainty, for gender re-assignment programs, and for social gender status</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/administrative-gender</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/administrative-gender</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>

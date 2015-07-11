@@ -2,7 +2,6 @@
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
 	<id value="registry"/>
   <type value="collection"/>
-	<base value="http://hl7.org/fhir"/>
 	<entry>
 	  <resource>
 		  <NamingSystem>

@@ -20,7 +20,7 @@
     <doseNumber value="1"/>
     <forecastStatus>
       <coding>
-        <system value="http://hl7.org/fhir/vs/immunization-recommendation-status"/>
+        <system value="http://hl7.org/fhir/ValueSet/immunization-recommendation-status"/>
         <code value="Not Complete"/>
         <display value="Not Complete"/>
       </coding>

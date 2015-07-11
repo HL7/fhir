@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jul 10, 2015 13:40+1000 for FHIR v0.5.0
+// Generated on Sat, Jul 11, 2015 08:21+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1720,10 +1720,6 @@ public class JsonParser extends JsonParserBase {
       res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Bundle.BundleType.NULL, new Bundle.BundleTypeEnumFactory()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("base"))
-      res.setBaseElement(parseUri(json.get("base").getAsString()));
-    if (json.has("_base"))
-      parseElementProperties(json.getAsJsonObject("_base"), res.getBaseElement());
     if (json.has("total"))
       res.setTotalElement(parseUnsignedInt(json.get("total").getAsString()));
     if (json.has("_total"))
@@ -1764,16 +1760,16 @@ public class JsonParser extends JsonParserBase {
   protected Bundle.BundleEntryComponent parseBundleBundleEntryComponent(JsonObject json, Bundle owner) throws Exception {
     Bundle.BundleEntryComponent res = new Bundle.BundleEntryComponent();
     parseBackboneProperties(json, res);
-    if (json.has("base"))
-      res.setBaseElement(parseUri(json.get("base").getAsString()));
-    if (json.has("_base"))
-      parseElementProperties(json.getAsJsonObject("_base"), res.getBaseElement());
     if (json.has("link")) {
       JsonArray array = json.getAsJsonArray("link");
       for (int i = 0; i < array.size(); i++) {
         res.getLink().add(parseBundleBundleLinkComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
+    if (json.has("fullUrl"))
+      res.setFullUrlElement(parseUri(json.get("fullUrl").getAsString()));
+    if (json.has("_fullUrl"))
+      parseElementProperties(json.getAsJsonObject("_fullUrl"), res.getFullUrlElement());
     if (json.has("resource"))
       res.setResource(parseResource(json.getAsJsonObject("resource")));
     if (json.has("search"))
@@ -13601,10 +13597,6 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("type", element.getTypeElement(), new Bundle.BundleTypeEnumFactory(), false);
         composeEnumerationExtras("type", element.getTypeElement(), new Bundle.BundleTypeEnumFactory(), false);
       }
-      if (element.hasBaseElement()) {
-        composeUriCore("base", element.getBaseElement(), false);
-        composeUriExtras("base", element.getBaseElement(), false);
-      }
       if (element.hasTotalElement()) {
         composeUnsignedIntCore("total", element.getTotalElement(), false);
         composeUnsignedIntExtras("total", element.getTotalElement(), false);
@@ -13657,16 +13649,16 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeBundleBundleEntryComponentInner(Bundle.BundleEntryComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasBaseElement()) {
-        composeUriCore("base", element.getBaseElement(), false);
-        composeUriExtras("base", element.getBaseElement(), false);
-      }
       if (element.hasLink()) {
         openArray("link");
         for (Bundle.BundleLinkComponent e : element.getLink()) 
           composeBundleBundleLinkComponent(null, e);
         closeArray();
       };
+      if (element.hasFullUrlElement()) {
+        composeUriCore("fullUrl", element.getFullUrlElement(), false);
+        composeUriExtras("fullUrl", element.getFullUrlElement(), false);
+      }
         if (element.hasResource()) {
           open("resource");
           composeResource(element.getResource());

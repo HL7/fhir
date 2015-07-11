@@ -44,7 +44,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="2.16.840.1.113883.4.642.2.444"/>
   </extension>
-  <url value="http://hl7.org/fhir/vs/lipid-ldl-codes"/>
+  <url value="http://hl7.org/fhir/ValueSet/lipid-ldl-codes"/>
   <version value="0.5.0"/>
   <name value="LDLCodes"/>
   <publisher value="HL7 (FHIR Project)"/>

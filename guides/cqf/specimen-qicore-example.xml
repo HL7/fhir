@@ -20,7 +20,7 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/specimen-collectionPriority">
       <valueCodeableConcept>
         <coding>
-          <system value="http://hl7.org/fhir/vs/specimen-collection-priority"/>
+          <system value="http://hl7.org/fhir/ValueSet/specimen-collection-priority"/>
           <code value="5"/>
           <display value="ROUTINE"/>
         </coding>

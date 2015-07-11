@@ -1,5 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/vs/profile-code"/>
+  <url value="http://hl7.org/fhir/ValueSet/profile-code"/>
   <name value="Structure Definition Codes"/>
   <publisher value="FHIR Project team"/>
   <contact>

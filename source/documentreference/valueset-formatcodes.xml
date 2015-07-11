@@ -7,7 +7,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
   </extension>
-  <url value="http://hl7.org/fhir/vs/valueset-formatcodes"/>
+  <url value="http://hl7.org/fhir/ValueSet/valueset-formatcodes"/>
   <version value="20150326"/>
   <name value="DocumentReference Format Code Set"/>
   <publisher value="IHE"/>

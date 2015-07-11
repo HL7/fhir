@@ -7417,7 +7417,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -7445,12 +7445,12 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Valueset to identify the severity of the problem</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s169" ss:HRef="http://hl7.org/fhir/vs/condition-severity"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/condition-severity</Data></Cell>
+    <Cell ss:StyleID="s169" ss:HRef="http://hl7.org/fhir/ValueSet/condition-severity"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/condition-severity</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Value set to identify the severity of the problem</Data></Cell>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s169" ss:HRef="http://hl7.org/fhir/vs/condition-severity"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/condition-severity</Data></Cell>
+    <Cell ss:StyleID="s169" ss:HRef="http://hl7.org/fhir/ValueSet/condition-severity"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/condition-severity</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
@@ -7462,7 +7462,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">The code for the condition</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">http://hl7.org/fhir/vs/daf-problem</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-problem</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Value set for encoding a condition (problem)</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>

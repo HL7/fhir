@@ -806,7 +806,7 @@ public class ProfileComparer {
               c.getProfile().clear();
               c.getProfile().add(r.getProfile().get(0));
               found = true;
-            } else if (sdl.getConstrainedType().equals(sdr.getConstrainedType())) {
+            } else if (sdl.hasConstrainedType() && sdr.hasConstrainedType() && sdl.getConstrainedType().equals(sdr.getConstrainedType())) {
               ProfileComparison comp = compareProfiles(sdl, sdr);
               if (comp.getSubset() != null) {
                 found = true;

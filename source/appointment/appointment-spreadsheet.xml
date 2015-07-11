@@ -7014,7 +7014,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font> </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
@@ -7087,7 +7087,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The status of the appointment</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActStatus</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActStatus</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -7102,7 +7102,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The Reason for the appointment to take place</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">http://hl7.org/fhir/vs/encounter-reason</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/encounter-reason</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -7117,7 +7117,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Additional details about where the content was created (e.g. clinical specialty)</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">Preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/c80-practice-codes</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/c80-practice-codes</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -7136,7 +7136,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Role of participant in encounter</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/encounter-participant-type</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/encounter-participant-type</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>

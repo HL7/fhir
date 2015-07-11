@@ -904,4 +904,9 @@ public class Utilities {
   }
 
 
+  public static boolean isAbsoluteUrl(String ref) {
+    return ref.startsWith("http:") || ref.startsWith("https:") || ref.startsWith("urn:uuid:") || ref.startsWith("urn:oid:") ;
+  }
+
+
 }

@@ -10381,7 +10381,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -10409,11 +10409,11 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">The gender of a patient used for adminstrative purposes (as opposed to clinical gender)</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s154" ss:HRef="http://hl7.org/fhir/vs/administrative-gender"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/administrative-gender</Data></Cell>
+    <Cell ss:StyleID="s154" ss:HRef="http://hl7.org/fhir/ValueSet/administrative-gender"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/administrative-gender</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">Adminstrative Gender of the Patient.</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">2.16.840.1.113883.4.642.1.24</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">http://hl7.org/fhir/vs/administrative-gender</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/administrative-gender</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
@@ -10428,7 +10428,7 @@
     <Cell ss:StyleID="s134"><Data ss:Type="String">valueset-daf-race</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Race of the Patient</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">2.16.840.1.113883.1.11.14914</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">http://hl7.org/fhir/vs/daf-race</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-race</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -10443,7 +10443,7 @@
     <Cell ss:StyleID="s134"><Data ss:Type="String">valueset-daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">2.16.840.1.114222.4.11.837</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">http://hl7.org/fhir/vs/daf-ethnicity</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -10455,11 +10455,11 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Marital status of the patient</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/v3/vs/MaritalStatus"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/MaritalStatus</Data></Cell>
+    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/ValueSet/v3-MaritalStatus"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-MaritalStatus</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Patient's marital status</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">2.16.840.1.113883.5.2</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/MaritalStatus</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-MaritalStatus</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -10471,12 +10471,12 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Granular race of the patient, which can be rolled up to the higher level OMB categories, specified in the race element.</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/v3/vs/Race"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/Race</Data></Cell>
+    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/ValueSet/v3-Race"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-Race</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Granular race code for the patient.</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">2.16.840.1.113883.1.11.14914</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/v3/vs/Race"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/Race</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/v3-Race"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-Race</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -10488,11 +10488,11 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">2 letter state list</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s161" ss:HRef="http://hl7.org/fhir/vs/usps-state"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/usps-state</Data></Cell>
+    <Cell ss:StyleID="s161" ss:HRef="http://hl7.org/fhir/ValueSet/usps-state"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/usps-state</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">US State list</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">2.16.840.1.113883.4.642.2.517</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">http://hl7.org/fhir/vs/usps-state</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/usps-state</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -10504,12 +10504,12 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Type of relationship</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/vs/patient-contact-relationship"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/patient-contact-relationship</Data></Cell>
+    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/ValueSet/patient-contact-relationship"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/patient-contact-relationship</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Relationship between people</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">2.16.840.1.113883.1.11.19563</Data></Cell>
-    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/vs/patient-contact-relationship"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/patient-contact-relationship</Data></Cell>
+    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/ValueSet/patient-contact-relationship"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/patient-contact-relationship</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -10521,12 +10521,12 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Religious affiliation of the patient.</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/v3/vs/ReligiousAffiliation"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/ReligiousAffiliation</Data></Cell>
+    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Religious affiliation of the patient.</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">2.16.840.1.113883.5.1076</Data></Cell>
-    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/v3/vs/ReligiousAffiliation"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/ReligiousAffiliation</Data></Cell>
+    <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>

@@ -7,8 +7,7 @@
     <!-- when the search was executed --> 
   </meta> 
   <type value="searchset"/>  
-  <!-- the base URL of the server is responding to the search -->
-  <base value="http://example.com/base"/> 
+
   <!-- the total number of matches. This is a stupid example - there's a grand total of 3 matches, and 
     we're only going to return the first 1, with a next link, in order to demonstrate what a page link
     looks like -->

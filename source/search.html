@@ -29,7 +29,7 @@ complexity that they require.
 <tr><td><b>Search Parameter Types</b></td><td><b>Parameters for all resources</b></td><td><b>Search result parameters</b></td></tr>
 <tr>
 <td>
-<%codetoc http://hl7.org/fhir/vs/search-param-type%>
+<%codetoc http://hl7.org/fhir/ValueSet/search-param-type%>
 </td>
 <td>
 <a href="#id">_id</a><br/>
@@ -116,7 +116,7 @@ an empty search set, since the parameter cannot be satisfied.
 <p>
 In such cases, the search process MAY include an <a href="operationoutcome.html">OperationOutcome</a>
 in the search set that contains additional hints and warnings about the search process.
-This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="search-entry-mode.html">outcome</a>.
+This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="valueset-search-entry-mode.html">outcome</a>.
 Clients can use this information to improve future searches.
 </p>
 
@@ -233,7 +233,7 @@ additional parameters if they wish.
 <p>Each search parameter is defined with a type that defines how the search parameter
 behaves. These are the defined parameter types:
 </p>
-<%linkcodelist http://hl7.org/fhir/vs/search-param-type%>
+<%linkcodelist http://hl7.org/fhir/ValueSet/search-param-type%>
 <p>
 The search parameters can also have "modifiers" appended to them that control
 their behavior. The kinds of modifiers that can be used depend on the type
@@ -438,7 +438,7 @@ Token search parameters are used for the following data types:
   <td><a href="datatypes.html#Identifier">ContactPoint</a></td>
   <td>ContactPoint.use</td>
   <td>ContactPoint.value</td>
-  <td>The use is prepended by <a href="contact-point-system.html">http://hl7.org/fhir/contact-point-system</a>/</td>
+  <td>The use is prepended by <a href="valueset-contact-point-system.html">http://hl7.org/fhir/contact-point-system</a>/</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#code">code</a></td>
@@ -450,7 +450,7 @@ Token search parameters are used for the following data types:
   <td><a href="datatypes.html#boolean">boolean</a></td>
   <td>(implicit)</td>
   <td>boolean</td>
-  <td>The implicit system is <a href="special-values.html">http://hl7.org/fhir/special-values</a></td>
+  <td>The implicit system is <a href="valueset-special-values.html">http://hl7.org/fhir/special-values</a></td>
  </tr>
  <tr>
   <td><a href="datatypes.html#string">string</a></td>
@@ -461,7 +461,7 @@ Token search parameters are used for the following data types:
 </table>
 <p>
 Note about the use of token search parameters for boolean fields: the boolean values 'true' and 'false' are also represented
-as formal codes in the <a href="special-values.html">Special Values</a> code system, which is useful when boolean values 
+as formal codes in the <a href="valueset-special-values.html">Special Values</a> code system, which is useful when boolean values 
 need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is 
 http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
 </p>

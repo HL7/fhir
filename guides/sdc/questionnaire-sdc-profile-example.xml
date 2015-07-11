@@ -5,8 +5,8 @@
     <lastUpdated value="2014-05-15T17:25:15Z"/>
   </meta>
   <type value="collection"/>
-  <base value="http://AHRQ.org/form"/>
   <entry>
+    <fullUrl value="http://AHRQ.org/form/Questionnaire/F8-1.2"/>
     <resource>
       <Questionnaire>
         <id value="F8-1.2"/>
@@ -1074,6 +1074,7 @@
   </entry>
   <entry>
     <resource>
+    <fullUrl value="http://AHRQ.org/form/Questionnaire/HERF-1.2"/>
       <Questionnaire>
         <id value="HERF-1.2"/>
         <meta>
@@ -1503,6 +1504,7 @@
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://AHRQ.org/form/Questionnaire/3921052v1.0"/>
     <resource>
       <Questionnaire>
         <id value="3921052v1.0"/>
@@ -1805,6 +1807,7 @@
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://AHRQ.org/form/Questionnaire/F2674812v4.0"/>
     <resource>
       <Questionnaire>
         <id value="2674812v4.0"/>
@@ -2536,6 +2539,7 @@
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://AHRQ.org/form/Questionnaire/3265657v2.0"/>
     <resource>
       <Questionnaire>
         <id value="3265657v2.0"/>

@@ -673,7 +673,7 @@ public class ProfileGenerator {
     case Unbound: return null;
     case CodeList:
       if (src.getReference().startsWith("#"))
-        return Factory.makeReference("http://hl7.org/fhir/vs/"+src.getReference().substring(1));
+        return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
       else
         throw new Exception("not done yet");
     case ValueSet: 
@@ -681,14 +681,14 @@ public class ProfileGenerator {
         if (src.getReference().startsWith("http"))
           return Factory.makeReference(src.getReference());
         else if (src.getReference().startsWith("valueset-"))
-          return Factory.makeReference("http://hl7.org/fhir/vs/"+src.getReference().substring(9));
+          return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(9));
         else
-          return Factory.makeReference("http://hl7.org/fhir/vs/"+src.getReference());
+          return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference());
       else
         return null; // throw new Exception("not done yet");
     case Reference: return Factory.newUri(src.getReference());
     case Special: 
-      return Factory.makeReference("http://hl7.org/fhir/vs/"+src.getReference().substring(1));
+      return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
     default: 
       throw new Exception("not done yet");
     }

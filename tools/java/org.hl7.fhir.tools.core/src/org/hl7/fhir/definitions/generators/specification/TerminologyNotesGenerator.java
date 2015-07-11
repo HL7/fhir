@@ -180,13 +180,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         write("<td valign=\"top\">");
         if (cd.getBinding() == BindingSpecification.BindingMethod.Special) {
           if (name.equals("MessageEvent"))
-            write("<a href=\"message-events.html\">http://hl7.org/fhir/valueset/message-events</a>");
+            write("<a href=\"valueset-message-events.html\">http://hl7.org/fhir/valueset/message-events</a>");
           else if (name.equals("ResourceType"))
-            write("<a href=\"resource-types.html\">http://hl7.org/fhir/valueset/resource-types</a>");
+            write("<a href=\"valueset-resource-types.html\">http://hl7.org/fhir/valueset/resource-types</a>");
           else if (name.equals("DataType"))
-            write("<a href=\"data-types.html\">http://hl7.org/fhir/valueset/data-types</a>");
+            write("<a href=\"valueset-data-types.html\">http://hl7.org/fhir/valueset/data-types</a>");
           else if (name.equals("FHIRDefinedType"))
-            write("<a href=\"defined-types.html\">http://hl7.org/fhir/valueset/defined-types</a>");
+            write("<a href=\"valueset-defined-types.html\">http://hl7.org/fhir/valueset/defined-types</a>");
           else 
             throw new Exception("Unknown special type "+name);
         } 
@@ -194,19 +194,19 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           if (Utilities.noString(cd.getReference())) 
             write("??");
           else if (cd.getReference().startsWith("valueset-"))
-            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/vs/"+cd.getReference().substring(9)+"</a><!-- a -->");            
+            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/ValueSet/"+cd.getReference().substring(9)+"</a><!-- a -->");            
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
-            if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
+            if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
               ValueSet vs = page.getValueSets().get(cd.getReference());
               String pp = (String) vs.getUserData("path");
               if (pp == null)
                 throw new Exception("unknown path on "+cd.getReference());
               write("<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- b -->");
-            } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
+            } else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
                 ValueSet vs = page.getValueSets().get(cd.getReference());
                 String pp = (String) vs.getUserData("path");
                 write("<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- c -->");
-            } else if (cd.getReference().startsWith("http://hl7.org/fhir/vs/")) {
+            } else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/")) {
               String ref = getBindingLink(cd);
               write("<a href=\""+ref+"\">"+cd.getReference()+"</a><!-- d -->");
 //              BindingSpecification bs1 = page.getDefinitions().getBindingByURL(cd.getReference());
@@ -217,10 +217,10 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
             } else
               throw new Exception("Internal reference "+cd.getReference()+" not handled yet");
           } else
-            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/"+cd.getReference()+"</a><!-- e -->");            
+            write("<a href=\"valueset-"+cd.getReference()+".html\">http://hl7.org/fhir/"+cd.getReference()+"</a><!-- e -->");            
         }
         if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-          write("<a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a><!-- f -->");            
+          write("<a href=\"valueset-"+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a><!-- f -->");            
         }
         if (cd.getBinding() == BindingSpecification.BindingMethod.Reference) {
           write("<a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a><!-- g -->");
@@ -275,13 +275,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       return cd.getDefinition();
     if (cd.getBinding() == BindingSpecification.BindingMethod.Special) {
       if (cd.getValueSet().getName().equals("MessageEvent"))
-        return "the <a href=\"message-events.html\">Event List in the messaging framework</a>";
+        return "the <a href=\"valueset-message-events.html\">Event List in the messaging framework</a>";
       else if (cd.getValueSet().getName().equals("ResourceType"))
-        return "<a href=\"resource-types.html\">Any defined Resource Type name</a>";
+        return "<a href=\"valueset-resource-types.html\">Any defined Resource Type name</a>";
       else if (cd.getValueSet().getName().equals("DataType"))
-        return "<a href=\"data-types.html\">Any defined Data Type name</a>";
+        return "<a href=\"valueset-data-types.html\">Any defined Data Type name</a>";
       else if (cd.getValueSet().getName().equals("FHIRDefinedType"))
-        return "<a href=\"defined-types.html\">Any defined Resource or Data Type name</a>";
+        return "<a href=\"valueset-defined-types.html\">Any defined Resource or Data Type name</a>";
       else 
         throw new Exception("Unknown special type "+cd.getValueSet().getName());
     } 
@@ -289,16 +289,16 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDescription();
-      else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
+      else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
         ValueSet vs = page.getValueSets().get(cd.getReference());
         String pp = (String) vs.getUserData("path");
         return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+")";
-      } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs")) {
+      } else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
           ValueSet vs = page.getValueSets().get(cd.getReference());
           String pp = (String) vs.getUserData("path");
           return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+")";
       } else if (cd.getValueSet() != null) {
-        if (cd.getReference().startsWith("http://hl7.org/fhir/vs/")) {
+        if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/")) {
           if (page.getValueSets().containsKey(cd.getReference()) && page.getValueSets().get(cd.getReference()).getUserData("filename") != null)
             return bs+": <a href=\""+page.getValueSets().get(cd.getReference()).getUserData("path")+"\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")"; 
           else
@@ -313,7 +313,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       if (Utilities.noString(cd.getReference())) 
         return bs+": "+cd.getDescription()+" ("+cd.getDefinition()+")";
       else
-        return bs+": <a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> ("+cd.getDefinition()+")";
+        return bs+": <a href=\"valueset-"+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> ("+cd.getDefinition()+")";
     }
     if (cd.getBinding() == BindingSpecification.BindingMethod.Reference) {
       return bs+": <a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a> ("+cd.getDefinition()+")";

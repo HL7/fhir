@@ -11,8 +11,8 @@
   <description value="This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts"/>
   <status value="draft"/>
   <compose>
-    <import value="http://hl7.org/fhir/vs/usps-state"/> <!-- states -->
-    <import value="http://hl7.org/fhir/vs/practitioner-specialty"/> <!-- specialties, assuming this will get fixed up -->
+    <import value="http://hl7.org/fhir/ValueSet/usps-state"/> <!-- states -->
+    <import value="http://hl7.org/fhir/ValueSet/practitioner-specialty"/> <!-- specialties, assuming this will get fixed up -->
     <include>
       <!-- ISO 2 letter country codes -->
       <system value="urn:iso:std:iso:3166"/>

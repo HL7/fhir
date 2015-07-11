@@ -70,10 +70,15 @@ public class IgParser {
       } else if (e.getNodeName().equals("valueset")) {
         XmlParser xml = new XmlParser();
         ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(Utilities.path(file.getParent(), e.getAttribute("source"))));
-        if (!vs.hasId())
-          vs.setId(Utilities.changeFileExt(file.getName(), ""));
-        if (!vs.hasUrl())
-          vs.setUrl("http://hl7.org/fhir/vs/"+vs.getId());
+        String id = Utilities.changeFileExt(new File(Utilities.path(file.getParent(), e.getAttribute("source"))).getName(), "");
+        if (id.startsWith("valueset-"))
+          id = id.substring(9);
+        if (!vs.hasId() || !vs.hasUrl()) {
+          vs.setId(id);
+          vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
+        }
+        vs.setUserData("path", "valueset-"+vs.getId()+".html");
+        vs.setUserData("filename", "valueset-"+vs.getId());
         ig.getValueSets().add(vs);
       } else if (e.getNodeName().equals("acronym")) {
         ig.getTlas().put(e.getAttribute("target"), e.getAttribute("id"));        

@@ -7335,7 +7335,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -7363,8 +7363,8 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Importance of the patient in order to inform record handling</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/v3/vs/PatientImportance"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/PatientImportance</Data></Cell>
+    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/ValueSet/v3-PatientImportance"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-PatientImportance</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">The importance of the patient</Data></Cell>
     <Cell ss:StyleID="s179"/>
     <Cell ss:StyleID="s194"/>
@@ -7379,8 +7379,8 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Verification method used to validate data field</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/v3/vs/VerificationMethod"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/VerificationMethod</Data></Cell>
+    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/ValueSet/v3-VerificationMethod"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-VerificationMethod</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">The verification method to attest for the value of the attached field</Data></Cell>
     <Cell ss:StyleID="s179"/>
     <Cell ss:StyleID="s194"/>
@@ -7395,8 +7395,8 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Race of the patient</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/vs/daf-race"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/daf-race</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/daf-race"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/daf-race</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">The race of the patient</Data></Cell>
     <Cell ss:StyleID="s179"/>
     <Cell ss:StyleID="s194"/>
@@ -7411,7 +7411,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/daf-ethnicity</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">The ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s179"/>
     <Cell ss:StyleID="s179"/>
@@ -7426,8 +7426,8 @@
     <Cell ss:StyleID="s157"><Data ss:Type="String">Marital status of the patient</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s199" ss:HRef="http://hl7.org/fhir/v3/vs/MaritalStatus"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/MaritalStatus</Data></Cell>
+    <Cell ss:StyleID="s199" ss:HRef="http://hl7.org/fhir/ValueSet/v3-MaritalStatus"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-MaritalStatus</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">The marital status of the patient</Data></Cell>
     <Cell ss:StyleID="s200"/>
     <Cell ss:StyleID="s201"/>
@@ -7442,8 +7442,8 @@
     <Cell ss:StyleID="s179"><Data ss:Type="String">The state or region designation in an address</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/vs/usps-state"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/usps-state</Data></Cell>
+    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/ValueSet/usps-state"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/usps-state</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">The state or region designation in an address</Data></Cell>
     <Cell ss:StyleID="s179"/>
     <Cell ss:StyleID="s179"/>
@@ -7458,8 +7458,8 @@
     <Cell ss:StyleID="s198"><Data ss:Type="String">The relationship of the patient to the patient contact</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s203" ss:HRef="http://hl7.org/fhir/vs/patient-contact-relationship"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/patient-contact-relationship</Data></Cell>
+    <Cell ss:StyleID="s203" ss:HRef="http://hl7.org/fhir/ValueSet/patient-contact-relationship"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/patient-contact-relationship</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">The relationship of the patient to the patient contact</Data></Cell>
     <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s198"/>
@@ -7499,8 +7499,8 @@
     <Cell ss:StyleID="s100"><Data ss:Type="String">The code for the condition</Data></Cell>
     <Cell ss:StyleID="s204"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s205" ss:HRef="http://hl7.org/fhir/vs/daf-problem"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/daf-problem</Data></Cell>
+    <Cell ss:StyleID="s205" ss:HRef="http://hl7.org/fhir/ValueSet/daf-problem"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/daf-problem</Data></Cell>
     <Cell ss:StyleID="s204"><Data ss:Type="String">Value set for encoding a condition (problem)</Data></Cell>
     <Cell ss:StyleID="s204"/>
     <Cell ss:StyleID="s204"/>
@@ -7515,12 +7515,12 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Religious affiliation of the patient.</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/v3/vs/ReligiousAffiliation"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/ReligiousAffiliation</Data></Cell>
+    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">Religious affiliation of the patient.</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="String">2.16.840.1.113883.5.1076</Data></Cell>
-    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/v3/vs/ReligiousAffiliation"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/ReligiousAffiliation</Data></Cell>
+    <Cell ss:StyleID="s194" ss:HRef="http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation</Data></Cell>
     <Cell ss:StyleID="s179"/>
     <Cell ss:StyleID="s179"/>
     <Cell ss:StyleID="s179"/>

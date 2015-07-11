@@ -541,14 +541,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("v2xref"))
         src = s1 + xreferencesForV2(name, com[1]) + s3;      
       else if (com[0].equals("conceptmaplistv2"))
-        src = s1 + conceptmaplist("http://hl7.org/fhir/v2/vs/"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
+        src = s1 + conceptmaplist("http://hl7.org/fhir/ValueSet/v2-"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
       else if (com[0].equals("conceptmaplistv3"))
-        src = s1 + conceptmaplist("http://hl7.org/fhir/v3/vs/"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
+        src = s1 + conceptmaplist("http://hl7.org/fhir/ValueSet/v3-"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
       else if (com[0].equals("conceptmaplistvs")) {
         ValueSet vs = (ValueSet) resource;
         String ref;
         if (vs == null) {
-          ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
+          ref = "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file);
         } else {
           ref = vs.getUrl();
         }
@@ -670,7 +670,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vstxurl"))
-        src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+        src = s1 + "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
         if (resource != null)
           src = s1 + ((ValueSet) resource).getUrl() + s3;
@@ -678,12 +678,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           throw new Error("fix this");
 //          BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
 //          if (bs == null) {
-//            src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+//            src = s1 + "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file) + s3;
 //          } else {
 //            String reference = bs.getReference();
 //            if (reference.startsWith("valueset-"))
 //              reference = reference.substring(9);
-//            src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+//            src = s1 + "http://hl7.org/fhir/ValueSet/"+reference + s3;
 //          }
         }
       } else if (com[0].equals("toc"))
@@ -1398,17 +1398,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String xreferencesForV2(String name, String level) {
-    if (!valueSets.containsKey("http://hl7.org/fhir/v2/vs/"+name))
+    if (!valueSets.containsKey("http://hl7.org/fhir/ValueSet/v2-"+name))
       return ". ";
-    String n = valueSets.get("http://hl7.org/fhir/v2/vs/"+name).getName().replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
+    String n = valueSets.get("http://hl7.org/fhir/ValueSet/v2-"+name).getName().replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
     StringBuilder b = new StringBuilder();
     String pfx = "../../";
     if (level.equals("l3"))
       pfx = "../../../";
-    ValueSet ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/vs/");
+    ValueSet ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/ValueSet/");
     if (ae != null)
       b.append(". Related FHIR content: <a href=\"").append(pfx).append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
-    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v3/vs/");
+    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/ValueSet/v3-");
     if (ae != null)
       b.append(". Related v3 content: <a href=\"").append(pfx).append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
     return b.toString()+". ";
@@ -1417,10 +1417,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String xreferencesForFhir(String name) {
     String n = name.replace("-", "").toLowerCase();
     StringBuilder b = new StringBuilder();
-    ValueSet ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v2/vs/");
+    ValueSet ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/ValueSet/v2-");
     if (ae != null)
       b.append(". Related v2 content: <a href=\"").append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
-    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v3/vs/");
+    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/ValueSet/v3-");
     if (ae != null)
       b.append(". Related v3 content: <a href=\"").append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
     return b.toString()+". ";
@@ -1429,11 +1429,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String xreferencesForV3(String name, boolean vs) {
     String n = name.replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
     StringBuilder b = new StringBuilder();
-    ValueSet ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v2/vs/");
+    ValueSet ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/ValueSet/v2-");
     String path = vs ? "../../../" : "../../";
     if (ae != null)
       b.append(". Related v2 content: <a href=\"").append(path).append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
-    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/vs/");
+    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/ValueSet/");
     if (ae != null)
       b.append(". Related FHIR content: <a href=\"").append(path).append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
     return b.toString()+". ";
@@ -1538,7 +1538,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String genV3ValueSet(String name) throws Exception {
-    ValueSet vs = valueSets.get("http://hl7.org/fhir/v3/vs/"+name);
+    ValueSet vs = valueSets.get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(name));
+    if (vs == null)
+      throw new Exception("unable to find v3 value set "+name);
     IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml"), vs);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 3, false, "v3:vs:"+name, "ValueSet");
@@ -1723,7 +1725,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genV3VSIndex() {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Name (URI = http://hl7.org/fhir/v3/vs/...) </b></td><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name (URI = http://hl7.org/fhir/ValueSet/v3-...) </b></td><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
     
     List<String> names = new ArrayList<String>();
     Map<String, Resource> map = new HashMap<String, Resource>();
@@ -2736,11 +2738,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> namespaces = new ArrayList<String>();
     for (String sn : valueSets.keySet()) {
       String n = getNamespace(sn);
-      if (!n.equals("http://hl7.org/fhir/vs") && !sn.startsWith("http://hl7.org/fhir/v3") && !sn.startsWith("http://hl7.org/fhir/v2") && !namespaces.contains(n))
+      if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n))
         namespaces.add(n);
     }
     Collections.sort(namespaces);
-    generateVSforNS(s, "http://hl7.org/fhir/vs", valueSets, true);
+    generateVSforNS(s, "http://hl7.org/fhir/ValueSet", valueSets, true);
     for (String n : namespaces)  
       generateVSforNS(s, n, valueSets, true);
     s.append("</table>\r\n");
@@ -2850,16 +2852,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.length() == 0 ? "" : b.substring(2);
   }
 
-  /*
-  private ValueSet getv3ValueSetByRef(String ref) {
-    String vsRef = ref.replace("/vs", "");
-    for (BundleEntryComponent ae : v3Valuesets.getEntry()) {
-      if (ref.equals(ae.getResource().getId())) 
-        return (ValueSet) ae.getResource();
-    }
-    return null;
-  }
-  */
 
 //  private String genBindingsTable() {
 //    assert(false);
@@ -3148,12 +3140,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
 //        String ref;
 //        if (bs == null) {
-//          ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
+//          ref = "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file);
 //        } else {
 //          ref = bs.getReference();
 //          if (ref.startsWith("valueset-"))
 //            ref = ref.substring(9);
-//          ref = "http://hl7.org/fhir/vs/"+ref;
+//          ref = "http://hl7.org/fhir/ValueSet/"+ref;
 //        }
 //        src = s1 + conceptmaplist(ref, com[1]) + s3;
       }  else if (com[0].equals("dtmappings"))
@@ -3221,7 +3213,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vstxurl"))
-        src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+        src = s1 + "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
         if (resource != null)
           src = s1 + ((ValueSet) resource).getUrl() + s3;
@@ -3229,12 +3221,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           throw new Error("Fix this");
 //          BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
 //          if (bs == null) {
-//            src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+//            src = s1 + "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file) + s3;
 //          } else {
 //            String reference = bs.getReference();
 //            if (reference.startsWith("valueset-"))
 //              reference = reference.substring(9);
-//            src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+//            src = s1 + "http://hl7.org/fhir/ValueSet/"+reference + s3;
 //          }
         }
       } else if (com[0].equals("txdef"))
@@ -3396,7 +3388,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   private String expandV3ValueSet(String name) throws Exception {
-    ValueSet vs = valueSets.get("http://hl7.org/fhir/v3/vs/"+name);
+    ValueSet vs = valueSets.get("http://hl7.org/fhir/ValueSet/v3-"+name);
     return expandVS(vs, "../../../");
   }
   
@@ -3513,7 +3505,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         ValueSet vs = (ValueSet) resource;
         String ref;
         if (vs == null) {
-          ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
+          ref = "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file);
         } else {
           ref = vs.getUrl();
         }
@@ -3617,7 +3609,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vstxurl"))
-        src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+        src = s1 + "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
         if (resource != null)
           src = s1 + ((ValueSet) resource).getUrl() + s3;
@@ -3625,12 +3617,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           throw new Error("Fix this");
 //          BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
 //          if (bs == null) {
-//            src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+//            src = s1 + "http://hl7.org/fhir/ValueSet/"+Utilities.fileTitle(file) + s3;
 //          } else {
 //            String reference = bs.getReference();
 //            if (reference.startsWith("valueset-"))
 //              reference = reference.substring(9);
-//            src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+//            src = s1 + "http://hl7.org/fhir/ValueSet/"+reference + s3;
 //          }
         }
       } else if (com[0].equals("txdef"))
@@ -5561,8 +5553,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private void addToValuesets(Bundle atom, ValueSet vs) {
-    // e.setId(id.contains(":") ? id : "http://hl7.org/fhir/vs/" + id);
-    atom.getEntry().add(new BundleEntryComponent().setResource(vs));
+    atom.getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl(vs.getUrl()));
   }
 
   public Map<String, ValueSet> getCodeSystems() {
@@ -5756,7 +5747,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       br.display = "(unbound)";      
     } else if (binding.getValueSet() instanceof UriType) {
       String ref = ((UriType) binding.getValueSet()).getValue();
-      if (ref.startsWith("http://hl7.org/fhir/v3/vs/")) {
+      if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
         br.url = "v3/"+ref.substring(26)+"/index.html";
         br.display = ref.substring(26);
       } else if (definitions.getValuesets().containsKey(ref)) {
@@ -5790,7 +5781,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           br.display = vs.getName(); 
         }
       } else { 
-        if (ref.startsWith("http://hl7.org/fhir/vs/")) {
+        if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
           ValueSet vs = valueSets.get(ref);
           if (vs != null) { 
             br.url = (String) vs.getUserData("path");
@@ -5804,10 +5795,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             br.display = ref.substring(23);
             br.url = ref.substring(23)+".html";
           }
-        }  else if (ref.startsWith("http://hl7.org/fhir/v3/vs/")) {
+        }  else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
           br.url = "v3/"+ref.substring(26)+"/index.html"; 
           br.display = ref.substring(26);
-        }  else if (ref.startsWith("http://hl7.org/fhir/v2/vs/")) {
+        }  else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
           br.url = "v2/"+ref.substring(26)+"/index.html"; 
           br.display = ref.substring(26);
         } else {

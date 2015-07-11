@@ -12645,7 +12645,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -12673,7 +12673,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The disease target of the vaccination protocol</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/vaccination-protocol-dose-target</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/vaccination-protocol-dose-target</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -12688,7 +12688,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The status of the vaccination protocol (i.e. should this count)</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/vaccination-protocol-dose-status</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/vaccination-protocol-dose-status</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -12703,7 +12703,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The reason for the determining if a vaccination should count or why vaccination should not count.</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/vaccination-protocol-dose-status-reason</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/vaccination-protocol-dose-status-reason</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -12717,7 +12717,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The reason why a vaccine was not administered</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/no-immunization-reason</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/no-immunization-reason</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -12731,7 +12731,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The reason why a vaccine was administered</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/immunization-reason</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-reason</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -12745,8 +12745,8 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The site at which the vaccine was administered</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/vs/immunization-site"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/immunization-site</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/immunization-site"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-site</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -12760,8 +12760,8 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The route by which the vaccine was administered</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s161" ss:HRef="http://hl7.org/fhir/vs/immunization-route"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/immunization-route</Data></Cell>
+    <Cell ss:StyleID="s161" ss:HRef="http://hl7.org/fhir/ValueSet/immunization-route"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-route</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -12775,8 +12775,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">The type of vaccine administered</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s161" ss:HRef="http://hl7.org/fhir/vs/vaccinetype"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/vaccinetype</Data></Cell>
+    <Cell ss:StyleID="s161" ss:HRef="http://hl7.org/fhir/ValueSet/vaccinetype"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/vaccinetype</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>

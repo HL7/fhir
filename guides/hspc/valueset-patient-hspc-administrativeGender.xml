@@ -12,7 +12,7 @@
 	<status value="draft"/>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/v3/vs/AdministrativeGender"/>
+			<system value="http://hl7.org/fhir/ValueSet/v3-AdministrativeGender"/>
 			<concept>
 				<code value="M"/>
 				<display value="Male"/>

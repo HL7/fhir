@@ -7,8 +7,7 @@
     <!-- when the transaction response was constructed --> 
   </meta> 
   <type value="transaction-response"/>  
-  <!-- the base URL of the server that handled the transaction -->
-  <base value="http://example.com/base"/> 
+
   <!-- 
     one entry for each entry in the transaction, in order, with a 
     response

@@ -6850,7 +6850,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -6878,7 +6878,7 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">This identifies the CVX code system</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">http://hl7.org/fhir/vs/daf-cvx</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-cvx</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">This value set binds to the CDC  Vaccines administered (CVX) 2.16.840.1.113883.12.292 code system.</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">2.16.840.1.113883.3.88.12.80.22</Data></Cell>
     <Cell ss:StyleID="s134"/>

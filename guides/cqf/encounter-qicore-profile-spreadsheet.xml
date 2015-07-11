@@ -8971,7 +8971,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -8999,8 +8999,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Encounter Reason Value Set to describe reason for encounter</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s166" ss:HRef="http://hl7.org/fhir/vs/daf-encounter-reason"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/daf-encounter-reason</Data></Cell>
+    <Cell ss:StyleID="s166" ss:HRef="http://hl7.org/fhir/ValueSet/daf-encounter-reason"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/daf-encounter-reason</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
@@ -9030,8 +9030,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Encounter Type Value set to describe the type of encounter</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s167" ss:HRef="http://hl7.org/fhir/vs/daf-encounter-type"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/daf-encounter-type</Data></Cell>
+    <Cell ss:StyleID="s167" ss:HRef="http://hl7.org/fhir/ValueSet/daf-encounter-type"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/daf-encounter-type</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
@@ -9076,8 +9076,8 @@
     <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s145"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s166" ss:HRef="http://hl7.org/fhir/v3/vs/ActReason"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/ActReason</Data></Cell>
+    <Cell ss:StyleID="s166" ss:HRef="http://hl7.org/fhir/ValueSet/v3-ActReason"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActReason</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">A set of codes specifying the motivation, cause, or rationale of an Act.</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>

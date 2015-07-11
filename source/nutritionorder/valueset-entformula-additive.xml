@@ -10,29 +10,28 @@
 	<description value="EnteralFormulaAdditiveType :  Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example"/>
 	<!--copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/ -->
 	<status value="draft"/>
-	<compose>
-		<include>
-			<system value="http://hl7.org/fhir/vs/entformula-additive"/>
-			<concept>
-				<code value="lipid"/>
-				<display value="Modular lipid enteral formula componen"/>
-			</concept>
-			<concept>
-				<code value="protein"/>
-				<display value="Modular protein enteral formula component"/>
-			</concept>
-			<concept>
-				<code value="carbohydrate"/>
-				<display value="Modular carbohydrate enteral formula component"/>
-			</concept>
-			<concept>
-				<code value="fiber"/>
-				<display value="Modular fiber enteral formula component"/>
-			</concept>
-			<concept>
-				<code value="water"/>
-				<display value="Added water"/>
-			</concept>
-		</include>
-	</compose>
+	<define>
+		<system value="http://hl7.org/fhir/entformula-additive"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="lipid"/>
+			<display value="Modular lipid enteral formula component"/>
+		</concept>
+		<concept>
+			<code value="protein"/>
+			<display value="Modular protein enteral formula component"/>
+		</concept>
+		<concept>
+			<code value="carbohydrate"/>
+			<display value="Modular carbohydrate enteral formula component"/>
+		</concept>
+		<concept>
+			<code value="fiber"/>
+			<display value="Modular fiber enteral formula component"/>
+		</concept>
+		<concept>
+			<code value="water"/>
+			<display value="Added water"/>
+		</concept>
+	</define>
 </ValueSet>

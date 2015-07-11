@@ -78,7 +78,7 @@ in both directions.
 <p>
 A key aspect of a message is the impact of its content:
 </p>
-[%codelist http://hl7.org/fhir/vs/message-significance-category%]
+[%codelist http://hl7.org/fhir/ValueSet/message-significance-category%]
 <p>
 Some Events defined by FHIR are assigned to one of these categories,
 but others are not able to be categorized in advance, and the category
@@ -397,7 +397,7 @@ another. There is no requirement to use HTTP.
 
 <p>
 The <i>message.code</i> element carries a <a href="datatypes.html#Coding">Coding</a> that identifies the event that the message conveys.
-This table lists the message event codes defined in this specification (the system value for these is "<a href="message-events.html">http://hl7.org/fhir/message-events</a>"):
+This table lists the message event codes defined in this specification (the system value for these is "<a href="valueset-message-events.html">http://hl7.org/fhir/message-events</a>"):
 </p>
 
 [%events%]
@@ -473,7 +473,7 @@ Here's an example:
         &lt;id value=&quot;1&quot;/&gt;
         &lt;parameter&gt;
           &lt;name value=&quot;identifier&quot;/&gt;
-          &lt;valueUri value=&quot;http://hl7.org/fhir/vs/identifier-type&quot;/&gt;
+          &lt;valueUri value=&quot;http://hl7.org/fhir/ValueSet/identifier-type&quot;/&gt;
         &lt;/parameter&gt; 
       &lt;/Parameters&gt;
     &lt;/resource&gt;

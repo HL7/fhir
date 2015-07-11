@@ -7641,7 +7641,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -7669,7 +7669,7 @@
     <Cell ss:StyleID="s194"/>
     <Cell ss:StyleID="s195"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s195"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s196"><Data ss:Type="String">http://hl7.org/fhir/vs/allergy-intolerance-status</Data></Cell>
+    <Cell ss:StyleID="s196"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/allergy-intolerance-status</Data></Cell>
     <Cell ss:StyleID="s195"/>
     <Cell ss:StyleID="s195"/>
     <Cell ss:StyleID="s195"/>
@@ -7684,7 +7684,7 @@
     <Cell ss:StyleID="s200"/>
     <Cell ss:StyleID="s195"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s195"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s196"><Data ss:Type="String">http://hl7.org/fhir/vs/manifestation-c-cda-codes</Data></Cell>
+    <Cell ss:StyleID="s196"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/manifestation-c-cda-codes</Data></Cell>
     <Cell ss:StyleID="s201"/>
     <Cell ss:StyleID="s201"/>
     <Cell ss:StyleID="s201"/>
@@ -7699,7 +7699,7 @@
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActReason</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActReason</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">A set of codes specifying the motivation, cause, or rationale of an Act.</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -7714,7 +7714,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/manifestation-c-cda-codes</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/manifestation-c-cda-codes</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s161"/>

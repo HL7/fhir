@@ -96,7 +96,7 @@
           <name value="ObservationStatus"/>
           <strength value="required"/>
           <valueSetReference>
-            <reference value="http://hl7.org/fhir/vs/observation-status"/>
+            <reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
           </valueSetReference>
         </binding>
     </element>
@@ -205,7 +205,7 @@
           <name value="DiagnosticRequests"/>
           <strength value="example"/>
           <valueSetReference>
-            <reference value="http://hl7.org/fhir/vs/diagnostic-requests"/>
+            <reference value="http://hl7.org/fhir/ValueSet/diagnostic-requests"/>
           </valueSetReference>
         </binding>
     </element>
@@ -224,7 +224,7 @@
           <name value="BodySite"/>
           <strength value="example"/>
           <valueSetReference>
-            <reference value="http://hl7.org/fhir/vs/body-site"/>
+            <reference value="http://hl7.org/fhir/ValueSet/body-site"/>
           </valueSetReference>
         </binding>
     </element>
@@ -264,7 +264,7 @@
           <name value="DiagnosticServiceSection"/>
           <strength value="preferred"/>
           <valueSetReference>
-            <reference value="http://hl7.org/fhir/vs/diagnostic-service-sections"/>
+            <reference value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
           </valueSetReference>
         </binding>
     </element>
@@ -306,7 +306,7 @@
           <name value="DiagnosticResultGroupNames"/>
           <strength value="preferred"/>
           <valueSetReference>
-            <reference value="http://hl7.org/fhir/vs/report-names"/>
+            <reference value="http://hl7.org/fhir/ValueSet/report-names"/>
           </valueSetReference>
         </binding>
     </element>
@@ -426,7 +426,7 @@
           <name value="DiagnosisCodes"/>
           <strength value="example"/>
           <valueSetReference>
-            <reference value="http://hl7.org/fhir/vs/clinical-findings"/>
+            <reference value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
           </valueSetReference>
         </binding>
     </element>

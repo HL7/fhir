@@ -176,7 +176,7 @@ As a summary, the client passes the server the following information:
 The server returns a value set that contains the current list of codes that meet the filter criteria (or an
 <a href="operationoutcome.html">OperationOutcome</a> with an error if the expansion fails).
 Note that some value sets expand to many thousands of codes, or even an infinite number,
-and for these, the server SHOULD return an <a href="issue-type.html#too-costly">error code
+and for these, the server SHOULD return an <a href="valueset-issue-type.html#too-costly">error code
 <i>too-costly</i></a>. In these cases the client can try again with a more specific text filter
 to reduce the number of codes returned.
 </p>
@@ -631,8 +631,8 @@ Translate from FHIR Composition status to V3 Act Status (based on
 </p>
 <pre class="http">
 GET [base]/ConceptMap/$translate?system=http://hl7.org/fhir/composition-status
-  &amp;code=preliminary&amp;valueSet= http://hl7.org/fhir/vs/composition-status
-  &amp;target=http://hl7.org/fhir/v3/vs/ActStatus
+  &amp;code=preliminary&amp;valueSet= http://hl7.org/fhir/ValueSet/composition-status
+  &amp;target=http://hl7.org/fhir/ValueSet/v3-ActStatus
 </pre>
 <p>
 The server responds with validation information:

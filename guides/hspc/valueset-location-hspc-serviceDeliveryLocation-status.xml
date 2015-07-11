@@ -12,7 +12,7 @@
 	<status value="draft"/>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/v3/vs/EntityStatus"/>
+			<system value="http://hl7.org/fhir/ValueSet/v3-EntityStatus"/>
 			<concept>
 				<code value="active"/>
 				<display value="Active"/>

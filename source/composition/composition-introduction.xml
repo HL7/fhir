@@ -115,7 +115,7 @@ differences between CDA and the composition resource:
    </li>
 </ul>
 <p>
-In addition, note that both the code lists (e.g. <a href="composition-status.html">Composition status</a>) and the composition resource are <a href="composition-mappings.html">mapped</a> to v3 and/or CDA.
+In addition, note that both the code lists (e.g. <a href="valueset-composition-status.html">Composition status</a>) and the composition resource are <a href="composition-mappings.html">mapped</a> to v3 and/or CDA.
 </p>
 </div>
 

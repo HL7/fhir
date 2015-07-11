@@ -7530,7 +7530,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -7558,7 +7558,7 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">SNOMED CT findings codes provided as adjunct diagnosis to the report</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/uslab-clinical-findings</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-clinical-findings</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -7573,7 +7573,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">HL7 v2 Value Set of codes for diagnostic service sections</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s174"><Data ss:Type="String">http://hl7.org/fhir/vs/diagnostic-service-sections</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/diagnostic-service-sections</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
@@ -7588,7 +7588,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC codes that describe Diagnostic Reports</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/obs-uslab-codes</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/obs-uslab-codes</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s160"/>

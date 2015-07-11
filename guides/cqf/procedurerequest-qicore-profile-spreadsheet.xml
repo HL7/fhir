@@ -7741,7 +7741,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -7769,8 +7769,8 @@
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s146"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s166" ss:HRef="http://hl7.org/fhir/v3/vs/ActReason"><Data
-      ss:Type="String">http://hl7.org/fhir/v3/vs/ActReason</Data></Cell>
+    <Cell ss:StyleID="s166" ss:HRef="http://hl7.org/fhir/ValueSet/v3-ActReason"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">A set of codes specifying the motivation, cause, or rationale of an Act.</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
@@ -7785,7 +7785,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Precoordinated body sites such as 'left ear'</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/qicore-bodysite-precoordinated</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/qicore-bodysite-precoordinated</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>

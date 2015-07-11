@@ -9912,7 +9912,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -9940,10 +9940,10 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">Value set for AllergyIntolerance Status.</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/vs/allergy-intolerance-status</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/allergy-intolerance-status</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Values for specifying the status of an allergy that is present.</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">2.16.840.1.113883.4.642.2.503</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/vs/allergy-intolerance-status</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/allergy-intolerance-status</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>

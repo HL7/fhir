@@ -6722,7 +6722,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font> </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
@@ -6756,8 +6756,8 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">http://hl7.org/fhir/v2/vs/0200</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/EntityNameUseR2</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0200</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-EntityNameUseR2</Data></Cell>
     <Cell ss:StyleID="s115"/>
    </Row>
    <Row>

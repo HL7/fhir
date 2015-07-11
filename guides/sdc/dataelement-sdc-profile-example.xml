@@ -35,7 +35,7 @@
       <name value="AdministrativeGender"/>
       <strength value="required"/>
       <valueSetReference>
-        <reference value="http://hl7.org/fhir/vs/AdministrativeGender"/>
+        <reference value="http://hl7.org/fhir/ValueSet/AdministrativeGender"/>
       </valueSetReference>
     </binding>
     <mapping>

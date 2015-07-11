@@ -25,7 +25,7 @@
   <experimental value="false"/>
   <date value="2013-07-25"/>
   <sourceReference>
-    <reference value="http://hl7.org/fhir/v2/vs/0487"/>
+    <reference value="http://hl7.org/fhir/ValueSet/v2-0487"/>
   </sourceReference>
   <targetReference>
     <!-- standard SNOMED-CT value set for all of SNOMED-CT -->

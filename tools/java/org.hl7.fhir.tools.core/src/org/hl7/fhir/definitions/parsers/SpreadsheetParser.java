@@ -810,7 +810,7 @@ public class SpreadsheetParser {
       if (cd.getBinding() == BindingMethod.CodeList) {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
-        cd.getValueSet().setUrl("http://hl7.org/fhir/vs/"+ref.substring(1));
+        cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(1));
         if (!ref.startsWith("#"))
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' must started with '#'");
         Sheet cs = xls.getSheets().get(ref.substring(1));
@@ -837,8 +837,8 @@ public class SpreadsheetParser {
       if (cd.getValueSet() != null) {
         ValueSet vs = cd.getValueSet();
         ValueSetUtilities.makeShareable(vs);
-        vs.setUserData("filename", vs.getId());
-        vs.setUserData("path", vs.getId()+".html");
+        vs.setUserData("filename", "valueset-"+vs.getId());
+        vs.setUserData("path", "valueset-"+vs.getId()+".html");
         ToolingExtensions.setOID(vs, BindingSpecification.DEFAULT_OID_VS + cd.getId());
         vs.setUserData("csoid", BindingSpecification.DEFAULT_OID_CS + cd.getId());
         if (definitions != null)
@@ -902,11 +902,12 @@ public class SpreadsheetParser {
 
 	  try {
 	    ValueSet result = ValueSetUtilities.makeShareable((ValueSet) p.parse(input));
-	    result.setId(ref);
+	    result.setId(ref.substring(9));
 	    result.setExperimental(true);
 	    if (!result.hasVersion())
 	      result.setVersion(version);
-	    result.setUrl("http://hl7.org/fhir/vs/"+ref.substring(9));
+	    result.setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(9));
+	    result.setUserData("path", "valueset-"+ref+".html");
 	    return result;
 	  } finally {
 	    IOUtils.closeQuietly(input);
@@ -914,8 +915,8 @@ public class SpreadsheetParser {
 	}
 
 	private String checkV3Mapping(String value) {
-	  if (value.startsWith("http://hl7.org/fhir/v3/vs/"))
-	    return value.substring("http://hl7.org/fhir/v3/vs/".length());
+	  if (value.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
+	    return value.substring("http://hl7.org/fhir/ValueSet/v3-".length());
 	  else
 	    return value;
 	  }

@@ -52,7 +52,7 @@
 		</table>
 	  </div>
 	</text>
-	<url value="http://hl7.org/fhir/vs/nutrition-order-status-notcanceled"/>
+	<url value="http://hl7.org/fhir/ValueSet/nutrition-order-status-notcanceled"/>
 	<name value="NutritionOrderStatusNotCanceled"/>
 	<publisher value="Health Level Seven, Inc. - CQI WG"/>
 	<contact>
@@ -65,7 +65,7 @@
 	<status value="draft"/>
 	<date value="2014-12-10T16:17:24.861-05:00"/>
 	<compose>
-    <import value="http://hl7.org/fhir/vs/nutrition-order-status"/>
+    <import value="http://hl7.org/fhir/ValueSet/nutrition-order-status"/>
 	  <exclude>	  
   	  <system value="http://hl7.org/fhir/nutrition-order-status"/>	  
 	    <concept>

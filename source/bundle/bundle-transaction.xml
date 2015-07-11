@@ -7,18 +7,6 @@
     <!-- when the transaction was constructed --> 
   </meta> 
   <type value="transaction"/>  
-  <!-- 
-    the base URL of the transaction
-    typically, this base URL will correspond to the address
-    of the server that will process the transaction, and the 
-    transaction ids are valid on the server itself
-    
-    On the other hand, all the resources could have an identity
-    on some other server, and the receiving server will re-identify
-    all of them. This more complicated scenario has many pitfalls
-    (e.g. ensuring consistency of identity across different transactions)
-  -->
-  <base value="http://example.com/base"/> 
     
   <!-- now, each entry is an action to take in the transaction -->
   <entry>

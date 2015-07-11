@@ -490,8 +490,8 @@ public class SourceParser {
   private void loadValueSet(String n) throws FileNotFoundException, Exception {
     XmlParser xml = new XmlParser();
     ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar)));
-    vs.setUrl("http://hl7.org/fhir/vs/"+n);
     vs.setId(FormatUtilities.makeId(n));
+    vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
     definitions.getExtraValuesets().put(n, vs);
   }
 
@@ -543,7 +543,6 @@ public class SourceParser {
       if (b.getType() != BundleType.DOCUMENT)
         throw new Exception("Error parsing profile: neither a spreadsheet nor a bundle that is a document");
       for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
-        String base = ae.hasBase() ? ae.getBase() : b.getBase();
         if (ae.getResource() instanceof Composition)
           pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
         else if (ae.getResource() instanceof StructureDefinition && !((StructureDefinition) ae.getResource()).getConstrainedType().equals("Extension")) {
@@ -556,7 +555,7 @@ public class SourceParser {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
           if (Utilities.noString(ed.getBase()))
             ed.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
-          context.seeExtensionDefinition(base, ed);
+          context.seeExtensionDefinition(ae.hasFullUrl() ? ae.getFullUrl() : "http://hl7.org/fhir/StructureDefinition/"+ed.getId(), ed);
           pack.getExtensions().add(ed);
         }
       }

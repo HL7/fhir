@@ -4198,6 +4198,12 @@
     <display value="Disorder of heart valve"/>
     <display value="Heart valve disorder (disorder)"/>
   </concept>
+  <concept id="368209003" display="Right upper arm structure (body structure)">
+    <display value="Right upper arm"/>
+    <display value="Right arm"/>
+    <display value="Right upper arm structure"/>
+    <display value="Right upper arm structure (body structure)"/>
+  </concept>
   <concept id="368225008" display="Left forearm">
     <display value="Entire left forearm"/>
     <display value="Left forearm"/>

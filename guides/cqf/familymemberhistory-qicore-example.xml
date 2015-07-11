@@ -15,7 +15,7 @@
 
   <relationship>
     <coding>
-      <system value="http://hl7.org/fhir/v3/vs/FamilyMember"/>
+      <system value="http://hl7.org/fhir/ValueSet/v3-FamilyMember"/>
       <code value="FTH"/>
       <display value="FATHER"/>
     </coding>
@@ -25,7 +25,7 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity">
       <valueCodeableConcept>
         <coding>
-          <system value="http://hl7.org/fhir/vs/condition-severity"/>
+          <system value="http://hl7.org/fhir/ValueSet/condition-severity"/>
           <code value="399166001"/>
           <display value="Fatal"/>
         </coding>

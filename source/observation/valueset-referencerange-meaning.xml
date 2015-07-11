@@ -93,7 +93,7 @@ Range Basis
     </concept>
   </define>
   <compose>
-    <import value="http://hl7.org/fhir/v3/vs/Race"/>
+    <import value="http://hl7.org/fhir/ValueSet/v3-Race"/>
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>

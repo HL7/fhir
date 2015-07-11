@@ -62,7 +62,7 @@
 		</ul>
 		<ul>
 			<li>
-				<a href="http://hl7.org/fhir/vs/body-site">USLabSpecimenBodySite - Codes to describe the Specimen Collection Body site</a>
+				<a href="http://hl7.org/fhir/ValueSet/body-site">USLabSpecimenBodySite - Codes to describe the Specimen Collection Body site</a>
 			</li>
 		</ul>
 		</div>
@@ -168,7 +168,7 @@
 		<deleted value="false"/>
 		<date value="2014-11-29"/>
 		<item>
-			<reference value="http://hl7.org/fhir/vs/body-site"/>
+			<reference value="http://hl7.org/fhir/ValueSet/body-site"/>
 			<display value="USLabSpecimenBodySite	-	Codes to describe the Specimen Collection Body site"/>
 		</item>
 	</entry>

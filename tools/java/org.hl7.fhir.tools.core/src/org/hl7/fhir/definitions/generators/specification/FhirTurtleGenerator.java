@@ -113,7 +113,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     prefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
     prefix("rdfs", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
     prefix("fhir", "http://hl7.org/fhir/");
-    prefix("fhir-vs", "http://hl7.org/fhir/vs/");
+    prefix("fhir-vs", "http://hl7.org/fhir/ValueSet/");
     prefix("ex", "http://hl7.org/fhir/StructureDefinition/");
     prefix("xs", "http://www.w3.org/2001/XMLSchema#");
     prefix("owl", "http://www.w3.org/2002/07/owl#");
@@ -756,15 +756,15 @@ public class FhirTurtleGenerator extends TurtleGenerator {
 
   private String getPNameForUri(String url) {
     String  s = null;
-//    String s = matches(url, "http://hl7.org/fhir/v2/vs/", "v2-vs");
+//    String s = matches(url, "http://hl7.org/fhir/ValueSet/v2-", "v2-vs");
 //    if (s == null)
 //      s = matches(url, "http://hl7.org/fhir/v2/", "v2");
     if (s == null)
-      s = matches(url, "http://hl7.org/fhir/v3/vs/", "vs");
+      s = matches(url, "http://hl7.org/fhir/ValueSet/v3-", "vs");
     if (s == null)
       s = matches(url, "http://hl7.org/fhir/v3/", "cs");
     if (s == null)
-      s = matches(url, "http://hl7.org/fhir/vs/", "fhir-vs");
+      s = matches(url, "http://hl7.org/fhir/ValueSet/", "fhir-vs");
     if (s == null)
       s = matches(url, "http://hl7.org/fhir/", "fhir");
     if (s == null)

@@ -70,7 +70,7 @@
 			</table>
 		</div>
 	</text>
-	<url value="http://hl7.org/fhir/vs/example-expansion"/>
+	<url value="http://hl7.org/fhir/ValueSet/example-expansion"/>
 	<version value="20150622"/>
 	<name value="LOINC Codes for Cholesterol in Serum/Plasma"/>
 	

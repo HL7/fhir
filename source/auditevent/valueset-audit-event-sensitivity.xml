@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
-  <url value="http://hl7.org/fhir/vs/audit-event-sub-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/audit-event-sub-type"/>
   <version value="20100826"/>
   <name value="Audit Event Object Sensitivity"/>
   <publisher value="HL7"/>

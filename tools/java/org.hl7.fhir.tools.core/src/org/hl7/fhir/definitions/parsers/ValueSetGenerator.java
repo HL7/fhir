@@ -151,8 +151,8 @@ public class ValueSetGenerator {
   }
   
   private String checkV3Mapping(String value) {
-    if (value.startsWith("http://hl7.org/fhir/v3/vs/"))
-      return value.substring("http://hl7.org/fhir/v3/vs/".length());
+    if (value.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
+      return value.substring("http://hl7.org/fhir/ValueSet/v3-".length());
     else
       return value;
   }

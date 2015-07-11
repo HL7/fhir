@@ -6596,7 +6596,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">URI</Data><Comment ss:Author=""><Data><Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font></Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font></Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><Data><Font html:Face="Tahoma" x:Family="Swiss" html:Size="8"

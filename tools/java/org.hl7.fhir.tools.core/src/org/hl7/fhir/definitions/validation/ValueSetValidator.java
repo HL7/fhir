@@ -121,11 +121,14 @@ public class ValueSetValidator extends BaseValidator {
       }
     }
     if (vs.hasCompose()) {
+      int i = 0;
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+        i++;
+        rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", context.getCodeSystems().containsKey(inc.getSystem()) || isKnownCodeSystem(inc.getSystem()), 
+            "The system '"+inc.getSystem()+"' is not valid");
+        
         if (canValidate(inc.getSystem())) {
-          int i = 0;
           for (ConceptReferenceComponent cc : inc.getConcept()) {
-            i++;
             if (inc.getSystem().equals("http://nema.org/dicom/dicm"))
               warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
                   "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem(),
@@ -144,6 +147,55 @@ public class ValueSetValidator extends BaseValidator {
         warnings++;
     }
     vs.setUserData("warnings", o_warnings - warnings);
+  }
+
+  private boolean isKnownCodeSystem(String system) {
+//  http://snomed.info/sct
+//  http://www.nlm.nih.gov/research/umls/rxnorm
+//  http://loinc.org
+//  http://unitsofmeasure.org
+//  http://ncimeta.nci.nih.gov
+//  http://www.ama-assn.org/go/cpt
+//  http://hl7.org/fhir/ndfrt
+//  http://fdasis.nlm.nih.gov
+//  http://hl7.org/fhir/sid/ndc
+//  http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
+//  urn:iso:std:iso:3166
+//  http://www.nubc.org/patient-discharge
+//  http://www.radlex.org
+//  http://hl7.org/fhir/sid/icd-10
+//  http://hl7.org/fhir/sid/icpc2
+//  http://www.icd10data.com/icd10pcs
+//  http://hl7.org/fhir/sid/icd-9
+//  http://www.whocc.no/atc
+//  urn:ietf:bcp:47
+//  urn:iso:std:iso:11073:10101
+//  http://www.genenames.org
+//  http://www.ensembl.org
+//  http://www.ncbi.nlm.nih.gov/nuccore
+//  http://www.ncbi.nlm.nih.gov/clinvar
+//  http://sequenceontology.org
+//  http://www.hgvs.org/mutnomen
+//  http://www.ncbi.nlm.nih.gov/projects/SNP
+//  http://cancer.sanger.ac.uk/cancergenome/projects/cosmic
+//  http://www.lrg-sequence.org
+//  http://www.omim.org
+//  http://www.ncbi.nlm.nih.gov/pubmed
+//  http://www.pharmgkb.org
+//  http://clinicaltrials.gov
+
+    
+    // loinc, rxnorm, snomed
+//    if ("http://hl7.org/fhir/icd-10".equals(system))
+//      return true;
+//    // todo: why do these need to be listed here?
+//    if ("http://hl7.org/fhir/restful-interaction".equals(system))
+//      return true;
+//    if ("http://hl7.org/fhir/data-types".equals(system))
+//      return true;  
+//    if ("http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation".equals(system))
+//      return true;  
+    return true; // todo: change this back to false
   }
 
   private boolean isValidCode(String code, String system) {

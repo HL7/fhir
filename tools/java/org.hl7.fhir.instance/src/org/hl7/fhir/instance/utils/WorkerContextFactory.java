@@ -20,17 +20,16 @@ public class WorkerContextFactory {
 		XmlParser xml = new XmlParser();
 		Bundle f = (Bundle) xml.parse(stream);
 		for (BundleEntryComponent e : f.getEntry()) {
-			String base = e.hasBase() ? e.getBase() : f.getBase();
 
-			if (e.getResource().getId() == null) {
-				System.out.println("unidentified resource in " + name);
+			if (e.getFullUrl() == null) {
+				System.out.println("unidentified resource in " + name+" (no fullUrl)");
 			}
 			if (e.getResource() instanceof StructureDefinition)
-				theCtx.seeProfile(base, (StructureDefinition) e.getResource());
+				theCtx.seeProfile(e.getFullUrl(), (StructureDefinition) e.getResource());
 			else if (e.getResource() instanceof ValueSet)
-				theCtx.seeValueSet(base, (ValueSet) e.getResource());
+				theCtx.seeValueSet(e.getFullUrl(), (ValueSet) e.getResource());
 			else if (e.getResource() instanceof StructureDefinition)
-				theCtx.seeExtensionDefinition(base, (StructureDefinition) e.getResource());
+				theCtx.seeExtensionDefinition(e.getFullUrl(), (StructureDefinition) e.getResource());
 			else if (e.getResource() instanceof ConceptMap)
 				theCtx.getMaps().put(((ConceptMap) e.getResource()).getUrl(), (ConceptMap) e.getResource());
 		}

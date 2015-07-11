@@ -7,7 +7,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.72"/>
   </extension>
-  <url value="http://hl7.org/fhir/vs/valueset-clinical-speciality"/>
+  <url value="http://hl7.org/fhir/ValueSet/valueset-clinical-speciality"/>
   <version value="20091109"/>
   <name value="Practice Setting Code Value Set"/>
   <publisher value="HITSP"/>

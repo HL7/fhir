@@ -6795,7 +6795,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/vs</Font> </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Website/Email</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
@@ -8837,7 +8837,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s139"><Data ss:Type="String">BID</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s139"><Data ss:Type="String">BID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Two times a day at institution specified time</Data></Cell>
@@ -8848,7 +8848,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">TID</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">TID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Three times a day at institution specified time</Data></Cell>
@@ -8859,7 +8859,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">QID</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">QID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Four times a day at institution specified time</Data></Cell>
@@ -8870,7 +8870,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">AM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">AM</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Every morning at institution specified times</Data></Cell>
@@ -8881,7 +8881,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">PM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">PM</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Every afternoon at institution specified times</Data></Cell>

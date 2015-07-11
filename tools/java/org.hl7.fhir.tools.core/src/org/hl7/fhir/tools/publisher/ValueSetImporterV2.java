@@ -234,7 +234,7 @@ public class ValueSetImporterV2 {
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
-    vs.setUrl("http://hl7.org/fhir/v2/vs/" + id);
+    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName("v2 table " + id);
     vs.setPublisher("HL7, Inc");
     vs.setVersion("2.7");
@@ -317,7 +317,7 @@ public class ValueSetImporterV2 {
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
-    vs.setUrl("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
+    vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
     vs.setName("v2 table " + id + ", Version " + version);
     vs.setPublisher("HL7, Inc");
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));

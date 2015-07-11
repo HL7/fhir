@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 10, 2015 13:40+1000 for FHIR v0.5.0
+// Generated on Sat, Jul 11, 2015 08:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -571,18 +571,18 @@ public class Bundle extends Resource implements IBaseBundle {
     @Block()
     public static class BundleEntryComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The Base URL for the resource, if different to the base URL specified for the bundle as a whole.
-         */
-        @Child(name = "base", type = {UriType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Base URL, if different to bundle base", formalDefinition="The Base URL for the resource, if different to the base URL specified for the bundle as a whole." )
-        protected UriType base;
-
-        /**
          * A series of links that provide context to this entry.
          */
-        @Child(name = "link", type = {BundleLinkComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "link", type = {BundleLinkComponent.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Links related to this entry", formalDefinition="A series of links that provide context to this entry." )
         protected List<BundleLinkComponent> link;
+
+        /**
+         * The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.
+         */
+        @Child(name = "fullUrl", type = {UriType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Absolute URL for resource, if required for this bundle", formalDefinition="The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource." )
+        protected UriType fullUrl;
 
         /**
          * The Resources for the entry.
@@ -612,7 +612,7 @@ public class Bundle extends Resource implements IBaseBundle {
         @Description(shortDefinition="Transaction Related Information", formalDefinition="Additional information about how this entry should be processed as part of a transaction." )
         protected BundleEntryResponseComponent response;
 
-        private static final long serialVersionUID = -947186929L;
+        private static final long serialVersionUID = 517783054L;
 
     /*
      * Constructor
@@ -620,55 +620,6 @@ public class Bundle extends Resource implements IBaseBundle {
       public BundleEntryComponent() {
         super();
       }
-
-        /**
-         * @return {@link #base} (The Base URL for the resource, if different to the base URL specified for the bundle as a whole.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
-         */
-        public UriType getBaseElement() { 
-          if (this.base == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BundleEntryComponent.base");
-            else if (Configuration.doAutoCreate())
-              this.base = new UriType(); // bb
-          return this.base;
-        }
-
-        public boolean hasBaseElement() { 
-          return this.base != null && !this.base.isEmpty();
-        }
-
-        public boolean hasBase() { 
-          return this.base != null && !this.base.isEmpty();
-        }
-
-        /**
-         * @param value {@link #base} (The Base URL for the resource, if different to the base URL specified for the bundle as a whole.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
-         */
-        public BundleEntryComponent setBaseElement(UriType value) { 
-          this.base = value;
-          return this;
-        }
-
-        /**
-         * @return The Base URL for the resource, if different to the base URL specified for the bundle as a whole.
-         */
-        public String getBase() { 
-          return this.base == null ? null : this.base.getValue();
-        }
-
-        /**
-         * @param value The Base URL for the resource, if different to the base URL specified for the bundle as a whole.
-         */
-        public BundleEntryComponent setBase(String value) { 
-          if (Utilities.noString(value))
-            this.base = null;
-          else {
-            if (this.base == null)
-              this.base = new UriType();
-            this.base.setValue(value);
-          }
-          return this;
-        }
 
         /**
          * @return {@link #link} (A series of links that provide context to this entry.)
@@ -707,6 +658,55 @@ public class Bundle extends Resource implements IBaseBundle {
           if (this.link == null)
             this.link = new ArrayList<BundleLinkComponent>();
           this.link.add(t);
+          return this;
+        }
+
+        /**
+         * @return {@link #fullUrl} (The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.). This is the underlying object with id, value and extensions. The accessor "getFullUrl" gives direct access to the value
+         */
+        public UriType getFullUrlElement() { 
+          if (this.fullUrl == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BundleEntryComponent.fullUrl");
+            else if (Configuration.doAutoCreate())
+              this.fullUrl = new UriType(); // bb
+          return this.fullUrl;
+        }
+
+        public boolean hasFullUrlElement() { 
+          return this.fullUrl != null && !this.fullUrl.isEmpty();
+        }
+
+        public boolean hasFullUrl() { 
+          return this.fullUrl != null && !this.fullUrl.isEmpty();
+        }
+
+        /**
+         * @param value {@link #fullUrl} (The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.). This is the underlying object with id, value and extensions. The accessor "getFullUrl" gives direct access to the value
+         */
+        public BundleEntryComponent setFullUrlElement(UriType value) { 
+          this.fullUrl = value;
+          return this;
+        }
+
+        /**
+         * @return The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.
+         */
+        public String getFullUrl() { 
+          return this.fullUrl == null ? null : this.fullUrl.getValue();
+        }
+
+        /**
+         * @param value The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.
+         */
+        public BundleEntryComponent setFullUrl(String value) { 
+          if (Utilities.noString(value))
+            this.fullUrl = null;
+          else {
+            if (this.fullUrl == null)
+              this.fullUrl = new UriType();
+            this.fullUrl.setValue(value);
+          }
           return this;
         }
 
@@ -803,8 +803,8 @@ public class Bundle extends Resource implements IBaseBundle {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("base", "uri", "The Base URL for the resource, if different to the base URL specified for the bundle as a whole.", 0, java.lang.Integer.MAX_VALUE, base));
           childrenList.add(new Property("link", "@Bundle.link", "A series of links that provide context to this entry.", 0, java.lang.Integer.MAX_VALUE, link));
+          childrenList.add(new Property("fullUrl", "uri", "The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.", 0, java.lang.Integer.MAX_VALUE, fullUrl));
           childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("search", "", "Information about the search process that lead to the creation of this entry.", 0, java.lang.Integer.MAX_VALUE, search));
           childrenList.add(new Property("request", "", "Additional information about how this entry should be processed as part of a transaction.", 0, java.lang.Integer.MAX_VALUE, request));
@@ -814,12 +814,12 @@ public class Bundle extends Resource implements IBaseBundle {
       public BundleEntryComponent copy() {
         BundleEntryComponent dst = new BundleEntryComponent();
         copyValues(dst);
-        dst.base = base == null ? null : base.copy();
         if (link != null) {
           dst.link = new ArrayList<BundleLinkComponent>();
           for (BundleLinkComponent i : link)
             dst.link.add(i.copy());
         };
+        dst.fullUrl = fullUrl == null ? null : fullUrl.copy();
         dst.resource = resource == null ? null : resource.copy();
         dst.search = search == null ? null : search.copy();
         dst.request = request == null ? null : request.copy();
@@ -834,7 +834,7 @@ public class Bundle extends Resource implements IBaseBundle {
         if (!(other instanceof BundleEntryComponent))
           return false;
         BundleEntryComponent o = (BundleEntryComponent) other;
-        return compareDeep(base, o.base, true) && compareDeep(link, o.link, true) && compareDeep(resource, o.resource, true)
+        return compareDeep(link, o.link, true) && compareDeep(fullUrl, o.fullUrl, true) && compareDeep(resource, o.resource, true)
            && compareDeep(search, o.search, true) && compareDeep(request, o.request, true) && compareDeep(response, o.response, true)
           ;
       }
@@ -846,11 +846,11 @@ public class Bundle extends Resource implements IBaseBundle {
         if (!(other instanceof BundleEntryComponent))
           return false;
         BundleEntryComponent o = (BundleEntryComponent) other;
-        return compareValues(base, o.base, true);
+        return compareValues(fullUrl, o.fullUrl, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (base == null || base.isEmpty()) && (link == null || link.isEmpty())
+        return super.isEmpty() && (link == null || link.isEmpty()) && (fullUrl == null || fullUrl.isEmpty())
            && (resource == null || resource.isEmpty()) && (search == null || search.isEmpty()) && (request == null || request.isEmpty())
            && (response == null || response.isEmpty());
       }
@@ -1718,41 +1718,34 @@ public class Bundle extends Resource implements IBaseBundle {
     protected Enumeration<BundleType> type;
 
     /**
-     * The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).
-     */
-    @Child(name = "base", type = {UriType.class}, order=1, min=0, max=1)
-    @Description(shortDefinition="Stated Base URL", formalDefinition="The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base)." )
-    protected UriType base;
-
-    /**
      * If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
      */
-    @Child(name = "total", type = {UnsignedIntType.class}, order=2, min=0, max=1)
+    @Child(name = "total", type = {UnsignedIntType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="If search, the total number of matches", formalDefinition="If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle)." )
     protected UnsignedIntType total;
 
     /**
      * A series of links that provide context to this bundle.
      */
-    @Child(name = "link", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "link", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Links related to this Bundle", formalDefinition="A series of links that provide context to this bundle." )
     protected List<BundleLinkComponent> link;
 
     /**
      * An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).
      */
-    @Child(name = "entry", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "entry", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Entry in the bundle - will have a resource, or information", formalDefinition="An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only)." )
     protected List<BundleEntryComponent> entry;
 
     /**
      * XML Digital Signature - base64 encoded.
      */
-    @Child(name = "signature", type = {Base64BinaryType.class}, order=5, min=0, max=1)
+    @Child(name = "signature", type = {Base64BinaryType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="XML Digital Signature (base64 encoded)", formalDefinition="XML Digital Signature - base64 encoded." )
     protected Base64BinaryType signature;
 
-    private static final long serialVersionUID = -1380125450L;
+    private static final long serialVersionUID = 1289210303L;
 
   /*
    * Constructor
@@ -1811,55 +1804,6 @@ public class Bundle extends Resource implements IBaseBundle {
         if (this.type == null)
           this.type = new Enumeration<BundleType>(new BundleTypeEnumFactory());
         this.type.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #base} (The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
-     */
-    public UriType getBaseElement() { 
-      if (this.base == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Bundle.base");
-        else if (Configuration.doAutoCreate())
-          this.base = new UriType(); // bb
-      return this.base;
-    }
-
-    public boolean hasBaseElement() { 
-      return this.base != null && !this.base.isEmpty();
-    }
-
-    public boolean hasBase() { 
-      return this.base != null && !this.base.isEmpty();
-    }
-
-    /**
-     * @param value {@link #base} (The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
-     */
-    public Bundle setBaseElement(UriType value) { 
-      this.base = value;
-      return this;
-    }
-
-    /**
-     * @return The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).
-     */
-    public String getBase() { 
-      return this.base == null ? null : this.base.getValue();
-    }
-
-    /**
-     * @param value The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).
-     */
-    public Bundle setBase(String value) { 
-      if (Utilities.noString(value))
-        this.base = null;
-      else {
-        if (this.base == null)
-          this.base = new UriType();
-        this.base.setValue(value);
-      }
       return this;
     }
 
@@ -2087,7 +2031,6 @@ public class Bundle extends Resource implements IBaseBundle {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "Indicates the purpose of this bundle- how it was intended to be used.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("base", "uri", "The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
         childrenList.add(new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry));
@@ -2098,7 +2041,6 @@ public class Bundle extends Resource implements IBaseBundle {
         Bundle dst = new Bundle();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
-        dst.base = base == null ? null : base.copy();
         dst.total = total == null ? null : total.copy();
         if (link != null) {
           dst.link = new ArrayList<BundleLinkComponent>();
@@ -2125,9 +2067,8 @@ public class Bundle extends Resource implements IBaseBundle {
         if (!(other instanceof Bundle))
           return false;
         Bundle o = (Bundle) other;
-        return compareDeep(type, o.type, true) && compareDeep(base, o.base, true) && compareDeep(total, o.total, true)
-           && compareDeep(link, o.link, true) && compareDeep(entry, o.entry, true) && compareDeep(signature, o.signature, true)
-          ;
+        return compareDeep(type, o.type, true) && compareDeep(total, o.total, true) && compareDeep(link, o.link, true)
+           && compareDeep(entry, o.entry, true) && compareDeep(signature, o.signature, true);
       }
 
       @Override
@@ -2137,14 +2078,14 @@ public class Bundle extends Resource implements IBaseBundle {
         if (!(other instanceof Bundle))
           return false;
         Bundle o = (Bundle) other;
-        return compareValues(type, o.type, true) && compareValues(base, o.base, true) && compareValues(total, o.total, true)
-           && compareValues(signature, o.signature, true);
+        return compareValues(type, o.type, true) && compareValues(total, o.total, true) && compareValues(signature, o.signature, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (base == null || base.isEmpty())
-           && (total == null || total.isEmpty()) && (link == null || link.isEmpty()) && (entry == null || entry.isEmpty())
-           && (signature == null || signature.isEmpty());
+        return super.isEmpty() && (type == null || type.isEmpty()) && (total == null || total.isEmpty())
+           && (link == null || link.isEmpty()) && (entry == null || entry.isEmpty()) && (signature == null || signature.isEmpty())
+          ;
       }
 
   @Override

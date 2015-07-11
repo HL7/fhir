@@ -976,44 +976,37 @@ public class Publisher implements URIResolver {
     profileFeed.setId("resources");
     profileFeed.setType(BundleType.COLLECTION);
     profileFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    profileFeed.setBase("http://hl7.org/fhir");
 
     profileOthersFeed = new Bundle();
     profileOthersFeed.setId("profiles-others");
     profileOthersFeed.setType(BundleType.COLLECTION);
     profileOthersFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    profileOthersFeed.setBase("http://hl7.org/fhir");
 
     typeFeed = new Bundle();
     typeFeed.setId("types");
     typeFeed.setType(BundleType.COLLECTION);
     typeFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    typeFeed.setBase("http://hl7.org/fhir");
 
     valueSetsFeed = new Bundle();
     valueSetsFeed.setId("valuesets");
     valueSetsFeed.setType(BundleType.COLLECTION);
     valueSetsFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    valueSetsFeed.setBase("http://hl7.org/fhir");
 
     conceptMapsFeed = new Bundle();
     conceptMapsFeed.setId("conceptmaps");
     conceptMapsFeed.setType(BundleType.COLLECTION);
     conceptMapsFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    conceptMapsFeed.setBase("http://hl7.org/fhir");
 
     v2Valuesets = new Bundle();
     v2Valuesets.setType(BundleType.COLLECTION);
     v2Valuesets.setId("v2-valuesets");
     v2Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    v2Valuesets.setBase("http://hl7.org/fhir");
     page.setV2Valuesets(v2Valuesets);
 
     v3Valuesets = new Bundle();
     v3Valuesets.setType(BundleType.COLLECTION);
     v3Valuesets.setId("v3-valuesets");
     v3Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    v3Valuesets.setBase("http://hl7.org/fhir");
     page.setv3Valuesets(v3Valuesets);
   }
 
@@ -1763,12 +1756,14 @@ public class Publisher implements URIResolver {
 
       page.log(" ...collections ", LogMessageType.Process);
 
+      checkBundleURLs(profileFeed);
       FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileFeed);
       s.close();
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json");
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileFeed);
       s.close();
+      checkBundleURLs(typeFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, typeFeed);
       s.close();
@@ -1779,15 +1774,15 @@ public class Publisher implements URIResolver {
       Bundle extensionsFeed = new Bundle();
       extensionsFeed.setId("extensions");
       extensionsFeed.setType(BundleType.COLLECTION);
-      extensionsFeed.setBase("http://hl7.org/fhir");
       extensionsFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       Set<String> urls = new HashSet<String>();
       for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
         if (!urls.contains(ed.getUrl())) {
           urls.add(ed.getUrl());
-          extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed));
+          extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed).setFullUrl(ed.getUrl()));
         }
       }
+      checkBundleURLs(extensionsFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "extension-definitions.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, extensionsFeed);
       s.close();
@@ -1797,9 +1792,8 @@ public class Publisher implements URIResolver {
       Utilities.copyFile(page.getFolders().dstDir + "extension-definitions.xml", page.getFolders().dstDir + "examples" + File.separator + "extension-definitions.xml");
 
       Bundle searchParamsFeed = new Bundle();
-      searchParamsFeed.setId("extensions");
+      searchParamsFeed.setId("searchParams");
       searchParamsFeed.setType(BundleType.COLLECTION);
-      searchParamsFeed.setBase("http://hl7.org/fhir");
       searchParamsFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       for (ResourceDefn rd : page.getDefinitions().getBaseResources().values())
         addSearchParams(searchParamsFeed, rd);
@@ -1808,6 +1802,7 @@ public class Publisher implements URIResolver {
       for (Profile cp : page.getDefinitions().getPackList()) {
         addSearchParams(searchParamsFeed, cp);
       }
+      checkBundleURLs(searchParamsFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "search-parameters.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, searchParamsFeed);
       s.close();
@@ -1821,6 +1816,7 @@ public class Publisher implements URIResolver {
       for (Profile cp : page.getDefinitions().getPackList()) {
         addOtherProfiles(profileOthersFeed, cp);
       }
+      checkBundleURLs(profileOthersFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-others.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileOthersFeed);
       s.close();
@@ -1840,6 +1836,7 @@ public class Publisher implements URIResolver {
 //      if (ec > 0)
 //        throw new Exception("Cannot continue due to value set mis-identification");
 
+      checkBundleURLs(valueSetsFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "valuesets.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, valueSetsFeed);
       s.close();
@@ -1848,6 +1845,7 @@ public class Publisher implements URIResolver {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, valueSetsFeed);
       s.close();
 
+      checkBundleURLs(conceptMapsFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "conceptmaps.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conceptMapsFeed);
       s.close();
@@ -1858,6 +1856,7 @@ public class Publisher implements URIResolver {
 //      if (delphiReferencePlatform.canSign())
 //        delphiReferencePlatform.sign(page.getFolders().dstDir + "conceptmaps.xml", true, "dsa");
 
+      checkBundleURLs(v2Valuesets);
       s = new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v2Valuesets);
       s.close();
@@ -1865,6 +1864,7 @@ public class Publisher implements URIResolver {
       s = new FileOutputStream(page.getFolders().dstDir + "v2-tables.json");
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v2Valuesets);
       s.close();
+      checkBundleURLs(v3Valuesets);
       s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
       s.close();
@@ -1941,6 +1941,25 @@ public class Publisher implements URIResolver {
       checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  /**
+   * This is not true of bundles generally, but it is true of all the 
+   * conformance bundles produced by the spec:
+   * 
+   * all entries must have a fullUrl, and it must equal http://hl7.org/fhir/[type]/[id]
+   * 
+   * @param bnd - the bundle to check
+   */
+  private void checkBundleURLs(Bundle bnd) {
+    int i = 0;
+    for (BundleEntryComponent e : bnd.getEntry()) {
+      i++;
+      if (!e.hasFullUrl())
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "no Full URL on entry "+Integer.toString(i),IssueSeverity.ERROR));
+      else if (!e.getFullUrl().equals("http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()))
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL mismatch on entry "+Integer.toString(i)+" : "+e.getFullUrl()+" vs "+"http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId(),IssueSeverity.ERROR));
+    }
   }
 
   private void produceComparisons() throws Exception {
@@ -2158,7 +2177,7 @@ public class Publisher implements URIResolver {
 
   private void addOtherProfiles(Bundle bundle, Profile cp) {
     for (ConstraintStructure p : cp.getProfiles())
-      bundle.addEntry().setResource(p.getResource());
+      bundle.addEntry().setResource(p.getResource()).setFullUrl(p.getResource().getUrl());
   }
 
   private void addOtherProfiles(Bundle bundle, ResourceDefn rd) {
@@ -2178,7 +2197,7 @@ public class Publisher implements URIResolver {
         p.setName(rd.getName());
         p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
         SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
-        bundle.addEntry().setResource(sp);
+        bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
       }
     } else
       addSearchParams(bundle, rd.getConformancePack());
@@ -2186,7 +2205,7 @@ public class Publisher implements URIResolver {
 
   private void addSearchParams(Bundle bundle, Profile conformancePack) {
     for (SearchParameter sp : conformancePack.getSearchParameters()) {
-     bundle.addEntry().setResource(sp);
+     bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
     }
   }
 
@@ -2438,8 +2457,8 @@ public class Publisher implements URIResolver {
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
-    vs.setId("v3-vs-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/v3/vs/" + id);
+    vs.setId("v3-"+FormatUtilities.makeId(id));
+    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName("v3 Code System " + id);
     vs.setPublisher("HL7, Inc");
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
@@ -2471,7 +2490,7 @@ public class Publisher implements URIResolver {
       s.append("<hr/>\r\n");
       vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r));
     } else
-      vs.setDescription("? not found");
+      vs.setDescription("**** MISSING DEFINITIONS ****");
 
     List<CodeInfo> codes = new ArrayList<CodeInfo>();
     // first, collate all the codes
@@ -2562,13 +2581,14 @@ public class Publisher implements URIResolver {
             String vsOid = getVSForCodeSystem(page.getV3src().getDocumentElement(), e.getAttribute("codeSystemId"));
             ValueSet vs = buildV3CodeSystem(id, dt, e, e.getAttribute("codeSystemId"), vsOid);
             vs.setId("v3-" + FormatUtilities.makeId(id));
+            vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
             vs.setUserData("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
             ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+e.getAttribute("codeSystemId"));
             if (vs.hasDate())
               vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
             else
               vs.getMeta().setLastUpdated(page.getGenDate().getTime());
-            page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
+            page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl(vs.getUrl()));
             page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
             page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
             page.getValueSets().put(vs.getUrl(), vs);
@@ -2594,14 +2614,13 @@ public class Publisher implements URIResolver {
           } else
             throw new Exception("unhandled value set specifier in ini file");
 
-          vs.setId("v3-vs-" + FormatUtilities.makeId(id));
           vs.setUserData("path", "v3" + HTTP_separator + "vs" + HTTP_separator + id + HTTP_separator + "index.html");
           ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
           if (vs.hasDate())
             vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
           else
             vs.getMeta().setLastUpdated(page.getGenDate().getTime());
-          page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
+          page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl(vs.getUrl()));
           page.getValueSets().put(vs.getUrl(), vs);
           page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
         }
@@ -2637,8 +2656,8 @@ public class Publisher implements URIResolver {
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", "vs", id, "index.html"));
-    vs.setId("v3-vs-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/v3/vs/" + id);
+    vs.setId("v3-"+FormatUtilities.makeId(id));
+    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName(id);
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
         "text");
@@ -2683,8 +2702,8 @@ public class Publisher implements URIResolver {
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", "vs", id, "index.html"));
-    vs.setId("v3-vs-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/v3/vs/" + id);
+    vs.setId("v3-"+FormatUtilities.makeId(id));
+    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName(id);
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
         "text");
@@ -2720,7 +2739,7 @@ public class Publisher implements URIResolver {
         Element part = XMLUtil.getFirstChild(XMLUtil.getNamedChild(content, "combinedContent"));
         while (part != null) {
           if (part.getNodeName().equals("unionWithContent"))
-            compose.addImport("http://hl7.org/fhir/v3/vs/" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
+            compose.addImport("http://hl7.org/fhir/ValueSet/v3-" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
           else
             throw new Exception("unknown value set construction method");
           part = XMLUtil.getNextSibling(part);
@@ -3610,7 +3629,7 @@ public class Publisher implements URIResolver {
     ResourceUtilities.meta(resource).setLastUpdated(page.getGenDate().getTime());
     if (resource.getText() == null || resource.getText().getDiv() == null)
       throw new Exception("Example Resource " + resource.getId() + " does not have any narrative");
-    dest.getEntry().add(new BundleEntryComponent().setResource(resource));
+    dest.getEntry().add(new BundleEntryComponent().setResource(resource).setFullUrl("http://hl7.org/fhir/"+resource.getResourceType().toString()+"/"+resource.getId()));
   }
 
   private void maybeFixResourceId(DomainResource theResource, String theFilename) {
@@ -3631,7 +3650,9 @@ public class Publisher implements URIResolver {
       throw new Exception("Example Value Set " + vs.getId() + " does not have any narrative");
 
     ResourceUtilities.meta(vs).setLastUpdated(page.getGenDate().getTime());
-    dest.getEntry().add(new BundleEntryComponent().setResource(vs));
+    if (vs.getUrl().startsWith("http://hl7.org/fhir/") && !vs.getUrl().equals("http://hl7.org/fhir/"+vs.getResourceType().toString()+"/"+vs.getId()))
+      throw new Exception("URL mismatch on value set: "+vs.getUrl()+" vs "+"http://hl7.org/fhir/"+vs.getResourceType().toString()+"/"+vs.getId());
+    dest.getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl(vs.getUrl()));
   }
 
   private void addToResourceFeed(ConceptMap cm, Bundle dest) throws Exception {
@@ -3643,7 +3664,9 @@ public class Publisher implements URIResolver {
       throw new Exception("Example Concept Map " + cm.getId() + " does not have any narrative");
 
     ResourceUtilities.meta(cm).setLastUpdated(page.getGenDate().getTime());
-    dest.getEntry().add(new BundleEntryComponent().setResource(cm));
+    if (!cm.getUrl().equals("http://hl7.org/fhir/"+cm.getResourceType().toString()+"/"+cm.getId()))
+      throw new Exception("URL mismatch on concept map");
+    dest.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl(cm.getUrl()));
   }
 
   private void addToResourceFeed(Conformance conf, Bundle dest) throws Exception {
@@ -3655,7 +3678,9 @@ public class Publisher implements URIResolver {
       throw new Exception("Example Conformance " + conf.getId() + " does not have any narrative");
 
     ResourceUtilities.meta(conf).setLastUpdated(page.getGenDate().getTime());
-    dest.getEntry().add(new BundleEntryComponent().setResource(conf));
+    if (!conf.getUrl().equals("http://hl7.org/fhir/"+conf.getResourceType().toString()+"/"+conf.getId()))
+      throw new Exception("URL mismatch on conformance stmt");
+    dest.getEntry().add(new BundleEntryComponent().setResource(conf).setFullUrl(conf.getUrl()));
   }
 
   private void produceConformancePackage(String resourceName, Profile pack, SectionTracker st) throws Exception {
@@ -4912,7 +4937,7 @@ public class Publisher implements URIResolver {
   private void generateValueSetPart2(ValueSet vs) throws Exception { 
     String n = vs.getUserString("filename");
     if (n == null)
-      n = vs.getId();
+      n = "valueset-"+vs.getId();
 
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
@@ -4989,7 +5014,7 @@ public class Publisher implements URIResolver {
   private void generateConceptMapV2(ValueSet vs, String filename, String src, String srcCS) throws Exception {
     ConceptMap cm = new ConceptMap();
     cm.setId("v2-"+FormatUtilities.makeId(Utilities.fileTitle(filename)));
-    cm.setUrl("http://hl7.org/fhir/cm/v2/" + Utilities.fileTitle(filename));
+    cm.setUrl("http://hl7.org/fhir/ConceptMap/v2-" + Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
     cm.setName("v2 map for " + vs.getName());
     cm.setPublisher("HL7 (FHIR Project)");
@@ -5049,7 +5074,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.html"));
 
     cm.setUserData("path", Utilities.changeFileExt(filename, "-map-v2.html"));
-    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm));
+    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl(cm.getUrl()));
     page.getConceptMaps().put(cm.getUrl(), cm);
     page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n + ".json.html", cm.getName(), EPubManager.XHTML_TYPE);
@@ -5093,7 +5118,7 @@ public class Publisher implements URIResolver {
   private void generateConceptMapV3(ValueSet vs, String filename, String src, String srcCS) throws Exception {
     ConceptMap cm = new ConceptMap();
     cm.setId("v3-"+FormatUtilities.makeId(Utilities.fileTitle(filename)));
-    cm.setUrl("http://hl7.org/fhir/cm/v3/" + Utilities.fileTitle(filename));
+    cm.setUrl("http://hl7.org/fhir/ConceptMap/v3-" + Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
     cm.setName("v3 map for " + vs.getName());
     cm.setPublisher("HL7 (FHIR Project)");
@@ -5110,7 +5135,7 @@ public class Publisher implements URIResolver {
     // DSTU, then .review
     cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
-    cm.setTarget(Factory.makeReference("http://hl7.org/fhir/v3/vs/"+vs.getUserString("v3map")));
+    cm.setTarget(Factory.makeReference("http://hl7.org/fhir/ValueSet/v3-"+vs.getUserString("v3map")));
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       genV3MapItems(vs, srcCS, cm, tbls, c);
     }
@@ -5152,7 +5177,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.html"));
 
     cm.setUserData("path", Utilities.changeFileExt(filename, "-map-v3.html"));
-    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm));
+    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl(cm.getUrl()));
     page.getConceptMaps().put(cm.getUrl(), cm);
     page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n + ".json.html", cm.getName(), EPubManager.XHTML_TYPE);

@@ -31,7 +31,7 @@
 	</define>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/v3/vs/EntityNameUse"/>
+			<system value="http://hl7.org/fhir/ValueSet/v3-EntityNameUse"/>
 			<concept>
 				<code value="L"/>
 				<display value="Legal Name"/>
@@ -42,7 +42,7 @@
 			</concept>
 		</include>
 		<include>
-			<system value ="http://hl7.org/fhir/v3/vs/EntityNameuseR2"/>
+			<system value ="http://hl7.org/fhir/ValueSet/v3-EntityNameuseR2"/>
 			<concept>
 				<code value="M"/>
 				<display value="maiden name"/>

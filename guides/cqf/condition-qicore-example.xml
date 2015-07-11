@@ -9,7 +9,7 @@
  <extension url="http://hl7.org/fhir/StructureDefinition/condition-criticality">
    <valueCodeableConcept>
      <coding>
-       <system value="http://hl7.org/fhir/vs/condition-severity"/>
+       <system value="http://hl7.org/fhir/ValueSet/condition-severity"/>
        <code value="399166001" />
        <display value="Fatal"/>
      </coding>
@@ -20,7 +20,7 @@
   </patient>
   <code>
     <coding>
-      <system value="http://hl7.org/fhir/vs/daf-problem"/>
+      <system value="http://hl7.org/fhir/ValueSet/daf-problem"/>
       <code value="39065001"/>
       <display value="Burn of ear"/>
     </coding>

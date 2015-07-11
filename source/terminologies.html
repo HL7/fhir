@@ -233,7 +233,7 @@ Example:
     ...
     &lt;binding&gt;
       ...
-      &lt;valueSetUri value=&quot;http://hl7.org/fhir/vs/clinical-findings&quot;/&gt;
+      &lt;valueSetUri value=&quot;http://hl7.org/fhir/ValueSet/clinical-findings&quot;/&gt;
     &lt;/binding&gt;
     ...
   &lt;/element&gt;
@@ -242,8 +242,8 @@ Example:
 </pre>
 <p>
 This specifies that the element is bound to the value set with a Value.url of
-<a href="http://hl7.org/fhir/vs/clinical-findings">http://hl7.org/fhir/vs/clinical-findings</a>. One way to accees this value set is 
-to try GET http://hl7.org/fhir/vs/clinical-findings - which works, for this value set - http://hl7.org/fhir/vs/clinical-findings 
+<a href="http://hl7.org/fhir/ValueSet/clinical-findings">http://hl7.org/fhir/ValueSet/clinical-findings</a>. One way to accees this value set is 
+to try GET http://hl7.org/fhir/ValueSet/clinical-findings - which works, for this value set - http://hl7.org/fhir/ValueSet/clinical-findings 
 returns the authoritative value set for this URL. 
 </p>
 <p>
@@ -252,7 +252,7 @@ If that's running a <a href="terminology-service.html">FHIR Terminology Server</
 then this would work like this:
 </p>
 <pre>
-GET fhir/ValueSet?url=http://hl7.org/fhir/vs/clinical-findings
+GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/clinical-findings
 </pre>
 <p>
 if the terminology server knows the value set, then it will return the value set.
@@ -284,14 +284,14 @@ To be precise about which version of a value set is being referred to in
 a value set reference, append the the version to the logical url like this:
 </p>
 <pre>
-&lt;valueSetUri value=&quot;http://hl7.org/fhir/vs/clinical-findings?version=0.8&quot;/&gt;
+&lt;valueSetUri value=&quot;http://hl7.org/fhir/ValueSet/clinical-findings?version=0.8&quot;/&gt;
 </pre>
 <p>
 This is a version specific reference to a value set. Searching
 for this on a terminology server would look like this:
 </p>
 <pre>
-GET fhir/ValueSet?url=http://hl7.org/fhir/vs/clinical-findings&amp;version=0.8
+GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/clinical-findings&amp;version=0.8
 </pre>
 <p>
 Note that if a value set reference does not have a version, and the server finds multiple
