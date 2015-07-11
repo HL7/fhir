@@ -5370,7 +5370,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Reason communication was not performed</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActReason</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActReason</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">A set of codes specifying the motivation, cause, or rationale of an Act.</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
