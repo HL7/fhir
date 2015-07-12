@@ -127,9 +127,62 @@ Each entry element SHALL contain a resource.
 
 
 <a name="resolving"> </a>
+<a name="references"> </a>
 <h3>Resolving references in Bundles</h3>
 
 <p>
+The <code>Bundle</code> resource is a packaging construct that has one of more entries that 
+are other kinds of resources. Those resources themselves have references to other resources - e.g. 
+an Observation that refers to a Patient. The referenced resources may also be found
+in the bundle. For example, the system that constructed the bundle may have included both
+the observation and the patient. The content of the references between resources doesn't 
+change because of the Bundle.
+</p>
+<p>
+This section documents a method that resolves references correctly within a bundle. Note
+that this method does not define any new semantics; resolution is based on the way
+resource identity and resource references work.
+</p>
+<p>
+How to resolve a reference in a bundle depends on the kind of reference, and the 
+context in which it is found:
+</p>
+<ul>
+ <li><b>Reference is an absolute URI</b> (e.g. http://example.org/fhir/Patient/1 or urn:uuid:77c0b7fe-9929-40e9-b7a0-a10b0a512c46): 
+  <ul>
+	  <li>Look for an entry with a fullUrl that contains the URL in the reference</li>
+	</ul>
+	  
+ </li>
+ <li><b>Reference is an relative URI, entry has a matching fullUrl</b> (e.g. resource is an Observation with id = 123, fullUrl on the entry = http://example.org/fhir/Observation/123), reference = Patient/1, : 
+  <ul>
+	  <li>The target address is the base URL + reference (e.g. in the example given, http://example.org/fhir/Patient/1</li>
+	  <li>Look for an entry with a fullUrl that contains the target</li>
+	</ul>
+ </li>
+ <li><b>Reference is an relative URI, entry has a non-matching fullUrl</b> (eg. resource is an ValueSet with id = xxfd, fullUrl on the entry = http://example.org/cts/vs/2345) reference = 3452): 
+  <ul>
+	  <li>The target address is the URL with the tail removed + the reference (e.g. in the example given, http://example.org/cts/vs/3452)</li>
+	  <li>Look for an entry with a fullUrl that contains the target</li>
+	</ul>
+ </li>
+ <li><b>Reference is an relative URI, entry has no fullUrl</b> (eg. resource is a Condition with id = 2345, no fullUrl on the entry, reference = Patient/234): 
+  <ul>
+	  <li>Look through the bundle for a resource with no fullUrl, of the specified type, with the right id</li>
+	  <li>Look for an entry with a fullUrl that contains the target</li>
+	</ul>
+ </li>
+</ul> 
+<p>
+Rules for all cases:
+</p>
+<ul>
+ <li>If no match is found, the resource is not in the bundle, and must be found elsewhere (e.g. if an http: URL, try accessing it directly)</li>
+ <li>In any of these cases, if multiple matches are found, it is ambiguous which is correct. Bundles SHOULD not contain two resources with the same identity.</li>
+ <li>References and fullUrls may be version specific. In that case, the same matching logic applies, but including the version as well</li>
+ <li>Matching between resources/references with an without fullUrls is not safe, but may be done by trading partner agreement</li>
+</ul>
+<!--</p>
 Bundle has a 'base' element, which is used to resolve relative references present in the bundled resources. 
 In the case that the bundle includes resources with different bases, each entry can also assert its 
 applicable base if this is different to the overall base. A base SHOULD always be specified, either
@@ -165,7 +218,7 @@ URI does not include the type of the resource:
 OIDs and UUIDs are intended for use where the resource the entry is for has no established identity 
 on an existing RESTful interface.
 </p>
-
+-->
 
 
 

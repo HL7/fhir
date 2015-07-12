@@ -2738,7 +2738,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> namespaces = new ArrayList<String>();
     for (String sn : valueSets.keySet()) {
       String n = getNamespace(sn);
-      if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n))
+      if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n) && !sn.startsWith("http://hl7.org/fhir/ValueSet/v2-") && !sn.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
         namespaces.add(n);
     }
     Collections.sort(namespaces);
@@ -2754,7 +2754,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> sorts = new ArrayList<String>();
     for (String sn : vslist.keySet()) {
       String n = getNamespace(sn);
-      if (ns.equals(n))
+      if (ns.equals(n) && !sn.startsWith("http://hl7.org/fhir/ValueSet/v2-") && !sn.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
         sorts.add(sn);
     }
     Collections.sort(sorts);
