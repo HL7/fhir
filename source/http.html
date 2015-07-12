@@ -611,8 +611,11 @@ does not already exist on the server. The client defines what equivalence means 
 a FHIR search query in an <code>If-None-Exist</code> header as shown:
 </p>
 <pre>
-  If-None-Exist: base/[type]?[search parameters]
+  If-None-Exist: [search parameters]
 </pre>
+<p>
+The parameter just contains the search parameters (what would be in the URL  following the "?").
+</p>
 <p>
 When the server processes this update, it performs a search as specified using its standard
 <a href="search.html">search facilities</a> for the resource type. The action it takes depends
@@ -626,7 +629,7 @@ on how many matches are found:
 <p>
 This variant can be used to avoid the risk of two clients
 creating duplicate resources for the same record. For example, a client posting a new lab result might specify
-<code>If-None-Exist: /Observation?identifier=http://my-lab-system|123</code> to ensure it is does not create a duplicate record.
+<code>If-None-Exist: identifier=http://my-lab-system|123</code> to ensure it is does not create a duplicate record.
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is 
@@ -739,11 +742,11 @@ just like any other end point.
 <a name="transaction"> </a>
 <h3>batch/transaction</h3>
 <p>
-The transaction interaction submits a set of actions to perform on a server in a single interaction.
+The batch and transaction interactions submit a set of actions to perform on a server in a single HTTP request/response.
 The actions may be performed independently as a 'batch', or as a single atomic 'transaction' where 
 the entire set of changes succeed or fail as a single entity. Multiple actions on multiple resources 
 of the same or different types may be submitted, and they may be a mix of other interactions defined 
-on this page (e.g. read, search, create, update, delete, etc), or in the <a href="operations.html">operations</a>
+on this page (e.g. read, search, create, update, delete, etc), or using the <a href="operations.html">operations</a>
 framework.
 </p>
 <p>
@@ -814,7 +817,13 @@ as version-specific references after the references have been updated.
 Servers SHALL replace all matching links in the bundle, whether they are found in the resource ids,
 resource references, url elements, or &lt;a href="" &amp; &lt;img src="" in the narrative.
 </p>
-
+<p>
+When processing a batch or transaction, a server MAY choose to honour existing 
+logical ids (e.g. Observation/1234 remains as Observation/1234 on the server), but 
+since this is only <a href="#upsert">safe in controlled circumstances</a>, servers
+may choose to assign new ids to all submitted resources, irrespective of any claimed
+logical if in the resource, or fullUrl on entries in the batch/transaction.
+</p>
 
 <a name="transaction-response"> </a>
 <h4>Batch/Transaction Response</h4>

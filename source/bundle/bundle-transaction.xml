@@ -73,7 +73,7 @@
       <!-- the conditional header: only add this resource if 
       there isn't already one for this patient. If there is one,
       the content of this resource will be ignored -->
-      <ifNoneExist value="Patient?identifier=234234"/>
+      <ifNoneExist value="identifier=234234"/>
     </request>
   </entry>
   <entry>
