@@ -561,8 +561,6 @@ public class ProfileComparer {
     subset.setBinding(subBinding);
     ElementDefinitionBindingComponent superBinding = new ElementDefinitionBindingComponent();
     superset.setBinding(superBinding);
-    subBinding.setName(mergeText(subset, outcome, path, "name", left.getName(), right.getName()));
-    superBinding.setName(mergeText(subset, outcome, null, "name", left.getName(), right.getName()));
     subBinding.setDescription(mergeText(subset, outcome, path, "description", left.getDescription(), right.getDescription()));
     superBinding.setDescription(mergeText(subset, outcome, null, "description", left.getDescription(), right.getDescription()));
     if (left.getStrength() == BindingStrength.REQUIRED || right.getStrength() == BindingStrength.REQUIRED)
@@ -632,7 +630,6 @@ public class ProfileComparer {
     else
       union.setStrength(right.getStrength());
     union.setDescription(mergeText(ed, outcome, path, "binding.description", left.getDescription(), right.getDescription()));
-    union.setName(mergeText(ed, outcome, null, "binding.description", left.getDescription(), right.getDescription()));
     if (Base.compareDeep(left.getValueSet(), right.getValueSet(), false))
       union.setValueSet(left.getValueSet());
     else {

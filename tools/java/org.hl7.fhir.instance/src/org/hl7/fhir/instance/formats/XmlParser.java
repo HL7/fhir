@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Jul 11, 2015 08:21+1000 for FHIR v0.5.0
+// Generated on Sun, Jul 12, 2015 22:00+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -883,9 +883,7 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setNameElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("strength")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("strength")) {
         res.setStrengthElement(parseEnumeration(xpp, Enumerations.BindingStrength.NULL, new Enumerations.BindingStrengthEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
@@ -11150,9 +11148,6 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
       composeElementElements(element);
-      if (element.hasNameElement()) {
-        composeString("name", element.getNameElement());
-      }
       if (element.hasStrengthElement())
         composeEnumeration("strength", element.getStrengthElement(), new Enumerations.BindingStrengthEnumFactory());
       if (element.hasDescriptionElement()) {

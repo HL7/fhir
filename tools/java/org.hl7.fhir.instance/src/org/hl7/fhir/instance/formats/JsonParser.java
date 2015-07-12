@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Jul 11, 2015 08:21+1000 for FHIR v0.5.0
+// Generated on Sun, Jul 12, 2015 22:00+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -824,10 +824,6 @@ public class JsonParser extends JsonParserBase {
   protected ElementDefinition.ElementDefinitionBindingComponent parseElementDefinitionElementDefinitionBindingComponent(JsonObject json, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionBindingComponent res = new ElementDefinition.ElementDefinitionBindingComponent();
     parseElementProperties(json, res);
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
     if (json.has("strength"))
       res.setStrengthElement(parseEnumeration(json.get("strength").getAsString(), Enumerations.BindingStrength.NULL, new Enumerations.BindingStrengthEnumFactory()));
     if (json.has("_strength"))
@@ -12531,10 +12527,6 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeElementDefinitionElementDefinitionBindingComponentInner(ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
       composeElement(element);
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
       if (element.hasStrengthElement()) {
         composeEnumerationCore("strength", element.getStrengthElement(), new Enumerations.BindingStrengthEnumFactory(), false);
         composeEnumerationExtras("strength", element.getStrengthElement(), new Enumerations.BindingStrengthEnumFactory(), false);

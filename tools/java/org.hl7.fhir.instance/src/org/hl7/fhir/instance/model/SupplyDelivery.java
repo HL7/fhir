@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jul 11, 2015 08:21+1000 for FHIR v0.5.0
+// Generated on Sun, Jul 12, 2015 22:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -84,9 +84,9 @@ public class SupplyDelivery extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case INPROGRESS: return "http://hl7.org/fhir/valueset-supplydelivery-status";
-            case COMPLETED: return "http://hl7.org/fhir/valueset-supplydelivery-status";
-            case ABANDONED: return "http://hl7.org/fhir/valueset-supplydelivery-status";
+            case INPROGRESS: return "http://hl7.org/fhir/supplydelivery-status";
+            case COMPLETED: return "http://hl7.org/fhir/supplydelivery-status";
+            case ABANDONED: return "http://hl7.org/fhir/supplydelivery-status";
             default: return "?";
           }
         }

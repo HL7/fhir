@@ -877,29 +877,41 @@ set to "include" (in some searches, it is not obvious which resources are
 matches, and which are includes).
 </p>
 <p>
-The inclusion process can be recursive. For example, this example search 
-returns all the <a href="medicationprescription.html">Medication
+The inclusion process can be recursive, if the modifier :recurse is included. 
+For example, this example search returns all the <a href="medicationprescription.html">Medication
 Prescription</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
 </p>
 <pre>
 GET [base]/MedicationDispense?_include=MedicationDispense.authorizingPrescription
-    &amp;_include=MedicationPrescription.prescriber&amp;criteria...
+    &amp;_include:recurse=MedicationPrescription.prescriber&amp;criteria...
+</pre>
+<p>
+This technique applies to circular relationships as well. For example, 
+the first of these two searches includes any related observations to the 
+target relationships, but only those directly related. The second search
+asks for the _include based on <code>related</code> parameter to be executed
+recursively, so will retrieve observations that are directly related, and 
+also any related observations to any other included observation.
+</p>
+<pre>
+GET [base]/Observation?_include=Observation.related-target&amp;criteria...
+GET [base]/Observation?_include:recurse=Observation.related-target&amp;criteria...
 </pre>
 <p>
 Both _include and _reverseInclude and use the wild card "*" for the search parameter
 name, indicating by this that any search parameter of type=reference be included, though 
 though both clients and servers need to take care not to request or return too many resources
-when doing this. Most notably, re-applying inclusion paths over newly included resources
-might lead to cycles or the retrieval of the full patient's file: resources are
-organized into an interlinked network and broad _include paths may eventually traverse all
-possible paths on the server. For servers, these recursive and wildcard _includes are
-demanding and may slow the search response time significantly. 
+when doing this. Most notably, using recursive inclusions might lead to the retrieval of the 
+full patient's record, or even more: resources are organized into an interlinked network 
+and broad _include paths may eventually traverse all possible paths on the server. For 
+servers, these recursive and wildcard _includes are demanding and may slow the search 
+response time significantly. 
 </p>
 <p>
-It is at the server's discretion how deep to recursively evaluate the _includes. Servers are expected to
-limit the number of iterations done and are not obliged to honor requests to include
-additional resources in the search results.
+It is at the server's discretion how deep to recursively evaluate the inclusions. 
+Servers are expected to limit the number of iterations done to an appropriate level 
+and are not obliged to honor requests to include additional resources in the search results.
 </p>
 <p>
 When the search results are paged, each page of search results should include 

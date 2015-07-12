@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jul 11, 2015 08:21+1000 for FHIR v0.5.0
+// Generated on Sun, Jul 12, 2015 22:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1031,10 +1031,10 @@ public class Bundle extends Resource implements IBaseBundle {
         protected Enumeration<HTTPVerb> method;
 
         /**
-         * The URL for this entry, relative to the root.
+         * The URL for this entry, relative to the root (the address to which the request is posted).
          */
         @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="URL for HTTP equivalent of this entry", formalDefinition="The URL for this entry, relative to the root." )
+        @Description(shortDefinition="URL for HTTP equivalent of this entry", formalDefinition="The URL for this entry, relative to the root (the address to which the request is posted)." )
         protected UriType url;
 
         /**
@@ -1059,10 +1059,10 @@ public class Bundle extends Resource implements IBaseBundle {
         protected InstantType ifModifiedSince;
 
         /**
-         * Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".
+         * Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create". This is just the query portion of the URL - what follows the "?" (not including the "?").
          */
         @Child(name = "ifNoneExist", type = {StringType.class}, order=6, min=0, max=1)
-        @Description(shortDefinition="For conditional creates", formalDefinition="Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'." )
+        @Description(shortDefinition="For conditional creates", formalDefinition="Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'. This is just the query portion of the URL - what follows the '?' (not including the '?')." )
         protected StringType ifNoneExist;
 
         private static final long serialVersionUID = 1355750298L;
@@ -1129,7 +1129,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return {@link #url} (The URL for this entry, relative to the root.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #url} (The URL for this entry, relative to the root (the address to which the request is posted).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
           if (this.url == null)
@@ -1149,7 +1149,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @param value {@link #url} (The URL for this entry, relative to the root.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @param value {@link #url} (The URL for this entry, relative to the root (the address to which the request is posted).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public BundleEntryRequestComponent setUrlElement(UriType value) { 
           this.url = value;
@@ -1157,14 +1157,14 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return The URL for this entry, relative to the root.
+         * @return The URL for this entry, relative to the root (the address to which the request is posted).
          */
         public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
-         * @param value The URL for this entry, relative to the root.
+         * @param value The URL for this entry, relative to the root (the address to which the request is posted).
          */
         public BundleEntryRequestComponent setUrl(String value) { 
             if (this.url == null)
@@ -1321,7 +1321,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return {@link #ifNoneExist} (Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".). This is the underlying object with id, value and extensions. The accessor "getIfNoneExist" gives direct access to the value
+         * @return {@link #ifNoneExist} (Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create". This is just the query portion of the URL - what follows the "?" (not including the "?").). This is the underlying object with id, value and extensions. The accessor "getIfNoneExist" gives direct access to the value
          */
         public StringType getIfNoneExistElement() { 
           if (this.ifNoneExist == null)
@@ -1341,7 +1341,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @param value {@link #ifNoneExist} (Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".). This is the underlying object with id, value and extensions. The accessor "getIfNoneExist" gives direct access to the value
+         * @param value {@link #ifNoneExist} (Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create". This is just the query portion of the URL - what follows the "?" (not including the "?").). This is the underlying object with id, value and extensions. The accessor "getIfNoneExist" gives direct access to the value
          */
         public BundleEntryRequestComponent setIfNoneExistElement(StringType value) { 
           this.ifNoneExist = value;
@@ -1349,14 +1349,14 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".
+         * @return Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create". This is just the query portion of the URL - what follows the "?" (not including the "?").
          */
         public String getIfNoneExist() { 
           return this.ifNoneExist == null ? null : this.ifNoneExist.getValue();
         }
 
         /**
-         * @param value Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".
+         * @param value Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create". This is just the query portion of the URL - what follows the "?" (not including the "?").
          */
         public BundleEntryRequestComponent setIfNoneExist(String value) { 
           if (Utilities.noString(value))
@@ -1372,11 +1372,11 @@ public class Bundle extends Resource implements IBaseBundle {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("method", "code", "The HTTP verb for this entry in either a update history, or a transaction/ transaction response.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("url", "uri", "The URL for this entry, relative to the root.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("url", "uri", "The URL for this entry, relative to the root (the address to which the request is posted).", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("ifNoneMatch", "string", "If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.", 0, java.lang.Integer.MAX_VALUE, ifNoneMatch));
           childrenList.add(new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifMatch));
           childrenList.add(new Property("ifModifiedSince", "instant", "Only perform the operation if the last updated date matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifModifiedSince));
-          childrenList.add(new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'.", 0, java.lang.Integer.MAX_VALUE, ifNoneExist));
+          childrenList.add(new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'. This is just the query portion of the URL - what follows the '?' (not including the '?').", 0, java.lang.Integer.MAX_VALUE, ifNoneExist));
         }
 
       public BundleEntryRequestComponent copy() {

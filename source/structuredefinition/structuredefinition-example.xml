@@ -93,7 +93,6 @@
         </type>
         <isModifier value="false"/>
         <binding>
-          <name value="ObservationStatus"/>
           <strength value="required"/>
           <valueSetReference>
             <reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
@@ -202,7 +201,6 @@
         </type>
         <isModifier value="false"/>
         <binding>
-          <name value="DiagnosticRequests"/>
           <strength value="example"/>
           <valueSetReference>
             <reference value="http://hl7.org/fhir/ValueSet/diagnostic-requests"/>
@@ -221,7 +219,6 @@
         </type>
         <isModifier value="false"/>
         <binding>
-          <name value="BodySite"/>
           <strength value="example"/>
           <valueSetReference>
             <reference value="http://hl7.org/fhir/ValueSet/body-site"/>
@@ -261,7 +258,6 @@
         </type>
         <isModifier value="false"/>
         <binding>
-          <name value="DiagnosticServiceSection"/>
           <strength value="preferred"/>
           <valueSetReference>
             <reference value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
@@ -303,7 +299,6 @@
         </type>
         <isModifier value="false"/>
         <binding>
-          <name value="DiagnosticResultGroupNames"/>
           <strength value="preferred"/>
           <valueSetReference>
             <reference value="http://hl7.org/fhir/ValueSet/report-names"/>
@@ -423,7 +418,6 @@
         </type>
         <isModifier value="false"/>
         <binding>
-          <name value="DiagnosisCodes"/>
           <strength value="example"/>
           <valueSetReference>
             <reference value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
