@@ -255,32 +255,75 @@ separated from the parameter name by a colon. Modifiers are:</p>
  <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left matches the value, or vice-versa</li>
 </ul>
 
+<a name="prefix" />
+<h4>Prefixes</h4>
+<p>
+For the ordered parameter types <a href="#number">number</a>, <a href="#date">date</a>, and <a href="#quantity">quantity</a>, 
+a prefix to the parameter value may be used to control the nature of the matching. To avoid URL escaping and visual confusion,
+the following prefixes are used:
+</p>
+<table class="grid">
+ <tr>
+	<td>eq</td>
+	<td>the value for the parameter in the resource is equal to the provided value</td>
+ </tr>
+ <tr>
+	<td>ne</td>
+	<td>the value for the parameter in the resource is not equal to the provided value</td>
+ </tr>
+ <tr>
+	<td>gt</td>
+	<td>the value for the parameter in the resource is greater than the provided value</td>
+ </tr>
+ <tr>
+	<td>lt</td>
+	<td>the value for the parameter in the resource is less than the provided value</td>
+ </tr>
+ <tr>
+	<td>ge</td>
+	<td>the value for the parameter in the resource is greater or equal to the provided value</td>
+ </tr>
+ <tr>
+	<td>le</td>
+	<td>the value for the parameter in the resource is less or equal to the provided value</td>
+ </tr>
+ <tr>
+	<td>le</td>
+	<td>the value for the parameter in the resource is less or equal to the provided value</td>
+ </tr>
+ <tr>
+	<td>ap</td>
+	<td>the value for the parameter in the resource is approximately the same to the provided value.<br/> 
+	Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate</td>
+ </tr>
+</table>
+<p>
+If no prefix is present, the prefix 'eq' is assumed. These prefixes are consistent with the their usage in the <a href="search_filter.html">_filter parameter</a>.
+</p>
+
 <a name="number" />
 <h4>number</h4>
 <p>
-The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value,
-and have the usual meaning (note that "=" must be <a href="http://en.wikipedia.org/wiki/Percent-encoding">URL-encoded</a> in the
-value in a URL). Examples:
+Sarching on a simple numerical value in a resource. Examples:
 </p>
 <table class="grid">
  <tr><td>[parameter]=100</td><td>Values that equal 100, to 2 significant figures precision, so range [99.5 ... 100.5)</td></tr>
  <tr><td>[parameter]=100.00</td><td>Values that equal 100, to 4 significant figures precision, so range [99.995 ... 100.005). Whole numbers also equal 100.00, but not 100.01</td></tr>
- <tr><td>[parameter]=&lt;100</td><td>Values that are less than 100</td></tr>
- <tr><td>[parameter]=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
- <tr><td>[parameter]=&gt;100</td><td>Values that are greater than 100</td></tr>
- <tr><td>[parameter]=&gt;=100</td><td>Values that are greater or equal to 100</td></tr>
- <tr><td>[parameter]=!=100</td><td>Values that are not equal to 100. Precision works as for equals (this operation is the logical converse of equals)</td></tr>
+ <tr><td>[parameter]=lt100</td><td>Values that are less than 100</td></tr>
+ <tr><td>[parameter]=le100</td><td>Values that are less or equal to 100</td></tr>
+ <tr><td>[parameter]=gt100</td><td>Values that are greater than 100</td></tr>
+ <tr><td>[parameter]=ge100</td><td>Values that are greater or equal to 100</td></tr>
+ <tr><td>[parameter]=ne100</td><td>Values that are not equal to 100. Precision works as for equals (this operation is the logical converse of equals)</td></tr>
 </table>
 <p>
-For comparisons involving &lt; or &gt;, uncertainty does not factor, and the precision of the numbers is considered arbitrarily high.
-Note that the way these search parameters operate here is not the same as whether two numbers are equal to each other in a mathematical sense.
+Note that uncertainty does not factor in evaluations, and the precision of the numbers is considered arbitrarily high (the 
+way these search parameters operate here is not the same as whether two numbers are equal to each other in a mathematical sense).
 </p>
 
 <a name="date" />
 <h4>date</h4>
 <p>
-A date parameter searches on a date/time or period. The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value,
-and have the usual meaning. However, as is usual for date/time related functionality, while the
+A date parameter searches on a date/time or period. As is usual for date/time related functionality, while the
 concepts are relatively straight-forward, there are a number of subtleties involved in ensuring consistent behavior.
 </p>
 <ul>
@@ -292,8 +335,8 @@ concepts are relatively straight-forward, there are a number of subtleties invol
    </ul>
  </li>
  <li>[parameter]=[date] searches for resources where the date is within
-   the period implied by the given value in [date]. "[parameter]=&gt;[date]" searches for all resources where the specified date is after [date].
-   "[parameter]=&lt;=[date]" searches for all resources where the specified date is in or before [date], etc. </li>
+   the period implied by the given value in [date]. "[parameter]=gt[date]" searches for all resources where the specified date is after [date].
+   "[parameter]=le[date]" searches for all resources where the specified date is in or before [date], etc. </li>
  <li>The element the search refers to may have a datatype of <a href="datatypes.html#date">date</a>,
  <a href="datatypes.html#dateTime">dateTime</a>, <a href="datatypes.html#instant">instant</a>,
  <a href="datatypes.html#Period">Period</a>, or <a href="datatypes.html#Schedule">Schedule</a>.
@@ -307,14 +350,14 @@ concepts are relatively straight-forward, there are a number of subtleties invol
  <li>Date parameter searches are always matched based on the behavior of intervals, as follows:
    <ul>
      <li>For [parameter]=[date], the requirement is that the search interval fully contains the time of the target. i.e. [parameter]=2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
-     <li>For [parameter]=!=[date], the requirement is that the search interval does not fully contain the time of the target. i.e. [parameter]=!=2013-01-14 includes 2013-01-15T00:00 but not 2013-01-14T00:00 or 2013-01-14T10:00</li>
-	 <li>For "[parameter]=&lt;[date]", the requirement is that the interval of the time before [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element.
+     <li>For [parameter]=ne[date], the requirement is that the search interval does not fully contain the time of the target. i.e. [parameter]=!=2013-01-14 includes 2013-01-15T00:00 but not 2013-01-14T00:00 or 2013-01-14T10:00</li>
+	 <li>For "[parameter]=lt[date]", the requirement is that the interval of the time before [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element.
 	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
-	 <li>For "[parameter]=&gt;[date]", the requirement is that the interval of the time after [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element.
+	 <li>For "[parameter]=gt[date]", the requirement is that the interval of the time after [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element.
 	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am</li>
    </ul>
    Implicitly, a missing lower boundary is 'less than' any actual date.  A missing upper boundary is 'greater than' any actual date.
-   For instance, the period from 21-Jan 2013 onwards is included in matches for date=&gt;=2013-03-14 because it may include times after 14-Mar 2013.
+   For instance, the period from 21-Jan 2013 onwards is included in matches for date=ge2013-03-14 because it may include times after 14-Mar 2013.
  </li>
  <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
 	<ul>
@@ -336,7 +379,7 @@ concepts are relatively straight-forward, there are a number of subtleties invol
 As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
 </p>
 <pre>
- GET [base]/Patient/23/Procedure?date=&gt;2010-01-01&amp;date=&lt;2011-12-31
+ GET [base]/Patient/23/Procedure?date=ge2010-01-01&amp;date=le2011-12-31
 </pre>
 
 
@@ -502,19 +545,18 @@ A quantity parameter searches on the <a href="datatypes.html#Quantity">Quantity<
 The syntax for the value follows the form:
 </p>
 <ul>
- <li><b>[parameter]=[comparator][number]|[system]|[code]</b> matches a quantity with the given unit</li>
+ <li><b>[parameter]=[prefix][number]|[system]|[code]</b> matches a quantity with the given unit</li>
 </ul>
 <p>
-The comparator is optional; if it is not present, the default comparator is "=". A special value "~" can be used for approximation.  Example searches:
+The prefix optional, and is as described <a href="#prefix">above</a>. Example searches:
 </p>
 
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base]/Observation?value=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (system/code)</td></tr>
  <tr><td><pre> GET [base]/Observation?value=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the units - either the code  or the stated human units (units) are "mg"</td></tr>
- <tr><td><pre> GET [base]/Observation?value=&lt;5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
- <tr><td><pre> GET [base]/Observation?value=~5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit.
-   The recommended value for the approximation is 10% of the stated value, but systems may choose other values where appropriate</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=le5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=ap5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit</td></tr>
 </table>
 
 <p>
