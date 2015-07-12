@@ -245,14 +245,14 @@ of parameter.
 <p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix,
 separated from the parameter name by a colon. Modifiers are:</p>
 <ul>
- <li>For all parameters (except combination): ":missing". E.g. gender:missing=true (or false).
+ <li>For all parameters (except combination): <code>:missing</code>. E.g. gender:missing=true (or false).
   Searching for "gender:missing=true" will return all the resources that don't have any value for the gender parameter (which usually
   equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
- <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behavior, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
- <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other define modifiers are ":in", ":below", ":above", ":in" and ":not-in" which are described below</li>
- <li>For reference: ":[type]" where [type] is the name of a type of resource</li>
- <li>For uri: ":below", ":above" indicate that instead of an exact match, either the search term left matches the value, or vice-versa</li>
+ <li>For string: <code>:exact</code> (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), or <code>:contains</code> (case insensitive and accent-insensitive, partial match at start or end), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the end of the string)</li>
+ <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other define modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below</li>
+ <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource</li>
+ <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left matches the value, or vice-versa</li>
 </ul>
 
 <a name="number" />
@@ -343,23 +343,24 @@ As an example, the following search searches for all the procedures in a patient
 <a name="string" />
 <h4>string</h4>
 <p>
-The string parameter refers to simple string searches against sequences of characters.
-Matches are case- and accent- insensitive. By default, a match exists if a portion of
-the parameter value contains the specified string. It is at the discretion of the
-server whether to do a left-partial search. The modifier :exact can be used to indicate
-that the match needs to be exact (the whole string, including casing and accents). For example:
-</p>
-<pre>
- GET [base]/Patient?name=eve
- GET [base]/Patient?name:exact=Eve
-</pre>
-<p>
-The first is a request to find any patients with "eve" in any part of the name. This would
-include patients with the name "Eve", "Severine", etc. The second search would only return
-patients with the name "Eve".
+The string parameter refers to simple string searches against sequences of characters. 
+Matches are case- and accent- insensitive. By default, a field matches a string query 
+if the value of the field equals or starts with the supplied parameter value, after 
+both have been normalized by case and accent. The <code>:contains</code> modifier 
+returns results that include the supplied parameter value anywhere within the field 
+being searched. The <code>:exact</code> modifier returns results that exactly match 
+the supplied parameter (the whole string, including casing and accents).
 </p>
 <p>
-An additional modifier :text
+Examples:
+</p>
+<table class="grid">
+ <tr><td>[base]/Patient?name=eve</td><td>any patients with a name starting with "eve" at the start of the name. This would include patients with the name "Eve", "Evelyn"</td></tr>
+ <tr><td>[base]/Patient?name:contains=eve</td><td>any patients with a name starting with "eve" at the start of the name. This would include patients with the name "Eve", "Evelyn", and also "Severine"</td></tr>
+ <tr><td>[base]/Patient?name:exact=Eve</td><td>any patients with a name starting with "eve" at the start of the name. This would include patients with the name "Eve" but not "eve" or "EVE"</td></tr>
+</table>
+<p>
+An additional modifier <code>:text</code>
 can be used to specify a search with advanced text handling (see <a href="#text">below</a>)
 though only a few servers are expected to offer this facility.
 </p>
@@ -377,7 +378,7 @@ depending on culture and context.
 <p>
 The uri parameter refers to an element which is URI (<a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>).
 Matches are precise (e.g. case, accent, and escape) sensitive, and the entire URI must match. 
-The modifier :above or :below can be used to indicate
+The modifier <code>:above</code> or <code>:below</code> can be used to indicate
 that partial matching is used. For example:
 </p>
 <pre>
@@ -388,7 +389,7 @@ that partial matching is used. For example:
 The first is a request to find any value set with the exact url "http://acme.org/fhir/ValueSet/123". 
 The second search will return any value sets that have a URL that starts with "http://acme.org/fhir/".
 The converse - the search for any value set above a given specific URL - may be useful for searching
-name systems, but it is generally less useful than the :below search. 
+name systems, but it is generally less useful than the <code>:below</code> search. 
 </p>
 
 <a name="token" />
@@ -469,12 +470,12 @@ http://hl7.org/fhir/special-values, though there is usually no reason to use thi
 <p><b>Modifiers:</b></p>
 <table class="lines">
  <tr> <td><b>Modifier</b></td> <td><b>Use</b></td> </tr>
- <tr> <td>:text</td> <td>the search parameter is processed as a string that searches text associated with the code/value - either <i>CodeableConcept.text</i>, <i>Coding.display</i>, or <i>Identifier.type.text</i></td> </tr>
- <tr> <td>:not</td> <td>reverse the code matching described in the paragraph above</td> </tr>
- <tr> <td>:above</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource subsumes the specified search code (e.g. the search concept has an is-a relationship with the coding in the resource, and this includes the coding itself)</td> </tr>
- <tr> <td>:below</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource is subsumed by the specified search code (e.g. the coding in the resource has an is-a relationship with the search concept, and this includes the coding itself)</td> </tr>
- <tr> <td>:in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a reference to ValueSet.identifier)</td> </tr>
- <tr> <td>:not-in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set</td> </tr>
+ <tr> <td><code>:text</code></td> <td>the search parameter is processed as a string that searches text associated with the code/value - either <i>CodeableConcept.text</i>, <i>Coding.display</i>, or <i>Identifier.type.text</i></td> </tr>
+ <tr> <td><code>:not</code></td> <td>reverse the code matching described in the paragraph above</td> </tr>
+ <tr> <td><code>:above</code></td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource subsumes the specified search code (e.g. the search concept has an is-a relationship with the coding in the resource, and this includes the coding itself)</td> </tr>
+ <tr> <td><code>:below</code></td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource is subsumed by the specified search code (e.g. the coding in the resource has an is-a relationship with the search concept, and this includes the coding itself)</td> </tr>
+ <tr> <td><code>:in</code></td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a reference to ValueSet.identifier)</td> </tr>
+ <tr> <td><code>:not-in</code></td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set</td> </tr>
 </table>
 <p>
 Most servers will only process value sets that are already known/registered/supported internally, but servers can elect to accept any valid reference to a value set.
@@ -635,9 +636,9 @@ state-on-date=new$2013-05-04,active$2013-05-05.
 Modifiers are not used on composite parameters.
 <!--
 Future note: use \p and \m in search values? if we add a double = to parameter value for text, that would get rid
-of :exact.
+of <code>:exact</code>.
 Won't try to get rid of type modifier - that's the real use for modifiers because it has to be in a chaining line.
-Other modifier is :text on token - use "~"? or ""?
+Other modifier is <code>:text</code> on token - use "~"? or ""?
 -->
 </p>
 
@@ -877,7 +878,7 @@ set to "include" (in some searches, it is not obvious which resources are
 matches, and which are includes).
 </p>
 <p>
-The inclusion process can be recursive, if the modifier :recurse is included. 
+The inclusion process can be recursive, if the modifier <code>:recurse</code> is included. 
 For example, this example search returns all the <a href="medicationprescription.html">Medication
 Prescription</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
