@@ -36,24 +36,27 @@
     </div>
   </text>
 
-<!-- We're including the actual social history as contained resources
-  but could equally point to a 'real' resource of that existed-->
-<contained>
-  <Observation>
-    <id value='obs1'/>
-    <code>
-      <coding>
-        <system value='http://snomed.info/sct'/>
-        <code value="229819007"/>
-        <display value="Tobacco use and exposure (observable entity)"/>
-      </coding>
-      <text value="Smoking History"/>
-    </code>
-    <valueString value="Smoked 20x day for 10 years. Has not smokde for last 3 years."/>
-    <status value="final"/>
-    <reliability value="ok"/>
-  </Observation>
-</contained>
+	<!-- We're including the actual social history as contained resources
+		but could equally point to a 'real' resource of that existed-->
+	<contained>
+		<Observation>
+			<id value='obs1'/>
+			<code>
+				<coding>
+					<system value='http://snomed.info/sct'/>
+					<code value="229819007"/>
+					<display value="Tobacco use and exposure (observable entity)"/>
+				</coding>
+				<text value="Smoking History"/>
+			</code>
+			<valueString value="Smoked 20x day for 10 years. Has not smokde for last 3 years."/>
+			<status value="final"/>
+			<reliability value="ok"/>
+			<subject>
+				<reference value="Patient/example"/>
+			</subject>
+		</Observation>
+	</contained>
   
   <contained>
     <Observation>
@@ -69,6 +72,9 @@
       <valueString value="Social drinker. 3 bottle Gin per week, 6 bottles beer per day."/>
       <status value="final"/>
       <reliability value="ok"/>
+			<subject>
+				<reference value="Patient/example"/>
+			</subject>
     </Observation>
   </contained>
   

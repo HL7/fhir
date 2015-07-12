@@ -972,7 +972,6 @@ search results:
 <pre>
 &lt;Bundle&gt;
   ...
-  &lt;base value=&quot;http://example.com/fhir&quot;/&gt;
   &lt;entry&gt;
     &lt;resource&gt;
       &lt;MedicationPrescription&gt;
@@ -1002,9 +1001,8 @@ differently:
 <pre>
 &lt;Bundle&gt;
   ...
-  &lt;base value=&quot;http://example.com/fhir&quot;/&gt;
   &lt;entry&gt;
-    &lt;base value=&quot;http://example.com/fhir/MedicationPrescription/23#&quot;/&gt;
+    &lt;fullUrl value=&quot;http://example.com/fhir/MedicationPrescription/23#&quot;/&gt;
     &lt;resource&gt;
       &lt;Medication&gt;
         &lt;id value=&quot;m1&quot;&gt;
@@ -1018,11 +1016,8 @@ differently:
 &lt;/Bundle&gt;
 </pre>
 <p>
-In this case, the alternative base informs the client that this is a contained resource,
+In this case, the fullUrl informs the client that this is a contained resource,
 and the identity of the containing resource.
-</p>
-<p>
-<i>todo: this is yet another stitching rule for Bundle.entry.base</i>.
 </p>
 
 <a name="external"> </a>

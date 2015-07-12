@@ -21,6 +21,14 @@
 			<!--The observation is complete-->
 			<reliability value="ok"/>
 			<!--No reliability concerns-->
+			<subject>
+				<!--It entails Roel's BMI-->
+				<reference value="Patient/f201"/>
+				<display value="Roel"/>
+			</subject>
+			<performer>
+				<reference value="Practitioner/f201"/>
+			</performer>
 		</Observation>
 	</contained>
 	<contained>
@@ -43,6 +51,14 @@
 			<!--The observation is complete-->
 			<reliability value="ok"/>
 			<!--No reliability concerns-->
+			<subject>
+				<!--It entails Roel's BMI-->
+				<reference value="Patient/f201"/>
+				<display value="Roel"/>
+			</subject>
+			<performer>
+				<reference value="Practitioner/f201"/>
+			</performer>
 		</Observation>
 	</contained>
 	<code>

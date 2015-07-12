@@ -65,6 +65,12 @@
       </valueCodeableConcept>
       <status value="final"/>
       <reliability value="unknown"/>
+			<subject>
+				<reference value="#patsub"/>
+			</subject>
+			<performer>
+				<reference value="#questauth"/>
+			</performer>
     </Observation>
   </contained>
   <status value="completed"/>

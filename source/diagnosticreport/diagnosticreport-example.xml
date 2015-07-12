@@ -1,16 +1,12 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<?xml version="1.0" encoding="UTF-8"?>
 
-<!-- lab report example: a CBC -->
-
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+<DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="101"/>
   <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
       <h3>CBC Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2011 11:45</h3>
-<!-- you could use ab html table here, but laboratories are still
- using fixed text tables, and this will take decades to change... -->
-            <pre>
+      <pre>
 Test                  Units       Value       Reference Range
 Haemoglobin           g/L         176         135 - 180
 Red Cell Count        x10*12/L    5.9         4.2 - 6.0
@@ -30,21 +26,19 @@ Eosinophils           x10*9/L     0.92++      0.04 - 0.40
 Basophils             %           20
 Basophils             x10*9/L     0.92+++     &lt;0.21
       </pre>
-          <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
-      </div>
+      <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
+    </div>
   </text>
-  <!--
+  <contained>
+    <Observation><!-- 
   all the data items (= Observations) are contained
   in this diagnostic report. It would be equally
     valid - and normal - for them to be separate trackable
     items. However for the purposes of this example, it's
   more convenient to have them here. For more discussion,
   see under "Contained Resources" on the Resource Definitions
-  topic page -->
-  <!-- for users steeped in v2, each observation roughly corresponds with an
-    OBX, and the Diagnostic Report with an ORU_R01 message -->
-  <contained>
-    <Observation>
+  topic page  --><!--  for users steeped in v2, each observation roughly corresponds with an
+    OBX, and the Diagnostic Report with an ORU_R01 message  -->
       <id value="r1"/>
       <code>
         <coding>
@@ -62,6 +56,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="135"/>
@@ -97,6 +98,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="4.2"/>
@@ -126,20 +134,27 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </code>
       <valueQuantity>
         <value value="55"/>
-    <units value="%"/>
+        <units value="%"/>
       </valueQuantity>
       <interpretation>
         <coding>
-           <system value="http://hl7.org/fhir/v2/0078"/>
-           <code value="H"/>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="H"/>
         </coding>
       </interpretation>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="38"/>
-         <units value="%"/>
+          <units value="%"/>
         </low>
         <high>
           <value value="52"/>
@@ -167,12 +182,19 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <interpretation>
         <coding>
-           <system value="http://hl7.org/fhir/v2/0078"/>
-           <code value="H"/>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="H"/>
         </coding>
       </interpretation>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="80"/>
@@ -206,14 +228,21 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <system value="http://unitsofmeasure.org"/>
         <code value="pg"/>
       </valueQuantity>
-            <interpretation>
+      <interpretation>
         <coding>
-           <system value="http://hl7.org/fhir/v2/0078"/>
-           <code value="H"/>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="H"/>
         </coding>
       </interpretation>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="27"/>
@@ -249,6 +278,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="150"/>
@@ -284,6 +320,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="4.0"/>
@@ -319,6 +362,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
     </Observation>
   </contained>
   <contained>
@@ -340,12 +390,19 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <interpretation>
         <coding>
-           <system value="http://hl7.org/fhir/v2/0078"/>
-           <code value="LL"/>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="LL"/>
         </coding>
       </interpretation>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="2.0"/>
@@ -381,11 +438,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
     </Observation>
   </contained>
   <contained>
-  <Observation>
-    <id value="r11"/>
+    <Observation>
+      <id value="r11"/>
       <code>
         <coding>
           <system value="http://loinc.org"/>
@@ -402,12 +466,19 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <interpretation>
         <coding>
-           <system value="http://hl7.org/fhir/v2/0078"/>
-           <code value="L"/>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="L"/>
         </coding>
       </interpretation>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="1.1"/>
@@ -443,6 +514,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
     </Observation>
   </contained>
   <contained>
@@ -464,6 +542,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="0.2"/>
@@ -499,6 +584,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
     </Observation>
   </contained>
   <contained>
@@ -520,12 +612,19 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <interpretation>
         <coding>
-           <system value="http://hl7.org/fhir/v2/0078"/>
-           <code value="HH"/>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="HH"/>
         </coding>
       </interpretation>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <low>
           <value value="0.04"/>
@@ -561,6 +660,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
     </Observation>
   </contained>
   <contained>
@@ -582,6 +688,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
       <referenceRange>
         <high>
           <value value="0.21"/>
@@ -591,9 +704,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained>
-
-<!-- first, various administrative/context stuff -->
+  </contained><!--  first, various administrative/context stuff  -->
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -606,7 +717,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </coding>
     <text value="Complete Blood Count"/>
   </code>
-  <status value="final"/> <!-- all this report is final -->
+  <status value="final"/><!--  all this report is final  -->
   <issued value="2011-03-04T11:45:33+11:00"/>
   <subject>
     <reference value="Patient/pat2"/>
@@ -622,12 +733,10 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <serviceCategory>
     <coding>
       <system value="http://hl7.org/fhir/v2/0074"/>
-    <code value="HM"/>
-  </coding>
+      <code value="HM"/>
+    </coding>
   </serviceCategory>
-  <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
-
-  <!-- now the atomic results -->
+  <effectiveDateTime value="2011-03-04T08:30:00+11:00"/><!--  now the atomic results  -->
   <result>
     <reference value="#r1"/>
   </result>
@@ -678,12 +787,10 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   </result>
   <result>
     <reference value="#r17"/>
-  </result>
-
-  <!-- finally, here's a pdf representation of the same report.
+  </result><!--  finally, here's a pdf representation of the same report.
     A consuming application could choose to display either the
 	html version above, or the pdf version - they both need to convey the
-	same information -->
+	same information  -->
   <presentedForm>
     <contentType value="application/pdf"/>
     <language value="en-AU"/>

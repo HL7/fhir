@@ -67,6 +67,14 @@ The actual reference looks like this:
 
 <p>&nbsp;</p>
 
+<div class="use">
+<p><b>Constraints</b></p>
+<p>
+[%dt.constraints Reference%]
+</p>
+
+</div>
+
 <p>Notes:</p>
 <ul>
  <li>The <i>reference</i> element contains a url that is either
@@ -120,13 +128,20 @@ This text can be used by a system that is unable to resolve the reference to an 
 </p>
 </div>
 
+<p>
+Note that some elements have the type "<a href="datatypes.html#uri">uri</a>" instead of "Reference".
+URIs may point to either resources, elements inside a resource by their "id" property, or (most often)
+some other content that is not a resource. The Reference type is only used to refer to resources
+directly, by their logical id.
+</p>
+
 <a name="contained"> </a>
 <h3>Contained Resources</h3>
 <p>
 In some circumstances, the content referred to in the resource reference does not have an independent
 existence apart from the resource that contains it - it cannot be identified independently, and nor
-can it have its own independent transaction scope. Typically, such circumstances arise where the resource
-is being assembled by a secondary user of the source data, such as a middleware engine. If the data available
+can it have its own independent transaction scope. Typically, such circumstances arise where resources
+are being assembled by a secondary user of the source data, such as a middleware engine. If the data available
 when the resource is constructed does not include record keys or absolute identification information, then
 a properly identified resource cannot be assembled, and even if an arbitrary identification was associated
 with it, the resource could never be the subject of a transaction outside the context of the resource that
@@ -217,40 +232,12 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources SHALL NOT contain any narrative</li>
   <li>A contained resource can only be included in another resource if something in the resource actually refers to it:</li>
 </ul>
-<div class="use">
-<p><b>Constraints</b></p>
 <p>
-[%dt.constraints Reference%]
-</p>
-
-</div>
-
-<h4>Context Inside a Resource</h4>
-<p>
-Resources that are contained inline may also "inherit" context from their parent resource. For instance, if
+Resources that are contained inline do not "inherit" context from their parent resource. For instance, if
 the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
-but does not specify any subject, a processing application might infer that the subject is the same.
-</p>
-<p>
-However FHIR provides no mechanism for defining or constraining any conduction of "equivalent" properties 
-from a containing resource into any contained resource - not even by declaring the use of a particular profile.
-Best practice is to explicitly include all known properties on contained resources, even if redundant with 
-properties on the containing resource.  E.g. If the containing resource and contained resource both have a 
-"subject" element, both elements should be present, even if they reference the same resource.  Applications that 
-choose to omit redundant elements on contained resources should not expect other applications to infer 
-(or correctly infer) the intended meaning in this case.  Applications cannot safely presume that omitted 
-elements in contained resources can safely be inferred to be the same as the containing resource.  
-Any attempt to optimize resource content by 'conducting' meaning from containing to contained resources must 
-be managed through out-of-band agreement and must be done with the recognition that any receiver not party 
-to that agreement may not make correct (or any) inferences.
+thre is no implication that the contained resource has the same subject as the parent resource.
 </p>
     
-<p>
-Note that some elements have the type "<a href="datatypes.html#uri">uri</a>" instead of "Reference".
-URIs may point to either resources, elements inside a resource by their "id" property, or (most often)
-some other content that is not a resource. The Reference type is only used to refer to resources
-directly, by their logical id.
-</p>
 
 
 <!--
