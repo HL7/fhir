@@ -1571,8 +1571,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (element.hasAttribute("xml:id"))
       return false;
     WrapperElement child = element.getFirstChild();
-    if (child != null && (!child.isXml() || FormatUtilities.FHIR_NS.equals(child.getNamespace())))
-      return false;        
+    while (child != null) {
+      if (!child.isXml() || FormatUtilities.FHIR_NS.equals(child.getNamespace())) {
+        return false;
+      }
+      child = child.getNextSibling();
+    }
     return true;
   }
 
