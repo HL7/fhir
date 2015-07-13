@@ -42,6 +42,8 @@
     
     putting an example inside a profile indicates that it's subject to that profile
   -->    
+  <profile source="basic-cqif-extensions-spreadsheet.xml" type="spreadsheet">
+  </profile>
   <profile source="basic-knowledgerequest-cqif-profile-spreadsheet.xml" type="spreadsheet">
   </profile>
   <profile source="basic-knowledgeresponse-cqif-profile-spreadsheet.xml" type="spreadsheet">
@@ -55,9 +57,9 @@
   <profile source="documentreference-evidence-cqif-profile-spreadsheet.xml" type="spreadsheet">
   </profile>
   <profile source="basic-knowledgemodule-cqif-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="CQIF KnowledgeModule DataRequirements" description="KnowledgeModule used to represent aggregate data requirements as the response of a $guidanceRequirements operation" source="knowledgemodule-datarequirements-example.xml"/>
+    <!--example name="CQIF KnowledgeModule DataRequirements" description="KnowledgeModule used to represent aggregate data requirements as the response of a $guidanceRequirements operation" source="knowledgemodule-datarequirements-example.xml"/>
     <example name="CQIF KnowledgeModule Module" description="KnowledgeModule used to define a Knowledge Module" source="knowledgemodule-module-example.xml"/>
-    <example name="CQIF KnowledgeModule Artifact" description="KnowledgeModule used to define the common aspects of a knowledge artifact" source="knowledgemodule-artifact-example.xml"/>
+    <example name="CQIF KnowledgeModule Artifact" description="KnowledgeModule used to define the common aspects of a knowledge artifact" source="knowledgemodule-artifact-example.xml"/-->
   </profile>
   <!--
     dictionaries

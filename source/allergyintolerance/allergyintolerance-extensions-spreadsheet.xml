@@ -3,24 +3,29 @@
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Claude Nanjo</LastAuthor>
+  <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-02-24T01:51:35Z</LastSaved>
+  <LastSaved>2015-07-13T16:35:17Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
+ <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <WorkbookGuid dt:dt="string">2a999a68-bdc9-4d60-95c5-d916a00df1fa</WorkbookGuid>
+ </CustomDocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10185</WindowHeight>
-  <WindowWidth>24615</WindowWidth>
+  <WindowHeight>7305</WindowHeight>
+  <WindowWidth>20250</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -811,6 +816,27 @@
    <Interior/>
   </Style>
  </Styles>
+ <Names>
+  <NamedRange ss:Name="LOCAL_DATE_SEPARATOR"
+   ss:RefersTo="=INDEX(GET.WORKSPACE(37),17)" ss:Hidden="1"/>
+  <NamedRange ss:Name="LOCAL_DAY_FORMAT" ss:RefersTo="=INDEX(GET.WORKSPACE(37),21)"
+   ss:Hidden="1"/>
+  <NamedRange ss:Name="LOCAL_HOUR_FORMAT"
+   ss:RefersTo="=INDEX(GET.WORKSPACE(37),22)" ss:Hidden="1"/>
+  <NamedRange ss:Name="LOCAL_MINUTE_FORMAT"
+   ss:RefersTo="=INDEX(GET.WORKSPACE(37),23)" ss:Hidden="1"/>
+  <NamedRange ss:Name="LOCAL_MONTH_FORMAT"
+   ss:RefersTo="=INDEX(GET.WORKSPACE(37),20)" ss:Hidden="1"/>
+  <NamedRange ss:Name="LOCAL_MYSQL_DATE_FORMAT"
+   ss:RefersTo="=REPT(LOCAL_YEAR_FORMAT,4)&amp;LOCAL_DATE_SEPARATOR&amp;REPT(LOCAL_MONTH_FORMAT,2)&amp;LOCAL_DATE_SEPARATOR&amp;REPT(LOCAL_DAY_FORMAT,2)&amp;&quot; &quot;&amp;REPT(LOCAL_HOUR_FORMAT,2)&amp;LOCAL_TIME_SEPARATOR&amp;REPT(LOCAL_MINUTE_FORMAT,2)&amp;LOCAL_TIME_SEPARATOR&amp;REPT(LOCAL_SECOND_FORMAT,2)"
+   ss:Hidden="1"/>
+  <NamedRange ss:Name="LOCAL_SECOND_FORMAT"
+   ss:RefersTo="=INDEX(GET.WORKSPACE(37),24)" ss:Hidden="1"/>
+  <NamedRange ss:Name="LOCAL_TIME_SEPARATOR"
+   ss:RefersTo="=INDEX(GET.WORKSPACE(37),18)" ss:Hidden="1"/>
+  <NamedRange ss:Name="LOCAL_YEAR_FORMAT"
+   ss:RefersTo="=INDEX(GET.WORKSPACE(37),19)" ss:Hidden="1"/>
+ </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
@@ -949,7 +975,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5108,7 +5134,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C3:R18C3</Range>
+   <Range>R17C3:R18C3,R17C6:R18C6,R17C15:R18C15</Range>
    <Condition>
     <Value1>(#REF!=&quot;&quot;)&lt;&gt;(#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -5118,13 +5144,6 @@
    <Range>R2C6:R16C6,R2C15:R16C15</Range>
    <Condition>
     <Value1>(R[1048529]C1=&quot;&quot;)&lt;&gt;(R[1048529]C[16319]=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C6:R18C6,R17C15:R18C15</Range>
-   <Condition>
-    <Value1>(#REF!=&quot;&quot;)&lt;&gt;(#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
