@@ -21,21 +21,16 @@ public class ResourceModifier {
 //
     XmlParser xml = new XmlParser();
     xml.setOutputStyle(OutputStyle.PRETTY);
-    InputStream si = new FileInputStream("C:\\work\\org.hl7.fhir\\build\\source\\diagnosticreport\\diagnosticreport-example-dxa.xml");
+    InputStream si = new FileInputStream("C:\\work\\org.hl7.fhir\\build\\source\\practitioner\\practitioner-examples-general.xml");
     Resource r = xml.parse(si);
     si.close();
     
-//    Bundle b = (Bundle) r;
-//    for (BundleEntryComponent e : b.getEntry()) {
-//      DiagnosticReport dr = (DiagnosticReport) e.getResource();
-    DiagnosticReport dr = (DiagnosticReport) r;
-      for (Resource c : dr.getContained()) {
-        Observation o = (Observation) c;
-        o.setSubject(dr.getSubject());
-        o.addPerformer(dr.getPerformer());
-      }
-//    }
-    OutputStream so = new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\source\\diagnosticreport\\diagnosticreport-example-dxa.xml");
+    Bundle b = (Bundle) r;
+    for (BundleEntryComponent e : b.getEntry()) {
+      e.setFullUrl("http://hl7.org/fhir/Practitioner/"+e.getResource().getId());
+    }
+    
+    OutputStream so = new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\source\\practitioner\\practitioner-examples-general.xml");
     xml.compose(so, r);
     so.close();
   }
