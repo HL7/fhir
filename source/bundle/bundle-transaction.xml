@@ -145,7 +145,6 @@
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://example.org/fhir/Patient/234"/>
     <!-- a simple delete operation -->
     <!-- no resource in this case -->
     <!-- transaction details -->
@@ -161,7 +160,6 @@
     </request>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:760a81b4-8ce5-48da-93dd-fd854d532a41"/>
     <!-- a conditional delete operation -->
     <!-- no resource in this case -->
     <!-- transaction details -->
@@ -195,7 +193,6 @@
     </request>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:a1587ae6-4f8d-45c2-96eb-070a8029ef4b"/>
     <!-- can also do read-only operations. 
     
     Note that these do not 'fail' - see discussion on transaction 

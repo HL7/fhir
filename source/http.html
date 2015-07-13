@@ -860,7 +860,7 @@ servers processing history bundles must have some strategy to manage this.
 </p>
 <p>
 For other bundle types, should the server choose to accept them, there will be
-no <code>transaction</code> element (note that every entry will have a resource).
+no <code>request</code> element (note that every entry will have a resource).
 In this case, the server treats the entry as either a create or an update interaction,
 depending on whether it recognises the identity of the resource - if the identity
 of the resource refers to a valid location on the server, it should treat it
@@ -886,10 +886,10 @@ The return content is a <a href="compartments.html#bundle">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> set to <code>history</code> containing the 
 specified version history, sorted with oldest versions last, and including deleted resources.
 Each entry SHALL minimally contain a either a <code>resource</code> which holds the resource as 
-it is at the conclusion of the interaction, or a <code>transaction</code> with <code>entry.transaction.method</code> 
-= DELETE. The <code>transaction</code> provides information about the interaction that occurred to 
+it is at the conclusion of the interaction, or a <code>request</code> with <code>entry.request.method</code> 
+= DELETE. The <code>request</code> provides information about the interaction that occurred to 
 cause the new version. The principal reason it might not be missing is that the resource was changed 
-by some other channel than via the RESTful interface. If the <code>entry.transaction.method</code> is 
+by some other channel than via the RESTful interface. If the <code>entry.request.method</code> is 
 a <code>PUT</code> or a <code>POST</code>, the entry SHALL contain a resource.
 </p>
 <p>
@@ -908,11 +908,11 @@ A create interaction is represented in a history interaction in the following wa
         &lt;!-- snip --&gt;
       &lt;/Patient&gt;
     &lt;/resource&gt;
-    &lt;transaction&gt;
+    &lt;request&gt;
       &lt;!-- POST: this was a create --&gt;
       &lt;method value="POST"/&gt;
       &lt;url value="Patient"/&gt;
-    &lt;/transaction&gt;
+    &lt;/request&gt;
   &lt;/entry&gt;
 </pre>
 <p>
