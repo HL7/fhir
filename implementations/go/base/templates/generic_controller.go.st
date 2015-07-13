@@ -76,18 +76,18 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 	}
 	<endif>
 	
-	var <LowerCaseModelName>EntryList []models.<ModelName>BundleEntry
+	var <LowerCaseModelName>EntryList []models.BundleEntryComponent
 	for _, <LowerCaseModelName> := range result {
-		var entry models.<ModelName>BundleEntry
-		entry.Id = <LowerCaseModelName>.Id
-		entry.Resource = <LowerCaseModelName>
+		var entry models.BundleEntryComponent
+		entry.Resource = &<LowerCaseModelName>
 		<LowerCaseModelName>EntryList = append(<LowerCaseModelName>EntryList, entry)
 	}
 
-	var bundle models.<ModelName>Bundle
+	var bundle models.Bundle
 	bundle.Id = bson.NewObjectId().Hex()
 	bundle.Type = "searchset"
-	bundle.Total = len(result)
+	var total = uint32(len(result))
+    bundle.Total = &total
 	bundle.Entry = <LowerCaseModelName>EntryList
 
 	log.Println("Setting <LowerCaseModelName> search context")
@@ -97,7 +97,7 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 
 	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
 	rw.Header().Set("Access-Control-Allow-Origin", "*")
-	json.NewEncoder(rw).Encode(bundle)
+	json.NewEncoder(rw).Encode(&bundle)
 }
 
 func Load<ModelName>(r *http.Request) (*models.<ModelName>, error) {

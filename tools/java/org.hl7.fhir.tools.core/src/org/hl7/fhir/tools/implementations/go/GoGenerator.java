@@ -36,11 +36,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
@@ -49,10 +45,11 @@ import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
-import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.stringtemplate.v4.ST;
+import org.stringtemplate.v4.STGroup;
+import org.stringtemplate.v4.STRawGroupDir;
 
 public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
@@ -93,32 +90,32 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         createDirStructure(dirs);
 
+        STGroup templateGroup = new STRawGroupDir(Utilities.path(basedDir, "templates"));
+
         Map<String, TypeDefn> typeDefs = definitions.getTypes();
         for (String name : typeDefs.keySet()) {
-            generateMgoModel(name, dirs.get("modelDir"), definitions);
+            generateMgoModel(name, dirs.get("modelDir"), templateGroup, definitions);
         }
 
         Map<String, TypeDefn> infDefs = definitions.getInfrastructure();
         for (String name : infDefs.keySet()) {
-            generateMgoModel(name, dirs.get("modelDir"), definitions);
+            generateMgoModel(name, dirs.get("modelDir"), templateGroup, definitions);
         }
 
         Map<String, TypeDefn> structs = definitions.getStructures();
         for (String name : structs.keySet()) {
-            generateMgoModel(name, dirs.get("modelDir"), definitions);
+            generateMgoModel(name, dirs.get("modelDir"), templateGroup, definitions);
         }
-
-        String genericControllerTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_controller.go.st"));
-        String genericModelAppendixTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_model_appendix.go.st"));
 
         Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
         generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
-            generateMgoModel(entry.getKey(), dirs.get("modelDir"), definitions, "encoding/json");
-            generateModelAppendix(entry.getKey(), dirs.get("modelDir"), genericModelAppendixTemplate);
-            generateGoController(entry.getKey(), entry.getValue(), dirs.get("serverDir"), genericControllerTemplate);
+            generateMgoModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions, "encoding/json");
+            generateGoController(entry.getKey(), entry.getValue(), dirs.get("serverDir"), templateGroup);
         }
+
+        generateGoUtil(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
 
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference.go")), new File(dirs.get("modelDir")));
@@ -139,27 +136,15 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         }
     }
 
-    private void generateMgoModel(String name, String modelDir, Definitions definitions, String... imports) throws Exception {
+    private void generateMgoModel(String name, String modelDir, STGroup templateGroup, Definitions definitions, String... imports) throws Exception {
         File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
-        MgoModel model = new MgoModel(name, definitions, modelFile, imports);
+        MgoModel model = new MgoModel(name, definitions, modelFile, templateGroup, imports);
         model.generate();
     }
 
-    private void generateModelAppendix(String name, String modelDir, String genericBundleTemplate) throws IOException {
-        File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
-        ST bundleTemplate = new ST(genericBundleTemplate);
-
-        bundleTemplate.add("ModelName", name);
-
-        Writer bundleWriter = new BufferedWriter(new FileWriter(modelFile, true));
-        bundleWriter.write(bundleTemplate.render());
-        bundleWriter.flush();
-        bundleWriter.close();
-    }
-
-    private void generateGoController(String name, ResourceDefn def, String controllerDir, String genericControllerTemplate) throws IOException {
+    private void generateGoController(String name, ResourceDefn def, String controllerDir, STGroup templateGroup) throws IOException {
         File controllerFile = new File(Utilities.path(controllerDir, name.toLowerCase() + ".go"));
-        ST controllerTemplate = new ST(genericControllerTemplate);
+        ST controllerTemplate = templateGroup.getInstanceOf("generic_controller.go");
 
         boolean searchBySubject = false;
         boolean searchByPatient = false;
@@ -236,6 +221,21 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         serverWriter.flush();
         serverWriter.close();
+    }
+
+    private void generateGoUtil(Set<String> resourceNames, String outputDir, STGroup templateGroup) throws IOException {
+        // Sort the resources by name just for consistent (diff-able) output
+        ArrayList<String> resourceList = new ArrayList<String>(resourceNames);
+        Collections.sort(resourceList);
+
+        ST utilTemplate = templateGroup.getInstanceOf("util.go");
+        utilTemplate.add("Resources", resourceList);
+
+        File outputFile = new File(Utilities.path(outputDir, "util.go"));
+        Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
+        controllerWriter.write(utilTemplate.render());
+        controllerWriter.flush();
+        controllerWriter.close();
     }
 
     @Override
