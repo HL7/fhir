@@ -127,16 +127,58 @@ Each entry element SHALL contain a resource.
 <a name="bundle-unique"> </a>
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 
-type:   unique:
-document  - no (weird edge cases - change tracking?)
-message - no (well, messaging deltas?)
-transaction - no, not allowed
-transaction-response - no not allowed
-batch - no not allowed
-batch-response - no not allowed
-history - yes allowed
-searchset - no not allowed
-collection - yes allowed
+<p>
+Each entry in a batch must have a fullUrl which it the identity of the resource in
+the entry. Note that this is not a versioned reference to the resource, but it's 
+identity. Where a resource is not assigned a persistent identity that can be used
+in the bundle, a UUID should be used (urn:uuid:...).
+</p>
+<p>
+In some bundles, a given resource can only appear once:
+</p>
+<table class="grid">
+ <tr>
+  <td><b>Type</b></td>
+  <td><b>Rules</b></td>
+ </tr>
+ <tr>
+  <td>document</td>
+  <td>no duplicates (weird edge cases - change tracking?)</td>
+ </tr>
+ <tr>
+  <td>message</td>
+  <td>no duplicates (well, messaging deltas?)</td>
+ </tr>
+ <tr>
+  <td>transaction</td>
+  <td>no duplicates allowed</td>
+ </tr>
+ <tr>
+  <td>transaction-response</td>
+  <td>no duplicates allowed</td>
+ </tr>
+ <tr>
+  <td>batch</td>
+  <td>no duplicates allowed</td>
+ </tr>
+ <tr>
+  <td>batch-response</td>
+  <td>no duplicates allowed</td>
+ </tr>
+ <tr>
+  <td>history</td>
+  <td>yes, duplicates are allowed</td>
+ </tr>
+ <tr>
+  <td>searchset</td>
+  <td>no duplicates allowed</td>
+ </tr>
+ <tr>
+  <td>collection</td>
+  <td>yes, duplicates are allowed, though generally would not be a good idea</td>
+ </tr>
+</table>
+
 
 
 <a name="resolving"> </a>
