@@ -210,7 +210,7 @@ How to resolve a reference in a bundle:
   <ul>
     <li>if the fullUrl is a uri, then (you're stuffed!) What to do in this case? </li>
     <li>if the fullUrl of the resource that contains the reference is a RESTful one (see the <a href="references.html#regex">RESTful URL regex</a>), extract the <a href="http.html#base">[base]</a>, and append the reference to it</li>
-    <li>otherwise, treat the fullUrl as a normal URL, and replace the tail of the URL with the reference</li>
+    <li>otherwise, treat the fullUrl as a normal URL, and follow the normal method for <a href="https://tools.ietf.org/html/rfc2396#section-5.2">Resolving Relative References to Absolute Form</a></li>
   </ul>
  </li>
  <li>Look for an entry with a fullUrl that contains the URL in the reference
