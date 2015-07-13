@@ -359,6 +359,12 @@ public class ResourceValidator extends BaseValidator {
     if (e.usesType("string") && e.usesType("CodeableConcept"))
       rule(errors, IssueType.STRUCTURE, path, e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
     hint(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
+    
+    if (e.getName().equals("subject"))
+      warning(errors, IssueType.STRUCTURE, path, !e.typeCode().equals("Reference(Patient)"), "Elements with name 'subject' cannot be a reference to just a patient"); // make this an error...
+    if (e.getName().equals("patient"))
+      rule(errors, IssueType.STRUCTURE, path, e.typeCode().equals("Reference(Patient)"), "Elements with name 'patient' must be a reference to just a patient");
+    
 //    if (needsRimMapping)
 //      warning(errors, IssueType.REQUIRED, path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
 
