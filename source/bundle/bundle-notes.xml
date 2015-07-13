@@ -124,6 +124,20 @@ Each entry element SHALL contain a resource.
 
 <p><a href="diagnosticreport-examples.html">Example</a></p>
 
+<a name="bundle-unique"> </a>
+<h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
+
+type:   unique:
+document  - no (weird edge cases - change tracking?)
+message - no (well, messaging deltas?)
+transaction - no, not allowed
+transaction-response - no not allowed
+batch - no not allowed
+batch-response - no not allowed
+history - yes allowed
+searchset - no not allowed
+collection - yes allowed
+
 
 <a name="resolving"> </a>
 <a name="references"> </a>
@@ -147,44 +161,27 @@ Applications reading a bundle should always <a href="references.html#bundle-refs
 by its identity in the bundle first before trying to access it by its URL.
 </p>
 <p>
-How to resolve a reference in a bundle depends on the kind of reference, and the 
-context in which it is found:
+How to resolve a reference in a bundle:
 </p>
-<ul>
- <li><b>Reference is an absolute URI</b> (e.g. http://example.org/fhir/Patient/1 or urn:uuid:77c0b7fe-9929-40e9-b7a0-a10b0a512c46): 
+<ol>
+ <li>If the reference is not an absolute reference, convert it
   <ul>
-    <li>Look for an entry with a fullUrl that contains the URL in the reference</li>
-  </ul>
-    
- </li>
- <li><b>Reference is an relative URI, entry has a matching fullUrl</b> (e.g. resource is an Observation with id = 123, fullUrl on the entry = http://example.org/fhir/Observation/123), reference = Patient/1, : 
-  <ul>
-    <li>The target address is the base URL + reference (e.g. in the example given, http://example.org/fhir/Patient/1</li>
-    <li>Look for an entry with a fullUrl that contains the target</li>
+    <li>if the fullUrl is a uri, then (you're stuffed!) What to do in this case? </li>
+    <li>if the fullUrl of the resource that contains the reference is a RESTful one (see the <a href="references.html#regex">RESTful URL regex</a>), extract the <a href="http.html#base">[base]</a>, and append the reference to it</li>
+    <li>otherwise, treat the fullUrl as a normal URL, and replace the tail of the URL with the reference</li>
   </ul>
  </li>
- <li><b>Reference is an relative URI, entry has a non-matching fullUrl</b> (eg. resource is an ValueSet with id = xxfd, fullUrl on the entry = http://example.org/cts/vs/2345) reference = 3452): 
+ <li>Look for an entry with a fullUrl that contains the URL in the reference
   <ul>
-    <li>The target address is the URL with the tail removed + the reference (e.g. in the example given, http://example.org/cts/vs/3452)</li>
-    <li>Look for an entry with a fullUrl that contains the target</li>
+   <li>If no match is found, the resource is not in the bundle, and must be found elsewhere (e.g. if an http: URL, try accessing it directly)</li>
+   <li>If multiple matches are found, it is ambiguous which is correct</li>
   </ul>
  </li>
- <li><b>Reference is an relative URI, entry has no fullUrl</b> (eg. resource is a Condition with id = 2345, no fullUrl on the entry, reference = Patient/234): 
-  <ul>
-    <li>Look through the bundle for a resource with no fullUrl, of the specified type, with the right id</li>
-    <li>Look for an entry with a fullUrl that contains the target</li>
-  </ul>
- </li>
-</ul> 
+</ol>
 <p>
-Rules for all cases:
+If the reference is version specific (either relative or absolute), then remove the version from the 
+URL before matching fullUrl, and then match the version based on <code>Resource.meta.versionId</code>.
 </p>
-<ul>
- <li>If no match is found, the resource is not in the bundle, and must be found elsewhere (e.g. if an http: URL, try accessing it directly)</li>
- <li>In any of these cases, if multiple matches are found, it is ambiguous which is correct. Bundles SHOULD not contain two resources with the same identity.</li>
- <li>References and fullUrls may be version specific. In that case, the same matching logic applies, but including the version as well</li>
- <li>Matching between resources/references with an without fullUrls is not safe, but may be done by trading partner agreement</li>
-</ul>
 <p>
 Here is an example Bundle the demonstrates these rules:
 </p>
@@ -193,16 +190,29 @@ Here is an example Bundle the demonstrates these rules:
 &lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;type value=&quot;collection&quot;/&gt;
 
-  &lt;!-- a simple entry, a patient with an id, and no fullUrl --&gt;
+  &lt;!-- A patient that already has an id on a server --&gt;
   &lt;entry&gt;
+    &lt;fullUrl value=&quot;http://example.org/fhir/Patient/23&quot;/&gt;
     &lt;resource&gt;
       &lt;Patient&gt;
          &lt;id value=&quot;23&quot;/&gt;
       &lt;/Patient&gt;
     &lt;/resource&gt;
   &lt;entry&gt;
-  &lt;!-- a simple entry with a reference --&gt;
+  
+  &lt;!-- A patient that doesn't have a persistent home - but it does have 
+      a UUID assigned for this bundle "locally identified" --&gt;
   &lt;entry&gt;
+    &lt;fullUrl value=&quot;urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d&quot;/&gt;
+    &lt;resource&gt;
+      &lt;Patient&gt;
+      &lt;/Patient&gt;
+    &lt;/resource&gt;
+  &lt;entry&gt;
+  
+  &lt;!-- a relative resource reference --&gt;
+  &lt;entry&gt;
+    &lt;fullUrl value=&quot;http://example.org/fhir/Observation/123&quot;/&gt;
     &lt;resource&gt;
       &lt;Observation&gt;
          &lt;id value=&quot;123&quot;/&gt;
@@ -214,56 +224,48 @@ Here is an example Bundle the demonstrates these rules:
     &lt;/resource&gt;
   &lt;entry&gt;
 
-  &lt;!-- an unidentified patient. This has no persistent 
-    identifier, but it does have a UUID assigned for this bundle   --&gt;
+  &lt;!-- an absolute reference --&gt;
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d&quot;/&gt;
+    &lt;fullUrl value=&quot;http://example.org/fhir/Observation/123&quot;/&gt;
     &lt;resource&gt;
-      &lt;Patient&gt;
-      &lt;/Patient&gt;
+      &lt;Observation&gt;
+         &lt;id value=&quot;123&quot;/&gt;
+         &lt;subject&gt;
+           &lt;!-- this is reference to the resource above --&gt;
+           &lt;reference value=&quot;http://example.org/fhir/Patient/1&quot;/&gt;
+         &lt;/subject&gt;
+      &lt;/Organization&gt;
     &lt;/resource&gt;
   &lt;entry&gt;
-  
-  &lt;!-- An observation with a fullUrl --&gt;
+
+  &lt;!-- reference to a locally identified resource --&gt;
   &lt;entry&gt;
     &lt;fullUrl value=&quot;http://example.org/fhir/Observation/12&quot;/&gt;
     &lt;resource&gt;
       &lt;Observation&gt;
          &lt;id value=&quot;12&quot;/&gt;
          &lt;subject&gt;
-           &lt;!-- this looks like a reference to the first entry, 
-             but it isn't automatically because there's no 
-             fullUrl on the first one, and we don't know whether
-             it's actually the same or not. Maybe it could be 
-             known to tbe true in a particular context. Because 
-             of this, we recommend that implementers do not mix 
-             entries with and without fullUrl in a single bundle --&gt;
-           &lt;reference value=&quot;Patient/1&quot;/&gt;
+           &lt;!-- reference to the patient immediately above --&gt;
+           &lt;reference value=&quot;urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d&quot;/&gt;
          &lt;/subject&gt;
       &lt;/Observation&gt;
     &lt;/resource&gt;
   &lt;entry&gt;
   
-  &lt;!-- A condition with a fullUrl --&gt;
+  &lt;!-- reference that doesn't resolve in this bundle --&gt;
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;http://example.org/fhir/Condition/1234&quot;/&gt;
+    &lt;fullUrl value=&quot;http://example.org/fhir/Observation/12&quot;/&gt;
     &lt;resource&gt;
-      &lt;Condition&gt;
-         &lt;id value=&quot;1234&quot;/&gt;
-         &lt;patient&gt;
-            &lt;!-- reference to the unidentified patient --&gt;
-           &lt;reference value=&quot;urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d&quot;/&gt;
-         &lt;/patient&gt;
-         &lt;evidence&gt;
-           &lt;detail&gt;
-             &lt;!-- This is a reference to the entry immediately above 
-               because the base are the same --&gt;
-             &lt;reference value=&quot;Observation/12&quot;/&gt;
-           &lt;/detail&gt;
-         &lt;/evidence&gt;
-      &lt;/Condition&gt;
+      &lt;Observation&gt;
+         &lt;id value=&quot;12&quot;/&gt;
+         &lt;subject&gt;
+           &lt;!-- reference to a patient not found in this bundle --&gt;
+           &lt;reference value=&quot;http://example.org/fhir-2/Patient/1&quot;/&gt;
+         &lt;/subject&gt;
+      &lt;/Observation&gt;
     &lt;/resource&gt;
   &lt;entry&gt;
+  
 &lt;/Bundle&gt;
 </pre>
 </div>
