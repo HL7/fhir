@@ -16,7 +16,10 @@
   
   <series>
     <number value="3"/>
-    <modality value="CT"/>
+    <modality>
+		  <system value="http://nema.org/dicom/dicm"/>
+		  <code value="CT"/>
+		</modality> 
     <uid value="urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
     <description value="CT Surview 180"/>
     <numberOfInstances value="1"/>
