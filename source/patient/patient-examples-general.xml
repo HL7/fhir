@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+
+<Bundle xmlns="http://hl7.org/fhir">
   <id value="b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
   <meta>
     <lastUpdated value="2012-05-29T23:45:32Z"/>
   </meta>
   <type value="collection"/>
   <entry>
-    <resource>  
+    <fullUrl value="http://hl7.org/fhir/Patient/1"/>
+    <resource>
       <Patient>
         <id value="1"/>
         <meta>
@@ -14,8 +16,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Everywoman, Eve. SSN:
-            444222222</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Everywoman, Eve. SSN:
+            444222222</div>
         </text>
         <identifier>
           <type>
@@ -27,7 +29,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444222222"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Everywoman"/>
@@ -38,25 +39,22 @@
           <value value="555-555-2003"/>
           <use value="work"/>
         </telecom>
-        <gender value="female" />
+        <gender value="female"/>
         <birthDate value="1973-05-31"/>
         <address>
           <use value="home"/>
           <line value="2222 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/2"/>
     <resource>
-
       <Patient>
         <id value="2"/>
         <meta>
@@ -64,8 +62,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Everyman, Adam. SSN:
-            444333333</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Everyman, Adam. SSN:
+            444333333</div>
         </text>
         <identifier>
           <type>
@@ -77,7 +75,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444333333"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Everyman"/>
@@ -88,24 +85,21 @@
           <value value="555-555-2004"/>
           <use value="work"/>
         </telecom>
-        <gender value="male" />
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="2222 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/3"/>
     <resource>
-
       <Patient>
         <id value="3"/>
         <meta>
@@ -113,8 +107,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Kidd, Kari. SSN:
-            444555555</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Kidd, Kari. SSN:
+            444555555</div>
         </text>
         <identifier>
           <type>
@@ -126,7 +120,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444555555"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Kidd"/>
@@ -137,23 +130,21 @@
           <value value="555-555-2005"/>
           <use value="work"/>
         </telecom>
-        <gender value="female" />
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="2222 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/4"/>
     <resource>
-
       <Patient>
         <id value="4"/>
         <meta>
@@ -161,8 +152,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Nuclear, Nancy. SSN:
-            444114567</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Nuclear, Nancy. SSN:
+            444114567</div>
         </text>
         <identifier>
           <type>
@@ -174,7 +165,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444114567"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Nuclear"/>
@@ -185,24 +175,21 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender value="female" />
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="6666 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/5"/>
     <resource>
-
       <Patient>
         <id value="5"/>
         <meta>
@@ -210,8 +197,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Nuclear, Neville. SSN:
-            444111234</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Nuclear, Neville. SSN:
+            444111234</div>
         </text>
         <identifier>
           <type>
@@ -223,7 +210,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444111234"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Nuclear"/>
@@ -234,24 +220,21 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender value="male" />
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="6666 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/6"/>
     <resource>
-
       <Patient>
         <id value="6"/>
         <meta>
@@ -259,8 +242,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Nuclear, Ned. SSN:
-            444113456</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Nuclear, Ned. SSN:
+            444113456</div>
         </text>
         <identifier>
           <type>
@@ -272,7 +255,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444113456"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Nuclear"/>
@@ -283,23 +265,21 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender value="male" />
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="6666 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/7"/>
     <resource>
-
       <Patient>
         <id value="7"/>
         <meta>
@@ -307,8 +287,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Nuclear, Nelda. SSN:
-            444112345</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Nuclear, Nelda. SSN:
+            444112345</div>
         </text>
         <identifier>
           <type>
@@ -320,7 +300,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444112345"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Nuclear"/>
@@ -331,24 +310,21 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender value="female" />
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="6666 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/8"/>
     <resource>
-
       <Patient>
         <id value="8"/>
         <meta>
@@ -356,8 +332,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Mum, Martha. SSN:
-            444666666</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Mum, Martha. SSN:
+            444666666</div>
         </text>
         <identifier>
           <type>
@@ -369,7 +345,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444666666"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Mum"/>
@@ -380,23 +355,21 @@
           <value value="555-555-2006"/>
           <use value="work"/>
         </telecom>
-        <gender value="female" />
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="4444 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/9"/>
     <resource>
-
       <Patient>
         <id value="9"/>
         <meta>
@@ -404,8 +377,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sons, Stuart. SSN:
-            444777777</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Sons, Stuart. SSN:
+            444777777</div>
         </text>
         <identifier>
           <type>
@@ -417,7 +390,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444777777"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Sons"/>
@@ -428,7 +400,7 @@
           <value value="555-555-2007"/>
           <use value="work"/>
         </telecom>
-        <gender value="other" >
+        <gender value="other">
           <extension url="http://example.org/Profile/administrative-status">
             <valueCodeableConcept>
               <coding>
@@ -444,19 +416,16 @@
           <use value="home"/>
           <line value="4444 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
-
         <active value="true"/>
       </Patient>
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/10"/>
     <resource>
-
       <Patient>
         <id value="10"/>
         <meta>
@@ -464,8 +433,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Betterhalf, Boris. SSN:
-            444888888</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Betterhalf, Boris. SSN:
+            444888888</div>
         </text>
         <identifier>
           <type>
@@ -477,7 +446,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444888888"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Betterhalf"/>
@@ -488,24 +456,21 @@
           <value value="555-555-2008"/>
           <use value="work"/>
         </telecom>
-        <gender value="male" />
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="2222 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/11"/>
     <resource>
-
       <Patient>
         <id value="11"/>
         <meta>
@@ -513,8 +478,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Relative, Ralph. SSN:
-            444999999</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Relative, Ralph. SSN:
+            444999999</div>
         </text>
         <identifier>
           <type>
@@ -526,7 +491,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444999999"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Relative"/>
@@ -537,24 +501,21 @@
           <value value="555-555-2009"/>
           <use value="work"/>
         </telecom>
-        <gender value="male" />
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="4444 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
-
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/12"/>
     <resource>
-
       <Patient>
         <id value="12"/>
         <meta>
@@ -562,8 +523,8 @@
         </meta>
         <text>
           <status value="generated"/>
-          <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Contact, Carrie. SSN:
-            555222222</xhtml:div>
+          <div xmlns="http://www.w3.org/1999/xhtml">Contact, Carrie. SSN:
+            555222222</div>
         </text>
         <identifier>
           <type>
@@ -575,7 +536,6 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="555222222"/>
         </identifier>
-
         <name>
           <use value="official"/>
           <family value="Contact"/>
@@ -586,19 +546,16 @@
           <value value="555-555-2010"/>
           <use value="work"/>
         </telecom>
-        <gender value="female" />
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="5555 Home Street"/>
         </address>
-
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-
-
     </resource>
   </entry>
 </Bundle>

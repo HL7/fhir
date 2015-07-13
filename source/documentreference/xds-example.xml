@@ -7,11 +7,9 @@
   </meta>
   <type value="transaction"/>
   <entry>
-    <!-- although the resource has an id - which it might need so it can referred to 
-      from within this transaction, the server is to treat it as a new resource (see transaction below) -->
-    <resource>
+    <fullUrl value="urn:uuid:3fdc72f4-a11d-4a9d-9260-a9f745779e1d"/>
+    <resource> 
       <DocumentReference>
-        <id value="a1"/>
         <meta>
           <lastUpdated value="2013-07-01T13:11:33Z"/>
         </meta>
@@ -72,6 +70,7 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="http://localhost:9556/svc/fhir/Patient/a2"/>
     <!-- if the server can find a matching resource, use that, else create a new 
       resource with these details -->
     <resource>  
@@ -104,6 +103,7 @@
     </request> 
   </entry>
   <entry>
+    <fullUrl value="http://localhost:9556/svc/fhir/Practitioner/a3"/>
     <resource>  
       <Practitioner>
         <id value="a3"/>
@@ -148,6 +148,7 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="http://localhost:9556/svc/fhir/Practitioner/a4"/>
     <resource>  
       <Practitioner>
         <id value="a4"/>
@@ -193,6 +194,7 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
     <resource>  
       <Binary>
         <id value="1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>

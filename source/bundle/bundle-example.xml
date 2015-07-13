@@ -31,6 +31,7 @@
   
   <!-- now, the actual entries -->
   <entry>
+    <fullUrl value="https://example.com/base/MedicationPrescription/3123"/>
     <!-- the matching resource -->
     <resource>
       <MedicationPrescription>
@@ -60,6 +61,7 @@
     </search>
   </entry>
   <entry>
+    <fullUrl value="https://example.com/base/Medication/example"/>
     <resource>
       <Medication xmlns="http://hl7.org/fhir">
         <id value="example"/>

@@ -7,6 +7,7 @@
   </meta> 
   <type value="collection"/> [%loop count=70%]
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Patient/[%count%]"/>
     <resource>
       <Patient>
         <id value="[%count%]"/>

@@ -13,6 +13,7 @@
     response
   -->
   <entry>
+    <fullUrl value="http://example.org/fhir/Patient/12423"/>
     <!-- response for the simple create operation -->
     <!-- whether to return the result resource depends on client preference -->
     <resource>
@@ -47,6 +48,7 @@
   </entry>
   
   <entry>
+    <fullUrl value="urn:uuid:936a6a4e-2db8-4158-a485-47575c2b5302"/>
     <!-- response to the conditional create operation -->
     <!-- in this case, there was a match to the If-None-Exist header -->
     <response>
@@ -55,6 +57,7 @@
     </response>
   </entry>
   <entry>
+    <fullUrl value="http://example.org/fhir/Patient/123"/>
     <!-- response to a simple update operation -->
     <!-- no return resource for this example, though in a 
       real transaction, all entries would have a resource or all would not 
@@ -66,6 +69,7 @@
     </response>
   </entry>
   <entry>
+    <fullUrl value="http://example.org/fhir/Patient/12424"/>
     <!-- response to the conditional update operation -->
     <response>
       <!-- created a new resource for this one -->
@@ -75,6 +79,7 @@
     </response>
   </entry>
   <entry>
+    <fullUrl value="http://example.org/fhir/Patient/234"/>
     <!-- response to the simple delete operation -->
     <response>
       <!-- successful deletion -->
@@ -82,14 +87,15 @@
     </response>
   </entry>
   <entry>
+    <fullUrl value="http://example.org/fhir/Patient/2e2344"/>
     <!-- response to the conditional delete operation -->
     <response>
-      <!-- delete matching resource - but which was it? no way 
-       to find out. So don't use this method if that would be a problem -->
+      <!-- delete matching resource - see fullUrl above -->
       <status value="DELETE"/>
     </response>
   </entry>
   <entry>
+    <fullUrl value="urn:uuid:7f9724ed-ef8d-4434-aacb-41869db83233"/>
     <!-- operation response -->
     <resource>
       <Parameters>
@@ -106,6 +112,7 @@
     </response>
   </entry>
   <entry>
+    <fullUrl value="urn:uuid:e7bcef8e-5ef9-4d2b-87d5-b42b1eec9125"/>
     <!-- response to search -->
     <resource>
       <Bundle>

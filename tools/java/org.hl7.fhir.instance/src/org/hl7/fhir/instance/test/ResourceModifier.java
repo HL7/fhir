@@ -19,20 +19,20 @@ public class ResourceModifier {
   public static void main(String[] args) throws FileNotFoundException, Exception {
     // TODO Auto-generated method stub
 //
-    XmlParser xml = new XmlParser();
-    xml.setOutputStyle(OutputStyle.PRETTY);
-    InputStream si = new FileInputStream("C:\\work\\org.hl7.fhir\\build\\source\\practitioner\\practitioner-examples-general.xml");
-    Resource r = xml.parse(si);
-    si.close();
-    
-    Bundle b = (Bundle) r;
-    for (BundleEntryComponent e : b.getEntry()) {
-      e.setFullUrl("http://hl7.org/fhir/Practitioner/"+e.getResource().getId());
-    }
-    
-    OutputStream so = new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\source\\practitioner\\practitioner-examples-general.xml");
-    xml.compose(so, r);
-    so.close();
+//    XmlParser xml = new XmlParser();
+//    xml.setOutputStyle(OutputStyle.PRETTY);
+//    InputStream si = new FileInputStream("C:\\work\\org.hl7.fhir\\build\\source\\diagnosticreport\\diagnosticreport-examples-lab-text.xml");
+//    Resource r = xml.parse(si);
+//    si.close();
+//    
+//    Bundle b = (Bundle) r;
+//    for (BundleEntryComponent e : b.getEntry()) {
+//      e.setFullUrl("http://hl7.org/fhir/DiagnosticReport/"+e.getResource().getId());
+//    }
+//    
+//    OutputStream so = new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\source\\diagnosticreport\\diagnosticreport-examples-lab-text.xml");
+//    xml.compose(so, r);
+//    so.close();
   }
 
 }
