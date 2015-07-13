@@ -35,6 +35,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
+import java.util.ArrayList;
 
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -42,17 +43,21 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GenBlock;
+import org.stringtemplate.v4.ST;
+import org.stringtemplate.v4.STGroup;
 
 public class MgoModel {
     private String name;
     private File outputFile;
+    private STGroup templateGroup;
     private Definitions definitions;
     private String[] imports;
 
-    public MgoModel(String name, Definitions definitions, File outputFile, String... imports) {
+    public MgoModel(String name, Definitions definitions, File outputFile, STGroup templateGroup, String... imports) {
         this.name = name;
         this.definitions = definitions;
         this.outputFile = outputFile;
+        this.templateGroup = templateGroup;
         this.imports = imports;
     }
 
@@ -61,6 +66,7 @@ public class MgoModel {
         GenBlock fileBlock = new GenBlock();
         generateHeader(fileBlock);
         generateResourceStruct(fileBlock);
+        generateCustomMarshallersAndUnMarshallers(fileBlock);
         generateComponentStructs(fileBlock);
 
         outputFile.createNewFile();
@@ -100,6 +106,35 @@ public class MgoModel {
     private void generateComponentStructs(GenBlock fileBlock) {
         for (ElementDefn elementDefinition : getRootDefinition().getElements()) {
             generateComponentStruct(fileBlock, elementDefinition);
+        }
+    }
+
+    private void generateCustomMarshallersAndUnMarshallers(GenBlock fileBlock) throws Exception {
+        if (definitions.getResources().containsKey(name)) {
+            ST st = templateGroup.getInstanceOf("generic_resource_marshaller.go");
+            st.add("Name", name);
+            fileBlock.ln(st.render());
+        }
+
+        generateCustomUnmarshaller(name, getRootDefinition(), fileBlock);
+    }
+
+    private void generateCustomUnmarshaller(String structName, ElementDefn elementDefn, GenBlock fileBlock) {
+        ArrayList<String> resourceFields = new ArrayList<String>();
+        for (ElementDefn elementDefinition : elementDefn.getElements()) {
+            for (TypeRef typeRef : elementDefinition.getTypes()) {
+                if ("Resource".equals(typeRef.getName()) || "Resource".equals(typeRef.getResolvedTypeName())) {
+                    resourceFields.add(getFieldName(elementDefinition, typeRef));
+                }
+            }
+        }
+
+        if (!resourceFields.isEmpty()) {
+            ST st = templateGroup.getInstanceOf("generic_resource_unmarshaller.go");
+            st.add("Name", structName);
+            st.add("LowerName", lowercase(structName));
+            st.add("Fields", resourceFields);
+            fileBlock.ln(st.render());
         }
     }
 
@@ -143,8 +178,10 @@ public class MgoModel {
                     if (!fieldName.equals("Id")) {
                         block.ln(getFieldDefinition(fieldName, m.typify("string")));
                     }
-                } else if (elementType.equals("Resource") || elementType.equals("idref")) {
+                } else if (elementType.equals("idref")) {
                     block.ln(getFieldDefinition(fieldName, m.typify("Reference")));
+                } else if (elementType.equals("Resource")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("interface{}")));
                 } else if (elementType.equals("Age") || elementType.equals("Count") || elementType.equals("Duration") || elementType.equals("Money")) {
                     block.ln(getFieldDefinition(fieldName, m.typify("Quantity")));
                 } else {
@@ -168,7 +205,7 @@ public class MgoModel {
             String result = type;
             if (isSlice) {
                 result = "[]".concat(type);
-            } else if (! "string".equals(type)) {
+            } else if (! "string".equals(type) && ! "interface{}".equals(type)) {
                 result = "*".concat(type);
             }
             return result;
@@ -184,12 +221,12 @@ public class MgoModel {
     }
 
     private String getFieldDefinition(String fieldName, String fieldTypeModifier, String fieldType) {
-        String typeName = Character.toLowerCase(fieldName.charAt(0)) + (fieldName.length() > 1 ? fieldName.substring(1) : "");
+        String typeName = lowercase(fieldName);
         return String.format("%s %s%s `bson:\"%s,omitempty\" json:\"%s,omitempty\"`", fieldName, fieldTypeModifier, fieldType, typeName, typeName);
     }
 
     private String getFieldDefinition(String fieldName, String fieldType) {
-        String typeName = Character.toLowerCase(fieldName.charAt(0)) + (fieldName.length() > 1 ? fieldName.substring(1) : "");
+        String typeName = lowercase(fieldName);
         return String.format("%s %s `bson:\"%s,omitempty\" json:\"%s,omitempty\"`", fieldName, fieldType, typeName, typeName);
     }
 
@@ -211,12 +248,15 @@ public class MgoModel {
 
     private void generateComponentStruct(GenBlock block, ElementDefn elementDefinition) {
         if(isComponent(elementDefinition)) {
+            String structName = getComponentStructName(elementDefinition);
             block.ln();
-            block.bs(String.format("type %s struct {", getComponentStructName(elementDefinition)));
+            block.bs(String.format("type %s struct {", structName));
             for (ElementDefn nestedElement : elementDefinition.getElements()) {
                 generateFields(block, nestedElement);
             }
             block.es("}");
+
+            generateCustomUnmarshaller(structName, elementDefinition, block);
 
             for (ElementDefn nestedElement : elementDefinition.getElements()) {
                 generateComponentStruct(block, nestedElement);
@@ -227,6 +267,10 @@ public class MgoModel {
 
     private String capitalize(String str) {
         return Character.toUpperCase(str.charAt(0)) + (str.length() > 1 ? str.substring(1) : "");
+    }
+
+    private String lowercase(String str) {
+        return Character.toLowerCase(str.charAt(0)) + (str.length() > 1 ? str.substring(1) : "");
     }
 
     private TypeDefn getRootDefinition() {
