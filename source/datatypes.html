@@ -971,45 +971,50 @@ Signature
 See also <a href="datatypes-examples.html#Signature">Examples</a>, <a href="datatypes-definitions.html#Signature">Detailed Descriptions</a> and <a href="datatypes-mappings.html#Signature">Mappings</a>.
 </p>
 <p>
-A Signature holds a Digital Signature and supporting context in a FHIR accessible form. The non-repudiation proof is provided through the XML-Signature blob. 
+A Signature holds an electronic representation of a signature and it's supporting context in a FHIR accessible form. 
+The signature may either be a cryptographic type (XML DigSig or a JWT), which is able to provide non-repudiation proof, or 
+it may be a graphical image that represents a signature or a signature process. 
 </p>
 [%dt Signature 14%]
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints Signature%]
+</div>
+
 <p>
-The Signature.blob is base64 encoded XML-Signature. The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature. Where the content that is signed is separate from the signature itself. 
+Note: One consequence of signing the document is that URLs, identifiers and internal references are frozen and 
+cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed 
+ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is 
+recommended that systems consider carefully the impact of any signature processes. The impact of signatures
+on <a href="documents.html">Document bundles</a> and their related processes is the most well understood
+use of digital signatures.
 </p>
+
+<p>&nbsp;</p>
+<h3>XML Signature rules</h3>
 <p>
-The Signature should conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation. 
+When the signature is an XML Digital Signature (contentType = application/signature+xml), the following rules apply:
 </p>
-<p>
-Where the signed content is a FHIR Resource(s), the signature is accross the the XML form of the resource(s).
-</p>
-<p>
-The content should be canonicalized using the "Canonical XML 1.1. with Comments".
-</p>
-<p>
-The Signature should use the hashing algorithm sha256. The XML-Signature indicates the algorithm used. Other hashing algoirthms should be expected to have been used, signature validation policy would determine acceptability.
-</p>
-<p>
-The Signature Shall include a “CommitmentTypeIndication” element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). 
-The Signature.type shall contain the same values as committmentTypeIndication.
-</p>
+<ul>
+ <li>The Signature.blob is base64 encoded XML-Signature</li>
+ <li>The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li> 
+ <li>The Signature SHOULD conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
+ <li>When FHIR Resources are signed, the signature is accross the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
+ <li>The Signature SHOULD use the hashing algorithm sha256. Signature validation policy will apply to the signature and determine acceptability</li>
+ <li>The Signature SHALL include a “CommitmentTypeIndication” element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as committmentTypeIndication</li>
+</ul>
 <p>
 There are three levels of signature verification: 
 <ol>
    <li>	verifying that the Digital Signature block itself has integrity through verifying the signature across the XML-Signature, </li>
    <li> confirming that the signer was authentic, not revoked, and appropriate to the signature purpose, </li>
-   <li> confirming that the signed content of interest are unmodified using the hash algorithm.</li>
+   <li> confirming that the signed content of interest is unmodified using the hash algorithm.</li>
 </ol>
 </p>
 <p>
 Deviations from these guidelines would need to be expressed in site policy, and would be enumerated in the XML-Signature block. 
 For example some environments may choose a different XAdES profile, hashing algorithm, policy identifier, or signature purpose vocabulary. 
 </p>
-<div class="use">
-<p><b>Constraints</b></p>
-[%dt.constraints Signature%]
-
-</div>
 
 <p>
 Signature is used in the following places: [%dtusage Signature%]

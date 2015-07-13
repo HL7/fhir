@@ -90,17 +90,58 @@ required to do so. Exchanged content SHALL NOT specify the schema or even contai
 instance namespace in the resource itself. 
 </p>
 
-<h3>Digital Signatures</h3>
+<a name="canonical"> </a>
 <a name="digsig"> </a>
-<p>Resources and/or Bundles may be digitally signed (ref to be provided). One consequence of 
-signing the document is that URLs, identifiers and internal references are frozen and cannot be changed.
-This might be a desired feature, but it may also cripple interoperability between closed ecosystems where
-<a href="managing.html">re-identification</a> frequently occurs. For this reason, it is recommended 
-that only Document Bundles are signed and then only when all the related resources are found in the bundle.</p>
+
+<h3>Canonical XML</h3>
+<p>
+Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html">Provenance</a>). 
+</p>
+<p>
+This specification defines the following method for canonicalizing XML representations FHIR resources, when represented as 
+xml:
+</p>
+<ul>
+ <li>No whitespace other than single spaces attribute values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
+ <li>Use default namespaces for the FHIR and XHTML namespaces</li>
+ <li>Omit all elements that have a default value, if a default value is defined</li>
+ <li>Omit all comments</li>
+ <li>Always use the unicode character representation for any XML entities (e.g. &amp;#39; instead of &amp;quot;)</li>
+ <li>Include the XML processing instruction &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</li>
+ <li>Using the XML canonical method <a href="http://www.w3.org/TR/xmldsig-core1/#sec-Canonical">Canonical XML 1.1</a> (<code>http://www.w3.org/2006/12/xml-c14n11</code>)</li>
+</ul>
+<p>
+This canonicalization method is identified by the URL <code>http://hl7.org/fhir/canonicalization/xml</code>. The 
+following additional canonicalization URLS are also defined:
+</p>
+<table class="grid">
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/xml#data</td>
+  <td>The narrative (<code>Resource.text</code>) is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/xml#static</td>
+  <td>In addition to narrative (Resource.text), the <code>Resource.meta</code> element is removed. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/xml#narrative</td>
+  <td>The method only covers the <code>Resource.id</code> and Narrative is reatined</td>
+ </tr>
+</table>
+<p>
+These canonicalization methods allow system the flexiibility to sign the various portions of 
+the resource that matter for the workflow the signature serves.
+</p>
 
 <p>
-todo: canonical XML
+Note: One consequence of signing the document is that URLs, identifiers and internal references are frozen and 
+cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed 
+ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is 
+recommended that systems consider carefully the impact of any signature processes. The impact of signatures
+on <a href="documents.html">Document bundles</a> and their related processes is the most well understood
+use of digital signatures.
 </p>
+
 
 
 
