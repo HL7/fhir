@@ -9,4 +9,4 @@
 500 OK Internal Server Error
 [other headers]
 
-$include ..\OperationOutcome\operationoutcome-example-exception.xml
+$include ..\operationoutcome\operationoutcome-example-exception.xml
