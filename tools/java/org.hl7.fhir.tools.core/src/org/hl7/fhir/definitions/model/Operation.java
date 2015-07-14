@@ -11,13 +11,11 @@ public class Operation {
     private String content;
     private String comment;
     private boolean response;
-    private String bundle;
-    public OperationExample(String content, String comment, boolean response, String bundle) {
+    public OperationExample(String content, String comment, boolean response) {
       super();
       this.content = content;
       this.comment = comment;
       this.response = response;
-      this.bundle = bundle;
     }
     public String getContent() {
       return content;
@@ -28,10 +26,7 @@ public class Operation {
     public boolean isResponse() {
       return response;
     }
-    public String getBundle() {
-      return bundle;
-    }
-    
+   
   }
 
   private String name;

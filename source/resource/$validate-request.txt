@@ -1,0 +1,24 @@
+// validate a Patient against the DAF patient profile using POST directly.
+POST /open/Patient/$validate?profile=http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient
+[other headers]
+
+$include ../patient/patient-example-us-extensions.xml
+
+--------------------------------------
+// validate a proposed patient update - and for this example, using the Parameters syntax
+
+POST /open/Patient/example/$validate
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="mode"/>
+    <valueCode value="update"/>
+  <parameter>
+  <parameter>
+    <name value="mode"/>
+    <resource>
+$include 6 ../patient/patient-example.xml
+    </resource>
+  <parameter>
+</Parameters>

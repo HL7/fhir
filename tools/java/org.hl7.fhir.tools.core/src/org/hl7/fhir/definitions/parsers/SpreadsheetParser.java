@@ -476,34 +476,41 @@ public class SpreadsheetParser {
     String[] lines = s.trim().split("\\r?\\n");
     StringBuilder content = new StringBuilder();
     String comment = null;
-    String bundle = null;
     for (String l : lines)
       if (l.startsWith("//"))
         comment = l.substring(2).trim();
       else if (l.startsWith("$bundle ")) {
-        bundle = l.substring(8);
+        content.append(l);
+        content.append("\r\n");
       } else if (l.startsWith("$link ")) {
         String url = l.substring(6);
         String title = url.substring(url.indexOf(" ")+1);
         url= url.substring(0, url.indexOf(" "));
         content.append("<a href=\""+url+"\">See "+Utilities.escapeXml(title)+"</a>\r\n");
-      } else if (l.startsWith("$include "))
-        process(content, TextFile.fileToString(Utilities.path(folder, l.substring(9))));
-      else {
+      } else if (l.startsWith("$include ")) {
+        int indent = 0;
+        String filename = l.substring(9).trim();
+        if (filename.contains(" ")) {
+          indent = Integer.parseInt(filename.substring(0, filename.indexOf(" ")));
+          filename = filename.substring(filename.indexOf(" ")).trim();
+        }
+        process(content, indent, TextFile.fileToString(Utilities.path(folder, filename)));
+      } else {
         content.append(Utilities.escapeXml(l));
         content.append("\r\n");
       }
-    return new OperationExample(content.toString(), comment, resp, bundle);
+    return new OperationExample(content.toString(), comment, resp);
   }
 
-  private void process(StringBuilder content, String s) {
+  private void process(StringBuilder content, int indent, String s) {
+    String pfx = Utilities.padLeft("",  ' ', indent);
     String[] lines = s.trim().split("\\r?\\n");
     for (String l : lines)
       if (l.contains("xmlns:xsi=")) {
-        content.append(Utilities.escapeXml(l.substring(0, l.indexOf("xmlns:xsi=")-1)));
+        content.append(pfx+Utilities.escapeXml(l.substring(0, l.indexOf("xmlns:xsi=")-1)));
         content.append(">\r\n");
       } else {
-        content.append(Utilities.escapeXml(l));
+        content.append(pfx+Utilities.escapeXml(l));
         content.append("\r\n");
       }
   }

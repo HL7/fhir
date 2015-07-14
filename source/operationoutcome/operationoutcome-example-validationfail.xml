@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OperationOutcome xmlns="http://hl7.org/fhir">
+  <id value="validationfail"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Error parsing resource XML (Unknown Content &quot;label&quot; @ /Patient/identifier/label)</p>
+    </div>
+  </text>
+  <issue>
+    <severity value="error"/>
+    <details value="Error parsing resource XML (Unknown Content &quot;label&quot;"/>
+    <location value="/f:Patient/f:identifier"/>    
+  </issue>
+</OperationOutcome>

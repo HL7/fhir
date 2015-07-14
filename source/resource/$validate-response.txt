@@ -1,0 +1,15 @@
+// returned when the resource is valid
+
+HTTP/1.1 200 OK
+[other headers]
+
+$include ../operationoutcome/operationoutcome-example-allok.xml
+
+--------------------------------------
+// returned when the resource is not valid
+
+HTTP/1.1 400 Bad Request
+[other headers]
+
+$include ../operationoutcome/operationoutcome-example-validationfail.xml
+

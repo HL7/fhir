@@ -3971,6 +3971,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
       else if (com[0].equals("operations"))
         src = s1 + genOperations(resource) + s3;  
+      else if (com[0].equals("operations-summary"))
+        src = s1 + genOperationsSummary(resource) + s3;  
       else if (com[0].equals("opcount"))
         src = s1 + genOpCount(resource) + s3;  
       else if (com[0].startsWith("!"))
@@ -4029,6 +4031,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return Integer.toString(resource.getOperations().size()) + (resource.getOperations().size() == 1 ? " operation" : " operations");
   }
 
+  private String genOperationsSummary(ResourceDefn resource) throws Exception {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"list\">\r\n");
+    for (Operation op : resource.getOperations()) {
+      b.append("<tr><td><a href=\"#"+op.getName()+"\">$"+Utilities.escapeXml(op.getName())+"</a></td><td>"+Utilities.escapeXml(op.getTitle())+"</td></tr>\r\n");      
+    }
+    b.append("</table>\r\n");
+    return b.toString();
+  }
+  
   private String genOperations(ResourceDefn resource) throws Exception {
     StringBuilder b = new StringBuilder();
     for (Operation op : resource.getOperations()) {
@@ -4075,21 +4087,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("<p>"+type+":</p>\r\n");
     else  
       b.append("<p>"+Utilities.capitalize(ex.getComment())+" ("+type+"):</p>\r\n");
-    if (ex.getBundle() == null) {
-      b.append("<pre>\r\n"+ex.getContent()+"\r\n</pre>\r\n");
-    } else {
-      b.append("<pre>\r\n");
-      b.append(Utilities.escapeXml("<Bundle xml=\"http://hl7.org/fhir\">\r\n"));
-      b.append(Utilities.escapeXml("  <id value=\""+UUID.randomUUID().toString().toLowerCase()+"\"/>\r\n"));
-      b.append(Utilities.escapeXml("  <type value=\"searchset\"/>\r\n"));
-      Example e = getExampleByRef(ex.getBundle());
-      addExample(b, e);
-      for (Example x : e.getInbounds()) {
-        addExample(b, x);
+
+    b.append("<pre>\r\n");
+    String[] lines = ex.getContent().split("\\r\\n");
+    for (String l : lines) {
+      if (l.startsWith("$bundle ")) {
+        b.append(Utilities.escapeXml("<Bundle xml=\"http://hl7.org/fhir\">\r\n"));
+        b.append(Utilities.escapeXml("  <id value=\""+UUID.randomUUID().toString().toLowerCase()+"\"/>\r\n"));
+        b.append(Utilities.escapeXml("  <type value=\"searchset\"/>\r\n"));
+        Example e = getExampleByRef(l.substring(8));
+        addExample(b, e);
+        for (Example x : e.getInbounds()) {
+          addExample(b, x);
+        }
+        b.append(Utilities.escapeXml("</Bundle>\r\n"));
+      } else {
+        b.append(l);
+        b.append("\r\n");
       }
-      b.append(Utilities.escapeXml("</Bundle>\r\n"));
-      b.append("</pre>\r\n");
     }
+    b.append("</pre>\r\n");
   }
 
   private void addExample(StringBuilder b, Example x) throws TransformerFactoryConfigurationError, TransformerConfigurationException, TransformerException {

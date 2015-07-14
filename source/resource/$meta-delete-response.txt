@@ -1,0 +1,15 @@
+// all the tags, profiles, and security labels used on patient resources
+
+HTTP/1.1 200 OK
+[other headers]
+
+<Parameters>
+  <return>
+    <profile value="http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient"/>
+    <tag>
+      <system value="http://example.org/codes/tags"/>
+      <code value="record-lost"/>
+      <display value="Patient File Lost"/>
+    </tag>    
+  </return>
+</Parameters>

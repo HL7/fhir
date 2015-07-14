@@ -1,0 +1,14 @@
+// add a 'paper record lost' tag to a resource
+
+POST /fhir/Patient/example/$meta-add
+[Other headers]
+
+<Parameters>
+  <meta>
+    <tag>
+      <system value="http://example.org/codes/tags"/>
+      <code value="record-lost"/>
+      <display value="Patient File Lost"/>
+    </tag>
+  </meta>
+</Parameters>

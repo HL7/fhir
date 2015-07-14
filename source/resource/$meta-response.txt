@@ -1,0 +1,21 @@
+// all the tags, profiles, and security labels used on patient resources
+
+HTTP/1.1 200 OK
+[other headers]
+
+<Parameters>
+  <return>
+    <profile value="http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabpatient"/>
+    <security>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="EMP"/>
+      <display value="employee information sensitivity"/>
+    </security>
+    <tag>
+      <system value="http://example.org/codes/tags"/>
+      <code value="current"/>
+      <display value="Current Inpatient"/>
+    </tag>
+  </return>
+</Parameters>

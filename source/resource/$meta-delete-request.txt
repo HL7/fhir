@@ -1,0 +1,14 @@
+// remove the 'current patient' tag from a resource
+
+POST /fhir/Patient/example/$meta-delete
+[Other headers]
+
+<Parameters>
+  <meta>
+    <tag>
+      <system value="http://example.org/codes/tags"/>
+      <code value="current"/>
+      <display value="Current Inpatient"/>
+    </tag>
+  </meta>
+</Parameters>
