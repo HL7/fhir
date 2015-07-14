@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jul 12, 2015 22:00+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 13, 2015 20:19-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -578,10 +578,10 @@ public class Bundle extends Resource implements IBaseBundle {
         protected List<BundleLinkComponent> link;
 
         /**
-         * The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.
+         * The Absolute URL for the resource. This must be provided for all resources. The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource.
          */
         @Child(name = "fullUrl", type = {UriType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Absolute URL for resource, if required for this bundle", formalDefinition="The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource." )
+        @Description(shortDefinition="Absolute URL for resource (server address, or UUID/OID)", formalDefinition="The Absolute URL for the resource. This must be provided for all resources. The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource." )
         protected UriType fullUrl;
 
         /**
@@ -662,7 +662,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return {@link #fullUrl} (The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.). This is the underlying object with id, value and extensions. The accessor "getFullUrl" gives direct access to the value
+         * @return {@link #fullUrl} (The Absolute URL for the resource. This must be provided for all resources. The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource.). This is the underlying object with id, value and extensions. The accessor "getFullUrl" gives direct access to the value
          */
         public UriType getFullUrlElement() { 
           if (this.fullUrl == null)
@@ -682,7 +682,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @param value {@link #fullUrl} (The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.). This is the underlying object with id, value and extensions. The accessor "getFullUrl" gives direct access to the value
+         * @param value {@link #fullUrl} (The Absolute URL for the resource. This must be provided for all resources. The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource.). This is the underlying object with id, value and extensions. The accessor "getFullUrl" gives direct access to the value
          */
         public BundleEntryComponent setFullUrlElement(UriType value) { 
           this.fullUrl = value;
@@ -690,14 +690,14 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.
+         * @return The Absolute URL for the resource. This must be provided for all resources. The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource.
          */
         public String getFullUrl() { 
           return this.fullUrl == null ? null : this.fullUrl.getValue();
         }
 
         /**
-         * @param value The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.
+         * @param value The Absolute URL for the resource. This must be provided for all resources. The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource.
          */
         public BundleEntryComponent setFullUrl(String value) { 
           if (Utilities.noString(value))
@@ -804,7 +804,7 @@ public class Bundle extends Resource implements IBaseBundle {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("link", "@Bundle.link", "A series of links that provide context to this entry.", 0, java.lang.Integer.MAX_VALUE, link));
-          childrenList.add(new Property("fullUrl", "uri", "The Absolute URL for the resource. This must be provided when the bundle contains resources from more than one server, or the references in the resources in the bundle are absolute references and the target of the reference is in the bundle. The fullUrl SHALL not disagree with the id in the resource.", 0, java.lang.Integer.MAX_VALUE, fullUrl));
+          childrenList.add(new Property("fullUrl", "uri", "The Absolute URL for the resource. This must be provided for all resources. The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource.", 0, java.lang.Integer.MAX_VALUE, fullUrl));
           childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("search", "", "Information about the search process that lead to the creation of this entry.", 0, java.lang.Integer.MAX_VALUE, search));
           childrenList.add(new Property("request", "", "Additional information about how this entry should be processed as part of a transaction.", 0, java.lang.Integer.MAX_VALUE, request));
@@ -1739,13 +1739,13 @@ public class Bundle extends Resource implements IBaseBundle {
     protected List<BundleEntryComponent> entry;
 
     /**
-     * XML Digital Signature - base64 encoded.
+     * Digital Signature - base64 encoded. XML DigSIg or a JWT.
      */
-    @Child(name = "signature", type = {Base64BinaryType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="XML Digital Signature (base64 encoded)", formalDefinition="XML Digital Signature - base64 encoded." )
-    protected Base64BinaryType signature;
+    @Child(name = "signature", type = {Signature.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Digital Signature", formalDefinition="Digital Signature - base64 encoded. XML DigSIg or a JWT." )
+    protected Signature signature;
 
-    private static final long serialVersionUID = 1289210303L;
+    private static final long serialVersionUID = -2041954721L;
 
   /*
    * Constructor
@@ -1933,19 +1933,15 @@ public class Bundle extends Resource implements IBaseBundle {
     }
 
     /**
-     * @return {@link #signature} (XML Digital Signature - base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
+     * @return {@link #signature} (Digital Signature - base64 encoded. XML DigSIg or a JWT.)
      */
-    public Base64BinaryType getSignatureElement() { 
+    public Signature getSignature() { 
       if (this.signature == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Bundle.signature");
         else if (Configuration.doAutoCreate())
-          this.signature = new Base64BinaryType(); // bb
+          this.signature = new Signature(); // cc
       return this.signature;
-    }
-
-    public boolean hasSignatureElement() { 
-      return this.signature != null && !this.signature.isEmpty();
     }
 
     public boolean hasSignature() { 
@@ -1953,31 +1949,10 @@ public class Bundle extends Resource implements IBaseBundle {
     }
 
     /**
-     * @param value {@link #signature} (XML Digital Signature - base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
+     * @param value {@link #signature} (Digital Signature - base64 encoded. XML DigSIg or a JWT.)
      */
-    public Bundle setSignatureElement(Base64BinaryType value) { 
+    public Bundle setSignature(Signature value) { 
       this.signature = value;
-      return this;
-    }
-
-    /**
-     * @return XML Digital Signature - base64 encoded.
-     */
-    public byte[] getSignature() { 
-      return this.signature == null ? null : this.signature.getValue();
-    }
-
-    /**
-     * @param value XML Digital Signature - base64 encoded.
-     */
-    public Bundle setSignature(byte[] value) { 
-      if (value == null)
-        this.signature = null;
-      else {
-        if (this.signature == null)
-          this.signature = new Base64BinaryType();
-        this.signature.setValue(value);
-      }
       return this;
     }
 
@@ -2034,7 +2009,7 @@ public class Bundle extends Resource implements IBaseBundle {
         childrenList.add(new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
         childrenList.add(new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry));
-        childrenList.add(new Property("signature", "base64Binary", "XML Digital Signature - base64 encoded.", 0, java.lang.Integer.MAX_VALUE, signature));
+        childrenList.add(new Property("signature", "Signature", "Digital Signature - base64 encoded. XML DigSIg or a JWT.", 0, java.lang.Integer.MAX_VALUE, signature));
       }
 
       public Bundle copy() {
@@ -2078,8 +2053,7 @@ public class Bundle extends Resource implements IBaseBundle {
         if (!(other instanceof Bundle))
           return false;
         Bundle o = (Bundle) other;
-        return compareValues(type, o.type, true) && compareValues(total, o.total, true) && compareValues(signature, o.signature, true)
-          ;
+        return compareValues(type, o.type, true) && compareValues(total, o.total, true);
       }
 
       public boolean isEmpty() {

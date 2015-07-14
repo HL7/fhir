@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Jul 12, 2015 22:00+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 13, 2015 20:19-0400 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -434,6 +434,10 @@ public class JsonParser extends JsonParserBase {
     Type who = parseType("who", json);
     if (who != null)
       res.setWho(who);
+    if (json.has("contentType"))
+      res.setContentTypeElement(parseCode(json.get("contentType").getAsString()));
+    if (json.has("_contentType"))
+      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
     if (json.has("blob"))
       res.setBlobElement(parseBase64Binary(json.get("blob").getAsString()));
     if (json.has("_blob"))
@@ -1733,9 +1737,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("signature"))
-      res.setSignatureElement(parseBase64Binary(json.get("signature").getAsString()));
-    if (json.has("_signature"))
-      parseElementProperties(json.getAsJsonObject("_signature"), res.getSignatureElement());
+      res.setSignature(parseSignature(json.getAsJsonObject("signature")));
     return res;
   }
 
@@ -6051,9 +6053,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_number"))
       parseElementProperties(json.getAsJsonObject("_number"), res.getNumberElement());
     if (json.has("modality"))
-      res.setModalityElement(parseEnumeration(json.get("modality").getAsString(), ImagingStudy.Modality.NULL, new ImagingStudy.ModalityEnumFactory()));
-    if (json.has("_modality"))
-      parseElementProperties(json.getAsJsonObject("_modality"), res.getModalityElement());
+      res.setModality(parseCoding(json.getAsJsonObject("modality")));
     if (json.has("uid"))
       res.setUidElement(parseOid(json.get("uid").getAsString()));
     if (json.has("_uid"))
@@ -9998,6 +9998,8 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("metadata"))
+      res.setMetadata(parseTestScriptTestScriptMetadataComponent(json.getAsJsonObject("metadata"), res));
     if (json.has("multiserver"))
       res.setMultiserverElement(parseBoolean(json.get("multiserver").getAsBoolean()));
     if (json.has("_multiserver"))
@@ -10006,6 +10008,18 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("fixture");
       for (int i = 0; i < array.size(); i++) {
         res.getFixture().add(parseTestScriptTestScriptFixtureComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("profile")) {
+      JsonArray array = json.getAsJsonArray("profile");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProfile().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("variable")) {
+      JsonArray array = json.getAsJsonArray("variable");
+      for (int i = 0; i < array.size(); i++) {
+        res.getVariable().add(parseTestScriptTestScriptVariableComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("setup"))
@@ -10021,15 +10035,80 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  protected TestScript.TestScriptMetadataComponent parseTestScriptTestScriptMetadataComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptMetadataComponent res = new TestScript.TestScriptMetadataComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("link")) {
+      JsonArray array = json.getAsJsonArray("link");
+      for (int i = 0; i < array.size(); i++) {
+        res.getLink().add(parseTestScriptTestScriptMetadataLinkComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("capabilities")) {
+      JsonArray array = json.getAsJsonArray("capabilities");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCapabilities().add(parseTestScriptTestScriptMetadataCapabilitiesComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected TestScript.TestScriptMetadataLinkComponent parseTestScriptTestScriptMetadataLinkComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptMetadataLinkComponent res = new TestScript.TestScriptMetadataLinkComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptMetadataCapabilitiesComponent parseTestScriptTestScriptMetadataCapabilitiesComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptMetadataCapabilitiesComponent res = new TestScript.TestScriptMetadataCapabilitiesComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("required"))
+      res.setRequiredElement(parseBoolean(json.get("required").getAsBoolean()));
+    if (json.has("_required"))
+      parseElementProperties(json.getAsJsonObject("_required"), res.getRequiredElement());
+    if (json.has("validated"))
+      res.setValidatedElement(parseBoolean(json.get("validated").getAsBoolean()));
+    if (json.has("_validated"))
+      parseElementProperties(json.getAsJsonObject("_validated"), res.getValidatedElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("destination"))
+      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
+    if (json.has("_destination"))
+      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
+    if (json.has("link")) {
+      JsonArray array = json.getAsJsonArray("link");
+      for (int i = 0; i < array.size(); i++) {
+        res.getLink().add(parseUri(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_link")) {
+      JsonArray array = json.getAsJsonArray("_link");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getLink().size())
+          res.getLink().add(parseUri(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getLink().get(i));
+      }
+    };
+    if (json.has("conformance"))
+      res.setConformance(parseReference(json.getAsJsonObject("conformance")));
+    return res;
+  }
+
   protected TestScript.TestScriptFixtureComponent parseTestScriptTestScriptFixtureComponent(JsonObject json, TestScript owner) throws Exception {
     TestScript.TestScriptFixtureComponent res = new TestScript.TestScriptFixtureComponent();
     parseBackboneProperties(json, res);
-    if (json.has("uri"))
-      res.setUriElement(parseUri(json.get("uri").getAsString()));
-    if (json.has("_uri"))
-      parseElementProperties(json.getAsJsonObject("_uri"), res.getUriElement());
-    if (json.has("resource"))
-      res.setResource(parseResource(json.getAsJsonObject("resource")));
     if (json.has("autocreate"))
       res.setAutocreateElement(parseBoolean(json.get("autocreate").getAsBoolean()));
     if (json.has("_autocreate"))
@@ -10038,63 +10117,202 @@ public class JsonParser extends JsonParserBase {
       res.setAutodeleteElement(parseBoolean(json.get("autodelete").getAsBoolean()));
     if (json.has("_autodelete"))
       parseElementProperties(json.getAsJsonObject("_autodelete"), res.getAutodeleteElement());
+    if (json.has("resource"))
+      res.setResource(parseReference(json.getAsJsonObject("resource")));
+    return res;
+  }
+
+  protected TestScript.TestScriptVariableComponent parseTestScriptTestScriptVariableComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptVariableComponent res = new TestScript.TestScriptVariableComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("headerField"))
+      res.setHeaderFieldElement(parseString(json.get("headerField").getAsString()));
+    if (json.has("_headerField"))
+      parseElementProperties(json.getAsJsonObject("_headerField"), res.getHeaderFieldElement());
+    if (json.has("path"))
+      res.setPathElement(parseString(json.get("path").getAsString()));
+    if (json.has("_path"))
+      parseElementProperties(json.getAsJsonObject("_path"), res.getPathElement());
+    if (json.has("sourceId"))
+      res.setSourceIdElement(parseId(json.get("sourceId").getAsString()));
+    if (json.has("_sourceId"))
+      parseElementProperties(json.getAsJsonObject("_sourceId"), res.getSourceIdElement());
     return res;
   }
 
   protected TestScript.TestScriptSetupComponent parseTestScriptTestScriptSetupComponent(JsonObject json, TestScript owner) throws Exception {
     TestScript.TestScriptSetupComponent res = new TestScript.TestScriptSetupComponent();
     parseBackboneProperties(json, res);
-    if (json.has("operation")) {
-      JsonArray array = json.getAsJsonArray("operation");
+    if (json.has("metadata"))
+      res.setMetadata(parseTestScriptTestScriptMetadataComponent(json.getAsJsonObject("metadata"), owner));
+    if (json.has("action")) {
+      JsonArray array = json.getAsJsonArray("action");
       for (int i = 0; i < array.size(); i++) {
-        res.getOperation().add(parseTestScriptTestScriptSetupOperationComponent(array.get(i).getAsJsonObject(), owner));
+        res.getAction().add(parseTestScriptTestScriptSetupActionComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     return res;
   }
 
-  protected TestScript.TestScriptSetupOperationComponent parseTestScriptTestScriptSetupOperationComponent(JsonObject json, TestScript owner) throws Exception {
-    TestScript.TestScriptSetupOperationComponent res = new TestScript.TestScriptSetupOperationComponent();
+  protected TestScript.TestScriptSetupActionComponent parseTestScriptTestScriptSetupActionComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptSetupActionComponent res = new TestScript.TestScriptSetupActionComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("operation"))
+      res.setOperation(parseTestScriptTestScriptSetupActionOperationComponent(json.getAsJsonObject("operation"), owner));
+    if (json.has("assert"))
+      res.setAssert(parseTestScriptTestScriptSetupActionAssertComponent(json.getAsJsonObject("assert"), owner));
+    return res;
+  }
+
+  protected TestScript.TestScriptSetupActionOperationComponent parseTestScriptTestScriptSetupActionOperationComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptSetupActionOperationComponent res = new TestScript.TestScriptSetupActionOperationComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
       res.setTypeElement(parseEnumeration(json.get("type").getAsString(), TestScript.TestOperationType.NULL, new TestScript.TestOperationTypeEnumFactory()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("source"))
-      res.setSourceElement(parseId(json.get("source").getAsString()));
-    if (json.has("_source"))
-      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
-    if (json.has("target"))
-      res.setTargetElement(parseId(json.get("target").getAsString()));
-    if (json.has("_target"))
-      parseElementProperties(json.getAsJsonObject("_target"), res.getTargetElement());
+    if (json.has("resource"))
+      res.setResourceElement(parseCode(json.get("resource").getAsString()));
+    if (json.has("_resource"))
+      parseElementProperties(json.getAsJsonObject("_resource"), res.getResourceElement());
+    if (json.has("label"))
+      res.setLabelElement(parseString(json.get("label").getAsString()));
+    if (json.has("_label"))
+      parseElementProperties(json.getAsJsonObject("_label"), res.getLabelElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("accept"))
+      res.setAcceptElement(parseEnumeration(json.get("accept").getAsString(), TestScript.ContentType.NULL, new TestScript.ContentTypeEnumFactory()));
+    if (json.has("_accept"))
+      parseElementProperties(json.getAsJsonObject("_accept"), res.getAcceptElement());
+    if (json.has("contentType"))
+      res.setContentTypeElement(parseEnumeration(json.get("contentType").getAsString(), TestScript.ContentType.NULL, new TestScript.ContentTypeEnumFactory()));
+    if (json.has("_contentType"))
+      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
     if (json.has("destination"))
       res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
     if (json.has("_destination"))
       parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
-    if (json.has("parameter")) {
-      JsonArray array = json.getAsJsonArray("parameter");
+    if (json.has("params"))
+      res.setParamsElement(parseString(json.get("params").getAsString()));
+    if (json.has("_params"))
+      parseElementProperties(json.getAsJsonObject("_params"), res.getParamsElement());
+    if (json.has("requestHeader")) {
+      JsonArray array = json.getAsJsonArray("requestHeader");
       for (int i = 0; i < array.size(); i++) {
-        res.getParameter().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_parameter")) {
-      JsonArray array = json.getAsJsonArray("_parameter");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getParameter().size())
-          res.getParameter().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getParameter().get(i));
+        res.getRequestHeader().add(parseTestScriptTestScriptSetupActionOperationRequestHeaderComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     if (json.has("responseId"))
       res.setResponseIdElement(parseId(json.get("responseId").getAsString()));
     if (json.has("_responseId"))
       parseElementProperties(json.getAsJsonObject("_responseId"), res.getResponseIdElement());
+    if (json.has("sourceId"))
+      res.setSourceIdElement(parseId(json.get("sourceId").getAsString()));
+    if (json.has("_sourceId"))
+      parseElementProperties(json.getAsJsonObject("_sourceId"), res.getSourceIdElement());
+    if (json.has("targetId"))
+      res.setTargetIdElement(parseId(json.get("targetId").getAsString()));
+    if (json.has("_targetId"))
+      parseElementProperties(json.getAsJsonObject("_targetId"), res.getTargetIdElement());
+    if (json.has("url"))
+      res.setUrlElement(parseString(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptSetupActionOperationRequestHeaderComponent parseTestScriptTestScriptSetupActionOperationRequestHeaderComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptSetupActionOperationRequestHeaderComponent res = new TestScript.TestScriptSetupActionOperationRequestHeaderComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("field"))
+      res.setFieldElement(parseString(json.get("field").getAsString()));
+    if (json.has("_field"))
+      parseElementProperties(json.getAsJsonObject("_field"), res.getFieldElement());
+    if (json.has("value"))
+      res.setValueElement(parseString(json.get("value").getAsString()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptSetupActionAssertComponent parseTestScriptTestScriptSetupActionAssertComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptSetupActionAssertComponent res = new TestScript.TestScriptSetupActionAssertComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("label"))
+      res.setLabelElement(parseString(json.get("label").getAsString()));
+    if (json.has("_label"))
+      parseElementProperties(json.getAsJsonObject("_label"), res.getLabelElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("compareToSourceId"))
+      res.setCompareToSourceIdElement(parseString(json.get("compareToSourceId").getAsString()));
+    if (json.has("_compareToSourceId"))
+      parseElementProperties(json.getAsJsonObject("_compareToSourceId"), res.getCompareToSourceIdElement());
+    if (json.has("compareToSourcePath"))
+      res.setCompareToSourcePathElement(parseString(json.get("compareToSourcePath").getAsString()));
+    if (json.has("_compareToSourcePath"))
+      parseElementProperties(json.getAsJsonObject("_compareToSourcePath"), res.getCompareToSourcePathElement());
     if (json.has("contentType"))
       res.setContentTypeElement(parseEnumeration(json.get("contentType").getAsString(), TestScript.ContentType.NULL, new TestScript.ContentTypeEnumFactory()));
     if (json.has("_contentType"))
       parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
+    if (json.has("headerField"))
+      res.setHeaderFieldElement(parseString(json.get("headerField").getAsString()));
+    if (json.has("_headerField"))
+      parseElementProperties(json.getAsJsonObject("_headerField"), res.getHeaderFieldElement());
+    if (json.has("minimumId"))
+      res.setMinimumIdElement(parseString(json.get("minimumId").getAsString()));
+    if (json.has("_minimumId"))
+      parseElementProperties(json.getAsJsonObject("_minimumId"), res.getMinimumIdElement());
+    if (json.has("navigationLinks"))
+      res.setNavigationLinksElement(parseBoolean(json.get("navigationLinks").getAsBoolean()));
+    if (json.has("_navigationLinks"))
+      parseElementProperties(json.getAsJsonObject("_navigationLinks"), res.getNavigationLinksElement());
+    if (json.has("operator"))
+      res.setOperatorElement(parseEnumeration(json.get("operator").getAsString(), TestScript.AssertionOperatorType.NULL, new TestScript.AssertionOperatorTypeEnumFactory()));
+    if (json.has("_operator"))
+      parseElementProperties(json.getAsJsonObject("_operator"), res.getOperatorElement());
+    if (json.has("path"))
+      res.setPathElement(parseString(json.get("path").getAsString()));
+    if (json.has("_path"))
+      parseElementProperties(json.getAsJsonObject("_path"), res.getPathElement());
+    if (json.has("resource"))
+      res.setResourceElement(parseCode(json.get("resource").getAsString()));
+    if (json.has("_resource"))
+      parseElementProperties(json.getAsJsonObject("_resource"), res.getResourceElement());
+    if (json.has("response"))
+      res.setResponseElement(parseEnumeration(json.get("response").getAsString(), TestScript.AssertionResponseTypes.NULL, new TestScript.AssertionResponseTypesEnumFactory()));
+    if (json.has("_response"))
+      parseElementProperties(json.getAsJsonObject("_response"), res.getResponseElement());
+    if (json.has("responseCode"))
+      res.setResponseCodeElement(parseString(json.get("responseCode").getAsString()));
+    if (json.has("_responseCode"))
+      parseElementProperties(json.getAsJsonObject("_responseCode"), res.getResponseCodeElement());
+    if (json.has("sourceId"))
+      res.setSourceIdElement(parseId(json.get("sourceId").getAsString()));
+    if (json.has("_sourceId"))
+      parseElementProperties(json.getAsJsonObject("_sourceId"), res.getSourceIdElement());
+    if (json.has("validateProfileId"))
+      res.setValidateProfileIdElement(parseId(json.get("validateProfileId").getAsString()));
+    if (json.has("_validateProfileId"))
+      parseElementProperties(json.getAsJsonObject("_validateProfileId"), res.getValidateProfileIdElement());
+    if (json.has("value"))
+      res.setValueElement(parseString(json.get("value").getAsString()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
+    if (json.has("warningOnly"))
+      res.setWarningOnlyElement(parseBoolean(json.get("warningOnly").getAsBoolean()));
+    if (json.has("_warningOnly"))
+      parseElementProperties(json.getAsJsonObject("_warningOnly"), res.getWarningOnlyElement());
     return res;
   }
 
@@ -10110,189 +10328,43 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("metadata"))
-      res.setMetadata(parseTestScriptTestScriptTestMetadataComponent(json.getAsJsonObject("metadata"), owner));
-    if (json.has("operation")) {
-      JsonArray array = json.getAsJsonArray("operation");
+      res.setMetadata(parseTestScriptTestScriptMetadataComponent(json.getAsJsonObject("metadata"), owner));
+    if (json.has("action")) {
+      JsonArray array = json.getAsJsonArray("action");
       for (int i = 0; i < array.size(); i++) {
-        res.getOperation().add(parseTestScriptTestScriptTestOperationComponent(array.get(i).getAsJsonObject(), owner));
+        res.getAction().add(parseTestScriptTestScriptTestActionComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     return res;
   }
 
-  protected TestScript.TestScriptTestMetadataComponent parseTestScriptTestScriptTestMetadataComponent(JsonObject json, TestScript owner) throws Exception {
-    TestScript.TestScriptTestMetadataComponent res = new TestScript.TestScriptTestMetadataComponent();
+  protected TestScript.TestScriptTestActionComponent parseTestScriptTestScriptTestActionComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTestActionComponent res = new TestScript.TestScriptTestActionComponent();
     parseBackboneProperties(json, res);
-    if (json.has("link")) {
-      JsonArray array = json.getAsJsonArray("link");
-      for (int i = 0; i < array.size(); i++) {
-        res.getLink().add(parseTestScriptTestScriptTestMetadataLinkComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("requires")) {
-      JsonArray array = json.getAsJsonArray("requires");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRequires().add(parseTestScriptTestScriptTestMetadataRequiresComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("validates")) {
-      JsonArray array = json.getAsJsonArray("validates");
-      for (int i = 0; i < array.size(); i++) {
-        res.getValidates().add(parseTestScriptTestScriptTestMetadataValidatesComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    return res;
-  }
-
-  protected TestScript.TestScriptTestMetadataLinkComponent parseTestScriptTestScriptTestMetadataLinkComponent(JsonObject json, TestScript owner) throws Exception {
-    TestScript.TestScriptTestMetadataLinkComponent res = new TestScript.TestScriptTestMetadataLinkComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("url"))
-      res.setUrlElement(parseUri(json.get("url").getAsString()));
-    if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
-    if (json.has("description"))
-      res.setDescriptionElement(parseString(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    return res;
-  }
-
-  protected TestScript.TestScriptTestMetadataRequiresComponent parseTestScriptTestScriptTestMetadataRequiresComponent(JsonObject json, TestScript owner) throws Exception {
-    TestScript.TestScriptTestMetadataRequiresComponent res = new TestScript.TestScriptTestMetadataRequiresComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseCode(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("operations"))
-      res.setOperationsElement(parseString(json.get("operations").getAsString()));
-    if (json.has("_operations"))
-      parseElementProperties(json.getAsJsonObject("_operations"), res.getOperationsElement());
-    if (json.has("destination"))
-      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
-    if (json.has("_destination"))
-      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
-    return res;
-  }
-
-  protected TestScript.TestScriptTestMetadataValidatesComponent parseTestScriptTestScriptTestMetadataValidatesComponent(JsonObject json, TestScript owner) throws Exception {
-    TestScript.TestScriptTestMetadataValidatesComponent res = new TestScript.TestScriptTestMetadataValidatesComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseCode(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("operations"))
-      res.setOperationsElement(parseString(json.get("operations").getAsString()));
-    if (json.has("_operations"))
-      parseElementProperties(json.getAsJsonObject("_operations"), res.getOperationsElement());
-    if (json.has("destination"))
-      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
-    if (json.has("_destination"))
-      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
-    return res;
-  }
-
-  protected TestScript.TestScriptTestOperationComponent parseTestScriptTestScriptTestOperationComponent(JsonObject json, TestScript owner) throws Exception {
-    TestScript.TestScriptTestOperationComponent res = new TestScript.TestScriptTestOperationComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), TestScript.TestOperationType.NULL, new TestScript.TestOperationTypeEnumFactory()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("source"))
-      res.setSourceElement(parseId(json.get("source").getAsString()));
-    if (json.has("_source"))
-      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
-    if (json.has("target"))
-      res.setTargetElement(parseId(json.get("target").getAsString()));
-    if (json.has("_target"))
-      parseElementProperties(json.getAsJsonObject("_target"), res.getTargetElement());
-    if (json.has("destination"))
-      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
-    if (json.has("_destination"))
-      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
-    if (json.has("parameter")) {
-      JsonArray array = json.getAsJsonArray("parameter");
-      for (int i = 0; i < array.size(); i++) {
-        res.getParameter().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_parameter")) {
-      JsonArray array = json.getAsJsonArray("_parameter");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getParameter().size())
-          res.getParameter().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getParameter().get(i));
-      }
-    };
-    if (json.has("responseId"))
-      res.setResponseIdElement(parseId(json.get("responseId").getAsString()));
-    if (json.has("_responseId"))
-      parseElementProperties(json.getAsJsonObject("_responseId"), res.getResponseIdElement());
-    if (json.has("contentType"))
-      res.setContentTypeElement(parseEnumeration(json.get("contentType").getAsString(), TestScript.ContentType.NULL, new TestScript.ContentTypeEnumFactory()));
-    if (json.has("_contentType"))
-      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
+    if (json.has("operation"))
+      res.setOperation(parseTestScriptTestScriptSetupActionOperationComponent(json.getAsJsonObject("operation"), owner));
+    if (json.has("assert"))
+      res.setAssert(parseTestScriptTestScriptSetupActionAssertComponent(json.getAsJsonObject("assert"), owner));
     return res;
   }
 
   protected TestScript.TestScriptTeardownComponent parseTestScriptTestScriptTeardownComponent(JsonObject json, TestScript owner) throws Exception {
     TestScript.TestScriptTeardownComponent res = new TestScript.TestScriptTeardownComponent();
     parseBackboneProperties(json, res);
-    if (json.has("operation")) {
-      JsonArray array = json.getAsJsonArray("operation");
+    if (json.has("action")) {
+      JsonArray array = json.getAsJsonArray("action");
       for (int i = 0; i < array.size(); i++) {
-        res.getOperation().add(parseTestScriptTestScriptTeardownOperationComponent(array.get(i).getAsJsonObject(), owner));
+        res.getAction().add(parseTestScriptTestScriptTeardownActionComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     return res;
   }
 
-  protected TestScript.TestScriptTeardownOperationComponent parseTestScriptTestScriptTeardownOperationComponent(JsonObject json, TestScript owner) throws Exception {
-    TestScript.TestScriptTeardownOperationComponent res = new TestScript.TestScriptTeardownOperationComponent();
+  protected TestScript.TestScriptTeardownActionComponent parseTestScriptTestScriptTeardownActionComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTeardownActionComponent res = new TestScript.TestScriptTeardownActionComponent();
     parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), TestScript.TestOperationType.NULL, new TestScript.TestOperationTypeEnumFactory()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("source"))
-      res.setSourceElement(parseId(json.get("source").getAsString()));
-    if (json.has("_source"))
-      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
-    if (json.has("target"))
-      res.setTargetElement(parseId(json.get("target").getAsString()));
-    if (json.has("_target"))
-      parseElementProperties(json.getAsJsonObject("_target"), res.getTargetElement());
-    if (json.has("destination"))
-      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
-    if (json.has("_destination"))
-      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
-    if (json.has("parameter")) {
-      JsonArray array = json.getAsJsonArray("parameter");
-      for (int i = 0; i < array.size(); i++) {
-        res.getParameter().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_parameter")) {
-      JsonArray array = json.getAsJsonArray("_parameter");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getParameter().size())
-          res.getParameter().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getParameter().get(i));
-      }
-    };
-    if (json.has("responseId"))
-      res.setResponseIdElement(parseId(json.get("responseId").getAsString()));
-    if (json.has("_responseId"))
-      parseElementProperties(json.getAsJsonObject("_responseId"), res.getResponseIdElement());
-    if (json.has("contentType"))
-      res.setContentTypeElement(parseEnumeration(json.get("contentType").getAsString(), TestScript.ContentType.NULL, new TestScript.ContentTypeEnumFactory()));
-    if (json.has("_contentType"))
-      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
+    if (json.has("operation"))
+      res.setOperation(parseTestScriptTestScriptSetupActionOperationComponent(json.getAsJsonObject("operation"), owner));
     return res;
   }
 
@@ -12093,6 +12165,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasWho()) {
         composeType("who", element.getWho());
       }
+      if (element.hasContentTypeElement()) {
+        composeCodeCore("contentType", element.getContentTypeElement(), false);
+        composeCodeExtras("contentType", element.getContentTypeElement(), false);
+      }
       if (element.hasBlobElement()) {
         composeBase64BinaryCore("blob", element.getBlobElement(), false);
         composeBase64BinaryExtras("blob", element.getBlobElement(), false);
@@ -13605,9 +13681,8 @@ public class JsonParser extends JsonParserBase {
           composeBundleBundleEntryComponent(null, e);
         closeArray();
       };
-      if (element.hasSignatureElement()) {
-        composeBase64BinaryCore("signature", element.getSignatureElement(), false);
-        composeBase64BinaryExtras("signature", element.getSignatureElement(), false);
+      if (element.hasSignature()) {
+        composeSignature("signature", element.getSignature());
       }
   }
 
@@ -18972,9 +19047,8 @@ public class JsonParser extends JsonParserBase {
         composeUnsignedIntCore("number", element.getNumberElement(), false);
         composeUnsignedIntExtras("number", element.getNumberElement(), false);
       }
-      if (element.hasModalityElement()) {
-        composeEnumerationCore("modality", element.getModalityElement(), new ImagingStudy.ModalityEnumFactory(), false);
-        composeEnumerationExtras("modality", element.getModalityElement(), new ImagingStudy.ModalityEnumFactory(), false);
+      if (element.hasModality()) {
+        composeCoding("modality", element.getModality());
       }
       if (element.hasUidElement()) {
         composeOidCore("uid", element.getUidElement(), false);
@@ -23963,6 +24037,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
+      if (element.hasMetadata()) {
+        composeTestScriptTestScriptMetadataComponent("metadata", element.getMetadata());
+      }
       if (element.hasMultiserverElement()) {
         composeBooleanCore("multiserver", element.getMultiserverElement(), false);
         composeBooleanExtras("multiserver", element.getMultiserverElement(), false);
@@ -23971,6 +24048,18 @@ public class JsonParser extends JsonParserBase {
         openArray("fixture");
         for (TestScript.TestScriptFixtureComponent e : element.getFixture()) 
           composeTestScriptTestScriptFixtureComponent(null, e);
+        closeArray();
+      };
+      if (element.hasProfile()) {
+        openArray("profile");
+        for (Reference e : element.getProfile()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasVariable()) {
+        openArray("variable");
+        for (TestScript.TestScriptVariableComponent e : element.getVariable()) 
+          composeTestScriptTestScriptVariableComponent(null, e);
         closeArray();
       };
       if (element.hasSetup()) {
@@ -23987,6 +24076,93 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeTestScriptTestScriptMetadataComponent(String name, TestScript.TestScriptMetadataComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptMetadataComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptMetadataComponentInner(TestScript.TestScriptMetadataComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasLink()) {
+        openArray("link");
+        for (TestScript.TestScriptMetadataLinkComponent e : element.getLink()) 
+          composeTestScriptTestScriptMetadataLinkComponent(null, e);
+        closeArray();
+      };
+      if (element.hasCapabilities()) {
+        openArray("capabilities");
+        for (TestScript.TestScriptMetadataCapabilitiesComponent e : element.getCapabilities()) 
+          composeTestScriptTestScriptMetadataCapabilitiesComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeTestScriptTestScriptMetadataLinkComponent(String name, TestScript.TestScriptMetadataLinkComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptMetadataLinkComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptMetadataLinkComponentInner(TestScript.TestScriptMetadataLinkComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptMetadataCapabilitiesComponent(String name, TestScript.TestScriptMetadataCapabilitiesComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptMetadataCapabilitiesComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptMetadataCapabilitiesComponentInner(TestScript.TestScriptMetadataCapabilitiesComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasRequiredElement()) {
+        composeBooleanCore("required", element.getRequiredElement(), false);
+        composeBooleanExtras("required", element.getRequiredElement(), false);
+      }
+      if (element.hasValidatedElement()) {
+        composeBooleanCore("validated", element.getValidatedElement(), false);
+        composeBooleanExtras("validated", element.getValidatedElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasDestinationElement()) {
+        composeIntegerCore("destination", element.getDestinationElement(), false);
+        composeIntegerExtras("destination", element.getDestinationElement(), false);
+      }
+      if (element.hasLink()) {
+        openArray("link");
+        for (UriType e : element.getLink()) 
+          composeUriCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getLink())) {
+          openArray("_link");
+          for (UriType e : element.getLink()) 
+            composeUriExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasConformance()) {
+        composeReference("conformance", element.getConformance());
+      }
+  }
+
   protected void composeTestScriptTestScriptFixtureComponent(String name, TestScript.TestScriptFixtureComponent element) throws Exception {
     if (element != null) {
       open(name);
@@ -23997,15 +24173,6 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptTestScriptFixtureComponentInner(TestScript.TestScriptFixtureComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasUriElement()) {
-        composeUriCore("uri", element.getUriElement(), false);
-        composeUriExtras("uri", element.getUriElement(), false);
-      }
-        if (element.hasResource()) {
-          open("resource");
-          composeResource(element.getResource());
-          close();
-        }
       if (element.hasAutocreateElement()) {
         composeBooleanCore("autocreate", element.getAutocreateElement(), false);
         composeBooleanExtras("autocreate", element.getAutocreateElement(), false);
@@ -24013,6 +24180,37 @@ public class JsonParser extends JsonParserBase {
       if (element.hasAutodeleteElement()) {
         composeBooleanCore("autodelete", element.getAutodeleteElement(), false);
         composeBooleanExtras("autodelete", element.getAutodeleteElement(), false);
+      }
+      if (element.hasResource()) {
+        composeReference("resource", element.getResource());
+      }
+  }
+
+  protected void composeTestScriptTestScriptVariableComponent(String name, TestScript.TestScriptVariableComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptVariableComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptVariableComponentInner(TestScript.TestScriptVariableComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasHeaderFieldElement()) {
+        composeStringCore("headerField", element.getHeaderFieldElement(), false);
+        composeStringExtras("headerField", element.getHeaderFieldElement(), false);
+      }
+      if (element.hasPathElement()) {
+        composeStringCore("path", element.getPathElement(), false);
+        composeStringExtras("path", element.getPathElement(), false);
+      }
+      if (element.hasSourceIdElement()) {
+        composeIdCore("sourceId", element.getSourceIdElement(), false);
+        composeIdExtras("sourceId", element.getSourceIdElement(), false);
       }
   }
 
@@ -24026,59 +24224,198 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptTestScriptSetupComponentInner(TestScript.TestScriptSetupComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasOperation()) {
-        openArray("operation");
-        for (TestScript.TestScriptSetupOperationComponent e : element.getOperation()) 
-          composeTestScriptTestScriptSetupOperationComponent(null, e);
+      if (element.hasMetadata()) {
+        composeTestScriptTestScriptMetadataComponent("metadata", element.getMetadata());
+      }
+      if (element.hasAction()) {
+        openArray("action");
+        for (TestScript.TestScriptSetupActionComponent e : element.getAction()) 
+          composeTestScriptTestScriptSetupActionComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeTestScriptTestScriptSetupOperationComponent(String name, TestScript.TestScriptSetupOperationComponent element) throws Exception {
+  protected void composeTestScriptTestScriptSetupActionComponent(String name, TestScript.TestScriptSetupActionComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeTestScriptTestScriptSetupOperationComponentInner(element);
+      composeTestScriptTestScriptSetupActionComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptTestScriptSetupOperationComponentInner(TestScript.TestScriptSetupOperationComponent element) throws Exception {
+  protected void composeTestScriptTestScriptSetupActionComponentInner(TestScript.TestScriptSetupActionComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasOperation()) {
+        composeTestScriptTestScriptSetupActionOperationComponent("operation", element.getOperation());
+      }
+      if (element.hasAssert()) {
+        composeTestScriptTestScriptSetupActionAssertComponent("assert", element.getAssert());
+      }
+  }
+
+  protected void composeTestScriptTestScriptSetupActionOperationComponent(String name, TestScript.TestScriptSetupActionOperationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptSetupActionOperationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptSetupActionOperationComponentInner(TestScript.TestScriptSetupActionOperationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new TestScript.TestOperationTypeEnumFactory(), false);
         composeEnumerationExtras("type", element.getTypeElement(), new TestScript.TestOperationTypeEnumFactory(), false);
       }
-      if (element.hasSourceElement()) {
-        composeIdCore("source", element.getSourceElement(), false);
-        composeIdExtras("source", element.getSourceElement(), false);
+      if (element.hasResourceElement()) {
+        composeCodeCore("resource", element.getResourceElement(), false);
+        composeCodeExtras("resource", element.getResourceElement(), false);
       }
-      if (element.hasTargetElement()) {
-        composeIdCore("target", element.getTargetElement(), false);
-        composeIdExtras("target", element.getTargetElement(), false);
+      if (element.hasLabelElement()) {
+        composeStringCore("label", element.getLabelElement(), false);
+        composeStringExtras("label", element.getLabelElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasAcceptElement()) {
+        composeEnumerationCore("accept", element.getAcceptElement(), new TestScript.ContentTypeEnumFactory(), false);
+        composeEnumerationExtras("accept", element.getAcceptElement(), new TestScript.ContentTypeEnumFactory(), false);
+      }
+      if (element.hasContentTypeElement()) {
+        composeEnumerationCore("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+        composeEnumerationExtras("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
       }
       if (element.hasDestinationElement()) {
         composeIntegerCore("destination", element.getDestinationElement(), false);
         composeIntegerExtras("destination", element.getDestinationElement(), false);
       }
-      if (element.hasParameter()) {
-        openArray("parameter");
-        for (StringType e : element.getParameter()) 
-          composeStringCore(null, e, true);
+      if (element.hasParamsElement()) {
+        composeStringCore("params", element.getParamsElement(), false);
+        composeStringExtras("params", element.getParamsElement(), false);
+      }
+      if (element.hasRequestHeader()) {
+        openArray("requestHeader");
+        for (TestScript.TestScriptSetupActionOperationRequestHeaderComponent e : element.getRequestHeader()) 
+          composeTestScriptTestScriptSetupActionOperationRequestHeaderComponent(null, e);
         closeArray();
-        if (anyHasExtras(element.getParameter())) {
-          openArray("_parameter");
-          for (StringType e : element.getParameter()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
       };
       if (element.hasResponseIdElement()) {
         composeIdCore("responseId", element.getResponseIdElement(), false);
         composeIdExtras("responseId", element.getResponseIdElement(), false);
       }
+      if (element.hasSourceIdElement()) {
+        composeIdCore("sourceId", element.getSourceIdElement(), false);
+        composeIdExtras("sourceId", element.getSourceIdElement(), false);
+      }
+      if (element.hasTargetIdElement()) {
+        composeIdCore("targetId", element.getTargetIdElement(), false);
+        composeIdExtras("targetId", element.getTargetIdElement(), false);
+      }
+      if (element.hasUrlElement()) {
+        composeStringCore("url", element.getUrlElement(), false);
+        composeStringExtras("url", element.getUrlElement(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptSetupActionOperationRequestHeaderComponent(String name, TestScript.TestScriptSetupActionOperationRequestHeaderComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptSetupActionOperationRequestHeaderComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptSetupActionOperationRequestHeaderComponentInner(TestScript.TestScriptSetupActionOperationRequestHeaderComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasFieldElement()) {
+        composeStringCore("field", element.getFieldElement(), false);
+        composeStringExtras("field", element.getFieldElement(), false);
+      }
+      if (element.hasValueElement()) {
+        composeStringCore("value", element.getValueElement(), false);
+        composeStringExtras("value", element.getValueElement(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptSetupActionAssertComponent(String name, TestScript.TestScriptSetupActionAssertComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptSetupActionAssertComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptSetupActionAssertComponentInner(TestScript.TestScriptSetupActionAssertComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasLabelElement()) {
+        composeStringCore("label", element.getLabelElement(), false);
+        composeStringExtras("label", element.getLabelElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasCompareToSourceIdElement()) {
+        composeStringCore("compareToSourceId", element.getCompareToSourceIdElement(), false);
+        composeStringExtras("compareToSourceId", element.getCompareToSourceIdElement(), false);
+      }
+      if (element.hasCompareToSourcePathElement()) {
+        composeStringCore("compareToSourcePath", element.getCompareToSourcePathElement(), false);
+        composeStringExtras("compareToSourcePath", element.getCompareToSourcePathElement(), false);
+      }
       if (element.hasContentTypeElement()) {
         composeEnumerationCore("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
         composeEnumerationExtras("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+      }
+      if (element.hasHeaderFieldElement()) {
+        composeStringCore("headerField", element.getHeaderFieldElement(), false);
+        composeStringExtras("headerField", element.getHeaderFieldElement(), false);
+      }
+      if (element.hasMinimumIdElement()) {
+        composeStringCore("minimumId", element.getMinimumIdElement(), false);
+        composeStringExtras("minimumId", element.getMinimumIdElement(), false);
+      }
+      if (element.hasNavigationLinksElement()) {
+        composeBooleanCore("navigationLinks", element.getNavigationLinksElement(), false);
+        composeBooleanExtras("navigationLinks", element.getNavigationLinksElement(), false);
+      }
+      if (element.hasOperatorElement()) {
+        composeEnumerationCore("operator", element.getOperatorElement(), new TestScript.AssertionOperatorTypeEnumFactory(), false);
+        composeEnumerationExtras("operator", element.getOperatorElement(), new TestScript.AssertionOperatorTypeEnumFactory(), false);
+      }
+      if (element.hasPathElement()) {
+        composeStringCore("path", element.getPathElement(), false);
+        composeStringExtras("path", element.getPathElement(), false);
+      }
+      if (element.hasResourceElement()) {
+        composeCodeCore("resource", element.getResourceElement(), false);
+        composeCodeExtras("resource", element.getResourceElement(), false);
+      }
+      if (element.hasResponseElement()) {
+        composeEnumerationCore("response", element.getResponseElement(), new TestScript.AssertionResponseTypesEnumFactory(), false);
+        composeEnumerationExtras("response", element.getResponseElement(), new TestScript.AssertionResponseTypesEnumFactory(), false);
+      }
+      if (element.hasResponseCodeElement()) {
+        composeStringCore("responseCode", element.getResponseCodeElement(), false);
+        composeStringExtras("responseCode", element.getResponseCodeElement(), false);
+      }
+      if (element.hasSourceIdElement()) {
+        composeIdCore("sourceId", element.getSourceIdElement(), false);
+        composeIdExtras("sourceId", element.getSourceIdElement(), false);
+      }
+      if (element.hasValidateProfileIdElement()) {
+        composeIdCore("validateProfileId", element.getValidateProfileIdElement(), false);
+        composeIdExtras("validateProfileId", element.getValidateProfileIdElement(), false);
+      }
+      if (element.hasValueElement()) {
+        composeStringCore("value", element.getValueElement(), false);
+        composeStringExtras("value", element.getValueElement(), false);
+      }
+      if (element.hasWarningOnlyElement()) {
+        composeBooleanCore("warningOnly", element.getWarningOnlyElement(), false);
+        composeBooleanExtras("warningOnly", element.getWarningOnlyElement(), false);
       }
   }
 
@@ -24101,159 +24438,31 @@ public class JsonParser extends JsonParserBase {
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
       if (element.hasMetadata()) {
-        composeTestScriptTestScriptTestMetadataComponent("metadata", element.getMetadata());
+        composeTestScriptTestScriptMetadataComponent("metadata", element.getMetadata());
       }
+      if (element.hasAction()) {
+        openArray("action");
+        for (TestScript.TestScriptTestActionComponent e : element.getAction()) 
+          composeTestScriptTestScriptTestActionComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeTestScriptTestScriptTestActionComponent(String name, TestScript.TestScriptTestActionComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTestActionComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTestActionComponentInner(TestScript.TestScriptTestActionComponent element) throws Exception {
+      composeBackbone(element);
       if (element.hasOperation()) {
-        openArray("operation");
-        for (TestScript.TestScriptTestOperationComponent e : element.getOperation()) 
-          composeTestScriptTestScriptTestOperationComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeTestScriptTestScriptTestMetadataComponent(String name, TestScript.TestScriptTestMetadataComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeTestScriptTestScriptTestMetadataComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeTestScriptTestScriptTestMetadataComponentInner(TestScript.TestScriptTestMetadataComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasLink()) {
-        openArray("link");
-        for (TestScript.TestScriptTestMetadataLinkComponent e : element.getLink()) 
-          composeTestScriptTestScriptTestMetadataLinkComponent(null, e);
-        closeArray();
-      };
-      if (element.hasRequires()) {
-        openArray("requires");
-        for (TestScript.TestScriptTestMetadataRequiresComponent e : element.getRequires()) 
-          composeTestScriptTestScriptTestMetadataRequiresComponent(null, e);
-        closeArray();
-      };
-      if (element.hasValidates()) {
-        openArray("validates");
-        for (TestScript.TestScriptTestMetadataValidatesComponent e : element.getValidates()) 
-          composeTestScriptTestScriptTestMetadataValidatesComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeTestScriptTestScriptTestMetadataLinkComponent(String name, TestScript.TestScriptTestMetadataLinkComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeTestScriptTestScriptTestMetadataLinkComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeTestScriptTestScriptTestMetadataLinkComponentInner(TestScript.TestScriptTestMetadataLinkComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasUrlElement()) {
-        composeUriCore("url", element.getUrlElement(), false);
-        composeUriExtras("url", element.getUrlElement(), false);
+        composeTestScriptTestScriptSetupActionOperationComponent("operation", element.getOperation());
       }
-      if (element.hasDescriptionElement()) {
-        composeStringCore("description", element.getDescriptionElement(), false);
-        composeStringExtras("description", element.getDescriptionElement(), false);
-      }
-  }
-
-  protected void composeTestScriptTestScriptTestMetadataRequiresComponent(String name, TestScript.TestScriptTestMetadataRequiresComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeTestScriptTestScriptTestMetadataRequiresComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeTestScriptTestScriptTestMetadataRequiresComponentInner(TestScript.TestScriptTestMetadataRequiresComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeCodeCore("type", element.getTypeElement(), false);
-        composeCodeExtras("type", element.getTypeElement(), false);
-      }
-      if (element.hasOperationsElement()) {
-        composeStringCore("operations", element.getOperationsElement(), false);
-        composeStringExtras("operations", element.getOperationsElement(), false);
-      }
-      if (element.hasDestinationElement()) {
-        composeIntegerCore("destination", element.getDestinationElement(), false);
-        composeIntegerExtras("destination", element.getDestinationElement(), false);
-      }
-  }
-
-  protected void composeTestScriptTestScriptTestMetadataValidatesComponent(String name, TestScript.TestScriptTestMetadataValidatesComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeTestScriptTestScriptTestMetadataValidatesComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeTestScriptTestScriptTestMetadataValidatesComponentInner(TestScript.TestScriptTestMetadataValidatesComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeCodeCore("type", element.getTypeElement(), false);
-        composeCodeExtras("type", element.getTypeElement(), false);
-      }
-      if (element.hasOperationsElement()) {
-        composeStringCore("operations", element.getOperationsElement(), false);
-        composeStringExtras("operations", element.getOperationsElement(), false);
-      }
-      if (element.hasDestinationElement()) {
-        composeIntegerCore("destination", element.getDestinationElement(), false);
-        composeIntegerExtras("destination", element.getDestinationElement(), false);
-      }
-  }
-
-  protected void composeTestScriptTestScriptTestOperationComponent(String name, TestScript.TestScriptTestOperationComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeTestScriptTestScriptTestOperationComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeTestScriptTestScriptTestOperationComponentInner(TestScript.TestScriptTestOperationComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeEnumerationCore("type", element.getTypeElement(), new TestScript.TestOperationTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new TestScript.TestOperationTypeEnumFactory(), false);
-      }
-      if (element.hasSourceElement()) {
-        composeIdCore("source", element.getSourceElement(), false);
-        composeIdExtras("source", element.getSourceElement(), false);
-      }
-      if (element.hasTargetElement()) {
-        composeIdCore("target", element.getTargetElement(), false);
-        composeIdExtras("target", element.getTargetElement(), false);
-      }
-      if (element.hasDestinationElement()) {
-        composeIntegerCore("destination", element.getDestinationElement(), false);
-        composeIntegerExtras("destination", element.getDestinationElement(), false);
-      }
-      if (element.hasParameter()) {
-        openArray("parameter");
-        for (StringType e : element.getParameter()) 
-          composeStringCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getParameter())) {
-          openArray("_parameter");
-          for (StringType e : element.getParameter()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
-      };
-      if (element.hasResponseIdElement()) {
-        composeIdCore("responseId", element.getResponseIdElement(), false);
-        composeIdExtras("responseId", element.getResponseIdElement(), false);
-      }
-      if (element.hasContentTypeElement()) {
-        composeEnumerationCore("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
-        composeEnumerationExtras("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+      if (element.hasAssert()) {
+        composeTestScriptTestScriptSetupActionAssertComponent("assert", element.getAssert());
       }
   }
 
@@ -24267,59 +24476,26 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptTestScriptTeardownComponentInner(TestScript.TestScriptTeardownComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasOperation()) {
-        openArray("operation");
-        for (TestScript.TestScriptTeardownOperationComponent e : element.getOperation()) 
-          composeTestScriptTestScriptTeardownOperationComponent(null, e);
+      if (element.hasAction()) {
+        openArray("action");
+        for (TestScript.TestScriptTeardownActionComponent e : element.getAction()) 
+          composeTestScriptTestScriptTeardownActionComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeTestScriptTestScriptTeardownOperationComponent(String name, TestScript.TestScriptTeardownOperationComponent element) throws Exception {
+  protected void composeTestScriptTestScriptTeardownActionComponent(String name, TestScript.TestScriptTeardownActionComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeTestScriptTestScriptTeardownOperationComponentInner(element);
+      composeTestScriptTestScriptTeardownActionComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptTestScriptTeardownOperationComponentInner(TestScript.TestScriptTeardownOperationComponent element) throws Exception {
+  protected void composeTestScriptTestScriptTeardownActionComponentInner(TestScript.TestScriptTeardownActionComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeEnumerationCore("type", element.getTypeElement(), new TestScript.TestOperationTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new TestScript.TestOperationTypeEnumFactory(), false);
-      }
-      if (element.hasSourceElement()) {
-        composeIdCore("source", element.getSourceElement(), false);
-        composeIdExtras("source", element.getSourceElement(), false);
-      }
-      if (element.hasTargetElement()) {
-        composeIdCore("target", element.getTargetElement(), false);
-        composeIdExtras("target", element.getTargetElement(), false);
-      }
-      if (element.hasDestinationElement()) {
-        composeIntegerCore("destination", element.getDestinationElement(), false);
-        composeIntegerExtras("destination", element.getDestinationElement(), false);
-      }
-      if (element.hasParameter()) {
-        openArray("parameter");
-        for (StringType e : element.getParameter()) 
-          composeStringCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getParameter())) {
-          openArray("_parameter");
-          for (StringType e : element.getParameter()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
-      };
-      if (element.hasResponseIdElement()) {
-        composeIdCore("responseId", element.getResponseIdElement(), false);
-        composeIdExtras("responseId", element.getResponseIdElement(), false);
-      }
-      if (element.hasContentTypeElement()) {
-        composeEnumerationCore("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
-        composeEnumerationExtras("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+      if (element.hasOperation()) {
+        composeTestScriptTestScriptSetupActionOperationComponent("operation", element.getOperation());
       }
   }
 

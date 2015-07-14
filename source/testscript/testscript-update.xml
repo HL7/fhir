@@ -1,68 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
-  <id value="update"/>
-  <name value="Update Test Script"/>
-  <description value="Test Script for update of the patient resource"/>
-  <fixture id="example-patient"><uri value="/patient/patient-example.xml"/></fixture>
-  <fixture id="example-patient-updated"><uri value="/patient/patient-example-updated.xml"/></fixture>
-  <setup>
-    <operation>
-      <type value="create"/>
-      <source value="example-patient"/>
-    </operation>
-  </setup>
-  <test id="UPDATE01">
-    <name value="Update Patient"/>
-    <description value="Update a patient and validate response."/>
-    <metadata>
-      <link>
-        <url value="http://www.hl7.org/implement/standards/fhir/http.html#update"/>
-        <description value="Update Operation"/>
-      </link>
-      <link>
-        <url value="http://www.hl7.org/implement/standards/fhir/patient.html"/>
-        <description value="Patient Resource"/>
-      </link>
-      <requires>
-        <type value="Patient"/>
-        <operations value="create"/>
-      </requires>
-      <requires>
-        <type value="Patient"/>
-        <operations value="read"/>
-      </requires>
-      <validates>
-        <type value="Patient"/>
-        <operations value="update"/>
-      </validates>
-    </metadata>
-    <operation>
-      <type value="update"/>
-      <source value="example-patient-updated"/>
-      <target value="example-patient"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="response_code"/>
-      <parameter value="201"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="valid_content_location"/>
-    </operation>
-    <operation>
-      <type value="read"/>
-      <target value="example-patient"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="response_okay"/>
-    </operation>
-  </test>
-  <teardown>
-    <operation>
-      <type value="delete"/>
-      <target value="example-patient"/>
-    </operation>
-  </teardown>
+<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir">
+	<id value="update"/>
+	<text><status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: update</p><p><b>name</b>: Update Test Script</p><p><b>description</b>: Test Script for update of the patient resource</p><blockquote><p><b>fixture</b></p><p><b>resource</b>: <a>Patient/patient-example.xml</a></p></blockquote><blockquote><p><b>fixture</b></p><p><b>resource</b>: <a>Patient/patient-example-updated.xml</a></p></blockquote><blockquote><p><b>setup</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>create</td><td>example-patient</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Update Patient</p><p><b>description</b>: Update a patient and validate response.</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/implement/standards/FHIR-Develop/patient.html</a></td><td>FHIR Patient</td></tr></table><blockquote><p><b>operation</b></p><p><b>type</b>: create</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Create Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#create</a></p><p><b>required</b>: true</p></blockquote><blockquote><p><b>operation</b></p><p><b>type</b>: read</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Read Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#read</a></p><p><b>required</b>: true</p></blockquote><blockquote><p><b>operation</b></p><p><b>type</b>: delete</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Delete Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#delete</a></p><p><b>required</b>: true</p></blockquote><blockquote><p><b>operation</b></p><p><b>type</b>: update</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Update Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#update</a></p><p><b>validated</b>: true</p></blockquote></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>teardown</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div></text><name value="Update Test Script"/>
+	<description value="Test Script for update of the patient resource"/>
+	<fixture id="example-patient">
+		<resource>
+			<reference value="Patient/patient-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="example-patient-updated">
+		<resource>
+			<reference value="Patient/patient-example-updated.xml"/>
+		</resource>
+	</fixture>	
+	<setup>
+		<action>
+			<operation>
+				<type value="create"/>
+				<sourceId value="example-patient"/>
+			</operation>
+		</action>
+	</setup>
+	<test id="UPDATE01">
+		<name value="Update Patient"/>
+		<description value="Update a patient and validate response."/>
+		<metadata>
+			<capabilities>
+				<required value="true"/>
+				<description value="Patient Create, Read, and Delete Operations"/>
+				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
+				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#delete"/>
+				<conformance>
+					<reference value="Conformance/PatientCreateReadDelete.xml" />
+				</conformance>
+			</capabilities>
+			<capabilities>
+				<validated value="true"/>
+				<description value="Patient Update Operation"/>
+				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
+				<conformance>
+					<reference value="Conformance/PatientUpdate.xml" />
+				</conformance>
+			</capabilities>			
+		</metadata>			
+		<action>
+			<operation>
+				<type value="update"/>
+				<sourceId value="example-patient-updated"/>
+				<targetId value="example-patient"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<headerField value="Content-Location"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type value="read"/>
+				<targetId value="example-patient"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<response value="okay"/>
+			</assert>
+		</action>
+	</test>
+	<teardown>
+		<action>
+			<operation>
+				<type value="delete"/>
+				<targetId value="example-patient"/>
+			</operation>
+		</action>
+	</teardown>
 </TestScript>

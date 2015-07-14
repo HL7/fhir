@@ -1,95 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
-  <id value="example"/>
-  <name value="Test Script 1"/>
-  <description value="Example Test Script"/>
-  <fixture id="F1">
-    <uri value="/patient/patient-example.xml"/>
-    <autocreate value="true"/>
-    <autodelete value="true"/>
-  </fixture>
-  <fixture id="F1-min">
-    <resource>
-      <Patient xmlns="http://hl7.org/fhir">
-        <id value="example"/>
-        <name>
-          <family value="Chalmers"/>
-          <given value="Peter"/>
-        </name>
-      </Patient>
-    </resource>
-  </fixture>
-  <test id="READ01">
-    <name value="Read Patient"/>
-    <description value="Read a patient and validate response."/>
-    <metadata>
-      <link>
-        <url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
-        <description value="FHIR Patient"/>
-      </link>
-      <link>
-        <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html"/>
-        <description value="FHIR RESTful API"/>
-      </link>
-      <requires>
-        <type value="Patient"/>
-        <operations value="create"/>
-      </requires>
-      <validates>
-        <type value="Patient"/>
-        <operations value="read"/>
-      </validates>
-    </metadata>
-    <operation>
-      <type value="read"/>
-      <target value="F1"/>
-      <responseId value="F1-read"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="response_okay"/>
-    </operation>
-    <operation>
-      <type value="assertion_warning"/>
-      <parameter value="valid_content_location"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="resource_type"/>
-      <parameter value="Patient"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="equals"/>
-      <parameter value="Chalmers"/>
-      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="fixture_equals"/>
-      <parameter value="F1"/>
-      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
-      <parameter value="Chalmers"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="fixture_equals"/>
-      <parameter value="F1-read"/>
-      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
-      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="fixture_compare"/>
-      <parameter value="F1"/>
-      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
-      <parameter value="F1-read"/>
-      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
-    </operation>
-    <operation>
-      <type value="assertion"/>
-      <parameter value="minimum"/>
-      <parameter value="F1-min"/>
-    </operation>
-  </test>
+<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir">
+	<id value="example"/>
+	<text><status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>name</b>: Test Script 1</p><p><b>description</b>: Example Test Script</p><h3>Fixtures</h3><table><tr><td>-</td><td><b>Resource</b></td></tr><tr><td>*</td><td><a>Patient resource</a></td></tr></table><blockquote><p><b>test</b></p><p><b>name</b>: Read Patient</p><p><b>description</b>: Read a patient and validate response.</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/implement/standards/FHIR-Develop/patient.html</a></td><td>FHIR Patient</td></tr></table><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Description</b></td><td><b>Link</b></td><td><b>Required</b></td></tr><tr><td>*</td><td>create</td><td>Patient</td><td>Patient Create Operation</td><td><a>http://hl7.org/implement/standards/FHIR-Develop/http.html#create</a></td><td>true</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div></text><name value="Test Script 1"/>
+	<description value="Example Test Script"/>
+	<metadata>
+		<capabilities>
+			<required value="true"/>
+			<description value="Patient Create, Read, and Update Operations"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
+			<conformance>
+				<reference value="Conformance/PatientCreateReadUpdate.xml" />
+			</conformance>
+		</capabilities>
+	</metadata>		
+	<fixture id="F1">
+		<resource>
+			<reference value="Patient/patient-example.xml"/>
+			<display value="Patient resource"/>
+		</resource>
+	</fixture>
+	<test id="READ01">
+		<name value="Read Patient"/>
+		<description value="Read a patient and validate response."/>
+		<action>
+			<operation>
+				<type value="read"/>
+				<responseId value="F1-read"/>
+				<targetId value="F1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<headerField value="Content-Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<operator value="equals"/>
+				<path value="fhir:Patient/fhir:name/fhir:family/@value"/>
+				<value value="Chalmers"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<operator value="equals"/>
+				<path value="fhir:Patient/fhir:name/fhir:family/@value"/>
+				<sourceId value="F1"/>
+				<value value="Chalmers"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<compareToSourceId value="F1-read"/>
+				<compareToSourcePath value="fhir:Patient/fhir:name/fhir:family/@value"/>
+				<operator value="equals"/>
+				<path value="fhir:Patient/fhir:name/fhir:family/@value"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<compareToSourceId value="F1-read"/>
+				<compareToSourcePath value="fhir:Patient/fhir:name/fhir:family/@value"/>
+				<path value="fhir:Patient/fhir:name/fhir:family/@value"/>
+				<sourceId value="F1"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<minimumId value="F1-min"/>
+			</assert>
+		</action>
+	</test>
 </TestScript>
