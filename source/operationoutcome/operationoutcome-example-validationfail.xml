@@ -9,6 +9,12 @@
   </text>
   <issue>
     <severity value="error"/>
+    <code>
+      <coding>
+        <system value="http://hl7.org/fhir/issue-type"/>
+        <code value="structure"/>
+      </coding>
+    </code>
     <details value="Error parsing resource XML (Unknown Content &quot;label&quot;"/>
     <location value="/f:Patient/f:identifier"/>    
   </issue>

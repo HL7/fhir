@@ -7,4 +7,13 @@
       <p>All OK</p>
     </div>
   </text>
+  <issue> 
+    <severity value="information"/>
+    <code>
+      <coding>
+        <system value="http://hl7.org/fhir/issue-type"/>
+        <code value="informational"/>
+      </coding>
+    </code>
+ </issue>
 </OperationOutcome>
