@@ -1,5 +1,13 @@
 package org.hl7.fhir.definitions.validation;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 /*
  Copyright (c) 2011+, HL7, Inc
  All rights reserved.
@@ -59,6 +67,9 @@ import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
+import com.swabunga.spell.engine.SpellDictionary;
+import com.swabunga.spell.engine.SpellDictionaryHashMap;
+
 
 /** todo
  * check code lists used in Codings have displays
@@ -82,17 +93,39 @@ public class ResourceValidator extends BaseValidator {
   private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
   private Translations translations;
   private final Map<String, ValueSet> codeSystems;
+  private Set<String> words = new HashSet<String>();
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
-	public ResourceValidator(Definitions definitions, Translations translations, Map<String, ValueSet> map) {
+	public ResourceValidator(Definitions definitions, Translations translations, Map<String, ValueSet> map, String srcFolder) throws IOException {
 		super();
 		source = Source.ResourceValidator;
 		this.definitions = definitions;
 		this.translations = translations;
 		this.codeSystems = map;
+		loadWords(srcFolder);
 	}
 
-	// public void setConceptDomains(List<ConceptDomain> conceptDomains) {
+	private void loadWords(String srcFolder) throws IOException {
+    loadDict(Utilities.path(srcFolder, "spelling", "english.dic"));  
+    loadDict(Utilities.path(srcFolder, "spelling", "center.dic"));  
+    loadDict(Utilities.path(srcFolder, "spelling", "color.dic"));  
+    loadDict(Utilities.path(srcFolder, "spelling", "labeled.dic"));  
+    loadDict(Utilities.path(srcFolder, "spelling", "yze.dic"));  
+}	
+
+  private void loadDict(String path) throws IOException {
+    //Construct BufferedReader from InputStreamReader
+    BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path)));
+   
+    String line = null;
+    while ((line = br.readLine()) != null) {
+      words.add(line);
+    }
+   
+    br.close();    
+  }
+
+  // public void setConceptDomains(List<ConceptDomain> conceptDomains) {
 	// this.conceptDomains = conceptDomains;
 	// }
 	//
@@ -190,6 +223,7 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
       rule(errors, IssueType.STRUCTURE, parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
       hint(errors, IssueType.STRUCTURE, parent.getName(), !stringMatches(p.getCode(), "id", "lastUpdated", "tag", "profile", "security", "text", "content", "list", "query"), "Search Parameter Names cannot be named one of the reserved names (\""+p.getCode()+"\")");
+      hint(errors, IssueType.STRUCTURE, parent.getName(), searchNameOk(p.getCode()), "Search Parameter name '"+p.getCode()+"' does not follow the style guide");
       rule(errors, IssueType.STRUCTURE, parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
       if (rule(errors, IssueType.STRUCTURE, parent.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
         rule(errors, IssueType.STRUCTURE, parent.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|"), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
@@ -260,6 +294,15 @@ public class ResourceValidator extends BaseValidator {
     if (rule(errors, IssueType.STRUCTURE, parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
       rule(errors, IssueType.STRUCTURE, parent.getName(), vsWarnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private boolean searchNameOk(String code) {
+    String[] ws = code.split("\\-");
+    for (String w : ws) {
+      if (!words.contains(w))
+        return false;
+    }
+    return true;
+  }
 
   private boolean hasOpExample(List<OperationExample> examples, boolean resp) {
     for (OperationExample ex: examples) {
