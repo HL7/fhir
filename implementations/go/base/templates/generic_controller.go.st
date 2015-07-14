@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 	<if(searchBySubject || searchByPatient || searchByCode)>
 	"strings"
 	<endif>
@@ -33,14 +32,14 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 		for key, value := range r.Form {
 			splitKey := strings.Split(key, ":")
 			<if(searchByPatient)>
-			if (len(splitKey) > 1) && (splitKey[0] == "patient") {
+			if splitKey[0] == "patient" {
 				err := c.Find(bson.M{"patient.referenceid": value[0]}).All(&result)
 				if err != nil {
 					http.Error(rw, err.Error(), http.StatusInternalServerError)
 				}
 			}
 			<else>
-			if (len(splitKey) > 1) && (splitKey[0] == "subject") {
+			if splitKey[0] == "subject" {
 				err := c.Find(bson.M{"subject.referenceid": value[0]}).All(&result)
 				if err != nil {
 					http.Error(rw, err.Error(), http.StatusInternalServerError)
@@ -77,21 +76,18 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 	}
 	<endif>
 	
-	var <LowerCaseModelName>EntryList []models.<ModelName>BundleEntry
+	var <LowerCaseModelName>EntryList []models.BundleEntryComponent
 	for _, <LowerCaseModelName> := range result {
-		var entry models.<ModelName>BundleEntry
-		entry.Title = "<ModelName> " + <LowerCaseModelName>.Id
-		entry.Id = <LowerCaseModelName>.Id
-		entry.Content = <LowerCaseModelName>
+		var entry models.BundleEntryComponent
+		entry.Resource = &<LowerCaseModelName>
 		<LowerCaseModelName>EntryList = append(<LowerCaseModelName>EntryList, entry)
 	}
 
-	var bundle models.<ModelName>Bundle
-	bundle.Type = "Bundle"
-	bundle.Title = "<ModelName> Index"
+	var bundle models.Bundle
 	bundle.Id = bson.NewObjectId().Hex()
-	bundle.Updated = time.Now()
-	bundle.TotalResults = len(result)
+	bundle.Type = "searchset"
+	var total = uint32(len(result))
+    bundle.Total = &total
 	bundle.Entry = <LowerCaseModelName>EntryList
 
 	log.Println("Setting <LowerCaseModelName> search context")
@@ -101,7 +97,7 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 
 	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
 	rw.Header().Set("Access-Control-Allow-Origin", "*")
-	json.NewEncoder(rw).Encode(bundle)
+	json.NewEncoder(rw).Encode(&bundle)
 }
 
 func Load<ModelName>(r *http.Request) (*models.<ModelName>, error) {
