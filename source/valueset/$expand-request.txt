@@ -1,0 +1,20 @@
+// Expanding a value set that is already registered on the server as "23", with a text filter of "abdo"
+GET [base]/ValueSet/23/$expand?filter=abdo
+
+--------------------------------------
+// Expanding a value set that is specififed by the client (using JSON)
+POST [base]/ValueSet/23/$expand
+[other headers]
+
+{
+  "resourceType" : "Parameters",
+  "parameter" : [
+     {
+     "name" : "valueSet",
+     "resource" : {
+       "resourceType" : "ValueSet",
+     [value set details]
+     }
+   }
+  ]
+}

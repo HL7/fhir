@@ -60,6 +60,7 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.Operation;
+import org.hl7.fhir.definitions.model.Operation.OperationExample;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
@@ -107,6 +108,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
@@ -389,7 +391,8 @@ public class SpreadsheetParser {
         String use = sheet.getColumn(row, "Use"); 
         String doco = sheet.getColumn(row, "Documentation");
         String type = sheet.getColumn(row, "Type");
-				
+        List<OperationExample> examples = loadOperationExamples(sheet.getColumn(row, "Example.Request"), sheet.getColumn(row, "Example.Response"));
+        
 				if (name != null && !name.equals("") && !name.startsWith("!")) {
 	        if (!name.contains(".")) {
 	          if (!type.equals("operation"))
@@ -410,7 +413,7 @@ public class SpreadsheetParser {
 	            else 
 	              throw new Exception("unknown operation use code "+c+" at "+getLocation(row));
 	          }
-	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer"));
+	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer"), examples);
             root.getOperations().add(op);
             ops.put(name, op);
 	        } else {
@@ -456,7 +459,56 @@ public class SpreadsheetParser {
 	}
 
 
-	private ExampleType parseExampleType(String s, int row) throws Exception {
+  private List<OperationExample> loadOperationExamples(String req, String resp) throws Exception {
+    List<OperationExample> results = new ArrayList<Operation.OperationExample>();
+    if (!Utilities.noString(req)) 
+      for (String s : TextFile.fileToString(Utilities.path(folder, req)).split("\r\n--------------------------------------\r\n")) 
+        results.add(convertToExample(s, false));
+    if (!Utilities.noString(resp)) 
+      for (String s : TextFile.fileToString(Utilities.path(folder, resp)).split("\r\n--------------------------------------\r\n")) 
+        results.add(convertToExample(s, true));
+  
+    return results;
+  }
+
+
+  private OperationExample convertToExample(String s, boolean resp) throws Exception {
+    String[] lines = s.trim().split("\\r?\\n");
+    StringBuilder content = new StringBuilder();
+    String comment = null;
+    String bundle = null;
+    for (String l : lines)
+      if (l.startsWith("//"))
+        comment = l.substring(2).trim();
+      else if (l.startsWith("$bundle ")) {
+        bundle = l.substring(8);
+      } else if (l.startsWith("$link ")) {
+        String url = l.substring(6);
+        String title = url.substring(url.indexOf(" ")+1);
+        url= url.substring(0, url.indexOf(" "));
+        content.append("<a href=\""+url+"\">See "+Utilities.escapeXml(title)+"</a>\r\n");
+      } else if (l.startsWith("$include "))
+        process(content, TextFile.fileToString(Utilities.path(folder, l.substring(9))));
+      else {
+        content.append(Utilities.escapeXml(l));
+        content.append("\r\n");
+      }
+    return new OperationExample(content.toString(), comment, resp, bundle);
+  }
+
+  private void process(StringBuilder content, String s) {
+    String[] lines = s.trim().split("\\r?\\n");
+    for (String l : lines)
+      if (l.contains("xmlns:xsi=")) {
+        content.append(Utilities.escapeXml(l.substring(0, l.indexOf("xmlns:xsi=")-1)));
+        content.append(">\r\n");
+      } else {
+        content.append(Utilities.escapeXml(l));
+        content.append("\r\n");
+      }
+  }
+
+  private ExampleType parseExampleType(String s, int row) throws Exception {
 	  if (s==null || "".equals(s))
 	    return ExampleType.XmlFile;
 	  if ("tool".equals(s))

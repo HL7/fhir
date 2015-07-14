@@ -567,7 +567,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       StructureDefinition p = context.getProfiles().get(rt);
       return generateByProfile(doc, p, true);  
     } else 
-      throw new Exception("not done yet");
+      throw new Exception("not done yet (profile : "+rt+")");
     //             narrative = "&lt;-- No Narrative for this resource --&gt;";
 
   }
@@ -2400,8 +2400,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
           }
         }
       }
+      boolean first = false;
       for (ConceptSetFilterComponent f : inc.getFilter()) {
-        li.addText(type+" codes from ");
+        if (first) {
+          li.addText(type+" codes from ");
+          first = false;
+        } else
+          li.addText(" and ");
         addCsRef(inc, li, e);
         li.addText(" where "+f.getProperty()+" "+describe(f.getOp())+" ");
         if (e != null && codeExistsInValueSet(e, f.getValue())) {

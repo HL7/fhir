@@ -7,9 +7,10 @@
   <type value="document"/>
   <!-- The Composition resource -->
   <entry>
-    <fullUrl value="urn:uuid:180f219f-97a8-486d-99d9-ed631fe4fc57"/>
+    <fullUrl value="http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57"/>
     <resource>
       <Composition>
+        <id value="180f219f-97a8-486d-99d9-ed631fe4fc57"/>
         <meta>
           <lastUpdated value="2013-05-28T22:12:21Z"/>
         </meta>

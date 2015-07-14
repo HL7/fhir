@@ -1,0 +1,4 @@
+// get all resources linked to a single patient
+
+GET /open/Encounter/example/$everything
+[some headers]

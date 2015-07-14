@@ -1,0 +1,4 @@
+GET [base]/ConceptMap/$translate?system=http://hl7.org/fhir/composition-status
+  &code=preliminary&valueSet= http://hl7.org/fhir/ValueSet/composition-status
+  &target=http://hl7.org/fhir/ValueSet/v3-ActStatus
+  

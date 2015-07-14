@@ -1332,9 +1332,9 @@ public class Publisher implements URIResolver {
           List<ExampleReference> refs = new ArrayList<ExampleReference>();
           listLinks(e.getXml().getDocumentElement(), refs);
           for (ExampleReference ref : refs) {
-            if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref)) {
+            if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref, e)) {
               errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, ref.getPath(), "Unable to resolve example reference to "
-                  + ref.describe() + " in " + e.getPath() + "\r\n   Possible Ids: " + listTargetIds(ref.getType()), IssueSeverity.ERROR));
+                  + ref.describe() + " in " + e.getPath() + "\r\n   Possible Ids: " + listTargetIds(ref.getType()), IssueSeverity.WARNING));
             }
           }
         }
@@ -1370,7 +1370,7 @@ public class Publisher implements URIResolver {
     return b.toString();
   }
 
-  private boolean resolveLink(ExampleReference ref) throws Exception {
+  private boolean resolveLink(ExampleReference ref, Example src) throws Exception {
     if (ref.getId().startsWith("#"))
       return true;
     if (!page.getDefinitions().hasResource(ref.getType()))
@@ -1378,17 +1378,21 @@ public class Publisher implements URIResolver {
     ResourceDefn r = page.getDefinitions().getResourceByName(ref.getType());
     for (Example e : r.getExamples()) {
       if (!ref.getId().startsWith("#")) {
-        String id = extractId(ref.getId(), ref.getType());
-        if (id.equals(e.getId()))
+        String id = ref.getId(); // extractId(ref.getId(), ref.getType());
+        if (id.equals(e.getId())) {
+          e.getInbounds().add(src);
           return true;
+        }
         if (e.getXml() != null) {
           if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
             List<Element> entries = new ArrayList<Element>();
             XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
             for (Element c : entries) {
               String _id = XMLUtil.getNamedChild(c, "id").getTextContent();
-              if (id.equals(_id) || _id.equals("http://hl7.org/fhir/" + ref.getType() + "/" + id))
+              if (id.equals(_id) || _id.equals("http://hl7.org/fhir/" + ref.getType() + "/" + id)) {
+                e.getInbounds().add(src);
                 return true;
+              }
             }
           }
         }
@@ -1457,9 +1461,11 @@ public class Publisher implements URIResolver {
   private void listLinks(String path, org.hl7.fhir.definitions.model.ElementDefn d, List<Element> set, List<ExampleReference> refs) throws Exception {
     if (d.typeCode().startsWith("Reference")) {
       for (Element m : set) {
-        if (XMLUtil.getNamedChild(m, "type") != null && XMLUtil.getNamedChild(m, "reference") != null) {
-          refs.add(new ExampleReference(XMLUtil.getNamedChild(m, "type").getAttribute("value"), XMLUtil.getNamedChild(m, "reference").getAttribute("value"),
-              path));
+        if (XMLUtil.getNamedChild(m, "reference") != null) {
+          String[] parts = XMLUtil.getNamedChildValue(m, "reference").split("\\/");
+          if (parts.length > 0 && page.getDefinitions().hasResource(parts[0])) {
+            refs.add(new ExampleReference(parts[0], parts[1], path));
+          }
         }
       }
     }
@@ -3151,11 +3157,13 @@ public class Publisher implements URIResolver {
         producePage(p, n);
       }
     }
-//    try {
-//      processQuestionnaire(resource, profile, st);
-//    } catch (Exception e) {
-//      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
-//    }
+    try {
+      if (!isAbstract)
+        processQuestionnaire(profile, st, true);
+    } catch (Exception e) {
+      e.printStackTrace();
+      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
+    }
 
     if (!isAbstract || !resource.getExamples().isEmpty()) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-examples.html");
@@ -3306,53 +3314,54 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal(n + ".xml.html");
   }
 
-  private void processQuestionnaire(ResourceDefn resource, StructureDefinition profile, SectionTracker st) throws Exception {
+  private void processQuestionnaire(StructureDefinition profile, SectionTracker st, boolean isResource) throws Exception {
     QuestionnaireBuilder qb = new QuestionnaireBuilder(page.getWorkerContext());
     qb.setProfile(profile);
     qb.build();
     Questionnaire q = qb.getQuestionnaire();
 
-    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.json");
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.json");
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, q);
     s.close();
-    s = new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml");
+    s = new FileOutputStream(page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.xml");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, q);
     s.close();
 
-    String json = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+resource.getName()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(q)) + "\r\n</pre>\r\n</div>\r\n";
+    String json = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+profile.getId()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(q)) + "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(resource.getName().toLowerCase() + ".questionnaire.json.html", html, "resource-questionnaire:" + resource.getName(), null, null, null, "Questionnaire");
-    TextFile.stringToFile(html, page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.json.html");
+    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.json.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire");
+    TextFile.stringToFile(html, page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.json.html");
 
-    String xml = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+resource.getName()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new XmlParser().setOutputStyle(OutputStyle.PRETTY).composeString(q)) + "\r\n</pre>\r\n</div>\r\n";
+    String xml = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+profile.getId()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new XmlParser().setOutputStyle(OutputStyle.PRETTY).composeString(q)) + "\r\n</pre>\r\n</div>\r\n";
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", xml);
-    html = page.processPageIncludes(resource.getName().toLowerCase() + ".questionnaire.xml.html", html, "resource-questionnaire:" + resource.getName(), null, null, null, "Questionnaire");
-    TextFile.stringToFile(html, page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml.html");
+    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.xml.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire");
+    TextFile.stringToFile(html, page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.xml.html");
 
     File tmpTransform = Utilities.createTempFile("tmp", ".html");
-    if (web) {
+//    if (web) {
     HashMap<String, String> params = new HashMap<String, String>();
     params.put("suppressWarnings", "true");
     Utilities.saxonTransform(
         Utilities.path(page.getFolders().rootDir, "implementations", "xmltools"), // directory for xslt references
-        page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml",  // source to run xslt on
+        page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.xml",  // source to run xslt on
         Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "QuestionnaireToHTML.xslt"), // xslt file to run
         tmpTransform.getAbsolutePath(), // file to produce
         this, // handle to self to implement URI resolver for terminology fetching
         params
         );
-    } else
-      TextFile.stringToFile("test", tmpTransform.getAbsolutePath());
+//    } else
+//      TextFile.stringToFile("test", tmpTransform.getAbsolutePath());
     
     // now, generate the form
     html = TextFile.fileToString(page.getFolders().srcDir + "template-questionnaire.html").replace("<%questionnaire%>", loadHtmlForm(tmpTransform.getAbsolutePath()));
-    html = page.processPageIncludes(resource.getName().toLowerCase() + ".questionnaire.html", html, "resource-questionnaire:" + resource.getName(), null, null, null, "Questionnaire");
-    html = insertSectionNumbers(html, st, resource.getName().toLowerCase() + ".questionnaire.html", null);
-    TextFile.stringToFile(html, page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.html");
+    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire");
+    if (st != null)
+      html = insertSectionNumbers(html, st, profile.getId().toLowerCase() + ".questionnaire.html", null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.html");
 
-    page.getEpub().registerExternal(resource.getName().toLowerCase() + ".questionnaire.html");
-    page.getEpub().registerExternal(resource.getName().toLowerCase() + ".questionnaire.json.html");
-    page.getEpub().registerExternal(resource.getName().toLowerCase() + ".questionnaire.xml.html");
+    page.getEpub().registerExternal(profile.getId().toLowerCase() + ".questionnaire.html");
+    page.getEpub().registerExternal(profile.getId().toLowerCase() + ".questionnaire.json.html");
+    page.getEpub().registerExternal(profile.getId().toLowerCase() + ".questionnaire.xml.html");
   }
 
   private String loadHtmlForm(String path) throws Exception {
@@ -3509,7 +3518,7 @@ public class Publisher implements URIResolver {
       Utilities.copyFile(file, new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + ".xml"));
 
     // now, we create an html page from the narrative
-    html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative);
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative).replace("<%example-usage%>", genExampleUsage(e));
     html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example");
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".html");
     // head =
@@ -3521,6 +3530,32 @@ public class Publisher implements URIResolver {
     // ".html");
     page.getEpub().registerExternal(n + ".html");
     page.getEpub().registerExternal(n + ".xml.html");
+  }
+
+  private String genExampleUsage(Example e) {
+    if (e.getInbounds().isEmpty())
+      return "";
+    else {
+      StringBuilder b = new StringBuilder();
+      b.append("<p>\r\nOther examples that reference this example:</p>\r\n");
+      List<String> names = new ArrayList<String>();
+      for (Example x : e.getInbounds()) 
+        names.add(x.getResourceName()+":"+x.getId());
+      Collections.sort(names);
+      for (String n : names) {
+        Example x  = null;
+        for (Example y : e.getInbounds()) 
+          if (n.equals(y.getResourceName()+":"+y.getId()))
+            x = y;
+        b.append("<li><a href=\"");
+        b.append(Utilities.changeFileExt(x.getPath().getName(), ".html"));
+        b.append("\">");
+        b.append(x.getResourceName()+"/"+x.getName());
+        b.append("</a></li>\r\n");
+      }
+      b.append("</ul>\r\n");
+      return b.toString();
+    }
   }
 
   private void processExamplesByBatch() throws Exception {
@@ -3827,6 +3862,12 @@ public class Publisher implements URIResolver {
     page.getEpub().registerFile(title + "-mappings.html", "Mappings for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-mappings.html");
 
+    try {
+      processQuestionnaire(profile.getResource(), st, false);
+    } catch (Exception e) {
+      e.printStackTrace();
+      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
+    }
     new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls"), "Health Level Seven International", page.getGenDate(), profile.getResource(), page);
 
     //

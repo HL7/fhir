@@ -9,14 +9,14 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-06-23T03:26:12Z</LastSaved>
+  <LastSaved>2015-07-13T11:58:52Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14475</WindowHeight>
+  <WindowHeight>16875</WindowHeight>
   <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -5669,8 +5669,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used. &#10;&#10;Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters. Servers are not obliged to support paging, but if they do so, SHALL support both the offset and count parameters. Heirarchical expansions are not subject to paging, and servers simply return the entire expansion.&#10;&#10;Different servers may return different results from expanding a value set for the following reasons:&#10;&#10;* The underlying code systems are different (e.g. different versions, possibly with different defined behaviour)&#10;* The server optimises filter includes differently, such as sorting by code frequency&#10;* Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">valueset-$expand-request.txt</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-$expand-response.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$expand-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$expand-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s119"><Data ss:Type="String">expand.identifier</Data></Cell>
@@ -5781,6 +5781,8 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Concept Look Up</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Given a code/system, or a Coding, get additional details about the concept</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Note that the $lookup operation is more than just a value set search  - the server finds the concept, and gathers the return information from the value set and the underlying code system definitions.</Data></Cell>
+    <Cell><Data ss:Type="String">$lookup-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$lookup-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s119"><Data ss:Type="String">lookup.code</Data></Cell>
@@ -5935,6 +5937,8 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Value Set based Validation</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Validate that a coded value is in the set of codes allowed by a value set. &#10;&#10;If the operation is not called at the instance level, one of the in parameters &quot;identifier&quot; or &quot;valueset&quot; must be provided.&#10;&#10;One (and only one) of the in parameters (code, coding, codeableConcept) must be provided.&#10;&#10;The operation returns a result (true / false), an error message, and the recommended display for the code</Data></Cell>
     <Cell ss:StyleID="s135"/>
+    <Cell><Data ss:Type="String">$validate-code-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$validate-code-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s119"><Data ss:Type="String">validate-code.identifier</Data></Cell>
@@ -6100,6 +6104,8 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Batch Mode Validation</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Validate a set of concepts against value sets in a single oeration&#10;&#10;Typically, this would be called when a validating a resource or document that contains many codes, to reduce network latency events</Data></Cell>
     <Cell ss:StyleID="s135"/>
+    <Cell><Data ss:Type="String">$validate-code-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$validate-code-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">batch-validate.item</Data></Cell>
@@ -6417,7 +6423,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6430,10 +6436,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>28</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

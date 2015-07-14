@@ -43,6 +43,7 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Operation;
+import org.hl7.fhir.definitions.model.Operation.OperationExample;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
@@ -159,6 +160,10 @@ public class ResourceValidator extends BaseValidator {
     String s = parent.getRoot().getMapping(Definitions.RIM_MAPPING);
     warning(errors, IssueType.REQUIRED, parent.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
+    for (Operation op : parent.getOperations()) {
+      warning(errors, IssueType.BUSINESSRULE, parent.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), false), "Operation must have an example request");
+      warning(errors, IssueType.BUSINESSRULE, parent.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), true), "Operation must have an example response");
+    }
     List<String> vsWarns = new ArrayList<String>();
     int vsWarnings = checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(parent.getRoot()), vsWarns);
     
@@ -255,6 +260,14 @@ public class ResourceValidator extends BaseValidator {
     if (rule(errors, IssueType.STRUCTURE, parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
       rule(errors, IssueType.STRUCTURE, parent.getName(), vsWarnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private boolean hasOpExample(List<OperationExample> examples, boolean resp) {
+    for (OperationExample ex: examples) {
+      if (ex.isResponse() == resp)
+        return true;
+    }
+    return false;
+  }
 
   private boolean stringMatches(String value, String... args) {
     for(String arg: args) {

@@ -1,0 +1,24 @@
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType": "ConceptMap",
+  "identifier": "49088976-d54d-4d19-b868-3d4c18cebabb",
+  "version": "8",
+  "status": "active",
+  "experimental": true,
+  "date": "2012-06-13",
+  "element": [
+    {
+      "codeSystem": "http://snomed.info/sct",
+      "code": "22298006",
+      "map": [
+        {
+          "codeSystem": "http://snomed.info/sct",
+          "code": "128599005",
+          "equivalence": "narrower"
+        }
+      ]
+    },
+  ]
+}

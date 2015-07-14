@@ -1,0 +1,164 @@
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="3a0707d3-549e-4467-b8b8-5a2ab3800efe"/>
+  <type value="message"/>
+  <entry>
+    <fullUrl value="urn:uuid:d9d296d8-5afd-42e1-a0ce-3344e0e003ed"/>
+    <resource>
+      <MessageHeader xmlns="http://hl7.org/fhir"> 
+         <text>
+           <status value="generated"/>
+           <div xmlns="http://www.w3.org/1999/xhtml">
+             <p>This message is a request to link Patient records 654321 (Patient Donald DUCK @ Acme Healthcare, Inc) and 123456 (Patient Donald D DUCK @ Acme Healthcare, Inc)</p>
+           </div>
+         </text>
+        <identifier value="caf609cf-c3a7-4be3-a3aa-356b9bb69d4f"/>
+        <timestamp value="2015-07-14T11:15:33+10:00"/>
+        <event>
+           <system value="http://hl7.org/fhir/message-events"/>
+           <code value="patient-link"/>          
+        </event>
+         <response> 
+           <identifier value="efdd254b-0e09-4164-883e-35cf3871715f"/>
+           <code value="ok"/>
+         </response>
+        <source>  
+          <endpoint value="http://acme.com/ehr/fhir"/>
+        </source>
+        <destination>  
+          <endpoint value="http://example.org/clients/ehr-lite"/>
+        </destination>
+        <!-- this message is posted to http://acme.com/ehr/fhir, 
+             with an event 'link' to link 2 patient records, and nominates
+             2 patients on the server -->
+        <data>
+          <reference value="http://acme.com/ehr/fhir/Patient/pat1"/>
+        </data>
+        <data>
+          <reference value="http://acme.com/ehr/fhir/Patient/pat12"/>
+        </data>
+      </MessageHeader>
+    </resource>
+  </entry>
+  
+  <entry>
+    <fullUrl value="http://acme.com/ehr/fhir/Patient/pat1"/>
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir">
+        <id value="pat1"/>
+
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321</p>
+          </div>
+        </text>
+
+        <identifier>
+          <use value="usual"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="MR"/>
+            </coding>
+          </type>
+          <system value="urn:oid:0.1.2.3.4.5.6.7"/>
+          <value value="654321"/>
+        </identifier>
+
+        <name>
+          <use value="official"/>
+          <family value="Donald"/>
+          <given value="Duck"/>
+        </name>
+        <gender value="male"/>
+
+        <contact>
+          <relationship>
+            <coding>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="owner"/>
+            </coding>
+          </relationship>
+          <organization>
+            <!--   Which organization to contact to reach this patient   -->
+            <reference value="Organization/1"/>
+            <display value="Walt Disney Corporation"/>
+          </organization>
+        </contact>
+
+        <managingOrganization>
+          <reference value="Organization/1"/>
+          <display value="ACME Healthcare, Inc"/>
+        </managingOrganization>
+
+        <link>
+          <other>
+            <reference value="Patient/pat2"/>
+          </other>
+          <type value="seealso"/>
+        </link>
+
+        <active value="true"/>
+      </Patient>    
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://acme.com/ehr/fhir/Patient/pat12"/>
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir">
+        <id value="pat2"/>
+
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</p>
+          </div>
+        </text>
+        <identifier>
+          <use value="usual"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="MR"/>
+            </coding>
+          </type>
+          <system value="urn:oid:0.1.2.3.4.5.6.7"/>
+          <value value="123456"/>
+        </identifier>
+
+        <name>
+          <use value="official"/>
+          <family value="Donald"/>
+          <given value="Duck"/>
+          <given value="D"/>
+        </name>
+        <gender value="other">
+          <extension url="http://example.org/Profile/administrative-status">
+                <valueCodeableConcept>
+                  <coding>
+                    <system value="http://hl7.org/fhir/v2/0001"/>
+                    <code value="A"/>
+                    <display value="Ambiguous"/>
+                  </coding>
+                </valueCodeableConcept>
+          </extension>
+        </gender>
+
+        <managingOrganization>
+          <reference value="Organization/1"/>
+          <display value="ACME Healthcare, Inc"/>
+        </managingOrganization>
+
+        <link>
+          <other>
+            <reference value="Patient/pat1"/>
+          </other>
+          <type value="seealso"/>
+        </link>
+
+        <active value="true"/>
+
+      </Patient>    
+    </resource>
+  </entry>
+</Bundle>

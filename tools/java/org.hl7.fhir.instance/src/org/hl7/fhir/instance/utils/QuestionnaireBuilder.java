@@ -274,12 +274,16 @@ public class QuestionnaireBuilder {
         processExisting(child.getPath(), answerGroups, nAnswers);
         // if the element has a type, we add a question. else we add a group on the basis that
         // it will have children of it's own
-        if (child.getType().isEmpty()) 
+        if (child.getType().isEmpty() || isAbstractType(child.getType())) 
           buildGroup(childGroup, profile, child, nparents, nAnswers);
         else
           buildQuestion(childGroup, profile, child, child.getPath(), nAnswers);
       }
     }
+  }
+
+  private boolean isAbstractType(List<TypeRefComponent> type) {
+    return type.size() == 1 && (type.get(0).getCode().equals("Element") || type.get(0).getCode().equals("BackboneElement"));
   }
 
   private boolean isExempt(ElementDefinition element, ElementDefinition child) {
@@ -692,7 +696,7 @@ public class QuestionnaireBuilder {
     else if (t.getCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
-      addReferenceQuestions(group, element, path, t.getProfile().get(0).getValue(), answerGroups);
+      addReferenceQuestions(group, element, path, t.hasProfile() ? t.getProfile().get(0).getValue() : null, answerGroups);
     else if (t.getCode().equals("Duration"))
       addDurationQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("base64Binary"))
@@ -707,9 +711,10 @@ public class QuestionnaireBuilder {
       addTimingQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("SampledData"))
       addSampledDataQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Extension"))
-      addExtensionQuestions(profile, group, element, path, t.getProfile().get(0).getValue(), answerGroups);
-    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition")&& !t.getCode().equals("Meta")&& !t.getCode().equals("Signature"))
+    else if (t.getCode().equals("Extension")) {
+      if (t.hasProfile())
+        addExtensionQuestions(profile, group, element, path, t.getProfile().get(0).getValue(), answerGroups);
+    } else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition")&& !t.getCode().equals("Meta")&& !t.getCode().equals("Signature"))
       throw new Exception("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
   }
 

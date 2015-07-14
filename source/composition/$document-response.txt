@@ -1,0 +1,4 @@
+HTTP/1.1 200 OK
+[other headers]
+
+$include document-example-dischargesummary.xml

@@ -1,0 +1,18 @@
+// Looking up a code/system
+GET [base]/ValueSet/$lookup?system=http://loinc.org&code=1963-8
+
+--------------------------------------
+// Lookup using a Coding 
+POST [base]/ValueSet/$lookup
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="coding"/>
+  <valueCoding>
+    <system value="http://loinc.org"/>
+    <code value="1963-8"/>
+  </valueCoding>
+  </parameter>
+</Parameters>
+

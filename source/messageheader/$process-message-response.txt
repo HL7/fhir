@@ -1,0 +1,12 @@
+// response - since this is asynchronous, the response is empty
+
+200 OK
+[other headers]
+
+--------------------------------------
+// response - if the message couldn't be accepted (e.g. there'll be no asynchronous response
+
+500 OK Internal Server Error
+[other headers]
+
+$include ..\OperationOutcome\operationoutcome-example-exception.xml

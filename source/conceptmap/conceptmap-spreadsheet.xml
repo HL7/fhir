@@ -20,11 +20,11 @@
    <Path>\work\org.hl7.fhir\build\source\alert\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>15825</WindowHeight>
-  <WindowWidth>-31396</WindowWidth>
+  <WindowHeight>16875</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3906,7 +3906,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5135,7 +5134,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="69" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="69" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="236.25"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="124.5"/>
@@ -5144,6 +5143,8 @@
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="106.5" ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="222.75"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="253.5" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="153.75"/>
+   <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="171.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s126"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
@@ -5181,6 +5182,8 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional usage notes for an operation</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Example.Request</Data></Cell>
+    <Cell><Data ss:Type="String">Example.Response</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">translate</Data><NamedCell
@@ -5197,6 +5200,8 @@
     <Cell ss:StyleID="s131"><Data ss:Type="String">Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server. || One (and only one) of the in parameters (code, coding, codeableConcept) must be provided, to identify the code that is to be translated.  || The outcome is an operationOutcome with hints, warnings, or errors, or the translated code in an extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">$translate-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$translate-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s119"><Data ss:Type="String">translate.code</Data></Cell>
@@ -5406,6 +5411,8 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Batch Mode Translation</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Translate a set of concepts from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server</Data></Cell>
     <Cell ss:StyleID="s135"/>
+    <Cell><Data ss:Type="String">$translate-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$translate-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">batch-translate.item</Data></Cell>
@@ -5593,6 +5600,8 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Closure Table Maintenance</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">This operation provides support for ongoing maintenance of a client-side closure table based on server-side terminological logic. For details of how this is used, see [Maintaining a Closure Table](terminology-service.html#closure)</Data></Cell>
     <Cell ss:StyleID="s135"/>
+    <Cell><Data ss:Type="String">$closure-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$closure-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">closure.name</Data></Cell>
@@ -5933,10 +5942,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5949,11 +5959,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>31</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

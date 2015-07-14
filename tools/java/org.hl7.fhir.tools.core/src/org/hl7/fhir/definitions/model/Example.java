@@ -29,6 +29,8 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -49,6 +51,7 @@ public class Example {
   private boolean registered;
   private Document xml;
   private String resourceName;
+  private Set<Example> inbounds = new HashSet<Example>();
   
   
   public enum ExampleType {
@@ -156,6 +159,10 @@ public class Example {
 
   public void setResourceName(String resourceName) {
     this.resourceName = resourceName;
+  }
+
+  public Set<Example> getInbounds() {
+    return inbounds;
   }
   
   

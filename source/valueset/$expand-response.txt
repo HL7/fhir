@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+[other headers]
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <!-- the server SHOULD populate the id with a newly created UUID
+    so clients can easily track a particular expansion  -->
+  <id value="43770626-f685-4ba8-8d66-fb63e674c467"/>
+  <!-- no need for meta, though it is allowed for security labels, profiles -->
+
+  <!-- other value set details -->
+  <expansion>
+    <!-- when expanded -->
+    <timestamp value="20141203T08:50:00+11:00"/>
+  <contains>
+    <!-- expansion contents -->
+  </contains>
+  </expansion>
+</ValueSet>

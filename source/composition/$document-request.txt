@@ -1,0 +1,2 @@
+// generate a document from a composition
+GET http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57$document?persist=true

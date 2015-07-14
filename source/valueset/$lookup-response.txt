@@ -1,0 +1,33 @@
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType" : "Parameters",
+  "parameter" : [
+    {
+    "name" : "name",
+    "valueString" : "LOINC"
+  },
+  {
+    "name" : "version",
+    "valueString" : "2.48"
+  },
+  {
+    "name" : "designation",
+    "valueString" : "Bicarbonate [Moles/volume] in Serum"
+  },
+  {
+    "name" : "abstract",
+    "valueString" : "false"
+  },
+  {
+      "name" : "designation",
+    "part" : [
+    {
+      "name" : "value",
+      "valueString" : "Bicarbonate [Moles/volume] in Serum "
+    }
+    ]
+  }
+  ]
+}

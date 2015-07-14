@@ -1,4 +1,5 @@
 package org.hl7.fhir.tools.publisher;
+import java.io.ByteArrayInputStream;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -30,6 +31,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.net.URISyntaxException;
@@ -47,9 +49,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.BaseGenerator;
@@ -76,6 +87,7 @@ import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
+import org.hl7.fhir.definitions.model.Operation.OperationExample;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
@@ -96,6 +108,7 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
@@ -111,6 +124,7 @@ import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.NamingSystem;
 import org.hl7.fhir.instance.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.instance.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUseEnumFactory;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Reference;
@@ -839,6 +853,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIdentifierList()+s3;
       else if (com[0].equals("internalsystemlist"))
         src = s1 + genCSList()+s3;
+      else if (com[0].equals("example-usage"))
+        src = s1+s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -4040,9 +4056,76 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append("</table>\r\n");
       }
       b.append(processMarkdown(resource.getName(), op.getFooter())).append("\r\n");
-      b.append("<p></p>");
+      if (op.getExamples().size() > 0) {
+        b.append("<h4>Examples</h4>\r\n");
+        for (OperationExample ex : op.getExamples())
+          if (!ex.isResponse())
+            renderExample(b, ex, "Request");
+        for (OperationExample ex : op.getExamples())
+          if (ex.isResponse())
+            renderExample(b, ex, "Response");
+      }
+      b.append("<p>&nbsp;</p>");
     }
     return b.toString();
+  }
+
+  private void renderExample(StringBuilder b, OperationExample ex, String type) throws Exception {
+    if (Utilities.noString(ex.getComment()))
+      b.append("<p>"+type+":</p>\r\n");
+    else  
+      b.append("<p>"+Utilities.capitalize(ex.getComment())+" ("+type+"):</p>\r\n");
+    if (ex.getBundle() == null) {
+      b.append("<pre>\r\n"+ex.getContent()+"\r\n</pre>\r\n");
+    } else {
+      b.append("<pre>\r\n");
+      b.append(Utilities.escapeXml("<Bundle xml=\"http://hl7.org/fhir\">\r\n"));
+      b.append(Utilities.escapeXml("  <id value=\""+UUID.randomUUID().toString().toLowerCase()+"\"/>\r\n"));
+      b.append(Utilities.escapeXml("  <type value=\"searchset\"/>\r\n"));
+      Example e = getExampleByRef(ex.getBundle());
+      addExample(b, e);
+      for (Example x : e.getInbounds()) {
+        addExample(b, x);
+      }
+      b.append(Utilities.escapeXml("</Bundle>\r\n"));
+      b.append("</pre>\r\n");
+    }
+  }
+
+  private void addExample(StringBuilder b, Example x) throws TransformerFactoryConfigurationError, TransformerConfigurationException, TransformerException {
+    b.append(Utilities.escapeXml("  <entry>\r\n"));
+    b.append(Utilities.escapeXml("    <fullUrl value=\"http://hl7.org/fhir/"+x.getResourceName()+"/"+x.getId()+"\"/>\r\n"));
+    b.append(Utilities.escapeXml("    <resource>\r\n"));
+    ByteArrayOutputStream bo = new ByteArrayOutputStream();
+    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    Transformer transformer = transformerFactory.newTransformer();
+    transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+    DOMSource source = new DOMSource(x.getXml());
+    StringWriter writer =  new StringWriter();
+    transformer.transform(source, new StreamResult(writer));
+    String[] lines = writer.getBuffer().toString().split("\\n");
+    for (String l : lines) {
+      b.append("     ");
+      if (l.contains("xmlns:xsi=")) {
+        b.append(Utilities.escapeXml(l.substring(0, l.indexOf("xmlns:xsi=")-1)));
+        b.append(">\r\n");
+      } else {
+        b.append(Utilities.escapeXml(l));
+        b.append("\r\n");
+      }
+    }
+    b.append(Utilities.escapeXml("    </resource>\r\n"));
+    b.append(Utilities.escapeXml("  </entry>\r\n"));
+  }
+
+  private Example getExampleByRef(String bundle) throws Exception {
+    String[] parts = bundle.split("\\/");
+    ResourceDefn r = definitions.getResourceByName(parts[0]);
+    for (Example e : r.getExamples()) {
+      if (e.getId().equals(parts[1]))
+        return e;
+    }
+    throw new Exception("unable to resolve "+bundle);
   }
 
   private boolean hasParameters(List<OperationParameter> parameters, String mode) {

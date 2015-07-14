@@ -1,0 +1,69 @@
+Element
+  type : DataType
+  abstract : true
+  diff: (none)
+  snapshot: Element
+
+Coding
+  type : DataType
+  abstract : false
+  diff : Element
+  snapshot : Coding
+
+SnomedCoding
+  type : Constraint
+  abstract : false
+  diff : Coding
+  snapshot : Coding
+
+
+BackboneElement
+  type : DataType
+  abstract : true
+  diff: Element
+  snapshot : BackboneElement 
+
+
+Resource
+  type : Resource
+  abstract : true
+  diff: (none)
+  snapshot: Resource
+
+DomainResource
+  type : Resource
+  abstract : true
+  diff : Resource
+  snapshot : DomainResource
+
+MedicationPrescription
+  type : Resource
+  abstract : false
+  diff : DomainResource
+  snapshot : MedicationPrescription
+
+MyMedicationPrscription
+  type : constraint
+  abstract : false
+  diff : MedicationPrescription
+  snapshot : MedicationPrescription
+
+
+Extension
+  type : type
+  abstract : false
+  diff : Element
+  snapshot : Extension
+
+SimpleExtension
+  type : Extension
+  abstract : false
+  diff : Extension
+     extension.value : type
+  snapshot : Extension
+   extension
+     extension.uri
+     extension.value : type
+
+  
+  

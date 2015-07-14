@@ -1,0 +1,37 @@
+// Simple validation of a code/system against a known value set
+GET [base]/ValueSet/23/$validate-code?system=http://loinc.org&code=1963-8&display=test
+
+--------------------------------------
+// Validate a CodeableConcept against a client specified value set
+POST [base]/ValueSet/$validate-code
+[other headers]
+
+{
+  "ResourceType" : "Parameters",
+  "parameter" : [
+    {
+    "name" : "coding",
+    "valueCodeableConcept" : {
+      "coding" : {
+        "system" : "http://loinc.org",
+          "code" : "1963-8",
+      "display" : "test"
+      }
+    }
+  },
+  {
+    "name" : "valueSet",
+    "resource": {
+      "resourceType" : "ValueSet",
+    [etc]
+    }
+  }
+  ]
+}
+
+--------------------------------------
+// Test whether a Snomed Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction)
+
+GET [base]/ValueSet/$validate-code?system=http://snomed.info/sct&code=399211009&identifier=http://snomed.info/sct?fhir_vs%3Disa/22298006
+
+

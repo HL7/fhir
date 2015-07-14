@@ -1,0 +1,3 @@
+// find the current allergy list for patient 'example'
+
+GET /ehr/fhir/List/$find?patient=example&name=$current-allergies
