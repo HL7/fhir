@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="hspc-abnInt-CodedNom"/>
   <url value="http://healthcaresoa.org/fhir/ValueSet/hspc-abnInt-CodedNom"/>
   <version value="0.01"/>
@@ -21,11 +21,11 @@
       <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>
 	  <concept>
 		  <code value="A"/>
-		  <display vlaue="Abnormal"/>
+		  <display value="Abnormal"/>
 	  </concept>
 	  <concept>
 		  <code value="AA"/>
-		  <display vlaue="Very Abnormal"/>
+		  <display value="Very Abnormal"/>
 	  </concept>
     </include>
   </compose>

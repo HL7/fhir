@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="hspc-abnInt-NumericNom"/>
   <url value="http://healthcaresoa.org/fhir/ValueSet/hspc-abnInt-NumericNom"/>
   <version value="0.01"/>
@@ -16,48 +16,48 @@
   <copyright value="IHC"/>
   <status value="draft"/>
   <date value="2015-04-14"/>
-  <compose>
-    <include>
-      <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>
-      <concept>
-		  <code value="H"/>
-		  <display vlaue="Higher Than Normal"/>
-	  </concept>      
-	  <concept>
-		  <code value="L"/>
-		  <display vlaue="Lower Than Normal"/>
-	  </concept>
-	        <concept>
-		  <code value="A"/>
-		  <display vlaue="Abnormal"/>
-	  </concept>
-	        <concept>
-		  <code value="AA"/>
-		  <display vlaue="Very Abnormal"/>
-	  </concept>
-	        <concept>
-		  <code value="HH"/>
-		  <display vlaue="Panic High"/>
-	  </concept>
-	        <concept>
-		  <code value="LL"/>
-		  <display vlaue="Panic Low"/>
-	  </concept>
-    </include>
-  </compose>
   <define>
     <system value="http://healthcaresoa.org/fhir/hspc-abnInt-NumericNom"/>
     <version value="0.01"/>
     <caseSensitive value="true"/>
 	  <concept>
 		  <code value="higher"/>
-		  <display vlaue="Higher than technical"/>
+		  <display value="Higher than technical"/>
 		  <definition value="The results were lower than the technical limits of the test procedure"/>
 	  </concept>
 	  <concept>
 		  <code value="lower"/>
-		  <display vlaue="Lower than technical"/>
+		  <display value="Lower than technical"/>
 		  <definition value="The results were higher than the technical limits of the test procedure"/>
 	  </concept>
   </define>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>
+      <concept>
+		  <code value="H"/>
+		  <display value="Higher Than Normal"/>
+	  </concept>      
+	  <concept>
+		  <code value="L"/>
+		  <display value="Lower Than Normal"/>
+	  </concept>
+	        <concept>
+		  <code value="A"/>
+		  <display value="Abnormal"/>
+	  </concept>
+	        <concept>
+		  <code value="AA"/>
+		  <display value="Very Abnormal"/>
+	  </concept>
+	        <concept>
+		  <code value="HH"/>
+		  <display value="Panic High"/>
+	  </concept>
+	        <concept>
+		  <code value="LL"/>
+		  <display value="Panic Low"/>
+	  </concept>
+    </include>
+  </compose>
 </ValueSet>

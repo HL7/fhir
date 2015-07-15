@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="hspc-Ordinal-Abnormal-Union.xml"/>
   <url value="http://healthcaresoa.org/fhir/ValueSet/hspc-Ordinal-Abnormal-Union"/>
   <version value="0.01"/>

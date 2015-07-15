@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="hspc-deltaFlag-numericNom"/>
   <url value="http://healthcaresoa.org/fhir/ValueSet/hspc-deltaFlag-numericNom"/>
   <version value="0.01"/>
@@ -16,27 +16,6 @@
   <copyright value="IHC"/>
   <status value="draft"/>
   <date value="2014-06-25"/>
-  <compose>
-    <include>
-      <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>
-	  <concept>
-		  <code value="U"/>
-		  <display vlaue="Significant Change Up"/>
-	  </concept>
-	  <concept>
-		  <code value="D"/>
-		  <display vlaue="Significant Change Down"/>
-	  </concept>
-	  <concept>
-		  <code value="B"/>
-		  <display vlaue="Better"/>
-	  </concept>
-	  <concept>
-		  <code value="W"/>
-		  <display vlaue="Worse"/>
-	  </concept>
-    </include>
-  </compose>
   <define>
     <system value="http://healthcaresoa.org/fhir/hspc-deltaFlag-numericNom"/>
     <version value="0.01"/>
@@ -47,4 +26,25 @@
 		  <definition value="The current test results are not significantly different from previous results"/>
 	  </concept>
   </define>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>
+	  <concept>
+		  <code value="U"/>
+		  <display value="Significant Change Up"/>
+	  </concept>
+	  <concept>
+		  <code value="D"/>
+		  <display value="Significant Change Down"/>
+	  </concept>
+	  <concept>
+		  <code value="B"/>
+		  <display value="Better"/>
+	  </concept>
+	  <concept>
+		  <code value="W"/>
+		  <display value="Worse"/>
+	  </concept>
+    </include>
+  </compose>
 </ValueSet>
