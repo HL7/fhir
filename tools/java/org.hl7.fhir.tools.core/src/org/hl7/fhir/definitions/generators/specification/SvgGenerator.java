@@ -620,6 +620,7 @@ public class SvgGenerator extends BaseGenerator {
   private ClassItem drawElement(XMLWriter xml, String[] classNames) throws Exception {
     boolean onlyElement = classNames.length == 1 && classNames[0].equals("Element");
     
+    xml.enter("g");
     ClassItem item = classes.get(null);
     String tn = "Element";
     xml.attribute("x", Double.toString(item.left));
@@ -664,6 +665,7 @@ public class SvgGenerator extends BaseGenerator {
       } else if (!onlyElement) 
         links.add(new Link(item, drawClass(xml, definitions.getElementDefn(cn), false, null, true, cn, null), null, null, PointKind.unknown, null, null));        
     }
+    xml.exit("g");
     return item;
   }
 
@@ -673,6 +675,7 @@ public class SvgGenerator extends BaseGenerator {
     if (!definitions.hasPrimitiveType(tn))
       tn = Utilities.capitalize(tn);
       
+    xml.enter("g");
     xml.attribute("x", Double.toString(item.left));
     xml.attribute("y", Double.toString(item.top));
     xml.attribute("rx", "4");
@@ -762,6 +765,7 @@ public class SvgGenerator extends BaseGenerator {
         }
       }
     }
+    xml.exit("g");
     return item;
   }
 
@@ -842,6 +846,7 @@ public class SvgGenerator extends BaseGenerator {
     int i = 0;
     int length = 0;
     while (!prog.done) {
+      
       xml.attribute("x", Double.toString(left + LEFT_MARGIN + (i == 0 ? 0 : WRAP_INDENT)));
       xml.attribute("y", Double.toString(top + LINE_HEIGHT * i));
       xml.attribute("fill", "black");

@@ -37,7 +37,7 @@
 			</concept>
 		</include>
 		<include>
-			<system value="//hl7.org/fhir/v3/EntityNameUse"/>
+			<system value="http://hl7.org/fhir/v3/EntityNameUse"/>
 			<concept>
 				<code value="L"/>
 				<display value="Legal Name"/>

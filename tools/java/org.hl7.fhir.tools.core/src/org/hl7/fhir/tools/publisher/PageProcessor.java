@@ -1724,7 +1724,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : names) {
       Resource e = map.get(n);
       ValueSet vs = (ValueSet)e;
-      String id = tail(vs.getUrl());
+      String id = tail(vs.getUrl()).substring(3);
       if (vs.getDefine() == null)
         throw new Error("VS "+vs.getUrl()+" has no define");
       String oid = ToolingExtensions.getOID(vs.getDefine());
@@ -1759,7 +1759,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : names) {
       Resource e = map.get(n);
       ValueSet vs = (ValueSet)e;
-      String id = tail(vs.getUrl());
+      String id = tail(vs.getUrl()).substring(3);
       String oid = ToolingExtensions.getOID(vs);
       if (oid != null)
         oid = oid.substring(8);

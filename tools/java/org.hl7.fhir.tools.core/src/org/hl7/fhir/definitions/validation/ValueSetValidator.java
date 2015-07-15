@@ -117,6 +117,8 @@ public class ValueSetValidator extends BaseValidator {
             !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/")) {
           checkCodesForDisplayAndDefinition(errors, "ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept(), vs, nameForErrors);
           checkCodesForSpaces(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
+          checkDisplayIsTitleCase(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
+          checkCodeIslowerCaseDash(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
         }
       }
     }
@@ -149,53 +151,143 @@ public class ValueSetValidator extends BaseValidator {
     vs.setUserData("warnings", o_warnings - warnings);
   }
 
-  private boolean isKnownCodeSystem(String system) {
-//  http://snomed.info/sct
-//  http://www.nlm.nih.gov/research/umls/rxnorm
-//  http://loinc.org
-//  http://unitsofmeasure.org
-//  http://ncimeta.nci.nih.gov
-//  http://www.ama-assn.org/go/cpt
-//  http://hl7.org/fhir/ndfrt
-//  http://fdasis.nlm.nih.gov
-//  http://hl7.org/fhir/sid/ndc
-//  http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
-//  urn:iso:std:iso:3166
-//  http://www.nubc.org/patient-discharge
-//  http://www.radlex.org
-//  http://hl7.org/fhir/sid/icd-10
-//  http://hl7.org/fhir/sid/icpc2
-//  http://www.icd10data.com/icd10pcs
-//  http://hl7.org/fhir/sid/icd-9
-//  http://www.whocc.no/atc
-//  urn:ietf:bcp:47
-//  urn:iso:std:iso:11073:10101
-//  http://www.genenames.org
-//  http://www.ensembl.org
-//  http://www.ncbi.nlm.nih.gov/nuccore
-//  http://www.ncbi.nlm.nih.gov/clinvar
-//  http://sequenceontology.org
-//  http://www.hgvs.org/mutnomen
-//  http://www.ncbi.nlm.nih.gov/projects/SNP
-//  http://cancer.sanger.ac.uk/cancergenome/projects/cosmic
-//  http://www.lrg-sequence.org
-//  http://www.omim.org
-//  http://www.ncbi.nlm.nih.gov/pubmed
-//  http://www.pharmgkb.org
-//  http://clinicaltrials.gov
+  private void checkCodeIslowerCaseDash(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
+    for (ConceptDefinitionComponent cc : concept) {
+      warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasCode() || !isLowerCaseDash(cc.getCode()), 
+         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes cannot include spaces: "+cc.getCode());
+      checkDisplayIsTitleCase(errors, nameForErrors, vs, cc.getConcept());  
+    }
+  }
 
+  private boolean isLowerCaseDash(String code) {
+    for (char c : code.toCharArray()) {
+      if (Character.isAlphabetic(c) && Character.isUpperCase(c))
+        return false;
+      if (c != '-' && !Character.isAlphabetic(c) && !Character.isDigit(c))
+        return false;
+    }
+    return true;
+  }
+
+  private void checkDisplayIsTitleCase(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
+    for (ConceptDefinitionComponent cc : concept) {
+      warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasCode() || !isTitleCase(cc.getCode()), 
+         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes cannot include spaces: "+cc.getCode());
+      checkDisplayIsTitleCase(errors, nameForErrors, vs, cc.getConcept());  
+    }
+  }
+
+  private boolean isTitleCase(String code) {
+    char c = code.charAt(0);
+    return !Character.isAlphabetic(c) || Character.isUpperCase(c);
+  }
+
+  private boolean isKnownCodeSystem(String system) {
+    if (system.equals("http://snomed.info/sct"))
+      return true;
+    if (system.equals("http://www.nlm.nih.gov/research/umls/rxnorm"))
+      return true;
+    if (system.equals("http://loinc.org"))
+      return true;
+    if (system.equals("http://unitsofmeasure.org"))
+      return true;
+    if (system.equals("http://ncimeta.nci.nih.gov"))
+      return true;
+    if (system.equals("http://www.ama-assn.org/go/cpt"))
+      return true;
+    if (system.equals("http://hl7.org/fhir/ndfrt"))
+      return true;
+    if (system.equals("http://fdasis.nlm.nih.gov"))
+      return true;
+    if (system.equals("http://hl7.org/fhir/sid/ndc"))
+      return true;
+    if (system.equals("http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx"))
+      return true;
+    if (system.equals("urn:iso:std:iso:3166"))
+      return true;
+    if (system.equals("http://www.nubc.org/patient-discharge"))
+      return true;
+    if (system.equals("http://www.radlex.org"))
+      return true;
+    if (system.equals("http://hl7.org/fhir/sid/icd-10"))
+      return true;
+    if (system.equals("http://hl7.org/fhir/sid/icpc2"))
+      return true;
+    if (system.equals("http://www.icd10data.com/icd10pcs"))
+      return true;
+    if (system.equals("http://hl7.org/fhir/sid/icd-9"))
+      return true;
+    if (system.equals("http://www.whocc.no/atc"))
+      return true;
+    if (system.equals("urn:ietf:bcp:47"))
+      return true;
+    if (system.equals("urn:iso:std:iso:11073:10101"))
+      return true;
+    if (system.equals("http://www.genenames.org"))
+      return true;
+    if (system.equals("http://www.ensembl.org"))
+      return true;
+    if (system.equals("http://www.ncbi.nlm.nih.gov/nuccore"))
+      return true;
+    if (system.equals("http://www.ncbi.nlm.nih.gov/clinvar"))
+      return true;
+    if (system.equals("http://sequenceontology.org"))
+      return true;
+    if (system.equals("http://www.hgvs.org/mutnomen"))
+      return true;
+    if (system.equals("http://www.ncbi.nlm.nih.gov/projects/SNP"))
+      return true;
+    if (system.equals("http://cancer.sanger.ac.uk/cancergenome/projects/cosmic"))
+      return true;
+    if (system.equals("http://www.lrg-sequence.org"))
+      return true;
+    if (system.equals("http://www.omim.org"))
+      return true;
+    if (system.equals("http://www.ncbi.nlm.nih.gov/pubmed"))
+      return true;
+    if (system.equals("http://www.pharmgkb.org"))
+      return true;
+    if (system.equals("http://clinicaltrials.gov"))
+      return true;
+    if (system.startsWith("http://example.com"))
+      return true;
+    if (system.startsWith("http://www.example.com"))
+      return true;
     
-    // loinc, rxnorm, snomed
-//    if ("http://hl7.org/fhir/icd-10".equals(system))
-//      return true;
-//    // todo: why do these need to be listed here?
-//    if ("http://hl7.org/fhir/restful-interaction".equals(system))
-//      return true;
-//    if ("http://hl7.org/fhir/data-types".equals(system))
-//      return true;  
-//    if ("http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation".equals(system))
-//      return true;  
-    return true; // todo: change this back to false
+    // todo: why do these need to be listed here?
+    if (system.equals("https://www.usps.com/"))
+      return true;
+    if (system.equals("http://nema.org/dicom/dicm"))
+      return true;    
+    if ("http://hl7.org/fhir/restful-interaction".equals(system))
+      return true;
+    if ("http://hl7.org/fhir/data-types".equals(system))
+      return true;  
+    if (system.startsWith("http://hl7.org/fhir/ValueSet/v3"))
+      return true;
+    
+    if ("http://unstats.un.org/unsd/methods/m49/m49.htm".equals(system))
+      return true;
+    if ("https://www.census.gov/geo/reference/".equals(system))
+      return true;
+    if (system.startsWith("urn:oid:"))
+      return true;
+    if (system.startsWith("http://cimi.org"))
+      return true;
+    if (system.startsWith("http://ihc.org"))
+      return true;
+    if ("http://ihc.org".equals(system))
+      return true;
+    if ("http://www.nucc.org".equals(system))
+      return true;
+    if ("http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html".equals(system))
+      return true;
+    if ("http://www.cms.gov/Medicare/Coding/ICD10/index.html".equals(system))
+      return true;
+    if ("http://www.iana.org/assignments/language-subtag-registry".equals(system))
+      return true;
+    
+    return false; // todo: change this back to false
   }
 
   private boolean isValidCode(String code, String system) {

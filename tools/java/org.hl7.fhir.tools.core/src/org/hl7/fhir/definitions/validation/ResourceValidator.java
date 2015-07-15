@@ -730,4 +730,7 @@ public class ResourceValidator extends BaseValidator {
     
   }
 
+  public void close() throws Exception {
+    speller.close();
+  }
 }

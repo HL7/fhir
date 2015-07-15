@@ -11,12 +11,16 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SpellChecker {
   private Set<String> words = new HashSet<String>();
+  private Set<String> additional = new HashSet<String>();
+  private String addFile;
 
   public SpellChecker(String srcFolder, Definitions definitions) throws IOException {
+    addFile = Utilities.path(srcFolder, "spelling", "add.txt");
     loadWords(srcFolder);
     loadFromDefinitions(definitions);
   }
@@ -67,7 +71,20 @@ public class SpellChecker {
 
 
   public boolean ok(String w) {
-    return words.contains(w);
+    w = w.toLowerCase();
+    if (words.contains(w))
+      return true;
+    additional.add(w);
+    return false;
    }
+
+
+  public void close() throws Exception {
+    StringBuilder b = new StringBuilder();
+    for (String s : additional)
+      b.append(s+"\r\n");
+    TextFile.stringToFile(b.toString(), addFile);
+    
+  }
 
 }

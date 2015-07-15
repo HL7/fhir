@@ -20,11 +20,11 @@
    <Path>\work\org.hl7.fhir\build\source\alert\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>16875</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>25125</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3668,7 +3668,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7307,9 +7306,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s138"><Data ss:Type="String">high</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s149"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">High</Data></Cell>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Indicates the condition may be life-threatening or has the potential to cause permanent injury</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=ObservationValue.H</Data></Cell>
@@ -7318,9 +7316,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">moderate</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s152"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Moderate</Data></Cell>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Indicates the condition may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=ObservationValue.M</Data></Cell>
@@ -7329,9 +7326,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">low</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s152"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Low</Data></Cell>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Indicates the condition may result in some adverse consequences but is unlikely to substantially affect the situation of the subjec</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=ObservationValue.L</Data></Cell>
@@ -7858,6 +7854,7 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7877,8 +7874,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>4</ActiveCol>
+     <RangeSelection>R2C5:R4C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7887,7 +7884,7 @@
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C9,R4C1:R50C9,R3C1:R3C2,R3C4:R3C9</Range>
+   <Range>R5C1:R50C9,R3C4,R2C6:R4C9,R2C4:R2C5,R2C1:R4C2,R4C4:R4C5</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7901,31 +7898,52 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R2C3,R4C2:R50C3,R3C2</Range>
+   <Range>R5C2:R50C3,R4C2</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC2=&quot;&quot;)=(RC3=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R50C6</Range>
+   <Range>R5C5:R50C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC3=&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R50C6</Range>
+   <Range>R5C6:R50C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,,RC3=&quot;&quot;,RC5=&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C9,R4C1:R50C9,R3C1:R3C2,R3C4:R3C9</Range>
+   <Range>R5C1:R50C9,R3C4,R2C6:R4C9,R2C4:R2C5,R2C1:R4C2,R4C4:R4C5</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C5,R4C5,R2C2:R3C2</Range>
+   <Condition>
+    <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC2=&quot;&quot;)=(RC5=&quot;&quot;))</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6:R4C6</Range>
+   <Condition>
+    <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC5=&quot;&quot;,RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6:R4C6</Range>
+   <Condition>
+    <Value1>AND(RC1&lt;&gt;&quot;&quot;,,RC5=&quot;&quot;,#REF!=&quot;&quot;,RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>

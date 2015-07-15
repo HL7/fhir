@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="nehta-ClinicalManifestationValues" />
+    <meta>
+        <lastUpdated value="2015-02-12T15:51:54+10:00" />
+        <!--<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>-->
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+        <valueUri value="1.2.36.1.2001.1001.101.104.15564" />
+    </extension>
+    <url value="http://electronichealth.net.au/ci/dc/valueset/ClinicalManifestationValues" />
+    <version value="1" />
+    <name value="ClinicalManifestationValues" />
+    <publisher value="National E-Health Transition Authority (NEHTA)" />
+    <contact>
+        <telecom>
+            <system value="url" />
+            <value value="http://www.nehta.gov.au" />
+        </telecom>
+    </contact>
+    <description value="The set of values for recording clinical manifestation of an adverse reaction." />
+    <copyright value="Copyright © 2007+ National E-Health Transition Authority Pty. Ltd. NEHTA" />
+    <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and NEHTA. Implementer use of SNOMED CT is not covered by this agreement." />
+    <status value="active" />
+    <date value="2007-11-22" />
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct" />
+            <filter>
+                <!-- Clinical manifestation reference set -->
+                <property value="concept" />
+                <op value="in" />
+                <value value="142341000036103" />
+            </filter>
+        </include>
+    </compose>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct" />
+            <filter>
+                <!-- Clinical finding foundation reference set -->
+                <property value="concept" />
+                <op value="in" />
+                <value value="32570071000036102" />
+            </filter>
+        </include>
+    </compose>
+</ValueSet>

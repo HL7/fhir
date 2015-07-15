@@ -1251,6 +1251,7 @@ public class Publisher implements URIResolver {
     val.report();
     val.summariseSearchTypes(page.getSearchTypeUsage());
     val.dumpParams();
+    val.close();
     checkAllOk();
   }
 
@@ -2740,7 +2741,7 @@ public class Publisher implements URIResolver {
       ConceptSetComponent imp = new ValueSet.ConceptSetComponent();
 
       if (XMLUtil.hasNamedChild(content, "combinedContent")) {
-        if (!id.equals("SecurityControlObservationValue"))
+        if (!id.equals("SecurityControlObservationValue") && !id.equals("ProvenanceEventCurrentState"))
           throw new Exception("check logic; this is fragile code, and each value set needs manual review- id is "+id);
         Element part = XMLUtil.getFirstChild(XMLUtil.getNamedChild(content, "combinedContent"));
         while (part != null) {
