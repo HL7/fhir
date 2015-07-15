@@ -32,5 +32,6 @@
 	<classpathentry kind="lib" path="../imports/commons-io-1.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.rdf"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.implementation"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jazzy-core-0.5.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
