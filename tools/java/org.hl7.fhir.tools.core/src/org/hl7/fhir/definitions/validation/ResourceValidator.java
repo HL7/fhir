@@ -1,13 +1,6 @@
 package org.hl7.fhir.definitions.validation;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.StringReader;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 /*
  Copyright (c) 2011+, HL7, Inc
  All rights reserved.
@@ -67,9 +60,6 @@ import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
-import com.swabunga.spell.engine.SpellDictionary;
-import com.swabunga.spell.engine.SpellDictionaryHashMap;
-
 
 /** todo
  * check code lists used in Codings have displays
@@ -93,7 +83,8 @@ public class ResourceValidator extends BaseValidator {
   private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
   private Translations translations;
   private final Map<String, ValueSet> codeSystems;
-  private Set<String> words = new HashSet<String>();
+  private SpellChecker speller;
+  
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
 	public ResourceValidator(Definitions definitions, Translations translations, Map<String, ValueSet> map, String srcFolder) throws IOException {
@@ -102,28 +93,8 @@ public class ResourceValidator extends BaseValidator {
 		this.definitions = definitions;
 		this.translations = translations;
 		this.codeSystems = map;
-		loadWords(srcFolder);
+		speller = new SpellChecker(srcFolder, definitions);
 	}
-
-	private void loadWords(String srcFolder) throws IOException {
-    loadDict(Utilities.path(srcFolder, "spelling", "english.dic"));  
-    loadDict(Utilities.path(srcFolder, "spelling", "center.dic"));  
-    loadDict(Utilities.path(srcFolder, "spelling", "color.dic"));  
-    loadDict(Utilities.path(srcFolder, "spelling", "labeled.dic"));  
-    loadDict(Utilities.path(srcFolder, "spelling", "yze.dic"));  
-}	
-
-  private void loadDict(String path) throws IOException {
-    //Construct BufferedReader from InputStreamReader
-    BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path)));
-   
-    String line = null;
-    while ((line = br.readLine()) != null) {
-      words.add(line);
-    }
-   
-    br.close();    
-  }
 
   // public void setConceptDomains(List<ConceptDomain> conceptDomains) {
 	// this.conceptDomains = conceptDomains;
@@ -298,7 +269,7 @@ public class ResourceValidator extends BaseValidator {
   private boolean searchNameOk(String code) {
     String[] ws = code.split("\\-");
     for (String w : ws) {
-      if (!words.contains(w))
+      if (speller.ok(w))
         return false;
     }
     return true;
