@@ -244,13 +244,13 @@
     <SheetIndex>13</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>15825</WindowHeight>
-  <WindowWidth>-31396</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>632</TabRatio>
-  <ActiveSheet>10</ActiveSheet>
-  <FirstVisibleSheet>6</FirstVisibleSheet>
+  <ActiveSheet>11</ActiveSheet>
+  <FirstVisibleSheet>5</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -415,16 +415,6 @@
   <Style ss:ID="s89">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s90">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
   <Style ss:ID="s93">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -584,7 +574,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s117">
+  <Style ss:ID="s113">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -987,8 +977,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1184,118 +1173,13 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="__restful-operations">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="15" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="436.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s90">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Parent</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">read</Data></Cell>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Read the current state of the resource</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">vread</Data></Cell>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Read the state of a specific version of the resource</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">update</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Update an existing resource by its id (or create it if it is new)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">delete</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Delete a resource</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">history</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Retrieve a set of history entries</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">history-instance</Data></Cell>
-    <Cell><Data ss:Type="String">#5</Data></Cell>
-    <Cell><Data ss:Type="String">Retrieve the update history for a resource instance</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">validate</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Check that the content would be acceptable as an update</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">history-type</Data></Cell>
-    <Cell><Data ss:Type="String">#5</Data></Cell>
-    <Cell><Data ss:Type="String">Get a list of updates to resources of this type</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">create</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Create a new resource with a server assigned id</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="String">search</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Searching for a set of resources that meet some criteria</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">search-type</Data></Cell>
-    <Cell><Data ss:Type="String">#10</Data></Cell>
-    <Cell><Data ss:Type="String">Searching a resource type using the parameters described in its profile</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">transaction</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Transaction performed on multiple resources</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">search-system</Data></Cell>
-    <Cell><Data ss:Type="String">#10</Data></Cell>
-    <Cell><Data ss:Type="String">Searching all resource types using the parameters described in the profiles</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">history-system</Data></Cell>
-    <Cell><Data ss:Type="String">#5</Data></Cell>
-    <Cell><Data ss:Type="String">Get a list of updates to all resources on the system</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
  <Worksheet ss:Name="data-absent-reason">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="9" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
+    <Cell><Data ss:Type="String">Display</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comment</Data></Cell>
     <Cell><Data ss:Type="String">v3</Data></Cell>
@@ -1303,30 +1187,35 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">unknown</Data></Cell>
+    <Cell><Data ss:Type="String">Unknown</Data></Cell>
     <Cell><Data ss:Type="String">The value is not known</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=NullFlavor.UNK</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=NullFlavor.UNK</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">asked</Data></Cell>
+    <Cell><Data ss:Type="String">Asked</Data></Cell>
     <Cell><Data ss:Type="String">The source human does not know the value</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=NullFlavor.ASKU</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=NullFlavor.ASKU</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">temp</Data></Cell>
+    <Cell><Data ss:Type="String">Temp</Data></Cell>
     <Cell><Data ss:Type="String">There is reason to expect (from the workflow) that the value may become known</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NAV</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NAV</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">notasked</Data></Cell>
+    <Cell><Data ss:Type="String">not-asked</Data></Cell>
+    <Cell><Data ss:Type="String">Not Asked</Data></Cell>
     <Cell><Data ss:Type="String">The workflow didn't lead to this value being known</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NASK</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NASK</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">masked</Data></Cell>
+    <Cell><Data ss:Type="String">Masked</Data></Cell>
     <Cell><Data ss:Type="String">The information is not available due to security, privacy or related reasons</Data></Cell>
     <Cell><Data ss:Type="String">Using &quot;masked&quot; may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information.</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.MSK</Data></Cell>
@@ -1334,20 +1223,23 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">unsupported</Data></Cell>
+    <Cell><Data ss:Type="String">Unsupported</Data></Cell>
     <Cell><Data ss:Type="String">The source system wasn't capable of supporting this element</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="String">astext</Data></Cell>
+    <Cell><Data ss:Type="String">As Text</Data></Cell>
     <Cell><Data ss:Type="String">The content of the data is represented in the resource narrative</Data></Cell>
     <Cell><Data ss:Type="String">it may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">error</Data></Cell>
+    <Cell><Data ss:Type="String">Error</Data></Cell>
     <Cell><Data ss:Type="String">Some system or workflow process error means that the information is not available</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1361,7 +1253,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>8</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1369,15 +1261,16 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="administrative-gender">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:Width="48.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="58.5"/>
+   <Column ss:Index="2" ss:Width="48.75" ss:Span="1"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="58.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="407.25"/>
    <Column ss:Width="140.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Display</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Comment</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">v3</Data></Cell>
@@ -1388,12 +1281,14 @@
     <Cell><Data ss:Type="String">male</Data></Cell>
     <Cell><Data ss:Type="String">Male</Data></Cell>
     <Cell><Data ss:Type="String">Male</Data></Cell>
+    <Cell><Data ss:Type="String">Male</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.M</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=0001.M</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">female</Data></Cell>
+    <Cell><Data ss:Type="String">Female</Data></Cell>
     <Cell><Data ss:Type="String">Female</Data></Cell>
     <Cell><Data ss:Type="String">Female</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.F</Data></Cell>
@@ -1403,6 +1298,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">other</Data></Cell>
     <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The gender of a person could not be uniquely defined as male or female, such as hermaphrodite</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&lt;AdministrativeGender.UN</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A,&gt;0001.O</Data></Cell>
@@ -1410,6 +1306,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="114">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">unknown</Data></Cell>
+    <Cell><Data ss:Type="String">Unknown</Data></Cell>
     <Cell><Data ss:Type="String">Unknown</Data></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Description:A proper value is applicable, but not known.&#10; Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:&#10; Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.UNK</Data></Cell>
@@ -1432,8 +1329,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R2C3:R5C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1541,7 +1439,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Current</Data></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">This is the current reference for this document</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s99"><Data ss:Type="String">~ActStatus.active</Data></Cell>
@@ -1552,7 +1450,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Superseded</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">This reference has been superseded by another reference</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">~ActStatus.obsolete</Data></Cell>
@@ -1563,7 +1461,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Entered in Error</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">This reference was created in error</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">~ActStatus.nullified</Data></Cell>
@@ -2087,7 +1985,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -2115,7 +2013,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Complete</Data></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">The processing completed without errors.</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s99"/>
@@ -2126,7 +2024,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Error</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">The processing identified with errors.</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
@@ -2661,8 +2559,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3285,7 +3183,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Display</Data></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Display the note.</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s99"/>
@@ -3296,7 +3194,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Print (Form)</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Print the note on the form.</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
@@ -3307,7 +3205,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Print (Operator)</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Print the note for the operator.</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
@@ -3324,8 +3222,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3421,7 +3319,7 @@
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v3 codes - See wiki for syntax</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">Comments</Data><NamedCell
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Comments</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Committee Notes</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
@@ -4025,7 +3923,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5385,6 +5282,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

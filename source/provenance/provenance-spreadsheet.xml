@@ -10,7 +10,7 @@
   <LastAuthor>Moehrke, John (GE Healthcare)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-15T02:12:24Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,11 +20,11 @@
    <Path>Macintosh HD:Users:cnanjo:repository:fhir:trunk:build:source:provenance:Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>13275</WindowHeight>
+  <WindowHeight>12975</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5376,14 +5376,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R12C5</Range>
+   <Range>R12C5,R8C5</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R12C1:R12C5</Range>
+   <Range>R12C1:R12C5,R8C1:R8C5</Range>
    <Condition>
     <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -5422,20 +5422,6 @@
    <Condition>
     <Value1>AND(#REF!=&quot;reference&quot;,#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C5</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1:R8C5</Range>
-   <Condition>
-    <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7936,7 +7922,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7980,28 +7965,28 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C5,R14C1:R30C6,R14C8:R30C14,R16C7:R30C7,R8C1:R13C14,R2C1:R6C4,R2C6:R6C14,R7C7:R7C14</Range>
+   <Range>R4C5,R14C1:R30C6,R14C8:R30C14,R16C7:R30C7,R8C1:R13C14,R2C1:R7C4,R2C6:R7C14</Range>
    <Condition>
     <Value1>AND(R[-1]C1=&quot;&quot;,R[-1]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R6C1,R8C1:R30C1</Range>
+   <Range>R2C1:R30C1</Range>
    <Condition>
     <Value1>AND(R[-1]C&lt;&gt;&quot;&quot;,R[1048574]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R6C3,R8C2:R30C3</Range>
+   <Range>R2C2:R30C3</Range>
    <Condition>
     <Value1>AND(R[-1]C1&lt;&gt;&quot;&quot;,R[-1]C[-1]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R6C6,R8C6:R30C6</Range>
+   <Range>R2C6:R30C6</Range>
    <Condition>
     <Value1>AND(R[-1]C1&lt;&gt;&quot;&quot;,(R[-1]C3=&quot;unbound&quot;)&lt;&gt;(R[-1]C[-5]=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8022,14 +8007,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C1:R4C14,R15C1:R30C14,R14C1:R14C6,R14C8:R14C14,R8C1:R13C14,R2C1:R3C4,R2C6:R3C14,R5C1:R6C4,R5C6:R6C14,R7C7:R7C14</Range>
+   <Range>R4C1:R4C14,R15C1:R30C14,R14C1:R14C6,R14C8:R14C14,R8C1:R13C14,R2C1:R3C4,R2C6:R3C14,R5C1:R7C4,R5C6:R7C14</Range>
    <Condition>
     <Value1>LEFT(R[-1]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R3C5,R5C5:R6C5</Range>
+   <Range>R2C5:R3C5,R5C5:R7C5</Range>
    <Condition>
     <Value1>AND(R[11]C1=&quot;&quot;,R[11]C[2]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8043,70 +8028,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R3C5,R5C5:R6C5</Range>
+   <Range>R2C5:R3C5,R5C5:R7C5</Range>
    <Condition>
     <Value1>AND(R[11]C1&lt;&gt;&quot;&quot;,(R[11]C[-4]&lt;&gt;&quot;&quot;)&lt;&gt;(R[11]C3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R3C5,R5C5:R6C5</Range>
-   <Condition>
-    <Value1>LEFT(R[11]C1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1:R7C4,R7C6</Range>
-   <Condition>
-    <Value1>AND(R[-1]C1=&quot;&quot;,R[-1]C&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1</Range>
-   <Condition>
-    <Value1>AND(R[-1]C&lt;&gt;&quot;&quot;,R[-2]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C2:R7C3</Range>
-   <Condition>
-    <Value1>AND(R[-1]C1&lt;&gt;&quot;&quot;,R[-1]C[-1]=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C6</Range>
-   <Condition>
-    <Value1>AND(R[-1]C1&lt;&gt;&quot;&quot;,(R[-1]C3=&quot;unbound&quot;)&lt;&gt;(R[-1]C[-5]=&quot;&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1:R7C4,R7C6</Range>
-   <Condition>
-    <Value1>LEFT(R[-1]C1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C5</Range>
-   <Condition>
-    <Value1>AND(R[11]C1=&quot;&quot;,R[11]C[2]&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C5</Range>
-   <Condition>
-    <Value1>AND(R[11]C1&lt;&gt;&quot;&quot;,(R[11]C[-4]&lt;&gt;&quot;&quot;)&lt;&gt;(R[11]C3=&quot;reference&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C5</Range>
+   <Range>R2C5:R3C5,R5C5:R7C5</Range>
    <Condition>
     <Value1>LEFT(R[11]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -8171,7 +8100,7 @@
     <Cell ss:StyleID="s126"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Derivation</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -8182,7 +8111,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">derivation</Data></Cell>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Revision</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">A derivation for which the resulting entity is a revised version of some original.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -8193,7 +8122,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">derivation</Data></Cell>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Quotation</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -8204,7 +8133,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">derivation</Data></Cell>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Source</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -8719,6 +8648,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8738,7 +8668,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

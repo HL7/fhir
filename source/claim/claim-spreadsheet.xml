@@ -20,11 +20,13 @@
    <Path>\Gforge\HL7\FHIR\trunk\build\source\composition\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>11325</WindowHeight>
-  <WindowWidth>19920</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -7107,7 +7109,7 @@
    <Column ss:StyleID="s112" ss:Width="114.75"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s112" ss:Width="51" ss:Span="1"/>
-   <Column ss:Index="5" ss:StyleID="s112" ss:Width="146.25"/>
+   <Column ss:Index="5" ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="231"/>
    <Column ss:StyleID="s112" ss:Width="172.5"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="97.5"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="88.5"/>
@@ -7203,7 +7205,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The eligibility exception codes.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-exception</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-claim-exception</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7260,7 +7262,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-modifiers</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-claim-modifiers</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7331,7 +7333,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Complete, proposed, exploratory, other</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">#use-link</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">#claim-use-link</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7437,7 +7439,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type or discipline-style of the claim</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">#type-link</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">#claim-type-link</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7587,8 +7589,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7604,7 +7606,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C7:R11C13,R5C1:R11C5,R12C1:R14C13,R16C1:R27C13,R15C1:R15C4,R15C6:R15C14,R3C1:R4C13,R2C1:R2C4,R2C6:R2C14</Range>
+   <Range>R5C7:R11C13,R5C1:R11C5,R12C1:R14C13,R16C1:R27C13,R3C1:R4C13,R15C1:R15C14,R2C1:R2C14</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7646,21 +7648,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C7:R11C13,R5C1:R11C5,R12C1:R14C13,R16C1:R27C13,R15C1:R15C4,R15C6:R15C14,R3C1:R4C13,R2C1:R2C4,R2C6:R2C14</Range>
+   <Range>R5C7:R11C13,R5C1:R11C5,R12C1:R14C13,R16C1:R27C13,R3C1:R4C13,R15C1:R15C14,R2C1:R2C14</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R20C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R21C1:R22C1,R12C1,R5C1</Range>
+   <Range>R20C1:R22C1,R12C1,R5C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7673,38 +7668,10 @@
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C5</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C5</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="type-link">
+ <Worksheet ss:Name="claim-type-link">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='type-link'!R1C1:R1C9"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='claim-type-link'!R1C1:R1C9"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
@@ -8373,9 +8340,9 @@
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="use-link">
+ <Worksheet ss:Name="claim-use-link">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='use-link'!R1C1:R1C9"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='claim-use-link'!R1C1:R1C9"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
@@ -8430,7 +8397,7 @@
     <Cell ss:StyleID="s128"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Complete</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The treatment is complete and this represents a Claim for the services.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -8441,7 +8408,7 @@
     <Cell ss:StyleID="s131"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Proposed</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">The treatment is proposed and this represents a Pre-authorization for the services.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
@@ -8452,7 +8419,7 @@
     <Cell ss:StyleID="s131"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Exploratory</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">The treatment is proposed and this represents a Pre-determination for the services.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
@@ -8463,7 +8430,7 @@
     <Cell ss:StyleID="s131"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Other</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">A locally defined or otherwise resolved status.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
@@ -8992,7 +8959,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

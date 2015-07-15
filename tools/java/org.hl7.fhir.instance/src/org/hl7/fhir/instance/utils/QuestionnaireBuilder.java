@@ -709,6 +709,8 @@ public class QuestionnaireBuilder {
       addRangeQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Timing"))
       addTimingQuestions(group, element, path, answerGroups);
+    else if (t.getCode().equals("Annotation"))
+      addAnnotationQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("SampledData"))
       addSampledDataQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Extension")) {
@@ -928,8 +930,17 @@ public class QuestionnaireBuilder {
     
     private void addTimingQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Schedule");
+      addQuestion(group, AnswerFormat.STRING, path, "text", "text:", answerGroups);
+      addQuestion(group, AnswerFormat.DATETIME, path, "date", "date:", answerGroups);
+      QuestionComponent q = addQuestion(group, AnswerFormat.REFERENCE, path, "author", "author:", answerGroups);
+      ToolingExtensions.addReference(q, "/Patient?");
+      ToolingExtensions.addReference(q, "/Practitioner?");
+      ToolingExtensions.addReference(q, "/RelatedPerson?");
     }
     
+    private void addAnnotationQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+      ToolingExtensions.addType(group, "Annotation");
+    }
   // Special Types ---------------------------------------------------------------
 
     private void addReferenceQuestions(GroupComponent group, ElementDefinition element, String path, String profileURL, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {

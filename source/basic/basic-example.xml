@@ -52,7 +52,7 @@ Note: Referral is likely to be incorporated as an official resource in a future 
   <code>
     <coding>
       <system value="http://hl7.org/fhir/basic-resource-type"/>
-      <code value="REFERRAL"/>
+      <code value="referral"/>
     </coding>
   </code>
   <subject>

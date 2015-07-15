@@ -126,51 +126,31 @@ import com.github.rjeschke.txtmark.Processor;
 public class NarrativeGenerator implements INarrativeGenerator {
 
   private interface PropertyWrapper {
-    
     public String getName();
-
     public boolean hasValues();
-
     public List<BaseWrapper> getValues();
-
     public String getTypeCode();
-
     public String getDefinition();
-
     public int getMinCardinality();
-
     public int getMaxCardinality();
-
     public StructureDefinition getStructure();
-
   }
 
   private interface ResourceWrapper {
-
-    List<ResourceWrapper> getContained();
-
-    String getId();
-
-    XhtmlNode getNarrative() throws Exception;
-
-    String getName();
-
-    List<PropertyWrapper> children();
-
+    public List<ResourceWrapper> getContained();
+    public String getId();
+    public XhtmlNode getNarrative() throws Exception;
+    public String getName();
+    public List<PropertyWrapper> children();
   }
 
   private interface BaseWrapper {
-
     public Base getBase() throws Exception;
-
     public List<PropertyWrapper> children();
-
     public PropertyWrapper getChildByName(String tail);
-
   }
 
   private class BaseWrapperElement implements BaseWrapper {
-
     private Element element;
     private String type;
     private StructureDefinition structure;
@@ -855,6 +835,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       renderCodeableConcept((CodeableConcept) e, x, showCodeDetails); 
     } else if (e instanceof Coding) {
       renderCoding((Coding) e, x, showCodeDetails);
+    } else if (e instanceof Annotation) {
+      renderAnnotation((Annotation) e, x);
     } else if (e instanceof Identifier) {
       renderIdentifier((Identifier) e, x);
     } else if (e instanceof org.hl7.fhir.instance.model.IntegerType) {
@@ -1174,6 +1156,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
+  private void renderAnnotation(Coding c, XhtmlNode x, boolean showCodeDetails) {
+    
+  }
+  
   private void renderCoding(Coding c, XhtmlNode x, boolean showCodeDetails) {
     String s = "";
     if (c.hasDisplayElement()) 

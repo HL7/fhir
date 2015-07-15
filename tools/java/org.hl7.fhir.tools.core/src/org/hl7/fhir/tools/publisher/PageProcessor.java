@@ -5541,7 +5541,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public void setDefinitions(Definitions definitions) {
     this.definitions = definitions;
     breadCrumbManager.setDefinitions(definitions);
-    vsValidator = new ValueSetValidator(workerContext, definitions.getVsFixups());
+    vsValidator = new ValueSetValidator(workerContext, definitions.getVsFixups(), definitions.getStyleExemptions());
   }
 
   public void setVersion(String version) {

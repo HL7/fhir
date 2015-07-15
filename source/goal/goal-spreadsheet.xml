@@ -20,10 +20,11 @@
    <Path>Macintosh HD:Users:cnanjo:repository:fhir:trunk:build:source:goal:Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>13275</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -802,7 +803,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -7093,7 +7093,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Proposed</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">A goal is proposed for this patient</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -7104,7 +7104,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Planned</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">A goal is planned for this patient</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7115,7 +7115,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">In Progress</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7126,7 +7126,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Achieved</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">The goal has been met and no further action is needed</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7137,7 +7137,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Sustaining</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">The goal has been met, but ongoing activity is needed to sustain the goal objective</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7148,7 +7148,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Cancelled</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">The goal is no longer being sought</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7159,7 +7159,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Accepted</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">A proposed goal was accepted</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7170,7 +7170,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Rejected</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">A proposed goal was rejected</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7630,6 +7630,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7649,7 +7650,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

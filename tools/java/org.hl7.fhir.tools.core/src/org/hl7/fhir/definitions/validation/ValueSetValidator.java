@@ -55,10 +55,12 @@ public class ValueSetValidator extends BaseValidator {
   private List<String> fixups;
   private Set<ValueSet> handled = new HashSet<ValueSet>();
   private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
+  private Set<String> styleExemptions;
 
-  public ValueSetValidator(WorkerContext context, List<String> fixups) {
+  public ValueSetValidator(WorkerContext context, List<String> fixups, Set<String> styleExemptions) {
     this.context = context;
     this.fixups = fixups;
+    this.styleExemptions = styleExemptions;
   }
 
   public boolean nullVSWord(String wp) {
@@ -114,11 +116,14 @@ public class ValueSetValidator extends BaseValidator {
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, vs.getDefine().getConcept());
         if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && 
             !vs.getDefine().getSystem().startsWith("urn:uuid:") && 
-            !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/")) {
+            !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/") && 
+            !exemptFromCodeRules(vs.getDefine().getSystem())) {
           checkCodesForDisplayAndDefinition(errors, "ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept(), vs, nameForErrors);
           checkCodesForSpaces(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
-          checkDisplayIsTitleCase(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
-          checkCodeIslowerCaseDash(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
+          if (!exemptFromStyleChecking(vs.getDefine().getSystem())) {
+            checkDisplayIsTitleCase(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
+            checkCodeIslowerCaseDash(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
+          }
         }
       }
     }
@@ -151,10 +156,23 @@ public class ValueSetValidator extends BaseValidator {
     vs.setUserData("warnings", o_warnings - warnings);
   }
 
+  private boolean exemptFromStyleChecking(String system) {
+    return styleExemptions.contains(system);
+  }
+
+  private boolean exemptFromCodeRules(String system) {
+    if (system.equals("http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"))
+      return true;
+    if (system.equals("http://nema.org/dicom/dicm"))
+      return true;
+    return false;
+    
+  }
+
   private void checkCodeIslowerCaseDash(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
     for (ConceptDefinitionComponent cc : concept) {
-      warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasCode() || !isLowerCaseDash(cc.getCode()), 
-         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes cannot include spaces: "+cc.getCode());
+      warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasCode() || isLowerCaseDash(cc.getCode()), 
+         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes must be lowercase-dash: "+cc.getCode());
       checkDisplayIsTitleCase(errors, nameForErrors, vs, cc.getConcept());  
     }
   }
@@ -163,7 +181,7 @@ public class ValueSetValidator extends BaseValidator {
     for (char c : code.toCharArray()) {
       if (Character.isAlphabetic(c) && Character.isUpperCase(c))
         return false;
-      if (c != '-' && !Character.isAlphabetic(c) && !Character.isDigit(c))
+      if (c != '-' && c != '.' && !Character.isAlphabetic(c) && !Character.isDigit(c))
         return false;
     }
     return true;
@@ -171,8 +189,8 @@ public class ValueSetValidator extends BaseValidator {
 
   private void checkDisplayIsTitleCase(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
     for (ConceptDefinitionComponent cc : concept) {
-      warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasCode() || !isTitleCase(cc.getCode()), 
-         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes cannot include spaces: "+cc.getCode());
+      warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasDisplay() || isTitleCase(cc.getDisplay()), 
+         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Display Names must be TitleCase: "+cc.getDisplay());
       checkDisplayIsTitleCase(errors, nameForErrors, vs, cc.getConcept());  
     }
   }
@@ -343,9 +361,9 @@ public class ValueSetValidator extends BaseValidator {
     int i = 0;
     for (ConceptDefinitionComponent cc : concept) {
       String p = path +"["+Integer.toString(i)+"]";
-      warning(errors, IssueType.BUSINESSRULE, p, !cc.hasCode() || cc.hasDisplay(), "code '"+cc.getCode()+"' has no display",
+      warning(errors, IssueType.BUSINESSRULE, p, !cc.getAbstract() || !cc.hasCode() || cc.hasDisplay(), "code '"+cc.getCode()+"' has no display",
         "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: code '"+cc.getCode()+"' has no display");
-      warning(errors, IssueType.BUSINESSRULE, p, cc.hasDefinition(), "code '"+cc.getCode()+"' has no definition",
+      warning(errors, IssueType.BUSINESSRULE, p, cc.hasDefinition() && (!cc.getDefinition().toLowerCase().equals("todo") || cc.getDefinition().toLowerCase().equals("to do")), "code '"+cc.getCode()+"' has no definition",
         "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: code '"+cc.getCode()+"' has no definition");
       checkCodesForDisplayAndDefinition(errors, p+".concept", cc.getConcept(), vs, nameForErrors);
       i++;
@@ -394,7 +412,7 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   private boolean isInternal(String url) {
-    return url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://hl7.org/fhir/v2") && !url.startsWith("http://hl7.org/fhir/v3");
+    return url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://hl7.org/fhir/ValueSet/v2-") && !url.startsWith("http://hl7.org/fhir/ValueSet/v3-");
   }
 
   private boolean areDisjoint(Set<String> set1, Set<String> set2) {

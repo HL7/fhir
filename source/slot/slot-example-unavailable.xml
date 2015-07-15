@@ -17,7 +17,7 @@
 	<schedule>
 		<reference value="Schedule/example" />
 	</schedule>
-	<freeBusyType value="BUSY-UNAVAILABLE" />
+	<freeBusyType value="busy-unavailable" />
 	<start value="2013-12-25T09:30:00Z" />
 	<end value="2013-12-25T09:45:00Z" />
 	<comment value="Dr Careful is out of the office" />

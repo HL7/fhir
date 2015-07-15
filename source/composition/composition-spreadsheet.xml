@@ -20,12 +20,13 @@
    <Path>\work\org.hl7.fhir\build\source\alert\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>8700</WindowHeight>
-  <WindowWidth>19170</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>622</TabRatio>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>11</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5700,7 +5701,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7668,7 +7668,7 @@
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Personal</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">The person authenticated the content in their personal capacity</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
@@ -7679,7 +7679,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Professional</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The person authenticated the content in their professional capacity</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
@@ -7690,7 +7690,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Legal</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The person authenticated the content and accepted legal responsibility for its content</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
@@ -7701,7 +7701,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Official</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The organization authenticated the content as consistent with their policies and procedures</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
@@ -8230,7 +8230,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8338,7 +8339,7 @@
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Preliminary</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">~ActStatus.active</Data></Cell>
@@ -8349,7 +8350,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Final</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
@@ -8360,7 +8361,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Appended ap Appended</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorized person. The modifications added new information to the composition or document, but did not revise existing content</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
@@ -8371,7 +8372,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Amended</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorized person</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
@@ -8382,7 +8383,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Entered in Error</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">~ActStatus.nullified</Data></Cell>
@@ -8881,6 +8882,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8900,8 +8902,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

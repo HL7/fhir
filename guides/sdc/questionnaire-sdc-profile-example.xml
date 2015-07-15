@@ -1073,8 +1073,8 @@
     </resource>
   </entry>
   <entry>
-    <resource>
     <fullUrl value="http://AHRQ.org/form/Questionnaire/HERF-1.2"/>
+    <resource>
       <Questionnaire>
         <id value="HERF-1.2"/>
         <meta>

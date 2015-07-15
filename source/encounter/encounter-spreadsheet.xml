@@ -20,12 +20,13 @@
    <Path>Macintosh HD:Users:cnanjo:repository:fhir:trunk:build:source:encounter:Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>8700</WindowHeight>
-  <WindowWidth>19170</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>655</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>12</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5845,7 +5846,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8080,7 +8080,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Inpatient</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">An encounter during which the patient is hospitalized and stays overnight</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
@@ -8091,7 +8091,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Outpatient</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">An encounter during which the patient is not hospitalized overnight</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -8102,7 +8102,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Ambulatory</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -8113,7 +8113,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Emergency</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">An encounter where the patient needs urgent care</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -8124,7 +8124,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Home</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">An encounter where the practitioner visits the patient at his/her home</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -8135,7 +8135,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Field</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">An encounter taking place outside the regular environment for giving care</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -8146,7 +8146,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Daytime</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -8157,7 +8157,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Virtual</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -8168,7 +8168,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Other</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Any other encounter type that is not described by one of the other values. Where this is used it is expected that an implementer will include an extension value to define what the actual other type is</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -8647,8 +8647,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8780,7 +8780,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">in Progress</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">The Encounter has begun and the patient is present / the practitioner and the patient are meeting</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -9331,8 +9331,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10671,6 +10671,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

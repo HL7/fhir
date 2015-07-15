@@ -218,6 +218,7 @@ public class SourceParser {
     loadIgs();
     loadTypePages();
     loadDictionaries();
+    loadStyleExemptions();
 
     loadPrimitives();
     eCoreParseResults.getPrimitive().addAll(PrimitiveConverter.buildPrimitiveTypesFromFhirModel(definitions.getPrimitives().values()));
@@ -329,8 +330,11 @@ public class SourceParser {
     }
   }
 
+  private void loadStyleExemptions() {
+    for (String s : ini.getPropertyNames("style-exempt"))
+      definitions.getStyleExemptions().add(s);
+  }
 
- 
 
   private void buildSpecialValues() throws Exception {
     for (ValueSet vs : definitions.getBoundValueSets().values())

@@ -142,6 +142,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
+  private Set<String> styleExemptions = new HashSet<String>();
 
   // other miscellaineous lists
   private List<String> deletedResources = new ArrayList<String>();
@@ -643,6 +644,10 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   public Map<String, PageInformation> getPageInfo() {
     return pageInfo;
+  }
+
+  public Set<String> getStyleExemptions() {
+    return styleExemptions;
   }
 
   
