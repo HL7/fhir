@@ -8,7 +8,7 @@
 			<value value="http://healthcaresoa.org"/>
 		</telecom>
 	</contact>
-	<description value="A set of codes that describe the method by which an individual communicates."/>
+	<description value="A set of codes that describe the method by which an individual communicates.  These values are taken from the HL7 v3 LanguageAbilityMode code system."/>
 	<status value="draft"/>
 	<compose>
 		<include>
