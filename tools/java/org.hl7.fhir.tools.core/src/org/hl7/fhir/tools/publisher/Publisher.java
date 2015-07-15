@@ -1334,8 +1334,11 @@ public class Publisher implements URIResolver {
           listLinks(e.getXml().getDocumentElement(), refs);
           for (ExampleReference ref : refs) {
             if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref, e)) {
-              errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, ref.getPath(), "Unable to resolve example reference to "
-                  + ref.describe() + " in " + e.getPath() + "\r\n   Possible Ids: " + listTargetIds(ref.getType()), IssueSeverity.WARNING));
+              String path = ref.getPath().replace("/f:", ".").substring(1)+" (example "+Utilities.changeFileExt(e.getPath().getName(), "")+")";
+              errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, path, 
+                  "Unable to resolve example reference to " + ref.describe() + " in " + e.getPath().getName() + " (Possible Ids: " + listTargetIds(ref.getType())+")", 
+                  "Unable to resolve example reference to " + ref.describe() + " in <a href=\""+Utilities.changeFileExt(e.getPath().getName(),  ".html")+"\">" + e.getPath().getName() + "</a> (Possible Ids: " + listTargetIds(ref.getType())+")", 
+                  IssueSeverity.WARNING));
             }
           }
         }
@@ -3470,6 +3473,8 @@ public class Publisher implements URIResolver {
     if (rt.equals("ValueSet")) {
       ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
       vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
+      vs.setUserData("committee", "fhir");
+
       page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+n, vs, false, false);
       if (vs.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");

@@ -269,7 +269,7 @@ public class ResourceValidator extends BaseValidator {
   private boolean searchNameOk(String code) {
     String[] ws = code.split("\\-");
     for (String w : ws) {
-      if (speller.ok(w))
+      if (!speller.ok(w))
         return false;
     }
     return true;

@@ -35,14 +35,16 @@ public class IgParser {
   private Calendar genDate;
   private ProfileKnowledgeProvider pkp;
   private Map<String, BindingSpecification> commonBindings;
+  private String committee;
 
-  public IgParser(Logger logger, WorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings) {
+  public IgParser(Logger logger, WorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, String committee) {
     super();
     this.logger = logger;
     this.context = context;
     this.genDate = genDate;
     this.pkp = pkp;
     this.commonBindings = commonBindings;
+    this.committee = committee;
   }
 
   public void load(String rootDir, ImplementationGuide ig) throws Exception {
@@ -79,6 +81,7 @@ public class IgParser {
         }
         vs.setUserData("path", "valueset-"+vs.getId()+".html");
         vs.setUserData("filename", "valueset-"+vs.getId());
+        vs.setUserData("committee", committee);
         ig.getValueSets().add(vs);
       } else if (e.getNodeName().equals("acronym")) {
         ig.getTlas().put(e.getAttribute("target"), e.getAttribute("id"));        
@@ -93,7 +96,7 @@ public class IgParser {
         if ("spreadsheet".equals(e.getAttribute("type"))) {
           p.setSourceType(ConformancePackageSourceType.Spreadsheet);
           SpreadsheetParser sparser = new SpreadsheetParser(p.getCategory(), new CSFileInputStream(p.getSource()), Utilities.noString(p.getId()) ? p.getSource() : p.getId(), ig, 
-              rootDir, logger, null, context.getVersion(), context, genDate, false, ig.getExtensions(), pkp, false);
+              rootDir, logger, null, context.getVersion(), context, genDate, false, ig.getExtensions(), pkp, false, committee);
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(p.getSource()));
           sparser.parseConformancePackage(p, null, Utilities.getDirectoryForFile(p.getSource()), p.getCategory());
@@ -122,7 +125,7 @@ public class IgParser {
       } else if (e.getNodeName().equals("logicalModel")) {
         String source = Utilities.path(file.getParent(), e.getAttribute("source"));
         String id = ig.getCode()+"-"+e.getAttribute("id");
-        SpreadsheetParser sparser = new SpreadsheetParser(ig.getCode(), new CSFileInputStream(source), id, ig, rootDir, logger, null, context.getVersion(), context, genDate, false, ig.getExtensions(), pkp, false);
+        SpreadsheetParser sparser = new SpreadsheetParser(ig.getCode(), new CSFileInputStream(source), id, ig, rootDir, logger, null, context.getVersion(), context, genDate, false, ig.getExtensions(), pkp, false, committee);
         sparser.getBindings().putAll(commonBindings);
         sparser.setFolder(Utilities.getDirectoryForFile(source));
         LogicalModel lm = sparser.parseLogicalModel(source);

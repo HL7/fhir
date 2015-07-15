@@ -10,6 +10,7 @@ import org.hl7.fhir.instance.model.ValueSet;
 
 public class ImplementationGuide {
 
+  private String committee;
   private String code;
   private String name;
   private String page;
@@ -26,13 +27,14 @@ public class ImplementationGuide {
   private List<BindingSpecification> unresolvedBindings = new ArrayList<BindingSpecification>();
   private List<LogicalModel> logicalModels = new ArrayList<LogicalModel>();
   
-  public ImplementationGuide(String code, String name, String page, String source, boolean review) {
+  public ImplementationGuide(String committee, String code, String name, String page, String source, boolean review) {
     super();
     this.code = code;
     this.name = name;
     this.source = source;
     this.page = page;
     this.review = review;
+    this.committee = committee;
   }
   
   public String getCode() {
@@ -111,6 +113,10 @@ public class ImplementationGuide {
       if (lm.getId().equals(id))
         return lm;
     return null;
+  }
+
+  public String getCommittee() {
+    return committee;
   }
   
 }

@@ -124,6 +124,7 @@ public class BindingsParser {
         ValueSet vs = cd.getValueSet();
         ValueSetUtilities.makeShareable(vs);
         vs.setUserData("filename", "valueset-"+vs.getId());
+        vs.setUserData("committee", sheet.getColumn(row, "Committee").toLowerCase());
         vs.setUserData("path", "valueset-"+vs.getId()+".html");
 
         ToolingExtensions.setOID(vs, BindingSpecification.DEFAULT_OID_VS + cd.getId());

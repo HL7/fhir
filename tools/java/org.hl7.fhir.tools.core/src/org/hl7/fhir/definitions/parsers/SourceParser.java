@@ -308,11 +308,11 @@ public class SourceParser {
 
     for (ResourceDefn r : definitions.getResources().values()) {
       for (Profile p : r.getConformancePackages()) 
-        loadConformancePackage(p);
+        loadConformancePackage(p, r.getWg().getCode());
     }
     for (ImplementationGuide ig : definitions.getSortedIgs()) {
       if (!Utilities.noString(ig.getSource())) {
-        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings()).load(rootDir, ig);
+        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee()).load(rootDir, ig);
         // register what needs registering
         for (ValueSet vs : ig.getValueSets()) {
           definitions.getExtraValuesets().put(vs.getId(), vs);
@@ -363,7 +363,7 @@ public class SourceParser {
       Element ig = XMLUtil.getFirstChild(root);
       while (ig != null) {
         if (ig.getNodeName().equals("ig")) {
-          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), ig.getAttribute("source").replace('\\', File.separatorChar), 
+          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), ig.getAttribute("source").replace('\\', File.separatorChar), 
               "1".equals(ig.getAttribute("review")));
           definitions.getIgs().put(igg.getCode(), igg);
           definitions.getSortedIgs().add(igg);
@@ -515,9 +515,10 @@ public class SourceParser {
 
   private void loadConformancePackages(String n) throws Exception {
     String usage = "core";
-    File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
+    String[] v = ini.getStringProperty("profiles", n).split("\\:");
+    File spreadsheet = new CSFile(rootDir+v[1]);
     if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
-      SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini);
+      SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, v[0]);
       try {
         Profile pack = new Profile(usage);
         pack.setTitle(n);
@@ -569,9 +570,9 @@ public class SourceParser {
   }
 
 
-  private void loadConformancePackage(Profile ap) throws FileNotFoundException, IOException, Exception {
+  private void loadConformancePackage(Profile ap, String committee) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
-      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini);
+      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, committee);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory());
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
@@ -662,7 +663,7 @@ public class SourceParser {
       TypeRef t = ts.get(0);
       File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
       if (csv.exists()) {
-        SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, true, ini);
+        SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, true, ini, "fhir");
         org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
         map.put(t.getName(), el);
         el.getAcceptableGenericTypes().addAll(ts.get(0).getParams());
@@ -708,15 +709,17 @@ public class SourceParser {
     String folder = n;
     File spreadsheet = new CSFile((srcDir) + folder + File.separatorChar + n + "-spreadsheet.xml");
 
+    WorkGroup wg = definitions.getWorkgroups().get(ini.getStringProperty("workgroups", n));
+    
     SpreadsheetParser sparser = new SpreadsheetParser("core", new CSFileInputStream(
-        spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions, page, false, ini);
+        spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions, page, false, ini, wg.getCode());
     ResourceDefn root;
     try {
       root = sparser.parseResource();
     } catch (Exception e) {
       throw new Exception("Error Parsing Resource "+n+": "+e.getMessage(), e);
     }
-    root.setWg(definitions.getWorkgroups().get(ini.getStringProperty("workgroups", root.getName().toLowerCase())));
+    root.setWg(wg);
 
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());

@@ -1,20 +1,20 @@
 <igs>
   <!-- only FMG can add entries to this list-->
   <!-- the literal order in this XML source file is the order of publication. Dependencies matter! -->
-  <ig code="core"     name="FHIR Specification Core" page="" review=""/>
-  <ig code="ccda"     name="Consolidated CDA" page="" review=""/>
-  <ig code="openehr"  name="openEHR Profiles" page="" review=""/>
-  <ig code="ehrs-rle" name="EHRS Functional model - Record Lifecycle Events" page="ehrs-rle.html" review="" source="\guides\ehrs-rle\ehrs-rle.xml"/>
-  <ig code="sdc"      name="Structured Data Capture - Forms" page="sdc.html" review="" source="\guides\sdc\sdc.xml"/>
-  <ig code="sdc-de"   name="Structured Data Capture - Data Element Management" page="sdc-de.html" review="" source="\guides\sdc-de\sdc-de.xml"/>
-  <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review=""/>
-  <ig code="ihe"      name="IHE Profiles" page="" review=""/>
-  <ig code="argonaut" name="Argonaut" page="argonauts.html" review="0" ballot="yes"/>
+  <ig code="core"     name="FHIR Specification Core" page="" review="" committee="fhir"/>
+  <ig code="ccda"     name="Consolidated CDA" page="" review="" committee="sd"/>
+  <ig code="openehr"  name="openEHR Profiles" page="" review="" committee="pc"/>
+  <ig code="ehrs-rle" name="EHRS Functional model - Record Lifecycle Events" page="ehrs-rle.html" review="" source="\guides\ehrs-rle\ehrs-rle.xml" committee="ehr"/>
+  <ig code="sdc"      name="Structured Data Capture - Forms" page="sdc.html" review="" source="\guides\sdc\sdc.xml" committee="oo"/>
+  <ig code="sdc-de"   name="Structured Data Capture - Data Element Management" page="sdc-de.html" review="" source="\guides\sdc-de\sdc-de.xml" committee="oo"/>
+  <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review="" committee="cds"/>
+  <ig code="ihe"      name="IHE Profiles" page="" review="" committee="hsi"/>
+  <ig code="argonaut" name="Argonaut" page="argonauts.html" review="0" ballot="yes" committee="fhir"/>
   
-  <ig code="uslab"    name="US Lab Profile" page="uslabreport.html" review="" source="\guides\uslab\uslab.xml"/>
-  <ig code="daf"      name="Data Access Framework" page="daf.html" review="" source="\guides\daf\daf.xml"/>
-  <ig code="cqf"      name="Quality Improvement Core" page="qicore.html" review="" source="\guides\cqf\cqf.xml"/>
-  <ig code="cqif"     name="Clinical Quality Improvement Framework" page="cqif.html" review="" source="\guides\cqif\cqif.xml"/>
-  <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="" source="\guides\hspc\hspc.xml"/>
-  <ig code="nehta"    name="NEHTA Tooling/Method Evaluation" page="nehta.html" review="" source="\guides\nehta\nehta.xml"/>
+  <ig code="uslab"    name="US Lab Profile" page="uslabreport.html" review="" source="\guides\uslab\uslab.xml" committee="us"/>
+  <ig code="daf"      name="Data Access Framework" page="daf.html" review="" source="\guides\daf\daf.xml" committee="daf"/>
+  <ig code="cqf"      name="Quality Improvement Core" page="qicore.html" review="" source="\guides\cqf\cqf.xml" committee="cds"/>
+  <ig code="cqif"     name="Clinical Quality Improvement Framework" page="cqif.html" review="" source="\guides\cqif\cqif.xml" committee="cds"/>
+  <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="" source="\guides\hspc\hspc.xml" committee="fhir"/>
+  <ig code="nehta"    name="NEHTA Tooling/Method Evaluation" page="nehta.html" review="" source="\guides\nehta\nehta.xml" committee="fhir"/>
 </igs>

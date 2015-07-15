@@ -95,10 +95,10 @@ public class ValueSetValidator extends BaseValidator {
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
       Set<String> sources = getListOfSources(vs);
       for (String s : sources) {
-        rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
+        rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
            "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement is required for any value set that includes Snomed or Loinc codes",
            "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: A copyright statement is required for any value set that includes Snomed or Loinc codes");
-        warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].copyright", s.startsWith("http://hl7.org") || s.startsWith("urn:iso") || s.startsWith("urn:ietf") || s.startsWith("http://need.a.uri.org")
+        warning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].copyright", s.startsWith("http://hl7.org") || s.startsWith("urn:iso") || s.startsWith("urn:ietf") || s.startsWith("http://need.a.uri.org")
             || s.contains("cdc.gov") || s.startsWith("urn:oid:"),
            "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement should be present for any value set that includes non-HL7 sourced codes ("+s+")",
            "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: A copyright statement should be present for any value set that includes non-HL7 sourced codes ("+s+")");
@@ -109,8 +109,8 @@ public class ValueSetValidator extends BaseValidator {
 
     if (vs.hasDefine()) {
       Set<String> codes = new HashSet<String>();
-      if (rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", vs.getDefine().hasSystem(), "If a value set has a define, it must have a system")) {
-        rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", vs.getDefine().hasCaseSensitiveElement() && vs.getDefine().getCaseSensitive(), 
+      if (rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", vs.getDefine().hasSystem(), "If a value set has a define, it must have a system")) {
+        rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", vs.getDefine().hasCaseSensitiveElement() && vs.getDefine().getCaseSensitive(), 
             "Value set "+nameForErrors+" ("+vs.getName()+"): All value sets that define codes must mark them as case sensitive",
             "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: All value sets that define codes must mark them as case sensitive");
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, vs.getDefine().getConcept());
@@ -118,11 +118,11 @@ public class ValueSetValidator extends BaseValidator {
             !vs.getDefine().getSystem().startsWith("urn:uuid:") && 
             !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/") && 
             !exemptFromCodeRules(vs.getDefine().getSystem())) {
-          checkCodesForDisplayAndDefinition(errors, "ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept(), vs, nameForErrors);
-          checkCodesForSpaces(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
+          checkCodesForDisplayAndDefinition(errors, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept(), vs, nameForErrors);
+          checkCodesForSpaces(errors, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
           if (!exemptFromStyleChecking(vs.getDefine().getSystem())) {
-            checkDisplayIsTitleCase(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
-            checkCodeIslowerCaseDash(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
+            checkDisplayIsTitleCase(errors, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
+            checkCodeIslowerCaseDash(errors, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
           }
         }
       }
@@ -131,17 +131,17 @@ public class ValueSetValidator extends BaseValidator {
       int i = 0;
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
         i++;
-        rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", context.getCodeSystems().containsKey(inc.getSystem()) || isKnownCodeSystem(inc.getSystem()), 
+        rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", context.getCodeSystems().containsKey(inc.getSystem()) || isKnownCodeSystem(inc.getSystem()), 
             "The system '"+inc.getSystem()+"' is not valid");
         
         if (canValidate(inc.getSystem())) {
           for (ConceptReferenceComponent cc : inc.getConcept()) {
             if (inc.getSystem().equals("http://nema.org/dicom/dicm"))
-              warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
+              warning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
                   "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem(),
                   "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem());             
             else
-              rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
+              rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
                 "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem());
             
           }
@@ -171,8 +171,9 @@ public class ValueSetValidator extends BaseValidator {
 
   private void checkCodeIslowerCaseDash(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
     for (ConceptDefinitionComponent cc : concept) {
-      warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasCode() || isLowerCaseDash(cc.getCode()), 
-         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes must be lowercase-dash: "+cc.getCode());
+      if (!warning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", !cc.hasCode() || isLowerCaseDash(cc.getCode()), 
+         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes must be lowercase-dash: "+cc.getCode()))
+        return;
       checkDisplayIsTitleCase(errors, nameForErrors, vs, cc.getConcept());  
     }
   }
@@ -189,8 +190,9 @@ public class ValueSetValidator extends BaseValidator {
 
   private void checkDisplayIsTitleCase(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
     for (ConceptDefinitionComponent cc : concept) {
-      warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasDisplay() || isTitleCase(cc.getDisplay()), 
-         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Display Names must be TitleCase: "+cc.getDisplay());
+      if (!warning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", !cc.hasDisplay() || isTitleCase(cc.getDisplay()), 
+         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Display Names must be TitleCase: "+cc.getDisplay()))
+        return;
       checkDisplayIsTitleCase(errors, nameForErrors, vs, cc.getConcept());  
     }
   }
@@ -351,8 +353,9 @@ public class ValueSetValidator extends BaseValidator {
 
   private void checkCodesForSpaces(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
     for (ConceptDefinitionComponent cc : concept) {
-      rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasCode() || !cc.getCode().contains(" "), 
-         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes cannot include spaces: "+cc.getCode());
+      if (!rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", !cc.hasCode() || !cc.getCode().contains(" "), 
+         "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes cannot include spaces ("+cc.getCode()+")"))
+        return;
       checkCodesForSpaces(errors, nameForErrors, vs, cc.getConcept());  
     }
   }
@@ -361,10 +364,12 @@ public class ValueSetValidator extends BaseValidator {
     int i = 0;
     for (ConceptDefinitionComponent cc : concept) {
       String p = path +"["+Integer.toString(i)+"]";
-      warning(errors, IssueType.BUSINESSRULE, p, !cc.getAbstract() || !cc.hasCode() || cc.hasDisplay(), "code '"+cc.getCode()+"' has no display",
-        "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: code '"+cc.getCode()+"' has no display");
-      warning(errors, IssueType.BUSINESSRULE, p, cc.hasDefinition() && (!cc.getDefinition().toLowerCase().equals("todo") || cc.getDefinition().toLowerCase().equals("to do")), "code '"+cc.getCode()+"' has no definition",
-        "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: code '"+cc.getCode()+"' has no definition");
+      if (!warning(errors, IssueType.BUSINESSRULE, p, !cc.getAbstract() || !cc.hasCode() || cc.hasDisplay(), "Code System '"+vs.getDefine().getSystem()+"' has a code without a display ('"+cc.getCode()+"')",
+        "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: Code System '"+vs.getDefine().getSystem()+"' has a code without a display ('"+cc.getCode()+"')"))
+        return;
+      if (!warning(errors, IssueType.BUSINESSRULE, p, cc.hasDefinition() && (!cc.getDefinition().toLowerCase().equals("todo") || cc.getDefinition().toLowerCase().equals("to do")), "Code System '"+vs.getDefine().getSystem()+"' has a code without a definition ('"+cc.getCode()+"')",
+        "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: Code System '"+vs.getDefine().getSystem()+"' has a code without a definition ('"+cc.getCode()+"')"))
+        return;
       checkCodesForDisplayAndDefinition(errors, p+".concept", cc.getConcept(), vs, nameForErrors);
       i++;
     }
@@ -373,7 +378,7 @@ public class ValueSetValidator extends BaseValidator {
   private void checkCodeCaseDuplicates(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, Set<String> codes, List<ConceptDefinitionComponent> concepts) {
     for (ConceptDefinitionComponent c : concepts) {
       String cc = c.getCode().toLowerCase();
-        rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !codes.contains(cc), 
+        rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", !codes.contains(cc), 
           "Value set "+nameForErrors+" ("+vs.getName()+"): Code '"+cc+"' is defined twice, different by case - this is not allowed in a FHIR definition");
       if (c.hasConcept())
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, c.getConcept());
@@ -398,17 +403,35 @@ public class ValueSetValidator extends BaseValidator {
       for (int j = i+1; j < duplicateList.size(); j++) {
         VSDuplicateList vd1 = duplicateList.get(i);
         VSDuplicateList vd2 = duplicateList.get(j);
-        if (rule(errors, IssueType.BUSINESSRULE, "ValueSetComparison", !vd1.id.equals(vd2.id), "Duplicate Value Set ids : "+vd1.id+"("+vd1.vs.getName()+") & "+vd2.id+"("+vd2.vs.getName()+") (id)") &&
-            rule(errors, IssueType.BUSINESSRULE, "ValueSetComparison", !vd1.url.equals(vd2.url), "Duplicate Value Set URLs: "+vd1.id+"("+vd1.vs.getName()+") & "+vd2.id+"("+vd2.vs.getName()+") (url)")) {
-          if (isInternal(vd1.url) || isInternal(vd2.url)) {
-            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", areDisjoint(vd1.name, vd2.name), "Duplicate Valueset Names: "+vd1.vs.getUserString("path")+" ("+vd1.vs.getName()+") & "+vd2.vs.getUserString("path")+" ("+vd2.vs.getName()+") (name: "+vd1.name.toString()+" / "+vd2.name.toString()+"))", 
-                "Duplicate Valueset Names: <a href=\""+vd1.vs.getUserString("path")+"\">"+vd1.id+"</a> ("+vd1.vs.getName()+") &amp; <a href=\""+vd2.vs.getUserString("path")+"\">"+vd2.id+"</a> ("+vd2.vs.getName()+") (name: "+vd1.name.toString()+" / "+vd2.name.toString()+"))");
-            warning(errors, IssueType.BUSINESSRULE, "ValueSetComparison", areDisjoint(vd1.description, vd2.description), "Duplicate Valueset Definitions: "+vd1.vs.getUserString("path")+" ("+vd1.vs.getName()+") & "+vd2.vs.getUserString("path")+" ("+vd2.vs.getName()+") (description: "+vd1.description.toString()+" / "+vd2.description.toString()+")",
-                "Duplicate Valueset descriptions: <a href=\""+vd1.vs.getUserString("path")+"\">"+vd1.id+"</a> ("+vd1.vs.getName()+") &amp; <a href=\""+vd2.vs.getUserString("path")+"\">"+vd2.id+"</a> ("+vd2.vs.getName()+") (description: "+vd1.description.toString()+" / "+vd2.description.toString()+"))");
+        String committee = pickCommittee(vd1, vd2);
+        if (committee != null) {
+          if (rule(errors, IssueType.BUSINESSRULE, committee+":ValueSetComparison", !vd1.id.equals(vd2.id), "Duplicate Value Set ids : "+vd1.id+"("+vd1.vs.getName()+") & "+vd2.id+"("+vd2.vs.getName()+") (id)") &&
+              rule(errors, IssueType.BUSINESSRULE, committee+":ValueSetComparison", !vd1.url.equals(vd2.url), "Duplicate Value Set URLs: "+vd1.id+"("+vd1.vs.getName()+") & "+vd2.id+"("+vd2.vs.getName()+") (url)")) {
+            if (isInternal(vd1.url) || isInternal(vd2.url)) {
+              warning(errors, IssueType.BUSINESSRULE, committee+":ValueSetComparison", areDisjoint(vd1.name, vd2.name), "Duplicate Valueset Names: "+vd1.vs.getUserString("path")+" ("+vd1.vs.getName()+") & "+vd2.vs.getUserString("path")+" ("+vd2.vs.getName()+") (name: "+vd1.name.toString()+" / "+vd2.name.toString()+"))", 
+                  "Duplicate Valueset Names: <a href=\""+vd1.vs.getUserString("path")+"\">"+vd1.id+"</a> ("+vd1.vs.getName()+") &amp; <a href=\""+vd2.vs.getUserString("path")+"\">"+vd2.id+"</a> ("+vd2.vs.getName()+") (name: "+vd1.name.toString()+" / "+vd2.name.toString()+"))");
+              warning(errors, IssueType.BUSINESSRULE, committee+":ValueSetComparison", areDisjoint(vd1.description, vd2.description), "Duplicate Valueset Definitions: "+vd1.vs.getUserString("path")+" ("+vd1.vs.getName()+") & "+vd2.vs.getUserString("path")+" ("+vd2.vs.getName()+") (description: "+vd1.description.toString()+" / "+vd2.description.toString()+")",
+                  "Duplicate Valueset descriptions: <a href=\""+vd1.vs.getUserString("path")+"\">"+vd1.id+"</a> ("+vd1.vs.getName()+") &amp; <a href=\""+vd2.vs.getUserString("path")+"\">"+vd2.id+"</a> ("+vd2.vs.getName()+") (description: "+vd1.description.toString()+" / "+vd2.description.toString()+"))");
+            }
           }
         }
       }
     }
+  }
+
+  private String pickCommittee(VSDuplicateList vd1, VSDuplicateList vd2) {
+    String c1 = vd1.vs.getUserString("committee");
+    String c2 = vd2.vs.getUserString("committee");
+    if (c1 == null)
+      return c2;
+    else if (c2 == null)
+      return c1;
+    else if (c1.equals("fhir"))
+      return c2;
+    else if (c2.equals("fhir"))
+      return c1;
+    else
+      return c1;
   }
 
   private boolean isInternal(String url) {

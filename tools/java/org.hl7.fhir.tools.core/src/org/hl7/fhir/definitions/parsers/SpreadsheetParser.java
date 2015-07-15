@@ -141,8 +141,9 @@ public class SpreadsheetParser {
   private String txFolder;
   private boolean isLogicalModel;
   private IniFile ini;
+  private String committee;
   
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, name);	
@@ -165,9 +166,10 @@ public class SpreadsheetParser {
 		this.extensionDefinitions = extensionDefinitions;
 		this.pkp = pkp;
 		this.ini = ini;
+		this.committee = committee;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuide ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuide ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     xls = new XLSXmlParser(in, name); 
@@ -190,6 +192,7 @@ public class SpreadsheetParser {
     this.isAbstract = isAbstract;
     this.extensionDefinitions = extensionDefinitions;
     this.pkp = pkp;
+    this.committee = committee;
   }
 
 
@@ -897,6 +900,7 @@ public class SpreadsheetParser {
         ValueSet vs = cd.getValueSet();
         ValueSetUtilities.makeShareable(vs);
         vs.setUserData("filename", "valueset-"+vs.getId());
+        vs.setUserData("committee", committee);
         vs.setUserData("path", "valueset-"+vs.getId()+".html");
         ToolingExtensions.setOID(vs, BindingSpecification.DEFAULT_OID_VS + cd.getId());
         vs.setUserData("csoid", BindingSpecification.DEFAULT_OID_CS + cd.getId());
@@ -966,7 +970,8 @@ public class SpreadsheetParser {
 	    if (!result.hasVersion())
 	      result.setVersion(version);
 	    result.setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(9));
-	    result.setUserData("path", "valueset-"+ref+".html");
+      result.setUserData("path", "valueset-"+ref+".html");
+      result.setUserData("committee", committee);
 	    return result;
 	  } finally {
 	    IOUtils.closeQuietly(input);
