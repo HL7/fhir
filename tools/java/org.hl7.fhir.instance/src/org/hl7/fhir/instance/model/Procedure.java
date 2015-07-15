@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 13, 2015 20:19-0400 for FHIR v0.5.0
+// Generated on Thu, Jul 16, 2015 00:43+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -110,9 +110,9 @@ public class Procedure extends DomainResource {
         public String getDisplay() {
           switch (this) {
             case INPROGRESS: return "In Progress";
-            case ABORTED: return "Aborted";
+            case ABORTED: return "Aboted";
             case COMPLETED: return "Completed";
-            case ENTEREDINERROR: return "Entered In Error";
+            case ENTEREDINERROR: return "Entered in Error";
             default: return "?";
           }
         }

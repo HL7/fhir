@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jul 13, 2015 20:19-0400 for FHIR v0.5.0
+// Generated on Thu, Jul 16, 2015 00:43+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -8833,8 +8833,14 @@ public class JsonParser extends JsonParserBase {
       res.setRecordedElement(parseInstant(json.get("recorded").getAsString()));
     if (json.has("_recorded"))
       parseElementProperties(json.getAsJsonObject("_recorded"), res.getRecordedElement());
-    if (json.has("reason"))
-      res.setReason(parseCodeableConcept(json.getAsJsonObject("reason")));
+    if (json.has("reason")) {
+      JsonArray array = json.getAsJsonArray("reason");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReason().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("activity"))
+      res.setActivity(parseCodeableConcept(json.getAsJsonObject("activity")));
     if (json.has("location"))
       res.setLocation(parseReference(json.getAsJsonObject("location")));
     if (json.has("policy")) {
@@ -10648,10 +10654,10 @@ public class JsonParser extends JsonParserBase {
       res.setTotalElement(parseInteger(json.get("total").getAsLong()));
     if (json.has("_total"))
       parseElementProperties(json.getAsJsonObject("_total"), res.getTotalElement());
-    if (json.has("count"))
-      res.setCountElement(parseInteger(json.get("count").getAsLong()));
-    if (json.has("_count"))
-      parseElementProperties(json.getAsJsonObject("_count"), res.getCountElement());
+    if (json.has("offset"))
+      res.setOffsetElement(parseInteger(json.get("offset").getAsLong()));
+    if (json.has("_offset"))
+      parseElementProperties(json.getAsJsonObject("_offset"), res.getOffsetElement());
     if (json.has("parameter")) {
       JsonArray array = json.getAsJsonArray("parameter");
       for (int i = 0; i < array.size(); i++) {
@@ -22593,7 +22599,13 @@ public class JsonParser extends JsonParserBase {
         composeInstantExtras("recorded", element.getRecordedElement(), false);
       }
       if (element.hasReason()) {
-        composeCodeableConcept("reason", element.getReason());
+        openArray("reason");
+        for (CodeableConcept e : element.getReason()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasActivity()) {
+        composeCodeableConcept("activity", element.getActivity());
       }
       if (element.hasLocation()) {
         composeReference("location", element.getLocation());
@@ -24841,9 +24853,9 @@ public class JsonParser extends JsonParserBase {
         composeIntegerCore("total", element.getTotalElement(), false);
         composeIntegerExtras("total", element.getTotalElement(), false);
       }
-      if (element.hasCountElement()) {
-        composeIntegerCore("count", element.getCountElement(), false);
-        composeIntegerExtras("count", element.getCountElement(), false);
+      if (element.hasOffsetElement()) {
+        composeIntegerCore("offset", element.getOffsetElement(), false);
+        composeIntegerExtras("offset", element.getOffsetElement(), false);
       }
       if (element.hasParameter()) {
         openArray("parameter");

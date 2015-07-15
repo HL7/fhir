@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 13, 2015 20:19-0400 for FHIR v0.5.0
+// Generated on Thu, Jul 16, 2015 00:43+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -82,7 +82,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         public String getDisplay() {
           switch (this) {
-            case XMLATTR: return "Xml Attr";
+            case XMLATTR: return "XML Attirbute";
             default: return "?";
           }
         }
@@ -160,7 +160,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           switch (this) {
             case CLOSED: return "Closed";
             case OPEN: return "Open";
-            case OPENATEND: return "Open At End";
+            case OPENATEND: return "Open at End";
             default: return "?";
           }
         }

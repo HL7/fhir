@@ -127,7 +127,6 @@ import com.github.rjeschke.txtmark.Processor;
 public class NarrativeGenerator implements INarrativeGenerator {
 
   private interface PropertyWrapper {
-    
     public String getName();
 
     public boolean hasValues();
@@ -147,17 +146,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private interface ResourceWrapper {
-
-    List<ResourceWrapper> getContained();
-
-    String getId();
-
-    XhtmlNode getNarrative() throws Exception;
-
-    String getName();
-
-    List<PropertyWrapper> children();
-
+    public List<ResourceWrapper> getContained();
+    public String getId();
+    public XhtmlNode getNarrative() throws Exception;
+    public String getName();
+    public List<PropertyWrapper> children();
   }
 
   private interface BaseWrapper {
@@ -169,8 +162,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     public PropertyWrapper getChildByName(String tail);
 
   }
-  private class BaseWrapperElement implements BaseWrapper {
 
+  private class BaseWrapperElement implements BaseWrapper {
     private Element element;
     private String type;
     private StructureDefinition structure;
@@ -566,7 +559,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       StructureDefinition p = context.getProfiles().get(rt);
       return generateByProfile(doc, p, true);  
     } else 
-      throw new Exception("not done yet");
+      throw new Exception("not done yet (profile : "+rt+")");
     //             narrative = "&lt;-- No Narrative for this resource --&gt;";
 
   }
@@ -854,6 +847,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       renderCodeableConcept((CodeableConcept) e, x, showCodeDetails); 
     } else if (e instanceof Coding) {
       renderCoding((Coding) e, x, showCodeDetails);
+    } else if (e instanceof Annotation) {
+      renderAnnotation((Annotation) e, x);
     } else if (e instanceof Identifier) {
       renderIdentifier((Identifier) e, x);
     } else if (e instanceof org.hl7.fhir.instance.model.IntegerType) {
@@ -1173,6 +1168,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
+  private void renderAnnotation(Coding c, XhtmlNode x, boolean showCodeDetails) {
+    
+  }
+  
   private void renderCoding(Coding c, XhtmlNode x, boolean showCodeDetails) {
     String s = "";
     if (c.hasDisplayElement()) 
@@ -2399,8 +2398,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
           }
         }
       }
+      boolean first = false;
       for (ConceptSetFilterComponent f : inc.getFilter()) {
+        if (first) {
         li.addText(type+" codes from ");
+          first = false;
+        } else
+          li.addText(" and ");
         addCsRef(inc, li, e);
         li.addText(" where "+f.getProperty()+" "+describe(f.getOp())+" ");
         if (e != null && codeExistsInValueSet(e, f.getValue())) {

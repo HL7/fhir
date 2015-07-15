@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 13, 2015 20:19-0400 for FHIR v0.5.0
+// Generated on Thu, Jul 16, 2015 00:43+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -101,9 +101,9 @@ public class Patient extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case REPLACE: return "replace";
-            case REFER: return "refer";
-            case SEEALSO: return "see also";
+            case REPLACE: return "Replace";
+            case REFER: return "Refer";
+            case SEEALSO: return "See also";
             default: return "?";
           }
         }

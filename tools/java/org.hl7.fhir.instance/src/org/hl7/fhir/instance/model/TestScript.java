@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 13, 2015 20:19-0400 for FHIR v0.5.0
+// Generated on Thu, Jul 16, 2015 00:43+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -85,18 +85,6 @@ public class TestScript extends DomainResource {
          */
         CONFORMANCE, 
         /**
-         * Tag operations.
-         */
-        TAGS, 
-        /**
-         * Not currently supported test operation.
-         */
-        MAILBOX, 
-        /**
-         * Not currently supported test operation.
-         */
-        DOCUMENT, 
-        /**
          * added to help the parsers
          */
         NULL;
@@ -121,12 +109,6 @@ public class TestScript extends DomainResource {
           return TRANSACTION;
         if ("conformance".equals(codeString))
           return CONFORMANCE;
-        if ("tags".equals(codeString))
-          return TAGS;
-        if ("mailbox".equals(codeString))
-          return MAILBOX;
-        if ("document".equals(codeString))
-          return DOCUMENT;
         throw new Exception("Unknown TestOperationType code '"+codeString+"'");
         }
         public String toCode() {
@@ -140,9 +122,6 @@ public class TestScript extends DomainResource {
             case SEARCH: return "search";
             case TRANSACTION: return "transaction";
             case CONFORMANCE: return "conformance";
-            case TAGS: return "tags";
-            case MAILBOX: return "mailbox";
-            case DOCUMENT: return "document";
             default: return "?";
           }
         }
@@ -157,9 +136,6 @@ public class TestScript extends DomainResource {
             case SEARCH: return "http://hl7.org/fhir/test-operation-codes";
             case TRANSACTION: return "http://hl7.org/fhir/test-operation-codes";
             case CONFORMANCE: return "http://hl7.org/fhir/test-operation-codes";
-            case TAGS: return "http://hl7.org/fhir/test-operation-codes";
-            case MAILBOX: return "http://hl7.org/fhir/test-operation-codes";
-            case DOCUMENT: return "http://hl7.org/fhir/test-operation-codes";
             default: return "?";
           }
         }
@@ -174,9 +150,6 @@ public class TestScript extends DomainResource {
             case SEARCH: return "Search based on some filter criteria.";
             case TRANSACTION: return "Update, create or delete a set of resources as a single transaction.";
             case CONFORMANCE: return "Get a conformance statement for the system.";
-            case TAGS: return "Tag operations.";
-            case MAILBOX: return "Not currently supported test operation.";
-            case DOCUMENT: return "Not currently supported test operation.";
             default: return "?";
           }
         }
@@ -191,9 +164,6 @@ public class TestScript extends DomainResource {
             case SEARCH: return "search";
             case TRANSACTION: return "transaction";
             case CONFORMANCE: return "conformance";
-            case TAGS: return "tags";
-            case MAILBOX: return "mailbox";
-            case DOCUMENT: return "document";
             default: return "?";
           }
         }
@@ -222,12 +192,6 @@ public class TestScript extends DomainResource {
           return TestOperationType.TRANSACTION;
         if ("conformance".equals(codeString))
           return TestOperationType.CONFORMANCE;
-        if ("tags".equals(codeString))
-          return TestOperationType.TAGS;
-        if ("mailbox".equals(codeString))
-          return TestOperationType.MAILBOX;
-        if ("document".equals(codeString))
-          return TestOperationType.DOCUMENT;
         throw new IllegalArgumentException("Unknown TestOperationType code '"+codeString+"'");
         }
     public String toCode(TestOperationType code) {
@@ -249,12 +213,6 @@ public class TestScript extends DomainResource {
         return "transaction";
       if (code == TestOperationType.CONFORMANCE)
         return "conformance";
-      if (code == TestOperationType.TAGS)
-        return "tags";
-      if (code == TestOperationType.MAILBOX)
-        return "mailbox";
-      if (code == TestOperationType.DOCUMENT)
-        return "document";
       return "?";
       }
     }

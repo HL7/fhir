@@ -274,12 +274,16 @@ public class QuestionnaireBuilder {
         processExisting(child.getPath(), answerGroups, nAnswers);
         // if the element has a type, we add a question. else we add a group on the basis that
         // it will have children of it's own
-        if (child.getType().isEmpty()) 
+        if (child.getType().isEmpty() || isAbstractType(child.getType())) 
           buildGroup(childGroup, profile, child, nparents, nAnswers);
         else
           buildQuestion(childGroup, profile, child, child.getPath(), nAnswers);
       }
     }
+  }
+
+  private boolean isAbstractType(List<TypeRefComponent> type) {
+    return type.size() == 1 && (type.get(0).getCode().equals("Element") || type.get(0).getCode().equals("BackboneElement"));
   }
 
   private boolean isExempt(ElementDefinition element, ElementDefinition child) {
@@ -692,7 +696,7 @@ public class QuestionnaireBuilder {
     else if (t.getCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
-      addReferenceQuestions(group, element, path, t.getProfile().get(0).getValue(), answerGroups);
+      addReferenceQuestions(group, element, path, t.hasProfile() ? t.getProfile().get(0).getValue() : null, answerGroups);
     else if (t.getCode().equals("Duration"))
       addDurationQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("base64Binary"))
@@ -705,11 +709,14 @@ public class QuestionnaireBuilder {
       addRangeQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Timing"))
       addTimingQuestions(group, element, path, answerGroups);
+    else if (t.getCode().equals("Annotation"))
+      addAnnotationQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("SampledData"))
       addSampledDataQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Extension"))
+    else if (t.getCode().equals("Extension")) {
+      if (t.hasProfile())
       addExtensionQuestions(profile, group, element, path, t.getProfile().get(0).getValue(), answerGroups);
-    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition")&& !t.getCode().equals("Meta")&& !t.getCode().equals("Signature"))
+    } else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition")&& !t.getCode().equals("Meta")&& !t.getCode().equals("Signature"))
       throw new Exception("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
   }
 
@@ -923,8 +930,17 @@ public class QuestionnaireBuilder {
     
     private void addTimingQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Schedule");
+      addQuestion(group, AnswerFormat.STRING, path, "text", "text:", answerGroups);
+      addQuestion(group, AnswerFormat.DATETIME, path, "date", "date:", answerGroups);
+      QuestionComponent q = addQuestion(group, AnswerFormat.REFERENCE, path, "author", "author:", answerGroups);
+      ToolingExtensions.addReference(q, "/Patient?");
+      ToolingExtensions.addReference(q, "/Practitioner?");
+      ToolingExtensions.addReference(q, "/RelatedPerson?");
     }
     
+    private void addAnnotationQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+      ToolingExtensions.addType(group, "Annotation");
+    }
   // Special Types ---------------------------------------------------------------
 
     private void addReferenceQuestions(GroupComponent group, ElementDefinition element, String path, String profileURL, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {

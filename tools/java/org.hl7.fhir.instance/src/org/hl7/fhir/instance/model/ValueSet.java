@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 13, 2015 20:19-0400 for FHIR v0.5.0
+// Generated on Thu, Jul 16, 2015 00:43+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2172,9 +2172,9 @@ public class ValueSet extends DomainResource {
         /**
          * If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.
          */
-        @Child(name = "count", type = {IntegerType.class}, order=4, min=0, max=1)
+        @Child(name = "offset", type = {IntegerType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Offset at which this resource starts", formalDefinition="If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present." )
-        protected IntegerType count;
+        protected IntegerType offset;
 
         /**
          * A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.
@@ -2190,7 +2190,7 @@ public class ValueSet extends DomainResource {
         @Description(shortDefinition="Codes in the value set", formalDefinition="The codes that are contained in the value set expansion." )
         protected List<ValueSetExpansionContainsComponent> contains;
 
-        private static final long serialVersionUID = -831777781L;
+        private static final long serialVersionUID = -43471993L;
 
     /*
      * Constructor
@@ -2344,47 +2344,47 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #count} (If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         * @return {@link #offset} (If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.). This is the underlying object with id, value and extensions. The accessor "getOffset" gives direct access to the value
          */
-        public IntegerType getCountElement() { 
-          if (this.count == null)
+        public IntegerType getOffsetElement() { 
+          if (this.offset == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ValueSetExpansionComponent.count");
+              throw new Error("Attempt to auto-create ValueSetExpansionComponent.offset");
             else if (Configuration.doAutoCreate())
-              this.count = new IntegerType(); // bb
-          return this.count;
+              this.offset = new IntegerType(); // bb
+          return this.offset;
         }
 
-        public boolean hasCountElement() { 
-          return this.count != null && !this.count.isEmpty();
+        public boolean hasOffsetElement() { 
+          return this.offset != null && !this.offset.isEmpty();
         }
 
-        public boolean hasCount() { 
-          return this.count != null && !this.count.isEmpty();
+        public boolean hasOffset() { 
+          return this.offset != null && !this.offset.isEmpty();
         }
 
         /**
-         * @param value {@link #count} (If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         * @param value {@link #offset} (If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.). This is the underlying object with id, value and extensions. The accessor "getOffset" gives direct access to the value
          */
-        public ValueSetExpansionComponent setCountElement(IntegerType value) { 
-          this.count = value;
+        public ValueSetExpansionComponent setOffsetElement(IntegerType value) { 
+          this.offset = value;
           return this;
         }
 
         /**
          * @return If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.
          */
-        public int getCount() { 
-          return this.count == null || this.count.isEmpty() ? 0 : this.count.getValue();
+        public int getOffset() { 
+          return this.offset == null || this.offset.isEmpty() ? 0 : this.offset.getValue();
         }
 
         /**
          * @param value If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.
          */
-        public ValueSetExpansionComponent setCount(int value) { 
-            if (this.count == null)
-              this.count = new IntegerType();
-            this.count.setValue(value);
+        public ValueSetExpansionComponent setOffset(int value) { 
+            if (this.offset == null)
+              this.offset = new IntegerType();
+            this.offset.setValue(value);
           return this;
         }
 
@@ -2473,7 +2473,7 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("identifier", "uri", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("timestamp", "dateTime", "The time at which the expansion was produced by the expanding system.", 0, java.lang.Integer.MAX_VALUE, timestamp));
           childrenList.add(new Property("total", "integer", "The total nober of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.", 0, java.lang.Integer.MAX_VALUE, total));
-          childrenList.add(new Property("count", "integer", "If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.", 0, java.lang.Integer.MAX_VALUE, count));
+          childrenList.add(new Property("offset", "integer", "If paging is being used, the offset at which this resource starts - e.g. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.", 0, java.lang.Integer.MAX_VALUE, offset));
           childrenList.add(new Property("parameter", "", "A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.", 0, java.lang.Integer.MAX_VALUE, parameter));
           childrenList.add(new Property("contains", "", "The codes that are contained in the value set expansion.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
@@ -2484,7 +2484,7 @@ public class ValueSet extends DomainResource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.total = total == null ? null : total.copy();
-        dst.count = count == null ? null : count.copy();
+        dst.offset = offset == null ? null : offset.copy();
         if (parameter != null) {
           dst.parameter = new ArrayList<ValueSetExpansionParameterComponent>();
           for (ValueSetExpansionParameterComponent i : parameter)
@@ -2506,7 +2506,7 @@ public class ValueSet extends DomainResource {
           return false;
         ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(timestamp, o.timestamp, true)
-           && compareDeep(total, o.total, true) && compareDeep(count, o.count, true) && compareDeep(parameter, o.parameter, true)
+           && compareDeep(total, o.total, true) && compareDeep(offset, o.offset, true) && compareDeep(parameter, o.parameter, true)
            && compareDeep(contains, o.contains, true);
       }
 
@@ -2518,12 +2518,12 @@ public class ValueSet extends DomainResource {
           return false;
         ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
         return compareValues(identifier, o.identifier, true) && compareValues(timestamp, o.timestamp, true)
-           && compareValues(total, o.total, true) && compareValues(count, o.count, true);
+           && compareValues(total, o.total, true) && compareValues(offset, o.offset, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (timestamp == null || timestamp.isEmpty())
-           && (total == null || total.isEmpty()) && (count == null || count.isEmpty()) && (parameter == null || parameter.isEmpty())
+           && (total == null || total.isEmpty()) && (offset == null || offset.isEmpty()) && (parameter == null || parameter.isEmpty())
            && (contains == null || contains.isEmpty());
       }
 
