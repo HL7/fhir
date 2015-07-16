@@ -104,7 +104,8 @@ In some cases, some of the parameters may have problems. For instance:
 <ul>
  <li>A parameter may refer to a non-existent resource e.g. GET [base]/Observation?subject=101, where 101 does not exist</li>
  <li>A parameter may refer to an unknown code e.g. GET [base]/Observation?code=loinc|1234-1, where the LOINC code 1234-1 is not known to the server</li>
- <li>A parameter may refer to a time that is out of scope e.g. GET [base]/Condition?onset=&lt;1995, where the system only has data going back to 2001</li>
+ <li>A parameter may refer to a time that is out of scope e.g. GET [base]/Condition?onset=le1995, where the system only has data going back to 2001</li>
+ <li>A parameter may use an illegal or unaaceptable modifier e.g. GET [base]/Condition?onset:text=1995, where the modifier cannot be processed by the server</li>
  <li>A data time parameter may have incorrect format e.g. GET [base]/Condition?onset=23%20May%202009</li>
 </ul>
 <p>
@@ -254,6 +255,14 @@ separated from the parameter name by a colon. Modifiers are:</p>
  <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource</li>
  <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left matches the value, or vice-versa</li>
 </ul>
+<p>
+Server SHALL reject any search request that contains is suffixed by a modifier that the 
+server does <b>not</b> support for that parameter. For example, if the server supports 
+the "name" search param, but not the ":exact" modifier on the name, it should reject a 
+search with the parameter "name:exact=Bill", using an HTTP 400 error with
+an <a href="operationoutcome.html">OperationOutcome</a> with a <a href="operationoutcome-example-searchfail.html">clear error message</a>.
+
+</p>
 
 <a name="prefix" />
 <h4>Prefixes</h4>

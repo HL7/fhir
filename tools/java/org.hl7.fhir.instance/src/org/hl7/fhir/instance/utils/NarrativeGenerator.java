@@ -2584,11 +2584,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     addMarkdown(x, opd.getDescription());
     
     if (opd.getSystem())
-      x.addTag("p").addText("URL: [base]/$"+opd.getName());
+      x.addTag("p").addText("URL: [base]/$"+opd.getCode());
     for (CodeType c : opd.getType()) {
-      x.addTag("p").addText("URL: [base]/"+c.getValue()+"/$"+opd.getName());
+      x.addTag("p").addText("URL: [base]/"+c.getValue()+"/$"+opd.getCode());
       if (opd.getInstance())
-        x.addTag("p").addText("URL: [base]/"+c.getValue()+"/[id]/$"+opd.getName());
+        x.addTag("p").addText("URL: [base]/"+c.getValue()+"/[id]/$"+opd.getCode());
     }
     
     x.addTag("p").addText("Parameters");
