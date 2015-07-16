@@ -1,32 +1,40 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="Missing Tooth Reason Codes"/>
-  <publisher value="Financial Management"/>
-  <copyright value="This is an example set"/>
-  <status value="draft"/>
-  <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
-  </contact>
-  <description value="This value set includes sample Missing Tooth Reason codes."/>
-  <status value="draft"/>
-    <define>
-	<system value="http://hl7.org/fhir/missingtoothreason"/>
-    <caseSensitive value="true"/>    
-	<concept>
-      <code value="E"/> <!-- extraction -->
-    </concept>
-	<concept>
-      <code value="C"/> <!-- congenital -->
-    </concept>
-	<concept>
-      <code value="U"/> <!-- unknown -->
-    </concept>
-	<concept>
-      <code value="O"/> <!-- other -->
-    </concept>
+	<name value="Missing Tooth Reason Codes"/>
+	<publisher value="Financial Management"/>
+	<copyright value="This is an example set"/>
+	<status value="draft"/>
+	<contact>
+		<telecom>  
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="This value set includes sample Missing Tooth Reason codes."/>
+	<status value="draft"/>
+	<define>
+		<system value="http://hl7.org/fhir/missingtoothreason"/>
+		<caseSensitive value="true"/>    
+		<concept>
+			<code value="E"/> <!-- extraction -->
+			<display value="E"/>
+			<definition value="Extraction"/>
+		</concept>
+		<concept>
+			<code value="C"/> <!-- congenital -->
+			<display value="C"/>
+			<definition value="Congenital"/>
+		</concept>
+		<concept>
+			<code value="U"/> <!-- unknown -->
+			<display value="U"/>
+			<definition value="Unknown"/>
+		</concept>
+		<concept>
+			<code value="O"/> <!-- other -->
+			<display value="O"/>
+			<definition value="Other"/>
+		</concept>
 	</define>
 </ValueSet>
 
