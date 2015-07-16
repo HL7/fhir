@@ -7,7 +7,7 @@ import "encoding/json"
 func MapToResource(resourceMap interface{}) interface{} {
 	b, _ := json.Marshal(&resourceMap)
 	m := resourceMap.(map[string]interface{})
-	t := m["resourceType"].(string)
+	t := m["resourceType"]
 	switch t {
 	<Resources:{r |
 case "<r>":

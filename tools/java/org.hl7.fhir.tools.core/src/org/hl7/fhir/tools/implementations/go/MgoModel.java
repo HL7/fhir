@@ -96,7 +96,7 @@ public class MgoModel {
 
     private void generateResourceStruct(GenBlock fileBlock) {
         fileBlock.bs("type " + name + " struct {");
-        fileBlock.ln("Id string `json:\"-\" bson:\"_id\"`");
+        fileBlock.ln("Id string `json:\"id\" bson:\"_id\"`");
         for (ElementDefn elementDefinition : getRootDefinition().getElements()) {
             generateFields(fileBlock, elementDefinition);
         }

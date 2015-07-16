@@ -79,7 +79,7 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 	var <LowerCaseModelName>EntryList []models.BundleEntryComponent
 	for _, <LowerCaseModelName> := range result {
 		var entry models.BundleEntryComponent
-		entry.Resource = &<LowerCaseModelName>
+		entry.Resource = <LowerCaseModelName>
 		<LowerCaseModelName>EntryList = append(<LowerCaseModelName>EntryList, entry)
 	}
 
