@@ -407,7 +407,7 @@ Any of these errors should be SHOULD be accompanied by an <a href="operationoutc
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Create and Update Behavior</a> page.
 </p>
 
-<h4>Conditional updates</h4>
+<h4>Conditional update</h4>
 <p>
 The conditional update interaction allows a client to update an existing resource based on some identification criteria,
 rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues a <code>PUT</code> as shown:
@@ -519,10 +519,10 @@ deleting a resource is the equivalent of creating a special kind of history entr
 no content and is marked as deleted.
 </p>
 
-<h4>Conditional deletes</h4>
+<h4>Conditional delete</h4>
 <p>
-The conditional delete interaction allows a client to update an existing resource based on some identification criteria,
-rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues an HTTP DELETE as shown:
+The conditional delete interaction allows a client to update an existing resource based on some selection criteria,
+rather than by a specific <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues an HTTP DELETE as shown:
 </p>
 <pre>
   DELETE [base]/[type]/?[search parameters]
@@ -535,7 +535,9 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server returns 404 (Not found)</li>
  <li><b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
- <li><b>Multiple matches</b>: The server returns a 412 Precondition Failed error indicating the the client's criteria were not selective enough</li>
+ <li><b>Multiple matches</b>: Servers may choose to delete all the matching resources, or it may choose to return a 412 Precondition Failed error indicating the the client's criteria were not selective enough.
+   A server indicates whether it can delete multiple resources in it's <a href="conformance-definitions.html#Conformance.rest.resource.conditionalDelete">Conformance Statement (.rest.resource.conditionalDelete)</a>.
+   if there are multiple matches, either all must deleted, or the server SHALL return an error</li>
 </ul>
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to delete
@@ -783,7 +785,10 @@ and <a href="#transactional-integrity">transactional integrity</a>.
 <p>
 For a batch, there SHALL be no interpendencies between the different entries
 in the Bundle. The success or failure of one entry SHALL not alter the sucess or failure
-or resulting content of another. Servers SHALL validate that this is the case.
+or resulting content of another. Servers SHALL validate that this is the case. 
+Note that it is considered that servers execute the batch in the same order as 
+that specified below for transactions, though the order of exceution should not 
+matter given the previous rule.
 </p>
 <h4>Transction Processing Rules</h4>
 <p>
@@ -799,14 +804,23 @@ Because of the rules that a transaction is atomic, that all actions pass or fail
 together, and that order of the entries doesn't matter, there is a particular order in which to process the actions:
 </p>
 <ol>
- <li>Process any <code>POST</code> actions</li>
- <li>Process any <code>PUT</code> actions</li>
- <li>Process any <code>DELETE</code> actions</li>
- <li>Process any <code>GET</code> actions</li>
+ <li>Process any <code>DELETE</code> interactions</li>
+ <li>Process any <code>POST</code> interactions</li>
+ <li>Process any <code>PUT</code> interactions</li>
+ <li>Process any <code>GET</code> interactions</li>
 </ol>
 <p>
-If any resource identities (including resolved identities from conditional update/delete) overlap in steps 1-3, then the transaction SHALL fail.
+If any resource identities (including resolved identities from conditional update/delete) overlap in steps 1-3, 
+then the transaction SHALL fail. 
 </p>
+<blockquote>
+<p>
+DSTU notice: clients are able to request that operations be executed as part of a transaction. 
+Some transactions can cause side effects, such as the creation of new resources or other 
+actions that may be difficult to fit into a transaction framework. Input regarding this 
+issue is sought during the DSTU period.
+</p>
+</blockquote>
 
 <p>
 A transaction may include references from one resource to another in the bundle, including
@@ -824,7 +838,7 @@ When processing a batch or transaction, a server MAY choose to honour existing
 logical ids (e.g. Observation/1234 remains as Observation/1234 on the server), but 
 since this is only <a href="#upsert">safe in controlled circumstances</a>, servers
 may choose to assign new ids to all submitted resources, irrespective of any claimed
-logical if in the resource, or fullUrl on entries in the batch/transaction.
+logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in the batch/transaction.
 </p>
 
 <a name="transaction-response"> </a>
