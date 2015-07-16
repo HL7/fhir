@@ -143,7 +143,7 @@ public class ProfileGenerator {
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
     p.setPublisher("HL7 FHIR Standard");
-    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+type.getCode()+" Resource: "+type.getDefinition());
     p.setDate(genDate.getTime());
     p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
@@ -230,7 +230,7 @@ public class ProfileGenerator {
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
     p.setPublisher("HL7 FHIR Standard");
-    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+type.getCode()+" Resource: "+type.getDefinition());
     p.setDate(genDate.getTime());
     p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
@@ -311,7 +311,7 @@ public class ProfileGenerator {
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(t.getName());
     p.setPublisher("HL7 FHIR Standard");
-    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+t.getName()+" Resource");
     p.setRequirements(t.getRequirements());
     p.setDate(genDate.getTime());
@@ -356,7 +356,7 @@ public class ProfileGenerator {
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(pt.getName());
     p.setPublisher("HL7 FHIR Standard");
-    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+pt.getName()+" Resource");
     p.setDescription(pt.getDefinition());
     p.setDate(genDate.getTime());
@@ -436,9 +436,9 @@ public class ProfileGenerator {
     ToolResourceUtilities.updateUsage(p, usage);
     p.setName(r.getRoot().getName());
     p.setPublisher("Health Level Seven International"+(r.getWg() == null ? "" : " ("+r.getWg().getName()+")"));
-    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     if (r.getWg() != null)
-      p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, r.getWg().getUrl()));
+      p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, r.getWg().getUrl()));
     p.setDescription("Base StructureDefinition for "+r.getRoot().getName()+" Resource");
     p.setRequirements(r.getRequirements());
     p.setDate(genDate.getTime());
@@ -515,7 +515,7 @@ public class ProfileGenerator {
     p.setName(pack.metadata("name"));
     p.setPublisher(pack.metadata("author.name"));
     if (pack.hasMetadata("author.reference"))
-      p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, pack.metadata("author.reference")));
+      p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, pack.metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
     p.setDescription(resource.getRoot().getShortDefn());    
     if (!p.hasDescriptionElement() && pack.hasMetadata("description"))
@@ -1175,7 +1175,7 @@ public class ProfileGenerator {
     opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+r.getName()+"-"+op.getName());
     opd.setName(op.getTitle());
     opd.setPublisher("HL7 (FHIR Project)");
-    opd.addContact().getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    opd.addContact().getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     opd.getContact().get(0).getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
     opd.setDescription(op.getDoco());
     opd.setStatus(ConformanceResourceStatus.DRAFT);

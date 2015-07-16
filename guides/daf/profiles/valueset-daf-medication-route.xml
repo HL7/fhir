@@ -9,7 +9,7 @@
   <publisher value="PHIN VADS"/>
   <contact>
     <telecom>  
-    <system value="url"/>
+    <system value="other"/>
     <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.7"/>
   </telecom>
   </contact>

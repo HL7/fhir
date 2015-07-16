@@ -3,6 +3,8 @@ package org.hl7.fhir.definitions.parsers;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hl7.fhir.definitions.parsers.MarkDownResourceDefinition.MarkDownResourceDefinitionCode;
+import org.hl7.fhir.definitions.parsers.MarkDownResourceDefinition.MarkDownResourceDefinitionCodeList;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
@@ -19,13 +21,15 @@ public class CodeListToValueSetParser {
   private ValueSet valueSet;
   private String version;
   private String sheetName;
+  private MarkDownResourceDefinitionCodeList cdl;
 
-  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version) {
+  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, MarkDownResourceDefinitionCodeList cdl) {
     super();
     this.sheet = sheet;
     this.sheetName = sheetName;
     this.valueSet = valueSet;
     this.version = version;
+    this.cdl = cdl;
   }
 
   public void execute() throws Exception {
@@ -38,7 +42,7 @@ public class CodeListToValueSetParser {
     Map<String, ConceptDefinitionComponent> codesById = new HashMap<String, ConceptDefinitionComponent>();
     
     Map<String, ConceptSetComponent> includes = new HashMap<String, ConceptSetComponent>();
-
+    
     if (hasDefine) {
       ValueSetDefineComponent define = new ValueSetDefineComponent();
       valueSet.setDefine(define);
@@ -47,7 +51,25 @@ public class CodeListToValueSetParser {
       define.setCaseSensitive(true);
 
       for (int row = 0; row < sheet.rows.size(); row++) {
+        if (cdl != null) {
+          MarkDownResourceDefinitionCode mcd = new MarkDownResourceDefinitionCode();
+          cdl.getCodes().add(mcd);
+          mcd.setSystem(sheet.getColumn(row, "System"));
+          mcd.setId(sheet.getColumn(row, "Id"));
+          mcd.setCode(sheet.getColumn(row, "Code"));
+          mcd.setDisplay(sheet.getColumn(row, "Display"));
+          mcd.setDefinition(sheet.getColumn(row, "Definition"));
+          mcd.setComment(sheet.getColumn(row, "Comment"));
+          mcd.setV2(sheet.getColumn(row, "v2"));
+          mcd.setV3(sheet.getColumn(row, "v3"));
+          mcd.setParent(sheet.getColumn(row, "Parent"));
+          for (String ct : sheet.columns) 
+            if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
+              mcd.getLangs().put(ct.substring(8), sheet.getColumn(row, ct));
+        }
         if (Utilities.noString(sheet.getColumn(row, "System"))) {
+          MarkDownResourceDefinitionCode cd = new MarkDownResourceDefinitionCode();
+
           ConceptDefinitionComponent cc = new ConceptDefinitionComponent(); 
           cc.setUserData("id", sheet.getColumn(row, "Id"));
           cc.setCode(sheet.getColumn(row, "Code"));

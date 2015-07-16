@@ -16,7 +16,7 @@
   <publisher value="Health Level Seven, International"/>
   <contact>
     <telecom>
-      <system value="url"/>
+      <system value="other"/>
       <value value="http://hl7.org"/>
     </telecom>
   </contact>

@@ -6,7 +6,7 @@
     <publisher value="Health Services Platform Consortium (HSPC)"/>
     <contact>
     <telecom>
-        <system value="url"/>
+        <system value="other"/>
         <value value="http://www.hspc.gov/"/>
     </telecom>
   </contact>

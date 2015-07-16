@@ -18,7 +18,7 @@
   <contact>
     <name value="FHIR Project"/>
     <telecom>
-      <system value="url"/>
+      <system value="other"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>

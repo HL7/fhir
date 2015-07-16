@@ -14,14 +14,14 @@
 	<contact>
 		<name value="ONC"/>
 		<telecom>
-			<system value="url"/>
+			<system value="other"/>
 			<value value="http://www.healthit.gov"/>
 		</telecom>
 	</contact>
 	<contact>
 		<name value="HL7"/>
 		<telecom>
-			<system value="url"/>
+			<system value="other"/>
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>

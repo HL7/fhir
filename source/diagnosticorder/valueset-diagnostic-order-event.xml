@@ -4,7 +4,7 @@
   <publisher value="Orders and Observations Working Group"/>
   <contact>
     <telecom>  
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>

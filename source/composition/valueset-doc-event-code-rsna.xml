@@ -4,7 +4,7 @@
   <publisher value="IHE"/>
   <contact>
     <telecom>  
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://ihe.net"/>
   </telecom>
   </contact>

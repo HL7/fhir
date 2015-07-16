@@ -100,7 +100,7 @@ public class BindingsParser {
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version).execute();
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, null).execute();
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:")) {
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later

@@ -33,7 +33,7 @@
     <value value="second wing admissions"/>
   </telecom>
   <telecom>
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://sampleorg.com/southwing"/>
 		<use value="work"/>
   </telecom>

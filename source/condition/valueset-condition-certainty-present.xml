@@ -6,13 +6,13 @@
   <publisher value="CQF Project team"/>
   <contact>
     <telecom>
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://www.hl7.org/Special/committees/cqi/"/>
   </telecom>
   </contact>  
   <contact>
     <telecom>  
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>

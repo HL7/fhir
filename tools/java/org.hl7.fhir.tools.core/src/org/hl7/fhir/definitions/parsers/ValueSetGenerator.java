@@ -132,7 +132,7 @@ public class ValueSetGenerator {
     if (!vs.hasPublisher())
       vs.setPublisher("HL7 (FHIR Project)");
     if (!vs.hasContact()) {
-      vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(bs.getWebSite()) ? "http://hl7.org/fhir" : bs.getWebSite()));
+      vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, Utilities.noString(bs.getWebSite()) ? "http://hl7.org/fhir" : bs.getWebSite()));
       vs.getContact().get(0).getTelecom().add(Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(bs.getEmail()) ? "fhir@lists.hl7.org" : bs.getEmail()));
     }
     if (!vs.hasDescription())

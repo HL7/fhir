@@ -302,7 +302,7 @@
 	<publisher value="Published by: HL7 Orders and Observation Workgroup. Primary Author: Eric Haas  Health eData Inc"/>
 	<contact>
     <telecom>
-		<system value="url"/>
+		<system value="other"/>
 		<value value="http://www.hl7.org/"/>
 	</telecom>
   </contact>

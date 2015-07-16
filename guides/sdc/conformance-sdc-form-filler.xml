@@ -414,7 +414,7 @@
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <contact>
       <telecom>
-         <system value="url"/>
+         <system value="other"/>
          <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
       </telecom>
   </contact>

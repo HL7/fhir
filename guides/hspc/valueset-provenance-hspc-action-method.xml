@@ -9,13 +9,13 @@
   <publisher value="CIMI"/>
   <contact>
     <telecom>
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://cimi.org/valueset/attribution/action-method"/>
   </telecom>
   </contact>
   <contact>
     <telecom>
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://www.cimi.org/"/>
   </telecom>
   </contact>

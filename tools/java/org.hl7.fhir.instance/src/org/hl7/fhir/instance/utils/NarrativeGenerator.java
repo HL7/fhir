@@ -1818,7 +1818,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       p.addText("Fax: "+c.getValue());
     } else if (c.getSystem() == ContactPointSystem.EMAIL) {
       p.addTag("a").setAttribute("href",  "mailto:"+c.getValue()).addText(c.getValue());
-    } else if (c.getSystem() == ContactPointSystem.URL) {
+    } else if (c.getSystem() == ContactPointSystem.OTHER) {
       if (c.getValue().length() > 30)
         p.addTag("a").setAttribute("href", c.getValue()).addText(c.getValue().substring(0, 30)+"...");
       else

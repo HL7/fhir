@@ -64,7 +64,7 @@ public class DICOMConverter {
     vs.setVersion("01");
     vs.setName("DICOM Controlled Terminology Definitions");
     vs.setPublisher("NEMA/DICOM");
-    vs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue(SRC);
+    vs.addContact().addTelecom().setSystem(ContactPointSystem.OTHER).setValue(SRC);
     vs.setDescription("DICOM Code Definitions (Coding Scheme Designator \"DCM\" Coding Scheme Version \"01\")");
     vs.setRequirements("This value is published as part of FHIR in order to make the codes available to FHIR terminology services and so implementers can easily leverage the codes");
     vs.setCopyright("These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association");

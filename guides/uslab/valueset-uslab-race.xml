@@ -3,7 +3,7 @@
   <publisher value="DAF Project"/>
   <contact>
     <telecom>
-      <system value="url"/>
+      <system value="other"/>
       <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>

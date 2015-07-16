@@ -1017,7 +1017,7 @@ public class Publisher implements URIResolver {
     conf.setVersion(page.getVersion() + "-" + page.getSvnRevision());
     conf.setName("Base FHIR Conformance Statement " + (full ? "(Full)" : "(Empty)"));
     conf.setPublisher("FHIR Project Team");
-    conf.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    conf.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     conf.setStatus(ConformanceResourceStatus.DRAFT);
     conf.setDate(page.getGenDate().getTime());
     conf.setFhirVersion(page.getVersion());
@@ -2205,7 +2205,7 @@ public class Publisher implements URIResolver {
         p.setAbstract(true);
         p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
         p.setName(rd.getName());
-        p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
+        p.addContact().addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
         SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
         bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
       }
@@ -2471,7 +2471,7 @@ public class Publisher implements URIResolver {
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName("v3 Code System " + id);
     vs.setPublisher("HL7, Inc");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
@@ -2677,7 +2677,7 @@ public class Publisher implements URIResolver {
       vs.setDescription("?? (OID = " + e.getAttribute("id") + ")");
     }
     vs.setPublisher("HL7 v3");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://www.hl7.org"));
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setExperimental(false);
 
@@ -2723,7 +2723,7 @@ public class Publisher implements URIResolver {
       vs.setDescription("?? (OID = " + e.getAttribute("id") + ")");
     }
     vs.setPublisher("HL7 v3");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://www.hl7.org"));
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setExperimental(false);
 

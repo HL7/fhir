@@ -67,6 +67,11 @@ import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
+import org.hl7.fhir.definitions.parsers.MarkDownResourceDefinition.MarkDownResourceDefinitionBinding;
+import org.hl7.fhir.definitions.parsers.MarkDownResourceDefinition.MarkDownResourceDefinitionCodeList;
+import org.hl7.fhir.definitions.parsers.MarkDownResourceDefinition.MarkDownResourceDefinitionElement;
+import org.hl7.fhir.definitions.parsers.MarkDownResourceDefinition.MarkDownResourceDefinitionInvariant;
+import org.hl7.fhir.definitions.parsers.MarkDownResourceDefinition.MarkDownResourceDefinitionStructure;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.FormatUtilities;
@@ -105,6 +110,7 @@ import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFile;
+import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
@@ -142,6 +148,7 @@ public class SpreadsheetParser {
   private boolean isLogicalModel;
   private IniFile ini;
   private String committee;
+  private MarkDownResourceDefinition md;
   
 	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee) throws Exception {
 	  this.usageContext = usageContext;
@@ -167,6 +174,8 @@ public class SpreadsheetParser {
 		this.pkp = pkp;
 		this.ini = ini;
 		this.committee = committee;
+		md = new MarkDownResourceDefinition();
+		md.setFileName(Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".rmd"));
 	}
 
   public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuide ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee) throws Exception {
@@ -193,6 +202,8 @@ public class SpreadsheetParser {
     this.extensionDefinitions = extensionDefinitions;
     this.pkp = pkp;
     this.committee = committee;
+    this.md = new MarkDownResourceDefinition(); 
+    md.setFileName(Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".rmd"));
   }
 
 
@@ -231,8 +242,10 @@ public class SpreadsheetParser {
 		sheet = loadSheet("Data Elements");
 		if (sheet == null)
 		  throw new Exception("No Sheet found for Data Elements");
+    MarkDownResourceDefinitionStructure str = new MarkDownResourceDefinitionStructure();
+    md.getStructures().add(str);
 		for (int row = 0; row < sheet.rows.size(); row++) {
-			processLine(resource, sheet, row, invariants, false, null);
+		  processLine(resource, sheet, row, invariants, false, null, str);
 		}
     parseMetadata(resource);
 
@@ -260,7 +273,8 @@ public class SpreadsheetParser {
 			resource.getRoot().getNestedBindings().putAll(bindings);
 		
 		scanNestedTypes(resource, resource.getRoot(), resource.getName());
-		
+    md.write();
+
 		return resource;
 	}
 	
@@ -367,6 +381,7 @@ public class SpreadsheetParser {
     readExamples(root, loadSheet("Examples"));
 	  readOperations(root, loadSheet("Operations"));
 
+	  md.write();
 	  return root;
 	}
 
@@ -583,9 +598,18 @@ public class SpreadsheetParser {
 
   private Map<String,Invariant> readInvariants(Sheet sheet, String id) throws Exception {
 		Map<String,Invariant> result = new HashMap<String,Invariant>();
-		
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			Invariant inv = new Invariant();
+	    MarkDownResourceDefinitionInvariant invariant = new MarkDownResourceDefinitionInvariant(); 
+	    md.getInvariants().add(invariant);
+
+      invariant.setId(sheet.getColumn(row, "Id"));
+      invariant.setRequirements(sheet.getColumn(row, "Requirements"));
+      invariant.setContext(sheet.getColumn(row, "Context"));
+      invariant.setEnglish(sheet.getColumn(row, "English"));
+      invariant.setXpath(sheet.getColumn(row, "XPath"));
+      invariant.setSeverity(sheet.getColumn(row, "Severity"));
+      invariant.setTurtle(sheet.getColumn(row, "RDF"));
 
 			String s = sheet.getColumn(row, "Id");
 			if (!s.startsWith("!")) {
@@ -848,10 +872,27 @@ public class SpreadsheetParser {
 	// newly found bindings in the sheet.
 	private void readBindings(Sheet sheet) throws Exception {
 	
+	  
 		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version, genDate);
 		
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  String bindingName = sheet.getColumn(row, "Binding Name"); 
+	    MarkDownResourceDefinitionBinding bind = new MarkDownResourceDefinitionBinding();
+	    md.getBindings().add(bind);
+	    bind.setName(bindingName);
+		  bind.setBinding(sheet.getColumn(row, "Binding"));
+		  bind.setReference(sheet.getColumn(row, "Reference"));
+      bind.setDefinition(sheet.getColumn(row, "Definition"));
+      bind.setDescription(sheet.getColumn(row, "Description"));
+      bind.setStrength(sheet.getColumn(row, "Conformance"));
+      bind.setUri(sheet.getColumn(row, "Uri"));
+      bind.setOid(sheet.getColumn(row, "Oid"));
+      bind.setStatus(sheet.getColumn(row, "Status"));
+      bind.setWebSite(sheet.getColumn(row, "Website"));
+      bind.setEmail(sheet.getColumn(row, "Email"));
+      bind.setCopyright(sheet.getColumn(row, "Copyright"));
+      bind.setV2Map(sheet.getColumn(row, "v2"));
+      bind.setV3Map(sheet.getColumn(row, "v3"));
 		  
 		  // Ignore bindings whose name start with "!"
 		  if (Utilities.noString(bindingName) || bindingName.startsWith("!")) continue;
@@ -878,7 +919,10 @@ public class SpreadsheetParser {
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version).execute();
+        MarkDownResourceDefinitionCodeList cdl = new MarkDownResourceDefinitionCodeList();
+        md.getCodelists().add(cdl);
+        cdl.setName(ref.substring(1));
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, cdl).execute();
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
@@ -1083,6 +1127,7 @@ public class SpreadsheetParser {
 	    }
 	    if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
 	      readSearchParams(ap, xls.getSheets().get("Search"), this.profileExtensionBase);
+	    md.write();
 
 	  } catch (Exception e) {
 	    throw new Exception("exception parsing pack "+ap.getSource()+": "+e.getMessage(), e);
@@ -1119,8 +1164,11 @@ public class SpreadsheetParser {
     sheet = loadSheet(n);
     if (sheet == null)
       throw new Exception("The StructureDefinition referred to a tab by the name of '"+n+"', but no tab by the name could be found");
+    MarkDownResourceDefinitionStructure str = new MarkDownResourceDefinitionStructure();
+    str.setName(n);
+    md.getStructures().add(str);
     for (int row = 0; row < sheet.rows.size(); row++) {
-      ElementDefn e = processLine(resource, sheet, row, invariants, true, ap);
+      ElementDefn e = processLine(resource, sheet, row, invariants, true, ap, str);
       if (e != null) 
         for (TypeRef t : e.getTypes()) {
           if (t.getProfile() != null && !t.getName().equals("Extension") && t.getProfile().startsWith("#")) { 
@@ -1286,9 +1334,49 @@ public class SpreadsheetParser {
   }
 
 
-  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants, boolean profile, Profile pack) throws Exception {
+  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants, boolean profile, Profile pack, MarkDownResourceDefinitionStructure str) throws Exception {
 		ElementDefn e;
 		String path = sheet.getColumn(row, "Element");
+		MarkDownResourceDefinitionElement mde = new MarkDownResourceDefinitionElement();
+		str.getElements().add(mde);
+		mde.setPath(path);
+    mde.setProfileName(sheet.getColumn(row, "Profile Name"));
+    mde.setDiscriminator(sheet.getColumn(row, "Discriminator"));
+    mde.setGForge(sheet.getColumn(row, "gForge"));
+    mde.setCard(sheet.getColumn(row, "Card."));
+    mde.setSlice(sheet.getColumn(row, "Slice Description")); 
+    mde.setAliases(sheet.getColumn(row, "Aliases"));
+    mde.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
+    mde.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, null));
+    mde.setSummary(parseBoolean(sheet.getColumn(row, "Summary"), row, null));
+    mde.setRegex(sheet.getColumn(row, "Regex"));
+    mde.setUml(sheet.getColumn(row, "UML"));
+    mde.setInv(sheet.getColumn(row, "Inv."));
+    mde.setType(sheet.getColumn(row, "Type"));
+    mde.setBinding(sheet.getColumn(row, "Binding"));
+    if (!Utilities.noString(sheet.getColumn(row, "Short Label")))
+      mde.setShortLabel(sheet.getColumn(row, "Short Label"));
+    else // todo: make this a warning when a fair chunk of the spreadsheets have been converted 
+      mde.setShortLabel(sheet.getColumn(row, "Short Name"));
+    mde.setDefinition(sheet.getColumn(row, "Definition"));
+    mde.setMaxLength(sheet.getColumn(row, "Max Length"));
+    mde.setRequirements(sheet.getColumn(row, "Requirements"));
+    mde.setComments(sheet.getColumn(row, "Comments"));
+    if (definitions != null) 
+      for (String n : definitions.getMapTypes().keySet()) {
+        mde.getMappings().put(n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
+      }
+    mde.setToDo(sheet.getColumn(row, "To Do"));
+    mde.setExample(sheet.getColumn(row, "Example"));
+    mde.setCommitteeNotes(sheet.getColumn(row, "Committee Notes"));
+    mde.setDisplayHint(sheet.getColumn(row, "Display Hint"));
+    mde.setValue(sheet.getColumn(row, "Value"));
+    mde.setPattern(sheet.getColumn(row, "Pattern"));
+    mde.setDefaultValue(sheet.getColumn(row, "Default Value"));
+    mde.setMissingMeaning(sheet.getColumn(row, "Missing Meaning"));
+    mde.setW5(sheet.getColumn(row, "w5"));
+		
+	
 		if (path.startsWith("!"))
 		  return null;
 		if (Utilities.noString(path)) 
@@ -1415,6 +1503,7 @@ public class SpreadsheetParser {
       e.setShortDefn(sheet.getColumn(row, "Short Label"));
     else // todo: make this a warning when a fair chunk of the spreadsheets have been converted 
       e.setShortDefn(sheet.getColumn(row, "Short Name"));
+      
     
 		e.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
 		
@@ -1573,7 +1662,7 @@ public class SpreadsheetParser {
 
     ex.setPublisher(ap.metadata("author.name"));
     if (ap.hasMetadata("author.reference"))
-      ex.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, ap.metadata("author.reference")));
+      ex.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, ap.metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
     if (ap.hasMetadata("date"))
       ex.setDateElement(Factory.newDateTime(ap.metadata("date").substring(0, 10)));
@@ -1834,8 +1923,10 @@ public class SpreadsheetParser {
     sheet = loadSheet("Data Elements");
     if (sheet == null)
       throw new Exception("No Sheet found for Data Elements");
+    MarkDownResourceDefinitionStructure str = new MarkDownResourceDefinitionStructure();
+    md.getStructures().add(str);
     for (int row = 0; row < sheet.rows.size(); row++) {
-      processLine(resource, sheet, row, invariants, false, null);
+      processLine(resource, sheet, row, invariants, false, null, str);
     }
     parseMetadata(resource);
 
@@ -1867,6 +1958,8 @@ public class SpreadsheetParser {
     LogicalModel lm = new LogicalModel();
     lm.setRoot(resource.getRoot());
     lm.setResource(resource);
+    md.write();
+
     return lm;
   }
 

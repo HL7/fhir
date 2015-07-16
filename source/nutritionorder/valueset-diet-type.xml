@@ -4,7 +4,7 @@
 	<publisher value="FHIR NutritionOrder team"/>
   <contact>
     <telecom>  
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>

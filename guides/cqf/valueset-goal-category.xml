@@ -4,7 +4,7 @@
   <publisher value="HL7 International - CQI WG"/>
   <contact>
   <telecom>
-    <system value="url"/>
+    <system value="other"/>
     <value value="http://www.hl7.org/Special/committees/cqi/"/>
   </telecom>
   </contact>

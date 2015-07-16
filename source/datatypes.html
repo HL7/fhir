@@ -18,6 +18,7 @@
 -->
 
 <%dtheader base%>
+
 <h1>Data Types</h1>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
@@ -891,7 +892,11 @@ Details for all kinds of technology-mediated contact points for a person or orga
 <p>
 If capturing a phone, fax or similar contact point, the value should be a properly formatted telephone number according to 
 <a href="http://www.itu.int/rec/T-REC-E.123-200102-I/e">ITU-T E.123</a>. 
-However, this is frequently not possible due to legacy data and/or recording methods.
+However, this is frequently not possible due to legacy data and/or clerical practices when recording contact details.
+For this reason, phone, fax, page and email addresses are not handled as formal URLS. For other kinds 
+of contacts, the <code>system</code> is "other" and the <code>value</code> SHOULD be a URL so that it's use can be determined automatically. Typical 
+URL schemes used in the value are http(s) for web addresses, and URL schemes for various kinds of messaging systems.
+If the value is not a URL, then human interpretation will be required.
 </p>
 <div class="use">
 <p><b>Constraints</b></p>

@@ -357,7 +357,7 @@ public class ResourceUtilities {
         b.append("<a href=\"mailto:"+cp.getValue()+"\">"+cp.getValue()+"</a>");
       else if (cp.getSystem() == ContactPointSystem.FAX) 
         b.append("Fax: "+cp.getValue());
-      else if (cp.getSystem() == ContactPointSystem.URL) 
+      else if (cp.getSystem() == ContactPointSystem.OTHER) 
         b.append("<a href=\""+cp.getValue()+"\">"+cp.getValue()+"</a>");
       else
         b.append(cp.getValue());

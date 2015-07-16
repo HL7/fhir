@@ -138,7 +138,7 @@
   <publisher value="Health Level Seven, Int'l - Electronic Health Record work group"/>
   <contact>
     <telecom>
-      <system value="url"/>
+      <system value="other"/>
       <value value="http://hl7.org/special/committees/ehr.htm"/>
   </telecom>
   </contact>

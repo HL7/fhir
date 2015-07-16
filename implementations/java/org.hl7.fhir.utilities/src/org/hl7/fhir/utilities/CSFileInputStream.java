@@ -41,14 +41,22 @@ import java.io.IOException;
 
 public class CSFileInputStream extends FileInputStream {
 
+  private String path;
+  
   public CSFileInputStream(File arg0) throws FileNotFoundException {
     super(arg0);
     if (!(arg0 instanceof CSFile))
       throw new Error("Must use CSFile. used "+arg0.getClass().getName()+" for "+arg0.getAbsolutePath());
+    path = arg0.getAbsolutePath();
   }
 
   public CSFileInputStream(String arg0) throws FileNotFoundException, IOException {
     super(new CSFile(arg0));
+    path = arg0;
+  }
+
+  public String getPath() {
+    return path;
   }
 
 }
