@@ -12,28 +12,45 @@
 	</contact>
 	<description value="This value set includes sample ICD-10 codes."/>
 	<status value="draft"/>
-	<compose>
-		<include>
-			<system value="http://hl7.org/fhir/sid/icd-10"/>
-			<concept>
-				<code value="123456"/>
-			</concept>
-			<concept>
-				<code value="987654"/>
-			</concept>
-			<concept>
-				<code value="123987"/>
-			</concept>
-			<concept>
-				<code value="112233"/>
-			</concept>
-			<concept>
-				<code value="997755"/>
-			</concept>
-			<concept>
-				<code value="321789"/>
-			</concept>
-		</include>
-	</compose>
+	<define>
+		<system value="http://hl7.org/fhir/sid/icd-10"/>
+		<caseSensitive value="true"/>    
+
+		<concept>
+			<code value="123456"/>
+			<display value="DIAG-1"/>
+			<definition value="DIAG-1"/>
+		</concept>
+		<concept>
+			<code value="123457"/>
+			<display value="DIAG-1a"/>
+			<definition value="DIAG-1a"/>
+		</concept>
+		<concept>
+			<code value="987654"/>
+			<display value="DIAG-2"/>
+			<definition value="DIAG-2"/>
+		</concept>
+		<concept>
+			<code value="123987"/>
+			<display value="DIAG-3"/>
+			<definition value="DIAG-3"/>
+		</concept>
+		<concept>
+			<code value="112233"/>
+			<display value="DIAG-4"/>
+			<definition value="DIAG-4"/>
+		</concept>
+		<concept>
+			<code value="997755"/>
+			<display value="DIAG-5"/>
+			<definition value="DIAG-5"/>
+		</concept>
+		<concept>
+			<code value="321789"/>
+			<display value="DIAG-6"/>
+			<definition value="DIAG-6"/>
+		</concept>
+	</define>
 </ValueSet>
 

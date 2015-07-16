@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="Missing Tooth Reason Codes"/>
+  <name value="Intervention Exception Codes"/>
   <publisher value="Financial Management"/>
   <copyright value="This is an example set"/>
   <status value="draft"/>
@@ -10,23 +10,21 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="This value set includes sample Missing Tooth Reason codes."/>
+  <description value="This value set includes sample Intervention Exception codes."/>
   <status value="draft"/>
     <define>
 	<system value="http://hl7.org/fhir/intervention-exception"/>
     <caseSensitive value="true"/>    
 	<concept>
-      <code value="E"/> <!-- extraction -->
-    </concept>
+      <code value="E1"/> 
+ 			<display value="Exception-1"/>
+			<definition value="Exception-1"/>
+   </concept>
 	<concept>
-      <code value="C"/> <!-- congenital -->
-    </concept>
-	<concept>
-      <code value="U"/> <!-- unknown -->
-    </concept>
-	<concept>
-      <code value="O"/> <!-- other -->
-    </concept>
+      <code value="E2"/> 
+ 			<display value="Exception-2"/>
+			<definition value="Exception-2"/>
+   </concept>
 	</define>
 </ValueSet>
 
