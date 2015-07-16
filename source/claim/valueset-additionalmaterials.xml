@@ -1,5 +1,53 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<<<<<<< .mine
+	<name value="Additional Material Codes"/>
+	<publisher value="Financial Management"/>
+	<copyright value="This is an example set"/>
+	<status value="draft"/>
+	<extensible value="false"/>
+	<contact>
+		<telecom>  
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="This value set includes sample additional material type codes."/>
+	<status value="draft"/>
+	<define>
+		<system value="http://hl7.org/fhir/additionalmaterials"/>
+		<caseSensitive value="true"/>    
+		<concept>
+			<code value="xray"/>
+			<display value="XRay"/>
+			<definition value="XRay"/>
+		</concept>
+		<concept>
+			<code value="image"/>
+			<display value="Image"/>
+			<definition value="Image"/>
+		</concept>
+		<concept>
+			<code value="email"/>
+			<display value="Email"/>
+			<definition value="EMail"/>
+		</concept>
+		<concept>
+			<code value="model"/>
+			<display value="Model"/>
+			<definition value="Model"/>
+		</concept>
+		<concept>
+			<code value="document"/>
+			<display value="Document"/>
+			<definition value="Document"/>
+		</concept>
+		<concept>
+			<code value="other"/>
+			<display value="Other"/>
+			<definition value="Other"/>
+		</concept>
+=======
   <name value="Additional Material Codes"/>
   <publisher value="Financial Management"/>
   <copyright value="This is an example set"/>
@@ -34,6 +82,7 @@
 	<concept>
       <code value="other"/>
     </concept>
+>>>>>>> .r5870
 	</define>
 </ValueSet>
 
