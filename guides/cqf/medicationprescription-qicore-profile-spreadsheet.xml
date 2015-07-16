@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11736</WindowHeight>
-  <WindowWidth>24012</WindowWidth>
+  <WindowHeight>10056</WindowHeight>
+  <WindowWidth>27408</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>7</ActiveSheet>
@@ -1840,7 +1840,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreMedicationCodes</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2038,7 +2039,8 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Medication){http://hl7.org/fhir/StructureDefinition/medication-qicore-qicore-medication}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreMedicationCodes</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3365,7 +3367,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>19</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7726,11 +7728,11 @@
     <Cell ss:StyleID="s153"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">QICoreMedicationCodes</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The set of RxNorm codes to represent medications</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">valueset-qicore-medication-codes</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
@@ -8104,7 +8106,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -8247,7 +8249,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C1:R26C13,R25C1,R25C6:R25C13</Range>
+   <Range>R25C1:R26C1,R25C6:R26C13</Range>
    <Condition>
     <Value1>AND(R[-22]C1=&quot;&quot;,R[-22]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8257,13 +8259,6 @@
    <Range>R13C5:R23C5</Range>
    <Condition>
     <Value1>AND(R[1048552]C1&lt;&gt;&quot;&quot;,(R[1048552]C3=&quot;unbound&quot;)&lt;&gt;(R[1048552]C[16319]=&quot;&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C5</Range>
-   <Condition>
-    <Value1>AND(R[-22]C1&lt;&gt;&quot;&quot;,(R[-22]C3=&quot;unbound&quot;)&lt;&gt;(R[-22]C[16319]=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -8303,7 +8298,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C1:R26C13,R25C1,R25C6:R25C13</Range>
+   <Range>R25C1:R26C1,R25C6:R26C13</Range>
    <Condition>
     <Value1>LEFT(R[-22]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -8313,13 +8308,6 @@
    <Range>R13C2:R23C4</Range>
    <Condition>
     <Value1>AND(R[1048552]C1&lt;&gt;&quot;&quot;,R[1048552]C[16370]=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C2:R26C4</Range>
-   <Condition>
-    <Value1>AND(R[-22]C1&lt;&gt;&quot;&quot;,R[-22]C[16370]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -8383,6 +8371,34 @@
    <Range>R25C2:R25C5</Range>
    <Condition>
     <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C2:R26C5</Range>
+   <Condition>
+    <Value1>AND(R[-14]C1=&quot;&quot;,R[-14]C&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C2:R26C4</Range>
+   <Condition>
+    <Value1>AND(R[-14]C1&lt;&gt;&quot;&quot;,R[-14]C[16367]=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C5</Range>
+   <Condition>
+    <Value1>AND(R[-14]C1&lt;&gt;&quot;&quot;,(R[-14]C3=&quot;unbound&quot;)&lt;&gt;(R[-14]C[16299]=&quot;&quot;))</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C2:R26C5</Range>
+   <Condition>
+    <Value1>LEFT(R[-14]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
