@@ -41,9 +41,11 @@
                 <xsl:value-of select="count(descendant::message[@level='INFORMATION'])"/>
               </td>
               <td style="color:red">
-                <b>
-                  <xsl:value-of select="if (@basefmm) then @basefmm else if (@fmm &gt; 0) then @fmm else ''"/>
-                </b>
+                <xsl:if test="count(descendant::message[@level='WARNING'])">
+                  <b>
+                    <xsl:value-of select="if (@basefmm) then @basefmm else if (@fmm &gt; 0) then @fmm else ''"/>
+                  </b>
+                </xsl:if>
               </td>
             </tr>
           </xsl:for-each>
