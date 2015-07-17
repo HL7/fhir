@@ -71,10 +71,6 @@ kind of general selection criteria using the facilities provided by the code sys
 <ul>
  <li>Within an include or exclude criterion, multiple filters and concept selections are intersected. All the 
    conditions specified SHALL be true.</li>
- <li>The value set always includes any codes in an inline code system, even if it also has a compose. 
-     A typical use for containing both a compose statement and an inline code system
-    is when including a set of codes from elsewhere, and adding a few additional codes to cover
-    cases not catered to by the included codes</li>
  <li>An include statement consists of any enumerated codes and any codes that meet the filter criteria</li>
  <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
     over time as the underlying code systems are updated</li>
@@ -118,6 +114,23 @@ even if a value set is referenced explicitly in the Coding. The alternative disp
 specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text.
 </p>
  
+<h2>Value Sets with multiple code systems</h2> 
+<p>
+Value sets may select codes from multiple code systems - either 
+by including codes from different systems, importing to other 
+value sets that do, and/or containing their own code system.
+</p>
+<p>
+Note that a value set always includes any codes in an inline code system, even if 
+it also has a compose. A typical use for containing both a compose statement and 
+an inline code system is when including a set of codes from elsewhere, and adding 
+a few additional codes to cover cases not catered to by the included codes. 
+</p> 
+<p>
+Best Practice Note: mixing definitional systems offers the potential for 
+confusing, overlapping, and inconsistent definitions. Creating value sets that cross
+code systems should be done with care to avoid creating definitional confusion.
+</p>
 <h3>Code systems Note</h3>
 <p>
 How filters are used with various code systems:
