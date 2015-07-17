@@ -23,8 +23,9 @@ identifiers SHALL be different.
    when used in a <a href="datatypes.html#Coding">Coding</a></li>
  <li>The usability of the codes is closely linked to the quality of the definitions. 
    Although a definition is not required for each concept, a good definition SHOULD be provided. In the absence of any definition, there is no formal meaning associated with the concept</li>
- <li>TODO: Fix this If concepts contain other concepts, then the contained concepts are "subsumed" by 
-   the containing concept (there is an "is-a" relationship between the codes).</li>
+ <li>This specification does not fix the meaning of the relationship between parent and child codes, Most code systems use a subsumption based approach, but 
+    other kinds of relationships are possible, including partitive and categorization relationships. The definitions of the concepts dictate the nature of the relationship
+ </li>
   <li>An abstract concept SHALL have contained concepts</li>
   <li>The code system SHALL NOT contain duplicate codes</li>
 </ul>
@@ -213,7 +214,7 @@ extensions or other knowledge to introduce such groups as an implementation feat
 <p>
 The codes in the expansion should be treated as case sensitive - implementers should use the correct 
 case. Implementers can consult the definition of the code system to determine whether the code system
-the defins the code is case sensitive or not. 
+that defines the code is case sensitive or not. 
 </p>
 <p>
 Whether to store expanded value sets, or simply to store their definitions, and expand on the fly is 
