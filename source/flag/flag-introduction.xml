@@ -4,9 +4,9 @@
 <h2>Scope and Usage</h2>
 <p>
 A flag is typically presented as a label in a prominent location in a patient chart to notify the clinician of potential issues, 
-though it may also appear in other contexts.  E.g. instructions to a radiology technician. The information in the flag will 
-usually be derived from the record, and therefore, for a thorough and careful clinician, will be redundant.  However, given the volume 
-of information frequently found in patients' records and the potentially serious consequences of losing sight of some facts, this 
+though it may also appear in other contexts.  E.g. instructions to a radiology technician, or warnings about locations. 
+For patientss, the information in the flag will usually be derived from the record, and therefore, for a thorough and careful clinician, will be redundant.  
+However, given the volume of information frequently found in patients' records and the potentially serious consequences of losing sight of some facts, this 
 redundancy is deemed appropriate.  As well, some flags may reflect information not captured by any other resource in the record.  
 (E.g. "Patient has large dog at home")
 </p>
