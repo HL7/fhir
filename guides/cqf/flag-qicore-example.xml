@@ -20,10 +20,10 @@
     <start value="2015-01-09"/>
     <end value="2015-02-28"/>
   </period>
-  <patient>
+  <subject>
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
-  </patient>
+  </subject>
 
   <author>
     <reference value="Practitioner/example"/>
