@@ -1754,7 +1754,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The reference is not required to point to any specific kind of definition, but the more information that can be provided, the more useful it is for implementers. Terminology Servers MAY validate this reference (e.g. when accepting PUT/POST), and MAY make additional rules about what kind of content it refers to</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The reference is not required to point to any specific kind of definition, but the more information that can be provided, the more useful it is for implementers. Best practice is to resolve to a computable definition of the code system (either a value set, or some other format). Terminology Servers MAY validate this reference (e.g. when accepting PUT/POST), and MAY make additional rules about what kind of content it refers to</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4397,7 +4397,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>23</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
