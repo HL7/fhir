@@ -304,7 +304,7 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(t.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ t.getName());
-    p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
+// no base on data types and resources    p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
     p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
 
@@ -422,12 +422,7 @@ public class ProfileGenerator {
     p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
     p.setKind(StructureDefinitionKind.RESOURCE);
-    if (r.getName().equals("Resource")) {
-      p.setBase("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
-      p.setAbstract(false);
-    } else {
-      p.setAbstract(true);      
-    }
+    p.setAbstract(r.isAbstract());
 
     if (r.getFmmLevel() != null)
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
