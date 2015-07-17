@@ -59,8 +59,6 @@ used in <a href="datatypes.html#coding">Coding</a> instances that refer to the c
 Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.
 </p>
 
-
-
 <h2>Value Sets that include codes defined elsewhere</h2>
 
 <p>
@@ -193,7 +191,7 @@ the following process should be followed:
  <li>for each <i>compose.include</i>, identify the correct version of the code system, and then:
   <ul>
    <li>if there are no codes or filters, add every code in the code system to the result set</li>
-   <li>if codes are listed, add them to the result set</li>
+   <li>if codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the profile parameter to the $expand operation may be used to control whether active codes are included)</li>
    <li>if any filters are present, process them in order (as explained above), and add the intersection of their results to the result set</li>
   </ul>
  </li>
