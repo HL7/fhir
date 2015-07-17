@@ -12,7 +12,7 @@
 		</div>
 	</text>
 
-	<extension url="http://example.org/consent#trials">
+	<extension url="http://example.org/StructureDefinition/trials">
 		<valueCode value="renal"/>
 	</extension>
 
