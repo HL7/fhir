@@ -10,7 +10,7 @@
   </contact>
   <description value="This value set defines the set of codes that can be used to indicate the marital status of a person"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/marital-status"/>
     <caseSensitive value="true"/>
     <concept>
@@ -19,7 +19,7 @@
       <display value="unmarried"/>
       <definition value="The person is not presently married. The marital history is not known or stated"/>
     </concept>
-  </define>
+  </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/MaritalStatus"/>

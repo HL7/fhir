@@ -12,7 +12,7 @@
 	</contact>
 	<description value="This value set includes the FDI Teeth codes."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/ex-fdi"/>
 		<caseSensitive value="true"/>    
 		<concept>
@@ -175,5 +175,5 @@
 			<display value="48"/>
 			<definition value="Lower Right Tooth 8 from the central axis, permanent dentition"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>

@@ -10,7 +10,7 @@
   </contact>
   <description value="This value set defines a set of codes that can be used to indicate from where the patient came in."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/admit-source"/>
     <caseSensitive value="true"/>
     <concept>
@@ -53,7 +53,7 @@
       <code value="other"/>
       <display value="Other" />
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 
 

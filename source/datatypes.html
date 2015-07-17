@@ -362,13 +362,13 @@ The <code>system</code> is a URI that references the code system that defines th
 Choosing the correct system is important; for more information about the code system 
 URI, read <a href="terminologies.html#system">Managing Terminology System URIs</a>.
 The system URI SHALL NOT contain a reference to a value set (e.g. ValueSet.url). 
-(if the code is taken from a ValueSet with an inline code system, <i>ValueSet.define.system</i>,
+(if the code is taken from a ValueSet with an inline code system, <i>ValueSet.codeSystem.system</i>,
 is the correct value for the system uri.
 </p>
 <p>
 A code system version may also be supplied. If the meaning of codes within the code system is consistent across releases, this is not required. 
 The version SHOULD be exchanged when this the system does not maintain consistent definitions across versions.
-If a value set is referenced, and the value set defines the code system, and the code system definition specifies a version, the version SHALL be the same as in the value set. 
+If a value set is referenced, and the value set has an inline code system, and the code system definition specifies a version, the version SHALL be the same as in the value set. 
 Note that the following systems SHOULD always have a version specified:
 </p>
 <ul>
@@ -467,7 +467,7 @@ Coding is used in the following places: [%dtusage Coding%]
 </p>
 <ul>
  <li><b>Coding</b>: a simple direct reference to a code defined by a code system</li>
- <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e. a list of references to codes defined by codes systems)</li>
+ <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e. a list of references to codes defined by code systems)</li>
 </ul>
 <p>
 The <i>Coding</i> data type corresponds to the simple case of selecting 

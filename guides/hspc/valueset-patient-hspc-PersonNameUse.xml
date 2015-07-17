@@ -10,7 +10,7 @@
 	</contact>
 	<description value="The set of values that describe the manner an individual uses a name."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="Intermountain Health Care HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -28,7 +28,7 @@
 			<display value="Professional Name"/>
 			<definition value="The name by which an individual in known by professionally."/>
 		</concept>
-	</define>
+	</codeSystem>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/ValueSet/v3-EntityNameUse"/>

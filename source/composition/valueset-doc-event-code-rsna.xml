@@ -10,7 +10,7 @@
   </contact>
   <description value="Event Codes generated for RSNA 2008 from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="urn:uuid:be777aae-4817-479f-bf48-b5c81eae6dd6"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -134,6 +134,6 @@
       <display value="MR ACQUISITION CORONAL PD-2D(SE_M)_N/M KNEE RIGHT Procedure Step"/>
     </concept>
     
-  </define>
+  </codeSystem>
 </ValueSet>
 

@@ -9,7 +9,7 @@
   </contact>
   <description value="Value Set for Military Service (Example)"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/qicore-military-service"/>
     <caseSensitive value="true"/>
     <concept>
@@ -42,5 +42,5 @@
       <display value="Inactive Reserve"/>
       <definition value="The subject is a reserve member and is not currently engaged in full-time military activity"/>
     </concept>
-  </define>    
+  </codeSystem>    
 </ValueSet>

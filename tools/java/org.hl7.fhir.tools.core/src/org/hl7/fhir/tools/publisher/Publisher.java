@@ -176,7 +176,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
@@ -617,8 +617,8 @@ public class Publisher implements URIResolver {
     page.getIgResources().put(ae.getId(), ae);
     if (ae instanceof ValueSet) {
       ValueSet vs = (ValueSet) ae;
-      if (vs.hasDefine())
-        page.getCodeSystems().put(vs.getDefine().getSystem(), vs);
+      if (vs.hasCodeSystem())
+        page.getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
       page.getValueSets().put(ae.getId(), vs);
     }
     if (ae instanceof ConceptMap)
@@ -2122,8 +2122,8 @@ public class Publisher implements URIResolver {
     vs.getContact().clear();
     vs.setDescriptionElement(null);
     vs.setCopyrightElement(null);
-    if (vs.hasDefine())
-      stripDefinition(vs.getDefine().getConcept());
+    if (vs.hasCodeSystem())
+      stripDefinition(vs.getCodeSystem().getConcept());
   }
 
   private void stripDefinition(List<ConceptDefinitionComponent> concept) {
@@ -2473,8 +2473,8 @@ public class Publisher implements URIResolver {
     vs.setPublisher("HL7, Inc");
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
-    ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
-    vs.setDefine(def);
+    ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
+    vs.setCodeSystem(def);
     vs.setExperimental(false);
     def.setCaseSensitive(true);
     def.setSystem("http://hl7.org/fhir/v3/" + id);
@@ -2593,16 +2593,16 @@ public class Publisher implements URIResolver {
             vs.setId("v3-" + FormatUtilities.makeId(id));
             vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
             vs.setUserData("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
-            ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+e.getAttribute("codeSystemId"));
+            ToolingExtensions.setOID(vs.getCodeSystem(), "urn:oid:"+e.getAttribute("codeSystemId"));
             if (vs.hasDate())
               vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
             else
               vs.getMeta().setLastUpdated(page.getGenDate().getTime());
             page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl(vs.getUrl()));
             page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-            page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+            page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
             page.getValueSets().put(vs.getUrl(), vs);
-            page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
+            page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
             codesystems.put(e.getAttribute("codeSystemId"), vs);
           } // else if (r == null)
           // page.log("unowned code system: "+id);
@@ -2757,7 +2757,7 @@ public class Publisher implements URIResolver {
       } else {
         // simple value set
         compose.getInclude().add(imp);
-        imp.setSystem(cs.getDefine().getSystem());
+        imp.setSystem(cs.getCodeSystem().getSystem());
 
         if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
           throw new Exception("Unexpected codeSystem oid on content for ValueSet " + id + ": expected '"
@@ -3481,13 +3481,13 @@ public class Publisher implements URIResolver {
       vs.setUserData("path", n + ".html");
       if (vs.getUrl().startsWith("http:"))
         page.getValueSets().put(vs.getUrl(), vs);
-      if (vs.hasDefine()) {
-        page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
+      if (vs.hasCodeSystem()) {
+        page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
       }
       addToResourceFeed(vs, valueSetsFeed, file.getName());
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-      if (vs.hasDefine()) {
-        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+      if (vs.hasCodeSystem()) {
+        page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
       }
     } else if (rt.equals("ConceptMap")) {
       ConceptMap cm = (ConceptMap) new XmlParser().parse(new FileInputStream(file));
@@ -4926,9 +4926,9 @@ public class Publisher implements URIResolver {
         ValueSet vs = (ValueSet) ae;
         page.getValueSets().put(vs.getUrl(), (ValueSet) ae);
         page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-        if (vs.hasDefine()) {
-          page.getCodeSystems().put(vs.getDefine().getSystem(), (ValueSet) ae);
-          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+        if (vs.hasCodeSystem()) {
+          page.getCodeSystems().put(vs.getCodeSystem().getSystem(), (ValueSet) ae);
+          page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
         }
 
       }
@@ -4993,7 +4993,7 @@ public class Publisher implements URIResolver {
 
     if (isGenerate) {
 //       page.log(" ... "+n, LogMessageType.Process);
-      if (vs.hasDefine())
+      if (vs.hasCodeSystem())
         generateCodeSystemPart2(vs);
       
       addToResourceFeed(vs, valueSetsFeed, null);
@@ -5036,19 +5036,19 @@ public class Publisher implements URIResolver {
       }
       if (ToolingExtensions.getOID(vs) == null)
         throw new Exception("No OID on value set "+vs.getUrl());
-      if (vs.hasDefine()) {
-        if (ToolingExtensions.getOID(vs.getDefine()) == null && !Utilities.noString(vs.getUserString("csoid")))
-          ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+vs.getUserString("csoid"));          
-        if (ToolingExtensions.getOID(vs.getDefine()) == null)
+      if (vs.hasCodeSystem()) {
+        if (ToolingExtensions.getOID(vs.getCodeSystem()) == null && !Utilities.noString(vs.getUserString("csoid")))
+          ToolingExtensions.setOID(vs.getCodeSystem(), "urn:oid:"+vs.getUserString("csoid"));          
+        if (ToolingExtensions.getOID(vs.getCodeSystem()) == null)
           throw new Exception("No OID on value set define for "+vs.getUrl());
       }
       page.getVsValidator().validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
 
       page.getValueSets().put(vs.getUrl(), vs);
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-      if (vs.hasDefine()) {
-        page.getCodeSystems().put(vs.getDefine().getSystem(), vs);
-        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+      if (vs.hasCodeSystem()) {
+        page.getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
+        page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
       }
 
 //    for (String n : page.getDefinitions().getExtraValuesets().keySet()) {
@@ -5079,7 +5079,7 @@ public class Publisher implements URIResolver {
     cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference(vs.getUserString("v2map")));
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       genV2MapItems(vs, srcCS, cm, tbls, c);
     }
     StringBuilder b = new StringBuilder();
@@ -5183,7 +5183,7 @@ public class Publisher implements URIResolver {
     cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference("http://hl7.org/fhir/ValueSet/v3-"+vs.getUserString("v3map")));
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       genV3MapItems(vs, srcCS, cm, tbls, c);
     }
     StringBuilder b = new StringBuilder();

@@ -10,7 +10,7 @@
 	</contact>
 	<description value="This example value set defines a set of codes that can be used to indicate the physical form of the Location."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/location-physical-type"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -73,7 +73,7 @@
 			<display value="Area"/>
 			<definition value="An defined boundary, such as a state, region, country, county" />
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 
 

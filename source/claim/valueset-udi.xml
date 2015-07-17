@@ -12,7 +12,7 @@
 	</contact>
 	<description value="This value set includes sample UDI codes."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/ex-udi"/>
 		<caseSensitive value="true"/>    
 		<concept>
@@ -20,6 +20,6 @@
 			<display value="{01}123456789"/>
 			<definition value="Example DI in GS1 format"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

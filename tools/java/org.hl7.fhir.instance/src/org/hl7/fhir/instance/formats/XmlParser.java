@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Jul 16, 2015 13:03+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 17, 2015 12:58+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -789,6 +789,10 @@ public class XmlParser extends XmlParserBase {
         res.setPattern(parseType("pattern", xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "example")) {
         res.setExample(parseType("example", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "minValue")) {
+        res.setMinValue(parseType("minValue", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "maxValue")) {
+        res.setMaxValue(parseType("maxValue", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("maxLength")) {
         res.setMaxLengthElement(parseInteger(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("condition")) {
@@ -3281,7 +3285,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalUpdate")) {
         res.setConditionalUpdateElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalDelete")) {
-        res.setConditionalDeleteElement(parseBoolean(xpp));
+        res.setConditionalDeleteElement(parseEnumeration(xpp, Conformance.ConditionalDeleteStatus.NULL, new Conformance.ConditionalDeleteStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchInclude")) {
         res.getSearchInclude().add(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchParam")) {
@@ -3328,6 +3332,8 @@ public class XmlParser extends XmlParserBase {
         res.setDocumentationElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("target")) {
         res.getTarget().add(parseCode(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("modifier")) {
+        res.getModifier().add(parseEnumeration(xpp, Conformance.SearchModifierCode.NULL, new Conformance.SearchModifierCodeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("chain")) {
         res.getChain().add(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -9194,8 +9200,8 @@ public class XmlParser extends XmlParserBase {
         res.setDateElement(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("lockedDate")) {
         res.setLockedDateElement(parseDate(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("define")) {
-        res.setDefine(parseValueSetValueSetDefineComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("codeSystem")) {
+        res.setCodeSystem(parseValueSetValueSetCodeSystemComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("compose")) {
         res.setCompose(parseValueSetValueSetComposeComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expansion")) {
@@ -9226,8 +9232,8 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  protected ValueSet.ValueSetDefineComponent parseValueSetValueSetDefineComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
-    ValueSet.ValueSetDefineComponent res = new ValueSet.ValueSetDefineComponent();
+  protected ValueSet.ValueSetCodeSystemComponent parseValueSetValueSetCodeSystemComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+    ValueSet.ValueSetCodeSystemComponent res = new ValueSet.ValueSetCodeSystemComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
@@ -11142,6 +11148,10 @@ public class XmlParser extends XmlParserBase {
         composeType("pattern", element.getPattern());
       }      if (element.hasExample()) {
         composeType("example", element.getExample());
+      }      if (element.hasMinValue()) {
+        composeType("minValue", element.getMinValue());
+      }      if (element.hasMaxValue()) {
+        composeType("maxValue", element.getMaxValue());
       }      if (element.hasMaxLengthElement()) {
         composeInteger("maxLength", element.getMaxLengthElement());
       }
@@ -13837,9 +13847,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasConditionalUpdateElement()) {
         composeBoolean("conditionalUpdate", element.getConditionalUpdateElement());
       }
-      if (element.hasConditionalDeleteElement()) {
-        composeBoolean("conditionalDelete", element.getConditionalDeleteElement());
-      }
+      if (element.hasConditionalDeleteElement())
+        composeEnumeration("conditionalDelete", element.getConditionalDeleteElement(), new Conformance.ConditionalDeleteStatusEnumFactory());
       if (element.hasSearchInclude()) { 
         for (StringType e : element.getSearchInclude()) 
           composeString("searchInclude", e);
@@ -13886,6 +13895,9 @@ public class XmlParser extends XmlParserBase {
         for (CodeType e : element.getTarget()) 
           composeCode("target", e);
       }
+        if (element.hasModifier()) 
+          for (Enumeration<Conformance.SearchModifierCode> e : element.getModifier()) 
+            composeEnumeration("modifier", e, new Conformance.SearchModifierCodeEnumFactory());
       if (element.hasChain()) { 
         for (StringType e : element.getChain()) 
           composeString("chain", e);
@@ -20270,8 +20282,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLockedDateElement()) {
         composeDate("lockedDate", element.getLockedDateElement());
       }
-      if (element.hasDefine()) {
-        composeValueSetValueSetDefineComponent("define", element.getDefine());
+      if (element.hasCodeSystem()) {
+        composeValueSetValueSetCodeSystemComponent("codeSystem", element.getCodeSystem());
       }
       if (element.hasCompose()) {
         composeValueSetValueSetComposeComponent("compose", element.getCompose());
@@ -20299,7 +20311,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  protected void composeValueSetValueSetDefineComponent(String name, ValueSet.ValueSetDefineComponent element) throws Exception {
+  protected void composeValueSetValueSetCodeSystemComponent(String name, ValueSet.ValueSetCodeSystemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);

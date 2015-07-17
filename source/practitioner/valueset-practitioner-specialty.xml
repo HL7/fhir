@@ -11,7 +11,7 @@
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate the specialty of a Practitioner"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/practitioner-specialty"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -34,6 +34,6 @@
       <code value="sysarch"/>
       <display value="Systems architect"/>
     </concept>    
-  </define>
+  </codeSystem>
 </ValueSet>
 

@@ -8,7 +8,7 @@
   <description value="The type of process where the audit event originated from"/>
   <status value="active"/>
   <date value="2010-08-26"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/security-source-type"/>
     <caseSensitive value="true"/>
     <concept>
@@ -56,5 +56,5 @@
       <display value="Other"/>
       <definition value="other kind of device (defined by DICOM, but some other code/system can be used)"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

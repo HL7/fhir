@@ -10,7 +10,7 @@
   </contact>
   <description value="Substance Status"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/substance-status"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -23,5 +23,5 @@
       <display value="Inactive"/>
       <definition value="The substance is inactive"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

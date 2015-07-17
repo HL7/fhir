@@ -9,7 +9,7 @@
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
   <date value="2015-03-26"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/audit-event-type"/>
     <caseSensitive value="true"/>
     <concept>
@@ -17,7 +17,7 @@
       <display value="RESTful Operation"/>
       <definition value="Audit Event: Execution of a RESTful operation as defined by FHIR"/>
     </concept>
-  </define>
+  </codeSystem>
   <compose>
     <include>
       <system value="http://nema.org/dicom/dicm"/>

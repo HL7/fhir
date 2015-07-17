@@ -10,7 +10,7 @@
     <description value=" This example value set defines a set of codes that can be used to indicate the current state of the 
     animal's reproductive organs."/>
     <status value="draft"/>
-    <define>
+    <codeSystem>
         <system value="http://hl7.org/fhir/animal-genderstatus"/>
         <caseSensitive value="true"/>
         <concept>
@@ -40,5 +40,5 @@
 				<value value="onbekend"/>
 			</designation>
 		</concept>
-    </define>
+    </codeSystem>
 </ValueSet>

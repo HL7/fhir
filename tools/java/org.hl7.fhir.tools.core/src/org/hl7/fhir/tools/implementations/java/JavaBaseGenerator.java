@@ -115,7 +115,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 
   protected List<ConceptDefinitionComponent> listAllCodes(ValueSet vs) {
     List<ConceptDefinitionComponent> result = new ArrayList<ValueSet.ConceptDefinitionComponent>();
-    addAllCodes(result, vs.getDefine().getConcept());
+    addAllCodes(result, vs.getCodeSystem().getConcept());
     return result;
   }
 

@@ -12,7 +12,7 @@
   </contact>
   <description value="This value set includes sample Contract Term SubType codes."/>
   <status value="draft"/>
-    <define>
+    <codeSystem>
 	<system value="http://hl7.org/fhir/contracttermsubtypecodes"/>
     <caseSensitive value="true"/>    
 	<concept>
@@ -24,6 +24,6 @@
 	<concept>
       <code value="OralHealth-Orthodontic"/>
     </concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

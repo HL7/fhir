@@ -10,7 +10,7 @@
   </contact>
   <description value="This is an example value set defined by the FHIR project, that could be used in Emergency to indicate the encounter priority as determined by triage."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/encounter-priority"/>
     <caseSensitive value="true"/>
     <concept>
@@ -38,5 +38,5 @@
       <display value="Non-urgent" />
       <definition value="Within 120 minutes"/>
     </concept>    
-  </define>
+  </codeSystem>
 </ValueSet>

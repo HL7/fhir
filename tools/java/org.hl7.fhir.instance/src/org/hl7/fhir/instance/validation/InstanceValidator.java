@@ -1875,7 +1875,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private ConceptDefinitionComponent getCodeDefinition(ValueSet vs, String code) {
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       ConceptDefinitionComponent r = getCodeDefinition(c, code);
       if (r != null)
         return r;

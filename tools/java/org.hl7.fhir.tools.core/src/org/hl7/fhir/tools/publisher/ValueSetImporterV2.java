@@ -21,7 +21,7 @@ import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -62,7 +62,7 @@ public class ValueSetImporterV2 {
   private void updateNarrative(ValueSet vs) {
     XhtmlNode table = vs.getText().getDiv().getElement("table");
     List<String> langs = new ArrayList<String>(); 
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       for (ConceptDefinitionDesignationComponent d : c.getDesignation()) {
         if (d.hasLanguage() && !d.hasUse()) {
           if (!langs.contains(d.getLanguage()))
@@ -78,7 +78,7 @@ public class ValueSetImporterV2 {
       i++;
     }
     int r = 1;
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       tr = table.getChildNodes().get(r);
       i = 2;
       for (String s : langs) {
@@ -127,7 +127,7 @@ public class ValueSetImporterV2 {
 
   private void processV2Table(ValueSet vs, Element element) {
     if (element != null) {
-      for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
         processV2Code(c, element);
       }
     }
@@ -200,9 +200,9 @@ public class ValueSetImporterV2 {
         vs.setId("v2-"+FormatUtilities.makeId(id));
         vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
         page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+        page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
         page.getValueSets().put(vs.getUrl(), vs);
-        page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
+        page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
       } else if ("versioned".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
         List<String> versions = new ArrayList<String>();
@@ -219,9 +219,9 @@ public class ValueSetImporterV2 {
           vs.setId("v2-"+FormatUtilities.makeId(ver)+"-"+id);
           vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
           page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+          page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
           page.getValueSets().put(vs.getUrl(), vs);
-          page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
+          page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -242,8 +242,8 @@ public class ValueSetImporterV2 {
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
-    ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
-    vs.setDefine(def);
+    ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
+    vs.setCodeSystem(def);
     def.setCaseSensitive(true);
     def.setSystem("http://hl7.org/fhir/v2/" + id);
     StringBuilder s = new StringBuilder();
@@ -325,8 +325,8 @@ public class ValueSetImporterV2 {
     vs.setExperimental(false);
     vs.setVersion(id);
     vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
-    ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
-    vs.setDefine(def);
+    ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
+    vs.setCodeSystem(def);
     def.setCaseSensitive(true);
     def.setSystem("http://hl7.org/fhir/v2/" + id + "/" + version);
 

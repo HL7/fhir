@@ -17,7 +17,7 @@
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
   <date value="2015-04-20"/>
-  <define>
+  <codeSystem>
     <system value="http://nema.org/dicom/dicm"/>
     <caseSensitive value="true"/>
     <concept>
@@ -17116,5 +17116,5 @@
       <display value="IEC6127 Gantry Continuous Yaw Angle"/>
       <definition value="Gantry Yaw Continuous Angle in degrees of the radiation source, i.e., about the Z-axis of the IEC GANTRY coordinate system [IEC 61217]"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

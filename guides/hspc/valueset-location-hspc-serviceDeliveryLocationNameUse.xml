@@ -10,7 +10,7 @@
 	</contact>
 	<description value="The set of values that describe how usage of the service delivery location name."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="Intermountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -18,7 +18,7 @@
 			<display value ="Abbreviation"/>
 			<definition value ="A name or word display that has had a number of letters removed in order to fit into limited fields or spaces"/>
 		</concept>
-	</define>	
+	</codeSystem>	
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/ValueSet/v3-EntityNameUse"/>

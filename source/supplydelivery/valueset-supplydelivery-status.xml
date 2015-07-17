@@ -10,7 +10,7 @@
   </contact>
   <description value="This value sets refers to a supply status"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/supply-status"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -23,5 +23,5 @@
       <display value="Received"/>
       <definition value="Supply has been received by the requestor"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

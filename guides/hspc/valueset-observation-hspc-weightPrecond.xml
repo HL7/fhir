@@ -16,7 +16,7 @@
     <status value="draft"/>
     <extensible value="true"/>
     <date value="2015-05-19"/>
-    <define>
+    <codeSystem>
 		<system value="Intermountain Healthcare"/>
 		<caseSensitive value="true"/>
 		<concept>	
@@ -84,7 +84,7 @@
 			<display value="Weight without added-on weight"/>
 			<definition value="Body weight after subtracting some other included weight"/>
 		</concept>	
-	</define>
+	</codeSystem>
     <compose>
         <include>
             <system value="http://snomed.info/sct"/>

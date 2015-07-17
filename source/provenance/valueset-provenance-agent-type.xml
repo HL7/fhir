@@ -18,7 +18,7 @@
   <description value="The type of a provenance participant. Use either a defined FHIR resource type, or, if the reference is not to a resource, one of the defined codes, or some other code if none of the defined codes are appropriate"/>
   <status value="draft"/>
   <date value="2023-05-12"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/provenance-participant-type"/>
     <caseSensitive value="true"/>
     <concept>
@@ -56,5 +56,5 @@
     	<display value="Related Person"/>
     	<definition value="The participant is a related person, a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."></definition>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

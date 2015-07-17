@@ -115,8 +115,8 @@ public class XSDGenerator  {
 		write("  <xs:simpleType name=\""+en+"-list\">\r\n");
 		write("    <xs:restriction base=\"xs:string\">\r\n");
 		ValueSet vs = enums.get(en);
-    if (vs.hasDefine()) {
-      for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    if (vs.hasCodeSystem()) {
+      for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
         genDefinedCode(c);
       }
     }

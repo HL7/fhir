@@ -79,7 +79,7 @@
     <ValueSet>
       <id value="2179414-permitted"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <system value="http://example.org/fhir/2179414"/>
         <caseSensitive value="true"/>
         <concept>
@@ -94,7 +94,7 @@
         <concept>
           <code value="3"/>
         </concept>
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
   <contained>

@@ -11,7 +11,7 @@
   <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="urn:uuid:2c6b8cb7-8b2a-4051-b291-b1ae6a575ef4"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -55,7 +55,7 @@
       <display value="Amputation"/>
     </concept>
     
-  </define>
+  </codeSystem>
   <compose>
     <import value="http://hl7.org/fhir/ValueSet/imaging-modality"/>
     <include>

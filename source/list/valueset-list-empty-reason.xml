@@ -10,7 +10,7 @@
   </contact>
   <description value="General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list)"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/list-empty-reason"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -52,6 +52,6 @@
       <display value="Closed"/>
       <definition value="This list has now closed or has ceased to be relevant or useful"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

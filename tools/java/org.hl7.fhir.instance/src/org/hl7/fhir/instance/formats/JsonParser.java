@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Jul 16, 2015 13:03+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 17, 2015 12:58+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -678,6 +678,12 @@ public class JsonParser extends JsonParserBase {
     Type example = parseType("example", json);
     if (example != null)
       res.setExample(example);
+    Type minValue = parseType("minValue", json);
+    if (minValue != null)
+      res.setMinValue(minValue);
+    Type maxValue = parseType("maxValue", json);
+    if (maxValue != null)
+      res.setMaxValue(maxValue);
     if (json.has("maxLength"))
       res.setMaxLengthElement(parseInteger(json.get("maxLength").getAsLong()));
     if (json.has("_maxLength"))
@@ -3681,7 +3687,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_conditionalUpdate"))
       parseElementProperties(json.getAsJsonObject("_conditionalUpdate"), res.getConditionalUpdateElement());
     if (json.has("conditionalDelete"))
-      res.setConditionalDeleteElement(parseBoolean(json.get("conditionalDelete").getAsBoolean()));
+      res.setConditionalDeleteElement(parseEnumeration(json.get("conditionalDelete").getAsString(), Conformance.ConditionalDeleteStatus.NULL, new Conformance.ConditionalDeleteStatusEnumFactory()));
     if (json.has("_conditionalDelete"))
       parseElementProperties(json.getAsJsonObject("_conditionalDelete"), res.getConditionalDeleteElement());
     if (json.has("searchInclude")) {
@@ -3754,6 +3760,21 @@ public class JsonParser extends JsonParserBase {
           res.getTarget().add(parseCode(null));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getTarget().get(i));
+      }
+    };
+    if (json.has("modifier")) {
+      JsonArray array = json.getAsJsonArray("modifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getModifier().add(parseEnumeration(array.get(i).getAsString(), Conformance.SearchModifierCode.NULL, new Conformance.SearchModifierCodeEnumFactory()));
+      }
+    };
+    if (json.has("_modifier")) {
+      JsonArray array = json.getAsJsonArray("_modifier");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getModifier().size())
+          res.getModifier().add(parseEnumeration(null, Conformance.SearchModifierCode.NULL, new Conformance.SearchModifierCodeEnumFactory()));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getModifier().get(i));
       }
     };
     if (json.has("chain")) {
@@ -10443,8 +10464,8 @@ public class JsonParser extends JsonParserBase {
       res.setLockedDateElement(parseDate(json.get("lockedDate").getAsString()));
     if (json.has("_lockedDate"))
       parseElementProperties(json.getAsJsonObject("_lockedDate"), res.getLockedDateElement());
-    if (json.has("define"))
-      res.setDefine(parseValueSetValueSetDefineComponent(json.getAsJsonObject("define"), res));
+    if (json.has("codeSystem"))
+      res.setCodeSystem(parseValueSetValueSetCodeSystemComponent(json.getAsJsonObject("codeSystem"), res));
     if (json.has("compose"))
       res.setCompose(parseValueSetValueSetComposeComponent(json.getAsJsonObject("compose"), res));
     if (json.has("expansion"))
@@ -10468,8 +10489,8 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  protected ValueSet.ValueSetDefineComponent parseValueSetValueSetDefineComponent(JsonObject json, ValueSet owner) throws Exception {
-    ValueSet.ValueSetDefineComponent res = new ValueSet.ValueSetDefineComponent();
+  protected ValueSet.ValueSetCodeSystemComponent parseValueSetValueSetCodeSystemComponent(JsonObject json, ValueSet owner) throws Exception {
+    ValueSet.ValueSetCodeSystemComponent res = new ValueSet.ValueSetCodeSystemComponent();
     parseBackboneProperties(json, res);
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
@@ -12445,6 +12466,12 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasExample()) {
         composeType("example", element.getExample());
+      }
+      if (element.hasMinValue()) {
+        composeType("minValue", element.getMinValue());
+      }
+      if (element.hasMaxValue()) {
+        composeType("maxValue", element.getMaxValue());
       }
       if (element.hasMaxLengthElement()) {
         composeIntegerCore("maxLength", element.getMaxLengthElement(), false);
@@ -16117,8 +16144,8 @@ public class JsonParser extends JsonParserBase {
         composeBooleanExtras("conditionalUpdate", element.getConditionalUpdateElement(), false);
       }
       if (element.hasConditionalDeleteElement()) {
-        composeBooleanCore("conditionalDelete", element.getConditionalDeleteElement(), false);
-        composeBooleanExtras("conditionalDelete", element.getConditionalDeleteElement(), false);
+        composeEnumerationCore("conditionalDelete", element.getConditionalDeleteElement(), new Conformance.ConditionalDeleteStatusEnumFactory(), false);
+        composeEnumerationExtras("conditionalDelete", element.getConditionalDeleteElement(), new Conformance.ConditionalDeleteStatusEnumFactory(), false);
       }
       if (element.hasSearchInclude()) {
         openArray("searchInclude");
@@ -16195,6 +16222,18 @@ public class JsonParser extends JsonParserBase {
           openArray("_target");
           for (CodeType e : element.getTarget()) 
             composeCodeExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasModifier()) {
+        openArray("modifier");
+        for (Enumeration<Conformance.SearchModifierCode> e : element.getModifier()) 
+          composeEnumerationCore(null, e, new Conformance.SearchModifierCodeEnumFactory(), true);
+        closeArray();
+        if (anyHasExtras(element.getModifier())) {
+          openArray("_modifier");
+          for (Enumeration<Conformance.SearchModifierCode> e : element.getModifier()) 
+            composeEnumerationExtras(null, e, new Conformance.SearchModifierCodeEnumFactory(), true);
           closeArray();
         }
       };
@@ -24587,8 +24626,8 @@ public class JsonParser extends JsonParserBase {
         composeDateCore("lockedDate", element.getLockedDateElement(), false);
         composeDateExtras("lockedDate", element.getLockedDateElement(), false);
       }
-      if (element.hasDefine()) {
-        composeValueSetValueSetDefineComponent("define", element.getDefine());
+      if (element.hasCodeSystem()) {
+        composeValueSetValueSetCodeSystemComponent("codeSystem", element.getCodeSystem());
       }
       if (element.hasCompose()) {
         composeValueSetValueSetComposeComponent("compose", element.getCompose());
@@ -24620,15 +24659,15 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  protected void composeValueSetValueSetDefineComponent(String name, ValueSet.ValueSetDefineComponent element) throws Exception {
+  protected void composeValueSetValueSetCodeSystemComponent(String name, ValueSet.ValueSetCodeSystemComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeValueSetValueSetDefineComponentInner(element);
+      composeValueSetValueSetCodeSystemComponentInner(element);
       close();
     }
   }
 
-  protected void composeValueSetValueSetDefineComponentInner(ValueSet.ValueSetDefineComponent element) throws Exception {
+  protected void composeValueSetValueSetCodeSystemComponentInner(ValueSet.ValueSetCodeSystemComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);

@@ -12,7 +12,7 @@
 	</contact>
 	<description value="This value set includes sample Modifier type codes."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/modifiers"/>
 		<caseSensitive value="true"/>    
 		<concept>
@@ -40,6 +40,6 @@
 			<display value="None"/>
 			<definition value="None"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

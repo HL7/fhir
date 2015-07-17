@@ -9450,7 +9450,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s95">
-					<Data ss:Type="String">ValueSet.define.concept;ValueSet.define.concept.concept</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept;ValueSet.codeSystem.concept.concept</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s95">
@@ -9619,7 +9619,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">ValueSet.compose.include.concept;ValueSet.define.concept</Data>
+					<Data ss:Type="String">ValueSet.compose.include.concept;ValueSet.codeSystem.concept</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -9704,7 +9704,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">ValueSet.define.concept</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -11741,7 +11741,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">ValueSet.compose.include.concept;ValueSet.define.concept;ValueSet.expansion.contains</Data>
+					<Data ss:Type="String">ValueSet.compose.include.concept;ValueSet.codeSystem.concept;ValueSet.expansion.contains</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -11823,7 +11823,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">ValueSet.compose.include.concept;ValueSet.define.concept;ValueSet.expansion.contains</Data>
+					<Data ss:Type="String">ValueSet.compose.include.concept;ValueSet.codeSystem.concept;ValueSet.expansion.contains</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -11905,7 +11905,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">ValueSet.compose.include.concept;ValueSet.define.concept;ValueSet.expansion.contains</Data>
+					<Data ss:Type="String">ValueSet.compose.include.concept;ValueSet.codeSystem.concept;ValueSet.expansion.contains</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -12028,7 +12028,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
-					<Data ss:Type="String">The display name for the code.  I.e. ValueSet.define.concept.display (or its equivalent)</Data>
+					<Data ss:Type="String">The display name for the code.  I.e. ValueSet.codeSystem.concept.display (or its equivalent)</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s108">
@@ -12194,7 +12194,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
-					<Data ss:Type="String">The formal URI for the code system.  I.e. ValueSet.define.system (or its equivalent)</Data>
+					<Data ss:Type="String">The formal URI for the code system.  I.e. ValueSet.codeSystem.system (or its equivalent)</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s108">
@@ -12287,7 +12287,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
-					<Data ss:Type="String">See comments on ValueSet.define.caseSensitive. Systems should generally assume case sensitivity when dealing with expansions, and only consider case sensitivity when matching existing codes</Data>
+					<Data ss:Type="String">See comments on ValueSet.codeSystem.caseSensitive. Systems should generally assume case sensitivity when dealing with expansions, and only consider case sensitivity when matching existing codes</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s108">
@@ -12319,7 +12319,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">ValueSet;ValueSet.define</Data>
+					<Data ss:Type="String">ValueSet;ValueSet.codeSystem</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -12682,7 +12682,7 @@ URI in the system</Data>
 					<Data ss:Type="String">Resource</Data>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">ValueSet.define.concept</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept</Data>
 				</Cell>
 				<Cell ss:Index="6">
 					<Data ss:Type="String">0..1</Data>

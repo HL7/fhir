@@ -11,7 +11,7 @@
   <description value="This value set defines a set of codes that are used to indicate the nature of the relationship between 
     a patient and a contactperson for that patient"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/patient-contact-relationship"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -65,5 +65,5 @@
       <display value="Parent"/>
       <definition value="Parent of the patient" />
     </concept>                    
-  </define>
+  </codeSystem>
 </ValueSet>

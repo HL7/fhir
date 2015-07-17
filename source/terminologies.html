@@ -130,7 +130,7 @@ defining the correct URI to use:
  <li>Once defined, the URI will require agreement from all implementers to change, and some may not be able to change (stored resources). If the set of users is not closed, it will usually not be possible to change the URI</li>
  <li>Implementers strongly prefer a human readable URI. http://acme.com/patients/mrn is a great deal easier to work with than urn:oid:1.2.3.4.5.6.7</li>
  <li>An http: address SHOULD resolve to some useful description of the code system. Ideally, if a user makes a request of the address with the media type set to a FHIR media type, the server will respond
-   with a FHIR Value Set resource with an inline <a href="valueset-definitions.html#ValueSet.define">code system</a>, but some other human or computable definition is allowed</li>
+   with a FHIR Value Set resource with an inline <a href="valueset-definitions.html#ValueSet.codeSystem">code system</a>, but some other human or computable definition is allowed</li>
  <li>http addresses should be permalinks which may re-direct to the current correct content</li>
  <li>A scope of the code system URI and the correct usage of codes and displays in it's namespace SHOULD be clearly defined. 
    See examples for <a href="snomedct.html">SNOMED CT</a>, <a href="rxnorm.html">RxNorm</a>, <a href="loinc.html">LOINC</a>, <a href="ndc.html">NDC</a></li>
@@ -138,7 +138,7 @@ defining the correct URI to use:
 </ul> 
 <p>
 Note: if the code system is made available packaged inside a <a href="valueset.html">ValueSet</a> resource, the 
-correct URL for the <code>system</code> value is <i>ValueSet.define.system</i>, not <i>ValueSet.uri</i>.
+correct URL for the <code>system</code> value is <i>ValueSet.codeSystem.system</i>, not <i>ValueSet.uri</i>.
 </p>
 
 
@@ -357,12 +357,12 @@ Note the following additional rules about required bindings when used with the <
 </p>
 <ul>
  <li>Where the value set is defined by FHIR, the list of allowed codes will be fixed in the XML schema</li>
- <li>Comparison between codes is always case sensitive for codes unless the codes are defined by reference, and the referenced specification clearly states otherwise</li>
+ <li>Comparison between codes is always case sensitive for codes unless the codes are selected by reference (e.g. ValueSet.compose), and the referenced specification clearly states otherwise</li>
  <li>The list of codes that can be used can only be extended in subsequent releases of the FHIR specification</li>
 </ul>
 <p>
 When an element is bound to a required value set, <a href="profiling.html">derived profiles</a> 
-may state rules on which codes can be used, but cannot define new or additional codes for these elements.
+may state rules on which codes can be used, but cannot select new or additional codes for these elements.
 </p>
 
 <a name="extensible"> </a>
@@ -392,7 +392,7 @@ use cases, including one that are yet to arise.
 </p>
 <p>
 When an element is extensibly bound to value set, <a href="profiling.html">derived profiles</a> 
-may state rules on which codes can be used, but cannot define new or additional codes for these elements
+may state rules on which codes can be used, but cannot select new or additional codes for these elements
 unless no codes with appropriate meanings are found in the base value set.
 </p>
 

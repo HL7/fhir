@@ -12,7 +12,7 @@
 	</contact>
 	<description value="This value set includes sample ICD-10 codes."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/sid/icd-10"/>
 		<caseSensitive value="true"/>    
 
@@ -51,6 +51,6 @@
 			<display value="DIAG-6"/>
 			<definition value="DIAG-6"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

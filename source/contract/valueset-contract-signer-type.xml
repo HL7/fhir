@@ -14,7 +14,7 @@
   <status value="draft"/>
   <description value="The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/contractsignertypecodes"/>
     <caseSensitive value="true"/>  
     <concept>
@@ -123,7 +123,7 @@
       <definition value="the signature of an individual who is certifying that the document is invalidated by an error(s), or is placed in the wrong chart. An administrative (error/edit) signature must include an addendum to the document and therefore shall have an addendum signature sub-type (see 8.1). This signature is reserved for the highest health information system administrative classification, since it is a statement that the entire document is invalidated by the error and that the document should no longer be used for patient care, although for legal reasons the document must remain part of the permanent patient record."/>    
     </concept>
 
-  </define>
+  </codeSystem>
   <!-- a v3 value set too 
   <compose>
     <import value="[url for v3 valueset]"/>

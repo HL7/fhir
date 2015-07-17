@@ -13,7 +13,7 @@
   <status value="draft"/>
   <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose"/>
   <status value="draft"/>
-	<define>
+	<codeSystem>
 	  <!-- these are defined until they move properly into v2 able 0203 -->
 	  <system value="http://hl7.org/fhir/identifier-type"/>
 		<caseSensitive value="true"/>
@@ -25,7 +25,7 @@
 			<code value="SNO"/>
 			<display value="Serial Number"/>
 		</concept>
-	</define>
+	</codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v2/0203"/>

@@ -9,7 +9,7 @@
   </contact>    
   <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that have bearing on the data that it qualifies but will not necessarily modify its meaning. Things like 'after activity', 'at rest', or 'post-op'. "/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/qicore-diagnosticorder-precondition"/>
     <caseSensitive value="true"/>
     <concept>
@@ -27,5 +27,5 @@
       <display value="Post-op"/>
       <definition value="The diagnostic test was or should be performed after the patient operation"/>
     </concept>
-  </define>    
+  </codeSystem>    
 </ValueSet>

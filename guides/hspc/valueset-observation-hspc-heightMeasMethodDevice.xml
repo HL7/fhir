@@ -17,7 +17,7 @@
   <status value="draft"/>
   <extensible value="true"/>
   <date value="2015-05-19"/>
-  <define>
+  <codeSystem>
 		<system value="Internountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -45,5 +45,5 @@
 			<display value="Stadiometer"/>
 			<definition value="A device for measuring body length or height.  Usually constructed of a ruler and a sliding headpiece that, when placed on an individual's head will give a reading of the body length or height."/>
 		</concept>
-  </define>
+  </codeSystem>
 </ValueSet>

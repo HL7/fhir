@@ -10,7 +10,7 @@
   </contact>
   <description value=" This  value set defines a set of codes that indicate the type of relationship between two specimen resources."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/hierarchical-relationship-type"/>
     <caseSensitive value="true"/>
     <concept>
@@ -23,6 +23,6 @@
       <display value="Child"/>
       <definition value="The target resource is the child of the focal specimen resource"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

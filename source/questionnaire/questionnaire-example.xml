@@ -27,7 +27,7 @@
       <name value="Example YesNo"/>
       <description value="Captures simple yes-no"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <system value="http://example.org/system/code/yesno"/>
         <caseSensitive value="true"/>          
         <concept>
@@ -38,7 +38,7 @@
           <code value="2"/>
           <display value="No"/>
         </concept>      
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
   <status value="draft"/>

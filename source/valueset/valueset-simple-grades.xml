@@ -16,7 +16,7 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2013-10-01"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/clinistix"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -37,5 +37,5 @@
     <concept>
       <code value="+++"/>     
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

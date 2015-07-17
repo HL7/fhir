@@ -11,7 +11,7 @@
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate species of animal patients."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/animal-species"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -29,6 +29,6 @@
       <display value="Domestic Canary"/>
       <definition value="Serinus canaria domestica"/>
     </concept>    
-  </define>
+  </codeSystem>
 </ValueSet>
 

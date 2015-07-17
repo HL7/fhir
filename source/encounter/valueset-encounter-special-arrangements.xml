@@ -11,7 +11,7 @@
   <description value="This value set defines a set of codes that can be used to indicate the kinds
     of special arrangements in place for a patients visit"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/encounter-special-arrangements"/>
     <caseSensitive value="true"/>
     <concept>
@@ -34,6 +34,6 @@
       <code value="dog"/>
       <display value="Guide dog"/>
     </concept>  
-  </define>
+  </codeSystem>
 </ValueSet>
 

@@ -12,7 +12,7 @@
 	</contact>
 	<description value="This value set includes the financial processing priority codes"/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/processpriority"/>
 		<caseSensitive value="true"/>    
 		<concept>
@@ -30,6 +30,6 @@
 			<display value="Deferred"/>
 			<definition value="Later, when possible"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

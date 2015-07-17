@@ -11,7 +11,7 @@
   </contact>
   <description value="This value set includes a Form codes"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/paymentstatus"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -20,5 +20,5 @@
     <concept>
       <code value="cleared"/> <!-- Payment has been cashed or otherwise been received -->
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

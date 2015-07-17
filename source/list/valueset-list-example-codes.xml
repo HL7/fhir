@@ -10,7 +10,7 @@
   </contact>
   <description value="Example use codes for the List resource - typical kinds of use. TODO: Does LOINC define useful codes?"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/list-example-use-codes"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -58,6 +58,6 @@
       <display value="Care Plans"/>
       <definition value="A set of care plans that apply in a particular context of care"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

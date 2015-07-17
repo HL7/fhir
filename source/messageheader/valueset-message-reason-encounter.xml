@@ -10,7 +10,7 @@
   </contact>
   <description value="Example Message Reasons. These are the set of codes that might be used an updating an encounter using admin-update"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/message-reasons-encounter"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -44,6 +44,6 @@
       <definition value="Encounter details have been updated (e.g. to correct a coding error)"/>
     </concept>
     
-  </define>   
+  </codeSystem>   
 </ValueSet>
 

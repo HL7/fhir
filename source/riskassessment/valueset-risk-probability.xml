@@ -10,7 +10,7 @@
   </contact>
   <description value="Codes representing the likelihood of a particular outcome in a risk assessment"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/risk-probability"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -38,6 +38,6 @@
       <display value="certain"/>
       <definition value="The specified outcome is effectively guaranteed"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

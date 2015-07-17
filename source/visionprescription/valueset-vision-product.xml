@@ -11,7 +11,7 @@
   </contact>
   <description value="This value set includes a smattering of Prescription Product codes"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
     <caseSensitive value="true"/>
     <concept>
@@ -20,5 +20,5 @@
     <concept>
       <code value="contact"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

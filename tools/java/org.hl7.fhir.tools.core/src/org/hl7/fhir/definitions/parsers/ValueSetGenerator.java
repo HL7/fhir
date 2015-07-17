@@ -16,7 +16,7 @@ import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -49,10 +49,10 @@ public class ValueSetGenerator {
   }
 
   private void genDataTypes(ValueSet vs) throws Exception {
-    vs.setDefine(new ValueSetDefineComponent());
-    vs.getDefine().setSystem("http://hl7.org/fhir/data-types");
-    vs.getDefine().setVersion(version);
-    vs.getDefine().setCaseSensitive(true);    
+    vs.setCodeSystem(new ValueSetCodeSystemComponent());
+    vs.getCodeSystem().setSystem("http://hl7.org/fhir/data-types");
+    vs.getCodeSystem().setVersion(version);
+    vs.getCodeSystem().setCaseSensitive(true);    
 
     List<String> codes = new ArrayList<String>();
     for (TypeRef t : definitions.getKnownTypes())
@@ -60,7 +60,7 @@ public class ValueSetGenerator {
     Collections.sort(codes);
     for (String s : codes) {
       if (!definitions.dataTypeIsSharedInfo(s)) {
-        ConceptDefinitionComponent c = vs.getDefine().addConcept();
+        ConceptDefinitionComponent c = vs.getCodeSystem().addConcept();
         c.setCode(s);
         c.setDisplay(s);
         if (definitions.getPrimitives().containsKey(s))
@@ -76,16 +76,16 @@ public class ValueSetGenerator {
   }
 
   private void genResourceTypes(ValueSet vs) {
-    vs.setDefine(new ValueSetDefineComponent());
-    vs.getDefine().setSystem("http://hl7.org/fhir/resource-types");
-    vs.getDefine().setVersion(version);
-    vs.getDefine().setCaseSensitive(true);    
+    vs.setCodeSystem(new ValueSetCodeSystemComponent());
+    vs.getCodeSystem().setSystem("http://hl7.org/fhir/resource-types");
+    vs.getCodeSystem().setVersion(version);
+    vs.getCodeSystem().setCaseSensitive(true);    
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getKnownResources().keySet());
     Collections.sort(codes);
     for (String s : codes) {
       DefinedCode rd = definitions.getKnownResources().get(s);
-      ConceptDefinitionComponent c = vs.getDefine().addConcept();
+      ConceptDefinitionComponent c = vs.getCodeSystem().addConcept();
       c.setCode(rd.getCode());
       c.setDisplay(rd.getCode());
       c.setDefinition(rd.getDefinition());
@@ -101,15 +101,15 @@ public class ValueSetGenerator {
   }
 
   private void genMessageEvents(ValueSet vs) {
-    vs.setDefine(new ValueSetDefineComponent());
-    vs.getDefine().setSystem("http://hl7.org/fhir/message-events");
-    vs.getDefine().setVersion(version);
-    vs.getDefine().setCaseSensitive(true);    
+    vs.setCodeSystem(new ValueSetCodeSystemComponent());
+    vs.getCodeSystem().setSystem("http://hl7.org/fhir/message-events");
+    vs.getCodeSystem().setVersion(version);
+    vs.getCodeSystem().setCaseSensitive(true);    
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getEvents().keySet());
     Collections.sort(codes);
     for (String s : codes) {
-      ConceptDefinitionComponent c = vs.getDefine().addConcept();
+      ConceptDefinitionComponent c = vs.getCodeSystem().addConcept();
       EventDefn e = definitions.getEvents().get(s);
       c.setCode(s);
       c.setDisplay(e.getCode());

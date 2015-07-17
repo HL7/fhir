@@ -11,7 +11,7 @@
 	</contact>
 	<description value="This value set includes a smattering of Pharmacy Service codes"/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 		<caseSensitive value="true"/>      
 		<concept>
@@ -24,5 +24,5 @@
 			<display value="Flu Shot"/>
 			<definition value="Flu Shot"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>

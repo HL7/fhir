@@ -10,7 +10,7 @@
 	</contact>
 	<description value="A set of value that describe the state of the medical records of an adopted child."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="Intermountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -23,7 +23,7 @@
 			<display value="Adopted Patient Record"/>
 			<definition value="An indication that the medical records being viewed are from a time after a patient's adoption and can be viewed by the adoptive guardians."/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 
 

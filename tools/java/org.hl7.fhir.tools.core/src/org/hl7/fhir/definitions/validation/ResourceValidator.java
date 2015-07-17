@@ -303,8 +303,8 @@ public class ResourceValidator extends BaseValidator {
   private boolean hasStatus(ResourceDefn parent, String code) {
     ElementDefn e = parent.getRoot().getElementByName("status");
     if (e != null) {
-      if (e.hasBinding() && e.getBinding().getValueSet() != null && e.getBinding().getValueSet().hasDefine()) {
-        for (ConceptDefinitionComponent cc : e.getBinding().getValueSet().getDefine().getConcept()) {
+      if (e.hasBinding() && e.getBinding().getValueSet() != null && e.getBinding().getValueSet().hasCodeSystem()) {
+        for (ConceptDefinitionComponent cc : e.getBinding().getValueSet().getCodeSystem().getConcept()) {
           if (cc.getCode().equals(code))
             return true;
         }
@@ -677,7 +677,7 @@ public class ResourceValidator extends BaseValidator {
     }
     boolean isComplex = !e.typeCode().equals("code");
 
-    if (isComplex && cd.getValueSet() != null && cd.getValueSet().hasDefine() && cd.getStrength() != BindingStrength.EXAMPLE && 
+    if (isComplex && cd.getValueSet() != null && cd.getValueSet().hasCodeSystem() && cd.getStrength() != BindingStrength.EXAMPLE && 
           !cd.getValueSet().getUrl().contains("/v2/") && !cd.getValueSet().getUrl().contains("/v3/")) {
       hint(errors, IssueType.BUSINESSRULE, path, false, "The value "+cd.getValueSet().getUrl()+" defines codes, but is used by a Coding/CodeableConcept @ "+path+", so it should not use FHIR defined codes");
       cd.getValueSet().setUserData("vs-val-warned", true);

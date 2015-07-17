@@ -9,7 +9,7 @@
   </contact>
   <description value="A set of codes that describe the individual's current military status"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="Intermountain Healthcare HDD"/>
     <caseSensitive value="true"/>
     <concept>
@@ -62,5 +62,5 @@
       <display value="National Guard"/>
       <definition value="A part-time member of a reserve military force of the United States military whos units are composed of members from the state or territory of residence."/>
     </concept>
-  </define>    
+  </codeSystem>    
 </ValueSet>

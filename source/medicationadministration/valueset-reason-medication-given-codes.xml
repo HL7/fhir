@@ -10,7 +10,7 @@
   </contact>
   <description value="This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/reason-medication-given"/>
     <caseSensitive value="true"/>
     <concept>
@@ -28,6 +28,6 @@
       <display value="Emergency" />
       <definition value="The administration was needed to treat an emergency"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

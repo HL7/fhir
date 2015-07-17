@@ -11,7 +11,7 @@
   </contact>
   <description value="This value set includes a smattering of Contact Duration codes"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/ex-visioncontactduration"/>
     <caseSensitive value="true"/>
     <concept>
@@ -32,5 +32,5 @@
 	<concept>
       <code value="indefinite"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

@@ -69,7 +69,7 @@ public class DICOMConverter {
     vs.setRequirements("This value is published as part of FHIR in order to make the codes available to FHIR terminology services and so implementers can easily leverage the codes");
     vs.setCopyright("These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association");
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
-    vs.getDefine().setSystem("http://nema.org/dicom/dicm").setCaseSensitive(true);
+    vs.getCodeSystem().setSystem("http://nema.org/dicom/dicm").setCaseSensitive(true);
     System.out.println("parse XML");
     FileInputStream instream = new FileInputStream(SRC_LOCAL);
 
@@ -92,7 +92,7 @@ public class DICOMConverter {
       if (definition != null && definition.endsWith("."))
         definition = definition.substring(0, definition.length()-1);
       td = XMLUtil.getNextSibling(td);
-      ConceptDefinitionComponent cc = vs.getDefine().addConcept();
+      ConceptDefinitionComponent cc = vs.getCodeSystem().addConcept();
       cc.setCode(code).setDisplay(display).setDefinition(definition);
 
       String comments = Utilities.normalizeSameCase(td.getTextContent().trim());

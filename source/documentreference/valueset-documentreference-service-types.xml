@@ -10,7 +10,7 @@
   </contact>
   <description value="Known Service types that can be referred to from a Document Reference"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/document-reference-service-types"/>
     <caseSensitive value="true"/>
     <concept>
@@ -21,6 +21,6 @@
       <code value="RLUS"/>
       <display value="OMG RLUS"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

@@ -11,7 +11,7 @@
   </contact>
   <description value="This value set includes a sample set of Forms codes"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/adjudication-error"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -20,5 +20,5 @@
     <concept>
       <code value="2"/> <!-- Form #2 -->
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

@@ -11,7 +11,7 @@
   </contact>
   <description value="Example value set for Condition (Problem/Diagnosis) Categories"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/condition-category"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -34,5 +34,5 @@
       <display value="Diagnosis"/>
       <definition value="This is a judgment made by a healthcare provider that the patient has a particular disease or condition"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

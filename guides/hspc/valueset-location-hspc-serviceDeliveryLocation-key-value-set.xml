@@ -10,7 +10,7 @@
 	</contact>
 	<description value="This value set defines the set of codes used to identify the service delivery location."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="Intermountain Healthcare Health Data Dictionary"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -18,7 +18,7 @@
 			<display value ="Facility"/>
 			<definition value ="A location that is categorized by the nursing skill, specialty, or type of care delivered"/>
 		</concept>
-	</define>
+	</codeSystem>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/ValueSet/v3-EntityCode"/>

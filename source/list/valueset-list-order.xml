@@ -10,7 +10,7 @@
   </contact>
   <description value="Base values for the order of the items in a list resource"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/list-order"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -53,6 +53,6 @@
       <display value="Sorted by Patient"/>
       <definition value="The list is sorted by patient, with items for each patient grouped together"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

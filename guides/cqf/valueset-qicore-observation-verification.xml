@@ -9,7 +9,7 @@
   </contact>  
   <description value="Code for method by which the observation result was validated, e.g., human review, sliding average."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/qicore-observation-verification-method"/>
     <caseSensitive value="true"/>
     <concept>
@@ -22,5 +22,5 @@
       <display value="Sliding average"/>
       <definition value="The observation was verified against a sliding average"/>
     </concept>
-  </define>    
+  </codeSystem>    
 </ValueSet>

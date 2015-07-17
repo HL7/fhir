@@ -18,7 +18,7 @@ import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -92,21 +92,21 @@ public class ICPC2Importer {
     vs.setCopyright("The copyright of ICPC, both in hard copy and in electronic form, is owned by Wonca. See http://www.kith.no/templates/kith_WebPage____1110.aspx");
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setDateElement(new DateTimeType(title.getAttribute("date")));
-    vs.setDefine(new ValueSetDefineComponent());
-    vs.getDefine().setSystem("http://hl7.org/fhir/sid/icpc2/cs");
+    vs.setCodeSystem(new ValueSetCodeSystemComponent());
+    vs.getCodeSystem().setSystem("http://hl7.org/fhir/sid/icpc2/cs");
     
     Map<String, ConceptDefinitionComponent> concepts = new HashMap<String, ConceptDefinitionComponent>();
     List<Element> classes = new ArrayList<Element>(); 
     XMLUtil.getNamedChildren(doc.getDocumentElement(), "Class", classes);
     for (Element cls : classes) {
-      processClass(cls, concepts, vs.getDefine());
+      processClass(cls, concepts, vs.getCodeSystem());
     }
     
     XmlParser xml = new XmlParser();
     xml.setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(targetFileName), vs);
   }
-  private void processClass(Element cls, Map<String, ConceptDefinitionComponent> concepts, ValueSetDefineComponent define) {
+  private void processClass(Element cls, Map<String, ConceptDefinitionComponent> concepts, ValueSetCodeSystemComponent define) {
     ConceptDefinitionComponent concept = new ConceptDefinitionComponent();
     concept.setCode(cls.getAttribute("code"));
     concept.setDefinition(getRubric(cls, "preferred"));

@@ -8,30 +8,30 @@ on the possible values of these elements.  These elements are generally not need
 implementations as they can make use of the innate identifier and versioning mechanism associated with the resource
 </p>
 
-<h2>Value Sets that define codes</h2>
+<h2>Value Sets with In-line Code Systems</h2>
 
 <p>
-Value sets can define their own codes. A value set that defines codes automatically includes all 
-the codes it defines, and is useful for simple sets of codes that are highly 
-specific and context-dependent. The value set and the code system are both 
-given URI identifiers by which they may be identified from elsewhere 
-(ValueSet.identifier and ValueSet.define.system). These identifiers SHALL 
-be different.
+A value set that contains an inline code system automatically includes all 
+the codes in that the code system defines. This is useful for simple sets of 
+codes that are highly specific and context-dependent. The value set and the 
+code system are both given URI identifiers by which they may be identified 
+from elsewhere (ValueSet.identifier and ValueSet.codeSystem.system). These 
+identifiers SHALL be different.
 </p>
 <ul>
- <li><i>ValueSet.define.system</i> is the URI that identifies these codes 
+ <li><i>ValueSet.codeSystem.system</i> is the URI that identifies these codes 
    when used in a <a href="datatypes.html#Coding">Coding</a></li>
  <li>The usability of the codes is closely linked to the quality of the definitions. 
    Although a definition is not required for each concept, a good definition SHOULD be provided. In the absence of any definition, there is no formal meaning associated with the concept</li>
- <li>If concepts contain other concepts, then the contained concepts are "subsumed" by 
+ <li>TODO: Fix this If concepts contain other concepts, then the contained concepts are "subsumed" by 
    the containing concept (there is an "is-a" relationship between the codes).</li>
   <li>An abstract concept SHALL have contained concepts</li>
-  <li>The set of codes defined SHALL NOT contain duplicate codes</li>
+  <li>The code system SHALL NOT contain duplicate codes</li>
 </ul>
 <p>
-Note: Value sets only define their own codes when they are not defined elsewhere,
-such as codes defined in SNOMED CT, LOINC, RxNorm etc. To specify a value set that
-is made up of codes from other code systems, see "compose" below. 
+Note: Value sets only contain inline code systems when they are not defined elsewhere,
+such as in SNOMED CT, LOINC, RxNorm etc which have their own public distributions. 
+To specify a value set that is made up of codes from other code systems, see "compose" below. 
 </p>
 
 <a name="versioning"> </a>
@@ -47,7 +47,7 @@ is often not practical - for instance, <a href="snomedct.html">SNOMED CT</a> has
 may lead to variations in meaning of concepts, but there is only one identifier for LOINC. 
 </p>
 <p>
-For this reason, a code system MAY provide a version identifer in <i>ValueSet.define.version</i>. The version specific identifier SHOULD be 
+For this reason, a code system MAY provide a version identifer in <i>ValueSet.codeSystem.version</i>. The version specific identifier SHOULD be 
 provided whenever there are potentially significant changes in meaning across multiple releases of a code system.
 There is no particular format requirement for the version identifier, though HL7 recommends a date based approach. 
 </p>
@@ -72,7 +72,8 @@ kind of general selection criteria using the facilities provided by the code sys
 <ul>
  <li>Within an include or exclude criterion, multiple filters and concept selections are intersected. All the 
    conditions specified SHALL be true.</li>
- <li>The value set always includes any codes it defines itself. A typical use for this
+ <li>The value set always includes any codes in an inline code system, even if it also has a compose. 
+     A typical use for containing both a compose statement and an inline code system
     is when including a set of codes from elsewhere, and adding a few additional codes to cover
     cases not catered to by the included codes</li>
  <li>An include statement consists of any enumerated codes and any codes that meet the filter criteria</li>
@@ -173,7 +174,7 @@ all the codes in a code system, or a set of codes by filter.
 <p>
 A resource that represents a value set expansion includes the same
 identification details as the definition of the value set, and MAY
-include the definition of the value set (<i>define</i> and <i>compose</i>
+include the definition of the value set (<i>codeSystem</i> and <i>compose</i>
 elements). In addition it has a <i>expansion</i> element which contains
 the list of codes that constitute the value set expansion. 
 If the expansion has nested <code>contains</code> elements, there is 
@@ -197,7 +198,7 @@ the following process should be followed:
   </ul>
  </li>
  <li>for each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove any codes from the result set, instead of adding them</li>
- <li>add any codes in the <i>define</i> to the result set</li>
+ <li>add any codes in the <i>codeSystem</i> to the result set</li>
 </ul>
 <p>
 The "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
@@ -208,7 +209,7 @@ these regards. There is a <a href="valueset-operations.html">defined operation</
 <p>
 An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
 for a human to use the list. These entries have no system or code, and must be marked as abstract. Note that the 
-value set define and compose offer no support for defining these, but this does not exclude servers from using
+value set <code>codeSystem</code> and <code>compose</code> offer no support for defining these, but this does not exclude servers from using
 extensions or other knowledge to introduce such groups as an implementation feature. 
 </p>
 <p>

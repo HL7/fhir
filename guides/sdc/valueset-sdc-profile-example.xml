@@ -5,7 +5,7 @@
 	<copyright value="This material contains content from LOINC® (&gt;a href=&quot;http://loinc.org&quot;&lt;http://loinc.org&gt;/a&lt;). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at http://loinc.org/terms-of-use"/>
 	<status value="active"/>
 	<date value="2014"/>
-	<define>
+	<codeSystem>
 		<system value="http://loinc.org/vs/LL2654-3"/>
     <caseSensitive value="true"/>    
 		<concept>
@@ -49,5 +49,5 @@
 			<code value="LA20343-2"/>
 			<display value="Other substance: PLEASE SPECIFY"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>

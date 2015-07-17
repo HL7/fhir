@@ -16,7 +16,7 @@
   <copyright value="IHC"/>
   <status value="draft"/>
   <date value="2015-04-14"/>
-  <define>
+  <codeSystem>
     <system value="http://healthcaresoa.org/fhir/hspc-abnInt-NumericNom"/>
     <version value="0.01"/>
     <caseSensitive value="true"/>
@@ -30,7 +30,7 @@
 		  <display value="Lower than technical"/>
 		  <definition value="The results were higher than the technical limits of the test procedure"/>
 	  </concept>
-  </define>
+  </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>

@@ -10,7 +10,7 @@
 	</contact>
 	<description value="A set of values that describe the type of system the telecom value belongs to."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="Intermountain Health Care HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -28,7 +28,7 @@
 			<display value="phone"/>
 			<definition value="Telephone."/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 
 

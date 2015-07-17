@@ -10,7 +10,7 @@
   </contact>
   <description value="This value set defines a set of codes that can be used to indicate dietary preferences or restrictions a patient may have."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/diet"/>
     <caseSensitive value="true"/>
     <concept>
@@ -48,7 +48,7 @@
       <display value="Kosher"/>
       <definition value="foods that conform to Jewish dietary law"/>
     </concept> 
-  </define>
+  </codeSystem>
 </ValueSet>
 
 

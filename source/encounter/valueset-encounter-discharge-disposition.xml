@@ -10,7 +10,7 @@
   </contact>
   <description value="This value set defines a set of codes that can be used to where the patient left the hospital"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/discharge-disposition"/>
     <caseSensitive value="true"/>
     <concept>
@@ -49,7 +49,7 @@
       <code value="oth"/>
       <display value="Other"/>
     </concept>  
-  </define>
+  </codeSystem>
 </ValueSet>
 
 

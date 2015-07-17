@@ -10,7 +10,7 @@
 	</contact>
 	<description value="A set of codes that describe the manner in which an addressed is used."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="Intermountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -23,7 +23,7 @@
 			<display value="NotSpecified"/>
 			<definition value="The type of telecom system was not specified for the given number."/>
 		</concept>
-	</define>
+	</codeSystem>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/v3/AddressUse"/>

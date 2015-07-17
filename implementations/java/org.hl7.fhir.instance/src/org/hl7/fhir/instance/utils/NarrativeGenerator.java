@@ -1208,7 +1208,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (context.getCodeSystems() == null && context.getTerminologyServices() == null)
     	return code;
     else if (context.getCodeSystems() != null && context.getCodeSystems().containsKey(system)) 
-      t = findCode(code, context.getCodeSystems().get(system).getDefine().getConcept());
+      t = findCode(code, context.getCodeSystems().get(system).getCodeSystem().getConcept());
     else 
       t = context.getTerminologyServices().getCodeDefinition(system, code);
       
@@ -1787,7 +1787,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return null;
     if (context.getCodeSystems().containsKey(system)) {
       ValueSet vs = context.getCodeSystems().get(system);
-      return getDisplayForConcept(code, vs.getDefine().getConcept(), vs.getDefine().getCaseSensitive());
+      return getDisplayForConcept(code, vs.getCodeSystem().getConcept(), vs.getCodeSystem().getCaseSensitive());
     } else if (context.getTerminologyServices() != null) {
       ConceptDefinitionComponent cl = context.getTerminologyServices().getCodeDefinition(system, code);
       return cl == null ? null : cl.getDisplay();
@@ -1854,14 +1854,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
   public void generate(ValueSet vs, ValueSet src, boolean header) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     if (vs.hasExpansion()) {
-      if (!vs.hasDefine() && !vs.hasCompose())
+      if (!vs.hasCodeSystem() && !vs.hasCompose())
         generateExpansion(x, vs, src, header);
       else
         throw new Exception("Error: should not encounter value set expansion at this point");
     }
     
     boolean hasExtensions = false;
-    if (vs.hasDefine())
+    if (vs.hasCodeSystem())
       hasExtensions = generateDefinition(x, vs, header);
     if (vs.hasCompose()) 
       hasExtensions = generateComposition(x, vs, header) || hasExtensions;
@@ -1873,8 +1873,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (vs.hasExpansion())
       count = count + conceptCount(vs.getExpansion().getContains());
     else {
-    if (vs.hasDefine())
-      count = count + countConcepts(vs.getDefine().getConcept());
+      if (vs.hasCodeSystem())
+        count = count + countConcepts(vs.getCodeSystem().getConcept());
     if (vs.hasCompose()) {
       if (vs.getCompose().hasExclude()) {
         try {
@@ -1961,7 +1961,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private boolean checkDoSystem(ValueSet vs, ValueSet src) {
     if (src != null)
       vs = src;
-    if (!vs.hasDefine())
+    if (!vs.hasCodeSystem())
       return true;
     if (vs.hasCompose())
       return true;
@@ -2004,13 +2004,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
       generateCopyright(x, vs);
     }
     XhtmlNode p = x.addTag("p");
-    p.addText("This value set has an inline code system "+vs.getDefine().getSystem()+", which defines the following codes:");
+    p.addText("This value set has an inline code system "+vs.getCodeSystem().getSystem()+", which defines the following codes:");
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     boolean commentS = false;
     boolean deprecated = false;
     boolean display = false;
     boolean heirarchy = false;
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
       deprecated = deprecated || conceptsHaveDeprecated(c);
       display = display || conceptsHaveDisplay(c);
@@ -2018,8 +2018,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       scanLangs(c, langs);
     }
     addMapHeaders(addTableHeaderRowStandard(t, heirarchy, display, true, commentS, deprecated), mymaps);
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, heirarchy, display, commentS, deprecated, mymaps, vs.getDefine().getSystem()) || hasExtensions;
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
+      hasExtensions = addDefineRowToTable(t, c, 0, heirarchy, display, commentS, deprecated, mymaps, vs.getCodeSystem().getSystem()) || hasExtensions;
     }    
     if (langs.size() > 0) {
       Collections.sort(langs);
@@ -2029,7 +2029,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       tr.addTag("td").addTag("b").addText("Code");
       for (String lang : langs)
         tr.addTag("td").addTag("b").addText(lang);
-      for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
         addLanguageRow(c, t, langs);
       }
     }    
@@ -2301,7 +2301,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
 	private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) throws Exception {
 	  boolean hasExtensions = false;
-    if (!vs.hasDefine()) {
+    if (!vs.hasCodeSystem()) {
       if (header) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getName());
@@ -2442,9 +2442,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
         return null;
     }
     ValueSet vs = (ValueSet) e;
-    if (!vs.hasDefine())
+    if (!vs.hasCodeSystem())
       return null;
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       ConceptDefinitionComponent v = getConceptForCode(c, code);   
       if (v != null)
         return v;
@@ -2493,7 +2493,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private  <T extends Resource> boolean codeExistsInValueSet(T cs, String code) {
     ValueSet vs = (ValueSet) cs;
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       if (inConcept(code, c))
         return true;
     }
@@ -2596,11 +2596,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     addMarkdown(x, opd.getDescription());
     
     if (opd.getSystem())
-      x.addTag("p").addText("URL: [base]/$"+opd.getName());
+      x.addTag("p").addText("URL: [base]/$"+opd.getCode());
     for (CodeType c : opd.getType()) {
-      x.addTag("p").addText("URL: [base]/"+c.getValue()+"/$"+opd.getName());
+      x.addTag("p").addText("URL: [base]/"+c.getValue()+"/$"+opd.getCode());
       if (opd.getInstance())
-        x.addTag("p").addText("URL: [base]/"+c.getValue()+"/[id]/$"+opd.getName());
+        x.addTag("p").addText("URL: [base]/"+c.getValue()+"/[id]/$"+opd.getCode());
     }
     
     x.addTag("p").addText("Parameters");

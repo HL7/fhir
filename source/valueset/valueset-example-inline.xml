@@ -74,7 +74,7 @@
 		system for that. We're just representing the public face of the code 
 		system for external users
 	-->
-  <define>
+  <codeSystem>
 		<!--
 			note that since we give a literal URL here, there's an expectation 
 			that accessing that URL will give some form of representation of 
@@ -133,6 +133,6 @@
 				<value value="Obdurate Labs uses this with both kinds of units..."/>
 			</designation>
 		</concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 				

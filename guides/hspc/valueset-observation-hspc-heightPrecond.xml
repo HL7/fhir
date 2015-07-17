@@ -17,7 +17,7 @@
   <status value="draft"/>
   <extensible value="true"/>
   <date value="2015-05-19"/>
-  <define>
+  <codeSystem>
 		<system value="Internountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -40,5 +40,5 @@
 			<display value="Height (body length) with patient standing"/>
 			<definition value="The individual's height was measured while the individual was standing up."/>
 		</concept>
-  </define>
+  </codeSystem>
 </ValueSet>

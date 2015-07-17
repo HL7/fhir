@@ -198,7 +198,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
 
     for (ValueSet vs : definitions.getValuesets().values()) {
-      if (vs.getUserData("java-generated") == null && vs.hasDefine() && !vs.hasCompose() && !vs.getId().startsWith("v2-")) {
+      if (vs.getUserData("java-generated") == null && vs.hasCodeSystem() && !vs.hasCompose() && !vs.getId().startsWith("v2-")) {
         String tns = tokenize(vs.getId());
         JavaValueSetGenerator vsgen = new JavaValueSetGenerator(new FileOutputStream(Utilities.path(javaDir, "valuesets", tns+".java"))); 
         vsgen.generate(genDate, version, vs, tns);

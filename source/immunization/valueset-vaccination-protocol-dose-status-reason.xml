@@ -11,7 +11,7 @@
   <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
         contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>
     <caseSensitive value="true"/>      
     <concept>
@@ -34,6 +34,6 @@
       <code value="prodrecall"/>
       <display value="Product recall" />
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

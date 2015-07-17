@@ -24,7 +24,7 @@ NEHTA cannot accept any responsibility for the consequences of any use of the In
 general nature only, it is up to any person using or relying on the Information to ensure that it is accurate, complete 
 and suitable for the circumstances of its use."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="urn:oid:1.2.36.1.2001.1001.101.104.16592"/>
     <caseSensitive value="true"/>      
     
@@ -58,6 +58,6 @@ and suitable for the circumstances of its use."/>
       <display value="Suspended"/>
       <definition value="Administration of this medication item that the patient is currently taking is on hold, or instructed or recommended by a health care provider to be temporarily stopped, or subject to clinical review (i.e. the stop may be temporary or permanent depending on the outcome of clinical review), or temporarily suspended as a pre-requisite to certain surgical or diagnostic procedures."/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>
 

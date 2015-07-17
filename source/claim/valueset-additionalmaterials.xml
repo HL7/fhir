@@ -13,7 +13,7 @@
 	</contact>
 	<description value="This value set includes sample additional material type codes."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/additionalmaterials"/>
 		<caseSensitive value="true"/>    
 		<concept>
@@ -46,6 +46,6 @@
 			<display value="Other"/>
 			<definition value="Other"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

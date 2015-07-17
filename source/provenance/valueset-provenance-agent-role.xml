@@ -19,7 +19,7 @@
   <status value="draft"/>
   <extensible value="true"/>
   <date value="2023-05-12"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/provenance-participant-role"/>
     <caseSensitive value="true"/>
     <concept>
@@ -72,5 +72,5 @@
       <display value="Informant"/>
       <definition value="A person who reported information that contributed to the resource"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

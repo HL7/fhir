@@ -23,7 +23,7 @@ Range Basis
   <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/referencerange-meaning"/>
     <caseSensitive value="true"/>
     <concept>
@@ -91,7 +91,7 @@ Range Basis
         <definition value="An expected range in an individual post-menopause"/>
       </concept>
     </concept>
-  </define>
+  </codeSystem>
   <compose>
     <import value="http://hl7.org/fhir/ValueSet/v3-Race"/>
     <include>

@@ -12,7 +12,7 @@
   <description value="Example value set for Procedure Device Action code (what happened to a device during a procedure"/>
   <status value="draft"/>
   <!-- due to the lack of any available codes, we invent our own examples here -->
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/device-action"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -30,5 +30,5 @@
       <display value="Manipulated"/>
       <definition value="The device remains in that patient, but it's location, settings, or functionality was changed"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

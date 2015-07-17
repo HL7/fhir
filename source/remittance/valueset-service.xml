@@ -9,7 +9,7 @@
   </contact>
   <description value="This value set includes a smattering of  USCLS codes"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="urn:USCLS"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -69,5 +69,5 @@
     <concept>
       <code value="99555"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

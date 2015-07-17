@@ -369,9 +369,9 @@ public class BindingSpecification {
     if (allCodes == null) {
       allCodes = new ArrayList<DefinedCode>();
       if (valueSet != null) {
-        if (valueSet.hasDefine()) 
-          for (ConceptDefinitionComponent c : valueSet.getDefine().getConcept())
-            processCode(c, valueSet.getDefine().getSystem(), null);
+        if (valueSet.hasCodeSystem()) 
+          for (ConceptDefinitionComponent c : valueSet.getCodeSystem().getConcept())
+            processCode(c, valueSet.getCodeSystem().getSystem(), null);
         if (valueSet.hasCompose()) {
           for (ConceptSetComponent cc : valueSet.getCompose().getInclude())
             for (ConceptReferenceComponent c : cc.getConcept())

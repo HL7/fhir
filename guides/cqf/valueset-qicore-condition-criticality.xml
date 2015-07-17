@@ -9,7 +9,7 @@
   </contact>
   <description value="Value Set for QICore Condition Criticality (Example)"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/qicore-condition-criticality"/>
     <caseSensitive value="true"/>
     <concept>
@@ -42,5 +42,5 @@
       <display value="Requires Hospitalization"/>
       <definition value="The condition requires hospitalization"/>
     </concept>
-  </define>    
+  </codeSystem>    
 </ValueSet>

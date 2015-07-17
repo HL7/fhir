@@ -10,7 +10,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
@@ -44,8 +44,8 @@ public class CodeListToValueSetParser {
     Map<String, ConceptSetComponent> includes = new HashMap<String, ConceptSetComponent>();
     
     if (hasDefine) {
-      ValueSetDefineComponent define = new ValueSetDefineComponent();
-      valueSet.setDefine(define);
+      ValueSetCodeSystemComponent define = new ValueSetCodeSystemComponent();
+      valueSet.setCodeSystem(define);
       define.setSystem("http://hl7.org/fhir/"+sheetName);
       define.setVersion(version);
       define.setCaseSensitive(true);

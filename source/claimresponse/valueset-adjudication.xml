@@ -11,7 +11,7 @@
   </contact>
   <description value="This value set includes a smattering of Adjudication codes"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/adjudication"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -35,5 +35,5 @@
     <concept>
       <code value="benefit"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

@@ -216,10 +216,10 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
   }
 
   private ValidationResult verifyCode(ValueSet vs, String code, String display) throws Exception {
-    if (vs.hasExpansion() && !vs.hasDefine()) {
+    if (vs.hasExpansion() && !vs.hasCodeSystem()) {
       ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
       if (cc == null)
-        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getDefine().getSystem());
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getCodeSystem().getSystem());
       if (display == null)
         return null;
       if (cc.hasDisplay()) {
@@ -229,9 +229,9 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
       }
       return null;
     } else {
-      ConceptDefinitionComponent cc = findCodeInConcept(vs.getDefine().getConcept(), code);
+      ConceptDefinitionComponent cc = findCodeInConcept(vs.getCodeSystem().getConcept(), code);
       if (cc == null)
-        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getDefine().getSystem());
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getCodeSystem().getSystem());
       if (display == null)
         return null;
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -447,7 +447,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
   private String determineCacheId(ValueSet vs) throws Exception {
     // just the content logical definition is hashed
     ValueSet vsid = new ValueSet();
-    vsid.setDefine(vs.getDefine());
+    vsid.setCodeSystem(vs.getCodeSystem());
     vsid.setCompose(vs.getCompose());
     vsid.setLockedDate(vs.getLockedDate());
     JsonParser parser = new JsonParser();
@@ -484,8 +484,8 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
           client.initialize(tsServer);
         }
         Map<String, String> params = new HashMap<String, String>();
-        params.put("_query", "expand");
         params.put("limit", "500");
+        params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
         ValueSet result = client.expandValueset(vs);
         serverOk = true;
         FileOutputStream s = new FileOutputStream(cacheFn);

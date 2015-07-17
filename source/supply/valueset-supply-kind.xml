@@ -10,7 +10,7 @@
   </contact>
   <description value="This value sets refers to a Category of supply"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/supply-kind"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -23,5 +23,5 @@
       <display value="Non-Stock"/>
       <definition value="Supply is not onsite and must be requested from an outside vendor using a non-stock requisition"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

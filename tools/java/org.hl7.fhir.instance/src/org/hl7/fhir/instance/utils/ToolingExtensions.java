@@ -54,7 +54,7 @@ import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -308,7 +308,7 @@ public class ToolingExtensions {
       resource.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
   }
 
-  public static String getOID(ValueSetDefineComponent define) {
+  public static String getOID(ValueSetCodeSystemComponent define) {
     return readStringExtension(define, EXT_OID);    
   }
 
@@ -316,7 +316,7 @@ public class ToolingExtensions {
     return readStringExtension(vs, EXT_OID);    
   }
 
-  public static void setOID(ValueSetDefineComponent define, String oid) throws Exception {
+  public static void setOID(ValueSetCodeSystemComponent define, String oid) throws Exception {
     define.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
   }
   public static void setOID(ValueSet vs, String oid) throws Exception {

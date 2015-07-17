@@ -17,7 +17,7 @@
   <status value="draft"/>
   <extensible value="true"/>
   <date value="2015-06-01"/>
-  <define>
+  <codeSystem>
 		<system value="Internountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>	
@@ -65,5 +65,5 @@
 			<display value="Broselow tape"/>
 			<definition value="A measuring tape created to relate a child's height, as measured by the tape to the child's weight"/>
 		</concept>
-  </define>
+  </codeSystem>
 </ValueSet>

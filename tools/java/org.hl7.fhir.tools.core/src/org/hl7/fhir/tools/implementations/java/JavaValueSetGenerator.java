@@ -97,7 +97,7 @@ public class JavaValueSetGenerator extends JavaBaseGenerator {
     write("        }\r\n"); 
 
     write("        public String getSystem() {\r\n");
-    write("          return \""+vs.getDefine().getSystem()+"\";\r\n");
+    write("          return \""+vs.getCodeSystem().getSystem()+"\";\r\n");
     write("        }\r\n"); 
 
     write("        public String getDefinition() {\r\n");

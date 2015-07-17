@@ -11,7 +11,7 @@
   <description value="This example value set defines a set of codes that can be used to indicate 
     the purpose for which you would contact a contact party."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/contactentity-type"></system>
     <caseSensitive value="true"/>
     <concept>
@@ -44,6 +44,6 @@
       <display value="Press" />
       <definition value="Dedicated contact point for matters relating to press enquiries" />
     </concept>
-  </define>  
+  </codeSystem>  
 </ValueSet>
 

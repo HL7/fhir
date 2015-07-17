@@ -9,7 +9,7 @@
     <status value="draft"/>
     <extensible value="true"/>
     <date value="2015-06-11"/>
-    <define>
+    <codeSystem>
 		<system value="Intermountain Healtcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -32,7 +32,7 @@
 			<display value="At birth"/>
 			<definition value="Occurred at birth"/>
 		</concept>
-	</define>
+	</codeSystem>
     <compose>
         <include>
             <system value="http://snomed.info/sct"/>

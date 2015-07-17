@@ -148,7 +148,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
         params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(cs.getUrl()+"?version="+cs.getVersion())));
 	  if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
 	    // special case - add all the code system
-	    for (ConceptDefinitionComponent def : cs.getDefine().getConcept()) {
+	    for (ConceptDefinitionComponent def : cs.getCodeSystem().getConcept()) {
         addCodeAndDescendents(inc.getSystem(), def);
 	    }
 	  }
@@ -162,7 +162,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	    ConceptSetFilterComponent fc = inc.getFilter().get(0);
 	  	if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.ISA) {
 	  		// special: all non-abstract codes in the target code system under the value
-	  		ConceptDefinitionComponent def = getConceptForCode(cs.getDefine().getConcept(), fc.getValue());
+	  		ConceptDefinitionComponent def = getConceptForCode(cs.getCodeSystem().getConcept(), fc.getValue());
 	  		if (def == null)
 	  			throw new Exception("Code '"+fc.getValue()+"' not found in system '"+inc.getSystem()+"'");
 	  		addCodeAndDescendents(inc.getSystem(), def);
@@ -215,9 +215,9 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
 	
 	private String getCodeDisplay(ValueSet cs, String code) throws Exception {
-		ConceptDefinitionComponent def = getConceptForCode(cs.getDefine().getConcept(), code);
+		ConceptDefinitionComponent def = getConceptForCode(cs.getCodeSystem().getConcept(), code);
 		if (def == null)
-			throw new Exception("Unable to find code '"+code+"' in code system "+cs.getDefine().getSystem());
+			throw new Exception("Unable to find code '"+code+"' in code system "+cs.getCodeSystem().getSystem());
 		return def.getDisplay();
   }
 
@@ -235,10 +235,10 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	private void handleDefine(ValueSet vs, List<ValueSetExpansionParameterComponent> list) {
 	  if (vs.hasVersion())
 	    list.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(vs.getUrl()+"?version="+vs.getVersion())));
-	  if (vs.hasDefine()) {
+	  if (vs.hasCodeSystem()) {
       // simple case: just generate the return
-    	for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) 
-    		addDefinedCode(vs, vs.getDefine().getSystem(), c);
+    	for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) 
+    		addDefinedCode(vs, vs.getCodeSystem().getSystem(), c);
    	}
   }
 
@@ -257,7 +257,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 				addCode(system, c.getCode(), c.getDisplay());
 			}
 			for (ConceptDefinitionComponent g : c.getConcept()) 
-				addDefinedCode(vs, vs.getDefine().getSystem(), g);
+				addDefinedCode(vs, vs.getCodeSystem().getSystem(), g);
 		}
   }
 

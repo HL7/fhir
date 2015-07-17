@@ -548,8 +548,8 @@ public class XSDBaseGenerator {
 
     write("  <xs:simpleType name=\"" + en + "-list\">\r\n");
     write("    <xs:restriction base=\"xs:string\">\r\n");
-    if (bs.getValueSet().hasDefine()) {
-      for (ConceptDefinitionComponent c : bs.getValueSet().getDefine().getConcept()) {
+    if (bs.getValueSet().hasCodeSystem()) {
+      for (ConceptDefinitionComponent c : bs.getValueSet().getCodeSystem().getConcept()) {
         genDefinedCode(c);
       }
     }

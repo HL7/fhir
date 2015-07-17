@@ -10,7 +10,7 @@
   </contact>
   <description value="This value set defines a set of codes that can be used to indicate how an individual participates in an encounter"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/participant-type"/>
     <caseSensitive value="true"/>   
     <concept>
@@ -23,7 +23,7 @@
       <display value="Emergency"/>
       <definition value="A person to be contacted in case of an emergency during the encounter" />
     </concept>  
-  </define>
+  </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ParticipationType"/>

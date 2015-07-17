@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 16, 2015 13:03+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 17, 2015 12:58+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1811,62 +1811,76 @@ public class ElementDefinition extends Type implements ICompositeType {
     protected org.hl7.fhir.instance.model.Type example;
 
     /**
+     * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+     */
+    @Child(name = "minValue", type = {}, order=20, min=0, max=1)
+    @Description(shortDefinition="Minimum Allowed Value (for some types)", formalDefinition="The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity." )
+    protected org.hl7.fhir.instance.model.Type minValue;
+
+    /**
+     * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+     */
+    @Child(name = "maxValue", type = {}, order=21, min=0, max=1)
+    @Description(shortDefinition="Maximum Allowed Value (for some types)", formalDefinition="The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity." )
+    protected org.hl7.fhir.instance.model.Type maxValue;
+
+    /**
      * Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.
      */
-    @Child(name = "maxLength", type = {IntegerType.class}, order=20, min=0, max=1)
+    @Child(name = "maxLength", type = {IntegerType.class}, order=22, min=0, max=1)
     @Description(shortDefinition="Max length for strings", formalDefinition="Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element." )
     protected IntegerType maxLength;
 
     /**
      * A reference to an invariant that may make additional statements about the cardinality or value in the instance.
      */
-    @Child(name = "condition", type = {IdType.class}, order=21, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "condition", type = {IdType.class}, order=23, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Reference to invariant about presence", formalDefinition="A reference to an invariant that may make additional statements about the cardinality or value in the instance." )
     protected List<IdType> condition;
 
     /**
      * Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.
      */
-    @Child(name = "constraint", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "constraint", type = {}, order=24, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Condition that must evaluate to true", formalDefinition="Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance." )
     protected List<ElementDefinitionConstraintComponent> constraint;
 
     /**
      * If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
      */
-    @Child(name = "mustSupport", type = {BooleanType.class}, order=23, min=0, max=1)
+    @Child(name = "mustSupport", type = {BooleanType.class}, order=25, min=0, max=1)
     @Description(shortDefinition="If the element must supported", formalDefinition="If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported." )
     protected BooleanType mustSupport;
 
     /**
      * If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
      */
-    @Child(name = "isModifier", type = {BooleanType.class}, order=24, min=0, max=1)
+    @Child(name = "isModifier", type = {BooleanType.class}, order=26, min=0, max=1)
     @Description(shortDefinition="If this modifies the meaning of other elements", formalDefinition="If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system." )
     protected BooleanType isModifier;
 
     /**
      * Whether the element should be included if a client requests a search with the parameter _summary=true.
      */
-    @Child(name = "isSummary", type = {BooleanType.class}, order=25, min=0, max=1)
+    @Child(name = "isSummary", type = {BooleanType.class}, order=27, min=0, max=1)
     @Description(shortDefinition="Include when _summary = true?", formalDefinition="Whether the element should be included if a client requests a search with the parameter _summary=true." )
     protected BooleanType isSummary;
 
     /**
      * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
      */
-    @Child(name = "binding", type = {}, order=26, min=0, max=1)
+    @Child(name = "binding", type = {}, order=28, min=0, max=1)
     @Description(shortDefinition="ValueSet details if this is coded", formalDefinition="Binds to a value set if this element is coded (code, Coding, CodeableConcept)." )
     protected ElementDefinitionBindingComponent binding;
 
     /**
      * Identifies a concept from an external specification that roughly corresponds to this element.
      */
-    @Child(name = "mapping", type = {}, order=27, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "mapping", type = {}, order=29, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
     protected List<ElementDefinitionMappingComponent> mapping;
 
-    private static final long serialVersionUID = 1149674414L;
+    private static final long serialVersionUID = -894958262L;
 
   /*
    * Constructor
@@ -2703,6 +2717,44 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
+     * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
+     */
+    public org.hl7.fhir.instance.model.Type getMinValue() { 
+      return this.minValue;
+    }
+
+    public boolean hasMinValue() { 
+      return this.minValue != null && !this.minValue.isEmpty();
+    }
+
+    /**
+     * @param value {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
+     */
+    public ElementDefinition setMinValue(org.hl7.fhir.instance.model.Type value) { 
+      this.minValue = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
+     */
+    public org.hl7.fhir.instance.model.Type getMaxValue() { 
+      return this.maxValue;
+    }
+
+    public boolean hasMaxValue() { 
+      return this.maxValue != null && !this.maxValue.isEmpty();
+    }
+
+    /**
+     * @param value {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
+     */
+    public ElementDefinition setMaxValue(org.hl7.fhir.instance.model.Type value) { 
+      this.maxValue = value;
+      return this;
+    }
+
+    /**
      * @return {@link #maxLength} (Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.). This is the underlying object with id, value and extensions. The accessor "getMaxLength" gives direct access to the value
      */
     public IntegerType getMaxLengthElement() { 
@@ -3062,6 +3114,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         childrenList.add(new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-signficant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, java.lang.Integer.MAX_VALUE, fixed));
         childrenList.add(new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-senstive, accent-sensitive, etc.).", 0, java.lang.Integer.MAX_VALUE, pattern));
         childrenList.add(new Property("example[x]", "*", "A sample value for this element demonstrating the type of information that would typically be captured.", 0, java.lang.Integer.MAX_VALUE, example));
+        childrenList.add(new Property("minValue[x]", "*", "The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.", 0, java.lang.Integer.MAX_VALUE, minValue));
+        childrenList.add(new Property("maxValue[x]", "*", "The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.", 0, java.lang.Integer.MAX_VALUE, maxValue));
         childrenList.add(new Property("maxLength", "integer", "Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.", 0, java.lang.Integer.MAX_VALUE, maxLength));
         childrenList.add(new Property("condition", "id", "A reference to an invariant that may make additional statements about the cardinality or value in the instance.", 0, java.lang.Integer.MAX_VALUE, condition));
         childrenList.add(new Property("constraint", "", "Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.", 0, java.lang.Integer.MAX_VALUE, constraint));
@@ -3111,6 +3165,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         dst.fixed = fixed == null ? null : fixed.copy();
         dst.pattern = pattern == null ? null : pattern.copy();
         dst.example = example == null ? null : example.copy();
+        dst.minValue = minValue == null ? null : minValue.copy();
+        dst.maxValue = maxValue == null ? null : maxValue.copy();
         dst.maxLength = maxLength == null ? null : maxLength.copy();
         if (condition != null) {
           dst.condition = new ArrayList<IdType>();
@@ -3152,10 +3208,10 @@ public class ElementDefinition extends Type implements ICompositeType {
            && compareDeep(max, o.max, true) && compareDeep(type, o.type, true) && compareDeep(nameReference, o.nameReference, true)
            && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(meaningWhenMissing, o.meaningWhenMissing, true)
            && compareDeep(fixed, o.fixed, true) && compareDeep(pattern, o.pattern, true) && compareDeep(example, o.example, true)
-           && compareDeep(maxLength, o.maxLength, true) && compareDeep(condition, o.condition, true) && compareDeep(constraint, o.constraint, true)
-           && compareDeep(mustSupport, o.mustSupport, true) && compareDeep(isModifier, o.isModifier, true)
-           && compareDeep(isSummary, o.isSummary, true) && compareDeep(binding, o.binding, true) && compareDeep(mapping, o.mapping, true)
-          ;
+           && compareDeep(minValue, o.minValue, true) && compareDeep(maxValue, o.maxValue, true) && compareDeep(maxLength, o.maxLength, true)
+           && compareDeep(condition, o.condition, true) && compareDeep(constraint, o.constraint, true) && compareDeep(mustSupport, o.mustSupport, true)
+           && compareDeep(isModifier, o.isModifier, true) && compareDeep(isSummary, o.isSummary, true) && compareDeep(binding, o.binding, true)
+           && compareDeep(mapping, o.mapping, true);
       }
 
       @Override
@@ -3183,10 +3239,11 @@ public class ElementDefinition extends Type implements ICompositeType {
            && (type == null || type.isEmpty()) && (nameReference == null || nameReference.isEmpty())
            && (defaultValue == null || defaultValue.isEmpty()) && (meaningWhenMissing == null || meaningWhenMissing.isEmpty())
            && (fixed == null || fixed.isEmpty()) && (pattern == null || pattern.isEmpty()) && (example == null || example.isEmpty())
-           && (maxLength == null || maxLength.isEmpty()) && (condition == null || condition.isEmpty())
-           && (constraint == null || constraint.isEmpty()) && (mustSupport == null || mustSupport.isEmpty())
-           && (isModifier == null || isModifier.isEmpty()) && (isSummary == null || isSummary.isEmpty())
-           && (binding == null || binding.isEmpty()) && (mapping == null || mapping.isEmpty());
+           && (minValue == null || minValue.isEmpty()) && (maxValue == null || maxValue.isEmpty()) && (maxLength == null || maxLength.isEmpty())
+           && (condition == null || condition.isEmpty()) && (constraint == null || constraint.isEmpty())
+           && (mustSupport == null || mustSupport.isEmpty()) && (isModifier == null || isModifier.isEmpty())
+           && (isSummary == null || isSummary.isEmpty()) && (binding == null || binding.isEmpty()) && (mapping == null || mapping.isEmpty())
+          ;
       }
 
 

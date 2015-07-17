@@ -2496,7 +2496,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define</Data>
+					<Data ss:Type="String">ValueSet.codeSystem</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -2576,7 +2576,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.system</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.system</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -2657,7 +2657,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.version</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.version</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -2738,7 +2738,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.caseSensitive</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.caseSensitive</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -2819,7 +2819,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -2901,7 +2901,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.extension</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.extension</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -2984,7 +2984,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.extension.extension</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.extension.extension</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3067,7 +3067,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.extension.extension</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.extension.extension</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3150,7 +3150,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.extension</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.extension</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3233,7 +3233,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.code</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.code</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3315,7 +3315,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.abstract</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.abstract</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3396,7 +3396,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.display</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.display</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3479,7 +3479,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.display.extension</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.display.extension</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3561,7 +3561,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.display.extension</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.display.extension</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3643,7 +3643,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.definition</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.definition</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3725,7 +3725,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">ValueSet.define.concept.concept</Data>
+					<Data ss:Type="String">ValueSet.codeSystem.concept.concept</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -3739,7 +3739,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">@ValueSet.define.concept</Data>
+					<Data ss:Type="String">@ValueSet.codeSystem.concept</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">

@@ -10,7 +10,7 @@
   </contact>
   <description value="This value sets indicates whether a given quantity is absolute or relative"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/substance-quantity-mode"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -23,5 +23,5 @@
       <display value="Relative"/>
       <definition value="Quantity values are relative to each other."/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

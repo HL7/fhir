@@ -8381,7 +8381,7 @@
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
   <date value="2010-08-26"/>
-  <define>
+  <codeSystem>
     <system value="http://nema.org/dicom/dicm"/>
     <caseSensitive value="true"/>
 
@@ -16744,5 +16744,5 @@
       <definition value="External-camera Photography device"/>
     </concept>  
 
-  </define>
+  </codeSystem>
 </ValueSet>

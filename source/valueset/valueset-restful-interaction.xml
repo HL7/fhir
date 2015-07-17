@@ -8,7 +8,7 @@
   <publisher value="FHIR Project"/>
   <description value="The set of interactions defined by the RESTful part of the FHIR specification"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/restful-interaction"/>
     <caseSensitive value="true"/>
 	
@@ -105,5 +105,5 @@
       <definition value="Perform an operation as defined by an OperationDefinition"/>
     </concept>  
     
-  </define>
+  </codeSystem>
 </ValueSet>

@@ -335,7 +335,7 @@ public class ValueSet extends DomainResource {
   }
 
     @Block()
-    public static class ValueSetDefineComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ValueSetCodeSystemComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.
          */
@@ -369,14 +369,14 @@ public class ValueSet extends DomainResource {
     /*
      * Constructor
      */
-      public ValueSetDefineComponent() {
+      public ValueSetCodeSystemComponent() {
         super();
       }
 
     /*
      * Constructor
      */
-      public ValueSetDefineComponent(UriType system) {
+      public ValueSetCodeSystemComponent(UriType system) {
         super();
         this.system = system;
       }
@@ -404,7 +404,7 @@ public class ValueSet extends DomainResource {
         /**
          * @param value {@link #system} (An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public ValueSetDefineComponent setSystemElement(UriType value) { 
+        public ValueSetCodeSystemComponent setSystemElement(UriType value) { 
           this.system = value;
           return this;
         }
@@ -419,7 +419,7 @@ public class ValueSet extends DomainResource {
         /**
          * @param value An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.
          */
-        public ValueSetDefineComponent setSystem(String value) { 
+        public ValueSetCodeSystemComponent setSystem(String value) { 
             if (this.system == null)
               this.system = new UriType();
             this.system.setValue(value);
@@ -449,7 +449,7 @@ public class ValueSet extends DomainResource {
         /**
          * @param value {@link #version} (The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ValueSetDefineComponent setVersionElement(StringType value) { 
+        public ValueSetCodeSystemComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -464,7 +464,7 @@ public class ValueSet extends DomainResource {
         /**
          * @param value The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
          */
-        public ValueSetDefineComponent setVersion(String value) { 
+        public ValueSetCodeSystemComponent setVersion(String value) { 
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -498,7 +498,7 @@ public class ValueSet extends DomainResource {
         /**
          * @param value {@link #caseSensitive} (If code comparison is case sensitive when codes within this system are compared to each other.). This is the underlying object with id, value and extensions. The accessor "getCaseSensitive" gives direct access to the value
          */
-        public ValueSetDefineComponent setCaseSensitiveElement(BooleanType value) { 
+        public ValueSetCodeSystemComponent setCaseSensitiveElement(BooleanType value) { 
           this.caseSensitive = value;
           return this;
         }
@@ -513,7 +513,7 @@ public class ValueSet extends DomainResource {
         /**
          * @param value If code comparison is case sensitive when codes within this system are compared to each other.
          */
-        public ValueSetDefineComponent setCaseSensitive(boolean value) { 
+        public ValueSetCodeSystemComponent setCaseSensitive(boolean value) { 
             if (this.caseSensitive == null)
               this.caseSensitive = new BooleanType();
             this.caseSensitive.setValue(value);
@@ -551,7 +551,7 @@ public class ValueSet extends DomainResource {
         }
 
     // syntactic sugar
-        public ValueSetDefineComponent addConcept(ConceptDefinitionComponent t) { //3
+        public ValueSetCodeSystemComponent addConcept(ConceptDefinitionComponent t) { //3
           if (t == null)
             return this;
           if (this.concept == null)
@@ -568,8 +568,8 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("concept", "", "Concepts in the code system.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
-      public ValueSetDefineComponent copy() {
-        ValueSetDefineComponent dst = new ValueSetDefineComponent();
+      public ValueSetCodeSystemComponent copy() {
+        ValueSetCodeSystemComponent dst = new ValueSetCodeSystemComponent();
         copyValues(dst);
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
@@ -586,9 +586,9 @@ public class ValueSet extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ValueSetDefineComponent))
+        if (!(other instanceof ValueSetCodeSystemComponent))
           return false;
-        ValueSetDefineComponent o = (ValueSetDefineComponent) other;
+        ValueSetCodeSystemComponent o = (ValueSetCodeSystemComponent) other;
         return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(caseSensitive, o.caseSensitive, true)
            && compareDeep(concept, o.concept, true);
       }
@@ -597,9 +597,9 @@ public class ValueSet extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ValueSetDefineComponent))
+        if (!(other instanceof ValueSetCodeSystemComponent))
           return false;
-        ValueSetDefineComponent o = (ValueSetDefineComponent) other;
+        ValueSetCodeSystemComponent o = (ValueSetCodeSystemComponent) other;
         return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(caseSensitive, o.caseSensitive, true)
           ;
       }
@@ -3253,7 +3253,7 @@ public class ValueSet extends DomainResource {
      */
     @Child(name = "define", type = {}, order=16, min=0, max=1)
     @Description(shortDefinition="When value set defines its own codes", formalDefinition="A definition of an code system, inlined into the value set." )
-    protected ValueSetDefineComponent define;
+    protected ValueSetCodeSystemComponent codeSystem;
 
     /**
      * When value set includes codes from elsewhere.
@@ -4012,26 +4012,26 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return {@link #define} (A definition of an code system, inlined into the value set.)
+     * @return {@link #codeSystem} (A definition of an code system, inlined into the value set.)
      */
-    public ValueSetDefineComponent getDefine() { 
-      if (this.define == null)
+    public ValueSetCodeSystemComponent getCodeSystem() { 
+      if (this.codeSystem == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.define");
         else if (Configuration.doAutoCreate())
-          this.define = new ValueSetDefineComponent(); // cc
-      return this.define;
+          this.codeSystem = new ValueSetCodeSystemComponent(); // cc
+      return this.codeSystem;
     }
 
-    public boolean hasDefine() { 
-      return this.define != null && !this.define.isEmpty();
+    public boolean hasCodeSystem() { 
+      return this.codeSystem != null && !this.codeSystem.isEmpty();
     }
 
     /**
-     * @param value {@link #define} (A definition of an code system, inlined into the value set.)
+     * @param value {@link #codeSystem} (A definition of an code system, inlined into the value set.)
      */
-    public ValueSet setDefine(ValueSetDefineComponent value) { 
-      this.define = value;
+    public ValueSet setCodeSystem(ValueSetCodeSystemComponent value) { 
+      this.codeSystem = value;
       return this;
     }
 
@@ -4101,7 +4101,7 @@ public class ValueSet extends DomainResource {
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
         childrenList.add(new Property("date", "dateTime", "The date that the value set status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("lockedDate", "date", "If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
-        childrenList.add(new Property("define", "", "A definition of an code system, inlined into the value set.", 0, java.lang.Integer.MAX_VALUE, define));
+        childrenList.add(new Property("define", "", "A definition of an code system, inlined into the value set.", 0, java.lang.Integer.MAX_VALUE, codeSystem));
         childrenList.add(new Property("compose", "", "When value set includes codes from elsewhere.", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
       }
@@ -4133,7 +4133,7 @@ public class ValueSet extends DomainResource {
         dst.extensible = extensible == null ? null : extensible.copy();
         dst.date = date == null ? null : date.copy();
         dst.lockedDate = lockedDate == null ? null : lockedDate.copy();
-        dst.define = define == null ? null : define.copy();
+        dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
         dst.compose = compose == null ? null : compose.copy();
         dst.expansion = expansion == null ? null : expansion.copy();
         return dst;
@@ -4155,7 +4155,7 @@ public class ValueSet extends DomainResource {
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
            && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(extensible, o.extensible, true)
-           && compareDeep(date, o.date, true) && compareDeep(lockedDate, o.lockedDate, true) && compareDeep(define, o.define, true)
+           && compareDeep(date, o.date, true) && compareDeep(lockedDate, o.lockedDate, true) && compareDeep(codeSystem, o.codeSystem, true)
            && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true);
       }
 
@@ -4181,7 +4181,7 @@ public class ValueSet extends DomainResource {
            && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
            && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (extensible == null || extensible.isEmpty()) && (date == null || date.isEmpty()) && (lockedDate == null || lockedDate.isEmpty())
-           && (define == null || define.isEmpty()) && (compose == null || compose.isEmpty()) && (expansion == null || expansion.isEmpty())
+           && (codeSystem == null || codeSystem.isEmpty()) && (compose == null || compose.isEmpty()) && (expansion == null || expansion.isEmpty())
           ;
       }
 

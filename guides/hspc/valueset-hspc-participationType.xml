@@ -15,7 +15,7 @@
   <status value="draft"/>
   <extensible value="true"/>
   <date value="2015-05-19"/>
-  <define>
+  <codeSystem>
 		<system value="Intermountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -33,7 +33,7 @@
 			<display value="Therapeutic agent"/>
 			<definition value="Something incorporated in the subject of a therapy service to achieve a physiologic effect (e.g., heal, relieve, provoke a condition, etc.)"/>
 		</concept>
-  </define>
+  </codeSystem>
   <compose>
 	    <include>
 			<system value="http://hl7.org/fhir/v3/ParticipationType"/>

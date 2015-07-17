@@ -11,7 +11,7 @@
   </contact>
   <description value="This value set includes a smattering of adjudication codes"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/adjudication-error"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -20,5 +20,5 @@
     <concept>
       <code value="A002"/> <!-- missing or invalid USE code -->
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

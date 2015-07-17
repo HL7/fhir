@@ -10,7 +10,7 @@
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate a type of organization."/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/organization-type"/>
     <caseSensitive value="true"/>
     <concept>
@@ -56,6 +56,6 @@
       <code value="pharm"/>
       <display value="Pharmacy"/>
     </concept>-->
-  </define>
+  </codeSystem>
 </ValueSet>
 

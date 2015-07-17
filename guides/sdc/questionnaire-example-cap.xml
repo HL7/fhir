@@ -19,7 +19,7 @@
     <ValueSet>
       <id value="margin-status"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <!-- This looks like it should be SNOMED, but not sure what the codes are -->
         <!-- Not sure what the trailing text of {C:1} {Str} {Ch:4000}, etc. for various codes means -->
         <system value="http://cap.org/example/fhir/margin-status"/>
@@ -40,14 +40,14 @@
           <code value="M4"/>
           <display value="Not applicable"/>
         </concept>
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
   <contained>
     <ValueSet>
       <id value="margin-distance"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <system value="http://cap.org/example/fhir/margin-distance"/>
         <concept>
           <code value="D1"/>
@@ -57,14 +57,14 @@
           <code value="D2"/>
           <display value="Cannot be assessed (explain)"/>
         </concept>
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
   <contained>
     <ValueSet>
       <id value="margin"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <system value="http://cap.org/example/fhir/margin"/>
         <concept>
           <code value="W1"/>
@@ -74,14 +74,14 @@
           <code value="W2"/>
           <display value="Cannot be determined (explain)"/>
         </concept>
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
   <contained>
     <ValueSet>
       <id value="involved-margins"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <system value="http://cap.org/example/fhir/involved-margins"/>
         <concept>
           <code value="I1"/>
@@ -91,14 +91,14 @@
           <code value="I2"/>
           <display value="Cannot be determined (explain)"/>
         </concept>
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
   <contained>
     <ValueSet>
       <id value="effect"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <system value="http://cap.org/example/fhir/treatment-effect"/>
         <concept>
           <code value="E1"/>
@@ -112,14 +112,14 @@
           <code value="E3"/>
           <display value="Indeterminate"/>
         </concept>
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
   <contained>
     <ValueSet>
       <id value="tumor"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <system value="http://cap.org/example/fhir/tumor-description"/>
         <concept>
           <code value="U1"/>
@@ -137,14 +137,14 @@
           <code value="U4"/>
           <display value="Other (specify)"/>
         </concept>
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
   <contained>
     <ValueSet>
       <id value="invasion"/>
       <status value="active"/>
-      <define>
+      <codeSystem>
         <system value="http://cap.org/example/fhir/tumor-invasion"/>
         <concept>
           <code value="V1"/>
@@ -158,7 +158,7 @@
           <code value="V3"/>
           <display value="Extra-adrenal (specify)"/>
         </concept>
-      </define>
+      </codeSystem>
     </ValueSet>
   </contained>
 	<status value="published"/>

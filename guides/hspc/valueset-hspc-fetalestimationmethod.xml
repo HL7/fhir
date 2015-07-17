@@ -9,7 +9,7 @@
     <status value="draft"/>
     <extensible value="true"/>
     <date value="2015-06-15"/>
-<define>
+<codeSystem>
 	<system value="Intermountain Healthcare"/>
 	<caseSensitive value="true"/>
 	<concept>
@@ -22,7 +22,7 @@
 		<display value="Uterine size"/>
 		<definition value="A method to estimate due date by measuring the size of the uterus."/>
 	</concept>
-</define>
+</codeSystem>
 <compose>
 	<include>
 		<system value="http://snomed.info/sct"/>

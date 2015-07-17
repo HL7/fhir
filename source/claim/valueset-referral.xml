@@ -10,7 +10,7 @@
 	</contact>
 	<description value="This value set includes the Referral Reason codes."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="urn:ISO-3950"/>
 		<caseSensitive value="true"/>  
 		<concept>
@@ -79,6 +79,6 @@
 			<display value="Behavioral Management"/>
 			<definition value="Behavioral Management"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

@@ -986,7 +986,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     else {
       StringBuilder b = new StringBuilder();
       boolean first = true;
-      for (ConceptDefinitionComponent cc : e.getBinding().getValueSet().getDefine().getConcept()) {
+      for (ConceptDefinitionComponent cc : e.getBinding().getValueSet().getCodeSystem().getConcept()) {
         if (first)
           first = false;
         else
@@ -1001,8 +1001,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String c = "";
     if (vs.hasCopyright())
       c = "<tr><td>Copyright:</td><td>"+Utilities.escapeXml(vs.getCopyright())+"</td></tr>\r\n";
-    if (vs.hasDefine()) {
-      return c+"<tr><td>System URL:</td><td>"+vs.getDefine().getSystem()+"</td></tr>\r\n<tr><td>System OID:</td><td>"+ToolingExtensions.getOID(vs.getDefine())+"</td></tr>";
+    if (vs.hasCodeSystem()) {
+      return c+"<tr><td>System URL:</td><td>"+vs.getCodeSystem().getSystem()+"</td></tr>\r\n<tr><td>System OID:</td><td>"+ToolingExtensions.getOID(vs.getCodeSystem())+"</td></tr>";
     } else
       return c+"";
   }
@@ -1713,8 +1713,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     for (BundleEntryComponent e : v3Valuesets.getEntry()) {
       ValueSet vs = (ValueSet)e.getResource();
-      if (vs.hasDefine()) {
-        String n = vs.getDefine().getSystem();
+      if (vs.hasCodeSystem()) {
+        String n = vs.getCodeSystem().getSystem();
         names.add(n);
         map.put(n, vs);
       }
@@ -1725,9 +1725,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       Resource e = map.get(n);
       ValueSet vs = (ValueSet)e;
       String id = tail(vs.getUrl()).substring(3);
-      if (vs.getDefine() == null)
+      if (vs.getCodeSystem() == null)
         throw new Error("VS "+vs.getUrl()+" has no define");
-      String oid = ToolingExtensions.getOID(vs.getDefine());
+      String oid = ToolingExtensions.getOID(vs.getCodeSystem());
       if (oid != null)
         oid = oid.substring(8);
       s.append(" <tr><td><a href=\"v3/").append(id).append("/index.html\">").append(Utilities.escapeXml(id))
@@ -1748,7 +1748,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     for (BundleEntryComponent e : v3Valuesets.getEntry()) {
       ValueSet vs = (ValueSet) e.getResource();
-      if (!vs.hasDefine()) {
+      if (!vs.hasCodeSystem()) {
         String n = vs.getUrl();
         names.add(n);
         map.put(n, vs);
@@ -2023,11 +2023,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             b.append(" <li>Imported into Valueset <a href=\"").append(path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
         }
         for (ConceptSetComponent t : vsi.getCompose().getInclude()) {
-          if (vs.hasDefine() && t.getSystem().equals(vs.getDefine().getSystem())) 
+          if (vs.hasCodeSystem() && t.getSystem().equals(vs.getCodeSystem().getSystem())) 
             b.append(" <li>Included in Valueset <a href=\"").append(path.startsWith("valueset-") ? path : /* "valueset-" +*/ path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
         }
         for (ConceptSetComponent t : vsi.getCompose().getExclude()) {
-          if (vs.hasDefine() && t.getSystem().equals(vs.getDefine().getSystem())) 
+          if (vs.hasCodeSystem() && t.getSystem().equals(vs.getCodeSystem().getSystem())) 
             b.append(" <li>Excluded in Valueset <a href=\"").append(path.startsWith("valueset-") ? path :/* "valueset-" + */path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
         }
       }
@@ -2544,17 +2544,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       vs = definitions.getValuesets().get(mode);
     if (vs == null)
       throw new Exception("No ValueSet for "+mode);
-    if (!vs.hasDefine())
+    if (!vs.hasCodeSystem())
       throw new Exception("Code list '"+mode+"' is empty/not defined");
     boolean hasComments = false;
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept())
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept())
       hasComments = hasComments || checkHasComment(c);
     
     StringBuilder b = new StringBuilder();
     if (!Utilities.noString(vs.getDescription()))
       b.append("<h3>"+vs.getDescription()+"</h3>\r\n");
     b.append("<table class=\"codes\">\r\n");
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       genCodeItem(links, hasComments, b, c);
     }
     b.append("</table>\r\n");
@@ -2584,11 +2584,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ValueSet vs = definitions.getBoundValueSets().get(n);
     if (vs == null)
       throw new Exception("Unable to find value set '"+n+"'");
-    if (!vs.hasDefine() || !vs.getDefine().hasConcept())
+    if (!vs.hasCodeSystem() || !vs.getCodeSystem().hasConcept())
       throw new Exception("ValueSet '"+n+"' is empty/not defined");
     
     StringBuilder b = new StringBuilder();
-    for (ConceptDefinitionComponent c : vs.getDefine().getConcept())
+    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept())
       b.append("<a href=\"#"+c.getCode()+"\">"+c.getDisplay()+"</a><br/>\r\n");
     return b.toString();
   }
@@ -2838,12 +2838,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String sourceSummary(ValueSet vs) {
     StringBuilder b = new StringBuilder();
     List<String> done = new ArrayList<String>();
-    if (vs.hasDefine()) {
+    if (vs.hasCodeSystem()) {
       String n = "Internal";
       if (vs.getDescription().contains("Connectathon")) n = "IHE";
       if (vs.getDescription().contains("IHE")) n = "IHE";
-      if (vs.getDefine().getSystem().startsWith("http://") && !(vs.getDefine().getSystem().startsWith("http://hl7.org"))) n = "External";
-      if (vs.getDefine().getSystem().equals("http://nema.org/dicom/dicm")) n = "DICOM";
+      if (vs.getCodeSystem().getSystem().startsWith("http://") && !(vs.getCodeSystem().getSystem().startsWith("http://hl7.org"))) n = "External";
+      if (vs.getCodeSystem().getSystem().equals("http://nema.org/dicom/dicm")) n = "DICOM";
       
       b.append(", "+n);
     }
@@ -3297,8 +3297,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
     if (isVs)
       return ToolingExtensions.getOID(vs);
-    else if (vs.hasDefine())
-      return ToolingExtensions.getOID(vs.getDefine());
+    else if (vs.hasCodeSystem())
+      return ToolingExtensions.getOID(vs.getCodeSystem());
     else
       return "";
   }
@@ -3349,7 +3349,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--1-->"+processExpansionError(result.getError())+"</div>";
       ValueSet exp = result.getValueset();
       exp.setCompose(null);
-      exp.setDefine(null);
+      exp.setCodeSystem(null);
       exp.setText(null); 
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
       new NarrativeGenerator("", workerContext).generate(exp);
@@ -6265,7 +6265,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--4-->"+processExpansionError("(no error returned)")+"</div>";
       ValueSet exp = result.getValueset();
       exp.setCompose(null);
-      exp.setDefine(null);
+      exp.setCodeSystem(null);
       exp.setText(null); 
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
       
@@ -6335,12 +6335,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Collections.sort(names);
     for (String n : names) {
       ValueSet vs = definitions.getCodeSystems().get(n);
-      if (vs.hasDefine() && vs.getDefine().hasSystem() && vs.getDefine().getSystem().startsWith("http://hl7.org/fhir") && !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/")) {
+      if (vs.hasCodeSystem() && vs.getCodeSystem().hasSystem() && vs.getCodeSystem().getSystem().startsWith("http://hl7.org/fhir") && !vs.getCodeSystem().getSystem().startsWith("http://hl7.org/fhir/v2/") && !vs.getCodeSystem().getSystem().startsWith("http://hl7.org/fhir/v3/")) {
         b.append("  <tr>\r\n");
-        b.append("    <td>"+vs.getDefine().getSystem()+"</td>\r\n");
+        b.append("    <td>"+vs.getCodeSystem().getSystem()+"</td>\r\n");
         b.append("    <td><a href=\""+vs.getUserString("path")+"\">"+vs.getName()+"</a></td>\r\n");
         b.append("    <td>"+vs.getDescription()+"</td>\r\n");
-        String oid = ToolingExtensions.getOID(vs.getDefine());
+        String oid = ToolingExtensions.getOID(vs.getCodeSystem());
         b.append("    <td>"+(oid == null ? "" : oid.substring(8))+"</td>\r\n");
         b.append("  </tr>\r\n");
       }

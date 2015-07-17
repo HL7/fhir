@@ -12,7 +12,7 @@
   </contact>
   <description value="This value set includes sample Process Outcome codes."/>
   <status value="draft"/>
-    <define>
+    <codeSystem>
 	<system value="http://hl7.org/fhir/processoutcomecodes"/>
     <caseSensitive value="true"/>  
 	<concept>
@@ -24,6 +24,6 @@
 	<concept>
       <code value="error"/>
     </concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

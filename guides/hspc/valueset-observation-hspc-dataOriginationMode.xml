@@ -17,7 +17,7 @@
   <status value="draft"/>
   <extensible value="true"/>
   <date value="2015-05-19"/>
-  <define>
+  <codeSystem>
 		<system value="Intermountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -25,7 +25,7 @@
 			<display value="Stated"/>
 			<definition value="Information that is given directly, either verbally or written, that is not the result of a measurement or estimate."/>
 		</concept>
-  </define>
+  </codeSystem>
   <compose>
 	    <include>
 			<system value="http://snomed.info/sct"/>

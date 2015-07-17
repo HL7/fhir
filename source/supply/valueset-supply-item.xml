@@ -10,7 +10,7 @@
   </contact>
   <description value="This value sets refers to a specific supply item"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/supply-item-type"/>
     <caseSensitive value="true"/>    
     <concept>
@@ -23,5 +23,5 @@
       <display value="Device"/>
       <definition value="What is supplied (or requested) is a device"/>
     </concept>
-  </define>
+  </codeSystem>
 </ValueSet>

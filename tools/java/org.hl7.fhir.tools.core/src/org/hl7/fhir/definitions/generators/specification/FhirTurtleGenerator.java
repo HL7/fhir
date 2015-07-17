@@ -34,7 +34,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -490,8 +490,8 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         BindingSpecification bs = e.getBinding();
         if (bs.getValueSet() != null) {
           String bn = getPNameForUri(bs.getValueSet().getUrl());
-          if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == BindingMethod.CodeList && tr.getName().equals("code") && bs.getValueSet().hasDefine())
-            section.triple("fhir:"+tn+"."+en, "rdfs:range", getPNameForUri(bs.getValueSet().getDefine().getSystem()));
+          if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == BindingMethod.CodeList && tr.getName().equals("code") && bs.getValueSet().hasCodeSystem())
+            section.triple("fhir:"+tn+"."+en, "rdfs:range", getPNameForUri(bs.getValueSet().getCodeSystem().getSystem()));
           else
             section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
           section.triple("fhir:"+tn+"."+en, "fhir:binding", bn);
@@ -678,12 +678,12 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       codedTriple(section, bn, "fhir:useContext", cc);
     section.triple(bn, "fhir:status", complex().predicate("a", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode()));
     section.triple(bn, "fhir:canonicalStatus", complex().predicate("a", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode())));
-    if (vs.hasDefine()) {
-      section.triple(bn, "fhir:include", gen(section, vs.getDefine(), vs));
+    if (vs.hasCodeSystem()) {
+      section.triple(bn, "fhir:include", gen(section, vs.getCodeSystem(), vs));
     }
   }
 
-  private String gen(Section section, ValueSetDefineComponent define, ValueSet vs) {
+  private String gen(Section section, ValueSetCodeSystemComponent define, ValueSet vs) {
     String bn = getPNameForUri(define.getSystem()); 
     if (!bn.startsWith("<")) {
       section.triple(bn+".system", "a", "fhir:CodeSystem");

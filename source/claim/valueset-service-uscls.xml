@@ -11,7 +11,7 @@
 	</contact>
 	<description value="This value set includes a smattering of  USCLS codes"/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/ex-USCLS"/>
 		<caseSensitive value="true"/>      
 		<concept>
@@ -109,5 +109,5 @@
 			<display value="Expense"/>
 			<definition value="Expense"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>

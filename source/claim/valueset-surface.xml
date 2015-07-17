@@ -12,7 +12,7 @@
 	</contact>
 	<description value="This value set includes a smattering of FDI tooth surface codes."/>
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/FDI-surface"/>
 		<caseSensitive value="true"/>    
 		<concept>
@@ -72,6 +72,6 @@
 			<display value="Mesioclusodistal"/>
 			<definition value="The Mesioclusodistal surfaces of a tooth"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

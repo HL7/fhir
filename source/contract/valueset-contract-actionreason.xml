@@ -12,7 +12,7 @@
   </contact>
   <description value="This value set includes sample Contract Action Reason codes."/>
   <status value="draft"/>
-    <define>
+    <codeSystem>
 	<system value="http://www.hl7.org/fhir/contractactionreason"/>
     <caseSensitive value="true"/>    
 	<concept>
@@ -21,6 +21,6 @@
 	<concept>
       <code value="reason-2"/>
     </concept>
-	</define>
+	</codeSystem>
 </ValueSet>
 

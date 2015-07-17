@@ -264,8 +264,8 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 						}
 
 						boolean found = false;
-						if (coding.getSystem().equals(valueSet.getDefine().getSystem())) {
-							for (ConceptDefinitionComponent next : valueSet.getDefine().getConcept()) {
+						if (coding.getSystem().equals(valueSet.getCodeSystem().getSystem())) {
+							for (ConceptDefinitionComponent next : valueSet.getCodeSystem().getConcept()) {
 								if (coding.getCode().equals(next.getCode())) {
 									found = true;
 									break;

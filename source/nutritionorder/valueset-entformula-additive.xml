@@ -10,7 +10,7 @@
 	<description value="EnteralFormulaAdditiveType :  Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example"/>
 	<!--copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/ -->
 	<status value="draft"/>
-	<define>
+	<codeSystem>
 		<system value="http://hl7.org/fhir/entformula-additive"/>
 		<caseSensitive value="true"/>
 		<concept>
@@ -33,5 +33,5 @@
 			<code value="water"/>
 			<display value="Added water"/>
 		</concept>
-	</define>
+	</codeSystem>
 </ValueSet>

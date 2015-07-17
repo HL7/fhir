@@ -9,7 +9,7 @@
   </contact>
   <description value="Value Set for QICore Communication Medium (Example)"/>
   <status value="draft"/>
-  <define>
+  <codeSystem>
     <system value="http://hl7.org/fhir/qicore-communication-medium"/>
     <caseSensitive value="true"/>
     <concept>
@@ -72,5 +72,5 @@
      <display value="Patient portal"/>
      <definition value="The message was communicated via a patient portal"/>
    </concept>
- </define>    
+ </codeSystem>    
 </ValueSet>

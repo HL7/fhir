@@ -27,7 +27,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
 
   @Override
   public boolean codeInValueSet(String system, String code) throws ETooCostly {
-    if (valueset.hasDefine() && system.equals(valueset.getDefine().getSystem()) && codeInDefine(valueset.getDefine().getConcept(), code, valueset.getDefine().getCaseSensitive()))
+    if (valueset.hasCodeSystem() && system.equals(valueset.getCodeSystem().getSystem()) && codeInCodeSystem(valueset.getCodeSystem().getConcept(), code, valueset.getCodeSystem().getCaseSensitive()))
      return true;
 
     if (valueset.hasCompose()) {
@@ -89,7 +89,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
       
     if (context.getCodeSystems().containsKey(system)) {
       ValueSet def = context.getCodeSystems().get(system);
-      if (!def.getDefine().getCaseSensitive()) {
+      if (!def.getCodeSystem().getCaseSensitive()) {
         // well, ok, it's not case sensitive - we'll check that too now
         for (ConceptReferenceComponent cc : vsi.getConcept())
           if (cc.getCode().equalsIgnoreCase(code)) {
@@ -97,7 +97,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
           }
       }
       if (vsi.getConcept().isEmpty() && vsi.getFilter().isEmpty()) {
-        return codeInDefine(def.getDefine().getConcept(), code, def.getDefine().getCaseSensitive());
+        return codeInCodeSystem(def.getCodeSystem().getConcept(), code, def.getCodeSystem().getCaseSensitive());
       }
       for (ConceptSetFilterComponent f: vsi.getFilter())
         throw new Error("not done yet: "+f.getValue());
@@ -110,13 +110,13 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
       return false;
   }
 
-  private boolean codeInDefine(List<ConceptDefinitionComponent> concepts, String code, boolean caseSensitive) {
+  private boolean codeInCodeSystem(List<ConceptDefinitionComponent> concepts, String code, boolean caseSensitive) {
     for (ConceptDefinitionComponent c : concepts) {
       if (caseSensitive && code.equals(c.getCode()))
         return true;
       if (!caseSensitive && code.equalsIgnoreCase(c.getCode()))
         return true;
-      if (codeInDefine(c.getConcept(), code, caseSensitive))
+      if (codeInCodeSystem(c.getConcept(), code, caseSensitive))
         return true;
     }
     return false;

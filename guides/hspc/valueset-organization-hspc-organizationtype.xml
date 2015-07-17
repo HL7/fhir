@@ -16,7 +16,7 @@
   <status value="draft"/>
   <extensible value="true"/>
   <date value="2015-05-19"/>
-  <define>
+  <codeSystem>
 		<system value="Internountain Healthcare HDD"/>
 		<caseSensitive value="true"/>
 		<concept>	
@@ -94,5 +94,5 @@
 			<display value="Surgical Center"/>
 			<definition value="A center where outpatients are provided surgical services."/>
 		</concept>
-  </define>
+  </codeSystem>
 </ValueSet>

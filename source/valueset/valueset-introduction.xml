@@ -10,14 +10,14 @@ The FHIR terminology specification is based two key concepts, originally defined
 <li> <b>value set</b> - selects a set of codes from those defined by one or more code systems</li>
 </ul>
 <p>
-Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value Sets specify 
-which codes can be used in a particular context.
+Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value Sets 
+select a set of codes from code systems to specify which codes can be used in a particular context.
 </p>
 <p>
 Value sets may be constructed in one of two ways:
 </p>
 <ul>
- <li>A value set can <i>define</i> its own codes (e.g. an in-line simple code system definition), and/or</li>
+ <li>A value set can contain an in-line <i>codeSystem</i>, and/or</li>
  <li>A value set can be <i>composed</i> of codes defined in other code systems, either by listing the codes or by providing a set of selection criteria</li>
 </ul>
 <p>
@@ -26,11 +26,10 @@ This operation is performed to produce a collection of codes that are ready to u
 validation. An expanded value set may also contain the original definition as well. 
 </p>
 <p>
-Value sets that define their own codes are effectlvely providing inline code system definitions.
-These are intended for small, simple code systems that are found throughout the implementation
-context (e.g. lists of wards, status codes, enumerations). The inline code system definition is 
-not intended to represent large publically defined terminologies such as LOINC etc - these have
-their own distributions formats .
+Value sets that contain inline code systems are intended for small, simple code systems that are 
+found throughout the implementation context (e.g. lists of wards, status codes, enumerations). 
+The inline code system definition is not intended to represent large publically defined terminologies 
+such as LOINC etc - these have their own distribution formats .
 </p>
 </div>
 <div>
@@ -44,7 +43,7 @@ their own distributions formats .
  value set and code system resources</li>
  <li>The value set resource is aligned with the <a href="http://wiki.hl7.org/index.php?title=Value_Set_Definition_Standard_Project">Value Set Definition</a> (VSD) project. 
  Not all the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
- In the ValueSet resource, the <code>lockedDate</code>, <code>compose</code> and <code>define</code> elements make up the VSD Content Logical definition</li>
+ In the ValueSet resource, the <code>lockedDate</code>, <code>compose</code> and <code>codeSystem</code> elements make up the VSD Content Logical definition</li>
 </ul>
 </div>
 
