@@ -113,6 +113,16 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
   </tbody>
 </table>
 
+<h3>Useful Value Sets</h3>
+<p>
+Many questions have a set of possible codes for their answer. These value sets may be useful to help,
+and when referenced by full URL, do not need to be provided as part of the questionnaire:
+</p>
+<ul>
+ <li><a href="valueset-example-yesnodontknow.html">Yes | No | Don't Know</a>: http://hl7.org/fhir/ValueSet/yesnodontknow</li>
+</ul>
+
+
 <h3>Extensions for Additional capabilities</h3>
 <p>
 The core elements defined in the questionnaire resource are sufficient for simple questionnaires.  For more sophisticated capabilities, a number of "common" extensions
