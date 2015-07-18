@@ -15,7 +15,9 @@
 	<setup>
 		<action>
 			<operation>
-				<type value="create"/>
+				<type>
+					<code value="create"/>
+				</type>
 				<sourceId value="example-patient"/>
 			</operation>
 		</action>
@@ -45,7 +47,9 @@
 		</metadata>			
 		<action>
 			<operation>
-				<type value="update"/>
+				<type>
+					<code value="update"/>
+				</type>
 				<sourceId value="example-patient-updated"/>
 				<targetId value="example-patient"/>
 			</operation>
@@ -63,7 +67,9 @@
 		</action>
 		<action>
 			<operation>
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<targetId value="example-patient"/>
 			</operation>
 		</action>
@@ -76,7 +82,9 @@
 	<teardown>
 		<action>
 			<operation>
-				<type value="delete"/>
+				<type>
+					<code value="delete"/>
+				</type>
 				<targetId value="example-patient"/>
 			</operation>
 		</action>

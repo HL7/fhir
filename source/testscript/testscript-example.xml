@@ -25,7 +25,9 @@
 		<description value="Read a patient and validate response."/>
 		<action>
 			<operation>
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<responseId value="F1-read"/>
 				<targetId value="F1"/>
 			</operation>

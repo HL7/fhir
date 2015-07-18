@@ -25,7 +25,9 @@
 	<setup>
 		<action>
 			<operation>
-				<type value="create"/>
+				<type>
+					<code value="create"/>
+				</type>
 				<sourceId value="F1"/>
 			</operation>
 		</action>
@@ -35,7 +37,9 @@
 		<description value="Result headers on normal read."/>
 		<action>
 			<operation>
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<accept value="xml"/>
 				<targetId value="F1"/>
 			</operation>
@@ -62,7 +66,9 @@
 		<description value="Read unknown resource type"/>
 		<action>
 			<operation>
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<resource value="thisreallywondexist"/>
 				<params value="/1"/>
 			</operation>
@@ -78,7 +84,9 @@
 		<description value="Read non-existing resource id"/>
 		<action>
 			<operation>
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<resource value="Patient"/>
 				<params value="/3141592unlikely"/>
 			</operation>
@@ -94,7 +102,9 @@
 		<description value="Read bad formatted resource id"/>
 		<action>
 			<operation>
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<resource value="Patient"/>
 				<params value="/ID-may-not-contain-CAPITALS"/>
 			</operation>
@@ -108,7 +118,9 @@
 	<teardown>
 		<action>
 			<operation>
-				<type value="delete"/>
+				<type>
+					<code value="delete"/>
+				</type>
 				<targetId value="F1"/>
 			</operation>
 		</action>

@@ -48,7 +48,9 @@
 		<!--   Conditional Delete   -->
 		<action>
 			<operation>
-				<type value="delete"/>
+				<type>
+					<code value="delete"/>
+				</type>
 				<resource value="Patient"/>
 				<params value="given=John&amp;family=Doe"/>
 			</operation>
@@ -74,7 +76,9 @@
 		<!--   Create the patient using fixture   -->		
 		<action>
 			<operation>
-				<type value="create"/>
+				<type>
+					<code value="create"/>
+				</type>
 				<sourceId value="example-patient"/>
 			</operation>
 		</action>
@@ -87,7 +91,9 @@
 				Save the responseHeader in H1   -->
 		<action>
 			<operation>
-				<type value="search"/>
+				<type>
+					<code value="search"/>
+				</type>
 				<resource value="Patient"/>
 				<contentType value="json"/>	
 				<params value="?given=John&amp;family=Doe"/>
@@ -115,7 +121,9 @@
 		 		to verify that Content-Location was pointing to correct resource.   -->	
 		<action>
 			<operation>
-				<type value="search"/>
+				<type>
+					<code value="search"/>
+				</type>
 				<accept value="json"/>
 				<responseId value="R2"/>
 				<url value="${V1}"/>
@@ -136,7 +144,9 @@
 				as a search parameter to make sure search by birthDate works   -->	
 		<action>
 			<operation>
-				<type value="search"/>
+				<type>
+					<code value="search"/>
+				</type>
 				<resource value="Patient"/>
 				<accept value="json"/>
 				<params value="?given=John&amp;family=Doe&amp;birthdate=1974-12-31"/>
@@ -176,7 +186,9 @@
 		<!--   Conditional Create   -->
 		<action>
 			<operation>
-				<type value="create"/>
+				<type>
+					<code value="create"/>
+				</type>
 				<requestHeader>
 					<field value="If-None-Exist"/>
 					<value value="Patient?given=John&amp;Doe&amp;birthdate=1974-12-31"/>
@@ -195,7 +207,9 @@
 		<!--   Conditional Delete   -->
 		<action>
 			<operation>
-				<type value="delete"/>
+				<type>
+					<code value="delete"/>
+				</type>
 				<resource value="Patient"/>
 				<params value="?given=John&amp;family=Doe&amp;birthdate=1974-12-31"/>
 			</operation>
@@ -205,7 +219,9 @@
 		 		 This time perform read by id using variable   -->
 		<action>
 			<operation>
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<resource value="Patient"/>
 				<params value="/${V2}"/>
 			</operation>

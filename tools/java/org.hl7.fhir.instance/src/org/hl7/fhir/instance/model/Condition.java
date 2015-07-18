@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 17, 2015 12:58+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 17, 2015 23:59-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1858,8 +1858,6 @@ public class Condition extends DomainResource {
   public static final String SP_DUETOCODE = "dueto-code";
   @SearchParamDefinition(name="location", path="Condition.location.site[x]", description="Location - may include laterality", type="token" )
   public static final String SP_LOCATION = "location";
-  @SearchParamDefinition(name="subject", path="Condition.patient", description="Who has the condition?", type="reference" )
-  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
   public static final String SP_ONSET = "onset";
   @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )

@@ -25,7 +25,9 @@
 		</metadata>		
 		<action>
 			<operation>
-				<type value="create"/>
+				<type>
+					<code value="create"/>
+				</type>
 				<contentType value="xml"/>
 				<destination value="0"/>
 				<sourceId value="F1"/>
@@ -48,7 +50,9 @@
 		<action>
 			<operation>
 				<!--   this operation reads the fixture "F1" from server-0 and maps the response to fixture "R1"   -->
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<destination value="0"/>
 				<responseId value="R1"/>
 				<targetId value="F1"/>
@@ -104,7 +108,9 @@
 			<operation>
 				<!--   this operation creates the fixture "R1" that was read from
 						server-0 and creates it on server-1   -->
-				<type value="create"/>
+				<type>
+					<code value="create"/>
+				</type>
 				<destination value="1"/>
 				<sourceId value="R1"/>
 			</operation>
@@ -118,7 +124,9 @@
 			<operation>
 				<!--   this operation reads the fixture "R1" from server-1 and
 						maps the response to fixture "R2"   -->
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<destination value="1"/>
 				<responseId value="R2"/>
 				<targetId value="R1"/>
@@ -174,7 +182,9 @@
 			<operation>
 				<!--   this operation updates the fixture "R1" on
 					server-0 and with fixture "R2" that was read from server-1   -->
-				<type value="update"/>
+				<type>
+					<code value="update"/>
+				</type>
 				<destination value="0"/>
 				<sourceId value="R2"/>
 				<targetId value="R1"/>
@@ -189,7 +199,9 @@
 			<operation>
 				<!--   this operation reads the fixture "R1" from server-0 and
 maps the response to fixture "R3"   -->
-				<type value="read"/>
+				<type>
+					<code value="read"/>
+				</type>
 				<destination value="0"/>
 				<responseId value="R3"/>
 				<targetId value="R1"/>
@@ -240,7 +252,9 @@ maps the response to fixture "R3"   -->
 		<!--   delete the patient from server-0   -->
 		<action>
 			<operation>
-				<type value="delete"/>
+				<type>
+					<code value="delete"/>
+				</type>
 				<destination value="0"/>
 				<targetId value="F1"/>
 			</operation>
@@ -248,7 +262,9 @@ maps the response to fixture "R3"   -->
 		<!--   delete the patient from server-1   -->
 		<action>
 			<operation>
-				<type value="delete"/>
+				<type>
+					<code value="delete"/>
+				</type>
 				<destination value="1"/>
 				<targetId value="F1"/>
 			</operation>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jul 17, 2015 12:58+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 17, 2015 23:59-0400 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -5578,8 +5578,8 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
-    if (json.has("patient"))
-      res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
     if (json.has("code"))
@@ -10199,9 +10199,7 @@ public class JsonParser extends JsonParserBase {
     TestScript.TestScriptSetupActionOperationComponent res = new TestScript.TestScriptSetupActionOperationComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), TestScript.TestOperationType.NULL, new TestScript.TestOperationTypeEnumFactory()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+      res.setType(parseCoding(json.getAsJsonObject("type")));
     if (json.has("resource"))
       res.setResourceElement(parseCode(json.get("resource").getAsString()));
     if (json.has("_resource"))
@@ -10280,6 +10278,10 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("direction"))
+      res.setDirectionElement(parseEnumeration(json.get("direction").getAsString(), TestScript.AssertionDirectionType.NULL, new TestScript.AssertionDirectionTypeEnumFactory()));
+    if (json.has("_direction"))
+      parseElementProperties(json.getAsJsonObject("_direction"), res.getDirectionElement());
     if (json.has("compareToSourceId"))
       res.setCompareToSourceIdElement(parseString(json.get("compareToSourceId").getAsString()));
     if (json.has("_compareToSourceId"))
@@ -18498,8 +18500,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      if (element.hasPatient()) {
-        composeReference("patient", element.getPatient());
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
       }
       if (element.hasAuthor()) {
         composeReference("author", element.getAuthor());
@@ -24314,9 +24316,8 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptTestScriptSetupActionOperationComponentInner(TestScript.TestScriptSetupActionOperationComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeEnumerationCore("type", element.getTypeElement(), new TestScript.TestOperationTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new TestScript.TestOperationTypeEnumFactory(), false);
+      if (element.hasType()) {
+        composeCoding("type", element.getType());
       }
       if (element.hasResourceElement()) {
         composeCodeCore("resource", element.getResourceElement(), false);
@@ -24407,6 +24408,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasDirectionElement()) {
+        composeEnumerationCore("direction", element.getDirectionElement(), new TestScript.AssertionDirectionTypeEnumFactory(), false);
+        composeEnumerationExtras("direction", element.getDirectionElement(), new TestScript.AssertionDirectionTypeEnumFactory(), false);
       }
       if (element.hasCompareToSourceIdElement()) {
         composeStringCore("compareToSourceId", element.getCompareToSourceIdElement(), false);
