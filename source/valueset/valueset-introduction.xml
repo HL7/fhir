@@ -63,7 +63,7 @@ its location.
 The location of the value set is a URL by which it may be retrieved, usually from a FHIR 
 server, and is often a relative reference to a value set on the same server. 
 The logical identifier is in the value set itself, in 
-<a href="valueset-definitions.html#ValueSet.identifier">ValueSet.identifier</a>. This 
+<a href="valueset-definitions.html#ValueSet.url">ValueSet.url</a>. This 
 is the logical identity (sometimes called the canonical URL) that refers to this 
 value set across all systems. Ideally, the URL should also be the location of the 
 master version of the value set, though this is not always possible. 
