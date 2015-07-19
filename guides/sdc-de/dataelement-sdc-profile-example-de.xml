@@ -110,29 +110,29 @@
       <element>
         <codeSystem value="http://loinc.org"/>
         <code value="a"/>
-        <map>
+        <target>
           <codeSystem value="http://hl7.org/fhir/v3/AdministrativeGender"/>
           <code value="M"/>
           <equivalence value="equivalent"/>
-        </map>
+        </target>
       </element>
       <element>
         <codeSystem value="http://loinc.org"/>
         <code value="b"/>
-        <map>
+        <target>
           <codeSystem value="http://hl7.org/fhir/v3/AdministrativeGender"/>
           <code value="F"/>
           <equivalence value="equivalent"/>
-        </map>
+        </target>
       </element>
       <element>
         <codeSystem value="http://loinc.org"/>
         <code value="c"/>
-        <map>
+        <target>
           <codeSystem value="http://hl7.org/fhir/v3/Unknown"/>
           <code value="UNK"/>
           <equivalence value="equivalent"/>
-        </map>
+        </target>
       </element>
     </ConceptMap>
   </contained>
@@ -222,7 +222,6 @@
       <code value="CodeableConcept"/>
     </type>
     <binding>
-      <name value="Gender"/>
       <strength value="required"/>
       <valueSetReference>
         <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset">

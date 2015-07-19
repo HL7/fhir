@@ -945,7 +945,11 @@ public class SpreadsheetParser {
         ValueSetUtilities.makeShareable(vs);
         vs.setUserData("filename", "valueset-"+vs.getId());
         vs.setUserData("committee", committee);
-        vs.setUserData("path", "valueset-"+vs.getId()+".html");
+        if (ig != null) {
+          vs.setUserDataINN(ToolResourceUtilities.NAME_VS_IG, ig);
+          vs.setUserData("path", ig.getCode()+"/valueset-"+vs.getId()+".html");
+        } else
+          vs.setUserData("path", "valueset-"+vs.getId()+".html");
         ToolingExtensions.setOID(vs, BindingSpecification.DEFAULT_OID_VS + cd.getId());
         vs.setUserData("csoid", BindingSpecification.DEFAULT_OID_CS + cd.getId());
         if (definitions != null)

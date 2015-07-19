@@ -190,7 +190,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           else 
             throw new Exception("Unknown special type "+name);
         } 
-        if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
+        if (cd.getValueSet() != null) {
+          ValueSet vs = cd.getValueSet();
+          String pp = (String) vs.getUserData("path");
+          if (pp == null)
+            throw new Exception("unknown path on "+cd.getReference());
+          write("<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a><!-- b -->");
+        } else if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
           if (Utilities.noString(cd.getReference())) 
             write("??");
           else if (cd.getReference().startsWith("valueset-"))
@@ -218,11 +224,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
               throw new Exception("Internal reference "+cd.getReference()+" not handled yet");
           } else
             write("<a href=\"valueset-"+cd.getReference()+".html\">http://hl7.org/fhir/"+cd.getReference()+"</a><!-- e -->");            
-        }
-        if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
+        } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
           write("<a href=\"valueset-"+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a><!-- f -->");            
-        }
-        if (cd.getBinding() == BindingSpecification.BindingMethod.Reference) {
+        } else if (cd.getBinding() == BindingSpecification.BindingMethod.Reference) {
           write("<a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a><!-- g -->");
         }
 
@@ -286,30 +290,16 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         throw new Exception("Unknown special type "+cd.getValueSet().getName());
     } 
     String bs = "<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
-    if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
+    if (cd.getValueSet() != null) {
+      ValueSet vs = cd.getValueSet();
+      String pp = (String) vs.getUserData("path");
+      return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+")";      
+    } else if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDescription();
-      else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
-        ValueSet vs = page.getValueSets().get(cd.getReference());
-        String pp = (String) vs.getUserData("path");
-        return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+")";
-      } else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
-          ValueSet vs = page.getValueSets().get(cd.getReference());
-          String pp = (String) vs.getUserData("path");
-          return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+")";
-      } else if (cd.getValueSet() != null) {
-        if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/")) {
-          if (page.getValueSets().containsKey(cd.getReference()) && page.getValueSets().get(cd.getReference()).getUserData("filename") != null)
-            return bs+": <a href=\""+page.getValueSets().get(cd.getReference()).getUserData("path")+"\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")"; 
-          else
-          return bs+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
-        } else 
-          return bs+": <a href=\""+cd.getReference()+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
-      }
-      else
-        return bs+": <a href=\""+cd.getReference()+".html\">Value Set Definition</a> ("+cd.getDefinition()+")";
-    }
-    if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
+      else  
+        return bs+": <a href=\""+cd.getReference()+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
+    } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
       if (Utilities.noString(cd.getReference())) 
         return bs+": "+cd.getDescription()+" ("+cd.getDefinition()+")";
       else

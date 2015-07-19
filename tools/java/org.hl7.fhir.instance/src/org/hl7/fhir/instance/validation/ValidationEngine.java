@@ -201,7 +201,7 @@ public class ValidationEngine {
     for (ValidationMessage vm : outputs) {
       op.getIssue().add(vm.asIssue(op));
     }
-    new NarrativeGenerator("", context).generate(op);
+    new NarrativeGenerator("", "", context).generate(op);
     outcome = op;
   }
 
@@ -237,7 +237,7 @@ public class ValidationEngine {
 		for (ValidationMessage vm : outputs) {
 			op.getIssue().add(vm.asIssue(op));
 		}
-		new NarrativeGenerator("", context).generate(op);
+		new NarrativeGenerator("", "", context).generate(op);
 		outcome = op;
 	}
 

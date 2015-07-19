@@ -1191,7 +1191,7 @@ public class ProfileGenerator {
     for (OperationParameter p : op.getParameters()) {
       produceOpParam(op.getName(), opd.getParameter(), p, null);
     }
-    NarrativeGenerator gen = new NarrativeGenerator("", context);
+    NarrativeGenerator gen = new NarrativeGenerator("", "", context);
     gen.generate(opd);
     return opd;
   }

@@ -88,6 +88,7 @@ import org.hl7.fhir.definitions.generators.specification.ReviewSpreadsheetGenera
 import org.hl7.fhir.definitions.generators.specification.SchematronGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
+import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
@@ -530,6 +531,10 @@ public class Publisher implements URIResolver {
         }
         Utilities.createDirectory(page.getFolders().dstDir + "html");
         Utilities.createDirectory(page.getFolders().dstDir + "examples");
+        for (ImplementationGuide ig : page.getDefinitions().getSortedIgs())
+          if (!ig.isCore())
+            Utilities.createDirectory(page.getFolders().dstDir + ig.getCode());
+          
 
         String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
         generateECore(prsr.getECoreParseResults(), eCorePath);
@@ -1066,7 +1071,7 @@ public class Publisher implements URIResolver {
       genConfOp(conf, res, TypeRestfulInteraction.READ);
     }
 
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext());
     gen.generate(conf);
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".xml");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conf);
@@ -1722,6 +1727,13 @@ public class Publisher implements URIResolver {
         produceIgPage(n, ig);        
       }
     }
+    for (String n : page.getIni().getPropertyNames("ig-pages")) {
+      page.log(" ...page " + n, LogMessageType.Process);
+      for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+        if (!ig.isCore())
+        produceIgPage(n, ig, page.getIni().getStringProperty("ig-pages", n));
+      }
+    }
     for (String n : page.getDefinitions().getDictionaries().keySet()) {
       if (buildFlags.get("all")) { // || buildFlags.get("dict-" + n.toLowerCase())) {
         page.log(" ...dictionary " + n, LogMessageType.Process);
@@ -1751,6 +1763,7 @@ public class Publisher implements URIResolver {
           produceConformancePackage("", p, null);
         //}
       }
+      processExamplesByBatch();
 
       produceV2();
       produceV3();
@@ -2019,14 +2032,14 @@ public class Publisher implements URIResolver {
     // first page we produce is simply the index
     page.log("   ... generate", LogMessageType.Process);
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-comparison-set.html");
-    src = page.processPageIncludes(n+".html", src, "?type", null, "??path", null, null, "Comparison", pc);
+    src = page.processPageIncludes(n+".html", src, "?type", null, "??path", null, null, "Comparison", pc, null);
     TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, n+".html"));
     cachePage(n + ".html", src, "Comparison "+pc.getTitle());
     
     // then we produce a comparison page for each pair
     for (ProfileComparison cmp : pc.getComparisons()) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-comparison.html");
-      src = page.processPageIncludes(n+"."+cmp.getId()+".html", src, "?type", null, "??path", null, null, "Comparison", cmp);
+      src = page.processPageIncludes(n+"."+cmp.getId()+".html", src, "?type", null, "??path", null, null, "Comparison", cmp, null);
       TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, n+"."+cmp.getId()+".html"));
       cachePage(n +"."+cmp.getId()+".html", src, "Comparison "+pc.getTitle());      
     }
@@ -2359,7 +2372,7 @@ public class Publisher implements URIResolver {
     page.getQa().countDefinitions(page.getDefinitions());
 
     String src = TextFile.fileToString(page.getFolders().srcDir + "qa.html");
-    TextFile.stringToFile(page.processPageIncludes("qa.html", src, "page", null, null, null, "QA Page"), page.getFolders().dstDir + "qa.html");
+    TextFile.stringToFile(page.processPageIncludes("qa.html", src, "page", null, null, null, "QA Page", null), page.getFolders().dstDir + "qa.html");
 
     if (web) {
       page.getQa().commit(page.getFolders().rootDir);
@@ -2624,7 +2637,7 @@ public class Publisher implements URIResolver {
           } else
             throw new Exception("unhandled value set specifier in ini file");
 
-          vs.setUserData("path", "v3" + HTTP_separator + "vs" + HTTP_separator + id + HTTP_separator + "index.html");
+          vs.setUserData("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
           ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
           if (vs.hasDate())
             vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
@@ -2665,7 +2678,7 @@ public class Publisher implements URIResolver {
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", Utilities.path("v3", "vs", id, "index.html"));
+    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName(id);
@@ -2702,7 +2715,7 @@ public class Publisher implements URIResolver {
       }
     }
 
-    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext());
     gen.generate(vs);
     page.getVsValidator().validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
     return vs;
@@ -2711,7 +2724,7 @@ public class Publisher implements URIResolver {
   private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, ValueSet> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", Utilities.path("v3", "vs", id, "index.html"));
+    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName(id);
@@ -2801,7 +2814,7 @@ public class Publisher implements URIResolver {
           }
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext());
     gen.generate(vs);
     page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
     return vs;
@@ -2815,10 +2828,10 @@ public class Publisher implements URIResolver {
     Utilities.clearDirectory(page.getFolders().dstDir + "v3");
     String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template.html");
     TextFile.stringToFile(
-        addSectionNumbers("terminologies-v3.html", "terminologies-v3", page.processPageIncludes("terminologies-v3.html", src, "page", null, null, null, "V3 Terminologies"), null, null),
+        addSectionNumbers("terminologies-v3.html", "terminologies-v3", page.processPageIncludes("terminologies-v3.html", src, "page", null, null, null, "V3 Terminologies", null), null, 0, null),
         page.getFolders().dstDir + "terminologies-v3.html");
     src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template.html");
-    cachePage("terminologies-v3.html", page.processPageIncludesForBook("terminologies-v3.html", src, "page", null), "V3 Terminologes");
+    cachePage("terminologies-v3.html", page.processPageIncludesForBook("terminologies-v3.html", src, "page", null, null), "V3 Terminologes");
     IniFile ini = new IniFile(page.getFolders().srcDir + "v3" + File.separator + "valuesets.ini");
 
     Element e = XMLUtil.getFirstChild(page.getV3src().getDocumentElement());
@@ -2832,8 +2845,8 @@ public class Publisher implements URIResolver {
             Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
             src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-cs.html");
 
-            String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", null, null, "V3 CodeSystem");
-            sf = addSectionNumbers("v3" + id + ".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), null);
+            String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", null, null, null, "V3 CodeSystem", null);
+            sf = addSectionNumbers("v3" + id + ".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), 0, null);
             TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
             page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
           }
@@ -2842,13 +2855,13 @@ public class Publisher implements URIResolver {
       if (e.getNodeName().equals("valueSet")) {
         if (ini.getStringProperty("ValueSets", e.getAttribute("name")) != null) {
           String id = e.getAttribute("name");
-          Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + "vs" + File.separator + id);
-          Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + "vs" + File.separator + id);
+          Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
+          Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
           src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-vs.html");
-          String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + "vs" + File.separator + id + File.separator + "index.html", null, null, "V3 ValueSet");
-          sf = addSectionNumbers("v3" + id + ".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("id")), null);
-          TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + "vs" + File.separator + id + File.separator + "index.html");
-          page.getEpub().registerExternal("v3" + File.separator + "vs" + File.separator + id + File.separator + "index.html");
+          String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", null, null, "V3 ValueSet", null);
+          sf = addSectionNumbers("v3" + id + ".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("id")), 0, null);
+          TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
+          page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -2862,10 +2875,10 @@ public class Publisher implements URIResolver {
     Utilities.clearDirectory(page.getFolders().dstDir + "v2");
     String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template.html");
     TextFile.stringToFile(
-        addSectionNumbers("terminologies-v2.html", "terminologies-v2", page.processPageIncludes("terminologies-v2.html", src, "v2Vocab", null, null, null, "V2 Tables"), null, null),
+        addSectionNumbers("terminologies-v2.html", "terminologies-v2", page.processPageIncludes("terminologies-v2.html", src, "v2Vocab", null, null, null, "V2 Tables", null), null, 0, null),
         page.getFolders().dstDir + "terminologies-v2.html");
     src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template.html");
-    cachePage("terminologies-v2.html", page.processPageIncludesForBook("v2/template.html", src, "v2Vocab", null), "V2 Terminologies");
+    cachePage("terminologies-v2.html", page.processPageIncludesForBook("v2/template.html", src, "v2Vocab", null, null), "V2 Terminologies");
 
     Element e = XMLUtil.getFirstChild(page.getV2src().getDocumentElement());
     while (e != null) {
@@ -2878,8 +2891,8 @@ public class Publisher implements URIResolver {
         Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
         Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
         src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl.html");
-        String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", null, null, "V2 Table");
-        sf = addSectionNumbers("v2" + id + ".html", "template-v2", sf, iid, null);
+        String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", null, null, "V2 Table", null);
+        sf = addSectionNumbers("v2" + id + ".html", "template-v2", sf, iid, 0, null);
         TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
         page.getEpub().registerExternal("v2" + File.separator + id + File.separator + "index.html");
       } else if ("versioned".equals(st)) {
@@ -2904,8 +2917,8 @@ public class Publisher implements URIResolver {
             Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver);
             Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver);
             src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl-ver.html");
-            String sf = page.processPageIncludes(id + "|" + ver + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + ver + File.separator + "index.html", null, null, "V2 Table");
-            sf = addSectionNumbers("v2" + id + "." + ver + ".html", "template-v2", sf, iid + "." + Integer.toString(i), null);
+            String sf = page.processPageIncludes(id + "|" + ver + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + ver + File.separator + "index.html", null, null, "V2 Table", null);
+            sf = addSectionNumbers("v2" + id + "." + ver + ".html", "template-v2", sf, iid + "." + Integer.toString(i), 0, null);
             TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
             page.getEpub().registerExternal("v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
           }
@@ -3150,7 +3163,7 @@ public class Publisher implements URIResolver {
 
     String template = isAbstract ? "template-abstract" : "template";
     String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
-    src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html"), st, n + ".html", null);
+    src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html"), st, n + ".html", 0, null);
     TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
     page.getEpub().registerFile(n + ".html", "Base Page for " + resource.getName(), EPubManager.XHTML_TYPE);
 
@@ -3170,9 +3183,9 @@ public class Publisher implements URIResolver {
     }
 
     if (!isAbstract || !resource.getExamples().isEmpty()) {
-      src = TextFile.fileToString(page.getFolders().srcDir + "template-examples.html");
+      src = TextFile.fileToString(page.getFolders().srcDir + template+"-examples.html");
       TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html"), st, n + "-examples.html", null),
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html"), st, n + "-examples.html", 0, null),
           page.getFolders().dstDir + n + "-examples.html");
       page.getEpub().registerFile(n + "-examples.html", "Examples for " + resource.getName(), EPubManager.XHTML_TYPE);
       for (Example e : resource.getExamples()) {
@@ -3187,23 +3200,23 @@ public class Publisher implements URIResolver {
     src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
     TextFile.stringToFile(
         insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html"), st, n
-            + "-definitions.html", null), page.getFolders().dstDir + n + "-definitions.html");
+            + "-definitions.html", 0, null), page.getFolders().dstDir + n + "-definitions.html");
     page.getEpub().registerFile(n + "-definitions.html", "Detailed Descriptions for " + resource.getName(), EPubManager.XHTML_TYPE);
 
     if (!isAbstract) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.html");
       TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html", null),
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html", 0, null),
           page.getFolders().dstDir + n + "-mappings.html");
       page.getEpub().registerFile(n + "-mappings.html", "Formal Mappings for " + resource.getName(), EPubManager.XHTML_TYPE);
       src = TextFile.fileToString(page.getFolders().srcDir + "template-explanations.html");
       TextFile.stringToFile(
           insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Design Notes", n + "-explanations.html"), st, n
-              + "-explanations.html", null), page.getFolders().dstDir + n + "-explanations.html");
+              + "-explanations.html", 0, null), page.getFolders().dstDir + n + "-explanations.html");
       page.getEpub().registerFile(n + "-explanations.html", "Design Notes for " + resource.getName(), EPubManager.XHTML_TYPE);
       src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
       TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html"), st, n + "-profiles.html", null),
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html"), st, n + "-profiles.html", 0, null),
           page.getFolders().dstDir + n + "-profiles.html");
       page.getEpub().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), EPubManager.XHTML_TYPE);
     }
@@ -3214,7 +3227,7 @@ public class Publisher implements URIResolver {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");
       TextFile.stringToFile(
           insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Operations", n + "-operations.html"), st, n
-              + "-operations.html", null), page.getFolders().dstDir + n + "-operations.html");
+              + "-operations.html", 0, null), page.getFolders().dstDir + n + "-operations.html");
       page.getEpub().registerFile(n + "-operations.html", "Operations for " + resource.getName(), EPubManager.XHTML_TYPE);
 
       for (Operation t : resource.getOperations()) {
@@ -3265,7 +3278,7 @@ public class Publisher implements URIResolver {
 
     // now, we create an html page from the narrative
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer().compose(opd.getText().getDiv()));
-    html = page.processPageIncludes("operation-" + name + ".html", html, "resource-instance:OperationDefinition", null, null, null, "Operation Definition");
+    html = page.processPageIncludes("operation-" + name + ".html", html, "resource-instance:OperationDefinition", null, null, null, "Operation Definition", null);
     TextFile.stringToFile(html, page.getFolders().dstDir + "operation-" + name + ".html");
     // head =
     // "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
@@ -3295,7 +3308,7 @@ public class Publisher implements URIResolver {
   private void jsonToXhtml(String n, String description, String json, String pageType, String crumbTitle) throws Exception {
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(n + ".json.html", html, pageType, null, null, null, crumbTitle);
+    html = page.processPageIncludes(n + ".json.html", html, pageType, null, null, null, crumbTitle, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
     //    page.getEpub().registerFile(n + ".json.html", description, EPubManager.XHTML_TYPE);
     page.getEpub().registerExternal(n + ".json.html");
@@ -3311,7 +3324,7 @@ public class Publisher implements URIResolver {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), description, 0, adorn, n + ".xml.html");
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processPageIncludes(n + ".xml.html", html, pageType, null, null, null, crumbTitle);
+    html = page.processPageIncludes(n + ".xml.html", html, pageType, null, null, null, crumbTitle, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
 
     //    page.getEpub().registerFile(n + ".xml.html", description, EPubManager.XHTML_TYPE);
@@ -3333,12 +3346,12 @@ public class Publisher implements URIResolver {
 
     String json = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+profile.getId()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(q)) + "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.json.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire");
+    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.json.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire", null);
     TextFile.stringToFile(html, page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.json.html");
 
     String xml = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+profile.getId()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new XmlParser().setOutputStyle(OutputStyle.PRETTY).composeString(q)) + "\r\n</pre>\r\n</div>\r\n";
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", xml);
-    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.xml.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire");
+    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.xml.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire", null);
     TextFile.stringToFile(html, page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.xml.html");
 
     File tmpTransform = Utilities.createTempFile("tmp", ".html");
@@ -3358,9 +3371,9 @@ public class Publisher implements URIResolver {
     
     // now, generate the form
     html = TextFile.fileToString(page.getFolders().srcDir + "template-questionnaire.html").replace("<%questionnaire%>", loadHtmlForm(tmpTransform.getAbsolutePath()));
-    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire");
+    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire", null);
     if (st != null)
-      html = insertSectionNumbers(html, st, profile.getId().toLowerCase() + ".questionnaire.html", null);
+      html = insertSectionNumbers(html, st, profile.getId().toLowerCase() + ".questionnaire.html", 0, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.html");
 
     page.getEpub().registerExternal(profile.getId().toLowerCase() + ".questionnaire.html");
@@ -3404,7 +3417,7 @@ public class Publisher implements URIResolver {
     // n
     String rt = null;
     try {
-      NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
+      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
       xdoc = loadDom(new FileInputStream(file), true);
       rt = xdoc.getDocumentElement().getNodeName();
       String id = XMLUtil.getNamedChildValue(xdoc.getDocumentElement(), "id");
@@ -3512,7 +3525,7 @@ public class Publisher implements URIResolver {
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()
         + " (id = \"" + e.getId() + "\")", 0, true, n + ".xml.html");
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processPageIncludes(n + ".xml.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example");
+    html = page.processPageIncludes(n + ".xml.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example", null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
     XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.html"), "html");
     XhtmlNode pre = d.getElement("html").getElement("body").getElement("div");
@@ -3525,7 +3538,7 @@ public class Publisher implements URIResolver {
 
     // now, we create an html page from the narrative
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative).replace("<%example-usage%>", genExampleUsage(e));
-    html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example");
+    html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example", null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".html");
     // head =
     // "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
@@ -3581,11 +3594,12 @@ public class Publisher implements URIResolver {
       json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
           + "\r\n</pre>\r\n</div>\r\n";
       String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-      html = page.processPageIncludes(n + ".json.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example");
+      html = page.processPageIncludes(n + ".json.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example", null);
       TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
 
       page.getEpub().registerExternal(n + ".json.html");
     }
+    processingList.clear();
   }
     
   private String buildLoincExample(String filename) throws FileNotFoundException, Exception {
@@ -3738,14 +3752,14 @@ public class Publisher implements URIResolver {
       }
     }
     
-    String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null) : null;
-    String notes = pack.getNotes() != null ? page.loadXmlNotesFromFile(pack.getNotes(), false, null, null, null) : null;
+    String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null, null) : null;
+    String notes = pack.getNotes() != null ? page.loadXmlNotesFromFile(pack.getNotes(), false, null, null, null, null) : null;
 
     if (!("profile".equals(pack.metadata("navigation")) && pack.getProfiles().size() == 1)) {
       String src = TextFile.fileToString(page.getFolders().srcDir + "template-conformance-pack.html");
       src = page.processConformancePackageIncludes(pack, src, intro, notes, resourceName);
       if (st != null)
-        src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html",  null);
+        src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html",  0, null);
       page.getEpub().registerFile(pack.getId().toLowerCase() + ".html", "Profile " + pack.getId(), EPubManager.XHTML_TYPE);
       TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
     }
@@ -3792,9 +3806,9 @@ public class Publisher implements URIResolver {
     s.close();
 
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-search-parameter.html");
-    src = page.processPageIncludes(sp.getId()+".html", src, "search-parameter:"+resourceName+"/"+pack.getId()+"/"+sp.getId(), null, sp, null, "Search Parameter");
+    src = page.processPageIncludes(sp.getId()+".html", src, "search-parameter:"+resourceName+"/"+pack.getId()+"/"+sp.getId(), null, sp, null, "Search Parameter", null);
     if (st != null)
-      src = insertSectionNumbers(src, st, title + ".html", null);
+      src = insertSectionNumbers(src, st, title + ".html", 0, null);
     page.getEpub().registerFile(title + ".html", "SearchParameter " + sp.getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
     cloneToXhtml(title, "Search Parameter "+sp.getName(), false, "searchparam-instance", "Search Parameter");
@@ -3802,7 +3816,7 @@ public class Publisher implements URIResolver {
     String json = resource2Json(sp);
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("SearchParameter " + sp.getName()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(title + ".json.html", html, resourceName+"/"+pack.getId()+"/"+sp.getId(), null, sp, null, "Search Parameter");
+    html = page.processPageIncludes(title + ".json.html", html, resourceName+"/"+pack.getId()+"/"+sp.getId(), null, sp, null, "Search Parameter", null);
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".json.html");
     page.getEpub().registerExternal(title + ".json.html");
   }
@@ -3844,7 +3858,7 @@ public class Publisher implements URIResolver {
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
     src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes);
     if (st != null)
-      src = insertSectionNumbers(src, st, title + ".html", null);
+      src = insertSectionNumbers(src, st, title + ".html", 0, null);
     page.getEpub().registerFile(title + ".html", "StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
     new ProfileUtilities(page.getWorkerContext()).generateSchematrons(new FileOutputStream(page.getFolders().dstDir + title + ".sch"), profile.getResource());
@@ -3857,14 +3871,14 @@ public class Publisher implements URIResolver {
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
     src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes);
     if (st != null)
-      src = insertSectionNumbers(src, st, title + "-definitions.html", null);
+      src = insertSectionNumbers(src, st, title + "-definitions.html", 0, null);
     page.getEpub().registerFile(title + "-definitions.html", "Definitions for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-definitions.html");
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-mappings.html");
     src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes);
     if (st != null)
-      src = insertSectionNumbers(src, st, title + "-mappings.html", null);
+      src = insertSectionNumbers(src, st, title + "-mappings.html", 0, null);
     page.getEpub().registerFile(title + "-mappings.html", "Mappings for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-mappings.html");
 
@@ -3955,7 +3969,7 @@ public class Publisher implements URIResolver {
 
   private void produceIgPage(String source, String file, String logicalName) throws Exception {
     String src = TextFile.fileToString(source);
-    src = page.processPageIncludes(file, src, "page", null, null, null, logicalName);
+    src = page.processPageIncludes(file, src, "page", null, null, null, logicalName, null);
     // before we save this page out, we're going to figure out what it's index
     // is, and number the headers if we can
 
@@ -3963,18 +3977,18 @@ public class Publisher implements URIResolver {
       logicalName = Utilities.fileTitle(file);
 
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
-    src = addSectionNumbers(file, logicalName, src, null, null);
+    src = addSectionNumbers(file, logicalName, src, null, 0, null);
 
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
 
     src = TextFile.fileToString(source).replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processPageIncludesForBook(file, src, "page", null);
+    src = page.processPageIncludesForBook(file, src, "page", null, null);
     cachePage(file, src, logicalName);
   }
 
   private void producePage(String file, String logicalName) throws Exception {
     String src = TextFile.fileToString(page.getFolders().srcDir + file);
-    src = page.processPageIncludes(file, src, "page", null, null, null, logicalName);
+    src = page.processPageIncludes(file, src, "page", null, null, null, logicalName, null);
     // before we save this page out, we're going to figure out what it's index
     // is, and number the headers if we can
 
@@ -3983,7 +3997,7 @@ public class Publisher implements URIResolver {
 
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
     DocumentHolder doch = new DocumentHolder();
-    src = addSectionNumbers(file, logicalName, src, null, doch);
+    src = addSectionNumbers(file, logicalName, src, null, 0, doch);
 
     if (!page.getDefinitions().getStructuralPages().contains(file)) {
       XhtmlNode fmm = findId(doch.doc, "fmm");
@@ -4001,7 +4015,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
 
     src = TextFile.fileToString(page.getFolders().srcDir + file).replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processPageIncludesForBook(file, src, "page", null);
+    src = page.processPageIncludesForBook(file, src, "page", null, null);
     cachePage(file, src, logicalName);
   }
 
@@ -4015,18 +4029,52 @@ public class Publisher implements URIResolver {
     String src = TextFile.fileToString(actualName);
     file = logicalName +".html";
     
-    src = page.processPageIncludes(file, src, "page", null, null, null, logicalName);
+    src = page.processPageIncludes(file, src, "page", null, null, null, logicalName, ig);
     // before we save this page out, we're going to figure out what it's index
     // is, and number the headers if we can
 
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
-    src = addSectionNumbers(file, logicalName, src, null, null);
+    src = addSectionNumbers(file, logicalName, src, null, 0, null);
 
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
 
     src = TextFile.fileToString(actualName).replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processPageIncludesForBook(file, src, "page", null);
+    src = page.processPageIncludesForBook(file, src, "page", null, null);
     cachePage(file, src, logicalName);
+  }
+
+  private void produceIgPage(String file, ImplementationGuide ig, String logicalName) throws Exception {
+    String srcOrig = TextFile.fileToString(page.getFolders().srcDir + file);
+    file = file.substring(3);
+    String src = page.processPageIncludes(file, srcOrig, "page", null, null, null, logicalName, ig);
+    // before we save this page out, we're going to figure out what it's index
+    // is, and number the headers if we can
+
+    if (Utilities.noString(logicalName))
+      logicalName = Utilities.fileTitle(file);
+
+    TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, ig.getCode(), file));
+    DocumentHolder doch = new DocumentHolder();
+    src = addSectionNumbers(file, logicalName, src, null, 0, doch);
+
+//    if (!page.getDefinitions().getStructuralPages().contains(file)) {
+//      XhtmlNode fmm = findId(doch.doc, "fmm");
+//      XhtmlNode wg = findId(doch.doc, "wg");
+//      if (fmm == null)
+//        page.getValidationErrors().add(new   ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, file, "Page has no fmm level", IssueSeverity.ERROR));
+//      else
+//        page.getDefinitions().page(file).setFmm(get2ndPart(fmm.allText()));
+//      if (wg == null)
+//        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, file, "Page has no workgroup", IssueSeverity.ERROR));
+//      else
+//        page.getDefinitions().page(file).setWg(wg.getChildNodes().get(0).allText());
+//    }
+//    
+//    TextFile.stringToFile(src, page.getFolders().dstDir + file);
+
+    src = srcOrig.replace("<body>", "<body style=\"margin: 10px\">");
+    src = page.processPageIncludesForBook(file, src, "page", null, ig);
+    cachePage(ig.getCode()+File.separator+file, src, logicalName);
   }
 
   private void produceLogicalModel(LogicalModel lm, ImplementationGuide ig) throws Exception {
@@ -4073,19 +4121,19 @@ public class Publisher implements URIResolver {
 
     String template = "template-logical";
     String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
-    src = insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html"), st, n + ".html", null);
+    src = insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html"), st, n + ".html", 0, null);
     TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
     page.getEpub().registerFile(n + ".html", "Base Page for " + n, EPubManager.XHTML_TYPE);
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-definitions.html");
     TextFile.stringToFile(
         insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html"), st, n
-            + "-definitions.html", null), page.getFolders().dstDir + n + "-definitions.html");
+            + "-definitions.html", 0, null), page.getFolders().dstDir + n + "-definitions.html");
     page.getEpub().registerFile(n + "-definitions.html", "Detailed Descriptions for " + lm.getResource().getName(), EPubManager.XHTML_TYPE);
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-mappings.html");
     TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html", null),
+        insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html", 0, null),
         page.getFolders().dstDir + n + "-mappings.html");
     page.getEpub().registerFile(n + "-mappings.html", "Formal Mappings for " + n, EPubManager.XHTML_TYPE);
 
@@ -4100,17 +4148,17 @@ public class Publisher implements URIResolver {
     XmlParser xml = new XmlParser();
     Bundle dict = (Bundle) xml.parse(new CSFileInputStream(file));
 
-    src = page.processPageIncludes(d.getId()+".html", src, "page", null, dict, null, "Dictionary");
+    src = page.processPageIncludes(d.getId()+".html", src, "page", null, dict, null, "Dictionary", null);
     // before we save this page out, we're going to figure out what it's index
     // is, and number the headers if we can
 
     TextFile.stringToFile(src, page.getFolders().dstDir + d.getId()+".html");
-    src = addSectionNumbers(filename, filename, src, null, null);
+    src = addSectionNumbers(filename, filename, src, null, 0, null);
 
     TextFile.stringToFile(src, page.getFolders().dstDir + d.getId()+".html");
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-dictionary.html").replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processPageIncludesForBook(d.getId()+".html", src, "page", dict);
+    src = page.processPageIncludesForBook(d.getId()+".html", src, "page", dict, null);
     cachePage(d.getId()+".html", src, d.getId());
 
     xml.setOutputStyle(OutputStyle.PRETTY);
@@ -4215,17 +4263,17 @@ public class Publisher implements URIResolver {
   private void produceSid(int i, String logicalName, String file) throws Exception {
     String src = TextFile.fileToString(page.getFolders().srcDir + file);
     String dstName = Utilities.path(page.getFolders().dstDir, "sid", logicalName, "index.html");
-    src = page.processPageIncludes(dstName, src, "sid:" + logicalName, null, null, null, "Sid");
+    src = page.processPageIncludes(dstName, src, "sid:" + logicalName, null, null, null, "Sid", null);
     // before we save this page out, we're going to figure out what it's index
     // is, and number the headers if we can
 
     Utilities.createDirectory(Utilities.path(page.getFolders().dstDir, "sid", logicalName));
     TextFile.stringToFile(src, dstName);
-    src = addSectionNumbers(file, "sid:terminologies-systems", src, "3." + Integer.toString(i), null);
+    src = addSectionNumbers(file, "sid:terminologies-systems", src, "3." + Integer.toString(i), 0, null);
     TextFile.stringToFile(src, dstName);
   }
 
-  private String addSectionNumbers(String file, String logicalName, String src, String id, DocumentHolder doch) throws Exception {
+  private String addSectionNumbers(String file, String logicalName, String src, String id, int level, DocumentHolder doch) throws Exception {
     if (!page.getSectionTrackerCache().containsKey(logicalName)) {
       // String prefix =
       // page.getNavigation().getIndexPrefixForFile(logicalName+".html");
@@ -4236,7 +4284,7 @@ public class Publisher implements URIResolver {
     }
     SectionTracker st = page.getSectionTrackerCache().get(logicalName);
     st.start(id);
-    src = insertSectionNumbers(src, st, file, doch);
+    src = insertSectionNumbers(src, st, file, level, doch);
     return src;
   }
 
@@ -4245,7 +4293,7 @@ public class Publisher implements URIResolver {
     String logicalName = "compartment-" + c.getName();
     String file = logicalName + ".html";
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-compartment.html");
-    src = page.processPageIncludes(file, src, "compartment", null, null, null, "Compartment");
+    src = page.processPageIncludes(file, src, "compartment", null, null, null, "Compartment", null);
 
     // String prefix = "";
     // if
@@ -4265,15 +4313,15 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-compartment.html").replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processPageIncludesForBook(file, src, "compartment", null);
+    src = page.processPageIncludesForBook(file, src, "compartment", null, null);
     cachePage(file, src, "Compartments");
   }
 
-  private String insertSectionNumbers(String src, SectionTracker st, String link, DocumentHolder doch) throws Exception {
+  private String insertSectionNumbers(String src, SectionTracker st, String link, int level, DocumentHolder doch) throws Exception {
     try {
       // TextFile.stringToFile(src, "c:\\temp\\text.html");
       XhtmlDocument doc = new XhtmlParser().parse(src, "html");
-      insertSectionNumbersInNode(doc, st, link);
+      insertSectionNumbersInNode(doc, st, link, level);
       if (doch != null)
         doch.doc = doc;
       return new XhtmlComposer().compose(doc);
@@ -4297,7 +4345,7 @@ public class Publisher implements URIResolver {
     return null;
   }
 
-  private void insertSectionNumbersInNode(XhtmlNode node, SectionTracker st, String link) throws Exception {
+  private void insertSectionNumbersInNode(XhtmlNode node, SectionTracker st, String link, int level) throws Exception {
     if (node.getNodeType() == NodeType.Element
         && (node.getName().equals("h1") || node.getName().equals("h2") || node.getName().equals("h3") || node.getName().equals("h4")
             || node.getName().equals("h5") || node.getName().equals("h6"))) {
@@ -4317,13 +4365,16 @@ public class Publisher implements URIResolver {
         a.setAttribute("title", "link to here");
         a.setAttribute("class", "self-link");
         XhtmlNode img = a.addTag("img");
-        img.attribute("src", "target.png");
+        String s = "target.png";
+        for (int i = 0; i < level; i++)
+          s = "../"+s;
+        img.attribute("src", s);
 
     }
     if (node.getNodeType() == NodeType.Document
         || (node.getNodeType() == NodeType.Element && !(node.getName().equals("div") && "sidebar".equals(node.getAttribute("class"))))) {
       for (XhtmlNode n : node.getChildNodes()) {
-        insertSectionNumbersInNode(n, st, link);
+        insertSectionNumbersInNode(n, st, link, level);
       }
     }
   }
@@ -4944,17 +4995,17 @@ public class Publisher implements URIResolver {
 
         if (vs.getText() == null || vs.getText().getDiv() == null || vs.getText().getDiv().allChildrenAreText()
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-          new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
+          new NarrativeGenerator("", "", page.getWorkerContext()).generate(vs);
 
         page.getVsValidator().validate(page.getValidationErrors(), name, vs, true, false);
 
         addToResourceFeed(vs, valueSetsFeed, null); // todo - what should the Oids be
 
-        String sf = page.processPageIncludes(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-ig.html"), "valueSet", null, name+".html", vs, null, "Value Set");
-        sf = addSectionNumbers(title + ".html", "template-valueset", sf, "??", null);
+        String sf = page.processPageIncludes(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-ig.html"), "valueSet", null, name+".html", vs, null, "Value Set", null);
+        sf = addSectionNumbers(title + ".html", "template-valueset", sf, "??", 0, null);
         TextFile.stringToFile(sf, page.getFolders().dstDir + name + ".html");
 
-        String src = page.processPageIncludesForBook(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-ig-book.html"), "valueSet", vs);
+        String src = page.processPageIncludesForBook(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-ig-book.html"), "valueSet", vs, null);
         cachePage(name + ".html", src, "Value Set " + title);
         page.setId(null);
 
@@ -4985,10 +5036,17 @@ public class Publisher implements URIResolver {
     String n = vs.getUserString("filename");
     if (n == null)
       n = "valueset-"+vs.getId();
+    ImplementationGuide ig = (ImplementationGuide) vs.getUserData(ToolResourceUtilities.NAME_VS_IG);
+    if (ig != null)
+      n = ig.getCode()+File.separator+n;
 
     if (vs.getText().getDiv().allChildrenAreText()
-        && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-      new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
+        && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*"))) {
+      if (ig != null) 
+        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).generate(vs);
+      else
+        new NarrativeGenerator("", "", page.getWorkerContext()).generate(vs);
+    }
     page.getVsValidator().validate(page.getValidationErrors(), n, vs, true, false);
 
     if (isGenerate) {
@@ -4998,13 +5056,14 @@ public class Publisher implements URIResolver {
       
       addToResourceFeed(vs, valueSetsFeed, null);
 
-      vs.setUserData("path", n + ".html");
+      if (vs.getUserData("path") == null)
+        vs.setUserData("path", n + ".html");
       page.setId(vs.getId());
-      String sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, n+".html", vs, null, "Value Set");
-      sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ToolingExtensions.getOID(vs)), null);
+      String sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, n+".html", vs, null, "Value Set", null);
+      sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ToolingExtensions.getOID(vs)), ig == null ? 0 : 1, null);
 
       TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
-      String src = page.processPageIncludesForBook(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-book.html"), "valueSet", vs);
+      String src = page.processPageIncludesForBook(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-book.html"), "valueSet", vs, null);
       cachePage(n + ".html", src, "Value Set " + n);
       page.setId(null);
 
@@ -5091,7 +5150,7 @@ public class Publisher implements URIResolver {
       b.append(s);
     }
     cm.setDescription("v2 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext());
     gen.generate(cm);
 
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
@@ -5117,7 +5176,7 @@ public class Publisher implements URIResolver {
     // now, we create an html page from the narrative
     String narrative = new XhtmlComposer().setXmlOnly(true).compose(cm.getText().getDiv());
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
-    html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v2.html"), html, "conceptmap-instance", null, null, null, "Concept Map");
+    html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v2.html"), html, "conceptmap-instance", null, null, null, "Concept Map", null);
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.html"));
 
     cm.setUserData("path", Utilities.changeFileExt(filename, "-map-v2.html"));
@@ -5195,7 +5254,7 @@ public class Publisher implements URIResolver {
       b.append(s);
     }
     cm.setDescription("v3 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext());
     gen.generate(cm);
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json"));
@@ -5220,7 +5279,7 @@ public class Publisher implements URIResolver {
     // now, we create an html page from the narrative
     String narrative = new XhtmlComposer().setXmlOnly(true).compose(cm.getText().getDiv());
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
-    html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v3.html"), html, "conceptmap-instance", null, null, null, "Concept Map");
+    html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v3.html"), html, "conceptmap-instance", null, null, null, "Concept Map", null);
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.html"));
 
     cm.setUserData("path", Utilities.changeFileExt(filename, "-map-v3.html"));

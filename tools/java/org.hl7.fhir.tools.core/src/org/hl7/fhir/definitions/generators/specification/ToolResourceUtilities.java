@@ -6,6 +6,7 @@ import org.hl7.fhir.utilities.Utilities;
 public class ToolResourceUtilities {
 
   public static final String NAME_SPEC_USAGE = "spec.usage";
+  public static final String NAME_VS_IG = "spec.vs.ig";
 
   public static void updateUsage(Resource res, String usage) {
     if (Utilities.noString(usage))

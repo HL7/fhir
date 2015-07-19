@@ -302,10 +302,10 @@ public class EPubManager implements FileNotifier {
       return true;
     if (msg.contains("cda"))
       return true;
-    if (msg.contains("quick\\"))
-      return true;
-    if (msg.contains("-examples.html"))
-      return true;
+//    if (msg.contains("quick\\"))
+//      return true;
+//    if (msg.contains("-examples.html"))
+//      return true;
     if (msg.contains("'??"))
       return true;
     return false;

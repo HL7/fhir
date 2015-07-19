@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle Value Sets defined by (ig.title)%]
+[%setlevel 1%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>Value Sets Defined in <%ig.title%></h2>
+
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%ig.wglink%]">[%ig.wgt%]</a> Work Group</td><td id="fmm"><a href="../resource.html#maturity">Maturity Level</a>: <%ig.fmm%></td><td id="ballot"><a href="../help.html#status">Ballot Status</a>: <a href="../history.html#pubs"><%ig.ballot%></a></td></tr></table>
+
+<p>
+This table contains a list of all the value sets defined as part of the <%ig.title%>. See also the list of value sets <a href="../terminologies-valuesets.html">defined by the FHIR specification</a>.
+</p>
+  
+<%valuesetslist%> 
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

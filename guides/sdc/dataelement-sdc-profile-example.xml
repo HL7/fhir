@@ -32,7 +32,6 @@
       <code value="CodeableConcept"/>
     </type>
     <binding>
-      <name value="AdministrativeGender"/>
       <strength value="required"/>
       <valueSetReference>
         <reference value="http://hl7.org/fhir/ValueSet/AdministrativeGender"/>

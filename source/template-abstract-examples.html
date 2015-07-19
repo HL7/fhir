@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 
 
+<%settitle Resource {xtitle} - Examples%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <%file newheader%>
@@ -10,19 +11,21 @@
 
 <div class="col-9">
 
-<h1>[%title%]</h1>
+<%aresheader examples%>
+<h2><%title%></h2>
+
+<%example-header%>
+
+<%example-list%>
+
+<%!examples-book%>
 
 <p>
-<a href="<%name%>">Raw JSON</a> (<a href="<%canonicalname%>">canonical form</a>)
-</p>
-
-<%example%>
-
-<p>
-Usage note: every effort has been made to ensure that the
+Usage note: every effort has been made to ensure that the 
 examples are correct and useful, but they are not a normative part 
 of the specification. 
 </p>
+
 
 </div>
 

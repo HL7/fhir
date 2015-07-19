@@ -512,12 +512,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String prefix;
   private WorkerContext context;
   private IWorkerContext ctxt;
+  private String basePath;
   
   
-  public NarrativeGenerator(String prefix, WorkerContext context) {
+  public NarrativeGenerator(String prefix, String basePath, WorkerContext context) {
     super();
     this.prefix = prefix;
     this.context = context;
+    this.basePath = basePath;
     ctxt = null;
   }
 
@@ -1842,10 +1844,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
   public void generate(ValueSet vs, ValueSet src, boolean header) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     if (vs.hasExpansion()) {
-      if (!vs.hasCodeSystem() && !vs.hasCompose())
-        generateExpansion(x, vs, src, header);
-      else
-        throw new Exception("Error: should not encounter value set expansion at this point");
+      // for now, we just accept an expansion if there is one
+      generateExpansion(x, vs, src, header);
+//      if (!vs.hasCodeSystem() && !vs.hasCompose())
+//        generateExpansion(x, vs, src, header);
+//      else
+//        throw new Exception("Error: should not encounter value set expansion at this point");
     }
     
     boolean hasExtensions = false;
@@ -2309,7 +2313,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode li;
     for (UriType imp : vs.getCompose().getImport()) {
       li = ul.addTag("li");
-      li.addText("Import all the codes that are part of ");
+      li.addText("Import all the codes that are contained in ");
       AddVsRef(imp.getValue(), li);
     }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
@@ -2327,9 +2331,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (vs == null) 
       vs = context.getCodeSystems().get(value); 
     if (vs != null) {
-      String ref= (String) vs.getUserData("path");
+      String ref = (String) vs.getUserData("path");
+      ref = adjustForPath(ref);
       XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", prefix+(ref == null ? "??" : ref.replace("\\", "/")));
+      a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
       a.addText(value);
     } else if (value.equals("http://snomed.info/sct") || value.equals("http://snomed.info/id")) {
       XhtmlNode a = li.addTag("a");
@@ -2340,7 +2345,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
       li.addText(value);
   }
 
-  private  boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type) throws Exception {
+  private String adjustForPath(String ref) {
+    if (prefix == null)
+      return ref;
+    else 
+      return prefix+ref;
+  }
+
+  private boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type) throws Exception {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");

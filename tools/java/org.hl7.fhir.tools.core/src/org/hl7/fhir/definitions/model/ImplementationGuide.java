@@ -16,6 +16,8 @@ public class ImplementationGuide {
   private String page;
   private boolean review;
   private String source;
+  private String ballot;
+  private String fmm;
   private List<String> pageList = new ArrayList<String>();
   private List<String> imageList = new ArrayList<String>();
   private List<Example> examples = new ArrayList<Example>();
@@ -27,7 +29,7 @@ public class ImplementationGuide {
   private List<BindingSpecification> unresolvedBindings = new ArrayList<BindingSpecification>();
   private List<LogicalModel> logicalModels = new ArrayList<LogicalModel>();
   
-  public ImplementationGuide(String committee, String code, String name, String page, String source, boolean review) {
+  public ImplementationGuide(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm) {
     super();
     this.code = code;
     this.name = name;
@@ -35,6 +37,8 @@ public class ImplementationGuide {
     this.page = page;
     this.review = review;
     this.committee = committee;
+    this.fmm = fmm;
+    this.ballot = ballot;
   }
   
   public String getCode() {
@@ -117,6 +121,26 @@ public class ImplementationGuide {
 
   public String getCommittee() {
     return committee;
+  }
+
+  public String getBallot() {
+    return ballot;
+  }
+
+  public void setBallot(String ballot) {
+    this.ballot = ballot;
+  }
+
+  public String getFmm() {
+    return fmm;
+  }
+
+  public void setFmm(String fmm) {
+    this.fmm = fmm;
+  }
+
+  public boolean isCore() {
+    return code.equals("core");
   }
   
 }

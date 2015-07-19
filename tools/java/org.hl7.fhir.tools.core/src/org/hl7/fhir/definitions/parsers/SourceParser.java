@@ -363,8 +363,9 @@ public class SourceParser {
       Element ig = XMLUtil.getFirstChild(root);
       while (ig != null) {
         if (ig.getNodeName().equals("ig")) {
-          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), ig.getAttribute("source").replace('\\', File.separatorChar), 
-              "1".equals(ig.getAttribute("review")));
+          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), 
+              ig.getAttribute("source").replace('\\', File.separatorChar), "1".equals(ig.getAttribute("review")),
+              ig.getAttribute("ballot"), ig.getAttribute("fmm"));
           definitions.getIgs().put(igg.getCode(), igg);
           definitions.getSortedIgs().add(igg);
         }

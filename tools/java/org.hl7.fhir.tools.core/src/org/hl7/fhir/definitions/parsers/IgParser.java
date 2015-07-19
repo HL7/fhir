@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.Example;
@@ -79,7 +80,8 @@ public class IgParser {
           vs.setId(id);
           vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
         }
-        vs.setUserData("path", "valueset-"+vs.getId()+".html");
+        vs.setUserData(ToolResourceUtilities.NAME_VS_IG, ig);
+        vs.setUserData("path", ig.getCode()+File.separator+"valueset-"+vs.getId()+".html");
         vs.setUserData("filename", "valueset-"+vs.getId());
         vs.setUserData("committee", committee);
         ig.getValueSets().add(vs);
