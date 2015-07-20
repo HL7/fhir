@@ -2647,17 +2647,23 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	    // 1. custom FHIR extensions
 	    while (text.contains("[[[")) {
 	      String left = text.substring(0, text.indexOf("[[["));
-	      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
+	      String link = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
 	      String right = text.substring(text.indexOf("]]]")+3);
-	      String actual = url;
-	      //      String[] parts = url.split("\\#");
-	      //      StructureDefinition p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
-	      //      if (p != null)
-	      //        actual = p.getTag("filename")+".html";
-	      //      else {
-	      //        throw new Exception("Unresolved logical URL "+url);
-	      //      }
-	      text = left+"["+url+"]("+actual+")"+right;
+	      String url = link;
+	      String[] parts = link.split("\\#");
+	      StructureDefinition p = context.getProfiles().get(parts[0]);
+	      if (p == null)
+	        p = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+parts[0]);
+	      if (p == null)
+	        p = context.getExtensionStructure(null, link);
+	      if (p != null) {
+	        url = p.getUserString("path");
+	        if (url == null)
+	          url = p.getUserString("filename");	          
+	      } else 
+	        throw new Exception("Unable to resolve markdown link "+link);
+
+	      text = left+"["+link+"]("+url+")"+right;
 	    }
 
 	    // 2. markdown

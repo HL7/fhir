@@ -812,6 +812,7 @@ public class Publisher implements URIResolver {
       }
     if (!Utilities.noString(filename))
       profile.getResource().setUserData("filename", filename+".html");
+    profile.getResource().setUserData("path", filename+".html");
   }
 
   public StructureDefinition getSnapShotForProfile(String base) throws Exception {
@@ -1726,6 +1727,11 @@ public class Publisher implements URIResolver {
         page.log(" ...ig page " + n, LogMessageType.Process);
         produceIgPage(n, ig);        
       }
+      for (Profile p : ig.getProfiles()) {
+        if (!p.getOperations().isEmpty()) {
+          produceIgOperations(ig, p);
+        }
+      }
     }
     for (String n : page.getIni().getPropertyNames("ig-pages")) {
       page.log(" ...page " + n, LogMessageType.Process);
@@ -1964,6 +1970,18 @@ public class Publisher implements URIResolver {
       checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  private void produceIgOperations(ImplementationGuide ig, Profile p) throws Exception {
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-ig-operations.html");
+    String n = p.getId();
+    TextFile.stringToFile(page.processPageIncludes(ig.getCode()+File.separator+n+"-operations.html", src, "?type", null, "??path", null, null, "Operations", p, ig), page.getFolders().dstDir + ig.getCode()+File.separator+n + "-operations.html");
+    // insertSectionNumbers(, st, n+"-operations.html", 0, null)
+    page.getEpub().registerFile(ig.getCode()+File.separator+n + "-operations.html", "Operations defined by " + p.getTitle(), EPubManager.XHTML_TYPE);
+
+    for (Operation t : p.getOperations()) {
+      produceOperation(ig, n+"-"+t.getName(), n+"-"+t.getName().toLowerCase(), null, t);
+    }
   }
 
   /**
@@ -3231,8 +3249,9 @@ public class Publisher implements URIResolver {
       page.getEpub().registerFile(n + "-operations.html", "Operations for " + resource.getName(), EPubManager.XHTML_TYPE);
 
       for (Operation t : resource.getOperations()) {
-        produceOperation(resource, t);
+        produceOperation(null, resource.getName().toLowerCase()+"-"+t.getName(), resource.getName()+"-"+t.getName(), resource.getName(), t);
       }
+      
       // todo: get rid of these...
       src = TextFile.fileToString(page.getFolders().srcDir + "template-book.html").replace("<body>", "<body style=\"margin: 10px\">");
       src = page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html");
@@ -3260,26 +3279,28 @@ public class Publisher implements URIResolver {
 //      generateQuestionnaire(n, p);
   }
 
-  private void produceOperation(ResourceDefn r, Operation op) throws Exception {
-    String name = r.getName().toLowerCase()+"-"+op.getName();
-    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(r, op);
+  private void produceOperation(ImplementationGuide ig, String name, String id, String resourceName, Operation op) throws Exception {
+    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(name, id, resourceName, op);
 
-    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".xml");
+    String dir = ig == null ? "" : ig.getCode()+File.separator;
+    
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + dir+"operation-" + name + ".xml");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, opd);
     s.close();
-    cloneToXhtml("operation-" + name + "", "Operation Definition", true, "resource-instance:OperationDefinition", "Operation definition");
-    s = new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".json");
+    cloneToXhtml(dir+"operation-" + name + "", "Operation Definition", true, "resource-instance:OperationDefinition", "Operation definition");
+    s = new FileOutputStream(page.getFolders().dstDir + dir+"operation-" + name + ".json");
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, opd);
     s.close();
-    jsonToXhtml("operation-" + name, "Operation Definition", resource2Json(opd), "resource-instance:OperationDefinition", "Operation definition");
-    Utilities.copyFile(new CSFile(page.getFolders().dstDir + "operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
+    jsonToXhtml(dir+"operation-" + name, "Operation Definition", resource2Json(opd), "resource-instance:OperationDefinition", "Operation definition");
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + dir+"operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
     if (buildFlags.get("all"))
       addToResourceFeed(opd, profileFeed, name);
 
     // now, we create an html page from the narrative
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer().compose(opd.getText().getDiv()));
-    html = page.processPageIncludes("operation-" + name + ".html", html, "resource-instance:OperationDefinition", null, null, null, "Operation Definition", null);
-    TextFile.stringToFile(html, page.getFolders().dstDir + "operation-" + name + ".html");
+    html = page.processPageIncludes(dir+"operation-" + name + ".html", html, "resource-instance:OperationDefinition", null, null, null, "Operation Definition", ig);
+    TextFile.stringToFile(html, page.getFolders().dstDir + dir+"operation-" + name + ".html");
+    page.getEpub().registerFile(dir+"operation-" + name + ".html", "Operation " + op.getName(), EPubManager.XHTML_TYPE);
     // head =
     // "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
     // "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n"+
@@ -3287,9 +3308,9 @@ public class Publisher implements URIResolver {
     // tail = "\r\n</body>\r\n</html>\r\n";
     // TextFile.stringToFile(head+narrative+tail, page.getFolders().dstDir + n +
     // ".html");
-    page.getEpub().registerExternal("operation-" + name + ".html");
-    page.getEpub().registerExternal("operation-" + name + ".json.html");
-    page.getEpub().registerExternal("operation-" + name + ".xml.html");
+//    page.getEpub().registerExternal(dir+"operation-" + name + ".html");
+    page.getEpub().registerExternal(dir+"operation-" + name + ".json.html");
+    page.getEpub().registerExternal(dir+"operation-" + name + ".xml.html");
   }
 
   /*

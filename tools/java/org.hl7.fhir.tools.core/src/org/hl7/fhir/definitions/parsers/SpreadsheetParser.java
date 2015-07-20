@@ -390,7 +390,7 @@ public class SpreadsheetParser {
 	  else
 	    readPackages(root, loadSheet("Packages")); 
     readExamples(root, loadSheet("Examples"));
-	  readOperations(root, loadSheet("Operations"));
+	  readOperations(root.getOperations(), loadSheet("Operations"));
 
 	  md.write();
 	  return root;
@@ -410,13 +410,14 @@ public class SpreadsheetParser {
   }
 
 
-  private void readOperations(ResourceDefn root, Sheet sheet) throws Exception {
+  private void readOperations(List<Operation> oplist, Sheet sheet) throws Exception {
 	  Map<String, Operation> ops = new HashMap<String, Operation>();
     Map<String, OperationParameter> params = new HashMap<String, OperationParameter>();
 	  
 	  if (sheet != null) {
       for (int row = 0; row < sheet.rows.size(); row++) {
         String name = sheet.getColumn(row, "Name");
+        
         String use = sheet.getColumn(row, "Use"); 
         String doco = sheet.getColumn(row, "Documentation");
         String type = sheet.getColumn(row, "Type");
@@ -426,6 +427,9 @@ public class SpreadsheetParser {
 	        if (!name.contains(".")) {
 	          if (!type.equals("operation"))
               throw new Exception("Invalid type on operation "+type+" at " +getLocation(row));
+	          if (!name.toLowerCase().equals(name))
+              throw new Exception("Invalid name on operation "+name+" - must be all lower case (use dashes) at " +getLocation(row));
+	            
 	          params.clear();
 	          
 	          boolean system = false;
@@ -443,7 +447,7 @@ public class SpreadsheetParser {
 	              throw new Exception("unknown operation use code "+c+" at "+getLocation(row));
 	          }
 	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer"), examples);
-            root.getOperations().add(op);
+            oplist.add(op);
             ops.put(name, op);
 	        } else {
             String context = name.substring(0, name.lastIndexOf('.'));
@@ -472,7 +476,7 @@ public class SpreadsheetParser {
 	              throw new Exception("Unknown Operation '"+context+"' at "+getLocation(row));
 	            plist = operation.getParameters();
 	          }
-            String profile = sheet.getColumn(row, "StructureDefinition");
+            String profile = sheet.getColumn(row, "Profile");
             String min = sheet.getColumn(row, "Min");
             String max = sheet.getColumn(row, "Max");
             OperationParameter p = new OperationParameter(pname, use, doco, Integer.parseInt(min), max, type, profile);
@@ -1145,6 +1149,9 @@ public class SpreadsheetParser {
 	    if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
 	      readSearchParams(ap, xls.getSheets().get("Search"), this.profileExtensionBase);
 	    md.write();
+
+	    if (xls.getSheets().containsKey("Operations"))
+  	    readOperations(ap.getOperations(), loadSheet("Operations"));
 
 	  } catch (Exception e) {
 	    throw new Exception("exception parsing pack "+ap.getSource()+": "+e.getMessage(), e);

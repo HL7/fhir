@@ -139,6 +139,8 @@ public class ProfileGenerator {
     p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
     p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
+    p.setUserData("filename", type.getCode().toLowerCase());
+    p.setUserData("path", "datatypes.html#"+type.getCode());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
@@ -226,6 +228,8 @@ public class ProfileGenerator {
     p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
     p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
+    p.setUserData("filename", type.getCode().toLowerCase());
+    p.setUserData("path", "datatypes.html#"+type.getCode());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
@@ -307,6 +311,8 @@ public class ProfileGenerator {
 // no base on data types and resources    p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
     p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
+    p.setUserData("filename", t.getName().toLowerCase());
+    p.setUserData("path", "datatypes.html#"+t.getName());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(t.getName());
@@ -352,6 +358,8 @@ public class ProfileGenerator {
     p.setKind(StructureDefinitionKind.DATATYPE);
     p.setConstrainedType(pt.getBaseType());
     p.setAbstract(false);
+    p.setUserData("filename", pt.getName().toLowerCase());
+    p.setUserData("path", "datatypes.html#"+pt.getName());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(pt.getName());
@@ -423,6 +431,8 @@ public class ProfileGenerator {
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(r.isAbstract());
+    p.setUserData("filename", r.getName().toLowerCase());
+    p.setUserData("path", r.getName().toLowerCase()+".html");
 
     if (r.getFmmLevel() != null)
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
@@ -504,6 +514,8 @@ public class ProfileGenerator {
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setConstrainedType(resource.getName());    
     p.setAbstract(false);
+    p.setUserData("filename", id);
+    p.setUserData("path", id+".html");
 
     
     ToolResourceUtilities.updateUsage(p, usage.getCode());
@@ -1165,11 +1177,10 @@ public class ProfileGenerator {
     return false;
   }
 
-  public OperationDefinition generate(ResourceDefn r, Operation op) throws Exception {
-    String name = r.getName().toLowerCase()+"-"+op.getName();
+  public OperationDefinition generate(String name, String id, String resourceName, Operation op) throws Exception {
     OperationDefinition opd = new OperationDefinition();
-    opd.setId(FormatUtilities.makeId(r.getName()+"-"+op.getName()));
-    opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+r.getName()+"-"+op.getName());
+    opd.setId(FormatUtilities.makeId(id));
+    opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+id);
     opd.setName(op.getTitle());
     opd.setPublisher("HL7 (FHIR Project)");
     opd.addContact().getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
@@ -1188,7 +1199,7 @@ public class ProfileGenerator {
     opd.setNotes(op.getFooter());
     opd.setSystem(op.isSystem());
     if (op.isType())
-      opd.addType(r.getName());
+      opd.addType(resourceName);
     opd.setInstance(op.isInstance());
     for (OperationParameter p : op.getParameters()) {
       produceOpParam(op.getName(), opd.getParameter(), p, null);

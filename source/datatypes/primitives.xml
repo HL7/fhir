@@ -417,7 +417,7 @@
 					<NamedCell ss:Name="id"/>
 				</Cell>
 				<Cell>
-					<Data ss:Type="String">Any combination of lowercase letters, numerals, "-" and ".", with a length limit of 36 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Systems SHALL send ids as lower-case but SHOULD interpret them case-insensitively.</Data>
+					<Data ss:Type="String">Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.</Data>
 				</Cell>
 				<Cell>
 					<Data ss:Type="String">RFC 4122</Data>

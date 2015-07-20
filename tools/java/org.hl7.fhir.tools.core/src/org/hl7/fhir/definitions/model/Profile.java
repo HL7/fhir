@@ -35,6 +35,7 @@ public class Profile {
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<SearchParameter> searchParameters = new ArrayList<SearchParameter>();
   private Map<String, MappingSpace> mappingSpaces = new HashMap<String, MappingSpace>();
+  private List<Operation> operations = new ArrayList<Operation>();
   
   public Profile(String category) {
     super();
@@ -164,6 +165,9 @@ public class Profile {
       if (item.getDefn() != null && item.getDefn().getName().equals(resource.getName()))
         return true;
     return false;
+  }
+  public List<Operation> getOperations() {
+    return operations;
   }
 
   

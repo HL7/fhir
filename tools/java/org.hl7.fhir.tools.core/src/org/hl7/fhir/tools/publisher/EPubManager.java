@@ -221,6 +221,8 @@ public class EPubManager implements FileNotifier {
       if (XHTML_TYPE.equals(e.type)) {
         if (!e.checked)
           check(e);
+        if (e.bytes == null)
+          throw new Exception("no content in "+e.filename);
         zip.addBytes("OEBPS/"+e.filename, e.bytes, false);
         e.bytes = null;        
       } else {
@@ -241,6 +243,8 @@ public class EPubManager implements FileNotifier {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         new XhtmlComposer().compose(stream, doc);
         e.bytes = stream.toByteArray();
+        if (e.bytes == null || e.bytes.length == 0)
+          throw new Exception("File is empty");
       } catch (Exception e1) {
         throw new Exception("Error parsing "+Utilities.path(page.getFolders().dstDir, e.filename), e1);
       }
@@ -378,8 +382,11 @@ public class EPubManager implements FileNotifier {
 
   private Entry getEntryForFile(String target) {
     for (Entry e : entries) {
-      if (e.filename.equals(target))
+      if (e.filename.equalsIgnoreCase(target)) {
+        if (!e.filename.equals(target))
+          throw new Error("Case Error: found "+e.filename+" looking for "+target);
         return e;
+      }
     }
     return null;
   }
