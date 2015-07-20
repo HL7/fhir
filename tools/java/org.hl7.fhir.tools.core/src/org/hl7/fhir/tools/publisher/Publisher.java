@@ -4622,10 +4622,23 @@ public class Publisher implements URIResolver {
       }
     }
 
-    page.log("Round Trip #2", LogMessageType.Process);
+    page.log("Round Trip #3", LogMessageType.Process);
     if (buildFlags.get("all")) {
       list = new ArrayList<String>();
       listCollections2(list);
+    }
+   
+    for (PlatformGenerator gen : page.getReferenceImplementations()) {
+      if (gen.doesTest()) {
+        page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
+        gen.test(page.getFolders(), list);
+      }
+    }
+
+    page.log("Round Trip #4", LogMessageType.Process);
+    if (buildFlags.get("all")) {
+      list = new ArrayList<String>();
+      listCollections3(list);
     }
    
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
@@ -4640,6 +4653,7 @@ public class Publisher implements URIResolver {
     listExamples(list);
     listCollections1(list);
     listCollections2(list);
+    listCollections3(list);
     Collections.sort(list);
     
     for (String n : list) {
@@ -4666,13 +4680,15 @@ public class Publisher implements URIResolver {
     list.add("profiles-resources");
     list.add("profiles-others");
     list.add("extension-definitions");
+  }
+  private void listCollections2(List<String> list) {
     list.add("search-parameters");
     list.add("v2-tables");
     list.add("v3-codesystems");
     list.add("conceptmaps");
   }
 
-  private void listCollections2(List<String> list) {
+  private void listCollections3(List<String> list) {
     list.add("valuesets");
   }
 
