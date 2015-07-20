@@ -361,6 +361,14 @@ public class XMLUtil {
     return e == null ? null : e.getAttribute("value");
   }
 
+  public static void setNamedChildValue(Element element, String name, String value) throws Exception {
+    Element e = getNamedChild(element, name);
+    if (e == null)
+      throw new Exception("unable to find element "+name);
+    e.setAttribute("value", value);
+  }
+
+
 	public static void getNamedChildrenWithWildcard(Element focus, String name, List<Element> children) {
     Element c = getFirstChild(focus);
     while (c != null) {

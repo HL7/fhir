@@ -78,7 +78,8 @@ public class SpecificationInternalClient implements IFHIRClient {
       ResourceDefn r = page.getDefinitions().getResourceByName(path[0]);
       for (Example e : r.getExamples()) {
         if (e.getId().equals(path[1])) {
-          return (T) new XmlParser().parse(new FileInputStream(e.getPath()));
+          throw new Exception("TODO");
+//          return (T) new XmlParser().parse(e.getXml());
         }
       }
       return null;

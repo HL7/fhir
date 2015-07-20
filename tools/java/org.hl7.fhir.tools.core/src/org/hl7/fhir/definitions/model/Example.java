@@ -45,7 +45,7 @@ public class Example {
   private String name;
   private String id;
   private String description;
-  private File path;
+  private String title;
   private String xhtm;
   private ExampleType type;
   private boolean registered;
@@ -55,10 +55,30 @@ public class Example {
   
   
   public enum ExampleType {
-	    XmlFile,
-	    CsvFile,
-	    Tool
-	  }
+    Container,
+    XmlFile,
+    CsvFile,
+    Tool
+  }
+  
+  
+  public Example(String name, String id, String title, String description, boolean registered, ExampleType type, Document doc) throws Exception {
+    this.name = name;
+    this.id = id;
+    this.description = description;
+    this.type = type;
+    this.registered = registered;
+    this.title = title;
+    
+    xml = doc;
+    resourceName = xml.getDocumentElement().getNodeName();
+    if (XMLUtil.getNamedChild(xml.getDocumentElement(), "id") == null)
+      throw new Exception("no id element (looking for '"+id+"' from example "+id);
+    String xid = XMLUtil.getNamedChild(xml.getDocumentElement(), "id").getAttribute("value");
+    if (!id.equals(xid)) {
+      throw new Exception("misidentified resource example "+id+" expected '"+id+"' found '"+xid+"'");
+    }
+  }
   
   
   public Example(String name, String id, String description, File path, boolean registered, ExampleType type, boolean noId) throws Exception {
@@ -66,9 +86,10 @@ public class Example {
     this.name = name;
     this.id = id;
     this.description = description;
-    this.path = path;
+//    this.path = path;
     this.type = type;
     this.registered = registered;
+    this.title = getFileTitle(path);
     
     if( type == ExampleType.CsvFile ) {
       CSVProcessor csv = new CSVProcessor();
@@ -80,7 +101,7 @@ public class Example {
       path = tmp;
     }
     
-    if (type == ExampleType.XmlFile || type == ExampleType.CsvFile) {
+    if (type == ExampleType.XmlFile || type == ExampleType.CsvFile || type == ExampleType.Container) {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       factory.setNamespaceAware(true);
       try {
@@ -103,6 +124,11 @@ public class Example {
     }
   }
   
+  private String getFileTitle(File path) {
+    String s = path.getName();
+    return s.substring(0, s.indexOf("."));
+  }
+  
   public String getName() {
     return name;
   }
@@ -115,16 +141,16 @@ public class Example {
   public void setDescription(String description) {
     this.description = description;
   }
-  public File getPath() {
-    return path;
-  }
-  public void setPath(File path) {
-    this.path = path;
-  }
-  public String getFileTitle() {
-    String s = path.getName();
-    return s.substring(0, s.indexOf("."));
-  }
+//  public File getPath() {
+//    return path;
+//  }
+//  public void setPath(File path) {
+//    this.path = path;
+//  }
+//  public String getFileTitle() {
+//    String s = path.getName();
+//    return s.substring(0, s.indexOf("."));
+//  }
   public void setXhtm(String content) {
    xhtm = content;
     
@@ -141,6 +167,10 @@ public class Example {
   public String getId() {
     return id;
   }
+  public String getTitle() {
+    return title;
+  }
+
   public Document getXml() {
     return xml;
   }

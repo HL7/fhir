@@ -4473,7 +4473,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder s = new StringBuilder();
     for (Example e: resource.getExamples()) {
         s.append("<tr><td>").append(Utilities.escapeXml(e.getDescription())).append("</td><td><a href=\"")
-                .append(e.getFileTitle()).append(".xml\">source</a></td><td><a href=\"").append(e.getFileTitle()).append(".xml.html\">formatted</a></td></tr>");
+                .append(e.getTitle()).append(".xml\">source</a></td><td><a href=\"").append(e.getTitle()).append(".xml.html\">formatted</a></td></tr>");
     }
     return s.toString();
   }
@@ -4545,12 +4545,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private void produceExampleListEntry(StringBuilder s, Example e, Profile pack) {
-    if (e.getFileTitle().equals("conformance-base") || e.getFileTitle().equals("conformance-base2") || e.getFileTitle().equals("profiles-resources"))
+    if (e.getTitle().equals("conformance-base") || e.getTitle().equals("conformance-base2") || e.getTitle().equals("profiles-resources"))
       s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
     else
-      s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
-    s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
-    s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
+      s.append("<tr><td><a href=\""+e.getTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
+    s.append("<td><a href=\""+e.getTitle()+".xml.html\">XML</a></td>");
+    s.append("<td><a href=\""+e.getTitle()+".json.html\">JSON</a></td>");
     if (pack == null)
       s.append("<td></td>");
     else
@@ -6158,7 +6158,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (pack.getExamples().size() > 0) {
       s.append("<tr><td colspan=\"2\"><b>Examples</b>: </td></tr>");
       for (Example ex : pack.getExamples())
-        s.append("<tr><td><a href=\"").append(ex.getFileTitle()).append(".html\">").append(Utilities.escapeXml(Utilities.changeFileExt(ex.getName(), "")))
+        s.append("<tr><td><a href=\"").append(ex.getTitle()).append(".html\">").append(Utilities.escapeXml(Utilities.changeFileExt(ex.getName(), "")))
                 .append("</a></td><td>").append(processMarkdown(pack.getId(), ex.getDescription())).append("</td></tr>");
     }
     s.append("</table>");

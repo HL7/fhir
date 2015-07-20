@@ -178,7 +178,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
             throw new Exception("unable to find type "+type);
           for (Example e : r.getExamples()) {
             if (id.equals(e.getId()))
-              return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+e.getFileTitle()+".xml.html\">", "</a>");
+              return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+e.getTitle()+".xml.html\">", "</a>");
             if (e.getXml() != null && e.getXml().getDocumentElement().getLocalName().equals("feed")) {
               List<Element> entries = new ArrayList<Element>();
               XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
@@ -186,7 +186,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
               for (Element c : entries) {
                 String t = XMLUtil.getNamedChild(c, "id").getAttribute("value");
                 if (url.equals(t))
-                  return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+e.getFileTitle()+".xml.html#"+id+"\">", "</a>");
+                  return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+e.getTitle()+".xml.html#"+id+"\">", "</a>");
               }
             }
           }

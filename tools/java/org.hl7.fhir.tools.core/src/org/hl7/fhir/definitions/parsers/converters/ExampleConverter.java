@@ -62,7 +62,6 @@ public class ExampleConverter
 		result.setIdentity( example.getId() );
 		result.setType( ExampleType.get( example.getType().ordinal() ) );
 		result.setDescription( Utilities.cleanupTextString(example.getDescription()) );
-		result.setPath( example.getPath().getName() );
 		
 		return result;
 	}

@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -75,6 +76,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
+import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.parsers.converters.BindingConverter;
 import org.hl7.fhir.definitions.parsers.converters.CompositeTypeConverter;
 import org.hl7.fhir.definitions.parsers.converters.ConstrainedTypeConverter;
@@ -107,6 +109,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 /**
  * This class parses the master source for FHIR into a single definitions object
@@ -272,6 +275,7 @@ public class SourceParser {
     for (String n : ini.getPropertyNames("resources"))
       loadResource(n, definitions.getResources(), false);
 
+    processContainerExamples();
     logger.log("Load Extras", LogMessageType.Process);
     loadCompartments();
     loadStatusCodes();
@@ -328,6 +332,59 @@ public class SourceParser {
           definitions.getDictionaries().put(d.getId(), d);
       }
     }
+  }
+
+  private void processContainerExamples() throws Exception {
+    for (ResourceDefn defn : definitions.getResources().values()) 
+      for (Example ex : defn.getExamples()) {
+        if (ex.getType() == ExampleType.Container) {
+          processContainerExample(ex);
+        }
+      }
+  }
+    
+
+  private void processContainerExample(Example ex) throws Exception {
+      Map<String, Document> parts = divideContainedResources(ex.getId(), ex.getXml());
+      for (String n : parts.keySet()) {
+        definitions.getResourceByName(parts.get(n).getDocumentElement().getNodeName()).getExamples().add(new Example("Part of "+ex.getName(), ex.getId()+"-"+n, ex.getTitle()+"-"+n, "Part of the example", false, ExampleType.XmlFile, parts.get(n)));
+      }
+  }
+
+  private Map<String, Document> divideContainedResources(String rootId, Document doc) throws Exception {
+    Map<String, Document> res = new HashMap<String, Document>();
+    List<Element> list = new ArrayList<Element>();
+    XMLUtil.getNamedChildren(doc.getDocumentElement(), "contained", list);
+    for (Element e : list) {
+      Element r = XMLUtil.getFirstChild(e);
+      String id = XMLUtil.getNamedChildValue(r, "id");
+      if (Utilities.noString(id))
+        throw new Exception("Contained Resource has no id");
+      String nid = rootId + "-"+id;
+      if (!nid.matches(FormatUtilities.ID_REGEX))
+        throw new Exception("Contained Resource combination is illegal");
+      replaceReferences(doc.getDocumentElement(), id, r.getNodeName()+"/"+nid);
+      XMLUtil.setNamedChildValue(r, "id", nid);
+      DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+      DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+      Document ndoc = docBuilder.newDocument();
+      Node newNode = ndoc.importNode(r, true);
+      ndoc.appendChild(newNode);
+      res.put(id, ndoc);
+      doc.getDocumentElement().removeChild(e);
+    }
+    return res;
+  }
+
+
+  private void replaceReferences(Element e, String id, String nid) throws Exception {
+    if (("#"+id).equals(XMLUtil.getNamedChildValue(e, "reference")))
+      XMLUtil.setNamedChildValue(e, "reference", nid);
+    Element c = XMLUtil.getFirstChild(e);
+    while (c != null) {
+      replaceReferences(c, id, nid);
+      c = XMLUtil.getNextSibling(c);
+    }   
   }
 
   private void loadStyleExemptions() {

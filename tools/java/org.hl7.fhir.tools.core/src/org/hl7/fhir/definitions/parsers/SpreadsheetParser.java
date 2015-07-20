@@ -32,6 +32,8 @@ package org.hl7.fhir.definitions.parsers;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -39,6 +41,9 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
@@ -81,6 +86,7 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Base64BinaryType;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
+import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
@@ -118,6 +124,11 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
+import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 import com.trilead.ssh2.crypto.Base64;
 
@@ -538,6 +549,8 @@ public class SpreadsheetParser {
 	    return ExampleType.XmlFile;
 	  if ("tool".equals(s))
 	    return ExampleType.Tool;
+    if ("container".equals(s))
+      return ExampleType.Container;
 	  if ("xml".equals(s))
 	    return ExampleType.XmlFile;
 	  if ("csv".equals(s))
@@ -1239,23 +1252,22 @@ public class SpreadsheetParser {
 					String type = sheet.getColumn(row, "Type");
 					if (!file.exists() && !("tool".equals(type) || isSpecialType(type)))
 						throw new Exception("Example " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
-					String pn = sheet.getColumn(row, "Profile"); 
-					if (Utilities.noString(pn)) {
-					  defn.getExamples().add(new Example(name, id, desc, file, 
-					      parseBoolean(sheet.getColumn(row, "Registered"), row, true), 
-					      parseExampleType(type, row),
-					      isAbstract));
-					} else {
-					  Profile ap = null;
-					  for (Profile r : defn.getConformancePackages()) {
-					    if (r.getTitle().equals(pn))
-					      ap = r;
-					  }
-//					  if (ap == null)
-//					    throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
-            if (ap != null)
-  					  ap.getExamples().add(new Example(filename, id, desc, file, parseBoolean(sheet.getColumn(row, "Registered"), row, true), parseExampleType(type, row), isAbstract));
-					}
+          List<Example> list = defn.getExamples();
+					String pn = sheet.getColumn(row, "Profile");
+          if (!Utilities.noString(pn)) {
+            Profile ap = null;
+            for (Profile r : defn.getConformancePackages()) {
+              if (r.getTitle().equals(pn))
+                ap = r;
+            }
+            if (ap == null)
+              throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
+            else
+              list = ap.getExamples();
+          }
+          
+					ExampleType etype = parseExampleType(type, row);
+  			  list.add(new Example(name, id, desc, file, parseBoolean(sheet.getColumn(row, "Registered"), row, true), etype, isAbstract));
 				}
 			}
 		}
@@ -1269,10 +1281,7 @@ public class SpreadsheetParser {
 		}		
 	}
 
-	
-	
-	
-	private boolean isSpecialType(String type) {
+  private boolean isSpecialType(String type) {
     return false;
   }
 

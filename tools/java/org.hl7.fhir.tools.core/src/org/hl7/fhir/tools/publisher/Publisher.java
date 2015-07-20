@@ -1339,16 +1339,16 @@ public class Publisher implements URIResolver {
           listLinks(e.getXml().getDocumentElement(), refs);
           for (ExampleReference ref : refs) {
             if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref, e)) {
-              String path = ref.getPath().replace("/f:", ".").substring(1)+" (example "+Utilities.changeFileExt(e.getPath().getName(), "")+")";
+              String path = ref.getPath().replace("/f:", ".").substring(1)+" (example "+e.getTitle()+")";
               errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, path, 
-                  "Unable to resolve example reference to " + ref.describe() + " in " + e.getPath().getName() + " (Possible Ids: " + listTargetIds(ref.getType())+")", 
-                  "Unable to resolve example reference to " + ref.describe() + " in <a href=\""+Utilities.changeFileExt(e.getPath().getName(),  ".html")+"\">" + e.getPath().getName() + "</a> (Possible Ids: " + listTargetIds(ref.getType())+")", 
+                  "Unable to resolve example reference to " + ref.describe() + " in " + e.getTitle() + " (Possible Ids: " + listTargetIds(ref.getType())+")", 
+                  "Unable to resolve example reference to " + ref.describe() + " in <a href=\""+e.getTitle() + ".html"+"\">" + e.getTitle() + "</a> (Possible Ids: " + listTargetIds(ref.getType())+")", 
                   IssueSeverity.WARNING));
             }
           }
         }
       } catch (Exception ex) {
-        throw new Exception("Error checking example " + e.getFileTitle() + ":" + ex.getMessage(), ex);
+        throw new Exception("Error checking example " + e.getTitle() + ":" + ex.getMessage(), ex);
       }
     }
   }
@@ -3192,7 +3192,7 @@ public class Publisher implements URIResolver {
         try {
           processExample(e, resource.getName(), profile, null);
         } catch (Exception ex) {
-          throw new Exception("processing " + e.getFileTitle(), ex);
+          throw new Exception("processing " + e.getTitle(), ex);
           // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
         }
       }
@@ -3398,15 +3398,11 @@ public class Publisher implements URIResolver {
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document xdoc;
     String narrative = null;
-    String n = e.getFileTitle();
-
-
-    if (!e.getPath().exists())
-      throw new Exception("unable to find example file");
+    String n = e.getTitle();
 
     // strip the xsi: stuff. seems to need double processing in order to
     // delete namespace crap
-    xdoc = e.getXml() == null ? builder.parse(new CSFileInputStream(e.getPath())) : e.getXml();
+    xdoc = e.getXml();
     XmlGenerator xmlgen = new XmlGenerator();
     CSFile file = new CSFile(page.getFolders().dstDir + n + ".xml");
     xmlgen.generate(xdoc.getDocumentElement(), file, "http://hl7.org/fhir", xdoc.getDocumentElement()
@@ -3490,7 +3486,7 @@ public class Publisher implements URIResolver {
 
       page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+n, vs, false, false);
       if (vs.getUrl() == null)
-        throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
+        throw new Exception("Value set example " + e.getTitle() + " has no identifier");
       vs.setUserData("path", n + ".html");
       if (vs.getUrl().startsWith("http:"))
         page.getValueSets().put(vs.getUrl(), vs);
@@ -3504,9 +3500,9 @@ public class Publisher implements URIResolver {
       }
     } else if (rt.equals("ConceptMap")) {
       ConceptMap cm = (ConceptMap) new XmlParser().parse(new FileInputStream(file));
-      new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
+      new ConceptMapValidator(page.getDefinitions(), e.getTitle()).validate(cm, false);
       if (cm.getUrl() == null)
-        throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
+        throw new Exception("Value set example " + e.getTitle() + " has no identifier");
       addToResourceFeed(cm, conceptMapsFeed, file.getName());
       page.getDefinitions().getConceptMaps().put(cm.getUrl(), cm);
       cm.setUserData("path", n + ".html");
@@ -3567,7 +3563,7 @@ public class Publisher implements URIResolver {
           if (n.equals(y.getResourceName()+":"+y.getId()))
             x = y;
         b.append("<li><a href=\"");
-        b.append(Utilities.changeFileExt(x.getPath().getName(), ".html"));
+        b.append(x.getTitle()+".html");
         b.append("\">");
         b.append(x.getResourceName()+"/"+x.getName());
         b.append("</a></li>\r\n");
@@ -4543,7 +4539,7 @@ public class Publisher implements URIResolver {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       if (wantBuild(rname)) {
         for (Example e : r.getExamples()) {
-          String n = e.getFileTitle();
+          String n = e.getTitle();
           logError(" ...validate " + n, LogMessageType.Process);
           validateXmlFile(schema, n, validator, null);
           validateJsonFile(schema, n, validator, null);          
@@ -4551,8 +4547,8 @@ public class Publisher implements URIResolver {
         // todo-profile: how this works has to change (to use profile tag)
         for (Profile e : r.getConformancePackages()) {
           for (Example en : e.getExamples()) {
-            page.log(" ...validate " + en.getFileTitle()+" ("+e.getTitle()+")", LogMessageType.Process);
-            validateXmlFile(schema, Utilities.changeFileExt(en.getFileTitle(), ""), validator, e.getProfiles().get(0).getResource()); // validates the example against it's base definitions
+            page.log(" ...validate " + en.getTitle()+" ("+e.getTitle()+")", LogMessageType.Process);
+            validateXmlFile(schema, Utilities.changeFileExt(en.getTitle(), ""), validator, e.getProfiles().get(0).getResource()); // validates the example against it's base definitions
           }
         }
       }
@@ -4685,7 +4681,7 @@ public class Publisher implements URIResolver {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       if (wantBuild(rname)) {
         for (Example e : r.getExamples()) {
-          String n = e.getFileTitle();
+          String n = e.getTitle();
           list.add(n);
         }
       }
