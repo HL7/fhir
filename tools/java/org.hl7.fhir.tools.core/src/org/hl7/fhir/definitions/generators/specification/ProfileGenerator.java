@@ -746,6 +746,8 @@ public class ProfileGenerator {
       if ("".equals(e.getShortDefn()))
         ce.setShort(e.getDefinition());
     }
+    if (!Utilities.noString(e.getRequirements())) 
+      ce.setRequirements(e.getRequirements());
     if (e.hasMustSupport())
       ce.setMustSupport(e.isMustSupport());
 
