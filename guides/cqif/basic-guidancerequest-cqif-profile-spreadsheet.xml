@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>7305</WindowHeight>
+  <WindowWidth>20250</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
@@ -5921,8 +5921,9 @@
     <Cell ss:StyleID="s134"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">KnowledgeModule</Data></Cell>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Basic</Data></Cell>
+    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">The aggregated data requirements for the requested modules</Data></Cell>
     <Cell ss:StyleID="s149"/>
@@ -6412,8 +6413,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
