@@ -737,13 +737,13 @@ public class ProfileGenerator {
     }
     addToPaths(myParents, path, ce, p.getName());
     
-    if (!"".equals(e.getComments()))
+    if (!!Utilities.noString(e.getComments()))
       ce.setComments(e.getComments());
-    if (!"".equals(e.getShortDefn()))
+    if (!Utilities.noString(e.getShortDefn()))
       ce.setShort(e.getShortDefn());
-    if (!"".equals(e.getDefinition())) {
+    if (!Utilities.noString(e.getDefinition())) {
       ce.setDefinition(e.getDefinition());
-      if ("".equals(e.getShortDefn()))
+      if (!Utilities.noString(e.getShortDefn()))
         ce.setShort(e.getDefinition());
     }
     if (!Utilities.noString(e.getRequirements())) 
