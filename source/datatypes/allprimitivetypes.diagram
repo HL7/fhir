@@ -3,23 +3,23 @@ classes=instant,time,date,dateTime,decimal,boolean,integer,string,uri,base64Bina
 attributes=false
 
 [size]
-width=330
-height=188
+width=285
+height=248
 
 [directions]
-integer=-130;50
-decimal=-130;0
-instant=-130;-50
-time=-50;-50
-string=-50;50
-date=50;-50
-uri=50;50
-dateTime=100;-50
-boolean=100;0
-base64Binary=100;50
-unsignedInt=-130;90
-positiveInt=-40;90
-code=40;90
-id=90;90
-oid=120;90
+integer=-110;60
+decimal=-110;0
+instant=-110;-60
+time=-40;-60
+string=55;60
+date=40;-60
+uri=110;60
+dateTime=80;-60
+boolean=80;0
+base64Binary=-40;60
+unsignedInt=-130;110
+positiveInt=-40;110
+code=50;110
+id=90;110
+oid=120;110
 
