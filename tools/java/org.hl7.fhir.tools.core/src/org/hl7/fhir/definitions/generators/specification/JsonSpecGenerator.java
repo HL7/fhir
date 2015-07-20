@@ -14,14 +14,17 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Reference;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
 public class JsonSpecGenerator extends OutputStreamWriter {
@@ -64,32 +67,61 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   public void generateExtension(StructureDefinition ed) throws Exception {
     write("<pre class=\"spec\">\r\n");
 
-    generateInner(ed);
+    generateInner(ed, true);
 
     write("</pre>\r\n");
     flush();
     close();
   }
 
-  private void generateInner(StructureDefinition ed) throws IOException, Exception {
+  private void generateInner(StructureDefinition ed, boolean extensionDefinition) throws IOException, Exception {
     ElementDefinition root = ed.getSnapshot().getElement().get(0);
     String rn = ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
     write("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(ed.getName()) + "</span>\r\n");
-    write("  // from Element: <a href=\"extensibility.html\">extension</a>\r\n");
     
     List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
+    boolean complex = isComplex(children) && extensionDefinition;
+    if (!complex)
+      write("  // from Element: <a href=\"extensibility.html\">extension</a>\r\n");
+    
     int c = 0;
+    int l = lastChild(children);
     for (ElementDefinition child : children)
-      if (child.getType().size() == 1)
-        generateCoreElem(ed.getSnapshot().getElement(), child, 2, rn, false, child.getType().get(0), ++c == children.size());
+      if (child.hasSlicing())
+        generateCoreElemSliced(ed.getSnapshot().getElement(), child, children, 2, rn, false, child.getType().get(0), ++c == l, complex);
+      else if (wasSliced(child, children))
+        ; // nothing
+      else if (child.getType().size() == 1)
+        generateCoreElem(ed.getSnapshot().getElement(), child, 2, rn, false, child.getType().get(0), ++c == l, complex);
       else {
         write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
         for (TypeRefComponent t : child.getType())
-          generateCoreElem(ed.getSnapshot().getElement(), child, 2, rn, false, t, ++c == children.size());
+          generateCoreElem(ed.getSnapshot().getElement(), child, 2, rn, false, t, ++c == l, false);
       }
     write("  }\r\n");
   }
 
+  private boolean wasSliced(ElementDefinition child, List<ElementDefinition> children) {
+    String path = child.getPath();
+    for (ElementDefinition c : children) {
+      if (c == child)
+        break;
+      if (c.getPath().equals(path) && c.hasSlicing())
+        return true;
+    }
+    return false;
+  }
+
+  private boolean isComplex(List<ElementDefinition> children) {
+    int c = 0;
+    for (ElementDefinition child : children) {
+      if (child.getPath().equals("Extension.extension"))
+        c++;
+    }
+    return c > 1;
+  }
+
+  
   private void generateInner(ElementDefn root, boolean resource, boolean isAbstract) throws IOException, Exception {
     String rn;
     if (root.getTypes().size() > 0 && (root.getTypes().get(0).getName().equals("Type")
@@ -333,13 +365,108 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     write("\r\n");
   }
 
+  private void generateCoreElemSliced(List<ElementDefinition> elements, ElementDefinition elem, List<ElementDefinition> children, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last, boolean complex) throws Exception {
+    String name =  tail(elem.getPath());
+    String en = asValue ? "value[x]" : name;
+    if (en.contains("[x]"))
+      en = en.replace("[x]", upFirst(type.getCode()));
+    boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
+
+    if (!unbounded)
+      throw new Exception("slicing on non-lists not supported yet");
+    
+    String indentS = "";
+    for (int i = 0; i < indent; i++) {
+      indentS += "  ";
+    }
+    write(indentS);
+    write("\"<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_")+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
+    + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
+    write("[ // <span style=\"color: navy\">"+describeSlicing(elem.getSlicing())+"</span>");
+//    write(" <span style=\"color: Gray\">//</span>");
+//    writeCardinality(elem);
+    write("\r\n");
+    
+    List<ElementDefinition> slices = getSlices(elem, children);
+    int c = 0;
+    for (ElementDefinition slice : slices) {
+      write(indentS+"  ");
+      write("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(slice.getShort()) + "</span>");
+      write(" <span style=\"color: Gray\">//</span>");
+      writeCardinality(slice);
+      write("\r\n");
+      
+      List<ElementDefinition> extchildren = getChildren(elements, slice);
+      boolean extcomplex = isComplex(extchildren) && complex;
+      if (!extcomplex) {
+        write(indentS+"  ");
+        write("  // from Element: <a href=\"extensibility.html\">extension</a>\r\n");
+      }
+      
+      int cc = 0;
+      int l = lastChild(extchildren);
+      for (ElementDefinition child : extchildren)
+        if (child.hasSlicing())
+          generateCoreElemSliced(elements, child, children, indent+2, pathName+"."+en, false, child.getType().get(0), ++cc == l, extcomplex);
+        else if (wasSliced(child, children))
+          ; // nothing
+        else if (child.getType().size() == 1)
+          generateCoreElem(elements, child, indent+2, pathName+"."+en, false, child.getType().get(0), ++cc == l, extcomplex);
+        else {
+          write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+          for (TypeRefComponent t : child.getType())
+            generateCoreElem(elements, child, indent+2, pathName+"."+en, false, t, ++cc == l, false);
+        }
+      c++;
+      write(indentS);
+      if (c == slices.size())
+        write("  }\r\n");
+      else
+        write("  },\r\n");
+
+    }
+    write(indentS);
+    if (last)
+      write("]\r\n");
+    else
+      write("],\r\n");
+  }
+
+  private int lastChild(List<ElementDefinition> extchildren) {
+    int l = extchildren.size();
+    while (l > 0 && "0".equals(extchildren.get(l-1).getMax()))
+      l--;
+    return l;
+  }
+
+  private List<ElementDefinition> getSlices(ElementDefinition elem, List<ElementDefinition> children) {
+    List<ElementDefinition> slices = new ArrayList<ElementDefinition>();
+    for (ElementDefinition child : children) {
+      if (child != elem && child.getPath().equals(elem.getPath()))
+        slices.add(child);
+    }
+    return slices;
+  }
+
+  private String describeSlicing(ElementDefinitionSlicingComponent slicing) {
+    CommaSeparatedStringBuilder csv = new CommaSeparatedStringBuilder();
+    for (StringType d : slicing.getDiscriminator()) {
+      csv.append(d.getValue());
+    }
+    String s = slicing.getOrdered() ? " in any order" : " in the specified order" + slicing.getRules().getDisplay();
+    return " sliced by "+csv.toString()+" "+s;
+  }
+
+
   @SuppressWarnings("rawtypes")
-  private void generateCoreElem(List<ElementDefinition> elements, ElementDefinition elem, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last) throws Exception {
+  private void generateCoreElem(List<ElementDefinition> elements, ElementDefinition elem, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last, boolean complex) throws Exception {
     if (elem.getPath().endsWith(".id"))
       return;
-    if (elem.getPath().endsWith(".extension"))
+    if (!complex && elem.getPath().endsWith(".extension"))
       return;
     
+    if (elem.getMax().equals("0"))
+      return;
     
     String indentS = "";
     for (int i = 0; i < indent; i++) {
@@ -347,6 +474,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     }
     write(indentS);
 
+    
+    
     List<ElementDefinition> children = getChildren(elements, elem);
     String name =  tail(elem.getPath());
     String en = asValue ? "value[x]" : name;
@@ -426,11 +555,11 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       int c = 0;
       for (ElementDefinition child : children) {
         if (child.getType().size() == 1)
-          generateCoreElem(elements, child, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == children.size());
+          generateCoreElem(elements, child, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == children.size(), false);
         else {
           write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
           for (TypeRefComponent t : child.getType())
-            generateCoreElem(elements, child, indent + 1, pathName + "." + name, false, t, ++c == children.size());
+            generateCoreElem(elements, child, indent + 1, pathName + "." + name, false, t, ++c == children.size(), false);
         }
       }
       write("}]");
@@ -467,9 +596,14 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     int i = elements.indexOf(elem)+1;
     List<ElementDefinition> res = new ArrayList<ElementDefinition>();
     while (i < elements.size()) {
-      if (elements.get(i).getPath().startsWith(elem.getPath()+".")) 
-        res.add(elements.get(i));
-      else
+      if (elements.get(i).getPath().startsWith(elem.getPath()+".")) {
+        String tgt = elements.get(i).getPath();
+        String src = elem.getPath();
+        if (tgt.startsWith(src+".")) {
+          if (!tgt.substring(src.length()+1).contains(".")) 
+            res.add(elements.get(i));
+        }
+      } else
         return res;
       i++;
     }

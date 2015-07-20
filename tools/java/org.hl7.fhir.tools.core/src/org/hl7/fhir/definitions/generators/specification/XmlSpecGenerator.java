@@ -45,15 +45,18 @@ import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Reference;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
 public class XmlSpecGenerator extends OutputStreamWriter {
@@ -127,18 +130,28 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     generateExtensionAttribute(ed);
     write(" &gt;\r\n");
 
-    write("  &lt;!-- from Element: <a href=\"extensibility.html\">extension</a> -->\r\n");
-    
-      List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
-      for (ElementDefinition child : children)
-        generateCoreElem(ed.getSnapshot().getElement(), child, 1, rn, false);
+    List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
+    boolean complex = isComplex(children);
+    if (!complex)
+      write("  &lt;!-- from Element: <a href=\"extensibility.html\">extension</a> -->\r\n");
+    for (ElementDefinition child : children)
+      generateCoreElem(ed.getSnapshot().getElement(), child, 1, rn, false, complex);
 
     write("&lt;/");
     write(rn);
     write("&gt;\r\n");
   }
   
-	private void generateInner(ElementDefn root, boolean resource, boolean isAbstract) throws IOException, Exception {
+	private boolean isComplex(List<ElementDefinition> children) {
+	  int c = 0;
+	  for (ElementDefinition child : children) {
+	    if (child.getPath().equals("Extension.extension"))
+	      c++;
+	  }
+    return c > 1;
+  }
+
+  private void generateInner(ElementDefn root, boolean resource, boolean isAbstract) throws IOException, Exception {
 		String rn;
 		if (root.getName().equals("Extension")) 
 		  rn = "extension|modifierExtension";
@@ -582,13 +595,15 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		}
 	}
 
-  private void generateCoreElem(List<ElementDefinition> elements, ElementDefinition elem, int indent, String pathName, boolean asValue) throws Exception {
+  private void generateCoreElem(List<ElementDefinition> elements, ElementDefinition elem, int indent, String pathName, boolean asValue, boolean complex) throws Exception {
     // if (elem.getConformance() == ElementDefn.Conformance.Prohibited)
     // return;
     for (Enumeration<PropertyRepresentation> t : elem.getRepresentation()) 
       if (t.getValue() == PropertyRepresentation.XMLATTR)
         return;
-    if (elem.getPath().endsWith(".extension"))
+    if (elem.getPath().endsWith(".extension") && !complex)
+      return;
+    if (complex && elem.getMax().equals("0"))
       return;
 
     boolean listed = false;
@@ -610,7 +625,11 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       en = en.replace("[x]", upFirst(elem.getType().get(0).getCode()));
 
     String closeOut;
-    if (asValue) {
+    if (elem.hasSlicing()) {
+      write("<span style=\"color: navy\">&lt;-- "+en+describeSlicing(elem.getSlicing())+"--&gt;</span>\r\n");
+      closeOut = "";
+      return;
+    } else if (asValue) {
       closeOut = "";
       throw new Error("not done yet");
     } else if (elem.getIsModifier() || elem.getMustSupport()) { 
@@ -622,8 +641,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       closeOut = "</b></a>";
     }
     write("<b>"+Utilities.escapeXml(en));
-    
-      write(closeOut+" ");
+
+    write(closeOut);
+    if (complex && elem.getPath().endsWith(".extension")) {
+      write(" url=\"");
+      write("<span style=\"color: navy\">" + getUrl(children)+"</span>");
+      write("\"");
+    }
       if (elem.getType().size() == 1 && (definitions.getPrimitives().containsKey(elem.getType().get(0).getCode()))) {
         doneType = true;
         write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(elem.getType().get(0).getCode())+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span>]\"/");
@@ -714,7 +738,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           //            write(" &lt;!-- <a href=\"extensibility.html\">extension</a>, <a href=\"extensibility.html#modifierExtension\">modifierExtension</a> -->\r\n");
           //          }
           for (ElementDefinition child : children) {
-            generateCoreElem(elements, child, indent + 1, pathName + "." + name, false);
+            generateCoreElem(elements, child, indent + 1, pathName + "." + name, false, false);
           }
         }
 
@@ -731,6 +755,23 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       }
     }
     write("\r\n");
+  }
+
+  private String getUrl(List<ElementDefinition> children) {
+    for (ElementDefinition c : children) {
+      if (c.getPath().endsWith(".url") && c.hasFixed() && c.getFixed() instanceof UriType)
+        return ((UriType) c.getFixed()).asStringValue();
+    }
+    return "??";
+  }
+
+  private String describeSlicing(ElementDefinitionSlicingComponent slicing) {
+    CommaSeparatedStringBuilder csv = new CommaSeparatedStringBuilder();
+    for (StringType d : slicing.getDiscriminator()) {
+      csv.append(d.getValue());
+    }
+    String s = slicing.getOrdered() ? " in any order" : " in the specified order" + slicing.getRules().getDisplay();
+    return " sliced by "+csv.toString()+" "+s;
   }
 
   private ValueSet resolveValueSet(Type reference) {
@@ -761,9 +802,12 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     int i = elements.indexOf(elem)+1;
     List<ElementDefinition> res = new ArrayList<ElementDefinition>();
     while (i < elements.size()) {
-      if (elements.get(i).getPath().startsWith(elem.getPath()+".")) 
-        res.add(elements.get(i));
-      else
+      String tgt = elements.get(i).getPath();
+      String src = elem.getPath();
+      if (tgt.startsWith(src+".")) {
+        if (!tgt.substring(src.length()+1).contains(".")) 
+          res.add(elements.get(i));
+      } else
         return res;
       i++;
     }
