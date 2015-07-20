@@ -136,7 +136,6 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ type.getCode());
-    p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
     p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
@@ -146,7 +145,7 @@ public class ProfileGenerator {
     p.setName(type.getCode());
     p.setPublisher("HL7 FHIR Standard");
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
-    p.setDescription("Base StructureDefinition for "+type.getCode()+" Resource: "+type.getDefinition());
+    p.setDescription("Base StructureDefinition for "+type.getCode()+" Type: "+type.getDefinition());
     p.setDate(genDate.getTime());
     p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
 
@@ -183,7 +182,7 @@ public class ProfileGenerator {
     ec.setShort("Primitive Type " +type.getCode());
     ec.setDefinition(type.getDefinition());
     ec.setComments(type.getComment());
-    ec.getType().add(new TypeRefComponent().setCode(type.getCode()));
+    ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec.setMin(0);
     ec.setMax("*");
 
@@ -225,7 +224,7 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ type.getCode());
-    p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
+    p.setBase("http://hl7.org/fhir/StructureDefinition/"+ type.getBase());
     p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
@@ -235,7 +234,7 @@ public class ProfileGenerator {
     p.setName(type.getCode());
     p.setPublisher("HL7 FHIR Standard");
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
-    p.setDescription("Base StructureDefinition for "+type.getCode()+" Resource: "+type.getDefinition());
+    p.setDescription("Base StructureDefinition for "+type.getCode()+" type: "+type.getDefinition());
     p.setDate(genDate.getTime());
     p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
 
@@ -245,7 +244,7 @@ public class ProfileGenerator {
     p.setDifferential(new StructureDefinitionDifferentialComponent());
     ElementDefinition ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
-    ec.setPath(type.getCode());
+    ec.setPath(type.getBase());
     
     ec.setShort("Primitive Type " +type.getCode());
     ec.setDefinition(type.getDefinition());
@@ -256,42 +255,42 @@ public class ProfileGenerator {
     
     ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
-    ec.setPath("value");
+    ec.setPath(type.getBase()+".value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     
     ec.setShort("Primitive value for " +type.getCode());
     ec.setDefinition("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
-    ec.getType().add(new TypeRefComponent().setCode("xs:"+type.getBase()));
+    ec.getType().add(new TypeRefComponent().setCode(type.getSchema()));
     
     reset();
     // now. the snapshot
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     ec = new ElementDefinition();
     p.getSnapshot().getElement().add(ec);
-    ec.setPath(type.getCode());
+    ec.setPath(type.getBase());
     
     ec.setShort("Primitive Type " +type.getCode());
     ec.setDefinition(type.getDefinition());
     ec.setComments(type.getComment());
-    ec.getType().add(new TypeRefComponent().setCode(type.getCode()));
+    ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec.setMin(0);
     ec.setMax("*");
 
-    makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
+    makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getBase());
     
     
     ec = new ElementDefinition();
     p.getSnapshot().getElement().add(ec);
-    ec.setPath("value");
+    ec.setPath(type.getBase()+".value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     
     ec.setDefinition("Primitive value for " +type.getCode());
     ec.setShort("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
-    ec.getType().add(new TypeRefComponent().setCode("xs:"+type.getBase()));
+    ec.getType().add(new TypeRefComponent().setCode(type.getSchema()));
 
     containedSlices.clear();
 

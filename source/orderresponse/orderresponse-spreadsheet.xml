@@ -9276,7 +9276,7 @@ or
 				</Cell>
 				<Cell ss:StyleID="s117"/>
 				<Cell ss:StyleID="s118">
-					<Data ss:Type="String">The patient the reuqest order is related to</Data>
+					<Data ss:Type="String">The patient the request order is related to</Data>
 				</Cell>
 			</Row>
 			<Row ss:AutoFitHeight="0">
