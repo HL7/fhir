@@ -277,6 +277,9 @@ public class ProfileGenerator {
     ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec.setMin(0);
     ec.setMax("*");
+    ec.getBase().setPath(type.getBase());
+    ec.getBase().setMin(0);
+    ec.getBase().setMax("*");
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getBase());
     
@@ -291,6 +294,9 @@ public class ProfileGenerator {
     ec.setMin(0);
     ec.setMax("1");
     ec.getType().add(new TypeRefComponent().setCode(type.getSchema()));
+    ec.getBase().setPath(type.getBase()+".value");
+    ec.getBase().setMin(0);
+    ec.getBase().setMax("1");
 
     containedSlices.clear();
 
@@ -988,6 +994,9 @@ public class ProfileGenerator {
   private void makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
       ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(extensionName));
       c.getElement().add(ex);
+      ex.getBase().setPath(path+".extension");
+      ex.getBase().setMin(0);
+      ex.getBase().setMax("*");
   }
   
   private void addMapping(StructureDefinition p, ElementDefinition definition, String target, String map, Profile pack) {

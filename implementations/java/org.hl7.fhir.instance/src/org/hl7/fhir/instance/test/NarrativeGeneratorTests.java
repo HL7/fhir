@@ -19,7 +19,7 @@ public class NarrativeGeneratorTests {
 	@Before
 	public void setUp() throws Exception {
 		if (gen == null)
-  		gen = new NarrativeGenerator("", WorkerContextFactory.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip"));
+  		gen = new NarrativeGenerator("", null, WorkerContextFactory.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip"));
 	}
 
 	@After

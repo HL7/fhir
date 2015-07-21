@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jul 17, 2015 23:59-0400 for FHIR v0.5.0
+// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -652,6 +652,8 @@ public class JsonParser extends JsonParserBase {
       res.setMaxElement(parseString(json.get("max").getAsString()));
     if (json.has("_max"))
       parseElementProperties(json.getAsJsonObject("_max"), res.getMaxElement());
+    if (json.has("base"))
+      res.setBase(parseElementDefinitionElementDefinitionBaseComponent(json.getAsJsonObject("base"), res));
     if (json.has("type")) {
       JsonArray array = json.getAsJsonArray("type");
       for (int i = 0; i < array.size(); i++) {
@@ -762,6 +764,24 @@ public class JsonParser extends JsonParserBase {
       res.setRulesElement(parseEnumeration(json.get("rules").getAsString(), ElementDefinition.SlicingRules.NULL, new ElementDefinition.SlicingRulesEnumFactory()));
     if (json.has("_rules"))
       parseElementProperties(json.getAsJsonObject("_rules"), res.getRulesElement());
+    return res;
+  }
+
+  protected ElementDefinition.ElementDefinitionBaseComponent parseElementDefinitionElementDefinitionBaseComponent(JsonObject json, ElementDefinition owner) throws Exception {
+    ElementDefinition.ElementDefinitionBaseComponent res = new ElementDefinition.ElementDefinitionBaseComponent();
+    parseElementProperties(json, res);
+    if (json.has("path"))
+      res.setPathElement(parseString(json.get("path").getAsString()));
+    if (json.has("_path"))
+      parseElementProperties(json.getAsJsonObject("_path"), res.getPathElement());
+    if (json.has("min"))
+      res.setMinElement(parseInteger(json.get("min").getAsLong()));
+    if (json.has("_min"))
+      parseElementProperties(json.getAsJsonObject("_min"), res.getMinElement());
+    if (json.has("max"))
+      res.setMaxElement(parseString(json.get("max").getAsString()));
+    if (json.has("_max"))
+      parseElementProperties(json.getAsJsonObject("_max"), res.getMaxElement());
     return res;
   }
 
@@ -12443,6 +12463,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("max", element.getMaxElement(), false);
         composeStringExtras("max", element.getMaxElement(), false);
       }
+      if (element.hasBase()) {
+        composeElementDefinitionElementDefinitionBaseComponent("base", element.getBase());
+      }
       if (element.hasType()) {
         openArray("type");
         for (ElementDefinition.TypeRefComponent e : element.getType()) 
@@ -12553,6 +12576,30 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRulesElement()) {
         composeEnumerationCore("rules", element.getRulesElement(), new ElementDefinition.SlicingRulesEnumFactory(), false);
         composeEnumerationExtras("rules", element.getRulesElement(), new ElementDefinition.SlicingRulesEnumFactory(), false);
+      }
+  }
+
+  protected void composeElementDefinitionElementDefinitionBaseComponent(String name, ElementDefinition.ElementDefinitionBaseComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElementDefinitionElementDefinitionBaseComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeElementDefinitionElementDefinitionBaseComponentInner(ElementDefinition.ElementDefinitionBaseComponent element) throws Exception {
+      composeElement(element);
+      if (element.hasPathElement()) {
+        composeStringCore("path", element.getPathElement(), false);
+        composeStringExtras("path", element.getPathElement(), false);
+      }
+      if (element.hasMinElement()) {
+        composeIntegerCore("min", element.getMinElement(), false);
+        composeIntegerExtras("min", element.getMinElement(), false);
+      }
+      if (element.hasMaxElement()) {
+        composeStringCore("max", element.getMaxElement(), false);
+        composeStringExtras("max", element.getMaxElement(), false);
       }
   }
 

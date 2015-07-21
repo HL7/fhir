@@ -255,11 +255,13 @@ public class ProfileUtilities {
           // so we just copy it in
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
+          updateFromBase(outcome, currentBase);
           result.getElement().add(outcome); 
           baseCursor++;
         } else if (diffMatches.size() == 1) {// one matching element in the differential
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
+          updateFromBase(outcome, currentBase);
           outcome.setName(diffMatches.get(0).getName());
           outcome.setSlicing(null);
           updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp, trimDifferential);
@@ -295,6 +297,7 @@ public class ProfileUtilities {
           // we're just going to accept the differential slicing at face value
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
+          updateFromBase(outcome, currentBase);
           
           if (!diffMatches.get(0).hasSlicing()) 
             outcome.setSlicing(makeExtensionSlicing());
@@ -357,6 +360,7 @@ public class ProfileUtilities {
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
+          updateFromBase(outcome, currentBase);
           if (diffMatches.get(0).hasSlicing()) {
             updateFromSlicing(outcome.getSlicing(), diffMatches.get(0).getSlicing());
             updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp, closed); // if there's no slice, we don't want to update the unsliced description
@@ -367,6 +371,7 @@ public class ProfileUtilities {
           for (ElementDefinition baseItem : baseMatches) {
             baseCursor = base.getElement().indexOf(baseItem);
             outcome = updateURLs(url, baseItem.copy());
+            updateFromBase(outcome, currentBase);
             outcome.setPath(fixedPath(contextPath, outcome.getPath()));
             outcome.setSlicing(null);
             result.getElement().add(outcome);
@@ -402,6 +407,7 @@ public class ProfileUtilities {
                 throw new Exception("Named items are out of order in the slice");
             outcome = updateURLs(url, original.copy());
             outcome.setPath(fixedPath(contextPath, outcome.getPath()));
+            updateFromBase(outcome, currentBase);
             outcome.setSlicing(null);
             result.getElement().add(outcome);
             updateFromDefinition(outcome, diffItem, profileName, pkp, trimDifferential);
@@ -413,6 +419,19 @@ public class ProfileUtilities {
   }
 
   
+  private void updateFromBase(ElementDefinition derived, ElementDefinition base) {
+    if (base.hasBase()) {
+      derived.getBase().setPath(base.getBase().getPath());  
+      derived.getBase().setMin(base.getBase().getMin());  
+      derived.getBase().setMax(base.getBase().getMax());  
+    } else {      
+      derived.getBase().setPath(base.getPath());  
+      derived.getBase().setMin(base.getMin());  
+      derived.getBase().setMax(base.getMax());  
+    }
+  }
+
+
   private boolean pathStartsWith(String p1, String p2) {
     return p1.startsWith(p2);
   }

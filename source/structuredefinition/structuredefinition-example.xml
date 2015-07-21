@@ -7,31 +7,36 @@
   <publisher value="Grahame Grieve"/>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="grahame@healthintersections.com.au"/>
-  </telecom>
+      <system value="other"/>
+      <value value="grahame@healthintersections.com.au"/>
+    </telecom>
   </contact>
   <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
   <status value="draft"/>
-	<experimental value="true"/>
+  <experimental value="true"/>
   <date value="2012-05-12"/>
   <kind value="resource"/>
-	<constrainedType value="DiagnosticReport"/>
+  <constrainedType value="DiagnosticReport"/>
   <abstract value="false"/>
-	<base value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <base value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
   <snapshot>
     <element>
       <path value="DiagnosticReport"/>
       <name value="LipidProfile"/>
-        <short value="Lipid Lab Report"/>
-        <definition value="The findings and interpretation of a general lipd lab profile."/>
-        <comments value="In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems."/>
+      <short value="Lipid Lab Report"/>
+      <definition value="The findings and interpretation of a general lipd lab profile."/>
+      <comments value="In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport"/>
         <min value="1"/>
         <max value="1"/>
-        <type>
-          <code value="Resource"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Resource"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.extension"/>
@@ -40,401 +45,335 @@
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-        <short value="Additional Content defined by implementations"/>
-        <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-        <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DiagnosticReport.extension"/>
         <min value="0"/>
         <max value="*"/>
-        <type>
-          <code value="Extension"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.text"/>
-        <short value="Text summary of the resource, for human interpretation"/>
-        <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
-        <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
-        <alias value="narrative"/>
-        <alias value="html"/>
-        <alias value="xhtml"/>
-        <alias value="display"/>
+      <short value="Text summary of the resource, for human interpretation"/>
+      <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
+      <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
+      <alias value="narrative"/>
+      <alias value="html"/>
+      <alias value="xhtml"/>
+      <alias value="display"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.text"/>
         <min value="0"/>
         <max value="1"/>
-        <type>
-          <code value="Narrative"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Narrative"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.contained"/>
-        <short value="Contained, inline Resources"/>
-        <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
-        <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
-        <alias value="inline resources"/>
-        <alias value="anonymous resources"/>
-        <alias value="contained resources"/>
+      <short value="Contained, inline Resources"/>
+      <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
+      <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
+      <alias value="inline resources"/>
+      <alias value="anonymous resources"/>
+      <alias value="contained resources"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DiagnosticReport.contained"/>
         <min value="0"/>
         <max value="*"/>
-        <type>
-          <code value="Resource"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Resource"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.status"/>
-        <short value="registered|interim|final|amended|cancelled|withdrawn"/>
-        <definition value="The status of the diagnostic report as a whole."/>
-        <comments value="This is labeled as &quot;Is Modifier&quot; because applications need to take appropriate action if a report is withdrawn."/>
+      <short value="registered|interim|final|amended|cancelled|withdrawn"/>
+      <definition value="The status of the diagnostic report as a whole."/>
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications need to take appropriate action if a report is withdrawn."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.status"/>
         <min value="1"/>
         <max value="1"/>
-        <type>
-          <code value="code"/>
-        </type>
-        <isModifier value="false"/>
-        <binding>
-          <strength value="required"/>
-          <valueSetReference>
-            <reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
-          </valueSetReference>
-        </binding>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="false"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
+        </valueSetReference>
+      </binding>
     </element>
     <element>
       <path value="DiagnosticReport.issued"/>
-        <short value="Date this version was released"/>
-        <definition value="The date and/or time that this version of the report was released from the source diagnostic service."/>
-        <comments value="May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report."/>
+      <short value="Date this version was released"/>
+      <definition value="The date and/or time that this version of the report was released from the source diagnostic service."/>
+      <comments value="May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.issued"/>
         <min value="1"/>
         <max value="1"/>
-        <type>
-          <code value="dateTime"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.subject"/>
-        <short value="The subject of the report"/>
-        <definition value="The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
+      <short value="The subject of the report"/>
+      <definition value="The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.subject"/>
         <min value="1"/>
         <max value="1"/>
-        <type>
-          <code value="Reference(Patient|Group|Device)"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Reference(Patient|Group|Device)"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.performer"/>
-        <short value="Responsible Diagnostic Service"/>
-        <definition value="The diagnostic service that is responsible for issuing the report."/>
-        <comments value="This is not necessarily the source of the atomic data items - it&#39;s the entity that takes responsibility for the clinical report."/>
+      <short value="Responsible Diagnostic Service"/>
+      <definition value="The diagnostic service that is responsible for issuing the report."/>
+      <comments value="This is not necessarily the source of the atomic data items - it&#39;s the entity that takes responsibility for the clinical report."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.performer"/>
         <min value="1"/>
         <max value="1"/>
-        <type>
-          <code value="Reference(Organization)"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Reference(Organization)"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
-      <path value="DiagnosticReport.reportId"/>
-        <short value="Id for external references to this report"/>
-        <definition value="The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider."/>
+      <path value="DiagnosticReport.identifier"/>
+      <short value="Id for external references to this report"/>
+      <definition value="The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.identifier"/>
         <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Identifier"/>
-        </type>
-        <isModifier value="false"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail"/>
-        <short value="What was requested"/>
-        <definition value="Details concerning a single pathology test requested."/>
-        <comments value="Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single Pathology test result resource. Note that there are also cases where one request leads to multiple reports."/>
+      <short value="What was requested"/>
+      <definition value="Details concerning a single pathology test requested."/>
+      <comments value="Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single Pathology test result resource. Note that there are also cases where one request leads to multiple reports."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DiagnosticReport.requestDetail"/>
         <min value="0"/>
         <max value="*"/>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.requestDetail.encounter"/>
-        <short value="Context where request was made"/>
-        <definition value="The encounter that this diagnostic investigation is associated with."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference(Encounter)"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.requestDetail.requestOrderId"/>
-        <short value="Id assigned by requester"/>
-        <definition value="The local ID assigned to the order by the order requester."/>
-        <comments value="Equivalent to the Placer Order Identifier."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Identifier"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.requestDetail.receiverOrderId"/>
-        <short value="Receiver&#39;s Id for the request"/>
-        <definition value="The local ID assigned to the test order by the diagnostic service provider."/>
-        <comments value="Usually equivalent to the DICOM Accession Number and the Filler Order Identifier."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Identifier"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.requestDetail.requestTest"/>
-        <short value="Test Requested"/>
-        <definition value="Identification of pathology test requested,."/>
-        <comments value="Useful where the test requested differs from the test actually performed."/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <isModifier value="false"/>
-        <binding>
-          <strength value="example"/>
-          <valueSetReference>
-            <reference value="http://hl7.org/fhir/ValueSet/diagnostic-requests"/>
-          </valueSetReference>
-        </binding>
-    </element>
-    <element>
-      <path value="DiagnosticReport.requestDetail.bodySite"/>
-        <short value="Location of requested test (if applicable)"/>
-        <definition value="Anatomical location where the request test should be performed."/>
-        <comments value="This is often implicit or explicit in the requested test, and doesn&#39;t need to be specified if so."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <isModifier value="false"/>
-        <binding>
-          <strength value="example"/>
-          <valueSetReference>
-            <reference value="http://hl7.org/fhir/ValueSet/body-site"/>
-          </valueSetReference>
-        </binding>
-    </element>
-    <element>
-      <path value="DiagnosticReport.requestDetail.requester"/>
-        <short value="Responsible for request"/>
-        <definition value="Details of the clinician or organization requesting the diagnostic service."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference(Organization|Practitioner)"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.requestDetail.clinicalInfo"/>
-        <short value="Clinical information provided"/>
-        <definition value="Details of the clinical information provided to the diagnostic service along with the original request."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="string"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.serviceCategory"/>
-        <short value="Biochemistry, Haematology etc."/>
-        <definition value="The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI."/>
+      <short value="Biochemistry, Haematology etc."/>
+      <definition value="The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.serviceCategory"/>
         <min value="0"/>
         <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <isModifier value="false"/>
-        <binding>
-          <strength value="preferred"/>
-          <valueSetReference>
-            <reference value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
-          </valueSetReference>
-        </binding>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="false"/>
+      <binding>
+        <strength value="preferred"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
+        </valueSetReference>
+      </binding>
     </element>
     <element>
-      <path value="DiagnosticReport.diagnostic[x]"/>
-        <short value="Diagnostically relevant time of diagnostic report"/>
-        <definition value="The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient."/>
-        <comments value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there is specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
+      <path value="DiagnosticReport.effectiveDateTime"/>
+      <short value="Diagnostically relevant time of diagnostic report"/>
+      <definition value="The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient."/>
+      <comments value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there is specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.effective[x]"/>
         <min value="1"/>
         <max value="1"/>
-        <type>
-          <code value="dateTime"/>
-        </type>
-        <type>
-          <code value="Period"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
-      <path value="DiagnosticReport.results"/>
-        <short value="Lipid Lab Results"/>
-        <definition value="Lipid Lab Results."/>
-        <min value="1"/>
-        <max value="1"/>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.results.name"/>
-        <short value="LOINC Code for Lipid Panel with LDL"/>
-        <definition value="LOINC Code for Lipid Panel with LDL."/>
-        <comments value="LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
-        <min value="1"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <isModifier value="false"/>
-        <binding>
-          <strength value="preferred"/>
-          <valueSetReference>
-            <reference value="http://hl7.org/fhir/ValueSet/report-names"/>
-          </valueSetReference>
-        </binding>
-    </element>
-    <element>
-      <path value="DiagnosticReport.results.specimen"/>
-        <short value="Specimen details for this group"/>
-        <definition value="Details about the individual specimen to which these &#39;Result group&#39; test results refer."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference(Specimen)"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.results.group"/>
-        <short value="No subgroups allowed"/>
-        <definition value="No subgroups allowed."/>
-        <comments value="Nested report groups beyond the first level are not used often, but arise in structured pathology reports, and where there is more than one sensitivity assessment per discovered organism."/>
-        <min value="0"/>
-        <max value="0"/>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.results.result"/>
-      <name value="Cholesterol"/>
+      <path value="DiagnosticReport.result"/>
       <slicing>
-        <discriminator value="name"/>
+        <discriminator value="reference.code"/>
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-        <short value="Cholesterol Result"/>
-        <definition value="Reference to Cholesterol Result."/>
-        <min value="1"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference(Observation)"/>
-          <profile value="#Cholesterol"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.results.result"/>
-      <name value="Triglyceride"/>
-        <short value="Triglyceride Result"/>
-        <definition value="Group of elements for Triglyceride result."/>
-        <min value="1"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference(Observation)"/>
-          <profile value="#Triglyceride"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.results.result"/>
-      <name value="HDL Cholesterol"/>
-        <short value="HDL Cholesterol Result"/>
-        <definition value="Group of elements for HDL Cholesterol result."/>
-        <min value="1"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference(Observation)"/>
-          <profile value="#HDLCholesterol"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.results.result"/>
-      <name value="LDL Cholesterol"/>
-        <short value="LDL Cholesterol result, if reported"/>
-        <definition value="LDL Cholesterol result, if reported."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference(Observation)"/>
-          <profile value="#LDLCholesterol"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.image"/>
-        <short value="Key images associated with this report"/>
-        <definition value="A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest)."/>
-        <comments value="An imaging study is a list of images following a DICOM specification - only list one of these, or multiple images."/>
+      <short value="Lipid Lab Results"/>
+      <definition value="Lipid Lab Results."/>
+      <min value="4"/>
+      <max value="4"/>
+      <base>
+        <path value="DiagnosticReport.result"/>
         <min value="0"/>
         <max value="*"/>
-        <type>
-          <code value="Reference(Media|ImagingStudy)"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element>
+      <path value="DiagnosticReport.result"/>
+      <name value="Cholesterol"/>
+      <short value="Cholesterol Result"/>
+      <definition value="Reference to Cholesterol Result."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.result"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference(Observation)"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Cholesterol"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element>
+      <path value="DiagnosticReport.result"/>
+      <name value="Triglyceride"/>
+      <short value="Triglyceride Result"/>
+      <definition value="Group of elements for Triglyceride result."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.result"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference(Observation)"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Triglyceride"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element>
+      <path value="DiagnosticReport.result"/>
+      <name value="HDL Cholesterol"/>
+      <short value="HDL Cholesterol Result"/>
+      <definition value="Group of elements for HDL Cholesterol result."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.result"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference(Observation)"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/HDLCholesterol"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element>
+      <path value="DiagnosticReport.result"/>
+      <name value="LDL Cholesterol"/>
+      <short value="LDL Cholesterol result, if reported"/>
+      <definition value="LDL Cholesterol result, if reported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.result"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference(Observation)"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/LDLCholesterol"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.conclusion"/>
-        <short value="Clinical Interpretation of Lipid Panel"/>
-        <definition value="May include diagnosis or suggestions for follow up testing."/>
-        <comments value="It&#39;s not unusual for the lab to make some kind of interpretative comment on the set of results."/>
+      <short value="Clinical Interpretation of Lipid Panel"/>
+      <definition value="May include diagnosis or suggestions for follow up testing."/>
+      <comments value="It&#39;s not unusual for the lab to make some kind of interpretative comment on the set of results."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.conclusion"/>
         <min value="0"/>
         <max value="1"/>
-        <type>
-          <code value="string"/>
-        </type>
-        <isModifier value="false"/>
-    </element>
-    <element>
-      <path value="DiagnosticReport.codedDiagnosis"/>
-        <short value="No codes for a lipid panel"/>
-        <definition value="No codes for a lipid panel."/>
-        <comments value="Not used in this context."/>
-        <min value="0"/>
-        <max value="0"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <isModifier value="false"/>
-        <binding>
-          <strength value="example"/>
-          <valueSetReference>
-            <reference value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
-          </valueSetReference>
-        </binding>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
     </element>
     <element>
       <path value="DiagnosticReport.representation"/>
-        <short value="Entire Report as issued"/>
-        <definition value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
-        <comments value="Possible formats: text/html, text/plain, text/rtf, application/msword, application/pdf, application/rtf, application/vnd.oasis.opendocument.text, application/vnd.openxmlformats-officedocument.wordprocessingml.document. Application/pdf is recommended as the most reliable and interoperable in this context."/>
+      <short value="Entire Report as issued"/>
+      <definition value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
+      <comments value="Possible formats: text/html, text/plain, text/rtf, application/msword, application/pdf, application/rtf, application/vnd.oasis.opendocument.text, application/vnd.openxmlformats-officedocument.wordprocessingml.document. Application/pdf is recommended as the most reliable and interoperable in this context."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DiagnosticReport.representation"/>
         <min value="0"/>
         <max value="*"/>
-        <type>
-          <code value="Attachment"/>
-        </type>
-        <isModifier value="false"/>
+      </base>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isModifier value="false"/>
     </element>
   </snapshot>
 </StructureDefinition>

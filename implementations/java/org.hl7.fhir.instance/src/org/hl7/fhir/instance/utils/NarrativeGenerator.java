@@ -524,12 +524,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String prefix;
   private WorkerContext context;
   private IWorkerContext ctxt;
+  private String basePath;
   
   
-  public NarrativeGenerator(String prefix, WorkerContext context) {
+  public NarrativeGenerator(String prefix, String basePath, WorkerContext context) {
     super();
     this.prefix = prefix;
     this.context = context;
+    this.basePath = basePath;
     ctxt = null;
   }
 
@@ -1854,10 +1856,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
   public void generate(ValueSet vs, ValueSet src, boolean header) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     if (vs.hasExpansion()) {
-      if (!vs.hasCodeSystem() && !vs.hasCompose())
+      // for now, we just accept an expansion if there is one
         generateExpansion(x, vs, src, header);
-      else
-        throw new Exception("Error: should not encounter value set expansion at this point");
+//      if (!vs.hasCodeSystem() && !vs.hasCompose())
+//        generateExpansion(x, vs, src, header);
+//      else
+//        throw new Exception("Error: should not encounter value set expansion at this point");
     }
     
     boolean hasExtensions = false;
@@ -2321,7 +2325,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode li;
     for (UriType imp : vs.getCompose().getImport()) {
       li = ul.addTag("li");
-      li.addText("Import all the codes that are part of ");
+      li.addText("Import all the codes that are contained in ");
       AddVsRef(imp.getValue(), li);
     }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
@@ -2340,8 +2344,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
       vs = context.getCodeSystems().get(value); 
     if (vs != null) {
       String ref= (String) vs.getUserData("path");
+      ref = adjustForPath(ref);
       XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", prefix+(ref == null ? "??" : ref.replace("\\", "/")));
+      a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
       a.addText(value);
     } else if (value.equals("http://snomed.info/sct") || value.equals("http://snomed.info/id")) {
       XhtmlNode a = li.addTag("a");
@@ -2350,6 +2355,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     else 
       li.addText(value);
+  }
+
+  private String adjustForPath(String ref) {
+    if (prefix == null)
+      return ref;
+    else 
+      return prefix+ref;
   }
 
   private  boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type) throws Exception {
@@ -2647,17 +2659,23 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	    // 1. custom FHIR extensions
 	    while (text.contains("[[[")) {
 	      String left = text.substring(0, text.indexOf("[[["));
-	      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
+	      String link = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
 	      String right = text.substring(text.indexOf("]]]")+3);
-	      String actual = url;
-	      //      String[] parts = url.split("\\#");
-	      //      StructureDefinition p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
-	      //      if (p != null)
-	      //        actual = p.getTag("filename")+".html";
-	      //      else {
-	      //        throw new Exception("Unresolved logical URL "+url);
-	      //      }
-	      text = left+"["+url+"]("+actual+")"+right;
+	      String url = link;
+	      String[] parts = link.split("\\#");
+	      StructureDefinition p = context.getProfiles().get(parts[0]);
+	      if (p == null)
+	        p = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+parts[0]);
+	      if (p == null)
+	        p = context.getExtensionStructure(null, link);
+	      if (p != null) {
+	        url = p.getUserString("path");
+	        if (url == null)
+	          url = p.getUserString("filename");	          
+	      } else 
+	        throw new Exception("Unable to resolve markdown link "+link);
+
+	      text = left+"["+link+"]("+url+")"+right;
 	    }
 
 	    // 2. markdown
