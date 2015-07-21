@@ -26,7 +26,9 @@ import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.instance.model.QuestionnaireAnswers;
 import org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionAnswerComponent;
+import org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionnaireAnswersStatus;
 import org.hl7.fhir.instance.model.Reference;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.TimeType;
 import org.hl7.fhir.instance.model.Type;
@@ -43,10 +45,11 @@ import org.hl7.fhir.instance.utils.WorkerContext;
  */
 public class QuestionnaireAnswersValidator extends BaseValidator {
 
-	/*
+	/* *****************************************************************
 	 * Note to anyone working on this class -
 	 * 
 	 * This class has unit tests which run within the HAPI project build. Please sync any changes here to HAPI and ensure that unit tests are run.
+	 * ****************************************************************
 	 */
 
 	private WorkerContext myWorkerCtx;
@@ -94,19 +97,60 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		if (!fail(theErrors, IssueType.INVALID, pathStack, theAnswers.hasQuestionnaire(), "QuestionnaireAnswers does not specity which questionnaire it is providing answers to")) {
 			return;
 		}
-		String questionnaireRef = theAnswers.getQuestionnaire().getReference();
-		Questionnaire questionnaire = myWorkerCtx.getQuestionnaires().get(questionnaireRef);
+
+		Reference questionnaireRef = theAnswers.getQuestionnaire();
+		Questionnaire questionnaire = getQuestionnaire(theAnswers, questionnaireRef);
 		if (!fail(theErrors, IssueType.INVALID, pathStack, questionnaire != null, "Questionnaire {0} is not found in the WorkerContext", theAnswers.getQuestionnaire().getReference())) {
 			return;
 		}
 
+		QuestionnaireAnswersStatus status = theAnswers.getStatus();
+		boolean validateRequired = false;
+		if (status == QuestionnaireAnswersStatus.COMPLETED || status == QuestionnaireAnswersStatus.AMENDED) {
+			validateRequired = true;
+		}
+
 		pathStack.removeLast();
 		pathStack.add("group(0)");
-		validateGroup(theErrors, questionnaire.getGroup(), theAnswers.getGroup(), pathStack);
+		validateGroup(theErrors, questionnaire.getGroup(), theAnswers.getGroup(), pathStack, theAnswers, validateRequired);
+	}
+
+	private Questionnaire getQuestionnaire(QuestionnaireAnswers theAnswers, Reference theQuestionnaireRef) {
+		Questionnaire retVal;
+		if (theQuestionnaireRef.getReferenceElement().isLocal()) {
+			retVal = (Questionnaire) theQuestionnaireRef.getResource();
+			if (retVal == null) {
+				for (Resource next : theAnswers.getContained()) {
+					if (theQuestionnaireRef.getReferenceElement().getValue().equals(next.getId())) {
+						retVal = (Questionnaire) next;
+					}
+				}
+			}
+		} else {
+			retVal = myWorkerCtx.getQuestionnaires().get(theQuestionnaireRef.getReferenceElement().getValue());
+		}
+		return retVal;
+	}
+
+	private ValueSet getValueSet(QuestionnaireAnswers theAnswers, Reference theQuestionnaireRef) {
+		ValueSet retVal;
+		if (theQuestionnaireRef.getReferenceElement().isLocal()) {
+			retVal = (ValueSet) theQuestionnaireRef.getResource();
+			if (retVal == null) {
+				for (Resource next : theAnswers.getContained()) {
+					if (theQuestionnaireRef.getReferenceElement().getValue().equals(next.getId())) {
+						retVal = (ValueSet) next;
+					}
+				}
+			}
+		} else {
+			retVal = myWorkerCtx.getValueSets().get(theQuestionnaireRef.getReferenceElement().getValue());
+		}
+		return retVal;
 	}
 
 	private void validateGroup(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent theAnsGroup,
-			LinkedList<String> thePathStack) {
+			LinkedList<String> thePathStack, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
 
 		for (org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent next : theAnsGroup.getQuestion()) {
 			rule(theErrors, IssueType.INVALID, thePathStack, isNotBlank(next.getLinkId()), "Question found with no linkId");
@@ -119,7 +163,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 
 		for (int i = 0; i < theQuestGroup.getQuestion().size(); i++) {
 			QuestionComponent nextQuestion = theQuestGroup.getQuestion().get(i);
-			validateQuestion(theErrors, nextQuestion, theAnsGroup, thePathStack);
+			validateQuestion(theErrors, nextQuestion, theAnsGroup, thePathStack, theAnswers, theValidateRequired);
 		}
 
 		// Check that there are no extra answers
@@ -131,12 +175,12 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			thePathStack.remove();
 		}
 
-		validateGroupGroups(theErrors, theQuestGroup, theAnsGroup, thePathStack);
+		validateGroupGroups(theErrors, theQuestGroup, theAnsGroup, thePathStack, theAnswers, theValidateRequired);
 
 	}
 
 	private void validateQuestion(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent theAnsGroup,
-			LinkedList<String> thePathStack) {
+			LinkedList<String> thePathStack, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
 		String linkId = theQuestion.getLinkId();
 		if (!fail(theErrors, IssueType.INVALID, thePathStack, isNotBlank(linkId), "Questionnaire is invalid, question found with no link ID")) {
 			return;
@@ -156,32 +200,36 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !theQuestion.getRequired(), "Multiple answers repetitions found with linkId[{0}]", linkId);
 		}
 		if (answers.size() == 0) {
-			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !theQuestion.getRequired(), "Missing answer to required question with linkId[{0}]", linkId);
+			if (theValidateRequired) {
+				rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !theQuestion.getRequired(), "Missing answer to required question with linkId[{0}]", linkId);
+			} else {
+				hint(theErrors, IssueType.BUSINESSRULE, thePathStack, !theQuestion.getRequired(), "Missing answer to required question with linkId[{0}]", linkId);
+			}
 			return;
 		}
 
 		org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent answerQuestion = answers.get(0);
 		try {
 			thePathStack.add("question(" + answers.indexOf(answerQuestion) + ")");
-			validateQuestionAnswers(theErrors, theQuestion, thePathStack, type, answerQuestion);
-			validateQuestionGroups(theErrors, theQuestion, answerQuestion, thePathStack);
+			validateQuestionAnswers(theErrors, theQuestion, thePathStack, type, answerQuestion, theAnswers, theValidateRequired);
+			validateQuestionGroups(theErrors, theQuestion, answerQuestion, thePathStack, theAnswers, theValidateRequired);
 		} finally {
 			thePathStack.removeLast();
 		}
 	}
 
 	private void validateQuestionGroups(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent theAnswerQuestion,
-			LinkedList<String> thePathSpec) {
-		validateGroups(theErrors, theQuestion.getGroup(), theAnswerQuestion.getGroup(), thePathSpec);
+			LinkedList<String> thePathSpec, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
+		validateGroups(theErrors, theQuestion.getGroup(), theAnswerQuestion.getGroup(), thePathSpec, theAnswers, theValidateRequired);
 	}
 
 	private void validateGroupGroups(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent theAnsGroup,
-			LinkedList<String> thePathSpec) {
-		validateGroups(theErrors, theQuestGroup.getGroup(), theAnsGroup.getGroup(), thePathSpec);
+			LinkedList<String> thePathSpec, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
+		validateGroups(theErrors, theQuestGroup.getGroup(), theAnsGroup.getGroup(), thePathSpec, theAnswers, theValidateRequired);
 	}
 
 	private void validateGroups(List<ValidationMessage> theErrors, List<GroupComponent> theQuestionGroups, List<org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent> theAnswerGroups,
-			LinkedList<String> thePathStack) {
+			LinkedList<String> thePathStack, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
 		Set<String> allowedGroups = new HashSet<String>();
 		for (GroupComponent nextQuestionGroup : theQuestionGroups) {
 			String linkId = nextQuestionGroup.getLinkId();
@@ -190,7 +238,11 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			List<org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent> answerGroups = findGroupByLinkId(theAnswerGroups, linkId);
 			if (answerGroups.isEmpty()) {
 				if (nextQuestionGroup.getRequired()) {
-					rule(theErrors, IssueType.BUSINESSRULE, thePathStack, false, "Missing required group with linkId[{0}]", linkId);
+					if (theValidateRequired) {
+						rule(theErrors, IssueType.BUSINESSRULE, thePathStack, false, "Missing required group with linkId[{0}]", linkId);
+					} else {
+						hint(theErrors, IssueType.BUSINESSRULE, thePathStack, false, "Missing required group with linkId[{0}]", linkId);
+					}
 				}
 				continue;
 			}
@@ -205,14 +257,26 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			for (org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent nextAnswerGroup : answerGroups) {
 				int index = theAnswerGroups.indexOf(answerGroups.get(1));
 				thePathStack.add("group(" + index + ")");
-				validateGroup(theErrors, nextQuestionGroup, nextAnswerGroup, thePathStack);
+				validateGroup(theErrors, nextQuestionGroup, nextAnswerGroup, thePathStack, theAnswers, theValidateRequired);
+				thePathStack.removeLast();
+			}
+		}
+
+		// Make sure there are no groups in answers that aren't in the questionnaire
+		int idx = -1;
+		for (org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent next : theAnswerGroups) {
+			idx++;
+			if (!allowedGroups.contains(next.getLinkId())) {
+				thePathStack.add("group(" + idx + ")");
+				rule(theErrors, IssueType.BUSINESSRULE, thePathStack, false, "Group with linkId[{0}] found at this position, but this group does not exist at this position in Questionnaire",
+						next.getLinkId());
 				thePathStack.removeLast();
 			}
 		}
 	}
 
 	private void validateQuestionAnswers(List<ValidationMessage> theErrors, QuestionComponent theQuestion, LinkedList<String> thePathStack, AnswerFormat type,
-			org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent answerQuestion) {
+			org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent answerQuestion, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
 
 		String linkId = theQuestion.getLinkId();
 		Set<Class<? extends Type>> allowedAnswerTypes = determineAllowedAnswerTypes(type);
@@ -221,7 +285,11 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		} else {
 			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !(answerQuestion.getAnswer().size() > 1 && !theQuestion.getRepeats()), "Multiple answers to non repeating question with linkId[{0}]",
 					linkId);
-			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !(theQuestion.getRequired() && answerQuestion.getAnswer().isEmpty()), "Missing answer to required question with linkId[{0}]", linkId);
+			if (theValidateRequired) {
+				rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !(theQuestion.getRequired() && answerQuestion.getAnswer().isEmpty()), "Missing answer to required question with linkId[{0}]", linkId);
+			} else {
+				hint(theErrors, IssueType.BUSINESSRULE, thePathStack, !(theQuestion.getRequired() && answerQuestion.getAnswer().isEmpty()), "Missing answer to required question with linkId[{0}]", linkId);
+			}
 		}
 
 		int answerIdx = -1;
@@ -257,7 +325,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 
 					String optionsRef = theQuestion.getOptions().getReference();
 					if (isNotBlank(optionsRef)) {
-						ValueSet valueSet = myWorkerCtx.getValueSets().get(optionsRef);
+						ValueSet valueSet = getValueSet(theAnswers, theQuestion.getOptions());
 						if (valueSet == null) {
 							rule(theErrors, IssueType.BUSINESSRULE, thePathStack, false, "Question with linkId[{0}] has options ValueSet[{1}] but this ValueSet can not be found", linkId, optionsRef);
 							continue;
