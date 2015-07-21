@@ -939,7 +939,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	}
 
   private void writeAttributeAnnotation(String indent, ElementDefn e, int order, String tn) throws Exception {
-    write(indent+"@Child(name = \""+getElementName(e.getName(), true)+"\", type = {"+getTypeClassList(e, tn)+
+    String elementName = getElementName(e.getName(), true);
+    if (elementName.endsWith("_")) {
+      // The annotation doesn't need trailing _
+      elementName = elementName.substring(0, elementName.length() - 1);
+    }
+    
+    write(indent+"@Child(name = \""+elementName+"\", type = {"+getTypeClassList(e, tn)+
         "}, order="+Integer.toString(order)+", min="+e.getMinCardinality().toString()+", max="+(e.getMaxCardinality() == Integer.MAX_VALUE ?  "Child.MAX_UNLIMITED" : e.getMaxCardinality().toString())+")\r\n");
     write(indent+"@Description(shortDefinition=\""+Utilities.escapeJava(e.getShortDefn())+"\", formalDefinition=\""+Utilities.escapeJava(e.getDefinition())+"\" )\r\n");
   }
