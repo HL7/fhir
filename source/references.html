@@ -231,7 +231,7 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below)</li>
   <li>Contained resources SHALL NOT contain additional contained resources</li>
   <li>Contained resources SHALL NOT contain any narrative</li>
-  <li>A contained resource can only be included in another resource if something in the resource actually refers to it:</li>
+  <li>A contained resource SHALL only be included in a resource if something that resource has a reference to it</li>
 </ul>
 <p>
 Resources that are contained inline do not "inherit" context from their parent resource. For instance, if
@@ -239,18 +239,21 @@ the parent resource contains a "subject", and the contained resource also has a 
 there is no implication that the contained resource has the same subject as the parent resource.
 </p>
     
+<p>
+Resources can only be contained in other resources if there is a reference from the resource to 
+the contained resource. This is intended to ensure that the meaning of the contained resource
+is clear, and that there is no confusion as to it's significance. 
+</p>
 
+<blockquote>
+<p>
+DSTU note: There are some identified use cases where it would be useful to include resources that refer
+to the contained resource rather than the container referring to the contained resource, but this 
+has a series of structural ramifications for the API. Whether these can be resolved is an open 
+issue for investigation during the period of trial use.
+</p>
+</blockquote>
 
-<!--
-<li>
-<a name="Ids"> </a>
-FHIR resources make use of id attributes as targets for <a href="references.html#id">internal references with resources</a>.
-These id attributes are unique and resolved within the context of a single resource. When resources are
-combined into a bundle, different resources may contain duplicate id attributes. Thus it is important to limit
-the scope of resolution of an id attribute to the resource in which the <i>id</i> attribute is declared.
-</li>
-
--->
 </div>
 
 [%file newfooter%]
