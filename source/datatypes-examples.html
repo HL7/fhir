@@ -966,15 +966,13 @@ on the structured data elements of the address.
    &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
-<p>A UK example address.</p>
+<p>A UK example address, with the county 'HUDDERSFIELD'.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
-      &lt;valueString value=&quot;HUDDERSFIELD&quot;/&gt;
-    &lt;/extension&gt;
     &lt;text value=&quot;1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ&quot;/&gt;
     &lt;line value=&quot;1 Back Lane&quot;/&gt;
     &lt;city value=&quot;Holmfirth&quot;/&gt;
+    &lt;district value=&quot;HUDDERSFIELD&quot;/&gt;
     &lt;postalCode value=&quot;HD7 1HQ&quot;/&gt;
   &lt;/address&gt;
 </pre>
@@ -1006,11 +1004,9 @@ postal union</a> examples.
 </table>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
-      &lt;valueCode value=&quot;Minsk&quot;/&gt;
-    &lt;/extension&gt;
     &lt;line value=&quot;Rue Lougoraïa 12, app. 10&quot;/&gt;
     &lt;city value=&quot;Korolevo&quot;/&gt;
+    &lt;district value=&quot;Minsk&quot;/&gt;
     &lt;state value="Minsk" /&gt;
     &lt;country value="BELARUS" /&gt;
   &lt;/address&gt;
@@ -1045,14 +1041,12 @@ postal union</a> examples.
 </table>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
-      &lt;valueCode value=&quot;HAI&quot;/&gt;
-    &lt;/extension&gt;
     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct&quot;&gt;
       &lt;valueCode value=&quot;Kimashuku Village&quot;/&gt;
     &lt;/extension&gt;
     &lt;line value=&quot;15 Shiri&quot;/&gt;
     &lt;city value=&quot;MACHAME KUSINI&quot;/&gt;
+    &lt;district value=&quot;HAI&quot;/&gt;
     &lt;state value="KILIMANJARO" /&gt;
     &lt;postalCode value=&quot;25204&quot;/&gt;
     &lt;country value="TANZANIA" /&gt;
