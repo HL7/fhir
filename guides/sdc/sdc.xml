@@ -58,6 +58,7 @@
  </profile>
  <profile source="questionnaire-sdc-profile-spreadsheet.xml" type="spreadsheet">
    <example name="SDC" description="Set of several examples - medication, AHRQ and NCI forms" source="questionnaire-sdc-profile-example.xml"/>
+   <example name="SDC" description="Cancer pathology questionnaire with flow-control extensions" source="questionnaire-example-cap.xml"/>
  </profile>
  <profile source="valueset-sdc-profile-spreadsheet.xml" type="spreadsheet"/>
   
