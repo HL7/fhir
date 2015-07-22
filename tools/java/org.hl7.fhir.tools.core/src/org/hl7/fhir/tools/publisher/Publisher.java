@@ -1299,13 +1299,13 @@ public class Publisher implements URIResolver {
     s.close();
 
     String xslt2 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "CategorizeWarnings.xslt");
-    FileOutputStream s2 = new FileOutputStream(page.getFolders().dstDir + "work-group-warnings-2.xml");
+    FileOutputStream s2 = new FileOutputStream(page.getFolders().dstDir + "work-group-warnings.xml");
     s2.write(Utilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
     s2.flush();
     s2.close();
 
     String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
-    page.log(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings-2.xml", xslt3), LogMessageType.Process);
+    page.log(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3), LogMessageType.Process);
 
     int i = 0;
     int w = 0;

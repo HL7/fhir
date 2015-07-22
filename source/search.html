@@ -1116,24 +1116,33 @@ pages.  This allows both sender and receiver to avoid caching results of other p
 <a name="summary"> </a>
 <h4>Summary</h4>
 <p>
-The client can request the server to return a summary portion of the resources
+The client can request the server to return a portion of the resources
 only using the parameter "_summary":
 </p>
 <pre>
    GET [base]/ValueSet?_summary=true
 </pre>
 <p>
-The <i>_summary</i> parameter requests the server to return only the elements marked
-as "summary" in their definition. This is used to reduce the total processing load on
+The <i>_summary</i> parameter requests the server to return only a subset of the 
+resource. It can have one of the following values:
+</p>
+<table class="codes">
+ <tr><td><a href="#summary-true">true</a></td><td>Return only those elements marked as 'summary' in the base definition of the resource(s)</td></tr>
+ <tr><td><a href="#summary-text">text</a></td><td>Return only the 'text' element, and any mandatory elements</td></tr>
+ <tr><td><a href="#summary-data">data</a></td><td>Remove the text element</td></tr>
+ <tr><td><a href="#summary-count">count</a></td><td>Search only: just return a count of the matching resources, without returning the actual matches</td></tr>
+ <tr><td><a href="#summary-false">false</a></td><td>Return all parts of the resource(s)</td></tr>
+</table>
+<p>
+The intent of the _summary parameter is to reduce the total processing load on
 server, client, and resources between them such as the network. It is most useful for
 resources that can be large, particularly ones that include images or elements that
 may repeat many times.
 </p>
 <p>
-Servers are not obliged to return just a summary, and summaries are not defined for
-resources where there is no need for summarization. There is only one summary form
-defined for each resource in order to allow servers to store the summarized form in
-advance.
+Servers are not obliged to return just a summary as requested. There is only 
+one summary form defined for each resource in order to allow servers to store the 
+summarized form in advance.
 </p>
 
 <a name="score"> </a>

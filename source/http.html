@@ -322,7 +322,21 @@ Note: Unknown resources and deleted resources are treated differently on a read:
 resource returns a 410 status code, whereas a <code>GET</code> for an unknown resource returns 404. Systems that do
 not track deleted records will treat deleted records as an unknown resource.
 </p>
-
+<p>
+In addition, the search parameter _summary can be used when reading a resource:
+</p>
+<pre>
+  GET [base]/[type]/[id] {?_summary=text}
+</pre>
+<p>
+This requests that only a subset of the resource content be returned,
+as specified in the _summary parameter, which can haev the values 
+<a href="search.html#summary">true, false, text &amp; data</a>.
+Note that a resource that only contains a subset of the data is 
+not suitable for use as a base to update the resource, and may not 
+be suitable for other uses. Servers SHOULD use the <a href="security-labels.html">REDACTED</a>
+tag to explicitly mark such resources.
+</p>
 
 <a name="vread"> </a>
 <h3>vread</h3>

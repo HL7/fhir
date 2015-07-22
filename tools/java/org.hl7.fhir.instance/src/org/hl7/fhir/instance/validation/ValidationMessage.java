@@ -144,7 +144,7 @@ public class ValidationMessage
       return true;
     if (path.startsWith("elementdefinition-de-dataelement."))
       return true;
-    if (path.startsWith("dataelement-sdc-sdcelement."))
+    if (path.startsWith("dataelement-sdc-sdcelementa."))
       return true;
     if (path.startsWith("."))
       return true;
