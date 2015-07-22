@@ -20,10 +20,22 @@
 		<concept>
 			<code value="UDI"/>
 			<display value="Universal Device Identifier"/>
+      <definition value="A identifier assigned to a device using the Universal Device Identifier framework as defined by FDA (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)"/>
 		</concept>
 		<concept>
 			<code value="SNO"/>
 			<display value="Serial Number"/>
+      <definition value="An identifier affixed to an item by the manufacturer when it is first made, where each item has a different identifier"/>
+		</concept>
+		<concept>
+			<code value="PLAC"/>
+			<display value="Placer Identifier"/>
+      <definition value="The identifier associated with the person or service that requests or places an order"/>
+		</concept>
+		<concept>
+			<code value="FILL"/>
+			<display value="Filler Identifier"/>
+      <definition value="The Identifier associated with the person, or service, who produces the observations or fulfills the order requested by the requestor"/>
 		</concept>
 	</codeSystem>
   <compose>
