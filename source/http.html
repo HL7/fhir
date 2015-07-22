@@ -400,7 +400,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
  <li><b>403 Not Authorised</b> - authorization is required for the interaction that was attempted</li>
  <li><b>404 Not Found</b> - resource type not supported, or not a FHIR end point</li>
  <li><b>405 Method Not allowed</b> - the resource did not exist prior to the update, and the server does not allow client defined ids</li>
- <li><b>409/412</b> - version conflict management - see above</li>
+ <li><b>409/412</b> - version conflict management - see <a href="#concurrency">below</a></li>
  <li><b>422 Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules</li>
 </ul>
 <p>
@@ -442,6 +442,7 @@ not expected that every server will implement them.
 
 <a name="versionaware"> </a>
 <a name="concurrency"> </a>
+
 <h3>Managing Resource Contention</h3>
 <p>
 <a href="http://www.w3.org/1999/04/Editing/">Lost Updates</a>, where two clients update the same
@@ -477,10 +478,10 @@ If-Match: W/"23"
 </pre>
 <p>
 If the version id given in the <code>If-Match</code> header does not match, the server returns a
-412 Pre-condition failed status code instead of updating the resource.
+<code>409 Conflict</code> status code instead of updating the resource.
 </p>
 <p>
-Servers can require that clients provide an <code>If-Match</code> header by returning 412 Pre-condition failed
+Servers can require that clients provide an <code>If-Match</code> header by returning <code>412 Pre-condition failed</code>
 status codes when no <code>If-Match</code> header is found.
 </p>
 
