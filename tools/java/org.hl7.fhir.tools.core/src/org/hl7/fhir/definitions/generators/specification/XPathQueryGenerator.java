@@ -56,11 +56,26 @@ public class XPathQueryGenerator {
       if (i > 0)
         b.append("/");
       b.append("f:");
-      b.append(path[i]);
+      b.append(processCondition(path[i]));
     }
     b.append("/");
     b.append("f:");
-    b.append(last);
+    b.append(processCondition(last));
+  }
+
+  private Object processCondition(String s) {
+    if (!s.contains("("))
+      return s;
+    String cond = s.substring(s.indexOf("(")+1);
+    cond = cond.substring(0, cond.indexOf(")"));
+    s = s.substring(0, s.indexOf("("));
+    if (Utilities.isInteger(cond))
+      return s+"["+cond+"]";
+    else {
+      String[] parts = cond.split("=");
+      return s+"["+parts[0]+"/@value='"+parts[1]+"']";
+      
+    }
   }
 
 }

@@ -4095,7 +4095,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C6"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="35" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="57"/>
@@ -4157,6 +4157,22 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.telecom</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The value in any kind of contact</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">phone</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Person.telecom(system=phone)</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">A value in a phone contact</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">email</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Person.telecom(system=email)</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">A value in an email contact</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">address</Data></Cell>
@@ -4419,7 +4435,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
