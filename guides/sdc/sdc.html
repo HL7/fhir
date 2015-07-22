@@ -95,7 +95,7 @@ For SDC purposes, server systems claiming to support roles that require support 
 </p>
 <ul>
   <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
-  <li>Support <code>content</code> parameters consisting of a <a href="http.html#binary">Binary</a> resource containing a C-CDA document</li>
+  <li>Support <code>content</code> parameters consisting of a <a href="http.html#binary">Binary</a> resource containing a C-CDA* document</li>
   <li>Populate the returned <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance for all questions referencing
   <a href="dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
 </ul>
@@ -106,8 +106,15 @@ SHALL, at a minimum:
 <ul>
   <li>Be capable of invoking the operation on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
 as well as indirectly either by <code>identifier</code> or <code>questionnaire</code></li>
-  <li>Support passing a single C-CDA document as a <a href="http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
+  <li>Support passing a single C-CDA* document as a <a href="http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
 </ul>
+<p>
+* While C-CDA is the focus for compliance with this release of the SDC specification, systems are encouraged to support additional formats.  Candidates
+for mandatory support in future versions of this implementation guide include the
+<a href="http://www.hl7.org/documentcenter/public/wg/ca/CDAR2_IG_CDP1_R1_D1_2015MAY%20V10%200%205-11-2015%20clean.pdf">Clinical Documents for Payors - SET 1</a> (CPD1)
+and <a href="http://www.ihe.net/Technical_Framework/upload/IHE_QRPH_Suppl_PRPH_Ca_Rev2-1_2011-09-02.pdf">Physician Reporting to a Public Health Repository</a>
+specifications.
+</p>
 <p>
 Systems supporting the <code>populate</code> operation SHALL be able to use the <a href="extension-questionnaire-dereference.html">deReference</a> 
 extension to trace the linkage from Questionniare question to DataElement to support mapping.  As well, systems MAY also choose to support the use of the

@@ -631,6 +631,7 @@
         <status value="published"/>
         <date value="2012-04-01"/>
         <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
+        <subjectType value="Patient"/>
         <group>
           <linkId value="root"/>
           <title value="Medication or Other Substance"/>

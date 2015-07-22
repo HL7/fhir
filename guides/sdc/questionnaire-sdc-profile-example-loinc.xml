@@ -706,6 +706,7 @@
   </identifier>
   <status value="published"/>
   <date value="2012-04-01"/>
+  <subjectType value="Patient"/>
   <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
   <group>
     <linkId value="root"/>

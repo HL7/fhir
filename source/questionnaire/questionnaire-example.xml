@@ -43,6 +43,7 @@
   </contained>
   <status value="draft"/>
   <date value="2012-01"/>
+  <subjectType value="Patient"/>
   <group>
     <title value="Cancer Quality Forum Questionnaire 2012"/>
     <group>

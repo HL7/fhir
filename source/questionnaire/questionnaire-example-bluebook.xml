@@ -27,6 +27,7 @@
   <status value="draft"/>
   <date value="2013-02-19"/>
   <publisher value="New South Wales Department of Health"/>
+  <subjectType value="Patient"/>
   <group>
     <title value="NSW Government My Personal Health Record"/>
     <!-- Many groups left out of this example -->

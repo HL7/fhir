@@ -4,7 +4,7 @@
 Notes:
 </h2>
 <ul>
-<li>Questionnaires may be used to represent predefined forms, named using Questionnaire.group.title.</li>
+<li>Questionnaires may be used to represent predefined forms or pannels, referenced using Questionnaire.group.concept.</li>
 <li>A Questionnaire's contents are placed inside its single nested Group, which may contain Questions or subgroups with Questions.</li>
 <li>Groups and Questions may have linkIds allowing groups and question answers captured in a <a href="questionnaireanswers.html">QuestionnaireAnswers</a>
 to be associated with their corresponding group or question.</li>
@@ -51,6 +51,17 @@ group of questions asking for further details about the treatment. See an <a hre
 the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian New South Wales blue book</a></li>
 <li>Specific controls on dynamic display of groups, questions, etc. based on the answers to other questions is outside the scope of the base resource and
 are expected to be introduced as extensions.</li>
+</ul>
+
+<h3>Identifiers within Questionnaire</h3>
+<p>There are three different "identifying" elements within Questionnaire: <code>identifier</code>, <code>id</code> and <code>linkId</code>.  Each serves very distinct
+purposes:</p>
+<ul>
+  <li><b>identifier</b> is used to reference the overall questionnaire in business terms.  It is the number printed across the top of the form or listed beside the form
+  when making a choice between alternate forms.</li>
+  <li>The <b>id</b> attribute supported on each element is used for references within a resource, for example linking narrative to discrete elements</li>
+  <li>The <b>linkId</b> element on questions and groups establishes a link between elements in a <a href="questionnaireanswers.html">QuestionnaireAnsers</a> and their
+  definition inside a Questionnaire.  This is the <i>only</i> way to link between the groups and questions in a Questionnaire and QuestionnaireAnswers</li>
 </ul>
 
 <h3>Question Definitions</h3>
@@ -113,6 +124,27 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
   </tbody>
 </table>
 
+<a name="choices"/>
+<h3>Permitted values for questions</h3>
+<p>
+Many questionnaires place constraints on the allowed list of values for a given question.  FHIR supports this notion through the <code>...question.choices</code> element.
+However, rather than listing the choices directly, the choices element points to a <a href="valueset.html">ValueSet</a> resource.  This approach adds complexity for
+questionnaires having a simple list of strings as choices for a question, but provides several benefits:
+</p>
+<ul>
+  <li>Questionnairs that reference codes from externally defined code systems have a means of doing so</li>
+  <li>Answer sets can be shared across questions (and there are many questionnaires where this capability is useful)</li>
+  <li>The full capability of value sets can be brought into play, including the ability to use ConceptMap to link to translate from questionnaire-specific codes to
+  other codes, the use of multiple display names (e.g. different languages), the ability to use coded ordinals, the ability to allow choices from larger value sets
+  (e.g. "all SNOMED CT procedure codes")</li>
+  <li>etc.</li>
+</ul>
+<p>
+In many cases, the set of code choices will be specific to a given questionnaire and should be maintained as part of the questionnaire.  In this case, the referenced
+ValueSet can be included as a <a href="references.html#contained">contained</a> resource.  All contained ValueSets are listed together and then are referenced by the
+individual questions as necessary.
+</p>
+
 <h3>Useful Value Sets</h3>
 <p>
 Many questions have a set of possible codes for their answer. These value sets may be useful to help,
@@ -122,11 +154,12 @@ and when referenced by full URL, do not need to be provided as part of the quest
  <li><a href="valueset-example-yesnodontknow.html">Yes | No | Don't Know</a>: http://hl7.org/fhir/ValueSet/yesnodontknow</li>
 </ul>
 
-
 <h3>Extensions for Additional capabilities</h3>
 <p>
 The core elements defined in the questionnaire resource are sufficient for simple questionnaires.  For more sophisticated capabilities, a number of "common" extensions
 are defined in the <a href="questionnaire-extensions.html">Questionnaire Core extensions</a> and the <a href="element-extensions.html">Element extensions</a> profiles.  
-For example, strict control over allowed number of conditions, conditional display of questionnaire content, etc.
+For example, strict control over allowed number of conditions, conditional display of questionnaire content, etc.  The conditional display extension [enable-when] can
+be used to enable groups nested beneath a question based on the selection of a specific answer, giving the behavior of "questions under answers" where this sort of
+more sophisticated behavior is needed.
 </p>
 </div>

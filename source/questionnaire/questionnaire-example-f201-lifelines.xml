@@ -18,6 +18,7 @@
   </text>
   <status value="published"/>
   <date value="2010"/>
+  <subjectType value="Patient"/>
   <group>
     <concept>
       <system value="http://example.org/system/code/lifelines/nl"/>
