@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="nhin-purposeofuse"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-map">
+    <valueReference>
+      <reference value="#map"/>
+    </valueReference>
+  </extension>
+  <contained>
+    <ConceptMap>
+      <id value="map"/>
+      <name value="NHIN / V3 Mapping"/>
+      <status value="draft"/>
+      <sourceReference>
+        <reference value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
+      </sourceReference>
+      <targetReference>
+        <reference value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
+      </targetReference>
+      <element>
+        <code value="TREATMENT"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="TREAT"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="PAYMENT"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="HPAYMT"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="OPERATIONS"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="HOPERAT"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="SYSADMIN"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="SYSADMIN"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="FRAUD"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="FRAUD"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="PSYCHOTHERAPY"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="PSYCHOTHERAPY"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="TRAINING"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="TRAINING"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="LEGAL"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="HLEGAL"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="MARKETING"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="HMARKT"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="narrower"/>
+          <comments value="Not clear how much difference there is between 'marketing' and 'hea"/>
+        </target>
+      </element>
+      <element>
+        <code value="DIRECTORY"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="HDIRECT"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="DISASTER"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="DISASTER"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="PUBLICHEALTH"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="PUBHLTH"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="JUDICIAL"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="HLEGAL"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="wider"/>
+        </target>
+      </element>
+      <element>
+        <code value="LAW"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="HLEGAL"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="wider"/>
+        </target>
+      </element>
+      <element>
+        <code value="DONATION"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="DONAT"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="RESEARCH"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="HRESCH"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="narrower"/>
+          <comments value="Not clear how much difference there is between 'research' and 'healthcare research'"/>
+        </target>
+      </element>
+      <element>
+        <code value="THREAT"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="THREAT"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="GOVERNMENT"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="GOV"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="COVERAGE"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="OVAUTH"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+      <element>
+        <code value="REQUEST"/>
+        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <target>
+          <code value="PATRQT"/>
+          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <equivalence value="equivalent"/>
+        </target>
+      </element>
+    </ConceptMap>
+  </contained>
+  <version value="2.0"/>
+	
+  <!-- set of loinc codes for cholesterol for LONC 2.36 -->
+  <url value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
+  <name value="NHIN PurposeOfUse"/>
+  <publisher value="Nationwide Health Information Network (NHIN)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="https://www.healthit.gov/sites/default/files/nhin-authorization-framework-production-specification-v2.0-1.pdf"/>
+    </telecom>
+  </contact>
+  <description value="Represents the user's purpose in issuing the request"/>
+  <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the V3 Purpose of use Code system"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2010-01-29"/>
+
+  <codeSystem>
+		<system value="http://healthit.gov/nhin/purposeofuse"/>
+		<version value="2.0"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="TREATMENT"/>
+			<display value="TREATMENT"/>
+			<definition value="Treatment"/>
+		</concept>
+		<concept>
+			<code value="PAYMENT"/>
+			<display value="PAYMENT"/>
+			<definition value="Payment"/>
+		</concept>
+		<concept>
+			<code value="OPERATIONS"/>
+			<display value="OPERATIONS"/>
+			<definition value="Healthcare Operations"/>
+		</concept>
+		<concept>
+			<code value="SYSADMIN"/>
+			<display value="SYSADMIN"/>
+			<definition value="System Administration"/>
+		</concept>
+		<concept>
+			<code value="FRAUD"/>
+			<display value="FRAUD"/>
+			<definition value="Fraud detection"/>
+		</concept>
+		<concept>
+			<code value="PSYCHOTHERAPY"/>
+			<display value="PSYCHOTHERAPY"/>
+			<definition value="Use or disclosure of Psychotherapy Notes"/>
+		</concept>
+		<concept>
+			<code value="TRAINING"/>
+			<display value="TRAINING"/>
+			<definition value="Use or disclosure by the covered entity for its own training programs"/>
+		</concept>
+		<concept>
+			<code value="LEGAL"/>
+			<display value="LEGAL"/>
+			<definition value="Use or disclosure by the covered entity to defend itself in a legal action"/>
+		</concept>
+		<concept>
+			<code value="MARKETING"/>
+			<display value="MARKETING"/>
+			<definition value="Marketing"/>
+		</concept>
+		<concept>
+			<code value="DIRECTORY"/>
+			<display value="DIRECTORY"/>
+			<definition value="Use and disclosure for facility directories"/>
+		</concept>
+		<concept>
+			<code value="FAMILY"/>
+			<display value="FAMILY"/>
+			<definition value="Disclose to a family member, other relative,  or a close personal friend of the individua"/>
+		</concept>
+		<concept>
+			<code value="PRESENT"/>
+			<display value="PRESENT"/>
+			<definition value="Uses and disclosures with the individual present."/>
+		</concept>
+		<concept>
+			<code value="EMERGENCY"/>
+			<display value="EMERGENCY"/>
+			<definition value="ermission cannot practicably be provided because of the individual’s incapacity or an emergenc"/>
+		</concept>
+		<concept>
+			<code value="DISASTER"/>
+			<display value="DISASTER"/>
+			<definition value="Use and disclosures for disaster relief purposes."/>
+		</concept>
+		<concept>
+			<code value="PUBLICHEALTH"/>
+			<display value="PUBLICHEALTH"/>
+			<definition value="Uses and disclosures for public health activities."/>
+		</concept>
+		<concept>
+			<code value="ABUSE"/>
+			<display value="ABUSE"/>
+			<definition value="Disclosures about victims of abus"/>
+		</concept>
+		<concept>
+			<code value="OVERSIGHT"/>
+			<display value="OVERSIGHT"/>
+			<definition value="Uses and disclosures for health oversight activities."/>
+		</concept>
+		<concept>
+			<code value="JUDICIAL"/>
+			<display value="JUDICIAL"/>
+			<definition value="Disclosures for judicial and administrative proceedings."/>
+		</concept>
+		<concept>
+			<code value="LAW"/>
+			<display value="LAW"/>
+			<definition value="Disclosures for law enforcement purposes."/>
+		</concept>
+		<concept>
+			<code value="DECEASED"/>
+			<display value="DECEASED"/>
+			<definition value="Uses and disclosures about decedents."/>
+		</concept>
+		<concept>
+			<code value="DONATION"/>
+			<display value="DONATION"/>
+			<definition value="Uses and disclosures for cadaveric organ,  eye or tissue donation purposes"/>
+		</concept>
+		<concept>
+			<code value="RESEARCH"/>
+			<display value="RESEARCH"/>
+			<definition value="Uses and disclosures for research purposes."/>
+		</concept>
+		<concept>
+			<code value="THREAT"/>
+			<display value="THREAT"/>
+			<definition value="Uses and disclosures to avert a serious threat to health or safety."/>
+		</concept>
+		<concept>
+			<code value="GOVERNMENT"/>
+			<display value="GOVERNMENT"/>
+			<definition value="Uses and disclosures for specialized government functions."/>
+		</concept>
+		<concept>
+			<code value="WORKERSCOMP"/>
+			<display value="WORKERSCOMP"/>
+			<definition value="Disclosures for workers’ compensation."/>
+		</concept>
+		<concept>
+			<code value="COVERAGE"/>
+			<display value="COVERAGE"/>
+			<definition value="Disclosures for insurance or disability coverage determination"/>
+		</concept>
+		<concept>
+			<code value="REQUEST"/>
+			<display value="REQUEST"/>
+			<definition value="Request of the Individual"/>
+		</concept>
+  </codeSystem>
+</ValueSet>
+				

@@ -221,5 +221,10 @@ public class SpecificationInternalClient implements IFHIRClient {
     throw new Error("getConformanceStatementQuick not supported by the internal specification client");
   }
 
+  @Override
+  public String getAddress() {
+    return "(internal)";
+  }
+
 
 }

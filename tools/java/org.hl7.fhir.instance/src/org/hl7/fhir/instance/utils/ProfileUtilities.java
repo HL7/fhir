@@ -1360,13 +1360,13 @@ public class ProfileUtilities {
   				String[] ps = parts[0].split("\\/StructureDefinition\\/");
   				if (ps.length != 2)
   					throw new Exception("Unable to understand address of profile: "+parts[0]);
+          IFHIRClient client = context.getClient();
   				try {
-    				IFHIRClient client = context.getClient();
     				client.initialize(ps[0]);
     				StructureDefinition ae = client.read(StructureDefinition.class, ps[1]);
     				context.getProfiles().put(parts[0], ae);
   				} catch (Exception e) {
-  				  throw new Exception("Unable to resolve :"+ps[1], e);
+  				  throw new Exception("Unable to resolve :"+ps[1]+" on server "+client.getAddress(), e);
   				}
   			} else
   				return null;

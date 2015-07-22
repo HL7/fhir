@@ -87,6 +87,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssK";
 	public static final String DATE_FORMAT = "yyyy-MM-dd";
 
+	private String base;
 	private ResourceAddress resourceAddress;
 	private ResourceFormat preferredResourceFormat;
 	private FeedFormat preferredFeedFormat;
@@ -116,6 +117,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	
 	@Override
 	public void initialize(String baseServiceUrl, int maxResultSetSize)  throws URISyntaxException {
+	  base = baseServiceUrl;
 		resourceAddress = new ResourceAddress(baseServiceUrl);
 		this.maxResultSetSize = maxResultSetSize;
 		checkConformance();
@@ -735,6 +737,11 @@ public class FHIRSimpleClient implements IFHIRClient {
       throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
     }
     return (ValueSet) result.getPayload();
+  }
+
+  @Override
+  public String getAddress() {
+    return base;
   }
 
 }
