@@ -1196,6 +1196,35 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
 <p>
 Note that the end date is inclusive like the end date of a Period.
 </p>
+<p>TID, for 14 days:</p>
+<pre class="xml" fragment="Timing">
+  &lt;schedule&gt;
+    &lt;repeat&gt;
+      &lt;boundsDuration&gt;
+        &lt;value value="14" /&gt;
+        &lt;units value="d" /&gt;
+        &lt;system value="http://unitsofmeasure.org" /&gt;
+        &lt;units value="d" /&gt;
+      &lt;/boundsDuration&gt;
+      &lt;frequency value="3" /&gt;
+      &lt;period value="1" /&gt;
+      &lt;periodUnits value="d" /&gt;
+    &lt;/repeat&gt;
+  &lt;/schedule&gt;
+</pre>
+<p>BID, start on 7/1/2015 at 1:00 PM:</p>
+<pre class="xml" fragment="Timing">
+  &lt;schedule&gt;
+    &lt;repeat&gt;
+      &lt;boundsPeriod&gt;
+        &lt;low value="2015-07-01T13:00:00" /&gt;
+      &lt;/boundsPeriod&gt;
+      &lt;frequency value="2" /&gt;
+      &lt;period value="1" /&gt;
+      &lt;periodUnits value="d" /&gt;
+    &lt;/repeat&gt;
+  &lt;/schedule&gt;
+</pre>
 </div>
 
 <a name="Signature"></a>
