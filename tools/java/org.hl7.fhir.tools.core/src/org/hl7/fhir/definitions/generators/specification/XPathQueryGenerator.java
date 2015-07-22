@@ -33,7 +33,6 @@ public class XPathQueryGenerator {
 
   public String generateXpath(List<String> list) throws Exception {
     StringBuilder b = new StringBuilder();
-    boolean first = true;
     for (String ppath : list) {
       String path[] = ppath.split("\\.");
       if (path[path.length -1].endsWith("[x]")) {
