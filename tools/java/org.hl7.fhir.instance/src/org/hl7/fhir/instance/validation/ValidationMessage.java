@@ -74,6 +74,8 @@ public class ValidationMessage
     this.level = level;
     this.source = source;
     this.type = type;
+    if (level == IssueSeverity.NULL)
+      determineLevel(path);
     if (type == null)
       throw new Error("A type must be provided");
   }
@@ -88,6 +90,8 @@ public class ValidationMessage
     this.level = level;
     this.source = source;
     this.type = type;
+    if (level == IssueSeverity.NULL)
+      determineLevel(path);
     if (type == null)
     	throw new Error("A type must be provided");
   }
@@ -102,6 +106,8 @@ public class ValidationMessage
     this.level = level;
     this.source = source;
     this.type = type;
+    if (level == IssueSeverity.NULL)
+      determineLevel(path);
     if (type == null)
       throw new Error("A type must be provided");
   }
@@ -116,11 +122,38 @@ public class ValidationMessage
     this.level = level;
     this.source = source;
     this.type = type;
+    if (level == IssueSeverity.NULL)
+      determineLevel(path);
     if (type == null)
       throw new Error("A type must be provided");
   }
-  
-  public ValidationMessage() {
+
+  private IssueSeverity determineLevel(String path) {
+    if (isGrandfathered(path))
+      return IssueSeverity.WARNING;
+    else
+      return IssueSeverity.ERROR;
+  }
+
+  private boolean isGrandfathered(String path) {
+    if (path.startsWith("xds-documentmanifest."))
+      return true;
+    if (path.startsWith("observation-device-metric-devicemetricobservation."))
+      return true;
+    if (path.startsWith("medicationadministration-immunization-vaccine."))
+      return true;
+    if (path.startsWith("elementdefinition-de-dataelement."))
+      return true;
+    if (path.startsWith("dataelement-sdc-sdcelement."))
+      return true;
+    if (path.startsWith("."))
+      return true;
+    if (path.startsWith("."))
+      return true;
+    if (path.startsWith("."))
+      return true;
+     
+    return false;
   }
 
   public String getMessage() {
@@ -179,7 +212,7 @@ public class ValidationMessage
   }
   
   public String toXML() {
-  	return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + location + "\" type=\"" + type + "\" level=\"" + level + "\"><plain>" + Utilities.escapeXml(message) + "</plain><html>" + html + "</html></message>";
+  	return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + Utilities.escapeXml(location) + "\" type=\"" + type + "\" level=\"" + level + "\"><plain>" + Utilities.escapeXml(message) + "</plain><html>" + html + "</html></message>";
   }
 
   public String getHtml() {

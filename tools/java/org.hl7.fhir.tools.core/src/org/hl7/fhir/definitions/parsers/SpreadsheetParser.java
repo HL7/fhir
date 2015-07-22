@@ -1476,8 +1476,8 @@ public class SpreadsheetParser {
 			if (!isRoot && !profile)
 				throw new Exception("Missing cardinality at "+ getLocation(row) + " on " + path);
 			if (isRoot) {
-			  e.setMinCardinality(1);
-			  e.setMaxCardinality(1);
+			  e.setMinCardinality(0);
+			  e.setMaxCardinality(Integer.MAX_VALUE);
 			}
 		} else {
 			String[] card = c.split("\\.\\.");
