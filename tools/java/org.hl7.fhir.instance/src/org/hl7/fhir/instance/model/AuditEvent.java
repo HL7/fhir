@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -3551,11 +3551,11 @@ public class AuditEvent extends DomainResource {
   public static final String SP_REFERENCE = "reference";
   @SearchParamDefinition(name="identity", path="AuditEvent.object.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
   public static final String SP_IDENTITY = "identity";
-  @SearchParamDefinition(name="patient", path="", description="A patient that the .object.reference refers to", type="reference" )
+  @SearchParamDefinition(name="patient", path="AuditEvent.object.reference", description="A patient that the .object.reference refers to", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="altid", path="AuditEvent.participant.altId", description="Alternative User id e.g. authentication", type="token" )
   public static final String SP_ALTID = "altid";
-  @SearchParamDefinition(name="patientid", path="", description="The id of the patient (one of multiple kinds of participations)", type="token" )
+  @SearchParamDefinition(name="patientid", path="AuditEvent.participant.reference", description="The id of the patient (one of multiple kinds of participations)", type="token" )
   public static final String SP_PATIENTID = "patientid";
   @SearchParamDefinition(name="source", path="AuditEvent.source.identifier", description="The id of source where event originated", type="token" )
   public static final String SP_SOURCE = "source";

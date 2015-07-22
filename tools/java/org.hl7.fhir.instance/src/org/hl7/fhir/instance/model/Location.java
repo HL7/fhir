@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1083,7 +1083,7 @@ public class Location extends DomainResource {
   public static final String SP_ADDRESSSTATE = "address-state";
   @SearchParamDefinition(name="address-city", path="Location.address.city", description="A city specified in an address", type="string" )
   public static final String SP_ADDRESSCITY = "address-city";
-  @SearchParamDefinition(name="near", path="", description="The coordinates expressed as [lat],[long] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)", type="token" )
+  @SearchParamDefinition(name="near", path="Location.position", description="The coordinates expressed as [lat],[long] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)", type="token" )
   public static final String SP_NEAR = "near";
   @SearchParamDefinition(name="partof", path="Location.partOf", description="The location of which this location is a part", type="reference" )
   public static final String SP_PARTOF = "partof";
@@ -1097,7 +1097,7 @@ public class Location extends DomainResource {
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="address-country", path="Location.address.country", description="A country specified in an address", type="string" )
   public static final String SP_ADDRESSCOUNTRY = "address-country";
-  @SearchParamDefinition(name="near-distance", path="", description="A distance quantity to limit the near search to locations within a specific distance", type="token" )
+  @SearchParamDefinition(name="near-distance", path="Location.position", description="A distance quantity to limit the near search to locations within a specific distance", type="token" )
   public static final String SP_NEARDISTANCE = "near-distance";
   @SearchParamDefinition(name="type", path="Location.type", description="A code for the type of location", type="token" )
   public static final String SP_TYPE = "type";

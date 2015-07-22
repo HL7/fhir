@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1934,7 +1934,7 @@ public class Patient extends DomainResource {
 
   @SearchParamDefinition(name="animal-breed", path="Patient.animal.breed", description="The breed for animal patients", type="token" )
   public static final String SP_ANIMALBREED = "animal-breed";
-  @SearchParamDefinition(name="phonetic", path="", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
+  @SearchParamDefinition(name="phonetic", path="Patient.name", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="link", path="Patient.link.other", description="All patients linked to the given patient", type="reference" )
   public static final String SP_LINK = "link";

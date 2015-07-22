@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1207,7 +1207,7 @@ public class Provenance extends DomainResource {
 
   @SearchParamDefinition(name="sigtype", path="Provenance.signature.type", description="Indication of the reason the entity signed the object(s)", type="token" )
   public static final String SP_SIGTYPE = "sigtype";
-  @SearchParamDefinition(name="patient", path="", description="A patient that the target resource(s) refer to", type="reference" )
+  @SearchParamDefinition(name="patient", path="Provenance.target", description="A patient that the target resource(s) refer to", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="location", path="Provenance.location", description="Where the activity occurred, if relevant", type="reference" )
   public static final String SP_LOCATION = "location";

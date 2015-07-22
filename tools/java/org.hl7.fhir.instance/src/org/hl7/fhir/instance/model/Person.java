@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -899,7 +899,7 @@ public class Person extends DomainResource {
     return ResourceType.Person;
    }
 
-  @SearchParamDefinition(name="phonetic", path="", description="A portion of name using some kind of phonetic matching algorithm", type="string" )
+  @SearchParamDefinition(name="phonetic", path="Person.name", description="A portion of name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="link", path="Person.link.target", description="Any link has this Patient, Person, RelatedPerson or Practitioner reference", type="reference" )
   public static final String SP_LINK = "link";

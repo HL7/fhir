@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -723,7 +723,7 @@ public class Organization extends DomainResource {
   public static final String SP_ADDRESSSTATE = "address-state";
   @SearchParamDefinition(name="address-city", path="Organization.address.city", description="A city specified in an address", type="string" )
   public static final String SP_ADDRESSCITY = "address-city";
-  @SearchParamDefinition(name="phonetic", path="", description="A portion of the organization's name using some kind of phonetic matching algorithm", type="string" )
+  @SearchParamDefinition(name="phonetic", path="Organization.name", description="A portion of the organization's name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="partof", path="Organization.partOf", description="Search all organizations that are part of the given organization", type="reference" )
   public static final String SP_PARTOF = "partof";

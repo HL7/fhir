@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -46,6 +46,134 @@ import org.hl7.fhir.instance.model.api.*;
  */
 @ResourceDef(name="SearchParameter", profile="http://hl7.org/fhir/Profile/SearchParameter")
 public class SearchParameter extends DomainResource {
+
+    public enum XPathUsageType {
+        /**
+         * The search parameter is derived directly from the selected nodes based on the type definitions
+         */
+        NORMAL, 
+        /**
+         * The search parameter is derived by a phonetic transform from the selected nodes
+         */
+        PHONETIC, 
+        /**
+         * The search parameter is based on a spatial transform of the selected nodes
+         */
+        NEARBY, 
+        /**
+         * The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle
+         */
+        DISTANCE, 
+        /**
+         * The xpath selects a set of nodes which are references to other resources, and then the actual search is based on a search parameter in the reference target
+         */
+        EXTERNAL, 
+        /**
+         * The xpath selects a set of nodes which are references to other resources, and then the actual search is based on either the reference or a reference search parameter in the reference target
+         */
+        NORMALEXTERNAL, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static XPathUsageType fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("normal".equals(codeString))
+          return NORMAL;
+        if ("phonetic".equals(codeString))
+          return PHONETIC;
+        if ("nearby".equals(codeString))
+          return NEARBY;
+        if ("distance".equals(codeString))
+          return DISTANCE;
+        if ("external".equals(codeString))
+          return EXTERNAL;
+        if ("normalExternal".equals(codeString))
+          return NORMALEXTERNAL;
+        throw new Exception("Unknown XPathUsageType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case NORMAL: return "normal";
+            case PHONETIC: return "phonetic";
+            case NEARBY: return "nearby";
+            case DISTANCE: return "distance";
+            case EXTERNAL: return "external";
+            case NORMALEXTERNAL: return "normalExternal";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case NORMAL: return "http://hl7.org/fhir/search-xpath-usage";
+            case PHONETIC: return "http://hl7.org/fhir/search-xpath-usage";
+            case NEARBY: return "http://hl7.org/fhir/search-xpath-usage";
+            case DISTANCE: return "http://hl7.org/fhir/search-xpath-usage";
+            case EXTERNAL: return "http://hl7.org/fhir/search-xpath-usage";
+            case NORMALEXTERNAL: return "http://hl7.org/fhir/search-xpath-usage";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case NORMAL: return "The search parameter is derived directly from the selected nodes based on the type definitions";
+            case PHONETIC: return "The search parameter is derived by a phonetic transform from the selected nodes";
+            case NEARBY: return "The search parameter is based on a spatial transform of the selected nodes";
+            case DISTANCE: return "The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle";
+            case EXTERNAL: return "The xpath selects a set of nodes which are references to other resources, and then the actual search is based on a search parameter in the reference target";
+            case NORMALEXTERNAL: return "The xpath selects a set of nodes which are references to other resources, and then the actual search is based on either the reference or a reference search parameter in the reference target";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case NORMAL: return "Normal";
+            case PHONETIC: return "Phonetic";
+            case NEARBY: return "Nearby";
+            case DISTANCE: return "Distance";
+            case EXTERNAL: return "External";
+            case NORMALEXTERNAL: return "Normal Or External";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class XPathUsageTypeEnumFactory implements EnumFactory<XPathUsageType> {
+    public XPathUsageType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("normal".equals(codeString))
+          return XPathUsageType.NORMAL;
+        if ("phonetic".equals(codeString))
+          return XPathUsageType.PHONETIC;
+        if ("nearby".equals(codeString))
+          return XPathUsageType.NEARBY;
+        if ("distance".equals(codeString))
+          return XPathUsageType.DISTANCE;
+        if ("external".equals(codeString))
+          return XPathUsageType.EXTERNAL;
+        if ("normalExternal".equals(codeString))
+          return XPathUsageType.NORMALEXTERNAL;
+        throw new IllegalArgumentException("Unknown XPathUsageType code '"+codeString+"'");
+        }
+    public String toCode(XPathUsageType code) {
+      if (code == XPathUsageType.NORMAL)
+        return "normal";
+      if (code == XPathUsageType.PHONETIC)
+        return "phonetic";
+      if (code == XPathUsageType.NEARBY)
+        return "nearby";
+      if (code == XPathUsageType.DISTANCE)
+        return "distance";
+      if (code == XPathUsageType.EXTERNAL)
+        return "external";
+      if (code == XPathUsageType.NORMALEXTERNAL)
+        return "normalExternal";
+      return "?";
+      }
+    }
 
     @Block()
     public static class SearchParameterContactComponent extends BackboneElement implements IBaseBackboneElement {
@@ -291,13 +419,20 @@ public class SearchParameter extends DomainResource {
     protected StringType xpath;
 
     /**
+     * How the search parameter relates to the set of elements returned by evaluating the xpath query.
+     */
+    @Child(name = "xpathUsage", type = {CodeType.class}, order=12, min=0, max=1)
+    @Description(shortDefinition="normal | phonetic | nearby | distance | external | normalExternal", formalDefinition="How the search parameter relates to the set of elements returned by evaluating the xpath query." )
+    protected Enumeration<XPathUsageType> xpathUsage;
+
+    /**
      * Types of resource (if a resource is referenced).
      */
-    @Child(name = "target", type = {CodeType.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "target", type = {CodeType.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
     protected List<CodeType> target;
 
-    private static final long serialVersionUID = 1984222207L;
+    private static final long serialVersionUID = -703905070L;
 
   /*
    * Constructor
@@ -874,6 +1009,55 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
+     * @return {@link #xpathUsage} (How the search parameter relates to the set of elements returned by evaluating the xpath query.). This is the underlying object with id, value and extensions. The accessor "getXpathUsage" gives direct access to the value
+     */
+    public Enumeration<XPathUsageType> getXpathUsageElement() { 
+      if (this.xpathUsage == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.xpathUsage");
+        else if (Configuration.doAutoCreate())
+          this.xpathUsage = new Enumeration<XPathUsageType>(new XPathUsageTypeEnumFactory()); // bb
+      return this.xpathUsage;
+    }
+
+    public boolean hasXpathUsageElement() { 
+      return this.xpathUsage != null && !this.xpathUsage.isEmpty();
+    }
+
+    public boolean hasXpathUsage() { 
+      return this.xpathUsage != null && !this.xpathUsage.isEmpty();
+    }
+
+    /**
+     * @param value {@link #xpathUsage} (How the search parameter relates to the set of elements returned by evaluating the xpath query.). This is the underlying object with id, value and extensions. The accessor "getXpathUsage" gives direct access to the value
+     */
+    public SearchParameter setXpathUsageElement(Enumeration<XPathUsageType> value) { 
+      this.xpathUsage = value;
+      return this;
+    }
+
+    /**
+     * @return How the search parameter relates to the set of elements returned by evaluating the xpath query.
+     */
+    public XPathUsageType getXpathUsage() { 
+      return this.xpathUsage == null ? null : this.xpathUsage.getValue();
+    }
+
+    /**
+     * @param value How the search parameter relates to the set of elements returned by evaluating the xpath query.
+     */
+    public SearchParameter setXpathUsage(XPathUsageType value) { 
+      if (value == null)
+        this.xpathUsage = null;
+      else {
+        if (this.xpathUsage == null)
+          this.xpathUsage = new Enumeration<XPathUsageType>(new XPathUsageTypeEnumFactory());
+        this.xpathUsage.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #target} (Types of resource (if a resource is referenced).)
      */
     public List<CodeType> getTarget() { 
@@ -941,6 +1125,7 @@ public class SearchParameter extends DomainResource {
         childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("description", "string", "A description of the search parameters and how it used.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, xpath));
+        childrenList.add(new Property("xpathUsage", "code", "How the search parameter relates to the set of elements returned by evaluating the xpath query.", 0, java.lang.Integer.MAX_VALUE, xpathUsage));
         childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
       }
 
@@ -963,6 +1148,7 @@ public class SearchParameter extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
         dst.xpath = xpath == null ? null : xpath.copy();
+        dst.xpathUsage = xpathUsage == null ? null : xpathUsage.copy();
         if (target != null) {
           dst.target = new ArrayList<CodeType>();
           for (CodeType i : target)
@@ -986,7 +1172,7 @@ public class SearchParameter extends DomainResource {
            && compareDeep(contact, o.contact, true) && compareDeep(requirements, o.requirements, true) && compareDeep(status, o.status, true)
            && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(base, o.base, true)
            && compareDeep(type, o.type, true) && compareDeep(description, o.description, true) && compareDeep(xpath, o.xpath, true)
-           && compareDeep(target, o.target, true);
+           && compareDeep(xpathUsage, o.xpathUsage, true) && compareDeep(target, o.target, true);
       }
 
       @Override
@@ -999,8 +1185,8 @@ public class SearchParameter extends DomainResource {
         return compareValues(url, o.url, true) && compareValues(name, o.name, true) && compareValues(publisher, o.publisher, true)
            && compareValues(requirements, o.requirements, true) && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true)
            && compareValues(date, o.date, true) && compareValues(base, o.base, true) && compareValues(type, o.type, true)
-           && compareValues(description, o.description, true) && compareValues(xpath, o.xpath, true) && compareValues(target, o.target, true)
-          ;
+           && compareValues(description, o.description, true) && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true)
+           && compareValues(target, o.target, true);
       }
 
       public boolean isEmpty() {
@@ -1008,8 +1194,8 @@ public class SearchParameter extends DomainResource {
            && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (requirements == null || requirements.isEmpty())
            && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (date == null || date.isEmpty()) && (base == null || base.isEmpty()) && (type == null || type.isEmpty())
-           && (description == null || description.isEmpty()) && (xpath == null || xpath.isEmpty()) && (target == null || target.isEmpty())
-          ;
+           && (description == null || description.isEmpty()) && (xpath == null || xpath.isEmpty()) && (xpathUsage == null || xpathUsage.isEmpty())
+           && (target == null || target.isEmpty());
       }
 
   @Override

@@ -628,13 +628,11 @@ public class ProfileGenerator {
       if (xpath.contains("[x]"))
         xpath = convertToXpath(xpath);
       sp.setXpath(xpath);
+      sp.setXpathUsage(spd.getxPathUsage());
     }
     
     for(String target : spd.getTargets()) {
-    	if("Any".equals(target) == true) {
-    	    if(spd.getTargets().size()>1)
-    	      throw new Exception("Can not declare multiple target codes for SearchParameter when one of them is 'Any'");
-    	  
+    	if("Any".equals(target) == true) {   	  
     	    for(String resourceName : definitions.sortedResourceNames())
     	      sp.addTarget(resourceName);
     	}
@@ -761,7 +759,7 @@ public class ProfileGenerator {
     if (!Utilities.noString(e.getDefinition())) {
       ce.setDefinition(e.getDefinition());
       if (!Utilities.noString(e.getShortDefn()))
-        ce.setShort(e.getDefinition());
+        ce.setShort(e.getShortDefn());
     }
     if (!Utilities.noString(e.getRequirements())) 
       ce.setRequirements(e.getRequirements());

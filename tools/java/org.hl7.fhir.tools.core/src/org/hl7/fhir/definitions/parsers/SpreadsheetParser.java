@@ -755,6 +755,7 @@ public class SpreadsheetParser {
           }
 
           sp.setXpath(new XPathQueryGenerator(definitions, log, null).generateXpath(pn));
+          sp.setXpathUsage(readSearchXPathUsage(sheet.getColumn(row, "Path Usage"), row));
         }
         sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
         pack.getSearchParameters().add(sp);
@@ -782,6 +783,12 @@ public class SpreadsheetParser {
             throw new Exception("Search Param "+root2.getName()+"/"+n+": duplicate name "+ getLocation(row));
           String d = sheet.getColumn(row, "Description");
           SearchType t = readSearchType(sheet.getColumn(row, "Type"), row);
+          SearchParameter.XPathUsageType pu = readSearchXPathUsage(sheet.getColumn(row, "Path Usage"), row);
+          
+          if (Utilities.noString(sheet.getColumn(row, "Path")) && !root2.getName().equals("Resource")) 
+            throw new Exception("Search Param "+root2.getName()+"/"+n+" has no path at "+ getLocation(row));
+            
+          
           List<String> pn = new ArrayList<String>(); 
           SearchParameterDefn sp = null;
           if (t == SearchType.composite) {
@@ -801,7 +808,7 @@ public class SpreadsheetParser {
                   throw new Exception("Composite Search Param "+root2.getName()+"/"+n+"  refers to an unknown component "+p+" at "+ getLocation(row));
               }
               pn.add(p);
-              sp = new SearchParameterDefn(n, d, t);
+              sp = new SearchParameterDefn(n, d, t, pu);
               sp.getComposites().addAll(pn);
             }
           } else {
@@ -810,7 +817,7 @@ public class SpreadsheetParser {
               String p = pi.trim();
               ElementDefn e = null;
               if (!Utilities.noString(p) && !p.startsWith("!") && !p.startsWith("Extension{") && definitions != null ) {
-                e = root2.getRoot().getElementForPath(p, definitions, "search param", true); 
+                e = root2.getRoot().getElementForPath(trimIndexes(p), definitions, "search param", true); 
               }
               if (Utilities.noString(d) && e != null)
                 d = e.getShortDefn();
@@ -830,10 +837,10 @@ public class SpreadsheetParser {
               if (t == SearchType.reference) {
                 if (e == null && !forProfile && !sheet.hasColumn(row, "Target Types"))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path "+ getLocation(row));
-                if (!forProfile && e != null && (!e.hasType("Reference")))
+                if (!forProfile && e != null && (!e.hasType("Reference")) && (!e.hasType("Resource")))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
               } else {
-                if (e != null && e.hasOnlyType("Reference"))
+                if (e != null && e.hasOnlyType("Reference") && !pu.equals(SearchParameter.XPathUsageType.EXTERNAL))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
                 if (t == SearchType.uri) {
                   if (e != null && !e.typeCode().equals("uri"))
@@ -847,7 +854,7 @@ public class SpreadsheetParser {
             if (!forProfile && t == SearchType.reference && pn.size() == 0 && !sheet.hasColumn(row, "Target Types"))
               throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has no path(s) "+ getLocation(row));
 
-            sp = new SearchParameterDefn(n, d, t);
+            sp = new SearchParameterDefn(n, d, t, pu);
             sp.getPaths().addAll(pn);
             if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) {
               sp.setManualTypes(sheet.getColumn(row, "Target Types").split("\\,"));
@@ -858,7 +865,36 @@ public class SpreadsheetParser {
       }
 	}
 
-	private String extractExtensionUrl(String p) {
+	private String trimIndexes(String p) {
+    while (p.contains("("))
+      if (p.indexOf(")") == p.length()-1)
+        p = p.substring(0, p.indexOf("("));
+      else
+        p = p.substring(0, p.indexOf("("))+p.substring(p.indexOf(")"+1));
+    return p;
+  }
+
+  private SearchParameter.XPathUsageType readSearchXPathUsage(String s, int row) throws Exception {
+    if (Utilities.noString(s))
+      return SearchParameter.XPathUsageType.NORMAL;
+    if ("normal".equals(s))
+      return SearchParameter.XPathUsageType.NORMAL;
+    if ("nearby".equals(s))
+      return SearchParameter.XPathUsageType.NEARBY;
+    if ("distance".equals(s))
+      return SearchParameter.XPathUsageType.DISTANCE;
+    if ("phonetic".equals(s))
+      return SearchParameter.XPathUsageType.PHONETIC;
+//    if ("external".equals(s))
+//      return SearchParameter.XPathUsageType.EXTERNAL;
+//    if ("?external".equals(s))
+//      return SearchParameter.XPathUsageType.NORMALEXTERNAL;
+//    if ("other".equals(s))
+//      return null;
+    throw new Exception("Unknown Search Path Usage '" + s + "' at " + getLocation(row));
+  }
+
+  private String extractExtensionUrl(String p) {
     String url = p.substring(p.indexOf("{")+1);
     return url.substring(0, url.length()-1);
   }

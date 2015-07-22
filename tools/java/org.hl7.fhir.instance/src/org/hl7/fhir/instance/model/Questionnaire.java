@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1812,7 +1812,7 @@ public class Questionnaire extends DomainResource {
     return ResourceType.Questionnaire;
    }
 
-  @SearchParamDefinition(name="title", path="", description="All or part of the name of the questionnaire (title for the root group of the questionnaire)", type="string" )
+  @SearchParamDefinition(name="title", path="Questionnaire.group.title", description="All or part of the name of the questionnaire (title for the root group of the questionnaire)", type="string" )
   public static final String SP_TITLE = "title";
   @SearchParamDefinition(name="status", path="Questionnaire.status", description="The status of the questionnaire", type="token" )
   public static final String SP_STATUS = "status";

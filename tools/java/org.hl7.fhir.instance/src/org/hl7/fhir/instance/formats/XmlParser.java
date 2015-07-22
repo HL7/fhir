@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -8272,6 +8272,8 @@ public class XmlParser extends XmlParserBase {
         res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("xpath")) {
         res.setXpathElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("xpathUsage")) {
+        res.setXpathUsageElement(parseEnumeration(xpp, SearchParameter.XPathUsageType.NULL, new SearchParameter.XPathUsageTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("target")) {
         res.getTarget().add(parseCode(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
@@ -19326,6 +19328,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasXpathElement()) {
         composeString("xpath", element.getXpathElement());
       }
+      if (element.hasXpathUsageElement())
+        composeEnumeration("xpathUsage", element.getXpathUsageElement(), new SearchParameter.XPathUsageTypeEnumFactory());
       if (element.hasTarget()) { 
         for (CodeType e : element.getTarget()) 
           composeCode("target", e);

@@ -526,9 +526,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //      else if (com[0].equals("atomheader"))
 //        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false, true)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true, false)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resheader"))
@@ -2579,7 +2579,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    return b.toString();
 //  }
 
-  private String codelist(ValueSet vs, String mode, boolean links) throws Exception {
+  private String codelist(ValueSet vs, String mode, boolean links, boolean heading) throws Exception {
     if (vs == null)
       vs = definitions.getValuesets().get(mode);
     if (vs == null)
@@ -2591,7 +2591,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       hasComments = hasComments || checkHasComment(c);
     
     StringBuilder b = new StringBuilder();
-    if (!Utilities.noString(vs.getDescription()))
+    if (heading && !Utilities.noString(vs.getDescription()))
       b.append("<h3>"+vs.getDescription()+"</h3>\r\n");
     b.append("<table class=\"codes\">\r\n");
     for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
@@ -3189,9 +3189,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("aresheader"))
         src = s1+abstractResHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false, true)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true, false)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("res-category")) {
@@ -3569,9 +3569,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("w5"))
         src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false, true)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true, false)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("maponthispage"))

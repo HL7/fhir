@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.hl7.fhir.instance.model.SearchParameter;
+
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -45,9 +48,11 @@ public class SearchParameterDefn {
     uri;     // search onto a URI
   }
   
+  
   private String code;
   private String description;
   private SearchType type;
+  private SearchParameter.XPathUsageType xPathUsage;
   private List<String> paths = new ArrayList<String>();
   private List<String> composites = new ArrayList<String>();
   private Set<String> targets = new HashSet<String>();
@@ -73,11 +78,12 @@ public class SearchParameterDefn {
     return type;
   }
   
-  public SearchParameterDefn(String code, String description, SearchType type) {
+  public SearchParameterDefn(String code, String description, SearchType type, SearchParameter.XPathUsageType xPathUsage) {
     super();
     this.code = code;
     this.description = description;
     this.type = type;
+    this.xPathUsage = xPathUsage; 
   }
   
   public SearchParameterDefn addPath(String value) {
@@ -162,6 +168,9 @@ public class SearchParameterDefn {
     for (String s : list)
       manualTargets.add(s.trim());
   }
-  
+
+  public SearchParameter.XPathUsageType getxPathUsage() {
+    return xPathUsage;
+  }
   
 }

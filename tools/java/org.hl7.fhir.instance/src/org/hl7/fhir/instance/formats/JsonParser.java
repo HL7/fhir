@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -9406,6 +9406,10 @@ public class JsonParser extends JsonParserBase {
       res.setXpathElement(parseString(json.get("xpath").getAsString()));
     if (json.has("_xpath"))
       parseElementProperties(json.getAsJsonObject("_xpath"), res.getXpathElement());
+    if (json.has("xpathUsage"))
+      res.setXpathUsageElement(parseEnumeration(json.get("xpathUsage").getAsString(), SearchParameter.XPathUsageType.NULL, new SearchParameter.XPathUsageTypeEnumFactory()));
+    if (json.has("_xpathUsage"))
+      parseElementProperties(json.getAsJsonObject("_xpathUsage"), res.getXpathUsageElement());
     if (json.has("target")) {
       JsonArray array = json.getAsJsonArray("target");
       for (int i = 0; i < array.size(); i++) {
@@ -23335,6 +23339,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasXpathElement()) {
         composeStringCore("xpath", element.getXpathElement(), false);
         composeStringExtras("xpath", element.getXpathElement(), false);
+      }
+      if (element.hasXpathUsageElement()) {
+        composeEnumerationCore("xpathUsage", element.getXpathUsageElement(), new SearchParameter.XPathUsageTypeEnumFactory(), false);
+        composeEnumerationExtras("xpathUsage", element.getXpathUsageElement(), new SearchParameter.XPathUsageTypeEnumFactory(), false);
       }
       if (element.hasTarget()) {
         openArray("target");

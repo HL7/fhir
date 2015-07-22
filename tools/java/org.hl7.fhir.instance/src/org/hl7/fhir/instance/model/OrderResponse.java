@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 21, 2015 10:56+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -684,7 +684,7 @@ public class OrderResponse extends DomainResource {
     return ResourceType.OrderResponse;
    }
 
-  @SearchParamDefinition(name="patient", path="", description="The patient the request order is related to", type="reference" )
+  @SearchParamDefinition(name="patient", path="OrderResponse.request", description="The patient the request order is related to - subject on the target", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="fulfillment", path="OrderResponse.fulfillment", description="Details of the outcome of performing the order", type="reference" )
   public static final String SP_FULFILLMENT = "fulfillment";

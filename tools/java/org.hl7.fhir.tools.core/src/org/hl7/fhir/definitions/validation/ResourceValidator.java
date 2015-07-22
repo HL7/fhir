@@ -201,14 +201,15 @@ public class ResourceValidator extends BaseValidator {
       try {
         for (String path : p.getPaths()) {
           ElementDefn e;
-          e = parent.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
+          String pp = trimIndexes(path);
+          e = parent.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true);
           List<TypeRef> tlist;
-          if (path.endsWith("."+e.getName()))
+          if (pp.endsWith("."+e.getName()))
             tlist = e.getTypes();
           else {
             tlist = new ArrayList<TypeRef>();
             for (TypeRef t : e.getTypes())
-              if (path.endsWith(Utilities.capitalize(t.getName())))
+              if (pp.endsWith(Utilities.capitalize(t.getName())))
                 tlist.add(t);
           }
           for (TypeRef t : tlist) {
@@ -224,7 +225,8 @@ public class ResourceValidator extends BaseValidator {
         if (p.getType() == SearchType.reference) {
           for (String path : p.getPaths()) {
             ElementDefn e;
-            e = parent.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
+            String pp = trimIndexes(path);
+            e = parent.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true);
             for (TypeRef t : e.getTypes()) {
               if (t.getName().equals("Reference")) {
                 for (String pn : t.getParams()) {
@@ -265,6 +267,15 @@ public class ResourceValidator extends BaseValidator {
     if (rule(errors, IssueType.STRUCTURE, parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
       rule(errors, IssueType.STRUCTURE, parent.getName(), vsWarnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private String trimIndexes(String p) {
+    while (p.contains("("))
+      if (p.indexOf(")") == p.length()-1)
+        p = p.substring(0, p.indexOf("("));
+      else
+        p = p.substring(0, p.indexOf("("))+p.substring(p.indexOf(")"+1));
+    return p;
+  }
 
   private boolean searchNameOk(String code) {
     String[] ws = code.split("\\-");
