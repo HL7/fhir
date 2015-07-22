@@ -354,21 +354,19 @@ A Coding is a representation of a defined concept using a symbol from a defined 
 The meaning of the Coding is defined by the code. The <code>system</code> provides
 the source of the definition of the code, along with an optional version reference.
 The display is a human display for the text defined by the system - it adds no other 
-value. The Value Set reference provides context information about the selection of the 
-code. 
+value.
 </p>
 <p>
 The <code>system</code> is a URI that references the code system that defines the <code>code</code>. 
 Choosing the correct system is important; for more information about the code system 
 URI, read <a href="terminologies.html#system">Managing Terminology System URIs</a>.
 The system URI SHALL NOT contain a reference to a value set (e.g. ValueSet.url). 
-(if the code is taken from a ValueSet with an inline code system, <code>ValueSet.codeSystem.system</code>,
+If the code is taken from a ValueSet with an inline code system, <code>ValueSet.codeSystem.system</code>,
 is the correct value for the system uri.
 </p>
 <p>
 A code system version may also be supplied. If the meaning of codes within the code system is consistent across releases, this is not required. 
 The version SHOULD be exchanged when this the system does not maintain consistent definitions across versions.
-If a value set is referenced, and the value set has an inline code system, and the code system definition specifies a version, the version SHALL be the same as in the value set. 
 Note that the following systems SHOULD always have a version specified:
 </p>
 <ul>
@@ -418,39 +416,9 @@ in a user interface (e.g. the user selects an item in a pick-list). If a user se
 it is the preferred choice for performing translations etc. 
 </p>
 
-<!--<h3>Version Management</h3>
-<p>
-Some code systems have periodic releases where the meanings of the codes are changed between
-each release. Other code systems provide multiple releases where only minor consistent changes 
-are allowed - mainly the addition of new codes. Finally, a few code systems provide an elaborate 
-set of policies and procedures to allow concepts to be refined and modified within a single
-definitional space. For the second two types of code system, it may help with implementation 
-and interpretation tasks to track which minor release (version) of the code system is in use. 
-</p>
-<p>
-For SNOMED CT, the minor release (and optionally module/release) are indicated as part of the 
-<code>system</code> element using the http://snomed.info/sct identifier as defined by SNOMED CT. For
-all other code systems, the <code>version</code> element is used to indicate the minor release. 
-In the absence of a specified version release format by the code system (such as 2.36 for 
-LOINC), the release date is to be used.
-</p>
-<p>
-The <code>version</code> element SHALL always be ignored when comparing <code>Coding</code> values
-</p>-->
 <div class="use">
 <p><b>Constraints</b></p>
-<!--
 [%dt.constraints Coding%]
-<p>
-Unless the Coding element has a dataAbsentReason flag, it SHALL contain a <code>system</code> element 
-and it should contain a <code>display</code> if it contains a <code>code</code>.
-<!-!- It can only contain a
-<code>version</code> element if it contains a <code>system</code> element.-!->
-</p>
--->
-<p>
-If a valueSet is provided, a system URI SHALL also be provided.
-</p>
 <p>
 The context of use (as defined in the resource or applicable profile) usually makes rules about what codes and systems are allowed or required in a 
 particular context by <a href="terminologies.html">binding</a> the element to a value set.
