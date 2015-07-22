@@ -43,14 +43,14 @@
   <contained>
     <ValueSet>
       <id value="2179414"/>
-      <url value="2179414"/>
+      <url value="http://example.org/2179414"/>
       <version value="1.0"/>
       <name value="Gender Code"/>
       <description value="All codes representing the gender of a person."/>
       <status value="active"/>
       <compose>
         <include>
-          <system value="http://ncit.nci.nih.gov"/>
+          <system value="http://example.ncit.nci.nih.gov"/>
           <concept>
             <code value="C17998"/>
             <display value="Unknown"/>
