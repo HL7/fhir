@@ -2,6 +2,7 @@ package org.hl7.fhir.definitions.parsers;
 
 import java.io.File;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -20,6 +21,7 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Logger;
@@ -48,7 +50,7 @@ public class IgParser {
     this.committee = committee;
   }
 
-  public void load(String rootDir, ImplementationGuide ig) throws Exception {
+  public void load(String rootDir, ImplementationGuide ig, List<ValidationMessage> issues) throws Exception {
     logger.log(" ..."+ig.getName(), LogMessageType.Process);
     
     CSFile file = new CSFile(Utilities.path(rootDir, ig.getSource()));
@@ -101,7 +103,7 @@ public class IgParser {
               rootDir, logger, null, context.getVersion(), context, genDate, false, ig.getExtensions(), pkp, false, committee);
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(p.getSource()));
-          sparser.parseConformancePackage(p, null, Utilities.getDirectoryForFile(p.getSource()), p.getCategory());
+          sparser.parseConformancePackage(p, null, Utilities.getDirectoryForFile(p.getSource()), p.getCategory(), issues);
         } else {
           throw new Exception("Unknown profile type in IG: "+e.getNodeName());
           // parseConformanceDocument(p, p.getId(), new File(p.getSource()), p.getCategory());    

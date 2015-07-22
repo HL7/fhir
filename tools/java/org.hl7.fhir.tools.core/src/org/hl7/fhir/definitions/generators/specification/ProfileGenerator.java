@@ -355,7 +355,7 @@ public class ProfileGenerator {
     return p;
   }
   
-  public StructureDefinition generate(ProfiledType pt) throws Exception {
+  public StructureDefinition generate(ProfiledType pt, List<ValidationMessage> issues) throws Exception {
     StructureDefinition p = new StructureDefinition();
     p.setId(pt.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ pt.getName());
@@ -403,7 +403,7 @@ public class ProfileGenerator {
     
     // now, the snapshot
     StructureDefinition base = getTypeSnapshot(pt.getBaseType());
-    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType(), p.getName(), pkp);
+    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType(), p.getName(), pkp, issues);
 
     p.getDifferential().getElement().get(0).getType().clear();
     p.getDifferential().getElement().get(0).addType().setCode(pt.getBaseType());
@@ -568,7 +568,7 @@ public class ProfileGenerator {
       issues.add(new ValidationMessage(Source.ProfileValidator, IssueType.STRUCTURE, -1, -1, p.getUrl(), s, IssueSeverity.WARNING));
     reset();
     // ok, c is the differential. now we make the snapshot
-    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getConstrainedType(), p.getName(), pkp);
+    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getConstrainedType(), p.getName(), pkp, issues);
     reset();
 
     p.getDifferential().getElement().get(0).getType().clear();

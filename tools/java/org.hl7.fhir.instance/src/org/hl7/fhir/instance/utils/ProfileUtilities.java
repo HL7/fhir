@@ -24,6 +24,7 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingCom
 import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
@@ -34,7 +35,14 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapsh
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
@@ -75,6 +83,7 @@ public class ProfileUtilities {
   public static final String UD_ERROR_STATUS = "error-status";
   
   private final WorkerContext context;
+  private List<ValidationMessage> messages;
   
   public ProfileUtilities(WorkerContext context) {
     super();
@@ -214,12 +223,14 @@ public class ProfileUtilities {
    * @return
    * @throws Exception 
    */
-  public void generateSnapshot(StructureDefinition base, StructureDefinition derived, String url, String profileName, ProfileKnowledgeProvider pkp) throws Exception {
+  public void generateSnapshot(StructureDefinition base, StructureDefinition derived, String url, String profileName, ProfileKnowledgeProvider pkp, List<ValidationMessage> messages) throws Exception {
     if (base == null)
       throw new Exception("no base profile provided");
     if (derived == null) 
       throw new Exception("no derived structure provided");
       
+    this.messages = messages;
+    
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
     
     // so we have two lists - the base list, and the differential list 
@@ -761,8 +772,19 @@ public class ProfileUtilities {
       
       if (derived.hasBinding()) {
         if (!Base.compareDeep(derived.getBinding(), base.getBinding(), false)) {
-          if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().getStrength() != BindingStrength.REQUIRED)
-            throw new Exception("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+base.getBinding().getStrength().toCode());
+          if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && derived.getBinding().getStrength() != BindingStrength.REQUIRED)
+            messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), IssueSeverity.WARNING));
+//            throw new Exception("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
+          else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED) {
+            ValueSetExpansionOutcome expBase = context.getTerminologyServices().expand(context.getValueSets().get(base.getBinding().getValueSetReference().getReference()));
+            ValueSetExpansionOutcome expDerived = context.getTerminologyServices().expand(context.getValueSets().get(derived.getBinding().getValueSetReference().getReference()));
+            if (expBase.getValueset() == null)
+              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
+            else if (expDerived.getValueset() == null)
+              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
+            else if (!isSubset(expBase.getValueset(), expDerived.getValueset()))
+              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" is not a subset of binding "+base.getBinding().getValueSetReference().getReference(), IssueSeverity.WARNING));
+          }            
           base.setBinding(derived.getBinding().copy());
         } else if (trimDifferential)
           derived.setBinding(null);
@@ -834,6 +856,33 @@ public class ProfileUtilities {
       }
     }
   }
+
+  private boolean isSubset(ValueSet expBase, ValueSet expDerived) {
+    return codesInExpansion(expDerived.getExpansion().getContains(), expBase.getExpansion());
+  }
+
+
+  private boolean codesInExpansion(List<ValueSetExpansionContainsComponent> contains, ValueSetExpansionComponent expansion) {
+    for (ValueSetExpansionContainsComponent cc : contains) {
+      if (!inExpansion(cc, expansion.getContains()))
+        return false;
+      if (!codesInExpansion(cc.getContains(), expansion))
+        return false;
+    }
+    return true;
+  }
+
+
+  private boolean inExpansion(ValueSetExpansionContainsComponent cc, List<ValueSetExpansionContainsComponent> contains) {
+    for (ValueSetExpansionContainsComponent cc1 : contains) {
+      if (cc.getSystem().equals(cc1.getSystem()) && cc.getCode().equals(cc1.getCode()))
+        return true;
+      if (inExpansion(cc,  cc1.getContains()))
+        return true;
+    }
+    return false;
+  }
+
 
   public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp) throws Exception {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
@@ -1366,7 +1415,7 @@ public class ProfileUtilities {
     				StructureDefinition ae = client.read(StructureDefinition.class, ps[1]);
     				context.getProfiles().put(parts[0], ae);
   				} catch (Exception e) {
-  				  throw new Exception("Unable to resolve :"+ps[1]+" on server "+client.getAddress(), e);
+  				  throw new Exception("Unable to resolve "+ps[1]+" from '"+url+"' on server "+client.getAddress(), e);
   				}
   			} else
   				return null;

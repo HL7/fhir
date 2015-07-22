@@ -29,6 +29,7 @@ import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -496,7 +497,10 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
       } catch (EFhirClientException e) {
         serverOk = true;
         FileOutputStream s = new FileOutputStream(cacheFn);
-        parser.compose(s, e.getServerErrors().get(0));
+        if (e.getServerErrors().isEmpty())
+          parser.compose(s, buildOO(e.getMessage()));
+        else
+          parser.compose(s, e.getServerErrors().get(0));
         s.close();
 
         throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
@@ -506,6 +510,14 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
       }
     } else
       throw new Exception("Server is not available");
+  }
+
+  private OperationOutcome buildOO(String message) {
+    OperationOutcome oo = new OperationOutcome();
+    CodeableConcept cc = new CodeableConcept();
+    cc.addCoding().setSystem("http://hl7.org/fhir/issue-type").setCode("exception");
+    oo.addIssue().setSeverity(IssueSeverity.ERROR).setCode(cc).setDetails(message);
+    return oo;
   }
 
 //  if (expandedVSCache == null)

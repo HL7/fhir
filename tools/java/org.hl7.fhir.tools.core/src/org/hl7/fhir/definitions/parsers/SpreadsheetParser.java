@@ -115,6 +115,7 @@ import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -1117,7 +1118,7 @@ public class SpreadsheetParser {
   }
 
 
-	public void parseConformancePackage(Profile ap, Definitions definitions, String folder, String usage) throws Exception {
+	public void parseConformancePackage(Profile ap, Definitions definitions, String folder, String usage, List<ValidationMessage> issues) throws Exception {
 	  try {
 	    isProfile = true;
 	    checkMappings(ap);
@@ -1164,7 +1165,7 @@ public class SpreadsheetParser {
           if (sheet.getColumn(row, "Code").startsWith("!"))
             row++;
           else 
-            row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap);
+            row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap, issues);
         }
       }
 
@@ -1173,13 +1174,13 @@ public class SpreadsheetParser {
 	    if (ap.getMetadata().containsKey("published.structure")) {
 	      for (String n : ap.getMetadata().get("published.structure")) {
 	        if (!Utilities.noString(n))
-	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage));
+	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage, issues));
 	      }
 	    }
 
 	    int i = 0;
 	    while (i < namedSheets.size()) {
-	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage));
+	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage, issues));
 	      i++;
 	    }
 	    if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
@@ -1208,7 +1209,7 @@ public class SpreadsheetParser {
   }
 
 
-  private ConstraintStructure parseProfileSheet(Definitions definitions, Profile ap, String n, List<String> namedSheets, boolean published, String usage) throws Exception {
+  private ConstraintStructure parseProfileSheet(Definitions definitions, Profile ap, String n, List<String> namedSheets, boolean published, String usage, List<ValidationMessage> issues) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
     resource.setPublishedInProfile(published);
@@ -1245,7 +1246,7 @@ public class SpreadsheetParser {
         if (sheet.getColumn(row, "Code").startsWith("!"))
           row++;
         else
-          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, ap.metadata("extension.uri"), ap);
+          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, ap.metadata("extension.uri"), ap, issues);
       }
     }
     sheet = loadSheet(n+"-Search");
@@ -1667,7 +1668,7 @@ public class SpreadsheetParser {
 		  }
 	}
 
-  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap) throws Exception {
+  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap, List<ValidationMessage> issues) throws Exception {
 	  // first, we build the extension definition
     StructureDefinition ex = new StructureDefinition();
     ex.setKind(StructureDefinitionKind.DATATYPE);
@@ -1747,7 +1748,7 @@ public class SpreadsheetParser {
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(this.context).sortDifferential(base, ex, "extension "+ex.getUrl(), pkp, errors);
     assert(errors.size() == 0);
-    new ProfileUtilities(this.context).generateSnapshot(base, ex, ex.getUrl(), ex.getName(), pkp);
+    new ProfileUtilities(this.context).generateSnapshot(base, ex, ex.getUrl(), ex.getName(), pkp, issues);
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}

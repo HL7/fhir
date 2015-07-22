@@ -2139,7 +2139,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");    
     
-    String tgt = c.getSystem()+"||"+c.getCode();
+    String tgt = makeAnchor(c.getSystem(), c.getCode());
     td.addTag("a").setAttribute("name", tgt).addText(" ");
     
     String s = Utilities.padLeft("", '.', i*2);
@@ -2248,7 +2248,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       	span.setAttribute("title", mapping.hasEquivalence() ?  mapping.getEquivalence().toCode() : "");
       	span.addText(getCharForEquivalence(mapping));
       	a = td.addTag("a");
-      	a.setAttribute("href", prefix+maps.get(m)+"#"+mapping.getCodeSystem()+"||"+mapping.getCode());
+      	a.setAttribute("href", prefix+maps.get(m)+"#"+makeAnchor(mapping.getCodeSystem(), mapping.getCode()));
       	a.addText(mapping.getCode());
         if (!Utilities.noString(mapping.getComments()))
           td.addTag("i").addText("("+mapping.getComments()+")");
@@ -2270,6 +2270,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return hasExtensions;
   }
 
+
+  private String makeAnchor(String codeSystem, String code) {
+    String s = codeSystem+'-'+code;
+    StringBuilder b = new StringBuilder();
+    for (char c : s.toCharArray()) {
+      if (Character.isAlphabetic(c) || Character.isDigit(c) || c == '.')
+        b.append(c);
+      else
+        b.append('-');
+    }
+    return b.toString();
+  }
 
   private String getCodingReference(Coding cc, String system) {
     if (cc.getSystem().equals(system))

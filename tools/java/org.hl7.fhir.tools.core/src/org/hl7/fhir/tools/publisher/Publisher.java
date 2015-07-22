@@ -511,7 +511,7 @@ public class Publisher implements URIResolver {
       page.loadSnomed();
       page.loadLoinc();
 
-      prsr.parse(page.getGenDate());
+      prsr.parse(page.getGenDate(), page.getValidationErrors());
 
       if (buildFlags.get("all")) {
         copyStaticContent();
@@ -710,7 +710,7 @@ public class Publisher implements URIResolver {
 
   private void processExtension(StructureDefinition ex) throws Exception {
     StructureDefinition bd = page.getDefinitions().getSnapShotForBase(ex.getBase());
-    new ProfileUtilities(page.getWorkerContext()).generateSnapshot(bd, ex, ex.getUrl(), ex.getName(), page);
+    new ProfileUtilities(page.getWorkerContext()).generateSnapshot(bd, ex, ex.getUrl(), ex.getName(), page, page.getValidationErrors());
   }
 
   private Profile makeConformancePack(ResourceDefn r) {
@@ -742,7 +742,7 @@ public class Publisher implements URIResolver {
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(pt);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(pt, page.getValidationErrors());
     page.getProfiles().put(profile.getUrl(), profile);
     pt.setProfile(profile);
     // todo: what to do in the narrative?
@@ -806,7 +806,7 @@ public class Publisher implements URIResolver {
         if (profile.getResource().hasBase() && !profile.getResource().hasSnapshot()) {
           // cause it probably doesn't, coming from the profile directly
           StructureDefinition base = getSnapShotForProfile(profile.getResource().getBase());
-          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, profile.getResource(), profile.getResource().getBase().split("#")[0], profile.getResource().getName(), page);
+          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, profile.getResource(), profile.getResource().getBase().split("#")[0], profile.getResource().getName(), page, page.getValidationErrors());
         }
         page.getProfiles().put(profile.getResource().getUrl(), profile.getResource());
       }
@@ -860,7 +860,7 @@ public class Publisher implements URIResolver {
       StructureDefinition base = getIgProfile(ae.getBase());
       if (base == null)
         base = new ProfileUtilities(page.getWorkerContext()).getProfile(null, ae.getBase());
-      new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, ae, ae.getBase().split("#")[0], ae.getName(), page);
+      new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, ae, ae.getBase().split("#")[0], ae.getName(), page, page.getValidationErrors());
       page.getProfiles().put(ae.getUrl(), ae);
     }
   }
@@ -4215,7 +4215,7 @@ public class Publisher implements URIResolver {
     StructureDefinition base = page.getProfiles().get(p.getBase());
     if (base == null)
       throw new Exception("Unable to find base profile for "+d.getId()+": "+p.getBase()+" from "+page.getProfiles().keySet());
-    new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, p, p.getBase(), p.getId(), page);
+    new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, p, p.getBase(), p.getId(), page, page.getValidationErrors());
     ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation")); // todo
     pd.setId(p.getId());
     pd.setTitle(p.getName());

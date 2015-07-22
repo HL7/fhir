@@ -94,6 +94,7 @@ import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -206,7 +207,7 @@ public class SourceParser {
     return sorted;
   }
 
-  public void parse(Calendar genDate) throws Exception {
+  public void parse(Calendar genDate, List<ValidationMessage> issues) throws Exception {
     logger.log("Loading", LogMessageType.Process);
 
     eCoreParseResults = DefinitionsImpl.build(genDate.getTime(), version);
@@ -307,16 +308,16 @@ public class SourceParser {
       }
     logger.log("Load Profiles", LogMessageType.Process);
     for (String n : ini.getPropertyNames("profiles")) { // todo-profile: rename this
-      loadConformancePackages(n);
+      loadConformancePackages(n, issues);
     }
 
     for (ResourceDefn r : definitions.getResources().values()) {
       for (Profile p : r.getConformancePackages()) 
-        loadConformancePackage(p, r.getWg().getCode());
+        loadConformancePackage(p, r.getWg().getCode(), issues);
     }
     for (ImplementationGuide ig : definitions.getSortedIgs()) {
       if (!Utilities.noString(ig.getSource())) {
-        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee()).load(rootDir, ig);
+        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee()).load(rootDir, ig, issues);
         // register what needs registering
         for (ValueSet vs : ig.getValueSets()) {
           definitions.getExtraValuesets().put(vs.getId(), vs);
@@ -571,7 +572,7 @@ public class SourceParser {
   }
 
 
-  private void loadConformancePackages(String n) throws Exception {
+  private void loadConformancePackages(String n, List<ValidationMessage> issues) throws Exception {
     String usage = "core";
     String[] v = ini.getStringProperty("profiles", n).split("\\:");
     File spreadsheet = new CSFile(rootDir+v[1]);
@@ -584,7 +585,7 @@ public class SourceParser {
         pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
         definitions.getPackList().add(pack);
         definitions.getPackMap().put(n, pack);
-        sparser.parseConformancePackage(pack, definitions, Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()), pack.getCategory());
+        sparser.parseConformancePackage(pack, definitions, Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()), pack.getCategory(), issues);
       } catch (Exception e) {
         throw new Exception("Error Parsing StructureDefinition: '"+n+"': "+e.getMessage(), e);
       }
@@ -628,11 +629,11 @@ public class SourceParser {
   }
 
 
-  private void loadConformancePackage(Profile ap, String committee) throws FileNotFoundException, IOException, Exception {
+  private void loadConformancePackage(Profile ap, String committee, List<ValidationMessage> issues) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
       SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, committee);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
-      sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory());
+      sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory(), issues);
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
       parseConformanceDocument(ap, ap.getId(), new File(ap.getSource()), ap.getCategory());
   }
