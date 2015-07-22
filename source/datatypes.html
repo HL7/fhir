@@ -112,7 +112,7 @@ all types, they have <a href="extensibility.html">extensions</a>).
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid"><i>Todo: is it possible to impose an upper absolute limit on a base64Binary (for denial of service reasons, like on string)</i></td>
+   <td colspan="3" style="border-top: 0px silver solid"><code>Todo: is it possible to impose an upper absolute limit on a base64Binary (for denial of service reasons, like on string)</code></td>
  </tr> 
  <tr>
    <td>instant<a name="instant"> </a></td>
@@ -233,13 +233,13 @@ In addition to the base primitive types, a few additional primitive types are de
 </table>
 
 <p>
-Some additional notes about the <i>id</i> datatype:
+Some additional notes about the <code>id</code> datatype:
 </p>
 <ul>
  <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters</li>
  <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
  <li>In a typical FHIR URL, like http://example.com/fhir/Patient/<span style="color: navy">1234</span>, the last part "1234" (highlighted in navy) is the part that is an id datatype</li>
- <li>A full UUID is a <i>uri</i>, not an <i>id</i>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b), which SHALL be in lowercase</li>
+ <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b), which SHALL be in lowercase</li>
 </ul>
 <!-- 
 boolean: [%dtusage boolean%]
@@ -296,22 +296,22 @@ data that has a mime type.
 </p>
 [%dt Attachment 1%] 
 <p>
-The <i>contentType</i> element SHALL always be populated. It can include charset information 
-and other mime type extensions as appropriate. If there is no character set in the <i>contentType</i>
+The actual content of the Attachment can be conveyed directly using the <code>data</code> element
+or a <code>URL</code> reference can be provided. If both are provided, the reference SHALL 
+point to the same content as found in the data. The reference can never be reused to point to
+some different data (i.e. the reference is version specific). The <code>URL</code> reference SHALL 
+point to a location that resolves to actual data; some URIs such as cid: meet this requirement. 
+If the URL is a relative reference, it is interpreted in the same way as a <a href="references.html#references">resource reference</a>.
+</p>
+<p>
+The <code>contentType</code> element SHALL always be populated when the attachment contains <code>data</code>, and 
+MAY be populated when there is a <code>url</code>. It can include charset information 
+and other mime type extensions as appropriate. If there is no character set in the <code>contentType</code>
 then the correct course of action is undefined, though some media types may define a default
 character set and/or the correct character set may be able to be determined by inspection of the content.
 </p>
-<p>The actual content of the 
-Attachment can be conveyed directly using the <i>data</i> element
-or a <i>URL</i> reference can be provided. If both are provided, the reference SHALL 
-point to the same content as found in the data. The reference can never be reused to point to
-some different data (i.e. the reference is version specific). The
-<i>URL</i> reference SHALL point to a location that resolves to actual data; some
-URIs such as cid: meet this requirement. If the URL is a relative reference, it is interpreted
-in the same way as a <a href="references.html#references">resource reference</a>.
-</p>
 <p>
-The <i>hash</i> is included so that applications can verify that the content returned by the URL has not changed. 
+The <code>hash</code> is included so that applications can verify that the content returned by the URL has not changed. 
 </p>
 <p>
 In many cases where Attachment is used, the cardinality is &gt;1. A valid use of repeats is to convey the same content in different mime types and languages.
@@ -322,9 +322,9 @@ The language element describes the language of the attachment using the <a href=
 <p><b>Constraints</b></p>
 [%dt.constraints Attachment%]
 <p>
-If neither <i>data</i> nor a <i>URL</i> 
+If neither <code>data</code> nor a <code>URL</code> 
 is provided, the value should be understood as an assertion that no content for 
-the specified <i>mimeType</i> and/or <i>language</i> is available for the combination of  <i>language</i> and <i>contentType</i>.
+the specified <code>mimeType</code> and/or <code>language</code> is available for the combination of  <code>language</code> and <code>contentType</code>.
 </p>
 <p>
 The context of use may frequently make rules about the kind of attachment
@@ -351,18 +351,18 @@ A Coding is a representation of a defined concept using a symbol from a defined 
 [%dt Coding 2%]
 
 <p>
-The meaning of the Coding is defined by the code. The <i>system</i> provides
+The meaning of the Coding is defined by the code. The <code>system</code> provides
 the source of the definition of the code, along with an optional version reference.
 The display is a human display for the text defined by the system - it adds no other 
 value. The Value Set reference provides context information about the selection of the 
 code. 
 </p>
 <p>
-The <code>system</code> is a URI that references the code system that defines the <i>code</i>. 
+The <code>system</code> is a URI that references the code system that defines the <code>code</code>. 
 Choosing the correct system is important; for more information about the code system 
 URI, read <a href="terminologies.html#system">Managing Terminology System URIs</a>.
 The system URI SHALL NOT contain a reference to a value set (e.g. ValueSet.url). 
-(if the code is taken from a ValueSet with an inline code system, <i>ValueSet.codeSystem.system</i>,
+(if the code is taken from a ValueSet with an inline code system, <code>ValueSet.codeSystem.system</code>,
 is the correct value for the system uri.
 </p>
 <p>
@@ -382,21 +382,21 @@ further discussion on versioning.
 </p>
 
 <p>
-If present, the <i>code</i> SHALL be a syntactically correct symbol as defined by the <i>system</i>.
+If present, the <code>code</code> SHALL be a syntactically correct symbol as defined by the <code>system</code>.
 In some code systems such as SNOMED CT, the symbol may be an expression composed of other predefined symbol (e.g. post-coordination). 
-Note that codes are case sensitive unless specified otherwise by the code system. The <i>display</i> 
-is a text representation of the code defined by the <i>system</i> and is used to display 
-the meaning of the code by an application that is not aware of the <i>system</i>. 
+Note that codes are case sensitive unless specified otherwise by the code system. The <code>display</code> 
+is a text representation of the code defined by the <code>system</code> and is used to display 
+the meaning of the code by an application that is not aware of the <code>system</code>. 
 </p>
 <p>
-Where the code system defines multiple possible display strings, one of these SHALL be used in <i>display</i>. 
+Where the code system defines multiple possible display strings, one of these SHALL be used in <code>display</code>. 
 If one is labeled as preferred, it SHOULD be used. If the code system does not define a text representation 
-(e.g. SNOMED CT Expressions) then <i>display</i> cannot be populated, and the meaning of the code won't be 
+(e.g. SNOMED CT Expressions) then <code>display</code> cannot be populated, and the meaning of the code won't be 
 accessible to systems that don't understand the code expression.
 </p>
 
 <p>
-In some cases, the <i>system</i> may not be known - only the code is known. 
+In some cases, the <code>system</code> may not be known - only the code is known. 
 In this case, no useful processing of the code may be performed unless
 the system can be safely inferred by the context. 
 This practice should be avoided where possible, as 
@@ -408,8 +408,8 @@ If the system is present, and there is no code, then this is understood to mean 
 is no suitable code in the system in which to represent the code. 
 </p>
 <p>
-If two codings have the same <i>system</i>, <i>version</i> and <i>code</i> then they have the same meaning.
-If the version information is missing, or the <i>system</i>, <i>version</i> or the <i>code</i> elements differ, then 
+If two codings have the same <code>system</code>, <code>version</code> and <code>code</code> then they have the same meaning.
+If the version information is missing, or the <code>system</code>, <code>version</code> or the <code>code</code> elements differ, then 
 how they codes are related can only be determined by consulting the definitions of the system(s) and any <a href="conceptmap.html">mappings</a> available.
 </p>
 <p>
@@ -429,23 +429,23 @@ and interpretation tasks to track which minor release (version) of the code syst
 </p>
 <p>
 For SNOMED CT, the minor release (and optionally module/release) are indicated as part of the 
-<i>system</i> element using the http://snomed.info/sct identifier as defined by SNOMED CT. For
-all other code systems, the <i>version</i> element is used to indicate the minor release. 
+<code>system</code> element using the http://snomed.info/sct identifier as defined by SNOMED CT. For
+all other code systems, the <code>version</code> element is used to indicate the minor release. 
 In the absence of a specified version release format by the code system (such as 2.36 for 
 LOINC), the release date is to be used.
 </p>
 <p>
-The <i>version</i> element SHALL always be ignored when comparing <i>Coding</i> values
+The <code>version</code> element SHALL always be ignored when comparing <code>Coding</code> values
 </p>-->
 <div class="use">
 <p><b>Constraints</b></p>
 <!--
 [%dt.constraints Coding%]
 <p>
-Unless the Coding element has a dataAbsentReason flag, it SHALL contain a <i>system</i> element 
-and it should contain a <i>display</i> if it contains a <i>code</i>.
+Unless the Coding element has a dataAbsentReason flag, it SHALL contain a <code>system</code> element 
+and it should contain a <code>display</code> if it contains a <code>code</code>.
 <!-!- It can only contain a
-<i>version</i> element if it contains a <i>system</i> element.-!->
+<code>version</code> element if it contains a <code>system</code> element.-!->
 </p>
 -->
 <p>
@@ -470,14 +470,14 @@ Coding is used in the following places: [%dtusage Coding%]
  <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e. a list of references to codes defined by code systems)</li>
 </ul>
 <p>
-The <i>Coding</i> data type corresponds to the simple case of selecting 
+The <code>Coding</code> data type corresponds to the simple case of selecting 
 a single code from a code list. However this type is rarely used in the 
 FHIR specifications; long experience with exchanging coded values in
 HL7 shows that in the general case, systems need to able to exchange
 multiple translation codes, and/or an original text. 
 </p>
 <p>
-The <i>Coding</i> data type is used directly  when there is certainty that the value 
+The <code>Coding</code> data type is used directly  when there is certainty that the value 
 must be selected directly from one of the available codes, and the list of 
 possible codes is agreed to by all participants. This is not usually the case
 in the context of FHIR - general interoperability - so Coding is mostly used
@@ -499,20 +499,20 @@ provision of text. This is a common pattern in healthcare data.
 </p>
 [%dt CodeableConcept 3%]
 <p>
-Each <i>coding</i> is a representation of the concept as described above. The concept may be coded multiple times in different code systems (or even 
+Each <code>coding</code> is a representation of the concept as described above. The concept may be coded multiple times in different code systems (or even 
 multiple times in the same code systems, where multiple forms are possible, such as 
 with SNOMED CT). The different codings may have slightly different granularity due to the differences 
-in the definitions of the underlying codes. There is no meaning associated with the ordering of <i>coding</i> within a <i>CodeableConcept</i>. 
-A typical use of <i>CodeableConcept</i> is to send the local code that the concept was coded with, and also one or more translations to publicly defined 
+in the definitions of the underlying codes. There is no meaning associated with the ordering of <code>coding</code> within a <code>CodeableConcept</code>. 
+A typical use of <code>CodeableConcept</code> is to send the local code that the concept was coded with, and also one or more translations to publicly defined 
 code systems such as LOINC or SNOMED CT. Sending local codes is useful and important for the purposes of debugging and integrity auditing.  
 </p>
 <p>
-Whether or not <i>coding</i> elements are present, the <i>text</i> 
+Whether or not <code>coding</code> elements are present, the <code>text</code> 
 is the representation of the concept as entered or chosen by the user, and which most closely 
-represents the intended meaning of the user or concept. Very often the <i>text</i> 
-is the same as a <i>display</i> of one of the codings. One of the codings 
+represents the intended meaning of the user or concept. Very often the <code>text</code> 
+is the same as a <code>display</code> of one of the codings. One of the codings 
 may be flagged as the userSelected - the code or concept that the user actually selected directly. 
-When none of the <i>coding</i> elements is marked as userSelected, the text (if present)
+When none of the <code>coding</code> elements is marked as userSelected, the text (if present)
 is the preferred source of meaning. 
 </p>
 
@@ -543,18 +543,18 @@ A measured amount (or an amount that can potentially be measured).
 [%dt Quantity 4%]
 
 <p>
-The <i>value</i> contains the numerical value of the quantity, including an implicit precision. 
-If no comparator is specified, the value is a point value (i.e. '='). The <i>comparator</i> element can never be ignored.
+The <code>value</code> contains the numerical value of the quantity, including an implicit precision. 
+If no comparator is specified, the value is a point value (i.e. '='). The <code>comparator</code> element can never be ignored.
 </p>
 <p>
-The <i>units</i> element contains a displayable unit that defines what is measured. 
-The units may additionally be coded in some formal way using the <i>code</i> and the <i>system</i> 
-(see <a href="#Coding">Coding</a> for further information about how to use the <i>system</i> element). 
+The <code>units</code> element contains a displayable unit that defines what is measured. 
+The units may additionally be coded in some formal way using the <code>code</code> and the <code>system</code> 
+(see <a href="#Coding">Coding</a> for further information about how to use the <code>system</code> element). 
 </p>
 <p>
 If the units are able to be coded in UCUM and a code is provided, it SHOULD be a UCUM code. 
-If a UCUM unit is provided in the <i>code</i> then a canonical value can be generated for 
-purposes of comparison between quantities. Note that the <i>units</i> element will often 
+If a UCUM unit is provided in the <code>code</code> then a canonical value can be generated for 
+purposes of comparison between quantities. Note that the <code>units</code> element will often 
 contain text that is actually a valid UCUM unit, but it cannot be assumed that the units element actually contains a valid UCUM unit. 
 </p>
 
@@ -564,8 +564,8 @@ contain text that is actually a valid UCUM unit, but it cannot be assumed that t
 <p>
 The context of use may frequently define what kind of quantity
 this is and therefore what kind of units can be used. The context 
-of use may additionally require a <i>code</i> from a particular <i>system</i>.
-The context of use may also restrict the values for the <i>value</i> or <i>range</i>.
+of use may additionally require a <code>code</code> from a particular <code>system</code>.
+The context of use may also restrict the values for the <code>value</code> or <code>range</code>.
 </p>
 </div>
 <p>
@@ -597,12 +597,12 @@ Ranges are typically used in instructions.
 </p>
 [%dt Range 5%]
 <p>
-The <i>units</i> and <i>code</i>/<i>system</i> elements of the <i>low</i> or <i>high</i> elements SHALL match. 
-If the <i>low</i> or <i>high</i> elements are missing, the meaning
+The <code>units</code> and <code>code</code>/<code>system</code> elements of the <code>low</code> or <code>high</code> elements SHALL match. 
+If the <code>low</code> or <code>high</code> elements are missing, the meaning
 is that the low or high boundaries are not known and therefore neither is the complete range.
 </p>
 <p>
-The <i>comparator</i> flag on the <i>low</i> or <i>high</i> elements cannot be present. Note that the Range type should not be 
+The <code>comparator</code> flag on the <code>low</code> or <code>high</code> elements cannot be present. Note that the Range type should not be 
 used to represent out of range measurements: A quantity type with the comparator element should be used instead.
 </p>
 <p>
@@ -674,8 +674,8 @@ from the period applies (e.g. "give to the patient between 2 and 4 pm on 24-Jun 
 </p>
 [%dt Period 7%]
 <p>
-If the <i>start</i> element is  missing, the start of the period is not
-known. If the <i>end</i> element is missing, it means that the period is ongoing.
+If the <code>start</code> element is  missing, the start of the period is not
+known. If the <code>end</code> element is missing, it means that the period is ongoing.
 </p>
 <p>
 The end value includes any matching date/time. For example, the period 
@@ -714,7 +714,7 @@ In addition to decimal values, the special values "E" (error), "L" (below detect
 and "U" (above detection limit) can also be used. If there is more than one dimension, the
 different dimensions are interlaced - all the data points for a particular time are
 represented together. 
-The default value for <i>factor</i> is 1. 
+The default value for <code>factor</code> is 1. 
 </p>
 
 <p>
@@ -740,17 +740,17 @@ errors.
 [%dt Identifier 9%]
 
 <p>
-The <i>system</i> referred to by means of a URI defines how the identifier is defined (i.e. how the value is made unique). 
+The <code>system</code> referred to by means of a URI defines how the identifier is defined (i.e. how the value is made unique). 
 It might be a specific application or a recognized standard/specification for a set or identifiers
-or a way of making identifiers unique. The <i>value</i> SHALL be unique within the defined <i>system</i>
-and have a consistent meaning wherever it appears. Both <i>system</i> and <i>value</i> are always case sensitive.
+or a way of making identifiers unique. The <code>value</code> SHALL be unique within the defined <code>system</code>
+and have a consistent meaning wherever it appears. Both <code>system</code> and <code>value</code> are always case sensitive.
 </p>
 <p>
 FHIR defines <a href="identifier-registry.html">some useful URIs directly</a>. OIDs (urn:oid:) and UUIDs (urn:uuid:) 
 may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> and should be if the 
 content is shared or exchanged across institutional boundaries. If the identifier itself 
 is naturally globally unique (e.g. an OID, a UUID, or a URI with no trailing local part), 
-then the <i>system</i> SHALL be "urn:ietf:rfc:3986", and the URI is in the <i>value</i>.
+then the <code>system</code> SHALL be "urn:ietf:rfc:3986", and the URI is in the <code>value</code>.
 </p>
 <p>
 In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode), 
@@ -760,7 +760,7 @@ context. This practice should be avoided where possible, as
 information sharing in a wider context is very likely to arise eventually, and values without a system are inherently limited in use.
 </p>
 <p>
-The <i>assigner</i> is used to indicate what registry/state/facility/etc. assigned the identifier. 
+The <code>assigner</code> is used to indicate what registry/state/facility/etc. assigned the identifier. 
 </p>  
 <p>
 Identifier is used in the following places: [%dtusage Identifier%]
@@ -811,10 +811,10 @@ consult the <a href="datatypes-examples.html#HumanName">examples</a>.
 The multiple give and family name parts combine to form a single name. Multiple given and family names are for
 when a person's name has multiple given names (relatively common across cultures) and multiple surnames (less common).
 Where a person has alternate names that may be used in place of each other, these are different
-instances of <i>HumanName</i>.
+instances of <code>HumanName</code>.
 </p>
 <p>
-The <i>text</i> element specifies the entire name as it should be represented. This
+The <code>text</code> element specifies the entire name as it should be represented. This
 may be provided instead of or as well as specific parts, and can be built from the parts, though
 the correct order of assembly is culture dependent: the order of the  parts within a given part type has 
 significance and SHALL be observed. The appropriate order between 
@@ -860,7 +860,7 @@ visited to find a patient or person.
 
 [%dt Address 11%]
 <p>
-The <i>text</i> element specifies the entire address as it should be represented. This
+The <code>text</code> element specifies the entire address as it should be represented. This
 may be provided instead of or as well as the specific parts. Applications updating an address
 SHALL ensure either that the text and the parts are in agreement, or that only one
 of the two is present.
