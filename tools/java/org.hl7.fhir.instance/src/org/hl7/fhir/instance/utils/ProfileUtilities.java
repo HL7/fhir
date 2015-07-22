@@ -309,6 +309,9 @@ public class ProfileUtilities {
           int start = 0;
           if (!diffMatches.get(0).hasName()) {
             updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp, trimDifferential);
+            if (!outcome.hasType()) {
+              throw new Exception("not done yet");
+            }
             start = 1;
           }
           
