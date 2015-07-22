@@ -268,17 +268,20 @@ of the HTTP specification.
 <p>
 However in order to support various implementation limitations, servers SHOULD
 support the optional <code>_format</code> parameter to specify alternative response formats by their MIME-types.
-This parameter allows a client to override the header value when it is unable to set it correctly
-due to internal limitations.
+This parameter allows a client to override the <code>accept</code> header value when it is unable to set it correctly
+due to internal limitations (e.g. XSLT usage).
 For the <code>_format</code> parameter, the values "xml", "text/xml", "application/xml", and "application/xml+fhir" SHALL be interpreted to mean
 the normative XML format defined by FHIR and "json", "application/json" and "application/json+fhir" SHALL be interpreted to mean the
-informative JSON format.
+informative JSON format. In addition, the values "html" and "text/html" are allowed.
 </p>
 <p>
 FHIR uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1)
 defines a default character encoding of ISO-8859-1, requests and responses SHALL explicitly set
 the character encoding to UTF-8 using the <code>charset</code> parameter of the MIME-type in the <code>Content-Type</code> header.
 Requests MAY also specify this <code>charset</code> parameter in the <code>Accept</code> header and/or use the <code>Accept-Charset</code> header.
+</p>
+<p>
+Note: the <code>_format</code> parameter does not override the <code>content-type</code> header.
 </p>
 
 <a name="versioning"> </a>
