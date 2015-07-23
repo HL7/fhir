@@ -4602,6 +4602,20 @@ public class Publisher implements URIResolver {
       }
     }
 
+    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+      for (Example ex : ig.getExamples()) {
+        String n = ex.getTitle();
+        logError(" ...validate " + n, LogMessageType.Process);
+        validateXmlFile(schema, n, validator, null);
+      }
+      for (Profile pck : ig.getProfiles()) {
+        for (Example en : pck.getExamples()) {
+          page.log(" ...validate " + en.getTitle()+" ("+pck.getTitle()+")", LogMessageType.Process);
+          validateXmlFile(schema, Utilities.changeFileExt(en.getTitle(), ""), validator, pck.getProfiles().get(0).getResource()); // validates the example against it's base definitions
+        }
+      }
+    }
+
     if (buildFlags.get("all")) {
       // todo-profile: how this works has to change (to use profile tag)
 //      for (String n : page.getDefinitions().getProfiles().keySet()) {

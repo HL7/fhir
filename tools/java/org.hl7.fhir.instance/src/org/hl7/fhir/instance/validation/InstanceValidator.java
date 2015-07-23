@@ -1075,7 +1075,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
     	}
     for (ElementInfo ei : children) 
-  		rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice");
+      if (ei.path.endsWith(".extension")) 
+        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\""+ei.element.getAttribute("url")+"\")");
+      else
+        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice");
     
     // 3. report any definitions that have a cardinality problem
     for (ElementDefinition ed : childDefinitions) {
@@ -1234,7 +1237,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				return snapshot.get(index);
 			index++;
 		}
-		throw new Error("Unable to find discriminator definition for "+goal+" at "+path);
+		throw new Error("Unable to find discriminator definition for "+goal+" in "+discriminator+" at "+path);
   }
 	
   private boolean isPrimitiveType(String type) {

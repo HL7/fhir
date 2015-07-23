@@ -6,20 +6,12 @@
 		<profile value="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule"/>
 	</meta>
 	<text>
-		<status/>
+		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">Guideline Appropriate Ordering Module</div>
 	</text>
 	<!-- Version -->
 	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleVersion">
 		<valueString value="1.0.0"/>
-	</extension>
-	<!-- Status -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleStatus">
-		<valueCode value="draft"/>
-	</extension>
-	<!-- Evaluation Supported -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-evaluationSupported">
-		<valueBoolean value="true"/>
 	</extension>
 	<!-- Title -->
 	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-title">
@@ -30,7 +22,7 @@
 		<valueString value="Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications."/>
 	</extension>
 	<!-- PublicationDate -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basci-cqif-publicationDate">
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-publicationDate">
 		<valueDate value="2015-07-22"/>
 	</extension>
 	<!-- Topic -->
@@ -65,6 +57,14 @@
 			</valueReference>
 		</extension>
 	</extension>
+	<!-- Status -->
+	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleStatus">
+		<valueCode value="draft"/>
+	</modifierExtension>
+	<!-- Evaluation Supported -->
+	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-evaluationSupported">
+		<valueBoolean value="true"/>
+	</modifierExtension>
 	<!-- Identifier -->
 	<identifier>
 		<use value="official"/>

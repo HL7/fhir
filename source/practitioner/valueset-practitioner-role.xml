@@ -16,15 +16,19 @@
     <caseSensitive value="true"/>      
     <concept>
       <code value="doctor"/>
+      <display value="Doctor" />
     </concept>
     <concept>
       <code value="nurse"/>
+      <display value="Nurse" />
     </concept>
     <concept>
       <code value="pharmacist"/>
+      <display value="Pharmacist" />
     </concept>
     <concept>
       <code value="researcher"/>
+      <display value="Researcher" />
     </concept>    
     <concept>
       <code value="teacher"/>
