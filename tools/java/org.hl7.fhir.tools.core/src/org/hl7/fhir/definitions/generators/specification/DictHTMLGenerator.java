@@ -191,6 +191,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       tableRow("Type", null, "See "+d.getNameReference());
     else
       tableRowNE("Type", "datatypes.html", describeTypes(d.getType()) + processSecondary(mode, value));
+    if (d.getPath().endsWith("[x]"))
+      tableRowNE("[x] Note", null, "See <a href=\"formats.html#choice\">Choice of Data Types</a> for further information about how to use [x]");
     tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
     tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
     tableRowNE("Requirements",  null, page.processMarkdown(profile.getName(), d.getRequirements()));
@@ -413,6 +415,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		  tableRowNE("Type", null, "<a href=\"#"+type.substring(1)+"\">See "+type.substring(1)+"</a>");
 		else
 		  tableRowNE("Type", "datatypes.html", type);
+    if (path.endsWith("[x]"))
+      tableRowNE("[x] Note", null, "See <a href=\"formats.html#choice\">Choice of Data Types</a> for further information about how to use [x]");
 		tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()));
     tableRowNE("Default Value", null, encodeValue(e.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, e.getMeaningWhenMissing());
