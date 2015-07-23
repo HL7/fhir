@@ -2581,8 +2581,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     			}
     			smartAddText(tr.addTag("td"), i.getDetails());
   				tr.addTag("td").addText(gen(i.getCode()));
-    			if (hasSource)
-    				tr.addTag("td").addText(gen(ExtensionHelper.getExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE)));
+    			if (hasSource) {
+    				Extension ext = ExtensionHelper.getExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE);
+            tr.addTag("td").addText(ext == null ? "" : gen(ext));
+    			}
     		}    
     	}
     inject(op, x, hasSource ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);  	
