@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<h2>Scope and Usage</h2>
+<h3>Scope and Usage</h3>
 <p>
 The core extensions provide HL7 provided extensions to the <a href="questionnaire.html">Questionnaire</a> resource.
 </p>
