@@ -875,19 +875,24 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
       command.add("org.hl7.fhir.tools.jar");
       command.add("test");
       command.add(ctrl);
+      boolean done = false;
+      int i = 0;
+      do {
+        ProcessBuilder builder = new ProcessBuilder(command);
+        builder.directory(new File(folders.dstDir));
+        final Process process = builder.start();
+        BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+        String s;
+        while ((s = stdError.readLine()) != null) {
+          System.err.println(s);
+        }    
+        process.waitFor();
+        if (file.exists())
+          done = true;
+        else if (i == 3)
+          throw new Exception("Java Round trip execution failed without generating any response (tried 3 times)");
+      } while (!done);
 
-      ProcessBuilder builder = new ProcessBuilder(command);
-      builder.directory(new File(folders.dstDir));
-      final Process process = builder.start();
-      BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-      String s;
-      while ((s = stdError.readLine()) != null) {
-        System.err.println(s);
-      }    
-      process.waitFor();
-      if (!file.exists())
-        throw new Exception("Java Round trip execution failed without generating any response");
-      
       String result = TextFile.fileToString(err);
       if (!"ok".equals(result))
         throw new Exception(result);

@@ -1922,6 +1922,8 @@ public class Publisher implements URIResolver {
       zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
       zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
+      zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
+      zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
       zip.addFiles(page.getFolders().dstDir, "", ".xsd", null);
       zip.addFiles(page.getFolders().dstDir, "", ".sch", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl", null);
