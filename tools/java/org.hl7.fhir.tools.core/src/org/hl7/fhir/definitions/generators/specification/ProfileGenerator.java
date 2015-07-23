@@ -775,6 +775,10 @@ public class ProfileGenerator {
     if (e.getMaxCardinality() != null)
       ce.setMax(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
 
+    // we don't know mustSupport here
+    if (e.hasModifier())
+      ce.setIsModifier(e.isModifier());
+
     if (!root) {
       if (e.typeCode().startsWith("@"))  {
         ce.setNameReference(getNameForPath(myParents, e.typeCode().substring(1)));
@@ -811,6 +815,15 @@ public class ProfileGenerator {
             profile = t.getParams().get(0);
           }
           if (profile != null) {
+            if (type.getCode().equals("Extension")) {
+              // check that the extension is being used correctly:
+              boolean srcMod = context.getExtensionStructure(null, profile).getSnapshot().getElement().get(0).getIsModifier();
+              boolean tgtMod = e.isModifier();
+              if (srcMod && !tgtMod)
+                throw new Exception("The extension '"+profile+"' is a modifier extension, but is being used as if it is not a modifier extension");
+              if (!srcMod && tgtMod)
+                throw new Exception("The extension '"+profile+"' is not a modifier extension, but is being used as if it is a modifier extension");
+            }
             if (profile.startsWith("http:") || profile.startsWith("#")) {
               type.addProfile(profile);
             } else {
@@ -839,9 +852,6 @@ public class ProfileGenerator {
     for (String s : e.getAliases())
       ce.addAlias(s);
     
-    // we don't know mustSupport here
-    if (e.hasModifier())
-      ce.setIsModifier(e.isModifier());
     if (e.hasSummaryItem())
       ce.setIsSummaryElement(Factory.newBoolean(e.isSummary()));
     

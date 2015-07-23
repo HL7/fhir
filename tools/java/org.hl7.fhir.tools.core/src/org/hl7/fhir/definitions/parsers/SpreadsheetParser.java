@@ -1498,8 +1498,12 @@ public class SpreadsheetParser {
       throw new Exception("Column 'Must Understand' has been renamed to 'Is Modifier'");
 
 		e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
-		if (isProfile)
+		if (isProfile) {
+		  // later, this will get hooked in from the underlying definitions, but we need to know this now to validate the extension modifier matching
+	    if (e.getName().equals("modifierExtension"))
+	      e.setIsModifier(true);
 		  e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, null));
+		}
     e.setSummaryItem(parseBoolean(sheet.getColumn(row, "Summary"), row, null));
     e.setRegex(sheet.getColumn(row, "Regex"));
     String uml = sheet.getColumn(row, "UML");
