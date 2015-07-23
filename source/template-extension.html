@@ -36,17 +36,28 @@ Extension Content
 
 <div id="tabs">
   <ul>
-    <li><a href="#tabs-struc">Structure</a></li>
+    <li><a href="#tabs-struc1">Summary</a></li>
+    <li><a href="#tabs-struc2">Full Structure</a></li>
     <li><a href="#tabs-xml">XML</a></li>
     <li><a href="#tabs-json">JSON</a></li>
     <li><a href="#tabs-all">All</a></li>
   </ul>
-  <div id="tabs-struc">
+  <div id="tabs-struc1">
 
-<div id="tbl">
-<p><b>Structure</b></p>
+<div id="tbl1">
+<p><b>Summary</b></p>
  <div id="tbl-inner">
-  <%extension-table%>
+  <%extension-table false%>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-struc2">
+
+<div id="tbl1">
+<p><b>Fulle Structure</b></p>
+ <div id="tbl-inner">
+  <%extension-table true%>
  </div>
 </div>
 
@@ -73,11 +84,19 @@ Extension Content
   </div>
   <div id="tabs-all">
 
-<div id="tbl">
+  <div id="tbl1a">
 <a name="tbl"> </a>
-<p><b>Structure</b></p>
+<p><b>Summary</b></p>
  <div id="tbl-inner">
-  <%extension-table%>
+  <%extension-table false%>
+ </div>
+</div>
+
+<div id="tbl2a">
+<a name="tbl"> </a>
+<p><b>Full Structure</b></p>
+ <div id="tbl-inner">
+  <%extension-table true%>
  </div>
 </div>
 

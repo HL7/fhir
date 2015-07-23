@@ -5279,6 +5279,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("extDefnHeader"))
         src = s1+extDefnHeader(filename, com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("extension-table"))
+        src = s1+generateExtensionTable(ed, filename, com[1])+s3;
       else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
@@ -5371,8 +5373,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+"Extension maintained by: " +Utilities.escapeXml(ed.getPublisher())+s3;
       } else if (com[0].equals("extref"))
         src = s1+"<p>usage info: insert a list of places where this extension is used</p>"+s3;
-      else if (com[0].equals("extension-table"))
-        src = s1+generateExtensionTable(ed, filename)+s3;
       else if (com[0].equals("context-info"))
         src = s1+describeExtensionContext(ed)+s3;
       else if (com[0].startsWith("!"))
@@ -5387,8 +5387,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return "<p>Context of Use: "+ProfileUtilities.describeExtensionContext(ed)+"</p>";
   }
 
-  private String generateExtensionTable(StructureDefinition ed, String filename) throws Exception {
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateExtensionTable(filename, ed, folders.dstDir, false, this));
+  private String generateExtensionTable(StructureDefinition ed, String filename, String full) throws Exception {
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateExtensionTable(filename, ed, folders.dstDir, false, this, full.equals("true")));
   }
 
 

@@ -897,7 +897,7 @@ public class ProfileUtilities {
   }
 
 
-  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp) throws Exception {
+  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp, boolean full) throws Exception {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable();
   
@@ -921,7 +921,7 @@ public class ProfileUtilities {
     List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
     for (ElementDefinition child : children)
       if (!child.getPath().endsWith(".id"))
-        genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, pkp, true, defFile, false, true);
+        genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, pkp, true, defFile, true, full);
 
     return gen.generate(model);
     }
@@ -929,7 +929,7 @@ public class ProfileUtilities {
   private void genSimpleExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, StructureDefinition ext, ProfileKnowledgeProvider pkp) throws Exception {
     Row r = gen.new Row();
     rows.add(r);
-    r.setAnchor("value");
+    r.setAnchor("value"); 
     ElementDefinition e = ext.getSnapshot().getElement().get(0);
     String name;
     if (e.getType().size() == 1)
@@ -1084,7 +1084,8 @@ public class ProfileUtilities {
   private void genElement(String defPath, HeirarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, ProfileKnowledgeProvider pkp, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot) throws Exception {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
-    if (!snapshot && extensions != null && extensions != (s.equals("extension") || s.equals("modifierExtension"))) 
+    List<ElementDefinition> children = getChildren(all, element);
+    if (!snapshot && extensions != null && extensions != (s.equals("extension") || s.equals("modifierExtension")) && children.isEmpty()) 
       return;
     
     if (!onlyInformationIsMapping(all, element)) { 
@@ -1186,11 +1187,10 @@ public class ProfileUtilities {
             p.setReference(null);
           }
       } else{
-        List<ElementDefinition> children = getChildren(all, element);
         for (ElementDefinition child : children)
           if (!child.getPath().endsWith(".id"))
             genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, false, snapshot);
-        if (!snapshot) 
+        if (!snapshot && (extensions == null || !extensions)) 
           for (ElementDefinition child : children)
             if (!child.getPath().endsWith(".id"))
               genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, true, false);
@@ -1247,61 +1247,64 @@ public class ProfileUtilities {
   }
 
   private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, StructureDefinition profile) throws Exception {
-    // TODO Auto-generated method stub
     Cell c = gen.new Cell();
     row.getCells().add(c);                
 
     if (used) {
-      if (definition != null && definition.hasShort()) {
-        if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-        c.addPiece(checkForNoChange(definition.getShortElement(), gen.new Piece(null, definition.getShort(), null)));
-      } else if (fallback != null && fallback != null && fallback.hasShort()) {
-        if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-        c.addPiece(checkForNoChange(fallback.getShortElement(), gen.new Piece(null, fallback.getShort(), null)));
-      }
-      if (url != null) {
-        if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-        String fullUrl = url.startsWith("#") ? baseURL+url : url;
-        StructureDefinition ed = context.getExtensionStructure(null, url);
-        String ref = ed == null ? null : (String) ed.getUserData("filename")+".html";
-        c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
-        c.getPieces().add(gen.new Piece(ref, fullUrl, null));
-      }
+      if (definition.getPath().endsWith("url") && definition.hasFixed()) {
+        c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "\""+buildJson(definition.getFixed())+"\"", null).addStyle("color: darkgreen")));
+      } else {
+        if (definition != null && definition.hasShort()) {
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.addPiece(checkForNoChange(definition.getShortElement(), gen.new Piece(null, definition.getShort(), null)));
+        } else if (fallback != null && fallback != null && fallback.hasShort()) {
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.addPiece(checkForNoChange(fallback.getShortElement(), gen.new Piece(null, fallback.getShort(), null)));
+        }
+        if (url != null) {
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          String fullUrl = url.startsWith("#") ? baseURL+url : url;
+          StructureDefinition ed = context.getExtensionStructure(null, url);
+          String ref = ed == null ? null : (String) ed.getUserData("filename")+".html";
+          c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(ref, fullUrl, null));
+        }
 
-      if (definition.hasSlicing()) {
-        if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-        c.getPieces().add(gen.new Piece(null, "Slice: ", null).addStyle("font-weight:bold"));
-        c.getPieces().add(gen.new Piece(null, describeSlice(definition.getSlicing()), null));
-      }
-      if (definition != null) {
-        if (definition.hasBinding()) {
+        if (definition.hasSlicing()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          BindingResolution br = pkp.resolveBinding(definition.getBinding());
-          c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(br.url, br.display, null)));
-          if (definition.getBinding().hasStrength()) {
-            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, " (", null)));
-            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().getDefinition())));
-            c.getPieces().add(gen.new Piece(null, ")", null));
+          c.getPieces().add(gen.new Piece(null, "Slice: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, describeSlice(definition.getSlicing()), null));
+        }
+        if (definition != null) {
+          if (definition.hasBinding()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            BindingResolution br = pkp.resolveBinding(definition.getBinding());
+            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(br.url, br.display, null)));
+            if (definition.getBinding().hasStrength()) {
+              c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, " (", null)));
+              c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().getDefinition())));
+              c.getPieces().add(gen.new Piece(null, ")", null));
+            }
           }
-        }
-        for (ElementDefinitionConstraintComponent inv : definition.getConstraint()) {
-          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getKey()+": ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getHuman(), null)));
-        }
-        if (definition.hasFixed()) {        
-          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, buildJson(definition.getFixed()), null).addStyle("color: darkgreen")));
-        } else if (definition.hasPattern()) {        
-          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, buildJson(definition.getPattern()), null).addStyle("color: darkgreen")));
-        } else if (definition.hasExample()) {        
-          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, buildJson(definition.getExample()), null).addStyle("color: darkgreen")));
+          for (ElementDefinitionConstraintComponent inv : definition.getConstraint()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getKey()+": ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getHuman(), null)));
+          }
+          if (definition.hasFixed()) {        
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, buildJson(definition.getFixed()), null).addStyle("color: darkgreen")));
+          } else if (definition.hasPattern()) {        
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, buildJson(definition.getPattern()), null).addStyle("color: darkgreen")));
+          } else if (definition.hasExample()) {        
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, buildJson(definition.getExample()), null).addStyle("color: darkgreen")));
+          }
         }
       }
     }

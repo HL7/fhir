@@ -352,7 +352,7 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
  <li>FMM4 + the artifact has been published in two formal publication release cycles and has been implemented in at least 5 independent production systems in more than one country</li>
 </ol>
 <p>
-The Maturity level is strongly related to stability; the higher the stability level, the more controls are enforced to restrict breaking changes to the resource.
+The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource.
 For further information, and discussion, see the <a href="http://wiki.hl7.org/index.php?title=FHIR_Maturity_Model">FHIR Wiki</a>.
 </p>
  
