@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2067,9 +2067,9 @@ public class Bundle extends Resource implements IBaseBundle {
     return ResourceType.Bundle;
    }
 
-  @SearchParamDefinition(name="message", path="Bundle.entry.resource", description="The first resource in the bundle, if the bundle type is 'message' - this is a message header, and this parameter provides access to search its contents", type="reference" )
+  @SearchParamDefinition(name="message", path="Bundle.entry.resource(0)", description="The first resource in the bundle, if the bundle type is 'message' - this is a message header, and this parameter provides access to search its contents", type="reference" )
   public static final String SP_MESSAGE = "message";
-  @SearchParamDefinition(name="composition", path="Bundle.entry.resource", description="The first resource in the bundle, if the bundle type is 'document' - this is a composition, and this parameter provides access to searches its contents", type="reference" )
+  @SearchParamDefinition(name="composition", path="Bundle.entry.resource(0)", description="The first resource in the bundle, if the bundle type is 'document' - this is a composition, and this parameter provides access to searches its contents", type="reference" )
   public static final String SP_COMPOSITION = "composition";
   @SearchParamDefinition(name="type", path="Bundle.type", description="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection", type="token" )
   public static final String SP_TYPE = "type";

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -578,6 +578,8 @@ public class RelatedPerson extends DomainResource {
     return ResourceType.RelatedPerson;
    }
 
+  @SearchParamDefinition(name="phone", path="RelatedPerson.telecom(system=phone)", description="A value in a phone contact", type="token" )
+  public static final String SP_PHONE = "phone";
   @SearchParamDefinition(name="phonetic", path="RelatedPerson.name", description="A portion of name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="address-country", path="RelatedPerson.address.country", description="A country specified in an address", type="string" )
@@ -588,16 +590,18 @@ public class RelatedPerson extends DomainResource {
   public static final String SP_ADDRESSCITY = "address-city";
   @SearchParamDefinition(name="address-state", path="RelatedPerson.address.state", description="A state specified in an address", type="string" )
   public static final String SP_ADDRESSSTATE = "address-state";
+  @SearchParamDefinition(name="email", path="RelatedPerson.telecom(system=email)", description="A value in an email contact", type="token" )
+  public static final String SP_EMAIL = "email";
   @SearchParamDefinition(name="address", path="RelatedPerson.address", description="An address in any kind of address/part", type="string" )
   public static final String SP_ADDRESS = "address";
   @SearchParamDefinition(name="address-use", path="RelatedPerson.address.use", description="A use code specified in an address", type="token" )
   public static final String SP_ADDRESSUSE = "address-use";
   @SearchParamDefinition(name="name", path="RelatedPerson.name", description="A portion of name in any name part", type="string" )
   public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="telecom", path="RelatedPerson.telecom", description="The value in any kind of contact", type="token" )
-  public static final String SP_TELECOM = "telecom";
   @SearchParamDefinition(name="birthdate", path="RelatedPerson.birthDate", description="The Related Person's date of birth", type="date" )
   public static final String SP_BIRTHDATE = "birthdate";
+  @SearchParamDefinition(name="telecom", path="RelatedPerson.telecom", description="The value in any kind of contact", type="token" )
+  public static final String SP_TELECOM = "telecom";
   @SearchParamDefinition(name="gender", path="RelatedPerson.gender", description="Gender of the person", type="token" )
   public static final String SP_GENDER = "gender";
   @SearchParamDefinition(name="identifier", path="RelatedPerson.identifier", description="A patient Identifier", type="token" )

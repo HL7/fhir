@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1313,10 +1313,10 @@ public class ImplementationGuide extends DomainResource {
   }
 
     /**
-     * An absolute URL at which this Implementation Guide is (or will be) published, and which is used to reference this Implementation Guide in conformance statements.
+     * An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published.
      */
     @Child(name = "url", type = {UriType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="Literal URL used to reference this Implementation Guide", formalDefinition="An absolute URL at which this Implementation Guide is (or will be) published, and which is used to reference this Implementation Guide in conformance statements." )
+    @Description(shortDefinition="Literal URL used to reference this Implementation Guide", formalDefinition="An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published." )
     protected UriType url;
 
     /**
@@ -1413,14 +1413,14 @@ public class ImplementationGuide extends DomainResource {
     /**
      * A logical set of resources that is a section in the implementation Guide.
      */
-    @Child(name = "package_", type = {}, order=14, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name = "package", type = {}, order=14, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A section in the IG", formalDefinition="A logical set of resources that is a section in the implementation Guide." )
     protected List<ImplementationGuidePackageComponent> package_;
 
     /**
      * A default profile that applies to a particular resource type. Whenever a resource type is referenced in any structure definition (explicitly, or by inheritance from the base specification), and no explicit profile is applied, then this default profile applies.
      */
-    @Child(name = "default_", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "default", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Applies when no explicit profile applied", formalDefinition="A default profile that applies to a particular resource type. Whenever a resource type is referenced in any structure definition (explicitly, or by inheritance from the base specification), and no explicit profile is applied, then this default profile applies." )
     protected List<ImplementationGuideDefaultComponent> default_;
 
@@ -1444,7 +1444,7 @@ public class ImplementationGuide extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URL at which this Implementation Guide is (or will be) published, and which is used to reference this Implementation Guide in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -1464,7 +1464,7 @@ public class ImplementationGuide extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URL at which this Implementation Guide is (or will be) published, and which is used to reference this Implementation Guide in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ImplementationGuide setUrlElement(UriType value) { 
       this.url = value;
@@ -1472,14 +1472,14 @@ public class ImplementationGuide extends DomainResource {
     }
 
     /**
-     * @return An absolute URL at which this Implementation Guide is (or will be) published, and which is used to reference this Implementation Guide in conformance statements.
+     * @return An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URL at which this Implementation Guide is (or will be) published, and which is used to reference this Implementation Guide in conformance statements.
+     * @param value An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published.
      */
     public ImplementationGuide setUrl(String value) { 
         if (this.url == null)
@@ -2159,7 +2159,7 @@ public class ImplementationGuide extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute URL at which this Implementation Guide is (or will be) published, and which is used to reference this Implementation Guide in conformance statements.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the Implementation Guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Implementation Guide author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the Implementation Guide.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.", 0, java.lang.Integer.MAX_VALUE, useContext));

@@ -2552,7 +2552,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean hasSource = false;
     boolean success = true;
     for (OperationOutcomeIssueComponent i : op.getIssue()) {
-    	success = success && i.getSeverity() != IssueSeverity.INFORMATION;
+    	success = success && i.getSeverity() == IssueSeverity.INFORMATION;
     	hasSource = hasSource || ExtensionHelper.hasExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE);
     }
     if (success)

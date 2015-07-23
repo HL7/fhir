@@ -3391,8 +3391,8 @@ public class Publisher implements URIResolver {
 //      TextFile.stringToFile("test", tmpTransform.getAbsolutePath());
     
     // now, generate the form
-    html = TextFile.fileToString(page.getFolders().srcDir + "template-questionnaire.html").replace("<%questionnaire%>", loadHtmlForm(tmpTransform.getAbsolutePath()));
-    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire", null);
+    html = TextFile.fileToString(page.getFolders().srcDir + (isResource ? "template-questionnaire.html" : "template-profile-questionnaire.html")).replace("<%questionnaire%>", loadHtmlForm(tmpTransform.getAbsolutePath()));
+    html = page.processPageIncludes(profile.getId().toLowerCase() + ".questionnaire.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, profile, null, "Questionnaire", null);
     if (st != null)
       html = insertSectionNumbers(html, st, profile.getId().toLowerCase() + ".questionnaire.html", 0, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + profile.getId().toLowerCase() + ".questionnaire.html");
@@ -3404,9 +3404,11 @@ public class Publisher implements URIResolver {
 
   private String loadHtmlForm(String path) throws Exception {
     String form = TextFile.fileToString(path);
-    form = form.replace("<!--header insertion point-->", "\r\n"+TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "newheader.html"))+"\r\n");
-    form = form.replace("<!--body top insertion point-->", "\r\n"+TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "newnavbar.html"))+"<p>\r\nThis is an example form generated from the questionnaire. See also the <a href=\"<%name%>.xml.html\">XML</a> or <a href=\"<%name%>.json.html\">JSON</a> format\r\n</p>\r\n");
-    form = form.replace("<!--body bottom insertion point-->", "\r\n"+TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "newfooter.html"))+"\r\n");
+    form = form.replace("h5>", "h6>").replace("h4>", "h6>").replace("h3>", "h5>").replace("h2>", "h4>").replace("h1>", "h3>");
+        
+    form = form.replace("<!--header insertion point-->", "\r\n");
+    form = form.replace("<!--body top insertion point-->", "\r\n");
+    form = form.replace("<!--body bottom insertion point-->", "\r\n");
     return form;
   }
 

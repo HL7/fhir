@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1934,6 +1934,8 @@ public class Patient extends DomainResource {
 
   @SearchParamDefinition(name="animal-breed", path="Patient.animal.breed", description="The breed for animal patients", type="token" )
   public static final String SP_ANIMALBREED = "animal-breed";
+  @SearchParamDefinition(name="phone", path="Patient.telecom(system=phone)", description="A value in a phone contact", type="token" )
+  public static final String SP_PHONE = "phone";
   @SearchParamDefinition(name="phonetic", path="Patient.name", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="link", path="Patient.link.other", description="All patients linked to the given patient", type="reference" )
@@ -1954,12 +1956,14 @@ public class Patient extends DomainResource {
   public static final String SP_CAREPROVIDER = "careprovider";
   @SearchParamDefinition(name="given", path="Patient.name.given", description="A portion of the given name of the patient", type="string" )
   public static final String SP_GIVEN = "given";
+  @SearchParamDefinition(name="email", path="Patient.telecom(system=email)", description="A value in an email contact", type="token" )
+  public static final String SP_EMAIL = "email";
   @SearchParamDefinition(name="address", path="Patient.address", description="An address in any kind of address/part of the patient", type="string" )
   public static final String SP_ADDRESS = "address";
-  @SearchParamDefinition(name="family", path="Patient.name.family", description="A portion of the family name of the patient", type="string" )
-  public static final String SP_FAMILY = "family";
   @SearchParamDefinition(name="address-use", path="Patient.address.use", description="A use code specified in an address", type="token" )
   public static final String SP_ADDRESSUSE = "address-use";
+  @SearchParamDefinition(name="family", path="Patient.name.family", description="A portion of the family name of the patient", type="string" )
+  public static final String SP_FAMILY = "family";
   @SearchParamDefinition(name="name", path="Patient.name", description="A portion of either family or given name of the patient", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="birthdate", path="Patient.birthDate", description="The patient's date of birth", type="date" )

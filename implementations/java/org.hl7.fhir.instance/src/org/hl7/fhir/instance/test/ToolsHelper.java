@@ -137,7 +137,7 @@ public class ToolsHelper {
     	StructureDefinition base = utils.getProfile(profile, profile.getBase());
     	if (base == null)
     		throw new Exception("Unable to resolve profile "+profile.getBase());
-    	utils.generateSnapshot(base, profile, address, profile.getName(), null);
+    	utils.generateSnapshot(base, profile, address, profile.getName(), null, null);
     	client.update(StructureDefinition.class, profile, parts[1]);
     } else {
     	throw new Exception("not done yet (address = "+address+")");

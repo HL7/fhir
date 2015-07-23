@@ -40,9 +40,8 @@ import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
-public class ValidationMessage {
-  
-  //@formatter:off
+public class ValidationMessage 
+{
   public enum Source {
     ExampleValidator, 
     ProfileValidator, 
@@ -54,7 +53,6 @@ public class ValidationMessage {
     Ontology, 
     ProfileComparer
   }
-  //@formatter:on
 
   private Source source;
   private int line;
@@ -65,6 +63,7 @@ public class ValidationMessage {
   private IssueSeverity level;
   private String html;
 
+  
   public ValidationMessage(Source source, IssueType type, String path, String message, IssueSeverity level) {
     super();
     this.line = -1;
@@ -75,12 +74,13 @@ public class ValidationMessage {
     this.level = level;
     this.source = source;
     this.type = type;
+    if (level == IssueSeverity.NULL)
+      determineLevel(path);
     if (type == null)
       throw new Error("A type must be provided");
   }
 
-  public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message,
-      IssueSeverity level) {
+  public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message, IssueSeverity level) {
     super();
     this.line = line;
     this.col = col;
@@ -90,6 +90,8 @@ public class ValidationMessage {
     this.level = level;
     this.source = source;
     this.type = type;
+    if (level == IssueSeverity.NULL)
+      determineLevel(path);
     if (type == null)
       throw new Error("A type must be provided");
   }
@@ -104,12 +106,13 @@ public class ValidationMessage {
     this.level = level;
     this.source = source;
     this.type = type;
+    if (level == IssueSeverity.NULL)
+      determineLevel(path);
     if (type == null)
       throw new Error("A type must be provided");
   }
 
-  public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message, String html,
-      IssueSeverity level) {
+  public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message, String html, IssueSeverity level) {
     super();
     this.line = line;
     this.col = col;
@@ -119,62 +122,88 @@ public class ValidationMessage {
     this.level = level;
     this.source = source;
     this.type = type;
+    if (level == IssueSeverity.NULL)
+      determineLevel(path);
     if (type == null)
       throw new Error("A type must be provided");
   }
 
-  public ValidationMessage() {
+  private IssueSeverity determineLevel(String path) {
+    if (isGrandfathered(path))
+      return IssueSeverity.WARNING;
+    else
+      return IssueSeverity.ERROR;
+  }
+
+  private boolean isGrandfathered(String path) {
+    if (path.startsWith("xds-documentmanifest."))
+      return true;
+    if (path.startsWith("observation-device-metric-devicemetricobservation."))
+      return true;
+    if (path.startsWith("medicationadministration-immunization-vaccine."))
+      return true;
+    if (path.startsWith("elementdefinition-de-dataelement."))
+      return true;
+    if (path.startsWith("dataelement-sdc-sdcelement."))
+      return true;
+    if (path.startsWith("questionnaireanswers-sdc-structureddatacaptureanswers."))
+      return true;
+    if (path.startsWith("valueset-sdc-structureddatacapturevalueset."))
+      return true;
+    if (path.startsWith("dataelement-sdc-de-sdcelement."))
+      return true;
+    if (path.startsWith("do-uslab-uslabdo."))
+      return true;
+    if (path.startsWith("."))
+      return true;
+    if (path.startsWith("."))
+      return true;
+    if (path.startsWith("."))
+      return true;
+    if (path.startsWith("."))
+      return true;
+     
+    return false;
   }
 
   public String getMessage() {
     return message;
   }
-
-  public ValidationMessage setMessage(String message) {
+  public void setMessage(String message) {
     this.message = message;
-    return this;
   }
 
   public IssueSeverity getLevel() {
     return level;
   }
-
-  public ValidationMessage setLevel(IssueSeverity level) {
+  public void setLevel(IssueSeverity level) {
     this.level = level;
-    return this;
   }
 
   public Source getSource() {
     return source;
   }
-
-  public ValidationMessage setSource(Source source) {
+  public void setSource(Source source) {
     this.source = source;
-    return this;
   }
 
   public String getLocation() {
     return location;
   }
-
-  public ValidationMessage setLocation(String location) {
+  public void setLocation(String location) {
     this.location = location;
-    return this;
   }
 
   public IssueType getType() {
     return type;
   }
 
-  public ValidationMessage setType(IssueType type) {
+  public void setType(IssueType type) {
     this.type = type;
-    return this;
   }
 
   public String summary() {
-    return level.toString() + " @ " + location
-        + (line >= 0 && col >= 0 ? " (line " + Integer.toString(line) + ", col" + Integer.toString(col) + ") " : " ")
-        + message + (source != null ? " (src = " + source + ")" : "");
+    return level.toString()+" @ "+location+(line>= 0 && col >= 0 ? " (line "+Integer.toString(line)+", col"+Integer.toString(col)+") " : " ") +message +(source != null ? " (src = "+source+")" : "");
   }
 
   public OperationOutcomeIssueComponent asIssue(OperationOutcome op) throws Exception {
@@ -183,8 +212,7 @@ public class ValidationMessage {
     issue.getCode().addCoding().setSystem(type.getSystem()).setCode(type.toCode());
     if (location != null) {
       StringType s = new StringType();
-      s.setValue(location
-          + (line >= 0 && col >= 0 ? " (line " + Integer.toString(line) + ", col" + Integer.toString(col) + ")" : ""));
+      s.setValue(location+(line>= 0 && col >= 0 ? " (line "+Integer.toString(line)+", col"+Integer.toString(col)+")" : "") );
       issue.getLocation().add(s);
     }
     issue.setSeverity(level);
@@ -195,25 +223,8 @@ public class ValidationMessage {
     return issue;
   }
   
-  
-  /**
-   * @return Returns -1 if the value is not set or not known
-   */
-  public int getLine() {
-    return line;
-  }
-
-  /**
-   * @return Returns -1 if the value is not set or not known
-   */
-  public int getCol() {
-    return col;
-  }
-
   public String toXML() {
-    return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + location
-        + "\" type=\"" + type + "\" level=\"" + level + "\"><plain>" + Utilities.escapeXml(message) + "</plain><html>"
-        + html + "</html></message>";
+  	return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + Utilities.escapeXml(location) + "\" type=\"" + type + "\" level=\"" + level + "\"><plain>" + Utilities.escapeXml(message) + "</plain><html>" + html + "</html></message>";
   }
 
   public String getHtml() {
@@ -221,8 +232,9 @@ public class ValidationMessage {
   }
 
   /**
-   * Returns a representation of this ValidationMessage suitable for logging. The values of most of the internal fields are included, so this may not be
-   * suitable for display to an end user.
+   * Returns a representation of this ValidationMessage suitable for logging. The values of
+   * most of the internal fields are included, so this may not be suitable for display to 
+   * an end user.
    */
   @Override
   public String toString() {
@@ -234,4 +246,6 @@ public class ValidationMessage {
     return b.build();
   }
 
+  
+  
 }

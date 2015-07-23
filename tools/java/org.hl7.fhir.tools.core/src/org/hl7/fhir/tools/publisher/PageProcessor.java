@@ -531,9 +531,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true, false)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("resheader"))
-        src = s1+resHeader("document", "Document", com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("aresheader"))
+      else if (com[0].equals("resheader")) {
+        StructureDefinition sd = (StructureDefinition) resource;
+        src = s1+resHeader(sd.getId().toLowerCase(), sd.getId(), com.length > 1 ? com[1] : null)+s3;
+      } else if (com[0].equals("aresheader"))
         src = s1+abstractResHeader("document", "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("onthispage"))
         src = s1+onThisPage(s2.substring(com[0].length()+1))+s3;
@@ -598,6 +599,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+getWgLink(file, com[1])+s3;
       } else if (com[0].equals("wgt")) {
         src = s1+getWgTitle(com[1])+s3;
+      } else if (com[0].equals("profileheader")) {
+        src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1])+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -2448,6 +2451,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    b.append(makeHeaderTab("HTML Form", n+".questionnaire.html", "questionnaire".equals(mode)));
     b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
 
@@ -2670,6 +2674,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
     if (!isAbstract)
       b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
+    if (!isAbstract)
+      b.append(makeHeaderTab("HTML Form", n+".questionnaire.html", "questionnaire".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 

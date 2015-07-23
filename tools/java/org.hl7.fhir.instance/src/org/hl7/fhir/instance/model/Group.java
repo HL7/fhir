@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -403,9 +403,9 @@ public class Group extends DomainResource {
     /**
      * A unique business identifier for this group.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Unique id", formalDefinition="A unique business identifier for this group." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * Identifies the broad classification of the kind of resources the group includes.
@@ -461,7 +461,7 @@ public class Group extends DomainResource {
     protected List<Resource> memberTarget;
 
 
-    private static final long serialVersionUID = -1024529199L;
+    private static final long serialVersionUID = -2109490913L;
 
   /*
    * Constructor
@@ -482,24 +482,40 @@ public class Group extends DomainResource {
     /**
      * @return {@link #identifier} (A unique business identifier for this group.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Group.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier(); // cc
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #identifier} (A unique business identifier for this group.)
+     * @return {@link #identifier} (A unique business identifier for this group.)
      */
-    public Group setIdentifier(Identifier value) { 
-      this.identifier = value;
+    // syntactic sugar
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Group addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
       return this;
     }
 
@@ -815,7 +831,11 @@ public class Group extends DomainResource {
       public Group copy() {
         Group dst = new Group();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.type = type == null ? null : type.copy();
         dst.actual = actual == null ? null : actual.copy();
         dst.code = code == null ? null : code.copy();

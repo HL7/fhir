@@ -841,7 +841,7 @@ public class SpreadsheetParser {
                 if (!forProfile && e != null && (!e.hasType("Reference")) && (!e.hasType("Resource")))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
               } else {
-                if (e != null && e.hasOnlyType("Reference") && !pu.equals(SearchParameter.XPathUsageType.EXTERNAL))
+                if (e != null && e.hasOnlyType("Reference"))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
                 if (t == SearchType.uri) {
                   if (e != null && !e.typeCode().equals("uri"))

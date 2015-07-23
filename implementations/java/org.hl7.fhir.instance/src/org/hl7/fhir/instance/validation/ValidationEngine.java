@@ -146,7 +146,7 @@ public class ValidationEngine {
 		factory.setValidating(false);
 		factory.setSchema(schema);
 		DocumentBuilder builder = factory.newDocumentBuilder();
-		builder.setErrorHandler(new ValidationErrorHandler(outputs));
+    builder.setErrorHandler(new ValidationErrorHandler(outputs, "XML Source"));
 		Document doc = builder.parse(new ByteArrayInputStream(source));
 
 		if (!noSchematron) {
@@ -263,7 +263,7 @@ public class ValidationEngine {
 		sources[0] = new StreamSource(new ByteArrayInputStream(definitions.get("fhir-all.xsd")));
 
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		schemaFactory.setErrorHandler(new ValidationErrorHandler(outputs));
+    schemaFactory.setErrorHandler(new ValidationErrorHandler(outputs, "xml source"));
 		schemaFactory.setResourceResolver(new ValidatorResourceResolver(definitions));
 		Schema schema = schemaFactory.newSchema(sources);
 		return schema;
@@ -282,13 +282,7 @@ public class ValidationEngine {
 		if (nl.getLength() > 0) {
 			for (int i = 0; i < nl.getLength(); i++) {
 				Element e = (Element) nl.item(i);
-				ValidationMessage o = new ValidationMessage();
-				o.setSource(Source.Schematron);
-        o.setType(IssueType.INVARIANT);
-				o.setLevel(IssueSeverity.ERROR);
-				o.setLocation(e.getAttribute("location"));
-				o.setMessage(e.getTextContent());
-				outputs.add(o);
+        outputs.add(new ValidationMessage(Source.Schematron, IssueType.INVARIANT, e.getAttribute("location"), e.getTextContent(), IssueSeverity.ERROR));
 			}
 		}
 	}

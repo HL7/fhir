@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -865,10 +865,10 @@ public class StructureDefinition extends DomainResource {
   }
 
     /**
-     * An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and meta.profile in operational FHIR systems.
+     * An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.
      */
     @Child(name = "url", type = {UriType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="Literal URL used to reference this StructureDefinition", formalDefinition="An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and meta.profile in operational FHIR systems." )
+    @Description(shortDefinition="Literal URL used to reference this StructureDefinition", formalDefinition="An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published." )
     protected UriType url;
 
     /**
@@ -1000,7 +1000,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.
      */
-    @Child(name = "abstract_", type = {BooleanType.class}, order=19, min=1, max=1)
+    @Child(name = "abstract", type = {BooleanType.class}, order=19, min=1, max=1)
     @Description(shortDefinition="Whether the structure is abstract", formalDefinition="Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type." )
     protected BooleanType abstract_;
 
@@ -1061,7 +1061,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and meta.profile in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -1081,7 +1081,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and meta.profile in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public StructureDefinition setUrlElement(UriType value) { 
       this.url = value;
@@ -1089,14 +1089,14 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and meta.profile in operational FHIR systems.
+     * @return An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and meta.profile in operational FHIR systems.
+     * @param value An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.
      */
     public StructureDefinition setUrl(String value) { 
         if (this.url == null)
@@ -2173,7 +2173,7 @@ public class StructureDefinition extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and meta.profile in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the StructureDefinition.", 0, java.lang.Integer.MAX_VALUE, name));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -994,6 +994,10 @@ public class JsonParser extends JsonParserBase {
       res.setCityElement(parseString(json.get("city").getAsString()));
     if (json.has("_city"))
       parseElementProperties(json.getAsJsonObject("_city"), res.getCityElement());
+    if (json.has("district"))
+      res.setDistrictElement(parseString(json.get("district").getAsString()));
+    if (json.has("_district"))
+      parseElementProperties(json.getAsJsonObject("_district"), res.getDistrictElement());
     if (json.has("state"))
       res.setStateElement(parseString(json.get("state").getAsString()));
     if (json.has("_state"))
@@ -1143,6 +1147,10 @@ public class JsonParser extends JsonParserBase {
       res.setUseElement(parseEnumeration(json.get("use").getAsString(), ContactPoint.ContactPointUse.NULL, new ContactPoint.ContactPointUseEnumFactory()));
     if (json.has("_use"))
       parseElementProperties(json.getAsJsonObject("_use"), res.getUseElement());
+    if (json.has("rank"))
+      res.setRankElement(parsePositiveInt(json.get("rank").getAsString()));
+    if (json.has("_rank"))
+      parseElementProperties(json.getAsJsonObject("_rank"), res.getRankElement());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     return res;
@@ -5669,8 +5677,12 @@ public class JsonParser extends JsonParserBase {
   protected Group parseGroup(JsonObject json) throws Exception {
     Group res = new Group();
     parseDomainResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("type"))
       res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Group.GroupType.NULL, new Group.GroupTypeEnumFactory()));
     if (json.has("_type"))
@@ -8983,6 +8995,21 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
         res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("subjectType")) {
+      JsonArray array = json.getAsJsonArray("subjectType");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSubjectType().add(parseCode(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_subjectType")) {
+      JsonArray array = json.getAsJsonArray("_subjectType");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getSubjectType().size())
+          res.getSubjectType().add(parseCode(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getSubjectType().get(i));
       }
     };
     if (json.has("group"))
@@ -12849,6 +12876,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("city", element.getCityElement(), false);
         composeStringExtras("city", element.getCityElement(), false);
       }
+      if (element.hasDistrictElement()) {
+        composeStringCore("district", element.getDistrictElement(), false);
+        composeStringExtras("district", element.getDistrictElement(), false);
+      }
       if (element.hasStateElement()) {
         composeStringCore("state", element.getStateElement(), false);
         composeStringExtras("state", element.getStateElement(), false);
@@ -13002,6 +13033,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseElement()) {
         composeEnumerationCore("use", element.getUseElement(), new ContactPoint.ContactPointUseEnumFactory(), false);
         composeEnumerationExtras("use", element.getUseElement(), new ContactPoint.ContactPointUseEnumFactory(), false);
+      }
+      if (element.hasRankElement()) {
+        composePositiveIntCore("rank", element.getRankElement(), false);
+        composePositiveIntExtras("rank", element.getRankElement(), false);
       }
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
@@ -18645,8 +18680,11 @@ public class JsonParser extends JsonParserBase {
   protected void composeGroupInner(Group element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new Group.GroupTypeEnumFactory(), false);
         composeEnumerationExtras("type", element.getTypeElement(), new Group.GroupTypeEnumFactory(), false);
@@ -22821,6 +22859,18 @@ public class JsonParser extends JsonParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint(null, e);
         closeArray();
+      };
+      if (element.hasSubjectType()) {
+        openArray("subjectType");
+        for (CodeType e : element.getSubjectType()) 
+          composeCodeCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getSubjectType())) {
+          openArray("_subjectType");
+          for (CodeType e : element.getSubjectType()) 
+            composeCodeExtras(null, e, true);
+          closeArray();
+        }
       };
       if (element.hasGroup()) {
         composeQuestionnaireGroupComponent("group", element.getGroup());

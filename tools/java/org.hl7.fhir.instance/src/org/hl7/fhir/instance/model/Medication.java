@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -945,7 +945,7 @@ public class Medication extends DomainResource {
     /**
      * Information that only applies to packages (not products).
      */
-    @Child(name = "package_", type = {}, order=6, min=0, max=1)
+    @Child(name = "package", type = {}, order=6, min=0, max=1)
     @Description(shortDefinition="Details about packaged medications", formalDefinition="Information that only applies to packages (not products)." )
     protected MedicationPackageComponent package_;
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -65,13 +65,9 @@ public class SearchParameter extends DomainResource {
          */
         DISTANCE, 
         /**
-         * The xpath selects a set of nodes which are references to other resources, and then the actual search is based on a search parameter in the reference target
+         * The interpretation of the xpath statement is unknown (and can't be automated)
          */
-        EXTERNAL, 
-        /**
-         * The xpath selects a set of nodes which are references to other resources, and then the actual search is based on either the reference or a reference search parameter in the reference target
-         */
-        NORMALEXTERNAL, 
+        OTHER, 
         /**
          * added to help the parsers
          */
@@ -87,10 +83,8 @@ public class SearchParameter extends DomainResource {
           return NEARBY;
         if ("distance".equals(codeString))
           return DISTANCE;
-        if ("external".equals(codeString))
-          return EXTERNAL;
-        if ("normalExternal".equals(codeString))
-          return NORMALEXTERNAL;
+        if ("other".equals(codeString))
+          return OTHER;
         throw new Exception("Unknown XPathUsageType code '"+codeString+"'");
         }
         public String toCode() {
@@ -99,8 +93,7 @@ public class SearchParameter extends DomainResource {
             case PHONETIC: return "phonetic";
             case NEARBY: return "nearby";
             case DISTANCE: return "distance";
-            case EXTERNAL: return "external";
-            case NORMALEXTERNAL: return "normalExternal";
+            case OTHER: return "other";
             default: return "?";
           }
         }
@@ -110,8 +103,7 @@ public class SearchParameter extends DomainResource {
             case PHONETIC: return "http://hl7.org/fhir/search-xpath-usage";
             case NEARBY: return "http://hl7.org/fhir/search-xpath-usage";
             case DISTANCE: return "http://hl7.org/fhir/search-xpath-usage";
-            case EXTERNAL: return "http://hl7.org/fhir/search-xpath-usage";
-            case NORMALEXTERNAL: return "http://hl7.org/fhir/search-xpath-usage";
+            case OTHER: return "http://hl7.org/fhir/search-xpath-usage";
             default: return "?";
           }
         }
@@ -121,8 +113,7 @@ public class SearchParameter extends DomainResource {
             case PHONETIC: return "The search parameter is derived by a phonetic transform from the selected nodes";
             case NEARBY: return "The search parameter is based on a spatial transform of the selected nodes";
             case DISTANCE: return "The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle";
-            case EXTERNAL: return "The xpath selects a set of nodes which are references to other resources, and then the actual search is based on a search parameter in the reference target";
-            case NORMALEXTERNAL: return "The xpath selects a set of nodes which are references to other resources, and then the actual search is based on either the reference or a reference search parameter in the reference target";
+            case OTHER: return "The interpretation of the xpath statement is unknown (and can't be automated)";
             default: return "?";
           }
         }
@@ -132,8 +123,7 @@ public class SearchParameter extends DomainResource {
             case PHONETIC: return "Phonetic";
             case NEARBY: return "Nearby";
             case DISTANCE: return "Distance";
-            case EXTERNAL: return "External";
-            case NORMALEXTERNAL: return "Normal Or External";
+            case OTHER: return "Other";
             default: return "?";
           }
         }
@@ -152,10 +142,8 @@ public class SearchParameter extends DomainResource {
           return XPathUsageType.NEARBY;
         if ("distance".equals(codeString))
           return XPathUsageType.DISTANCE;
-        if ("external".equals(codeString))
-          return XPathUsageType.EXTERNAL;
-        if ("normalExternal".equals(codeString))
-          return XPathUsageType.NORMALEXTERNAL;
+        if ("other".equals(codeString))
+          return XPathUsageType.OTHER;
         throw new IllegalArgumentException("Unknown XPathUsageType code '"+codeString+"'");
         }
     public String toCode(XPathUsageType code) {
@@ -167,10 +155,8 @@ public class SearchParameter extends DomainResource {
         return "nearby";
       if (code == XPathUsageType.DISTANCE)
         return "distance";
-      if (code == XPathUsageType.EXTERNAL)
-        return "external";
-      if (code == XPathUsageType.NORMALEXTERNAL)
-        return "normalExternal";
+      if (code == XPathUsageType.OTHER)
+        return "other";
       return "?";
       }
     }
@@ -335,10 +321,10 @@ public class SearchParameter extends DomainResource {
   }
 
     /**
-     * An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
+     * An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.
      */
     @Child(name = "url", type = {UriType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="Literal URL used to reference this search parameter", formalDefinition="An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements." )
+    @Description(shortDefinition="Literal URL used to reference this search parameter", formalDefinition="An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published." )
     protected UriType url;
 
     /**
@@ -422,7 +408,7 @@ public class SearchParameter extends DomainResource {
      * How the search parameter relates to the set of elements returned by evaluating the xpath query.
      */
     @Child(name = "xpathUsage", type = {CodeType.class}, order=12, min=0, max=1)
-    @Description(shortDefinition="normal | phonetic | nearby | distance | external | normalExternal", formalDefinition="How the search parameter relates to the set of elements returned by evaluating the xpath query." )
+    @Description(shortDefinition="normal | phonetic | nearby | distance | other", formalDefinition="How the search parameter relates to the set of elements returned by evaluating the xpath query." )
     protected Enumeration<XPathUsageType> xpathUsage;
 
     /**
@@ -454,7 +440,7 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -474,7 +460,7 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public SearchParameter setUrlElement(UriType value) { 
       this.url = value;
@@ -482,14 +468,14 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
+     * @return An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
+     * @param value An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.
      */
     public SearchParameter setUrl(String value) { 
         if (this.url == null)
@@ -1113,7 +1099,7 @@ public class SearchParameter extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the search parameter.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));

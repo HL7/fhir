@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1937,7 +1937,7 @@ public class TestScript extends DomainResource {
         /**
          * Evaluates the results of previous operations to determine if the server under test behaves appropriately.
          */
-        @Child(name = "assert_", type = {}, order=2, min=0, max=1)
+        @Child(name = "assert", type = {}, order=2, min=0, max=1)
         @Description(shortDefinition="Assertion", formalDefinition="Evaluates the results of previous operations to determine if the server under test behaves appropriately." )
         protected TestScriptSetupActionAssertComponent assert_;
 
@@ -4351,7 +4351,7 @@ public class TestScript extends DomainResource {
         /**
          * Evaluates the results of previous operations to determine if the server under test behaves appropriately.
          */
-        @Child(name = "assert_", type = {TestScriptSetupActionAssertComponent.class}, order=2, min=0, max=1)
+        @Child(name = "assert", type = {TestScriptSetupActionAssertComponent.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Assertion", formalDefinition="Evaluates the results of previous operations to determine if the server under test behaves appropriately." )
         protected TestScriptSetupActionAssertComponent assert_;
 

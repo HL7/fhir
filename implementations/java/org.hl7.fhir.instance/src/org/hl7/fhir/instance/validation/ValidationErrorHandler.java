@@ -39,42 +39,26 @@ import org.xml.sax.SAXParseException;
 public class ValidationErrorHandler implements ErrorHandler {
 
   private List<ValidationMessage> outputs;
+  private String path;
 
-  public ValidationErrorHandler(List<ValidationMessage> outputs) {
+  public ValidationErrorHandler(List<ValidationMessage> outputs, String path) {
     this.outputs = outputs;
+    this.path = path;
   }
 
   @Override
 public void error(SAXParseException arg0) throws SAXException {
-    ValidationMessage o = new ValidationMessage();
-    o.setType(IssueType.INVALID);
-    o.setLevel(IssueSeverity.ERROR);
-    o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
-    o.setMessage(arg0.getMessage());
-    o.setSource(Source.Schema);
-    outputs.add(o);
+    outputs.add(new ValidationMessage(Source.Schema, IssueType.INVALID, arg0.getLineNumber(), arg0.getColumnNumber(), path, arg0.getMessage(), IssueSeverity.ERROR));
   }
 
   @Override
 public void fatalError(SAXParseException arg0) throws SAXException {
-    ValidationMessage o = new ValidationMessage();
-    o.setType(IssueType.INVALID);
-    o.setLevel(IssueSeverity.FATAL);
-    o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
-    o.setMessage(arg0.getMessage());
-    o.setSource(Source.Schema);
-    outputs.add(o);
+    outputs.add(new ValidationMessage(Source.Schema, IssueType.INVALID, arg0.getLineNumber(), arg0.getColumnNumber(), path, arg0.getMessage(), IssueSeverity.FATAL));
   }
 
   @Override
 public void warning(SAXParseException arg0) throws SAXException {
-    ValidationMessage o = new ValidationMessage();
-    o.setType(IssueType.INVALID);
-    o.setLevel(IssueSeverity.WARNING);
-    o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
-    o.setMessage(arg0.getMessage());
-    o.setSource(Source.Schema);
-    outputs.add(o);
+    outputs.add(new ValidationMessage(Source.Schema, IssueType.INVALID, arg0.getLineNumber(), arg0.getColumnNumber(), path, arg0.getMessage(), IssueSeverity.WARNING));
   }
 
 }

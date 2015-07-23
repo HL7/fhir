@@ -9,20 +9,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
 import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
@@ -30,9 +32,17 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
@@ -73,6 +83,7 @@ public class ProfileUtilities {
   public static final String UD_ERROR_STATUS = "error-status";
   
   private final WorkerContext context;
+  private List<ValidationMessage> messages;
   
   public ProfileUtilities(WorkerContext context) {
     super();
@@ -212,12 +223,14 @@ public class ProfileUtilities {
    * @return
    * @throws Exception 
    */
-  public void generateSnapshot(StructureDefinition base, StructureDefinition derived, String url, String profileName, ProfileKnowledgeProvider pkp) throws Exception {
+  public void generateSnapshot(StructureDefinition base, StructureDefinition derived, String url, String profileName, ProfileKnowledgeProvider pkp, List<ValidationMessage> messages) throws Exception {
     if (base == null)
       throw new Exception("no base profile provided");
     if (derived == null) 
       throw new Exception("no derived structure provided");
       
+    this.messages = messages;
+    
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
     
     // so we have two lists - the base list, and the differential list 
@@ -307,6 +320,9 @@ public class ProfileUtilities {
           int start = 0;
           if (!diffMatches.get(0).hasName()) {
             updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp, trimDifferential);
+            if (!outcome.hasType()) {
+              throw new Exception("not done yet");
+            }
             start = 1;
           }
           
@@ -676,18 +692,22 @@ public class ProfileUtilities {
       }
       
       if (derived.hasMinElement()) { 
-        if (!Base.compareDeep(derived.getMinElement(), base.getMinElement(), false))
+        if (!Base.compareDeep(derived.getMinElement(), base.getMinElement(), false)) {
+          if (derived.getMin() < base.getMin())
+            messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Derived min  ("+Integer.toString(derived.getMin())+") cannot be less than base min ("+Integer.toString(base.getMin())+")", IssueSeverity.NULL));            
           base.setMinElement(derived.getMinElement().copy());
-        else if (trimDifferential)
+        } else if (trimDifferential)
           derived.setMinElement(null);
         else
           derived.getMinElement().setUserData(DERIVATION_EQUALS, true);
       }
 
       if (derived.hasMaxElement()) {
-        if (!Base.compareDeep(derived.getMaxElement(), base.getMaxElement(), false))
+        if (!Base.compareDeep(derived.getMaxElement(), base.getMaxElement(), false)) {
+          if (isLargerMax(derived.getMax(), base.getMax()))
+            messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Derived max ("+Integer.toString(derived.getMin())+") cannot be greater than base max ("+Integer.toString(base.getMin())+")", IssueSeverity.NULL));            
           base.setMaxElement(derived.getMaxElement().copy());
-        else if (trimDifferential) 
+        } else if (trimDifferential) 
           derived.setMaxElement(null);
         else
           derived.getMaxElement().setUserData(DERIVATION_EQUALS, true);
@@ -756,8 +776,19 @@ public class ProfileUtilities {
       
       if (derived.hasBinding()) {
         if (!Base.compareDeep(derived.getBinding(), base.getBinding(), false)) {
-          if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().getStrength() != BindingStrength.REQUIRED)
-            throw new Exception("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+base.getBinding().getStrength().toCode());
+          if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && derived.getBinding().getStrength() != BindingStrength.REQUIRED)
+            messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), IssueSeverity.NULL));
+//            throw new Exception("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
+          else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED) {
+            ValueSetExpansionOutcome expBase = context.getTerminologyServices().expand(context.getValueSets().get(base.getBinding().getValueSetReference().getReference()));
+            ValueSetExpansionOutcome expDerived = context.getTerminologyServices().expand(context.getValueSets().get(derived.getBinding().getValueSetReference().getReference()));
+            if (expBase.getValueset() == null)
+              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
+            else if (expDerived.getValueset() == null)
+              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
+            else if (!isSubset(expBase.getValueset(), expDerived.getValueset()))
+              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" is not a subset of binding "+base.getBinding().getValueSetReference().getReference(), IssueSeverity.NULL));
+          }            
           base.setBinding(derived.getBinding().copy());
         } else if (trimDifferential)
           derived.setBinding(null);
@@ -830,7 +861,43 @@ public class ProfileUtilities {
     }
   }
 
-  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp) throws Exception {
+  private boolean isLargerMax(String derived, String base) {
+    if ("*".equals(base))
+      return false;
+    if ("*".equals(derived))
+      return true;
+    return Integer.parseInt(derived) > Integer.parseInt(base);
+  }
+
+
+  private boolean isSubset(ValueSet expBase, ValueSet expDerived) {
+    return codesInExpansion(expDerived.getExpansion().getContains(), expBase.getExpansion());
+  }
+
+
+  private boolean codesInExpansion(List<ValueSetExpansionContainsComponent> contains, ValueSetExpansionComponent expansion) {
+    for (ValueSetExpansionContainsComponent cc : contains) {
+      if (!inExpansion(cc, expansion.getContains()))
+        return false;
+      if (!codesInExpansion(cc.getContains(), expansion))
+        return false;
+    }
+    return true;
+  }
+
+
+  private boolean inExpansion(ValueSetExpansionContainsComponent cc, List<ValueSetExpansionContainsComponent> contains) {
+    for (ValueSetExpansionContainsComponent cc1 : contains) {
+      if (cc.getSystem().equals(cc1.getSystem()) && cc.getCode().equals(cc1.getCode()))
+        return true;
+      if (inExpansion(cc,  cc1.getContains()))
+        return true;
+    }
+    return false;
+  }
+
+
+  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp, boolean full) throws Exception {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable();
   
@@ -854,7 +921,7 @@ public class ProfileUtilities {
     List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
     for (ElementDefinition child : children)
       if (!child.getPath().endsWith(".id"))
-        genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, pkp, true, defFile, false, true);
+        genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, pkp, true, defFile, true, full);
 
     return gen.generate(model);
     }
@@ -1017,7 +1084,8 @@ public class ProfileUtilities {
   private void genElement(String defPath, HeirarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, ProfileKnowledgeProvider pkp, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot) throws Exception {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
-    if (!snapshot && extensions != null && extensions != (s.equals("extension") || s.equals("modifierExtension"))) 
+    List<ElementDefinition> children = getChildren(all, element);
+    if (!snapshot && extensions != null && extensions != (s.equals("extension") || s.equals("modifierExtension")) && children.isEmpty()) 
       return;
     
     if (!onlyInformationIsMapping(all, element)) { 
@@ -1119,11 +1187,10 @@ public class ProfileUtilities {
             p.setReference(null);
           }
       } else{
-        List<ElementDefinition> children = getChildren(all, element);
         for (ElementDefinition child : children)
           if (!child.getPath().endsWith(".id"))
             genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, false, snapshot);
-        if (!snapshot) 
+        if (!snapshot && (extensions == null || !extensions)) 
           for (ElementDefinition child : children)
             if (!child.getPath().endsWith(".id"))
               genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, true, false);
@@ -1180,11 +1247,13 @@ public class ProfileUtilities {
   }
 
   private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, StructureDefinition profile) throws Exception {
-    // TODO Auto-generated method stub
     Cell c = gen.new Cell();
     row.getCells().add(c);                
 
     if (used) {
+      if (definition.getPath().endsWith("url") && definition.hasFixed()) {
+        c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "\""+buildJson(definition.getFixed())+"\"", null).addStyle("color: darkgreen")));
+      } else {
       if (definition != null && definition.hasShort()) {
         if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
         c.addPiece(checkForNoChange(definition.getShortElement(), gen.new Piece(null, definition.getShort(), null)));
@@ -1237,6 +1306,7 @@ public class ProfileUtilities {
           c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, buildJson(definition.getExample()), null).addStyle("color: darkgreen")));
         }
       }
+    }
     }
     return c;
   }
@@ -1356,9 +1426,13 @@ public class ProfileUtilities {
   				if (ps.length != 2)
   					throw new Exception("Unable to understand address of profile: "+parts[0]);
   				IFHIRClient client = context.getClient();
+  				try {
   				client.initialize(ps[0]);
   				StructureDefinition ae = client.read(StructureDefinition.class, ps[1]);
   				context.getProfiles().put(parts[0], ae);
+  				} catch (Exception e) {
+  				  throw new Exception("Unable to resolve "+ps[1]+" from '"+url+"' on server "+client.getAddress(), e);
+  				}
   			} else
   				return null;
   		}

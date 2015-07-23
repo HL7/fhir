@@ -397,7 +397,6 @@ public class QuestionnaireBuilder {
 
   private ValueSet makeTypeList(StructureDefinition profile, List<TypeRefComponent> types, String path) throws Exception {
     ValueSet vs = new ValueSet();
-    vs.setUrl(Utilities.makeUuidUrn());
     vs.setName("Type options for "+path);
     vs.setDescription(vs.getName());
 	  vs.setStatus(ConformanceResourceStatus.ACTIVE);

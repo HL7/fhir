@@ -1997,6 +1997,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
         mymaps.put(a, url);
       }
     }
+    // also, look in the contained resources for a concept map
+    for (Resource r : vs.getContained()) {
+      if (r instanceof ConceptMap) {
+        ConceptMap cm = (ConceptMap) r;
+        if (((Reference) cm.getSource()).getReference().equals(vs.getUrl())) {
+          String url = "";
+          if (context.getValueSets().containsKey(((Reference) cm.getTarget()).getReference()))
+            url = (String) context.getValueSets().get(((Reference) cm.getTarget()).getReference()).getUserData("filename");
+        mymaps.put(cm, url);
+        }
+      }
+    }
     List<String> langs = new ArrayList<String>();
 
     if (header) {
@@ -2069,7 +2081,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  	XhtmlNode b = td.addTag("b");
 	  	XhtmlNode a = b.addTag("a");
 	  	a.setAttribute("href", prefix+mymaps.get(m));
-	  	a.addText(m.getDescription());	  	
+	  	a.addText(m.hasDescription() ? m.getDescription() : m.getName());	  	
 	  }	  
   }
 
@@ -2139,8 +2151,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     
+    String tgt = makeAnchor(c.getSystem(), c.getCode());
+    td.addTag("a").setAttribute("name", tgt).addText(" ");
     
     String s = Utilities.padLeft("", '.', i*2);
+    
     td.addText(s);
     Resource e = context.getCodeSystems().get(c.getSystem());
     if (e == null)
@@ -2148,7 +2163,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     else {
       XhtmlNode a = td.addTag("a");
       a.addText(c.getCode());
-      a.setAttribute("href", prefix+getCsRef(e)+".html#"+Utilities.nmtokenize(c.getCode()));
+      a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(c.getCode()));
     }
     if (doSystem) {
     td = tr.addTag("td");
@@ -2245,7 +2260,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       	span.setAttribute("title", mapping.hasEquivalence() ?  mapping.getEquivalence().toCode() : "");
       	span.addText(getCharForEquivalence(mapping));
       	a = td.addTag("a");
-      	a.setAttribute("href", prefix+maps.get(m)+"#"+mapping.getCode());
+      	a.setAttribute("href", prefix+maps.get(m)+"#"+makeAnchor(mapping.getCodeSystem(), mapping.getCode()));
       	a.addText(mapping.getCode());
         if (!Utilities.noString(mapping.getComments()))
           td.addTag("i").addText("("+mapping.getComments()+")");
@@ -2268,6 +2283,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
 
+  private String makeAnchor(String codeSystem, String code) {
+    String s = codeSystem+'-'+code;
+    StringBuilder b = new StringBuilder();
+    for (char c : s.toCharArray()) {
+      if (Character.isAlphabetic(c) || Character.isDigit(c) || c == '.')
+        b.append(c);
+      else
+        b.append('-');
+    }
+    return b.toString();
+  }
+
   private String getCodingReference(Coding cc, String system) {
     if (cc.getSystem().equals(system))
       return "#"+cc.getCode();
@@ -2284,8 +2311,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  switch (mapping.getEquivalence()) {
 	  case EQUAL : return "=";
 	  case EQUIVALENT : return "~";
-	  case WIDER : return ">";
-	  case NARROWER : return "<";
+	  case WIDER : return "<";
+	  case NARROWER : return ">";
 	  case INEXACT : return "><";
 	  case UNMATCHED : return "-";
 	  case DISJOINT : return "!=";
@@ -2498,9 +2525,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private  <T extends Resource> String getCsRef(T cs) {
     String ref = (String) cs.getUserData("filename");
-//    if (Utilities.noString(ref))
-//      ref = (String) cs.getUserData("path");
-    return ref == null ? "??" : ref.replace("\\", "/");
+    if (ref == null)
+      return "??";
+    if (!ref.endsWith(".html"))
+      ref = ref + ".html";
+    return ref.replace("\\", "/");
   }
 
   private  <T extends Resource> boolean codeExistsInValueSet(T cs, String code) {
@@ -2535,7 +2564,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean hasSource = false;
     boolean success = true;
     for (OperationOutcomeIssueComponent i : op.getIssue()) {
-    	success = success && i.getSeverity() != IssueSeverity.INFORMATION;
+    	success = success && i.getSeverity() == IssueSeverity.INFORMATION;
     	hasSource = hasSource || ExtensionHelper.hasExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE);
     }
     if (success)

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1017,6 +1017,8 @@ public class XmlParser extends XmlParserBase {
         res.getLine().add(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("city")) {
         res.setCityElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("district")) {
+        res.setDistrictElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("state")) {
         res.setStateElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("postalCode")) {
@@ -1097,6 +1099,8 @@ public class XmlParser extends XmlParserBase {
         res.setValueElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("use")) {
         res.setUseElement(parseEnumeration(xpp, ContactPoint.ContactPointUse.NULL, new ContactPoint.ContactPointUseEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rank")) {
+        res.setRankElement(parsePositiveInt(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("period")) {
         res.setPeriod(parsePeriod(xpp));
       } else if (!parseElementContent(eventType, xpp, res))
@@ -4991,7 +4995,7 @@ public class XmlParser extends XmlParserBase {
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
+        res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.setTypeElement(parseEnumeration(xpp, Group.GroupType.NULL, new Group.GroupTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("actual")) {
@@ -7918,6 +7922,8 @@ public class XmlParser extends XmlParserBase {
         res.setPublisherElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("telecom")) {
         res.getTelecom().add(parseContactPoint(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subjectType")) {
+        res.getSubjectType().add(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("group")) {
         res.setGroup(parseQuestionnaireGroupComponent(xpp, res));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
@@ -11403,6 +11409,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCityElement()) {
         composeString("city", element.getCityElement());
       }
+      if (element.hasDistrictElement()) {
+        composeString("district", element.getDistrictElement());
+      }
       if (element.hasStateElement()) {
         composeString("state", element.getStateElement());
       }
@@ -11491,6 +11500,9 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasUseElement())
         composeEnumeration("use", element.getUseElement(), new ContactPoint.ContactPointUseEnumFactory());
+      if (element.hasRankElement()) {
+        composePositiveInt("rank", element.getRankElement());
+      }
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
@@ -15740,8 +15752,9 @@ public class XmlParser extends XmlParserBase {
       composeDomainResourceAttributes(element);
       xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
       }
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Group.GroupTypeEnumFactory());
@@ -18928,6 +18941,10 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTelecom()) { 
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
+      }
+      if (element.hasSubjectType()) { 
+        for (CodeType e : element.getSubjectType()) 
+          composeCode("subjectType", e);
       }
       if (element.hasGroup()) {
         composeQuestionnaireGroupComponent("group", element.getGroup());

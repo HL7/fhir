@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Child;
@@ -158,7 +159,7 @@ public class Questionnaire extends DomainResource {
          */
         INSTANT, 
         /**
-         * Answer is a time independent of date
+         * Answer is a time (hour/minute/second) independent of date
          */
         TIME, 
         /**
@@ -166,7 +167,7 @@ public class Questionnaire extends DomainResource {
          */
         STRING, 
         /**
-         * Answer is a long (potentially multi-paragram) free-text entry
+         * Answer is a long (potentially multi-paragram) free-text entry (still captured as a string)
          */
         TEXT, 
         /**
@@ -174,11 +175,11 @@ public class Questionnaire extends DomainResource {
          */
         URL, 
         /**
-         * Answer is a choice from a list of options
+         * Answer is a Coding drawn from a list of options
          */
         CHOICE, 
         /**
-         * Answer is a choice from a list of options or a free-text entry
+         * Answer is a Coding drawn from a list of options or a free-text entry.
          */
         OPENCHOICE, 
         /**
@@ -280,12 +281,12 @@ public class Questionnaire extends DomainResource {
             case DATE: return "Answer is a date";
             case DATETIME: return "Answer is a date and time";
             case INSTANT: return "Answer is a system timestamp";
-            case TIME: return "Answer is a time independent of date";
+            case TIME: return "Answer is a time (hour/minute/second) independent of date";
             case STRING: return "Answer is a short (few words to short sentence) free-text entry";
-            case TEXT: return "Answer is a long (potentially multi-paragram) free-text entry";
+            case TEXT: return "Answer is a long (potentially multi-paragram) free-text entry (still captured as a string)";
             case URL: return "Answer is a url (website, FTP site, etc.)";
-            case CHOICE: return "Answer is a choice from a list of options";
-            case OPENCHOICE: return "Answer is a choice from a list of options or a free-text entry";
+            case CHOICE: return "Answer is a Coding drawn from a list of options";
+            case OPENCHOICE: return "Answer is a Coding drawn from a list of options or a free-text entry.";
             case ATTACHMENT: return "Answer is binary content such as a image, PDF, etc.";
             case REFERENCE: return "Answer is a reference to another resource (practitioner, organization, etc.)";
             case QUANTITY: return "Answer is a combination of a numeric value and unit";
@@ -925,14 +926,14 @@ public class Questionnaire extends DomainResource {
         protected BooleanType repeats;
 
         /**
-         * Reference to a valueset containing the possible options.
+         * Reference to a valueset containing the a list of codes representing permitted answers for the question.
          */
         @Child(name = "options", type = {ValueSet.class}, order=7, min=0, max=1)
-        @Description(shortDefinition="Valueset containing the possible options", formalDefinition="Reference to a valueset containing the possible options." )
+        @Description(shortDefinition="Valueset containing permitted answers", formalDefinition="Reference to a valueset containing the a list of codes representing permitted answers for the question." )
         protected Reference options;
 
         /**
-         * The actual object that is the target of the reference (Reference to a valueset containing the possible options.)
+         * The actual object that is the target of the reference (Reference to a valueset containing the a list of codes representing permitted answers for the question.)
          */
         protected ValueSet optionsTarget;
 
@@ -1230,7 +1231,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return {@link #options} (Reference to a valueset containing the possible options.)
+         * @return {@link #options} (Reference to a valueset containing the a list of codes representing permitted answers for the question.)
          */
         public Reference getOptions() { 
           if (this.options == null)
@@ -1246,7 +1247,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @param value {@link #options} (Reference to a valueset containing the possible options.)
+         * @param value {@link #options} (Reference to a valueset containing the a list of codes representing permitted answers for the question.)
          */
         public QuestionComponent setOptions(Reference value) { 
           this.options = value;
@@ -1254,7 +1255,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return {@link #options} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to a valueset containing the possible options.)
+         * @return {@link #options} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to a valueset containing the a list of codes representing permitted answers for the question.)
          */
         public ValueSet getOptionsTarget() { 
           if (this.optionsTarget == null)
@@ -1266,7 +1267,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @param value {@link #options} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to a valueset containing the possible options.)
+         * @param value {@link #options} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to a valueset containing the a list of codes representing permitted answers for the question.)
          */
         public QuestionComponent setOptionsTarget(ValueSet value) { 
           this.optionsTarget = value;
@@ -1321,7 +1322,7 @@ public class Questionnaire extends DomainResource {
           childrenList.add(new Property("type", "code", "The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("required", "boolean", "If true, indicates that the question must be answered and have required groups within it also present.  If false, the question and any contained groups may be skipped when answering the questionnaire.", 0, java.lang.Integer.MAX_VALUE, required));
           childrenList.add(new Property("repeats", "boolean", "If true, the question may have more than one answer.", 0, java.lang.Integer.MAX_VALUE, repeats));
-          childrenList.add(new Property("options", "Reference(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));
+          childrenList.add(new Property("options", "Reference(ValueSet)", "Reference to a valueset containing the a list of codes representing permitted answers for the question.", 0, java.lang.Integer.MAX_VALUE, options));
           childrenList.add(new Property("group", "@Questionnaire.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 
@@ -1422,13 +1423,20 @@ public class Questionnaire extends DomainResource {
     protected List<ContactPoint> telecom;
 
     /**
+     * Identifies the types of subjects that can be the subject of the questionnaire.
+     */
+    @Child(name = "subjectType", type = {CodeType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Resource that can be subject of QuestionnaireAnswers", formalDefinition="Identifies the types of subjects that can be the subject of the questionnaire." )
+    protected List<CodeType> subjectType;
+
+    /**
      * A collection of related questions (or further groupings of questions).
      */
-    @Child(name = "group", type = {}, order=6, min=1, max=1)
+    @Child(name = "group", type = {}, order=7, min=1, max=1)
     @Description(shortDefinition="Grouped questions", formalDefinition="A collection of related questions (or further groupings of questions)." )
     protected GroupComponent group;
 
-    private static final long serialVersionUID = -852096969L;
+    private static final long serialVersionUID = -1348292652L;
 
   /*
    * Constructor
@@ -1719,6 +1727,60 @@ public class Questionnaire extends DomainResource {
     }
 
     /**
+     * @return {@link #subjectType} (Identifies the types of subjects that can be the subject of the questionnaire.)
+     */
+    public List<CodeType> getSubjectType() { 
+      if (this.subjectType == null)
+        this.subjectType = new ArrayList<CodeType>();
+      return this.subjectType;
+    }
+
+    public boolean hasSubjectType() { 
+      if (this.subjectType == null)
+        return false;
+      for (CodeType item : this.subjectType)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #subjectType} (Identifies the types of subjects that can be the subject of the questionnaire.)
+     */
+    // syntactic sugar
+    public CodeType addSubjectTypeElement() {//2 
+      CodeType t = new CodeType();
+      if (this.subjectType == null)
+        this.subjectType = new ArrayList<CodeType>();
+      this.subjectType.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #subjectType} (Identifies the types of subjects that can be the subject of the questionnaire.)
+     */
+    public Questionnaire addSubjectType(String value) { //1
+      CodeType t = new CodeType();
+      t.setValue(value);
+      if (this.subjectType == null)
+        this.subjectType = new ArrayList<CodeType>();
+      this.subjectType.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #subjectType} (Identifies the types of subjects that can be the subject of the questionnaire.)
+     */
+    public boolean hasSubjectType(String value) { 
+      if (this.subjectType == null)
+        return false;
+      for (CodeType v : this.subjectType)
+        if (v.equals(value)) // code
+          return true;
+      return false;
+    }
+
+    /**
      * @return {@link #group} (A collection of related questions (or further groupings of questions).)
      */
     public GroupComponent getGroup() { 
@@ -1750,6 +1812,7 @@ public class Questionnaire extends DomainResource {
         childrenList.add(new Property("date", "dateTime", "The date that this questionnaire was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "Organization or person responsible for developing and maintaining the questionnaire.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("telecom", "ContactPoint", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("subjectType", "code", "Identifies the types of subjects that can be the subject of the questionnaire.", 0, java.lang.Integer.MAX_VALUE, subjectType));
         childrenList.add(new Property("group", "", "A collection of related questions (or further groupings of questions).", 0, java.lang.Integer.MAX_VALUE, group));
       }
 
@@ -1770,6 +1833,11 @@ public class Questionnaire extends DomainResource {
           for (ContactPoint i : telecom)
             dst.telecom.add(i.copy());
         };
+        if (subjectType != null) {
+          dst.subjectType = new ArrayList<CodeType>();
+          for (CodeType i : subjectType)
+            dst.subjectType.add(i.copy());
+        };
         dst.group = group == null ? null : group.copy();
         return dst;
       }
@@ -1787,7 +1855,7 @@ public class Questionnaire extends DomainResource {
         Questionnaire o = (Questionnaire) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(status, o.status, true)
            && compareDeep(date, o.date, true) && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true)
-           && compareDeep(group, o.group, true);
+           && compareDeep(subjectType, o.subjectType, true) && compareDeep(group, o.group, true);
       }
 
       @Override
@@ -1798,13 +1866,14 @@ public class Questionnaire extends DomainResource {
           return false;
         Questionnaire o = (Questionnaire) other;
         return compareValues(version, o.version, true) && compareValues(status, o.status, true) && compareValues(date, o.date, true)
-           && compareValues(publisher, o.publisher, true);
+           && compareValues(publisher, o.publisher, true) && compareValues(subjectType, o.subjectType, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (version == null || version.isEmpty())
            && (status == null || status.isEmpty()) && (date == null || date.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (group == null || group.isEmpty());
+           && (telecom == null || telecom.isEmpty()) && (subjectType == null || subjectType.isEmpty())
+           && (group == null || group.isEmpty());
       }
 
   @Override

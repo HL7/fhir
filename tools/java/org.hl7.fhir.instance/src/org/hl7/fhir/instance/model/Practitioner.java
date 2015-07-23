@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1247,6 +1247,8 @@ public class Practitioner extends DomainResource {
     return ResourceType.Practitioner;
    }
 
+  @SearchParamDefinition(name="phone", path="Practitioner.telecom(system=phone)", description="A value in a phone contact", type="token" )
+  public static final String SP_PHONE = "phone";
   @SearchParamDefinition(name="phonetic", path="Practitioner.name", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="location", path="Practitioner.practitionerRole.location", description="One of the locations at which this practitioner provides care", type="reference" )
@@ -1263,12 +1265,14 @@ public class Practitioner extends DomainResource {
   public static final String SP_ADDRESSSTATE = "address-state";
   @SearchParamDefinition(name="given", path="Practitioner.name.given", description="A portion of the given name", type="string" )
   public static final String SP_GIVEN = "given";
+  @SearchParamDefinition(name="email", path="Practitioner.telecom(system=email)", description="A value in an email contact", type="token" )
+  public static final String SP_EMAIL = "email";
   @SearchParamDefinition(name="address", path="Practitioner.address", description="An address in any kind of address/part", type="string" )
   public static final String SP_ADDRESS = "address";
-  @SearchParamDefinition(name="family", path="Practitioner.name.family", description="A portion of the family name", type="string" )
-  public static final String SP_FAMILY = "family";
   @SearchParamDefinition(name="address-use", path="Practitioner.address.use", description="A use code specified in an address", type="token" )
   public static final String SP_ADDRESSUSE = "address-use";
+  @SearchParamDefinition(name="family", path="Practitioner.name.family", description="A portion of the family name", type="string" )
+  public static final String SP_FAMILY = "family";
   @SearchParamDefinition(name="name", path="Practitioner.name", description="A portion of either family or given name", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="telecom", path="Practitioner.telecom", description="The value in any kind of contact", type="token" )

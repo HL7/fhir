@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1615,7 +1615,7 @@ public class Encounter extends DomainResource {
     /**
      * inpatient | outpatient | ambulatory | emergency +.
      */
-    @Child(name = "class_", type = {CodeType.class}, order=3, min=0, max=1)
+    @Child(name = "class", type = {CodeType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="inpatient | outpatient | ambulatory | emergency +", formalDefinition="inpatient | outpatient | ambulatory | emergency +." )
     protected Enumeration<EncounterClass> class_;
 

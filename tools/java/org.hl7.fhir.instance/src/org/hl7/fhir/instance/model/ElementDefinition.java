@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 22, 2015 09:41+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1937,7 +1937,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
      */
-    @Child(name = "short_", type = {StringType.class}, order=6, min=0, max=1)
+    @Child(name = "short", type = {StringType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Concise definition for xml presentation", formalDefinition="A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification)." )
     protected StringType short_;
 
