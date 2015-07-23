@@ -859,9 +859,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R143C23" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R144C23" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="143" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="144" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="294.75"/>
@@ -2315,6 +2315,37 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Used to set the request URL explicitly.  If &quot;url&quot; element is defined, then &quot;targetId&quot;, &quot;resource&quot;, and &quot;params&quot; elements will be ignored.  Test engines would use whatever is specified in &quot;url&quot; without tampering with the string (beyond encoding the URL for HTTP).  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">TestScript.setup.action.operation.encodeRequestUrl</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">boolean</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="Boolean">1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Whether or not to send the request url in encoded format</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4956,7 +4987,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4969,9 +5000,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>45</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -4979,7 +5012,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R143C23"
+  <AutoFilter x:Range="R1C1:R144C23"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -5078,7 +5111,7 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">f:capabilities/f:required or f:capabilities/f:validated or (f:capabilities/f:required and f:capabilities/f:validated)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">7</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">6</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">required or validated</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -5088,7 +5121,7 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">f:capabilities/f:required or f:capabilities/f:validated or (f:capabilities/f:required and f:capabilities/f:validated)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">9</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">7</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">required or validated</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -5098,7 +5131,7 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">f:capabilities/f:required or f:capabilities/f:validated or (f:capabilities/f:required and f:capabilities/f:validated)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">11</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">8</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">single assertion</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -5108,7 +5141,7 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">count(f:contentType) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:validateProfileId)  &lt;=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">12</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">9</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">single assertion</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -5118,37 +5151,37 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">count(f:contentType) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:validateProfileId)  &lt;=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">13</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">10</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">sourceId or targetId or params or url</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Setup operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">f:sourceId or ((f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1)) or (f:type/@value='conformance' or f:type/@value='search' or f:type/@value='transaction' or f:type/@value='history')</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">f:sourceId or ((f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1)) or (f:type/f:code/@value='conformance' or f:type/f:code/@value='search' or f:type/f:code/@value='transaction' or f:type/f:code/@value='history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">14</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">11</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">sourceId or targetId or params or url</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Test operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">f:sourceId or (f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/@value='conformance' or f:type/@value='search' or f:type/@value='transaction' or f:type/@value='history')</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">f:sourceId or (f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value='conformance' or f:type/f:code/@value='search' or f:type/f:code/@value='transaction' or f:type/f:code/@value='history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">15</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">12</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">sourceId or targetId or params or url</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.teardown.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Teardown operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">f:sourceId or (f:targetId or f:url or (f:params and f:resource)) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/@value='conformance' or f:type/@value='search' or f:type/@value='transaction' or f:type/@value='history')</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">f:sourceId or (f:targetId or f:url or (f:params and f:resource)) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value='conformance' or f:type/f:code/@value='search' or f:type/f:code/@value='transaction' or f:type/f:code/@value='history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">16</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">13</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId and compareToSourcePath </Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -5158,7 +5191,7 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourcePath)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">17</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">14</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId and compareToSourcePath </Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -5168,7 +5201,7 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourcePath)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">18</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">15</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">operation location</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -5178,7 +5211,7 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">not(f:operation)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"><Data ss:Type="Number">19</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="Number">16</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">assert location</Data></Cell>
     <Cell ss:StyleID="s90"/>

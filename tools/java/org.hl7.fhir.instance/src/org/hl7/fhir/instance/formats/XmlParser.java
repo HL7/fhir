@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Jul 23, 2015 11:36+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 23, 2015 11:46-0400 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -9046,6 +9046,8 @@ public class XmlParser extends XmlParserBase {
         res.setTargetIdElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("url")) {
         res.setUrlElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encodeRequestUrl")) {
+        res.setEncodeRequestUrlElement(parseBoolean(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -20156,6 +20158,9 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasUrlElement()) {
         composeString("url", element.getUrlElement());
+      }
+      if (element.hasEncodeRequestUrlElement()) {
+        composeBoolean("encodeRequestUrl", element.getEncodeRequestUrlElement());
       }
       xml.exit(FHIR_NS, name);
     }
