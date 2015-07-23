@@ -171,7 +171,7 @@ public class ProfileGenerator {
     ec.setDefinition("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
-    ec.getType().add(new TypeRefComponent().setCode("xs:"+type.getSchemaType()));
+    ec.getType().add(new TypeRefComponent().setCode(prefix("xs:", type.getSchemaType())));
     
     reset();
     // now. the snapshot
@@ -206,7 +206,7 @@ public class ProfileGenerator {
     ec.setMin(0);
     ec.setMax("1");
     ec.setShort("Primitive value for " +type.getCode());
-    ec.getType().add(new TypeRefComponent().setCode("xs:"+type.getSchemaType()));
+    ec.getType().add(new TypeRefComponent().setCode(prefix("xs:", type.getSchemaType())));
     
     containedSlices.clear();
 
@@ -217,6 +217,14 @@ public class ProfileGenerator {
     p.getText().setDiv(div);
     checkHasTypes(p);
     return p;
+  }
+
+  private String prefix(String prefix, String value) {
+    if (value == null)
+      return prefix;
+    if (value.startsWith(prefix))
+      return value;
+    return prefix + value;
   }
 
   public StructureDefinition generate(DefinedStringPattern type) throws Exception {
