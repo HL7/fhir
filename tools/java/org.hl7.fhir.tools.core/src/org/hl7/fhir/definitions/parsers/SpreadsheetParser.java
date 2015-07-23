@@ -1714,11 +1714,13 @@ public class SpreadsheetParser {
      
     parseExtensionElement(sheet, row, definitions, exe);
     String sl = exe.getShortDefn();
-    ex.setName(ex.getDisplay());
+    ex.setName(sheet.getColumn(row, "Name"));
+    if (!ex.hasName())
+      ex.setName(ex.getDisplay());
     if (!Utilities.noString(sl) && (!sl.contains("|") || !ex.hasName())) 
       ex.setName(sl);
     if (!ex.hasName())
-      throw new Exception("Extension "+ex.getUrl()+" missing short label at "+getLocation(row));
+      throw new Exception("Extension "+ex.getUrl()+" missing name at "+getLocation(row));
     ex.setDescription(exe.getDefinition());
 
     ex.setPublisher(ap.metadata("author.name"));

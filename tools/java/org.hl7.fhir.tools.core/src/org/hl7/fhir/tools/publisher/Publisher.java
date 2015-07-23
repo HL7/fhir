@@ -3445,10 +3445,18 @@ public class Publisher implements URIResolver {
       if (rt.equals("ValueSet") || rt.equals("ConceptMap") || rt.equals("Conformance")) {
         // for these, we use the reference implementation directly
         DomainResource res = (DomainResource) new XmlParser().parse(new FileInputStream(file));
+        boolean wantSave = false;
+        if (res instanceof Conformance) {
+          ((Conformance) res).setFhirVersion(page.getVersion());
+          if (res.hasText() && res.getText().hasDiv()) 
+            wantSave = updateVersion(((Conformance) res).getText().getDiv());
+        }
         if (!res.hasText() || !res.getText().hasDiv()) {
           gen.generate(res);
-          new XmlParser().compose(new FileOutputStream(file), res);
+          wantSave = true;
         } 
+        if (wantSave)
+          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(file), res);
         narrative = new XhtmlComposer().compose(res.getText().getDiv());                  
       } else {
         if (rt.equals("Bundle")) {
@@ -3568,6 +3576,21 @@ public class Publisher implements URIResolver {
     // ".html");
     page.getEpub().registerExternal(n + ".html");
     page.getEpub().registerExternal(n + ".xml.html");
+  }
+
+  private boolean updateVersion(XhtmlNode div) {
+    if (div.getNodeType().equals(NodeType.Text)) {
+      if (div.getContent().contains("$ver$")) {
+        div.setContent(div.getContent().replace("$ver$", page.getVersion()));
+        return true;
+      } else
+        return false;
+    } else {
+      boolean res = false;
+      for (XhtmlNode child : div.getChildNodes())
+        res = updateVersion(child) || res;
+      return res;
+    }
   }
 
   private String genExampleUsage(Example e) {

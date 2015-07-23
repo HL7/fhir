@@ -5327,7 +5327,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("title"))
         src = s1+(workingTitle == null ? Utilities.escapeXml(ed.getName()) : workingTitle)+s3;
       else if (com[0].equals("xtitle"))
-        src = s1+Utilities.escapeXml(ed.getName())+s3;
+        src = s1+"Extension: "+Utilities.escapeXml(ed.getName())+s3;
       else if (com[0].equals("filetitle"))
         src = s1+(filename.contains(".") ? filename.substring(0, filename.lastIndexOf(".")) : filename)+s3;
       else if (com[0].equals("name"))
@@ -5395,6 +5395,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+"<p>usage info: insert a list of places where this extension is used</p>"+s3;
       else if (com[0].equals("context-info"))
         src = s1+describeExtensionContext(ed)+s3;
+      else if (com[0].equals("ext-name"))
+        src = s1+Utilities.escapeXml(ed.getName())+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
       else 
