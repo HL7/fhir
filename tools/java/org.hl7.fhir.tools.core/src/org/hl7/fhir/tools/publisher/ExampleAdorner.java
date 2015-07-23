@@ -164,6 +164,8 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
           return new ExampleAdornerState(State.Unknown, s.path, null, "", "");
         if (!e.isBaseResourceElement() && e.typeCode().contains("Reference"))
           return new ExampleAdornerState(State.Reference, p, e, "", "");
+        else if (!e.isBaseResourceElement() && e.typeCode().equals("uri"))
+          return new ExampleAdornerState(State.Reference, p, e, "", "");
         else
           return new ExampleAdornerState(State.Element, p, e, "", "");
       } else if (s.getState() == State.Reference) {
@@ -208,6 +210,8 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
     if (s != null && s.getState() == ExampleAdorner.State.Reference && node.getNodeName().equals("type") && nodeName.equals("value")) 
       return new ExampleAdornerState(State.Unknown, s.path, null, state.getPrefix(), state.getSuffix());
     else if (s != null && s.getState() == ExampleAdorner.State.Reference && node.getNodeName().equals("reference") && nodeName.equals("value")) 
+      return new ExampleAdornerState(State.Unknown, s.path, null, state.getPrefix(), state.getSuffix());
+    else if (s != null && s.getState() == ExampleAdorner.State.Reference && node.getNodeName().equals("url") && nodeName.equals("value")) 
       return new ExampleAdornerState(State.Unknown, s.path, null, state.getPrefix(), state.getSuffix());
     else
       return new ExampleAdornerState(State.Unknown, s.path, null, "", "");
