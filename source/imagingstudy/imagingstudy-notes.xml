@@ -3,11 +3,12 @@
 <!-- insert xhtml content here -->
 <h3>Implementation Notes</h3>
 <ul>
- <li>Instances can be images, but they can also be dicom structured documents or other dicom classes</li>
- <li>Each instance may have a url and an attachment. Both represent the same information, but using different 
-   approaches. The URL is a reference to a WADO-RS service that makes the instance available, while the attachment 
-   is a reference to a FHIR resource (<a href="media.html">Media</a>, <a href="composition.html">Composition</a>, etc).</li>
+ <li>Instances can be images, but they can also be DICOM structured documents or other DICOM classes</li>
  <li>This resource follows DICOM practice in using OIDs for elements such as instance type rather than codes.</li>  
+ <li>Each instance has an Attachment. Multiple Attachments can represent the same information, but using different 
+   approaches. The ImagingStudy.content.url could be a reference to a WADO-RS service that makes the instance available. The ImagingStudy.content.url 
+   could be a reference to a FHIR resource (<a href="media.html">Media</a>, <a href="composition.html">Composition</a>, etc).</li>
+ <li>The use of ImagingStudy.content.data is discouraged with preference of url.</li>
 </ul>
 
 <h3>Use Case</h3>

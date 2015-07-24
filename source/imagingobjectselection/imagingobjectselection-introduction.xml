@@ -1,12 +1,13 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-Manifest of a set of DICOM objects (images or other data types) from one or more studies, with an intended purpose.  The referenced objects may include every image in a study to be shared through a health information exchange, a list of key images for a referring or treating physician, a set of images to be included in a teaching file, or similar purposes.
 
 <div>
 <h2>Scope and Usage</h2>
 <p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-This resource summarizes a set of images or other instances gathered for some specified purpose, and provides references to where the images are available using WADO-RS. This resource is used to make available information concerning images etc. that are intended to be exchanged into other clinical contexts such as diagnostic reports, Care Plans, etc. 
+This resource summarizes a set of images or other instances gathered for some specified purpose, and provides references 
+to where the images are available using WADO-RS. This resource is used to make available information concerning images etc. 
+that are intended to be exchanged into other clinical contexts such as diagnostic reports, Care Plans, etc. 
 </p>
 </div>
 

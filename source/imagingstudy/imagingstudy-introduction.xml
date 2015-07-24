@@ -5,7 +5,7 @@
 <p>
 This resource summarizes a series of images or other instances generated as part of an 
 imaging study, and provides references to where the images are available
-using <a href="http://medical.nema.org/medical/dicom/current/output/pdf/part18.pdf">WADO-RS</a>. 
+using <a href="http://medical.nema.org/medical/dicom/current/output/html/part18.html">WADO-RS</a>. 
 
 This resource is used to make information available concerning images etc. that are 
 referenced in other clinical contexts such as <a href="diagnosticreport.html">diagnostic reports</a>, 
@@ -14,7 +14,8 @@ referenced in other clinical contexts such as <a href="diagnosticreport.html">di
 <p>
 The elements in this resource mirror DICOM attributes which are listed in the description.  
 Although it is not necessary to use DICOM infrastructure to use this resource, it may be 
-informative to search in <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part03/PS3.3.html">DICOM PS3.3</a> for the referenced tags to better understand their 
+informative to search in <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part03/PS3.3.html">DICOM PS3.3</a> 
+for the referenced tags to better understand their 
 proper contents and usage.
 </p>
 
