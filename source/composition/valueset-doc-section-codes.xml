@@ -13,8 +13,178 @@
   <status value="draft"/>
   <compose>
     <include>
-      <!-- just all loinc codes -->
       <system value="http://loinc.org"/>
+      <concept>
+        <code value="10154-3"/>
+      </concept>
+      <concept>
+        <code value="10157-6"/>
+      </concept>
+      <concept>
+        <code value="10160-0"/>
+      </concept>
+      <concept>
+        <code value="10164-2"/>
+      </concept>
+      <concept>
+        <code value="10183-2"/>
+      </concept>
+      <concept>
+        <code value="10184-0"/>
+      </concept>
+      <concept>
+        <code value="10187-3"/>
+      </concept>
+      <concept>
+        <code value="10210-3"/>
+      </concept>
+      <concept>
+        <code value="10216-0"/>
+      </concept>
+      <concept>
+        <code value="10218-6"/>
+      </concept>
+      <concept>
+        <code value="10218-6"/>
+      </concept>
+      <concept>
+        <code value="10223-6"/>
+      </concept>
+      <concept>
+        <code value="10830-8"/>
+      </concept>
+      <concept>
+        <code value="11329-0"/>
+      </concept>
+      <concept>
+        <code value="11348-0"/>
+      </concept>
+      <concept>
+        <code value="11369-6"/>
+      </concept>
+      <concept>
+        <code value="11450-4"/>
+      </concept>
+      <concept>
+        <code value="11493-4"/>
+      </concept>
+      <concept>
+        <code value="11535-2"/>
+      </concept>
+      <concept>
+        <code value="11537-8"/>
+      </concept>
+      <concept>
+        <code value="18776-5"/>
+      </concept>
+      <concept>
+        <code value="18841-7"/>
+      </concept>
+      <concept>
+        <code value="29299-5"/>
+      </concept>
+      <concept>
+        <code value="29545-1"/>
+      </concept>
+      <concept>
+        <code value="29549-3"/>
+      </concept>
+      <concept>
+        <code value="29554-3"/>
+      </concept>
+      <concept>
+        <code value="29762-2"/>
+      </concept>
+      <concept>
+        <code value="30954-2"/>
+      </concept>
+      <concept>
+        <code value="42344-2"/>
+      </concept>
+      <concept>
+        <code value="42346-7"/>
+      </concept>
+      <concept>
+        <code value="42348-3"/>
+      </concept>
+      <concept>
+        <code value="42349-1"/>
+      </concept>
+      <concept>
+        <code value="46240-8"/>
+      </concept>
+      <concept>
+        <code value="46241-6"/>
+      </concept>
+      <concept>
+        <code value="46264-8"/>
+      </concept>
+      <concept>
+        <code value="47420-5"/>
+      </concept>
+      <concept>
+        <code value="47519-4"/>
+      </concept>
+      <concept>
+        <code value="48765-2"/>
+      </concept>
+      <concept>
+        <code value="48768-6"/>
+      </concept>
+      <concept>
+        <code value="51848-0"/>
+      </concept>
+      <concept>
+        <code value="55109-3"/>
+      </concept>
+      <concept>
+        <code value="55122-6"/>
+      </concept>
+      <concept>
+        <code value="59768-2"/>
+      </concept>
+      <concept>
+        <code value="59769-0"/>
+      </concept>
+      <concept>
+        <code value="59770-8"/>
+      </concept>
+      <concept>
+        <code value="59771-6"/>
+      </concept>
+      <concept>
+        <code value="59772-4"/>
+      </concept>
+      <concept>
+        <code value="59773-2"/>
+      </concept>
+      <concept>
+        <code value="59775-7"/>
+      </concept>
+      <concept>
+        <code value="59776-5"/>
+      </concept>
+      <concept>
+        <code value="61149-1"/>
+      </concept>
+      <concept>
+        <code value="61150-9"/>
+      </concept>
+      <concept>
+        <code value="61150-9"/>
+      </concept>
+      <concept>
+        <code value="69730-0"/>
+      </concept>
+      <concept>
+        <code value="8648-8"/>
+      </concept>
+      <concept>
+        <code value="8653-8"/>
+      </concept>
+      <concept>
+        <code value="8716-3"/>
+      </concept>
     </include>
   </compose>  
 </ValueSet>
