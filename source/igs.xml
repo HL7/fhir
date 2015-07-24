@@ -1,14 +1,14 @@
 <igs>
   <!-- only FMG can add entries to this list-->
   <!-- the literal order in this XML source file is the order of publication. Dependencies matter! -->
-  <ig code="core"     name="FHIR Specification Core" page="" review="" committee="fhir" ballot="dstu2" fmm="0"/>
-  <ig code="ccda"     name="Consolidated CDA" page="" review="" committee="sd" ballot="dstu2" fmm="0"/>
-  <ig code="openehr"  name="openEHR Profiles" page="" review="" committee="pc" ballot="dstu2" fmm="0"/>
-  <ig code="ehrs-rle" name="EHRS Functional model - Record Lifecycle Events" page="ehrs-rle.html" review="" source="\guides\ehrs-rle\ehrs-rle.xml" committee="ehr" ballot="dstu2" fmm="0"/>
+  <ig code="core"     name="FHIR Specification Core" page="" review="" committee="fhir" ballot="dstu2" fmm="0" core="yes"/>
+  <ig code="ccda"     name="Consolidated CDA" page="" review="" committee="sd" ballot="dstu2" fmm="0" core="yes"/>
+  <ig code="openehr"  name="openEHR Profiles" page="" review="" committee="pc" ballot="dstu2" fmm="0" core="yes"/>
+  <ig code="ehrs-rle" name="EHRS Functional model - Record Lifecycle Events" page="ehrs-rle.html" review="" source="\guides\ehrs-rle\ehrs-rle.xml" committee="ehr" ballot="dstu2" fmm="0" core="no"/>
   <ig code="sdc"      name="Structured Data Capture - Forms" page="sdc.html" review="" source="\guides\sdc\sdc.xml" committee="oo" ballot="dstu1" fmm="0"/>
   <ig code="sdc-de"   name="Structured Data Capture - Data Element Management" page="sdc-de.html" review="" source="\guides\sdc-de\sdc-de.xml" committee="oo" ballot="dstu1" fmm="0"/>
-  <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review="" committee="cds" ballot="draft" fmm="0"/>
-  <ig code="ihe"      name="IHE Profiles" page="" review="" committee="hsi" ballot="dstu2" fmm="0"/>
+  <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review="" committee="cds" ballot="draft" fmm="0" core="yes"/>
+  <ig code="ihe"      name="IHE Profiles" page="" review="" committee="hsi" ballot="dstu2" fmm="0" core="yes"/>
   <ig code="argonaut" name="Argonaut" page="argonauts.html" review="0" committee="fhir" ballot="draft" fmm="0"/>
   
   <ig code="uslab"    name="US Lab Profile" page="uslabreport.html" review="" source="\guides\uslab\uslab.xml" committee="us" ballot="dstu2" fmm="0"/>
