@@ -1,0 +1,60 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+	<version value="20121129"/>
+	<name value="laterality Codes"/>
+	<publisher value="National Electrical Manufacturers Association (DICOM)"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://medical.nema.org/medical/dicom/current/output/html/part16.html#sect_CID_244"/>
+		</telecom>
+	</contact>
+	<description value="This Value Set includes codes that may be used to identify the laterality of a imaging procedure"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement. These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+	<status value="active"/>
+	<extensible value="true"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="24028007"/>
+				<display value="Right"/>
+        <designation>
+          <use>
+            <display value="SRT"/>
+          </use>
+          <value value="G-A100"/>
+        </designation>
+			</concept>
+			<concept>
+				<code value="7771000"/>
+				<display value="Left"/>
+        <designation>
+          <use>
+            <display value="SRT"/>
+          </use>
+          <value value="G-A101"/>
+        </designation>
+			</concept>
+			<concept>
+				<code value="51440002"/>
+				<display value="Right and left"/>
+        <designation>
+          <use>
+            <display value="SRT"/>
+          </use>
+          <value value="G-A102"/>
+        </designation>
+			</concept>
+			<concept>
+				<code value="66459002"/>
+				<display value="Unilateral"/>
+        <designation>
+          <use>
+            <display value="SRT"/>
+          </use>
+          <value value="G-A103"/>
+        </designation>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
