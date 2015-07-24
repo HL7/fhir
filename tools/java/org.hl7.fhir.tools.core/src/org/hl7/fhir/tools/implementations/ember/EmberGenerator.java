@@ -137,7 +137,7 @@ public class EmberGenerator extends BaseGenerator implements PlatformGenerator {
 
     private static String dasherize(String str){
       String[] r = str.split("(?=\\p{Upper})");
-      return "".join("-", r).toLowerCase();
+      return String.join("-", r).toLowerCase();
     }
 
     @Override
