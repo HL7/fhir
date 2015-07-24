@@ -1,0 +1,152 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="FHIR Document Class Codes"/>
+  <publisher value="HL7"/>
+  <contact>
+    <telecom>  
+    <system value="other"/>
+    <value value="http://hl7.org"/>
+  </telecom>
+  </contact>
+  <description value="LOINC codes for Document Kind, taken from the LOINC document ontology"/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="LP173387-4"/>
+        <display value="Administrative note"/>
+      </concept>
+      <concept>
+        <code value="LP173388-2"/>
+        <display value="Against medical advice note"/>
+      </concept>
+      <concept>
+        <code value="LP173389-0"/>
+        <display value="Agreement"/>
+      </concept>
+      <concept>
+        <code value="LP173390-8"/>
+        <display value="Certificate"/>
+      </concept>
+      <concept>
+        <code value="LP173394-0"/>
+        <display value="Consent"/>
+      </concept>
+      <concept>
+        <code value="LP173403-9"/>
+        <display value="Contract"/>
+      </concept>
+      <concept>
+        <code value="LP193873-9"/>
+        <display value="Driver license"/>
+      </concept>
+      <concept>
+        <code value="LP173404-7"/>
+        <display value="Health insurance card"/>
+      </concept>
+      <concept>
+        <code value="LP173405-4"/>
+        <display value="Health insurance-related form"/>
+      </concept>
+      <concept>
+        <code value="LP173406-2"/>
+        <display value="Health record cover sheet"/>
+      </concept>
+      <concept>
+        <code value="LP173407-0"/>
+        <display value="Legal document"/>
+      </concept>
+      <concept>
+        <code value="LP181089-6"/>
+        <display value="Request"/>
+      </concept>
+      <concept>
+        <code value="LP173409-6"/>
+        <display value="Advance directive"/>
+      </concept>
+      <concept>
+        <code value="LP173410-4"/>
+        <display value="Do not resuscitate"/>
+      </concept>
+      <concept>
+        <code value="LP173412-0"/>
+        <display value="Living will"/>
+      </concept>
+      <concept>
+        <code value="LP173413-8"/>
+        <display value="Rescinded advance directive"/>
+      </concept>
+      <concept>
+        <code value="LP173414-6"/>
+        <display value="Diagram"/>
+      </concept>
+      <concept>
+        <code value="LP173415-3"/>
+        <display value="Flowsheet"/>
+      </concept>
+      <concept>
+        <code value="LP181112-6"/>
+        <display value="Form"/>
+      </concept>
+      <concept>
+        <code value="LP181116-7"/>
+        <display value="Instructions"/>
+      </concept>
+      <concept>
+        <code value="LP181119-1"/>
+        <display value="Action plan"/>
+      </concept>
+      <concept>
+        <code value="LP173118-3"/>
+        <display value="Discharge instructions"/>
+      </concept>
+      <concept>
+        <code value="LP173416-1"/>
+        <display value="Legal"/>
+      </concept>
+      <concept>
+        <code value="LP173417-9"/>
+        <display value="Letter"/>
+      </concept>
+      <concept>
+        <code value="LP173418-7"/>
+        <display value="Note"/>
+      </concept>
+      <concept>
+        <code value="LP173419-5"/>
+        <display value="Adverse event note"/>
+      </concept>
+      <concept>
+        <code value="LP173420-3"/>
+        <display value="Alert"/>
+      </concept>
+      <concept>
+        <code value="LP181207-4"/>
+        <display value="Order"/>
+      </concept>
+      <concept>
+        <code value="LP181204-1"/>
+        <display value="Prescription"/>
+      </concept>
+      <concept>
+        <code value="LP156982-3"/>
+        <display value="Photographic image"/>
+      </concept>
+      <concept>
+        <code value="LP173421-1"/>
+        <display value="Report"/>
+      </concept>
+      <concept>
+        <code value="LP183503-4"/>
+        <display value="Case report"/>
+      </concept>
+      <concept>
+        <code value="LP183502-6"/>
+        <display value="Registry report"/>
+      </concept>      
+    </include>
+  </compose>  
+</ValueSet>
+
