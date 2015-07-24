@@ -182,5 +182,12 @@
     <id>orim</id>
     <sort>22</sort>
   </space>
+  <space>
+    <url>http://hl7.org/fhir/w5</url>
+    <columnName>...don't use...</columnName>
+    <title>W5 Mapping</title>
+    <id>w5</id>
+    <sort>23</sort>
+  </space>
   
 </mappingSpaces>

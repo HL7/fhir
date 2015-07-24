@@ -871,6 +871,8 @@ public class ProfileGenerator {
         addMapping(p, ce, n, e.getMapping(n), ap);
       }
     }
+    if (e.getW5() != null)
+      addMapping(p, ce, "http://hl7.org/fhir/w5", e.getW5(), ap);
     ToolingExtensions.addDisplayHint(ce, e.getDisplayHint());
 
     for (String in : e.getInvariants().keySet()) {
