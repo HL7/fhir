@@ -110,7 +110,7 @@ public class EmberGenerator extends BaseGenerator implements PlatformGenerator {
         Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
-            generateEmberModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions, "encoding/json");
+            generateEmberModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions);
         }
 
 
@@ -126,12 +126,12 @@ public class EmberGenerator extends BaseGenerator implements PlatformGenerator {
         }
     }
 
-    private void generateEmberModel(String name, String modelDir, STGroup templateGroup, Definitions definitions, String... imports) throws Exception {
+    private void generateEmberModel(String name, String modelDir, STGroup templateGroup, Definitions definitions) throws Exception {
         File modelFile = new File(Utilities.path(modelDir, dasherize(name) + ".js"));
         if ("Element".equals(name)) {
           return;
         }
-        EmberModel model = new EmberModel(name, definitions, modelFile, templateGroup, imports);
+        EmberModel model = new EmberModel(name, definitions, modelFile);
         model.generate();
     }
 

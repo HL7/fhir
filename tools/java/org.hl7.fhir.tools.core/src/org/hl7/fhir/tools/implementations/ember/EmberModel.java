@@ -45,21 +45,16 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GenBlock;
 import org.hl7.fhir.utilities.Utilities;
 import org.stringtemplate.v4.ST;
-import org.stringtemplate.v4.STGroup;
 
 public class EmberModel {
     private String name;
     private File outputFile;
-    private STGroup templateGroup;
     private Definitions definitions;
-    private String[] imports;
 
-    public EmberModel(String name, Definitions definitions, File outputFile, STGroup templateGroup, String... imports) {
+    public EmberModel(String name, Definitions definitions, File outputFile) {
         this.name = name;
         this.definitions = definitions;
         this.outputFile = outputFile;
-        this.templateGroup = templateGroup;
-        this.imports = imports;
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -99,7 +94,7 @@ public class EmberModel {
 
     private void generateComponentStructs(GenBlock fileBlock) throws Exception {
         for (ElementDefn elementDefinition : getRootDefinition().getElements()) {
-            generateComponentStruct(fileBlock, elementDefinition);
+            generateComponentStruct( elementDefinition);
         }
     }
 
@@ -116,7 +111,6 @@ public class EmberModel {
             if( ! isFirst ){
               block.nl(",");
             }
-            isFirst = false;
             block.ln(getFieldDefinition(fieldName, modifier, structName));
         } else {
             for (TypeRef typeRef : elementDefinition.getTypes()) {
@@ -212,12 +206,12 @@ public class EmberModel {
     private String getFieldDefinition(String fieldName, String fieldTypeModifier, String fieldType) {
         String typeName = lowercase(fieldName);
         fieldName = lowercase(fieldName);
-        return String.format("%s:  %s('%s', {embedded: true})", fieldName, fieldTypeModifier, fieldType, typeName, typeName);
+        return String.format("%s:  %s('%s', {embedded: true})", fieldName, fieldTypeModifier, fieldType);
     }
 
     private String getFieldDefinition(String fieldName, String fieldType) {
         String typeName = lowercase(fieldName);
-        return String.format("%s: %s", typeName, fieldType, typeName, typeName);
+        return String.format("%s: %s", typeName, fieldType);
     }
 
     private boolean isComponent(ElementDefn elementDefinition) {
@@ -236,7 +230,7 @@ public class EmberModel {
         return typeName;
     }
 
-    private void generateComponentStruct(GenBlock block, ElementDefn elementDefinition) throws Exception {
+    private void generateComponentStruct(ElementDefn elementDefinition) throws Exception {
         if(isComponent(elementDefinition)) {
 
             String structName = getComponentStructName(elementDefinition);
@@ -259,7 +253,7 @@ public class EmberModel {
             // generateCustomUnmarshaller(structName, elementDefinition, componentBlock);
 
             for (ElementDefn nestedElement : elementDefinition.getElements()) {
-                generateComponentStruct(componentBlock, nestedElement);
+                generateComponentStruct(nestedElement);
             }
             File componentFile = new File(Utilities.path(outputFile.getParent() , dasherize(structName) + ".js"));
             componentFile.createNewFile();
