@@ -44,7 +44,6 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GenBlock;
 import org.hl7.fhir.utilities.Utilities;
-import org.stringtemplate.v4.ST;
 
 public class EmberModel {
     private String name;
