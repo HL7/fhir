@@ -108,21 +108,11 @@ public class EmberGenerator extends BaseGenerator implements PlatformGenerator {
         }
 
         Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
-        // generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
             generateEmberModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions, "encoding/json");
-            // generateGoController(entry.getKey(), entry.getValue(), dirs.get("serverDir"), templateGroup);
         }
 
-        // generateGoUtil(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
-
-        // Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
-        // Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference.go")), new File(dirs.get("modelDir")));
-        // Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "fhirdatetime.go")), new File(dirs.get("modelDir")));
-        // Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
-        // Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
-        // Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server.go")), new File(Utilities.path(basedDir, "app")));
 
         ZipGenerator zip = new ZipGenerator(destDir + getReference(version));
         zip.addFolder(implDir, "model", false);
@@ -143,102 +133,6 @@ public class EmberGenerator extends BaseGenerator implements PlatformGenerator {
         }
         EmberModel model = new EmberModel(name, definitions, modelFile, templateGroup, imports);
         model.generate();
-    }
-
-    private void generateGoController(String name, ResourceDefn def, String controllerDir, STGroup templateGroup) throws IOException {
-        File controllerFile = new File(Utilities.path(controllerDir, name.toLowerCase() + ".go"));
-        ST controllerTemplate = templateGroup.getInstanceOf("generic_controller.go");
-
-        boolean searchBySubject = false;
-        boolean searchByPatient = false;
-        boolean searchByCode = false;
-
-        // This algorithm for generating search controllers is better than before, but should
-        // eventually be replaced by a much more comprehensive solution.
-        if (def.getRoot().getElementByName("subject") != null) {
-            searchBySubject = true;
-        } else if (def.getRoot().getElementByName("patient") != null) {
-            searchByPatient = true;
-        } else if (def.getRoot().getElementByName("code") != null) {
-            searchByCode = true;
-        }
-
-        controllerTemplate.add("searchBySubject", searchBySubject);
-        controllerTemplate.add("searchByPatient", searchByPatient);
-        controllerTemplate.add("searchByCode", searchByCode);
-        controllerTemplate.add("ModelName", name);
-        controllerTemplate.add("LowerCaseModelName", name.toLowerCase());
-
-        Writer controllerWriter = new BufferedWriter(new FileWriter(controllerFile));
-        controllerWriter.write(controllerTemplate.render());
-        controllerWriter.flush();
-        controllerWriter.close();
-    }
-
-    private void generateGoRouting(Map<String, ResourceDefn> namesAndDefinitions, String serverDir) throws IOException {
-        File serverFile = new File(Utilities.path(serverDir, "routing.go"));
-
-        BufferedWriter serverWriter = new BufferedWriter(new FileWriter(serverFile));
-
-        serverWriter.write("package server");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("import (");
-        serverWriter.newLine();
-        serverWriter.write("\"github.com/codegangsta/negroni\"");
-        serverWriter.newLine();
-        serverWriter.write("\"github.com/gorilla/mux\"");
-        serverWriter.newLine();
-        serverWriter.write(")");
-        serverWriter.newLine();
-        serverWriter.write("func RegisterRoutes(router *mux.Router, config map[string][]negroni.Handler) {");
-        serverWriter.newLine();
-        serverWriter.newLine();
-
-        for (String name : namesAndDefinitions.keySet()) {
-            String lower = name.toLowerCase();
-            serverWriter.write(lower + "Base := router.Path(\"/" + name + "\").Subrouter()");
-            serverWriter.newLine();
-            //serverWriter.write(lower + "Base.Methods(\"GET\").HandlerFunc(" + name + "IndexHandler)");
-            serverWriter.write(lower + "Base.Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Index\"], negroni.HandlerFunc(" + name + "IndexHandler))...))");
-            serverWriter.newLine();
-            //serverWriter.write(lower + "Base.Methods(\"POST\").HandlerFunc(" + name + "CreateHandler)");
-            serverWriter.write(lower + "Base.Methods(\"POST\").Handler(negroni.New(append(config[\"" + name + "Create\"], negroni.HandlerFunc(" + name + "CreateHandler))...))");
-            serverWriter.newLine();
-            serverWriter.newLine();
-            serverWriter.write(lower + " := router.Path(\"/" + name + "/{id}\").Subrouter()");
-            serverWriter.newLine();
-            //serverWriter.write(lower + ".Methods(\"GET\").HandlerFunc(" + name + "ShowHandler)");
-            serverWriter.write(lower + ".Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Show\"], negroni.HandlerFunc(" + name + "ShowHandler))...))");
-            serverWriter.newLine();
-            //serverWriter.write(lower + ".Methods(\"PUT\").HandlerFunc(" + name + "UpdateHandler)");
-            serverWriter.write(lower + ".Methods(\"PUT\").Handler(negroni.New(append(config[\"" + name + "Update\"], negroni.HandlerFunc(" + name + "UpdateHandler))...))");
-            serverWriter.newLine();
-            //serverWriter.write(lower + ".Methods(\"DELETE\").HandlerFunc(" + name + "DeleteHandler)");
-            serverWriter.write(lower + ".Methods(\"DELETE\").Handler(negroni.New(append(config[\"" + name + "Delete\"], negroni.HandlerFunc(" + name + "DeleteHandler))...))");
-            serverWriter.newLine();
-            serverWriter.newLine();
-        }
-
-        serverWriter.write("}");
-
-        serverWriter.flush();
-        serverWriter.close();
-    }
-
-    private void generateGoUtil(Set<String> resourceNames, String outputDir, STGroup templateGroup) throws IOException {
-        // Sort the resources by name just for consistent (diff-able) output
-        ArrayList<String> resourceList = new ArrayList<String>(resourceNames);
-        Collections.sort(resourceList);
-
-        ST utilTemplate = templateGroup.getInstanceOf("util.go");
-        utilTemplate.add("Resources", resourceList);
-
-        File outputFile = new File(Utilities.path(outputDir, "util.go"));
-        Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
-        controllerWriter.write(utilTemplate.render());
-        controllerWriter.flush();
-        controllerWriter.close();
     }
 
     private static String dasherize(String str){

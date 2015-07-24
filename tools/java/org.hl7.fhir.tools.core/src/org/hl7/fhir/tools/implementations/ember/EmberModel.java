@@ -67,7 +67,6 @@ public class EmberModel {
         GenBlock fileBlock = new GenBlock();
         generateHeader(fileBlock);
         generateResourceStruct(fileBlock);
-        // generateCustomMarshallersAndUnMarshallers(fileBlock);
         generateComponentStructs(fileBlock);
 
         outputFile.createNewFile();
@@ -103,35 +102,6 @@ public class EmberModel {
             generateComponentStruct(fileBlock, elementDefinition);
         }
     }
-
-    // private void generateCustomMarshallersAndUnMarshallers(GenBlock fileBlock) throws Exception {
-    //     if (definitions.getResources().containsKey(name)) {
-    //         ST st = templateGroup.getInstanceOf("generic_resource_marshaller.go");
-    //         st.add("Name", name);
-    //         fileBlock.ln(st.render());
-    //     }
-    //
-    //     generateCustomUnmarshaller(name, getRootDefinition(), fileBlock);
-    // }
-    //
-    // private void generateCustomUnmarshaller(String structName, ElementDefn elementDefn, GenBlock fileBlock) {
-    //     ArrayList<String> resourceFields = new ArrayList<String>();
-    //     for (ElementDefn elementDefinition : elementDefn.getElements()) {
-    //         for (TypeRef typeRef : elementDefinition.getTypes()) {
-    //             if ("Resource".equals(typeRef.getName()) || "Resource".equals(typeRef.getResolvedTypeName())) {
-    //                 resourceFields.add(getFieldName(elementDefinition, typeRef));
-    //             }
-    //         }
-    //     }
-    //
-    //     if (!resourceFields.isEmpty()) {
-    //         ST st = templateGroup.getInstanceOf("generic_resource_unmarshaller.go");
-    //         st.add("Name", structName);
-    //         st.add("LowerName", lowercase(structName));
-    //         st.add("Fields", resourceFields);
-    //         fileBlock.ln(st.render());
-    //     }
-    // }
 
     private void generateFields(GenBlock block, ElementDefn elementDefinition) {
       generateFields(block,elementDefinition, true);
@@ -312,7 +282,7 @@ public class EmberModel {
 
     private static String dasherize(String str){
       String[] r = str.split("(?=\\p{Upper})");
-      return "".join("-", r).toLowerCase();
+      return String.join("-", r).toLowerCase();
     }
 
     private TypeDefn getRootDefinition() {
