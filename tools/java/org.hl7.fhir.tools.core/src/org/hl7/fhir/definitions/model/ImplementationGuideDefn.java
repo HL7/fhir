@@ -8,7 +8,7 @@ import java.util.Map;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
 
-public class ImplementationGuide {
+public class ImplementationGuideDefn {
 
   private String committee;
   private String code;
@@ -30,7 +30,7 @@ public class ImplementationGuide {
   private List<BindingSpecification> unresolvedBindings = new ArrayList<BindingSpecification>();
   private List<LogicalModel> logicalModels = new ArrayList<LogicalModel>();
   
-  public ImplementationGuide(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, boolean core) {
+  public ImplementationGuideDefn(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, boolean core) {
     super();
     this.code = code;
     this.name = name;
@@ -49,6 +49,11 @@ public class ImplementationGuide {
   public String getName() {
     return name;
   }
+  
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public String getPage() {
     return page;
   }
