@@ -103,7 +103,7 @@ import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
-import org.hl7.fhir.definitions.model.ImplementationGuide;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
@@ -531,7 +531,7 @@ public class Publisher implements URIResolver {
         }
         Utilities.createDirectory(page.getFolders().dstDir + "html");
         Utilities.createDirectory(page.getFolders().dstDir + "examples");
-        for (ImplementationGuide ig : page.getDefinitions().getSortedIgs())
+        for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs())
           if (!ig.isCore())
             Utilities.createDirectory(page.getFolders().dstDir + ig.getCode());
           
@@ -947,7 +947,7 @@ public class Publisher implements URIResolver {
         cd.setValueSet(vs);
       }
     }
-    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
       for (BindingSpecification cd : ig.getUnresolvedBindings()) {
         ValueSet vs = page.getDefinitions().getValuesets().get(cd.getReference());
         if (vs == null)
@@ -1672,7 +1672,7 @@ public class Publisher implements URIResolver {
     for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
       String filename = "extension-"+ed.getUrl().substring(40).toLowerCase();
       ed.setUserData("filename", filename);
-      ImplementationGuide ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
+      ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
       ed.setUserData("path", (ig.isCore() ? "" : ig.getCode()+File.separator) + filename+".html");  
     }
     loadValueSets2();
@@ -1724,7 +1724,7 @@ public class Publisher implements URIResolver {
         producePage(n, page.getIni().getStringProperty("pages", n));
       }
     }
-    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
       for (String n : ig.getPageList()) {
         page.log(" ...ig page " + n, LogMessageType.Process);
         produceIgPage(n, ig);        
@@ -1737,7 +1737,7 @@ public class Publisher implements URIResolver {
     }
     for (String n : page.getIni().getPropertyNames("ig-pages")) {
       page.log(" ...page " + n, LogMessageType.Process);
-      for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+      for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
         if (!ig.isCore())
         produceIgPage(n, ig, page.getIni().getStringProperty("ig-pages", n));
       }
@@ -1748,7 +1748,7 @@ public class Publisher implements URIResolver {
         produceDictionary(page.getDefinitions().getDictionaries().get(n));
       }
     }
-    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
       for (LogicalModel lm : ig.getLogicalModels()) {
         page.log(" ...ig logical model " + lm.getId(), LogMessageType.Process);
         produceLogicalModel(lm, ig);        
@@ -1976,7 +1976,7 @@ public class Publisher implements URIResolver {
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }
 
-  private void produceIgOperations(ImplementationGuide ig, Profile p) throws Exception {
+  private void produceIgOperations(ImplementationGuideDefn ig, Profile p) throws Exception {
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-ig-operations.html");
     String n = p.getId();
     TextFile.stringToFile(page.processPageIncludes(ig.getCode()+File.separator+n+"-operations.html", src, "?type", null, "??path", null, null, "Operations", p, ig), page.getFolders().dstDir + ig.getCode()+File.separator+n + "-operations.html");
@@ -2255,7 +2255,7 @@ public class Publisher implements URIResolver {
   }
 
   private void produceExtensionDefinition(StructureDefinition ed) throws FileNotFoundException, Exception {
-    ImplementationGuide ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
+    ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
     String prefix = ig.isCore() ? "" : ig.getCode()+File.separator;
     String filename = ed.getUserString("filename");
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + prefix+filename+".xml");
@@ -2310,7 +2310,7 @@ public class Publisher implements URIResolver {
     for (String n : page.getIni().getPropertyNames("images")) {
       copyImage(page.getFolders().imgDir, n);
     }
-    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
       for (String n : ig.getImageList()) {
         copyIgImage(ig, n);
       }
@@ -2352,7 +2352,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void copyIgImage(ImplementationGuide ig, String path) throws IOException {
+  private void copyIgImage(ImplementationGuideDefn ig, String path) throws IOException {
     File file = new File(Utilities.path(page.getFolders().rootDir, ig.getSource(), "..", path));
     
     if (path.contains("*")) {
@@ -3285,7 +3285,7 @@ public class Publisher implements URIResolver {
 //      generateQuestionnaire(n, p);
   }
 
-  private void produceOperation(ImplementationGuide ig, String name, String id, String resourceName, Operation op) throws Exception {
+  private void produceOperation(ImplementationGuideDefn ig, String name, String id, String resourceName, Operation op) throws Exception {
     OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(name, id, resourceName, op);
 
     String dir = ig == null ? "" : ig.getCode()+File.separator;
@@ -3358,7 +3358,7 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal(n + ".xml.html");
   }
 
-  private void processQuestionnaire(StructureDefinition profile, SectionTracker st, boolean isResource, String prefix, ImplementationGuide ig) throws Exception {
+  private void processQuestionnaire(StructureDefinition profile, SectionTracker st, boolean isResource, String prefix, ImplementationGuideDefn ig) throws Exception {
     
     QuestionnaireBuilder qb = new QuestionnaireBuilder(page.getWorkerContext());
     qb.setProfile(profile);
@@ -3423,7 +3423,7 @@ public class Publisher implements URIResolver {
     return form;
   }
 
-  private void processExample(Example e, String resourceName, StructureDefinition profile, Profile pack, ImplementationGuide ig) throws Exception {
+  private void processExample(Example e, String resourceName, StructureDefinition profile, Profile pack, ImplementationGuideDefn ig) throws Exception {
     if (e.getType() == ExampleType.Tool)
       return;
     
@@ -3807,7 +3807,7 @@ public class Publisher implements URIResolver {
             throw new Exception("Unable to determine resource name - profile mismatch "+resourceName+"/"+pack.getProfiles().get(i).getDefn().getName()); 
       }
     }
-    ImplementationGuide ig = page.getDefinitions().getIgs().get(pack.getCategory());
+    ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(pack.getCategory());
     String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
     
     String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null, null) : null;
@@ -3850,7 +3850,7 @@ public class Publisher implements URIResolver {
 //        processExample(examples.get(en), null, profile.getSource());
   }
 
-  private void producePackSearchParameter(String resourceName, Profile pack, SearchParameter sp, SectionTracker st, ImplementationGuide ig) throws Exception {
+  private void producePackSearchParameter(String resourceName, Profile pack, SearchParameter sp, SectionTracker st, ImplementationGuideDefn ig) throws Exception {
     String title = sp.getId();
     sp.setUserData("pack", pack.getId());
 
@@ -3882,7 +3882,7 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal(prefix+title + ".json.html");
   }
 
-  private void produceProfile(String resourceName, Profile pack, ConstraintStructure profile, SectionTracker st, String intro, String notes, String prefix, ImplementationGuide ig) throws Exception {
+  private void produceProfile(String resourceName, Profile pack, ConstraintStructure profile, SectionTracker st, String intro, String notes, String prefix, ImplementationGuideDefn ig) throws Exception {
     File tmp = Utilities.createTempFile("tmp", ".tmp");
     String title = profile.getId();
     int level = (ig == null || ig.isCore()) ? 0 : 1;
@@ -4085,7 +4085,7 @@ public class Publisher implements URIResolver {
     return t.substring(t.indexOf(":")+1).trim();
   }
 
-  private void produceIgPage(String file, ImplementationGuide ig) throws Exception {
+  private void produceIgPage(String file, ImplementationGuideDefn ig) throws Exception {
     String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), file);
     String logicalName = Utilities.fileTitle(actualName);
     String src = TextFile.fileToString(actualName);
@@ -4105,7 +4105,7 @@ public class Publisher implements URIResolver {
     cachePage(file, src, logicalName);
   }
 
-  private void produceIgPage(String file, ImplementationGuide ig, String logicalName) throws Exception {
+  private void produceIgPage(String file, ImplementationGuideDefn ig, String logicalName) throws Exception {
     String srcOrig = TextFile.fileToString(page.getFolders().srcDir + file);
     file = file.substring(3);
     String src = page.processPageIncludes(file, srcOrig, "page", null, null, null, logicalName, ig);
@@ -4139,7 +4139,7 @@ public class Publisher implements URIResolver {
     cachePage(ig.getCode()+File.separator+file, src, logicalName);
   }
 
-  private void produceLogicalModel(LogicalModel lm, ImplementationGuide ig) throws Exception {
+  private void produceLogicalModel(LogicalModel lm, ImplementationGuideDefn ig) throws Exception {
     String n = lm.getId();
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     XmlSpecGenerator gen = new XmlSpecGenerator(bs, n + "-definitions.html", null, page, "../");
@@ -4243,7 +4243,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void produceDictionaryProfile(Dictionary d, String srcbase, String destbase, DataElement de, ImplementationGuide ig) throws Exception {
+  private void produceDictionaryProfile(Dictionary d, String srcbase, String destbase, DataElement de, ImplementationGuideDefn ig) throws Exception {
     // first, sort out identifiers
     String template = TextFile.fileToString(Utilities.changeFileExt(srcbase, "-profile.xml"));
     String file = Utilities.changeFileExt(destbase, "-"+de.getId()+".xml");    
@@ -4611,7 +4611,7 @@ public class Publisher implements URIResolver {
       if (wantBuild(rname)) {
         for (Example e : r.getExamples()) {
           String n = e.getTitle();
-          ImplementationGuide ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
+          ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
           if (ig != null)
             n = ig.getCode()+File.separator+n;
           logError(" ...validate " + n, LogMessageType.Process);
@@ -4621,7 +4621,7 @@ public class Publisher implements URIResolver {
         // todo-profile: how this works has to change (to use profile tag)
         for (Profile e : r.getConformancePackages()) {
           for (Example en : e.getExamples()) {
-            ImplementationGuide ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
+            ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
             String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
             String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
             page.log(" ...validate " + n+" ("+e.getTitle()+")", LogMessageType.Process);
@@ -4631,7 +4631,7 @@ public class Publisher implements URIResolver {
       }
     }
 
-    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
       String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
       for (Example ex : ig.getExamples()) {
         String n = ex.getTitle();
@@ -4790,7 +4790,7 @@ public class Publisher implements URIResolver {
       if (wantBuild(rname)) {
         for (Example e : r.getExamples()) {
           String n = e.getTitle();
-          ImplementationGuide ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
+          ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
           if (ig != null)
             n = ig.getCode()+File.separator+n;
           list.add(n);
@@ -4798,7 +4798,7 @@ public class Publisher implements URIResolver {
         // todo-profile: how this works has to change (to use profile tag)
         for (Profile e : r.getConformancePackages()) {
           for (Example en : e.getExamples()) {
-            ImplementationGuide ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
+            ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
             String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
             String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
             list.add(n);
@@ -4807,7 +4807,7 @@ public class Publisher implements URIResolver {
       }
     }
 
-    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
       String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
       for (Example ex : ig.getExamples()) {
         String n = ex.getTitle();
@@ -5167,7 +5167,7 @@ public class Publisher implements URIResolver {
     String n = vs.getUserString("filename");
     if (n == null)
       n = "valueset-"+vs.getId();
-    ImplementationGuide ig = (ImplementationGuide) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
+    ImplementationGuideDefn ig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
     if (ig != null)
       n = ig.getCode()+File.separator+n;
 

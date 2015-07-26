@@ -60,7 +60,7 @@ import org.hl7.fhir.definitions.model.EventDefn.Category;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
-import org.hl7.fhir.definitions.model.ImplementationGuide;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.MappingSpace;
@@ -155,7 +155,7 @@ public class SpreadsheetParser {
   private Map<String, BindingSpecification> bindings = new HashMap<String, BindingSpecification>(); 
   private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   private ProfileKnowledgeProvider pkp;
-  private ImplementationGuide ig;
+  private ImplementationGuideDefn ig;
   private String txFolder;
   private boolean isLogicalModel;
   private IniFile ini;
@@ -190,7 +190,7 @@ public class SpreadsheetParser {
 		md.setFileName(Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".rmd"));
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuide ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     xls = new XLSXmlParser(in, name); 
@@ -574,7 +574,7 @@ public class SpreadsheetParser {
             throw new Exception("Missing IG Name at "+getLocation(row));
           if (!definitions.getIgs().containsKey(pack.getCategory()))
             throw new Exception("IG Name '"+pack.getCategory()+"' is not registered in [igs] in fhir.ini at "+getLocation(row));
-          ImplementationGuide ig = definitions.getIgs().get(pack.getCategory());  
+          ImplementationGuideDefn ig = definitions.getIgs().get(pack.getCategory());  
           if (!Utilities.noString(ig.getSource())) 
             throw new Exception("Implementation Guides that have their own structured definition cannot be registered directly in a source spreadsheet ("+name+")");
           pack.setTitle(name);

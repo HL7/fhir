@@ -1,0 +1,60 @@
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="cqif"/>
+  <url value="http://hl7.org/fhir/cqif"/>
+  <name value="Clinical Quality Improvement Framework"/>
+  <publisher value="Hl7 CDS"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+
+  <package>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="basic-cqif-extensions-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="basic-knowledgemodule-cqif-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="basic-knowledgerequest-cqif-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="basic-knowledgeresponse-cqif-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="basic-cqif-guidance-extensions-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="basic-guidancerequest-cqif-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="basic-guidanceresponse-cqif-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="documentreference-evidence-cqif-profile-spreadsheet.xml"/>
+    </extension>
+    <name value="base"/>
+    <resource>
+      <name value="CQIF KnowledgeModule"/>
+      <description value="KnowledgeModule used to define a Guideline Appropriate Ordering module"/>
+      <sourceUri value="basic-knowledgemodule-cqif-profile-spreadsheet.xml"/>
+      <exampleFor>
+        <reference value="basic-knowledgemodule-cqif-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+  </package>
+  <page>
+    <kind value="page"/>
+    <source value="cqif.html"/>
+    <page>
+      <kind value="toc"/>
+      <source value="cqif-toc.html"/>
+    </page>
+    <page>
+      <kind value="page"/>
+      <source value="cqif-common.html"/>
+    </page>
+    <page>
+      <kind value="page"/>
+      <source value="cqif-cds-on-fhir.html"/>
+    </page>
+  </page>
+</ImplementationGuide>

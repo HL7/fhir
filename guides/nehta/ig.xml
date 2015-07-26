@@ -1,0 +1,31 @@
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="nehta"/>
+  <url value="http://hl7.org/fhir/nehta"/>
+  <name value="NEHTA Logical Model"/>
+  <publisher value="NEHTA"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+
+  <package>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="colorectal-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="event-summary-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="shared-health-summary-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="specialist-letter-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="auditevent-profile-ehrs-rle-spreadsheet.xml"/>
+    </extension>
+  </package>
+  
+  <page>
+    <kind value="page"/>
+    <source value="nehta.html"/>
+  </page>  
+</ImplementationGuide>

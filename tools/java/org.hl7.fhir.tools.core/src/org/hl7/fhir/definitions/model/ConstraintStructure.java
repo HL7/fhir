@@ -36,9 +36,9 @@ public class ConstraintStructure {
   private String id; // id in the resource, which is also the file name root
   private StructureDefinition resource;
   private ResourceDefn defn; // temporary, until we get around to building the resource 
-  private ImplementationGuide usage;
+  private ImplementationGuideDefn usage;
     
-  public ConstraintStructure(StructureDefinition resource, ImplementationGuide usage) {
+  public ConstraintStructure(StructureDefinition resource, ImplementationGuideDefn usage) {
     this.id = resource.getId();
     this.title = resource.getName();
     this.resource = resource;
@@ -47,7 +47,7 @@ public class ConstraintStructure {
     this.usage = usage;
   }
 
-  public ConstraintStructure(String id, String title, ResourceDefn defn, ImplementationGuide usage) {
+  public ConstraintStructure(String id, String title, ResourceDefn defn, ImplementationGuideDefn usage) {
     this.id = id;
     this.title = title;
     this.defn = defn;
@@ -88,11 +88,11 @@ public class ConstraintStructure {
     this.defn = defn;
   }
 
-  public ImplementationGuide getUsage() {
+  public ImplementationGuideDefn getUsage() {
     return usage;
   }
 
-  public void setUsage(ImplementationGuide usage) {
+  public void setUsage(ImplementationGuideDefn usage) {
     this.usage = usage;
   }
 

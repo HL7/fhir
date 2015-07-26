@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Jul 26, 2015 20:31+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 27, 2015 07:25+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -6455,10 +6455,16 @@ public class JsonParser extends JsonParserBase {
         res.getDependency().add(parseImplementationGuideImplementationGuideDependencyComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("resource")) {
-      JsonArray array = json.getAsJsonArray("resource");
+    if (json.has("package")) {
+      JsonArray array = json.getAsJsonArray("package");
       for (int i = 0; i < array.size(); i++) {
-        res.getResource().add(parseImplementationGuideImplementationGuideResourceComponent(array.get(i).getAsJsonObject(), res));
+        res.getPackage().add(parseImplementationGuideImplementationGuidePackageComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("global")) {
+      JsonArray array = json.getAsJsonArray("global");
+      for (int i = 0; i < array.size(); i++) {
+        res.getGlobal().add(parseImplementationGuideImplementationGuideGlobalComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("binary")) {
@@ -6511,8 +6517,24 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  protected ImplementationGuide.ImplementationGuideResourceComponent parseImplementationGuideImplementationGuideResourceComponent(JsonObject json, ImplementationGuide owner) throws Exception {
-    ImplementationGuide.ImplementationGuideResourceComponent res = new ImplementationGuide.ImplementationGuideResourceComponent();
+  protected ImplementationGuide.ImplementationGuidePackageComponent parseImplementationGuideImplementationGuidePackageComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuidePackageComponent res = new ImplementationGuide.ImplementationGuidePackageComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("resource")) {
+      JsonArray array = json.getAsJsonArray("resource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getResource().add(parseImplementationGuideImplementationGuidePackageResourceComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected ImplementationGuide.ImplementationGuidePackageResourceComponent parseImplementationGuideImplementationGuidePackageResourceComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuidePackageResourceComponent res = new ImplementationGuide.ImplementationGuidePackageResourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
@@ -6529,6 +6551,18 @@ public class JsonParser extends JsonParserBase {
     Type source = parseType("source", json);
     if (source != null)
       res.setSource(source);
+    if (json.has("exampleFor"))
+      res.setExampleFor(parseReference(json.getAsJsonObject("exampleFor")));
+    return res;
+  }
+
+  protected ImplementationGuide.ImplementationGuideGlobalComponent parseImplementationGuideImplementationGuideGlobalComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuideGlobalComponent res = new ImplementationGuide.ImplementationGuideGlobalComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseCode(json.get("type").getAsString()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("profile"))
       res.setProfile(parseReference(json.getAsJsonObject("profile")));
     return res;
@@ -6558,6 +6592,21 @@ public class JsonParser extends JsonParserBase {
           res.getType().add(parseCode(null));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getType().get(i));
+      }
+    };
+    if (json.has("package")) {
+      JsonArray array = json.getAsJsonArray("package");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPackage().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_package")) {
+      JsonArray array = json.getAsJsonArray("_package");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getPackage().size())
+          res.getPackage().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getPackage().get(i));
       }
     };
     if (json.has("format"))
@@ -19617,10 +19666,16 @@ public class JsonParser extends JsonParserBase {
           composeImplementationGuideImplementationGuideDependencyComponent(null, e);
         closeArray();
       };
-      if (element.hasResource()) {
-        openArray("resource");
-        for (ImplementationGuide.ImplementationGuideResourceComponent e : element.getResource()) 
-          composeImplementationGuideImplementationGuideResourceComponent(null, e);
+      if (element.hasPackage()) {
+        openArray("package");
+        for (ImplementationGuide.ImplementationGuidePackageComponent e : element.getPackage()) 
+          composeImplementationGuideImplementationGuidePackageComponent(null, e);
+        closeArray();
+      };
+      if (element.hasGlobal()) {
+        openArray("global");
+        for (ImplementationGuide.ImplementationGuideGlobalComponent e : element.getGlobal()) 
+          composeImplementationGuideImplementationGuideGlobalComponent(null, e);
         closeArray();
       };
       if (element.hasBinary()) {
@@ -19682,15 +19737,37 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeImplementationGuideImplementationGuideResourceComponent(String name, ImplementationGuide.ImplementationGuideResourceComponent element) throws Exception {
+  protected void composeImplementationGuideImplementationGuidePackageComponent(String name, ImplementationGuide.ImplementationGuidePackageComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeImplementationGuideImplementationGuideResourceComponentInner(element);
+      composeImplementationGuideImplementationGuidePackageComponentInner(element);
       close();
     }
   }
 
-  protected void composeImplementationGuideImplementationGuideResourceComponentInner(ImplementationGuide.ImplementationGuideResourceComponent element) throws Exception {
+  protected void composeImplementationGuideImplementationGuidePackageComponentInner(ImplementationGuide.ImplementationGuidePackageComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasResource()) {
+        openArray("resource");
+        for (ImplementationGuide.ImplementationGuidePackageResourceComponent e : element.getResource()) 
+          composeImplementationGuideImplementationGuidePackageResourceComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeImplementationGuideImplementationGuidePackageResourceComponent(String name, ImplementationGuide.ImplementationGuidePackageResourceComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeImplementationGuideImplementationGuidePackageResourceComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImplementationGuideImplementationGuidePackageResourceComponentInner(ImplementationGuide.ImplementationGuidePackageResourceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -19706,6 +19783,25 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasSource()) {
         composeType("source", element.getSource());
+      }
+      if (element.hasExampleFor()) {
+        composeReference("exampleFor", element.getExampleFor());
+      }
+  }
+
+  protected void composeImplementationGuideImplementationGuideGlobalComponent(String name, ImplementationGuide.ImplementationGuideGlobalComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeImplementationGuideImplementationGuideGlobalComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImplementationGuideImplementationGuideGlobalComponentInner(ImplementationGuide.ImplementationGuideGlobalComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasTypeElement()) {
+        composeCodeCore("type", element.getTypeElement(), false);
+        composeCodeExtras("type", element.getTypeElement(), false);
       }
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());
@@ -19739,6 +19835,18 @@ public class JsonParser extends JsonParserBase {
           openArray("_type");
           for (CodeType e : element.getType()) 
             composeCodeExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasPackage()) {
+        openArray("package");
+        for (StringType e : element.getPackage()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getPackage())) {
+          openArray("_package");
+          for (StringType e : element.getPackage()) 
+            composeStringExtras(null, e, true);
           closeArray();
         }
       };

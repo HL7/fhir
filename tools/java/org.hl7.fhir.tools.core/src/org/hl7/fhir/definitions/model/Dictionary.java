@@ -6,9 +6,9 @@ public class Dictionary {
   private String name;
   private String category;
   private String source;
-  private ImplementationGuide ig; 
+  private ImplementationGuideDefn ig; 
   
-  public Dictionary(String id, String name, String category, String source, ImplementationGuide ig) {
+  public Dictionary(String id, String name, String category, String source, ImplementationGuideDefn ig) {
     super();
     this.id = id;
     this.name = name;
@@ -31,7 +31,7 @@ public class Dictionary {
     return source;
   }
 
-  public ImplementationGuide getIg() {
+  public ImplementationGuideDefn getIg() {
     return ig;
   } 
   

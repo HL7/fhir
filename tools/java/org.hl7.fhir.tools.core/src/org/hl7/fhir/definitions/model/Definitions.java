@@ -126,8 +126,8 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private Map<String, WorkGroup> workgroups = new HashMap<String, WorkGroup>();
 
 	// profiles not owned by a particular resource
-  private Map<String, ImplementationGuide> igs = new HashMap<String, ImplementationGuide>();
-  private List<ImplementationGuide> sortedIgs = new ArrayList<ImplementationGuide>();
+  private Map<String, ImplementationGuideDefn> igs = new HashMap<String, ImplementationGuideDefn>();
+  private List<ImplementationGuideDefn> sortedIgs = new ArrayList<ImplementationGuideDefn>();
   private List<Profile> packList = new ArrayList<Profile>();
   private Map<String, Profile> packMap = new HashMap<String, Profile>();
   private Map<String, Dictionary> dictionaries = new HashMap<String, Dictionary>();
@@ -490,7 +490,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
     return typePages;
   }
 
-  public Map<String, ImplementationGuide> getIgs() {
+  public Map<String, ImplementationGuideDefn> getIgs() {
     return igs;
   }
 
@@ -498,11 +498,11 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
     return dictionaries;
   }
 
-  public List<ImplementationGuide> getSortedIgs() {
+  public List<ImplementationGuideDefn> getSortedIgs() {
     return sortedIgs;
   }
 
-  public ImplementationGuide getUsageIG(String usage, String context) throws Exception {
+  public ImplementationGuideDefn getUsageIG(String usage, String context) throws Exception {
     if (!igs.containsKey(usage))
       throw new Exception("Attempt to use an undefined implementation guide '"+usage+"' @ "+context);
     return igs.get(usage);
@@ -576,7 +576,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   }
 
   public boolean hasLogicalModel(String name) {
-    for (ImplementationGuide ig : getSortedIgs()) {
+    for (ImplementationGuideDefn ig : getSortedIgs()) {
       for (LogicalModel lm : ig.getLogicalModels()) {
         if (lm.getResource().getName().equals(name))
           return true;
@@ -587,8 +587,8 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
     return false;
   }
 
-  public ImplementationGuide getIGforLogicalModel(String name) {
-    for (ImplementationGuide ig : getSortedIgs()) {
+  public ImplementationGuideDefn getIGforLogicalModel(String name) {
+    for (ImplementationGuideDefn ig : getSortedIgs()) {
       for (LogicalModel lm : ig.getLogicalModels()) {
         if (lm.getResource().getName().equals(name))
           return ig;
@@ -600,7 +600,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   }
 
   public LogicalModel getLogicalModel(String name) {
-    for (ImplementationGuide ig : getSortedIgs()) {
+    for (ImplementationGuideDefn ig : getSortedIgs()) {
       for (LogicalModel lm : ig.getLogicalModels()) {
         if (lm.getResource().getName().equals(name))
           return lm;

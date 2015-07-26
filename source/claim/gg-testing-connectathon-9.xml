@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Claim xmlns="http://hl7.org/fhir">
+  <contained>
+    <Patient>
+      <id value="p1"/>
+      <name>
+        <use value="usual"/>
+        <text value="John M. Smith"/>
+      </name>
+      <gender value="male"/>
+      <birthDate value="1973-04-14"/>
+      <address>
+        <line value="1234 Any Street"/>
+        <city value="Menlo Park"/>
+        <state value="CA"/>
+        <postalCode value="90123"/>
+      </address>
+    </Patient>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="p2"/>
+      <identifier>
+        <value value="904563"/>
+      </identifier>
+      <name>
+        <use value="usual"/>
+        <text value="Dr. Darryl Dentist"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <type value="oral"/>
+  <identifier>
+    <system value="http://acme.com/fhir/claims"/>
+    <value value="1500"/>
+  </identifier>
+  <created value="2015-05-10T16:30:00+10:00"/>
+  <!-- this should be a code? -->
+  <priority>
+    <system value="http://hl7.org/fhir/processpriority"/>
+    <code value="normal"/>
+  </priority>
+  <patient>
+    <reference value="#p1"/>
+  </patient>
+  <item> 
+    <sequence value="1"/>
+    <type>
+      <sstem value="http://hl7.org/fhir/actinvoicegroupcode"/>
+      <code value="service"/>
+    </type>
+    <provider>
+      <reference value="#p2"/>
+    </provider>
+    <service>
+      <system value="http://hl7.org/fhir/ex-USCLS"/>
+      <code value="1102"/>
+    </service>
+    <serviceDate value="2015-05-10"/>
+    <unitPrice>
+      <value value="65.00"/>
+      <units value="$"/>
+      <system value="urn:iso:std:4217"/>
+      <code value="USD"/>
+    </unitPrice>
+  </item> 
+  <item> 
+    <sequence value="2"/>
+    <type>
+      <sstem value="http://hl7.org/fhir/actinvoicegroupcode"/>
+      <code value="service"/>
+    </type>
+    <provider>
+      <reference value="#p2"/>
+    </provider>
+    <service>
+      <system value="http://hl7.org/fhir/ex-USCLS"/>
+      <code value="21211"/>
+    </service>
+    <serviceDate value="2015-05-10"/>
+    <unitPrice>
+      <value value="105.00"/>
+      <units value="$"/>
+      <system value="urn:iso:std:4217"/>
+      <code value="USD"/>
+    </unitPrice>
+    <bodySite>
+      <system value="http://hl7.org/fhir/ex-surface"/>
+      <code value="21"/>
+    </bodySite>
+    <subSite>
+      <system value="http://hl7.org/fhir/FDI-surface"/>
+      <code value="L"/>
+    </subSite>
+  </item> 
+  <item> 
+    <sequence value="3"/>
+    <type>
+      <sstem value="http://hl7.org/fhir/actinvoicegroupcode"/>
+      <code value="service"/>
+    </type>
+    <provider>
+      <reference value="#p2"/>
+    </provider>
+    <service>
+      <system value="http://hl7.org/fhir/ex-USCLS"/>
+      <code value="27211"/>
+    </service>
+    <serviceDate value="2015-05-10"/>
+    <unitPrice>
+      <value value="105.00"/>
+      <units value="$"/>
+      <system value="urn:iso:std:4217"/>
+      <code value="USD"/>
+    </unitPrice>
+    <bodySite>
+      <system value="http://hl7.org/fhir/ex-surface"/>
+      <code value="22"/>
+    </bodySite>
+  </item> 
+</Claim>

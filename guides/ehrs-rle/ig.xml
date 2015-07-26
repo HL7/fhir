@@ -1,0 +1,29 @@
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ehrs-rle"/>
+  <url value="http://hl7.org/fhir/ehrs-rle"/>
+  <name value="EHRS Functional model - Record Lifecycle Events"/>
+  <publisher value="HL7 EHR-FM"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+
+  <package>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="auditevent-profile-ehrs-rle-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="provenance-profile-ehrs-rle-spreadsheet.xml"/>
+    </extension>
+    <name value="base"/>
+    <resource>
+      <name value="examples"/>
+      <name value="EHRS FM Record Lifecycle Event"/>
+      <description value="System which records information about EHR events"/>
+      <sourceUri value="conformance-ehrs-rle.xml"/>
+    </resource>
+  </package>
+  
+  <page>
+    <kind value="page"/>
+    <source value="ehrs-rle.html"/>
+  </page>  
+</ImplementationGuide>

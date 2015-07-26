@@ -44,7 +44,7 @@ import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
-import org.hl7.fhir.definitions.model.ImplementationGuide;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
@@ -505,7 +505,7 @@ public class ProfileGenerator {
     pathNames.clear();  
   }
 
-  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, ImplementationGuide usage, List<ValidationMessage> issues) throws Exception {
+  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, ImplementationGuideDefn usage, List<ValidationMessage> issues) throws Exception {
     
     try {
       return generate(pack, profile, resource, id, null, usage, issues);
@@ -514,7 +514,7 @@ public class ProfileGenerator {
     }
   }
   
-  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, String html, ImplementationGuide usage, List<ValidationMessage> issues) throws Exception {
+  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, String html, ImplementationGuideDefn usage, List<ValidationMessage> issues) throws Exception {
     if (profile.getResource() != null)
       return profile.getResource();
     

@@ -1,0 +1,31 @@
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="argonaut"/>
+  <url value="http://hl7.org/fhir/argonaut"/>
+  <name value="Argonaut Project"/>
+  <useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </useContext>
+  <publisher value="Argonaut Project"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+
+  <dependency>  
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/daf"/>
+  </dependency>
+  
+  <package>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="careplan-argonaut-profile-spreadsheet.xml"/>
+    </extension>
+    <name value="base"/>
+  </package>
+  
+  <page>
+    <kind value="page"/>
+    <source value="argonaut.html"/>
+  </page> 
+</ImplementationGuide>

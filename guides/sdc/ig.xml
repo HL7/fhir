@@ -1,0 +1,107 @@
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="sdc"/>
+  <url value="http://hl7.org/fhir/sdc"/>
+  <name value="Structured Data Capture"/>
+  <publisher value="NEHTA"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+
+  <dependency>  
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/uslab"/>
+  </dependency>
+
+  <package>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="dataelement-sdc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="questionnaire-sdc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="valueset-sdc-profile-spreadsheet.xml"/>
+    </extension>
+
+    <name value="base"/>
+    
+    <resource>
+      <name value="CCDA-Gender"/> 
+      <description value="FHIR Gender with mapping to CCDA"/>
+      <sourceUri value="dataelement-sdc-profile-example.xml"/>
+      <exampleFor> 
+        <reference value="dataelement-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <name value="SDC"/> 
+      <description value="Stand-alone answer set"/>
+      <sourceUri value="questionnaireanswers-sdc-profile-example.xml"/>
+      <exampleFor> 
+        <reference value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <name value="SDC-LOINC"/> 
+      <description value="Set of several examples - medication, AHRQ and NCI formsSDC medication example with LOINC codes populated"/>
+      <sourceUri value="questionnaire-sdc-profile-example-loinc.xml"/>
+      <exampleFor> 
+        <reference value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <name value="SDC"/> 
+      <description value="Set of several examples - medication, AHRQ and NCI forms"/>
+      <sourceUri value="questionnaire-sdc-profile-example.xml"/>
+      <exampleFor> 
+        <reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <name value="SDC"/> 
+      <description value="Cancer pathology questionnaire with flow-control extensions"/>
+      <sourceUri value="questionnaire-example-cap.xml"/>
+      <exampleFor> 
+        <reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+
+    <resource>
+      <name value="SDC Form Designer"/> 
+      <description value="SDC Form authoring system"/>
+      <sourceUri value="conformance-sdc-form-designer.xml"/>
+    </resource>
+    <resource>
+      <name value="SDC Form Filler"/> 
+      <description value="SDC System for completing forms"/>
+      <sourceUri value="conformance-sdc-form-filler.xml"/>
+    </resource>
+    <resource>
+      <name value="SDC Form Manager"/> 
+      <description value="SDC Repository for forms"/>
+      <sourceUri value="conformance-sdc-form-manager.xml"/>
+    </resource>
+    <resource>
+      <name value="SDC Form Receiver"/> 
+      <description value="SDC Repository for completed forms"/>
+      <sourceUri value="conformance-sdc-form-receiver.xml"/>
+    </resource>
+  </package>
+
+  <binary value="sdc-generic-workflow.png"/>
+
+  <page>
+    <kind value="page"/>
+    <source value="sdc.html"/>
+    <page>
+      <kind value="page"/>
+      <source value="sdc-intro"/>
+    </page>
+    <page>
+      <kind value="page"/>
+      <source value="sdc-security.html"/>
+    </page>
+  </page>
+</ImplementationGuide>

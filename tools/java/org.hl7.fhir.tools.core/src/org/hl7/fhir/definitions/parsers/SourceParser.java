@@ -65,7 +65,7 @@ import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.Example;
-import org.hl7.fhir.definitions.model.ImplementationGuide;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.PrimitiveType;
@@ -139,6 +139,7 @@ public class SourceParser {
   private final Calendar genDate;
   private final Map<String, StructureDefinition> extensionDefinitions;
   private final PageProcessor page;
+  private final Set<String> igNames = new HashSet<String>();
 
   public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, WorkerContext context, Calendar genDate, Map<String, StructureDefinition> extensionDefinitions, PageProcessor page) {
     this.logger = logger;
@@ -315,9 +316,9 @@ public class SourceParser {
       for (Profile p : r.getConformancePackages()) 
         loadConformancePackage(p, r.getWg().getCode(), issues);
     }
-    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (!Utilities.noString(ig.getSource())) {
-        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee()).load(rootDir, ig, issues);
+        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee()).load(rootDir, ig, issues, igNames);
         // register what needs registering
         for (ValueSet vs : ig.getValueSets()) {
           definitions.getExtraValuesets().put(vs.getId(), vs);
@@ -421,7 +422,7 @@ public class SourceParser {
       Element ig = XMLUtil.getFirstChild(root);
       while (ig != null) {
         if (ig.getNodeName().equals("ig")) {
-          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), 
+          ImplementationGuideDefn igg = new ImplementationGuideDefn(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), 
               ig.getAttribute("source").replace('\\', File.separatorChar), "1".equals(ig.getAttribute("review")),
               ig.getAttribute("ballot"), ig.getAttribute("fmm"), "yes".equals(ig.getAttribute("core")));
           definitions.getIgs().put(igg.getCode(), igg);

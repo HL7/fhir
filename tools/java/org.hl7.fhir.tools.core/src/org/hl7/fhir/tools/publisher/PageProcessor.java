@@ -84,7 +84,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
-import org.hl7.fhir.definitions.model.ImplementationGuide;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
@@ -451,15 +451,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others, Resource resource, List<String> tabs, String crumbTitle, ImplementationGuide ig) throws Exception {
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, Resource resource, List<String> tabs, String crumbTitle, ImplementationGuideDefn ig) throws Exception {
     return processPageIncludes(file, src, type, others, file, resource, tabs, crumbTitle, ig);
   }
   
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs, String crumbTitle, ImplementationGuide ig) throws Exception {
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs, String crumbTitle, ImplementationGuideDefn ig) throws Exception {
     return processPageIncludes(file, src, type, others, pagePath, resource, tabs, crumbTitle, null, ig);
   }
   
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs, String crumbTitle, Object object, ImplementationGuide ig) throws Exception {
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs, String crumbTitle, Object object, ImplementationGuideDefn ig) throws Exception {
     String workingTitle = null;
     int level = ig == null ? file.contains(File.separator) ? 1 : 0 : ig.isCore() ? 0 : 1;
     boolean even = false;    
@@ -1054,7 +1054,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String pack = "";
     if (sd.hasUserData("pack")) {
       Profile p = (Profile) sd.getUserData("pack");
-      ImplementationGuide ig = definitions.getIgs().get(p.getCategory());
+      ImplementationGuideDefn ig = definitions.getIgs().get(p.getCategory());
       if (Utilities.noString(ig.getPage()))  
         pack = " ("+ig.getName()+"))";
       else
@@ -1089,7 +1089,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> names = new ArrayList<String>();
     names.addAll(workerContext.getExtensionDefinitions().keySet());
     Collections.sort(names);
-    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       boolean started = false;
       for (String n : names) {
         StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
@@ -1106,7 +1106,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return s.toString();
   }
 
-  private void genExtensionRow(ImplementationGuide ig, StringBuilder s, StructureDefinition ed) throws Exception {
+  private void genExtensionRow(ImplementationGuideDefn ig, StringBuilder s, StructureDefinition ed) throws Exception {
     s.append("<tr>");
     s.append("<td><a href=\""+ed.getUserString("path")+"\">"+ed.getId()+"</a></td>");
     s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
@@ -1298,7 +1298,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       genOperationDetails(b, n, r.getOperations(), false);
     }
     b.append(" <tr><td colspan=\"2\"><b>Operations Defined by Implementation Guides</b></td></tr>\r\n");
-    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       for (Profile p : ig.getProfiles()) {
         if (!p.getOperations().isEmpty())
           genOperationDetails(b, ig.getCode()+File.separator+p.getId(), p.getOperations(), false);
@@ -1365,7 +1365,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Collections.sort(names);
     for (String s : names) {
       Profile ap = definitions.getPackMap().get(s);
-      ImplementationGuide ig = definitions.getIgs().get(ap.getCategory());
+      ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
       b.append("  <tr>\r\n");
       b.append("    <td><a href=\"").append(((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
@@ -1649,7 +1649,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return new String(bytes.toByteArray());
   }
 
-  private void cloneToXhtml(String src, String dst, String name, String description, int level, boolean adorn, String pageType, String crumbTitle, ImplementationGuide ig) throws Exception {
+  private void cloneToXhtml(String src, String dst, String name, String description, int level, boolean adorn, String pageType, String crumbTitle, ImplementationGuideDefn ig) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
@@ -1671,7 +1671,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     epub.registerExternal(dst);
   }
 
-  public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json, String pageType, String crumbTitle, ImplementationGuide ig) throws Exception {
+  public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json, String pageType, String crumbTitle, ImplementationGuideDefn ig) throws Exception {
 
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(folders.srcDir + "template-example-json.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", json);
@@ -2808,7 +2808,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return s.toString();
   }
   
-  private String genValueSetsTable(ImplementationGuide ig) throws Exception {
+  private String genValueSetsTable(ImplementationGuideDefn ig) throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
     s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td><td><b>Usage</b></td></tr>\r\n");
@@ -2826,11 +2826,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return s.toString();
   }
 
-  private void generateVSforNS(StringBuilder s, String ns, Map<String, ValueSet> vslist, boolean hasId, ImplementationGuide ig) {
+  private void generateVSforNS(StringBuilder s, String ns, Map<String, ValueSet> vslist, boolean hasId, ImplementationGuideDefn ig) {
     List<String> sorts = new ArrayList<String>();
     for (String sn : vslist.keySet()) {
       ValueSet vs = vslist.get(sn);
-      ImplementationGuide vig = (ImplementationGuide) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
+      ImplementationGuideDefn vig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
       if (ig == vig) {
         String n = getNamespace(sn);
         if (ns.equals(n) && !sn.startsWith("http://hl7.org/fhir/ValueSet/v2-") && !sn.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
@@ -3168,7 +3168,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
-  String processPageIncludesForPrinting(String file, String src, Resource resource, ImplementationGuide ig) throws Exception {
+  String processPageIncludesForPrinting(String file, String src, Resource resource, ImplementationGuideDefn ig) throws Exception {
     boolean even = false;
     List<String> tabs = new ArrayList<String>();
 
@@ -3479,7 +3479,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ValueSet vs1 = vs.copy();
     vs1.setExpansion(null);
     vs1.setText(null);
-    ImplementationGuide ig = (ImplementationGuide) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
+    ImplementationGuideDefn ig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
     if (ig != null && !ig.isCore())
       new NarrativeGenerator("../", ig.getCode()+"/", workerContext).generate(vs1, null, false);
     else
@@ -3540,7 +3540,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //      return cd.getReferredValueSet().getDescription();
   }
 
-  String processPageIncludesForBook(String file, String src, String type, Resource resource, ImplementationGuide ig) throws Exception {
+  String processPageIncludesForBook(String file, String src, String type, Resource resource, ImplementationGuideDefn ig) throws Exception {
     String workingTitle = null;
     int level = 0;
     boolean even = false;
@@ -3854,7 +3854,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String igVsRegistryList() {
     StringBuilder b = new StringBuilder();
-    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (!ig.isCore()) {
         boolean found = false;
         for (ValueSet vs : valueSets.values()) {
@@ -3873,7 +3873,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
-  private String igLink(ImplementationGuide ig) {
+  private String igLink(ImplementationGuideDefn ig) {
     WorkGroup wg = definitions.getWorkgroups().get(ig.getCommittee());
     return wg == null ? "?"+ig.getCommittee()+"?" : wg.getUrl();
   }
@@ -3953,7 +3953,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return false;
   }
 
-  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath, ImplementationGuide ig) throws Exception {
+  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath, ImplementationGuideDefn ig) throws Exception {
     String workingTitle = Utilities.escapeXml(resource.getName());
     List<String> tabs = new ArrayList<String>();
     int level = (ig == null || ig.isCore()) ? 0 : 1;  
@@ -4537,7 +4537,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String produceProfiles(ResourceDefn resource) {
     StringBuilder s = new StringBuilder();
     int count = 0;
-    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       boolean started = false;
       for (Profile ap: resource.getConformancePackages()) {
         if (ig.getCode().equals(ap.getCategory())) {
@@ -4559,7 +4559,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return s.toString();
   }
 
-  private void produceProfileLine(StringBuilder s, ImplementationGuide ig, boolean started, Profile ap) {
+  private void produceProfileLine(StringBuilder s, ImplementationGuideDefn ig, boolean started, Profile ap) {
     if (!started) 
       s.append("  <tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ig.getName())+"</b></td></tr>\r\n");
     s.append("  <tr>\r\n");
@@ -4587,7 +4587,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         }        
       }
       for (Profile p : definitions.getPackList()) {
-        ImplementationGuide ig = definitions.getIgs().get(p.getCategory());
+        ImplementationGuideDefn ig = definitions.getIgs().get(p.getCategory());
         for (Example e: p.getExamples()) {
           String rn = e.getResourceName();
           if (Utilities.noString(rn))
@@ -4601,7 +4601,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private void produceExampleListEntry(StringBuilder s, Example e, Profile pack, ImplementationGuide ig) {
+  private void produceExampleListEntry(StringBuilder s, Example e, Profile pack, ImplementationGuideDefn ig) {
     String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator; 
     if (e.getTitle().equals("conformance-base") || e.getTitle().equals("conformance-base2") || e.getTitle().equals("profiles-resources"))
       s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
@@ -4691,7 +4691,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     names.clear();
     names.addAll(constraints.keySet());
     Collections.sort(names);
-    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       boolean started = false;
       for (String n : names) {
         ConstraintStructure p = constraints.get(n);
@@ -4714,7 +4714,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     names.clear();
     names.addAll(workerContext.getExtensionDefinitions().keySet());
     Collections.sort(names);
-    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       boolean started = false;
       for (String n : names) {
         StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
@@ -4788,7 +4788,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private static final String HTML_PREFIX2 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";
   
-  public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition, ResourceDefn r, List<String> tabs, ImplementationGuide ig) throws Exception {
+  public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition, ResourceDefn r, List<String> tabs, ImplementationGuideDefn ig) throws Exception {
     if (!new CSFile(filename).exists()) {
       TextFile.stringToFile(HTML_PREFIX1+"\r\n<!-- content goes here -->\r\n\r\n"+HTML_SUFFIX, filename);
       return "";
@@ -4899,7 +4899,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return true;
   }
 
-  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, ResourceDefn resource, List<String> tabs, ImplementationGuide ig) throws Exception {
+  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, ResourceDefn resource, List<String> tabs, ImplementationGuideDefn ig) throws Exception {
     String filename;
     if (definitions.hasLogicalModel(name)) {
       LogicalModel lm = definitions.getLogicalModel(name);
@@ -4909,7 +4909,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource, tabs, ig);
   }
 
-  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path, String intro, String notes, ImplementationGuide ig) throws Exception {
+  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path, String intro, String notes, ImplementationGuideDefn ig) throws Exception {
     String workingTitle = null;
 
     int level = (ig == null || ig.isCore()) ? 0 : 1;
@@ -5296,7 +5296,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return path.contains(".") ? path.substring(0, path.lastIndexOf('.')) : path;
   }
 
-  public String processExtensionIncludes(String filename, StructureDefinition ed, String xml, String json, String tx, String src, String pagePath, ImplementationGuide ig) throws Exception {
+  public String processExtensionIncludes(String filename, StructureDefinition ed, String xml, String json, String tx, String src, String pagePath, ImplementationGuideDefn ig) throws Exception {
     String workingTitle = null;
     int level = ig.isCore() ? 0 : 1;
 
@@ -6074,7 +6074,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return null;
   }
 
-  public String processConformancePackageIncludes(Profile pack, String src, String intro, String notes, String resourceName, ImplementationGuide ig) throws Exception {
+  public String processConformancePackageIncludes(Profile pack, String src, String intro, String notes, String resourceName, ImplementationGuideDefn ig) throws Exception {
     String workingTitle = null;
     int level = (ig == null || ig.isCore()) ? 0 : 1;
     //boolean even = false;

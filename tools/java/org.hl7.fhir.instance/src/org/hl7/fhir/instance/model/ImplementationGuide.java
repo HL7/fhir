@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jul 26, 2015 20:31+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 27, 2015 07:25+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -137,6 +137,18 @@ public class ImplementationGuide extends DomainResource {
          */
         INCLUDE, 
         /**
+         * This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section
+         */
+        DIRECTORY, 
+        /**
+         * This is a page that creates the listed resources as a dictionary
+         */
+        DICTIONARY, 
+        /**
+         * This is a generated page that contains the table of contents
+         */
+        TOC, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -151,6 +163,12 @@ public class ImplementationGuide extends DomainResource {
           return LIST;
         if ("include".equals(codeString))
           return INCLUDE;
+        if ("directory".equals(codeString))
+          return DIRECTORY;
+        if ("dictionary".equals(codeString))
+          return DICTIONARY;
+        if ("toc".equals(codeString))
+          return TOC;
         throw new Exception("Unknown GuidePageKind code '"+codeString+"'");
         }
         public String toCode() {
@@ -159,6 +177,9 @@ public class ImplementationGuide extends DomainResource {
             case EXAMPLE: return "example";
             case LIST: return "list";
             case INCLUDE: return "include";
+            case DIRECTORY: return "directory";
+            case DICTIONARY: return "dictionary";
+            case TOC: return "toc";
             default: return "?";
           }
         }
@@ -168,6 +189,9 @@ public class ImplementationGuide extends DomainResource {
             case EXAMPLE: return "http://hl7.org/fhir/guide-page-kind";
             case LIST: return "http://hl7.org/fhir/guide-page-kind";
             case INCLUDE: return "http://hl7.org/fhir/guide-page-kind";
+            case DIRECTORY: return "http://hl7.org/fhir/guide-page-kind";
+            case DICTIONARY: return "http://hl7.org/fhir/guide-page-kind";
+            case TOC: return "http://hl7.org/fhir/guide-page-kind";
             default: return "?";
           }
         }
@@ -177,6 +201,9 @@ public class ImplementationGuide extends DomainResource {
             case EXAMPLE: return "This is a page that represents a human readable rendering of an example";
             case LIST: return "This is a page that represents a list of resources of one or more types";
             case INCLUDE: return "This is a page that is where an included guide is injected";
+            case DIRECTORY: return "This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section";
+            case DICTIONARY: return "This is a page that creates the listed resources as a dictionary";
+            case TOC: return "This is a generated page that contains the table of contents";
             default: return "?";
           }
         }
@@ -186,6 +213,9 @@ public class ImplementationGuide extends DomainResource {
             case EXAMPLE: return "Example";
             case LIST: return "List";
             case INCLUDE: return "Include";
+            case DIRECTORY: return "Directory";
+            case DICTIONARY: return "Dictionary";
+            case TOC: return "Table Of Contents";
             default: return "?";
           }
         }
@@ -204,6 +234,12 @@ public class ImplementationGuide extends DomainResource {
           return GuidePageKind.LIST;
         if ("include".equals(codeString))
           return GuidePageKind.INCLUDE;
+        if ("directory".equals(codeString))
+          return GuidePageKind.DIRECTORY;
+        if ("dictionary".equals(codeString))
+          return GuidePageKind.DICTIONARY;
+        if ("toc".equals(codeString))
+          return GuidePageKind.TOC;
         throw new IllegalArgumentException("Unknown GuidePageKind code '"+codeString+"'");
         }
     public String toCode(GuidePageKind code) {
@@ -215,6 +251,12 @@ public class ImplementationGuide extends DomainResource {
         return "list";
       if (code == GuidePageKind.INCLUDE)
         return "include";
+      if (code == GuidePageKind.DIRECTORY)
+        return "directory";
+      if (code == GuidePageKind.DICTIONARY)
+        return "dictionary";
+      if (code == GuidePageKind.TOC)
+        return "toc";
       return "?";
       }
     }
@@ -544,7 +586,166 @@ public class ImplementationGuide extends DomainResource {
   }
 
     @Block()
-    public static class ImplementationGuideResourceComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ImplementationGuidePackageComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The name for the group, as used in page.package.
+         */
+        @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Name used .page.package", formalDefinition="The name for the group, as used in page.package." )
+        protected StringType name;
+
+        /**
+         * A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.
+         */
+        @Child(name = "resource", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Resource in the implementation guide", formalDefinition="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource." )
+        protected List<ImplementationGuidePackageResourceComponent> resource;
+
+        private static final long serialVersionUID = 727577015L;
+
+    /*
+     * Constructor
+     */
+      public ImplementationGuidePackageComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #name} (The name for the group, as used in page.package.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImplementationGuidePackageComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (The name for the group, as used in page.package.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public ImplementationGuidePackageComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name for the group, as used in page.package.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name for the group, as used in page.package.
+         */
+        public ImplementationGuidePackageComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #resource} (A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.)
+         */
+        public List<ImplementationGuidePackageResourceComponent> getResource() { 
+          if (this.resource == null)
+            this.resource = new ArrayList<ImplementationGuidePackageResourceComponent>();
+          return this.resource;
+        }
+
+        public boolean hasResource() { 
+          if (this.resource == null)
+            return false;
+          for (ImplementationGuidePackageResourceComponent item : this.resource)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #resource} (A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.)
+         */
+    // syntactic sugar
+        public ImplementationGuidePackageResourceComponent addResource() { //3
+          ImplementationGuidePackageResourceComponent t = new ImplementationGuidePackageResourceComponent();
+          if (this.resource == null)
+            this.resource = new ArrayList<ImplementationGuidePackageResourceComponent>();
+          this.resource.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public ImplementationGuidePackageComponent addResource(ImplementationGuidePackageResourceComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.resource == null)
+            this.resource = new ArrayList<ImplementationGuidePackageResourceComponent>();
+          this.resource.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "The name for the group, as used in page.package.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("resource", "", "A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.", 0, java.lang.Integer.MAX_VALUE, resource));
+        }
+
+      public ImplementationGuidePackageComponent copy() {
+        ImplementationGuidePackageComponent dst = new ImplementationGuidePackageComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        if (resource != null) {
+          dst.resource = new ArrayList<ImplementationGuidePackageResourceComponent>();
+          for (ImplementationGuidePackageResourceComponent i : resource)
+            dst.resource.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImplementationGuidePackageComponent))
+          return false;
+        ImplementationGuidePackageComponent o = (ImplementationGuidePackageComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(resource, o.resource, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImplementationGuidePackageComponent))
+          return false;
+        ImplementationGuidePackageComponent o = (ImplementationGuidePackageComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (resource == null || resource.isEmpty())
+          ;
+      }
+
+  }
+
+    @Block()
+    public static class ImplementationGuidePackageResourceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).
          */
@@ -574,30 +775,30 @@ public class ImplementationGuide extends DomainResource {
         protected Type source;
 
         /**
-         * A profile that applies to this resource.
+         * Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions.
          */
-        @Child(name = "profile", type = {StructureDefinition.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="Profile this is an example of (if applicable)", formalDefinition="A profile that applies to this resource." )
-        protected Reference profile;
+        @Child(name = "exampleFor", type = {StructureDefinition.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Resource this is an example of (if applicable)", formalDefinition="Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions." )
+        protected Reference exampleFor;
 
         /**
-         * The actual object that is the target of the reference (A profile that applies to this resource.)
+         * The actual object that is the target of the reference (Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions.)
          */
-        protected StructureDefinition profileTarget;
+        protected StructureDefinition exampleForTarget;
 
-        private static final long serialVersionUID = -201640276L;
+        private static final long serialVersionUID = 1599936790L;
 
     /*
      * Constructor
      */
-      public ImplementationGuideResourceComponent() {
+      public ImplementationGuidePackageResourceComponent() {
         super();
       }
 
     /*
      * Constructor
      */
-      public ImplementationGuideResourceComponent(Type source) {
+      public ImplementationGuidePackageResourceComponent(Type source) {
         super();
         this.source = source;
       }
@@ -608,7 +809,7 @@ public class ImplementationGuide extends DomainResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideResourceComponent.name");
+              throw new Error("Attempt to auto-create ImplementationGuidePackageResourceComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -625,7 +826,7 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @param value {@link #name} (A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ImplementationGuideResourceComponent setNameElement(StringType value) { 
+        public ImplementationGuidePackageResourceComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -640,7 +841,7 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @param value A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).
          */
-        public ImplementationGuideResourceComponent setName(String value) { 
+        public ImplementationGuidePackageResourceComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -657,7 +858,7 @@ public class ImplementationGuide extends DomainResource {
         public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideResourceComponent.description");
+              throw new Error("Attempt to auto-create ImplementationGuidePackageResourceComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new StringType(); // bb
           return this.description;
@@ -674,7 +875,7 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @param value {@link #description} (A description of the reason that a resource has been included in the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ImplementationGuideResourceComponent setDescriptionElement(StringType value) { 
+        public ImplementationGuidePackageResourceComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -689,7 +890,7 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @param value A description of the reason that a resource has been included in the implementation guide.
          */
-        public ImplementationGuideResourceComponent setDescription(String value) { 
+        public ImplementationGuidePackageResourceComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -706,7 +907,7 @@ public class ImplementationGuide extends DomainResource {
         public StringType getAcronymElement() { 
           if (this.acronym == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideResourceComponent.acronym");
+              throw new Error("Attempt to auto-create ImplementationGuidePackageResourceComponent.acronym");
             else if (Configuration.doAutoCreate())
               this.acronym = new StringType(); // bb
           return this.acronym;
@@ -723,7 +924,7 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @param value {@link #acronym} (A short code that may be used to identify the resource throughout the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getAcronym" gives direct access to the value
          */
-        public ImplementationGuideResourceComponent setAcronymElement(StringType value) { 
+        public ImplementationGuidePackageResourceComponent setAcronymElement(StringType value) { 
           this.acronym = value;
           return this;
         }
@@ -738,7 +939,7 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @param value A short code that may be used to identify the resource throughout the implementation guide.
          */
-        public ImplementationGuideResourceComponent setAcronym(String value) { 
+        public ImplementationGuidePackageResourceComponent setAcronym(String value) { 
           if (Utilities.noString(value))
             this.acronym = null;
           else {
@@ -789,18 +990,196 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @param value {@link #source} (Where this resource is found.)
          */
-        public ImplementationGuideResourceComponent setSource(Type value) { 
+        public ImplementationGuidePackageResourceComponent setSource(Type value) { 
           this.source = value;
           return this;
         }
 
         /**
-         * @return {@link #profile} (A profile that applies to this resource.)
+         * @return {@link #exampleFor} (Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions.)
+         */
+        public Reference getExampleFor() { 
+          if (this.exampleFor == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImplementationGuidePackageResourceComponent.exampleFor");
+            else if (Configuration.doAutoCreate())
+              this.exampleFor = new Reference(); // cc
+          return this.exampleFor;
+        }
+
+        public boolean hasExampleFor() { 
+          return this.exampleFor != null && !this.exampleFor.isEmpty();
+        }
+
+        /**
+         * @param value {@link #exampleFor} (Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions.)
+         */
+        public ImplementationGuidePackageResourceComponent setExampleFor(Reference value) { 
+          this.exampleFor = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #exampleFor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions.)
+         */
+        public StructureDefinition getExampleForTarget() { 
+          if (this.exampleForTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImplementationGuidePackageResourceComponent.exampleFor");
+            else if (Configuration.doAutoCreate())
+              this.exampleForTarget = new StructureDefinition(); // aa
+          return this.exampleForTarget;
+        }
+
+        /**
+         * @param value {@link #exampleFor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions.)
+         */
+        public ImplementationGuidePackageResourceComponent setExampleForTarget(StructureDefinition value) { 
+          this.exampleForTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("description", "string", "A description of the reason that a resource has been included in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, description));
+          childrenList.add(new Property("acronym", "string", "A short code that may be used to identify the resource throughout the implementation guide.", 0, java.lang.Integer.MAX_VALUE, acronym));
+          childrenList.add(new Property("source[x]", "uri|Reference(Any)", "Where this resource is found.", 0, java.lang.Integer.MAX_VALUE, source));
+          childrenList.add(new Property("exampleFor", "Reference(StructureDefinition)", "Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions.", 0, java.lang.Integer.MAX_VALUE, exampleFor));
+        }
+
+      public ImplementationGuidePackageResourceComponent copy() {
+        ImplementationGuidePackageResourceComponent dst = new ImplementationGuidePackageResourceComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.acronym = acronym == null ? null : acronym.copy();
+        dst.source = source == null ? null : source.copy();
+        dst.exampleFor = exampleFor == null ? null : exampleFor.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImplementationGuidePackageResourceComponent))
+          return false;
+        ImplementationGuidePackageResourceComponent o = (ImplementationGuidePackageResourceComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(acronym, o.acronym, true)
+           && compareDeep(source, o.source, true) && compareDeep(exampleFor, o.exampleFor, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImplementationGuidePackageResourceComponent))
+          return false;
+        ImplementationGuidePackageResourceComponent o = (ImplementationGuidePackageResourceComponent) other;
+        return compareValues(name, o.name, true) && compareValues(description, o.description, true) && compareValues(acronym, o.acronym, true)
+          ;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
+           && (acronym == null || acronym.isEmpty()) && (source == null || source.isEmpty()) && (exampleFor == null || exampleFor.isEmpty())
+          ;
+      }
+
+  }
+
+    @Block()
+    public static class ImplementationGuideGlobalComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The type of resource that all instances must conform to.
+         */
+        @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Type this profiles applies to", formalDefinition="The type of resource that all instances must conform to." )
+        protected CodeType type;
+
+        /**
+         * A reference to the profile that all instances must conform to.
+         */
+        @Child(name = "profile", type = {StructureDefinition.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Profile that all resources must conform to", formalDefinition="A reference to the profile that all instances must conform to." )
+        protected Reference profile;
+
+        /**
+         * The actual object that is the target of the reference (A reference to the profile that all instances must conform to.)
+         */
+        protected StructureDefinition profileTarget;
+
+        private static final long serialVersionUID = 2011731959L;
+
+    /*
+     * Constructor
+     */
+      public ImplementationGuideGlobalComponent() {
+        super();
+      }
+
+    /*
+     * Constructor
+     */
+      public ImplementationGuideGlobalComponent(CodeType type, Reference profile) {
+        super();
+        this.type = type;
+        this.profile = profile;
+      }
+
+        /**
+         * @return {@link #type} (The type of resource that all instances must conform to.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public CodeType getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImplementationGuideGlobalComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new CodeType(); // bb
+          return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (The type of resource that all instances must conform to.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public ImplementationGuideGlobalComponent setTypeElement(CodeType value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return The type of resource that all instances must conform to.
+         */
+        public String getType() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value The type of resource that all instances must conform to.
+         */
+        public ImplementationGuideGlobalComponent setType(String value) { 
+            if (this.type == null)
+              this.type = new CodeType();
+            this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #profile} (A reference to the profile that all instances must conform to.)
          */
         public Reference getProfile() { 
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideResourceComponent.profile");
+              throw new Error("Attempt to auto-create ImplementationGuideGlobalComponent.profile");
             else if (Configuration.doAutoCreate())
               this.profile = new Reference(); // cc
           return this.profile;
@@ -811,49 +1190,43 @@ public class ImplementationGuide extends DomainResource {
         }
 
         /**
-         * @param value {@link #profile} (A profile that applies to this resource.)
+         * @param value {@link #profile} (A reference to the profile that all instances must conform to.)
          */
-        public ImplementationGuideResourceComponent setProfile(Reference value) { 
+        public ImplementationGuideGlobalComponent setProfile(Reference value) { 
           this.profile = value;
           return this;
         }
 
         /**
-         * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile that applies to this resource.)
+         * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the profile that all instances must conform to.)
          */
         public StructureDefinition getProfileTarget() { 
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideResourceComponent.profile");
+              throw new Error("Attempt to auto-create ImplementationGuideGlobalComponent.profile");
             else if (Configuration.doAutoCreate())
               this.profileTarget = new StructureDefinition(); // aa
           return this.profileTarget;
         }
 
         /**
-         * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A profile that applies to this resource.)
+         * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the profile that all instances must conform to.)
          */
-        public ImplementationGuideResourceComponent setProfileTarget(StructureDefinition value) { 
+        public ImplementationGuideGlobalComponent setProfileTarget(StructureDefinition value) { 
           this.profileTarget = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("description", "string", "A description of the reason that a resource has been included in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("acronym", "string", "A short code that may be used to identify the resource throughout the implementation guide.", 0, java.lang.Integer.MAX_VALUE, acronym));
-          childrenList.add(new Property("source[x]", "uri|Reference(Any)", "Where this resource is found.", 0, java.lang.Integer.MAX_VALUE, source));
-          childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A profile that applies to this resource.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("type", "code", "The type of resource that all instances must conform to.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A reference to the profile that all instances must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
         }
 
-      public ImplementationGuideResourceComponent copy() {
-        ImplementationGuideResourceComponent dst = new ImplementationGuideResourceComponent();
+      public ImplementationGuideGlobalComponent copy() {
+        ImplementationGuideGlobalComponent dst = new ImplementationGuideGlobalComponent();
         copyValues(dst);
-        dst.name = name == null ? null : name.copy();
-        dst.description = description == null ? null : description.copy();
-        dst.acronym = acronym == null ? null : acronym.copy();
-        dst.source = source == null ? null : source.copy();
+        dst.type = type == null ? null : type.copy();
         dst.profile = profile == null ? null : profile.copy();
         return dst;
       }
@@ -862,27 +1235,24 @@ public class ImplementationGuide extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ImplementationGuideResourceComponent))
+        if (!(other instanceof ImplementationGuideGlobalComponent))
           return false;
-        ImplementationGuideResourceComponent o = (ImplementationGuideResourceComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(acronym, o.acronym, true)
-           && compareDeep(source, o.source, true) && compareDeep(profile, o.profile, true);
+        ImplementationGuideGlobalComponent o = (ImplementationGuideGlobalComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(profile, o.profile, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ImplementationGuideResourceComponent))
+        if (!(other instanceof ImplementationGuideGlobalComponent))
           return false;
-        ImplementationGuideResourceComponent o = (ImplementationGuideResourceComponent) other;
-        return compareValues(name, o.name, true) && compareValues(description, o.description, true) && compareValues(acronym, o.acronym, true)
-          ;
+        ImplementationGuideGlobalComponent o = (ImplementationGuideGlobalComponent) other;
+        return compareValues(type, o.type, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
-           && (acronym == null || acronym.isEmpty()) && (source == null || source.isEmpty()) && (profile == null || profile.isEmpty())
+        return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
           ;
       }
 
@@ -894,38 +1264,45 @@ public class ImplementationGuide extends DomainResource {
          * The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.
          */
         @Child(name = "kind", type = {CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="page | example | list | include", formalDefinition="The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest." )
+        @Description(shortDefinition="page | example | list | include | directory | dictionary | toc", formalDefinition="The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest." )
         protected Enumeration<GuidePageKind> kind;
 
         /**
          * The source address for the page.
          */
-        @Child(name = "source", type = {UriType.class}, order=2, min=0, max=1)
+        @Child(name = "source", type = {UriType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Where to find that page", formalDefinition="The source address for the page." )
         protected UriType source;
 
         /**
-         * For list pages, what kind of resources to include in the list.
+         * For constructed pages, what kind of resources to include in the list.
          */
         @Child(name = "type", type = {CodeType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Kind of resource to include in the list", formalDefinition="For list pages, what kind of resources to include in the list." )
+        @Description(shortDefinition="Kind of resource to include in the list", formalDefinition="For constructed pages, what kind of resources to include in the list." )
         protected List<CodeType> type;
+
+        /**
+         * For constructed pages, a list of packages to include in the page (or else empty for everything).
+         */
+        @Child(name = "package", type = {StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Name of package to include", formalDefinition="For constructed pages, a list of packages to include in the page (or else empty for everything)." )
+        protected List<StringType> package_;
 
         /**
          * The format of the page.
          */
-        @Child(name = "format", type = {CodeType.class}, order=4, min=1, max=1)
+        @Child(name = "format", type = {CodeType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Format of the page (e.g. html, markdown etc)", formalDefinition="The format of the page." )
         protected CodeType format;
 
         /**
          * Nested Pages/Sections under this page.
          */
-        @Child(name = "page", type = {ImplementationGuidePageComponent.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "page", type = {ImplementationGuidePageComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Nested Pages / Sections", formalDefinition="Nested Pages/Sections under this page." )
         protected List<ImplementationGuidePageComponent> page;
 
-        private static final long serialVersionUID = -1608704479L;
+        private static final long serialVersionUID = -605275417L;
 
     /*
      * Constructor
@@ -937,10 +1314,10 @@ public class ImplementationGuide extends DomainResource {
     /*
      * Constructor
      */
-      public ImplementationGuidePageComponent(Enumeration<GuidePageKind> kind, CodeType format) {
+      public ImplementationGuidePageComponent(Enumeration<GuidePageKind> kind, UriType source) {
         super();
         this.kind = kind;
-        this.format = format;
+        this.source = source;
       }
 
         /**
@@ -1027,18 +1404,14 @@ public class ImplementationGuide extends DomainResource {
          * @param value The source address for the page.
          */
         public ImplementationGuidePageComponent setSource(String value) { 
-          if (Utilities.noString(value))
-            this.source = null;
-          else {
             if (this.source == null)
               this.source = new UriType();
             this.source.setValue(value);
-          }
           return this;
         }
 
         /**
-         * @return {@link #type} (For list pages, what kind of resources to include in the list.)
+         * @return {@link #type} (For constructed pages, what kind of resources to include in the list.)
          */
         public List<CodeType> getType() { 
           if (this.type == null)
@@ -1056,7 +1429,7 @@ public class ImplementationGuide extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (For list pages, what kind of resources to include in the list.)
+         * @return {@link #type} (For constructed pages, what kind of resources to include in the list.)
          */
     // syntactic sugar
         public CodeType addTypeElement() {//2 
@@ -1068,7 +1441,7 @@ public class ImplementationGuide extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (For list pages, what kind of resources to include in the list.)
+         * @param value {@link #type} (For constructed pages, what kind of resources to include in the list.)
          */
         public ImplementationGuidePageComponent addType(String value) { //1
           CodeType t = new CodeType();
@@ -1080,13 +1453,67 @@ public class ImplementationGuide extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (For list pages, what kind of resources to include in the list.)
+         * @param value {@link #type} (For constructed pages, what kind of resources to include in the list.)
          */
         public boolean hasType(String value) { 
           if (this.type == null)
             return false;
           for (CodeType v : this.type)
             if (v.equals(value)) // code
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #package_} (For constructed pages, a list of packages to include in the page (or else empty for everything).)
+         */
+        public List<StringType> getPackage() { 
+          if (this.package_ == null)
+            this.package_ = new ArrayList<StringType>();
+          return this.package_;
+        }
+
+        public boolean hasPackage() { 
+          if (this.package_ == null)
+            return false;
+          for (StringType item : this.package_)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #package_} (For constructed pages, a list of packages to include in the page (or else empty for everything).)
+         */
+    // syntactic sugar
+        public StringType addPackageElement() {//2 
+          StringType t = new StringType();
+          if (this.package_ == null)
+            this.package_ = new ArrayList<StringType>();
+          this.package_.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #package_} (For constructed pages, a list of packages to include in the page (or else empty for everything).)
+         */
+        public ImplementationGuidePageComponent addPackage(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.package_ == null)
+            this.package_ = new ArrayList<StringType>();
+          this.package_.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #package_} (For constructed pages, a list of packages to include in the page (or else empty for everything).)
+         */
+        public boolean hasPackage(String value) { 
+          if (this.package_ == null)
+            return false;
+          for (StringType v : this.package_)
+            if (v.equals(value)) // string
               return true;
           return false;
         }
@@ -1130,9 +1557,13 @@ public class ImplementationGuide extends DomainResource {
          * @param value The format of the page.
          */
         public ImplementationGuidePageComponent setFormat(String value) { 
+          if (Utilities.noString(value))
+            this.format = null;
+          else {
             if (this.format == null)
               this.format = new CodeType();
             this.format.setValue(value);
+          }
           return this;
         }
 
@@ -1180,7 +1611,8 @@ public class ImplementationGuide extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("kind", "code", "The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.", 0, java.lang.Integer.MAX_VALUE, kind));
           childrenList.add(new Property("source", "uri", "The source address for the page.", 0, java.lang.Integer.MAX_VALUE, source));
-          childrenList.add(new Property("type", "code", "For list pages, what kind of resources to include in the list.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "code", "For constructed pages, what kind of resources to include in the list.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("package", "string", "For constructed pages, a list of packages to include in the page (or else empty for everything).", 0, java.lang.Integer.MAX_VALUE, package_));
           childrenList.add(new Property("format", "code", "The format of the page.", 0, java.lang.Integer.MAX_VALUE, format));
           childrenList.add(new Property("page", "@ImplementationGuide.page", "Nested Pages/Sections under this page.", 0, java.lang.Integer.MAX_VALUE, page));
         }
@@ -1194,6 +1626,11 @@ public class ImplementationGuide extends DomainResource {
           dst.type = new ArrayList<CodeType>();
           for (CodeType i : type)
             dst.type.add(i.copy());
+        };
+        if (package_ != null) {
+          dst.package_ = new ArrayList<StringType>();
+          for (StringType i : package_)
+            dst.package_.add(i.copy());
         };
         dst.format = format == null ? null : format.copy();
         if (page != null) {
@@ -1212,7 +1649,8 @@ public class ImplementationGuide extends DomainResource {
           return false;
         ImplementationGuidePageComponent o = (ImplementationGuidePageComponent) other;
         return compareDeep(kind, o.kind, true) && compareDeep(source, o.source, true) && compareDeep(type, o.type, true)
-           && compareDeep(format, o.format, true) && compareDeep(page, o.page, true);
+           && compareDeep(package_, o.package_, true) && compareDeep(format, o.format, true) && compareDeep(page, o.page, true)
+          ;
       }
 
       @Override
@@ -1223,13 +1661,13 @@ public class ImplementationGuide extends DomainResource {
           return false;
         ImplementationGuidePageComponent o = (ImplementationGuidePageComponent) other;
         return compareValues(kind, o.kind, true) && compareValues(source, o.source, true) && compareValues(type, o.type, true)
-           && compareValues(format, o.format, true);
+           && compareValues(package_, o.package_, true) && compareValues(format, o.format, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (kind == null || kind.isEmpty()) && (source == null || source.isEmpty())
-           && (type == null || type.isEmpty()) && (format == null || format.isEmpty()) && (page == null || page.isEmpty())
-          ;
+           && (type == null || type.isEmpty()) && (package_ == null || package_.isEmpty()) && (format == null || format.isEmpty())
+           && (page == null || page.isEmpty());
       }
 
   }
@@ -1326,27 +1764,34 @@ public class ImplementationGuide extends DomainResource {
     protected List<ImplementationGuideDependencyComponent> dependency;
 
     /**
-     * A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.
+     * A logial group of resources. Logical groups can be used when building pages.
      */
-    @Child(name = "resource", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Resource in the implementation guide", formalDefinition="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource." )
-    protected List<ImplementationGuideResourceComponent> resource;
+    @Child(name = "package", type = {}, order=13, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Group of resources as used in .page.package", formalDefinition="A logial group of resources. Logical groups can be used when building pages." )
+    protected List<ImplementationGuidePackageComponent> package_;
+
+    /**
+     * A set of profiles that all resources covered by this implementation guide must conform to.
+     */
+    @Child(name = "global", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Profiles that apply globally", formalDefinition="A set of profiles that all resources covered by this implementation guide must conform to." )
+    protected List<ImplementationGuideGlobalComponent> global;
 
     /**
      * A binary file that is included in the  implementation guide when it is published.
      */
-    @Child(name = "binary", type = {UriType.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "binary", type = {UriType.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Image, css, script, etc", formalDefinition="A binary file that is included in the  implementation guide when it is published." )
     protected List<UriType> binary;
 
     /**
      * A page / section in the implementation guide. The root page is the implementation guide home page.
      */
-    @Child(name = "page", type = {}, order=15, min=0, max=1)
+    @Child(name = "page", type = {}, order=16, min=1, max=1)
     @Description(shortDefinition="Page/Section in the Guide", formalDefinition="A page / section in the implementation guide. The root page is the implementation guide home page." )
     protected ImplementationGuidePageComponent page;
 
-    private static final long serialVersionUID = -1797506245L;
+    private static final long serialVersionUID = 80276547L;
 
   /*
    * Constructor
@@ -1358,11 +1803,12 @@ public class ImplementationGuide extends DomainResource {
   /*
    * Constructor
    */
-    public ImplementationGuide(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status) {
+    public ImplementationGuide(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, ImplementationGuidePageComponent page) {
       super();
       this.url = url;
       this.name = name;
       this.status = status;
+      this.page = page;
     }
 
     /**
@@ -1960,42 +2406,82 @@ public class ImplementationGuide extends DomainResource {
     }
 
     /**
-     * @return {@link #resource} (A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.)
+     * @return {@link #package_} (A logial group of resources. Logical groups can be used when building pages.)
      */
-    public List<ImplementationGuideResourceComponent> getResource() { 
-      if (this.resource == null)
-        this.resource = new ArrayList<ImplementationGuideResourceComponent>();
-      return this.resource;
+    public List<ImplementationGuidePackageComponent> getPackage() { 
+      if (this.package_ == null)
+        this.package_ = new ArrayList<ImplementationGuidePackageComponent>();
+      return this.package_;
     }
 
-    public boolean hasResource() { 
-      if (this.resource == null)
+    public boolean hasPackage() { 
+      if (this.package_ == null)
         return false;
-      for (ImplementationGuideResourceComponent item : this.resource)
+      for (ImplementationGuidePackageComponent item : this.package_)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #resource} (A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.)
+     * @return {@link #package_} (A logial group of resources. Logical groups can be used when building pages.)
      */
     // syntactic sugar
-    public ImplementationGuideResourceComponent addResource() { //3
-      ImplementationGuideResourceComponent t = new ImplementationGuideResourceComponent();
-      if (this.resource == null)
-        this.resource = new ArrayList<ImplementationGuideResourceComponent>();
-      this.resource.add(t);
+    public ImplementationGuidePackageComponent addPackage() { //3
+      ImplementationGuidePackageComponent t = new ImplementationGuidePackageComponent();
+      if (this.package_ == null)
+        this.package_ = new ArrayList<ImplementationGuidePackageComponent>();
+      this.package_.add(t);
       return t;
     }
 
     // syntactic sugar
-    public ImplementationGuide addResource(ImplementationGuideResourceComponent t) { //3
+    public ImplementationGuide addPackage(ImplementationGuidePackageComponent t) { //3
       if (t == null)
         return this;
-      if (this.resource == null)
-        this.resource = new ArrayList<ImplementationGuideResourceComponent>();
-      this.resource.add(t);
+      if (this.package_ == null)
+        this.package_ = new ArrayList<ImplementationGuidePackageComponent>();
+      this.package_.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #global} (A set of profiles that all resources covered by this implementation guide must conform to.)
+     */
+    public List<ImplementationGuideGlobalComponent> getGlobal() { 
+      if (this.global == null)
+        this.global = new ArrayList<ImplementationGuideGlobalComponent>();
+      return this.global;
+    }
+
+    public boolean hasGlobal() { 
+      if (this.global == null)
+        return false;
+      for (ImplementationGuideGlobalComponent item : this.global)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #global} (A set of profiles that all resources covered by this implementation guide must conform to.)
+     */
+    // syntactic sugar
+    public ImplementationGuideGlobalComponent addGlobal() { //3
+      ImplementationGuideGlobalComponent t = new ImplementationGuideGlobalComponent();
+      if (this.global == null)
+        this.global = new ArrayList<ImplementationGuideGlobalComponent>();
+      this.global.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public ImplementationGuide addGlobal(ImplementationGuideGlobalComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.global == null)
+        this.global = new ArrayList<ImplementationGuideGlobalComponent>();
+      this.global.add(t);
       return this;
     }
 
@@ -2092,7 +2578,8 @@ public class ImplementationGuide extends DomainResource {
         childrenList.add(new Property("date", "dateTime", "The date that this version of the Implementation Guide was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.5.0 for this version.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("dependency", "", "Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc defined in other implementation guides.", 0, java.lang.Integer.MAX_VALUE, dependency));
-        childrenList.add(new Property("resource", "", "A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.", 0, java.lang.Integer.MAX_VALUE, resource));
+        childrenList.add(new Property("package", "", "A logial group of resources. Logical groups can be used when building pages.", 0, java.lang.Integer.MAX_VALUE, package_));
+        childrenList.add(new Property("global", "", "A set of profiles that all resources covered by this implementation guide must conform to.", 0, java.lang.Integer.MAX_VALUE, global));
         childrenList.add(new Property("binary", "uri", "A binary file that is included in the  implementation guide when it is published.", 0, java.lang.Integer.MAX_VALUE, binary));
         childrenList.add(new Property("page", "", "A page / section in the implementation guide. The root page is the implementation guide home page.", 0, java.lang.Integer.MAX_VALUE, page));
       }
@@ -2125,10 +2612,15 @@ public class ImplementationGuide extends DomainResource {
           for (ImplementationGuideDependencyComponent i : dependency)
             dst.dependency.add(i.copy());
         };
-        if (resource != null) {
-          dst.resource = new ArrayList<ImplementationGuideResourceComponent>();
-          for (ImplementationGuideResourceComponent i : resource)
-            dst.resource.add(i.copy());
+        if (package_ != null) {
+          dst.package_ = new ArrayList<ImplementationGuidePackageComponent>();
+          for (ImplementationGuidePackageComponent i : package_)
+            dst.package_.add(i.copy());
+        };
+        if (global != null) {
+          dst.global = new ArrayList<ImplementationGuideGlobalComponent>();
+          for (ImplementationGuideGlobalComponent i : global)
+            dst.global.add(i.copy());
         };
         if (binary != null) {
           dst.binary = new ArrayList<UriType>();
@@ -2154,8 +2646,8 @@ public class ImplementationGuide extends DomainResource {
            && compareDeep(useContext, o.useContext, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
            && compareDeep(description, o.description, true) && compareDeep(copyright, o.copyright, true) && compareDeep(status, o.status, true)
            && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(fhirVersion, o.fhirVersion, true)
-           && compareDeep(dependency, o.dependency, true) && compareDeep(resource, o.resource, true) && compareDeep(binary, o.binary, true)
-           && compareDeep(page, o.page, true);
+           && compareDeep(dependency, o.dependency, true) && compareDeep(package_, o.package_, true) && compareDeep(global, o.global, true)
+           && compareDeep(binary, o.binary, true) && compareDeep(page, o.page, true);
       }
 
       @Override
@@ -2177,8 +2669,8 @@ public class ImplementationGuide extends DomainResource {
            && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
            && (copyright == null || copyright.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (date == null || date.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty()) && (dependency == null || dependency.isEmpty())
-           && (resource == null || resource.isEmpty()) && (binary == null || binary.isEmpty()) && (page == null || page.isEmpty())
-          ;
+           && (package_ == null || package_.isEmpty()) && (global == null || global.isEmpty()) && (binary == null || binary.isEmpty())
+           && (page == null || page.isEmpty());
       }
 
   @Override

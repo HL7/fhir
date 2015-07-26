@@ -1,0 +1,117 @@
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hspc"/>
+  <url value="http://hl7.org/fhir/hspc"/>
+  <name value="HSPC Implementation Guide"/>
+  <publisher value="Health Services Platform Consortium"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+
+  <dependency>  
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/cqf"/>
+  </dependency>
+
+  <dependency>  
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/daf"/>
+  </dependency>
+
+  <package>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="patient-hspc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="practitioner-hspc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="provenance-hspc-attribution-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="hspc-stdlabobs-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="hspc-stdlabobsqty-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="location-hspc-servicedeliverylocation-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-age-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-height-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobscoded-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobsivlpq.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobsnarrative-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobsreal-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobstiter-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-stdlabobsord-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-weight-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="observation-hspc-heartrate-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="organization-hspc-organization-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="hspc-headcircumference-profile-spreadsheet.xml"/>  
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="hspc-estimatedduedate-profile-spreadsheet.xml"/>  
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="hspc-boneage-profile-spreadsheet.xml"/>  
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="hspc-bmi-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="hspc-respiratoryrate-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+      <valueUri value="hspc-gestationalageatbirth-profile-spreadsheet.xml"/>
+    </extension>
+
+    <name value="base"/>
+    <resource> 
+      <name value="HSPC Quantitative Labs dictionary"/>
+      <sourceUri value="hspc-qnlab-de.xml"/>
+    </resource>  
+  </package>  
+  
+  <page>
+    <kind value="page"/>
+    <source value="hspc.html"/>
+    <page>
+      <kind value="toc"/>
+      <source value="hspc-toc.html"/>
+    </page>
+    <page>
+      <kind value="list"/>
+      <source value="daf-registry.html"/>
+      <type value="Conformance"/>
+      <type value="StructureDefinition"/>
+      <type value="ValueSet"/>
+    </page>
+    <page>
+      <kind value="dictionary"/>
+      <source value="hspc-qnlab-de.xml"/>
+      <type value="DataElement"/>
+    </page>
+  </page>     
+</ImplementationGuide>
