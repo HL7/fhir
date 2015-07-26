@@ -4790,7 +4790,34 @@ public class Publisher implements URIResolver {
       if (wantBuild(rname)) {
         for (Example e : r.getExamples()) {
           String n = e.getTitle();
+          ImplementationGuide ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
+          if (ig != null)
+            n = ig.getCode()+File.separator+n;
           list.add(n);
+        }
+        // todo-profile: how this works has to change (to use profile tag)
+        for (Profile e : r.getConformancePackages()) {
+          for (Example en : e.getExamples()) {
+            ImplementationGuide ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
+            String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
+            String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
+            list.add(n);
+          }
+        }
+      }
+    }
+
+    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+      String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
+      for (Example ex : ig.getExamples()) {
+        String n = ex.getTitle();
+        logError(" ...validate " + prefix+n, LogMessageType.Process);
+        list.add(prefix+n);
+      }
+      for (Profile pck : ig.getProfiles()) {
+        for (Example en : pck.getExamples()) {
+          page.log(" ...validate " + prefix+en.getTitle()+" ("+pck.getTitle()+")", LogMessageType.Process);
+          list.add(prefix+Utilities.changeFileExt(en.getTitle(), ""));
         }
       }
     }
@@ -4939,7 +4966,7 @@ public class Publisher implements URIResolver {
     testSearchParameters(page.getFolders().dstDir + n + ".xml");
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesTest()) {
-        compareXml(n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n + "."+gen.getName()+".xml");
+        compareXml(n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n.replace(File.separator, "-") + "."+gen.getName()+".xml");
       }
     }
   }
