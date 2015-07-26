@@ -237,7 +237,7 @@ public class CCDAConverter {
 			r.setText(new Narrative());
 		if (r.getText().getDiv() == null) {
 			r.getText().setStatus(NarrativeStatus.GENERATED);
-			new NarrativeGenerator("", context).generate(r);
+			new NarrativeGenerator("", "", context).generate(r);
 		}
 		r.setMeta(new Meta().setLastUpdatedElement(InstantType.now()));
 		r.setId(id);

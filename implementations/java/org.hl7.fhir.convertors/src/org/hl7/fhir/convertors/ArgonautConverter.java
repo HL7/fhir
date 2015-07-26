@@ -332,7 +332,7 @@ public class ArgonautConverter extends ConverterBase {
 		if (resource instanceof DomainResource) {
 			dr = (DomainResource) resource;
   		if (!dr.hasText()) {
-	  	  NarrativeGenerator generator = new NarrativeGenerator("", validator.getContext());
+	  	  NarrativeGenerator generator = new NarrativeGenerator("", "", validator.getContext());
 		    generator.generate(dr);
 	  	}
 		}

@@ -19,15 +19,15 @@ this reason, all SDC transactions must be appropriately secured with access limi
 protected while in transit and appropriate audit measures taken.
 </p>
 <p>
-Implementers should be aware of the <a href="security.html">security considerations</a> associated with FHIR transactions,
+Implementers should be aware of the <a href="[%fhir-path%]security.html">security considerations</a> associated with FHIR transactions,
 particularly those related to:
 </p>
 <ul>
-  <li><a href="security.html#http">Communications</a></li>
-  <li><a href="security.html#authentication">Authentication</a></li>
-  <li><a href="security.html#binding">Authorization/Access Control</a></li>
-  <li><a href="security.html#audit">Audit Logging</a></li>
-  <li><a href="security.html#signatures">Digital Signatures</a></li>
+  <li><a href="[%fhir-path%]security.html#http">Communications</a></li>
+  <li><a href="[%fhir-path%]security.html#authentication">Authentication</a></li>
+  <li><a href="[%fhir-path%]security.html#binding">Authorization/Access Control</a></li>
+  <li><a href="[%fhir-path%]security.html#audit">Audit Logging</a></li>
+  <li><a href="[%fhir-path%]security.html#signatures">Digital Signatures</a></li>
 </ul>
 <p>
 For the purposes of SDC, security conformance rules are as follows:
@@ -37,10 +37,10 @@ For the purposes of SDC, security conformance rules are as follows:
   taking place over a secure network connection.<br/>
   (Using TLS even within a secured network environment is still encouraged to provide defense in depth.)</li>
   <li>Systems SHALL use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level)</li>
-  <li>Systems SHALL use either IHE's ATNA standard for audit logging or an equivalent using the <a href="auditevent.html">AuditEvent</a>
+  <li>Systems SHALL use either IHE's ATNA standard for audit logging or an equivalent using the <a href="[%fhir-path%]auditevent.html">AuditEvent</a>
   resource</li>
   <li>Where workflow requires digital signatures on forms or on answer submissions, implementers SHALL make use of the
-  <a href="provenance.html">Provenance</a> resource to record such signatures.</li>
+  <a href="[%fhir-path%]provenance.html">Provenance</a> resource to record such signatures.</li>
 </ul>
 
 <h4>Consent</h4>

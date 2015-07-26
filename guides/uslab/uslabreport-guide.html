@@ -13,7 +13,7 @@
          <p>
             The FHIR USLab Report Implementation focuses on identifying the requirements, specifications
             and standards, and on providing the implementation guidance for reporting of laboratory
-            test results to ambulatory care providers in the US Realm using <a href="http.html">the FHIR in the RESTful framework</a>.  Its scope
+            test results to ambulatory care providers in the US Realm using <a href="[%fhir-path%]http.html">the FHIR in the RESTful framework</a>.  Its scope
             includes requirements to enable the incorporation of clinical laboratory test
             results into an Electronic Health Record System (EHR-S) as standardized structured data using the
             defined inter-organizational laboratory transaction. The Use Case requirements are directed at
@@ -43,7 +43,7 @@
                the HL7 Standard. Although some information from the standard is included in this
                implementation guide, much information from the standard has not been repeated here. -->
             <li>The guide is constructed assuming the implementer has access to the FHIR Specification. Although some information from the standard is included in this implementation guide, much information from the standard has not been repeated here. </li>
-            <li>The guide is constructed assuming the implementer SHALL conform to the <a href="http.html"> FHIR RESTful API</a></li>
+            <li>The guide is constructed assuming the implementer SHALL conform to the <a href="[%fhir-path%]http.html"> FHIR RESTful API</a></li>
             <!-- EH:  todo create the messaging and document version of uslaborder-->
             <li>The rules defined in the FHIR Conformance Profile were used to document the use case for, and constraints applied to, the resources described in this guide. </li>
          </ul>
@@ -230,7 +230,7 @@
             successful, results are obtained and entered/released in the LIS. An authorized person at the
             laboratory reviews and approves the laboratory test results, or the certifying laboratory reviewer of
             record in the case of an auto-verification process, to be sent to the provider and any non-ordering providers requested in the laboratory order.
-            The results are either <a href="pushpull.html">pushed or pulled</a> into  the provider's EHR-S (results receiver).
+            The results are either <a href="[%fhir-path%]pushpull.html">pushed or pulled</a> into  the provider's EHR-S (results receiver).
             The EHR-S incorporates the results into the patient's electronic record. The provider logs into his/her
             EHR-S and views the laboratory results in order to inform patient care decisions.
          </p>
@@ -334,7 +334,7 @@
          <!--EH:  need to rework for REST  acknowledgment codes -->
          <a name="errorhandling"></a>
          <h2>Error Handling</h2>
-          <p>Refer to the FHIR Specification on <a href="http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
+          <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.6.2 ERROR HANDLING -->
          <!--- EH  Not needed: 3.0  Conformance to this Guide  (covered in the actual profiles -->
          <!--- EH  Not needed: 4  DATA TYPES  ( covered in spec and defined extensions-->
@@ -343,7 +343,7 @@
          <a name="codesystems"></a>
          <h2>Code Systems And Value Sets</h2>
          <p>Successful message implementation requires that transmitted messages (message instances) contain
-            valid values for coded fields. For further discussion on <a href="terminologies.html">Using codes in FHIR </a> refer to the FHIR specification.
+            valid values for coded fields. For further discussion on <a href="[%fhir-path%]terminologies.html">Using codes in FHIR </a> refer to the FHIR specification.
          </p>
          <h3>LOINC</h3>
          <p>The use of the <a href="http://loinc.org/ ">Logical Observation Identifiers Names and Codes (LOINC) </a> code system is required
@@ -651,7 +651,7 @@
                   <li>Mosby's Medical Dictionary, 8th edition. &copy; 2009, Elsevier </li>
                   <li>World Health Organization - provides standardization for perinatal definitions </li>
                   <li>Management of Hyperbilirubinemia in the Newborn Infant 35 or More Weeks of Gestation </li>
-                  <li> <a href="http:/pediatrics.aappublications.org/content/114/1/297.full.html ">http:/pediatrics.aappublications.org/content/114/1/297.full.html</a></li>
+                  <li> <a href="http:/pediatrics.aappublications.org/content/114/1/297.full.html">http:/pediatrics.aappublications.org/content/114/1/297.full.html</a></li>
                </ul>
             </li>
             <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (bservations).

@@ -84,6 +84,14 @@ table.bare td {
 	border-spacing: 0;
 }
 
+ul.dict li {
+	font-size: 11px;
+	line-height: 1.2em;
+	font-family: verdana;
+	font-weight: normal;
+	padding: 3px;
+}
+
 table.dict td {
         padding:3px 7px 2px 7px;
 	font-size: 11px;

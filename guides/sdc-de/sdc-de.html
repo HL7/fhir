@@ -13,8 +13,8 @@
 <a name="SDC"> </a> 
 <h2>Structured Data Capture (SDC) - Data Element Exchange Implementation Guide</h2>
 <p>
-This implementation guide is a supplement to the base <a href="sdc.html">Structured Data Capture</a> (SDC) implementation guide.  It defines expectations for 
-<a href="dataelement.html">Data Element</a> registries, as well as those systems that are responsible for the creation and maintenance of data elements
+This implementation guide is a supplement to the base <a href="[%fhir-path%]sdc/sdc.html">Structured Data Capture</a> (SDC) implementation guide.  It defines expectations for 
+<a href="[%fhir-path%]dataelement.html">Data Element</a> registries, as well as those systems that are responsible for the creation and maintenance of data elements
 within those registries.  This capability is documented as a distinct implementation guide because the expectations for systems creating and maintaining
 data elements are higher than for those systems that are merely responsible for referencing data elements when creating forms or configuring their
 systems to support pre-population or auto-population.
@@ -45,7 +45,7 @@ However, much of the content is likely to be useable in other jurisdictions.
 DataElement instances do not convey patient-specific information.  However, because the mappings associated with data elements can influence the
 data that might be automatically populated into forms and could also influence the security controls around data associated with the DataElement,
 security precautions should be taken to ensure that data elements are not created or revised by someone without the proper authority.  
-<a href="sdc-security.html">Security practices</a> for systems complying with this implementation guide are the same as those for the primary
+<a href="[%fhir-path%]sdc/sdc-security.html">Security practices</a> for systems complying with this implementation guide are the same as those for the primary
 SDC implementation guide.
 </p>
 <p>
@@ -55,8 +55,8 @@ Additional information about the Structured Data Capture project can be found on
 
 <h3>Specification</h3>
 <p>
-The <i>SDC Data Element Exchange FHIR Implementation Guide</i> is based on the <a href="index.html">HL7 FHIR</a> standard.  It defines expectations
-around the creation and use of the <a href="dataelement.html">DataElement</a>.  It consists of two aspects:
+The <i>SDC Data Element Exchange FHIR Implementation Guide</i> is based on the <a href="[%fhir-path%]index.html">HL7 FHIR</a> standard.  It defines expectations
+around the creation and use of the <a href="[%fhir-path%]dataelement.html">DataElement</a>.  It consists of two aspects:
 </p>
 <ul>
 <li>A single <a href="dataelement-sdc-de.html">SDC Data Element Exchange Profile</a> which documents constraints and extensions to be supported when creating and maintaining data elements; and</li>

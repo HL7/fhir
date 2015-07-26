@@ -28,7 +28,7 @@
 	  
       <h2>REST  behavior</h2>
       <p>The DAF Responder SHALL support the <a href="patient-daf.html">DAFPatient</a> resource profile. In addition to the DAFPatient, the DAF Responder SHALL support at least one additional resource profile from the list of <a href="daf.html">DAF profiles</a>. 
-	  The DAF Responder SHALL implement REST behavior according to the <a href="http.html">FHIR</a> specification.
+	  The DAF Responder SHALL implement REST behavior according to the <a href="../http.html">FHIR</a> specification.
 	  The DAF Responder SHALL support both json and xml resource formats for all DAF interactions. The DAF Responder SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance.</p>
       <p>
         <b>Security:</b>
@@ -39,10 +39,10 @@
         <thead>
           <tr>
             <th>Resource(Profile Name)</th>
-            <th><a href="type-restful-interaction.html">Search</a></th>
-            <th><a href="type-restful-interaction.html">Read</a></th>
-            <th><a href="type-restful-interaction.html">Read Version</a></th>
-            <th><a href="type-restful-interaction.html">Instance History</a></th>
+            <th><a href="../type-restful-interaction.html">Search</a></th>
+            <th><a href="../type-restful-interaction.html">Read</a></th>
+            <th><a href="../type-restful-interaction.html">Read Version</a></th>
+            <th><a href="../type-restful-interaction.html">Instance History</a></th>
           </tr>
         </thead>
         <tbody>
@@ -297,25 +297,25 @@
 	  <h3>Search Operations Summary</h3>
 	  <p>DAF Responders SHALL support the following common parameters as part of queries related to DAF profiles:</p>
 	  <ul>
-	     <li><a href="search.html#id">_id</a></li>
-		 <li><a href="search.html#lastUpdated">_lastUpdated</a></li>
-		 <li><a href="search.html#profile">_profile</a></li>
-		 <li><a href="search.html#security">_security</a></li>
-		 <li><a href="search.html#tag">_tag</a></li>
-		 <li><a href="search.html#text">_text</a></li>
-		 <li><a href="search.html#count">_count</a></li>
-		 <li><a href="search.html#include">_include</a></li>
-		 <li><a href="search.html#summary">_summary</a></li>
-		 <li><a href="search.html#contained">_contained</a></li>
-		 <li><a href="search.html#containedType">_containedType</a></li>
+	     <li><a href="../search.html#id">_id</a></li>
+		 <li><a href="../search.html#lastUpdated">_lastUpdated</a></li>
+		 <li><a href="../search.html#profile">_profile</a></li>
+		 <li><a href="../search.html#security">_security</a></li>
+		 <li><a href="../search.html#tag">_tag</a></li>
+		 <li><a href="../search.html#text">_text</a></li>
+		 <li><a href="../search.html#count">_count</a></li>
+		 <li><a href="../search.html#include">_include</a></li>
+		 <li><a href="../search.html#summary">_summary</a></li>
+		 <li><a href="../search.html#contained">_contained</a></li>
+		 <li><a href="../search.html#containedType">_containedType</a></li>
 	  </ul>
 	 
-	<p>DAF Responders SHALL support the following search contexts defined within the <a href="search.html#Introduction">FHIR</a>specification.</p> 
+	<p>DAF Responders SHALL support the following search contexts defined within the <a href="../search.html#Introduction">FHIR</a>specification.</p> 
 	<ul>
 		<li>Search context by specifying a particular resource type</li>
 		<li>Search context which specifies a compartment</li>
 	</ul>
-	<p>DAF Responders SHALL support <a href="search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters. DAF Responders SHALL also support <a href="search.html#Composite Search Parameters">Composite Search Parameters</a> as defined in the FHIR specification.</p>
+	<p>DAF Responders SHALL support <a href="../search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters. DAF Responders SHALL also support <a href="../search.html#Composite Search Parameters">Composite Search Parameters</a> as defined in the FHIR specification.</p>
 	  <table class="grid">
         <thead>
           <tr>
@@ -328,21 +328,21 @@
 			<td id="DAFPatientSearch">DAFPatient</td>
 			<td>
 				<ul>
-					<li><a href="patient.html#search">name</a> - Search based on given name or family name or text name (<a href="search.html#string">string</a>)</li>
-					<li><a href="patient.html#search">family</a> - Search based on family name (<a href="search.html#string">string</a>)</li>
-					<li><a href="patient.html#search">given</a> - Search based on given name (<a href="search.html#string">string</a>)</li>
-					<li><a href="patient.html#search">identifier</a> - Search based on patient identifier (<a href="search.html#token">token</a>)</li>
-					<li><a href="patient.html#search">language</a> - Search based on preferred language (<a href="search.html#token">token</a>)</li>
-					<li><a href="patient.html#search">telecom</a> - Search based on telecom (<a href="search.html#string">string</a>)</li>
-					<li><a href="patient.html#search">gender</a> - Search based on gender  (<a href="search.html#token">token</a>)</li>
-					<li><a href="patient.html#search">birthdate</a> - Search based on birthDate (<a href="search.html#date">date</a>)</li>
-					<li><a href="patient-extensions.html#search">city</a> - Search based on City (<a href="search.html#string">string</a>)</li>
-					<li><a href="patient-extensions.html#search">postalCode</a> - Search based on postal code (<a href="search.html#string">string</a>)</li>
-					<li><a href="patient-extensions.html#search">state</a> - Search based on state (<a href="search.html#string">string</a>)</li>
-					<li><a href="patient-extensions.html#search">mothersMaidenName</a> - Search based on Patient mother's Maiden Name (<a href="search.html#string">string</a>)</li>
-					<li><a href="patient-extensions.html#search">age</a> - Search based on Patient's age (<a href="search.html#number">number</a>)</li>
-					<li><a href="us-core.html#search">race</a> - Search based on patient's race (<a href="search.html#token">token</a>)</li>
-					<li><a href="us-core.html#search">ethnicity</a> - Search based on patient's ethnicity (<a href="search.html#token">token</a>)</li>
+					<li><a href="../patient.html#search">name</a> - Search based on given name or family name or text name (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../patient.html#search">family</a> - Search based on family name (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../patient.html#search">given</a> - Search based on given name (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../patient.html#search">identifier</a> - Search based on patient identifier (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../patient.html#search">language</a> - Search based on preferred language (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../patient.html#search">telecom</a> - Search based on telecom (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../patient.html#search">gender</a> - Search based on gender  (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../patient.html#search">birthdate</a> - Search based on birthDate (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../patient-extensions.html#search">city</a> - Search based on City (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../patient-extensions.html#search">postalCode</a> - Search based on postal code (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../patient-extensions.html#search">state</a> - Search based on state (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../patient-extensions.html#search">mothersMaidenName</a> - Search based on Patient mother's Maiden Name (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../patient-extensions.html#search">age</a> - Search based on Patient's age (<a href="../search.html#number">number</a>)</li>
+					<li><a href="../us-core.html#search">race</a> - Search based on patient's race (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../us-core.html#search">ethnicity</a> - Search based on patient's ethnicity (<a href="../search.html#token">token</a>)</li>
 				</ul>
 			</td>
 		  </tr>
@@ -350,19 +350,19 @@
 		    <td id="DAFAllergyIntoleranceSearch">DAFAllergyIntolerance</td>
 			<td>
 				<ul>
-					<li><a href="allergyintolerance.html#search">identifier</a> - Search AllergyIntolerances by identifiers(<a href="search.html#token">token</a>)</li>
-					<li><a href="allergyintolerance.html#search">patient</a> - Search allergies for a patient(<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../allergyintolerance.html#search">identifier</a> - Search AllergyIntolerances by identifiers(<a href="../search.html#token">token</a>)</li>
+					<li><a href="../allergyintolerance.html#search">patient</a> - Search allergies for a patient(<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="allergyintolerance.html#search">category</a> - Search based on category(<a href="search.html#token">token</a>)</li>
-					<li><a href="allergyintolerance.html#search">status</a> - Search based on allergy status(<a href="search.html#token">token</a>)</li>
-					<li><a href="allergyintolerance.html#search">substance</a> - Search based on allergy substance(<a href="search.html#token">token</a>)</li>
-					<li><a href="allergyintolerance.html#search">manifestation</a> - Search based on allergy reaction(<a href="search.html#token">token</a>)</li>
-					<li><a href="allergyintolerance.html#search">severity</a> - Search based on allergy severity(<a href="search.html#token">token</a>)</li>
-					<li><a href="allergyintolerance.html#search">duration</a> - Search based on how long the allergy event lasted(<a href="search.html#quantity">quantity</a>)</li>
-					<li><a href="allergyintolerance.html#search">onset</a> - Search based on when allergies manifested(<a href="search.html#date">date</a>)</li>
+					<li><a href="../allergyintolerance.html#search">category</a> - Search based on category(<a href="../search.html#token">token</a>)</li>
+					<li><a href="../allergyintolerance.html#search">status</a> - Search based on allergy status(<a href="../search.html#token">token</a>)</li>
+					<li><a href="../allergyintolerance.html#search">substance</a> - Search based on allergy substance(<a href="../search.html#token">token</a>)</li>
+					<li><a href="../allergyintolerance.html#search">manifestation</a> - Search based on allergy reaction(<a href="../search.html#token">token</a>)</li>
+					<li><a href="../allergyintolerance.html#search">severity</a> - Search based on allergy severity(<a href="../search.html#token">token</a>)</li>
+					<li><a href="../allergyintolerance.html#search">duration</a> - Search based on how long the allergy event lasted(<a href="../search.html#quantity">quantity</a>)</li>
+					<li><a href="../allergyintolerance.html#search">onset</a> - Search based on when allergies manifested(<a href="../search.html#date">date</a>)</li>
 					<li>Include parameter - AllergyIntolerance.patient</li>
 				</ul>
 			</td>
@@ -371,21 +371,21 @@
 		    <td id="DAFDiagnosticOrderSearch">DAFDiagnosticOrder</td>
 			<td>
 				<ul>
-					<li><a href="diagnosticorder.html#search">identifier</a> - Search for DiagnosticOrder by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="diagnosticorder.html#search">patient</a> - Search for DiagnosticOrders for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../diagnosticorder.html#search">identifier</a> - Search for DiagnosticOrder by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../diagnosticorder.html#search">patient</a> - Search for DiagnosticOrders for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="diagnosticorder.html#search">orderer</a> - Search based on ordering provider (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../diagnosticorder.html#search">orderer</a> - Search based on ordering provider (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - orderer.identifier</li>
 					<li>Chained parameter - orderer.given</li>
 					<li>Chained parameter - orderer.family</li>
-					<li><a href="diagnosticorder.html#search">code</a> - Search based on type of the test ordered (<a href="search.html#token">token</a>)</li>
-					<li><a href="diagnosticorder.html#search">encounter</a> - Search based on encounter resulting in the order (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../diagnosticorder.html#search">code</a> - Search based on type of the test ordered (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../diagnosticorder.html#search">encounter</a> - Search based on encounter resulting in the order (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - encounter.identifier</li>
 					<li>Chained parameter - encounter.type</li>
-					<li><a href="diagnosticorder.html#search">item-date</a> - Search based on order date (<a href="search.html#date">date</a>)</li>
+					<li><a href="../diagnosticorder.html#search">item-date</a> - Search based on order date (<a href="../search.html#date">date</a>)</li>
 					<li>Include parameter - DiagnosticOrder.subject</li>
 					<li>Include parameter - DiagnosticOrder.orderer</li>
 					<li>Include parameter - DiagnosticOrder.encounter</li>
@@ -396,21 +396,21 @@
 		    <td id="DAFDiagnosticReportSearch">DAFDiagnosticReport</td>
 			<td>
 				<ul>
-					<li><a href="diagnosticreport.html#search">identifier</a> - Search for DiagnosticReport by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="diagnosticreport.html#search">patient</a> - Search for DiagnosticReport for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../diagnosticreport.html#search">identifier</a> - Search for DiagnosticReport by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../diagnosticreport.html#search">patient</a> - Search for DiagnosticReport for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="diagnosticreport.html#search">name</a> - Search based on name of the test (<a href="search.html#token">token</a>)</li>
-					<li><a href="diagnosticreport.html#search">date</a> - Search based on DiagnosticReport date (<a href="search.html#date">date</a>)</li>
-					<li><a href="diagnosticreport.html#search">encounter</a> - Search based on encounter resulting in the diagnostic report (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../diagnosticreport.html#search">name</a> - Search based on name of the test (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../diagnosticreport.html#search">date</a> - Search based on DiagnosticReport date (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../diagnosticreport.html#search">encounter</a> - Search based on encounter resulting in the diagnostic report (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - encounter.identifier</li>
 					<li>Chained parameter - encounter.type</li>
-					<li><a href="diagnosticreport.html#search">performer</a> - Search based on diagnostic report performer (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../diagnosticreport.html#search">performer</a> - Search based on diagnostic report performer (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - performer.identifier</li>
 					<li>Chained parameter - performer.name</li>
-					<li><a href="diagnosticreport.html#search">result</a> - Search based on results included in the diagnostic report (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../diagnosticreport.html#search">result</a> - Search based on results included in the diagnostic report (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - result.type</li>
 					<li>Include parameter - DiagnosticReport.subject</li>
 					<li>Include parameter - DiagnosticReport.performer</li>
@@ -423,19 +423,19 @@
 		    <td id="DAFEncounterSearch">DAFEncounter</td>
 			<td>
 				<ul>
-					<li><a href="encounter.html#search">identifier</a> - Search for Encounter by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="encounter.html#search">patient</a> - Search for Encounter for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../encounter.html#search">identifier</a> - Search for Encounter by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../encounter.html#search">patient</a> - Search for Encounter for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="encounter.html#search">location</a> - Search based on Encounter location (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../encounter.html#search">location</a> - Search based on Encounter location (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - location.identifier</li>
 					<li>Chained parameter - location.name</li>
 					<li>Chained parameter - location.address</li>
-					<li><a href="encounter.html#search">type</a> - Search based on type of the Encounter (<a href="search.html#token">token</a>)</li>
-					<li><a href="encounter.html#search">date</a> - Search based on encounter start and end date (<a href="search.html#date">date</a>)</li>
-					<li><a href="encounter.html#search">location-period</a> - Search based on time period during which the patient was at the location (<a href="search.html#date">date</a>)</li>
+					<li><a href="../encounter.html#search">type</a> - Search based on type of the Encounter (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../encounter.html#search">date</a> - Search based on encounter start and end date (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../encounter.html#search">location-period</a> - Search based on time period during which the patient was at the location (<a href="../search.html#date">date</a>)</li>
 					<li>Include parameter - Encounter.patient</li>
 					<li>Include parameter - Encounter.location</li>
 				</ul>
@@ -445,14 +445,14 @@
 		    <td id="DAFFamilyHistorySearch">DAFFamilyHistory</td>
 			<td>
 				<ul>
-					<li><a href="familyhistory.html#search">identifier</a> - Search for FamilyHistory by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="familyhistory.html#search">patient</a> - Search for FamilyHistory for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../familyhistory.html#search">identifier</a> - Search for FamilyHistory by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../familyhistory.html#search">patient</a> - Search for FamilyHistory for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="familyhistory.html#search">relationship</a> - Search based on FamilyHistory Relationship type (<a href="search.html#token">token</a>)</li>
-					<li><a href="familyhistory.html#search">familyhistorycondition</a> - Search based on the clinical condition of the related person (<a href="search.html#token">token</a>)</li>
+					<li><a href="../familyhistory.html#search">relationship</a> - Search based on FamilyHistory Relationship type (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../familyhistory.html#search">familyhistorycondition</a> - Search based on the clinical condition of the related person (<a href="../search.html#token">token</a>)</li>
 					<li>Include parameter - FamilyHistory.patient</li>
 				</ul>
 			</td>
@@ -461,17 +461,17 @@
 		    <td id="DAFImmunizationSearch">DAFImmunization</td>
 			<td>
 				<ul>
-					<li><a href="immunization.html#search">identifier</a> - Search for Immunization by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="immunization.html#search">patient</a> - Search for Immunization for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../immunization.html#search">identifier</a> - Search for Immunization by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../immunization.html#search">patient</a> - Search for Immunization for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="immunization.html#search">date</a> - Search based on Immunization date (<a href="search.html#date">date</a>)</li>
-					<li><a href="immunization.html#search">vaccine-type</a> - Search based on type of the vaccine (<a href="search.html#token">token</a>)</li>
-					<li><a href="immunization.html#search">notgiven</a> - Search based on whether immunization was notgiven (<a href="search.html#token">token</a>)</li>
-					<li><a href="immunization.html#search">lot-number</a> - Search based on vaccine lot number (<a href="search.html#string">string</a>)</li>
-					<li><a href="immunization.html#search">requester</a> - Search based on ordering provider (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../immunization.html#search">date</a> - Search based on Immunization date (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../immunization.html#search">vaccine-type</a> - Search based on type of the vaccine (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../immunization.html#search">notgiven</a> - Search based on whether immunization was notgiven (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../immunization.html#search">lot-number</a> - Search based on vaccine lot number (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../immunization.html#search">requester</a> - Search based on ordering provider (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - requester.identifier</li>
 					<li>Chained parameter - requester.name</li>
 					<li>Include parameter - Immunization.patient</li>
@@ -486,18 +486,18 @@
 		    <td id="DAFResultsSearch">DAFResults</td>
 			<td>
 				<ul>
-					<li><a href="observation.html#search">identifier</a> - Search for lab test by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="observation.html#search">patient</a> - Search for lab test for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../observation.html#search">identifier</a> - Search for lab test by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../observation.html#search">patient</a> - Search for lab test for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="observation.html#search">code</a> - Search based on lab test code (<a href="search.html#token">token</a>)</li>
-					<li><a href="observation.html#search">value-concept</a> - Search for a lab test with a specific value which is a code (<a href="search.html#token">token</a>)</li>
-					<li><a href="observation.html#search">value-quantity</a> - Search for a lab test with a value which is a quantity (<a href="search.html#quantity">quantity</a>)</li>
-					<li><a href="observation.html#search">code-value[x]</a> - Search for a lab test with a test name and value (<a href="search.html#composite">composite</a>)</li>
-					<li><a href="observation.html#search">date</a> - Search based on lab test obtained date (<a href="search.html#date">date</a>)</li>
-					<li><a href="observation.html#search">encounter</a> - Search based on encounter resulting in the lab result (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../observation.html#search">code</a> - Search based on lab test code (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../observation.html#search">value-concept</a> - Search for a lab test with a specific value which is a code (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../observation.html#search">value-quantity</a> - Search for a lab test with a value which is a quantity (<a href="../search.html#quantity">quantity</a>)</li>
+					<li><a href="../observation.html#search">code-value[x]</a> - Search for a lab test with a test name and value (<a href="../search.html#composite">composite</a>)</li>
+					<li><a href="../observation.html#search">date</a> - Search based on lab test obtained date (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../observation.html#search">encounter</a> - Search based on encounter resulting in the lab result (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - encounter.identifier</li>
 					<li>Chained parameter - encounter.type</li>
 					<li>Include parameter - Observation.subject</li>
@@ -509,11 +509,11 @@
 		    <td id="DAFMedicationSearch">DAFMedication</td>
 			<td>
 				<ul>
-					<li><a href="medication.html#search">identifier</a> - Search for Medication by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="medication.html#search">code</a> - Search by drug code (<a href="search.html#token">token</a>)</li>
-					<li><a href="medication.html#search">name</a> - Search by drug name (<a href="search.html#string">string</a>)</li>
-					<li><a href="medication.html#search">form</a> - Search by drug form (<a href="search.html#token">token</a>)</li>
-					<li><a href="medication.html#search">ingredient</a> - Search by drug ingredient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../medication.html#search">identifier</a> - Search for Medication by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../medication.html#search">code</a> - Search by drug code (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../medication.html#search">name</a> - Search by drug name (<a href="../search.html#string">string</a>)</li>
+					<li><a href="../medication.html#search">form</a> - Search by drug form (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../medication.html#search">ingredient</a> - Search by drug ingredient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Include parameter - Medication.manufacturer</li>
 				</ul>
 			</td>
@@ -522,14 +522,14 @@
 		    <td id="DAFMedicationStatementSearch">DAFMedicationStatement</td>
 			<td>
 				<ul>
-					<li><a href="medicationstatement.html#search">identifier</a> - Search by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="medicationstatement.html#search">patient</a> - Search for medications for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../medicationstatement.html#search">identifier</a> - Search by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../medicationstatement.html#search">patient</a> - Search for medications for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="medicationstatement.html#search">effectivedate</a> - Search for medications by date of administration (<a href="search.html#date">date</a>)</li>
-					<li><a href="medicationstatement.html#search">medication</a> - Search by medication (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../medicationstatement.html#search">effectivedate</a> - Search for medications by date of administration (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../medicationstatement.html#search">medication</a> - Search by medication (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - medication.code</li>
 					<li>Chained parameter - medication.name</li>
 					<li>Include parameter - MedicationStatement.patient</li>
@@ -541,20 +541,20 @@
 		    <td id="DAFMedicationAdministrationSearch">DAFMedicationAdministration</td>
 			<td>
 				<ul>
-					<li><a href="medicationadministration.html#search">identifier</a> - Search by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="medicationadministration.html#search">patient</a> - Search for medications for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../medicationadministration.html#search">identifier</a> - Search by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../medicationadministration.html#search">patient</a> - Search for medications for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="medicationadministration.html#search">effectivetime</a> - Search for medications by date of administration (<a href="search.html#date">date</a>)</li>
-					<li><a href="medicationadministration.html#search">encounter</a> - Search for medications by encounter (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../medicationadministration.html#search">effectivetime</a> - Search for medications by date of administration (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../medicationadministration.html#search">encounter</a> - Search for medications by encounter (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - encounter.identifier</li>
 					<li>Chained parameter - encounter.type</li>
-					<li><a href="medicationadministration.html#search">practitioner</a> - Search based on practitioner (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../medicationadministration.html#search">practitioner</a> - Search based on practitioner (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - practitioner.identifier</li>
 					<li>Chained parameter - practitioner.name</li>
-					<li><a href="medicationadministration.html#search">prescription</a> - Search based on prescription (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../medicationadministration.html#search">prescription</a> - Search based on prescription (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - prescription.identifier</li>
 					<li>Chained parameter - prescription.datewritten</li>
 					<li>Include parameter - MedicationAdministration.patient</li>
@@ -568,19 +568,19 @@
 		    <td id="DAFConditionSearch">DAFCondition</td>
 			<td>
 				<ul>
-					<li><a href="condition.html#search">identifier</a> - Search for Condition by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="condition.html#search">code</a> - Search by Condition code (<a href="search.html#token">token</a>)</li>
-					<li><a href="condition.html#search">date-Asserted</a> - Search by date condition was asserted (<a href="search.html#date">date</a>)</li>
-					<li><a href="condition.html#search">encounter</a> - Search by encounter (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../condition.html#search">identifier</a> - Search for Condition by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../condition.html#search">code</a> - Search by Condition code (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../condition.html#search">date-Asserted</a> - Search by date condition was asserted (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../condition.html#search">encounter</a> - Search by encounter (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - encounter.identifier</li>
 					<li>Chained parameter - encounter.type</li>
-					<li><a href="condition.html#search">onset</a> - Search by onset Age of the condition (<a href="search.html#date">date</a>)</li>
-					<li><a href="condition.html#search">patient</a> - Search for conditions for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../condition.html#search">onset</a> - Search by onset Age of the condition (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../condition.html#search">patient</a> - Search for conditions for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="condition.html#search">severity</a> - Search for conditions by severity (<a href="search.html#token">token</a>)</li>
+					<li><a href="../condition.html#search">severity</a> - Search for conditions by severity (<a href="../search.html#token">token</a>)</li>
 					<li>Include parameter - Condition.patient</li>
 					<li>Include parameter - Condition.encounter</li>
 					<li>Include parameter - Condition.asserter</li>
@@ -591,15 +591,15 @@
 		    <td id="DAFProcedureSearch">DAFProcedure</td>
 			<td>
 				<ul>
-					<li><a href="procedure.html#search">identifier</a> - Search for Procedure by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="procedure.html#search">type</a> - Search by Procedure type (<a href="search.html#token">token</a>)</li>
-					<li><a href="procedure.html#search">date</a> - Search by date when procedure was performed (<a href="search.html#date">date</a>)</li>
-					<li><a href="procedure.html#search">patient</a> - Search for conditions for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../procedure.html#search">identifier</a> - Search for Procedure by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../procedure.html#search">type</a> - Search by Procedure type (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../procedure.html#search">date</a> - Search by date when procedure was performed (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../procedure.html#search">patient</a> - Search for conditions for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
 					<li>Chained parameter - patient.family</li>
-					<li><a href="procedure.html#search">encounter</a> - Search by encounter (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../procedure.html#search">encounter</a> - Search by encounter (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - encounter.identifier</li>
 					<li>Chained parameter - encounter.type</li>
 					<li>Include parameter - Procedure.patient</li>
@@ -612,10 +612,10 @@
 		    <td id="DAFSmokingStatusSearch">DAFSmokingStatus</td>
 			<td>
 				<ul>
-					<li><a href="observation.html#search">identifier</a> - Search for SmokingStatus observation by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="observation.html#search">date</a> - Search by period that applies to the smoking status (<a href="search.html#date">date</a>)</li>
-					<li><a href="observation.html#search">value-concept</a> - Search by a specific value which is a Code (<a href="search.html#token">token</a>)</li>
-					<li><a href="observation.html#search">patient</a> - Search for conditions for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../observation.html#search">identifier</a> - Search for SmokingStatus observation by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../observation.html#search">date</a> - Search by period that applies to the smoking status (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../observation.html#search">value-concept</a> - Search by a specific value which is a Code (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../observation.html#search">patient</a> - Search for conditions for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
@@ -629,12 +629,12 @@
 		    <td id="DAFVitalSignsSearch">DAFVitalSigns</td>
 			<td>
 				<ul>
-					<li><a href="observation.html#search">identifier</a> - Search for Vital Signs by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="observation.html#search">date</a> - Search by measurement date (<a href="search.html#date">date</a>)</li>
-					<li><a href="observation.html#search">value-quantity</a> - Search for Vital Signs with a value which is a quantity (<a href="search.html#quantity">quantity</a>)</li>
-					<li><a href="observation.html#search">code</a> - Search based on Vital Signs code (<a href="search.html#token">token</a>)</li>
-					<li><a href="observation.html#search">code-value[x]</a> - Search for a Vital Signs with a code and value (<a href="search.html#token">token</a>)</li>
-					<li><a href="observation.html#search">patient</a> - Search for Vital Signs for a patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../observation.html#search">identifier</a> - Search for Vital Signs by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../observation.html#search">date</a> - Search by measurement date (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../observation.html#search">value-quantity</a> - Search for Vital Signs with a value which is a quantity (<a href="../search.html#quantity">quantity</a>)</li>
+					<li><a href="../observation.html#search">code</a> - Search based on Vital Signs code (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../observation.html#search">code-value[x]</a> - Search for a Vital Signs with a code and value (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../observation.html#search">patient</a> - Search for Vital Signs for a patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>
@@ -649,11 +649,11 @@
 		    <td id="DAFListSearch">DAFList</td>
 			<td>
 				<ul>
-					<li><a href="list.html#search">identifier</a> - Search for List by identifiers (<a href="search.html#token">token</a>)</li>
-					<li><a href="list.html#search">code</a> - Search by type of list (<a href="search.html#token">token</a>)</li>
-					<li><a href="list.html#search">date</a> - Search by list preparation date (<a href="search.html#date">date</a>)</li>
-					<li><a href="list.html#search">empty-reason</a> - Search by empty reason code (<a href="search.html#token">token</a>)</li>
-					<li><a href="list.html#search">patient</a> - Search for list by patient (<a href="search.html#reference">reference</a>)</li>
+					<li><a href="../list.html#search">identifier</a> - Search for List by identifiers (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../list.html#search">code</a> - Search by type of list (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../list.html#search">date</a> - Search by list preparation date (<a href="../search.html#date">date</a>)</li>
+					<li><a href="../list.html#search">empty-reason</a> - Search by empty reason code (<a href="../search.html#token">token</a>)</li>
+					<li><a href="../list.html#search">patient</a> - Search for list by patient (<a href="../search.html#reference">reference</a>)</li>
 					<li>Chained parameter - patient.identifier</li>
 					<li>Chained parameter - patient.name</li>
 					<li>Chained parameter - patient.given</li>

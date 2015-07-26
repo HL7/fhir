@@ -348,7 +348,7 @@ public class Convert {
 	  		else if (url[0].equals("mailto"))
 	  			c.setSystem(ContactPointSystem.EMAIL);
 	  		else if (e.getAttribute("value").contains(":"))
-	  			c.setSystem(ContactPointSystem.URL);
+	  			c.setSystem(ContactPointSystem.OTHER);
 	  		else 
 	  			c.setSystem(ContactPointSystem.PHONE);
 	  		c.setValue(url[1].trim());

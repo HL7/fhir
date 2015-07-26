@@ -86,9 +86,11 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
   }
 
   private Definitions definitions;
+  private String prefix; 
 
-  public ExampleAdorner(Definitions definitions) {
+  public ExampleAdorner(Definitions definitions, String prefix) {
     this.definitions = definitions;
+    this.prefix = prefix;
   }
 
   private String extractId(String id, String type) throws Exception {
@@ -180,7 +182,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
             throw new Exception("unable to find type "+type);
           for (Example e : r.getExamples()) {
             if (id.equals(e.getId()))
-              return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+e.getTitle()+".xml.html\">", "</a>");
+              return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+prefix+e.getTitle()+".xml.html\">", "</a>");
             if (e.getXml() != null && e.getXml().getDocumentElement().getLocalName().equals("feed")) {
               List<Element> entries = new ArrayList<Element>();
               XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
@@ -188,7 +190,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
               for (Element c : entries) {
                 String t = XMLUtil.getNamedChild(c, "id").getAttribute("value");
                 if (url.equals(t))
-                  return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+e.getTitle()+".xml.html#"+id+"\">", "</a>");
+                  return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+prefix+e.getTitle()+".xml.html#"+id+"\">", "</a>");
               }
             }
           }
@@ -224,13 +226,13 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         return null;
       else {
         definitions.getResourceByName(node.getLocalName()).getRoot().setCoveredByExample(true);
-        return node.getLocalName().toLowerCase()+"-definitions.html";
+        return prefix+node.getLocalName().toLowerCase()+"-definitions.html";
       }
     } else {
       ExampleAdornerState s = (ExampleAdornerState) state;
       if (s.definition == null)
         if (node.getNamespaceURI().equals("http://www.w3.org/1999/xhtml"))
-          return "narrative.html";
+          return prefix+"narrative.html";
         else 
           return null;
       ElementDefn t = s.definition;
@@ -245,13 +247,13 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
       }
       if (child == null)
         if (node.getNamespaceURI().equals("http://www.w3.org/1999/xhtml"))
-          return "narrative.html";
+          return prefix+"narrative.html";
         else 
           return null;
       else {
         child.setCoveredByExample(true);
         String r = p.contains(".") ? p.substring(0, p.indexOf(".")) : p;
-        return definitions.getSrcFile(r)+"-definitions.html#"+p;
+        return prefix+definitions.getSrcFile(r)+"-definitions.html#"+p;
       }
     }
   }

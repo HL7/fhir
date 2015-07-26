@@ -405,7 +405,7 @@ public class SourceParser {
     if (dicts != null) {
       for (String dict : dicts) {
         String[] s = ini.getStringProperty("dictionaries", dict).split("\\:");
-        definitions.getDictionaries().put(dict, new Dictionary(dict, s[1], s[0], Utilities.path(page.getFolders().srcDir, "dictionaries", dict+".xml")));
+        definitions.getDictionaries().put(dict, new Dictionary(dict, s[1], s[0], Utilities.path(page.getFolders().srcDir, "dictionaries", dict+".xml"), null));
       }
     }
   }
@@ -423,7 +423,7 @@ public class SourceParser {
         if (ig.getNodeName().equals("ig")) {
           ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), 
               ig.getAttribute("source").replace('\\', File.separatorChar), "1".equals(ig.getAttribute("review")),
-              ig.getAttribute("ballot"), ig.getAttribute("fmm"));
+              ig.getAttribute("ballot"), ig.getAttribute("fmm"), "yes".equals(ig.getAttribute("core")));
           definitions.getIgs().put(igg.getCode(), igg);
           definitions.getSortedIgs().add(igg);
         }

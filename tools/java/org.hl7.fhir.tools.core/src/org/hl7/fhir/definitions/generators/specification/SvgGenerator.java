@@ -136,10 +136,12 @@ public class SvgGenerator extends BaseGenerator {
   private boolean attributes = true;
   IniFile ini;
   private String id;
+  private String prefix;
 
-  public SvgGenerator(PageProcessor page) {
+  public SvgGenerator(PageProcessor page, String prefix) {
     this.definitions = page.getDefinitions();
     this.page = page;
+    this.prefix = prefix;
   }
 
   public String generate(String filename, String id) throws Exception {
@@ -710,7 +712,7 @@ public class SvgGenerator extends BaseGenerator {
     if (link) {
       xml.enter("text");
       if (tn.equals("Extension") || tn.equals("Reference") || tn.equals("Narrative"))
-        xml.attribute("xlink:href", definitions.getSrcFile(tn) + ".html#"+tn.toLowerCase());
+        xml.attribute("xlink:href", prefix+definitions.getSrcFile(tn) + ".html#"+tn.toLowerCase());
       else
         xml.attribute("xlink:href", "#"+tn.toLowerCase());
       xml.enter("a");
@@ -726,7 +728,7 @@ public class SvgGenerator extends BaseGenerator {
         xml.attribute("class", "diagram-class-title-link");
         xml.enter("tspan");
         xml.text(" (");
-        xml.attribute("xlink:href", e.typeCode().toLowerCase()+".html");
+        xml.attribute("xlink:href", prefix+e.typeCode().toLowerCase()+".html");
         xml.attribute("class", "diagram-class-reference");
         xml.element("a", e.typeCode());
         xml.text(")");
@@ -884,28 +886,28 @@ public class SvgGenerator extends BaseGenerator {
           String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName();
           if (b.getStrength() == BindingStrength.EXAMPLE) {
             xml.text("(");
-            xml.attribute("xlink:href", getBindingLink(e));
+            xml.attribute("xlink:href", getBindingLink(prefix, e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
             xml.text(name);
             xml.exit("a");
             xml.text(")");
           } else if (b.getStrength() == BindingStrength.PREFERRED) {
-            xml.attribute("xlink:href", getBindingLink(e));
+            xml.attribute("xlink:href", getBindingLink(prefix, e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
             xml.text(name);
             xml.exit("a");
             xml.text("+");
           } else if (b.getStrength() == BindingStrength.EXTENSIBLE) {
-            xml.attribute("xlink:href", getBindingLink(e));
+            xml.attribute("xlink:href", getBindingLink(prefix, e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
             xml.text(name);
             xml.exit("a");
             xml.text("+");
           } else if (b.getStrength() == BindingStrength.REQUIRED) {
-            xml.attribute("xlink:href", getBindingLink(e));
+            xml.attribute("xlink:href", getBindingLink(prefix, e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
             //xml.open("b");
@@ -913,7 +915,7 @@ public class SvgGenerator extends BaseGenerator {
             //xml.close("b");
             xml.exit("a");
           } else {
-            xml.attribute("xlink:href", getBindingLink(e));
+            xml.attribute("xlink:href", getBindingLink(prefix, e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
             xml.text(name);
@@ -933,13 +935,13 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("fill", "black");
     xml.attribute("class", "diagram-class-detail");
     xml.enter("text");
-    xml.attribute("xlink:href", "extensibility.html");
+    xml.attribute("xlink:href", prefix+"extensibility.html");
     xml.enter("a");
     xml.element("title", "Extensions - as described for all elements: additional information that is not part of the basic definition of the resource / type");
     xml.text("extension");
     xml.exit("a");
     xml.text(" : ");
-    xml.attribute("xlink:href", "extensibility.html");
+    xml.attribute("xlink:href", prefix+"extensibility.html");
     xml.element("a", "Extension");
     xml.text(" 0..*");
     xml.exit("text");
@@ -1047,11 +1049,11 @@ public class SvgGenerator extends BaseGenerator {
       }
       
       if (tr.getName().equals("*"))
-        prog.attribute(xml, "xlink:href", "datatypes.html#open");
+        prog.attribute(xml, "xlink:href", prefix+"datatypes.html#open");
       else if (tr.getName().startsWith("@")) 
         prog.attribute(xml, "title", "@"+tr.getName().substring(1));
       else
-        prog.attribute(xml, "xlink:href", definitions.getSrcFile(tr.getName()) + ".html#" + tr.getName());
+        prog.attribute(xml, "xlink:href", prefix+definitions.getSrcFile(tr.getName()) + ".html#" + tr.getName());
       
       prog.element(xml, "a", tr.getName());
       
@@ -1062,7 +1064,7 @@ public class SvgGenerator extends BaseGenerator {
           if (!firstP)
             if (prog.breaktext(xml, "|", t))
               return;
-          prog.attribute(xml, "xlink:href", definitions.getSrcFile(t) + ".html#" + t);
+          prog.attribute(xml, "xlink:href", prefix+definitions.getSrcFile(t) + ".html#" + t);
           prog.element(xml, "a", t);
           firstP = false;
         }

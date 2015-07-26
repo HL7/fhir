@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 23, 2015 22:04-0400 for FHIR v0.5.0
+// Generated on Sat, Jul 25, 2015 08:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2091,55 +2091,55 @@ public class TestScript extends DomainResource {
         protected IntegerType destination;
 
         /**
-         * Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
-         */
-        @Child(name = "encodeRequestUrl", type = {BooleanType.class}, order=8, min=0, max=1)
-        @Description(shortDefinition="Whether or not to send the request url in encoded format", formalDefinition="Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths." )
-        protected BooleanType encodeRequestUrl;
-
-        /**
          * Path plus parameters after [type].  Used to set parts of the request URL explicitly.
          */
-        @Child(name = "params", type = {StringType.class}, order=9, min=0, max=1)
+        @Child(name = "params", type = {StringType.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Params", formalDefinition="Path plus parameters after [type].  Used to set parts of the request URL explicitly." )
         protected StringType params;
 
         /**
          * Header elements would be used to set HTTP headers.
          */
-        @Child(name = "requestHeader", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "requestHeader", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Each operation can have one ore more header elements", formalDefinition="Header elements would be used to set HTTP headers." )
         protected List<TestScriptSetupActionOperationRequestHeaderComponent> requestHeader;
 
         /**
          * The fixture id (maybe new) to map to the response.
          */
-        @Child(name = "responseId", type = {IdType.class}, order=11, min=0, max=1)
+        @Child(name = "responseId", type = {IdType.class}, order=10, min=0, max=1)
         @Description(shortDefinition="Response Id", formalDefinition="The fixture id (maybe new) to map to the response." )
         protected IdType responseId;
 
         /**
          * The id of the fixture used as the body of a PUT or POST request.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=12, min=0, max=1)
+        @Child(name = "sourceId", type = {IdType.class}, order=11, min=0, max=1)
         @Description(shortDefinition="Fixture Id of body for PUT and POST requests", formalDefinition="The id of the fixture used as the body of a PUT or POST request." )
         protected IdType sourceId;
 
         /**
          * Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.
          */
-        @Child(name = "targetId", type = {IdType.class}, order=13, min=0, max=1)
+        @Child(name = "targetId", type = {IdType.class}, order=12, min=0, max=1)
         @Description(shortDefinition="Id of fixture used for extracting the [id],  [type], and [vid] for GET requests", formalDefinition="Id of fixture used for extracting the [id],  [type], and [vid] for GET requests." )
         protected IdType targetId;
 
         /**
          * Complete request URL.
          */
-        @Child(name = "url", type = {StringType.class}, order=14, min=0, max=1)
+        @Child(name = "url", type = {StringType.class}, order=13, min=0, max=1)
         @Description(shortDefinition="Request URL", formalDefinition="Complete request URL." )
         protected StringType url;
 
-        private static final long serialVersionUID = -590188078L;
+        /**
+         * Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
+         */
+        @Child(name = "encodeRequestUrl", type = {BooleanType.class}, order=14, min=0, max=1)
+        @Description(shortDefinition="Whether or not to send the request url in encoded format", formalDefinition="Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths." )
+        protected BooleanType encodeRequestUrl;
+
+        private static final long serialVersionUID = 1823497106L;
 
     /*
      * Constructor
@@ -2463,51 +2463,6 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return {@link #encodeRequestUrl} (Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.). This is the underlying object with id, value and extensions. The accessor "getEncodeRequestUrl" gives direct access to the value
-         */
-        public BooleanType getEncodeRequestUrlElement() { 
-          if (this.encodeRequestUrl == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.encodeRequestUrl");
-            else if (Configuration.doAutoCreate())
-              this.encodeRequestUrl = new BooleanType(); // bb
-          return this.encodeRequestUrl;
-        }
-
-        public boolean hasEncodeRequestUrlElement() { 
-          return this.encodeRequestUrl != null && !this.encodeRequestUrl.isEmpty();
-        }
-
-        public boolean hasEncodeRequestUrl() { 
-          return this.encodeRequestUrl != null && !this.encodeRequestUrl.isEmpty();
-        }
-
-        /**
-         * @param value {@link #encodeRequestUrl} (Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.). This is the underlying object with id, value and extensions. The accessor "getEncodeRequestUrl" gives direct access to the value
-         */
-        public TestScriptSetupActionOperationComponent setEncodeRequestUrlElement(BooleanType value) { 
-          this.encodeRequestUrl = value;
-          return this;
-        }
-
-        /**
-         * @return Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
-         */
-        public boolean getEncodeRequestUrl() { 
-          return this.encodeRequestUrl == null || this.encodeRequestUrl.isEmpty() ? false : this.encodeRequestUrl.getValue();
-        }
-
-        /**
-         * @param value Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
-         */
-        public TestScriptSetupActionOperationComponent setEncodeRequestUrl(boolean value) { 
-            if (this.encodeRequestUrl == null)
-              this.encodeRequestUrl = new BooleanType();
-            this.encodeRequestUrl.setValue(value);
-          return this;
-        }
-
-        /**
          * @return {@link #params} (Path plus parameters after [type].  Used to set parts of the request URL explicitly.). This is the underlying object with id, value and extensions. The accessor "getParams" gives direct access to the value
          */
         public StringType getParamsElement() { 
@@ -2792,6 +2747,51 @@ public class TestScript extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #encodeRequestUrl} (Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.). This is the underlying object with id, value and extensions. The accessor "getEncodeRequestUrl" gives direct access to the value
+         */
+        public BooleanType getEncodeRequestUrlElement() { 
+          if (this.encodeRequestUrl == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.encodeRequestUrl");
+            else if (Configuration.doAutoCreate())
+              this.encodeRequestUrl = new BooleanType(); // bb
+          return this.encodeRequestUrl;
+        }
+
+        public boolean hasEncodeRequestUrlElement() { 
+          return this.encodeRequestUrl != null && !this.encodeRequestUrl.isEmpty();
+        }
+
+        public boolean hasEncodeRequestUrl() { 
+          return this.encodeRequestUrl != null && !this.encodeRequestUrl.isEmpty();
+        }
+
+        /**
+         * @param value {@link #encodeRequestUrl} (Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.). This is the underlying object with id, value and extensions. The accessor "getEncodeRequestUrl" gives direct access to the value
+         */
+        public TestScriptSetupActionOperationComponent setEncodeRequestUrlElement(BooleanType value) { 
+          this.encodeRequestUrl = value;
+          return this;
+        }
+
+        /**
+         * @return Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
+         */
+        public boolean getEncodeRequestUrl() { 
+          return this.encodeRequestUrl == null || this.encodeRequestUrl.isEmpty() ? false : this.encodeRequestUrl.getValue();
+        }
+
+        /**
+         * @param value Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
+         */
+        public TestScriptSetupActionOperationComponent setEncodeRequestUrl(boolean value) { 
+            if (this.encodeRequestUrl == null)
+              this.encodeRequestUrl = new BooleanType();
+            this.encodeRequestUrl.setValue(value);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "Coding", "Server interaction or operation type.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -2801,13 +2801,13 @@ public class TestScript extends DomainResource {
           childrenList.add(new Property("accept", "code", "The content-type or mime-type to use for RESTful operation in the 'Accept' header.", 0, java.lang.Integer.MAX_VALUE, accept));
           childrenList.add(new Property("contentType", "code", "The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.", 0, java.lang.Integer.MAX_VALUE, contentType));
           childrenList.add(new Property("destination", "integer", "Which server to perform the operation on.", 0, java.lang.Integer.MAX_VALUE, destination));
-          childrenList.add(new Property("encodeRequestUrl", "boolean", "Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.", 0, java.lang.Integer.MAX_VALUE, encodeRequestUrl));
           childrenList.add(new Property("params", "string", "Path plus parameters after [type].  Used to set parts of the request URL explicitly.", 0, java.lang.Integer.MAX_VALUE, params));
           childrenList.add(new Property("requestHeader", "", "Header elements would be used to set HTTP headers.", 0, java.lang.Integer.MAX_VALUE, requestHeader));
           childrenList.add(new Property("responseId", "id", "The fixture id (maybe new) to map to the response.", 0, java.lang.Integer.MAX_VALUE, responseId));
           childrenList.add(new Property("sourceId", "id", "The id of the fixture used as the body of a PUT or POST request.", 0, java.lang.Integer.MAX_VALUE, sourceId));
           childrenList.add(new Property("targetId", "id", "Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.", 0, java.lang.Integer.MAX_VALUE, targetId));
           childrenList.add(new Property("url", "string", "Complete request URL.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("encodeRequestUrl", "boolean", "Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.", 0, java.lang.Integer.MAX_VALUE, encodeRequestUrl));
         }
 
       public TestScriptSetupActionOperationComponent copy() {
@@ -2820,7 +2820,6 @@ public class TestScript extends DomainResource {
         dst.accept = accept == null ? null : accept.copy();
         dst.contentType = contentType == null ? null : contentType.copy();
         dst.destination = destination == null ? null : destination.copy();
-        dst.encodeRequestUrl = encodeRequestUrl == null ? null : encodeRequestUrl.copy();
         dst.params = params == null ? null : params.copy();
         if (requestHeader != null) {
           dst.requestHeader = new ArrayList<TestScriptSetupActionOperationRequestHeaderComponent>();
@@ -2831,6 +2830,7 @@ public class TestScript extends DomainResource {
         dst.sourceId = sourceId == null ? null : sourceId.copy();
         dst.targetId = targetId == null ? null : targetId.copy();
         dst.url = url == null ? null : url.copy();
+        dst.encodeRequestUrl = encodeRequestUrl == null ? null : encodeRequestUrl.copy();
         return dst;
       }
 
@@ -2843,10 +2843,9 @@ public class TestScript extends DomainResource {
         TestScriptSetupActionOperationComponent o = (TestScriptSetupActionOperationComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(resource, o.resource, true) && compareDeep(label, o.label, true)
            && compareDeep(description, o.description, true) && compareDeep(accept, o.accept, true) && compareDeep(contentType, o.contentType, true)
-           && compareDeep(destination, o.destination, true) && compareDeep(encodeRequestUrl, o.encodeRequestUrl, true)
-           && compareDeep(params, o.params, true) && compareDeep(requestHeader, o.requestHeader, true) && compareDeep(responseId, o.responseId, true)
-           && compareDeep(sourceId, o.sourceId, true) && compareDeep(targetId, o.targetId, true) && compareDeep(url, o.url, true)
-          ;
+           && compareDeep(destination, o.destination, true) && compareDeep(params, o.params, true) && compareDeep(requestHeader, o.requestHeader, true)
+           && compareDeep(responseId, o.responseId, true) && compareDeep(sourceId, o.sourceId, true) && compareDeep(targetId, o.targetId, true)
+           && compareDeep(url, o.url, true) && compareDeep(encodeRequestUrl, o.encodeRequestUrl, true);
       }
 
       @Override
@@ -2858,18 +2857,18 @@ public class TestScript extends DomainResource {
         TestScriptSetupActionOperationComponent o = (TestScriptSetupActionOperationComponent) other;
         return compareValues(resource, o.resource, true) && compareValues(label, o.label, true) && compareValues(description, o.description, true)
            && compareValues(accept, o.accept, true) && compareValues(contentType, o.contentType, true) && compareValues(destination, o.destination, true)
-           && compareValues(encodeRequestUrl, o.encodeRequestUrl, true) && compareValues(params, o.params, true)
-           && compareValues(responseId, o.responseId, true) && compareValues(sourceId, o.sourceId, true) && compareValues(targetId, o.targetId, true)
-           && compareValues(url, o.url, true);
+           && compareValues(params, o.params, true) && compareValues(responseId, o.responseId, true) && compareValues(sourceId, o.sourceId, true)
+           && compareValues(targetId, o.targetId, true) && compareValues(url, o.url, true) && compareValues(encodeRequestUrl, o.encodeRequestUrl, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (resource == null || resource.isEmpty())
            && (label == null || label.isEmpty()) && (description == null || description.isEmpty()) && (accept == null || accept.isEmpty())
            && (contentType == null || contentType.isEmpty()) && (destination == null || destination.isEmpty())
-           && (encodeRequestUrl == null || encodeRequestUrl.isEmpty()) && (params == null || params.isEmpty())
-           && (requestHeader == null || requestHeader.isEmpty()) && (responseId == null || responseId.isEmpty())
-           && (sourceId == null || sourceId.isEmpty()) && (targetId == null || targetId.isEmpty()) && (url == null || url.isEmpty())
+           && (params == null || params.isEmpty()) && (requestHeader == null || requestHeader.isEmpty())
+           && (responseId == null || responseId.isEmpty()) && (sourceId == null || sourceId.isEmpty())
+           && (targetId == null || targetId.isEmpty()) && (url == null || url.isEmpty()) && (encodeRequestUrl == null || encodeRequestUrl.isEmpty())
           ;
       }
 

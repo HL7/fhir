@@ -27,7 +27,7 @@
             </tbody>
          </table>
          <h2>REST  behavior</h2>
-         <p>Conformant systems must record <a href="provenance.html">Provenance</a> records on all Create, Update and Delete actions on any resource other than Provenance or AuditEvent.       Conformant systems must record <a href="auditevent.html">AuditEvent</a> records on all Create, Update and Delete actions as well as all GET operations (read, search, etc.)</p>
+         <p>Conformant systems must record <a href="../provenance.html">Provenance</a> records on all Create, Update and Delete actions on any resource other than Provenance or AuditEvent.       Conformant systems must record <a href="../auditevent.html">AuditEvent</a> records on all Create, Update and Delete actions as well as all GET operations (read, search, etc.)</p>
          <p>
             <b>Security:</b>
          </p>
@@ -84,7 +84,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="provenance.html">Provenance</a>
+            <a href="../provenance.html">Provenance</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -109,7 +109,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="auditevent.html">AuditEvent</a>
+            <a href="../auditevent.html">AuditEvent</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">

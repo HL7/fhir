@@ -28,7 +28,7 @@ public class TableGenerator extends BaseGenerator {
   protected boolean dictLinks() {
     return pageName != null;
   }
-  protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource, String path, boolean isProfile) throws Exception {
+  protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix) throws Exception {
     Row row = gen.new Row();
 
     row.setAnchor(path);
@@ -52,13 +52,13 @@ public class TableGenerator extends BaseGenerator {
       if (Utilities.noString(e.typeCode()))
         row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
       else
-        row.getCells().add(gen.new Cell(null, e.typeCode().toLowerCase()+".html", e.typeCode(), null, null)); 
+        row.getCells().add(gen.new Cell(null, prefix+e.typeCode().toLowerCase()+".html", e.typeCode(), null, null)); 
       // todo: base elements
     } else {
       if (!e.getElements().isEmpty()) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
-        row.getCells().add(gen.new Cell(null, "element.html", "Element", null, null));   
+        row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         String t = e.getTypes().get(0).getName();
@@ -76,18 +76,18 @@ public class TableGenerator extends BaseGenerator {
             if (first && isProfile && e.getTypes().get(0).getProfile() != null)
               c.getPieces().add(gen.new Piece(null, e.getTypes().get(0).getProfile(), null));
             else
-              c.getPieces().add(gen.new Piece(findPage(rt)+".html", rt, null));
+              c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
             first = false;
           }
         } else if (definitions.getPrimitives().containsKey(t)) {
           row.setIcon("icon_primitive.png", HeirarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
-          c = gen.new Cell(null, "datatypes.html#"+t, t, null, null);
+          c = gen.new Cell(null, prefix+"datatypes.html#"+t, t, null, null);
         } else {
           if (t.equals("Extension"))
             row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION);
           else
             row.setIcon("icon_datatype.gif", HeirarchicalTableGenerator.TEXT_ICON_DATATYPE);
-          c = gen.new Cell(null, definitions.getSrcFile(t)+".html#"+t.replace("*", "open"), t, null, null);
+          c = gen.new Cell(null, prefix+definitions.getSrcFile(t)+".html#"+t.replace("*", "open"), t, null, null);
         }
         row.getCells().add(c);
       } else {
@@ -109,11 +109,11 @@ public class TableGenerator extends BaseGenerator {
     if (e.hasBinding() && e.getBinding() != null && e.getBinding().getBinding() != BindingMethod.Unbound) {
       if (cc.getPieces().size() == 1)
         cc.addPiece(gen.new Piece("br"));
-      cc.getPieces().add(gen.new Piece(getBindingLink(e), e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName(), 
+      cc.getPieces().add(gen.new Piece(getBindingLink(prefix, e), e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName(), 
             e.getBinding().getDefinition()));
       cc.getPieces().add(gen.new Piece(null, " (", null));
       BindingSpecification b = e.getBinding();
-      cc.getPieces().add(gen.new Piece("terminologies.html#"+b.getStrength().toCode(), b.getStrength().getDisplay(),  b.getStrength().getDefinition()));
+      cc.getPieces().add(gen.new Piece(prefix+"terminologies.html#"+b.getStrength().toCode(), b.getStrength().getDisplay(),  b.getStrength().getDefinition()));
       cc.getPieces().add(gen.new Piece(null, ")", null));
     }
     for (String name : e.getInvariants().keySet()) {
@@ -138,7 +138,7 @@ public class TableGenerator extends BaseGenerator {
           for (String rt : tr.getParams()) {
             if (!first)
               c.getPieces().add(gen.new Piece(null, " | ", null));
-            c.getPieces().add(gen.new Piece(findPage(rt)+".html", rt, null));
+            c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
             first = false;
           }
         } else if (definitions.getPrimitives().containsKey(t)) {
@@ -146,7 +146,7 @@ public class TableGenerator extends BaseGenerator {
           choicerow.getCells().add(gen.new Cell());
           choicerow.getCells().add(gen.new Cell(null, null, "", null, null));
           choicerow.setIcon("icon_primitive.png", HeirarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
-          choicerow.getCells().add(gen.new Cell(null, "datatypes.html#"+t, t, null, null));
+          choicerow.getCells().add(gen.new Cell(null, prefix+"datatypes.html#"+t, t, null, null));
         } else {
           choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]",  Utilities.capitalize(t)), definitions.getTypes().containsKey(t) ? definitions.getTypes().get(t).getDefinition() : null, null));
           choicerow.getCells().add(gen.new Cell());
@@ -161,7 +161,7 @@ public class TableGenerator extends BaseGenerator {
       }
     } else
       for (ElementDefn c : e.getElements())
-        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile));
+        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix));
     return row;
   }
 

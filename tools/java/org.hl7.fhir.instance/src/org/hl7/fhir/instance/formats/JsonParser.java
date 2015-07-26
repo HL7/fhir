@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Jul 23, 2015 22:04-0400 for FHIR v0.5.0
+// Generated on Sat, Jul 25, 2015 08:52+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -10275,10 +10275,6 @@ public class JsonParser extends JsonParserBase {
       res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
     if (json.has("_destination"))
       parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
-    if (json.has("encodeRequestUrl"))
-      res.setEncodeRequestUrlElement(parseBoolean(json.get("encodeRequestUrl").getAsBoolean()));
-    if (json.has("_encodeRequestUrl"))
-      parseElementProperties(json.getAsJsonObject("_encodeRequestUrl"), res.getEncodeRequestUrlElement());
     if (json.has("params"))
       res.setParamsElement(parseString(json.get("params").getAsString()));
     if (json.has("_params"))
@@ -10305,6 +10301,10 @@ public class JsonParser extends JsonParserBase {
       res.setUrlElement(parseString(json.get("url").getAsString()));
     if (json.has("_url"))
       parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    if (json.has("encodeRequestUrl"))
+      res.setEncodeRequestUrlElement(parseBoolean(json.get("encodeRequestUrl").getAsBoolean()));
+    if (json.has("_encodeRequestUrl"))
+      parseElementProperties(json.getAsJsonObject("_encodeRequestUrl"), res.getEncodeRequestUrlElement());
     return res;
   }
 
@@ -24452,10 +24452,6 @@ public class JsonParser extends JsonParserBase {
         composeIntegerCore("destination", element.getDestinationElement(), false);
         composeIntegerExtras("destination", element.getDestinationElement(), false);
       }
-      if (element.hasEncodeRequestUrlElement()) {
-        composeBooleanCore("encodeRequestUrl", element.getEncodeRequestUrlElement(), false);
-        composeBooleanExtras("encodeRequestUrl", element.getEncodeRequestUrlElement(), false);
-      }
       if (element.hasParamsElement()) {
         composeStringCore("params", element.getParamsElement(), false);
         composeStringExtras("params", element.getParamsElement(), false);
@@ -24481,6 +24477,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUrlElement()) {
         composeStringCore("url", element.getUrlElement(), false);
         composeStringExtras("url", element.getUrlElement(), false);
+      }
+      if (element.hasEncodeRequestUrlElement()) {
+        composeBooleanCore("encodeRequestUrl", element.getEncodeRequestUrlElement(), false);
+        composeBooleanExtras("encodeRequestUrl", element.getEncodeRequestUrlElement(), false);
       }
   }
 

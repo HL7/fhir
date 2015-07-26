@@ -6,13 +6,15 @@ public class Dictionary {
   private String name;
   private String category;
   private String source;
+  private ImplementationGuide ig; 
   
-  public Dictionary(String id, String name, String category, String source) {
+  public Dictionary(String id, String name, String category, String source, ImplementationGuide ig) {
     super();
     this.id = id;
     this.name = name;
     this.category = category;
     this.source = source;
+    this.ig = ig;
   }
   
   public String getId() {
@@ -27,6 +29,10 @@ public class Dictionary {
 
   public String getSource() {
     return source;
+  }
+
+  public ImplementationGuide getIg() {
+    return ig;
   } 
   
 }

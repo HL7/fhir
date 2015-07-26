@@ -28,7 +28,7 @@
 			<p>
 				<b>Mode:</b> Server
 			</p>
-			<p>This conformance resource assumes the USLabReport Receiver is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the <a href="uslabreport-guide.html">USLabReport Guide</a>. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>This conformance resource assumes the USLabReport Receiver is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the <a href="uslabreport-guide.html">USLabReport Guide</a>. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the <a href="../http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
 			<p>
 				<b>Security:</b>
 			</p>
@@ -81,7 +81,7 @@
 			<br/>
 			<br/>
 			<h3>
-				<a href="diagnosticreport.html">DiagnosticReport</a>
+				<a href="../diagnosticreport.html">DiagnosticReport</a>
 			</h3>
 			<h4>Interactions</h4>
 			<table class="list">
@@ -163,7 +163,7 @@
 			<p>
 				<b>Mode:</b> Server
 			</p>
-			<p>The following conformance rules assumes the USLabReport Receiver is the client, in other words, operating in 'Push'  RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the <a href="uslabreport.html">USLabReport Guide</a>. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>The following conformance rules assumes the USLabReport Receiver is the client, in other words, operating in 'Push'  RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the <a href="uslabreport.html">USLabReport Guide</a>. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the <a href="../http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
 			<p>
 				<b>Security:</b>
 			</p>
@@ -216,7 +216,7 @@
 			<br/>
 			<br/>
 			<h3>
-				<a href="diagnosticreport.html">DiagnosticReport</a>
+				<a href="../diagnosticreport.html">DiagnosticReport</a>
 			</h3>
 			<h4>Interactions</h4>
 			<table class="list">

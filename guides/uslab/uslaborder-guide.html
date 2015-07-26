@@ -14,7 +14,7 @@
          <p>
             The FHIR USLab Order Implementation focuses on identifying the requirements, specifications and
             standards, and on providing the implementation guidance for electronic ordering of laboratory tests in
-            the US Realm using <a href="http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a
+            the US Realm using <a href="[%fhir-path%]http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a
             particular implementation of Electronic Health Record System (EHR-S) to use standardized structured
             data in a defined inter-organizational laboratory transaction. The Use Case requirements are directed at
             laboratory test orders between an Ambulatory Provider's EHR-S and a Laboratory's Laboratory
@@ -35,7 +35,7 @@
          </p>
          <ul>
             <li>The guide is constructed assuming the implementer has access to the FHIR Specification. Although some information from the standard is included in this implementation guide, much information from the standard has not been repeated here. </li>
-            <li>The guide is constructed assuming the implementer SHALL conform to the <a href="http.html"> FHIR RESTful API</a></li>
+            <li>The guide is constructed assuming the implementer SHALL conform to the <a href="[%fhir-path%]http.html"> FHIR RESTful API</a></li>
             <!-- EH:  todo create the messaging and document version of uslaborder-->
             <li>The rules defined in the FHIR Conformance Profile were used to document the use case for, and constraints applied to, the resources described in this guide. </li>
          </ul>
@@ -479,7 +479,7 @@
             <li>The extension us-core-ethnicity(http://hl7.org/fhir/StructureDefinition/us-core-ethnicity) is provided for demographic (administrative/billing), not clinical use and is bound to specify two ethnicity categories as  prescribed by federal standards. The lab must provide an AOE where Ethnicity drives the interpretation of results. The value must be determined by the Ordering Provider and must be sent as the .supporting information element with type Reference(Observation.  Note that state and/or national regulations may dictate other behaviors. </li>
          </ul>
          <p> More specific race and ethnicity values are available, but not limited to,
-         those found   <a href="v3/Race/index.html">v3 Code System Race</a> and  <a href="v3/Ethnicity/index.html"> v3 Code System Ethnicity</a>.<!-- Eh todo see if these value set align with the text-->
+         those found   <a href="[%fhir-path%]v3/Race/index.html">v3 Code System Race</a> and  <a href="[%fhir-path%]v3/Ethnicity/index.html"> v3 Code System Ethnicity</a>.<!-- Eh todo see if these value set align with the text-->
          </p>
          <!--EH not needed: 2.7.6.2  EXAMPLES
             Example AOE using OBX for blood lead test in adults; the highlighted 1 and 2 indicate how to use
@@ -506,7 +506,7 @@
               (REST takes care of this )-->
          <a name="errorhandling"></a>
          <h2>Error Handling</h2>
-         <p>Refer to the FHIR Specification on <a href="http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
+         <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.7.9  ERROR HANDLING -->
          <!-- EH  Not needed: 2.8  Referenced Profiles - Antecedents-->
          <!--- EH  Not needed: 2.9  Conformance to this Guide  (covered in the actual profiles -->

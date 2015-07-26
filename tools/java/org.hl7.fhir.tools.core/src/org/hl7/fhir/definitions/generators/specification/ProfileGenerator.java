@@ -1,4 +1,5 @@
 package org.hl7.fhir.definitions.generators.specification;
+import java.io.File;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -528,7 +529,7 @@ public class ProfileGenerator {
     p.setConstrainedType(resource.getName());    
     p.setAbstract(false);
     p.setUserData("filename", id);
-    p.setUserData("path", id+".html");
+    p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
 
     
     ToolResourceUtilities.updateUsage(p, usage.getCode());

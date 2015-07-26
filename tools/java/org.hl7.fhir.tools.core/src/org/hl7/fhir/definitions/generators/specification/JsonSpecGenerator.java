@@ -33,13 +33,15 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   private String dtRoot;
   private Definitions definitions;
   private PageProcessor page;
+  private String prefix;
 
-  public JsonSpecGenerator(OutputStream out, String defPage, String dtRoot, PageProcessor page) throws UnsupportedEncodingException {
+  public JsonSpecGenerator(OutputStream out, String defPage, String dtRoot, PageProcessor page, String prefix) throws UnsupportedEncodingException {
     super(out, "UTF-8");
     this.defPage = defPage;
     this.dtRoot = dtRoot == null ? "" : dtRoot;
     this.definitions = page.getDefinitions();
     this.page = page;
+    this.prefix = prefix;
   }
 
   protected String getBindingLink(ElementDefn e) throws Exception {
@@ -82,7 +84,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
     boolean complex = isComplex(children) && extensionDefinition;
     if (!complex)
-      write("  // from Element: <a href=\"extensibility.html\">extension</a>\r\n");
+      write("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
     
     int c = 0;
     int l = lastChild(children);
@@ -133,7 +135,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       rn = root.getName();
 
     
-    write("{<span style=\"float: right\"><a title=\"Documentation for this format\" href=\"json.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+    write("{<span style=\"float: right\"><a title=\"Documentation for this format\" href=\""+prefix+"json.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
     if (rn != null) {
       write("  \"resourceType\" : \"");
       if (defPage == null)
@@ -152,12 +154,12 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
     if ((root.getName().equals(rn) || "[name]".equals(rn)) && resource) {
       if (!Utilities.noString(root.typeCode())) {
-        write("  // from <a href=\"resource.html\">Resource</a>: <a href=\"resource.html#id\">id</a>, <a href=\"resource.html#meta\">meta</a>, <a href=\"resource.html#implicitRules\">implicitRules</a>, and <a href=\"resource.html#language\">language</a>\r\n");
+        write("  // from <a href=\""+prefix+"resource.html\">Resource</a>: <a href=\""+prefix+"resource.html#id\">id</a>, <a href=\""+prefix+"resource.html#meta\">meta</a>, <a href=\""+prefix+"resource.html#implicitRules\">implicitRules</a>, and <a href=\""+prefix+"resource.html#language\">language</a>\r\n");
         if (root.typeCode().equals("DomainResource"))
-          write("  // from <a href=\"domainresource.html\">DomainResource</a>: <a href=\"narrative.html#Narrative\">text</a>, <a href=\"references.html#contained\">contained</a>, <a href=\"extensibility.html\">extension</a>, and <a href=\"extensibility.html#modifierExtension\">modifierExtension</a>\r\n");
+          write("  // from <a href=\""+prefix+"domainresource.html\">DomainResource</a>: <a href=\""+prefix+"narrative.html#Narrative\">text</a>, <a href=\""+prefix+"references.html#contained\">contained</a>, <a href=\""+prefix+"extensibility.html\">extension</a>, and <a href=\""+prefix+"extensibility.html#modifierExtension\">modifierExtension</a>\r\n");
       }
     } else if (!resource) {
-      write("  // from Element: <a href=\"extensibility.html\">extension</a>\r\n");
+      write("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
     }
 //    if (root.getName().equals("Extension")) {
 //      ElementDefn urld = root.getElements().get(0);
@@ -252,11 +254,11 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
   private void generateCoreElemDetails(ElementDefn elem, int indent, String rootName, String pathName, boolean backbone, boolean last, int width, String en, TypeRef type, boolean doco) throws Exception {
     if (elem.getName().equals("extension")) {
-      write("  (<a href=\"extensibility.html\">Extensions</a> - see <a href=\"json.html#extensions\">JSON page</a>)\r\n");
+      write("  (<a href=\""+prefix+"extensibility.html\">Extensions</a> - see <a href=\""+prefix+"json.html#extensions\">JSON page</a>)\r\n");
       return;
     }
     if (elem.getName().equals("modifierExtension")) {
-      write("  (<a href=\"extensibility.html#modifier\">Modifier Extensions</a> - see <a href=\"json.html#modifier\">JSON page</a>)\r\n");
+      write("  (<a href=\""+prefix+"extensibility.html#modifier\">Modifier Extensions</a> - see <a href=\""+prefix+"json.html#modifier\">JSON page</a>)\r\n");
       return;
     }
     
@@ -306,7 +308,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     } else if (definitions.getPrimitives().containsKey(type.getName())) {
       if (!(type.getName().equals("integer") || type.getName().equals("boolean") || type.getName().equals("decimal")))
         write("\"");
-      write("&lt;<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(type.getName())+ ".html#" + type.getName()).replace("[", "_").replace("]", "_") + "\">" + type.getName()+ "</a></span>&gt;");
+      write("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getName())+ ".html#" + type.getName()).replace("[", "_").replace("]", "_") + "\">" + type.getName()+ "</a></span>&gt;");
       if (!(type.getName().equals("integer") || type.getName().equals("boolean") || type.getName().equals("decimal")))
         write("\"");
     } else {
@@ -330,14 +332,14 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       write(" ");
 
       if (elem.getName().equals("extension")) {
-        write(" <a href=\"extensibility.html\"><span style=\"color: navy; opacity: 0.8\">See Extensions</span></a>");
+        write(" <a href=\""+prefix+"extensibility.html\"><span style=\"color: navy; opacity: 0.8\">See Extensions</span></a>");
       } else if ("See Extensions".equals(elem.getShortDefn())) {
-        write(" <a href=\"extensibility.html\"><span style=\"color: navy; opacity: 0.8\">"
+        write(" <a href=\""+prefix+"extensibility.html\"><span style=\"color: navy; opacity: 0.8\">"
             + Utilities.escapeXml(elem.getShortDefn())
             + "</span></a>");
       } else {
         String ref = getBindingLink(elem);
-        write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+ref+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
+        write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+ref+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
       }
     }
     if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
@@ -400,7 +402,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       boolean extcomplex = isComplex(extchildren) && complex;
       if (!extcomplex) {
         write(indentS+"  ");
-        write("  // from Element: <a href=\"extensibility.html\">extension</a>\r\n");
+        write("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
       }
       
       int cc = 0;
@@ -502,19 +504,19 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       if (elem.hasFixed()) 
         write(Utilities.escapeJson(((PrimitiveType) elem.getFixed()).asStringValue()));
       else
-        write("&lt;<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()).replace("[", "_").replace("]", "_") + "\">" + type.getCode()+ "</a></span>&gt;");
+        write("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()).replace("[", "_").replace("]", "_") + "\">" + type.getCode()+ "</a></span>&gt;");
       if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
         write("\"");
     } else {
       write("{ ");
-      write("<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
+      write("<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
       if (type.hasProfile()) {
         if (type.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           String t = type.getProfile().get(0).getValue().substring(40);
           if (definitions.hasType(t))
-            write("(<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
+            write("(<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
           else if (definitions.hasResource(t))
-            write("(<span style=\"color: darkgreen\"><a href=\"" + dtRoot + t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
+            write("(<span style=\"color: darkgreen\"><a href=\"" + prefix+dtRoot + t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
           else
             write("("+t+")");
         } else
@@ -540,7 +542,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       if (elem.hasBinding() && elem.getBinding().hasValueSet()) {
         ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
         if (vs != null)
-          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
+          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
         else if (elem.getBinding().getValueSet() instanceof UriType)
           write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+((UriType)elem.getBinding().getValueSet()).getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
         else
@@ -666,9 +668,9 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       if (t.isXhtml() || t.getName().equals("list"))
         write(t.getName());
       else if (t.getName().equals("Extension") && t.getParams().size() == 0 && !Utilities.noString(t.getProfile()))
-        write("<a href=\""+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
+        write("<a href=\""+prefix+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
       else
-        write("<a href=\"" + (dtRoot + definitions.getSrcFile(t.getName())
+        write("<a href=\"" + prefix+(dtRoot + definitions.getSrcFile(t.getName())
             + ".html#" + t.getName() + "\">" + t.getName()).replace("[", "_").replace("]", "_")
             + "</a>");
       if (t.hasParams()) {
@@ -691,12 +693,12 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
           // TODO: Display action and/or profile information
           if (p.equals("Any")) {
-            write("<a href=\"" + "resourcelist.html" + "\">" + p + "</a>");								
+            write("<a href=\"" + prefix+"resourcelist.html" + "\">" + p + "</a>");								
           }
           else if (t.getName().equals("Reference") && t.getParams().size() == 1 && !Utilities.noString(t.getProfile()))
-            write("<a href=\""+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
+            write("<a href=\""+prefix+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
           else
-            write("<a href=\"" + (dtRoot + definitions.getSrcFile(p)
+            write("<a href=\"" + prefix+(dtRoot + definitions.getSrcFile(p)
                 + ".html#" + p).replace("[", "_").replace("]", "_") + "\">" + p + "</a>");
 
           firstp = false;

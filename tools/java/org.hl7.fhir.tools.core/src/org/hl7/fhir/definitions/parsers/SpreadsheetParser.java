@@ -1000,7 +1000,7 @@ public class SpreadsheetParser {
         vs.setUserData("filename", "valueset-"+vs.getId());
         vs.setUserData("committee", committee);
         if (ig != null) {
-          vs.setUserDataINN(ToolResourceUtilities.NAME_VS_IG, ig);
+          vs.setUserDataINN(ToolResourceUtilities.NAME_RES_IG, ig);
           vs.setUserData("path", ig.getCode()+"/valueset-"+vs.getId()+".html");
         } else
           vs.setUserData("path", "valueset-"+vs.getId()+".html");
@@ -1072,7 +1072,7 @@ public class SpreadsheetParser {
 	    if (!result.hasVersion())
 	      result.setVersion(version);
 	    result.setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(9));
-      result.setUserData("path", "valueset-"+ref+".html");
+      result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
       result.setUserData("committee", committee);
 	    return result;
 	  } finally {
@@ -1675,6 +1675,7 @@ public class SpreadsheetParser {
   private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap, List<ValidationMessage> issues) throws Exception {
 	  // first, we build the extension definition
     StructureDefinition ex = new StructureDefinition();
+    ex.setUserData(ToolResourceUtilities.NAME_RES_IG, ig == null ? "core" : ig.getCode());
     ex.setKind(StructureDefinitionKind.DATATYPE);
     ex.setConstrainedType("Extension");
     ex.setBase("http://hl7.org/fhir/StructureDefinition/Extension");

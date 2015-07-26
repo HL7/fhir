@@ -33,7 +33,7 @@ Implementers need to be mindful of the following during their implementation
 		<li>List of Immunizations</li>
 		<li>List of Encounters</li>
 	 </ul>
-	 <p>DAF Requestors are expected to query the actual Clinical Resources such as Condition, Medication, AllergyIntolerance when they would like to get back a set of resources meeting a specific search criteria.(For example, query for all problems documented for a patient). In contrast, queries on List resources are supposed to be used only when the DAF Requestor expects a curated list to be returned by the DAF Responder. In all cases the List returned is packaged as part of a <a href="bundle.html">Bundle</a> similar to other search results.</p>
+	 <p>DAF Requestors are expected to query the actual Clinical Resources such as Condition, Medication, AllergyIntolerance when they would like to get back a set of resources meeting a specific search criteria.(For example, query for all problems documented for a patient). In contrast, queries on List resources are supposed to be used only when the DAF Requestor expects a curated list to be returned by the DAF Responder. In all cases the List returned is packaged as part of a <a href="../bundle.html">Bundle</a> similar to other search results.</p>
 	 
 	 <p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 </ul>

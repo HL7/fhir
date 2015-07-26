@@ -82,7 +82,7 @@ public class IgParser {
           vs.setId(id);
           vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
         }
-        vs.setUserData(ToolResourceUtilities.NAME_VS_IG, ig);
+        vs.setUserData(ToolResourceUtilities.NAME_RES_IG, ig);
         vs.setUserData("path", ig.getCode()+File.separator+"valueset-"+vs.getId()+".html");
         vs.setUserData("filename", "valueset-"+vs.getId());
         vs.setUserData("committee", committee);
@@ -93,6 +93,7 @@ public class IgParser {
         String filename = e.getAttribute("source");
         File efile = new File(Utilities.path(file.getParent(), filename));
         Example example = new Example(e.getAttribute("name"), Utilities.changeFileExt(efile.getName(), ""), e.getAttribute("name"), efile, false, ExampleType.XmlFile, false);
+        example.setIg(ig.getCode());
         ig.getExamples().add(example);
       } else if (e.getNodeName().equals("profile")) {
         Profile p = new Profile(ig.getCode());
@@ -124,7 +125,7 @@ public class IgParser {
           ex = XMLUtil.getNextSibling(ex);
         }
       } else if (e.getNodeName().equals("dictionary")) {
-        Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), ig.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))));
+        Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), ig.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))), ig);
         ig.getDictionaries().add(d);
       } else if (e.getNodeName().equals("logicalModel")) {
         String source = Utilities.path(file.getParent(), e.getAttribute("source"));

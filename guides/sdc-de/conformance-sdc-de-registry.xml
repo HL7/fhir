@@ -10,7 +10,7 @@
          <p>Published: 2014-07-06 (draft)</p>
          <p>Published by: <b/>
          </p>
-         <p>This profile defines the expected capabilities of the <i>SDC Data Element Manager</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms.</p>
+         <p>This profile defines the expected capabilities of the <i>SDC Data Element Manager</i> role when conforming to the S&amp;I Framework's <a href="../sdc/sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms.</p>
          <h2>General</h2>
          <table>
             <tbody>
@@ -25,11 +25,11 @@
             </tbody>
          </table>
          <h2>REST  behavior</h2>
-         <p>The primary focus of the repository is the definition of <a href="dataelement.html">DataElement</a>s.  However, <a href="valueset.html">ValueSet</a>s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="questionnaire.html">Questionnaire</a>.)</p>
+         <p>The primary focus of the repository is the definition of <a href="../dataelement.html">DataElement</a>s.  However, <a href="../valueset.html">ValueSet</a>s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="../questionnaire.html">Questionnaire</a>.)</p>
          <p>
             <b>Security:</b>
          </p>
-         <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.</p>
+         <p>Implementations must meet the general security requirements documented in the <a href="../sdc/sdc-security.html">SDC implementation guide</a>.</p>
          <h3>Summary</h3>
          <table class="grid">
             <thead>
@@ -124,7 +124,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="dataelement.html">DataElement</a>
+            <a href="../dataelement.html">DataElement</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -307,7 +307,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="valueset.html">ValueSet</a>
+            <a href="../valueset.html">ValueSet</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">

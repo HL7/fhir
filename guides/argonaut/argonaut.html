@@ -1,6 +1,4 @@
 <!DOCTYPE HTML>
-
-
       
 [%settitle Project Argonaut%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -14,7 +12,6 @@
 
 <a name="DAF"> </a> 
 <h2>The Argonaut Project</h2>
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 1</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">None</a></td></tr></table>
 <p>
 The Argonaut Project addresses the recommendations of the JASON Task Force, a joint task force of the HIT Standards and Policy Committees
 and is a joint project between HL7 and the following organizations:
@@ -46,7 +43,7 @@ for Meaningful Use based access to data in the forthcoming DSTU2 ballot of FHIR.
 </p>
 <p>
 For the purpose of the HL7 connectathon, server (patient portal) implementations
-should implement the <a href="patient-operations.html">Fetch Patient Record</a> operation, and return 
+should implement the <a href="[%fhir-path%]patient-operations.html">Fetch Patient Record</a> operation, and return 
 the following Meaningful Use based Data:
 </p>
 <ol>
@@ -70,7 +67,7 @@ including event details, security arrangements, and test/development tools suppo
 see <a href="http://wiki.hl7.org/index.php?title=FHIR_Connectathon_8">FHIR Connectathon 8</a>.
 </p>
 <p>
-The Meaningful Use profiles for the connectathon are mostly those defined for the <a href="daf.html">DAF Implementation Guide</a>.
+The Meaningful Use profiles for the connectathon are mostly those defined for the <a href="[%fhir-path%]daf/daf.html">DAF Implementation Guide</a>.
 Specifically, this is the map between the MU data list above, and their corresponding FHIR resources and DAF profiles:
 </p>
 <table class="grid">
@@ -81,77 +78,77 @@ Specifically, this is the map between the MU data list above, and their correspo
  </tr>
  <tr>
    <td>Patient Details</td>
-   <td><a href="patient.html">Patient</a><br/>+ <a href="encounter.html">Encounter</a> in support</td>
-   <td><a href="patient-daf.html">DAF Patient</a><br/><a href="encounter-daf.html">DAF Encounter</a></td>
+   <td><a href="[%fhir-path%]patient.html">Patient</a><br/>+ <a href="[%fhir-path%]encounter.html">Encounter</a> in support</td>
+   <td><a href="[%fhir-path%]daf/patient-daf.html">DAF Patient</a><br/><a href="[%fhir-path%]daf/encounter-daf.html">DAF Encounter</a></td>
  </tr>
  <tr>
    <td>Smoking status</td>
-   <td><a href="observation.html">Observation</a></td>
-   <td><a href="observation-daf-smokingstatus.html">DAF Smoking Status</a></td>
+   <td><a href="[%fhir-path%]observation.html">Observation</a></td>
+   <td><a href="[%fhir-path%]daf/observation-daf-smokingstatus.html">DAF Smoking Status</a></td>
  </tr>
  <tr>
    <td>Problems</td>
-   <td><a href="condition.html">Condition</a></td>
-   <td><a href="condition-daf.html">DAF Condition (a.k.a. Problem)</a></td>
+   <td><a href="[%fhir-path%]condition.html">Condition</a></td>
+   <td><a href="[%fhir-path%]daf/condition-daf.html">DAF Condition (a.k.a. Problem)</a></td>
  </tr>
  <tr>
    <td>Medications</td>
    <td>A combination of<ul>
-     <li><a href="medicationprescription.html">MedicationPrescription</a></li>
-     <li><a href="medicationdispense.html">MedicationDispense</a></li>
-     <li><a href="medicationadministration.html">MedicationAdministration</a></li>
-     <li><a href="medicationstatement.html">MedicationStatement</a></li>
-     <li><a href="immunization.html">Immunization</a></li>
+     <li><a href="[%fhir-path%]medicationprescription.html">MedicationPrescription</a></li>
+     <li><a href="[%fhir-path%]medicationdispense.html">MedicationDispense</a></li>
+     <li><a href="[%fhir-path%]medicationadministration.html">MedicationAdministration</a></li>
+     <li><a href="[%fhir-path%]medicationstatement.html">MedicationStatement</a></li>
+     <li><a href="[%fhir-path%]immunization.html">Immunization</a></li>
     </ul> 
    </td>
    <td>DAF:<ul>
-     <li><i><a href="medicationprescription-daf.html">DAF Medication Prescription</a></i></li>
-     <li><i><a href="medicationdispense-daf.html">DAF Medication Dispense</a></i></li>
-     <li><a href="medicationadministration-daf.html">DAF Medication Administration</a></li>
-     <li><a href="medicationstatement-daf.html">DAF MedicationStatement</a></li>
-     <li><a href="immunization-daf.html">DAF Immunization</a> (note: it is expected that this be replaced by use of MedicationAdministration)</li>
+     <li><i><a href="[%fhir-path%]daf/medicationprescription-daf.html">DAF Medication Prescription</a></i></li>
+     <li><i><a href="[%fhir-path%]daf/medicationdispense-daf.html">DAF Medication Dispense</a></i></li>
+     <li><a href="[%fhir-path%]daf/medicationadministration-daf.html">DAF Medication Administration</a></li>
+     <li><a href="[%fhir-path%]daf/medicationstatement-daf.html">DAF MedicationStatement</a></li>
+     <li><a href="[%fhir-path%]daf/immunization-daf.html">DAF Immunization</a> (note: it is expected that this be replaced by use of MedicationAdministration)</li>
     </ul> 
    </td>
  </tr>
  <tr>
    <td>Medication allergies</td>
-   <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
-   <td><a href="allergyintolerance-daf.html">DAF AllergyIntolerance</a></td>
+   <td><a href="[%fhir-path%]allergyintolerance.html">AllergyIntolerance</a></td>
+   <td><a href="[%fhir-path%]daf/allergyintolerance-daf.html">DAF AllergyIntolerance</a></td>
  </tr>
  <tr>
    <td>Laboratory test(s)</td>
-   <td><a href="diagnosticorder.html">DiagnosticOrder</a></td>
-   <td><a href="diagnosticorder-daf.html">DAF DiagnosticOrder</a></td>
+   <td><a href="[%fhir-path%]diagnosticorder.html">DiagnosticOrder</a></td>
+   <td><a href="[%fhir-path%]daf/diagnosticorder-daf.html">DAF DiagnosticOrder</a></td>
  </tr>
  <tr>
    <td>Laboratory value(s)/result(s)</td>
-   <td><a href="diagnosticreport.html">DiagnosticReport</a> &amp; <a href="observation.html">Observation</a> </td>
-   <td><a href="diagnosticreport-daf.html">DAF Diagnostic Report</a> / <a href="observation-daf-results.html">DAF Results</a></td>
+   <td><a href="[%fhir-path%]diagnosticreport.html">DiagnosticReport</a> &amp; <a href="[%fhir-path%]observation.html">Observation</a> </td>
+   <td><a href="[%fhir-path%]daf/diagnosticreport-daf.html">DAF Diagnostic Report</a> / <a href="[%fhir-path%]daf/observation-daf-results.html">DAF Results</a></td>
  </tr>
  <tr>
    <td>Vital signs</td>
-   <td><a href="observation.html">Observation</a></td>
-   <td><a href="observation-daf-vitalsigns.html">DAF Vital Signs</a></td>
+   <td><a href="[%fhir-path%]observation.html">Observation</a></td>
+   <td><a href="[%fhir-path%]daf/observation-daf-vitalsigns.html">DAF Vital Signs</a></td>
  </tr>
  <tr>
    <td>Care Plan</td>
-   <td><a href="careplan.html">CarePlan</a></td>
+   <td><a href="[%fhir-path%]careplan.html">CarePlan</a></td>
    <td>For Care plan, there is no DAF profile. Argonaut participants have <a href="careplan-argonaut.html">agreed to use just a narrative with no structured data</a></td>
  </tr>
  <tr>
    <td>Procedures</td>
-   <td><a href="procedure.html">Procedure</a></td>
-   <td><a href="procedure-daf.html">DAF Procedure</a></td>
+   <td><a href="[%fhir-path%]procedure.html">Procedure</a></td>
+   <td><a href="[%fhir-path%]daf/procedure-daf.html">DAF Procedure</a></td>
  </tr>
  <tr>
    <td>Care team</td>
-   <td><a href="practitioner.html">Practitioner</a></td>
-   <td><a href="pract-daf.html">DAF Practitioner</a></td>
+   <td><a href="[%fhir-path%]practitioner.html">Practitioner</a></td>
+   <td><a href="[%fhir-path%]daf/pract-daf.html">DAF Practitioner</a></td>
  </tr>
  <tr>
    <td>Patient Documents</td>
-   <td><a href="documentreference.html">DocumentReference</a></td>
-   <td><i>Not done yet</i> (will be consistent with IHE use in the <a href="ftp://ftp.ihe.net/IT_Infrastructure/iheitiyr13-2015-2016/Technical_Cmte/Workitems/MHD2/IHE_ITI_Suppl_MHD_20141205.docx">MHD profile</a>)</td>
+   <td><a href="[%fhir-path%]documentreference.html">DocumentReference</a></td>
+   <td>See <a href="http://argonautwiki.hl7.org/index.php?title=Implementation_Guide">Argonaut Technical Specification</a></td>
  </tr>
 </table>
 
@@ -181,12 +178,12 @@ of the profiles based on implementation experience.
 
 <p>
 In the FHIR specification, a patient's problem list, etc. consists of 0 or more 
-instances of the <a href="condition.html">Condition</a> resource. These are
-found in the <a href="bundle.html">Bundle</a> that is returned from the 
+instances of the <a href="[%fhir-path%]condition.html">Condition</a> resource. These are
+found in the <a href="[%fhir-path%]bundle.html">Bundle</a> that is returned from the 
 "Fetch Patient Record" operation.
 </p>
 <p>
-FHIR also includes a <a href="list.html">List</a> resource that represents
+FHIR also includes a <a href="[%fhir-path%]list.html">List</a> resource that represents
 a logical list of items, such as a problem list. As well as providing
 list status tracking information, the list carries an important data 
 element. If the list is empty, it can indicate a reason why. For consistency in the 

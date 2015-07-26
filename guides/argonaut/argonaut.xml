@@ -1,0 +1,6 @@
+<ig code="hspc" title="HSPC">
+    <publishing homepage="argonaut.html" />
+    <page source="argonaut.html" />
+  <profile source="careplan-argonaut-profile-spreadsheet.xml" type="spreadsheet"/>
+</ig>
+

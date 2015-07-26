@@ -59,7 +59,7 @@ Profiles are represented as classes, so for example, the QICore Procedure profil
 simply represented as the <tt>Procedure</tt> class. Elements and extensions are normalized
 and listed as fields on the class with a given type, description, and cardinality.
 The fields are classified as <i>must support</i> and <i>is modifier</i>, as defined in
-FHIR and the <a href="../qicore.html#mustsupport">QICore Implementation Guide</a>.
+FHIR and the <a href="../cqf/qicore.html#mustsupport">QICore Implementation Guide</a>.
 When class elements refer to other classes, the reference types are also normalized
 from their formal profile names (e.g., <tt>encounter-qicore-qicore-encounter</tt>) to
 their logical class names (e.g., <tt>Encounter</tt>).
@@ -93,7 +93,7 @@ a value (if the lower cardinality is zero). The only assurance associated with a
 retrieve the data and process it if the data is available.
 <p/>
 
-The <a href="../qicore.html#modifying">QICore Implementation Guide</a> provides further
+The <a href="../cqf/qicore.html#modifying">QICore Implementation Guide</a> provides further
 information regarding the <i>must support</i> annotation.
 
 <h2>Modifying Attributes</h2>
@@ -106,7 +106,7 @@ modifying elements include <tt>status</tt> (in many resources), negations
 of modifying elements.
 <p/>
 
-The <a href="../qicore.html#modifying">QICore Implementation Guide</a> provides further
+The <a href="../cqf/qicore.html#modifying">QICore Implementation Guide</a> provides further
 information regarding the <i>is modifier</i> annotation.
 
 <h2>Table View</h2>

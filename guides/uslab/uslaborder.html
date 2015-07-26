@@ -84,34 +84,34 @@
 
          <h3>Specification</h3>
          <p>
-            The <i>USLabOrder</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.
-            Basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>,
-            <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. apply.
+            The <i>USLabOrder</i> is built on top of the <a href="[%fhir-path%]index.html">HL7 FHIR</a> standard.
+            Basic aspects of the FHIR protocol, including <a href="[%fhir-path%]http.html">RESTful operations</a>,
+            <a href="[%fhir-path%]datatypes.html">data types</a>, <a href="[%fhir-path%]search.html">search</a>, etc. apply.
          </p>
 
-         <p>  <b>Profiles</b> -The current focus of implementing <i>USLabOrder</i> is using a FHIR <a href="bundle.html">Bundle Resource</a> <!-- create profiles for bundles too --> to exchange a <a href="diagnosticorder.html">DiagnosticOrder Profile</a> and the Resource Profiles it references.  This FHIR bundle completely defines the laboratory order.  The Resource Profiles that may be used in the bundle are outlined below: (This list is not meant to be exhaustive as additional resources may also to be used)</p>
+         <p>  <b>Profiles</b> -The current focus of implementing <i>USLabOrder</i> is using a FHIR <a href="[%fhir-path%]bundle.html">Bundle Resource</a> <!-- create profiles for bundles too --> to exchange a <a href="[%fhir-path%]diagnosticorder.html">DiagnosticOrder Profile</a> and the Resource Profiles it references.  This FHIR bundle completely defines the laboratory order.  The Resource Profiles that may be used in the bundle are outlined below: (This list is not meant to be exhaustive as additional resources may also to be used)</p>
          <ul>
           <li>
             <a name="doprofiles"></a>
-            <a href="do-uslab.html">US Lab DiagnosticOrder</a> constrains and extends <a href="diagnosticorder.html">DiagnosticOrder</a> which is used to define the laboratory order.   This Resources references the following profiles:
+            <a href="do-uslab.html">US Lab DiagnosticOrder</a> constrains and extends <a href="[%fhir-path%]diagnosticorder.html">DiagnosticOrder</a> which is used to define the laboratory order.   This Resources references the following profiles:
           <ul>
-			<li><a href="patient-uslab.html">USlabPatient</a> constrains and extends <a href="patient.html">Patient</a> which is used the subject of the order.  .</li>
-			<li><a href="patient-uslab.html">USlabPHPatient</a> constrains and extends <a href="patient.html">Patient</a> which is used the subject of the order for use cases where additional patient information is needed, such as for tests that may be reportable to public health and when the orderer instructs the laboratory to send copy of the results to the patient.</li>
-			<li><a href="pract-uslab.html">USlabPractitioner</a> constrains and extends <a href="practitioner.html">Practitioner</a> which is used to define the provider who ordered the lab test(s) or a non-ordering provider to whom the orderer instructs the laboratory to send the results.  </li>
-			<li><a href="pract-uslab.html">USlabPHPractitioner</a> constrains and extends <a href="practitioner.html">Practitioner</a> which is defined for use cases where additional provider information is needed, such as for tests that may be reportable to public health.  This Resource references the following profile:
+			<li><a href="patient-uslab.html">USlabPatient</a> constrains and extends <a href="[%fhir-path%]patient.html">Patient</a> which is used the subject of the order.  .</li>
+			<li><a href="patient-uslab.html">USlabPHPatient</a> constrains and extends <a href="[%fhir-path%]patient.html">Patient</a> which is used the subject of the order for use cases where additional patient information is needed, such as for tests that may be reportable to public health and when the orderer instructs the laboratory to send copy of the results to the patient.</li>
+			<li><a href="pract-uslab.html">USlabPractitioner</a> constrains and extends <a href="[%fhir-path%]practitioner.html">Practitioner</a> which is used to define the provider who ordered the lab test(s) or a non-ordering provider to whom the orderer instructs the laboratory to send the results.  </li>
+			<li><a href="pract-uslab.html">USlabPHPractitioner</a> constrains and extends <a href="[%fhir-path%]practitioner.html">Practitioner</a> which is defined for use cases where additional provider information is needed, such as for tests that may be reportable to public health.  This Resource references the following profile:
 			<ul>
-					<li><a href="org-uslab.html">USLabOrderFacility</a> constrains and extends <a href="organization.html">Organization</a> which is used to define a the orderer organization.</li>
+					<li><a href="org-uslab.html">USLabOrderFacility</a> constrains and extends <a href="[%fhir-path%]organization.html">Organization</a> which is used to define a the orderer organization.</li>
 			</ul>
 </li>
-			<li><a href="obs-uslab.html">USLabObsCode | USLabObsQuantity | USLabObsOther | USLabObsRatio | USLabObsPanel</a> constrains and extends <a href="observation.html">Observation</a> which are used to support the various result types for record supporting information or other clinically relevant observations such as previous lab results and ask at order questions (AOE).  These Resources reference the following profile:
+			<li><a href="obs-uslab.html">USLabObsCode | USLabObsQuantity | USLabObsOther | USLabObsRatio | USLabObsPanel</a> constrains and extends <a href="[%fhir-path%]observation.html">Observation</a> which are used to support the various result types for record supporting information or other clinically relevant observations such as previous lab results and ask at order questions (AOE).  These Resources reference the following profile:
 			<ul>
-					<li><a href="org-uslab.html">USLabPerformingLab</a> constrains and extends <a href="organization.html">Organization</a> which is used to define a the organization that is responsible for the observation.</li>
+					<li><a href="org-uslab.html">USLabPerformingLab</a> constrains and extends <a href="[%fhir-path%]organization.html">Organization</a> which is used to define a the organization that is responsible for the observation.</li>
 			</ul>
 			</li>
-			<li><a href="cond-uslab.html">USlabReasonForStudy</a> constrains and extends <a href="condition.html">Condition</a> which is used to record reasons for performing the requested test.</li>
-			<li><a href="cond-uslab.html">USlabCond</a> constrains and extends <a href="condition.html">Condition</a> which is used to provide other clinically relevant information to the laboratorian or pathologist.</li>
-			<li><a href="spec-uslab.html">USlabSpec</a> constrains and extends <a href="specimen.html">Specimen</a> which is used to define what, when, and how the specimen was collected.</li>
-			<li><a href="org-uslab.html">USLabCCTarget</a> constrains and extends <a href="organization.html">Organization</a> which is used to define a third party organization to which the orderer instructs the laboratory to send the results.</li>
+			<li><a href="cond-uslab.html">USlabReasonForStudy</a> constrains and extends <a href="[%fhir-path%]condition.html">Condition</a> which is used to record reasons for performing the requested test.</li>
+			<li><a href="cond-uslab.html">USlabCond</a> constrains and extends <a href="[%fhir-path%]condition.html">Condition</a> which is used to provide other clinically relevant information to the laboratorian or pathologist.</li>
+			<li><a href="spec-uslab.html">USlabSpec</a> constrains and extends <a href="[%fhir-path%]specimen.html">Specimen</a> which is used to define what, when, and how the specimen was collected.</li>
+			<li><a href="org-uslab.html">USLabCCTarget</a> constrains and extends <a href="[%fhir-path%]organization.html">Organization</a> which is used to define a third party organization to which the orderer instructs the laboratory to send the results.</li>
 
 		</ul>
 		</li>

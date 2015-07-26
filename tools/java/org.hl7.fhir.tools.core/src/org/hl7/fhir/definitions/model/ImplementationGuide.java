@@ -12,6 +12,7 @@ public class ImplementationGuide {
 
   private String committee;
   private String code;
+  private boolean core; 
   private String name;
   private String page;
   private boolean review;
@@ -29,7 +30,7 @@ public class ImplementationGuide {
   private List<BindingSpecification> unresolvedBindings = new ArrayList<BindingSpecification>();
   private List<LogicalModel> logicalModels = new ArrayList<LogicalModel>();
   
-  public ImplementationGuide(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm) {
+  public ImplementationGuide(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, boolean core) {
     super();
     this.code = code;
     this.name = name;
@@ -39,6 +40,7 @@ public class ImplementationGuide {
     this.committee = committee;
     this.fmm = fmm;
     this.ballot = ballot;
+    this.core = core;
   }
   
   public String getCode() {
@@ -140,7 +142,7 @@ public class ImplementationGuide {
   }
 
   public boolean isCore() {
-    return code.equals("core");
+    return core;
   }
   
 }

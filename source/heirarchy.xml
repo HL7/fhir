@@ -145,7 +145,7 @@ signatures.html
 				<page title="Common Usages" filename="usecases.html"/>
 			</page>
 			<page title="Implementation Guides" filename="iglist.html">
-				<page title="Argonaut Project" filename="argonauts.html"/>
+<!--				<page title="Argonaut Project" filename="argonauts.html"/>
 				<page title="Data Access Framework (DAF)" filename="daf.html">
 					<page title="DAF Introduction" filename="daf-intro.html"/>
 					<page title="DAF Security" filename="daf-security.html"/>
@@ -169,7 +169,7 @@ signatures.html
 					<page title="USLabPHReport" filename="uslabphreport.html">
 						<page title="Documentation" filename="uslabphresult-guide.html"/>
 					</page>
-				</page>
+				</page> -->
 			</page>
 		  <page title="Profile List" filename="profilelist.html"/>
 			<page title="Using Resources" filename="use.html"/>

@@ -20,7 +20,7 @@ The following are example usage scenarios for the DAFFamilyMemberHistory profile
 	<h4>Profile specific implementation guidance</h4>
 
 <p>
-The <a href="list.html">List</a> resource is used to aggregate <b>FamilyMemberHistory</b> instances into a complete Family History.
+The <a href="../list.html">List</a> resource is used to aggregate <b>FamilyMemberHistory</b> instances into a complete Family History.
 </p>
 <p>
 Please refer to <a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.

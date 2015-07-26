@@ -196,12 +196,13 @@
     <resource>
       <Order>
         <id value="order1"/>
-        <meta>
-          <!-- TODO: Profile url for IHE GAO Order profile? 
-          <profile value="http://hl7.org/fhir/StructureDefinition/order-gao-gao-order"/>-->
-          <!-- TODO: Build aucrad order profile
-          <profile value="http://hl7.org/fhir/StructureDefinition/order-aucrad-aucrad-order"/> -->
+<!--        <meta>
+          <!-.- TODO: Profile url for IHE GAO Order profile? 
+          <profile value="http://hl7.org/fhir/StructureDefinition/order-gao-gao-order"/>-.->
+          <!-.- TODO: Build aucrad order profile
+          <profile value="http://hl7.org/fhir/StructureDefinition/order-aucrad-aucrad-order"/> -.->
         </meta>
+        -->
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">

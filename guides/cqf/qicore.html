@@ -14,7 +14,7 @@
 
 <h2>Quality Improvement Core (QICore) Implementation Guide</h2>
 
-<p><i>In April 2015, this FHIR Implementation Guide will undergo a DSTU ballot. The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance statements it defines, although comments on the underlying resources will also be accepted. This Implementation Guide will be balloted separately from the FHIR specification itself. A non-normative, but useful, summary of classes and attributes defined by this IG can be found <a href="quick/index.html">here.</a></i></p>
+<p><i>In April 2015, this FHIR Implementation Guide will undergo a DSTU ballot. The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance statements it defines, although comments on the underlying resources will also be accepted. This Implementation Guide will be balloted separately from the FHIR specification itself. A non-normative, but useful, summary of classes and attributes defined by this IG can be found <a href="../quick/index.html">here.</a></i></p>
 
 <h3>Summary</h3>
 
@@ -59,7 +59,7 @@
 
 <h3>Relationship to Other Initiatives</h3>
 
-<p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="daf.html">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
+<p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="[%fhir-path%]daf/daf.html">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
 
 <p>QICore's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QICore extensions will not create future conflicts. One initiative that provided reviews and feedback was the <a href="http://www.opencimi.org/">Clinical Information Modeling Initiative (CIMI)</a> through the <a href="http://www.opencimi.org/healthcare-services-platform-consortium">Healthcare Services Platform Consortium (HSPC)</a>. </p>
 
@@ -78,139 +78,139 @@
 	<tbody>
         <tr>
 			<td><a href="adverseevent-qicore-qicore-adverseevent.html">QICore-AdverseEvent</a></td>
-			<td><a href="basic.html">Basic</a></td>
+			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
 		</tr>
 		<tr>
 			<td><a href="allergyintolerance-qicore-qicore-allergyintolerance.html">QICore-AllergyIntolerance</a></td>
-			<td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
+			<td><a href="[%fhir-path%]allergyintolerance.html">AllergyIntolerance</a></td>
 		</tr>
 		<tr>
 			<td><a href="bodysite-qicore-qicore-bodysite.html">QICore-BodySite</a></td>
-			<td><a href="bodysite.html">BodySite</a></td>
+			<td><a href="[%fhir-path%]bodysite.html">BodySite</a></td>
 		</tr>
 		<tr>
 			<td><a href="communication-qicore-qicore-communication.html">QICore-Communication</a></td>
-			<td><a href="communication.html">Communication</a></td>
+			<td><a href="[%fhir-path%]communication.html">Communication</a></td>
 		</tr>
 		<tr>
 			<td><a href="communicationrequest-qicore-qicore-communicationrequest.html">QICore-CommunicationRequest</a></td>
-			<td><a href="communicationrequest.html">CommunicationRequest</a></td>
+			<td><a href="[%fhir-path%]communicationrequest.html">CommunicationRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="condition-qicore-qicore-condition.html">QICore-Condition</a></td>
-			<td><a href="condition.html">Condition</a></td>
+			<td><a href="[%fhir-path%]condition.html">Condition</a></td>
 		</tr>
 		<tr>
 			<td><a href="device-qicore-qicore-device.html">QICore-Device</a></td>
-			<td><a href="device.html">Device</a></td>
+			<td><a href="[%fhir-path%]device.html">Device</a></td>
 		</tr>		
 		<tr>
 			<td><a href="deviceuserequest-qicore-qicore-deviceuserequest.html">QICore-DeviceUseRequest</a></td>
-			<td><a href="deviceuserequest.html">DeviceUseRequest</a></td>
+			<td><a href="[%fhir-path%]deviceuserequest.html">DeviceUseRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="deviceusestatement-qicore-qicore-deviceusestatement.html">QICore-DeviceUseStatement</a></td>
-			<td><a href="deviceusestatement.html">DeviceUseStatement</a></td>
+			<td><a href="[%fhir-path%]deviceusestatement.html">DeviceUseStatement</a></td>
 		</tr>
 		<tr>
 			<td><a href="diagnosticorder-qicore-qicore-diagnosticorder.html">QICore-DiagnosticOrder</a></td>
-			<td><a href="diagnosticorder.html">DiagnosticOrder</a></td>
+			<td><a href="[%fhir-path%]diagnosticorder.html">DiagnosticOrder</a></td>
 		</tr>
 		<tr>
 			<td><a href="diagnosticreport-qicore-qicore-diagnosticreport.html">QICore-DiagnosticReport</a></td>
-			<td><a href="diagnosticreport.html">DiagnosticReport</a></td>
+			<td><a href="[%fhir-path%]diagnosticreport.html">DiagnosticReport</a></td>
 		</tr>
 		<tr>
 			<td><a href="encounter-qicore-qicore-encounter.html">QICore-Encounter</a></td>
-			<td><a href="encounter.html">Encounter</a></td>
+			<td><a href="[%fhir-path%]encounter.html">Encounter</a></td>
 		</tr>
 		<tr>
 			<td><a href="familymemberhistory-qicore-qicore-familymemberhistory.html">QICore-FamilyMemberHistory</a></td>
-			<td><a href="familymemberhistory.html">FamilyMemberHistory</a></td>
+			<td><a href="[%fhir-path%]familymemberhistory.html">FamilyMemberHistory</a></td>
 		</tr>
 		<tr>
 			<td><a href="flag-qicore-qicore-flag.html">QICore-Flag</a></td>
-			<td><a href="flag.html">Flag</a></td>
+			<td><a href="[%fhir-path%]flag.html">Flag</a></td>
 		</tr>
 		<tr>
 			<td><a href="goal-qicore-qicore-goal.html">QICore-Goal</a></td>
-			<td><a href="goal.html">Goal</a></td>
+			<td><a href="[%fhir-path%]goal.html">Goal</a></td>
 		</tr>
 		<tr>
 			<td><a href="imagingstudy-qicore-qicore-imagingstudy.html">QICore-ImagingStudy</a></td>
-			<td><a href="imagingstudy.html">ImagingStudy</a></td>
+			<td><a href="[%fhir-path%]imagingstudy.html">ImagingStudy</a></td>
 		</tr>
 		<tr>
 			<td><a href="immunization-qicore-qicore-immunization.html">QICore-Immunization</a></td>
-			<td><a href="immunization.html">Immunization</a></td>
+			<td><a href="[%fhir-path%]immunization.html">Immunization</a></td>
 		</tr>
 		<tr>
 			<td><a href="immunizationrecommendation-qicore-qicore-immunizationrec.html">QICore-ImmunizationRecommendation</a></td>
-			<td><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td>
+			<td><a href="[%fhir-path%]immunizationrecommendation.html">ImmunizationRecommendation</a></td>
 		</tr>
 		<tr>
 			<td><a href="location-qicore-qicore-location.html">QICore-Location</a></td>
-			<td><a href="location.html">Location</a></td>
+			<td><a href="[%fhir-path%]location.html">Location</a></td>
 		</tr>
 		<tr>
 			<td><a href="medication-qicore-qicore-medication.html">QICore-Medication</a></td>
-			<td><a href="medication.html">Medication</a></td>
+			<td><a href="[%fhir-path%]medication.html">Medication</a></td>
 		</tr>
 		<tr>
 			<td><a href="medicationadministration-qicore-qicore-medicationadministration.html">QICore-MedicationAdministration</a></td>
-			<td><a href="medicationadministration.html">MedicationAdministration</a></td>
+			<td><a href="[%fhir-path%]medicationadministration.html">MedicationAdministration</a></td>
 		</tr>
 		<tr>
 			<td><a href="medicationdispense-qicore-qicore-medicationdispense.html">QICore-MedicationDispense</a></td>
-			<td><a href="medicationdispense.html">MedicationDispense</a></td>
+			<td><a href="[%fhir-path%]medicationdispense.html">MedicationDispense</a></td>
 		</tr>
 		<tr>
 			<td><a href="medicationprescription-qicore-qicore-medicationprescription.html">QICore-MedicationPrescription</a></td>
-			<td><a href="medicationprescription.html">MedicationPrescription</a></td>
+			<td><a href="[%fhir-path%]medicationprescription.html">MedicationPrescription</a></td>
 		</tr>
 		<tr>
 			<td><a href="medicationstatement-qicore-qicore-medicationstatement.html">QICore-MedicationStatement</a></td>
-			<td><a href="medicationstatement.html">MedicationStatement</a></td>
+			<td><a href="[%fhir-path%]medicationstatement.html">MedicationStatement</a></td>
 		</tr>
 		<tr>
 			<td><a href="observation-qicore-qicore-observation.html">QICore-Observation</a></td>
-			<td><a href="observation.html">Observation</a></td>
+			<td><a href="[%fhir-path%]observation.html">Observation</a></td>
 		</tr>
 		<tr>
 			<td><a href="organization-qicore-qicore-organization.html">QICore-Organization</a></td>
-			<td><a href="organization.html">Organization</a></td>
+			<td><a href="[%fhir-path%]organization.html">Organization</a></td>
 		</tr>
 		<tr>
 			<td><a href="patient-qicore-qicore-patient.html">QICore-Patient</a></td>
-			<td><a href="patient.html">Patient</a></td>
+			<td><a href="[%fhir-path%]patient.html">Patient</a></td>
 		</tr>
 		<tr>
 			<td><a href="practitioner-qicore-qicore-practitioner.html">QICore-Practitioner</a></td>
-			<td><a href="practitioner.html">Practitioner</a></td>
+			<td><a href="[%fhir-path%]practitioner.html">Practitioner</a></td>
 		</tr>
 		<tr>
 			<td><a href="procedure-qicore-qicore-procedure.html">QICore-Procedure</a></td>
-			<td><a href="procedure.html">Procedure</a></td>
+			<td><a href="[%fhir-path%]procedure.html">Procedure</a></td>
 		</tr>
 		<tr>
 			<td><a href="procedurerequest-qicore-qicore-procedurerequest.html">QICore-ProcedureRequest</a></td>
-			<td><a href="procedurerequest.html">ProcedureRequest</a></td>
+			<td><a href="[%fhir-path%]procedurerequest.html">ProcedureRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="referralrequest-qicore-qicore-referralrequest.html">QICore-ReferralRequest</a></td>
-			<td><a href="referralrequest.html">ReferralRequest</a></td>
+			<td><a href="[%fhir-path%]referralrequest.html">ReferralRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="relatedperson-qicore-qicore-relatedperson.html">QICore-RelatedPerson</a></td>
-			<td><a href="relatedperson.html">RelatedPerson</a></td>
+			<td><a href="[%fhir-path%]relatedperson.html">RelatedPerson</a></td>
 		</tr>
 		<tr>
 			<td><a href="specimen-qicore-qicore-specimen.html">QICore-Specimen</a></td>
-			<td><a href="specimen.html">Specimen</a></td>
+			<td><a href="[%fhir-path%]specimen.html">Specimen</a></td>
 		</tr>
 		<tr>
 			<td><a href="substance-qicore-qicore-substance.html">QICore-Substance</a></td>
-			<td><a href="substance.html">Substance</a></td>
+			<td><a href="[%fhir-path%]substance.html">Substance</a></td>
 		</tr>
 	</tbody>
 </table>

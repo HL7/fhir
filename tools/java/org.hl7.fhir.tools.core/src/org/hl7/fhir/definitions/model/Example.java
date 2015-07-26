@@ -52,6 +52,7 @@ public class Example {
   private Document xml;
   private String resourceName;
   private Set<Example> inbounds = new HashSet<Example>();
+  private String ig;
   
   
   public enum ExampleType {
@@ -193,6 +194,16 @@ public class Example {
 
   public Set<Example> getInbounds() {
     return inbounds;
+  }
+
+
+  public String getIg() {
+    return ig;
+  }
+
+
+  public void setIg(String ig) {
+    this.ig = ig;
   }
   
   

@@ -9,7 +9,6 @@
   <ig code="sdc-de"   name="Structured Data Capture - Data Element Management" page="sdc-de.html" review="" source="\guides\sdc-de\sdc-de.xml" committee="oo" ballot="dstu1" fmm="0"/>
   <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review="" committee="cds" ballot="draft" fmm="0" core="yes"/>
   <ig code="ihe"      name="IHE Profiles" page="" review="" committee="hsi" ballot="dstu2" fmm="0" core="yes"/>
-  <ig code="argonaut" name="Argonaut" page="argonauts.html" review="0" committee="fhir" ballot="draft" fmm="0"/>
   
   <ig code="uslab"    name="US Lab Profile" page="uslabreport.html" review="" source="\guides\uslab\uslab.xml" committee="us" ballot="dstu2" fmm="0"/>
   <ig code="daf"      name="Data Access Framework" page="daf.html" review="" source="\guides\daf\daf.xml" committee="inm" ballot="dstu1" fmm="0"/>
@@ -17,4 +16,5 @@
   <ig code="cqif"     name="Clinical Quality Improvement Framework" page="cqif.html" review="" source="\guides\cqif\cqif.xml" committee="cds" ballot="draft" fmm="0"/>
   <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="yes" source="\guides\hspc\hspc.xml" committee="fhir" ballot="draft" fmm="0"/>
   <ig code="nehta"    name="NEHTA Tooling/Method Evaluation" page="nehta.html" review="" source="\guides\nehta\nehta.xml" committee="fhir" ballot="draft" fmm="0"/>
+  <ig code="argonaut" name="Argonaut" page="argonauts.html" source="\guides\argonaut\argonaut.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0"/>
 </igs>

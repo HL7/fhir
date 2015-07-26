@@ -2342,12 +2342,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
         generateCopyright(x, vs);
       }
       XhtmlNode p = x.addTag("p");
-      p.addText("This value set includes codes defined in other code systems, using the following rules:");
+      p.addText("This value set includes codes from the following code systems:");
     } else {
       XhtmlNode p = x.addTag("p");
-      p.addText("In addition, this value set includes codes defined in other code systems, using the following rules:");
-
+      p.addText("In addition, this value set includes codes from other code systems:");
     }
+    
     XhtmlNode ul = x.addTag("ul");
     XhtmlNode li;
     for (UriType imp : vs.getCompose().getImport()) {
@@ -2437,7 +2437,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           }
         }
       }
-      boolean first = false;
+      boolean first = true;
       for (ConceptSetFilterComponent f : inc.getFilter()) {
         if (first) {
         li.addText(type+" codes from ");

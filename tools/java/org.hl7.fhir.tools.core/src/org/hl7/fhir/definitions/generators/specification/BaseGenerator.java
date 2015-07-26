@@ -9,14 +9,14 @@ public class BaseGenerator {
   protected PageProcessor page;
   protected Definitions definitions;
 
-  public static String getBindingLink(ElementDefn e) throws Exception {
+  public static String getBindingLink(String prefix, ElementDefn e) throws Exception {
     BindingSpecification bs = e.getBinding();
-    return getBindingLink(bs);
+    return getBindingLink(prefix, bs);
   }
   
-  public static String getBindingLink(BindingSpecification bs) throws Exception {
+  public static String getBindingLink(String prefix, BindingSpecification bs) throws Exception {
     if (bs.getValueSet() != null) 
-      return bs.getValueSet().getUserString("path");
+      return prefix+bs.getValueSet().getUserString("path");
     else if (bs.getReference() != null)
       return bs.getReference();      
     else 

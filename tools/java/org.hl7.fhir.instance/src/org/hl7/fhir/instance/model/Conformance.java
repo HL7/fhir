@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 23, 2015 11:46-0400 for FHIR v0.5.0
+// Generated on Sat, Jul 25, 2015 08:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -6469,7 +6469,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="resource", path="Conformance.rest.resource.type", description="Name of a resource mentioned in a conformance statement", type="token" )
   public static final String SP_RESOURCE = "resource";
-  @SearchParamDefinition(name="security", path="Conformance.rest.security", description="Information about security of implementation", type="token" )
+  @SearchParamDefinition(name="security", path="Conformance.rest.security.service", description="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates", type="token" )
   public static final String SP_SECURITY = "security";
   @SearchParamDefinition(name="format", path="Conformance.format", description="formats supported (xml | json | mime type)", type="token" )
   public static final String SP_FORMAT = "format";
