@@ -3,16 +3,31 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-A flag is typically presented as a label in a prominent location in a patient chart to notify the clinician of potential issues, 
-though it may also appear in other contexts.  E.g. instructions to a radiology technician, or warnings about locations. 
-For patientss, the information in the flag will usually be derived from the record, and therefore, for a thorough and careful clinician, will be redundant.  
+A flag is a warning or notification of some sort presented to the user - who may be a clinician or some other person involve in patient care. It usually represents
+something of sufficient significance to be warrant a special display of some sort - rather than just a note in the resource.
+
+A flag has a subject representing the resource that will trigger its display. This subject can be of different types, as described in the examples below:
+</p>
+<ul>
+    <li>A note that a patient has an overdue account, which the provider may wish to discuss with them - in case of hardship for example (subject = Patient) </li>
+    <li>An outbreak of ebola in a particular region (subject=Location) so that all patients from that region have a higher risk of having that condition</li>
+    <li>A particular provider is unavailable for referrals over a given period (subject = Practitioner)</li>
+    <li>A patient who is enrolled in a clincial trial (subject=Group)</li>
+</ul>
+<p>
+    
+A flag is typically presented as a label in a prominent location in the record to notify the clinician of the potential issues, 
+though it may also appear in other contexts.  E.g. notes applicable to a radiology technician, or to a clinician performing a home visit. 
+
+For patients, the information in the flag will often be derived from the record, and therefore, for a thorough and careful clinician, who has the time to review the
+notes will be redundant.  
 However, given the volume of information frequently found in patients' records and the potentially serious consequences of losing sight of some facts, this 
 redundancy is deemed appropriate.  As well, some flags may reflect information not captured by any other resource in the record.  
 (E.g. "Patient has large dog at home")
 </p>
 <p>
 In line with its purpose, a flag is concise, highlighting a small set of high-priority issues among the much larger set of 
-data in the chart. Readers who want more detail should consult the chart.  Caution should be exercised in creating Flag instances.
+data in the chart. Readers who want more detail should consult the chart or other source of information.  Caution should be exercised in creating Flag instances.
 If entries are created for information that could be gleaned in a sufficiently timely fashion by reviewing the patient record, 
 the flag list will itself become overwhelming and will cease to serve its intended purpose.
 </p>
@@ -20,7 +35,8 @@ the flag list will itself become overwhelming and will cease to serve its intend
 Flags are expected to persist in a record for some period of time and are, at most, targeted to particular types of practitioners
 or to practitioners in particular system.  
 </p>
-<p>Examples of issues that might appear in flags:</p>
+    
+<p>Examples of Patient related issues that might appear in flags:</p>
 <ul>
 <li>Risks to the patient (functional risk of falls, spousal restraining order, latex allergy)</li>
 <li>Patient's needs for special accommodations (hard of hearing, need for easy-open caps)</li>
@@ -28,7 +44,7 @@ or to practitioners in particular system.
 <li>Administrative concerns (incomplete information, pre-payment required due to credit risk)</li>
 </ul> 
 <p>
-Examples of issues that should not appear in flags:
+    Examples of issues that should not appear <b>only</b> in flags:
 </p>
 <ul>
 <li>Potential allergy or drug interaction to planned therapy (use <a href="contraindication.html">Contraindication</a>)</li>
