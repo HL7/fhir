@@ -45,6 +45,9 @@
 			</pre>
 		</li>
 		<li>
+   Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Attachment, or Ratio
+ </li>
+		<li>
     The appliesDateTime or appliesPeriod is the time that the observation is most 
     relevant as an observation of the subject. For a biological subject (e.g. a human patient), 
     this is the physiologically relevant time of the observation. 
@@ -61,6 +64,10 @@
 	Reference ranges may be useful for lab tests and other measures like systolic blood pressure, but will have little 
 	relevance for something like "pregnancy status"
   </li>
+		<li>Some observations have important relationships to other observations and need to be assembled in groups together (traditionally referred to as "panels" or " batteries" by laboratories) that can be used to represent relationships between the individual data items.  In addition to being able to group indiviual results in the [DiagnosticReport](diagnosticreport.html#4.21.2) resource, the Observation resource has two structure for grouping observations which allows for complex nesting of results.  In Observation, panels can be assembled as a set of component observations or as separate resources referenced using the related element with a defined relationship type.  If the attributes within the resource for each observation is different and/or each panel result exists or needs to be processed as indepedent FHIR resources, then a panel observation referencing related panel members observations using the '.related' element should be used to group them.  This structure also permits recursive grouping.  Conversely, if the panel members share the same attributes and are not separable observation or don't need to be processed independently, then the .component element can be used to group them.
+  
+  There are several [examples](diagnosticreport-examples.html) demonstrating grouping observations using Diagnostic report.  The [Glasgow score example](observation-example-glasgow.html) and [GC-CT PCR](obs-uslab-example6.html) group observations using Obervation.related.  The [Blood Pressure Panel](observation-example-bloodpressure.html and [GFR example](observation-example-f205-egfr.html) demonstrate using Observation.component to group observations.
+  </li>
 		<li>
     Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties
   </li>
@@ -71,9 +78,6 @@
 	be broken into numerous components and sub-components to provide additional
     information relevant in certain circumstances.  As with other resources, 
 	extensions can be used to introduce this additional complexity.
- </li>
-		<li>
-   Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Attachment, or Ratio
  </li>
 	</ul>
 </div>

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-02T06:06:30Z</LastSaved>
+  <LastSaved>2015-07-27T21:22:07Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -2212,7 +2212,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and a set of related observations or sometimes questionnaireanswers  from which the measure is derived.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Some observations have important relationships to other observations (e.g Blood Pressure = systolic + diastolic), or are derived from other observations (e.g. calculated apgar score).  Observations from which an observation is derived  should be separate resources referenced using the related element with type &quot;derived-from&quot;.  Observations that are a group of observations could be separate resources referenced using the related element with type &quot;has-member&quot; or as component observation(s).  It depends upon whether the attributes are unique to each of the related results ( i.e. is not identical), and/or each panel results  must be processed as indepedent FHIR resources.   A CBC is an  example of a result that could be either as a observation with component observations,  or as a panel observation referencing  related panel member observations</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outBoundRelationship</Data><NamedCell
@@ -2324,7 +2324,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation ( they are not seperable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Some observations have important relationships to other observations (e.g Blood Pressure = systolic + diastolic), or are derived from other observations (e.g. calculated apgar score).  Observations from which an observation is derived  should be separate resources referenced using the related element with type &quot;derived-from&quot;.  Observations that are a group of observations could be separate resources referenced using the related element with type &quot;has-member&quot; or as component observation(s).  It depends upon whether the attributes are unique to each of the related results ( i.e. is not identical), and/or each panel results  must be processed as indepedent FHIR resources.   A CBC is an  example of a result that could be either as a observation with component observations,  or as a panel observation referencing  related panel member observations. </Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outBoundRelationship[typeCode=COMP]</Data><NamedCell
@@ -4531,7 +4531,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>28</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4549,7 +4549,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>32</ActiveRow>
      <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
