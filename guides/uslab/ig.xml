@@ -264,47 +264,53 @@
   </resource>
   -->  
   <page>
-    <kind value="page"/>
     <source value="uslab.html"/>
+    <name value="US Lab Implementation Guide"/>
+    <kind value="page"/>
     <page>
-      <kind value="toc"/>
       <source value="uslab-toc.html"/>
+      <name value="Table of Contents"/>
+      <kind value="toc"/>
     </page>
     <page>
-      <kind value="page"/>
       <source value="uslaborder.html"/>
+      <name value="Diagnostic Order Page"/>
+      <kind value="page"/>
     </page>
     <page>
-      <kind value="page"/>
       <source value="uslabreport.html"/>
+      <name value="Lab Report Page"/>
+      <kind value="page"/>
     </page>
     <page>
-      <kind value="page"/>
       <source value="uslabphreport.html"/>
+      <name value="Kab Reports - Public Health"/>
+      <kind value="page"/>
     </page>
     <page>
-      <kind value="page"/>
       <source value="uslaborder-guide.html"/>
+      <name value="Orders Guide"/>
+      <kind value="page"/>
     </page>
     <page>
-      <kind value="page"/>
-      <source value="uslabreport.html"/>
-    </page>
-    <page>
-      <kind value="page"/>
       <source value="uslabreport-guide.html"/>
+      <name value="lab report guide"/>
+      <kind value="page"/>
     </page>
     <page>
-      <kind value="page"/>
       <source value="uslabphreport.html"/>
-    </page>
-    <page>
+      <name value="Lab Reports - Public Health"/>
       <kind value="page"/>
-      <source value="uslabphreport-guide.html"/>  
     </page>
     <page>
-      <kind value="list"/>
+      <source value="uslabphreport-guide.html"/>  
+      <name value="Lab Reports - Guide (public health)"/>
+      <kind value="page"/>
+    </page>
+    <page>
       <source value="uslab-registry.html"/>
+      <name value="Registry"/>
+      <kind value="list"/>
       <type value="Conformance"/>
       <type value="StructureDefinition"/>
       <type value="ValueSet"/>

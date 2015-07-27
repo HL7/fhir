@@ -126,35 +126,42 @@
 -->
   </package>  
 
-  <binary value="pages\daf-actors-and-interactions.png"/>
-  <binary value="pages\daf-fhir-query-stack.png"/>
+  <binary value="daf-actors-and-interactions.png"/>
+  <binary value="daf-fhir-query-stack.png"/>
 
   <page>
-    <kind value="page"/>
-    <source value="pages\daf.html"/>
+    <source value="daf.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>    
     <page>
-      <kind value="toc"/>
       <source value="daf-toc.html"/>
+      <name value="Table of Contents"/>
+      <kind value="toc"/>
     </page>
     <page>
+      <source value="daf-intro.html"/>
+      <name value="Introduction"/>
       <kind value="page"/>
-      <source value="pages\daf-intro.html"/>
     </page>
     <page>
+      <source value="daf-medicationusage.html"/>
+      <name value="Medications Page"/>
       <kind value="page"/>
-      <source value="pages\daf-medicationusage.html"/>
     </page>
     <page>
+      <source value="daf-outstandingissues.html"/>
+      <name value="Outstanding Issues"/>
       <kind value="page"/>
-      <source value="pages\daf-outstandingissues.html"/>
     </page>
     <page>
+      <source value="daf-security.html"/>
+      <name value="Security"/>
       <kind value="page"/>
-      <source value="pages\daf-security.html"/>
     </page>
     <page>
-      <kind value="list"/>
       <source value="daf-registry.html"/>
+      <name value="Registry"/>
+      <kind value="list"/>
       <type value="Conformance"/>
       <type value="StructureDefinition"/>
       <type value="ValueSet"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 27, 2015 07:25+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 27, 2015 14:25+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -590,24 +590,39 @@ public class ImplementationGuide extends DomainResource {
         /**
          * The name for the group, as used in page.package.
          */
-        @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1)
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Name used .page.package", formalDefinition="The name for the group, as used in page.package." )
         protected StringType name;
 
         /**
+         * Human readable text describing the package.
+         */
+        @Child(name = "description", type = {StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Human readable text describing the package", formalDefinition="Human readable text describing the package." )
+        protected StringType description;
+
+        /**
          * A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.
          */
-        @Child(name = "resource", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name = "resource", type = {}, order=3, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Resource in the implementation guide", formalDefinition="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource." )
         protected List<ImplementationGuidePackageResourceComponent> resource;
 
-        private static final long serialVersionUID = 727577015L;
+        private static final long serialVersionUID = -701846580L;
 
     /*
      * Constructor
      */
       public ImplementationGuidePackageComponent() {
         super();
+      }
+
+    /*
+     * Constructor
+     */
+      public ImplementationGuidePackageComponent(StringType name) {
+        super();
+        this.name = name;
       }
 
         /**
@@ -649,12 +664,57 @@ public class ImplementationGuide extends DomainResource {
          * @param value The name for the group, as used in page.package.
          */
         public ImplementationGuidePackageComponent setName(String value) { 
-          if (Utilities.noString(value))
-            this.name = null;
-          else {
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #description} (Human readable text describing the package.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImplementationGuidePackageComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType(); // bb
+          return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        /**
+         * @param value {@link #description} (Human readable text describing the package.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public ImplementationGuidePackageComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return Human readable text describing the package.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value Human readable text describing the package.
+         */
+        public ImplementationGuidePackageComponent setDescription(String value) { 
+          if (Utilities.noString(value))
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
           }
           return this;
         }
@@ -702,6 +762,7 @@ public class ImplementationGuide extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name for the group, as used in page.package.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("description", "string", "Human readable text describing the package.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("resource", "", "A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.", 0, java.lang.Integer.MAX_VALUE, resource));
         }
 
@@ -709,6 +770,7 @@ public class ImplementationGuide extends DomainResource {
         ImplementationGuidePackageComponent dst = new ImplementationGuidePackageComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
+        dst.description = description == null ? null : description.copy();
         if (resource != null) {
           dst.resource = new ArrayList<ImplementationGuidePackageResourceComponent>();
           for (ImplementationGuidePackageResourceComponent i : resource)
@@ -724,7 +786,8 @@ public class ImplementationGuide extends DomainResource {
         if (!(other instanceof ImplementationGuidePackageComponent))
           return false;
         ImplementationGuidePackageComponent o = (ImplementationGuidePackageComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(resource, o.resource, true);
+        return compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(resource, o.resource, true)
+          ;
       }
 
       @Override
@@ -734,12 +797,12 @@ public class ImplementationGuide extends DomainResource {
         if (!(other instanceof ImplementationGuidePackageComponent))
           return false;
         ImplementationGuidePackageComponent o = (ImplementationGuidePackageComponent) other;
-        return compareValues(name, o.name, true);
+        return compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (resource == null || resource.isEmpty())
-          ;
+        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
+           && (resource == null || resource.isEmpty());
       }
 
   }
@@ -1261,48 +1324,55 @@ public class ImplementationGuide extends DomainResource {
     @Block()
     public static class ImplementationGuidePageComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.
-         */
-        @Child(name = "kind", type = {CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="page | example | list | include | directory | dictionary | toc", formalDefinition="The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest." )
-        protected Enumeration<GuidePageKind> kind;
-
-        /**
          * The source address for the page.
          */
-        @Child(name = "source", type = {UriType.class}, order=2, min=1, max=1)
+        @Child(name = "source", type = {UriType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Where to find that page", formalDefinition="The source address for the page." )
         protected UriType source;
 
         /**
+         * A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc.
+         */
+        @Child(name = "name", type = {StringType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Short name shown for navigational assistance", formalDefinition="A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc." )
+        protected StringType name;
+
+        /**
+         * The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.
+         */
+        @Child(name = "kind", type = {CodeType.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="page | example | list | include | directory | dictionary | toc", formalDefinition="The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest." )
+        protected Enumeration<GuidePageKind> kind;
+
+        /**
          * For constructed pages, what kind of resources to include in the list.
          */
-        @Child(name = "type", type = {CodeType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "type", type = {CodeType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Kind of resource to include in the list", formalDefinition="For constructed pages, what kind of resources to include in the list." )
         protected List<CodeType> type;
 
         /**
          * For constructed pages, a list of packages to include in the page (or else empty for everything).
          */
-        @Child(name = "package", type = {StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "package", type = {StringType.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Name of package to include", formalDefinition="For constructed pages, a list of packages to include in the page (or else empty for everything)." )
         protected List<StringType> package_;
 
         /**
          * The format of the page.
          */
-        @Child(name = "format", type = {CodeType.class}, order=5, min=0, max=1)
+        @Child(name = "format", type = {CodeType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Format of the page (e.g. html, markdown etc)", formalDefinition="The format of the page." )
         protected CodeType format;
 
         /**
          * Nested Pages/Sections under this page.
          */
-        @Child(name = "page", type = {ImplementationGuidePageComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "page", type = {ImplementationGuidePageComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Nested Pages / Sections", formalDefinition="Nested Pages/Sections under this page." )
         protected List<ImplementationGuidePageComponent> page;
 
-        private static final long serialVersionUID = -605275417L;
+        private static final long serialVersionUID = -1620890043L;
 
     /*
      * Constructor
@@ -1314,56 +1384,12 @@ public class ImplementationGuide extends DomainResource {
     /*
      * Constructor
      */
-      public ImplementationGuidePageComponent(Enumeration<GuidePageKind> kind, UriType source) {
+      public ImplementationGuidePageComponent(UriType source, StringType name, Enumeration<GuidePageKind> kind) {
         super();
-        this.kind = kind;
         this.source = source;
+        this.name = name;
+        this.kind = kind;
       }
-
-        /**
-         * @return {@link #kind} (The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
-         */
-        public Enumeration<GuidePageKind> getKindElement() { 
-          if (this.kind == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuidePageComponent.kind");
-            else if (Configuration.doAutoCreate())
-              this.kind = new Enumeration<GuidePageKind>(new GuidePageKindEnumFactory()); // bb
-          return this.kind;
-        }
-
-        public boolean hasKindElement() { 
-          return this.kind != null && !this.kind.isEmpty();
-        }
-
-        public boolean hasKind() { 
-          return this.kind != null && !this.kind.isEmpty();
-        }
-
-        /**
-         * @param value {@link #kind} (The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
-         */
-        public ImplementationGuidePageComponent setKindElement(Enumeration<GuidePageKind> value) { 
-          this.kind = value;
-          return this;
-        }
-
-        /**
-         * @return The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.
-         */
-        public GuidePageKind getKind() { 
-          return this.kind == null ? null : this.kind.getValue();
-        }
-
-        /**
-         * @param value The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.
-         */
-        public ImplementationGuidePageComponent setKind(GuidePageKind value) { 
-            if (this.kind == null)
-              this.kind = new Enumeration<GuidePageKind>(new GuidePageKindEnumFactory());
-            this.kind.setValue(value);
-          return this;
-        }
 
         /**
          * @return {@link #source} (The source address for the page.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
@@ -1407,6 +1433,96 @@ public class ImplementationGuide extends DomainResource {
             if (this.source == null)
               this.source = new UriType();
             this.source.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #name} (A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImplementationGuidePageComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public ImplementationGuidePageComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc.
+         */
+        public ImplementationGuidePageComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #kind} (The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
+         */
+        public Enumeration<GuidePageKind> getKindElement() { 
+          if (this.kind == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImplementationGuidePageComponent.kind");
+            else if (Configuration.doAutoCreate())
+              this.kind = new Enumeration<GuidePageKind>(new GuidePageKindEnumFactory()); // bb
+          return this.kind;
+        }
+
+        public boolean hasKindElement() { 
+          return this.kind != null && !this.kind.isEmpty();
+        }
+
+        public boolean hasKind() { 
+          return this.kind != null && !this.kind.isEmpty();
+        }
+
+        /**
+         * @param value {@link #kind} (The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
+         */
+        public ImplementationGuidePageComponent setKindElement(Enumeration<GuidePageKind> value) { 
+          this.kind = value;
+          return this;
+        }
+
+        /**
+         * @return The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.
+         */
+        public GuidePageKind getKind() { 
+          return this.kind == null ? null : this.kind.getValue();
+        }
+
+        /**
+         * @param value The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.
+         */
+        public ImplementationGuidePageComponent setKind(GuidePageKind value) { 
+            if (this.kind == null)
+              this.kind = new Enumeration<GuidePageKind>(new GuidePageKindEnumFactory());
+            this.kind.setValue(value);
           return this;
         }
 
@@ -1609,8 +1725,9 @@ public class ImplementationGuide extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("kind", "code", "The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.", 0, java.lang.Integer.MAX_VALUE, kind));
           childrenList.add(new Property("source", "uri", "The source address for the page.", 0, java.lang.Integer.MAX_VALUE, source));
+          childrenList.add(new Property("name", "string", "A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("kind", "code", "The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest.", 0, java.lang.Integer.MAX_VALUE, kind));
           childrenList.add(new Property("type", "code", "For constructed pages, what kind of resources to include in the list.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("package", "string", "For constructed pages, a list of packages to include in the page (or else empty for everything).", 0, java.lang.Integer.MAX_VALUE, package_));
           childrenList.add(new Property("format", "code", "The format of the page.", 0, java.lang.Integer.MAX_VALUE, format));
@@ -1620,8 +1737,9 @@ public class ImplementationGuide extends DomainResource {
       public ImplementationGuidePageComponent copy() {
         ImplementationGuidePageComponent dst = new ImplementationGuidePageComponent();
         copyValues(dst);
-        dst.kind = kind == null ? null : kind.copy();
         dst.source = source == null ? null : source.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.kind = kind == null ? null : kind.copy();
         if (type != null) {
           dst.type = new ArrayList<CodeType>();
           for (CodeType i : type)
@@ -1648,9 +1766,9 @@ public class ImplementationGuide extends DomainResource {
         if (!(other instanceof ImplementationGuidePageComponent))
           return false;
         ImplementationGuidePageComponent o = (ImplementationGuidePageComponent) other;
-        return compareDeep(kind, o.kind, true) && compareDeep(source, o.source, true) && compareDeep(type, o.type, true)
-           && compareDeep(package_, o.package_, true) && compareDeep(format, o.format, true) && compareDeep(page, o.page, true)
-          ;
+        return compareDeep(source, o.source, true) && compareDeep(name, o.name, true) && compareDeep(kind, o.kind, true)
+           && compareDeep(type, o.type, true) && compareDeep(package_, o.package_, true) && compareDeep(format, o.format, true)
+           && compareDeep(page, o.page, true);
       }
 
       @Override
@@ -1660,14 +1778,15 @@ public class ImplementationGuide extends DomainResource {
         if (!(other instanceof ImplementationGuidePageComponent))
           return false;
         ImplementationGuidePageComponent o = (ImplementationGuidePageComponent) other;
-        return compareValues(kind, o.kind, true) && compareValues(source, o.source, true) && compareValues(type, o.type, true)
-           && compareValues(package_, o.package_, true) && compareValues(format, o.format, true);
+        return compareValues(source, o.source, true) && compareValues(name, o.name, true) && compareValues(kind, o.kind, true)
+           && compareValues(type, o.type, true) && compareValues(package_, o.package_, true) && compareValues(format, o.format, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (kind == null || kind.isEmpty()) && (source == null || source.isEmpty())
-           && (type == null || type.isEmpty()) && (package_ == null || package_.isEmpty()) && (format == null || format.isEmpty())
-           && (page == null || page.isEmpty());
+        return super.isEmpty() && (source == null || source.isEmpty()) && (name == null || name.isEmpty())
+           && (kind == null || kind.isEmpty()) && (type == null || type.isEmpty()) && (package_ == null || package_.isEmpty())
+           && (format == null || format.isEmpty()) && (page == null || page.isEmpty());
       }
 
   }

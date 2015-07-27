@@ -1,14 +1,39 @@
 package org.hl7.fhir.definitions.model;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.ImplementationGuide;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
 
 public class ImplementationGuideDefn {
+
+  private class LinkTriple {
+    private String url;
+    private String display;
+    private String title;
+    public LinkTriple(String url, String display, String title) {
+      super();
+      this.url = url;
+      this.display = display;
+      this.title = title;
+    }
+    public String getUrl() {
+      return url;
+    }
+    public String getDisplay() {
+      return display;
+    }
+    public String getTitle() {
+      return title;
+    }
+    
+  }
 
   private String committee;
   private String code;
@@ -29,6 +54,7 @@ public class ImplementationGuideDefn {
   private Map<String, StructureDefinition> extensions = new HashMap<String, StructureDefinition>();
   private List<BindingSpecification> unresolvedBindings = new ArrayList<BindingSpecification>();
   private List<LogicalModel> logicalModels = new ArrayList<LogicalModel>();
+  private ImplementationGuide ig;
   
   public ImplementationGuideDefn(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, boolean core) {
     super();
@@ -149,5 +175,64 @@ public class ImplementationGuideDefn {
   public boolean isCore() {
     return core;
   }
+
   
+  public ImplementationGuide getIg() {
+    return ig;
+  }
+
+  public void setIg(ImplementationGuide ig) {
+    this.ig = ig;
+  }
+
+  public String makeList(String pagename, String type, String genlevel, String crumbTitle) {
+    String n = pagename;
+    if (n.startsWith(code+File.separator))
+      n = n.substring(code.length()+1);
+    if (!n.endsWith(".html"))
+      n = n + ".html";
+    
+    List<LinkTriple> path = determinePath(n);
+    
+    StringBuilder b = new StringBuilder();
+    b.append("        <!-- "+pagename+" / "+type+" / "+crumbTitle+" -->\r\n");
+    int i = 0;
+    for (LinkTriple lt : path) {
+      i++;
+      String t = lt.getTitle() == null ? "" : " title=\""+lt.getTitle()+"\"";
+      if (i == path.size() || lt.getUrl() == null)
+        b.append("        <li"+t+"><b>"+lt.getDisplay()+"</b></li>\r\n");
+      else
+        b.append("        <li"+t+"><a href=\""+lt.getUrl()+"\"><b>"+lt.getDisplay()+"</b></a></li>\r\n");
+    }
+    return b.toString();
+  }
+
+  private List<LinkTriple> determinePath(String n) {
+    List<LinkTriple> res = new ArrayList<ImplementationGuideDefn.LinkTriple>();
+    res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
+    if (!n.equals(ig.getPage().getSource())) {
+      if (!findPage(n, res, ig.getPage().getPage()))
+      res.add(new LinkTriple(null, "unsorted", "Work in Progress yet"));
+    }
+    return res;
+  }
+
+  private boolean findPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> list) {
+    for (ImplementationGuidePageComponent page : list) {
+      if (n.equals(page.getSource())) {
+        res.add(new LinkTriple(page.getSource(), page.getName(), null));
+        return true;
+      }
+      if (page.hasPage()) {
+        res.add(new LinkTriple(page.getSource(), page.getName(), null));
+        if (findPage(n, res, page.getPage()))
+          return true;
+        else {
+          res.remove(res.size()-1);
+        }
+      }
+    }
+    return false;
+  }
 }

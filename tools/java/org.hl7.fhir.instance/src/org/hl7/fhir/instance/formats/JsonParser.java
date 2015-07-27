@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jul 27, 2015 07:25+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 27, 2015 14:25+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -6524,6 +6524,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("resource")) {
       JsonArray array = json.getAsJsonArray("resource");
       for (int i = 0; i < array.size(); i++) {
@@ -6571,14 +6575,18 @@ public class JsonParser extends JsonParserBase {
   protected ImplementationGuide.ImplementationGuidePageComponent parseImplementationGuideImplementationGuidePageComponent(JsonObject json, ImplementationGuide owner) throws Exception {
     ImplementationGuide.ImplementationGuidePageComponent res = new ImplementationGuide.ImplementationGuidePageComponent();
     parseBackboneProperties(json, res);
-    if (json.has("kind"))
-      res.setKindElement(parseEnumeration(json.get("kind").getAsString(), ImplementationGuide.GuidePageKind.NULL, new ImplementationGuide.GuidePageKindEnumFactory()));
-    if (json.has("_kind"))
-      parseElementProperties(json.getAsJsonObject("_kind"), res.getKindElement());
     if (json.has("source"))
       res.setSourceElement(parseUri(json.get("source").getAsString()));
     if (json.has("_source"))
       parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("kind"))
+      res.setKindElement(parseEnumeration(json.get("kind").getAsString(), ImplementationGuide.GuidePageKind.NULL, new ImplementationGuide.GuidePageKindEnumFactory()));
+    if (json.has("_kind"))
+      parseElementProperties(json.getAsJsonObject("_kind"), res.getKindElement());
     if (json.has("type")) {
       JsonArray array = json.getAsJsonArray("type");
       for (int i = 0; i < array.size(); i++) {
@@ -19751,6 +19759,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
       }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
       if (element.hasResource()) {
         openArray("resource");
         for (ImplementationGuide.ImplementationGuidePackageResourceComponent e : element.getResource()) 
@@ -19818,13 +19830,17 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeImplementationGuideImplementationGuidePageComponentInner(ImplementationGuide.ImplementationGuidePageComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasKindElement()) {
-        composeEnumerationCore("kind", element.getKindElement(), new ImplementationGuide.GuidePageKindEnumFactory(), false);
-        composeEnumerationExtras("kind", element.getKindElement(), new ImplementationGuide.GuidePageKindEnumFactory(), false);
-      }
       if (element.hasSourceElement()) {
         composeUriCore("source", element.getSourceElement(), false);
         composeUriExtras("source", element.getSourceElement(), false);
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasKindElement()) {
+        composeEnumerationCore("kind", element.getKindElement(), new ImplementationGuide.GuidePageKindEnumFactory(), false);
+        composeEnumerationExtras("kind", element.getKindElement(), new ImplementationGuide.GuidePageKindEnumFactory(), false);
       }
       if (element.hasType()) {
         openArray("type");

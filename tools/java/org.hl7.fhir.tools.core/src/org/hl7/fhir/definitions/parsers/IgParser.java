@@ -24,7 +24,9 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.ImplementationGuide;
 import org.hl7.fhir.instance.model.ImplementationGuide.GuideDependencyType;
+import org.hl7.fhir.instance.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuideDependencyComponent;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
@@ -74,6 +76,7 @@ public class IgParser {
       throw new Exception("no name on IG");
     ig.setDateElement(new DateTimeType(genDate));
     igd.setName(ig.getName());
+    igd.setIg(ig);
     
     for (ImplementationGuideDependencyComponent d : ig.getDependency()) {
       if (d.getType() != GuideDependencyType.REFERENCE)
@@ -87,9 +90,8 @@ public class IgParser {
         throw new Exception("Binary dependency in "+ig.getName()+" not found: "+bin.getValue());
       igd.getImageList().add(bin.getValue());
     }
-    
-    
-    
+    processPage(ig.getPage(), igd);
+       
     // second, parse the old ig, and use that. This is being phased out
     CSFile file = new CSFile(Utilities.path(rootDir, igd.getSource()));
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -107,7 +109,7 @@ public class IgParser {
         if (e.hasAttribute("homepage"))
           igd.setPage(e.getAttribute("homepage"));
       } else if (e.getNodeName().equals("page")) {
-        igd.getPageList().add(e.getAttribute("source"));
+//        igd.getPageList().add(e.getAttribute("source"));
       } else if (e.getNodeName().equals("image")) {
 //        moved above igd.getImageList().add(e.getAttribute("source"));
       } else if (e.getNodeName().equals("valueset")) {
@@ -180,6 +182,18 @@ public class IgParser {
         throw new Exception("Unknown element name in IG: "+e.getNodeName());
       e = XMLUtil.getNextSibling(e);
     }    
+  }
+
+  private void processPage(ImplementationGuidePageComponent page, ImplementationGuideDefn igd) throws Exception {
+    if (!page.hasName())
+      throw new Exception("Page "+page.getSource()+" has no name");
+    if (page.getKind() == GuidePageKind.PAGE && page.hasSource()) {
+      igd.getPageList().add(page.getSource());
+    }
+    for (ImplementationGuidePageComponent pp : page.getPage()) {
+      processPage(pp, igd);
+    }
+    
   }
   
   

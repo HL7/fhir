@@ -46,7 +46,8 @@
   </package>
   
   <page>
-    <kind value="page"/>
     <source value="sdc-de.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
   </page>    
 </ImplementationGuide>

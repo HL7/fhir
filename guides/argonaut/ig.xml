@@ -25,7 +25,8 @@
   </package>
   
   <page>
-    <kind value="page"/>
     <source value="argonaut.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
   </page> 
 </ImplementationGuide>

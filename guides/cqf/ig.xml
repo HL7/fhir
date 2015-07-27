@@ -310,8 +310,10 @@
       </exampleFor>
     </resource>
   </package>  
+  
   <page>
-    <kind value="page"/>
     <source value="qicore.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
   </page>
 </ImplementationGuide>

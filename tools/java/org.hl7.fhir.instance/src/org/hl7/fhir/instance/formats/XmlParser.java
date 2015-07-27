@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jul 27, 2015 07:25+1000 for FHIR v0.5.0
+// Generated on Mon, Jul 27, 2015 14:25+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -5674,6 +5674,8 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
+        res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("resource")) {
         res.getResource().add(parseImplementationGuideImplementationGuidePackageResourceComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -5732,10 +5734,12 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("kind")) {
-        res.setKindElement(parseEnumeration(xpp, ImplementationGuide.GuidePageKind.NULL, new ImplementationGuide.GuidePageKindEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("source")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("source")) {
         res.setSourceElement(parseUri(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
+        res.setNameElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("kind")) {
+        res.setKindElement(parseEnumeration(xpp, ImplementationGuide.GuidePageKind.NULL, new ImplementationGuide.GuidePageKindEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.getType().add(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("package")) {
@@ -16521,6 +16525,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
       }
+      if (element.hasDescriptionElement()) {
+        composeString("description", element.getDescriptionElement());
+      }
       if (element.hasResource()) { 
         for (ImplementationGuide.ImplementationGuidePackageResourceComponent e : element.getResource()) 
           composeImplementationGuideImplementationGuidePackageResourceComponent("resource", e);
@@ -16572,11 +16579,14 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
-      if (element.hasKindElement())
-        composeEnumeration("kind", element.getKindElement(), new ImplementationGuide.GuidePageKindEnumFactory());
       if (element.hasSourceElement()) {
         composeUri("source", element.getSourceElement());
       }
+      if (element.hasNameElement()) {
+        composeString("name", element.getNameElement());
+      }
+      if (element.hasKindElement())
+        composeEnumeration("kind", element.getKindElement(), new ImplementationGuide.GuidePageKindEnumFactory());
       if (element.hasType()) { 
         for (CodeType e : element.getType()) 
           composeCode("type", e);

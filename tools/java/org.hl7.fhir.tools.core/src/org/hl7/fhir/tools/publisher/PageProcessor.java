@@ -767,7 +767,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, "", crumbTitle) : "") + s3;      
+        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, "", crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -3790,9 +3790,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + breadCrumbManager.make(name) + s3;
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
-      else if (com[0].equals("breadcrumblist"))
-        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), (workingTitle == null ? Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1)) : workingTitle)) : "") + s3;      
-      else if (com[0].equals("year"))
+      else if (com[0].equals("breadcrumblist")) {
+        String crumbTitle = (workingTitle == null ? Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1)) : workingTitle);
+        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;      
+      }else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
         src = s1 + svnRevision + s3;      
@@ -4070,7 +4071,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), workingTitle) : "") + s3;      
+        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), workingTitle) : ig.makeList(name, type, genlevel(level), workingTitle)) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -5006,7 +5007,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(filename, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(filename, "profile:"+path, genlevel(0), profile.getResource().getName()) : "") + s3;      
+        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(filename, "profile:"+path, genlevel(0), profile.getResource().getName()) : ig.makeList(filename, "profile:"+path, genlevel(level), profile.getResource().getName())) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -5385,9 +5386,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + breadCrumbManager.make(filename) + s3;
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(filename, genlevel(level)) + s3;
-      else if (com[0].equals("breadcrumblist"))
-        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(filename, "extension:"+ed.getName(), genlevel(0), (workingTitle == null ? Utilities.escapeXml(ed.getName()) : workingTitle)) : "")+ s3;      
-      else if (com[0].equals("year"))
+      else if (com[0].equals("breadcrumblist")) {
+        String crumbTitle = (workingTitle == null ? Utilities.escapeXml(ed.getName()) : workingTitle);
+        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(filename, "extension:"+ed.getName(), genlevel(level), crumbTitle) : ig.makeList(filename, "extension:"+ed.getName(), genlevel(level), crumbTitle))+ s3;      
+      } else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
         src = s1 + svnRevision + s3;      
@@ -6181,7 +6183,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(pack.getId(), genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(pack.getId(), "profile:"+resourceName+"/"+pack.getId(), genlevel(level), pack.getTitle()): "") + s3;      
+        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(pack.getId(), "profile:"+resourceName+"/"+pack.getId(), genlevel(level), pack.getTitle()): ig.makeList(pack.getId(), "profile:"+resourceName+"/"+pack.getId(), genlevel(level), pack.getTitle())) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))

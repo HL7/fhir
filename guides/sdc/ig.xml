@@ -93,15 +93,18 @@
   <binary value="sdc-generic-workflow.png"/>
 
   <page>
-    <kind value="page"/>
     <source value="sdc.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
     <page>
+      <source value="sdc-intro.html"/>
+      <name value="Introduction"/>
       <kind value="page"/>
-      <source value="sdc-intro"/>
     </page>
     <page>
-      <kind value="page"/>
       <source value="sdc-security.html"/>
+      <name value="Security Details"/>
+      <kind value="page"/>
     </page>
   </page>
 </ImplementationGuide>

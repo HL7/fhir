@@ -4,6 +4,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
@@ -124,7 +125,10 @@ public class TableGenerator extends BaseGenerator {
 
     if (isLogical) {
       String logical = e.getMappings().get("http://hl7.org/fhir/logical");
-      row.getCells().add(gen.new Cell(null, null, logical, null, null));
+      Cell c = gen.new Cell();
+      row.getCells().add(c);
+      if (logical != null)
+        presentLogicalMapping(gen, c, logical, prefix);
     }
       
     if (e.getTypes().size() > 1) {
@@ -168,6 +172,55 @@ public class TableGenerator extends BaseGenerator {
       for (ElementDefn c : e.getElements())
         row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, isLogical));
     return row;
+  }
+
+  private void presentLogicalMapping(HeirarchicalTableGenerator gen, Cell c, String logical, String prefix) {
+    String[] parts = logical.split(" ");
+    boolean first = true;
+    for (String p : parts) {
+      if (first)
+        first = false;
+      else
+        c.addPiece(gen.new Piece(null, " ", null));
+      if (p.contains(":")) {
+        String[] pp = p.split("\\:");
+        presentLogicalMappingWord(gen, c, pp[0], prefix);
+        c.addPiece(gen.new Piece(null, ":", null));
+        if (page.getDefinitions().hasResource(pp[1]))
+          c.addPiece(gen.new Piece(prefix+pp[1].toLowerCase()+".html", pp[1], null));
+        else
+          c.addPiece(gen.new Piece(null, pp[1], null));
+      } else {
+        presentLogicalMappingWord(gen, c, p, prefix);
+      }
+    }
+  }
+
+  private void presentLogicalMappingWord(HeirarchicalTableGenerator gen, Cell c, String p, String prefix) {
+    if (p.contains(".") && page.getDefinitions().hasResource(p.substring(0, p.indexOf(".")))) {
+      String rn = p.substring(0, p.indexOf("."));
+      String rp = p.substring(p.indexOf(".")+1);
+      c.addPiece(gen.new Piece(prefix+rn.toLowerCase()+".html", rn, null));
+      c.addPiece(gen.new Piece(null, ".", null));
+      ResourceDefn r;
+      ElementDefn e; 
+      try {
+        r = page.getDefinitions().getResourceByName(rn);
+        e = r.getRoot().getElementForPath(p, page.getDefinitions(), "logical mapping", true);
+      } catch (Exception e1) {
+        r = null;
+        e = null;
+      }
+      if (e == null)
+        c.addPiece(gen.new Piece(null, rp, null));
+      else
+        c.addPiece(gen.new Piece(prefix+rn.toLowerCase()+"-definitions.html#"+p, rp, null));
+    } else if (page.getDefinitions().hasResource(p)) {
+      c.addPiece(gen.new Piece(prefix+p.toLowerCase()+".html", p, null));
+    } else {
+      c.addPiece(gen.new Piece(null, p, null));
+    }
+    
   }
 
   private String findPage(String rt) {

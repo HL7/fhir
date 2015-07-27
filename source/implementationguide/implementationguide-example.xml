@@ -38,7 +38,8 @@
     </resource>
   </package>
 	<page>
+		<source value="example.html"/>
+    <name value="Example Page"/>
 		<kind value="page"/>
-		<source value="pages\daf.html"/>
 	</page>
 </ImplementationGuide>

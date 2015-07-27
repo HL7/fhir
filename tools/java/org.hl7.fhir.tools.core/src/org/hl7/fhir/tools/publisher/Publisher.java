@@ -2354,6 +2354,7 @@ public class Publisher implements URIResolver {
 
   private void copyIgImage(ImplementationGuideDefn ig, String path) throws IOException {
     File file = new File(Utilities.path(page.getFolders().rootDir, ig.getSource(), "..", path));
+    String prefix = ig.isCore() ? "" : ig.getCode()+File.separator;
     
     if (path.contains("*")) {
       final String filter = file.getName().replace("?", ".?").replace("*", ".*?");
@@ -2364,12 +2365,12 @@ public class Publisher implements URIResolver {
         }
       });
       for (File f : files) {
-        Utilities.copyFile(f, new CSFile(Utilities.path(page.getFolders().dstDir, f.getName())));
-        page.getEpub().registerFile(f.getName(), "Support File", EPubManager.determineType(f.getName()));
+        Utilities.copyFile(f, new CSFile(Utilities.path(page.getFolders().dstDir, prefix+f.getName())));
+        page.getEpub().registerFile(prefix+f.getName(), "Support File", EPubManager.determineType(f.getName()));
       }
     } else {
-      Utilities.copyFile(file, new CSFile(Utilities.path(page.getFolders().dstDir , file.getName())));
-      page.getEpub().registerFile(file.getName(), "Support File", EPubManager.determineType(file.getName()));
+      Utilities.copyFile(file, new CSFile(Utilities.path(page.getFolders().dstDir, prefix+file.getName())));
+      page.getEpub().registerFile(prefix+file.getName(), "Support File", EPubManager.determineType(file.getName()));
     }
   }
 
