@@ -1651,7 +1651,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Unique Id for this particular observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A unique identifier for the simple observation</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A unique identifier for the simple observation instance.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Allows observations to be distinguished and referenced</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1710,7 +1710,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Observations have no value if you don't know who or what they're about.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">One would expect this element to be a cardinality  of 1..1.  The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.  If the target of the observation is different than the subject, the general extension (http://hl7.org/fhir/StructureDefinition/indirectTarget) can  be used.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">One would expect this element to be a cardinality  of 1..1.  The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.&#10;&#10;If the target of the observation is different than the subject, the general extension [indirecttarget] (extension-indirecttarget.html) may be used.  However, the distinction between the patient's own value for an observation versus that of the fetus, or the donor or blood product unit, etc., are often specified in the observation code.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">participation[typeCode=SBJ]</Data><NamedCell
@@ -4549,8 +4549,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
