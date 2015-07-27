@@ -7,6 +7,7 @@
   <experimental value="true"/>
 
   <package>
+  <!--
     <extension url="http://hl7.org/fhir/tools-spreadsheet">
       <valueUri value="colorectal-spreadsheet.xml"/>
     </extension>
@@ -20,10 +21,12 @@
       <valueUri value="specialist-letter-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-spreadsheet">
-      <valueUri value="auditevent-profile-ehrs-rle-spreadsheet.xml"/>
+      <valueUri value="australian-organ-donor-register-spreadsheet.xml"/>
     </extension>
+    -->
+    <name value="base"/>
   </package>
-  
+    
   <page>
     <source value="nehta.html"/>
     <name value="Home Page"/>

@@ -746,28 +746,28 @@
       </profile>
 	  
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFPatient resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFPatients by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFPatient instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -775,7 +775,7 @@
       </interaction>
       
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="name"/>
@@ -783,7 +783,7 @@
         <type value="string"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="family"/>
@@ -791,7 +791,7 @@
         <type value="string"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="given"/>
@@ -799,7 +799,7 @@
         <type value="string"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
@@ -807,7 +807,7 @@
         <type value="token"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="language"/>
@@ -815,7 +815,7 @@
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="telecom"/>
@@ -823,7 +823,7 @@
         <type value="string"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="gender"/>
@@ -831,7 +831,7 @@
         <type value="token"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="birthdate"/>
@@ -839,7 +839,7 @@
         <type value="date"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="city"/>
@@ -847,7 +847,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="postalCode"/>
@@ -855,7 +855,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="state"/>
@@ -863,7 +863,7 @@
         <type value="string"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="mothersMaidenName"/>
@@ -871,7 +871,7 @@
         <type value="string"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="age"/>
@@ -879,7 +879,7 @@
         <type value="number"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="race"/>
@@ -887,7 +887,7 @@
         <type value="token"/>
       </searchParam>
   	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="ethnicity"/>
@@ -902,28 +902,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/allergyintolerance-daf-dafallergyintolerance"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFAllergyIntolerance resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFAllergyIntolerance by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFAllergyIntolerance instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -931,14 +931,14 @@
       </interaction>
 	  <searchInclude value="AllergyIntolerance.patient"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -949,49 +949,49 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="category"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="status"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="substance"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="manifestation"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="severity"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="duration"/>
         <type value="quantity"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="onset"/>
@@ -1004,28 +1004,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/diagnosticorder-daf-dafdiagnosticorder"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFDiagnosticOrder resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFDiagnosticOrder by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFDiagnosticOrder instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1035,14 +1035,14 @@
 	  <searchInclude value="DiagnosticOrder.orderer"/>
 	  <searchInclude value="DiagnosticOrder.encounter"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1053,7 +1053,7 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="orderer"/>
@@ -1063,14 +1063,14 @@
 		<chain value="orderer.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="encounter"/>
@@ -1079,7 +1079,7 @@
 		<chain value="encounter.type"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="item-date"/>
@@ -1092,28 +1092,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/diagnosticreport-daf-dafdiagnosticreport"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFDiagnosticReport resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFDiagnosticReport by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFDiagnosticReport instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1124,14 +1124,14 @@
 	  <searchInclude value="DiagnosticReport.encounter"/>
 	  <searchInclude value="DiagnosticReport.result"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1142,21 +1142,21 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="name"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="encounter"/>
@@ -1165,7 +1165,7 @@
 		<chain value="encounter.type"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="performer"/>
@@ -1174,7 +1174,7 @@
 		<chain value="performer.name"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="result"/>
@@ -1188,28 +1188,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/encounter-daf-dafencounter"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFEncounter resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFEncounter by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFEncounter instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1218,14 +1218,14 @@
 	  <searchInclude value="Encounter.patient"/>
 	  <searchInclude value="Encounter.location"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1236,7 +1236,7 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="location"/>
@@ -1246,21 +1246,21 @@
 		<chain value="location.address"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="type"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="location-period"/>
@@ -1273,28 +1273,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/familyhistory-daf-daffamilyhistory"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFFamilyHistory resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFFamilyHistory by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFFamilyHistory instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1302,14 +1302,14 @@
       </interaction>
 	  <searchInclude value="FamilyHistory.patient"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1320,14 +1320,14 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="relationship"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="familyhistorycondition"/>
@@ -1340,28 +1340,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/immunization-daf-dafimmunization"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFImmunization resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFImmunization by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFImmunization instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1373,14 +1373,14 @@
 	  <searchInclude value="Immunization.manufacturer"/>
 	  <searchInclude value="Immunization.reaction.detail"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1391,35 +1391,35 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="vaccine-type"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="notgiven"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="lot-number"/>
         <type value="string"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="requester"/>
@@ -1434,28 +1434,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobscode"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFResults resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFResults by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFResults instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1464,14 +1464,14 @@
 	  <searchInclude value="Observation.encounter"/>
 	  <searchInclude value="Observation.subject"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1482,35 +1482,35 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="value-concept"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code-value[x]"/>
         <type value="composite"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="encounter"/>
@@ -1525,28 +1525,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/medication-daf-dafmedication"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFMedication resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFMedication by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFMedication instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1554,35 +1554,35 @@
       </interaction>
 	  <searchInclude value="Medication.manufacturer"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="name"/>
         <type value="string"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="form"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="ingredient"/>
@@ -1595,28 +1595,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/medicationstatement-daf-dafmedicationstatement"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFMedicationStatement resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFMedicationStatement by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFMedicationStatement instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1625,14 +1625,14 @@
 	  <searchInclude value="MedicationStatement.patient"/>
 	  <searchInclude value="MedicationStatement.medication"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1643,14 +1643,14 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="effectivedate"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="medication"/>
@@ -1665,28 +1665,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/medicationadministration-daf-dafmedicationadministration"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFMedicationAdministration resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFMedicationAdministration by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFMedicationAdministration instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1697,14 +1697,14 @@
 	  <searchInclude value="MedicationAdministration.encounter"/>
 	  <searchInclude value="MedicationAdministration.prescription"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1715,14 +1715,14 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="effectivetime"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="encounter"/>
@@ -1731,7 +1731,7 @@
 		<chain value="encounter.type"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="practitioner"/>
@@ -1740,7 +1740,7 @@
 		<chain value="practitioner.name"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="prescription"/>
@@ -1755,28 +1755,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/condition-daf-dafcondition"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFCondition resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFCondition by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFCondition instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1786,14 +1786,14 @@
 	  <searchInclude value="Condition.encounter"/>
 	  <searchInclude value="Condition.asserter"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1804,21 +1804,21 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date-asserted"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="encounter"/>
@@ -1827,14 +1827,14 @@
 		<chain value="encounter.type"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="onset"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="severity"/>
@@ -1847,28 +1847,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/procedure-daf-dafprocedure"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFProcedure resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFProcedure by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFProcedure instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1878,28 +1878,28 @@
 	  <searchInclude value="Procedure.encounter"/>
 	  <searchInclude value="Procedure.performer"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="type"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1910,7 +1910,7 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="encounter"/>
@@ -1925,28 +1925,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/observation-daf-smokingstatus-dafsmokingstatus"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFSmokingStatus resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFSmokingStatus by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFSmokingStatus instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1955,28 +1955,28 @@
 	  <searchInclude value="Observation.subject"/>
 	  <searchInclude value="Observation.encounter"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="value-concept"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -1993,28 +1993,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/observation-daf-vitalsigns-dafvitalsigns"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFVitalSigns resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFVitalSigns by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFVitalSigns instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -2023,42 +2023,42 @@
 	  <searchInclude value="Observation.subject"/>
 	  <searchInclude value="Observation.encounter"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
         <type value="date"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="value-quantity"/>
         <type value="quantity"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code-value[x]"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -2075,28 +2075,28 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/list-daf-dafproblemlist"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAFList resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAFList by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAFList instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -2105,7 +2105,7 @@
 	  <searchInclude value="List.subject"/>
 	  <searchInclude value="List.item"/>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="patient"/>
@@ -2116,21 +2116,21 @@
 		<chain value="patient.family"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="empty-reason"/>
         <type value="token"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>

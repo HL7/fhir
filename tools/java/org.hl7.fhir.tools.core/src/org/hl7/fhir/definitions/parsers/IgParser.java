@@ -2,7 +2,9 @@ package org.hl7.fhir.definitions.parsers;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -12,26 +14,43 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.MappingSpace;
+import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.ImplementationGuide;
 import org.hl7.fhir.instance.model.ImplementationGuide.GuideDependencyType;
 import org.hl7.fhir.instance.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuideDependencyComponent;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageComponent;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.model.NamingSystem;
+import org.hl7.fhir.instance.model.OperationDefinition;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.SearchParameter;
+import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.TestScript;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Logger;
@@ -78,6 +97,8 @@ public class IgParser {
     igd.setName(ig.getName());
     igd.setIg(ig);
     
+    Map<String, Resource> resources = new HashMap<String, Resource>();
+
     for (ImplementationGuideDependencyComponent d : ig.getDependency()) {
       if (d.getType() != GuideDependencyType.REFERENCE)
         throw new Exception("Unsupported dependency type on "+ig.getName()+": "+d.getType().toCode());
@@ -91,7 +112,81 @@ public class IgParser {
       igd.getImageList().add(bin.getValue());
     }
     processPage(ig.getPage(), igd);
-       
+    for (ImplementationGuidePackageComponent p : ig.getPackage()) {
+      if (!p.hasName())
+        throw new Exception("no name on package in IG "+ig.getName());
+
+      // first pass - verify the resources can be loaded
+      for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
+        if (!r.hasSource())
+          throw new Exception("no source on resource in package "+p.getName()+" in IG "+ig.getName());
+        File fn = new File(Utilities.path(myRoot, r.getSourceUriType().getValue()));
+        if (!fn.exists())
+          throw new Exception("Source "+r.getSourceUriType().getValue()+" resource in package "+p.getName()+" in IG "+ig.getName()+" could not be located");
+        Resource res = null;
+        try {
+          res = new XmlParser().parse(new FileInputStream(fn));
+          resources.put(res.getResourceType().toString()+"/"+res.getId(), res);
+          r.setUserData(ToolResourceUtilities.NAME_RES_RESOURCE, res);
+        } catch (Exception e) {
+          // the most likely reason to get here is a version mismatch between the resource bound into the tool, and the build version.
+          // for non-conformance resources, we don't care. (if we;re in the build, that is)
+          issues.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, igd.getCode()+":"+fn.getAbsolutePath(), e.getMessage(), IssueSeverity.WARNING));
+        }
+
+        if (!r.hasName() && res != null) {
+          if (res instanceof ImplementationGuide)
+            r.setName(((ImplementationGuide) res).getName());
+          else if (res instanceof Conformance) 
+            r.setName(((Conformance) res).getName());
+          else if (res instanceof StructureDefinition)
+            r.setName(((StructureDefinition) res).getName());
+          else if (res instanceof ValueSet)
+            r.setName(((ValueSet) res).getName());
+          else if (res instanceof ConceptMap) 
+            r.setName(((ConceptMap) res).getName());
+          else if (res instanceof DataElement) 
+            r.setName(((DataElement) res).getName());
+          else if (res instanceof OperationDefinition) 
+            r.setName(((OperationDefinition) res).getName());
+          else if (res instanceof SearchParameter) 
+            r.setName(((SearchParameter) res).getName());
+          else if (res instanceof NamingSystem) 
+            r.setName(((NamingSystem) res).getName());
+          else if (res instanceof TestScript) 
+            r.setName(((TestScript) res).getName());
+
+          if (!r.hasName()) // which means that non conformance resources must be named
+            throw new Exception("no name on resource in package "+p.getName()+" in IG "+ig.getName());
+
+          //        if (r.hasExampleFor()) {
+          //          if (!resources.containsKey(r.getExampleFor().getReference()))
+          //            throw new Exception("Unable to resolve example-for reference to "+r.getExampleFor().getReference());
+          //        }
+        }
+      }
+      // second pass: load the spreadsheets
+      for (Extension ex : p.getExtension()) {
+        if (ex.getUrl().equals(ToolResourceUtilities.EXT_SPREADSHEET)) {
+//          String s = ((UriType) ex.getValue()).getValue();
+//          File fn = new File(Utilities.path(myRoot, s));
+//          if (!fn.exists())
+//            throw new Exception("Spreadsheet "+s+" in package "+p.getName()+" in IG "+ig.getName()+" could not be located");          
+//          Profile pr = new Profile(igd.getCode());
+//          ex.setUserData(ToolResourceUtilities.NAME_RES_PROFILE, pr);
+//          pr.setSource(fn.getAbsolutePath());
+//          pr.setSourceType(ConformancePackageSourceType.Spreadsheet);
+//          SpreadsheetParser sparser = new SpreadsheetParser(pr.getCategory(), new CSFileInputStream(pr.getSource()), Utilities.noString(pr.getId()) ? pr.getSource() : pr.getId(), igd, 
+//                rootDir, logger, null, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings);
+//          sparser.getBindings().putAll(commonBindings);
+//          sparser.setFolder(Utilities.getDirectoryForFile(pr.getSource()));
+//          sparser.parseConformancePackage(pr, null, Utilities.getDirectoryForFile(pr.getSource()), pr.getCategory(), issues);
+//          igd.getProfiles().add(pr);
+//          // what remains to be done now is to update the package with the loaded resources, but we need to wait for all the profiles to generated, so we'll do that later
+        }
+      }
+    }
+    
     // second, parse the old ig, and use that. This is being phased out
     CSFile file = new CSFile(Utilities.path(rootDir, igd.getSource()));
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -136,6 +231,7 @@ public class IgParser {
         example.setIg(igd.getCode());
         igd.getExamples().add(example);
       } else if (e.getNodeName().equals("profile")) {
+//        moved above
         Profile p = new Profile(igd.getCode());
         p.setSource(Utilities.path(file.getParent(), e.getAttribute("source")));
         if ("spreadsheet".equals(e.getAttribute("type"))) {

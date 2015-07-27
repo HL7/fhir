@@ -161,7 +161,7 @@
             <reference value="http://hl7.org/fhir/StructureDefinition/provenance-ehr-rle"/>
          </profile>
          <interaction>
-            <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+            <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
                <valueCode value="SHALL"/>
             </extension>
             <code value="create"/>
@@ -174,7 +174,7 @@
             <reference value="http://hl7.org/fhir/StructureDefinition/auditevent-ehr-rle"/>
          </profile>
          <interaction>
-            <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+            <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
                <valueCode value="SHALL"/>
             </extension>
             <code value="create"/>

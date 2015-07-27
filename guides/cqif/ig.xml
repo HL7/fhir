@@ -35,7 +35,7 @@
     <resource>
       <name value="CQIF KnowledgeModule"/>
       <description value="KnowledgeModule used to define a Guideline Appropriate Ordering module"/>
-      <sourceUri value="basic-knowledgemodule-cqif-profile-spreadsheet.xml"/>
+      <sourceUri value="knowledgemodule-example.xml"/>
       <exampleFor>
         <reference value="basic-knowledgemodule-cqif-profile-spreadsheet.xml"/>
       </exampleFor>

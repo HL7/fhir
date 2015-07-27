@@ -128,7 +128,6 @@ public class SourceParser {
   private final Definitions definitions;
   private final String srcDir;
   private final String dstDir;
-  private final String sndBoxDir;
   private final String imgDir;
   private final String termDir;
   public String dtDir;
@@ -153,7 +152,6 @@ public class SourceParser {
     char sl = File.separatorChar;
     srcDir = root + sl + "source" + sl;
     dstDir = root + sl + "publish" + sl;
-    sndBoxDir = root + sl + "sandbox" + sl;
     ini = new IniFile(srcDir + "fhir.ini");
 
     termDir = srcDir + "terminologies" + sl;
@@ -424,7 +422,7 @@ public class SourceParser {
         if (ig.getNodeName().equals("ig")) {
           ImplementationGuideDefn igg = new ImplementationGuideDefn(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), 
               ig.getAttribute("source").replace('\\', File.separatorChar), "1".equals(ig.getAttribute("review")),
-              ig.getAttribute("ballot"), ig.getAttribute("fmm"), "yes".equals(ig.getAttribute("core")));
+              ig.getAttribute("ballot"), ig.getAttribute("fmm"), "yes".equals(ig.getAttribute("core")), page.getValidationErrors());
           definitions.getIgs().put(igg.getCode(), igg);
           definitions.getSortedIgs().add(igg);
         }

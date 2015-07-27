@@ -13,9 +13,6 @@
 
   <package>
     <extension url="http://hl7.org/fhir/tools-spreadsheet">
-      <valueUri value="valueset-dataelement-sdccode.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
       <valueUri value="dataelement-sdc-de-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-spreadsheet">
@@ -23,6 +20,9 @@
     </extension>
     
     <name value="base"/>
+    <resource>
+      <sourceUri value="valueset-dataelement-sdccode.xml"/>
+    </resource>
     <resource>
       <name value="SDC DE Registry"/>
       <description value="SDC Repository for Data Elements"/>
