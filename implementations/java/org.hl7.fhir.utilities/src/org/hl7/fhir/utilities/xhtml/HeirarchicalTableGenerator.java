@@ -280,7 +280,7 @@ public class HeirarchicalTableGenerator  {
     this.inLineGraphics = inlineGraphics;
   }
 
-  public TableModel initNormalTable(String prefix) {
+  public TableModel initNormalTable(String prefix, boolean isLogical) {
     TableModel model = new TableModel();
     
     model.setDocoImg(prefix+"help16.png");
@@ -290,6 +290,9 @@ public class HeirarchicalTableGenerator  {
     model.getTitles().add(new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance", null, 0));
     model.getTitles().add(new Title(null, model.getDocoRef(), "Type", "Reference to the type of the element", null, 100));
     model.getTitles().add(new Title(null, model.getDocoRef(), "Description & Constraints", "Additional information about the element", null, 0));
+    if (isLogical) {
+      model.getTitles().add(new Title(null, prefix+"logical.html", "Implemented As", "How this logical data item is implemented in a concrete resource", null, 0));
+    }
     return model;
   }
 

@@ -28,7 +28,7 @@ public class TableGenerator extends BaseGenerator {
   protected boolean dictLinks() {
     return pageName != null;
   }
-  protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix) throws Exception {
+  protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, boolean isLogical) throws Exception {
     Row row = gen.new Row();
 
     row.setAnchor(path);
@@ -121,7 +121,12 @@ public class TableGenerator extends BaseGenerator {
       cc.addPiece(gen.new Piece("br"));
       cc.getPieces().add(gen.new Piece(null, inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
     }
-    
+
+    if (isLogical) {
+      String logical = e.getMappings().get("http://hl7.org/fhir/logical");
+      row.getCells().add(gen.new Cell(null, null, logical, null, null));
+    }
+      
     if (e.getTypes().size() > 1) {
       // create a child for each choice
       for (TypeRef tr : e.getTypes()) {
@@ -161,7 +166,7 @@ public class TableGenerator extends BaseGenerator {
       }
     } else
       for (ElementDefn c : e.getElements())
-        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix));
+        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, isLogical));
     return row;
   }
 

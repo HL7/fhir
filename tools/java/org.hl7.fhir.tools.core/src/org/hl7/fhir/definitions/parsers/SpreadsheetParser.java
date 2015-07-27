@@ -142,6 +142,7 @@ public class SpreadsheetParser {
 	private boolean isProfile;
 	private String profileExtensionBase;
 	private Definitions definitions;
+	private Map<String, MappingSpace> mappings;
 	private String title;
 	private String folder;
 	private Logger log;
@@ -167,6 +168,7 @@ public class SpreadsheetParser {
 		this.name = name;
   	xls = new XLSXmlParser(in, name);	
 		this.definitions = definitions;
+		this.mappings = definitions.getMapTypes();
 		if (name.indexOf('-') > 0)
 			title = name.substring(0, name.indexOf('-'));
 		else if (name.indexOf('.') > 0)
@@ -190,11 +192,12 @@ public class SpreadsheetParser {
 		md.setFileName(Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".rmd"));
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     xls = new XLSXmlParser(in, name); 
     this.definitions = null;
+    this.mappings = mappings;
     this.ig = ig;
     if (name.indexOf('-') > 0)
       title = name.substring(0, name.indexOf('-'));
@@ -403,8 +406,8 @@ public class SpreadsheetParser {
         String path = sheet.getColumn(row, "Element");
         if (Utilities.noString(path))
           throw new Exception("Invalid path for element at " +getLocation(row));
-        for (String n : definitions.getMapTypes().keySet()) {
-          resource.addMapping(path, n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
+        for (String n : mappings.keySet()) {
+          resource.addMapping(path, n, sheet.getColumn(row, mappings.get(n).getColumnName()));
         }
       }
     }
@@ -1419,10 +1422,9 @@ public class SpreadsheetParser {
     mde.setMaxLength(sheet.getColumn(row, "Max Length"));
     mde.setRequirements(sheet.getColumn(row, "Requirements"));
     mde.setComments(sheet.getColumn(row, "Comments"));
-    if (definitions != null) 
-      for (String n : definitions.getMapTypes().keySet()) {
-        mde.getMappings().put(n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
-      }
+    for (String n : mappings.keySet()) {
+      mde.getMappings().put(n, sheet.getColumn(row, mappings.get(n).getColumnName()));
+    }
     mde.setToDo(sheet.getColumn(row, "To Do"));
     mde.setExample(sheet.getColumn(row, "Example"));
     mde.setCommitteeNotes(sheet.getColumn(row, "Committee Notes"));
@@ -1576,10 +1578,9 @@ public class SpreadsheetParser {
 		  e.setMaxLength(sheet.getColumn(row, "Max Length"));
 		e.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
 		e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
-		if (definitions != null) //igtodo: pass this in through the context?
-		  for (String n : definitions.getMapTypes().keySet()) {
-		    e.addMapping(n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
-		  }
+		for (String n : mappings.keySet()) {
+		  e.addMapping(n, sheet.getColumn(row, mappings.get(n).getColumnName()));
+		}
     if (pack != null) {
       for (String n : pack.getMappingSpaces().keySet()) {
         e.addMapping(n, sheet.getColumn(row, pack.getMappingSpaces().get(n).getColumnName()));
@@ -1778,10 +1779,8 @@ public class SpreadsheetParser {
     exe.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
     exe.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
     doAliases(sheet, row, exe);
-    if (definitions != null) { // igtodo - what to do about this?  
-      for (String n : definitions.getMapTypes().keySet()) {
-        exe.addMapping(n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
-      }
+    for (String n : mappings.keySet()) {
+      exe.addMapping(n, sheet.getColumn(row, mappings.get(n).getColumnName()));
     }
     String tasks = sheet.getColumn(row, "gForge");
     if (!Utilities.noString(tasks)) {

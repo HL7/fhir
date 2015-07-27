@@ -189,5 +189,12 @@
     <id>w5</id>
     <sort>23</sort>
   </space>
+  <space>
+    <url>http://hl7.org/fhir/logical</url>
+    <columnName>Logical Mapping</columnName>
+    <title>Logical Mapping</title>
+    <id>logical</id>
+    <sort>24</sort>
+  </space>
   
 </mappingSpaces>
