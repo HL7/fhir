@@ -242,11 +242,11 @@ public class IgParser {
           sparser.setFolder(Utilities.getDirectoryForFile(p.getSource()));
           sparser.parseConformancePackage(p, null, Utilities.getDirectoryForFile(p.getSource()), p.getCategory(), issues);
         } else {
-          throw new Exception("Unknown profile type in IG: "+e.getNodeName());
+          throw new Exception("Unknown profile type in IG : "+e.getNodeName());
           // parseConformanceDocument(p, p.getId(), new File(p.getSource()), p.getCategory());    
         } 
         
-        String id = e.getAttribute("id");
+        String id = e.getAttribute("id"); 
         if (Utilities.noString(id))
           id = Utilities.changeFileExt(e.getAttribute("source"), "");
         igd.getProfiles().add(p);

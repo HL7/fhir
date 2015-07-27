@@ -8,8 +8,12 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.model.ImplementationGuide;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 
 public class ImplementationGuideDefn {
 
@@ -55,8 +59,9 @@ public class ImplementationGuideDefn {
   private List<BindingSpecification> unresolvedBindings = new ArrayList<BindingSpecification>();
   private List<LogicalModel> logicalModels = new ArrayList<LogicalModel>();
   private ImplementationGuide ig;
+  private List<ValidationMessage> issues;
   
-  public ImplementationGuideDefn(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, boolean core) {
+  public ImplementationGuideDefn(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, boolean core, List<ValidationMessage> issues) {
     super();
     this.code = code;
     this.name = name;
@@ -67,6 +72,7 @@ public class ImplementationGuideDefn {
     this.fmm = fmm;
     this.ballot = ballot;
     this.core = core;
+    this.issues = issues;
   }
   
   public String getCode() {
@@ -189,7 +195,7 @@ public class ImplementationGuideDefn {
     String n = pagename;
     if (n.startsWith(code+File.separator))
       n = n.substring(code.length()+1);
-    if (!n.endsWith(".html"))
+    if (!n.endsWith(".html")) // todo: do we need this? 
       n = n + ".html";
     
     List<LinkTriple> path = determinePath(n);
@@ -212,8 +218,10 @@ public class ImplementationGuideDefn {
     List<LinkTriple> res = new ArrayList<ImplementationGuideDefn.LinkTriple>();
     res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
     if (!n.equals(ig.getPage().getSource())) {
-      if (!findPage(n, res, ig.getPage().getPage()))
-      res.add(new LinkTriple(null, "unsorted", "Work in Progress yet"));
+      if (!findPage(n, res, ig.getPage().getPage())) {
+        issues.add(new ValidationMessage(Source.Publisher, IssueType.PROCESSING, code+"/"+n, "The page "+n+" is not assigned a bread crumb yet", IssueSeverity.WARNING));
+        res.add(new LinkTriple(null, "unsorted", "Work in Progress yet"));
+      }
     }
     return res;
   }
