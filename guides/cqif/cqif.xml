@@ -62,6 +62,8 @@
   </profile>
   <profile source="documentreference-evidence-cqif-profile-spreadsheet.xml" type="spreadsheet">
   </profile>
+  <profile source="questionnaire-documentationtemplate-cqif-profile-spreadsheet.xml" type="spreadsheet">
+  </profile>
   <!--
     dictionaries
     <dictionary name="" source="">

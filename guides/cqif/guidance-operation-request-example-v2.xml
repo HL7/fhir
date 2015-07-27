@@ -9,75 +9,68 @@
         <id value="guidanceRequest1"/>
         <meta>
           <!-- TODO: Should only need to declare GuidanceRequest, but don't have derivative profile functionality tested yet -->
-          <profile value="http://hl7.org/fhir/StructureDefinition/knowledgerequest-qif-qif-knowledgerequest"/>
-          <profile value="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-qif-guidancerequest"/>
+          <profile value="http://hl7.org/fhir/StructureDefinition/knowledgerequest-cqif-cqif-knowledgerequest"/>
+          <profile value="http://hl7.org/fhir/StructureDefinition/guidancerequest-cqif-cqif-guidancerequest"/>
         </meta>
-        <!-- Client-generated request identifier, not required -->
-        <extension url="http://hl7.org/fhir/StructureDefinition/knowledgerequest-qif-requestIdentifier">
-          <valueIdentifier>
-            <value value="guidanceRequest1"/>
-          </valueIdentifier>
-        </extension>
-        <!-- Server-provided module identifier for IHE Guideline Appropriate Ordering decision support -->
-        <extension url="http://hl7.org/fhir/StructureDefinition/knowledgerequest-qif-moduleIdentifier">
-          <valueIdentifier>
-            <value value="guideline-appropriate-ordering"/>
-          </valueIdentifier>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-initiatingOrganization">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-initiatingOrganization">
           <valueReference> 
             <reference value="Organization/1"/>
           </valueReference>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-initiatingPerson">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-initiatingPerson">
           <valueReference> 
             <reference value="Practitioner/1"/>
           </valueReference>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-systemUserType">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-systemUserType">
           <valueCoding>
             <system value="TBD"/>
             <code value="provider"/>
           </valueCoding>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-systemUserLanguage">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-systemUserLanguage">
           <valueCoding>
             <system value="TBD"/>
             <code value="en-US"/>
           </valueCoding>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-receivingOrganization">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-receivingOrganization">
           <valueReference> 
             <reference value="Organization/1"/>
           </valueReference>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-receivingPerson">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-receivingPerson">
           <valueReference> 
             <reference value="Practitioner/1"/>
           </valueReference>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-recipientType">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-recipientType">
           <valueCoding>
             <system value="TBD"/>
             <code value="provider"/>
           </valueCoding>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-recipientLanguage">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-recipientLanguage">
           <valueCoding>
             <system value="TBD"/>
             <code value="en-US"/>
           </valueCoding>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/guidancerequest-qif-encounterClass">
+        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-encounterClass">
           <valueCoding>
             <system value="http://hl7.org/fhir/encounter-class"/>
             <code value="inpatient"/>
           </valueCoding>
         </extension>
+        <!-- Server-provided module id for IHE Guideline Appropriate Ordering decision support -->
+        <modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-module">
+			<valueReference>
+				<reference value="Basic/guideline-appropriate-ordering"/>
+			</valueReference>
+        </modifierExtension>
         <code>
           <coding>
-            <system value="http://example.org/test"/>
-            <code value="something"/>
+            <code value="request"/>
           </coding>
         </code>
       </Basic>
@@ -88,21 +81,17 @@
     <resource>
       <Patient>
         <id value="example"/>
-        <!--
         <meta>
-          <!-.- TODO: Profile URL for the IHE GAO patient profile -->
-<!--          <profile value="http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient"/>
-          <profile value="http://hl7.org/fhir/StructureDefinition/patient-gao-gao-patient"/>  
-        </meta>-->
+          <profile value="http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient"/>
+          <!-- TODO: Profile URL for the IHE GAO patient profile -->
+          <!--profile value="http://hl7.org/fhir/StructureDefinition/patient-gao-gao-patient"/-->  
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
             <!-- snip -->
           </div>
         </text>
-        <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
-          <valueDateTime value="2001-05-06T14:35:45-05:00"/>
-        </extension>
         <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
         <identifier>
           <use value="usual"/>
@@ -146,7 +135,11 @@
 
         <!-- use FHIR code system for male / female -->
         <gender value="male" />
-        <birthDate value="1974-12-25"/>
+        <birthDate value="1974-12-25">
+			<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+			  <valueDateTime value="1974-12-25T14:35:45-05:00"/>
+			</extension>
+        </birthDate>
         <deceasedBoolean value="false"/>
 
         <address>
@@ -196,13 +189,12 @@
     <resource>
       <Order>
         <id value="order1"/>
-<!--        <meta>
-          <!-.- TODO: Profile url for IHE GAO Order profile? 
-          <profile value="http://hl7.org/fhir/StructureDefinition/order-gao-gao-order"/>-.->
-          <!-.- TODO: Build aucrad order profile
-          <profile value="http://hl7.org/fhir/StructureDefinition/order-aucrad-aucrad-order"/> -.->
+        <meta>
+          <!-- TODO: Profile url for IHE GAO Order profile? 
+          <profile value="http://hl7.org/fhir/StructureDefinition/order-gao-gao-order"/>-->
+          <!-- TODO: Build aucrad order profile
+          <profile value="http://hl7.org/fhir/StructureDefinition/order-aucrad-aucrad-order"/> -->
         </meta>
-        -->
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
@@ -213,9 +205,10 @@
           <DiagnosticOrder>
             <id value="diagnosticOrder1"/>
             <meta>
-              <profile value="http://hl7.org/fhir/StructureDefinition/diagnosticorder-gao-gao-diagnosticorder"/>
+              <!-- TODO: Profile url for IHE GAO DiagnositOrder profile -->
+              <!-- profile value="http://hl7.org/fhir/StructureDefinition/diagnosticorder-gao-gao-diagnosticorder"/-->
               <!-- TODO: Build aucrad diagnostic order profile -->
-              <profile value="http://hl7.org/fhir/StructureDefinition/diagnosticorder-aucrad-aucrad-diagnosticorder"/>
+              <!--profile value="http://hl7.org/fhir/StructureDefinition/diagnosticorder-aucrad-aucrad-diagnosticorder"/-->
             </meta>
             <subject> 
               <reference value="Patient/example"/>
