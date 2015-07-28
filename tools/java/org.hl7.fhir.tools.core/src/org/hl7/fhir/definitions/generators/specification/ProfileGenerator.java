@@ -826,7 +826,11 @@ public class ProfileGenerator {
           if (profile != null) {
             if (type.getCode().equals("Extension")) {
               // check that the extension is being used correctly:
-              boolean srcMod = context.getExtensionStructure(null, profile).getSnapshot().getElement().get(0).getIsModifier();
+							StructureDefinition ext = context.getExtensionStructure(null, profile);
+							if (ext == null) {
+							  throw new Exception("Unable to resolve extension profile: " + profile);
+							}
+              boolean srcMod = ext.getSnapshot().getElement().get(0).getIsModifier();
               boolean tgtMod = e.isModifier();
               if (srcMod && !tgtMod)
                 throw new Exception("The extension '"+profile+"' is a modifier extension, but is being used as if it is not a modifier extension");

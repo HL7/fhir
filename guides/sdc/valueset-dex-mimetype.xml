@@ -1,26 +1,34 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="DataElement SDC Object Class"/>
+  <name value="DEX mapping language mime types"/>
   <publisher value="Office of the National Coordinator for Health IT"/>
   <contact>
     <telecom>  
     <system value="other"/>
-    <value value="http://healthit.gov"/>
+    <value value="http:\\healthit.gov"/>
   </telecom>
   </contact>
-  <description value="The allowed codes for identifying the ISO 11179 ObjectClass Property for a particular data element if intended for registration/use within the U.S. Structured Data Capture (SDC) project."/>
-  <copyright value="This value set includes content from LOINC®, which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
+  <description value="The list of mime types that identify mapping languages supported by DEX."/>
+  <copyright value="Mime types have no IP restrictions"/>  
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://snomed.info/sct"/>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-    </include>
-    <include>
-      <!-- This is a proposed URI for the RXNorm code system - not yet registered -->
-      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <system value="http://example.com">
+        <!-- TODO - fix this -->
+      </system>
+      <concept>
+        <code value="application/sparql-results+xml"></code>
+        <display value="SPARQL"/>
+      </concept>
+      <concept>
+        <code value="application/sql"/>
+        <display value="SQL"/>
+      </concept>
+      <concept>
+        <code value="application/xquery"/>
+        <display value="X-Query"/>
+        <!-- Note: There is no mime type for X-Path as it's not intended to stand alone.  X-Query makes use of XPath and is intended to stand alone. -->
+      </concept>
     </include>
   </compose>
 </ValueSet>

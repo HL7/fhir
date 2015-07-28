@@ -203,108 +203,60 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   private boolean isKnownCodeSystem(String system) {
-    if (system.equals("http://snomed.info/sct"))
-      return true;
-    if (system.equals("http://www.nlm.nih.gov/research/umls/rxnorm"))
-      return true;
-    if (system.equals("http://loinc.org"))
-      return true;
-    if (system.equals("http://unitsofmeasure.org"))
-      return true;
-    if (system.equals("http://ncimeta.nci.nih.gov"))
-      return true;
-    if (system.equals("http://www.ama-assn.org/go/cpt"))
-      return true;
-    if (system.equals("http://hl7.org/fhir/ndfrt"))
-      return true;
-    if (system.equals("http://fdasis.nlm.nih.gov"))
-      return true;
-    if (system.equals("http://hl7.org/fhir/sid/ndc"))
-      return true;
-    if (system.equals("http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx"))
-      return true;
-    if (system.equals("urn:iso:std:iso:3166"))
-      return true;
-    if (system.equals("http://www.nubc.org/patient-discharge"))
-      return true;
-    if (system.equals("http://www.radlex.org"))
-      return true;
-    if (system.equals("http://hl7.org/fhir/sid/icd-10"))
-      return true;
-    if (system.equals("http://hl7.org/fhir/sid/icpc2"))
-      return true;
-    if (system.equals("http://www.icd10data.com/icd10pcs"))
-      return true;
-    if (system.equals("http://hl7.org/fhir/sid/icd-9"))
-      return true;
-    if (system.equals("http://www.whocc.no/atc"))
-      return true;
-    if (system.equals("urn:ietf:bcp:47"))
-      return true;
-    if (system.equals("urn:iso:std:iso:11073:10101"))
-      return true;
-    if (system.equals("http://www.genenames.org"))
-      return true;
-    if (system.equals("http://www.ensembl.org"))
-      return true;
-    if (system.equals("http://www.ncbi.nlm.nih.gov/nuccore"))
-      return true;
-    if (system.equals("http://www.ncbi.nlm.nih.gov/clinvar"))
-      return true;
-    if (system.equals("http://sequenceontology.org"))
-      return true;
-    if (system.equals("http://www.hgvs.org/mutnomen"))
-      return true;
-    if (system.equals("http://www.ncbi.nlm.nih.gov/projects/SNP"))
-      return true;
-    if (system.equals("http://cancer.sanger.ac.uk/cancergenome/projects/cosmic"))
-      return true;
-    if (system.equals("http://www.lrg-sequence.org"))
-      return true;
-    if (system.equals("http://www.omim.org"))
-      return true;
-    if (system.equals("http://www.ncbi.nlm.nih.gov/pubmed"))
-      return true;
-    if (system.equals("http://www.pharmgkb.org"))
-      return true;
-    if (system.equals("http://clinicaltrials.gov"))
-      return true;
-    if (system.startsWith("http://example.com"))
-      return true;
-    if (system.startsWith("http://www.example.com"))
+    if (system.equals("http://cancer.sanger.ac.uk/cancergenome/projects/cosmic") ||
+        system.equals("http://clinicaltrials.gov") ||
+        system.equals("http://fdasis.nlm.nih.gov") ||
+    		system.equals("http://hl7.org/fhir/ndfrt") ||
+    		system.equals("http://hl7.org/fhir/sid/icd-9") |
+    		system.equals("http://hl7.org/fhir/sid/icd-10") ||
+    		system.equals("http://hl7.org/fhir/sid/icpc2") ||
+    		system.equals("http://hl7.org/fhir/sid/ndc") ||
+    		system.equals("http://loinc.org") ||
+    		system.equals("http://www.lrg-sequence.org") ||
+        system.equals("http://ncimeta.nci.nih.gov") ||
+        system.equals("http://sequenceontology.org") ||
+        system.equals("http://snomed.info/sct") ||
+        system.equals("http://unitsofmeasure.org") ||
+        system.equals("http://www.ama-assn.org/go/cpt") ||
+        system.equals("http://www.ensembl.org") ||
+    		system.equals("http://www.genenames.org") ||
+    		system.equals("http://www.hgvs.org/mutnomen") ||
+        system.equals("http://www.icd10data.com/icd10pcs") ||
+        system.equals("http://www.ncbi.nlm.nih.gov/nuccore") ||
+        system.equals("http://www.ncbi.nlm.nih.gov/projects/SNP") ||
+        system.equals("http://www.ncbi.nlm.nih.gov/pubmed") ||
+        system.equals("http://www.ncbi.nlm.nih.gov/clinvar") ||
+        system.equals("http://www.nlm.nih.gov/research/umls/rxnorm") ||
+        system.equals("http://www.nubc.org/patient-discharge") ||
+        system.equals("http://www.omim.org") ||
+        system.equals("http://www.pharmgkb.org") ||
+        system.equals("http://www.radlex.org") ||
+        system.equals("http://www.whocc.no/atc") ||
+        system.equals("http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx") ||
+        system.equals("urn:ietf:bcp:47") ||
+        system.equals("urn:iso:std:iso:11073:10101") ||
+        system.equals("urn:iso:std:iso:3166") ||
+        system.startsWith("http://example.com") ||
+        system.startsWith("http://example.org")
+    	 )
       return true;
     
     // todo: why do these need to be listed here?
-    if (system.equals("https://www.usps.com/"))
-      return true;
-    if (system.equals("http://nema.org/dicom/dicm"))
-      return true;    
-    if ("http://hl7.org/fhir/restful-interaction".equals(system))
-      return true;
-    if ("http://hl7.org/fhir/data-types".equals(system))
-      return true;  
-    if (system.startsWith("http://hl7.org/fhir/ValueSet/v3"))
-      return true;
-    
-    if ("http://unstats.un.org/unsd/methods/m49/m49.htm".equals(system))
-      return true;
-    if ("https://www.census.gov/geo/reference/".equals(system))
-      return true;
-    if (system.startsWith("urn:oid:"))
-      return true;
-    if (system.startsWith("http://cimi.org"))
-      return true;
-    if (system.startsWith("http://ihc.org"))
-      return true;
-    if ("http://ihc.org".equals(system))
-      return true;
-    if ("http://www.nucc.org".equals(system))
-      return true;
-    if ("http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html".equals(system))
-      return true;
-    if ("http://www.cms.gov/Medicare/Coding/ICD10/index.html".equals(system))
-      return true;
-    if ("http://www.iana.org/assignments/language-subtag-registry".equals(system))
+    if (system.equals("http://hl7.org/fhir/data-types") ||
+        system.equals("http://hl7.org/fhir/restful-interaction") ||
+        system.equals("http://nema.org/dicom/dicm") ||
+        system.equals("http://unstats.un.org/unsd/methods/m49/m49.htm") ||
+        system.equals("http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html") ||
+        system.equals("http://www.cms.gov/Medicare/Coding/ICD10/index.html") ||
+        system.equals("http://www.iana.org/assignments/language-subtag-registry") ||
+        system.equals("http://www.nucc.org") ||
+        system.equals("https://www.census.gov/geo/reference/") ||
+        system.equals("https://www.usps.com/") ||
+        system.startsWith("http://cimi.org") ||
+        system.startsWith("http://hl7.org/fhir/ValueSet/v3") ||
+        system.startsWith("http://ihc.org") ||
+        system.startsWith("urn:oid:")
+       )
       return true;
     
     return false; // todo: change this back to false

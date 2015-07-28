@@ -202,7 +202,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		}
 		if (answers.size() == 0) {
 			if (theValidateRequired) {
-				rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !theQuestion.getRequired(), "Missing answer to required question with linkId[{0}]", linkId);
+			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !theQuestion.getRequired(), "Missing answer to required question with linkId[{0}]", linkId);
 			} else {
 				hint(theErrors, IssueType.BUSINESSRULE, thePathStack, !theQuestion.getRequired(), "Missing answer to required question with linkId[{0}]", linkId);
 			}
@@ -213,15 +213,14 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		try {
 			thePathStack.add("question(" + answers.indexOf(answerQuestion) + ")");
 			validateQuestionAnswers(theErrors, theQuestion, thePathStack, type, answerQuestion, theAnswers, theValidateRequired);
-			validateQuestionGroups(theErrors, theQuestion, answerQuestion, thePathStack, theAnswers, theValidateRequired);
 		} finally {
 			thePathStack.removeLast();
 		}
 	}
 
-	private void validateQuestionGroups(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent theAnswerQuestion,
+	private void validateQuestionGroups(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionAnswerComponent theAnswer,
 			LinkedList<String> thePathSpec, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
-		validateGroups(theErrors, theQuestion.getGroup(), theAnswerQuestion.getGroup(), thePathSpec, theAnswers, theValidateRequired);
+		validateGroups(theErrors, theQuestion.getGroup(), theAnswer.getGroup(), thePathSpec, theAnswers, theValidateRequired);
 	}
 
 	private void validateGroupGroups(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent theAnsGroup,
@@ -240,7 +239,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			if (answerGroups.isEmpty()) {
 				if (nextQuestionGroup.getRequired()) {
 					if (theValidateRequired) {
-						rule(theErrors, IssueType.BUSINESSRULE, thePathStack, false, "Missing required group with linkId[{0}]", linkId);
+					rule(theErrors, IssueType.BUSINESSRULE, thePathStack, false, "Missing required group with linkId[{0}]", linkId);
 					} else {
 						hint(theErrors, IssueType.BUSINESSRULE, thePathStack, false, "Missing required group with linkId[{0}]", linkId);
 					}
@@ -287,7 +286,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !(answerQuestion.getAnswer().size() > 1 && !theQuestion.getRepeats()), "Multiple answers to non repeating question with linkId[{0}]",
 					linkId);
 			if (theValidateRequired) {
-				rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !(theQuestion.getRequired() && answerQuestion.getAnswer().isEmpty()), "Missing answer to required question with linkId[{0}]", linkId);
+			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !(theQuestion.getRequired() && answerQuestion.getAnswer().isEmpty()), "Missing answer to required question with linkId[{0}]", linkId);
 			} else {
 				hint(theErrors, IssueType.BUSINESSRULE, thePathStack, !(theQuestion.getRequired() && answerQuestion.getAnswer().isEmpty()), "Missing answer to required question with linkId[{0}]", linkId);
 			}
@@ -346,6 +345,8 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 								linkId, coding.getSystem(), coding.getCode(), optionsRef);
 					}
 				}
+
+				validateQuestionGroups(theErrors, theQuestion, nextAnswer, thePathStack, theAnswers, theValidateRequired);
 
 			} finally {
 				thePathStack.removeLast();

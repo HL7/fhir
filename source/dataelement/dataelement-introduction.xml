@@ -3,6 +3,11 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
+DataElement is an infrastructure resource that supports the defining individual pieces of data that might be collected or stored.  While these definitions might apply 
+to elements found in FHIR resources and profiles, they can also apply to questionnaire questions, elements in data stores, and non-FHIR specification (v2, CDA, CDISC, 
+etc.)  I.e. the definitions aren't FHIR-specific.
+</p>
+<p>
 This resource covers two major use-cases: 
 </p>
 <ol>
@@ -32,7 +37,7 @@ patient gender, practitioner address and other data elements that would not typi
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource has significant overlap with <a href="profile.html">Profile</a> and <a href="questionnaire.html">Questionnaire</a>.
+This resource has significant overlap with <a href="structuredefinition.html">StructureDefinition</a> and <a href="questionnaire.html">Questionnaire</a>.
 </p>
 <p>
 <a href="structuredefinition.html">StructureDefinition</a> also defines data elements.  However,

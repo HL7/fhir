@@ -62,39 +62,39 @@
             <valueCoding>
               <code value="INJECTION"/>
             </valueCoding>
+            <group>
+              <extension url="http://example.org/Profile/questionnaire#visibilityCondition">
+                <!-- note: this syntax is for demonstration purposes only, will need to be finalized during DSTU --> 
+                <valueString value="HAS_VALUE(../choice/code) AND NEQ(../choice/code,'NO')"/>
+              </extension>
+              <question>
+                <text value="1st dose"/>
+                <answer>
+                  <valueDate value="1972-11-30"/>
+                </answer>
+              </question>
+              <question>
+                <text value="2nd dose"/>
+                <answer>
+                  <valueDate value="1972-12-11"/>
+                </answer>
+              </question>
+            </group>
           </answer>
-          <group>
-            <extension url="http://example.org/Profile/questionnaire#visibilityCondition">
-              <!-- note: this syntax is for demonstration purposes only, will need to be finalized during DSTU --> 
-              <valueString value="HAS_VALUE(../choice/code) AND NEQ(../choice/code,'NO')"/>
-            </extension>
-            <question>
-              <text value="1st dose"/>
-              <answer>
-                <valueDate value="1972-11-30"/>
-              </answer>
-            </question>
-            <question>
-              <text value="2nd dose"/>
-              <answer>
-                <valueDate value="1972-12-11"/>
-              </answer>
-            </question>
-          </group>
         </question>
         <question>
           <text value="Hep B given y / n"/>
           <answer>
             <valueBoolean value="true"/>
+            <group>
+              <question>
+                <text value="Date given"/>
+                <answer>
+                  <valueDate value="1972-12-04"/>
+                </answer>
+              </question>
+            </group>
           </answer>
-          <group>
-            <question>
-              <text value="Date given"/>
-              <answer>
-                <valueDate value="1972-12-04"/>
-              </answer>
-            </question>
-          </group>
         </question>
         <question>
           <text value="Abnormalities noted at birth"/>

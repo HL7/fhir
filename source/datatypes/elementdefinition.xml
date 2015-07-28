@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame Grieve</LastAuthor>
+  <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-16T06:52:57Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2015-07-26T20:46:34Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -22,7 +22,7 @@
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
+  <MaxChange>0.0001</MaxChange>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1017,7 +1017,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">N/A</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Name, Identifier &amp; Context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1054,7 +1055,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">N/A</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1091,7 +1093,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">N/A</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1610,7 +1613,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OMC.10</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">  Maximum  size of  data element  values?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1789,7 +1793,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">OM1.3</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OM1.3, OMC.9</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2229,7 +2233,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OMC.12</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.domain.maximum_character_quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2615,7 +2620,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">OM3</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OM3, OMC.11</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ANSWER LIST, NORMATIVE ANSWER LIST</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4387,9 +4392,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>35</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4397,6 +4402,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4404,8 +4410,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveRow>36</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

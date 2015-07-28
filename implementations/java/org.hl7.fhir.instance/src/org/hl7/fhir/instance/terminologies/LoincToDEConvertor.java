@@ -126,7 +126,9 @@ public class LoincToDEConvertor {
 
 	private void saveBundle() throws Exception {
 		XmlParser xml = new XmlParser();
-		xml.compose(new FileOutputStream(dest), bundle, true);
+		FileOutputStream s = new FileOutputStream(dest);
+    xml.compose(s, bundle, true);
+    s.close();
 	}
 
 	private String col(Element row, String name) {
@@ -157,7 +159,7 @@ public class LoincToDEConvertor {
 				Identifier id = new Identifier();
 				id.setSystem("http://hl7.org/fhir/commondataelement/loinc");
 				id.setValue(code);
-				de.setIdentifier(id);
+				de.getIdentifier().add(id);
 				de.setPublisher("Regenstrief + FHIR Project Team");
 				if (!col(row, "STATUS").equals("ACTIVE"))
 	 				de.setStatus(ConformanceResourceStatus.DRAFT); // till we get good at this
@@ -203,7 +205,7 @@ public class LoincToDEConvertor {
 				// HL7_FIELD_SUBFIELD_ID	
 				//  ------------------ EXTERNAL_COPYRIGHT_NOTICE todo	
 				dee.setDefinition(col(row, "LONG_COMMON_NAME"));	
-				// HL7_V2_DATATYPE
+				// HL7_V2_DATATYPE	
 				String cc = makeType(col(row, "HL7_V3_DATATYPE"), code);
 				if (cc != null)
 				  dee.addType().setCode(cc);	
@@ -234,35 +236,35 @@ public class LoincToDEConvertor {
 		if (type.equals("PQ"))
 			return "Quantity";
 		else if (type.equals("ED"))
-			return "Attachment";
+		  return "Attachment";
 		else if (type.equals("TS"))
-			return "dateTime";
+		  return "dateTime";
 		else if (type.equals("ST"))
-			return "string";
+		  return "string";
 		else if (type.equals("II"))
-			return "Identifier";
+		  return "Identifier";
 		else if (type.equals("CWE"))
-			return "CodeableConcept";
+		  return "CodeableConcept";
 		else if (type.equals("CD") || type.equals("CO"))
-			return "CodeableConcept";
+		  return "CodeableConcept";
 		else if (type.equals("PN"))
-			return "HumanName";
+		  return "HumanName";
 		else if (type.equals("EN"))
-			return "HumanName";
+		  return "HumanName";
 		else if (type.equals("AD"))
-			return "Address";
+		  return "Address";
 		else if (type.equals("BL"))
-			return "boolean";
+		  return "boolean";
 		else if (type.equals("GTS"))
-			return "Schedule";
+		  return "Schedule";
 		else if (type.equals("INT"))
-			return "integer";
+		  return "integer";
 		else if (type.equals("CS"))
-			return "code";
+		  return "code";
 		else if (type.equals("IVL_TS"))
-			return "Period";
+		  return "Period";
 		else if (type.equals("MMAT") || type.equals("PRF") || type.equals("TX") || type.equals("DT") || type.equals("FT"))
-			return null;
+		  return null;
 		else
 			throw new Error("unmapped type "+type+" for LOINC code "+id);
 	} // 18606-4: MMAT.  18665-0: PRF. 18671-8: TX. 55400-6: DT; 8251-1: FT 

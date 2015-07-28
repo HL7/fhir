@@ -13,7 +13,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://www.example.com"/>
+      <system value="http://example.com"/>
       <concept>
         <code value="1"/>
         <display value="STAT"/>

@@ -26,7 +26,7 @@ capturing multiple variants of these strings with distinct languages.  These cap
   <a name="issues"/>
   <h3>Open Issues</h3>
   <p>
-While DataElement.specificity has been introduced, a formal set of rules defining exactly what level of "tightness" must exist for a specificity code, and
+While DataElement.stringency has been introduced, a formal set of rules defining exactly what level of "tightness" must exist for a stringency code, and
 in particular, what the rules are for data elements intended for use in auto-population/pre-population has not yet been defined.  For example, if a data element
 supports a subset of the answer codes that the question does, is that acceptable?  Must the question text be word-for-word identical?  Is it acceptable if the
 data element length is shorter than the permitted length for the question?  Is it acceptable if units of measure are not an exact match so long as conversion

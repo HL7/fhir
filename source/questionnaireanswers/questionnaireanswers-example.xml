@@ -94,36 +94,36 @@
             <code value="1"/>
             <display value="Yes"/>
           </valueCoding>
+          <group>
+            <!-- COMORBIDITY/CARDIAL -->
+            <!-- Subsection about specific comorbidity: cardial -->
+            <question>
+              <answer>
+                <valueCoding>
+                  <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+                  <code value="1"/>
+                </valueCoding>
+              </answer>
+            </question>
+            <question>
+              <!-- This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code -->
+              <answer>
+                <valueCoding>
+                  <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+                  <code value="1"/>
+                </valueCoding>
+              </answer>
+            </question>
+            <question>
+              <answer>
+                <valueCoding>
+                  <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+                  <code value="0"/>
+                </valueCoding>
+              </answer>
+            </question>
+          </group>
         </answer>
-        <group>
-          <!-- COMORBIDITY/CARDIAL -->
-          <!-- Subsection about specific comorbidity: cardial -->
-          <question>
-            <answer>
-              <valueCoding>
-                <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-                <code value="1"/>
-              </valueCoding>
-            </answer>
-          </question>
-          <question>
-            <!-- This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code -->
-            <answer>
-              <valueCoding>
-                <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-                <code value="1"/>
-              </valueCoding>
-            </answer>
-          </question>
-          <question>
-            <answer>
-              <valueCoding>
-                <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-                <code value="0"/>
-              </valueCoding>
-            </answer>
-          </question>
-        </group>
       </question>
     </group>
     <!-- HISTOPATHOLOGY -->

@@ -44,17 +44,24 @@ enhanced to contain a complete set of extensions and a full 11179 in a future re
 	<h3>Data Elements vs. Codes</h3>
 	<p>
 Data elements (and their registries) and codes (and their code systems) serve different purposes.  Data elements describe the characteristics of a piece of
-data while codes describe a particular concept (often in relation to other concepts).  However, because data elements provide
-a definition of the meaning of a particular element, they  
-can be thought of as being codes.  One of their purposes is to define variables, observations, or questions that include information about how to 
+data - identifier, name, definition, data type, length, permitted value set, usage notes, etc.  On the other hand, while codes describe a particular concept 
+including a symbol for use when exchanging the concept, display names, definitions and often relationships to other concepts.  There is a subset of information 
+that is common for both codes and data elements - identifier, name and definition.  Because of this, a list of data elmements might sometimes be seen as
+a list of codes.
+</p>
+<p>
+One of the purposes of data elements is to define variables, observations, or questions that include information about how to 
 collect a variable's value--including information about data types and guidance about the use of about answer lists and/or units of measure.
 This function is typically done by code systems such as <a href="http://loinc.org">LOINC</a> and
 <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED CT</a>.  (Note that LOINC provides considerable detail about allowed answers, while most other code 
-systems such as SNOMED only allow identifying the question.)It would be possible to treat a registry of data elements using a common
+systems such as SNOMED only allow identifying the question.)  It would be possible to treat a registry of data elements using a common
 identifier system/namespace as a code system.  Similarly, data elements can be mapped to each other (and to codes) in the same manner as 
 codes can be mapped by making use of the <a href="conceptmap.html">ConceptMap</a> resource.
 </p>
 <p>
+That said, FHIR treats code systems as simple structures that provide identity, names and definitions.  Code systems that provide significant additional
+detail (recommended doses for drugs, data types for data elements, etc.) are treated as a mix of a code system together with a supplementary resource to
+provide the details.
 Refer to the <a href="valueset.html#detailed-metadata">Code systems with detailed metadata</a> section of <a href="valueset.html">ValueSet</a> resource
 for additional discussion of the relationship between DataElement and code systems.
 </p>

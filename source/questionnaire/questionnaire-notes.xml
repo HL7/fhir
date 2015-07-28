@@ -33,6 +33,16 @@ Moreover, interoperability of such <b>Questionnaires</b> is limited as interpret
 such <b>Questionnaires</b> using other, more specific, Resources increases the ability and consistency with which it can be understood and queried.
 </p> 
 
+<p>
+It is entirely possible for data to exist in both QuestionnaireAnswers and in other resources.  For example, data may be captured in 
+<a href="questionnaireanswers.html">QuestionnaireAnswers</a> as part of an intake questionnaire.  That data may then be propagated into the 
+<a href="patient.html">Patient</a> resource (demographics), <a href="familymemberhistory.html">FamilyMemberHistory</a>, <a href="allergyintolerance.html">AllergyIntolerance</a>, 
+<a href="medicationstatement.html">MedicationStatement</a> and <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original 
+<a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance can be retained for traceability purposes.  For example, if a questionnaire question asks "what is your weight", 
+that can then result in the creation of an <a href="observation.html">Observation</a> with the appropriate <code>Observation.code</code> and the specified answer as the 
+<code>Observation.valueQuantity</code>.
+</p>
+
 <h3>Structure of the Questionnaire</h3>
 <p>
 A Questionnaire is built out of three components:</p>
@@ -132,7 +142,7 @@ However, rather than listing the choices directly, the choices element points to
 questionnaires having a simple list of strings as choices for a question, but provides several benefits:
 </p>
 <ul>
-  <li>Questionnairs that reference codes from externally defined code systems have a means of doing so</li>
+  <li>Questionnaires that reference codes from externally defined code systems have a means of doing so</li>
   <li>Answer sets can be shared across questions (and there are many questionnaires where this capability is useful)</li>
   <li>The full capability of value sets can be brought into play, including the ability to use ConceptMap to link to translate from questionnaire-specific codes to
   other codes, the use of multiple display names (e.g. different languages), the ability to use coded ordinals, the ability to allow choices from larger value sets
@@ -153,6 +163,23 @@ and when referenced by full URL, do not need to be provided as part of the quest
 <ul>
  <li><a href="valueset-example-yesnodontknow.html">Yes | No | Don't Know</a>: http://hl7.org/fhir/ValueSet/yesnodontknow</li>
 </ul>
+
+<h3>Questions with multiple answer types</h3>
+<p>
+In some questionnaires, it may be possible to respond to a question with multiple types of answers.  For example, capturing a coded answer plus free text,
+capturing a coded value plus a numeric priority, etc.  In FHIR, this is handled through nested questions.  Each question has a single data type.  However,
+each question can have nested child questions.  These nested child questions can have text (e.g. "Please specify") or can have no text at all if the appropriate
+guidance is provided by the parent question or group.
+</p>
+
+<h3>Questionnaires with Math</h3>
+<p>
+While not defined (yet) at the international level, extensions may be defined to perform mathematical functions on questionnaire responses.  For example,
+tabulating scores.  One extension that is defined that may be useful in this process is the Ordinal extension.  This allows a numeric value to be associated with a
+coded data element.  There are two extensions defined - one for defining the numeric weighting of a code defined in a value set - 
+<a href="extension-valueset-ordinalvalue.html">valueset-ordinalValue</a> and the other is a code that can appear within a Coding itself - 
+<a href="extension-iso21090-co-value.html">iso21090-CO-value</a>.
+</p>
 
 <h3>Extensions for Additional capabilities</h3>
 <p>
