@@ -1,16 +1,17 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Document Section Codes"/>
   <publisher value="HL7"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org"/>
+    </telecom>
   </contact>
   <description value="Document section codes (LOINC codes used in CCDA sections)"/>
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
-  <status value="draft"/>
   <compose>
     <include>
       <system value="http://loinc.org"/>
@@ -186,6 +187,5 @@
         <code value="8716-3"/>
       </concept>
     </include>
-  </compose>  
+  </compose>
 </ValueSet>
-

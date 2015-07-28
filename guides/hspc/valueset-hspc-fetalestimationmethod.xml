@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-    <version value="0.01"/>
-    <name value="HSPC Fetal Estimation Method value set"/>
-    <immutable value="true"/>
-    <publisher value="Health Services Platform Consortium (HSPC)"/>
-    <description value="Select SNOMED CT code system values and selected local codes from Intermountain Healthcare."/>
-    <copyright value="TBD"/>
-    <status value="draft"/>
-    <extensible value="true"/>
-    <date value="2015-06-15"/>
-<codeSystem>
-	<system value="Intermountain Healthcare"/>
-	<caseSensitive value="true"/>
-	<concept>
-		<code value="103241"/>
-		<display value="Last known menstrual period"/>
-		<definition value="A method to estimate due date based on the reported date of the last known menstrual period."/>
-	</concept>
-	<concept>
-		<code value="205940"/>
-		<display value="Uterine size"/>
-		<definition value="A method to estimate due date by measuring the size of the uterus."/>
-	</concept>
-</codeSystem>
-<compose>
-	<include>
-		<system value="http://snomed.info/sct"/>
-		<concept>
-			<code value="268445003"/>
-			<display value="Ultrasound scan - obstetric"/>
-		</concept>
-		<concept>
-			<code value="248986005"/>
-			<display value="Estimated date of conception"/>
-		</concept>
-	</include>
-</compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <status value="draft"/>
+  <name value="HSPC Fetal Estimation Method value set"/>
+  <immutable value="true"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <description value="Select SNOMED CT code system values and selected local codes from Intermountain Healthcare."/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <date value="2015-06-15"/>
+  <codeSystem>
+    <system value="Intermountain Healthcare"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="103241"/>
+      <display value="Last known menstrual period"/>
+      <definition value="A method to estimate due date based on the reported date of the last known menstrual period."/>
+    </concept>
+    <concept>
+      <code value="205940"/>
+      <display value="Uterine size"/>
+      <definition value="A method to estimate due date by measuring the size of the uterus."/>
+    </concept>
+  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="268445003"/>
+        <display value="Ultrasound scan - obstetric"/>
+      </concept>
+      <concept>
+        <code value="248986005"/>
+        <display value="Estimated date of conception"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

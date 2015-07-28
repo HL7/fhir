@@ -1,35 +1,34 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Surface Codes"/>
   <publisher value="FHIR Project team"/>
-  <copyright value="This is an example set"/>
-  <status value="draft"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This value set includes the Patient to subscriber relationship codes."/>
-  <status value="draft"/>
-    <codeSystem>
-	<system value="http://hl7.org/fhir/relationship"/>
-    <caseSensitive value="true"/>    
-	<concept>
-    <code value="1"/>
-  </concept>
-	<concept>
-    <code value="2"/>
-  </concept>
-	<concept>
-    <code value="3"/>
-  </concept>
-	<concept>
-    <code value="4"/>
-  </concept>
-	<concept>
-    <code value="5"/>
-  </concept>
-	</codeSystem>
+  <copyright value="This is an example set"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/relationship"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="1"/>
+    </concept>
+    <concept>
+      <code value="2"/>
+    </concept>
+    <concept>
+      <code value="3"/>
+    </concept>
+    <concept>
+      <code value="4"/>
+    </concept>
+    <concept>
+      <code value="5"/>
+    </concept>
+  </codeSystem>
 </ValueSet>
-

@@ -1,35 +1,34 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-	<name value="Priority Codes"/>
-	<publisher value="Financial Management"/>
-	<copyright value="This is an example set"/>
-	<status value="draft"/>
-	<contact>
-		<telecom>  
-			<system value="other"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="This value set includes the financial processing priority codes"/>
-	<status value="draft"/>
-	<codeSystem>
-		<system value="http://hl7.org/fhir/processpriority"/>
-		<caseSensitive value="true"/>    
-		<concept>
-			<code value="stat"/>
-			<display value="Immediate"/>
-			<definition value="Immediately in real time"/>
-		</concept>
-		<concept>
-			<code value="normal"/>
-			<display value="Normal"/>
-			<definition value="With best effort"/>
-		</concept>
-		<concept>
-			<code value="deferred"/>
-			<display value="Deferred"/>
-			<definition value="Later, when possible"/>
-		</concept>
-	</codeSystem>
-</ValueSet>
+<?xml version="1.0" encoding="UTF-8"?>
 
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
+  <name value="Priority Codes"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes the financial processing priority codes"/>
+  <copyright value="This is an example set"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/processpriority"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="stat"/>
+      <display value="Immediate"/>
+      <definition value="Immediately in real time"/>
+    </concept>
+    <concept>
+      <code value="normal"/>
+      <display value="Normal"/>
+      <definition value="With best effort"/>
+    </concept>
+    <concept>
+      <code value="deferred"/>
+      <display value="Deferred"/>
+      <definition value="Later, when possible"/>
+    </concept>
+  </codeSystem>
+</ValueSet>

@@ -1,19 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
- <name value="PatientContactRelationship"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
+  <name value="PatientContactRelationship"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <description value="This value set defines a set of codes that are used to indicate the nature of the relationship between 
-    a patient and a contactperson for that patient"/>
-  <status value="draft"/>
+  <description value="This value set defines a set of codes that are used to indicate the nature of the relationship between      a patient and a contactperson for that patient"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/patient-contact-relationship"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="emergency"/>
       <display value="Emergency"/>
@@ -34,36 +34,36 @@
     <concept>
       <code value="partner"/>
       <display value="Partner"/>
-    </concept>    
+    </concept>
     <concept>
       <code value="work"/>
       <display value="Work"/>
-      <definition value="Contact for matters related to the patients occupation/employment" />
-    </concept>    
+      <definition value="Contact for matters related to the patients occupation/employment"/>
+    </concept>
     <concept>
       <code value="caregiver"/>
       <display value="Caregiver"/>
-      <definition value="(Non)professional caregiver" />
-    </concept>    
+      <definition value="(Non)professional caregiver"/>
+    </concept>
     <concept>
       <code value="agent"/>
       <display value="Agent"/>
-      <definition value="Contact that acts on behalf of the patient" />
+      <definition value="Contact that acts on behalf of the patient"/>
     </concept>
     <concept>
       <code value="guarantor"/>
       <display value="Guarantor"/>
-      <definition value="Contact for financial matters" />
-    </concept>        
+      <definition value="Contact for financial matters"/>
+    </concept>
     <concept>
       <code value="owner"/>
       <display value="Owner of animal"/>
-      <definition value="For animals, the owner of the animal" />
-    </concept>        
+      <definition value="For animals, the owner of the animal"/>
+    </concept>
     <concept>
       <code value="parent"/>
       <display value="Parent"/>
-      <definition value="Parent of the patient" />
-    </concept>                    
+      <definition value="Parent of the patient"/>
+    </concept>
   </codeSystem>
 </ValueSet>

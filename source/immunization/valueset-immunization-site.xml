@@ -1,16 +1,16 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Codes for Immunization Site of Administration"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
-        contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
-  <status value="draft"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ActSite"/>
@@ -23,4 +23,3 @@
     </include>
   </compose>
 </ValueSet>
-

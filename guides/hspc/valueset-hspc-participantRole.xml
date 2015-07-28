@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-    <version value="0.01"/>
-    <name value="HSPC Participant Type Value Set"/>
-    <immutable value="true"/>
-    <publisher value="Health Services Platform Consortium (HSPC)"/>
-    <description value="SELECT SNOMED CT code system values descending from 'Healthcare professional' (223366009)."/>
-    <copyright value="TBD"/>
-    <status value="draft"/>
-    <extensible value="true"/>
-    <date value="2015-06-09"/>
-    <compose>
-        <include>
-            <system value="http://snomed.info/sct"/>
-            <concept>
-				<code value="158965000"/>
-				<display value="Doctor"/>
-			</concept>
-			<concept>
-				<code value="106292003"/>
-				<display value="Nurse"/>
-			</concept>
-			<concept>
-				<code value="46255001"/>
-				<display value="Pharmacist"/>
-			</concept>
-			<concept>
-				<code value="442867008"/>
-				<display value="Respiratory therapist"/>
-			</concept>
-			<concept>
-				<code value="22515006"/>
-				<display value="Medical assistant"/>
-			</concept>
-			<concept>
-				<code value="449161006"/>
-				<display value="Physician assistant"/>
-			</concept>
-        </include>
-    </compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <status value="draft"/>
+  <name value="HSPC Participant Type Value Set"/>
+  <immutable value="true"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <description value="SELECT SNOMED CT code system values descending from &#39;Healthcare professional&#39; (223366009)."/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <date value="2015-06-09"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="158965000"/>
+        <display value="Doctor"/>
+      </concept>
+      <concept>
+        <code value="106292003"/>
+        <display value="Nurse"/>
+      </concept>
+      <concept>
+        <code value="46255001"/>
+        <display value="Pharmacist"/>
+      </concept>
+      <concept>
+        <code value="442867008"/>
+        <display value="Respiratory therapist"/>
+      </concept>
+      <concept>
+        <code value="22515006"/>
+        <display value="Medical assistant"/>
+      </concept>
+      <concept>
+        <code value="449161006"/>
+        <display value="Physician assistant"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

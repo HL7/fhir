@@ -1,20 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="SpecimenType"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <description value="Specimen type : HL7 v2 table 0487.  
-    An alternate value set could be all SNOMED CT descendents of 123038009 (Specimen)"/>
-  <status value="draft"/>
+  <description value="Specimen type : HL7 v2 table 0487.       An alternate value set could be all SNOMED CT descendents of 123038009 (Specimen)"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v2/0487"/>
     </include>
   </compose>
 </ValueSet>
-

@@ -1,19 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
- <name value="PractitionerSpecialty"/>
- 
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
+  <name value="PractitionerSpecialty"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate the specialty of a Practitioner"/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/practitioner-specialty"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="cardio"/>
       <display value="Cardiologist"/>
@@ -21,7 +21,7 @@
     <concept>
       <code value="dent"/>
       <display value="Dentist"/>
-    </concept>    
+    </concept>
     <concept>
       <code value="dietary"/>
       <display value="Dietary consultant"/>
@@ -33,7 +33,6 @@
     <concept>
       <code value="sysarch"/>
       <display value="Systems architect"/>
-    </concept>    
+    </concept>
   </codeSystem>
 </ValueSet>
-

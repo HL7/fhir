@@ -1,16 +1,17 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Exclude Food Modifier Codes"/>
-<publisher value="FHIR NutritionOrder team"/>
-	<contact>
+  <publisher value="FHIR NutritionOrder team"/>
+  <contact>
     <telecom>
-		<system value="other"/>
-		<value value="http://hl7.org/fhir"/>
-	</telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="ExcludeFoodModifier :  This value set defines a set of codes that can be used to indicate the type of food that should NOT be given to the patient."/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
-  <status value="draft"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

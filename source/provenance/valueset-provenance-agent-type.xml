@@ -1,22 +1,23 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/provenance-participant-type"/>
+  <status value="draft"/>
   <name value="ProvenanceParticipantType"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <contact>
     <telecom>
-    <system value="email"/>
-    <value value="fhir@lists.hl7.org"/>
-  </telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
   </contact>
   <description value="The type of a provenance participant. Use either a defined FHIR resource type, or, if the reference is not to a resource, one of the defined codes, or some other code if none of the defined codes are appropriate"/>
-  <status value="draft"/>
   <date value="2023-05-12"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/provenance-participant-type"/>
@@ -42,19 +43,19 @@
       <definition value="The participant is a software application including services, algorithms, etc."/>
     </concept>
     <concept>
-    	<code value="patient"/>
-    	<display value="Patient"/>
-    	<definition value="The participant is the patient, a person or animal receiving care or other health-related services."></definition>
+      <code value="patient"/>
+      <display value="Patient"/>
+      <definition value="The participant is the patient, a person or animal receiving care or other health-related services."/>
     </concept>
     <concept>
-    	<code value="device"/>
-    	<display value="Device"/>
-    	<definition value="The participant is a device, an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health."></definition>
+      <code value="device"/>
+      <display value="Device"/>
+      <definition value="The participant is a device, an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health."/>
     </concept>
     <concept>
-    	<code value="related-person"/>
-    	<display value="Related Person"/>
-    	<definition value="The participant is a related person, a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."></definition>
+      <code value="related-person"/>
+      <display value="Related Person"/>
+      <definition value="The participant is a related person, a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
     </concept>
   </codeSystem>
 </ValueSet>

@@ -1,30 +1,32 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="HSPC Height Units of Measure Value Set"/>
   <publisher value="HSPC"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://healthcaresoa.org"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
   </contact>
   <description value="The list of codes that describe the length units used for height."/>
   <copyright value="This value set includes content from UCUM. Implementer use of UCUM is not covered by this agreement"/>
-  <status value="draft"/>
   <compose>
     <include>
-        <system value="http://unitsofmeasure.org"/>
-        <concept>
-			<code value="[in_us]"/>
-			<display value="Inch [length]"/>
-	    </concept>
-	    <concept>
-			<code value="[ft_us]"/>
-			<display value="Foot [length]"/>
-	    </concept>
-	    <concept>
-			<code value="cm"/>
-			<display value="Centimeter [SI Length Units]"/>
-	    </concept>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="[in_us]"/>
+        <display value="Inch [length]"/>
+      </concept>
+      <concept>
+        <code value="[ft_us]"/>
+        <display value="Foot [length]"/>
+      </concept>
+      <concept>
+        <code value="cm"/>
+        <display value="Centimeter [SI Length Units]"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

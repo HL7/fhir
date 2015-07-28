@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This DataElement is an example reflecting the content of row 15 of the Google document:
-     https://docs.google.com/a/lmckenzie.com/spreadsheets/d/1YJ1Q10Hn_B-Yu-iIxzo28f6PsIfs4_b_-hhXsB64Vl4/edit#gid=1476288095 -->
-<DataElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/dataelement.xsd" xmlns="http://hl7.org/fhir">
+
+<DataElement xmlns="http://hl7.org/fhir">
   <id value="dataelement-sdc-profile-example-de"/>
   <text>
     <status value="generated"/>
@@ -14,9 +13,9 @@
         <system value="http://r.details.loinc.org/AnswerList"/>
         <value value="LL2827-5"/>
       </identifier>
+      <status value="active"/>
       <name value="AHRQ_M/F/UNK"/>
       <description value="AHRQ Common Formats answer list for Patient and Neonate Gender"/>
-      <status value="active"/>
       <compose>
         <include>
           <system value="http://loinc.org"/>
@@ -66,11 +65,11 @@
   <contained>
     <ValueSet>
       <id value="pv-valueset"/>
-      <!--
+      <!-- 
          Side notes:
           - "1" is not a valid code system version for AdministrativeGender
           - The definition and display name for code "UN" is not valid
-        -->
+         -->
       <status value="draft"/>
       <compose>
         <include>
@@ -178,7 +177,7 @@
   <useContext>
     <coding>
       <code value="Healthcare Event Reporting Form"/>
-      <!-- Wasn't clear if the above was a code -->
+      <!--  Wasn't clear if the above was a code  -->
       <display value="Patient safety event report - hospital: healthcare event reporting form"/>
     </coding>
   </useContext>
@@ -204,7 +203,7 @@
   </mapping>
   <element>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
-      <valueString value="Patient's Gender"/>
+      <valueString value="Patient&#39;s Gender"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
       <valueString value="Patient-Gender,CD"/>
@@ -217,7 +216,7 @@
       <system value="http://loinc.org"/>
       <code value="74698-2"/>
     </code>
-    <definition value="The patient's documented gender on arrival at the hospital."/>
+    <definition value="The patient&#39;s documented gender on arrival at the hospital."/>
     <type>
       <code value="CodeableConcept"/>
     </type>

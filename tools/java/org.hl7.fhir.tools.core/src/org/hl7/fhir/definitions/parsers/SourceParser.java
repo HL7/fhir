@@ -444,8 +444,10 @@ public class SourceParser {
   private void loadW5s() {
     if (new File(Utilities.path(srcDir, "w5.ini")).exists()) {
       IniFile w5 = new IniFile(Utilities.path(srcDir, "w5.ini"));
-      for (String n : w5.getPropertyNames("names")) { 
-        definitions.getW5s().put(n, new W5Entry(n, w5.getStringProperty("names", n), w5.getBooleanProperty("display", n)));
+      for (String n : w5.getPropertyNames("names")) {
+        W5Entry w5o = new W5Entry(n, w5.getStringProperty("names", n), w5.getBooleanProperty("display", n));
+        definitions.getW5list().add(w5o);
+        definitions.getW5s().put(n, w5o);
       }
     }
   }

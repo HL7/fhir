@@ -1,18 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Media SubType"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
-  <status value="draft"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/media-subtype"/>  
+    <system value="http://hl7.org/fhir/media-subtype"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="diagram"/>
@@ -29,7 +30,7 @@
       <display value="Scanned Document"/>
       <definition value="A digital scan of a document. This is reserved for when there is not enough metadata to create a document reference"/>
     </concept>
-    <!-- biometrics - may overlap with things in snomed, but the purpose in snomed is different  -->
+    <!--  biometrics - may overlap with things in snomed, but the purpose in snomed is different   -->
     <concept>
       <code value="retina"/>
       <display value="Retina scan"/>
@@ -61,7 +62,7 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <!-- todo: work this over. what this means is any concepts where they have is-a with 363679005 how should this be done? -->
+      <!--  todo: work this over. what this means is any concepts where they have is-a with 363679005 how should this be done?  -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="363679005"/>

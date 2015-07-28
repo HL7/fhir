@@ -1,43 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/dataelement.xsd">
+
+<DataElement xmlns="http://hl7.org/fhir">
   <id value="gender"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
-        <b>Gender Code</b>: The code representing the gender of a person</p>
+        
+        <b>Gender Code</b>: The code representing the gender of a person
+      </p>
+      
       <table>
+        
         <tbody>
+          
           <tr>
+            
             <th>Code</th>
+            
             <th>Display</th>
+            
             <th>Definition</th>
+          
           </tr>
+          
           <tr>
+            
             <td>0</td>
+            
             <td>Unknown</td>
+            
             <td>Not known, not observed, not recorded, or refused.</td>
+          
           </tr>
+          
           <tr>
+            
             <td>1</td>
+            
             <td>Male</td>
+            
             <td>A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both.</td>
+          
           </tr>
+          
           <tr>
+            
             <td>2</td>
+            
             <td>Female</td>
+            
             <td>A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both.</td>
+          
           </tr>
+          
           <tr>
+            
             <td>3</td>
+            
             <td>Not specified</td>
+            
             <td>Not specified</td>
+          
           </tr>
+        
         </tbody>
+      
       </table>
+      
       <ul>
+        
         <li/>
+      
       </ul>
+    
     </div>
   </text>
   <contained>
@@ -45,31 +82,30 @@
       <id value="2179414"/>
       <url value="http://example.org/2179414"/>
       <version value="1.0"/>
+      <status value="active"/>
       <name value="Gender Code"/>
       <description value="All codes representing the gender of a person."/>
-      <status value="active"/>
       <compose>
         <include>
           <system value="http://example.ncit.nci.nih.gov"/>
           <concept>
             <code value="C17998"/>
             <display value="Unknown"/>
-            <!--            <definition value="Not known, not observed, not recorded, or refused. "/>-->
           </concept>
+          <!--             <definition value="Not known, not observed, not recorded, or refused. "/> -->
           <concept>
             <code value="C20197"/>
             <display value="Male"/>
-            <!--            <definition value="A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both."/>-->
           </concept>
+          <!--             <definition value="A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both."/> -->
           <concept>
             <code value="C16576"/>
             <display value="Female"/>
-            <!--            <definition value="A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both."/>-->
           </concept>
+          <!--             <definition value="A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both."/> -->
           <concept>
             <code value="C38046"/>
             <display value="Not specified"/>
-            <!--            <definition value="Not specified"/>-->
           </concept>
         </include>
       </compose>
@@ -77,6 +113,7 @@
   </contained>
   <contained>
     <ValueSet>
+    <!--             <definition value="Not specified"/> -->
       <id value="2179414-permitted"/>
       <status value="active"/>
       <codeSystem>

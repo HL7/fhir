@@ -1,18 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="RSNA 2008 eventCodes"/>
   <publisher value="IHE"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://ihe.net"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://ihe.net"/>
+    </telecom>
   </contact>
   <description value="Event Codes generated for RSNA 2008 from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
-  <status value="draft"/>
   <codeSystem>
     <system value="urn:uuid:be777aae-4817-479f-bf48-b5c81eae6dd6"/>
-    <caseSensitive value="true"/>    
+    <caseSensitive value="true"/>
     <concept>
       <code value="TRID1001"/>
       <display value="XRAY CHEST Orderable"/>
@@ -133,7 +134,5 @@
       <code value="TRID1030"/>
       <display value="MR ACQUISITION CORONAL PD-2D(SE_M)_N/M KNEE RIGHT Procedure Step"/>
     </concept>
-    
   </codeSystem>
 </ValueSet>
-

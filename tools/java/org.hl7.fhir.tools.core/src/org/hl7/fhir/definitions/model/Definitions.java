@@ -156,6 +156,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private Map<String, String> TLAs = new HashMap<String, String>();
 
   private Map<String, W5Entry> w5s = new HashMap<String, W5Entry>();
+  private List<W5Entry> w5list = new ArrayList<W5Entry>();
   private Map<String, String> typePages = new HashMap<String, String>();
   private Map<String, String> pageTitles = new HashMap<String, String>();
   private Map<String, Set<String>> searchRules = new HashMap<String, Set<String>>();
@@ -648,6 +649,10 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   public Set<String> getStyleExemptions() {
     return styleExemptions;
+  }
+
+  public List<W5Entry> getW5list() {
+    return w5list;
   }
 
   

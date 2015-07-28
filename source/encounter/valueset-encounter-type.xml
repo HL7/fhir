@@ -1,16 +1,16 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="EncounterType"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate the type
-    of encounter: a specific code indicating type of service provided ."/>
-  <status value="draft"/>
+  <description value="This example value set defines a set of codes that can be used to indicate the type     of encounter: a specific code indicating type of service provided ."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/encounter-type"/>
     <caseSensitive value="true"/>
@@ -25,11 +25,10 @@
     <concept>
       <code value="CCS60"/>
       <display value="Infant colon screening - 60 minutes"/>
-    </concept>  
+    </concept>
     <concept>
       <code value="OKI"/>
       <display value="Outpatient Kenacort injection"/>
-    </concept>  
+    </concept>
   </codeSystem>
 </ValueSet>
-

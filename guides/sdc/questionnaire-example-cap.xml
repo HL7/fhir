@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaire.xsd">
+
+<Questionnaire xmlns="http://hl7.org/fhir">
   <id value="questionnaire-example-cap"/>
   <text>
     <status value="empty"/>
-    <div  xmlns="http://www.w3.org/1999/xhtml">
-      <!-- Todo: fill this in-->
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
     </div>
   </text>
-  <!-- The following value-sets are treated as contained on the premise that they're not used except within
-    the context of this one questionnaire. If there's any possibility of them being used elsewhere, they
-    should be defined as stand-alone resources.-->
-  <!-- Most, if not all of these value sets should likely be drawn from SNOMED codes.  However, I wasn't sure 
-    what they should be, so I made up code systems instead.  Should ideally switch to use SNOMED where we can. -->
-  <!-- The codes are unique across the questionnaire only because that helps in understanding the instance.
-    In practice, the same codes could appear in multiple code systems and have a distinct meaning and name in
-    each. -->
   <contained>
     <ValueSet>
+    <!--  The following value-sets are treated as contained on the premise that they're not used except within
+    the context of this one questionnaire. If there's any possibility of them being used elsewhere, they
+    should be defined as stand-alone resources. -->
+    <!--  Most, if not all of these value sets should likely be drawn from SNOMED codes.  However, I wasn't sure 
+    what they should be, so I made up code systems instead.  Should ideally switch to use SNOMED where we can.  -->
+    <!--  The codes are unique across the questionnaire only because that helps in understanding the instance.
+    In practice, the same codes could appear in multiple code systems and have a distinct meaning and name in
+    each.  -->
       <id value="margin-status"/>
       <status value="active"/>
       <codeSystem>
-        <!-- This looks like it should be SNOMED, but not sure what the codes are -->
-        <!-- Not sure what the trailing text of {C:1} {Str} {Ch:4000}, etc. for various codes means -->
+      <!--  This looks like it should be SNOMED, but not sure what the codes are  -->
+      <!--  Not sure what the trailing text of {C:1} {Str} {Ch:4000}, etc. for various codes means  -->
         <system value="http://cap.org/example/fhir/margin-status"/>
-    <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="M1"/>
           <display value="Margins univolved by tumor"/>
         </concept>
         <concept>
           <code value="M2"/>
-          <display value="Margin(s) involved by tumor"/>          
+          <display value="Margin(s) involved by tumor"/>
         </concept>
         <concept>
           <code value="M3"/>
@@ -161,8 +162,8 @@
       </codeSystem>
     </ValueSet>
   </contained>
-	<status value="published"/>
-	<group>
+  <status value="published"/>
+  <group>
     <linkId value="root"/>
     <title value="(Ask Richard)"/>
     <required value="true"/>
@@ -174,7 +175,7 @@
       <repeats value="false"/>
       <question>
         <linkId value="1.1"/>
-        <!-- Should probably have a snomed code as the "concept" here -->
+        <!--  Should probably have a snomed code as the "concept" here  -->
         <text value="Status of surgical margin involvement by tumor (observable entity)"/>
         <type value="choice"/>
         <required value="true"/>
@@ -222,12 +223,12 @@
               <required value="true"/>
               <repeats value="false"/>
               <question>
-                <!-- This *has* to be treated as a distinct question, not a characteristic of the code.
+              <!--  This *has* to be treated as a distinct question, not a characteristic of the code.
                   - it has its own properties and could map to its own data element.  That makes it
                   a question in its own right.  It would be possible for display software to render
                   the question so that the question text doesn't display when it's the same as the text
                   of the corresponding answer.  Alternatively, we could petition to allow question.text
-                  to be omitted, at least in some circumstances. -->
+                  to be omitted, at least in some circumstances.  -->
                 <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
                   <valueDecimal value="0.01"/>
                 </extension>
@@ -583,7 +584,7 @@
           <question>
             <linkId value="2.2.1.1"/>
             <text value="??"/>
-            <!-- Can't have a question with no text -->
+            <!--  Can't have a question with no text  -->
             <type value="choice"/>
             <required value="false"/>
             <repeats value="true"/>
@@ -646,5 +647,5 @@
         </group>
       </question>
     </group>
-	</group>
+  </group>
 </Questionnaire>

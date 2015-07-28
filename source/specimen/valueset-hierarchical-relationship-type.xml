@@ -1,15 +1,16 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="HierarchicalRelationshipType"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value=" This  value set defines a set of codes that indicate the type of relationship between two specimen resources."/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/hierarchical-relationship-type"/>
     <caseSensitive value="true"/>
@@ -25,4 +26,3 @@
     </concept>
   </codeSystem>
 </ValueSet>
-

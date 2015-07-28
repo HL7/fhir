@@ -1,18 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.4"/>
-  </extension> 
+  </extension>
+  <status value="draft"/>
   <name value="Medication Clinical Drug (RxNorm)"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/special/committees/CQI"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/special/committees/CQI"/>
+    </telecom>
   </contact>
-  <description value="All prescribable medication formulations represented using  either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form)"/>
-  <status value="draft"/>
+  <description value="All prescribable medication formulations represented using  either a &#39;generic&#39; or &#39;brand-specific&#39; concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form)"/>
   <compose>
     <include>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -24,4 +25,3 @@
     </include>
   </compose>
 </ValueSet>
-

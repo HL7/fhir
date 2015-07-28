@@ -1,45 +1,46 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-	<name value="Enteral Route Codes"/>
-	<publisher value="FHIR NutritionOrder team"/>
-	<contact>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
+  <name value="Enteral Route Codes"/>
+  <publisher value="FHIR NutritionOrder team"/>
+  <contact>
     <telecom>
-		<system value="other"/>
-		<value value="http://hl7.org/fhir"/>
-	</telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-	<description value="EnteralRouteOfAdministration: Codes specifying the route of administration of enteral formula.  This value set is composed of HL7 V3 codes and is provided as a suggestive example
-"/>
-	<status value="draft"/>
-	<compose>
-		<include>
-			<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
-			<concept>
-				<code value="PO"/>
-			</concept>
-			<concept>
-				<code value="EFT"/>
-			</concept>
-			<concept>
-				<code value="ENTINSTL"/>
-			</concept>
-			<concept>
-				<code value="GT"/>
-			</concept>
-			<concept>
-				<code value="NGT"/>
-			</concept>
-			<concept>
-				<code value="OGT"/>
-			</concept>
-			<concept>
-				<code value="GJT"/>
-			</concept>
-			<concept>
-				<code value="JJTINSTL"/>
-			</concept>
-			<concept>
-				<code value="OJJ"/>
-			</concept>
-		</include>
-	</compose>
+  <description value="EnteralRouteOfAdministration: Codes specifying the route of administration of enteral formula.  This value set is composed of HL7 V3 codes and is provided as a suggestive example "/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
+      <concept>
+        <code value="PO"/>
+      </concept>
+      <concept>
+        <code value="EFT"/>
+      </concept>
+      <concept>
+        <code value="ENTINSTL"/>
+      </concept>
+      <concept>
+        <code value="GT"/>
+      </concept>
+      <concept>
+        <code value="NGT"/>
+      </concept>
+      <concept>
+        <code value="OGT"/>
+      </concept>
+      <concept>
+        <code value="GJT"/>
+      </concept>
+      <concept>
+        <code value="JJTINSTL"/>
+      </concept>
+      <concept>
+        <code value="OJJ"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

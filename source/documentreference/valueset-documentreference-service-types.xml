@@ -1,15 +1,16 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Document Reference Service Types"/>
   <publisher value="HL7 FHIR"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="Known Service types that can be referred to from a Document Reference"/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/document-reference-service-types"/>
     <caseSensitive value="true"/>
@@ -23,4 +24,3 @@
     </concept>
   </codeSystem>
 </ValueSet>
-

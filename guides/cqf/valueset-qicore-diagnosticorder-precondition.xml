@@ -1,4 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="QICore Diagnostic Order Precondition"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <contact>
@@ -6,9 +9,8 @@
       <system value="other"/>
       <value value="http://hl7.org/special/committees/CQI"/>
     </telecom>
-  </contact>    
-  <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that have bearing on the data that it qualifies but will not necessarily modify its meaning. Things like 'after activity', 'at rest', or 'post-op'. "/>
-  <status value="draft"/>
+  </contact>
+  <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that have bearing on the data that it qualifies but will not necessarily modify its meaning. Things like &#39;after activity&#39;, &#39;at rest&#39;, or &#39;post-op&#39;. "/>
   <codeSystem>
     <system value="http://hl7.org/fhir/qicore-diagnosticorder-precondition"/>
     <caseSensitive value="true"/>
@@ -27,5 +29,5 @@
       <display value="Post-op"/>
       <definition value="The diagnostic test was or should be performed after the patient operation"/>
     </concept>
-  </codeSystem>    
+  </codeSystem>
 </ValueSet>

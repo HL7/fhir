@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://nema.org/dicom/dicm/405"/>
   <version value="20100826"/>
+  <status value="active"/>
   <name value="Media Type Code"/>
   <publisher value="NEMA/DICOM"/>
   <description value="Media Type Code"/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
-  <status value="active"/>
   <date value="2010-08-26"/>
   <compose>
     <include>

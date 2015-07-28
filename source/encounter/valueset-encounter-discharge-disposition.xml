@@ -1,21 +1,22 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="DischargeDisposition"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This value set defines a set of codes that can be used to where the patient left the hospital"/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/discharge-disposition"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="home"/>
-      <display value="Home" />
+      <display value="Home"/>
     </concept>
     <concept>
       <code value="other-hcf"/>
@@ -28,28 +29,26 @@
     <concept>
       <code value="long"/>
       <display value="Long-term care"/>
-    </concept>  
+    </concept>
     <concept>
       <code value="aadvice"/>
       <display value="Left against advice"/>
-    </concept>  
+    </concept>
     <concept>
       <code value="exp"/>
       <display value="Expired"/>
-    </concept>  
+    </concept>
     <concept>
       <code value="psy"/>
       <display value="Psychiatric hospital"/>
-    </concept>  
+    </concept>
     <concept>
       <code value="rehab"/>
       <display value="Rehabilitation"/>
-    </concept>  
+    </concept>
     <concept>
       <code value="oth"/>
       <display value="Other"/>
-    </concept>  
+    </concept>
   </codeSystem>
 </ValueSet>
-
-

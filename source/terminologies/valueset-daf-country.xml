@@ -1,24 +1,25 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-country"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.63"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-country"/>
+  <status value="active"/>
   <name value="Country Value Set"/>
   <publisher value="HL7 FHIR"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="A value set of codes for the representation of names of countries, territories and areas of geographical interest"/>
-  <status value="active"/>
   <compose>
     <include>
-      <!-- all 2 letter codes form ISO 3166 -->
-      <system value="urn:iso:std:iso:3166"/>   
+    <!--  all 2 letter codes form ISO 3166  -->
+      <system value="urn:iso:std:iso:3166"/>
       <filter>
         <property value="code"/>
         <op value="regex"/>
@@ -27,4 +28,3 @@
     </include>
   </compose>
 </ValueSet>
-

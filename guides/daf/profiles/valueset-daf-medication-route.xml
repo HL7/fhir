@@ -1,20 +1,21 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-medication-route"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-medication-route"/>
+  <status value="active"/>
   <name value="Medication Route FDA Value Set"/>
   <publisher value="PHIN VADS"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.7"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.7"/>
+    </telecom>
   </contact>
   <description value="Route of Administration value set is based upon FDA Drug Registration and Listing Database (FDA Orange Book) which are used in FDA structured product and labelling (SPL)"/>
-  <status value="active"/>
   <compose>
     <include>
       <system value="http://ncimeta.nci.nih.gov"/>
@@ -513,4 +514,3 @@
     </include>
   </compose>
 </ValueSet>
-

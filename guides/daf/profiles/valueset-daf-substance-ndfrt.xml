@@ -1,18 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.18"/>
-  </extension> 
+  </extension>
+  <status value="draft"/>
   <name value="DAF Substance ND-FRT codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <description value="All ND-FRT NUIs for concepts that are subsumed by 'Mechanism of Action - N0000000223', 'Physiologic Effect - N0000009802' or 'Chemical Structure - N0000000002'"/> 
-  <status value="draft"/>
+  <description value="All ND-FRT NUIs for concepts that are subsumed by &#39;Mechanism of Action - N0000000223&#39;, &#39;Physiologic Effect - N0000009802&#39; or &#39;Chemical Structure - N0000000002&#39;"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/ndfrt"/>
@@ -40,4 +41,3 @@
     </include>
   </compose>
 </ValueSet>
-

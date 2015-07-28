@@ -1,5 +1,7 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="TestScriptOperationCodes"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -9,10 +11,9 @@
     </telecom>
   </contact>
   <description value="This value set defines a set of codes that are used to indicate the supported operations of a testing engine or tool."/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/testscript-operation-codes"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="read"/>
       <display value="Read"/>

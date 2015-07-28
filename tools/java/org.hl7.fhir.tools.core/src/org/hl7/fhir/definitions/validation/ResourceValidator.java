@@ -49,6 +49,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -58,6 +59,7 @@ import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -151,6 +153,14 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.REQUIRED,  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, IssueType.REQUIRED,  parent.getName(), parent.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     
+    if (warning(errors, IssueType.REQUIRED, parent.getName(), hasW5Mappings(parent) || "infrastructure".equals(parent.getRoot().getW5()), "A resource must have w5 mappings")) {
+      String w5Order = listW5Elements(parent);
+      String w5CorrectOrder = listW5Correct(parent);
+      if (!w5Order.equals(w5CorrectOrder)) {
+        hint(errors, IssueType.REQUIRED, parent.getName(), false, "Resource elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
+        System.out.println("Resource "+parent.getName()+": elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
+      }
+    }
     if (Utilities.noString(parent.getEnteredInErrorStatus()))
       if (hasStatus(parent, "entered-in-error"))
         parent.setEnteredInErrorStatus(".status = entered-in-error");
@@ -173,7 +183,7 @@ public class ResourceValidator extends BaseValidator {
     
     if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
       ElementDefn id = parent.getRoot().getElementByName("identifier");
-      if (id == null)
+      if (id == null) 
         warning(errors, IssueType.STRUCTURE, parent.getName(), false, "All resources should have an identifier");
       else 
         rule(errors, IssueType.STRUCTURE, parent.getName(), id.typeCode().equals("Identifier"), "If a resource has an element named identifier, it must have a type 'Identifier'");
@@ -267,6 +277,34 @@ public class ResourceValidator extends BaseValidator {
     if (rule(errors, IssueType.STRUCTURE, parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
       rule(errors, IssueType.STRUCTURE, parent.getName(), vsWarnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private String listW5Correct(ResourceDefn parent) {
+    List<String> items = new ArrayList<String>();
+    for (W5Entry w5 : definitions.getW5list()) {
+      for (ElementDefn e : parent.getRoot().getElements()) {
+        if (w5.getCode().equals(e.getW5()))
+          items.add(e.getName()+"(="+e.getW5()+")");
+      }
+    }
+    return items.toString();
+  }
+
+  private String listW5Elements(ResourceDefn parent) {
+    List<String> items = new ArrayList<String>();
+    for (ElementDefn e : parent.getRoot().getElements()) {
+      if (!Utilities.noString(e.getW5()))
+        items.add(e.getName()+"(="+e.getW5()+")");
+    }
+    return items.toString();
+  }
+
+  private boolean hasW5Mappings(ResourceDefn parent) {
+    for (ElementDefn e : parent.getRoot().getElements()) {
+      if (!Utilities.noString(e.getW5()))
+        return true;
+    }
+    return false;
+  }
 
   private String trimIndexes(String p) {
     while (p.contains("("))
@@ -398,6 +436,8 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, path, e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
     hint(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
     
+    if (!Utilities.noString(e.getW5()))
+      rule(errors, IssueType.INVALID, path, definitions.getW5s().containsKey(e.getW5()), "The w5 value '"+e.getW5()+"' is illegal");
     if (e.getName().equals("subject"))
       warning(errors, IssueType.STRUCTURE, path, !e.typeCode().equals("Reference(Patient)"), "Elements with name 'subject' cannot be a reference to just a patient"); // make this an error...
     if (e.getName().equals("patient"))

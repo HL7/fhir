@@ -1,28 +1,29 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-	<name value="Example Pharmacy Service Codes"/>
-	<publisher value="Financial Management"/>
-	<copyright value="This is an example set"/>
-	<status value="draft"/>
-	<contact>
-		<telecom>
-			<system value="other"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="This value set includes a smattering of Pharmacy Service codes"/>
-	<status value="draft"/>
-	<codeSystem>
-		<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-		<caseSensitive value="true"/>      
-		<concept>
-			<code value="smokecess"/>
-			<display value="Smoking cessation"/>
-			<definition value="Smoking cessation"/>
-		</concept>
-		<concept>
-			<code value="flushot"/>
-			<display value="Flu Shot"/>
-			<definition value="Flu Shot"/>
-		</concept>
-	</codeSystem>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
+  <name value="Example Pharmacy Service Codes"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes a smattering of Pharmacy Service codes"/>
+  <copyright value="This is an example set"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/ex-pharmaservice"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="smokecess"/>
+      <display value="Smoking cessation"/>
+      <definition value="Smoking cessation"/>
+    </concept>
+    <concept>
+      <code value="flushot"/>
+      <display value="Flu Shot"/>
+      <definition value="Flu Shot"/>
+    </concept>
+  </codeSystem>
 </ValueSet>

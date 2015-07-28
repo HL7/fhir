@@ -1,4 +1,7 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="QICore Condition Criticality Codes"/>
   <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
@@ -8,7 +11,6 @@
     </telecom>
   </contact>
   <description value="Value Set for QICore Condition Criticality (Example)"/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/qicore-condition-criticality"/>
     <caseSensitive value="true"/>
@@ -42,5 +44,5 @@
       <display value="Requires Hospitalization"/>
       <definition value="The condition requires hospitalization"/>
     </concept>
-  </codeSystem>    
+  </codeSystem>
 </ValueSet>

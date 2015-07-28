@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+
+<Bundle xmlns="http://hl7.org/fhir">
   <id value="questionnaire-sdc-profile-example"/>
   <meta>
     <lastUpdated value="2014-05-15T17:25:15Z"/>
@@ -754,12 +755,13 @@
                       <required value="false"/>
                       <repeats value="false"/>
                       <question>
-                        <!--                        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
+                      <!--
+                        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
                           <valueInteger value="??"/>
                         </extension>
                         <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
                           <valueInteger value="??"/>
-                        </extension>-->
+                        </extension> -->
                         <linkId value="Medication/DE282"/>
                         <text value="What was the lot number of the vaccine?"/>
                         <type value="string"/>
@@ -1381,24 +1383,24 @@
             <text value="Please complete the patient identifiers below. Additional patient information is captured on the Patient Information Form (PIF). (When reporting a perinatal incident that affected a mother and a neonate, please complete the patient identifiers below for the mother (Q8 – Q11) and the neonate (Q12 – Q15). Please also complete a separate PIF for the neonate involved.)"/>
             <question>
               <linkId value="HERF/DE46"/>
-              <text value="Patient's Name"/>
+              <text value="Patient&#39;s Name"/>
               <type value="string"/>
               <required value="true"/>
             </question>
             <question>
               <linkId value="HERF/DE47"/>
-              <text value="Patient's Date of Birth"/>
+              <text value="Patient&#39;s Date of Birth"/>
               <type value="string"/>
             </question>
             <question>
               <linkId value="HERF/DE49"/>
-              <text value="Patient's Medical Record #"/>
+              <text value="Patient&#39;s Medical Record #"/>
               <type value="string"/>
               <required value="true"/>
             </question>
             <question>
               <linkId value="HERF/DE42"/>
-              <text value="Patients' Gender"/>
+              <text value="Patients&#39; Gender"/>
               <type value="open-choice"/>
               <options>
                 <reference value="#d1e6853-vs"/>
@@ -1422,23 +1424,23 @@
                 <repeats value="false"/>
                 <question>
                   <linkId value="HERF/DE34"/>
-                  <text value="Neonate's Name"/>
+                  <text value="Neonate&#39;s Name"/>
                   <type value="string"/>
                 </question>
                 <question>
                   <linkId value="HERF/DE37"/>
-                  <text value="Neonate's Date of Birth"/>
+                  <text value="Neonate&#39;s Date of Birth"/>
                   <type value="string"/>
                 </question>
                 <question>
                   <linkId value="HERF/DE40"/>
-                  <text value="Neonate's Medical Record #"/>
+                  <text value="Neonate&#39;s Medical Record #"/>
                   <type value="string"/>
                   <required value="true"/>
                 </question>
                 <question>
                   <linkId value="HERF/DE43"/>
-                  <text value="Neonate's Gender"/>
+                  <text value="Neonate&#39;s Gender"/>
                   <type value="open-choice"/>
                   <required value="true"/>
                   <options>
@@ -1464,7 +1466,7 @@
                 <repeats value="false"/>
                 <question>
                   <linkId value="HERF/DE50"/>
-                  <text value="Reporter's Name"/>
+                  <text value="Reporter&#39;s Name"/>
                   <type value="string"/>
                   <required value="true"/>
                 </question>
@@ -1482,7 +1484,7 @@
                 </question>
                 <question>
                   <linkId value="HERF/DE36"/>
-                  <text value="Reporter's Job or Position"/>
+                  <text value="Reporter&#39;s Job or Position"/>
                   <type value="string"/>
                 </question>
               </group>
@@ -1632,7 +1634,7 @@
               <concept>
                 <code value="G4"/>
                 <display value="Undifferentiated"/>
-                <definition value="A term used to describe cells or tissues that do not have specialized (&#34;mature&#34;) structures or functions. Undifferentiated cancer cells often grow and spread quickly."/>
+                <definition value="A term used to describe cells or tissues that do not have specialized (&quot;mature&quot;) structures or functions. Undifferentiated cancer cells often grow and spread quickly."/>
               </concept>
               <concept>
                 <code value="GB"/>
@@ -1870,7 +1872,7 @@
               <concept>
                 <code value="Black or African American"/>
                 <display value="Black or African American"/>
-                <definition value="A person having origins in any of the black racial groups of Africa. Terms such as &#34;Haitian&#34; or &#34;Negro&#34; can be used in addition to &#34;Black or African American.&#34;"/>
+                <definition value="A person having origins in any of the black racial groups of Africa. Terms such as &quot;Haitian&quot; or &quot;Negro&quot; can be used in addition to &quot;Black or African American.&quot;"/>
               </concept>
               <concept>
                 <code value="Native Hawaiian or other Pacific Islander"/>
@@ -2013,14 +2015,14 @@
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702942v4.0-cs"/>
               <caseSensitive value="true"/>
               <concept>
-                <code value="Bachelor's Degree"/>
-                <display value="Bachelor's Degree"/>
-                <definition value="Bachelor's degree is an award (baccalaureate or equivalent degree, as determined by the Secretary of the U.S. Department of Education) conferred by a college, university, or other postsecondary education institution as official recognition for the successful completion of a program of studies, that normally requires at least four years of full-time equivalent college-level work. This includes bachelor's degrees conferred in a five-year cooperative program."/>
+                <code value="Bachelor&#39;s Degree"/>
+                <display value="Bachelor&#39;s Degree"/>
+                <definition value="Bachelor&#39;s degree is an award (baccalaureate or equivalent degree, as determined by the Secretary of the U.S. Department of Education) conferred by a college, university, or other postsecondary education institution as official recognition for the successful completion of a program of studies, that normally requires at least four years of full-time equivalent college-level work. This includes bachelor&#39;s degrees conferred in a five-year cooperative program."/>
               </concept>
               <concept>
                 <code value="Doctoral degree or professional degree"/>
                 <display value="Professional Doctorate or Doctorate Degree"/>
-                <definition value="A doctorate awarded in certain fields where most holders of the degree are not engaged primarily in scholarly research and academic activities, but rather in a profession, such as law, medicine, music, or ministry.: Or; used to connect words, phrases, or clauses representing alternatives; used to connect alternative terms for the same thing; used in correlation; used to correct or rephrase what was previously said; otherwise.: The Doctor's Degree is the highest award a student can earn for graduate study. The doctor's degree classification includes such degrees in any field."/>
+                <definition value="A doctorate awarded in certain fields where most holders of the degree are not engaged primarily in scholarly research and academic activities, but rather in a profession, such as law, medicine, music, or ministry.: Or; used to connect words, phrases, or clauses representing alternatives; used to connect alternative terms for the same thing; used in correlation; used to correct or rephrase what was previously said; otherwise.: The Doctor&#39;s Degree is the highest award a student can earn for graduate study. The doctor&#39;s degree classification includes such degrees in any field."/>
               </concept>
               <concept>
                 <code value="Grade School"/>
@@ -2038,9 +2040,9 @@
                 <definition value="Indicates that a person has attended high school and has received a high school diploma.: Or; used to connect words, phrases, or clauses representing alternatives; used to connect alternative terms for the same thing; used in correlation; used to correct or rephrase what was previously said; otherwise.: Indicates that a person has received a General Equivalency Diploma in lieu of a high school diploma."/>
               </concept>
               <concept>
-                <code value="Master's Degree"/>
-                <display value="Master's Degree"/>
-                <definition value="The Master's Degree is an award that requires the successful completion of a program of study of at least the full-time equivalent of 1 but not more than two academic years of work beyond the bachelor's degree."/>
+                <code value="Master&#39;s Degree"/>
+                <display value="Master&#39;s Degree"/>
+                <definition value="The Master&#39;s Degree is an award that requires the successful completion of a program of study of at least the full-time equivalent of 1 but not more than two academic years of work beyond the bachelor&#39;s degree."/>
               </concept>
               <concept>
                 <code value="No formal education"/>
@@ -2169,11 +2171,11 @@
               </concept>
               <concept>
                 <code value="Bachelor Degree"/>
-                <display value="Bachelor's Degree Completion"/>
+                <display value="Bachelor&#39;s Degree Completion"/>
                 <definition value="Indicates that a person has received a degree for successful completion of a program of studies that normally requires at least 4-5 years of full-time equivalent college-level work."/>
               </concept>
               <concept>
-                <code value="Don't Know"/>
+                <code value="Don&#39;t Know"/>
                 <display value="Does Not Know"/>
                 <definition value="The answer is not known by the person answering."/>
               </concept>
@@ -2193,9 +2195,9 @@
                 <definition value="Indicates that kindergarten is the highest level of education achievement."/>
               </concept>
               <concept>
-                <code value="Master's Degree"/>
-                <display value="Master's Degree Completion"/>
-                <definition value="Indicates that a person has received a degree for completion of at least one year of prescribed study beyond the bachelor's degree."/>
+                <code value="Master&#39;s Degree"/>
+                <display value="Master&#39;s Degree Completion"/>
+                <definition value="Indicates that a person has received a degree for completion of at least one year of prescribed study beyond the bachelor&#39;s degree."/>
               </concept>
               <concept>
                 <code value="No Formal Schooling"/>
@@ -2344,7 +2346,7 @@
                 </valueReference>
               </extension>
               <linkId value="3702903v4.0"/>
-              <text value="Patient's Date of Birth"/>
+              <text value="Patient&#39;s Date of Birth"/>
               <type value="string"/>
             </question>
             <question>
@@ -2617,7 +2619,7 @@
               <concept>
                 <code value="Adrenal insufficiency"/>
                 <display value="Adrenal insufficiency"/>
-                <definition value="A disorder that occurs when the adrenal cortex does not produce enough of the hormone cortisol and in some cases, the hormone aldosterone. It may be due to a disorder of the adrenal cortex as in Addison's disease or primary adrenal insufficiency."/>
+                <definition value="A disorder that occurs when the adrenal cortex does not produce enough of the hormone cortisol and in some cases, the hormone aldosterone. It may be due to a disorder of the adrenal cortex as in Addison&#39;s disease or primary adrenal insufficiency."/>
               </concept>
               <concept>
                 <code value="Adult respiratory distress syndrome"/>
@@ -3267,7 +3269,7 @@
               <concept>
                 <code value="Cushingoid"/>
                 <display value="Cushingoid"/>
-                <definition value="A disorder characterized by signs and symptoms that resemble Cushing's disease or syndrome: buffalo hump obesity, striations, adiposity, hypertension, diabetes, and osteoporosis, usually due to exogenous corticosteroids."/>
+                <definition value="A disorder characterized by signs and symptoms that resemble Cushing&#39;s disease or syndrome: buffalo hump obesity, striations, adiposity, hypertension, diabetes, and osteoporosis, usually due to exogenous corticosteroids."/>
               </concept>
               <concept>
                 <code value="Cystitis noninfective"/>
@@ -3752,7 +3754,7 @@
               <concept>
                 <code value="Fever"/>
                 <display value="Fever"/>
-                <definition value="A disorder characterized by elevation of the body's temperature above the upper limit of normal."/>
+                <definition value="A disorder characterized by elevation of the body&#39;s temperature above the upper limit of normal."/>
               </concept>
               <concept>
                 <code value="Fibrinogen decreased"/>
@@ -4347,7 +4349,7 @@
               <concept>
                 <code value="INR increased"/>
                 <display value="INR increased"/>
-                <definition value="A finding based on laboratory test results that indicate an increase in the ratio of the patient's prothrombin time to a control sample in the blood."/>
+                <definition value="A finding based on laboratory test results that indicate an increase in the ratio of the patient&#39;s prothrombin time to a control sample in the blood."/>
               </concept>
               <concept>
                 <code value="Insomnia"/>
@@ -5057,7 +5059,7 @@
               <concept>
                 <code value="Otitis externa"/>
                 <display value="Otitis externa"/>
-                <definition value="A disorder characterized by an infectious process involving the outer ear and ear canal. Contributory factors include excessive water exposure (swimmer's ear infection) and cuts in the ear canal. Symptoms include fullness, itching, swelling and marked discomfort in the ear and ear drainage."/>
+                <definition value="A disorder characterized by an infectious process involving the outer ear and ear canal. Contributory factors include excessive water exposure (swimmer&#39;s ear infection) and cuts in the ear canal. Symptoms include fullness, itching, swelling and marked discomfort in the ear and ear drainage."/>
               </concept>
               <concept>
                 <code value="Otitis media"/>
@@ -5277,7 +5279,7 @@
               <concept>
                 <code value="Personality change"/>
                 <display value="Personality change"/>
-                <definition value="A disorder characterized by a conspicuous change in a person's behavior and thinking."/>
+                <definition value="A disorder characterized by a conspicuous change in a person&#39;s behavior and thinking."/>
               </concept>
               <concept>
                 <code value="Phantom pain"/>
@@ -5977,12 +5979,12 @@
               <concept>
                 <code value="Suicidal ideation"/>
                 <display value="Suicidal ideation"/>
-                <definition value="A disorder characterized by thoughts of taking one's own life."/>
+                <definition value="A disorder characterized by thoughts of taking one&#39;s own life."/>
               </concept>
               <concept>
                 <code value="Suicide attempt"/>
                 <display value="Suicide attempt"/>
-                <definition value="A disorder characterized by self-inflicted harm in an attempt to end one's own life."/>
+                <definition value="A disorder characterized by self-inflicted harm in an attempt to end one&#39;s own life."/>
               </concept>
               <concept>
                 <code value="Superficial soft tissue fibrosis"/>
@@ -6597,7 +6599,7 @@
               <concept>
                 <code value="Device"/>
                 <display value="Medical_Device"/>
-                <definition value="Medical device - any machinery designed to aid diagnostic and medical therapies. Medical device has to be designed with rigorous safety standards. There are several basic types of medical devices: life support equipment used to maintain a patient's body functions; therapeutic equipment; monitors and detectors to measure the indexes of a patient's state; imagine machines and laboratory equipment used with diagnostic and status monitoring purposes. In insurance parlance, the term is usually synonymous with assistive device, although it may include medical supplies."/>
+                <definition value="Medical device - any machinery designed to aid diagnostic and medical therapies. Medical device has to be designed with rigorous safety standards. There are several basic types of medical devices: life support equipment used to maintain a patient&#39;s body functions; therapeutic equipment; monitors and detectors to measure the indexes of a patient&#39;s state; imagine machines and laboratory equipment used with diagnostic and status monitoring purposes. In insurance parlance, the term is usually synonymous with assistive device, although it may include medical supplies."/>
               </concept>
               <concept>
                 <code value="Disease"/>
@@ -6737,7 +6739,7 @@
               <concept>
                 <code value="Psychiatric disorders"/>
                 <display value="Psychiatric Disorder"/>
-                <definition value="Any deviation from the normal structure or function of the brain and a psychiatric condition, that results in an impairment of an individual's normal cognitive, emotional, or behavioral functioning, and is caused by physiological or psychosocial factors."/>
+                <definition value="Any deviation from the normal structure or function of the brain and a psychiatric condition, that results in an impairment of an individual&#39;s normal cognitive, emotional, or behavioral functioning, and is caused by physiological or psychosocial factors."/>
               </concept>
               <concept>
                 <code value="Renal and urinary disorders"/>
@@ -6812,7 +6814,7 @@
               <concept>
                 <code value="10001367"/>
                 <display value="Adrenal insufficiency"/>
-                <definition value="A disorder that occurs when the adrenal cortex does not produce enough of the hormone cortisol and in some cases, the hormone aldosterone. It may be due to a disorder of the adrenal cortex as in Addison's disease or primary adrenal insufficiency."/>
+                <definition value="A disorder that occurs when the adrenal cortex does not produce enough of the hormone cortisol and in some cases, the hormone aldosterone. It may be due to a disorder of the adrenal cortex as in Addison&#39;s disease or primary adrenal insufficiency."/>
               </concept>
               <concept>
                 <code value="10001409"/>
@@ -7307,7 +7309,7 @@
               <concept>
                 <code value="10011655"/>
                 <display value="Cushingoid"/>
-                <definition value="A disorder characterized by signs and symptoms that resemble Cushing's disease or syndrome: buffalo hump obesity, striations, adiposity, hypertension, diabetes, and osteoporosis, usually due to exogenous corticosteroids."/>
+                <definition value="A disorder characterized by signs and symptoms that resemble Cushing&#39;s disease or syndrome: buffalo hump obesity, striations, adiposity, hypertension, diabetes, and osteoporosis, usually due to exogenous corticosteroids."/>
               </concept>
               <concept>
                 <code value="10011912"/>
@@ -7632,7 +7634,7 @@
               <concept>
                 <code value="10016558"/>
                 <display value="Fever"/>
-                <definition value="A disorder characterized by elevation of the body's temperature above the upper limit of normal."/>
+                <definition value="A disorder characterized by elevation of the body&#39;s temperature above the upper limit of normal."/>
               </concept>
               <concept>
                 <code value="10016596"/>
@@ -8097,7 +8099,7 @@
               <concept>
                 <code value="10022402"/>
                 <display value="INR increased"/>
-                <definition value="A finding based on laboratory test results that indicate an increase in the ratio of the patient's prothrombin time to a control sample in the blood."/>
+                <definition value="A finding based on laboratory test results that indicate an increase in the ratio of the patient&#39;s prothrombin time to a control sample in the blood."/>
               </concept>
               <concept>
                 <code value="10022437"/>
@@ -8437,7 +8439,7 @@
               <concept>
                 <code value="10033072"/>
                 <display value="Otitis externa"/>
-                <definition value="A disorder characterized by an infectious process involving the outer ear and ear canal. Contributory factors include excessive water exposure (swimmer's ear infection) and cuts in the ear canal. Symptoms include fullness, itching, swelling and marked discomfort in the ear and ear drainage."/>
+                <definition value="A disorder characterized by an infectious process involving the outer ear and ear canal. Contributory factors include excessive water exposure (swimmer&#39;s ear infection) and cuts in the ear canal. Symptoms include fullness, itching, swelling and marked discomfort in the ear and ear drainage."/>
               </concept>
               <concept>
                 <code value="10033078"/>
@@ -8552,7 +8554,7 @@
               <concept>
                 <code value="10034719"/>
                 <display value="Personality change"/>
-                <definition value="A disorder characterized by a conspicuous change in a person's behavior and thinking."/>
+                <definition value="A disorder characterized by a conspicuous change in a person&#39;s behavior and thinking."/>
               </concept>
               <concept>
                 <code value="10034825"/>
@@ -9017,12 +9019,12 @@
               <concept>
                 <code value="10042458"/>
                 <display value="Suicidal ideation"/>
-                <definition value="A disorder characterized by thoughts of taking one's own life."/>
+                <definition value="A disorder characterized by thoughts of taking one&#39;s own life."/>
               </concept>
               <concept>
                 <code value="10042464"/>
                 <display value="Suicide attempt"/>
-                <definition value="A disorder characterized by self-inflicted harm in an attempt to end one's own life."/>
+                <definition value="A disorder characterized by self-inflicted harm in an attempt to end one&#39;s own life."/>
               </concept>
               <concept>
                 <code value="10042554"/>
@@ -11085,7 +11087,7 @@
                 </valueReference>
               </extension>
               <linkId value="3557006v2.0"/>
-              <text value="Describe 'Other' Adverse Event"/>
+              <text value="Describe &#39;Other&#39; Adverse Event"/>
               <type value="string"/>
             </question>
             <question>

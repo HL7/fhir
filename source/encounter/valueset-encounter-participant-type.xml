@@ -1,39 +1,38 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="ParticipantType"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This value set defines a set of codes that can be used to indicate how an individual participates in an encounter"/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/participant-type"/>
-    <caseSensitive value="true"/>   
+    <caseSensitive value="true"/>
     <concept>
       <code value="translator"/>
       <display value="Translator"/>
-      <definition value="A translator who is facilitating communication with the patient during the encounter" />
-    </concept>  
+      <definition value="A translator who is facilitating communication with the patient during the encounter"/>
+    </concept>
     <concept>
       <code value="emergency"/>
       <display value="Emergency"/>
-      <definition value="A person to be contacted in case of an emergency during the encounter" />
-    </concept>  
+      <definition value="A person to be contacted in case of an emergency during the encounter"/>
+    </concept>
   </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ParticipationType"/>
       <filter>
-        <property value="concept" />
+        <property value="concept"/>
         <op value="is-a"/>
         <value value="_ParticipationAncillary"/>
       </filter>
     </include>
-  </compose>  
+  </compose>
 </ValueSet>
-
-

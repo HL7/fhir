@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-certainty-absent"/>
+  <status value="draft"/>
   <name value="Condition/Diagnosis Certainty"/>
   <publisher value="CQF Project team"/>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="http://www.hl7.org/Special/committees/cqi/"/>
-  </telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/"/>
+    </telecom>
   </contact>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="value set for Condition/Problem/Diagnosis certainty for absent or refuted occurrences"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-  <status value="draft"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-		<concept>
-			<code value="410516002"/>
-			<!-- Known absent (qualifier value) -->
-		</concept>
-		<concept>
-			<code value="410593006"/>
-			<!-- Probably NOT present (qualifier value) -->
-		</concept>
-		<concept>
-			<code value="428263003"/>
-			<!-- NOT suspected (qualifier value) -->
-		</concept>
-		<concept>
-			<code value="410594000"/>
-			<!-- Definitely NOT present (qualifier value) -->
-		</concept>
+      <concept>
+        <code value="410516002"/>
+      </concept>
+      <!--  Known absent (qualifier value)  -->
+      <concept>
+        <code value="410593006"/>
+      </concept>
+      <!--  Probably NOT present (qualifier value)  -->
+      <concept>
+        <code value="428263003"/>
+      </concept>
+      <!--  NOT suspected (qualifier value)  -->
+      <concept>
+        <code value="410594000"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

@@ -1,29 +1,28 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Payment Type Codes"/>
   <publisher value="Financial Management"/>
-  <copyright value="This is an example set"/>
-  <status value="draft"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This value set includes sample Contract Type codes."/>
-  <status value="draft"/>
-    <codeSystem>
-	<system value="http://hl7.org/fhir/contracttypecodes"/>
-    <caseSensitive value="true"/>    
-	<concept>
+  <copyright value="This is an example set"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/contracttypecodes"/>
+    <caseSensitive value="true"/>
+    <concept>
       <code value="payment"/>
     </concept>
-	<concept>
+    <concept>
       <code value="adjustment"/>
     </concept>
-	<concept>
+    <concept>
       <code value="advance"/>
     </concept>
-	</codeSystem>
+  </codeSystem>
 </ValueSet>
-

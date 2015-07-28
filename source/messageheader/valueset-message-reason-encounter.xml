@@ -1,18 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Example Message Reason Codes"/>
   <publisher value="FHIR Project"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="Example Message Reasons. These are the set of codes that might be used an updating an encounter using admin-update"/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/message-reasons-encounter"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="admit"/>
       <display value="Admit"/>
@@ -43,7 +44,5 @@
       <display value="Edit"/>
       <definition value="Encounter details have been updated (e.g. to correct a coding error)"/>
     </concept>
-    
-  </codeSystem>   
+  </codeSystem>
 </ValueSet>
-

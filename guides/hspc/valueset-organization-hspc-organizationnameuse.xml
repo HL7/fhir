@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <version value="0.01"/>
+  <status value="draft"/>
   <name value="HSPC Organization Name Use"/>
   <immutable value="true"/>
   <publisher value="HSPC"/>
@@ -9,43 +10,42 @@
     <telecom>
       <system value="other"/>
       <value value="http://healthcaresoa.org"/>
-  </telecom>
+    </telecom>
   </contact>
-  <description value="The set of codes that describe use of an organization's name."/>
-  <status value="draft"/>
+  <description value="The set of codes that describe use of an organization&#39;s name."/>
   <extensible value="true"/>
   <date value="2015-05-19"/>
   <codeSystem>
-		<system value="Internountain Healthcare HDD"/>
-		<caseSensitive value="true"/>
-		<concept>	
-			<code value="526758025"/>
-			<display value="Stock Exchange Name"/>
-			<definition value="A name used to represent the organization in a stock exchange market."/>
-		</concept>
+    <system value="Internountain Healthcare HDD"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="526758025"/>
+      <display value="Stock Exchange Name"/>
+      <definition value="A name used to represent the organization in a stock exchange market."/>
+    </concept>
   </codeSystem>
   <compose>
-	    <include>
-			<system value="http://hl7.org/fhir/v3/EntityNameUseR2"/>
-			<concept>
-				<code value="A"/>
-				<display value="Business Name"/>
-			</concept>
-			<concept>
-				<code value="C"/>
-				<display value="Customary"/>
-			</concept>
-		</include>
-		<include>
-			<system value="http://hl7.org/fhir/v3/EntityNameUse"/>
-			<concept>
-				<code value="L"/>
-				<display value="Legal Name"/>
-			</concept>
-			<concept>
-				<code value="ASGN"/>
-				<display value="Assigned (alias)"/>
-			</concept>
-		</include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/EntityNameUseR2"/>
+      <concept>
+        <code value="A"/>
+        <display value="Business Name"/>
+      </concept>
+      <concept>
+        <code value="C"/>
+        <display value="Customary"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/EntityNameUse"/>
+      <concept>
+        <code value="L"/>
+        <display value="Legal Name"/>
+      </concept>
+      <concept>
+        <code value="ASGN"/>
+        <display value="Assigned (alias)"/>
+      </concept>
+    </include>
   </compose>
 </ValueSet>

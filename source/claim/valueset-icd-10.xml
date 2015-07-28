@@ -1,56 +1,54 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-	<name value="ICD-10 Codes"/>
-	<publisher value="Financial Management"/>
-	<copyright value="This is an example set"/>
-	<status value="draft"/>
-	<contact>
-		<telecom>  
-			<system value="other"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="This value set includes sample ICD-10 codes."/>
-	<status value="draft"/>
-	<codeSystem>
-		<system value="http://hl7.org/fhir/sid/icd-10"/>
-		<caseSensitive value="true"/>    
+<?xml version="1.0" encoding="UTF-8"?>
 
-		<concept>
-			<code value="123456"/>
-			<display value="DIAG-1"/>
-			<definition value="DIAG-1"/>
-		</concept>
-		<concept>
-			<code value="123457"/>
-			<display value="DIAG-1a"/>
-			<definition value="DIAG-1a"/>
-		</concept>
-		<concept>
-			<code value="987654"/>
-			<display value="DIAG-2"/>
-			<definition value="DIAG-2"/>
-		</concept>
-		<concept>
-			<code value="123987"/>
-			<display value="DIAG-3"/>
-			<definition value="DIAG-3"/>
-		</concept>
-		<concept>
-			<code value="112233"/>
-			<display value="DIAG-4"/>
-			<definition value="DIAG-4"/>
-		</concept>
-		<concept>
-			<code value="997755"/>
-			<display value="DIAG-5"/>
-			<definition value="DIAG-5"/>
-		</concept>
-		<concept>
-			<code value="321789"/>
-			<display value="DIAG-6"/>
-			<definition value="DIAG-6"/>
-		</concept>
-	</codeSystem>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
+  <name value="ICD-10 Codes"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes sample ICD-10 codes."/>
+  <copyright value="This is an example set"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/sid/icd-10"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="123456"/>
+      <display value="DIAG-1"/>
+      <definition value="DIAG-1"/>
+    </concept>
+    <concept>
+      <code value="123457"/>
+      <display value="DIAG-1a"/>
+      <definition value="DIAG-1a"/>
+    </concept>
+    <concept>
+      <code value="987654"/>
+      <display value="DIAG-2"/>
+      <definition value="DIAG-2"/>
+    </concept>
+    <concept>
+      <code value="123987"/>
+      <display value="DIAG-3"/>
+      <definition value="DIAG-3"/>
+    </concept>
+    <concept>
+      <code value="112233"/>
+      <display value="DIAG-4"/>
+      <definition value="DIAG-4"/>
+    </concept>
+    <concept>
+      <code value="997755"/>
+      <display value="DIAG-5"/>
+      <definition value="DIAG-5"/>
+    </concept>
+    <concept>
+      <code value="321789"/>
+      <display value="DIAG-6"/>
+      <definition value="DIAG-6"/>
+    </concept>
+  </codeSystem>
 </ValueSet>
-

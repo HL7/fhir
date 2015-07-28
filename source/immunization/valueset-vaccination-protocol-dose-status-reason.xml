@@ -1,39 +1,38 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Vaccination Protocol Dose Status Reason codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
-        contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
-  <status value="draft"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="advstorage"/>
-      <display value="Adverse storgage condition" />
+      <display value="Adverse storgage condition"/>
     </concept>
     <concept>
       <code value="coldchbrk"/>
-      <display value="Cold chain break" />
+      <display value="Cold chain break"/>
     </concept>
     <concept>
       <code value="explot"/>
-      <display value="Expired lot" />
+      <display value="Expired lot"/>
     </concept>
     <concept>
       <code value="outsidesched"/>
-      <display value="Administered outside recommended schedule" />
+      <display value="Administered outside recommended schedule"/>
     </concept>
     <concept>
       <code value="prodrecall"/>
-      <display value="Product recall" />
+      <display value="Product recall"/>
     </concept>
   </codeSystem>
 </ValueSet>
-

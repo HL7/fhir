@@ -1,24 +1,26 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Adjustment Reason Codes"/>
   <publisher value="Financial Management"/>
-  <copyright value="This is an example set"/>
-  <status value="draft"/>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This value set includes smattering of a Adjustment Reason codes"/>
-  <status value="draft"/>
+  <copyright value="This is an example set"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/adjustment-reason"/>
-    <caseSensitive value="true"/>    
+    <caseSensitive value="true"/>
     <concept>
-      <code value="A001"/> <!-- Prior Payment Reversal-->
+      <code value="A001"/>
     </concept>
+    <!--  Prior Payment Reversal -->
     <concept>
-      <code value="A002"/> <!-- Reassessment of Claim(s) -->
+      <code value="A002"/>
     </concept>
   </codeSystem>
 </ValueSet>

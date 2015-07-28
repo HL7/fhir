@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://ihc.org/fhir/ValueSet/LabNullFlavor"/>
   <version value="0.01"/>
+  <status value="draft"/>
   <name value="LabNullFlavor"/>
   <publisher value="Intermountain Healthcare"/>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="http://www.clinicaleleement.com"/>
-  </telecom>
+      <system value="other"/>
+      <value value="http://www.clinicaleleement.com"/>
+    </telecom>
   </contact>
   <description value="A list of reasons why a lab result may have no value"/>
   <copyright value="IHC"/>
-  <status value="draft"/>
   <date value="2014-06-25"/>
   <compose>
     <include>

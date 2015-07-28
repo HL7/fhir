@@ -1,42 +1,43 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Encounter Priority"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This is an example value set defined by the FHIR project, that could be used in Emergency to indicate the encounter priority as determined by triage."/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/encounter-priority"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="imm"/>
-      <display value="Immediate" />
+      <display value="Immediate"/>
       <definition value="Within seconds"/>
     </concept>
     <concept>
       <code value="emg"/>
-      <display value="Emergency" />
+      <display value="Emergency"/>
       <definition value="Within 10 minutes"/>
     </concept>
     <concept>
       <code value="urg"/>
-      <display value="Urgent" />
+      <display value="Urgent"/>
       <definition value="Within 30 minutes"/>
     </concept>
     <concept>
       <code value="s-urg"/>
-      <display value="Semi-urgent" />
+      <display value="Semi-urgent"/>
       <definition value="Within 60 minutes"/>
     </concept>
     <concept>
       <code value="no-urg"/>
-      <display value="Non-urgent" />
+      <display value="Non-urgent"/>
       <definition value="Within 120 minutes"/>
-    </concept>    
+    </concept>
   </codeSystem>
 </ValueSet>

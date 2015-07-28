@@ -1,20 +1,21 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-product-form"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-product-form"/>
+  <status value="active"/>
   <name value="Medication Product Form Value Set"/>
   <publisher value="PHIN VADS"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?id=74FDBFB5-A277-DE11-9B52-0015173D1785"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?id=74FDBFB5-A277-DE11-9B52-0015173D1785"/>
+    </telecom>
   </contact>
   <description value="This is the physical form of the product as presented to the individual. For example: tablet, capsule, liquid or ointment. NCI concept code for pharmaceutical dosage form: C42636"/>
-  <status value="active"/>
   <compose>
     <include>
       <system value="http://ncimeta.nci.nih.gov"/>
@@ -689,4 +690,3 @@
     </include>
   </compose>
 </ValueSet>
-

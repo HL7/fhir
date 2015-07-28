@@ -1,44 +1,43 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Immunization Recommendation Date Criterion Codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
-        contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
-  <status value="draft"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
-     <code value="due"/>
-     <display value="due" />
-     <definition value="Date the next dose is considered due"/>
+      <code value="due"/>
+      <display value="due"/>
+      <definition value="Date the next dose is considered due"/>
     </concept>
     <concept>
-     <code value="recommended"/>
-     <display value="recommended" />
-     <definition value="At the recommended date"/>
+      <code value="recommended"/>
+      <display value="recommended"/>
+      <definition value="At the recommended date"/>
     </concept>
     <concept>
-     <code value="earliest"/>
-     <display value="Earliest Date" />
-     <definition value="As early as possible"/>
+      <code value="earliest"/>
+      <display value="Earliest Date"/>
+      <definition value="As early as possible"/>
     </concept>
     <concept>
       <code value="overdue"/>
-      <display value="Past Due Date" />
+      <display value="Past Due Date"/>
       <definition value="Date the next dose is considered overdue"/>
     </concept>
     <concept>
       <code value="latest"/>
-      <display value="latest" />
+      <display value="latest"/>
       <definition value="The latest date the next dose is to be given"/>
     </concept>
   </codeSystem>
 </ValueSet>
-

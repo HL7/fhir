@@ -1,8 +1,11 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:0.00.000.0.000000.0.00.001"/>
   </extension>
-  <!-- 
+  <status value="active"/>
+  <!--  
     Board Member	PatientImportance:BM:19266	BM
     Financial Donor	PatientImportance:FD:19268	FD
     Foreign Dignitary	PatientImportance:FOR:19274	FOR
@@ -13,24 +16,22 @@
     Staff Member	PatientImportance:STF:19272	STF
     Staff Physician	PatientImportance:DR:19267	DR
     Very Important Person	PatientImportance:VIP:19273	VIP
-  -->
+   -->
   <name value="Importance"/>
   <publisher value="CIMI"/>
   <contact>
     <telecom>
       <system value="other"/>
       <value value="http://cimi.org/valueset/importance"/>
-  </telecom>
+    </telecom>
   </contact>
   <contact>
     <telecom>
       <system value="other"/>
       <value value="http://www.cimi.org/"/>
-  </telecom>
+    </telecom>
   </contact>
- 
   <description value="Importance Value Set for Patient"/>
-  <status value="active"/>
   <compose>
     <include>
       <system value="http://cimi.org/vs/patient/importance"/>
@@ -71,5 +72,5 @@
         <display value="Very Important Person"/>
       </concept>
     </include>
-  </compose>    
+  </compose>
 </ValueSet>

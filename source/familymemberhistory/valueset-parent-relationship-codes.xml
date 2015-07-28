@@ -1,38 +1,40 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>The value set includes the v3 RoleCode PRN (parent), TWIN (twin) and all of their specializations.  It covers the relationships needed to establish genetic pedigree relationships between family members.</p>
+    
     </div>
   </text>
+  <status value="draft"/>
   <name value="Parent Relationship Codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="The value set includes the v3 RoleCode PRN (parent), TWIN (twin) and all of their specializations.  It covers the relationships needed to establish genetic pedigree relationships between family members."/>
-  <status value="draft"/>
   <compose>
     <include>
-        <system value="http://hl7.org/fhir/v3/RoleCode"/>
-        <filter>
-            <property value="concept"/>
-            <op value="is-a"/>
-            <value value="PRN"/>
-        </filter>
+      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="PRN"/>
+      </filter>
     </include>
     <include>
-        <system value="http://hl7.org/fhir/v3/RoleCode"/>
-        <filter>
-            <property value="concept"/>
-            <op value="is-a"/>
-            <value value="TWIN"/>
-        </filter>
+      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="TWIN"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>
-

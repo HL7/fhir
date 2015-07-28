@@ -1,43 +1,42 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
- <name value="PractitionerRole"/>
- 
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
+  <name value="PractitionerRole"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate the role of a Practitioner."/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/practitioner-role"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="doctor"/>
-      <display value="Doctor" />
+      <display value="Doctor"/>
     </concept>
     <concept>
       <code value="nurse"/>
-      <display value="Nurse" />
+      <display value="Nurse"/>
     </concept>
     <concept>
       <code value="pharmacist"/>
-      <display value="Pharmacist" />
+      <display value="Pharmacist"/>
     </concept>
     <concept>
       <code value="researcher"/>
-      <display value="Researcher" />
-    </concept>    
+      <display value="Researcher"/>
+    </concept>
     <concept>
       <code value="teacher"/>
-      <display value="Teacher/educator" />
+      <display value="Teacher/educator"/>
     </concept>
     <concept>
       <code value="ict"/>
-      <display value="ICT professional" />
-    </concept>        
+      <display value="ICT professional"/>
+    </concept>
   </codeSystem>
 </ValueSet>
-

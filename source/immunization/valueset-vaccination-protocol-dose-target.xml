@@ -1,55 +1,54 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Vaccination Protocol Dose TargetCodes"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
-        contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
-  <status value="draft"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/vaccination-protocol-dose-target"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="crs"/>
-      <display value="Congenital Rubella Syndrome" />
+      <display value="Congenital Rubella Syndrome"/>
     </concept>
     <concept>
       <code value="dip"/>
-      <display value="Diptheria" />
+      <display value="Diptheria"/>
     </concept>
     <concept>
       <code value="mea"/>
-      <display value="Measles" />
+      <display value="Measles"/>
     </concept>
     <concept>
       <code value="mum"/>
-      <display value="Mumps" />
+      <display value="Mumps"/>
     </concept>
     <concept>
       <code value="rub"/>
-      <display value="Rubella" />
+      <display value="Rubella"/>
     </concept>
     <concept>
       <code value="tet"/>
-      <display value="Tetanus" />
+      <display value="Tetanus"/>
     </concept>
     <concept>
       <code value="hib"/>
-      <display value="Haemophilus influenzae type b" />
+      <display value="Haemophilus influenzae type b"/>
     </concept>
     <concept>
       <code value="per"/>
-      <display value="Pertussis" />
+      <display value="Pertussis"/>
     </concept>
     <concept>
       <code value="pol"/>
-      <display value="Poliomyelitis" />
+      <display value="Poliomyelitis"/>
     </concept>
   </codeSystem>
 </ValueSet>
-

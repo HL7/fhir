@@ -1,18 +1,19 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Example Use Codes for List"/>
   <publisher value="FHIR Project"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="Example use codes for the List resource - typical kinds of use. TODO: Does LOINC define useful codes?"/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/list-example-use-codes"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="alerts"/>
       <display value="Alerts"/>
@@ -60,4 +61,3 @@
     </concept>
   </codeSystem>
 </ValueSet>
-

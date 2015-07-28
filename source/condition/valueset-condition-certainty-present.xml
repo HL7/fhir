@@ -1,45 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-certainty-present"/>
+  <status value="draft"/>
   <name value="Condition/Diagnosis Certainty"/>
   <publisher value="CQF Project team"/>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="http://www.hl7.org/Special/committees/cqi/"/>
-  </telecom>
-  </contact>  
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/"/>
+    </telecom>
+  </contact>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="value set for Condition/Problem/Diagnosis certainty for present or non-refuted occurrence"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-  <status value="draft"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-	  <concept>
-			<code value="410515003"/> <!-- Known present (qualifier value) -->
-		</concept>					
-		<concept>
-			<code value="410591008"/> <!-- Definitely present (qualifier value) -->
-		</concept>
-		<concept>
-			<code value="410605003"/> <!-- Confirmed present (qualifier value) -->
-		</concept>
-		<concept>
-			<code value="410590009"/> <!-- Known possible (qualifier value) -->
-		</concept>
-		<concept>
-			<code value="410592001"/> <!-- Probably present (qualifier value) -->
-		</concept>
-		<concept>
-			<code value="415684004"/> <!-- Suspected (qualifier value) -->
-		</concept>
+      <concept>
+        <code value="410515003"/>
+      </concept>
+      <!--  Known present (qualifier value)  -->
+      <concept>
+        <code value="410591008"/>
+      </concept>
+      <!--  Definitely present (qualifier value)  -->
+      <concept>
+        <code value="410605003"/>
+      </concept>
+      <!--  Confirmed present (qualifier value)  -->
+      <concept>
+        <code value="410590009"/>
+      </concept>
+      <!--  Known possible (qualifier value)  -->
+      <concept>
+        <code value="410592001"/>
+      </concept>
+      <!--  Probably present (qualifier value)  -->
+      <concept>
+        <code value="415684004"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

@@ -1,15 +1,16 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="OrganizationType"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate a type of organization."/>
-  <status value="draft"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/organization-type"/>
     <caseSensitive value="true"/>
@@ -22,11 +23,11 @@
       <code value="dept"/>
       <display value="Hospital Department"/>
       <definition value="A department or ward within a hospital (Generally is not applicable to top level organizations)"/>
-    </concept>    
-    <!--<concept> An intensive care unit is actually a Location (instance or kind) or a service type (of HealthcareService), this is a service delivery type on a location
+    </concept>
+    <!-- <concept> An intensive care unit is actually a Location (instance or kind) or a service type (of HealthcareService), this is a service delivery type on a location
       <code value="icu"/>
       <display value="Intensive Care Unit"/>
-    </concept>-->
+    </concept> -->
     <concept>
       <code value="team"/>
       <display value="Organizational team"/>
@@ -52,10 +53,5 @@
       <display value="Religious Institution"/>
       <definition value="An organization that identified as a part of a religeous institution"/>
     </concept>
-    <!--<concept> A Pharmacy is not an organization, this is a service delivery type on a location
-      <code value="pharm"/>
-      <display value="Pharmacy"/>
-    </concept>-->
   </codeSystem>
 </ValueSet>
-

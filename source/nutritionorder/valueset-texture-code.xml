@@ -1,41 +1,42 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
   <name value="Texture Modifier Codes"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
-  <!-- Set of SNOMED CT - Children of SCTID: food consistency types "229961002" --> 
+  <!--  Set of SNOMED CT - Children of SCTID: food consistency types "229961002"  -->
   <description value="TextureModifier: Codes for food consistency types or texture modifications to apply to foods. This value set is composed of SNOMED CT (US Extension and Core) Concepts from SCTID 229961002 Food consistency types (substance) heirarchy and is provided as a suggestive example"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
-  <status value="draft"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <version value="http://snomed.info/sct/US1000124/version/20140901"/>
-    <concept>
+      <concept>
         <code value="228053002"/>
-		<display value="Cut-up food"/>           
-      </concept>  
-	  <concept>
+        <display value="Cut-up food"/>
+      </concept>
+      <concept>
         <code value="439091000124107"/>
         <display value="Easy to chew food"/>
       </concept>
       <concept>
         <code value="228049004"/>
-		<display value="Chopped food"/>      
+        <display value="Chopped food"/>
       </concept>
-       <concept>
+      <concept>
         <code value="441881000124103"/>
         <display value="Ground food"/>
-      </concept>  
-	  <concept>
+      </concept>
+      <concept>
         <code value="441761000124103"/>
         <display value="Minced food"/>
-      </concept>       
+      </concept>
       <concept>
         <code value="441751000124100"/>
         <display value="Mashed food"/>
@@ -47,7 +48,7 @@
       <concept>
         <code value="441791000124106"/>
         <display value="Strained food"/>
-      </concept> 
+      </concept>
       <concept>
         <code value="228055009"/>
         <display value="Liquidized food"/>
@@ -68,7 +69,7 @@
         <code value="228058006"/>
         <display value="Single texture food"/>
       </concept>
-        <concept>
+      <concept>
         <code value="228060008"/>
         <display value="Solid food"/>
       </concept>
