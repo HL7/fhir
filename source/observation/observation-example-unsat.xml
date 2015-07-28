@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+	<id value="unsat"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="15074-8"/>
+			<display value="Glucose [Moles/volume] in Blood"/>
+		</coding>
+	</code>
+	<dataAbsentReason>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="125154007"/>
+			<display value="Specimen unsatisfactory for evaluation"/>
+		</coding>
+	</dataAbsentReason>
+	<comments value="Tube broken in transit and sample leaked"/>
+	<effectivePeriod>
+		<start value="2013-04-02T09:30:10+01:00"/>
+		<end value="2013-04-05T09:30:10+01:00"/>
+	</effectivePeriod>
+	<issued value="2013-04-03T15:30:10+01:00"/>
+	<status value="cancelled"/>
+	<!-- urn:oid:2.16.840.1.113883.4.642.1.7 -->
+	<!-- 2.16.840.1.113883.4.642.1.118 -->
+	<identifier>
+		<use value="official"/>
+		<system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>
+		<value value="6323"/>
+	</identifier>
+	<subject>
+		<reference value="Patient/f001"/>
+		<display value="P. van de Heuvel"/>
+	</subject>
+	<performer>
+		<reference value="Practitioner/f005"/>
+		<display value="A. Langeveld"/>
+	</performer>
+	<referenceRange>
+		<low>
+			<value value="3.1"/>
+			<units value="mmol/l"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mmol/L"/>
+		</low>
+		<high>
+			<value value="6.2"/>
+			<units value="mmol/l"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mmol/L"/>
+		</high>
+	</referenceRange>
+</Observation>
