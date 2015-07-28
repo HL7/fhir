@@ -643,7 +643,9 @@ from the period applies (e.g. "give to the patient between 2 and 4 pm on 24-Jun 
 [%dt Period 7%]
 <p>
 If the <code>start</code> element is  missing, the start of the period is not
-known. If the <code>end</code> element is missing, it means that the period is ongoing.
+known. If the <code>end</code> element is missing, it means that the period is ongoing,
+or the start mey be in the past, and the end date in the future, which means that period 
+is expected/planned to end at the specified time
 </p>
 <p>
 The end value includes any matching date/time. For example, the period 
