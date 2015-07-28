@@ -64,6 +64,12 @@
   </profile>
   <profile source="questionnaire-documentationtemplate-cqif-profile-spreadsheet.xml" type="spreadsheet">
   </profile>
+  <profile source="basic-orderset-cqif-profile-spreadsheet.xml" type="spreadsheet">
+  </profile>
+  <profile source="basic-ecarule-cqif-profile-spreadsheet.xml" type="spreadsheet">
+  </profile>
+  <profile source="basic-guidanceartifact-cqif-profile-spreadsheet.xml" type="spreadsheet">
+  </profile>
   <!--
     dictionaries
     <dictionary name="" source="">
