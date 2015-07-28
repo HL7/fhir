@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+
 <!--
 Grahame's OAuth extensions:
 <extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-reference">
@@ -30,5 +31,95 @@ This granularity could include:
 Operation outcomes returned SHOULD be in alignment with the HTTP response code.  For example, if the HTTP code indicates a failure (300+), at least
 one of the issues should have a severity of "error", indicating the reason for the failure.
 </p>
+
+<h2>Using the Location Element</h2>
+<p>
+Each issue in an operation outcome may have a location reported. 
+Systems that create operation outcomes SHOULD populate the 
+location of an error. A correctly propulated location can 
+allow client systems to:
+</p>
+<ul>
+ <li>Connect return errors with the appropriate UI widget</li>
+ <li>Route errors to the corect application or system log</li>
+ <li>Develop more intelligent testing applications</li>
+</ul>
+
+<p>
+In order to support these kinds of usages, this applications
+need to use the location element consistently. Applications
+can use the location element to refer to a location inside
+a resource, or some location in the http request (when appropriate). 
+</p>
+<h3>Reporting Errors in Resources</h3>
+<p>
+While resources may be represented in XML, JSON, or other forms, 
+error locations are always reported using a simplified XPath 
+notation:
+</p>
+<pre>
+ &lt;location value=&quot;/f:Patient/f:identifier&quot;/&gt;
+</pre>
+<p>
+The XPath must use the <a href="elementdefinition-definitions.html#ElementDefinition.constraint.xpath">FHIR standard XPath prefixes f: and h:</a>
+for the FHIR and XHTML namespaces respectively.
+</p>
+<p>
+The XPath here can be used to automatically find 
+the relevant XML element in a resource if the resource 
+is represented in XML. Because resources are often represented
+in JSON, and because applications will often process the XPath
+directly (e.g. to determine the relevant widget), the XPath
+statement must be simple. Specifically, the XPath
+SHALL only contain element names and repetition indicators.
+So this is legal:
+</p>
+<pre>
+ &lt;location value=&quot;/f:Patient/f:identifier[2]/f:label&quot;/&gt;
+</pre>
+<p>
+but this is not:
+</p>
+<pre>
+ &lt;location value=&quot;/f:Patient/f:identifier[f:system/@value='http://example.com/mrn']/f:label&quot;/&gt;
+</pre>
+<p>
+Because the Xpath is required to be simple, it can be converted
+to <a href="https://tools.ietf.org/html/rfc6901">JsonPointer</a>
+by dropping the namespace prefixes, and correcting for array offsets. The XPaths above have these 
+equivalent JsonPointer representations:
+</p>
+<pre>
+ Patient/identifier
+ Patient/identifier/2/label
+</pre>
+<p>
+Note that correcting for array offsets may require knowledge of 
+which elements are Arrays in JSON. It is also possible to 
+convert the XPath statements to JsonPath, though there is no
+single standard for JsonPath.
+</p>
+<h3>Reporting Errors in the HTTP Headers</h3>
+<p>
+Servers may also need to report errors in the HTTP headers - especially 
+query parameters when processing searches. Errors are reported using 
+a case sensitive location that has two parts, a fixed "http" and 
+the header or query parameter name separated by a ".". Some
+examples:
+</p>
+<table class="grid">
+ <tr>
+   <td><b>Location</b></td>
+   <td><b>Description</b></td>
+ </tr>
+ <tr>
+   <td>http.name:exact</td>
+   <td>A reference to the search parameter "name" with the modifier ":exact"</td>
+ </tr>
+ <tr>
+   <td>http.Authorization</td>
+   <td>A reference to the Authorization header - perhaps to indicate that it is missing, and some form of authentication is required.</td>
+ </tr>
+</table>
 
 </div>

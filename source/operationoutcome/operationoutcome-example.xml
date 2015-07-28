@@ -11,7 +11,7 @@
     <severity value="error"/>
     <code value="code-invalid"/>
     <details> 
-      <text value="The code &quot;W&quot; in the system &quot;http://acme.com/intranet/fhir/codesystems/gender&quot; is not known (source = Acme.Interop.FHIRProcessors.Patient.processGender)"/>    </details>
-    <location value="/Person[1]/gender[1]"/>
+      <text value="The code &quot;W&quot; is not known and not legal in this context (source = Acme.Interop.FHIRProcessors.Patient.processGender)"/>    </details>
+    <location value="/f:Person/f:gender"/>
   </issue>
 </OperationOutcome>
