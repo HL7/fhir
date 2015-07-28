@@ -64,8 +64,7 @@
         </coding>
       </valueCodeableConcept>
       <status value="final"/>
-      <reliability value="unknown"/>
-			<subject>
+     			<subject>
 				<reference value="#patsub"/>
 			</subject>
 			<performer>

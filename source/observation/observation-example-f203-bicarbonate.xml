@@ -32,9 +32,9 @@
  </interpretation>
  <issued value="2013-04-04T14:34:00+01:00"/><!--Bicarbonate was measured on April fourth-->
  <status value="final"/><!--The observation is complete-->
- <reliability value="ok"/><!--No reliability concerns-->
+ <!--No reliability concerns-->
  <method><!--Method was enzymatic method-->
-    
+
     <text value="enzymatic method"></text>
  </method>
  <identifier>

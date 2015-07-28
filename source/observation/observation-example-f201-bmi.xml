@@ -19,7 +19,7 @@
 			</valueQuantity>
 			<status value="final"/>
 			<!--The observation is complete-->
-			<reliability value="ok"/>
+
 			<!--No reliability concerns-->
 			<subject>
 				<!--It entails Roel's BMI-->
@@ -49,7 +49,7 @@
 			</valueQuantity>
 			<status value="final"/>
 			<!--The observation is complete-->
-			<reliability value="ok"/>
+
 			<!--No reliability concerns-->
 			<subject>
 				<!--It entails Roel's BMI-->
@@ -95,7 +95,7 @@
 	<!--BMI was measured on this April fourth-->
 	<status value="final"/>
 	<!--The observation is complete-->
-	<reliability value="ok"/>
+
 	<!--No reliability concerns-->
 	<bodySiteCodeableConcept>
 		<!--BMI effective to whole body-->

@@ -88,7 +88,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				<text value="Staphylococcus aureus"/>
 			</valueCodeableConcept>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -115,7 +115,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</valueCodeableConcept>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -144,7 +144,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -176,7 +176,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -208,7 +208,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -240,7 +240,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -272,7 +272,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -304,7 +304,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -336,7 +336,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -368,7 +368,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -400,7 +400,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -431,7 +431,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -463,7 +463,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -494,7 +494,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -526,7 +526,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -557,7 +557,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -589,7 +589,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -621,7 +621,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -654,7 +654,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -685,7 +685,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -708,7 +708,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 			</code>
 			<valueString value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -736,7 +736,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</interpretation>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -769,7 +769,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</code>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -908,7 +908,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				</coding>
 			</code>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->
@@ -934,7 +934,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 				<text value="Staphylococcus aureus Panel"/>
 			</code>
 			<status value="final"/>
-			<reliability value="ok"/>
+			
 			<subject>
 				<reference value="Patient/example"/>
 				<!-- patient chosen at random -->

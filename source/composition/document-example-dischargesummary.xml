@@ -246,7 +246,7 @@
         </code>
         <valueString value="Acute Asthmatic attack. Was wheezing for days prior to admission."/>
         <status value="final"/>
-        <reliability value="ok"/>
+        
       </Observation>
     </resource>
   </entry>

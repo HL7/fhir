@@ -30,7 +30,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </div>
   </text>
   <contained>
-    <Observation><!-- 
+    <Observation><!--
   all the data items (= Observations) are contained
   in this diagnostic report. It would be equally
     valid - and normal - for them to be separate trackable
@@ -55,7 +55,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="g/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -97,7 +97,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*12/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -143,7 +143,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -187,7 +187,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -235,7 +235,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -277,7 +277,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -319,7 +319,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -361,7 +361,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -395,7 +395,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -437,7 +437,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -471,7 +471,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -513,7 +513,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -541,7 +541,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -583,7 +583,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -617,7 +617,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -659,7 +659,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
@@ -687,7 +687,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+
       <subject>
         <reference value="Patient/pat2"/>
       </subject>

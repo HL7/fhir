@@ -55,7 +55,7 @@
 					</extension>
 					<system value="http://r.details.loinc.org/AnswerList/LL357-5"/>
 					<code value="LA6566-9">
-					
+
 					</code>
 					<display value="Localizing pain"/>
 				</coding>
@@ -63,7 +63,7 @@
 			</valueCodeableConcept>
 			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
-			<reliability value="ok"/>
+
 			<subject>
 				<reference value="Patient/example"/>
 			</subject>
@@ -104,7 +104,7 @@
 			</valueCodeableConcept>
 			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
-			<reliability value="ok"/>
+
 			<subject>
 				<reference value="Patient/example"/>
 			</subject>
@@ -144,7 +144,7 @@
 			</valueCodeableConcept>
 			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
-			<reliability value="ok"/>
+
 			<subject>
 				<reference value="Patient/example"/>
 			</subject>
@@ -178,7 +178,7 @@
 	<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 	<!-- the mandatory quality flags: -->
 	<status value="final"/>
-	<reliability value="ok"/>
+
 	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>

@@ -141,7 +141,7 @@ GE LUNAR PRODIGY DENSITOMETER
 				<code value="g/cm-2"/>
 			</valueQuantity>
 			<status value="final"/>
-			<reliability value="ok"/>
+
 			<bodySiteCodeableConcept>
 				<coding>
 					<system value="http://snomed.info/sct"/>

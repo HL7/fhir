@@ -208,7 +208,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -247,7 +246,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -286,7 +284,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -325,7 +322,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -364,7 +360,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -403,7 +398,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -442,7 +436,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -481,7 +474,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -526,7 +518,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -565,7 +556,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -604,7 +594,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -643,7 +632,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -682,7 +670,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -727,7 +714,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -766,7 +752,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -805,7 +790,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -844,7 +828,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -883,7 +866,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -922,7 +904,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -961,7 +942,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -1000,7 +980,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -1039,7 +1018,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -1084,7 +1062,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -1123,7 +1100,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -1162,7 +1138,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -1201,7 +1176,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -1355,7 +1329,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1394,7 +1367,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1433,7 +1405,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1472,7 +1443,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1511,7 +1481,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1550,7 +1519,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1595,7 +1563,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1634,7 +1601,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1679,7 +1645,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1718,7 +1683,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1757,7 +1721,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1802,7 +1765,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1847,7 +1809,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1892,7 +1853,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1937,7 +1897,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -1976,7 +1935,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2015,7 +1973,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2054,7 +2011,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2093,7 +2049,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2132,7 +2087,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2171,7 +2125,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2210,7 +2163,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2255,7 +2207,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2294,7 +2245,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2333,7 +2283,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -2480,7 +2429,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2519,7 +2467,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2558,7 +2505,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2597,7 +2543,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2636,7 +2581,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2675,7 +2619,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2714,7 +2657,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2753,7 +2695,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2798,7 +2739,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2837,7 +2777,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2876,7 +2815,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2921,7 +2859,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -2966,7 +2903,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3011,7 +2947,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3050,7 +2985,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3089,7 +3023,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3128,7 +3061,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3167,7 +3099,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3206,7 +3137,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3245,7 +3175,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3284,7 +3213,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3323,7 +3251,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3368,7 +3295,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3407,7 +3333,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3446,7 +3371,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -3593,7 +3517,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3632,7 +3555,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3671,7 +3593,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3710,7 +3631,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3749,7 +3669,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3788,7 +3707,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3827,7 +3745,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3866,7 +3783,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3911,7 +3827,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3950,7 +3865,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -3989,7 +3903,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4034,7 +3947,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4079,7 +3991,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4118,7 +4029,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4157,7 +4067,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4196,7 +4105,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4235,7 +4143,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4274,7 +4181,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4313,7 +4219,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4352,7 +4257,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4391,7 +4295,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4430,7 +4333,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4475,7 +4377,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4514,7 +4415,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4553,7 +4453,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -4700,7 +4599,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -4739,7 +4637,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -4778,7 +4675,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -4817,7 +4713,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -4856,7 +4751,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -4895,7 +4789,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -4934,7 +4827,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -4973,7 +4865,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5012,7 +4903,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5057,7 +4947,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5102,7 +4991,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5147,7 +5035,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5192,7 +5079,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5237,7 +5123,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5282,7 +5167,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5321,7 +5205,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5360,7 +5243,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5399,7 +5281,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5438,7 +5319,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5477,7 +5357,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5516,7 +5395,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5555,7 +5433,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5600,7 +5477,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5639,7 +5515,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -5783,7 +5658,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -5822,7 +5696,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -5861,7 +5734,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -5900,7 +5772,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -5939,7 +5810,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -5978,7 +5848,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6017,7 +5886,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6056,7 +5924,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6101,7 +5968,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6146,7 +6012,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6191,7 +6056,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6236,7 +6100,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6281,7 +6144,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6326,7 +6188,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6371,7 +6232,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6410,7 +6270,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6449,7 +6308,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6488,7 +6346,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6527,7 +6384,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6566,7 +6422,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6605,7 +6460,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6644,7 +6498,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6689,7 +6542,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6728,7 +6580,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -6872,7 +6723,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -6911,7 +6761,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -6950,7 +6799,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -6989,7 +6837,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7028,7 +6875,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7067,7 +6913,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7106,7 +6951,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7145,7 +6989,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7190,7 +7033,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7235,7 +7077,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7280,7 +7121,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7325,7 +7165,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7370,7 +7209,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7415,7 +7253,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7454,7 +7291,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7493,7 +7329,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7532,7 +7367,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7571,7 +7405,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7610,7 +7443,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7649,7 +7481,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7688,7 +7519,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7733,7 +7563,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7778,7 +7607,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7817,7 +7645,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/7"/>
             </subject>
@@ -7961,7 +7788,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8000,7 +7826,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8039,7 +7864,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8078,7 +7902,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8117,7 +7940,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8156,7 +7978,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8195,7 +8016,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8234,7 +8054,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8279,7 +8098,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8318,7 +8136,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8357,7 +8174,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8396,7 +8212,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8435,7 +8250,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8480,7 +8294,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8519,7 +8332,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8558,7 +8370,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8597,7 +8408,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8636,7 +8446,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8675,7 +8484,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8714,7 +8522,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8753,7 +8560,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8792,7 +8598,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8836,7 +8641,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8875,7 +8679,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -8914,7 +8717,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/8"/>
             </subject>
@@ -9061,7 +8863,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9100,7 +8901,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9139,7 +8939,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9178,7 +8977,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9217,7 +9015,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9256,7 +9053,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9301,7 +9097,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9340,7 +9135,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9385,7 +9179,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9424,7 +9217,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9463,7 +9255,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9508,7 +9299,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9553,7 +9343,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9598,7 +9387,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9643,7 +9431,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9682,7 +9469,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9721,7 +9507,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9760,7 +9545,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9799,7 +9583,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9838,7 +9621,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9877,7 +9659,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9916,7 +9697,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -9961,7 +9741,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -10000,7 +9779,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -10039,7 +9817,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/9"/>
             </subject>
@@ -10186,7 +9963,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10225,7 +10001,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10264,7 +10039,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10303,7 +10077,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10342,7 +10115,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10381,7 +10153,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10420,7 +10191,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10459,7 +10229,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10504,7 +10273,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10543,7 +10311,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10582,7 +10349,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10627,7 +10393,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10672,7 +10437,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10717,7 +10481,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10756,7 +10519,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10795,7 +10557,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10834,7 +10595,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10873,7 +10633,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10912,7 +10671,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10951,7 +10709,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -10990,7 +10747,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -11029,7 +10785,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -11074,7 +10829,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -11113,7 +10867,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -11152,7 +10905,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/10"/>
             </subject>
@@ -11299,7 +11051,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11338,7 +11089,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11377,7 +11127,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11416,7 +11165,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11455,7 +11203,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11494,7 +11241,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11533,7 +11279,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11572,7 +11317,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11617,7 +11361,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11656,7 +11399,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11695,7 +11437,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11740,7 +11481,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11785,7 +11525,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11824,7 +11563,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11863,7 +11601,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11902,7 +11639,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11941,7 +11677,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -11980,7 +11715,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -12019,7 +11753,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -12058,7 +11791,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -12097,7 +11829,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -12136,7 +11867,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -12181,7 +11911,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -12220,7 +11949,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -12259,7 +11987,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>
@@ -12406,7 +12133,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12445,7 +12171,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12484,7 +12209,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12523,7 +12247,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12562,7 +12285,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12601,7 +12323,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12640,7 +12361,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12679,7 +12399,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12718,7 +12437,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12763,7 +12481,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12808,7 +12525,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12853,7 +12569,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12898,7 +12613,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12943,7 +12657,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -12988,7 +12701,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13027,7 +12739,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13066,7 +12777,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13105,7 +12815,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13144,7 +12853,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13183,7 +12891,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13222,7 +12929,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13261,7 +12967,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13306,7 +13011,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13345,7 +13049,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/2"/>
             </subject>
@@ -13489,7 +13192,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13528,7 +13230,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13567,7 +13268,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13606,7 +13306,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13645,7 +13344,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13684,7 +13382,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13723,7 +13420,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13762,7 +13458,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13807,7 +13502,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13852,7 +13546,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13897,7 +13590,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13942,7 +13634,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -13987,7 +13678,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14032,7 +13722,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14077,7 +13766,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14116,7 +13804,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14155,7 +13842,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14194,7 +13880,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14233,7 +13918,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14272,7 +13956,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14311,7 +13994,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14350,7 +14032,6 @@
               <units value="umol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14395,7 +14076,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14434,7 +14114,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/3"/>
             </subject>
@@ -14578,7 +14257,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14617,7 +14295,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14656,7 +14333,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14695,7 +14371,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14734,7 +14409,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14773,7 +14447,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14812,7 +14485,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14851,7 +14523,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14896,7 +14567,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14941,7 +14611,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -14986,7 +14655,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15031,7 +14699,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15076,7 +14743,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15121,7 +14787,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15160,7 +14825,6 @@
               <units value="U/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15199,7 +14863,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15238,7 +14901,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15277,7 +14939,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15316,7 +14977,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15355,7 +15015,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15394,7 +15053,6 @@
               <units value="g/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15439,7 +15097,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15484,7 +15141,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15523,7 +15179,6 @@
               <units value="mmol/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/4"/>
             </subject>
@@ -15662,7 +15317,6 @@
               <text value="KLEBSIELLA PNEUMONIAE"/>
             </valueCodeableConcept>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15687,7 +15341,6 @@
               <units value="CFU/ML"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15718,7 +15371,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15749,7 +15401,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15781,7 +15432,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15813,7 +15463,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15845,7 +15494,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15877,7 +15525,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15909,7 +15556,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15941,7 +15587,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -15973,7 +15618,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -16005,7 +15649,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -16037,7 +15680,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -16069,7 +15711,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -16100,7 +15741,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -16132,7 +15772,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -16164,7 +15803,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -16196,7 +15834,6 @@
               </coding>
             </interpretation>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/5"/>
             </subject>
@@ -16312,7 +15949,6 @@
             </code>
             <valueString value="Non-reactive"/>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/6"/>
             </subject>
@@ -16391,7 +16027,6 @@
               <units value="mg/L"/>
             </valueQuantity>
             <status value="final"/>
-            <reliability value="ok"/>
             <subject>
               <reference value="Patient/1"/>
             </subject>

@@ -28,7 +28,7 @@
 	<meta>
 		<lastUpdated value="2014-01-30T22:35:23+11:00"/>
 	</meta>
-<!--	EH  Narrative created by build 
+<!--	EH  Narrative created by build
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107/60 mmHg (low)</div>
@@ -56,7 +56,7 @@
 	<effectiveDateTime value="2012-09-17"/>
 	<!-- for an observation with components, these cannot disagree with the flags on the components -->
 	<status value="final"/>
-	<reliability value="ok"/>
+
 	<bodySiteCodeableConcept>
 	<coding>
 		<system value="http://snomed.info/sct"/>

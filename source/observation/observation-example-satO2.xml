@@ -33,7 +33,7 @@
 
   <status value="final"/>
 
-  <reliability value="ok"/>
+
 
   <identifier>
 	<system value="http://goodcare.org/observation/id"/>

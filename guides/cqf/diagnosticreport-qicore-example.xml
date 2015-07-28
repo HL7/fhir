@@ -62,7 +62,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="g/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
+    
       <referenceRange>
         <low>
           <value value="135"/>
@@ -97,7 +97,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*12/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="4.2"/>
@@ -136,7 +135,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="38"/>
@@ -173,7 +171,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="80"/>
@@ -214,7 +211,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="27"/>
@@ -249,7 +245,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="150"/>
@@ -284,7 +279,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="4.0"/>
@@ -319,7 +313,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
     </Observation>
   </contained>
   <contained>
@@ -346,7 +339,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="2.0"/>
@@ -381,7 +373,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
     </Observation>
   </contained>
   <contained>
@@ -408,7 +399,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="1.1"/>
@@ -443,7 +433,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
     </Observation>
   </contained>
   <contained>
@@ -464,7 +453,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="0.2"/>
@@ -499,7 +487,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
     </Observation>
   </contained>
   <contained>
@@ -526,7 +513,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </coding>
       </interpretation>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <low>
           <value value="0.04"/>
@@ -561,7 +547,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="%"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
     </Observation>
   </contained>
   <contained>
@@ -582,7 +567,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <status value="final"/>
-      <reliability value="ok"/>
       <referenceRange>
         <high>
           <value value="0.21"/>

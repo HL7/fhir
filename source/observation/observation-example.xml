@@ -50,7 +50,7 @@
   </valueQuantity>
   <!-- the mandatory quality flags: -->
   <status value="final"/>
-  <reliability value="ok"/>
+
   <subject>
       <reference value="Patient/example"/>
   </subject>

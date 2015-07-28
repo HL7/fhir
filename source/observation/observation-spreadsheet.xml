@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-27T21:22:07Z</LastSaved>
+  <LastSaved>2015-07-28T06:23:30Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1312,7 +1312,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.interpretation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Abnormal Flag</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1329,7 +1330,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">High, low, normal, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The assessment made based on the result of the observation.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1507,7 +1508,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.reliability</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!Observation.reliability</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1545,7 +1546,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">default: ok</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">[#3002]</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">[#3002],7154</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
@@ -4531,9 +4532,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>11</LeftColumnRightPane>
+   <LeftColumnRightPane>19</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4549,8 +4550,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5222,7 +5223,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">The status of the observation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">reliability</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">!reliability</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Observation.reliability</Data></Cell>
@@ -5412,8 +5413,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6366,7 +6367,7 @@
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="320.25"/>
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="281.25"/>
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="252"/>
-   <Column ss:StyleID="s115" ss:Width="63"/>
+   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="115.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="56.25">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -6560,8 +6561,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7090,7 +7091,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">Need to use v2 codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ObservationReliability</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!ObservationReliability</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Codes that provide an estimate of the degree to which quality issues have impacted on the value of an observation</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s121"/>
@@ -7482,8 +7483,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
