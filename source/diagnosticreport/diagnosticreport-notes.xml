@@ -40,7 +40,7 @@ narrative. </li>
 This resource provides for 3 different ways of presenting the Diagnostic Report:
 </p>
 <ul>
- <li>As atomic data items: a hierarchical set of nested references to Observation resources, one or more images, and possibly with a conclusion and/or one or more coded diagnoses</li>
+ <li>As atomic data items: a hierarchical set of nested references to Observation resources often including pathologist/radiologist interpretation(s),  one or more images, and possibly with a conclusion and/or one or more coded diagnoses</li>
  <li>As narrative: an XHTML presentation in the standard resource narrative</li>
  <li>As a "presented form": A rich text representation of the report - typically a PDF</li>
 </ul>

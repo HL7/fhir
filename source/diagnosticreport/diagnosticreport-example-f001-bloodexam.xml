@@ -20,7 +20,7 @@
       <encounter>
         <reference value="Encounter/f001"/><!--TODO Correcte verwijzing-->
       </encounter>
-      <clinicalNotes value="patient almost fainted during procedure"/>
+      <reason><text value="patient almost fainted during procedure"/></reason>
       <item>
         <code>
           <coding>

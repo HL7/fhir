@@ -12,7 +12,7 @@ Authored by: Eric M Haas  Health eData Inc.
 -->
 <DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticorder.xsd">
 	<id value="do-uslab-example1"/>
-		<!-- comment out to see if causing build to hang extension for a CC to a non ordering party in this case another provider
+	<!-- comment out to see if causing build to hang extension for a CC to a non ordering party in this case another provider
 	<extension url="http://hl7.org/fhir/StructureDefinition/uslabcc-practitioner">
 		<valueReference>
 			<reference value="Practitioner/uslab-example2"/>
@@ -21,11 +21,11 @@ Authored by: Eric M Haas  Health eData Inc.
 	</extension>
 -->
 	<subject>
-		<reference value="Patient/uslab-example1"/>
+		<reference value="Patient/patient-uslab-example1"/>
 		<display value="Todd Lerr"/>
 	</subject>
 	<orderer>
-		<reference value="Practitioner/uslab-example1"/>
+		<reference value="Practitioner/pract-uslab-example1"/>
 		<display value="Dr Leonard T Bloodraw Jr"/>
 	</orderer>
 	<identifier>
@@ -34,13 +34,20 @@ Authored by: Eric M Haas  Health eData Inc.
 		<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
 		<value value="ORD000123A"/>
 	</identifier>
-	<clinicalNotes value="Screening for blood lead"/>
+	<reason>
+		<coding>
+			<system value="http://www.icd10data.com/icd10pcs"/>
+			<code value="R78.71"/>
+			<display value="Abnormal lead level in blood"/>
+		</coding>
+		<text value="Abnormal lead level in blood"/>
+	</reason>
 	<supportingInformation>
-		<reference value="Observation/uslab-example1"/>
+		<reference value="Observation/obs-uslab-example1.html"/>
 		<display value="Prior Results Observation"/>
 	</supportingInformation>
 	<supportingInformation>
-		<reference value="Condition/uslab-example1"/>
+		<reference value="Condition/cond-uslab-example1.html"/>
 		<display value="Lead Exposure"/>
 	</supportingInformation>
 	<!--  EH this specimen is for when lab has existing
@@ -83,10 +90,13 @@ Authored by: Eric M Haas  Health eData Inc.
 			<text value="Blood Lead"/>
 		</code>
 		<specimen>
-			<reference value="Specimen/uslab-example1"/>
+			<reference value="Specimen/spec-uslab-example1"/>
 			<display value="Whole blood"/>
 		</specimen>
 		<!-- EH this is set to 'requested' by the Placer -->
 		<status value="requested"/>
 	</item>
+	<note>
+		<text value="patient is afraid of needles"/>
+	</note>
 </DiagnosticOrder>

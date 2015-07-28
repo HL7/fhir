@@ -36,7 +36,7 @@ Comment: * Specimen clotted.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -45,7 +45,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/112"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -110,7 +110,7 @@ Film Comment : Platelets are clumped, but appear adequate in number. Red
                cells are mainly normocytic normochromic with mild
                rouleaux. White cells appear normal.
 Comment: *PLEASE NOTE AMENDED REPORT*
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -170,7 +170,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -179,7 +179,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/113"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -232,7 +232,7 @@ Anti-Factor Xa Comment:
    of bleeding, and interpretation of results, please contact the on-call
    laboratory Haematology registrar or Haematologist via ACME switchboard.
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -279,7 +279,7 @@ Fibrinogen        1.9L     1.8L                            g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -330,7 +330,7 @@ Comment: * Note: unsuitable specimen - tube underfilled.   Please
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -380,7 +380,7 @@ Magnesium        0.87     mmol/L ( 0.7-1.1  )
 Albumin            32     g/L    ( 35-50    )
 Troponin I       24.15    ug/L   (See Below )
 CK                828     IU/L   ( &lt;175     )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -422,7 +422,7 @@ TSH                       0.01    L  mIU/L   ( 0.1-4.0  )
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -478,7 +478,7 @@ Lymph        1.9      2.4      1.8      2.7      2.1   x10^9/L   1.2-4.0
 Mono         0.5      0.5      0.6      0.6      0.8   x10^9/L   0.1-1.0
 Eos          0.2      0.3      0.2      0.2      0.3   x10^9/L   0.0-0.5
 Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -523,7 +523,7 @@ Creatinine         66     umol/L ( 49-90    )
 Urea              4.0     mmol/L ( 2.5-8.3  )
  eGFR             76             ( SEE-BELOW)
 C-React Prot      152     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -532,7 +532,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
             <subject>
               <reference value="Patient/116"/>
             </subject>
-            <clinicalNotes value="Infected Tendon Sheath"/>
+            <reason><text value="Infected Tendon Sheath"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -591,7 +591,7 @@ Lymph        1.9                                       x10^9/L   1.2-4.0
 Mono         0.6                                       x10^9/L   0.1-1.0
 Eos          0.0                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -600,7 +600,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/116"/>
             </subject>
-            <clinicalNotes value="Infected Tendon Sheath"/>
+            <reason><text value="Infected Tendon Sheath"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -647,7 +647,7 @@ Creatinine        117     umol/L ( 64-104   )
  (Creatinine)    0.117    mmol/L ( 0.05-0.11)
 Urea             10.0     mmol/L ( 2.5-8.3  )
  eGFR             53             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -656,7 +656,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/117"/>
             </subject>
-            <clinicalNotes value="Post Tx"/>
+            <reason><text value="Post Tx"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -741,7 +741,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
                differential. Red cells are mildly macrocytic with some
                target cells and polychromatic cells. Platelets appear
                normal.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -750,7 +750,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
             <subject>
               <reference value="Patient/117"/>
             </subject>
-            <clinicalNotes value="Post Tx"/>
+            <reason><text value="Post Tx"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -806,7 +806,7 @@ Comment: * Specimen clotted. Suggest repeat. Ward notified.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -852,7 +852,7 @@ Urea             19.8     mmol/L ( 2.5-8.3  )
  eGFR             22             ( SEE-BELOW)
 
 Comment: The Potassium result has been checked.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -908,7 +908,7 @@ Lymph        1.5      1.5      1.2      1.5      1.3   x10^9/L   1.2-4.0
 Mono         0.6      0.6      0.4      0.5      0.4   x10^9/L   0.1-1.0
 Eos          0.5      0.5      0.6H     0.1      0.1   x10^9/L   0.0-0.5
 Baso         0.1      0.0      0.1      0.1      0.1   x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -976,7 +976,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -985,7 +985,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/119"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1033,7 +1033,7 @@ Creatinine        153     umol/L ( 64-104   )
 Urea             10.0     mmol/L ( 2.5-8.3  )
  eGFR             40             ( SEE-BELOW)
 Troponin I       &lt;0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -1089,7 +1089,7 @@ Lymph                 1.8      1.5      2.4      1.3   x10^9/L   1.2-4.0
 Mono                  0.3      0.3      0.8      0.4   x10^9/L   0.1-1.0
 Eos                   0.2      0.1      0.3      0.1   x10^9/L   0.0-0.5
 Baso                  0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -1134,7 +1134,7 @@ Creatinine         78     umol/L ( 64-104   )
 Urea              5.4     mmol/L ( 2.5-8.3  )
  eGFR             &gt;90            ( SEE-BELOW)
 Troponin I       &lt;0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1143,7 +1143,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <subject>
               <reference value="Patient/111"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1202,7 +1202,7 @@ Lymph        2.2                                       x10^9/L   1.2-4.0
 Mono         0.6                                       x10^9/L   0.1-1.0
 Eos          0.2                                       x10^9/L   0.0-0.5
 Baso         0.1                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1211,7 +1211,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/111"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1264,7 +1264,7 @@ Comment: Please note mild hypofibrinogenaemia persists.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1273,7 +1273,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/111"/>
             </subject>
-            <clinicalNotes value="PR Bleed Hep C +ve"/>
+            <reason><text value="PR Bleed Hep C +ve"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1328,7 +1328,7 @@ AST               134     IU/L   ( &lt;31      )
 Bili Total         17     umol/L ( &lt;19      )
 Protein Total      63     g/L    ( 65-85    )
 Troponin I        0.03    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1337,7 +1337,7 @@ Troponin I        0.03    ug/L   (See Below )
             <subject>
               <reference value="Patient/111"/>
             </subject>
-            <clinicalNotes value="PR Bleed Hep C +ve"/>
+            <reason><text value="PR Bleed Hep C +ve"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1392,7 +1392,7 @@ AST               134     IU/L   ( &lt;31      )
 Bili Total         17     umol/L ( &lt;19      )
 Protein Total      63     g/L    ( 65-85    )
 Troponin I        0.03    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1401,7 +1401,7 @@ Troponin I        0.03    ug/L   (See Below )
             <subject>
               <reference value="Patient/111"/>
             </subject>
-            <clinicalNotes value="PR Bleed Hep C +ve"/>
+            <reason><text value="PR Bleed Hep C +ve"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1479,7 +1479,7 @@ Film Comment : Mild anaemia. Red cells show moderate anisocytosis with
                thrombocytopenia.
 Comment: Please note moderate thrombocytopenia persists. Please
          note: no clinical details given.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1488,7 +1488,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
             <subject>
               <reference value="Patient/111"/>
             </subject>
-            <clinicalNotes value="PR Bleed Hep C +ve"/>
+            <reason><text value="PR Bleed Hep C +ve"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1542,7 +1542,7 @@ ALT                39     IU/L   ( &lt;34      )
 AST                24     IU/L   ( &lt;31      )
 Bili Total         &lt;5     umol/L ( &lt;19      )
 Protein Total      65     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1551,7 +1551,7 @@ Protein Total      65     g/L    ( 65-85    )
             <subject>
               <reference value="Patient/112"/>
             </subject>
-            <clinicalNotes value="Vomiting Diarrhoea"/>
+            <reason><text value="Vomiting Diarrhoea"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1633,7 +1633,7 @@ Film Comment : Mild neutrophilia with mild left shift, moderate toxic
                granulation and vacuolation and occasional Doehle bodies.
                Occasional reactive lymphocytes. Manual differential.
 Conclusion: Suggestive of infection.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1642,7 +1642,7 @@ Conclusion: Suggestive of infection.
             <subject>
               <reference value="Patient/112"/>
             </subject>
-            <clinicalNotes value="Vomiting Diarrhoea"/>
+            <reason><text value="Vomiting Diarrhoea"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1692,7 +1692,7 @@ Hrs Since Dose          No Info                            HH:MM
 Valproate          283L      57L                           umol/L 350-700
 Hrs Since Dose No Info  No Info                            HH:MM
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1701,7 +1701,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
             <subject>
               <reference value="Patient/113"/>
             </subject>
-            <clinicalNotes value="Intoxicated Agitated ? Penetrating Head Injury"/>
+            <reason><text value="Intoxicated Agitated ? Penetrating Head Injury"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1756,7 +1756,7 @@ AST                71     IU/L   ( &lt;35      )
 Bili Total         10     umol/L ( &lt;19      )
 Protein Total      78     g/L    ( 65-85    )
 Lipase             87     IU/L   ( &lt;60      )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1765,7 +1765,7 @@ Lipase             87     IU/L   ( &lt;60      )
             <subject>
               <reference value="Patient/113"/>
             </subject>
-            <clinicalNotes value="Intoxicated Agitated ? Penetrating Head Injury"/>
+            <reason><text value="Intoxicated Agitated ? Penetrating Head Injury"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1838,7 +1838,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
 
 11Z563831 02/07/11 16:00
 Comment: Instrument differential and parameters reported.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -1847,7 +1847,7 @@ Comment: Instrument differential and parameters reported.
             <subject>
               <reference value="Patient/113"/>
             </subject>
-            <clinicalNotes value="Intoxicated Agitated ? Penetrating Head Injury"/>
+            <reason><text value="Intoxicated Agitated ? Penetrating Head Injury"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -1892,7 +1892,7 @@ Request No:   Z986931
              -------- -------- -------- -------- -------- ------ -----
 Coagulation (Plasma)
 INR               1.2                                            0.8-1.3
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -1940,7 +1940,7 @@ Calcium          1.97     mmol/L ( 2.10-2.60)
 Phosphate        0.94     mmol/L ( 0.8-1.5  )
 Magnesium        0.58     mmol/L ( 0.7-1.1  )
 Albumin            26     g/L    ( 35-50    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -2000,7 +2000,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2009,7 +2009,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/113"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2054,7 +2054,7 @@ Request No:   Z968921
              -------- -------- -------- -------- -------- ------ -----
 Coagulation (Plasma)
 INR               3.0H                                           0.8-1.3
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2063,7 +2063,7 @@ INR               3.0H                                           0.8-1.3
             <subject>
               <reference value="Patient/114"/>
             </subject>
-            <clinicalNotes value="Fall From Standing Height Headstrike LOC"/>
+            <reason><text value="Fall From Standing Height Headstrike LOC"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2110,7 +2110,7 @@ Creatinine         73     umol/L ( 64-104   )
  (Creatinine)    0.073    mmol/L ( 0.05-0.11)
 Urea              8.0     mmol/L ( 2.5-8.3  )
  eGFR             &gt;90            ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2119,7 +2119,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/114"/>
             </subject>
-            <clinicalNotes value="Fall From Standing Height Headstrike LOC"/>
+            <reason><text value="Fall From Standing Height Headstrike LOC"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2178,7 +2178,7 @@ Lymph        1.3                                       x10^9/L   1.2-4.0
 Mono         0.5                                       x10^9/L   0.1-1.0
 Eos          0.3                                       x10^9/L   0.0-0.5
 Baso         0.1                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2187,7 +2187,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/114"/>
             </subject>
-            <clinicalNotes value="Fall From Standing Height Headstrike LOC"/>
+            <reason><text value="Fall From Standing Height Headstrike LOC"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2258,7 +2258,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2267,7 +2267,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/115"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2317,7 +2317,7 @@ Fibrinogen        5.5H                                     g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2326,7 +2326,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/116"/>
             </subject>
-            <clinicalNotes value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
+            <reason><text value="TIA Slurred Speech Facial Droop Cardiac Hx"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2381,7 +2381,7 @@ ALT                14     IU/L   ( &lt;45      )
 AST                22     IU/L   ( &lt;35      )
 Bili Total         10     umol/L ( &lt;19      )
 Protein Total      77     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2390,7 +2390,7 @@ Protein Total      77     g/L    ( 65-85    )
             <subject>
               <reference value="Patient/116"/>
             </subject>
-            <clinicalNotes value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
+            <reason><text value="TIA Slurred Speech Facial Droop Cardiac Hx"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2449,7 +2449,7 @@ Lymph        2.8                                       x10^9/L   1.2-4.0
 Mono         0.7                                       x10^9/L   0.1-1.0
 Eos          0.2                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2458,7 +2458,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/116"/>
             </subject>
-            <clinicalNotes value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
+            <reason><text value="TIA Slurred Speech Facial Droop Cardiac Hx"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2515,7 +2515,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
                  Toxicity may be seen with a plasma concentration
                  of greater than 3 mmol/L.
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2524,7 +2524,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
             <subject>
               <reference value="Patient/117"/>
             </subject>
-            <clinicalNotes value="Collapse"/>
+            <reason><text value="Collapse"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2581,7 +2581,7 @@ ALT                11     IU/L   ( &lt;34      )
 AST                 9     IU/L   ( &lt;31      )
 Bili Total         17     umol/L ( &lt;19      )
 Protein Total      70     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2590,7 +2590,7 @@ Protein Total      70     g/L    ( 65-85    )
             <subject>
               <reference value="Patient/117"/>
             </subject>
-            <clinicalNotes value="Collapse"/>
+            <reason><text value="Collapse"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2664,7 +2664,7 @@ Comment: Please note fall in haemoglobin.
 12Z986911 05/04/12 22:56
 Film Comment : Film scanned.
 Comment: Mild neutropenia.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2673,7 +2673,7 @@ Comment: Mild neutropenia.
             <subject>
               <reference value="Patient/117"/>
             </subject>
-            <clinicalNotes value="Collapse"/>
+            <reason><text value="Collapse"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2744,7 +2744,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2753,7 +2753,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/118"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2824,7 +2824,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2833,7 +2833,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/118"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2904,7 +2904,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2913,7 +2913,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/119"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -2984,7 +2984,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -2993,7 +2993,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/120"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3056,7 +3056,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3065,7 +3065,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/112"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3132,7 +3132,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3141,7 +3141,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/121"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3212,7 +3212,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3221,7 +3221,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/122"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3295,7 +3295,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3304,7 +3304,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/114"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3343,7 +3343,7 @@ Note: Reference Ranges shown are for arterial blood only.
           <div xmlns="http://www.w3.org/1999/xhtml">
             <pre>
 Specimen Type:  Serum
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3352,7 +3352,7 @@ Specimen Type:  Serum
             <subject>
               <reference value="Patient/123"/>
             </subject>
-            <clinicalNotes value="Needlestick Recipient"/>
+            <reason><text value="Needlestick Recipient"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3403,7 +3403,7 @@ HBsAB Titre                                            :      44 IU/L
               10 -  100 IU/L                       Moderate Positive
                  &gt;  100 IU/L                            Detected
      =======================================       =================
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3412,7 +3412,7 @@ HBsAB Titre                                            :      44 IU/L
             <subject>
               <reference value="Patient/123"/>
             </subject>
-            <clinicalNotes value="Needlestick Recipient"/>
+            <reason><text value="Needlestick Recipient"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3483,7 +3483,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3492,7 +3492,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/124"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3537,7 +3537,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3546,7 +3546,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
             <subject>
               <reference value="Patient/124"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3617,7 +3617,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3626,7 +3626,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/120"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3676,7 +3676,7 @@ Fibrinogen        4.1               4.0               3.8  g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -3718,7 +3718,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3727,7 +3727,7 @@ Anaerobic bottle             4   days                 Negative
             <subject>
               <reference value="Patient/126"/>
             </subject>
-            <clinicalNotes value="Febrile &gt;38"/>
+            <reason><text value="Febrile &gt;38"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3798,7 +3798,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3807,7 +3807,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/127"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3892,7 +3892,7 @@ Group B Streptococcus is part of the normal vaginal flora.
 It may be significant in pregnant patients causing intrauterine,
 perinatal or neonatal infection.
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3901,7 +3901,7 @@ perinatal or neonatal infection.
             <subject>
               <reference value="Patient/128"/>
             </subject>
-            <clinicalNotes value="Appendiceal Abscess"/>
+            <reason><text value="Appendiceal Abscess"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -3972,7 +3972,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -3981,7 +3981,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/129"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4036,7 +4036,7 @@ Comment: sample not protected from light ward notified for
          recollection
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -4086,7 +4086,7 @@ Comment: * Please note: no specimen received. CSR notified ward
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -4135,7 +4135,7 @@ Phosphate        0.96     mmol/L ( 0.8-1.5  )
 Magnesium        0.78     mmol/L ( 0.8-1.0  )
 Albumin            23     g/L    ( 35-50    )
 C-React Prot        2     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -4203,7 +4203,7 @@ Film Comment : White cells show mild monocytosis and nild toxic changes
 Conclusion: No clinical information provided.
             ? Infection / inflammation
             Note anaemia, suggest iron studies.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -4269,7 +4269,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4278,7 +4278,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/131"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4325,7 +4325,7 @@ Creatinine         86     umol/L ( 64-104   )
  (Creatinine)    0.086    mmol/L ( 0.05-0.11)
 Urea             12.2     mmol/L ( 2.5-8.3  )
  eGFR             73             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4334,7 +4334,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/132"/>
             </subject>
-            <clinicalNotes value="Fall"/>
+            <reason><text value="Fall"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4402,7 +4402,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
             chemotherapy. Suggest liver function tests, serum
             B12/folate levels, and review drug history if cause not
             already known.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4411,7 +4411,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
             <subject>
               <reference value="Patient/132"/>
             </subject>
-            <clinicalNotes value="Fall"/>
+            <reason><text value="Fall"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4461,7 +4461,7 @@ Fibrinogen        4.0                                      g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4470,7 +4470,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/128"/>
             </subject>
-            <clinicalNotes value="Appendiceal Abscess"/>
+            <reason><text value="Appendiceal Abscess"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4525,7 +4525,7 @@ AST                25     IU/L   ( &lt;31      )
 Bili Total          6     umol/L ( &lt;19      )
 Protein Total      86     g/L    ( 65-85    )
 C-React Prot        4     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4534,7 +4534,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
             <subject>
               <reference value="Patient/128"/>
             </subject>
-            <clinicalNotes value="Appendiceal Abscess"/>
+            <reason><text value="Appendiceal Abscess"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4593,7 +4593,7 @@ Lymph        1.3      1.2      2.0      1.0L     2.5   x10^9/L   1.2-4.0
 Mono         0.9      0.5      0.5      0.5      0.4   x10^9/L   0.1-1.0
 Eos          0.0      0.1      0.2      0.1      0.1   x10^9/L   0.0-0.5
 Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4602,7 +4602,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/128"/>
             </subject>
-            <clinicalNotes value="Appendiceal Abscess"/>
+            <reason><text value="Appendiceal Abscess"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4673,7 +4673,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4682,7 +4682,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/133"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4736,7 +4736,7 @@ Comment: Please note : Low APTT.  ? Cause  ? Pre-activation of
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -4790,7 +4790,7 @@ ALT                37     IU/L   ( &lt;45      )
 AST                26     IU/L   ( &lt;35      )
 Bili Total         15     umol/L ( &lt;19      )
 Protein Total      69     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -4859,7 +4859,7 @@ Comment: Film reveiwed by Dr Radio Xray - Haematology
 
 12Z568213 05/04/12 10:40
 Comment: Note neutrophilia.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -4896,7 +4896,7 @@ Comment: Note neutrophilia.
             <pre>
 SERUM/PLASMA
 Troponin I        0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4905,7 +4905,7 @@ Troponin I        0.02    ug/L   (See Below )
             <subject>
               <reference value="Patient/135"/>
             </subject>
-            <clinicalNotes value="Chest Pain FI"/>
+            <reason><text value="Chest Pain FI"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4945,7 +4945,7 @@ Troponin I        0.02    ug/L   (See Below )
             <pre>
 SERUM/PLASMA
 Troponin I       &lt;0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -4954,7 +4954,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <subject>
               <reference value="Patient/136"/>
             </subject>
-            <clinicalNotes value="Serial Troponins"/>
+            <reason><text value="Serial Troponins"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -4994,7 +4994,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <pre>
 No Test Requested
 NTRC
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5003,7 +5003,7 @@ NTRC
             <subject>
               <reference value="Patient/137"/>
             </subject>
-            <clinicalNotes value="R/Central Chest Pain Febrile"/>
+            <reason><text value="R/Central Chest Pain Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -5050,7 +5050,7 @@ Creatinine         94     umol/L ( 64-104   )
  (Creatinine)    0.094    mmol/L ( 0.05-0.11)
 Urea              5.3     mmol/L ( 2.5-8.3  )
  eGFR             75             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5059,7 +5059,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/137"/>
             </subject>
-            <clinicalNotes value="R/Central Chest Pain Febrile"/>
+            <reason><text value="R/Central Chest Pain Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -5118,7 +5118,7 @@ Lymph        1.4      2.1      1.8      1.4      0.2L  x10^9/L   1.2-4.0
 Mono         0.7      0.5      0.6      1.2H     0.1   x10^9/L   0.1-1.0
 Eos          0.1      0.1      0.1      0.2      0.0   x10^9/L   0.0-0.5
 Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5127,7 +5127,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/137"/>
             </subject>
-            <clinicalNotes value="R/Central Chest Pain Febrile"/>
+            <reason><text value="R/Central Chest Pain Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -5174,7 +5174,7 @@ Creatinine         60     umol/L ( 49-90    )
  (Creatinine)    0.060    mmol/L ( 0.05-0.09)
 Urea              6.1     mmol/L ( 2.5-8.3  )
  eGFR             &gt;90            ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -5230,7 +5230,7 @@ Lymph        2.2                                       x10^9/L   1.2-4.0
 Mono         0.8                                       x10^9/L   0.1-1.0
 Eos          0.1                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -5307,7 +5307,7 @@ lincomycin.
 COMMENT
 Dry swab received only - swab in TRANSPORT MEDIUM is optimal for
 culture.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5316,7 +5316,7 @@ culture.
             <subject>
               <reference value="Patient/139"/>
             </subject>
-            <clinicalNotes value="Collapsed Low BP"/>
+            <reason><text value="Collapsed Low BP"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -5387,7 +5387,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5396,7 +5396,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/129"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -5443,7 +5443,7 @@ Creatinine Clearance                  ml/min          ( 90-150   )
 Urine Protein                  0.34   g/L
 Urine Protein Excretion               g/D             ( &lt;0.15    )
 Protein/Creat Ratio              30   mg/mmol Creat   ( 15-35    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -5487,7 +5487,7 @@ CULTURE
 SCREENING TEST FOR            VRE
 
 GROIN SWAB                    VRE not detected
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5496,7 +5496,7 @@ GROIN SWAB                    VRE not detected
             <subject>
               <reference value="Patient/141"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -5546,7 +5546,7 @@ Fibrinogen                                   3.9      4.7  g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -5602,7 +5602,7 @@ Bili Total         12     umol/L ( &lt;19      )
 Protein Total      79     g/L    ( 65-85    )
 Troponin I        0.08    ug/L   (See Below )
 CK                 43     IU/L   ( &lt;175     )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -5677,7 +5677,7 @@ Film Comment : Platelets appear normocytic normochromic with occasional
                cells are unchanged. White cells are unremarkable.
 Conclusion: Known beta thalassaemia minor. Suggest repeat FBE for an
             accurate platelet count.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -5724,7 +5724,7 @@ Fibrinogen                 4.9                             g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5733,7 +5733,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/143"/>
             </subject>
-            <clinicalNotes value="Heparin Infusion"/>
+            <reason><text value="Heparin Infusion"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -5802,7 +5802,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5811,7 +5811,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/121"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -5858,7 +5858,7 @@ Urine Creatinine Excretion            mmol/D          ( 7-13     )
 Urine Protein                  0.51   g/L
 Urine Protein Excretion               g/D             ( &lt;0.15    )
 Protein/Creat Ratio             232 H mg/mmol Creat   ( 15-35    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -5922,7 +5922,7 @@ Squamous Epithelial Cells     +
 STANDARD BACTERIAL CULTURE
 No Growth -Detection limit 10^7 CFU/L
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -5973,7 +5973,7 @@ Comment: Please note : Low APTT.  ? Cause  ? Pre-activation of
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -5982,7 +5982,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/145"/>
             </subject>
-            <clinicalNotes value="PR Bleeding"/>
+            <reason><text value="PR Bleeding"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6029,7 +6029,7 @@ Creatinine         77     umol/L ( 64-104   )
  (Creatinine)    0.077    mmol/L ( 0.05-0.11)
 Urea              7.5     mmol/L ( 2.5-8.3  )
  eGFR             86             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6038,7 +6038,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/145"/>
             </subject>
-            <clinicalNotes value="PR Bleeding"/>
+            <reason><text value="PR Bleeding"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6097,7 +6097,7 @@ Lymph        1.0L                                      x10^9/L   1.2-4.0
 Mono         0.7                                       x10^9/L   0.1-1.0
 Eos          0.0                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6106,7 +6106,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/145"/>
             </subject>
-            <clinicalNotes value="PR Bleeding"/>
+            <reason><text value="PR Bleeding"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6154,7 +6154,7 @@ Creatinine        127     umol/L ( 49-90    )
 Urea             16.2     mmol/L ( 2.5-8.3  )
  eGFR             35             ( SEE-BELOW)
 Troponin I        0.04    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -6220,7 +6220,7 @@ Film Comment : Red cells are mainly normocytic normochromic with some
 12Z863134 08/03/12 09:55
 Film Comment : Red cell changes persist. Film scanned.
 Conclusion: Note persistent anaemia.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -6268,7 +6268,7 @@ Calcium          2.09     mmol/L ( 2.10-2.60)
 Phosphate        1.66     mmol/L ( 0.8-1.5  )
 Magnesium        1.10     mmol/L ( 0.8-1.0  )
 Albumin            28     g/L    ( 35-50    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -6327,7 +6327,7 @@ Baso         0.0      0.1      0.1                     x10^9/L   0.0-0.1
 
 12Z968691 05/04/12 10:00
 Comment: Intra-op
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -6382,7 +6382,7 @@ Comment: * Insufficient specimen to perform APTT. Ward informed.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -6450,7 +6450,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6459,7 +6459,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/148"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6522,7 +6522,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6531,7 +6531,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/145"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6587,7 +6587,7 @@ Bili Total          7     umol/L ( &lt;19      )
 Protein Total      80     g/L    ( 65-85    )
 Troponin I       &lt;0.02    ug/L   (See Below )
 C-React Prot        5     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6596,7 +6596,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
             <subject>
               <reference value="Patient/124"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6655,7 +6655,7 @@ Lymph        2.6                                       x10^9/L   1.2-4.0
 Mono         0.4                                       x10^9/L   0.1-1.0
 Eos          0.1                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6664,7 +6664,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/124"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6706,7 +6706,7 @@ SERUM/PLASMA
 CK                344     IU/L   ( &lt;175     )
 CKMB Mass         34.0    ug/L   ( &lt;4       )
 LIPIDS
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6715,7 +6715,7 @@ LIPIDS
             <subject>
               <reference value="Patient/149"/>
             </subject>
-            <clinicalNotes value="Trial See Slip"/>
+            <reason><text value="Trial See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6770,7 +6770,7 @@ ONLY have C.difficile tests performed.
  If the clinical condition requires more extensive culture, other
 pathogen detection, or if the clinical condition warrants further
 investigation, please contact the Microbiology Registrar.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6779,7 +6779,7 @@ investigation, please contact the Microbiology Registrar.
             <subject>
               <reference value="Patient/150"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -6839,7 +6839,7 @@ Standard culture:   ++ Mixed upper respiratory tract flora
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -6903,7 +6903,7 @@ Squamous Epithelial Cells     Nil
 STANDARD BACTERIAL CULTURE
 No Growth -Detection limit 10^7 CFU/L
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -6945,7 +6945,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -6986,7 +6986,7 @@ Protein Total       *     g/L    ( 65-85    )
 
 Comment: The requested tests were not completed as no
          sample was  received.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -6995,7 +6995,7 @@ Comment: The requested tests were not completed as no
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="S\H/A Anneurism"/>
+            <reason><text value="S\H/A Anneurism"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7057,7 +7057,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
                          relied  upon as specimens were not collected /
                          forwarded  according to protocol.
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7066,7 +7066,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="S\H/A Anneurism"/>
+            <reason><text value="S\H/A Anneurism"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7127,7 +7127,7 @@ COMMENT
 This CSF specimen will be cultured on routine media for 48 hours.
 Please contact the Microbiology registrar if either extended
 culture or special media are required.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7136,7 +7136,7 @@ culture or special media are required.
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="S\H/A Anneurism"/>
+            <reason><text value="S\H/A Anneurism"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7189,7 +7189,7 @@ Comment: Please indicate anticoagulant therapy on request form.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7198,7 +7198,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/152"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7246,7 +7246,7 @@ Creatinine         89     umol/L ( 49-90    )
 Urea              8.5     mmol/L ( 2.5-8.3  )
  eGFR             53             ( SEE-BELOW)
 Troponin I        0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7255,7 +7255,7 @@ Troponin I        0.02    ug/L   (See Below )
             <subject>
               <reference value="Patient/152"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7317,7 +7317,7 @@ Baso         0.0               0.1      0.0      0.1   x10^9/L   0.0-0.1
 
 12Z756823 10/03/12 19:00
 Comment: * Please note: no specimen received.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7326,7 +7326,7 @@ Comment: * Please note: no specimen received.
             <subject>
               <reference value="Patient/152"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7379,7 +7379,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
          PCR of nose/throat swabs.
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7388,7 +7388,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
             <subject>
               <reference value="Patient/153"/>
             </subject>
-            <clinicalNotes value="Chest Pain Worse On Exercise"/>
+            <reason><text value="Chest Pain Worse On Exercise"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7459,7 +7459,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7468,7 +7468,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/124"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7539,7 +7539,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7548,7 +7548,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/122"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -7595,7 +7595,7 @@ Creatinine         75     umol/L ( 64-104   )
  (Creatinine)    0.075    mmol/L ( 0.05-0.11)
 Urea              7.0     mmol/L ( 2.5-8.3  )
  eGFR             89             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -7667,7 +7667,7 @@ Conclusion: ? Infection / inflammation. repeat FBE may be of value.
 12Z986808 05/04/12 21:10
 Comment: Please note fall in haemoglobin and platelet count since
          the previous examination. ?Rehydration. Suggest repeat.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -7711,7 +7711,7 @@ Creatinine        175     umol/L ( 49-90    )
  (Creatinine)    0.175    mmol/L ( 0.05-0.09)
 Urea              9.1     mmol/L ( 2.5-8.3  )
  eGFR             28             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -7755,7 +7755,7 @@ Creatinine        175     umol/L ( 49-90    )
  (Creatinine)    0.175    mmol/L ( 0.05-0.09)
 Urea              9.1     mmol/L ( 2.5-8.3  )
  eGFR             28             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -7823,7 +7823,7 @@ Film Comment : Manual differential. Mild neutrophilia with slight left
 Conclusion: Please note fall in haemoglobin since the previous
             examination. ? any infection / inflammation.
             No clinical information provided.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -7875,7 +7875,7 @@ Anti-Factor Xa Comment:
 
 Tests of Hypercoagulability (Plasma)
 Antithrombin (Functional)         88     %      (80-120)
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -7922,7 +7922,7 @@ Fibrinogen        6.5H     6.7H     6.4H     7.3H     6.2H g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -7976,7 +7976,7 @@ Please send another urine if clinically indicated.
 STREPTOCOCCUS PNEUMONIAE ANTIGEN:
 Presumptive  negative for pneumococcal pneumonia.
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -7985,7 +7985,7 @@ Presumptive  negative for pneumococcal pneumonia.
             <subject>
               <reference value="Patient/153"/>
             </subject>
-            <clinicalNotes value="Chest Pain Worse On Exercise"/>
+            <reason><text value="Chest Pain Worse On Exercise"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -8032,7 +8032,7 @@ Creatinine        161     umol/L ( 64-104   )
  (Creatinine)    0.161    mmol/L ( 0.05-0.11)
 Urea             16.4     mmol/L ( 2.5-8.3  )
  eGFR             37             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8087,7 +8087,7 @@ yeasts                                    Occasional
  Standard bacterial culture is not indicated as the ratio
  of pus to epithelial cells, or the bacteria seen in the
  Gram stain indicate salivary contamination.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8155,7 +8155,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -8164,7 +8164,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/158"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -8207,7 +8207,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -8216,7 +8216,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
             <subject>
               <reference value="Patient/135"/>
             </subject>
-            <clinicalNotes value="Chest Pain Fi"/>
+            <reason><text value="Chest Pain Fi"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -8283,7 +8283,7 @@ Squamous Epithelial Cells     Nil
 STANDARD BACTERIAL CULTURE
 No Growth -Detection limit 10^7 CFU/L
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8347,7 +8347,7 @@ Squamous Epithelial Cells     ++
 STANDARD BACTERIAL CULTURE
 No Growth -Detection limit 10^7 CFU/L
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -8356,7 +8356,7 @@ No Growth -Detection limit 10^7 CFU/L
             <subject>
               <reference value="Patient/139"/>
             </subject>
-            <clinicalNotes value="Collapsed Low BP"/>
+            <reason><text value="Collapsed Low BP"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -8423,7 +8423,7 @@ Squamous Epithelial Cells     Nil
 STANDARD BACTERIAL CULTURE
 No Growth -Detection limit 10^7 CFU/L
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8470,7 +8470,7 @@ Fibrinogen        6.8H     7.8H     7.9H     8.9H     8.0H g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8524,7 +8524,7 @@ ALT                31     IU/L   ( &lt;45      )
 AST                58     IU/L   ( &lt;35      )
 Bili Total         17     umol/L ( &lt;19      )
 Protein Total      55     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8598,7 +8598,7 @@ Film Comment : Manual differential. Mild neutrophilia and monocytosis
                essentially unchanged.
 Conclusion: Increase in leucocyte count since the last examination.
             ? any acute infection / inflammation.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8662,7 +8662,7 @@ Squamous Epithelial Cells     Nil
 STANDARD BACTERIAL CULTURE
 No Growth -Detection limit 10^7 CFU/L
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -8671,7 +8671,7 @@ No Growth -Detection limit 10^7 CFU/L
             <subject>
               <reference value="Patient/161"/>
             </subject>
-            <clinicalNotes value="Febrile FI"/>
+            <reason><text value="Febrile FI"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -8716,7 +8716,7 @@ Cortisol Diurnal Variation:AM (0800 - 0900): 150 - 650 nmol/L
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8761,7 +8761,7 @@ Creatinine         88     umol/L ( 64-104   )
 Urea              4.9     mmol/L ( 2.5-8.3  )
  eGFR             88             ( SEE-BELOW)
 Osmolality        290     mosm/kg( 280-300  )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8805,7 +8805,7 @@ Urine Sodium Excretion                mmol/D          ( 75-300   )
 Urine Potassium                  29   mmol/L
 Urine Potassium Excretion             mmol/D          ( 40-100   )
 Urine Osmolality                618   mmol/L          ( 50-1200  )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8873,7 +8873,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -8882,7 +8882,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/118"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -8929,7 +8929,7 @@ Urine Sodium Excretion                mmol/D          ( 75-300   )
 Urine Potassium                  81   mmol/L
 Urine Potassium Excretion             mmol/D          ( 40-100   )
 Urine Osmolality                612   mmol/L          ( 50-1200  )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -8974,7 +8974,7 @@ Creatinine         91     umol/L ( 64-104   )
 Urea              5.4     mmol/L ( 2.5-8.3  )
  eGFR             78             ( SEE-BELOW)
 Osmolality        295     mosm/kg( 280-300  )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -9025,7 +9025,7 @@ ALT                25     IU/L   ( &lt;45      )
 AST                31     IU/L   ( &lt;35      )
 Bili Total         31     umol/L ( &lt;19      )
 Protein Total      73     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9034,7 +9034,7 @@ Protein Total      73     g/L    ( 65-85    )
             <subject>
               <reference value="Patient/113"/>
             </subject>
-            <clinicalNotes value="Gastro"/>
+            <reason><text value="Gastro"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9103,7 +9103,7 @@ Film Comment : Manual differential. Mild neutrophilia with prominent left
                forms.
 Conclusion: Features suggestive of infection / inflammation. Suggest
             repeat FBE to confirm thrombocytopenia.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9112,7 +9112,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
             <subject>
               <reference value="Patient/113"/>
             </subject>
-            <clinicalNotes value="Gastro"/>
+            <reason><text value="Gastro"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9159,7 +9159,7 @@ Creatinine         85     umol/L ( 64-104   )
  (Creatinine)    0.085    mmol/L ( 0.05-0.11)
 Urea              4.1     mmol/L ( 2.5-8.3  )
  eGFR             85             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -9215,7 +9215,7 @@ Lymph        2.2                                       x10^9/L   1.2-4.0
 Mono         0.7                                       x10^9/L   0.1-1.0
 Eos          0.1                                       x10^9/L   0.0-0.5
 Baso         0.1                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -9283,7 +9283,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9292,7 +9292,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/120"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9363,7 +9363,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9372,7 +9372,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/148"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9431,7 +9431,7 @@ call 1-800-555-2123 to contact the State Department of Health.
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -9473,7 +9473,7 @@ Description   : Not-stated
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9482,7 +9482,7 @@ Anaerobic bottle             4   days                 Negative
             <subject>
               <reference value="Patient/140"/>
             </subject>
-            <clinicalNotes value="Febrile"/>
+            <reason><text value="Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9545,7 +9545,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9554,7 +9554,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/153"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9594,7 +9594,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <pre>
 SERUM/PLASMA
 Troponin I        0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9603,7 +9603,7 @@ Troponin I        0.02    ug/L   (See Below )
             <subject>
               <reference value="Patient/165"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9643,7 +9643,7 @@ Troponin I        0.02    ug/L   (See Below )
             <pre>
 SERUM/PLASMA
 C-React Prot      149     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9652,7 +9652,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
             <subject>
               <reference value="Patient/167"/>
             </subject>
-            <clinicalNotes value="Febrile"/>
+            <reason><text value="Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9697,7 +9697,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9706,7 +9706,7 @@ Anaerobic bottle             4   days                 Negative
             <subject>
               <reference value="Patient/167"/>
             </subject>
-            <clinicalNotes value="Febrile"/>
+            <reason><text value="Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9748,7 +9748,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9757,7 +9757,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
             <subject>
               <reference value="Patient/168"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9816,7 +9816,7 @@ Serum Folate Indeterminate - 7.64 to 12.2 nmol/L
 Old Ref Ranges prior to 27th April 2004
    Serum Folate    - 6.0 to 38.0 nmol/L
    Red Cell Folate - 350 to 1350 nmol/L
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9825,7 +9825,7 @@ Old Ref Ranges prior to 27th April 2004
             <subject>
               <reference value="Patient/168"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9886,7 +9886,7 @@ Bili Total         13     umol/L ( &lt;19      )
 Protein Total      83     g/L    ( 65-85    )
 C-React Prot        2     mg/L   ( &lt;5       )
 LIPIDS
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9895,7 +9895,7 @@ LIPIDS
             <subject>
               <reference value="Patient/168"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -9954,7 +9954,7 @@ Lymph        3.0                                       x10^9/L   1.2-4.0
 Mono         0.5                                       x10^9/L   0.1-1.0
 Eos          0.1                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -9963,7 +9963,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/168"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10010,7 +10010,7 @@ Creatinine         49     umol/L ( 49-90    )
  (Creatinine)    0.049    mmol/L ( 0.05-0.09)
 Urea              4.4     mmol/L ( 2.5-8.3  )
  eGFR             &gt;90            ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10019,7 +10019,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/169"/>
             </subject>
-            <clinicalNotes value="Febrile"/>
+            <reason><text value="Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10087,7 +10087,7 @@ Film Comment : White cells show mild neutrophilia.
 
 12Z968846 05/04/12 20:39
 Comment: Instrument differential and parameters reported.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10096,7 +10096,7 @@ Comment: Instrument differential and parameters reported.
             <subject>
               <reference value="Patient/169"/>
             </subject>
-            <clinicalNotes value="Febrile"/>
+            <reason><text value="Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10141,7 +10141,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10150,7 +10150,7 @@ Anaerobic bottle             4   days                 Negative
             <subject>
               <reference value="Patient/169"/>
             </subject>
-            <clinicalNotes value="Febrile"/>
+            <reason><text value="Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10226,7 +10226,7 @@ Gentamicin       S
 Meropenem        S
 Tazocin          S
 Timentin         S
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10235,7 +10235,7 @@ Timentin         S
             <subject>
               <reference value="Patient/126"/>
             </subject>
-            <clinicalNotes value="Febrile &gt;38"/>
+            <reason><text value="Febrile &gt;38"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10297,7 +10297,7 @@ Standard culture:   +++  Mixed upper respiratory tract flora
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -10365,7 +10365,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10374,7 +10374,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/129"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10422,7 +10422,7 @@ Creatinine        281     umol/L ( 49-90    )
 Urea             26.5     mmol/L ( 2.5-8.3  )
  eGFR             14             ( SEE-BELOW)
 C-React Prot        2     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10431,7 +10431,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
             <subject>
               <reference value="Patient/144"/>
             </subject>
-            <clinicalNotes value="Nausea And Vomiting FI"/>
+            <reason><text value="Nausea And Vomiting FI"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10476,7 +10476,7 @@ Description   : Central Line
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -10530,7 +10530,7 @@ ALT                17     IU/L   ( &lt;34      )
 AST                20     IU/L   ( &lt;31      )
 Bili Total          5     umol/L ( &lt;19      )
 Protein Total      56     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -10611,7 +10611,7 @@ Comment: Instrument differential and parameters reported.
 Film Comment : Red cells show some microcytes, elongated cells and mildly
                increased rouleaux. Manual differential. Mild
                neutrophilia. Slight vaccuolation noted.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -10670,7 +10670,7 @@ CULTURE
 
 1. Candida albicans                                   +++
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10679,7 +10679,7 @@ CULTURE
             <subject>
               <reference value="Patient/172"/>
             </subject>
-            <clinicalNotes value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/>
+            <reason><text value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10750,7 +10750,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10759,7 +10759,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/119"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10806,7 +10806,7 @@ CULTURE
 SCREENING TEST FOR            VRE
 
 RECTAL SWAB                   VRE not detected
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10815,7 +10815,7 @@ RECTAL SWAB                   VRE not detected
             <subject>
               <reference value="Patient/126"/>
             </subject>
-            <clinicalNotes value="On Admission"/>
+            <reason><text value="On Admission"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10855,7 +10855,7 @@ RECTAL SWAB                   VRE not detected
             <pre>
 SERUM/PLASMA
 Troponin I       &lt;0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -10864,7 +10864,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <subject>
               <reference value="Patient/173"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -10914,7 +10914,7 @@ Urea                *     mmol/L ( 2.5-8.3  )
 
 Comment: The requested tests were not completed as the
          sample was labeled incorrectly. Ward notified.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -10961,7 +10961,7 @@ PLT             *                                      x10^9/L   140-400
 12Z968855 05/04/12 20:12
 Comment: The specimen received was mislabeled. The ward has  been
          notified and a new sample requested.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -11017,7 +11017,7 @@ Serum Folate Indeterminate - 7.64 to 12.2 nmol/L
 Old Ref Ranges prior to 27th April 2004
    Serum Folate    - 6.0 to 38.0 nmol/L
    Red Cell Folate - 350 to 1350 nmol/L
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11026,7 +11026,7 @@ Old Ref Ranges prior to 27th April 2004
             <subject>
               <reference value="Patient/176"/>
             </subject>
-            <clinicalNotes value="Acute Alcohol Withdrawal"/>
+            <reason><text value="Acute Alcohol Withdrawal"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11076,7 +11076,7 @@ Fibrinogen        3.4      3.5                             g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11085,7 +11085,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/176"/>
             </subject>
-            <clinicalNotes value="Acute Alcohol Withdrawal"/>
+            <reason><text value="Acute Alcohol Withdrawal"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11127,7 +11127,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11136,7 +11136,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
             <subject>
               <reference value="Patient/176"/>
             </subject>
-            <clinicalNotes value="Acute Alcohol Withdrawal"/>
+            <reason><text value="Acute Alcohol Withdrawal"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11195,7 +11195,7 @@ Lymph        2.0      2.1      2.8      1.9      1.8   x10^9/L   1.2-4.0
 Mono         0.6      1.2H     1.1H     0.7      0.6   x10^9/L   0.1-1.0
 Eos          0.2      0.1      0.2      0.2      0.2   x10^9/L   0.0-0.5
 Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11204,7 +11204,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/176"/>
             </subject>
-            <clinicalNotes value="Acute Alcohol Withdrawal"/>
+            <reason><text value="Acute Alcohol Withdrawal"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11259,7 +11259,7 @@ AST                74     IU/L   ( &lt;35      )
 Bili Total         13     umol/L ( &lt;19      )
 Protein Total      77     g/L    ( 65-85    )
 C-React Prot       12     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11268,7 +11268,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
             <subject>
               <reference value="Patient/176"/>
             </subject>
-            <clinicalNotes value="Acute Alcohol Withdrawal"/>
+            <reason><text value="Acute Alcohol Withdrawal"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11313,7 +11313,7 @@ Description   : Not-stated
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11322,7 +11322,7 @@ Anaerobic bottle             4   days                 Negative
             <subject>
               <reference value="Patient/177"/>
             </subject>
-            <clinicalNotes value="T+ 38.7C"/>
+            <reason><text value="T+ 38.7C"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11381,7 +11381,7 @@ Comment: * Specimen clotted. ED informed.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -11435,7 +11435,7 @@ ALT                18     IU/L   ( &lt;45      )
 AST                25     IU/L   ( &lt;35      )
 Bili Total         13     umol/L ( &lt;19      )
 Protein Total      51     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -11503,7 +11503,7 @@ Film Comment : Manual differential. Mild neutrophilia with left shift.
 Conclusion: Please note fall in haemoglobin since the previous
             examination.
             Recent tissue damage / trauma.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -11571,7 +11571,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11580,7 +11580,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/119"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11651,7 +11651,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11660,7 +11660,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/179"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11703,7 +11703,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11712,7 +11712,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
             <subject>
               <reference value="Patient/174"/>
             </subject>
-            <clinicalNotes value="Palpitation"/>
+            <reason><text value="Palpitation"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11771,7 +11771,7 @@ Lymph        1.2                                       x10^9/L   1.2-4.0
 Mono         0.8                                       x10^9/L   0.1-1.0
 Eos          0.0                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11780,7 +11780,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/174"/>
             </subject>
-            <clinicalNotes value="Palpitation"/>
+            <reason><text value="Palpitation"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11832,7 +11832,7 @@ Phosphate        0.92     mmol/L ( 0.8-1.5  )
 Magnesium        0.82     mmol/L ( 0.7-1.1  )
 Albumin            38     g/L    ( 35-50    )
 Troponin I        0.03    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11841,7 +11841,7 @@ Troponin I        0.03    ug/L   (See Below )
             <subject>
               <reference value="Patient/174"/>
             </subject>
-            <clinicalNotes value="Palpitation"/>
+            <reason><text value="Palpitation"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -11909,7 +11909,7 @@ STANDARD BACTERIAL CULTURE
 10^8-10^9 cfu/L Mixed organisms including: staphylococci,
 streptococci and diphtheroid bacilli.
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -11977,7 +11977,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -11986,7 +11986,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/181"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12032,7 +12032,7 @@ Factor V Gene Mutation Analysis
 
 G1691A Substitution Result:
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12041,7 +12041,7 @@ G1691A Substitution Result:
             <subject>
               <reference value="Patient/182"/>
             </subject>
-            <clinicalNotes value="Thrombophilic Screen"/>
+            <reason><text value="Thrombophilic Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12091,7 +12091,7 @@ Protein/Creat Ratio              16   mg/mmol Creat   ( 15-35    )
 Urine Microalbumin               43 H mg/L            ( &lt;15      )
 Urine Microalb Excretion              ug/min          ( &lt;20.0    )
 MicroAlb/Creat Ratio           5.66 H mg/mmol creat   ( &lt;2.5     )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -12159,7 +12159,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12168,7 +12168,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/148"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12222,7 +12222,7 @@ ALT                88     IU/L   ( &lt;45      )
 AST                77     IU/L   ( &lt;35      )
 Bili Total        103     umol/L ( &lt;19      )
 Protein Total      64     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -12278,7 +12278,7 @@ Lymph        0.5L     0.5L     0.8L     0.5L     0.5L  x10^9/L   1.2-4.0
 Mono         0.5      0.5      0.5      0.5      0.5   x10^9/L   0.1-1.0
 Eos          0.1      0.1      0.2      0.2      0.1   x10^9/L   0.0-0.5
 Baso         0.0      0.1      0.0      0.0      0.0   x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -12346,7 +12346,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12355,7 +12355,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/122"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12409,7 +12409,7 @@ Comment: Further testing with a heparin resistant reagent confirmed
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12418,7 +12418,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/185"/>
             </subject>
-            <clinicalNotes value="Post Angio + Stent"/>
+            <reason><text value="Post Angio + Stent"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12475,7 +12475,7 @@ ALT                50     IU/L   ( &lt;45      )
 AST               128     IU/L   ( &lt;35      )
 Bili Total          8     umol/L ( &lt;19      )
 Protein Total      65     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12484,7 +12484,7 @@ Protein Total      65     g/L    ( 65-85    )
             <subject>
               <reference value="Patient/185"/>
             </subject>
-            <clinicalNotes value="Post Angio + Stent"/>
+            <reason><text value="Post Angio + Stent"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12546,7 +12546,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 
 12Z968844 05/04/12 19:45
 Film Comment : Film scanned. The blood film shows no diagnostic features.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12555,7 +12555,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
             <subject>
               <reference value="Patient/185"/>
             </subject>
-            <clinicalNotes value="Post Angio + Stent"/>
+            <reason><text value="Post Angio + Stent"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12638,7 +12638,7 @@ organism with cephalosporins, aztreonam and all  penicillins
 including augmentin, tazocin and timentin  could lead to rapid
 emergence of resistance  and clinical failure.
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -12683,7 +12683,7 @@ Creatinine         67     umol/L ( 64-104   )
 Urea              6.0     mmol/L ( 2.5-8.3  )
  eGFR             &gt;90            ( SEE-BELOW)
 C-React Prot       24     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -12752,7 +12752,7 @@ Film Comment : Platelets are frequent large. Red cell and white cell
                morphology is unremarkable.
 Conclusion: See trephine report. Dr Lab Labfellow
 Comment: FBE with BMAT. Report to follow.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -12793,7 +12793,7 @@ PSA                      *           \XE6\g/L    (&lt;4.0    )
 
 Comment: The requested tests were not completed as no sample was
          received. Ward notified.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12802,7 +12802,7 @@ Comment: The requested tests were not completed as no sample was
             <subject>
               <reference value="Patient/188"/>
             </subject>
-            <clinicalNotes value="Urinary Symptoms 2/52 With Loin Pain"/>
+            <reason><text value="Urinary Symptoms 2/52 With Loin Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12849,7 +12849,7 @@ Creatinine         83     umol/L ( 64-104   )
  (Creatinine)    0.083    mmol/L ( 0.05-0.11)
 Urea              6.5     mmol/L ( 2.5-8.3  )
  eGFR             &gt;90            ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12858,7 +12858,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/188"/>
             </subject>
-            <clinicalNotes value="Urinary Symptoms 2/52 With Loin Pain"/>
+            <reason><text value="Urinary Symptoms 2/52 With Loin Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12917,7 +12917,7 @@ Lymph        2.3                                       x10^9/L   1.2-4.0
 Mono         0.6                                       x10^9/L   0.1-1.0
 Eos          0.2                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12926,7 +12926,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/188"/>
             </subject>
-            <clinicalNotes value="Urinary Symptoms 2/52 With Loin Pain"/>
+            <reason><text value="Urinary Symptoms 2/52 With Loin Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -12966,7 +12966,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <pre>
          Patient ID/Specimen/Reporting Errors
 ** This Test Is For Laboratory Statistical Use Only **
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -12975,7 +12975,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="Sah"/>
+            <reason><text value="Sah"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13024,7 +13024,7 @@ Protein Total       *     g/L    ( 65-85    )
 
 Comment: The requested tests were not completed as no
          sample was  received.Lfts added to Z968840.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13033,7 +13033,7 @@ Comment: The requested tests were not completed as no
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="Sah"/>
+            <reason><text value="Sah"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13083,7 +13083,7 @@ Fibrinogen        3.4                                      g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13092,7 +13092,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="Sah"/>
+            <reason><text value="Sah"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13150,7 +13150,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 CK                811     IU/L   ( &lt;145     )
 
 Comment: Haemolysed. Some tests (*) unavailable.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13159,7 +13159,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
             <subject>
               <reference value="Patient/178"/>
             </subject>
-            <clinicalNotes value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/>
+            <reason><text value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13225,7 +13225,7 @@ Comment: Note moderate thrombocytosis. ? reactive.
 
 12Z986804 05/04/12 19:40
 Comment: * Specimen clotted. ED informed.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13234,7 +13234,7 @@ Comment: * Specimen clotted. ED informed.
             <subject>
               <reference value="Patient/178"/>
             </subject>
-            <clinicalNotes value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/>
+            <reason><text value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13305,7 +13305,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13314,7 +13314,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/181"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13372,7 +13372,7 @@ No organisms seen
 
 CULTURE
 No Growth After 2 Days.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13381,7 +13381,7 @@ No Growth After 2 Days.
             <subject>
               <reference value="Patient/189"/>
             </subject>
-            <clinicalNotes value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/>
+            <reason><text value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13431,7 +13431,7 @@ Fibrinogen                 3.4      3.5                    g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13440,7 +13440,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/190"/>
             </subject>
-            <clinicalNotes value="Trauma"/>
+            <reason><text value="Trauma"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13487,7 +13487,7 @@ Creatinine         90     umol/L ( 64-104   )
  (Creatinine)    0.090    mmol/L ( 0.05-0.11)
 Urea              4.3     mmol/L ( 2.5-8.3  )
  eGFR             80             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13496,7 +13496,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/190"/>
             </subject>
-            <clinicalNotes value="Trauma"/>
+            <reason><text value="Trauma"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13558,7 +13558,7 @@ Baso         0.1      0.1      0.1      0.0      0.1   x10^9/L   0.0-0.1
 
 12Z986883 05/04/12 19:28
 Comment: Please note mild neutrophilia
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13567,7 +13567,7 @@ Comment: Please note mild neutrophilia
             <subject>
               <reference value="Patient/190"/>
             </subject>
-            <clinicalNotes value="Trauma"/>
+            <reason><text value="Trauma"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13625,7 +13625,7 @@ DIAGNOSIS:
 
 
 Pathologist: To Follow
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -13681,7 +13681,7 @@ DIAGNOSIS:
 
 
 Pathologist: To Follow
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -13728,7 +13728,7 @@ Fibrinogen        4.8                                      g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13737,7 +13737,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/139"/>
             </subject>
-            <clinicalNotes value="89/M Collapsed, Low Bp"/>
+            <reason><text value="89/M Collapsed, Low Bp"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13792,7 +13792,7 @@ AST                27     IU/L   ( &lt;35      )
 Bili Total         84     umol/L ( &lt;19      )
 Protein Total      62     g/L    ( 65-85    )
 C-React Prot      109     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13801,7 +13801,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
             <subject>
               <reference value="Patient/139"/>
             </subject>
-            <clinicalNotes value="89/M Collapsed, Low Bp"/>
+            <reason><text value="89/M Collapsed, Low Bp"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13870,7 +13870,7 @@ Conclusion: Suggestive of liver dysfunction.
 
 12Z968863 05/04/12 19:24
 Comment: Please note mild neutrophilia and mild monocytosis
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13879,7 +13879,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
             <subject>
               <reference value="Patient/139"/>
             </subject>
-            <clinicalNotes value="89/M Collapsed, Low Bp"/>
+            <reason><text value="89/M Collapsed, Low Bp"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13926,7 +13926,7 @@ Urine Creatinine Excretion            mmol/D          ( 7-13     )
 Urine Protein                  0.57   g/L
 Urine Protein Excretion               g/D             ( &lt;0.15    )
 Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -13935,7 +13935,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
             <subject>
               <reference value="Patient/124"/>
             </subject>
-            <clinicalNotes value="Pre Organ "/>
+            <reason><text value="Pre Organ "/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -13994,7 +13994,7 @@ DIAGNOSIS:
 
 
 Pathologist: To Follow
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14003,7 +14003,7 @@ Pathologist: To Follow
             <subject>
               <reference value="Patient/189"/>
             </subject>
-            <clinicalNotes value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/>
+            <reason><text value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14064,7 +14064,7 @@ Time administered      : __________________________________________
 
 Products must be administered immediately upon receipt, or returned to
 the Blood Bank.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14073,7 +14073,7 @@ the Blood Bank.
             <subject>
               <reference value="Patient/193"/>
             </subject>
-            <clinicalNotes value="Ivig-Intragram 39G"/>
+            <reason><text value="Ivig-Intragram 39G"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14136,7 +14136,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14145,7 +14145,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/190"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14188,7 +14188,7 @@ Calcium          1.55     mmol/L ( 2.10-2.60)
 Phosphate        1.28     mmol/L ( 0.8-1.5  )
 Magnesium        0.95     mmol/L ( 0.7-1.1  )
 Albumin            22     g/L    ( 35-50    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -14253,7 +14253,7 @@ STANDARD BACTERIAL CULTURE
 10^8 cfu/L Mixed organisms including: staphylococci, streptococci
 and diphtheroid bacilli.
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14262,7 +14262,7 @@ and diphtheroid bacilli.
             <subject>
               <reference value="Patient/195"/>
             </subject>
-            <clinicalNotes value="Recurrent Falls"/>
+            <reason><text value="Recurrent Falls"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14320,7 +14320,7 @@ Comment: * Insufficient specimen to perform APTT. Ward informed.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -14378,7 +14378,7 @@ Time administered      : __________________________________________
 
 Products must be administered immediately upon receipt, or returned to
 the Blood Bank.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14387,7 +14387,7 @@ the Blood Bank.
             <subject>
               <reference value="Patient/196"/>
             </subject>
-            <clinicalNotes value="Kovig Ivig- 30G"/>
+            <reason><text value="Kovig Ivig- 30G"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14450,7 +14450,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14459,7 +14459,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/144"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14517,7 +14517,7 @@ C-React Prot      166     mg/L   ( &lt;5       )
 
 Comment: The CKMB was not measured on this sample. It has
          been  replaced by Troponin.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14526,7 +14526,7 @@ Comment: The CKMB was not measured on this sample. It has
             <subject>
               <reference value="Patient/197"/>
             </subject>
-            <clinicalNotes value="Cags X3 24/24 Post"/>
+            <reason><text value="Cags X3 24/24 Post"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14589,7 +14589,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
 12Z968892 05/04/12 18:55
 Comment: Please note fall in haemoglobin and platelet count since
          the previous examination. Post CAGS.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14598,7 +14598,7 @@ Comment: Please note fall in haemoglobin and platelet count since
             <subject>
               <reference value="Patient/197"/>
             </subject>
-            <clinicalNotes value="Cags X3 24/24 Post"/>
+            <reason><text value="Cags X3 24/24 Post"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14656,7 +14656,7 @@ CEBPA Result:
 
 Comment
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14665,7 +14665,7 @@ Comment
             <subject>
               <reference value="Patient/198"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14736,7 +14736,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14745,7 +14745,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/115"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14790,7 +14790,7 @@ Request No:   Z964790  Z665812  Z566826  Z467914  Z968872
              -------- -------- -------- -------- -------- ------ -----
 Coagulation (Plasma)
 INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14799,7 +14799,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
             <subject>
               <reference value="Patient/153"/>
             </subject>
-            <clinicalNotes value="Chest Pain Worse On Exercise"/>
+            <reason><text value="Chest Pain Worse On Exercise"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14844,7 +14844,7 @@ Comment: A troponin has been measured for this patient in
          recent  hours. If chest pain is ongoing, a
          repeat troponin  should not be done till at
          least 4 hours after the  last one.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14853,7 +14853,7 @@ Comment: A troponin has been measured for this patient in
             <subject>
               <reference value="Patient/153"/>
             </subject>
-            <clinicalNotes value="Chest Pain Worse On Exercise"/>
+            <reason><text value="Chest Pain Worse On Exercise"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14915,7 +14915,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
         Cyclosporin levels vary widely, depending on drug
         therapy.  These ranges should be used as a guide only.
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14924,7 +14924,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
             <subject>
               <reference value="Patient/199"/>
             </subject>
-            <clinicalNotes value="2Hrs Post Dose"/>
+            <reason><text value="2Hrs Post Dose"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -14974,7 +14974,7 @@ Fibrinogen                          4.0      3.9      2.4  g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -14983,7 +14983,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/100"/>
             </subject>
-            <clinicalNotes value="Post Op MVR"/>
+            <reason><text value="Post Op MVR"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15040,7 +15040,7 @@ ALT                42     IU/L   ( &lt;34      )
 AST                72     IU/L   ( &lt;31      )
 Bili Total         18     umol/L ( &lt;19      )
 Protein Total      47     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15049,7 +15049,7 @@ Protein Total      47     g/L    ( 65-85    )
             <subject>
               <reference value="Patient/100"/>
             </subject>
-            <clinicalNotes value="Post Op MVR"/>
+            <reason><text value="Post Op MVR"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15112,7 +15112,7 @@ Baso         0.1      0.1      0.0      0.0            x10^9/L   0.0-0.1
 12Z986852 05/04/12 18:58
 Comment: Please note fall in haemoglobin and platelet count since
          the previous examination. Post MVR.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15121,7 +15121,7 @@ Comment: Please note fall in haemoglobin and platelet count since
             <subject>
               <reference value="Patient/100"/>
             </subject>
-            <clinicalNotes value="Post Op MVR"/>
+            <reason><text value="Post Op MVR"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15161,7 +15161,7 @@ Comment: Please note fall in haemoglobin and platelet count since
             <pre>
 No Test Requested
 NTRC
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15170,7 +15170,7 @@ NTRC
             <subject>
               <reference value="Patient/195"/>
             </subject>
-            <clinicalNotes value="Recurrent Falls"/>
+            <reason><text value="Recurrent Falls"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15221,7 +15221,7 @@ Calcium          2.38     mmol/L ( 2.10-2.60)
 Phosphate        1.26     mmol/L ( 0.8-1.5  )
 Magnesium        0.84     mmol/L ( 0.8-1.0  )
 Albumin            34     g/L    ( 35-50    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15230,7 +15230,7 @@ Albumin            34     g/L    ( 35-50    )
             <subject>
               <reference value="Patient/195"/>
             </subject>
-            <clinicalNotes value="Recurrent Falls"/>
+            <reason><text value="Recurrent Falls"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15289,7 +15289,7 @@ Lymph        1.4      1.2                              x10^9/L   1.2-4.0
 Mono         0.5      0.6                              x10^9/L   0.1-1.0
 Eos          0.1      0.1                              x10^9/L   0.0-0.5
 Baso         0.0      0.0                              x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15298,7 +15298,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/195"/>
             </subject>
-            <clinicalNotes value="Recurrent Falls"/>
+            <reason><text value="Recurrent Falls"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15343,7 +15343,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15352,7 +15352,7 @@ Anaerobic bottle             4   days                 Negative
             <subject>
               <reference value="Patient/140"/>
             </subject>
-            <clinicalNotes value="Febrile"/>
+            <reason><text value="Febrile"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15403,7 +15403,7 @@ TCA
 
 
 General Comments:
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15412,7 +15412,7 @@ General Comments:
             <subject>
               <reference value="Patient/101"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15475,7 +15475,7 @@ Standard culture:   +++  Mixed upper respiratory tract flora
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -15557,7 +15557,7 @@ Conclusion: History of Bone Marrow Transplant for CMML -&gt; AML. Please
 12Z968802 05/04/12 17:45
 Comment: Post platelet increment
          Instrument parameters reported.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15566,7 +15566,7 @@ Comment: Post platelet increment
             <subject>
               <reference value="Patient/102"/>
             </subject>
-            <clinicalNotes value="Post Platelet Increment"/>
+            <reason><text value="Post Platelet Increment"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15607,7 +15607,7 @@ Comment: Post platelet increment
 SERUM/PLASMA
 Amylase           527     IU/L   ( 22-100   )
 Lipase            741     IU/L   ( &lt;60      )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -15655,7 +15655,7 @@ Calcium          2.16     mmol/L ( 2.10-2.60)
 Phosphate        1.31     mmol/L ( 0.8-1.5  )
 Magnesium        0.82     mmol/L ( 0.7-1.1  )
 Albumin            27     g/L    ( 35-50    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15664,7 +15664,7 @@ Albumin            27     g/L    ( 35-50    )
             <subject>
               <reference value="Patient/106"/>
             </subject>
-            <clinicalNotes value="Post Angiogram Anaemia"/>
+            <reason><text value="Post Angiogram Anaemia"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15731,7 +15731,7 @@ Comment: Please note mild fall in haemoglobin since the previous
 
 12Z868451 03/04/12 06:20
 Comment: Instrument differential and parameters reported.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15740,7 +15740,7 @@ Comment: Instrument differential and parameters reported.
             <subject>
               <reference value="Patient/106"/>
             </subject>
-            <clinicalNotes value="Post Angiogram Anaemia"/>
+            <reason><text value="Post Angiogram Anaemia"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15807,7 +15807,7 @@ Film Comment : Manual differential. Mild neutrophilia with slight left
                shift. Red cells and platelets appear normal.
 Conclusion: ? Post-op.
             No clinical information provided.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -15875,7 +15875,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15884,7 +15884,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/199"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15924,7 +15924,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <pre>
 No Test Requested
 NTRS
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15933,7 +15933,7 @@ NTRS
             <subject>
               <reference value="Patient/108"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -15985,7 +15985,7 @@ VANCOMYCIN THERAPEUTIC RANGE
 Pre Dose (Trough) level: 10 - 20 mg/L
 Post Dose (Peak) level : Not recommended
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -15994,7 +15994,7 @@ Post Dose (Peak) level : Not recommended
             <subject>
               <reference value="Patient/108"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -16049,7 +16049,7 @@ AST                30     IU/L   ( &lt;31      )
 Bili Total         &lt;5     umol/L ( &lt;19      )
 Protein Total      69     g/L    ( 65-85    )
 C-React Prot       19     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -16058,7 +16058,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
             <subject>
               <reference value="Patient/108"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -16121,7 +16121,7 @@ Baso         0.0      0.0      0.1      0.0      0.0   x10^9/L   0.0-0.1
 12Z168607 17/03/12 20:20
 Comment: Note: mild neutrophilia. Instrument differential and
          parameters reported.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -16130,7 +16130,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
             <subject>
               <reference value="Patient/108"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -16197,7 +16197,7 @@ Squamous Epithelial Cells     Nil
 STANDARD BACTERIAL CULTURE
 No Growth -Detection limit 10^7 CFU/L
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -16206,7 +16206,7 @@ No Growth -Detection limit 10^7 CFU/L
             <subject>
               <reference value="Patient/188"/>
             </subject>
-            <clinicalNotes value="Urinary Symptoms 2/52 With Loin Pain"/>
+            <reason><text value="Urinary Symptoms 2/52 With Loin Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -16256,7 +16256,7 @@ Fibrinogen        6.4H     4.8      1.9L     2.3      4.2  g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16309,7 +16309,7 @@ CKMB Mass            *    ug/L   ( &lt;4       )
 
 Comment: The CKMB was not measured on this sample. It has
          been  replaced by Troponin
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16369,7 +16369,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 12Z968183 04/04/12 13:53
 Comment: Please note fall in haemoglobin and platelet count since
          the previous examination. ?Post op. Suggest repeat.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16405,7 +16405,7 @@ Comment: Please note fall in haemoglobin and platelet count since
           <div xmlns="http://www.w3.org/1999/xhtml">
             <pre>
 Blank Report?
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16458,7 +16458,7 @@ indicated.
 Other atypical pneumonia serology will only be performed on paired
 sera. This serum sample has been stored for 3 months.
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16497,7 +16497,7 @@ Specimen Type          : Serum
 
 HIV 1/2 SEROLOGY
 HIV-1/2 Ag/Ab Combo by Architect:
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16541,7 +16541,7 @@ Specimen            Serum
 
 Antinuclear Antibodies
 Antinuclear abs     TF
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16591,7 +16591,7 @@ Serum Folate Indeterminate - 7.64 to 12.2 nmol/L
 Old Ref Ranges prior to 27th April 2004
    Serum Folate    - 6.0 to 38.0 nmol/L
    Red Cell Folate - 350 to 1350 nmol/L
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16648,7 +16648,7 @@ Lymph        2.4                                       x10^9/L   1.2-4.0
 Mono         0.7                                       x10^9/L   0.1-1.0
 Eos          0.1                                       x10^9/L   0.0-0.5
 Baso         0.1                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16685,7 +16685,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
             <pre>
 No Test Requested
 NTRESR
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -16694,7 +16694,7 @@ NTRESR
             <subject>
               <reference value="Patient/111"/>
             </subject>
-            <clinicalNotes value="Chronic Idiopathic Urticaria"/>
+            <reason><text value="Chronic Idiopathic Urticaria"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -16734,7 +16734,7 @@ NTRESR
             <pre>
 No Test Requested
 NTRESR
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -16743,7 +16743,7 @@ NTRESR
             <subject>
               <reference value="Patient/112"/>
             </subject>
-            <clinicalNotes value="On Clozapine"/>
+            <reason><text value="On Clozapine"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -16793,7 +16793,7 @@ Fibrinogen        3.7                                      g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16837,7 +16837,7 @@ Creatinine         91     umol/L ( 64-104   )
  (Creatinine)    0.091    mmol/L ( 0.05-0.11)
 Urea              6.8     mmol/L ( 2.5-8.3  )
  eGFR             72             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16893,7 +16893,7 @@ Lymph        3.8                                       x10^9/L   1.2-4.0
 Mono         0.8                                       x10^9/L   0.1-1.0
 Eos          0.4                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -16935,7 +16935,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -16944,7 +16944,7 @@ Anaerobic bottle             4   days                 Negative
             <subject>
               <reference value="Patient/161"/>
             </subject>
-            <clinicalNotes value="Febrile FI"/>
+            <reason><text value="Febrile FI"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -16985,7 +16985,7 @@ Anaerobic bottle             4   days                 Negative
 No Test Requested
 NTRS
 NTRF
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17027,7 +17027,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17074,7 +17074,7 @@ Fibrinogen        7.2H     6.0H     6.3H     7.6H          g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17131,7 +17131,7 @@ Protein Total      64     g/L    ( 65-85    )
 LD                438     IU/L   ( 210-420  )
 Uric Acid        0.42     mmol/L ( 0.2-0.47 )
 C-React Prot      184     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17198,7 +17198,7 @@ Film Comment : Red cells show moderate anisocytosis, some stomatocytes
                platelets.
 Conclusion: Please note fall in haemoglobin since the previous
             examination. Suggest repeat FBE to confirm results.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17242,7 +17242,7 @@ Creatinine        100     umol/L ( 49-90    )
  (Creatinine)    0.100    mmol/L ( 0.05-0.09)
 Urea             11.7     mmol/L ( 2.5-8.3  )
  eGFR             47             ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -17251,7 +17251,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/115"/>
             </subject>
-            <clinicalNotes value="Atheroma With Complete Occlusions R/L Legs"/>
+            <reason><text value="Atheroma With Complete Occlusions R/L Legs"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -17322,7 +17322,7 @@ Conclusion: Film may be suggestive of infection / inflammation. Repeat
 
 12Z876542 14/02/12 08:25
 Film Comment : Neutrophils show mild toxic changes. Manual differential.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -17331,7 +17331,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
             <subject>
               <reference value="Patient/115"/>
             </subject>
-            <clinicalNotes value="Atheroma With Complete Occlusions R/L Legs"/>
+            <reason><text value="Atheroma With Complete Occlusions R/L Legs"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -17386,7 +17386,7 @@ AST                23     IU/L   ( &lt;35      )
 Bili Total          5     umol/L ( &lt;19      )
 Protein Total      71     g/L    ( 65-85    )
 Troponin I       &lt;0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -17395,7 +17395,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <subject>
               <reference value="Patient/136"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -17454,7 +17454,7 @@ Lymph        2.3                                       x10^9/L   1.2-4.0
 Mono         0.8                                       x10^9/L   0.1-1.0
 Eos          0.3                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -17463,7 +17463,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/136"/>
             </subject>
-            <clinicalNotes value="Chest Pain"/>
+            <reason><text value="Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -17508,7 +17508,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17560,7 +17560,7 @@ AST                52     IU/L   ( &lt;35      )
 Bili Total         16     umol/L ( &lt;19      )
 Protein Total      79     g/L    ( 65-85    )
 C-React Prot       54     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17622,7 +17622,7 @@ Film Comment : Platelets are mildly reduced in number.
                Red cells show slight polychromasia.
                Leucocytes are unremarkable.
 Conclusion: ? Cause of persistent mild thrombocytopenia.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17664,7 +17664,7 @@ Request No:   Z546768  Z666092  Z564961  Z986693  Z564923
              -------- -------- -------- -------- -------- ------ -----
 Coagulation (Plasma)
 INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -17673,7 +17673,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
             <subject>
               <reference value="Patient/117"/>
             </subject>
-            <clinicalNotes value="See Slip"/>
+            <reason><text value="See Slip"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -17727,7 +17727,7 @@ ALT                18     IU/L   ( &lt;34      )
 AST                23     IU/L   ( &lt;31      )
 Bili Total          9     umol/L ( &lt;19      )
 Protein Total      80     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -17736,7 +17736,7 @@ Protein Total      80     g/L    ( 65-85    )
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="Headache"/>
+            <reason><text value="Headache"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -17795,7 +17795,7 @@ Lymph        1.3                                       x10^9/L   1.2-4.0
 Mono         0.4                                       x10^9/L   0.1-1.0
 Eos          0.1                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -17804,7 +17804,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="Headache"/>
+            <reason><text value="Headache"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -17863,7 +17863,7 @@ Lymph        1.3                                       x10^9/L   1.2-4.0
 Mono         0.4                                       x10^9/L   0.1-1.0
 Eos          0.1                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -17872,7 +17872,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/151"/>
             </subject>
-            <clinicalNotes value="Headache"/>
+            <reason><text value="Headache"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -17920,7 +17920,7 @@ Creatinine         80     umol/L ( 64-104   )
 Urea              5.3     mmol/L ( 2.5-8.3  )
  eGFR             81             ( SEE-BELOW)
 Troponin I        1.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -17962,7 +17962,7 @@ Description   : Venous/peripheral
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -18004,7 +18004,7 @@ Request No:   Z968860
              -------- -------- -------- -------- -------- ------ -----
 Coagulation (Plasma)
 INR               1.0                                            0.8-1.3
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18013,7 +18013,7 @@ INR               1.0                                            0.8-1.3
             <subject>
               <reference value="Patient/118"/>
             </subject>
-            <clinicalNotes value="Trauma MVA"/>
+            <reason><text value="Trauma MVA"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18056,7 +18056,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18065,7 +18065,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
             <subject>
               <reference value="Patient/118"/>
             </subject>
-            <clinicalNotes value="Trauma MVA"/>
+            <reason><text value="Trauma MVA"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18127,7 +18127,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 
 12Z986860 05/04/12 18:15
 Comment: Please note mild neutrophilia
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18136,7 +18136,7 @@ Comment: Please note mild neutrophilia
             <subject>
               <reference value="Patient/118"/>
             </subject>
-            <clinicalNotes value="Trauma MVA"/>
+            <reason><text value="Trauma MVA"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18190,7 +18190,7 @@ ALT                47     IU/L   ( &lt;34      )
 AST                51     IU/L   ( &lt;31      )
 Bili Total          6     umol/L ( &lt;19      )
 Protein Total      67     g/L    ( 65-85    )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18199,7 +18199,7 @@ Protein Total      67     g/L    ( 65-85    )
             <subject>
               <reference value="Patient/118"/>
             </subject>
-            <clinicalNotes value="Trauma MVA"/>
+            <reason><text value="Trauma MVA"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18248,7 +18248,7 @@ Comments / Steps Taken
 
     DOB on specimen &quot;02/03/1975&quot;. Ward informed new specimen
     and request form required for GS.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18257,7 +18257,7 @@ Comments / Steps Taken
             <subject>
               <reference value="Patient/182"/>
             </subject>
-            <clinicalNotes value="Thrombophilic Screen"/>
+            <reason><text value="Thrombophilic Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18320,7 +18320,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18329,7 +18329,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/118"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18399,7 +18399,7 @@ Film Comment : Film scanned. Manual differential.
 Conclusion: * Film shows fibrin strands suggestive of a partially
             clotted specimen. Accurate platelet count unavailable.
             Please repeat FBE.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -18443,7 +18443,7 @@ Creatinine         59     umol/L ( 49-90    )
  (Creatinine)    0.059    mmol/L ( 0.05-0.09)
 Urea              4.2     mmol/L ( 2.5-8.3  )
  eGFR             &gt;90            ( SEE-BELOW)
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18452,7 +18452,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
             <subject>
               <reference value="Patient/120"/>
             </subject>
-            <clinicalNotes value="Pleuritic Chest Pain"/>
+            <reason><text value="Pleuritic Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18514,7 +18514,7 @@ Baso         0.0      0.1                              x10^9/L   0.0-0.1
 
 12Z968800 05/04/12 18:10
 Comment: Please note mild monocytosis
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18523,7 +18523,7 @@ Comment: Please note mild monocytosis
             <subject>
               <reference value="Patient/120"/>
             </subject>
-            <clinicalNotes value="Pleuritic Chest Pain"/>
+            <reason><text value="Pleuritic Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18570,7 +18570,7 @@ Coagulation (Plasma)
 D-Dimer        &lt;220                                        ug/L  &lt;500
 Effective from 1st July 2009, the methodology of D-Dimer will be changed
 to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18579,7 +18579,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
             <subject>
               <reference value="Patient/120"/>
             </subject>
-            <clinicalNotes value="Pleuritic Chest Pain"/>
+            <reason><text value="Pleuritic Chest Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18626,7 +18626,7 @@ HbA1c(HPLC)               %      (See Below)
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -18711,7 +18711,7 @@ Film Comment : Manual differential. Neutrophils show left shift with mild
                toxic granulation. Red cells are normocytic normochromic
                with increased rouleaux. Platelets appear normal.
 Conclusion: Recent tissue damage/trauma.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -18764,7 +18764,7 @@ PT Mix  : 50/50 mixture of the patient&#39;s plasma with normal plasma -
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -18818,7 +18818,7 @@ Protein Total      55     g/L    ( 65-85    )
 Troponin I        0.42    ug/L   (See Below )
 CK                295     IU/L   ( &lt;145     )
 Amylase            51     IU/L   ( 22-100   )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -18879,7 +18879,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18888,7 +18888,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
             <subject>
               <reference value="Patient/141"/>
             </subject>
-            <clinicalNotes value="Febrile . Neutripaenic"/>
+            <reason><text value="Febrile . Neutripaenic"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -18959,7 +18959,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -18968,7 +18968,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/127"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19010,7 +19010,7 @@ Miscellaneous Fluid
 Fluid Type:   Drainage
 LD              4303  IU/L
 Amylase           390 IU/L
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19019,7 +19019,7 @@ Amylase           390 IU/L
             <subject>
               <reference value="Patient/172"/>
             </subject>
-            <clinicalNotes value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/>
+            <reason><text value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19087,7 +19087,7 @@ STANDARD BACTERIAL CULTURE
 &gt;10^9 cfu/L Mixed organisms including: staphylococci,
 streptococci, diphtheroid bacilli \T\ gram negative bacilli.
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -19135,7 +19135,7 @@ CULTURE
 
 No Beta haemolytic streptococci isolated.
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19144,7 +19144,7 @@ No Beta haemolytic streptococci isolated.
             <subject>
               <reference value="Patient/121"/>
             </subject>
-            <clinicalNotes value="ga Streps"/>
+            <reason><text value="ga Streps"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19199,7 +19199,7 @@ A negative result may not be a true indicator of patient status.
 Any further swabs recieved past their use-by date will not
 be processed.
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19208,7 +19208,7 @@ be processed.
             <subject>
               <reference value="Patient/121"/>
             </subject>
-            <clinicalNotes value="ga Streps"/>
+            <reason><text value="ga Streps"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19261,7 +19261,7 @@ indicated.
 Other atypical pneumonia serology will only be performed on paired
 sera. This serum sample has been stored for 3 months.
 
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -19303,7 +19303,7 @@ Description   : Not-stated
 
 Aerobic bottle               4   days                 Negative
 Anaerobic bottle             4   days                 Negative
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -19355,7 +19355,7 @@ AST                36     IU/L   ( &lt;35      )
 Bili Total         12     umol/L ( &lt;19      )
 Protein Total      75     g/L    ( 65-85    )
 C-React Prot       44     mg/L   ( &lt;5       )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -19416,7 +19416,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 Film Comment : Red cells show occasional macrocytes. Mild
                thrombocytopenia. Unremarkable leucocytes.
 Conclusion: Suggest repeat FBE to confirm platelet count.
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -19461,7 +19461,7 @@ Creatinine         90     umol/L ( 64-104   )
 Urea              7.5     mmol/L ( 2.5-8.3  )
  eGFR             75             ( SEE-BELOW)
 Troponin I       &lt;0.02    ug/L   (See Below )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19470,7 +19470,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <subject>
               <reference value="Patient/123"/>
             </subject>
-            <clinicalNotes value="Sob On Exertion"/>
+            <reason><text value="Sob On Exertion"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19529,7 +19529,7 @@ Lymph        1.6                                       x10^9/L   1.2-4.0
 Mono         0.7                                       x10^9/L   0.1-1.0
 Eos          0.2                                       x10^9/L   0.0-0.5
 Baso         0.0                                       x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19538,7 +19538,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/123"/>
             </subject>
-            <clinicalNotes value="Sob On Exertion"/>
+            <reason><text value="Sob On Exertion"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19609,7 +19609,7 @@ Note: Reference Ranges shown are for arterial blood only.
       pCO2    40  -  50  mmHg
       pO2     30  -  50  mmHg
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19618,7 +19618,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <subject>
               <reference value="Patient/122"/>
             </subject>
-            <clinicalNotes value="Automatic Request Registration"/>
+            <reason><text value="Automatic Request Registration"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19664,7 +19664,7 @@ Factor V Gene Mutation Analysis
 
 G1691A Substitution Result:
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19673,7 +19673,7 @@ G1691A Substitution Result:
             <subject>
               <reference value="Patient/182"/>
             </subject>
-            <clinicalNotes value="Thrombophilic Screen"/>
+            <reason><text value="Thrombophilic Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19721,7 +19721,7 @@ Creatinine         65     umol/L ( 64-104   )
 Urea              1.9     mmol/L ( 2.5-8.3  )
  eGFR             &gt;90            ( SEE-BELOW)
 Lactate           1.2     mmol/L ( 0.2-1.8  )
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19730,7 +19730,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
             <subject>
               <reference value="Patient/182"/>
             </subject>
-            <clinicalNotes value="Thrombophilic Screen"/>
+            <reason><text value="Thrombophilic Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19785,7 +19785,7 @@ APTT Mix: 50/50 mixture of the patient&#39;s plasma with normal plasma -
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19794,7 +19794,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/182"/>
             </subject>
-            <clinicalNotes value="Thrombophilic Screen"/>
+            <reason><text value="Thrombophilic Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19862,7 +19862,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
             and certain drugs including chemotherapy. Suggest liver
             function tests, serum B12/folate levels, and review drug
             history if cause not already known.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19871,7 +19871,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
             <subject>
               <reference value="Patient/182"/>
             </subject>
-            <clinicalNotes value="Thrombophilic Screen"/>
+            <reason><text value="Thrombophilic Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19925,7 +19925,7 @@ patients with anti-phospholipid antibody syndrome have undetectable IgG
 anti-cardiolipin antibodies.
 Further testing for IgM ACL may also be indicated.
 Please contact the immunopathology registrar for further advice on 9342 8023.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19934,7 +19934,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
             <subject>
               <reference value="Patient/182"/>
             </subject>
-            <clinicalNotes value="Thrombophilic Screen"/>
+            <reason><text value="Thrombophilic Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -19989,7 +19989,7 @@ LAS Ratio/LAC Ratio                           (  &lt;1.20  )
 Lupus Inhibitor Comment:
      T/F
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -19998,7 +19998,7 @@ Lupus Inhibitor Comment:
             <subject>
               <reference value="Patient/182"/>
             </subject>
-            <clinicalNotes value="Thrombophilic Screen"/>
+            <reason><text value="Thrombophilic Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -20037,7 +20037,7 @@ Lupus Inhibitor Comment:
           <div xmlns="http://www.w3.org/1999/xhtml">
             <pre>
 Blank Report?
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -20085,7 +20085,7 @@ Calcium          2.12     mmol/L ( 2.10-2.60)
 Phosphate        0.83     mmol/L ( 0.8-1.5  )
 Magnesium        0.69     mmol/L ( 0.7-1.1  )
 Albumin            23     g/L    ( 35-50    )
-</pre>           
+</pre>
           </div>
         </text>
         <code>
@@ -20151,7 +20151,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
 
             Film reviewed by Dr Radio Xray - Haematology
             Registrar
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -20160,7 +20160,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
             <subject>
               <reference value="Patient/126"/>
             </subject>
-            <clinicalNotes value="Anaemia"/>
+            <reason><text value="Anaemia"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -20219,7 +20219,7 @@ Lymph        3.5      2.1      1.5                     x10^9/L   1.2-4.0
 Mono         0.5      0.9      0.4                     x10^9/L   0.1-1.0
 Eos          0.6H     0.2      0.0                     x10^9/L   0.0-0.5
 Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -20228,7 +20228,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
             <subject>
               <reference value="Patient/127"/>
             </subject>
-            <clinicalNotes value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
+            <reason><text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -20278,7 +20278,7 @@ Fibrinogen        2.4                                      g/L   2.0-5.0
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
 From 9.12.2010 APTT normal range 23 - 36 seconds.
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -20287,7 +20287,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <subject>
               <reference value="Patient/127"/>
             </subject>
-            <clinicalNotes value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
+            <reason><text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -20345,7 +20345,7 @@ Lipase            154     IU/L   ( &lt;60      )
 Lactate           0.6     mmol/L ( 0.2-1.8  )
 EtOH              4.7     mmol/L (See Below )
 EtOH              0.02    gm%
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -20354,7 +20354,7 @@ EtOH              0.02    gm%
             <subject>
               <reference value="Patient/127"/>
             </subject>
-            <clinicalNotes value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
+            <reason><text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -20413,7 +20413,7 @@ Serum Folate Indeterminate - 7.64 to 12.2 nmol/L
 Old Ref Ranges prior to 27th April 2004
    Serum Folate    - 6.0 to 38.0 nmol/L
    Red Cell Folate - 350 to 1350 nmol/L
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -20422,7 +20422,7 @@ Old Ref Ranges prior to 27th April 2004
             <subject>
               <reference value="Patient/132"/>
             </subject>
-            <clinicalNotes value="Delerium Screen"/>
+            <reason><text value="Delerium Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -20465,7 +20465,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
 
 
 
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -20474,7 +20474,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
             <subject>
               <reference value="Patient/132"/>
             </subject>
-            <clinicalNotes value="Delerium Screen"/>
+            <reason><text value="Delerium Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
@@ -20535,7 +20535,7 @@ Bili Total          6     umol/L ( &lt;19      )
 Protein Total      77     g/L    ( 65-85    )
 C-React Prot       23     mg/L   ( &lt;5       )
 LIPIDS
-</pre>           
+</pre>
           </div>
         </text>
         <contained>
@@ -20544,7 +20544,7 @@ LIPIDS
             <subject>
               <reference value="Patient/132"/>
             </subject>
-            <clinicalNotes value="Delerium Screen"/>
+            <reason><text value="Delerium Screen"/></reason>
           </DiagnosticOrder>
         </contained>
         <code>
