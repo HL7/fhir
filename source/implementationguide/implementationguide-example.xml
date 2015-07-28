@@ -34,6 +34,7 @@
   <package>
     <name value="test"/>
     <resource>
+      <purpose value="example"/>
       <sourceUri value="test.xml"/>
     </resource>
   </package>

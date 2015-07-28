@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 28, 2015 10:52+1000 for FHIR v0.5.0
+// Generated on Tue, Jul 28, 2015 16:05+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -5692,7 +5692,9 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
+        res.setPurposeElement(parseEnumeration(xpp, ImplementationGuide.GuideResourcePurpose.NULL, new ImplementationGuide.GuideResourcePurposeEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
@@ -16543,6 +16545,8 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
+      if (element.hasPurposeElement())
+        composeEnumeration("purpose", element.getPurposeElement(), new ImplementationGuide.GuideResourcePurposeEnumFactory());
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
       }

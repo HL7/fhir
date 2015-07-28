@@ -14,28 +14,28 @@
 
   <package>
     <!-- US Lab Profiles -->
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="cond-uslab-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="do-uslab-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="dr-uslab-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="obs-uslab-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="org-uslab-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="patient-uslab-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="pract-uslab-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="spec-uslab-profile-spreadsheet.xml"/>
     </extension>
   <!--
@@ -59,6 +59,7 @@
     
     <!-- examples -->
     <resource>
+      <purpose value="example"/>
       <name value="USLab Condition Example1"/>
       <description value="USLab Condition Profile Canonical Example: Lead Exposure"/>
       <sourceUri value="cond-uslab-example1.xml"/>
@@ -67,6 +68,7 @@
       </exampleFor>
     </resource>  
     <resource>
+      <purpose value="example"/>
       <name value="USLab Condition Example2"/>
       <description value="USLab Reason for Study Profile Canonical Example: Lead Exposure"/>
       <sourceUri value="cond-uslab-example2.xml"/>
@@ -75,6 +77,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab DiagnosticOrder Example1"/>
       <description value="USLabOrder  Blood Lead "/>
       <sourceUri value="do-uslab-example1.xml"/>
@@ -83,6 +86,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab DiagnosticReport Example1"/>
       <description value="USLabReport DiagnosticReport Profile Canonical Example: Childhood Blood Lead Report"/>
       <sourceUri value="dr-uslab-example1.xml"/>
@@ -91,6 +95,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example1"/>
       <description value="USLab Quantitative Observation Profile Example: Capillary Blood Lead"/>
       <sourceUri value="obs-uslab-example1.xml"/>
@@ -99,6 +104,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example2"/>
       <description value="USLab Coded Observation Profile Example: N gonorrhoeae PCR"/>
       <sourceUri value="obs-uslab-example2.xml"/>
@@ -107,6 +113,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example3"/>
       <description value="USLab Other (string) Observation Profile Example: S.aureus"/>
       <sourceUri value="obs-uslab-example3.xml"/>
@@ -115,6 +122,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example4"/>
       <description value="USLab Ratio Observation Profile Example: Dengue Titer"/>
       <sourceUri value="obs-uslab-example4.xml"/>
@@ -123,6 +131,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example5"/>
       <description value="USLab Quantitative Observation Profile Example: Blood Lead"/>
       <sourceUri value="obs-uslab-example5.xml"/>
@@ -131,6 +140,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example6"/>
       <description value="USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel"/>
       <sourceUri value="obs-uslab-example6.xml"/>
@@ -139,6 +149,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example7"/>
       <description value="USLab Coded Observation Profile Example: C trachomatis PCR"/>
       <sourceUri value="obs-uslab-example7.xml"/>
@@ -147,6 +158,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example8"/>
       <description value="USLab Range Observation Profile  Example: WBCs in Urine"/>
       <sourceUri value="obs-uslab-example8.xml"/>
@@ -155,6 +167,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example1"/>
       <description value="USLab Ordering Organization Profile Canonical Example: University Hospital"/>
       <sourceUri value="org-uslab-example1.xml"/>
@@ -163,6 +176,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example2"/>
       <description value="USLab Copy to Organization Profile Canonical Example: Children's Hospital"/>
       <sourceUri value="org-uslab-example2.xml"/>
@@ -171,6 +185,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Observation Example3"/>
       <description value="USLab Performing Lab Organization Profile Canonical Example: Acme Labs"/>
       <sourceUri value="org-uslab-example3.xml"/>
@@ -179,6 +194,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Patient Example1"/>
       <description value="Description: USLab Patient Profile Canonical Example: Todd Lerr"/>
       <sourceUri value="patient-uslab-example1.xml"/>
@@ -187,6 +203,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Patient Example2"/>
       <description value="Description: USLab PHPatient Profile Canonical Example: Todd Lerr"/>
       <sourceUri value="patient-uslab-example2.xml"/>
@@ -195,6 +212,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Practitioner Example1"/>
       <description value="USLab Practitioner Canonical Example: Dr Leonard T Bloodraw Jr"/>
       <sourceUri value="pract-uslab-example1.xml"/>
@@ -203,6 +221,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab PHPractitioner Example2"/>
       <description value="USLab PHPractitioner Canonical Example: Dr Bill T Lookafter Jr"/>
       <sourceUri value="pract-uslab-example2.xml"/>
@@ -211,6 +230,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab PHPractitioner Example3"/>
       <description value="USLab PHPractitioner Canonical Example: Gregory F House PhD"/>
       <sourceUri value="pract-uslab-example3.xml"/>
@@ -219,6 +239,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Specimen Example1"/>
       <description value="USLab Specimen Profile Canonical Example: Blood"/>
       <sourceUri value="spec-uslab-example1.xml"/>
@@ -227,6 +248,7 @@
       </exampleFor>  
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLab Specimen Example2"/>
       <description value="USLab Specimen Profile  Example: Urine- first catch"/>
       <sourceUri value="spec-uslab-example2.xml"/>
@@ -236,21 +258,25 @@
     </resource>
       
     <resource>
+      <purpose value="example"/>
       <name value="USLabOrder Orderer"/>
       <description value="USLabOrder Orderer"/>
       <sourceUri value="conformance-uslaborder-orderer.xml"/>
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLabOrder Receiver"/>
       <description value="USLabOrder Receiver"/>
       <sourceUri value="conformance-uslaborder-receiver.xml"/>
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLabReport Sender"/>
       <description value="USLabReport Sender"/>
       <sourceUri value="conformance-uslabreport-sender.xml"/>
     </resource>
     <resource>
+      <purpose value="example"/>
       <name value="USLabReport Receiver"/>
       <description value="USLabReport Receiver"/>
       <sourceUri value="conformance-uslabreport-receiver.xml"/>
@@ -258,6 +284,7 @@
   </package>
   <!-- not necessary
   <resource>
+    <purpose value=""/>
     <name value="USLab Value Set List"/>
     <description value="USLab Value Set List"/>
     <sourceUri value="list-uslab-valuesets.xml"/>

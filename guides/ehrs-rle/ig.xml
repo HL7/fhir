@@ -7,14 +7,15 @@
   <experimental value="false"/>
 
   <package>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="auditevent-profile-ehrs-rle-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="provenance-profile-ehrs-rle-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
     <resource>
+      <purpose value="example"/>
       <name value="examples"/>
       <name value="EHRS FM Record Lifecycle Event"/>
       <description value="System which records information about EHR events"/>

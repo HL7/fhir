@@ -243,4 +243,8 @@ public class ImplementationGuideDefn {
     }
     return false;
   }
+
+  public String getPath() {
+    return isCore() ? "" : code+File.separator;
+  }
 }

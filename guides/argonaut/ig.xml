@@ -18,7 +18,7 @@
   </dependency>
   
   <package>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="careplan-argonaut-profile-spreadsheet.xml"/>
     </extension>
     <name value="base"/>

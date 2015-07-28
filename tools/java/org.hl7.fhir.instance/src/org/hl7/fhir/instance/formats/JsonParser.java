@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 28, 2015 10:52+1000 for FHIR v0.5.0
+// Generated on Tue, Jul 28, 2015 16:05+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -6540,6 +6540,10 @@ public class JsonParser extends JsonParserBase {
   protected ImplementationGuide.ImplementationGuidePackageResourceComponent parseImplementationGuideImplementationGuidePackageResourceComponent(JsonObject json, ImplementationGuide owner) throws Exception {
     ImplementationGuide.ImplementationGuidePackageResourceComponent res = new ImplementationGuide.ImplementationGuidePackageResourceComponent();
     parseBackboneProperties(json, res);
+    if (json.has("purpose"))
+      res.setPurposeElement(parseEnumeration(json.get("purpose").getAsString(), ImplementationGuide.GuideResourcePurpose.NULL, new ImplementationGuide.GuideResourcePurposeEnumFactory()));
+    if (json.has("_purpose"))
+      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
@@ -19785,6 +19789,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeImplementationGuideImplementationGuidePackageResourceComponentInner(ImplementationGuide.ImplementationGuidePackageResourceComponent element) throws Exception {
       composeBackbone(element);
+      if (element.hasPurposeElement()) {
+        composeEnumerationCore("purpose", element.getPurposeElement(), new ImplementationGuide.GuideResourcePurposeEnumFactory(), false);
+        composeEnumerationExtras("purpose", element.getPurposeElement(), new ImplementationGuide.GuideResourcePurposeEnumFactory(), false);
+      }
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);

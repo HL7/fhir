@@ -19,100 +19,106 @@
   </dependency>
    
   <package>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\allergyintolerance-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\condition-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\diagnosticorder-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\diagnosticreport-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\encounter-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\familymemberhistory-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\immunization-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\list-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\location-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\medication-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\medicationadministration-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\medicationdispense-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\medicationprescription-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\medicationstatement-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\observation-daf-vitalsigns-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\observation-daf-results-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\observation-daf-smokingstatus-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\observation-daf-resultsv2-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\organization-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\patient-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\practitioner-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\procedure-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\relatedperson-daf-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\substance-daf-profile-spreadsheet.xml"/>
     </extension>
 
     <name value="base"/>  
     <!-- value sets that are imported by directly referenced value sets in the profiles -->
     <resource>  
+      <purpose value="valueset"/>
       <sourceUri value="profiles\valueset-daf-substance-ndfrt.xml"/>
     </resource>
     <resource>  
+      <purpose value="valueset"/>
       <sourceUri value="profiles\valueset-daf-substance-rxnorm.xml"/>
     </resource>
     <resource>  
+      <purpose value="valueset"/>
       <sourceUri value="profiles\valueset-daf-substance-sct.xml"/>
     </resource>
     <resource>   
+      <purpose value="valueset"/>
      <sourceUri value="profiles\valueset-daf-substance-unii.xml"/>
     </resource>
   
   
     <resource>   
+      <purpose value="example"/>
       <name value="DAF Responder"/>
       <sourceUri value="conformance\conformance-daf-query-responder.xml"/>
     </resource>
     <resource>   
+      <purpose value="example"/>
       <name value="DAF Requestor"/>
       <sourceUri value="conformance\conformance-daf-query-requestor.xml"/>
     </resource>

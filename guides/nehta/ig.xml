@@ -7,23 +7,21 @@
   <experimental value="true"/>
 
   <package>
-  <!--
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="colorectal-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="event-summary-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="shared-health-summary-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="specialist-letter-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="australian-organ-donor-register-spreadsheet.xml"/>
     </extension>
-    -->
     <name value="base"/>
   </package>
     

@@ -7,32 +7,33 @@
   <experimental value="false"/>
 
   <package>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-cqif-extensions-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-knowledgemodule-cqif-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-knowledgerequest-cqif-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-knowledgeresponse-cqif-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-cqif-guidance-extensions-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-guidancerequest-cqif-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-guidanceresponse-cqif-profile-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="documentreference-evidence-cqif-profile-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
     <resource>
+      <purpose value="example"/>
       <name value="CQIF KnowledgeModule"/>
       <description value="KnowledgeModule used to define a Guideline Appropriate Ordering module"/>
       <sourceUri value="knowledgemodule-example.xml"/>

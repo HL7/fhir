@@ -10,7 +10,8 @@ public class ToolResourceUtilities {
   public static final String NAME_RES_PROFILE = "spec.res.profile";
   public static final String NAME_RES_RESOURCE = "spec.res.resoruce";
   
-  public static final Object EXT_SPREADSHEET = "http://hl7.org/fhir/tools-spreadsheet";
+  public static final Object EXT_PROFILE_SPREADSHEET = "http://hl7.org/fhir/tools-profile-spreadsheet";
+  public static final Object EXT_LOGICAL_SPREADSHEET = "http://hl7.org/fhir/tools-logical-spreadsheet";
 
   public static void updateUsage(Resource res, String usage) {
     if (Utilities.noString(usage))

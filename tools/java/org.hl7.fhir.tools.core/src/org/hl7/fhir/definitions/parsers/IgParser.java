@@ -33,6 +33,7 @@ import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.ImplementationGuide;
 import org.hl7.fhir.instance.model.ImplementationGuide.GuideDependencyType;
 import org.hl7.fhir.instance.model.ImplementationGuide.GuidePageKind;
+import org.hl7.fhir.instance.model.ImplementationGuide.GuideResourcePurpose;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuideDependencyComponent;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
@@ -112,6 +113,8 @@ public class IgParser {
       igd.getImageList().add(bin.getValue());
     }
     processPage(ig.getPage(), igd);
+    igd.setPage(ig.getPage().getSource());
+
     for (ImplementationGuidePackageComponent p : ig.getPackage()) {
       if (!p.hasName())
         throw new Exception("no name on package in IG "+ig.getName());
@@ -123,51 +126,45 @@ public class IgParser {
         File fn = new File(Utilities.path(myRoot, r.getSourceUriType().getValue()));
         if (!fn.exists())
           throw new Exception("Source "+r.getSourceUriType().getValue()+" resource in package "+p.getName()+" in IG "+ig.getName()+" could not be located");
-        Resource res = null;
-        try {
-          res = new XmlParser().parse(new FileInputStream(fn));
-          resources.put(res.getResourceType().toString()+"/"+res.getId(), res);
-          r.setUserData(ToolResourceUtilities.NAME_RES_RESOURCE, res);
-        } catch (Exception e) {
-          // the most likely reason to get here is a version mismatch between the resource bound into the tool, and the build version.
-          // for non-conformance resources, we don't care. (if we;re in the build, that is)
-          issues.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, igd.getCode()+":"+fn.getAbsolutePath(), e.getMessage(), IssueSeverity.WARNING));
-        }
 
-        if (!r.hasName() && res != null) {
-          if (res instanceof ImplementationGuide)
-            r.setName(((ImplementationGuide) res).getName());
-          else if (res instanceof Conformance) 
-            r.setName(((Conformance) res).getName());
-          else if (res instanceof StructureDefinition)
-            r.setName(((StructureDefinition) res).getName());
-          else if (res instanceof ValueSet)
-            r.setName(((ValueSet) res).getName());
-          else if (res instanceof ConceptMap) 
-            r.setName(((ConceptMap) res).getName());
-          else if (res instanceof DataElement) 
-            r.setName(((DataElement) res).getName());
-          else if (res instanceof OperationDefinition) 
-            r.setName(((OperationDefinition) res).getName());
-          else if (res instanceof SearchParameter) 
-            r.setName(((SearchParameter) res).getName());
-          else if (res instanceof NamingSystem) 
-            r.setName(((NamingSystem) res).getName());
-          else if (res instanceof TestScript) 
-            r.setName(((TestScript) res).getName());
-
+        String id = Utilities.changeFileExt(fn.getName(), "");
+        
+        if (r.getPurpose() == GuideResourcePurpose.EXAMPLE) {
           if (!r.hasName()) // which means that non conformance resources must be named
             throw new Exception("no name on resource in package "+p.getName()+" in IG "+ig.getName());
-
-          //        if (r.hasExampleFor()) {
-          //          if (!resources.containsKey(r.getExampleFor().getReference()))
-          //            throw new Exception("Unable to resolve example-for reference to "+r.getExampleFor().getReference());
-          //        }
+          Example example = new Example(r.getName(), id, r.getDescription(), fn, false, ExampleType.XmlFile, false);
+          example.setIg(igd.getCode());
+          igd.getExamples().add(example);
+        } else if (r.getPurpose() == GuideResourcePurpose.VALUESET) {
+          ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(fn));
+          if (id.contains(File.separator))
+            if (id.startsWith("valueset-"))
+              id = id.substring(8);
+          vs.setId(id);
+          vs.setUrl("http://hl7.org/fhir/ValueSet/"+id);
+          vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
+          vs.setUserData("path", igd.getPath()+"valueset-"+id+".html");
+          vs.setUserData("filename", "valueset-"+id);
+          vs.setUserData("committee", committee);
+          igd.getValueSets().add(vs);
+          r.setName(vs.getName());
+        } else if (r.getPurpose() == GuideResourcePurpose.PROFILE) {
+          throw new Error("Not implemented yet");
+        } else if (r.getPurpose() == GuideResourcePurpose.DICTIONARY) {
+          Dictionary d = new Dictionary(id, r.getName(), igd.getCode(), fn.getAbsolutePath(), igd);
+          igd.getDictionaries().add(d);
         }
+
+
+        //        if (r.hasExampleFor()) {
+        //          if (!resources.containsKey(r.getExampleFor().getReference()))
+        //            throw new Exception("Unable to resolve example-for reference to "+r.getExampleFor().getReference());
+        //        }
+
       }
       // second pass: load the spreadsheets
       for (Extension ex : p.getExtension()) {
-        if (ex.getUrl().equals(ToolResourceUtilities.EXT_SPREADSHEET)) {
+        if (ex.getUrl().equals(ToolResourceUtilities.EXT_PROFILE_SPREADSHEET)) {
 //          String s = ((UriType) ex.getValue()).getValue();
 //          File fn = new File(Utilities.path(myRoot, s));
 //          if (!fn.exists())
@@ -201,35 +198,35 @@ public class IgParser {
       if (e.getNodeName().equals("dependsOn")) {
         // we ignore this for now
       } else if (e.getNodeName().equals("publishing")) {
-        if (e.hasAttribute("homepage"))
-          igd.setPage(e.getAttribute("homepage"));
+//        if (e.hasAttribute("homepage")) 
+//          igd.setPage(e.getAttribute("homepage"));
       } else if (e.getNodeName().equals("page")) {
 //        igd.getPageList().add(e.getAttribute("source"));
       } else if (e.getNodeName().equals("image")) {
 //        moved above igd.getImageList().add(e.getAttribute("source"));
       } else if (e.getNodeName().equals("valueset")) {
-        XmlParser xml = new XmlParser();
-        ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(Utilities.path(file.getParent(), e.getAttribute("source"))));
-        String id = Utilities.changeFileExt(new File(Utilities.path(file.getParent(), e.getAttribute("source"))).getName(), "");
-        if (id.startsWith("valueset-"))
-          id = id.substring(9);
-        if (!vs.hasId() || !vs.hasUrl()) {
-          vs.setId(id);
-          vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
-        }
-        vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
-        vs.setUserData("path", igd.getCode()+File.separator+"valueset-"+vs.getId()+".html");
-        vs.setUserData("filename", "valueset-"+vs.getId());
-        vs.setUserData("committee", committee);
-        igd.getValueSets().add(vs);
+//        XmlParser xml = new XmlParser();
+//        ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(Utilities.path(file.getParent(), e.getAttribute("source"))));
+//        String id = Utilities.changeFileExt(new File(Utilities.path(file.getParent(), e.getAttribute("source"))).getName(), "");
+//        if (id.startsWith("valueset-"))
+//          id = id.substring(9);
+//        if (!vs.hasId() || !vs.hasUrl()) {
+//          vs.setId(id);
+//          vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
+//        }
+//        vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
+//        vs.setUserData("path", igd.getCode()+File.separator+"valueset-"+vs.getId()+".html");
+//        vs.setUserData("filename", "valueset-"+vs.getId());
+//        vs.setUserData("committee", committee);
+//        igd.getValueSets().add(vs);
       } else if (e.getNodeName().equals("acronym")) {
         igd.getTlas().put(e.getAttribute("target"), e.getAttribute("id"));        
       } else if (e.getNodeName().equals("example")) {
-        String filename = e.getAttribute("source");
-        File efile = new File(Utilities.path(file.getParent(), filename));
-        Example example = new Example(e.getAttribute("name"), Utilities.changeFileExt(efile.getName(), ""), e.getAttribute("name"), efile, false, ExampleType.XmlFile, false);
-        example.setIg(igd.getCode());
-        igd.getExamples().add(example);
+//        String filename = e.getAttribute("source");
+//        File efile = new File(Utilities.path(file.getParent(), filename));
+//        Example example = new Example(e.getAttribute("name"), Utilities.changeFileExt(efile.getName(), ""), e.getAttribute("name"), efile, false, ExampleType.XmlFile, false);
+//        example.setIg(igd.getCode());
+//        igd.getExamples().add(example);
       } else if (e.getNodeName().equals("profile")) {
 //        moved above
         Profile p = new Profile(igd.getCode());
@@ -261,8 +258,8 @@ public class IgParser {
           ex = XMLUtil.getNextSibling(ex);
         }
       } else if (e.getNodeName().equals("dictionary")) {
-        Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), igd.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))), igd);
-        igd.getDictionaries().add(d);
+//        Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), igd.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))), igd);
+//        igd.getDictionaries().add(d);
       } else if (e.getNodeName().equals("logicalModel")) {
         String source = Utilities.path(file.getParent(), e.getAttribute("source"));
         String id = igd.getCode()+"-"+e.getAttribute("id");
