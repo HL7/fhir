@@ -44,6 +44,7 @@
   -->    
   <profile source="allergyintolerance-qicore-profile-spreadsheet.xml" type="spreadsheet">
     <example name="QICore AllergyIntolerance" description="Example of QICore AllergyIntolerance" source="allergyintolerance-qicore-example.xml"/>
+	<example name="QICore AllergyIntolerance Refuted" description="Example of QICore AllergyIntolerance Refuted" source="allergyintolerance-qicore-example-refuted.xml"/>
   </profile>
   <profile source="basic-adverseevent-qicore-profile-spreadsheet.xml" type="spreadsheet">
     <example name="QICore AdverseEvent" description="Example of QICore AdverseEvent" source="basic-example-adverseevent-qicore.xml"/>
