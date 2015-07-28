@@ -137,6 +137,15 @@
     </resource>
     <resource>
       <purpose value="example"/>
+      <name value="QICore AllergyIntolerance Refuted"/>
+      <description value="Example of QICore AllergyIntolerance Refuted"/>
+      <sourceUri value="allergyintolerance-qicore-example-refuted.xml"/>
+      <exampleFor>
+        <reference value="allergyintolerance-qicore-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>	
+    <resource>
+      <purpose value="example"/>
       <name value="QICore Communication"/>
       <description value="Example of QICore Communication"/>
       <sourceUri value="communication-qicore-example.xml"/>
