@@ -116,7 +116,7 @@ all types, they have <a href="extensibility.html">extensions</a>).
  </tr> 
  <tr>
    <td>instant<a name="instant"> </a></td>
-   <td>An instant in time - <b>known at least to the second and always includes a time zone</b></td>
+   <td>An instant in time - <b>known at least to the second and always includes a time zone</b>. Note: This is intended for precisely observed times (typically system logs etc), and not human-reported times - for them, use date and dateTime. <code>instant</code> is a more constrained dateTime</td>
    <td>xs:dateTime</td>
    <td>A JSON string - an xs:dateTime</td>
  </tr>
