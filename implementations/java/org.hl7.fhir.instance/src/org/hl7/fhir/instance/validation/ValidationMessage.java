@@ -36,7 +36,6 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.StringType;
-import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -59,12 +58,12 @@ public class ValidationMessage
   private int col;
   private String location;
   private String message;
-  private IssueType type;
+  private OperationOutcome.IssueType type;
   private IssueSeverity level;
   private String html;
 
   
-  public ValidationMessage(Source source, IssueType type, String path, String message, IssueSeverity level) {
+  public ValidationMessage(Source source, OperationOutcome.IssueType type, String path, String message, IssueSeverity level) {
     super();
     this.line = -1;
     this.col = -1;
@@ -80,7 +79,7 @@ public class ValidationMessage
       throw new Error("A type must be provided");
   }
 
-  public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message, IssueSeverity level) {
+  public ValidationMessage(Source source, OperationOutcome.IssueType type, int line, int col, String path, String message, IssueSeverity level) {
     super();
     this.line = line;
     this.col = col;
@@ -96,7 +95,7 @@ public class ValidationMessage
       throw new Error("A type must be provided");
   }
 
-  public ValidationMessage(Source source, IssueType type, String path, String message, String html, IssueSeverity level) {
+  public ValidationMessage(Source source, OperationOutcome.IssueType type, String path, String message, String html, IssueSeverity level) {
     super();
     this.line = -1;
     this.col = -1;
@@ -112,7 +111,7 @@ public class ValidationMessage
       throw new Error("A type must be provided");
   }
 
-  public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message, String html, IssueSeverity level) {
+  public ValidationMessage(Source source, OperationOutcome.IssueType type, int line, int col, String path, String message, String html, IssueSeverity level) {
     super();
     this.line = line;
     this.col = col;
@@ -194,11 +193,11 @@ public class ValidationMessage
     this.location = location;
   }
 
-  public IssueType getType() {
+  public OperationOutcome.IssueType getType() {
     return type;
   }
 
-  public void setType(IssueType type) {
+  public void setType(OperationOutcome.IssueType type) {
     this.type = type;
   }
 
@@ -208,15 +207,14 @@ public class ValidationMessage
 
   public OperationOutcomeIssueComponent asIssue(OperationOutcome op) throws Exception {
     OperationOutcomeIssueComponent issue = new OperationOutcome.OperationOutcomeIssueComponent();
-    issue.setCode(new CodeableConcept());
-    issue.getCode().addCoding().setSystem(type.getSystem()).setCode(type.toCode());
+    issue.setCode(type);
     if (location != null) {
       StringType s = new StringType();
       s.setValue(location+(line>= 0 && col >= 0 ? " (line "+Integer.toString(line)+", col"+Integer.toString(col)+")" : "") );
       issue.getLocation().add(s);
     }
     issue.setSeverity(level);
-    issue.setDetails(message);
+    issue.getDetails().setText(message);
     if (source != null) {
       issue.getExtension().add(ToolingExtensions.makeIssueSource(source));
     }

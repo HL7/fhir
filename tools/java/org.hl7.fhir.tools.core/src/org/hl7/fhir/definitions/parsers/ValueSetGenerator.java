@@ -1,11 +1,18 @@
 package org.hl7.fhir.definitions.parsers;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.EventDefn;
@@ -15,11 +22,16 @@ import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 public class ValueSetGenerator {
 
@@ -157,5 +169,53 @@ public class ValueSetGenerator {
       return value;
   }
 
-  
+
+  public static void loadOperationOutcomeValueSet(BindingSpecification cd, String folder) throws Exception {
+    ValueSet vs = new ValueSet();
+    cd.setValueSet(vs);
+    cd.setBindingMethod(BindingMethod.ValueSet);
+    vs.setId("operation-outcome");
+    vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
+    vs.setName("Operation Outcome Codes");
+    vs.setPublisher("HL7 (FHIR Project)");
+    ValueSetContactComponent c = vs.addContact();
+    c.addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
+    c.addTelecom().setSystem(ContactPointSystem.EMAIL).setValue("fhir@lists.hl7.org");
+    vs.setDescription("Operation Outcome codes used by FHIR test servers (see Implementation file translations.xml)");
+    vs.setStatus(ConformanceResourceStatus.DRAFT);
+    vs.getCodeSystem().setSystem("http://hl7.org/fhir/operation-outcome");
+    vs.getCodeSystem().setCaseSensitive(true);
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(false);
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document doc = builder.parse(new File(Utilities.path(folder, "..", "..", "implementations", "translations.xml")));
+    Element n = XMLUtil.getFirstChild(doc.getDocumentElement());
+    while (n != null) {
+      if ("true".equals(n.getAttribute("ecode"))) {
+        String code = n.getAttribute("id");
+        Map<String, String> langs = new HashMap<String, String>();
+        Element l = XMLUtil.getFirstChild(n);
+        while (l != null) {
+          langs.put(l.getAttribute("lang"), l.getTextContent());
+          l = XMLUtil.getNextSibling(l);
+        }
+        if (langs.containsKey("en")) {
+          ConceptDefinitionComponent cv = vs.getCodeSystem().addConcept();
+          cv.setCode(code);
+          cv.setDisplay(langs.get("en"));
+          for (String lang : langs.keySet()) {
+            if (!lang.equals("en")) {
+              String value = langs.get(lang);
+              ConceptDefinitionDesignationComponent dc = cv.addDesignation();
+              dc.setLanguage(lang);
+              dc.setValue(value);
+            }
+          }
+        }
+      }
+      n = XMLUtil.getNextSibling(n);
+    }
+  }
+
+
 }

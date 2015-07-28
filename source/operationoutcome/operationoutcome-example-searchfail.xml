@@ -9,13 +9,10 @@
   </text>
   <issue>
     <severity value="fatal"/>
-    <code>
-      <coding>
-        <system value="http://hl7.org/fhir/issue-type"/>
-        <code value="code-invalid"/>
-      </coding>
-    </code>
-    <details value="The &quot;name&quot; parameter has the modifier &quot;exact&quot; which is not supported by this server"/>
+    <code value="code-invalid"/>
+    <details>
+      <text value="The &quot;name&quot; parameter has the modifier &quot;exact&quot; which is not supported by this server"/>    
+    </details> 
     <location value="name:exact"/>    
   </issue>
 </OperationOutcome>

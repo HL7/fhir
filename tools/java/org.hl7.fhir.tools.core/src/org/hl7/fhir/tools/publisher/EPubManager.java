@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;

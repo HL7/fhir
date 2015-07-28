@@ -12,7 +12,7 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;

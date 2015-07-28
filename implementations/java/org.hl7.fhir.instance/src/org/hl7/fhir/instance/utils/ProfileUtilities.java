@@ -24,6 +24,7 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingCom
 import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Reference;
@@ -38,7 +39,7 @@ import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -942,7 +943,7 @@ public class ProfileUtilities {
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
     genTypes(gen, pkp, r, e, null, null, corePath);
 
-    Cell c = generateDescription(gen, r, e, null, true, null, null, pkp, null);
+    Cell c = generateDescription(gen, r, e, null, true, null, null, pkp, null, corePath);
     c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null));
   }
 
@@ -1137,7 +1138,7 @@ public class ProfileUtilities {
           if (extDefn == null) {
             genCardinality(gen, element, row, hasDef, used, null);
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
-            generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile().get(0).getValue(), pkp, profile);
+            generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile().get(0).getValue(), pkp, profile, corePath);
           } else {
             String name = urltail(element.getType().get(0).getProfile().get(0).getValue());
             left.getPieces().get(0).setText(name);
@@ -1150,12 +1151,12 @@ public class ProfileUtilities {
              else // if it's complex, we just call it nothing
                 // genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
               row.getCells().add(gen.new Cell(null, null, "(Complex)", null, null));
-            generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, extDefn.getUrl(), pkp, profile);
+            generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, extDefn.getUrl(), pkp, profile, corePath);
           }
         } else {
           genCardinality(gen, element, row, hasDef, used, null);
           genTypes(gen, pkp, row, element, profileBaseFileName, profile, corePath);
-          generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
+          generateDescription(gen, row, element, null, used.used, null, null, pkp, profile, corePath);
         }
       } else {
         genCardinality(gen, element, row, hasDef, used, null);
@@ -1163,7 +1164,7 @@ public class ProfileUtilities {
           genTypes(gen, pkp, row, element, profileBaseFileName, profile, corePath);
         else
           row.getCells().add(gen.new Cell());
-        generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
+        generateDescription(gen, row, element, null, used.used, null, null, pkp, profile, corePath);
       }
       if (element.hasSlicing()) {
         if (standardExtensionSlicing(element)) {
@@ -1246,7 +1247,7 @@ public class ProfileUtilities {
     return element.getPath(); // .substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
   }
 
-  private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, StructureDefinition profile) throws Exception {
+  private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, StructureDefinition profile, String corePath) throws Exception {
     Cell c = gen.new Cell();
     row.getCells().add(c);                
 
@@ -1265,7 +1266,7 @@ public class ProfileUtilities {
         if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
         String fullUrl = url.startsWith("#") ? baseURL+url : url;
         StructureDefinition ed = context.getExtensionStructure(null, url);
-        String ref = ed == null ? null : (String) ed.getUserData("filename")+".html";
+          String ref = ed == null ? null : (String) corePath+ed.getUserData("path");
         c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
         c.getPieces().add(gen.new Piece(ref, fullUrl, null));
       }
@@ -1280,10 +1281,10 @@ public class ProfileUtilities {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           BindingResolution br = pkp.resolveBinding(definition.getBinding());
           c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(br.url, br.display, null)));
+            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url)? br.url : corePath+br.url, br.display, null)));
           if (definition.getBinding().hasStrength()) {
             c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, " (", null)));
-            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().getDefinition())));
+              c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(corePath+"terminologies.html#"+definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().getDefinition())));
             c.getPieces().add(gen.new Piece(null, ")", null));
           }
         }

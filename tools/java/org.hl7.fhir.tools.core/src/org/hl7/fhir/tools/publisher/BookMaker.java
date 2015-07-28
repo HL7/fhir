@@ -39,7 +39,7 @@ import java.util.Set;
 
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.TextFile;

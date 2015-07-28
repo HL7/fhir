@@ -2563,8 +2563,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     		XhtmlNode tr = tbl.addTag("tr");
     		tr.addTag("td").addTag("b").addText("Severity");
     		tr.addTag("td").addTag("b").addText("Location");
-    		tr.addTag("td").addTag("b").addText("Details");
-  			tr.addTag("td").addTag("b").addText("Code");
+        tr.addTag("td").addTag("b").addText("Code");
+        tr.addTag("td").addTag("b").addText("Details");
+        tr.addTag("td").addTag("b").addText("Diagnostics");
     		if (hasSource)
     			tr.addTag("td").addTag("b").addText("Source");
     		for (OperationOutcomeIssueComponent i : op.getIssue()) {
@@ -2579,8 +2580,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     					d = true;
     				td.addText(s.getValue());      		
     			}
-    			smartAddText(tr.addTag("td"), i.getDetails());
-  				tr.addTag("td").addText(gen(i.getCode()));
+          tr.addTag("td").addText(i.getCode().getDisplay());
+          tr.addTag("td").addText(gen(i.getDetails()));
+          smartAddText(tr.addTag("td"), i.getDiagnostics());
     			if (hasSource) {
     				Extension ext = ExtensionHelper.getExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE);
             tr.addTag("td").addText(ext == null ? "" : gen(ext));

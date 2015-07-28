@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 27, 2015 14:25+1000 for FHIR v0.5.0
+// Generated on Tue, Jul 28, 2015 10:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1250,10 +1250,10 @@ public class Observation extends DomainResource {
     protected Type effective;
 
     /**
-     * The date and time this observation was made available.
+     * The date and time this observation was made available to providers, typically after the results have been reviewed and verified.
      */
     @Child(name = "issued", type = {InstantType.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="Date/Time this was made available", formalDefinition="The date and time this observation was made available." )
+    @Description(shortDefinition="Date/Time this was made available", formalDefinition="The date and time this observation was made available to providers, typically after the results have been reviewed and verified." )
     protected InstantType issued;
 
     /**
@@ -1285,23 +1285,21 @@ public class Observation extends DomainResource {
     protected CodeableConcept method;
 
     /**
-     * A unique identifier for the simple observation.
+     * A unique identifier for the simple observation instance.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Unique Id for this particular observation", formalDefinition="A unique identifier for the simple observation." )
+    @Description(shortDefinition="Unique Id for this particular observation", formalDefinition="A unique identifier for the simple observation instance." )
     protected List<Identifier> identifier;
 
     /**
-     * The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor, 
-other observer (for example a relative or EMT), or any observation made about the subject.
+     * The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.
      */
     @Child(name = "subject", type = {Patient.class, Group.class, Device.class, Location.class}, order=13, min=0, max=1)
-    @Description(shortDefinition="Who and/or what this is about", formalDefinition="The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor, \nother observer (for example a relative or EMT), or any observation made about the subject." )
+    @Description(shortDefinition="Who and/or what this is about", formalDefinition="The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject." )
     protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor, 
-other observer (for example a relative or EMT), or any observation made about the subject.)
+     * The actual object that is the target of the reference (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.)
      */
     protected Resource subjectTarget;
 
@@ -1732,7 +1730,7 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return {@link #issued} (The date and time this observation was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+     * @return {@link #issued} (The date and time this observation was made available to providers, typically after the results have been reviewed and verified.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
     public InstantType getIssuedElement() { 
       if (this.issued == null)
@@ -1752,7 +1750,7 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @param value {@link #issued} (The date and time this observation was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+     * @param value {@link #issued} (The date and time this observation was made available to providers, typically after the results have been reviewed and verified.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
     public Observation setIssuedElement(InstantType value) { 
       this.issued = value;
@@ -1760,14 +1758,14 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return The date and time this observation was made available.
+     * @return The date and time this observation was made available to providers, typically after the results have been reviewed and verified.
      */
     public Date getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
-     * @param value The date and time this observation was made available.
+     * @param value The date and time this observation was made available to providers, typically after the results have been reviewed and verified.
      */
     public Observation setIssued(Date value) { 
       if (value == null)
@@ -1944,7 +1942,7 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return {@link #identifier} (A unique identifier for the simple observation.)
+     * @return {@link #identifier} (A unique identifier for the simple observation instance.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1962,7 +1960,7 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return {@link #identifier} (A unique identifier for the simple observation.)
+     * @return {@link #identifier} (A unique identifier for the simple observation instance.)
      */
     // syntactic sugar
     public Identifier addIdentifier() { //3
@@ -1984,8 +1982,7 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return {@link #subject} (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor, 
-other observer (for example a relative or EMT), or any observation made about the subject.)
+     * @return {@link #subject} (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.)
      */
     public Reference getSubject() { 
       if (this.subject == null)
@@ -2001,8 +1998,7 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @param value {@link #subject} (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor, 
-other observer (for example a relative or EMT), or any observation made about the subject.)
+     * @param value {@link #subject} (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.)
      */
     public Observation setSubject(Reference value) { 
       this.subject = value;
@@ -2010,16 +2006,14 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor, 
-other observer (for example a relative or EMT), or any observation made about the subject.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor, 
-other observer (for example a relative or EMT), or any observation made about the subject.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.)
      */
     public Observation setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -2331,13 +2325,13 @@ other observer (for example a relative or EMT), or any observation made about th
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, effective));
-        childrenList.add(new Property("issued", "instant", "The date and time this observation was made available.", 0, java.lang.Integer.MAX_VALUE, issued));
+        childrenList.add(new Property("issued", "instant", "The date and time this observation was made available to providers, typically after the results have been reviewed and verified.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("status", "code", "The status of the result value.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("reliability", "code", "An estimate of the degree to which quality issues have impacted on the value reported.", 0, java.lang.Integer.MAX_VALUE, reliability));
         childrenList.add(new Property("bodySite[x]", "CodeableConcept|Reference(BodySite)", "Indicates the site on the subject's body where the observation was made ( i.e. the target site).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, java.lang.Integer.MAX_VALUE, method));
-        childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the simple observation.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor, \nother observer (for example a relative or EMT), or any observation made about the subject.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the simple observation instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "Who was responsible for asserting the observed value as 'true'.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("device", "Reference(Device|DeviceMetric)", "The device used to generate the observation data.", 0, java.lang.Integer.MAX_VALUE, device));

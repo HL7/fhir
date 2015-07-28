@@ -374,7 +374,7 @@ public class ToolsHelper {
     for (String n : names) {
       String source = rootDir + n + ".xml";
       // String tmpJson = tmpDir + n + ".json";
-      String dest = tmpDir + n + ".java.xml";
+      String dest = tmpDir + n.replace(File.separator, "-") + ".java.xml";
       
       FileInputStream in = new FileInputStream(source);
       XmlParser xp = new XmlParser();

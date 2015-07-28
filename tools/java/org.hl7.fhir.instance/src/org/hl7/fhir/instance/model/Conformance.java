@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 27, 2015 14:25+1000 for FHIR v0.5.0
+// Generated on Tue, Jul 28, 2015 10:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -3506,10 +3506,10 @@ public class Conformance extends DomainResource implements IBaseConformance {
         protected List<Enumeration<SearchModifierCode>> modifier;
 
         /**
-         * Chained names supported.
+         * Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.
          */
         @Child(name = "chain", type = {StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Chained names supported", formalDefinition="Chained names supported." )
+        @Description(shortDefinition="Chained names supported", formalDefinition="Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type." )
         protected List<StringType> chain;
 
         private static final long serialVersionUID = -1020405086L;
@@ -3827,7 +3827,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return {@link #chain} (Chained names supported.)
+         * @return {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.)
          */
         public List<StringType> getChain() { 
           if (this.chain == null)
@@ -3845,7 +3845,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return {@link #chain} (Chained names supported.)
+         * @return {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.)
          */
     // syntactic sugar
         public StringType addChainElement() {//2 
@@ -3857,7 +3857,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @param value {@link #chain} (Chained names supported.)
+         * @param value {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.)
          */
         public ConformanceRestResourceSearchParamComponent addChain(String value) { //1
           StringType t = new StringType();
@@ -3869,7 +3869,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @param value {@link #chain} (Chained names supported.)
+         * @param value {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.)
          */
         public boolean hasChain(String value) { 
           if (this.chain == null)
@@ -3888,7 +3888,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("documentation", "string", "This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
           childrenList.add(new Property("modifier", "code", "A modifier supported for the search parameter.", 0, java.lang.Integer.MAX_VALUE, modifier));
-          childrenList.add(new Property("chain", "string", "Chained names supported.", 0, java.lang.Integer.MAX_VALUE, chain));
+          childrenList.add(new Property("chain", "string", "Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.", 0, java.lang.Integer.MAX_VALUE, chain));
         }
 
       public ConformanceRestResourceSearchParamComponent copy() {

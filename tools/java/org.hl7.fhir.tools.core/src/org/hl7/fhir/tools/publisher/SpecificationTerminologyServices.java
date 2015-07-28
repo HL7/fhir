@@ -32,6 +32,7 @@ import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -387,7 +388,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     if (new File(fn).exists()) {
       Resource r = parser.parse(new FileInputStream(fn));
       if (r instanceof OperationOutcome)
-        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
+        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
       else
         return ((OperationOutcome) ((Bundle) r).getEntry().get(0).getResource());
     }
@@ -415,7 +416,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
         FileOutputStream s = new FileOutputStream(fn);
         parser.compose(s, e.getServerErrors().get(0));
         s.close();
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails().getText());
       } catch (Exception e) {
         serverOk = false;
         throw e;
@@ -466,7 +467,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     JsonParser parser = new JsonParser();
     Resource r = parser.parse(new FileInputStream(cacheFn));
     if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails());
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
     else {
       vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
       return new ValueSetExpansionOutcome(vs);
@@ -503,7 +504,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
           parser.compose(s, e.getServerErrors().get(0));
         s.close();
 
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails().getText());
       } catch (Exception e) {
         serverOk = false;
         throw e;
@@ -514,9 +515,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
 
   private OperationOutcome buildOO(String message) {
     OperationOutcome oo = new OperationOutcome();
-    CodeableConcept cc = new CodeableConcept();
-    cc.addCoding().setSystem("http://hl7.org/fhir/issue-type").setCode("exception");
-    oo.addIssue().setSeverity(IssueSeverity.ERROR).setCode(cc).setDetails(message);
+    oo.addIssue().setSeverity(IssueSeverity.ERROR).setCode(IssueType.EXCEPTION).getDetails().setText(message);
     return oo;
   }
 

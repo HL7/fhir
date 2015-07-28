@@ -9,15 +9,9 @@
   </text>
   <issue>
     <severity value="error"/>
-    <code>
-      <coding>
-        <system value="http://hl7.org/fhir/issue-type"/>
-        <code value="code-invalid"/>
-        <display value="Invalid Code"/>
-      </coding>
-      <text value="Unknown code"/>
-    </code>
-    <details value="The code &quot;W&quot; in the system &quot;http://acme.com/intranet/fhir/codesystems/gender&quot; is not known (source = Acme.Interop.FHIRProcessors.Patient.processGender)"/>
+    <code value="code-invalid"/>
+    <details> 
+      <text value="The code &quot;W&quot; in the system &quot;http://acme.com/intranet/fhir/codesystems/gender&quot; is not known (source = Acme.Interop.FHIRProcessors.Patient.processGender)"/>    </details>
     <location value="/Person[1]/gender[1]"/>
   </issue>
 </OperationOutcome>

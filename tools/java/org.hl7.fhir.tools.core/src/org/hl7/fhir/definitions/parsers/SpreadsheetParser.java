@@ -44,6 +44,7 @@ import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
@@ -110,6 +111,8 @@ import org.hl7.fhir.instance.model.UnsignedIntType;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
@@ -986,7 +989,10 @@ public class SpreadsheetParser {
         else
           cd.setValueSet(loadValueSet(ref));
       } else if (cd.getBinding() == BindingMethod.Special) {
-        throw new Exception("Special bindings are only allowed in bindings.xml");
+        if ("#operation-outcome".equals(sheet.getColumn(row, "Reference")))
+          ValueSetGenerator.loadOperationOutcomeValueSet(cd, folder);
+        else
+          throw new Exception("Special bindings are only allowed in bindings.xml");
       } else if (cd.getBinding() == BindingMethod.Reference) { 
         cd.setReference(sheet.getColumn(row, "Reference"));
       }			
@@ -1047,7 +1053,7 @@ public class SpreadsheetParser {
 		}
 	}
 
-	private ValueSet loadValueSet(String ref) throws Exception {
+  private ValueSet loadValueSet(String ref) throws Exception {
 	  if (!ref.startsWith("valueset-"))
 	    throw new Exception("Value set file names must start with 'valueset-'");
 	  

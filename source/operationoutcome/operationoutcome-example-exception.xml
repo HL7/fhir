@@ -9,14 +9,9 @@
   </text>
   <issue>
     <severity value="error"/>
-    <code>
-      <coding>
-        <system value="http://hl7.org/fhir/issue-type"/>
-        <code value="exception"/>
-        <display value="Exception"/>
-      </coding>
-      <text value="ECommunicationError"/>
-    </code>
-    <details value="SQL Link Communication Error (dbx = 34234)"/>
+    <code value="exception"/>
+    <details>
+      <text value="SQL Link Communication Error (dbx = 34234)"/>
+    </details>
   </issue>
 </OperationOutcome>

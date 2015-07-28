@@ -298,7 +298,7 @@ public class SpecificationConceptLocator implements ConceptLocator {
     if (new File(fn).exists()) {
       Resource r = new JsonParser().parse(new FileInputStream(fn));
       if (r instanceof OperationOutcome)
-        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
+        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
       else
         return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion().getContains();
     }
@@ -325,7 +325,7 @@ public class SpecificationConceptLocator implements ConceptLocator {
         FileOutputStream s = new FileOutputStream(fn);
         new JsonParser().compose(s, e.getServerErrors().get(0));
         s.close();
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails().getText());
       } catch (Exception e) {
         serverOk = false;
         throw e;

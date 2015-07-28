@@ -652,7 +652,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">ScriptTest</translation>
     </item>
     <!-- Messages -->
-    <item id="MSG_AUTH_REQUIRED">
+    <item id="MSG_AUTH_REQUIRED" ecode="true">
         <translation lang="en">You must authenticate before you can use this service</translation>
         <translation lang="nl">U moet zich authenticeren voor gebruik van deze service</translation>
         <translation lang="zh">使用此服务前需认证</translation>
@@ -670,7 +670,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Retour à l'accueil</translation>
         <translation lang="ru">В начало</translation>
     </item>
-    <item id="MSG_BAD_FORMAT">
+    <item id="MSG_BAD_FORMAT" ecode="true">
         <translation lang="en">Bad Syntax: "%s" must be a %s'</translation>
         <translation lang="it">Sintassi Errata: "%s" deve essere un %s'</translation>
         <translation lang="nl">Verkeerde syntax: "%s" moet een %s zijn</translation>
@@ -680,7 +680,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Erreur de Syntaxe : "%s" doit être un %s</translation>
         <translation lang="ru">Неверный синтакс: "%s" должен быть %s</translation>
     </item>
-    <item id="MSG_BAD_SYNTAX">
+    <item id="MSG_BAD_SYNTAX" ecode="true">
         <translation lang="en">Bad Syntax in %s</translation>
         <translation lang="it">Sintassi errata in %s</translation>
         <translation lang="nl">Verkeerde syntax in %s</translation>
@@ -690,7 +690,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Erreur de Syntaxe dans %s</translation>
         <translation lang="ru">Неверный синтакс: %s</translation>
     </item>
-    <item id="MSG_CANT_PARSE_CONTENT">
+    <item id="MSG_CANT_PARSE_CONTENT" ecode="true">
         <translation lang="en">Unable to parse feed (entry content type = "%s")</translation>
         <translation lang="it">Impossibile effettuare il parsing del feed (tipo del contenuto della entry = "%s")</translation>
         <translation lang="nl">Kan feed niet verwerken (contenttype inhoud = "%s")</translation>
@@ -699,7 +699,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">No se pudo parsear el feed (el tipo de contenido de la entry = "%s")</translation>
         <translation lang="fr">Impossible d'analyser le flux (type de contenu de l'entrée = "%s")</translation>
     </item>
-    <item id="MSG_CANT_PARSE_ROOT">
+    <item id="MSG_CANT_PARSE_ROOT" ecode="true">
         <translation lang="en">Unable to parse feed (root element name = "%s")</translation>
         <translation lang="it">Impossibile effettuare il parsing del feed (nome elemento root = "%s")</translation>
         <translation lang="nl">Kan feed niet verwerken (rootelementnaam = "%s")</translation>
@@ -744,7 +744,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Contenu à valider</translation>
         <translation lang="ru">Контент для проверки</translation>
     </item>
-    <item id="MSG_CREATED">
+    <item id="MSG_CREATED" ecode="true">
         <translation lang="en">New resource created</translation>
 <!--        <translation lang="it">risorsa esistente aggiornata</translation>
         <translation lang="nl">nieuwe resource gemaakt</translation>
@@ -755,7 +755,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="ru">существующий ресурс создан</translation>
 -->        
     </item>
-    <item id="MSG_DATE_FORMAT">
+    <item id="MSG_DATE_FORMAT" ecode="true">
         <translation lang="en">The Date value %s is not in the correct format (Xml Date Format required)</translation>
         <translation lang="it">Il valore %s per la data non � nel formato corretto (richiesto il Formato Data Xml)</translation>
         <translation lang="nl">De Datum-waarde %s heeft niet de juiste structuur (Xml Date vereist)</translation>
@@ -765,7 +765,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Le format de la date %s est incorrect (format Date Xml attendu)</translation>
         <translation lang="ru">Значение Date %s в неверном формате (требуется Xml Date формат)</translation>
     </item>
-    <item id="MSG_DELETED">
+    <item id="MSG_DELETED" ecode="true">
         <translation lang="en">This resource has been deleted</translation>
         <translation lang="nl">Deze resource is verwijderd</translation>
         <translation lang="zh">该资源已删除</translation>
@@ -774,7 +774,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">La ressource a été supprimée</translation>
         <translation lang="ru">Данный ресурс был удалён</translation>
     </item>
-    <item id="MSG_DELETED_DONE">
+    <item id="MSG_DELETED_DONE" ecode="true">
         <translation lang="en">Resource deleted</translation>
         <translation lang="it">Risorsa cancellata</translation>
         <translation lang="nl">Resource verwijderd</translation>
@@ -784,7 +784,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Ressource supprimée</translation>
         <translation lang="ru">Ресурс удалён</translation>
     </item>
-    <item id="MSG_DELETED_ID">
+    <item id="MSG_DELETED_ID" ecode="true">
         <translation lang="en">The resource "%s" has been deleted</translation>
         <!-- Duplicate Italian? -->
         <translation lang="it">La risorsa "%s" � stata eliminata</translation>
@@ -796,7 +796,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">La ressource "%s" a été supprimée</translation>
         <translation lang="ru">Ресурс "%s" был удалён</translation>
     </item>
-    <item id="MSG_DUPLICATE_ID">
+    <item id="MSG_DUPLICATE_ID" ecode="true">
         <translation lang="en">Duplicate Id %s for resource type %s</translation>
         <translation lang="it">Id %s duplicato per il tipo di risorsa %s</translation>
         <translation lang="nl">Duplicaat-id %s voor resourcetype %s</translation>
@@ -806,7 +806,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Id %s en double pour le type de ressource %s</translation>
         <translation lang="ru">Дублирующий Id %s для типа ресурса %s</translation>
     </item>
-    <item id="MSG_ERROR_PARSING">
+    <item id="MSG_ERROR_PARSING" ecode="true">
         <translation lang="en">Error parsing resource Xml (%s)</translation>
         <translation lang="it">Errore nel parsing della risorsa Xml (%s)</translation>
         <translation lang="nl">Fout in verwerking resource Xml (%s)</translation>
@@ -876,7 +876,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Fast Healthcare Interoperability Resources - Accueil</translation>
         <translation lang="ru">Fast Healthcare Interoperability Resources - Домашняя страница</translation>
     </item>
-    <item id="MSG_ID_INVALID">
+    <item id="MSG_ID_INVALID" ecode="true">
         <translation lang="en">Id "%s" has an invalid character "%s"</translation>
         <translation lang="it">L''Id "%s" ha un carattere non valido: "%s"</translation>
         <translation lang="nl">Id "%s" heeft een ongeldig teken "%s"</translation>
@@ -886,7 +886,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Id "%s" possède un caractère invalide "%s"</translation>
         <translation lang="ru">Id "%s" содержит недопустимые символы "%s"</translation>
     </item>
-    <item id="MSG_ID_TOO_LONG">
+    <item id="MSG_ID_TOO_LONG" ecode="true">
         <translation lang="en">Id "%s" too long (length limit 36)</translation>
         <translation lang="it">Id "%s" troppo lunga (limite di lunghezza: 36)</translation>
         <translation lang="nl">Id "%s" te lang (max lengte 36)</translation>
@@ -896,7 +896,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Id "%s" trop long (la longueur limite est 36)</translation>
         <translation lang="ru">Недопустимая длина Id "%s" (ограничение 36)</translation>
     </item>
-    <item id="MSG_INVALID_ID">
+    <item id="MSG_INVALID_ID" ecode="true">
         <translation lang="en">Id not accepted</translation>
         <translation lang="it">Id non accettato</translation>
         <translation lang="nl">Id niet geaccepteerd</translation>
@@ -906,7 +906,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Id non accepté</translation>
         <translation lang="ru">Id не принято</translation>
     </item>
-    <item id="MSG_JSON_OBJECT">
+    <item id="MSG_JSON_OBJECT" ecode="true">
         <translation lang="en">Json Source for a resource should start with an object</translation>
         <translation lang="it">Il sorgente Json di una risorsa dovrebbe iniziare con un oggetto</translation>
         <translation lang="nl">Json Source van een resource moeten beginnen met een object</translation>
@@ -916,7 +916,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">La source Json pour une ressource doit commencer par un objet</translation>
         <translation lang="ru">Json Source для ресурса должен начинаться с объекта</translation>
     </item>
-    <item id="MSG_LOCAL_FAIL">
+    <item id="MSG_LOCAL_FAIL" ecode="true">
         <translation lang="en">Unable to resolve local reference to resource %s</translation>
         <translation lang="it">Impossibile risolvere il riferimento locale alla risorsa %s</translation>
         <translation lang="nl">De resource met lokale referentie %s is niet gevonden</translation>
@@ -926,10 +926,10 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Impossible de résourdre la référence locale à la ressource %s</translation>
         <translation lang="ru">Невозможно определить локальную ссылку на ресурс %s</translation>
     </item>
-    <item id="MSG_NO_MATCH">
+    <item id="MSG_NO_MATCH" ecode="true">
         <translation lang="en">No Resource found matching the query "%s"</translation>
     </item>
-    <item id="MSG_NO_EXIST">
+    <item id="MSG_NO_EXIST" ecode="true">
         <translation lang="en">Resource Id "%s" does not exist</translation>
         <translation lang="it">La risorsa con Id "%s" non esiste</translation>
         <translation lang="nl">Resource-id "%s" bestaat niet</translation>
@@ -939,7 +939,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">La ressource avec l'Id "%s" n'existe pas</translation>
         <translation lang="ru">Ресурс Id "%s" не существует</translation>
     </item>
-    <item id="MSG_NO_MODULE">
+    <item id="MSG_NO_MODULE" ecode="true">
         <translation lang="en">No module could be found to handle the request "%s"</translation>
         <translation lang="it">Impossibile trovare un modulo per gestire la richiesta "%s"</translation>
         <translation lang="nl">Er kon geen module worden gevonden om verzoek "%s" te verwerken</translation>
@@ -949,7 +949,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Aucun module disponible pour traiter la requête "%s"</translation>
         <translation lang="ru">Модуль для обработки запроса "%s" не найден</translation>
     </item>
-    <item id="MSG_NO_SUMMARY">
+    <item id="MSG_NO_SUMMARY" ecode="true">
         <translation lang="en">No Summary for this resource</translation>
         <translation lang="it">Nessun riepilogo per questa risorsa</translation>
         <translation lang="nl">Geen samenvatting voor deze resource</translation>
@@ -959,7 +959,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Aucun résumé disponible pour cette ressource</translation>
         <translation lang="ru">Отсутствует Summary для данного ресурса</translation>
     </item>
-    <item id="MSG_OP_NOT_ALLOWED">
+    <item id="MSG_OP_NOT_ALLOWED" ecode="true">
         <translation lang="en">Operation %s not allowed for resource %s (due to local configuration)</translation>
         <translation lang="it">Operazione %s non consentita per la risorsa %s (a causa di configurazioni locali)</translation>
         <translation lang="nl">Bewerking %s niet toegestaan voor resource %s (vanwege lokale configuratie)</translation>
@@ -969,7 +969,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">L'opération %s n'est pas permise pour la ressource %s (à cause de la configuration locale)</translation>
         <translation lang="ru">Операция %s недопустима для ресурса %s (по причине локальной конфигурации)</translation>
     </item>
-    <item id="MSG_PARAM_CHAINED">
+    <item id="MSG_PARAM_CHAINED" ecode="true">
         <translation lang="en">Unknown chained parameter name "%s"</translation>
         <translation lang="it">Nome di parametro concatenato sconosciuto: "%s"</translation>
         <translation lang="nl">Onbekende geschakelde parameternaam "%s"</translation>
@@ -979,7 +979,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Nom du paramètre chainé inconnu : "%s"</translation>
         <translation lang="ru">Неизвестое вложенное наименование параметра "%s"</translation>
     </item>
-    <item id="MSG_PARAM_NO_REPEAT">
+    <item id="MSG_PARAM_NO_REPEAT" ecode="true">
         <translation lang="en">Parameter "%s" is not allowed to repeat</translation>
         <translation lang="it">Non � consentito ripetere il parametro "%s"</translation>
         <translation lang="nl">Parameter "%s" mag niet herhalen</translation>
@@ -989,17 +989,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Le paramètre "%s" ne peut pas être répété</translation>
         <translation lang="ru">Параметр "%s" не может быть повторён</translation>
     </item>
-    <item id="MSG_PARAM_UNK_REPEAT">
-        <translation lang="en">unable to determine repeat behaviour for parameter "%s"</translation>
-        <translation lang="it">impossibile determinare il comportamento di ripetizione per il parametro "%s"</translation>
-        <translation lang="nl">kon gedrag niet bepalen voor herhaling van parameter "%s"</translation>
-        <translation lang="zh">无法确定参数"%s"的重复行为</translation>
-        <translation lang="pl">nie można określić zachowania dla powtórzeń parametru "%s"</translation>
-        <translation lang="es">no se pudo determinar el comportamiento de repetición para el parámetro "%s"</translation>
-        <translation lang="fr">impossible de déterminer le comportement pour la répétition du paramètre "%s"</translation>
-        <translation lang="ru">невозможно определить принципы повтора для параметра "%s"</translation>
-    </item>
-    <item id="MSG_PARAM_UNKNOWN">
+    <item id="MSG_PARAM_UNKNOWN" ecode="true">
         <translation lang="en">Parameter "%s" not understood</translation>
         <translation lang="it">Parametro "%s" non riconosciuto</translation>
         <translation lang="nl">Parameter "%s" onbekend</translation>
@@ -1009,7 +999,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Paramètre "%s" non reconnu</translation>
         <translation lang="ru">Параметр "%s" не понят</translation>
     </item>
-    <item id="MSG_RESOURCE_EXAMPLE_PROTECTED">
+    <item id="MSG_RESOURCE_EXAMPLE_PROTECTED" ecode="true">
         <translation lang="en">Resources with identity "example" cannot be deleted (for testing/training purposes)</translation>
         <translation lang="nl">Resources met identiteit "voorbeeld" kunnen niet worden verwijderd (ten behoeve van testen/training)</translation>
         <translation lang="zh">以"example" 为ID的资源不能被删除 (用于测试/培训)</translation>
@@ -1018,7 +1008,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Les ressources ayant l'identité "example" ne peuvent pas être supprimées (utilisées pour les tests/formations)</translation>
         <translation lang="ru">Ресурс с идентификатором "example" не может быть удалён (для случаев тестирования/обучения)</translation>
     </item>
-    <item id="MSG_RESOURCE_ID_FAIL">
+    <item id="MSG_RESOURCE_ID_FAIL" ecode="true">
         <translation lang="en">unable to allocate resource id</translation>
         <translation lang="it">impossibile allocare l''id della risorsa</translation>
         <translation lang="nl">kan geen resource-id reserveren</translation>
@@ -1028,7 +1018,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">impossible d'allouer l'id de la ressource</translation>
         <translation lang="ru">невозможно выделить идентификатор ресурса</translation>
     </item>
-    <item id="MSG_RESOURCE_NOT_ALLOWED">
+    <item id="MSG_RESOURCE_NOT_ALLOWED" ecode="true">
         <translation lang="en">Not allowed to submit a resource for this operation</translation>
         <translation lang="it">Non � consentito sottomettere una risorsa per questa operazione</translation>
         <translation lang="nl">Niet toegestaan om een resource in te dienen voor deze bewerking</translation>
@@ -1038,7 +1028,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Non autorisé à soumettre une ressource pour cette opération</translation>
         <translation lang="ru">Для данной операции отправка ресурса недопустима</translation>
     </item>
-    <item id="MSG_RESOURCE_REQUIRED">
+    <item id="MSG_RESOURCE_REQUIRED" ecode="true">
         <translation lang="en">A resource is required</translation>
         <translation lang="it">E'' richiesta una risorsa</translation>
         <translation lang="nl">Een resource is verplicht</translation>
@@ -1048,15 +1038,15 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Une ressource est requise</translation>
         <translation lang="ru">Требуется ресурс</translation>
     </item>
-    <item id="MSG_RESOURCE_ID_MISMATCH">
+    <item id="MSG_RESOURCE_ID_MISMATCH" ecode="true">
         <translation lang="en">Resource Id Mismatch</translation>
         <translation lang="fr">Problème de correspondance d'Id de la Ressource</translation>
     </item>
-    <item id="MSG_RESOURCE_ID_MISSING">
+    <item id="MSG_RESOURCE_ID_MISSING" ecode="true">
         <translation lang="en">Resource Id Missing</translation>
         <translation lang="fr">Id de la Ressource manquante</translation>
     </item>
-    <item id="MSG_RESOURCE_TYPE_MISMATCH">
+    <item id="MSG_RESOURCE_TYPE_MISMATCH" ecode="true">
         <translation lang="en">Resource Type Mismatch</translation>
         <translation lang="it">Tipo Risorsa non corrispondente</translation>
         <translation lang="nl">Verkeerd resourcetype</translation>
@@ -1085,7 +1075,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Résultats de la recherche pour toutes les ressources</translation>
         <translation lang="ru">Результаты поиска для всех ресурсов</translation>
     </item>
-    <item id="MSG_SORT_UNKNOWN">
+    <item id="MSG_SORT_UNKNOWN" ecode="true">
         <translation lang="en">Unknown sort parameter name "%s"</translation>
         <translation lang="it">Nome del parametro di ordinamento "%s" non riconosciuto</translation>
         <translation lang="nl">Onbekende parameternaam "%s" voor sortering</translation>
@@ -1095,7 +1085,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Nom du paramètre de tri inconnu "%s"</translation>
         <translation lang="ru">Неизвестное имя параметра сортировки "%s"</translation>
     </item>
-    <item id="MSG_TRANSACTION_DUPLICATE_ID">
+    <item id="MSG_TRANSACTION_DUPLICATE_ID" ecode="true">
         <translation lang="en">Duplicate Identifier in transaction: %s</translation>
         <!-- <translation lang="it">Identificatore duplicato nel batch: %s</translation> -->
         <translation lang="nl">Dubbele identificatie in transactie: %s</translation>
@@ -1105,7 +1095,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Identifiant en double dans la transaction : %s</translation>
         <translation lang="ru">Дублирующий идентификатор в транзакции: %s</translation>
     </item>
-    <item id="MSG_TRANSACTION_MISSING_ID">
+    <item id="MSG_TRANSACTION_MISSING_ID" ecode="true">
         <translation lang="en">Missing Identifier in transaction - an entry.id must be provided</translation>
         <!-- <translation lang="it">Identificatore duplicato nel batch: %s</translation> -->
         <translation lang="nl">Ontbrekende identificatie in transactie - entry.id is verplicht</translation>
@@ -1125,7 +1115,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">%d ressources traitées</translation>
         <translation lang="ru">ресурс %d обработан</translation>
     </item>
-    <item id="MSG_UNHANDLED_NODE_TYPE">
+    <item id="MSG_UNHANDLED_NODE_TYPE" ecode="true">
         <translation lang="en">Unhandled xml node type "%s"</translation>
         <translation lang="it">Tipo di nodo Xml non gestito "%s"</translation>
         <translation lang="nl">Kan xml nodetype "%s" niet verwerken</translation>
@@ -1135,7 +1125,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Type de noeud xml "%s" non traité</translation>
         <translation lang="ru">Не обработанный xml узел "%s"</translation>
     </item>
-    <item id="MSG_UNKNOWN_CONTENT">
+    <item id="MSG_UNKNOWN_CONTENT" ecode="true">
         <translation lang="en">Unknown Content (%s) at %s</translation>
         <translation lang="it">Contenuto Sconosciuto (%s) at %s</translation>
         <translation lang="nl">Onbekende content (%s) at %s</translation>
@@ -1145,7 +1135,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Contenu inconnu (%s) à %s</translation>
         <translation lang="ru">Неизвестный контент (%s) в %s</translation>
     </item>
-    <item id="MSG_UNKNOWN_OPERATION">
+    <item id="MSG_UNKNOWN_OPERATION" ecode="true">
         <translation lang="en">unknown FHIR http operation</translation>
         <translation lang="it">operazione http FHIR sconosciuta</translation>
         <translation lang="nl">onbekende FHIR http operation</translation>
@@ -1155,7 +1145,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">operation http FHIR inconnue</translation>
         <translation lang="ru">неизвестная операция FHIR http</translation>
     </item>
-    <item id="MSG_UNKNOWN_TYPE">
+    <item id="MSG_UNKNOWN_TYPE" ecode="true">
         <translation lang="en">Resource Type "%s" not recognised</translation>
         <translation lang="it">Tipo di Risorsa "%s" non riconosciuto</translation>
         <translation lang="nl">Resourcetype "%s" niet herkend</translation>
@@ -1165,7 +1155,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Type de ressource "%s" non reconnu</translation>
         <translation lang="ru">Тип ресурса "%s" не распознан</translation>
     </item>
-    <item id="MSG_UPDATED">
+    <item id="MSG_UPDATED" ecode="true">
         <translation lang="en">existing resource updated</translation>
         <translation lang="it">risorsa esistente aggiornata</translation>
         <translation lang="nl">bestaande resource updated</translation>
@@ -1175,7 +1165,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">ressource existante mise à jour</translation>
         <translation lang="ru">существующий ресурс обновлён</translation>
     </item>
-    <item id="MSG_VERSION_AWARE">
+    <item id="MSG_VERSION_AWARE" ecode="true">
         <translation lang="en">Version aware updates are required for this resource</translation>
         <translation lang="it">Questa risorsa richiede aggiornamenti per versione</translation>
         <translation lang="nl">Versie-bewuste updates zijn vereist voor deze resource</translation>
@@ -1185,7 +1175,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Des mises à jour en relation avec la version sont requises pour cette ressource</translation>
         <translation lang="ru">Для данного ресурса необходимы обновления с учётом версии</translation>
     </item>
-    <item id="MSG_VERSION_AWARE_CONFLICT">
+    <item id="MSG_VERSION_AWARE_CONFLICT" ecode="true">
         <translation lang="en">Update Conflict (server current version = "%s", client version referenced = "%s")</translation>
         <translation lang="it">Conflitto nell''aggiornamento (attuale = "%s", quotato = "%s")</translation>
         <translation lang="nl">Updateconflict (huidige serverversie = "%s", opgegeven clientversie = "%s")</translation>
@@ -1195,7 +1185,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Conflit de mise à jour (version courante du serveur = "%s", version référencée du client = "%s")</translation>
         <translation lang="ru">Конфликт обновления (текущая версия сервера = "%s", указанная версия клиента = "%s")</translation>
     </item>
-    <item id="MSG_VERSION_AWARE_URL">
+    <item id="MSG_VERSION_AWARE_URL" ecode="true">
         <translation lang="en">Version specific URL not recognised</translation>
         <translation lang="it">URL specifico alla versione non riconosciuto</translation>
         <translation lang="nl">Versie-specifieke URL niet herkend</translation>
@@ -1205,7 +1195,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">URL spécifique à une version non reconnue</translation>
         <translation lang="ru">URL для указанной версии не распознан</translation>
     </item>
-    <item id="MSG_WRONG_NS">
+    <item id="MSG_WRONG_NS" ecode="true">
         <translation lang="en">This does not appear to be a FHIR element or resource (wrong namespace "%s")</translation>
 <!--        <translation lang="it">Questa non sembra essere una risorsa FHIR o un atom feed (namespace errato: "%s")</translation>
         <translation lang="nl">Dit lijkt geen FHIR resource of een atomfeed te zijn (verkeerde namespace "%s")</translation>
@@ -1534,7 +1524,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Labels définis sur ce système pour le type de ressource %s ID %s version %s</translation>
         <translation lang="ru">Тэги определённые в системе для типа ресурса %s ID %s версии %s</translation>
     </item>
-    <item id="SEARCH_MULTIPLE">
+    <item id="SEARCH_MULTIPLE" ecode="true">
         <translation lang="en">Error: Multiple matches exist for %s search parameters "%s"</translation>
         <translation lang="it">Errore: Trovate corrispondenze multiple per %s parametri di ricerca "%s"</translation>
         <translation lang="nl">Fout: er is meer dan één resultaat voor %s zoekparameters "%s"</translation>
@@ -1544,7 +1534,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Erreur : Plusieurs correspondances existent pour ce paramètre de recherche %s</translation>
         <translation lang="ru">Ошибка: множественные совпадения для %s с параметрами поиска "%s"</translation>
     </item>
-    <item id="UPDATE_MULTIPLE_MATCHES">
+    <item id="UPDATE_MULTIPLE_MATCHES" ecode="true">
         <translation lang="en">Error: Multiple matches exist for the conditional update</translation>
 <!--        <translation lang="it">Errore: Trovate corrispondenze multiple per %s parametri di ricerca "%s"</translation>
         <translation lang="nl">Fout: er is meer dan één resultaat voor %s zoekparameters "%s"</translation>
@@ -1554,7 +1544,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Erreur : Plusieurs correspondances existent pour ce paramètre de recherche %s</translation>
         <translation lang="ru">Ошибка: множественные совпадения для %s с параметрами поиска "%s"</translation> -->
     </item>
-    <item id="SEARCH_NONE">
+    <item id="SEARCH_NONE" ecode="true">
         <translation lang="en">Error: no processable search found for %s search parameters "%s"</translation>
         <translation lang="it">Errore: non � stato trovato alcun parametro di ricerca processabile per %s parametri di ricerca "%s"</translation>
         <translation lang="nl">Fout: geen verwerkbare zoekactie gevonden voor %s zoekparameters "%s"</translation>

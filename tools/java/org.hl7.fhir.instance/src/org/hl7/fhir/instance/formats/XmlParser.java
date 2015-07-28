@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jul 27, 2015 14:25+1000 for FHIR v0.5.0
+// Generated on Tue, Jul 28, 2015 10:52+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -7009,9 +7009,11 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("severity")) {
         res.setSeverityElement(parseEnumeration(xpp, OperationOutcome.IssueSeverity.NULL, new OperationOutcome.IssueSeverityEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
-        res.setCode(parseCodeableConcept(xpp));
+        res.setCodeElement(parseEnumeration(xpp, OperationOutcome.IssueType.NULL, new OperationOutcome.IssueTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("details")) {
-        res.setDetailsElement(parseString(xpp));
+        res.setDetails(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("diagnostics")) {
+        res.setDiagnosticsElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("location")) {
         res.getLocation().add(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -17947,11 +17949,13 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasSeverityElement())
         composeEnumeration("severity", element.getSeverityElement(), new OperationOutcome.IssueSeverityEnumFactory());
-      if (element.hasCode()) {
-        composeCodeableConcept("code", element.getCode());
+      if (element.hasCodeElement())
+        composeEnumeration("code", element.getCodeElement(), new OperationOutcome.IssueTypeEnumFactory());
+      if (element.hasDetails()) {
+        composeCodeableConcept("details", element.getDetails());
       }
-      if (element.hasDetailsElement()) {
-        composeString("details", element.getDetailsElement());
+      if (element.hasDiagnosticsElement()) {
+        composeString("diagnostics", element.getDiagnosticsElement());
       }
       if (element.hasLocation()) { 
         for (StringType e : element.getLocation()) 

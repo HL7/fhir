@@ -37,7 +37,7 @@ import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuideDepend
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
-import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.model.NamingSystem;
 import org.hl7.fhir.instance.model.OperationDefinition;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;

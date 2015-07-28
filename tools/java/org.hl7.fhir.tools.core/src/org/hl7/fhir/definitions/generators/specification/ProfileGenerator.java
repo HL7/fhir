@@ -88,7 +88,7 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDiffer
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;

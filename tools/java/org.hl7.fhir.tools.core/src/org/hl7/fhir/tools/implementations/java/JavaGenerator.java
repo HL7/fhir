@@ -65,7 +65,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.valuesets.IssueType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.test.ToolsHelper;
 import org.hl7.fhir.instance.utils.Version;
 import org.hl7.fhir.instance.validation.ValidationMessage;

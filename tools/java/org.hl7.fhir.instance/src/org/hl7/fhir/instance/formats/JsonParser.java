@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jul 27, 2015 14:25+1000 for FHIR v0.5.0
+// Generated on Tue, Jul 28, 2015 10:52+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -7969,11 +7969,15 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_severity"))
       parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverityElement());
     if (json.has("code"))
-      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+      res.setCodeElement(parseEnumeration(json.get("code").getAsString(), OperationOutcome.IssueType.NULL, new OperationOutcome.IssueTypeEnumFactory()));
+    if (json.has("_code"))
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
     if (json.has("details"))
-      res.setDetailsElement(parseString(json.get("details").getAsString()));
-    if (json.has("_details"))
-      parseElementProperties(json.getAsJsonObject("_details"), res.getDetailsElement());
+      res.setDetails(parseCodeableConcept(json.getAsJsonObject("details")));
+    if (json.has("diagnostics"))
+      res.setDiagnosticsElement(parseString(json.get("diagnostics").getAsString()));
+    if (json.has("_diagnostics"))
+      parseElementProperties(json.getAsJsonObject("_diagnostics"), res.getDiagnosticsElement());
     if (json.has("location")) {
       JsonArray array = json.getAsJsonArray("location");
       for (int i = 0; i < array.size(); i++) {
@@ -21605,12 +21609,16 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("severity", element.getSeverityElement(), new OperationOutcome.IssueSeverityEnumFactory(), false);
         composeEnumerationExtras("severity", element.getSeverityElement(), new OperationOutcome.IssueSeverityEnumFactory(), false);
       }
-      if (element.hasCode()) {
-        composeCodeableConcept("code", element.getCode());
+      if (element.hasCodeElement()) {
+        composeEnumerationCore("code", element.getCodeElement(), new OperationOutcome.IssueTypeEnumFactory(), false);
+        composeEnumerationExtras("code", element.getCodeElement(), new OperationOutcome.IssueTypeEnumFactory(), false);
       }
-      if (element.hasDetailsElement()) {
-        composeStringCore("details", element.getDetailsElement(), false);
-        composeStringExtras("details", element.getDetailsElement(), false);
+      if (element.hasDetails()) {
+        composeCodeableConcept("details", element.getDetails());
+      }
+      if (element.hasDiagnosticsElement()) {
+        composeStringCore("diagnostics", element.getDiagnosticsElement(), false);
+        composeStringExtras("diagnostics", element.getDiagnosticsElement(), false);
       }
       if (element.hasLocation()) {
         openArray("location");
