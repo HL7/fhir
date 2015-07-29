@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 08:39+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 29, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -984,10 +984,10 @@ public class DiagnosticOrder extends DomainResource {
     protected Practitioner ordererTarget;
 
     /**
-     * Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller.
+     * Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Identifiers assigned to this order", formalDefinition="Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller." )
+    @Description(shortDefinition="Identifiers assigned to this order", formalDefinition="Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller." )
     protected List<Identifier> identifier;
 
     /**
@@ -1003,20 +1003,20 @@ public class DiagnosticOrder extends DomainResource {
     protected Encounter encounterTarget;
 
     /**
-     * An explanation or justification for why this diagnostic investigation is being requested.
+     * An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
      */
-    @Child(name = "clinicalNotes", type = {StringType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="Explanation/Justification for test", formalDefinition="An explanation or justification for why this diagnostic investigation is being requested." )
-    protected StringType clinicalNotes;
+    @Child(name = "reason", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Explanation/Justification for test", formalDefinition="An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation." )
+    protected List<CodeableConcept> reason;
 
     /**
-     * Additional clinical information about the patient or specimen that may influence test interpretations.
+     * Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.
      */
     @Child(name = "supportingInformation", type = {Observation.class, Condition.class, DocumentReference.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Additional clinical information", formalDefinition="Additional clinical information about the patient or specimen that may influence test interpretations." )
+    @Description(shortDefinition="Additional clinical information", formalDefinition="Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order." )
     protected List<Reference> supportingInformation;
     /**
-     * The actual objects that are the target of the reference (Additional clinical information about the patient or specimen that may influence test interpretations.)
+     * The actual objects that are the target of the reference (Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
      */
     protected List<Resource> supportingInformationTarget;
 
@@ -1061,7 +1061,14 @@ public class DiagnosticOrder extends DomainResource {
     @Description(shortDefinition="The items the orderer requested", formalDefinition="The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested." )
     protected List<DiagnosticOrderItemComponent> item;
 
-    private static final long serialVersionUID = 1028294242L;
+    /**
+     * Any other notes associated with this patient or specimen or order (e.g. "patient hates needles").
+     */
+    @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Other notes and comments", formalDefinition="Any other notes associated with this patient or specimen or order (e.g. 'patient hates needles')." )
+    protected List<Annotation> note;
+
+    private static final long serialVersionUID = 700891227L;
 
   /*
    * Constructor
@@ -1162,7 +1169,7 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller.)
+     * @return {@link #identifier} (Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1180,7 +1187,7 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller.)
+     * @return {@link #identifier} (Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.)
      */
     // syntactic sugar
     public Identifier addIdentifier() { //3
@@ -1246,56 +1253,47 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.). This is the underlying object with id, value and extensions. The accessor "getClinicalNotes" gives direct access to the value
+     * @return {@link #reason} (An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.)
      */
-    public StringType getClinicalNotesElement() { 
-      if (this.clinicalNotes == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DiagnosticOrder.clinicalNotes");
-        else if (Configuration.doAutoCreate())
-          this.clinicalNotes = new StringType(); // bb
-      return this.clinicalNotes;
+    public List<CodeableConcept> getReason() { 
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      return this.reason;
     }
 
-    public boolean hasClinicalNotesElement() { 
-      return this.clinicalNotes != null && !this.clinicalNotes.isEmpty();
-    }
-
-    public boolean hasClinicalNotes() { 
-      return this.clinicalNotes != null && !this.clinicalNotes.isEmpty();
+    public boolean hasReason() { 
+      if (this.reason == null)
+        return false;
+      for (CodeableConcept item : this.reason)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.). This is the underlying object with id, value and extensions. The accessor "getClinicalNotes" gives direct access to the value
+     * @return {@link #reason} (An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.)
      */
-    public DiagnosticOrder setClinicalNotesElement(StringType value) { 
-      this.clinicalNotes = value;
+    // syntactic sugar
+    public CodeableConcept addReason() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      this.reason.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticOrder addReason(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      this.reason.add(t);
       return this;
     }
 
     /**
-     * @return An explanation or justification for why this diagnostic investigation is being requested.
-     */
-    public String getClinicalNotes() { 
-      return this.clinicalNotes == null ? null : this.clinicalNotes.getValue();
-    }
-
-    /**
-     * @param value An explanation or justification for why this diagnostic investigation is being requested.
-     */
-    public DiagnosticOrder setClinicalNotes(String value) { 
-      if (Utilities.noString(value))
-        this.clinicalNotes = null;
-      else {
-        if (this.clinicalNotes == null)
-          this.clinicalNotes = new StringType();
-        this.clinicalNotes.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.)
+     * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
      */
     public List<Reference> getSupportingInformation() { 
       if (this.supportingInformation == null)
@@ -1313,7 +1311,7 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.)
+     * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
      */
     // syntactic sugar
     public Reference addSupportingInformation() { //3
@@ -1335,7 +1333,7 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #supportingInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Additional clinical information about the patient or specimen that may influence test interpretations.)
+     * @return {@link #supportingInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
      */
     public List<Resource> getSupportingInformationTarget() { 
       if (this.supportingInformationTarget == null)
@@ -1582,19 +1580,60 @@ public class DiagnosticOrder extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #note} (Any other notes associated with this patient or specimen or order (e.g. "patient hates needles").)
+     */
+    public List<Annotation> getNote() { 
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      return this.note;
+    }
+
+    public boolean hasNote() { 
+      if (this.note == null)
+        return false;
+      for (Annotation item : this.note)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #note} (Any other notes associated with this patient or specimen or order (e.g. "patient hates needles").)
+     */
+    // syntactic sugar
+    public Annotation addNote() { //3
+      Annotation t = new Annotation();
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticOrder addNote(Annotation t) { //3
+      if (t == null)
+        return this;
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("orderer", "Reference(Practitioner)", "The practitioner that holds legal responsibility for ordering the investigation.", 0, java.lang.Integer.MAX_VALUE, orderer));
-        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("clinicalNotes", "string", "An explanation or justification for why this diagnostic investigation is being requested.", 0, java.lang.Integer.MAX_VALUE, clinicalNotes));
-        childrenList.add(new Property("supportingInformation", "Reference(Observation|Condition|DocumentReference)", "Additional clinical information about the patient or specimen that may influence test interpretations.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
+        childrenList.add(new Property("reason", "CodeableConcept", "An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("supportingInformation", "Reference(Observation|Condition|DocumentReference)", "Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("specimen", "Reference(Specimen)", "One or more specimens that the diagnostic investigation is about.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("status", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("priority", "code", "The clinical priority associated with this order.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("event", "", "A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("item", "", "The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.", 0, java.lang.Integer.MAX_VALUE, item));
+        childrenList.add(new Property("note", "Annotation", "Any other notes associated with this patient or specimen or order (e.g. 'patient hates needles').", 0, java.lang.Integer.MAX_VALUE, note));
       }
 
       public DiagnosticOrder copy() {
@@ -1608,7 +1647,11 @@ public class DiagnosticOrder extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.encounter = encounter == null ? null : encounter.copy();
-        dst.clinicalNotes = clinicalNotes == null ? null : clinicalNotes.copy();
+        if (reason != null) {
+          dst.reason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reason)
+            dst.reason.add(i.copy());
+        };
         if (supportingInformation != null) {
           dst.supportingInformation = new ArrayList<Reference>();
           for (Reference i : supportingInformation)
@@ -1631,6 +1674,11 @@ public class DiagnosticOrder extends DomainResource {
           for (DiagnosticOrderItemComponent i : item)
             dst.item.add(i.copy());
         };
+        if (note != null) {
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
+            dst.note.add(i.copy());
+        };
         return dst;
       }
 
@@ -1646,10 +1694,10 @@ public class DiagnosticOrder extends DomainResource {
           return false;
         DiagnosticOrder o = (DiagnosticOrder) other;
         return compareDeep(subject, o.subject, true) && compareDeep(orderer, o.orderer, true) && compareDeep(identifier, o.identifier, true)
-           && compareDeep(encounter, o.encounter, true) && compareDeep(clinicalNotes, o.clinicalNotes, true)
-           && compareDeep(supportingInformation, o.supportingInformation, true) && compareDeep(specimen, o.specimen, true)
-           && compareDeep(status, o.status, true) && compareDeep(priority, o.priority, true) && compareDeep(event, o.event, true)
-           && compareDeep(item, o.item, true);
+           && compareDeep(encounter, o.encounter, true) && compareDeep(reason, o.reason, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+           && compareDeep(specimen, o.specimen, true) && compareDeep(status, o.status, true) && compareDeep(priority, o.priority, true)
+           && compareDeep(event, o.event, true) && compareDeep(item, o.item, true) && compareDeep(note, o.note, true)
+          ;
       }
 
       @Override
@@ -1659,16 +1707,16 @@ public class DiagnosticOrder extends DomainResource {
         if (!(other instanceof DiagnosticOrder))
           return false;
         DiagnosticOrder o = (DiagnosticOrder) other;
-        return compareValues(clinicalNotes, o.clinicalNotes, true) && compareValues(status, o.status, true)
-           && compareValues(priority, o.priority, true);
+        return compareValues(status, o.status, true) && compareValues(priority, o.priority, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (subject == null || subject.isEmpty()) && (orderer == null || orderer.isEmpty())
            && (identifier == null || identifier.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (clinicalNotes == null || clinicalNotes.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
+           && (reason == null || reason.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
            && (specimen == null || specimen.isEmpty()) && (status == null || status.isEmpty()) && (priority == null || priority.isEmpty())
-           && (event == null || event.isEmpty()) && (item == null || item.isEmpty());
+           && (event == null || event.isEmpty()) && (item == null || item.isEmpty()) && (note == null || note.isEmpty())
+          ;
       }
 
   @Override

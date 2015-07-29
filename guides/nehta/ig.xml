@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="nehta"/>
   <url value="http://hl7.org/fhir/nehta"/>
   <name value="NEHTA Logical Model"/>
-  <publisher value="NEHTA"/>
   <status value="draft"/>
   <experimental value="true"/>
-
+  <publisher value="NEHTA"/>
   <package>
     <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="colorectal-spreadsheet.xml"/>
@@ -24,10 +25,9 @@
     </extension>
     <name value="base"/>
   </package>
-    
   <page>
     <source value="nehta.html"/>
     <name value="Home Page"/>
     <kind value="page"/>
-  </page>  
+  </page>
 </ImplementationGuide>

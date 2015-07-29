@@ -4,8 +4,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
   </extension>
-  <status value="draft"/>
   <name value="DAF Medication Product Form"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

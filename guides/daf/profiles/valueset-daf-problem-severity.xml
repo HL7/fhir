@@ -6,8 +6,8 @@
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.6.8"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-problem-severity"/>
-  <status value="draft"/>
   <name value="Problem Severity"/>
+  <status value="draft"/>
   <publisher value="PHIN VADS"/>
   <contact>
     <telecom>

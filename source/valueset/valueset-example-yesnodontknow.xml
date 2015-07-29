@@ -3,8 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="yesnodontknow"/>
   <url value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
-  <status value="draft"/>
   <name value="Yes/No/Don&#39;t Know"/>
+  <status value="draft"/>
   <description value="For Capturing simple yes-no-don&#39;t know answers"/>
   <compose>
     <import value="http://hl7.org/fhir/v2/vs/0136"/>

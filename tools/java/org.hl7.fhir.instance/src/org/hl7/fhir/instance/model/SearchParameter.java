@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 08:39+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 29, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -335,46 +335,46 @@ public class SearchParameter extends DomainResource {
     protected StringType name;
 
     /**
-     * The name of the individual or organization that published the search parameter.
-     */
-    @Child(name = "publisher", type = {StringType.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the search parameter." )
-    protected StringType publisher;
-
-    /**
-     * Contacts to assist a user in finding and communicating with the publisher.
-     */
-    @Child(name = "contact", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
-    protected List<SearchParameterContactComponent> contact;
-
-    /**
-     * The Scope and Usage that this search parameter was created to meet.
-     */
-    @Child(name = "requirements", type = {StringType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="Why this search parameter is defined", formalDefinition="The Scope and Usage that this search parameter was created to meet." )
-    protected StringType requirements;
-
-    /**
      * The status of this search parameter definition.
      */
-    @Child(name = "status", type = {CodeType.class}, order=5, min=0, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this search parameter definition." )
     protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name = "experimental", type = {BooleanType.class}, order=6, min=0, max=1)
+    @Child(name = "experimental", type = {BooleanType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
+     * The name of the individual or organization that published the search parameter.
+     */
+    @Child(name = "publisher", type = {StringType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the search parameter." )
+    protected StringType publisher;
+
+    /**
+     * Contacts to assist a user in finding and communicating with the publisher.
+     */
+    @Child(name = "contact", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
+    protected List<SearchParameterContactComponent> contact;
+
+    /**
      * The date  (and optionally time) when the search parameter definition was published.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=7, min=0, max=1)
+    @Child(name = "date", type = {DateTimeType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Publication Date(/time)", formalDefinition="The date  (and optionally time) when the search parameter definition was published." )
     protected DateTimeType date;
+
+    /**
+     * The Scope and Usage that this search parameter was created to meet.
+     */
+    @Child(name = "requirements", type = {StringType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Why this search parameter is defined", formalDefinition="The Scope and Usage that this search parameter was created to meet." )
+    protected StringType requirements;
 
     /**
      * The base resource type that this search parameter refers to.
@@ -418,7 +418,7 @@ public class SearchParameter extends DomainResource {
     @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
     protected List<CodeType> target;
 
-    private static final long serialVersionUID = -703905070L;
+    private static final long serialVersionUID = -30383162L;
 
   /*
    * Constructor
@@ -530,144 +530,6 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return {@link #publisher} (The name of the individual or organization that published the search parameter.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
-     */
-    public StringType getPublisherElement() { 
-      if (this.publisher == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create SearchParameter.publisher");
-        else if (Configuration.doAutoCreate())
-          this.publisher = new StringType(); // bb
-      return this.publisher;
-    }
-
-    public boolean hasPublisherElement() { 
-      return this.publisher != null && !this.publisher.isEmpty();
-    }
-
-    public boolean hasPublisher() { 
-      return this.publisher != null && !this.publisher.isEmpty();
-    }
-
-    /**
-     * @param value {@link #publisher} (The name of the individual or organization that published the search parameter.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
-     */
-    public SearchParameter setPublisherElement(StringType value) { 
-      this.publisher = value;
-      return this;
-    }
-
-    /**
-     * @return The name of the individual or organization that published the search parameter.
-     */
-    public String getPublisher() { 
-      return this.publisher == null ? null : this.publisher.getValue();
-    }
-
-    /**
-     * @param value The name of the individual or organization that published the search parameter.
-     */
-    public SearchParameter setPublisher(String value) { 
-      if (Utilities.noString(value))
-        this.publisher = null;
-      else {
-        if (this.publisher == null)
-          this.publisher = new StringType();
-        this.publisher.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    public List<SearchParameterContactComponent> getContact() { 
-      if (this.contact == null)
-        this.contact = new ArrayList<SearchParameterContactComponent>();
-      return this.contact;
-    }
-
-    public boolean hasContact() { 
-      if (this.contact == null)
-        return false;
-      for (SearchParameterContactComponent item : this.contact)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
-    public SearchParameterContactComponent addContact() { //3
-      SearchParameterContactComponent t = new SearchParameterContactComponent();
-      if (this.contact == null)
-        this.contact = new ArrayList<SearchParameterContactComponent>();
-      this.contact.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public SearchParameter addContact(SearchParameterContactComponent t) { //3
-      if (t == null)
-        return this;
-      if (this.contact == null)
-        this.contact = new ArrayList<SearchParameterContactComponent>();
-      this.contact.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
-     */
-    public StringType getRequirementsElement() { 
-      if (this.requirements == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create SearchParameter.requirements");
-        else if (Configuration.doAutoCreate())
-          this.requirements = new StringType(); // bb
-      return this.requirements;
-    }
-
-    public boolean hasRequirementsElement() { 
-      return this.requirements != null && !this.requirements.isEmpty();
-    }
-
-    public boolean hasRequirements() { 
-      return this.requirements != null && !this.requirements.isEmpty();
-    }
-
-    /**
-     * @param value {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
-     */
-    public SearchParameter setRequirementsElement(StringType value) { 
-      this.requirements = value;
-      return this;
-    }
-
-    /**
-     * @return The Scope and Usage that this search parameter was created to meet.
-     */
-    public String getRequirements() { 
-      return this.requirements == null ? null : this.requirements.getValue();
-    }
-
-    /**
-     * @param value The Scope and Usage that this search parameter was created to meet.
-     */
-    public SearchParameter setRequirements(String value) { 
-      if (Utilities.noString(value))
-        this.requirements = null;
-      else {
-        if (this.requirements == null)
-          this.requirements = new StringType();
-        this.requirements.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #status} (The status of this search parameter definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<ConformanceResourceStatus> getStatusElement() { 
@@ -762,6 +624,95 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
+     * @return {@link #publisher} (The name of the individual or organization that published the search parameter.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     */
+    public StringType getPublisherElement() { 
+      if (this.publisher == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.publisher");
+        else if (Configuration.doAutoCreate())
+          this.publisher = new StringType(); // bb
+      return this.publisher;
+    }
+
+    public boolean hasPublisherElement() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    public boolean hasPublisher() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    /**
+     * @param value {@link #publisher} (The name of the individual or organization that published the search parameter.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     */
+    public SearchParameter setPublisherElement(StringType value) { 
+      this.publisher = value;
+      return this;
+    }
+
+    /**
+     * @return The name of the individual or organization that published the search parameter.
+     */
+    public String getPublisher() { 
+      return this.publisher == null ? null : this.publisher.getValue();
+    }
+
+    /**
+     * @param value The name of the individual or organization that published the search parameter.
+     */
+    public SearchParameter setPublisher(String value) { 
+      if (Utilities.noString(value))
+        this.publisher = null;
+      else {
+        if (this.publisher == null)
+          this.publisher = new StringType();
+        this.publisher.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
+     */
+    public List<SearchParameterContactComponent> getContact() { 
+      if (this.contact == null)
+        this.contact = new ArrayList<SearchParameterContactComponent>();
+      return this.contact;
+    }
+
+    public boolean hasContact() { 
+      if (this.contact == null)
+        return false;
+      for (SearchParameterContactComponent item : this.contact)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
+     */
+    // syntactic sugar
+    public SearchParameterContactComponent addContact() { //3
+      SearchParameterContactComponent t = new SearchParameterContactComponent();
+      if (this.contact == null)
+        this.contact = new ArrayList<SearchParameterContactComponent>();
+      this.contact.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public SearchParameter addContact(SearchParameterContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<SearchParameterContactComponent>();
+      this.contact.add(t);
+      return this;
+    }
+
+    /**
      * @return {@link #date} (The date  (and optionally time) when the search parameter definition was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
@@ -806,6 +757,55 @@ public class SearchParameter extends DomainResource {
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     */
+    public StringType getRequirementsElement() { 
+      if (this.requirements == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.requirements");
+        else if (Configuration.doAutoCreate())
+          this.requirements = new StringType(); // bb
+      return this.requirements;
+    }
+
+    public boolean hasRequirementsElement() { 
+      return this.requirements != null && !this.requirements.isEmpty();
+    }
+
+    public boolean hasRequirements() { 
+      return this.requirements != null && !this.requirements.isEmpty();
+    }
+
+    /**
+     * @param value {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     */
+    public SearchParameter setRequirementsElement(StringType value) { 
+      this.requirements = value;
+      return this;
+    }
+
+    /**
+     * @return The Scope and Usage that this search parameter was created to meet.
+     */
+    public String getRequirements() { 
+      return this.requirements == null ? null : this.requirements.getValue();
+    }
+
+    /**
+     * @param value The Scope and Usage that this search parameter was created to meet.
+     */
+    public SearchParameter setRequirements(String value) { 
+      if (Utilities.noString(value))
+        this.requirements = null;
+      else {
+        if (this.requirements == null)
+          this.requirements = new StringType();
+        this.requirements.setValue(value);
       }
       return this;
     }
@@ -1101,12 +1101,12 @@ public class SearchParameter extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the search parameter.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("requirements", "string", "The Scope and Usage that this search parameter was created to meet.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("status", "code", "The status of this search parameter definition.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the search parameter.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the search parameter definition was published.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("requirements", "string", "The Scope and Usage that this search parameter was created to meet.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("base", "code", "The base resource type that this search parameter refers to.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("description", "string", "A description of the search parameters and how it used.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -1120,16 +1120,16 @@ public class SearchParameter extends DomainResource {
         copyValues(dst);
         dst.url = url == null ? null : url.copy();
         dst.name = name == null ? null : name.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.experimental = experimental == null ? null : experimental.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
           dst.contact = new ArrayList<SearchParameterContactComponent>();
           for (SearchParameterContactComponent i : contact)
             dst.contact.add(i.copy());
         };
-        dst.requirements = requirements == null ? null : requirements.copy();
-        dst.status = status == null ? null : status.copy();
-        dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
+        dst.requirements = requirements == null ? null : requirements.copy();
         dst.base = base == null ? null : base.copy();
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
@@ -1154,11 +1154,12 @@ public class SearchParameter extends DomainResource {
         if (!(other instanceof SearchParameter))
           return false;
         SearchParameter o = (SearchParameter) other;
-        return compareDeep(url, o.url, true) && compareDeep(name, o.name, true) && compareDeep(publisher, o.publisher, true)
-           && compareDeep(contact, o.contact, true) && compareDeep(requirements, o.requirements, true) && compareDeep(status, o.status, true)
-           && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(base, o.base, true)
-           && compareDeep(type, o.type, true) && compareDeep(description, o.description, true) && compareDeep(xpath, o.xpath, true)
-           && compareDeep(xpathUsage, o.xpathUsage, true) && compareDeep(target, o.target, true);
+        return compareDeep(url, o.url, true) && compareDeep(name, o.name, true) && compareDeep(status, o.status, true)
+           && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(requirements, o.requirements, true)
+           && compareDeep(base, o.base, true) && compareDeep(type, o.type, true) && compareDeep(description, o.description, true)
+           && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true) && compareDeep(target, o.target, true)
+          ;
       }
 
       @Override
@@ -1168,18 +1169,18 @@ public class SearchParameter extends DomainResource {
         if (!(other instanceof SearchParameter))
           return false;
         SearchParameter o = (SearchParameter) other;
-        return compareValues(url, o.url, true) && compareValues(name, o.name, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(requirements, o.requirements, true) && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true)
-           && compareValues(date, o.date, true) && compareValues(base, o.base, true) && compareValues(type, o.type, true)
-           && compareValues(description, o.description, true) && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true)
-           && compareValues(target, o.target, true);
+        return compareValues(url, o.url, true) && compareValues(name, o.name, true) && compareValues(status, o.status, true)
+           && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
+           && compareValues(date, o.date, true) && compareValues(requirements, o.requirements, true) && compareValues(base, o.base, true)
+           && compareValues(type, o.type, true) && compareValues(description, o.description, true) && compareValues(xpath, o.xpath, true)
+           && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (name == null || name.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (requirements == null || requirements.isEmpty())
            && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (date == null || date.isEmpty()) && (base == null || base.isEmpty()) && (type == null || type.isEmpty())
+           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty())
+           && (requirements == null || requirements.isEmpty()) && (base == null || base.isEmpty()) && (type == null || type.isEmpty())
            && (description == null || description.isEmpty()) && (xpath == null || xpath.isEmpty()) && (xpathUsage == null || xpathUsage.isEmpty())
            && (target == null || target.isEmpty());
       }

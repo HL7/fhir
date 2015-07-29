@@ -4,8 +4,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.114222.4.11.837"/>
   </extension>
-  <status value="active"/>
   <name value="Ethnicity group"/>
+  <status value="active"/>
   <publisher value="CDC via PHIN VADS"/>
   <contact>
     <telecom>

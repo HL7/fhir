@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Missing Tooth Reason Codes"/>
+  <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -17,25 +17,25 @@
     <caseSensitive value="true"/>
     <concept>
       <code value="E"/>
-      <!--  extraction  -->
+    <!--   extraction   -->
       <display value="E"/>
       <definition value="Extraction"/>
     </concept>
     <concept>
       <code value="C"/>
-      <!--  congenital  -->
+    <!--   congenital   -->
       <display value="C"/>
       <definition value="Congenital"/>
     </concept>
     <concept>
       <code value="U"/>
-      <!--  unknown  -->
+    <!--   unknown   -->
       <display value="U"/>
       <definition value="Unknown"/>
     </concept>
     <concept>
       <code value="O"/>
-      <!--  other  -->
+    <!--   other   -->
       <display value="O"/>
       <definition value="Other"/>
     </concept>

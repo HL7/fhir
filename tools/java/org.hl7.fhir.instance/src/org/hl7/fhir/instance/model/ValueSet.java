@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 08:39+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 29, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -3158,53 +3158,53 @@ public class ValueSet extends DomainResource {
     protected StringType version;
 
     /**
+     * A free text natural language name describing the value set.
+     */
+    @Child(name = "name", type = {StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Informal name for this value set", formalDefinition="A free text natural language name describing the value set." )
+    protected StringType name;
+
+    /**
      * The status of the value set.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the value set." )
     protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name = "experimental", type = {BooleanType.class}, order=4, min=0, max=1)
+    @Child(name = "experimental", type = {BooleanType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
-     * A free text natural language name describing the value set.
-     */
-    @Child(name = "name", type = {StringType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="Informal name for this value set", formalDefinition="A free text natural language name describing the value set." )
-    protected StringType name;
-
-    /**
-     * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.
-     */
-    @Child(name = "useContext", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions." )
-    protected List<CodeableConcept> useContext;
-
-    /**
-     * If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
-     */
-    @Child(name = "immutable", type = {BooleanType.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="Indicates whether or not any change to the content logical definition may occur", formalDefinition="If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change." )
-    protected BooleanType immutable;
-
-    /**
      * The name of the individual or organization that published the value set.
      */
-    @Child(name = "publisher", type = {StringType.class}, order=8, min=0, max=1)
+    @Child(name = "publisher", type = {StringType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the value set." )
     protected StringType publisher;
 
     /**
      * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name = "contact", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "contact", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
     protected List<ValueSetContactComponent> contact;
+
+    /**
+     * The date that the value set status was last changed.
+     */
+    @Child(name = "date", type = {DateTimeType.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Date for given status", formalDefinition="The date that the value set status was last changed." )
+    protected DateTimeType date;
+
+    /**
+     * If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
+     */
+    @Child(name = "lockedDate", type = {DateType.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Fixed date for all referenced code systems and value sets", formalDefinition="If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date." )
+    protected DateType lockedDate;
 
     /**
      * A free text natural language description of the use of the value set - reason for definition, "the semantic space" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.
@@ -3214,39 +3214,39 @@ public class ValueSet extends DomainResource {
     protected StringType description;
 
     /**
+     * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.
+     */
+    @Child(name = "useContext", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions." )
+    protected List<CodeableConcept> useContext;
+
+    /**
+     * If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     */
+    @Child(name = "immutable", type = {BooleanType.class}, order=12, min=0, max=1)
+    @Description(shortDefinition="Indicates whether or not any change to the content logical definition may occur", formalDefinition="If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change." )
+    protected BooleanType immutable;
+
+    /**
      * Explains why this value set is needed and why it's been constrained as it has.
      */
-    @Child(name = "requirements", type = {StringType.class}, order=11, min=0, max=1)
+    @Child(name = "requirements", type = {StringType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this value set is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**
      * A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
      */
-    @Child(name = "copyright", type = {StringType.class}, order=12, min=0, max=1)
+    @Child(name = "copyright", type = {StringType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set." )
     protected StringType copyright;
 
     /**
      * Whether this is intended to be used with an extensible binding or not.
      */
-    @Child(name = "extensible", type = {BooleanType.class}, order=13, min=0, max=1)
+    @Child(name = "extensible", type = {BooleanType.class}, order=15, min=0, max=1)
     @Description(shortDefinition="Whether this is intended to be used with an extensible binding", formalDefinition="Whether this is intended to be used with an extensible binding or not." )
     protected BooleanType extensible;
-
-    /**
-     * The date that the value set status was last changed.
-     */
-    @Child(name = "date", type = {DateTimeType.class}, order=14, min=0, max=1)
-    @Description(shortDefinition="Date for given status", formalDefinition="The date that the value set status was last changed." )
-    protected DateTimeType date;
-
-    /**
-     * If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
-     */
-    @Child(name = "lockedDate", type = {DateType.class}, order=15, min=0, max=1)
-    @Description(shortDefinition="Fixed date for all referenced code systems and value sets", formalDefinition="If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date." )
-    protected DateType lockedDate;
 
     /**
      * A definition of an code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly.
@@ -3269,7 +3269,7 @@ public class ValueSet extends DomainResource {
     @Description(shortDefinition="Used when the value set is 'expanded'", formalDefinition="A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed." )
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = 888835702L;
+    private static final long serialVersionUID = -467533312L;
 
   /*
    * Constructor
@@ -3409,6 +3409,55 @@ public class ValueSet extends DomainResource {
     }
 
     /**
+     * @return {@link #name} (A free text natural language name describing the value set.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     */
+    public StringType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ValueSet.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new StringType(); // bb
+      return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    /**
+     * @param value {@link #name} (A free text natural language name describing the value set.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     */
+    public ValueSet setNameElement(StringType value) { 
+      this.name = value;
+      return this;
+    }
+
+    /**
+     * @return A free text natural language name describing the value set.
+     */
+    public String getName() { 
+      return this.name == null ? null : this.name.getValue();
+    }
+
+    /**
+     * @param value A free text natural language name describing the value set.
+     */
+    public ValueSet setName(String value) { 
+      if (Utilities.noString(value))
+        this.name = null;
+      else {
+        if (this.name == null)
+          this.name = new StringType();
+        this.name.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #status} (The status of the value set.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<ConformanceResourceStatus> getStatusElement() { 
@@ -3495,140 +3544,6 @@ public class ValueSet extends DomainResource {
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #name} (A free text natural language name describing the value set.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-     */
-    public StringType getNameElement() { 
-      if (this.name == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ValueSet.name");
-        else if (Configuration.doAutoCreate())
-          this.name = new StringType(); // bb
-      return this.name;
-    }
-
-    public boolean hasNameElement() { 
-      return this.name != null && !this.name.isEmpty();
-    }
-
-    public boolean hasName() { 
-      return this.name != null && !this.name.isEmpty();
-    }
-
-    /**
-     * @param value {@link #name} (A free text natural language name describing the value set.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-     */
-    public ValueSet setNameElement(StringType value) { 
-      this.name = value;
-      return this;
-    }
-
-    /**
-     * @return A free text natural language name describing the value set.
-     */
-    public String getName() { 
-      return this.name == null ? null : this.name.getValue();
-    }
-
-    /**
-     * @param value A free text natural language name describing the value set.
-     */
-    public ValueSet setName(String value) { 
-      if (Utilities.noString(value))
-        this.name = null;
-      else {
-        if (this.name == null)
-          this.name = new StringType();
-        this.name.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.)
-     */
-    public List<CodeableConcept> getUseContext() { 
-      if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
-      return this.useContext;
-    }
-
-    public boolean hasUseContext() { 
-      if (this.useContext == null)
-        return false;
-      for (CodeableConcept item : this.useContext)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.)
-     */
-    // syntactic sugar
-    public CodeableConcept addUseContext() { //3
-      CodeableConcept t = new CodeableConcept();
-      if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
-      this.useContext.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public ValueSet addUseContext(CodeableConcept t) { //3
-      if (t == null)
-        return this;
-      if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
-      this.useContext.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #immutable} (If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.). This is the underlying object with id, value and extensions. The accessor "getImmutable" gives direct access to the value
-     */
-    public BooleanType getImmutableElement() { 
-      if (this.immutable == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ValueSet.immutable");
-        else if (Configuration.doAutoCreate())
-          this.immutable = new BooleanType(); // bb
-      return this.immutable;
-    }
-
-    public boolean hasImmutableElement() { 
-      return this.immutable != null && !this.immutable.isEmpty();
-    }
-
-    public boolean hasImmutable() { 
-      return this.immutable != null && !this.immutable.isEmpty();
-    }
-
-    /**
-     * @param value {@link #immutable} (If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.). This is the underlying object with id, value and extensions. The accessor "getImmutable" gives direct access to the value
-     */
-    public ValueSet setImmutableElement(BooleanType value) { 
-      this.immutable = value;
-      return this;
-    }
-
-    /**
-     * @return If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
-     */
-    public boolean getImmutable() { 
-      return this.immutable == null || this.immutable.isEmpty() ? false : this.immutable.getValue();
-    }
-
-    /**
-     * @param value If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
-     */
-    public ValueSet setImmutable(boolean value) { 
-        if (this.immutable == null)
-          this.immutable = new BooleanType();
-        this.immutable.setValue(value);
       return this;
     }
 
@@ -3722,6 +3637,104 @@ public class ValueSet extends DomainResource {
     }
 
     /**
+     * @return {@link #date} (The date that the value set status was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ValueSet.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The date that the value set status was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public ValueSet setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date that the value set status was last changed.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date that the value set status was last changed.
+     */
+    public ValueSet setDate(Date value) { 
+      if (value == null)
+        this.date = null;
+      else {
+        if (this.date == null)
+          this.date = new DateTimeType();
+        this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #lockedDate} (If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
+     */
+    public DateType getLockedDateElement() { 
+      if (this.lockedDate == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ValueSet.lockedDate");
+        else if (Configuration.doAutoCreate())
+          this.lockedDate = new DateType(); // bb
+      return this.lockedDate;
+    }
+
+    public boolean hasLockedDateElement() { 
+      return this.lockedDate != null && !this.lockedDate.isEmpty();
+    }
+
+    public boolean hasLockedDate() { 
+      return this.lockedDate != null && !this.lockedDate.isEmpty();
+    }
+
+    /**
+     * @param value {@link #lockedDate} (If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
+     */
+    public ValueSet setLockedDateElement(DateType value) { 
+      this.lockedDate = value;
+      return this;
+    }
+
+    /**
+     * @return If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
+     */
+    public Date getLockedDate() { 
+      return this.lockedDate == null ? null : this.lockedDate.getValue();
+    }
+
+    /**
+     * @param value If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
+     */
+    public ValueSet setLockedDate(Date value) { 
+      if (value == null)
+        this.lockedDate = null;
+      else {
+        if (this.lockedDate == null)
+          this.lockedDate = new DateType();
+        this.lockedDate.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #description} (A free text natural language description of the use of the value set - reason for definition, "the semantic space" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
@@ -3767,6 +3780,91 @@ public class ValueSet extends DomainResource {
           this.description = new StringType();
         this.description.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.)
+     */
+    public List<CodeableConcept> getUseContext() { 
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      return this.useContext;
+    }
+
+    public boolean hasUseContext() { 
+      if (this.useContext == null)
+        return false;
+      for (CodeableConcept item : this.useContext)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.)
+     */
+    // syntactic sugar
+    public CodeableConcept addUseContext() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public ValueSet addUseContext(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #immutable} (If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.). This is the underlying object with id, value and extensions. The accessor "getImmutable" gives direct access to the value
+     */
+    public BooleanType getImmutableElement() { 
+      if (this.immutable == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ValueSet.immutable");
+        else if (Configuration.doAutoCreate())
+          this.immutable = new BooleanType(); // bb
+      return this.immutable;
+    }
+
+    public boolean hasImmutableElement() { 
+      return this.immutable != null && !this.immutable.isEmpty();
+    }
+
+    public boolean hasImmutable() { 
+      return this.immutable != null && !this.immutable.isEmpty();
+    }
+
+    /**
+     * @param value {@link #immutable} (If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.). This is the underlying object with id, value and extensions. The accessor "getImmutable" gives direct access to the value
+     */
+    public ValueSet setImmutableElement(BooleanType value) { 
+      this.immutable = value;
+      return this;
+    }
+
+    /**
+     * @return If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     */
+    public boolean getImmutable() { 
+      return this.immutable == null || this.immutable.isEmpty() ? false : this.immutable.getValue();
+    }
+
+    /**
+     * @param value If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     */
+    public ValueSet setImmutable(boolean value) { 
+        if (this.immutable == null)
+          this.immutable = new BooleanType();
+        this.immutable.setValue(value);
       return this;
     }
 
@@ -3914,104 +4012,6 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return {@link #date} (The date that the value set status was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public DateTimeType getDateElement() { 
-      if (this.date == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ValueSet.date");
-        else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType(); // bb
-      return this.date;
-    }
-
-    public boolean hasDateElement() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    public boolean hasDate() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    /**
-     * @param value {@link #date} (The date that the value set status was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public ValueSet setDateElement(DateTimeType value) { 
-      this.date = value;
-      return this;
-    }
-
-    /**
-     * @return The date that the value set status was last changed.
-     */
-    public Date getDate() { 
-      return this.date == null ? null : this.date.getValue();
-    }
-
-    /**
-     * @param value The date that the value set status was last changed.
-     */
-    public ValueSet setDate(Date value) { 
-      if (value == null)
-        this.date = null;
-      else {
-        if (this.date == null)
-          this.date = new DateTimeType();
-        this.date.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #lockedDate} (If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
-     */
-    public DateType getLockedDateElement() { 
-      if (this.lockedDate == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ValueSet.lockedDate");
-        else if (Configuration.doAutoCreate())
-          this.lockedDate = new DateType(); // bb
-      return this.lockedDate;
-    }
-
-    public boolean hasLockedDateElement() { 
-      return this.lockedDate != null && !this.lockedDate.isEmpty();
-    }
-
-    public boolean hasLockedDate() { 
-      return this.lockedDate != null && !this.lockedDate.isEmpty();
-    }
-
-    /**
-     * @param value {@link #lockedDate} (If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
-     */
-    public ValueSet setLockedDateElement(DateType value) { 
-      this.lockedDate = value;
-      return this;
-    }
-
-    /**
-     * @return If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
-     */
-    public Date getLockedDate() { 
-      return this.lockedDate == null ? null : this.lockedDate.getValue();
-    }
-
-    /**
-     * @param value If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
-     */
-    public ValueSet setLockedDate(Date value) { 
-      if (value == null)
-        this.lockedDate = null;
-      else {
-        if (this.lockedDate == null)
-          this.lockedDate = new DateType();
-        this.lockedDate.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #codeSystem} (A definition of an code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly.)
      */
     public ValueSetCodeSystemComponent getCodeSystem() { 
@@ -4088,19 +4088,19 @@ public class ValueSet extends DomainResource {
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("status", "code", "The status of the value set.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
-        childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the value set.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("date", "dateTime", "The date that the value set status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("lockedDate", "date", "If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
         childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, 'the semantic space' to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("requirements", "string", "Explains why this value set is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
-        childrenList.add(new Property("date", "dateTime", "The date that the value set status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("lockedDate", "date", "If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
         childrenList.add(new Property("codeSystem", "", "A definition of an code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly.", 0, java.lang.Integer.MAX_VALUE, codeSystem));
         childrenList.add(new Property("compose", "", "A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
@@ -4112,27 +4112,27 @@ public class ValueSet extends DomainResource {
         dst.url = url == null ? null : url.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
+        dst.name = name == null ? null : name.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
-        dst.name = name == null ? null : name.copy();
-        if (useContext != null) {
-          dst.useContext = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : useContext)
-            dst.useContext.add(i.copy());
-        };
-        dst.immutable = immutable == null ? null : immutable.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
           dst.contact = new ArrayList<ValueSetContactComponent>();
           for (ValueSetContactComponent i : contact)
             dst.contact.add(i.copy());
         };
+        dst.date = date == null ? null : date.copy();
+        dst.lockedDate = lockedDate == null ? null : lockedDate.copy();
         dst.description = description == null ? null : description.copy();
+        if (useContext != null) {
+          dst.useContext = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : useContext)
+            dst.useContext.add(i.copy());
+        };
+        dst.immutable = immutable == null ? null : immutable.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
         dst.extensible = extensible == null ? null : extensible.copy();
-        dst.date = date == null ? null : date.copy();
-        dst.lockedDate = lockedDate == null ? null : lockedDate.copy();
         dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
         dst.compose = compose == null ? null : compose.copy();
         dst.expansion = expansion == null ? null : expansion.copy();
@@ -4151,12 +4151,12 @@ public class ValueSet extends DomainResource {
           return false;
         ValueSet o = (ValueSet) other;
         return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
-           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(name, o.name, true)
-           && compareDeep(useContext, o.useContext, true) && compareDeep(immutable, o.immutable, true) && compareDeep(publisher, o.publisher, true)
-           && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(copyright, o.copyright, true) && compareDeep(extensible, o.extensible, true) && compareDeep(date, o.date, true)
-           && compareDeep(lockedDate, o.lockedDate, true) && compareDeep(codeSystem, o.codeSystem, true) && compareDeep(compose, o.compose, true)
-           && compareDeep(expansion, o.expansion, true);
+           && compareDeep(name, o.name, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
+           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true)
+           && compareDeep(lockedDate, o.lockedDate, true) && compareDeep(description, o.description, true)
+           && compareDeep(useContext, o.useContext, true) && compareDeep(immutable, o.immutable, true) && compareDeep(requirements, o.requirements, true)
+           && compareDeep(copyright, o.copyright, true) && compareDeep(extensible, o.extensible, true) && compareDeep(codeSystem, o.codeSystem, true)
+           && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true);
       }
 
       @Override
@@ -4166,20 +4166,21 @@ public class ValueSet extends DomainResource {
         if (!(other instanceof ValueSet))
           return false;
         ValueSet o = (ValueSet) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(status, o.status, true)
-           && compareValues(experimental, o.experimental, true) && compareValues(name, o.name, true) && compareValues(immutable, o.immutable, true)
-           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(copyright, o.copyright, true) && compareValues(extensible, o.extensible, true) && compareValues(date, o.date, true)
-           && compareValues(lockedDate, o.lockedDate, true);
+        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
+           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
+           && compareValues(date, o.date, true) && compareValues(lockedDate, o.lockedDate, true) && compareValues(description, o.description, true)
+           && compareValues(immutable, o.immutable, true) && compareValues(requirements, o.requirements, true)
+           && compareValues(copyright, o.copyright, true) && compareValues(extensible, o.extensible, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (version == null || version.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (name == null || name.isEmpty()) && (useContext == null || useContext.isEmpty()) && (immutable == null || immutable.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (extensible == null || extensible.isEmpty()) && (date == null || date.isEmpty()) && (lockedDate == null || lockedDate.isEmpty())
+           && (version == null || version.isEmpty()) && (name == null || name.isEmpty()) && (status == null || status.isEmpty())
+           && (experimental == null || experimental.isEmpty()) && (publisher == null || publisher.isEmpty())
+           && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty()) && (lockedDate == null || lockedDate.isEmpty())
+           && (description == null || description.isEmpty()) && (useContext == null || useContext.isEmpty())
+           && (immutable == null || immutable.isEmpty()) && (requirements == null || requirements.isEmpty())
+           && (copyright == null || copyright.isEmpty()) && (extensible == null || extensible.isEmpty())
            && (codeSystem == null || codeSystem.isEmpty()) && (compose == null || compose.isEmpty())
            && (expansion == null || expansion.isEmpty());
       }

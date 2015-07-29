@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 08:39+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 29, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1969,60 +1969,60 @@ public class ImplementationGuide extends DomainResource {
     protected StringType name;
 
     /**
-     * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.
-     */
-    @Child(name = "useContext", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="The implementation guide is intended to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined." )
-    protected List<CodeableConcept> useContext;
-
-    /**
-     * The name of the individual or organization that published the implementation guide.
-     */
-    @Child(name = "publisher", type = {StringType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the implementation guide." )
-    protected StringType publisher;
-
-    /**
-     * Contacts to assist a user in finding and communicating with the publisher.
-     */
-    @Child(name = "contact", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
-    protected List<ImplementationGuideContactComponent> contact;
-
-    /**
-     * A free text natural language description of the Implementation Guide and its use.
-     */
-    @Child(name = "description", type = {StringType.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="Natural language description of the Implementation Guide", formalDefinition="A free text natural language description of the Implementation Guide and its use." )
-    protected StringType description;
-
-    /**
-     * A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
-     */
-    @Child(name = "copyright", type = {StringType.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings." )
-    protected StringType copyright;
-
-    /**
      * The status of the Implementation Guide.
      */
-    @Child(name = "status", type = {CodeType.class}, order=8, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the Implementation Guide." )
     protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name = "experimental", type = {BooleanType.class}, order=9, min=0, max=1)
+    @Child(name = "experimental", type = {BooleanType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
+     * The name of the individual or organization that published the implementation guide.
+     */
+    @Child(name = "publisher", type = {StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the implementation guide." )
+    protected StringType publisher;
+
+    /**
+     * Contacts to assist a user in finding and communicating with the publisher.
+     */
+    @Child(name = "contact", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
+    protected List<ImplementationGuideContactComponent> contact;
+
+    /**
      * The date that this version of the Implementation Guide was published.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=10, min=0, max=1)
+    @Child(name = "date", type = {DateTimeType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Date for this version of the Implementation Guide", formalDefinition="The date that this version of the Implementation Guide was published." )
     protected DateTimeType date;
+
+    /**
+     * A free text natural language description of the Implementation Guide and its use.
+     */
+    @Child(name = "description", type = {StringType.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Natural language description of the Implementation Guide", formalDefinition="A free text natural language description of the Implementation Guide and its use." )
+    protected StringType description;
+
+    /**
+     * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.
+     */
+    @Child(name = "useContext", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="The implementation guide is intended to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined." )
+    protected List<CodeableConcept> useContext;
+
+    /**
+     * A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
+     */
+    @Child(name = "copyright", type = {StringType.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings." )
+    protected StringType copyright;
 
     /**
      * The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.5.0 for this version.
@@ -2066,7 +2066,7 @@ public class ImplementationGuide extends DomainResource {
     @Description(shortDefinition="Page/Section in the Guide", formalDefinition="A page / section in the implementation guide. The root page is the implementation guide home page." )
     protected ImplementationGuidePageComponent page;
 
-    private static final long serialVersionUID = 80276547L;
+    private static final long serialVersionUID = 1150122415L;
 
   /*
    * Constructor
@@ -2226,42 +2226,92 @@ public class ImplementationGuide extends DomainResource {
     }
 
     /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.)
+     * @return {@link #status} (The status of the Implementation Guide.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public List<CodeableConcept> getUseContext() { 
-      if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
-      return this.useContext;
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ImplementationGuide.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+      return this.status;
     }
 
-    public boolean hasUseContext() { 
-      if (this.useContext == null)
-        return false;
-      for (CodeableConcept item : this.useContext)
-        if (!item.isEmpty())
-          return true;
-      return false;
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.)
+     * @param value {@link #status} (The status of the Implementation Guide.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    // syntactic sugar
-    public CodeableConcept addUseContext() { //3
-      CodeableConcept t = new CodeableConcept();
-      if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
-      this.useContext.add(t);
-      return t;
+    public ImplementationGuide setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+      this.status = value;
+      return this;
     }
 
-    // syntactic sugar
-    public ImplementationGuide addUseContext(CodeableConcept t) { //3
-      if (t == null)
-        return this;
-      if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
-      this.useContext.add(t);
+    /**
+     * @return The status of the Implementation Guide.
+     */
+    public ConformanceResourceStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The status of the Implementation Guide.
+     */
+    public ImplementationGuide setStatus(ConformanceResourceStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #experimental} (This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     */
+    public BooleanType getExperimentalElement() { 
+      if (this.experimental == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ImplementationGuide.experimental");
+        else if (Configuration.doAutoCreate())
+          this.experimental = new BooleanType(); // bb
+      return this.experimental;
+    }
+
+    public boolean hasExperimentalElement() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    public boolean hasExperimental() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    /**
+     * @param value {@link #experimental} (This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     */
+    public ImplementationGuide setExperimentalElement(BooleanType value) { 
+      this.experimental = value;
+      return this;
+    }
+
+    /**
+     * @return This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
+    public boolean getExperimental() { 
+      return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
+    }
+
+    /**
+     * @param value This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
+    public ImplementationGuide setExperimental(boolean value) { 
+        if (this.experimental == null)
+          this.experimental = new BooleanType();
+        this.experimental.setValue(value);
       return this;
     }
 
@@ -2355,6 +2405,55 @@ public class ImplementationGuide extends DomainResource {
     }
 
     /**
+     * @return {@link #date} (The date that this version of the Implementation Guide was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ImplementationGuide.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The date that this version of the Implementation Guide was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public ImplementationGuide setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date that this version of the Implementation Guide was published.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date that this version of the Implementation Guide was published.
+     */
+    public ImplementationGuide setDate(Date value) { 
+      if (value == null)
+        this.date = null;
+      else {
+        if (this.date == null)
+          this.date = new DateTimeType();
+        this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #description} (A free text natural language description of the Implementation Guide and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
@@ -2404,6 +2503,46 @@ public class ImplementationGuide extends DomainResource {
     }
 
     /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.)
+     */
+    public List<CodeableConcept> getUseContext() { 
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      return this.useContext;
+    }
+
+    public boolean hasUseContext() { 
+      if (this.useContext == null)
+        return false;
+      for (CodeableConcept item : this.useContext)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.)
+     */
+    // syntactic sugar
+    public CodeableConcept addUseContext() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public ImplementationGuide addUseContext(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return this;
+    }
+
+    /**
      * @return {@link #copyright} (A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
     public StringType getCopyrightElement() { 
@@ -2448,145 +2587,6 @@ public class ImplementationGuide extends DomainResource {
         if (this.copyright == null)
           this.copyright = new StringType();
         this.copyright.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #status} (The status of the Implementation Guide.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
-      if (this.status == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImplementationGuide.status");
-        else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
-      return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    /**
-     * @param value {@link #status} (The status of the Implementation Guide.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public ImplementationGuide setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return The status of the Implementation Guide.
-     */
-    public ConformanceResourceStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value The status of the Implementation Guide.
-     */
-    public ImplementationGuide setStatus(ConformanceResourceStatus value) { 
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #experimental} (This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
-     */
-    public BooleanType getExperimentalElement() { 
-      if (this.experimental == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImplementationGuide.experimental");
-        else if (Configuration.doAutoCreate())
-          this.experimental = new BooleanType(); // bb
-      return this.experimental;
-    }
-
-    public boolean hasExperimentalElement() { 
-      return this.experimental != null && !this.experimental.isEmpty();
-    }
-
-    public boolean hasExperimental() { 
-      return this.experimental != null && !this.experimental.isEmpty();
-    }
-
-    /**
-     * @param value {@link #experimental} (This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
-     */
-    public ImplementationGuide setExperimentalElement(BooleanType value) { 
-      this.experimental = value;
-      return this;
-    }
-
-    /**
-     * @return This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
-     */
-    public boolean getExperimental() { 
-      return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
-    }
-
-    /**
-     * @param value This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
-     */
-    public ImplementationGuide setExperimental(boolean value) { 
-        if (this.experimental == null)
-          this.experimental = new BooleanType();
-        this.experimental.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #date} (The date that this version of the Implementation Guide was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public DateTimeType getDateElement() { 
-      if (this.date == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImplementationGuide.date");
-        else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType(); // bb
-      return this.date;
-    }
-
-    public boolean hasDateElement() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    public boolean hasDate() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    /**
-     * @param value {@link #date} (The date that this version of the Implementation Guide was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public ImplementationGuide setDateElement(DateTimeType value) { 
-      this.date = value;
-      return this;
-    }
-
-    /**
-     * @return The date that this version of the Implementation Guide was published.
-     */
-    public Date getDate() { 
-      return this.date == null ? null : this.date.getValue();
-    }
-
-    /**
-     * @param value The date that this version of the Implementation Guide was published.
-     */
-    public ImplementationGuide setDate(Date value) { 
-      if (value == null)
-        this.date = null;
-      else {
-        if (this.date == null)
-          this.date = new DateTimeType();
-        this.date.setValue(value);
       }
       return this;
     }
@@ -2843,14 +2843,14 @@ public class ImplementationGuide extends DomainResource {
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the Implementation Guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Implementation Guide author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the Implementation Guide.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the implementation guide.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("description", "string", "A free text natural language description of the Implementation Guide and its use.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("status", "code", "The status of the Implementation Guide.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the implementation guide.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("date", "dateTime", "The date that this version of the Implementation Guide was published.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("description", "string", "A free text natural language description of the Implementation Guide and its use.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.5.0 for this version.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("dependency", "", "Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc defined in other implementation guides.", 0, java.lang.Integer.MAX_VALUE, dependency));
         childrenList.add(new Property("package", "", "A logial group of resources. Logical groups can be used when building pages.", 0, java.lang.Integer.MAX_VALUE, package_));
@@ -2865,22 +2865,22 @@ public class ImplementationGuide extends DomainResource {
         dst.url = url == null ? null : url.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
-        if (useContext != null) {
-          dst.useContext = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : useContext)
-            dst.useContext.add(i.copy());
-        };
+        dst.status = status == null ? null : status.copy();
+        dst.experimental = experimental == null ? null : experimental.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
           dst.contact = new ArrayList<ImplementationGuideContactComponent>();
           for (ImplementationGuideContactComponent i : contact)
             dst.contact.add(i.copy());
         };
-        dst.description = description == null ? null : description.copy();
-        dst.copyright = copyright == null ? null : copyright.copy();
-        dst.status = status == null ? null : status.copy();
-        dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
+        dst.description = description == null ? null : description.copy();
+        if (useContext != null) {
+          dst.useContext = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : useContext)
+            dst.useContext.add(i.copy());
+        };
+        dst.copyright = copyright == null ? null : copyright.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
         if (dependency != null) {
           dst.dependency = new ArrayList<ImplementationGuideDependencyComponent>();
@@ -2918,9 +2918,9 @@ public class ImplementationGuide extends DomainResource {
           return false;
         ImplementationGuide o = (ImplementationGuide) other;
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
-           && compareDeep(useContext, o.useContext, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
-           && compareDeep(description, o.description, true) && compareDeep(copyright, o.copyright, true) && compareDeep(status, o.status, true)
-           && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(fhirVersion, o.fhirVersion, true)
+           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(description, o.description, true)
+           && compareDeep(useContext, o.useContext, true) && compareDeep(copyright, o.copyright, true) && compareDeep(fhirVersion, o.fhirVersion, true)
            && compareDeep(dependency, o.dependency, true) && compareDeep(package_, o.package_, true) && compareDeep(global, o.global, true)
            && compareDeep(binary, o.binary, true) && compareDeep(page, o.page, true);
       }
@@ -2933,19 +2933,20 @@ public class ImplementationGuide extends DomainResource {
           return false;
         ImplementationGuide o = (ImplementationGuide) other;
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(copyright, o.copyright, true)
-           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
+           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
+           && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(copyright, o.copyright, true)
            && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(binary, o.binary, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (version == null || version.isEmpty())
-           && (name == null || name.isEmpty()) && (useContext == null || useContext.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (date == null || date.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty()) && (dependency == null || dependency.isEmpty())
-           && (package_ == null || package_.isEmpty()) && (global == null || global.isEmpty()) && (binary == null || binary.isEmpty())
-           && (page == null || page.isEmpty());
+           && (name == null || name.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
+           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty())
+           && (description == null || description.isEmpty()) && (useContext == null || useContext.isEmpty())
+           && (copyright == null || copyright.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
+           && (dependency == null || dependency.isEmpty()) && (package_ == null || package_.isEmpty())
+           && (global == null || global.isEmpty()) && (binary == null || binary.isEmpty()) && (page == null || page.isEmpty())
+          ;
       }
 
   @Override

@@ -4,11 +4,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:0.00.000.0.000000.0.00.004"/>
   </extension>
-  <status value="active"/>
-  <!--  
+<!--   
     To be provided by CIMI. Placeholders for now
-   -->
+    -->
   <name value="Action Method"/>
+  <status value="active"/>
   <publisher value="CIMI"/>
   <contact>
     <telecom>
@@ -26,7 +26,7 @@
   <compose>
     <include>
       <system value="http://cimi.org/vs/attribution/action-method"/>
-      <!--  Made up codes. Need actual ones from: ACTIONMETHOD_VALUESET_CODE  -->
+    <!--   Made up codes. Need actual ones from: ACTIONMETHOD_VALUESET_CODE   -->
       <concept>
         <code value="1"/>
         <display value="Verbal"/>

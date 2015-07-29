@@ -575,6 +575,10 @@
     <display value="Decreased by"/>
     <display value="Decreased (qualifier value)"/>
   </concept>
+  <concept id="125154007" display="Specimen unsatisfactory for evaluation (finding)">
+    <display value="Specimen unsatisfactory for evaluation"/>
+    <display value="Specimen unsatisfactory for evaluation (finding)"/>
+  </concept>
   <concept id="126250003" display="Deglycerolized red blood cells, human (product)">
     <display value="Deglycerolized red blood cells, human (product)"/>
     <display value="Deglycerolized red blood cells, human"/>

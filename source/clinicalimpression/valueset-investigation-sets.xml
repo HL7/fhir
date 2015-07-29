@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-certainty"/>
-  <status value="draft"/>
   <name value="Condition/Diagnosis Certainty"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -16,7 +16,7 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <!--  todo: this needs a lot of work  -->
+    <!--   todo: this needs a lot of work   -->
       <concept>
         <code value="271336007"/>
         <display value="Examination / signs"/>

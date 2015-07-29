@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Observation Reference Range Meaning Codes"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -88,11 +88,11 @@
       <concept>
         <code value="248153007"/>
       </concept>
-      <!--  Male (finding)  -->
+    <!--   Male (finding)   -->
       <concept>
         <code value="248152002"/>
       </concept>
-      <!--  Female (finding)  -->
+    <!--   Female (finding)   -->
       <concept>
         <code value="77386006"/>
       </concept>

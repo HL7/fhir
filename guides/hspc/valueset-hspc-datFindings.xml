@@ -2,14 +2,14 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <version value="0.01"/>
-  <status value="draft"/>
   <name value="HSPC Direct Antiglobulin Test values"/>
-  <immutable value="true"/>
+  <status value="draft"/>
   <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-06-11"/>
   <description value="SELECT SNOMED CT code system values decending from Findings values (260245000)."/>
+  <immutable value="true"/>
   <copyright value="TBD"/>
   <extensible value="true"/>
-  <date value="2015-06-11"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

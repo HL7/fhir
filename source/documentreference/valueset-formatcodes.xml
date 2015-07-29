@@ -11,9 +11,9 @@
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/valueset-formatcodes"/>
   <version value="20150326"/>
+  <name value="DocumentReference Format Code Set"/>
   <status value="active"/>
   <experimental value="false"/>
-  <name value="DocumentReference Format Code Set"/>
   <publisher value="IHE"/>
   <description value="The value set is defined to be the set of format codes defined by    the IHE Technical Framework, and also including additional format codes defined by the    HL7. The value set is listed in HITSP C80 Table 2-153 Format Code Value Set Definition,    with additions published later by IHE as published    at http://wiki.ihe.net/index.php?title=IHE_Format_Codes   and with additions published later by HL7 as published at http://wiki.hl7.org/index.php?title=CDA_Format_Codes_for_IHE_XDS.   This is the code specifying the technical format of the document. Along with the typeCode,    it should provide sufficient information to allow any potential document consumer to know    if it will be able to process the document. The code shall be sufficiently specific to    ensure processing/display by identifying a document encoding, structure and template."/>
   <copyright value="Some content from IHE® Copyright © 2015 IHE International, Inc.    This content is from the IHE Technical Frameworks and Supplements,    available for free download and use at http://www.ihe.net/Technical_Frameworks/"/>
@@ -124,7 +124,7 @@
         <code value="urn:ihe:pcc:its:2011"/>
         <display value="PCC ITS"/>
       </concept>
-      <!--  IT Infrastructure  -->
+    <!--   IT Infrastructure   -->
       <concept>
         <code value="urn:ihe:iti:bppc:2007"/>
         <display value="Basic Patient Privacy Consents"/>
@@ -153,12 +153,12 @@
         <code value="urn:ihe:iti:xds-sd:text:2008"/>
         <display value="Text embedded in CDA per XDS-SD profile"/>
       </concept>
-      <!--  Laboratory  -->
+    <!--   Laboratory   -->
       <concept>
         <code value="urn:ihe:lab:xd-lab:2008"/>
         <display value="CDA Laboratory Report"/>
       </concept>
-      <!--  Radiology  -->
+    <!--   Radiology   -->
       <concept>
         <code value="urn:ihe:rad:TEXT"/>
         <display value="Radiology XDS-I Text"/>
@@ -171,7 +171,7 @@
         <code value="urn:ihe:rad:CDA:ImagingReportStructuredHeadings:2013"/>
         <display value="Radiology XDS-I Structured CDA"/>
       </concept>
-      <!--  Cardiology  -->
+    <!--   Cardiology   -->
       <concept>
         <code value="urn:ihe:card:imaging:2011"/>
         <display value="Cardiac Imaging Report"/>
@@ -184,7 +184,7 @@
         <code value="urn:ihe:card:EPRC-IE:2014"/>
         <display value="Cardiology EPRC-IE"/>
       </concept>
-      <!--  Dental  -->
+    <!--   Dental   -->
       <concept>
         <code value="urn:ihe:dent:TEXT"/>
         <display value="Dental Text"/>
@@ -197,7 +197,7 @@
         <code value="urn:ihe:dent:CDA:ImagingReportStructuredHeadings:2013"/>
         <display value="Dental CDA"/>
       </concept>
-      <!--  Anatomic Pathology  -->
+    <!--   Anatomic Pathology   -->
       <concept>
         <code value="urn:ihe:pat:apsr:all:2010"/>
         <display value="Anatomic Pathology Structured Report All"/>
@@ -286,7 +286,7 @@
         <code value="urn:ihe:pat:apsr:cancer:larynx:2010"/>
         <display value="Anatomic Pathology Structured Report Cancer Larynx"/>
       </concept>
-      <!--  Pharmacy  -->
+    <!--   Pharmacy   -->
       <concept>
         <code value="urn:ihe:pharm:pre:2010"/>
         <display value="Pharmacy Pre"/>
@@ -303,7 +303,7 @@
         <code value="urn:ihe:pharm:pml:2013"/>
         <display value="Pharmacy PML"/>
       </concept>
-      <!--  HL7  -->
+    <!--   HL7   -->
       <concept>
         <code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
         <display value="For documents following C-CDA constraints using a structured body. "/>

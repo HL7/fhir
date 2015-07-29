@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="QICore Observation Verification Method"/>
+  <status value="draft"/>
   <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
     <telecom>

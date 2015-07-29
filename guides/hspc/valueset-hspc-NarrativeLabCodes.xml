@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="hspc-standardlabs-narrative"/>
-  <status value="draft"/>
   <name value="HSPC Narrative Labs"/>
+  <status value="draft"/>
   <publisher value="HSPC"/>
   <contact>
     <telecom>
@@ -11,9 +11,9 @@
       <value value="http://healthcaresoa.org"/>
     </telecom>
   </contact>
+  <date value="2015-02-20T13:44:49+11:00"/>
   <description value="Ordinal LOINC codes used in HSPC"/>
   <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
-  <date value="2015-02-20T13:44:49+11:00"/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

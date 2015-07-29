@@ -4,8 +4,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.4"/>
   </extension>
-  <status value="draft"/>
   <name value="Medication Clinical Drug (RxNorm)"/>
+  <status value="draft"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <contact>
     <telecom>

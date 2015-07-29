@@ -1,21 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="hspc"/>
   <url value="http://hl7.org/fhir/hspc"/>
   <name value="HSPC Implementation Guide"/>
-  <publisher value="Health Services Platform Consortium"/>
   <status value="draft"/>
   <experimental value="false"/>
-
-  <dependency>  
+  <publisher value="Health Services Platform Consortium"/>
+  <dependency>
     <type value="reference"/>
     <uri value="http://hl7.org/fhir/cqf"/>
   </dependency>
-
-  <dependency>  
+  <dependency>
     <type value="reference"/>
     <uri value="http://hl7.org/fhir/daf"/>
   </dependency>
-
   <package>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="patient-hspc-profile-spreadsheet.xml"/>
@@ -69,13 +68,13 @@
       <valueUri value="organization-hspc-organization-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="hspc-headcircumference-profile-spreadsheet.xml"/>  
+      <valueUri value="hspc-headcircumference-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="hspc-estimatedduedate-profile-spreadsheet.xml"/>  
+      <valueUri value="hspc-estimatedduedate-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="hspc-boneage-profile-spreadsheet.xml"/>  
+      <valueUri value="hspc-boneage-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-bmi-profile-spreadsheet.xml"/>
@@ -86,15 +85,13 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-gestationalageatbirth-profile-spreadsheet.xml"/>
     </extension>
-
     <name value="base"/>
-    <resource> 
+    <resource>
       <purpose value="dictionary"/>
       <name value="HSPC Quantitative Labs dictionary"/>
       <sourceUri value="hspc-qnlab-de.xml"/>
-    </resource>  
-  </package>  
-  
+    </resource>
+  </package>
   <page>
     <source value="hspc.html"/>
     <name value="Home Page"/>
@@ -118,5 +115,5 @@
       <kind value="dictionary"/>
       <type value="DataElement"/>
     </page>
-  </page>     
+  </page>
 </ImplementationGuide>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Intervention Codes"/>
+  <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -17,13 +17,13 @@
     <caseSensitive value="true"/>
     <concept>
       <code value="unknown"/>
-      <!--  unknown  -->
+    <!--   unknown   -->
       <display value="Unknown"/>
       <definition value="Unknown"/>
     </concept>
     <concept>
       <code value="other"/>
-      <!--  other  -->
+    <!--   other   -->
       <display value="Other"/>
       <definition value="Other"/>
     </concept>

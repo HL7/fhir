@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="USPS Two Letter Alphabetic Codes"/>
-  <!-- USPSState -->
+  <status value="draft"/>
+<!--  USPSState  -->
   <publisher value="HL7 International - Orders and Observations WG"/>
   <contact>
     <telecom>

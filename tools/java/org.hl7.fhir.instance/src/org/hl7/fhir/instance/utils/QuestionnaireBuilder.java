@@ -29,6 +29,7 @@ import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionnaireStatus;
 import org.hl7.fhir.instance.model.QuestionnaireAnswers;
 import org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionnaireAnswersStatus;
+import org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionAnswerComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
@@ -447,7 +448,8 @@ public class QuestionnaireBuilder {
       q.setText("type");
 
       Coding cc = new Coding();
-      q.addAnswer().setValue(cc);
+      QuestionAnswerComponent a = q.addAnswer();
+      a.setValue(cc);
       if (t.getCode().equals("Reference") && t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
         cc.setCode(t.getProfile().get(0).getValue().substring(40));
         cc.setSystem("http://hl7.org/fhir/resource-types");
@@ -467,7 +469,7 @@ public class QuestionnaireBuilder {
       }
 
       // 1st: create the subgroup
-      QuestionnaireAnswers.GroupComponent subg = q.addGroup();
+      QuestionnaireAnswers.GroupComponent subg = a.addGroup();
       dest.add(subg);
       subg.setLinkId(sub.getLinkId());
       subg.setText(sub.getText());

@@ -3,9 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="valueset-observation-hspc-dataOriginationMode"/>
   <version value="0.01"/>
-  <status value="draft"/>
   <name value="HSPC Data Origination Mode"/>
-  <immutable value="true"/>
+  <status value="draft"/>
   <publisher value="HSPC"/>
   <contact>
     <telecom>
@@ -13,10 +12,11 @@
       <value value="http://healthcaresoa.org"/>
     </telecom>
   </contact>
+  <date value="2015-05-19"/>
   <description value="The description of how the data came into being."/>
+  <immutable value="true"/>
   <copyright value="TBD"/>
   <extensible value="true"/>
-  <date value="2015-05-19"/>
   <codeSystem>
     <system value="Intermountain Healthcare HDD"/>
     <caseSensitive value="true"/>

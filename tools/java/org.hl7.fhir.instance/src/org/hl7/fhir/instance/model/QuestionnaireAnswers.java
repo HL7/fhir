@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 08:39+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 29, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -540,14 +540,7 @@ public class QuestionnaireAnswers extends DomainResource {
         @Description(shortDefinition="The response(s) to the question", formalDefinition="The respondent's answer(s) to the question." )
         protected List<QuestionAnswerComponent> answer;
 
-        /**
-         * Nested group, containing nested question for this question. The order of groups within the question is relevant.
-         */
-        @Child(name = "group", type = {GroupComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Nested questionnaire group", formalDefinition="Nested group, containing nested question for this question. The order of groups within the question is relevant." )
-        protected List<GroupComponent> group;
-
-        private static final long serialVersionUID = -564009278L;
+        private static final long serialVersionUID = -265263901L;
 
     /*
      * Constructor
@@ -694,52 +687,11 @@ public class QuestionnaireAnswers extends DomainResource {
           return this;
         }
 
-        /**
-         * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
-         */
-        public List<GroupComponent> getGroup() { 
-          if (this.group == null)
-            this.group = new ArrayList<GroupComponent>();
-          return this.group;
-        }
-
-        public boolean hasGroup() { 
-          if (this.group == null)
-            return false;
-          for (GroupComponent item : this.group)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
-         */
-    // syntactic sugar
-        public GroupComponent addGroup() { //3
-          GroupComponent t = new GroupComponent();
-          if (this.group == null)
-            this.group = new ArrayList<GroupComponent>();
-          this.group.add(t);
-          return t;
-        }
-
-    // syntactic sugar
-        public QuestionComponent addGroup(GroupComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.group == null)
-            this.group = new ArrayList<GroupComponent>();
-          this.group.add(t);
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("linkId", "string", "Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("text", "string", "The actual question as shown to the user to prompt them for an answer.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("answer", "", "The respondent's answer(s) to the question.", 0, java.lang.Integer.MAX_VALUE, answer));
-          childrenList.add(new Property("group", "@QuestionnaireAnswers.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 
       public QuestionComponent copy() {
@@ -752,11 +704,6 @@ public class QuestionnaireAnswers extends DomainResource {
           for (QuestionAnswerComponent i : answer)
             dst.answer.add(i.copy());
         };
-        if (group != null) {
-          dst.group = new ArrayList<GroupComponent>();
-          for (GroupComponent i : group)
-            dst.group.add(i.copy());
-        };
         return dst;
       }
 
@@ -768,7 +715,7 @@ public class QuestionnaireAnswers extends DomainResource {
           return false;
         QuestionComponent o = (QuestionComponent) other;
         return compareDeep(linkId, o.linkId, true) && compareDeep(text, o.text, true) && compareDeep(answer, o.answer, true)
-           && compareDeep(group, o.group, true);
+          ;
       }
 
       @Override
@@ -783,7 +730,7 @@ public class QuestionnaireAnswers extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (text == null || text.isEmpty())
-           && (answer == null || answer.isEmpty()) && (group == null || group.isEmpty());
+           && (answer == null || answer.isEmpty());
       }
 
   }
@@ -797,7 +744,14 @@ public class QuestionnaireAnswers extends DomainResource {
         @Description(shortDefinition="Single-valued answer to the question", formalDefinition="The answer (or one of the answers) provided by the respondant to the question." )
         protected Type value;
 
-        private static final long serialVersionUID = -732981989L;
+        /**
+         * Nested group, containing nested question for this question. The order of groups within the question is relevant.
+         */
+        @Child(name = "group", type = {GroupComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Nested questionnaire group", formalDefinition="Nested group, containing nested question for this question. The order of groups within the question is relevant." )
+        protected List<GroupComponent> group;
+
+        private static final long serialVersionUID = -1223680118L;
 
     /*
      * Constructor
@@ -994,15 +948,61 @@ public class QuestionnaireAnswers extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
+         */
+        public List<GroupComponent> getGroup() { 
+          if (this.group == null)
+            this.group = new ArrayList<GroupComponent>();
+          return this.group;
+        }
+
+        public boolean hasGroup() { 
+          if (this.group == null)
+            return false;
+          for (GroupComponent item : this.group)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
+         */
+    // syntactic sugar
+        public GroupComponent addGroup() { //3
+          GroupComponent t = new GroupComponent();
+          if (this.group == null)
+            this.group = new ArrayList<GroupComponent>();
+          this.group.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public QuestionAnswerComponent addGroup(GroupComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.group == null)
+            this.group = new ArrayList<GroupComponent>();
+          this.group.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("value[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "The answer (or one of the answers) provided by the respondant to the question.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("group", "@QuestionnaireAnswers.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 
       public QuestionAnswerComponent copy() {
         QuestionAnswerComponent dst = new QuestionAnswerComponent();
         copyValues(dst);
         dst.value = value == null ? null : value.copy();
+        if (group != null) {
+          dst.group = new ArrayList<GroupComponent>();
+          for (GroupComponent i : group)
+            dst.group.add(i.copy());
+        };
         return dst;
       }
 
@@ -1013,7 +1013,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (!(other instanceof QuestionAnswerComponent))
           return false;
         QuestionAnswerComponent o = (QuestionAnswerComponent) other;
-        return compareDeep(value, o.value, true);
+        return compareDeep(value, o.value, true) && compareDeep(group, o.group, true);
       }
 
       @Override
@@ -1027,7 +1027,8 @@ public class QuestionnaireAnswers extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (value == null || value.isEmpty());
+        return super.isEmpty() && (value == null || value.isEmpty()) && (group == null || group.isEmpty())
+          ;
       }
 
   }

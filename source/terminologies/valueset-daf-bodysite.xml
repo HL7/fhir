@@ -1,28 +1,25 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-bodysite"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.9"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-bodysite"/>
   <name value="Body Site Value Set"/>
+  <status value="active"/>
   <publisher value="PHIN VADS"/>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.9"/>
-  </telecom>
+      <system value="other"/>
+      <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.9"/>
+    </telecom>
   </contact>
   <description value="Body site value set is based upon the concepts descending from the SNOMED CT Anatomical Structure (91723000) hierarchy."/>
-  <status value="active"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <filter>
-        <name value="concept"/>
-        <op value="is-a"/>
-        <value value="91723000"/>
-      </filter>
-<!--
+    <!-- 
   PHIN VADS old expansion of this value set:
         <concept>
         <code value="56244007"/>
@@ -102964,8 +102961,12 @@
         <code value="28904002"/>
         <display value="Zymogen granule"/>
       </concept>  
--->
+ -->
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="91723000"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>
-

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
   <id value="2014-02-washington-ts"/>
+  <url value="http://hl7.org/fhir/TestScript/2014-02-washington-ts"/>
   <name value="Terminology Connectathon #1 Test Script"/>
+  <status value="draft"/>
   <description value="This is the test script the 1st Terminology Services Connectathon"/>
 
   <fixture id="extensional-case-1">

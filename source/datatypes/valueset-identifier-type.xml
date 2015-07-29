@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Identifier Type Codes"/>
+  <status value="draft"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -12,7 +12,7 @@
   </contact>
   <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose"/>
   <codeSystem>
-  <!--  these are defined until they move properly into v2 able 0203  -->
+  <!--   these are defined until they move properly into v2 able 0203   -->
     <system value="http://hl7.org/fhir/identifier-type"/>
     <caseSensitive value="true"/>
     <concept>

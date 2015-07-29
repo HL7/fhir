@@ -307,7 +307,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 	protected void composeElementAttributes(Element element) throws Exception {
 	  if (style != OutputStyle.CANONICAL)
 	    for (String comment : element.getFormatComments())
-	      xml.comment(comment, false);
+	      xml.comment(comment, getOutputStyle() == OutputStyle.PRETTY);
 		if (element.getId() != null) 
 			xml.attribute("id", element.getId());
 	}

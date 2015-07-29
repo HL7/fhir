@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="DataElement SDC Concept"/>
+  <status value="draft"/>
   <publisher value="Office of the National Coordinator for Health IT"/>
   <contact>
     <telecom>
@@ -20,7 +20,7 @@
       <system value="http://loinc.org"/>
     </include>
     <include>
-    <!--  This is a proposed URI for the RXNorm code system - not yet registered  -->
+    <!--   This is a proposed URI for the RXNorm code system - not yet registered   -->
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
     </include>
   </compose>

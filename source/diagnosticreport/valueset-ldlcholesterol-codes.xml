@@ -10,67 +10,99 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>This value set contains 2 concepts</p>
+      
       
       <h2>LDLCodes</h2>
       
+      
       <p>LDL Cholesterol codes - measured or calculated</p>
+      
       
       <p>
         
+        
         <b>Copyright Statement:</b> This content from LOINC??LOINC?? is copyright ?? 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
+      
       
       </p>
       
+      
       <p>This value set includes codes defined in other code systems, using the following rules:</p>
+      
       
       <ul>
         
+        
         <li>Include these codes as defined in http://loinc.org
+          
           
           <table>
             
+            
             <tr>
               
+              
               <td>
+                
                 
                 <b>Code</b>
               
+              
               </td>
+              
               
               <td>
                 
+                
                 <b>Display</b>
+              
               
               </td>
             
+            
             </tr>
             
+            
             <tr>
+              
               
               <td>18262-6</td>
               
+              
               <td>LDL Cholesterol (Calc)</td>
+              
               
               <td/>
             
+            
             </tr>
+            
             
             <tr>
               
+              
               <td>13457-7</td>
+              
               
               <td>LDL Cholesterol (Assay)</td>
               
+              
               <td/>
+            
             
             </tr>
           
+          
           </table>
+        
         
         </li>
       
+      
       </ul>
+    
     
     </div>
   </text>
@@ -79,9 +111,9 @@
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/lipid-ldl-codes"/>
   <version value="0.5.0"/>
+  <name value="LDLCodes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <name value="LDLCodes"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -93,9 +125,9 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <date value="2015-06-23T10:59:44+10:00"/>
   <description value="LDL Cholesterol codes - measured or calculated"/>
   <copyright value="This content from LOINC??LOINC?? is copyright ?? 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
-  <date value="2015-06-23T10:59:44+10:00"/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

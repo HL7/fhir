@@ -1,19 +1,20 @@
-<ImplementationGuide xmlns="http://hl7.org/fhir"> 
- <id value="uslab"/>
- <url value="http://hl7.org/fhir/uslab"/>
- <name value="US Lab Implementation Guides"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="uslab"/>
+  <url value="http://hl7.org/fhir/uslab"/>
+  <name value="US Lab Implementation Guides"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
   <useContext>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
     </coding>
   </useContext>
-  <publisher value="HL7"/>
-  <status value="draft"/>
-  <experimental value="false"/>
-
   <package>
-    <!-- US Lab Profiles -->
+  <!--  US Lab Profiles  -->
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="cond-uslab-profile-spreadsheet.xml"/>
     </extension>
@@ -38,7 +39,7 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="spec-uslab-profile-spreadsheet.xml"/>
     </extension>
-  <!--
+  <!-- 
     <acronym target="dr-uslab-uslabdr" id="usl-pdr"/>
     <acronym target="obs-uslab-uslabobscode" id="usl-cod"/>
     <acronym target="obs-uslab-uslabobsquantity" id="usl-qty"/>
@@ -53,11 +54,9 @@
     <acronym target="do-uslab-uslabdo" id="usl-do"/>
     <acronym target="pract-uslab-uslabpract" id="usl-prc"/>
     <acronym target="pract-uslab-uslabphpract" id="usl-prh"/>
-  -->
-
+   -->
     <name value="base"/>
-    
-    <!-- examples -->
+  <!--  examples  -->
     <resource>
       <purpose value="example"/>
       <name value="USLab Condition Example1"/>
@@ -66,7 +65,7 @@
       <exampleFor>
         <reference value="cond-uslab-profile"/>
       </exampleFor>
-    </resource>  
+    </resource>
     <resource>
       <purpose value="example"/>
       <name value="USLab Condition Example2"/>
@@ -74,7 +73,7 @@
       <sourceUri value="cond-uslab-example2.xml"/>
       <exampleFor>
         <reference value="cond-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -83,7 +82,7 @@
       <sourceUri value="do-uslab-example1.xml"/>
       <exampleFor>
         <reference value="do-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -92,7 +91,7 @@
       <sourceUri value="dr-uslab-example1.xml"/>
       <exampleFor>
         <reference value="dr-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -101,7 +100,7 @@
       <sourceUri value="obs-uslab-example1.xml"/>
       <exampleFor>
         <reference value="obs-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -110,7 +109,7 @@
       <sourceUri value="obs-uslab-example2.xml"/>
       <exampleFor>
         <reference value="obs-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -119,7 +118,7 @@
       <sourceUri value="obs-uslab-example3.xml"/>
       <exampleFor>
         <reference value="obs-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -128,7 +127,7 @@
       <sourceUri value="obs-uslab-example4.xml"/>
       <exampleFor>
         <reference value="obs-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -137,7 +136,7 @@
       <sourceUri value="obs-uslab-example5.xml"/>
       <exampleFor>
         <reference value="obs-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -146,7 +145,7 @@
       <sourceUri value="obs-uslab-example6.xml"/>
       <exampleFor>
         <reference value="obs-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -155,7 +154,7 @@
       <sourceUri value="obs-uslab-example7.xml"/>
       <exampleFor>
         <reference value="obs-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -164,7 +163,7 @@
       <sourceUri value="obs-uslab-example8.xml"/>
       <exampleFor>
         <reference value="obs-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -173,16 +172,16 @@
       <sourceUri value="org-uslab-example1.xml"/>
       <exampleFor>
         <reference value="org-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
       <name value="USLab Observation Example2"/>
-      <description value="USLab Copy to Organization Profile Canonical Example: Children's Hospital"/>
+      <description value="USLab Copy to Organization Profile Canonical Example: Children&#39;s Hospital"/>
       <sourceUri value="org-uslab-example2.xml"/>
       <exampleFor>
         <reference value="org-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -191,7 +190,7 @@
       <sourceUri value="org-uslab-example3.xml"/>
       <exampleFor>
         <reference value="org-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -200,7 +199,7 @@
       <sourceUri value="patient-uslab-example1.xml"/>
       <exampleFor>
         <reference value="patient-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -209,7 +208,7 @@
       <sourceUri value="patient-uslab-example2.xml"/>
       <exampleFor>
         <reference value="patient-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -218,7 +217,7 @@
       <sourceUri value="pract-uslab-example1.xml"/>
       <exampleFor>
         <reference value="pract-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -227,7 +226,7 @@
       <sourceUri value="pract-uslab-example2.xml"/>
       <exampleFor>
         <reference value="pract-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -236,7 +235,7 @@
       <sourceUri value="pract-uslab-example3.xml"/>
       <exampleFor>
         <reference value="pract-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -245,7 +244,7 @@
       <sourceUri value="spec-uslab-example1.xml"/>
       <exampleFor>
         <reference value="spec-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -254,9 +253,8 @@
       <sourceUri value="spec-uslab-example2.xml"/>
       <exampleFor>
         <reference value="spec-uslab-profile"/>
-      </exampleFor>  
+      </exampleFor>
     </resource>
-      
     <resource>
       <purpose value="example"/>
       <name value="USLabOrder Orderer"/>
@@ -282,14 +280,14 @@
       <sourceUri value="conformance-uslabreport-receiver.xml"/>
     </resource>
   </package>
-  <!-- not necessary
+<!--  not necessary
   <resource>
     <purpose value=""/>
     <name value="USLab Value Set List"/>
     <description value="USLab Value Set List"/>
     <sourceUri value="list-uslab-valuesets.xml"/>
   </resource>
-  -->  
+   -->
   <page>
     <source value="uslab.html"/>
     <name value="US Lab Implementation Guide"/>
@@ -330,7 +328,7 @@
       <kind value="page"/>
     </page>
     <page>
-      <source value="uslabphreport-guide.html"/>  
+      <source value="uslabphreport-guide.html"/>
       <name value="Lab Reports - Guide (public health)"/>
       <kind value="page"/>
     </page>

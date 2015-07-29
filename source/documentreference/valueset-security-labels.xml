@@ -5,30 +5,40 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>All concepts in the following value sets:</p>
+      
       
       <ul>
         
+        
         <li>Confidentiality</li>
+        
         
         <li>InformationSensitivityPolicy</li>
         
+        
         <li>Compartment</li>
+        
         
         <li>SecurityIntegrityObservationValue</li>
         
+        
         <li>SecurityControlObservationValue</li>
+        
         
         <li>ActUSPrivacyLaw</li>
       
+      
       </ul>
+    
     
     </div>
   </text>
   <url value="http://hl7.org/fhir/ValueSet/security-labels"/>
+  <name value="All Security Labels"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <name value="All Security Labels"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
@@ -36,8 +46,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="A single value set for all security labels defined by FHIR"/>
   <date value="2014-07-28"/>
+  <description value="A single value set for all security labels defined by FHIR"/>
   <compose>
     <import value="http://hl7.org/fhir/ValueSet/v3-Confidentiality"/>
     <import value="http://hl7.org/fhir/ValueSet/v3-InformationSensitivityPolicy"/>

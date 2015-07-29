@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="SNOMED CT Dietary Finding Codes"/>
+  <status value="draft"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <contact>
     <telecom>
@@ -16,7 +16,7 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--  SNOMED CT - Children of SCTID: 277406006 "Dosages"  -->
+      <!--   SNOMED CT - Children of SCTID: 277406006 "Dosages"   -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="277406006"/>

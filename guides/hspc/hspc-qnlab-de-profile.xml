@@ -4,6 +4,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="hspc-qnlab-de-$de_id$"/>
   <url value="http://hl7.org/fhir/StructureDefinition/$de_id$"/>
+  <status value="draft"/>
   <name value="HSPC StdQtyObs $de_name$"/>
   <publisher value="HSPC"/>
   <contact>
@@ -13,7 +14,6 @@
   </telecom>
   </contact>
   <description value="$de_definition$"/> 
-  <status value="draft"/>
   <date value="2015-02-18"/>
   <kind value="resource"/>
   <constrainedType value="Observation"/>

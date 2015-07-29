@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="sdc-object-class"/>
-  <status value="draft"/>
   <name value="DataElement SDC Object Class"/>
+  <status value="draft"/>
   <publisher value="Office of the National Coordinator for Health IT"/>
   <contact>
     <telecom>
@@ -21,7 +21,7 @@
       <system value="http://loinc.org"/>
     </include>
     <include>
-    <!--  This is a proposed URI for the RXNorm code system - not yet registered  -->
+    <!--   This is a proposed URI for the RXNorm code system - not yet registered   -->
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
     </include>
   </compose>

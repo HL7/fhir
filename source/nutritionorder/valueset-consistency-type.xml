@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Fluid Consistency Type Codes"/>
+  <status value="draft"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>
     <telecom>
@@ -15,13 +15,13 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <!-- SNOMED CT - Children of SCTID: 435681000124103 "Dietary liquid consistency diet (regime/therapy) since only four are expanded by hand"
+    <!--  SNOMED CT - Children of SCTID: 435681000124103 "Dietary liquid consistency diet (regime/therapy) since only four are expanded by hand"
 			<filter>
 				<property value="concept"/>
 				<op value="is-a"/>
 				<value value="435681000124103"/>
 			</filter>
- -->
+  -->
       <concept>
         <code value="439031000124108"/>
         <display value="honey thick liquid"/>

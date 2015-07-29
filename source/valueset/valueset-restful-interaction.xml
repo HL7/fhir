@@ -3,8 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="restful-interaction"/>
   <url value="http://hl7.org/fhir/ValueSet/restful-interaction"/>
-  <status value="draft"/>
   <name value="FHIR Restful Interactions"/>
+  <status value="draft"/>
   <publisher value="FHIR Project"/>
   <description value="The set of interactions defined by the RESTful part of the FHIR specification"/>
   <codeSystem>

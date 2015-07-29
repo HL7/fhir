@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/procedure-category"/>
-  <status value="draft"/>
   <name value="Procedure Category Codes (SNOMED CT)"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -19,23 +19,23 @@
       <concept>
         <code value="24642003"/>
       </concept>
-      <!--  Psychiatry procedure or service (procedure)  -->
+    <!--   Psychiatry procedure or service (procedure)   -->
       <concept>
         <code value="409063005"/>
       </concept>
-      <!--  Counseling (procedure)  -->
+    <!--   Counseling (procedure)   -->
       <concept>
         <code value="409073007"/>
       </concept>
-      <!--  Education (procedure)  -->
+    <!--   Education (procedure)   -->
       <concept>
         <code value="387713003"/>
       </concept>
-      <!--  Surgical procedure (procedure)  -->
+    <!--   Surgical procedure (procedure)   -->
       <concept>
         <code value="103693007"/>
       </concept>
-      <!--  Diagnostic procedure (procedure)  -->
+    <!--   Diagnostic procedure (procedure)   -->
       <concept>
         <code value="46947000"/>
       </concept>

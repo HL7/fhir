@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Form Codes"/>
+  <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -18,7 +18,7 @@
     <concept>
       <code value="paid"/>
     </concept>
-    <!--  Payment has been sent via cheque, EFT, other  -->
+  <!--   Payment has been sent via cheque, EFT, other   -->
     <concept>
       <code value="cleared"/>
     </concept>

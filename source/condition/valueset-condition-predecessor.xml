@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-predecessor"/>
-  <status value="draft"/>
   <name value="Condition Predecessor Codes"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

@@ -4,8 +4,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:0.00.0.0000.0.000.000.5"/>
   </extension>
-  <status value="active"/>
   <name value="Observation Precondition"/>
+  <status value="active"/>
   <publisher value="Health Services Platform Consortium (HSPC)"/>
   <contact>
     <telecom>

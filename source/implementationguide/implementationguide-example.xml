@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/implementationguide.xsd">
-	<id value="example"/>
-	<url value="http://hl7.org/fhir/daf"/>
-	<version value="0"/>
-	<name value="Data Access Framework (DAF)"/>
-	<useContext>
-		<coding>
-			<system value="urn:iso:std:iso:3166"/>
-			<code value="US"/>
-		</coding>
-	</useContext>
-	<publisher value="ONC / HL7 Joint project"/>
-	<contact>
-		<name value="ONC"/>
-		<telecom>
-			<system value="other"/>
-			<value value="http://www.healthit.gov"/>
-		</telecom>
-	</contact>
-	<contact>
-		<name value="HL7"/>
-		<telecom>
-			<system value="other"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"/>
-	<copyright value="Published by ONC under the standard FHIR license (CC0)"/>
-	<status value="draft"/>
-	<experimental value="false"/>
-	<date value="2015-01-01"/>
-	<fhirVersion value="0.5.0"/>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/daf"/>
+  <version value="0"/>
+  <name value="Data Access Framework (DAF)"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="ONC / HL7 Joint project"/>
+  <contact>
+    <name value="ONC"/>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.healthit.gov"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="HL7"/>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <date value="2015-01-01"/>
+  <description value="The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"/>
+  <useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </useContext>
+  <copyright value="Published by ONC under the standard FHIR license (CC0)"/>
+  <fhirVersion value="0.5.0"/>
   <package>
     <name value="test"/>
     <resource>
@@ -38,9 +39,9 @@
       <sourceUri value="test.xml"/>
     </resource>
   </package>
-	<page>
-		<source value="example.html"/>
+  <page>
+    <source value="example.html"/>
     <name value="Example Page"/>
-		<kind value="page"/>
-	</page>
+    <kind value="page"/>
+  </page>
 </ImplementationGuide>

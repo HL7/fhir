@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="OrganizationType"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -24,10 +24,10 @@
       <display value="Hospital Department"/>
       <definition value="A department or ward within a hospital (Generally is not applicable to top level organizations)"/>
     </concept>
-    <!-- <concept> An intensive care unit is actually a Location (instance or kind) or a service type (of HealthcareService), this is a service delivery type on a location
+  <!--  <concept> An intensive care unit is actually a Location (instance or kind) or a service type (of HealthcareService), this is a service delivery type on a location
       <code value="icu"/>
       <display value="Intensive Care Unit"/>
-    </concept> -->
+    </concept>  -->
     <concept>
       <code value="team"/>
       <display value="Organizational team"/>

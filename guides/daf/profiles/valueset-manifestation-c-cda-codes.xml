@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/valueset-manifestation-c-cda-codes.xml"/>
-  <status value="draft"/>
   <name value="C-CDA Problems Value Set"/>
+  <status value="draft"/>
   <publisher value="DAF Project team"/>
   <contact>
     <telecom>
@@ -15,7 +15,7 @@
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
     <include>
-    <!--  all lab codes. TODO: can we get just the panel ones?  -->
+    <!--   all lab codes. TODO: can we get just the panel ones?   -->
       <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>

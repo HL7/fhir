@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/procedure-followup"/>
-  <status value="draft"/>
   <name value="Procedure Follow up Codes (SNOMED CT)"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -19,39 +19,39 @@
       <concept>
         <code value="18949003"/>
       </concept>
-      <!--  Change of dressing (procedure)  -->
+    <!--   Change of dressing (procedure)   -->
       <concept>
         <code value="30549001"/>
       </concept>
-      <!--  Removal of suture (procedure)  -->
+    <!--   Removal of suture (procedure)   -->
       <concept>
         <code value="241031001"/>
       </concept>
-      <!--  Removal of drain (procedure)  -->
+    <!--   Removal of drain (procedure)   -->
       <concept>
         <code value="35963001"/>
       </concept>
-      <!--  Removal of staples (procedure)  -->
+    <!--   Removal of staples (procedure)   -->
       <concept>
         <code value="225164002"/>
       </concept>
-      <!--  Removal of ligature (procedure)  -->
+    <!--   Removal of ligature (procedure)   -->
       <concept>
         <code value="447346005"/>
       </concept>
-      <!--  Cardiopulmonary exercise test (procedure)  -->
+    <!--   Cardiopulmonary exercise test (procedure)   -->
       <concept>
         <code value="229506003"/>
       </concept>
-      <!--  Scar tissue massage (regime/therapy)  -->
+    <!--   Scar tissue massage (regime/therapy)   -->
       <concept>
         <code value="274441001"/>
       </concept>
-      <!--  Suction drainage (procedure)  -->
+    <!--   Suction drainage (procedure)   -->
       <concept>
         <code value="394725008"/>
       </concept>
-      <!--  Diabetes medication review (procedure)  -->
+    <!--   Diabetes medication review (procedure)   -->
       <concept>
         <code value="359825008"/>
       </concept>

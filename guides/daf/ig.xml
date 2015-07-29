@@ -1,23 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="daf"/>
   <url value="http://hl7.org/fhir/daf"/>
   <version value="1"/>
   <name value="Data Access Framework"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="ONC"/>
   <useContext>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
     </coding>
   </useContext>
-  <publisher value="ONC"/>
-  <status value="draft"/>
-  <experimental value="false"/>
-
-  <dependency>  
+  <dependency>
     <type value="reference"/>
     <uri value="http://hl7.org/fhir/uslab"/>
   </dependency>
-   
   <package>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\allergyintolerance-daf-profile-spreadsheet.xml"/>
@@ -91,54 +91,49 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\substance-daf-profile-spreadsheet.xml"/>
     </extension>
-
-    <name value="base"/>  
-    <!-- value sets that are imported by directly referenced value sets in the profiles -->
-    <resource>  
+    <name value="base"/>
+  <!--  value sets that are imported by directly referenced value sets in the profiles  -->
+    <resource>
       <purpose value="valueset"/>
       <sourceUri value="profiles\valueset-daf-substance-ndfrt.xml"/>
     </resource>
-    <resource>  
+    <resource>
       <purpose value="valueset"/>
       <sourceUri value="profiles\valueset-daf-substance-rxnorm.xml"/>
     </resource>
-    <resource>  
+    <resource>
       <purpose value="valueset"/>
       <sourceUri value="profiles\valueset-daf-substance-sct.xml"/>
     </resource>
-    <resource>   
+    <resource>
       <purpose value="valueset"/>
-     <sourceUri value="profiles\valueset-daf-substance-unii.xml"/>
+      <sourceUri value="profiles\valueset-daf-substance-unii.xml"/>
     </resource>
-  
-  
-    <resource>   
+    <resource>
       <purpose value="example"/>
       <name value="DAF Responder"/>
       <sourceUri value="conformance\conformance-daf-query-responder.xml"/>
     </resource>
-    <resource>   
+    <resource>
       <purpose value="example"/>
       <name value="DAF Requestor"/>
       <sourceUri value="conformance\conformance-daf-query-requestor.xml"/>
     </resource>
-<!--
+  </package>
+<!-- 
   <acronym target="observation-daf-results-dafresultobsquantity" id="daf-qty"/>
   <acronym target="observation-daf-results-dafresultobsratio" id="daf-rto"/>
   <acronym target="observation-daf-results-dafresultobsother" id="daf-oth"/>
   <acronym target="diagnosticreport-daf-dafdiagnosticreport" id="daf-dir"/>
   <acronym target="diagnosticorder-daf-dafdiagnosticorder" id="daf-dio"/>
   <acronym target="observation-daf-results-dafresultobservationcode" id="daf-cod"/>
--->
-  </package>  
-
+ -->
   <binary value="daf-actors-and-interactions.png"/>
   <binary value="daf-fhir-query-stack.png"/>
-
   <page>
     <source value="daf.html"/>
     <name value="Home Page"/>
-    <kind value="page"/>    
+    <kind value="page"/>
     <page>
       <source value="daf-toc.html"/>
       <name value="Table of Contents"/>
@@ -172,6 +167,5 @@
       <type value="StructureDefinition"/>
       <type value="ValueSet"/>
     </page>
-  </page> 
+  </page>
 </ImplementationGuide>
-

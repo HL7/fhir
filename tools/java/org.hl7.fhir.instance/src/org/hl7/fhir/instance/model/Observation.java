@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 08:39+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 29, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -183,148 +183,6 @@ public class Observation extends DomainResource {
       if (code == ObservationStatus.ENTEREDINERROR)
         return "entered-in-error";
       if (code == ObservationStatus.UNKNOWN)
-        return "unknown";
-      return "?";
-      }
-    }
-
-    public enum ObservationReliability {
-        /**
-         * The result has no reliability concerns
-         */
-        OK, 
-        /**
-         * An early estimate of value; measurement is still occurring
-         */
-        ONGOING, 
-        /**
-         * An early estimate of value; processing is still occurring
-         */
-        EARLY, 
-        /**
-         * The observation value should be treated with care
-         */
-        QUESTIONABLE, 
-        /**
-         * The result has been generated while calibration is occurring
-         */
-        CALIBRATING, 
-        /**
-         * The observation could not be completed because of an error
-         */
-        ERROR, 
-        /**
-         * No observation  reliability value was available
-         */
-        UNKNOWN, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ObservationReliability fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("ok".equals(codeString))
-          return OK;
-        if ("ongoing".equals(codeString))
-          return ONGOING;
-        if ("early".equals(codeString))
-          return EARLY;
-        if ("questionable".equals(codeString))
-          return QUESTIONABLE;
-        if ("calibrating".equals(codeString))
-          return CALIBRATING;
-        if ("error".equals(codeString))
-          return ERROR;
-        if ("unknown".equals(codeString))
-          return UNKNOWN;
-        throw new Exception("Unknown ObservationReliability code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case OK: return "ok";
-            case ONGOING: return "ongoing";
-            case EARLY: return "early";
-            case QUESTIONABLE: return "questionable";
-            case CALIBRATING: return "calibrating";
-            case ERROR: return "error";
-            case UNKNOWN: return "unknown";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case OK: return "http://hl7.org/fhir/observation-reliability";
-            case ONGOING: return "http://hl7.org/fhir/observation-reliability";
-            case EARLY: return "http://hl7.org/fhir/observation-reliability";
-            case QUESTIONABLE: return "http://hl7.org/fhir/observation-reliability";
-            case CALIBRATING: return "http://hl7.org/fhir/observation-reliability";
-            case ERROR: return "http://hl7.org/fhir/observation-reliability";
-            case UNKNOWN: return "http://hl7.org/fhir/observation-reliability";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case OK: return "The result has no reliability concerns";
-            case ONGOING: return "An early estimate of value; measurement is still occurring";
-            case EARLY: return "An early estimate of value; processing is still occurring";
-            case QUESTIONABLE: return "The observation value should be treated with care";
-            case CALIBRATING: return "The result has been generated while calibration is occurring";
-            case ERROR: return "The observation could not be completed because of an error";
-            case UNKNOWN: return "No observation  reliability value was available";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case OK: return "OK";
-            case ONGOING: return "Measurement Ongoing";
-            case EARLY: return "Early";
-            case QUESTIONABLE: return "Questionable";
-            case CALIBRATING: return "Calibrating";
-            case ERROR: return "Error Occurred";
-            case UNKNOWN: return "Reliability Unknown";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ObservationReliabilityEnumFactory implements EnumFactory<ObservationReliability> {
-    public ObservationReliability fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("ok".equals(codeString))
-          return ObservationReliability.OK;
-        if ("ongoing".equals(codeString))
-          return ObservationReliability.ONGOING;
-        if ("early".equals(codeString))
-          return ObservationReliability.EARLY;
-        if ("questionable".equals(codeString))
-          return ObservationReliability.QUESTIONABLE;
-        if ("calibrating".equals(codeString))
-          return ObservationReliability.CALIBRATING;
-        if ("error".equals(codeString))
-          return ObservationReliability.ERROR;
-        if ("unknown".equals(codeString))
-          return ObservationReliability.UNKNOWN;
-        throw new IllegalArgumentException("Unknown ObservationReliability code '"+codeString+"'");
-        }
-    public String toCode(ObservationReliability code) {
-      if (code == ObservationReliability.OK)
-        return "ok";
-      if (code == ObservationReliability.ONGOING)
-        return "ongoing";
-      if (code == ObservationReliability.EARLY)
-        return "early";
-      if (code == ObservationReliability.QUESTIONABLE)
-        return "questionable";
-      if (code == ObservationReliability.CALIBRATING)
-        return "calibrating";
-      if (code == ObservationReliability.ERROR)
-        return "error";
-      if (code == ObservationReliability.UNKNOWN)
         return "unknown";
       return "?";
       }
@@ -1229,10 +1087,10 @@ public class Observation extends DomainResource {
     protected CodeableConcept dataAbsentReason;
 
     /**
-     * The assessment made based on the result of the observation.
+     * The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
      */
     @Child(name = "interpretation", type = {CodeableConcept.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="High, low, normal, etc.", formalDefinition="The assessment made based on the result of the observation." )
+    @Description(shortDefinition="High, low, normal, etc.", formalDefinition="The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag." )
     protected CodeableConcept interpretation;
 
     /**
@@ -1264,37 +1122,30 @@ public class Observation extends DomainResource {
     protected Enumeration<ObservationStatus> status;
 
     /**
-     * An estimate of the degree to which quality issues have impacted on the value reported.
-     */
-    @Child(name = "reliability", type = {CodeType.class}, order=9, min=0, max=1)
-    @Description(shortDefinition="ok | ongoing | early | questionable | calibrating | error +", formalDefinition="An estimate of the degree to which quality issues have impacted on the value reported." )
-    protected Enumeration<ObservationReliability> reliability;
-
-    /**
      * Indicates the site on the subject's body where the observation was made ( i.e. the target site).
      */
-    @Child(name = "bodySite", type = {CodeableConcept.class, BodySite.class}, order=10, min=0, max=1)
+    @Child(name = "bodySite", type = {CodeableConcept.class, BodySite.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Observed body part", formalDefinition="Indicates the site on the subject's body where the observation was made ( i.e. the target site)." )
     protected Type bodySite;
 
     /**
      * Indicates the mechanism used to perform the observation.
      */
-    @Child(name = "method", type = {CodeableConcept.class}, order=11, min=0, max=1)
+    @Child(name = "method", type = {CodeableConcept.class}, order=10, min=0, max=1)
     @Description(shortDefinition="How it was done", formalDefinition="Indicates the mechanism used to perform the observation." )
     protected CodeableConcept method;
 
     /**
      * A unique identifier for the simple observation instance.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Unique Id for this particular observation", formalDefinition="A unique identifier for the simple observation instance." )
     protected List<Identifier> identifier;
 
     /**
      * The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class, Device.class, Location.class}, order=13, min=0, max=1)
+    @Child(name = "subject", type = {Patient.class, Group.class, Device.class, Location.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Who and/or what this is about", formalDefinition="The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject." )
     protected Reference subject;
 
@@ -1306,7 +1157,7 @@ public class Observation extends DomainResource {
     /**
      * The specimen that was used when this observation was made.
      */
-    @Child(name = "specimen", type = {Specimen.class}, order=14, min=0, max=1)
+    @Child(name = "specimen", type = {Specimen.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Specimen used for this observation", formalDefinition="The specimen that was used when this observation was made." )
     protected Reference specimen;
 
@@ -1318,7 +1169,7 @@ public class Observation extends DomainResource {
     /**
      * Who was responsible for asserting the observed value as "true".
      */
-    @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who is responsible for the observation", formalDefinition="Who was responsible for asserting the observed value as 'true'." )
     protected List<Reference> performer;
     /**
@@ -1330,7 +1181,7 @@ public class Observation extends DomainResource {
     /**
      * The device used to generate the observation data.
      */
-    @Child(name = "device", type = {Device.class, DeviceMetric.class}, order=16, min=0, max=1)
+    @Child(name = "device", type = {Device.class, DeviceMetric.class}, order=15, min=0, max=1)
     @Description(shortDefinition="(Measurement) Device", formalDefinition="The device used to generate the observation data." )
     protected Reference device;
 
@@ -1342,7 +1193,7 @@ public class Observation extends DomainResource {
     /**
      * The healthcare event  ( e.g. a patient and healthcare provider interaction ) during which this observation is made.
      */
-    @Child(name = "encounter", type = {Encounter.class}, order=17, min=0, max=1)
+    @Child(name = "encounter", type = {Encounter.class}, order=16, min=0, max=1)
     @Description(shortDefinition="Healthcare event during which this observation is made", formalDefinition="The healthcare event  ( e.g. a patient and healthcare provider interaction ) during which this observation is made." )
     protected Reference encounter;
 
@@ -1354,25 +1205,25 @@ public class Observation extends DomainResource {
     /**
      * Guidance on how to interpret the value by comparison to a normal or recommended range.
      */
-    @Child(name = "referenceRange", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "referenceRange", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Provides guide for interpretation", formalDefinition="Guidance on how to interpret the value by comparison to a normal or recommended range." )
     protected List<ObservationReferenceRangeComponent> referenceRange;
 
     /**
      * A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.
      */
-    @Child(name = "related", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "related", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Resource related to this observation", formalDefinition="A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code." )
     protected List<ObservationRelatedComponent> related;
 
     /**
      * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.
      */
-    @Child(name = "component", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "component", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Component results", formalDefinition="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations." )
     protected List<ObservationComponentComponent> component;
 
-    private static final long serialVersionUID = -83023434L;
+    private static final long serialVersionUID = 1105884683L;
 
   /*
    * Constructor
@@ -1612,7 +1463,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #interpretation} (The assessment made based on the result of the observation.)
+     * @return {@link #interpretation} (The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.)
      */
     public CodeableConcept getInterpretation() { 
       if (this.interpretation == null)
@@ -1628,7 +1479,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @param value {@link #interpretation} (The assessment made based on the result of the observation.)
+     * @param value {@link #interpretation} (The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.)
      */
     public Observation setInterpretation(CodeableConcept value) { 
       this.interpretation = value;
@@ -1820,55 +1671,6 @@ public class Observation extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ObservationStatus>(new ObservationStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.). This is the underlying object with id, value and extensions. The accessor "getReliability" gives direct access to the value
-     */
-    public Enumeration<ObservationReliability> getReliabilityElement() { 
-      if (this.reliability == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Observation.reliability");
-        else if (Configuration.doAutoCreate())
-          this.reliability = new Enumeration<ObservationReliability>(new ObservationReliabilityEnumFactory()); // bb
-      return this.reliability;
-    }
-
-    public boolean hasReliabilityElement() { 
-      return this.reliability != null && !this.reliability.isEmpty();
-    }
-
-    public boolean hasReliability() { 
-      return this.reliability != null && !this.reliability.isEmpty();
-    }
-
-    /**
-     * @param value {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.). This is the underlying object with id, value and extensions. The accessor "getReliability" gives direct access to the value
-     */
-    public Observation setReliabilityElement(Enumeration<ObservationReliability> value) { 
-      this.reliability = value;
-      return this;
-    }
-
-    /**
-     * @return An estimate of the degree to which quality issues have impacted on the value reported.
-     */
-    public ObservationReliability getReliability() { 
-      return this.reliability == null ? null : this.reliability.getValue();
-    }
-
-    /**
-     * @param value An estimate of the degree to which quality issues have impacted on the value reported.
-     */
-    public Observation setReliability(ObservationReliability value) { 
-      if (value == null)
-        this.reliability = null;
-      else {
-        if (this.reliability == null)
-          this.reliability = new Enumeration<ObservationReliability>(new ObservationReliabilityEnumFactory());
-        this.reliability.setValue(value);
-      }
       return this;
     }
 
@@ -2322,12 +2124,11 @@ public class Observation extends DomainResource {
         childrenList.add(new Property("category", "CodeableConcept", "Describes the general type of observation being made and is used to group or limit searching of observations.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, java.lang.Integer.MAX_VALUE, dataAbsentReason));
-        childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
+        childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, effective));
         childrenList.add(new Property("issued", "instant", "The date and time this observation was made available to providers, typically after the results have been reviewed and verified.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("status", "code", "The status of the result value.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("reliability", "code", "An estimate of the degree to which quality issues have impacted on the value reported.", 0, java.lang.Integer.MAX_VALUE, reliability));
         childrenList.add(new Property("bodySite[x]", "CodeableConcept|Reference(BodySite)", "Indicates the site on the subject's body where the observation was made ( i.e. the target site).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the simple observation instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -2353,7 +2154,6 @@ public class Observation extends DomainResource {
         dst.effective = effective == null ? null : effective.copy();
         dst.issued = issued == null ? null : issued.copy();
         dst.status = status == null ? null : status.copy();
-        dst.reliability = reliability == null ? null : reliability.copy();
         dst.bodySite = bodySite == null ? null : bodySite.copy();
         dst.method = method == null ? null : method.copy();
         if (identifier != null) {
@@ -2402,11 +2202,11 @@ public class Observation extends DomainResource {
         return compareDeep(code, o.code, true) && compareDeep(category, o.category, true) && compareDeep(value, o.value, true)
            && compareDeep(dataAbsentReason, o.dataAbsentReason, true) && compareDeep(interpretation, o.interpretation, true)
            && compareDeep(comments, o.comments, true) && compareDeep(effective, o.effective, true) && compareDeep(issued, o.issued, true)
-           && compareDeep(status, o.status, true) && compareDeep(reliability, o.reliability, true) && compareDeep(bodySite, o.bodySite, true)
-           && compareDeep(method, o.method, true) && compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true)
-           && compareDeep(specimen, o.specimen, true) && compareDeep(performer, o.performer, true) && compareDeep(device, o.device, true)
-           && compareDeep(encounter, o.encounter, true) && compareDeep(referenceRange, o.referenceRange, true)
-           && compareDeep(related, o.related, true) && compareDeep(component, o.component, true);
+           && compareDeep(status, o.status, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(method, o.method, true)
+           && compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(specimen, o.specimen, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(device, o.device, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(referenceRange, o.referenceRange, true) && compareDeep(related, o.related, true)
+           && compareDeep(component, o.component, true);
       }
 
       @Override
@@ -2417,7 +2217,7 @@ public class Observation extends DomainResource {
           return false;
         Observation o = (Observation) other;
         return compareValues(comments, o.comments, true) && compareValues(issued, o.issued, true) && compareValues(status, o.status, true)
-           && compareValues(reliability, o.reliability, true);
+          ;
       }
 
       public boolean isEmpty() {
@@ -2425,9 +2225,8 @@ public class Observation extends DomainResource {
            && (value == null || value.isEmpty()) && (dataAbsentReason == null || dataAbsentReason.isEmpty())
            && (interpretation == null || interpretation.isEmpty()) && (comments == null || comments.isEmpty())
            && (effective == null || effective.isEmpty()) && (issued == null || issued.isEmpty()) && (status == null || status.isEmpty())
-           && (reliability == null || reliability.isEmpty()) && (bodySite == null || bodySite.isEmpty())
-           && (method == null || method.isEmpty()) && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
-           && (specimen == null || specimen.isEmpty()) && (performer == null || performer.isEmpty())
+           && (bodySite == null || bodySite.isEmpty()) && (method == null || method.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (subject == null || subject.isEmpty()) && (specimen == null || specimen.isEmpty()) && (performer == null || performer.isEmpty())
            && (device == null || device.isEmpty()) && (encounter == null || encounter.isEmpty()) && (referenceRange == null || referenceRange.isEmpty())
            && (related == null || related.isEmpty()) && (component == null || component.isEmpty());
       }
@@ -2439,8 +2238,6 @@ public class Observation extends DomainResource {
 
   @SearchParamDefinition(name="subject", path="Observation.subject", description="The subject that the observation is about", type="reference" )
   public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="reliability", path="Observation.reliability", description="The reliability of the observation", type="token" )
-  public static final String SP_RELIABILITY = "reliability";
   @SearchParamDefinition(name="encounter", path="Observation.encounter", description="Healthcare event related to the observation", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="date", path="Observation.effective[x]", description="Obtained date/time. If the obtained element is a period, a date that falls in the period", type="date" )

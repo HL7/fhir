@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Exception Codes"/>
+  <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -17,13 +17,13 @@
     <caseSensitive value="true"/>
     <concept>
       <code value="student"/>
-      <!--  student over the age limit  -->
+    <!--   student over the age limit   -->
       <display value="Student (Fulltime)"/>
       <definition value="Fulltime Student"/>
     </concept>
     <concept>
       <code value="disabled"/>
-      <!--  disabled  -->
+    <!--   disabled   -->
       <display value="Disabled"/>
       <definition value="Disabled"/>
     </concept>

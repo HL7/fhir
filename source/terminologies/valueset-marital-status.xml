@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="marital-status"/>
-  <status value="draft"/>
   <name value="Marital Status Codes"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -16,7 +16,7 @@
     <system value="http://hl7.org/fhir/marital-status"/>
     <caseSensitive value="true"/>
     <concept>
-    <!--  work around for missing code in v3 code system - should be temporary, until added in v3  -->
+    <!--   work around for missing code in v3 code system - should be temporary, until added in v3   -->
       <code value="U"/>
       <display value="unmarried"/>
       <definition value="The person is not presently married. The marital history is not known or stated"/>

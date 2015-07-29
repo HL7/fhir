@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <version value="20121129"/>
-  <status value="active"/>
   <name value="laterality Codes"/>
+  <status value="active"/>
   <publisher value="National Electrical Manufacturers Association (DICOM)"/>
   <contact>
     <telecom>

@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="cqif"/>
   <url value="http://hl7.org/fhir/cqif"/>
   <name value="Clinical Quality Improvement Framework"/>
-  <publisher value="Hl7 CDS"/>
   <status value="draft"/>
   <experimental value="false"/>
-
+  <publisher value="Hl7 CDS"/>
   <package>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-cqif-extensions-spreadsheet.xml"/>

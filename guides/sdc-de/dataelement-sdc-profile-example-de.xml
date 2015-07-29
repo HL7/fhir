@@ -13,8 +13,8 @@
         <system value="http://r.details.loinc.org/AnswerList"/>
         <value value="LL2827-5"/>
       </identifier>
-      <status value="active"/>
       <name value="AHRQ_M/F/UNK"/>
+      <status value="active"/>
       <description value="AHRQ Common Formats answer list for Patient and Neonate Gender"/>
       <compose>
         <include>
@@ -65,11 +65,11 @@
   <contained>
     <ValueSet>
       <id value="pv-valueset"/>
-      <!-- 
+    <!--    
          Side notes:
           - "1" is not a valid code system version for AdministrativeGender
           - The definition and display name for code "UN" is not valid
-         -->
+            -->
       <status value="draft"/>
       <compose>
         <include>
@@ -174,15 +174,7 @@
   </identifier>
   <version value="1.2"/>
   <name value="Patient Gender"/>
-  <useContext>
-    <coding>
-      <code value="Healthcare Event Reporting Form"/>
-      <!--  Wasn't clear if the above was a code  -->
-      <display value="Patient safety event report - hospital: healthcare event reporting form"/>
-    </coding>
-  </useContext>
   <status value="draft"/>
-  <date value="2010-03-31"/>
   <publisher value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
   <contact>
     <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-contact-address">
@@ -196,6 +188,14 @@
       <value value="william.munier@ahrq.hhs.gov"/>
     </telecom>
   </contact>
+  <date value="2010-03-31"/>
+  <useContext>
+    <coding>
+      <code value="Healthcare Event Reporting Form"/>
+    <!--     Wasn't clear if the above was a code     -->
+      <display value="Patient safety event report - hospital: healthcare event reporting form"/>
+    </coding>
+  </useContext>
   <mapping>
     <identity value="objclass"/>
     <uri value="http://healthit.gov/sdc/objectclassproperty"/>

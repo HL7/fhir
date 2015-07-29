@@ -22,7 +22,9 @@ import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 public class ResourceModifier {
 
   public static void main(String[] args) throws FileNotFoundException, Exception {
-
+//   process("C:\\work\\org.hl7.fhir\\build\\source\\documentreference\\valueset-clinical-speciality.xml");
+    System.out.println("");
+    System.out.println("Finished");
   }
 
   private static void process(String filename) throws Exception {

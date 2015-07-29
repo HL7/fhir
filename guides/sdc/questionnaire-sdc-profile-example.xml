@@ -755,13 +755,13 @@
                       <required value="false"/>
                       <repeats value="false"/>
                       <question>
-                      <!--
+                      <!-- 
                         <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
                           <valueInteger value="??"/>
                         </extension>
                         <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
                           <valueInteger value="??"/>
-                        </extension> -->
+                        </extension>  -->
                         <linkId value="Medication/DE282"/>
                         <text value="What was the lot number of the vaccine?"/>
                         <type value="string"/>

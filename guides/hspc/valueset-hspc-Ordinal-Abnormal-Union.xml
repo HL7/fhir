@@ -4,8 +4,8 @@
   <id value="hspc-Ordinal-Abnormal-Union.xml"/>
   <url value="http://healthcaresoa.org/fhir/ValueSet/hspc-Ordinal-Abnormal-Union"/>
   <version value="0.01"/>
-  <status value="draft"/>
   <name value="Ordinal Assessment or Interpretation"/>
+  <status value="draft"/>
   <publisher value="HSPC"/>
   <contact>
     <telecom>
@@ -13,9 +13,9 @@
       <value value="http://www.clinicaleleement.com"/>
     </telecom>
   </contact>
+  <date value="2014-06-25"/>
   <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
   <copyright value="IHC"/>
-  <date value="2014-06-25"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>

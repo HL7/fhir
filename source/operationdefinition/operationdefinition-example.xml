@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/operationdefinition.xsd">
-  <title value="Populate Questionnaire (SDC)"/>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <name value="Populate Questionnaire (SDC)"/>
+  <status value="draft"/>
+  <kind value="operation"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <contact>
     <telecom>
-    <system value="other"/>
-    <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
-  </telecom>
+      <system value="other"/>
+      <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+    </telecom>
   </contact>
-  <description value="This operation defines a constrained version of the 'populate' operation that reflects the expectations for conformance with the Structured Data Capture implementation guide."/>
-  <status value="draft"/>
   <date value="2014-08-04"/>
-  <kind value="operation"/>
+  <description value="This operation defines a constrained version of the &#39;populate&#39; operation that reflects the expectations for conformance with the Structured Data Capture implementation guide."/>
   <code value="populate"/>
   <notes value="The constraints reflected here are not intended to prevent implementers from supporting additional parameters or capabilities of the operation, merely to establish a minimum baseline expectation."/>
   <system value="true"/>
   <type value="Questionnaire"/>
   <instance value="true"/>
   <parameter>
-			<name value="identifier"/>
-			<use value="in"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-        <system value="http://hl7.org/fhir/defined-types"/>
-        <code value="uri"/>
-			</type>
-	</parameter>
+    <name value="identifier"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <type value="uri"/>
+  </parameter>
 </OperationDefinition>

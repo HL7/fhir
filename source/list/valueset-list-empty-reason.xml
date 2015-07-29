@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="List Empty Reasons"/>
+  <status value="draft"/>
   <publisher value="FHIR Project"/>
   <contact>
     <telecom>
@@ -16,15 +16,11 @@
     <caseSensitive value="true"/>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="Other language is sometimes used for this concept, such as &#39;no significant [x] known&#39;.
-SNOMED CT includes many codes for this general concept, but no single generalisation. If using SNOMED CT, use this code and the appropriate specific SNOMED CT code"/>
+        <valueString value="Other language is sometimes used for this concept, such as &#39;no significant [x] known&#39;. SNOMED CT includes many codes for this general concept, but no single generalisation. If using SNOMED CT, use this code and the appropriate specific SNOMED CT code"/>
       </extension>
       <code value="nilknown"/>
       <display value="Nil Known"/>
-      <definition value="Clinical judgement that there are no known items for this list after reasonable investigation. Note that this a positive statement by a clinical user, and not a default position asserted by a computer system in the lack of other information. Example uses:
- * For allergies: the patient or patient&#39;s agent/guardian has asserted that he/she is not aware of any allergies (NKA - nil known allergies)
- * For medications: the patient or patient&#39;s agent/guardian has asserted that the patient is known to be taking no medications
- * For diagnoses, problems and procedures: the patient or patient&#39;s agent/guardian has asserted that there is no known event to record."/>
+      <definition value="Clinical judgement that there are no known items for this list after reasonable investigation. Note that this a positive statement by a clinical user, and not a default position asserted by a computer system in the lack of other information. Example uses:  * For allergies: the patient or patient&#39;s agent/guardian has asserted that he/she is not aware of any allergies (NKA - nil known allergies)  * For medications: the patient or patient&#39;s agent/guardian has asserted that the patient is known to be taking no medications  * For diagnoses, problems and procedures: the patient or patient&#39;s agent/guardian has asserted that there is no known event to record."/>
     </concept>
     <concept>
       <code value="notasked"/>

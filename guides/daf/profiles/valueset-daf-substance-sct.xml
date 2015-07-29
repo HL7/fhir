@@ -4,8 +4,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.9"/>
   </extension>
-  <status value="draft"/>
   <name value="DAF SNOMED CT Substances Other Than Clinical Drugs"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

@@ -5,11 +5,16 @@
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>
+        
         <b>DAF Substance-Reactant for Intolerance</b>
+      
       </p>
       
+      
       <hr/>
+      
       
       <p>A substance or other type of agent (e.g., sunshine) that may be associated 
        with an intolerance reaction event or a propensity to such an event. These 
@@ -25,33 +30,42 @@
        ingredients, foods, general substances and environmental entities.
       </p>
       
+      
       <p>
         This value set is a union of 4 other value sets:
       </p>
       
+      
       <ul>
        
+        
         <li>daf-substance-ndfrt: NUI codes for NDF-RT concept types of “Mechanism of Action - N0000000223”, “Physiologic Effect - N0000009802” or “Chemical Structure - N0000000002”</li>
        
+        
         <li>daf-substance-rxnorm: CUI codes for TTY = (IN, PIN, MIN, BN), where the code is not obsolete</li>
        
+        
         <li>daf-substance-unii: All UNII codes</li>
        
+        
         <li>daf-substance-sct: Substance Other Than Clinical Drug</li>
       
+      
       </ul>
+      
       
       <p>
        This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement 
       </p>
+    
     
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.1"/>
   </extension>
-  <status value="draft"/>
   <name value="DAF Substance-Reactant for Intolerance"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

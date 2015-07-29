@@ -2,9 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <version value="0.01"/>
-  <status value="draft"/>
   <name value="HSPC Body Position"/>
-  <immutable value="true"/>
+  <status value="draft"/>
   <publisher value="HSPC"/>
   <contact>
     <telecom>
@@ -12,10 +11,11 @@
       <value value="http://healthcaresoa.org"/>
     </telecom>
   </contact>
+  <date value="2015-05-19"/>
   <description value="SNOMED CT code system values descending from the following:&#39;body position finding&#39; 9851009"/>
+  <immutable value="true"/>
   <copyright value="TBD"/>
   <extensible value="true"/>
-  <date value="2015-05-19"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

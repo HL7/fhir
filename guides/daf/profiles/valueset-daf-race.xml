@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="active"/>
   <name value="MU Race Value Set"/>
+  <status value="active"/>
   <publisher value="DAF Project"/>
   <contact>
     <telecom>

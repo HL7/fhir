@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/designation-use"/>
-  <status value="draft"/>
   <name value="Designation Use"/>
+  <status value="draft"/>
   <publisher value="FHIR Project"/>
   <description value="Details of how a designation would be used"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
@@ -11,7 +11,7 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--  Snomed description types  -->
+      <!--   Snomed description types   -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="900000000000446008"/>

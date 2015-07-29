@@ -6,8 +6,8 @@
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.63"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-country"/>
-  <status value="active"/>
   <name value="Country Value Set"/>
+  <status value="active"/>
   <publisher value="HL7 FHIR"/>
   <contact>
     <telecom>
@@ -18,7 +18,7 @@
   <description value="A value set of codes for the representation of names of countries, territories and areas of geographical interest"/>
   <compose>
     <include>
-    <!--  all 2 letter codes form ISO 3166  -->
+    <!--   all 2 letter codes form ISO 3166   -->
       <system value="urn:iso:std:iso:3166"/>
       <filter>
         <property value="code"/>

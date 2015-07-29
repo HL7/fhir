@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Observation Value Absent Reason"/>
-  <!-- Eric Haas Health eData Inc - editor -->
+  <status value="draft"/>
+<!--  Eric Haas Health eData Inc - editor  -->
   <publisher value="HL7 International - Orders and Observations WG"/>
   <contact>
     <telecom>

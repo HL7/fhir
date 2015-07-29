@@ -1,16 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="sdc-de"/>
   <url value="http://hl7.org/fhir/sdc-de"/>
   <name value="Structured Data Capture - Data Element Exchange"/>
-  <publisher value="ONC"/>
   <status value="draft"/>
   <experimental value="false"/>
-
-  <dependency>  
+  <publisher value="ONC"/>
+  <dependency>
     <type value="reference"/>
     <uri value="http://hl7.org/fhir/sdc"/>
   </dependency>
-
   <package>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="dataelement-sdc-de-profile-spreadsheet.xml"/>
@@ -18,7 +18,6 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="valueset-sdc-de-profile-spreadsheet.xml"/>
     </extension>
-    
     <name value="base"/>
     <resource>
       <purpose value="valueset"/>
@@ -30,14 +29,12 @@
       <description value="SDC Repository for Data Elements"/>
       <sourceUri value="conformance-sdc-de-registry.xml"/>
     </resource>
-
     <resource>
       <purpose value="example"/>
       <name value="SDC DE Curator"/>
       <description value="SDC Data Elements author/maintenance system"/>
       <sourceUri value="conformance-sdc-de-curator.xml"/>
     </resource>
-   
     <resource>
       <purpose value="example"/>
       <name value="SDC-Gender"/>
@@ -48,10 +45,9 @@
       </exampleFor>
     </resource>
   </package>
-  
   <page>
     <source value="sdc-de.html"/>
     <name value="Home Page"/>
     <kind value="page"/>
-  </page>    
+  </page>
 </ImplementationGuide>

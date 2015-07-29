@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="use-context"/>
-  <status value="draft"/>
   <name value="Context of Use ValueSet"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -14,15 +14,15 @@
   <description value="This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts"/>
   <compose>
     <import value="http://hl7.org/fhir/ValueSet/usps-state"/>
-    <!--  states  -->
+  <!--   states   -->
     <import value="http://hl7.org/fhir/ValueSet/practitioner-specialty"/>
-    <!--  specialties, assuming this will get fixed up  -->
+  <!--   specialties, assuming this will get fixed up   -->
     <include>
-    <!--  ISO 2 letter country codes  -->
+    <!--   ISO 2 letter country codes   -->
       <system value="urn:iso:std:iso:3166"/>
     </include>
     <include>
-    <!--  ISO region codes  -->
+    <!--   ISO region codes   -->
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
     </include>
   </compose>

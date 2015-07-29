@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 08:39+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 29, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -5302,60 +5302,60 @@ public class Conformance extends DomainResource implements IBaseConformance {
     protected StringType name;
 
     /**
-     * The name of the individual or organization that published the conformance.
-     */
-    @Child(name = "publisher", type = {StringType.class}, order=3, min=0, max=1)
-    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the conformance." )
-    protected StringType publisher;
-
-    /**
-     * Contacts to assist a user in finding and communicating with the publisher.
-     */
-    @Child(name = "contact", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
-    protected List<ConformanceContactComponent> contact;
-
-    /**
-     * A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
-     */
-    @Child(name = "description", type = {StringType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="Human description of the conformance statement", formalDefinition="A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP." )
-    protected StringType description;
-
-    /**
-     * Explains why this conformance statement is needed and why it's been constrained as it has.
-     */
-    @Child(name = "requirements", type = {StringType.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this conformance statement is needed and why it's been constrained as it has." )
-    protected StringType requirements;
-
-    /**
-     * A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.
-     */
-    @Child(name = "copyright", type = {StringType.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement." )
-    protected StringType copyright;
-
-    /**
      * The status of this conformance statement.
      */
-    @Child(name = "status", type = {CodeType.class}, order=8, min=0, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this conformance statement." )
     protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name = "experimental", type = {BooleanType.class}, order=9, min=0, max=1)
+    @Child(name = "experimental", type = {BooleanType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
+     * The name of the individual or organization that published the conformance.
+     */
+    @Child(name = "publisher", type = {StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the conformance." )
+    protected StringType publisher;
+
+    /**
+     * Contacts to assist a user in finding and communicating with the publisher.
+     */
+    @Child(name = "contact", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
+    protected List<ConformanceContactComponent> contact;
+
+    /**
      * The date  (and optionally time) when the conformance statement was published.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=10, min=1, max=1)
+    @Child(name = "date", type = {DateTimeType.class}, order=7, min=1, max=1)
     @Description(shortDefinition="Publication Date(/time)", formalDefinition="The date  (and optionally time) when the conformance statement was published." )
     protected DateTimeType date;
+
+    /**
+     * A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
+     */
+    @Child(name = "description", type = {StringType.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Human description of the conformance statement", formalDefinition="A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP." )
+    protected StringType description;
+
+    /**
+     * Explains why this conformance statement is needed and why it's been constrained as it has.
+     */
+    @Child(name = "requirements", type = {StringType.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this conformance statement is needed and why it's been constrained as it has." )
+    protected StringType requirements;
+
+    /**
+     * A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.
+     */
+    @Child(name = "copyright", type = {StringType.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement." )
+    protected StringType copyright;
 
     /**
      * Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.
@@ -5425,7 +5425,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<ConformanceDocumentComponent> document;
 
-    private static final long serialVersionUID = 1631871430L;
+    private static final long serialVersionUID = -137792036L;
 
   /*
    * Constructor
@@ -5592,6 +5592,100 @@ public class Conformance extends DomainResource implements IBaseConformance {
     }
 
     /**
+     * @return {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Conformance setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The status of this conformance statement.
+     */
+    public ConformanceResourceStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The status of this conformance statement.
+     */
+    public Conformance setStatus(ConformanceResourceStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+        this.status.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     */
+    public BooleanType getExperimentalElement() { 
+      if (this.experimental == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.experimental");
+        else if (Configuration.doAutoCreate())
+          this.experimental = new BooleanType(); // bb
+      return this.experimental;
+    }
+
+    public boolean hasExperimentalElement() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    public boolean hasExperimental() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    /**
+     * @param value {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     */
+    public Conformance setExperimentalElement(BooleanType value) { 
+      this.experimental = value;
+      return this;
+    }
+
+    /**
+     * @return A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
+    public boolean getExperimental() { 
+      return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
+    }
+
+    /**
+     * @param value A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
+    public Conformance setExperimental(boolean value) { 
+        if (this.experimental == null)
+          this.experimental = new BooleanType();
+        this.experimental.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #publisher} (The name of the individual or organization that published the conformance.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
@@ -5677,6 +5771,51 @@ public class Conformance extends DomainResource implements IBaseConformance {
       if (this.contact == null)
         this.contact = new ArrayList<ConformanceContactComponent>();
       this.contact.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #date} (The date  (and optionally time) when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The date  (and optionally time) when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public Conformance setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date  (and optionally time) when the conformance statement was published.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date  (and optionally time) when the conformance statement was published.
+     */
+    public Conformance setDate(Date value) { 
+        if (this.date == null)
+          this.date = new DateTimeType();
+        this.date.setValue(value);
       return this;
     }
 
@@ -5824,145 +5963,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.copyright = new StringType();
         this.copyright.setValue(value);
       }
-      return this;
-    }
-
-    /**
-     * @return {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
-      if (this.status == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Conformance.status");
-        else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
-      return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    /**
-     * @param value {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Conformance setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return The status of this conformance statement.
-     */
-    public ConformanceResourceStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value The status of this conformance statement.
-     */
-    public Conformance setStatus(ConformanceResourceStatus value) { 
-      if (value == null)
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
-     */
-    public BooleanType getExperimentalElement() { 
-      if (this.experimental == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Conformance.experimental");
-        else if (Configuration.doAutoCreate())
-          this.experimental = new BooleanType(); // bb
-      return this.experimental;
-    }
-
-    public boolean hasExperimentalElement() { 
-      return this.experimental != null && !this.experimental.isEmpty();
-    }
-
-    public boolean hasExperimental() { 
-      return this.experimental != null && !this.experimental.isEmpty();
-    }
-
-    /**
-     * @param value {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
-     */
-    public Conformance setExperimentalElement(BooleanType value) { 
-      this.experimental = value;
-      return this;
-    }
-
-    /**
-     * @return A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
-     */
-    public boolean getExperimental() { 
-      return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
-    }
-
-    /**
-     * @param value A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
-     */
-    public Conformance setExperimental(boolean value) { 
-        if (this.experimental == null)
-          this.experimental = new BooleanType();
-        this.experimental.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #date} (The date  (and optionally time) when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public DateTimeType getDateElement() { 
-      if (this.date == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Conformance.date");
-        else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType(); // bb
-      return this.date;
-    }
-
-    public boolean hasDateElement() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    public boolean hasDate() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    /**
-     * @param value {@link #date} (The date  (and optionally time) when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public Conformance setDateElement(DateTimeType value) { 
-      this.date = value;
-      return this;
-    }
-
-    /**
-     * @return The date  (and optionally time) when the conformance statement was published.
-     */
-    public Date getDate() { 
-      return this.date == null ? null : this.date.getValue();
-    }
-
-    /**
-     * @param value The date  (and optionally time) when the conformance statement was published.
-     */
-    public Conformance setDate(Date value) { 
-        if (this.date == null)
-          this.date = new DateTimeType();
-        this.date.setValue(value);
       return this;
     }
 
@@ -6344,14 +6344,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the conformance statement.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("status", "code", "The status of this conformance statement.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the conformance.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the conformance statement was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "string", "A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("requirements", "string", "Explains why this conformance statement is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.", 0, java.lang.Integer.MAX_VALUE, copyright));
-        childrenList.add(new Property("status", "code", "The status of this conformance statement.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
-        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the conformance statement was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("software", "", "Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.", 0, java.lang.Integer.MAX_VALUE, software));
         childrenList.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, java.lang.Integer.MAX_VALUE, implementation));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
@@ -6369,18 +6369,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
         dst.url = url == null ? null : url.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.experimental = experimental == null ? null : experimental.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
           dst.contact = new ArrayList<ConformanceContactComponent>();
           for (ConformanceContactComponent i : contact)
             dst.contact.add(i.copy());
         };
+        dst.date = date == null ? null : date.copy();
         dst.description = description == null ? null : description.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
-        dst.status = status == null ? null : status.copy();
-        dst.experimental = experimental == null ? null : experimental.copy();
-        dst.date = date == null ? null : date.copy();
         dst.software = software == null ? null : software.copy();
         dst.implementation = implementation == null ? null : implementation.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
@@ -6425,9 +6425,9 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return false;
         Conformance o = (Conformance) other;
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
+           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(description, o.description, true)
            && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
            && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
            && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
            && compareDeep(format, o.format, true) && compareDeep(profile, o.profile, true) && compareDeep(rest, o.rest, true)
@@ -6442,22 +6442,22 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return false;
         Conformance o = (Conformance) other;
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(copyright, o.copyright, true) && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true)
-           && compareValues(date, o.date, true) && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(acceptUnknown, o.acceptUnknown, true)
+           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
+           && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
+           && compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(acceptUnknown, o.acceptUnknown, true)
            && compareValues(format, o.format, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (version == null || version.isEmpty())
-           && (name == null || name.isEmpty()) && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty())
+           && (name == null || name.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
+           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty())
            && (description == null || description.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (date == null || date.isEmpty()) && (software == null || software.isEmpty()) && (implementation == null || implementation.isEmpty())
-           && (fhirVersion == null || fhirVersion.isEmpty()) && (acceptUnknown == null || acceptUnknown.isEmpty())
-           && (format == null || format.isEmpty()) && (profile == null || profile.isEmpty()) && (rest == null || rest.isEmpty())
-           && (messaging == null || messaging.isEmpty()) && (document == null || document.isEmpty())
-          ;
+           && (copyright == null || copyright.isEmpty()) && (software == null || software.isEmpty())
+           && (implementation == null || implementation.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
+           && (acceptUnknown == null || acceptUnknown.isEmpty()) && (format == null || format.isEmpty())
+           && (profile == null || profile.isEmpty()) && (rest == null || rest.isEmpty()) && (messaging == null || messaging.isEmpty())
+           && (document == null || document.isEmpty());
       }
 
   @Override

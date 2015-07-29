@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Media SubType"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -30,7 +30,7 @@
       <display value="Scanned Document"/>
       <definition value="A digital scan of a document. This is reserved for when there is not enough metadata to create a document reference"/>
     </concept>
-    <!--  biometrics - may overlap with things in snomed, but the purpose in snomed is different   -->
+  <!--   biometrics - may overlap with things in snomed, but the purpose in snomed is different    -->
     <concept>
       <code value="retina"/>
       <display value="Retina scan"/>
@@ -62,7 +62,7 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--  todo: work this over. what this means is any concepts where they have is-a with 363679005 how should this be done?  -->
+      <!--   todo: work this over. what this means is any concepts where they have is-a with 363679005 how should this be done?   -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="363679005"/>

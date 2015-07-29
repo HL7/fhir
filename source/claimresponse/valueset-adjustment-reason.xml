@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Adjustment Reason Codes"/>
+  <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -18,7 +18,7 @@
     <concept>
       <code value="A001"/>
     </concept>
-    <!--  Prior Payment Reversal -->
+  <!--   Prior Payment Reversal  -->
     <concept>
       <code value="A002"/>
     </concept>

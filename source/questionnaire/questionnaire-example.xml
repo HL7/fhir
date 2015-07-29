@@ -6,6 +6,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <pre>
             Comorbidity? YES
               Cardial Comorbidity? YES
@@ -20,15 +21,16 @@
               ...
           </pre>
     
+    
     </div>
   </text>
   <contained>
     <ValueSet>
       <id value="yesno"/>
-      <status value="active"/>
-      <!--  In practice you could (should?) use boolean for this sort of circumstance.  However, the reality is
-        that many systems treat booleans as coded data  -->
+    <!--   In practice you could (should?) use boolean for this sort of circumstance.  However, the reality is
+        that many systems treat booleans as coded data   -->
       <name value="Example YesNo"/>
+      <status value="active"/>
       <description value="Captures simple yes-no"/>
       <codeSystem>
         <system value="http://example.org/system/code/yesno"/>
@@ -50,13 +52,13 @@
   <group>
     <title value="Cancer Quality Forum Questionnaire 2012"/>
     <group>
-    <!--  COMORBIDITY  -->
-    <!--  First main section of the form, questions about comorbidity  -->
+    <!--   COMORBIDITY   -->
+    <!--   First main section of the form, questions about comorbidity   -->
       <concept>
         <system value="http://example.org/system/code/sections"/>
         <code value="COMORBIDITY"/>
       </concept>
-      <!--  section contains one question: whether there is comorbidity  -->
+    <!--   section contains one question: whether there is comorbidity   -->
       <question>
         <concept>
           <system value="http://example.org/system/code/questions"/>
@@ -67,8 +69,8 @@
           <reference value="#yesno"/>
         </options>
         <group>
-        <!--  COMORBIDITY/CARDIAL  -->
-        <!--  Subsection about specific comorbidity: cardial  -->
+        <!--   COMORBIDITY/CARDIAL   -->
+        <!--   Subsection about specific comorbidity: cardial   -->
           <concept>
             <system value="http://example.org/system/code/sections"/>
             <code value="CARDIAL"/>
@@ -84,7 +86,7 @@
             </options>
           </question>
           <question>
-          <!--  This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code  -->
+          <!--   This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code   -->
             <concept>
               <system value="http://example.org/system/code/questions"/>
               <code value="COMCAR00"/>
@@ -113,7 +115,7 @@
           </question>
         </group>
         <group>
-        <!--  COMORBIDITY/VASCULAR  -->
+        <!--   COMORBIDITY/VASCULAR   -->
           <concept>
             <system value="http://example.org/system/code/sections"/>
             <code value="VASCULAR"/>
@@ -121,9 +123,9 @@
         </group>
       </question>
     </group>
-    <!--  Todo: What's supposed to go here?  -->
+  <!--   Todo: What's supposed to go here?   -->
     <group>
-    <!--  HISTOPATHOLOGY  -->
+    <!--   HISTOPATHOLOGY   -->
       <concept>
         <system value="http://example.org/system/code/sections"/>
         <code value="HISTOPATHOLOGY"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="draft"/>
   <name value="Modifier type Codes"/>
+  <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -17,31 +17,31 @@
     <caseSensitive value="true"/>
     <concept>
       <code value="A"/>
-      <!--  Repair of prior service or installation  -->
+    <!--   Repair of prior service or installation   -->
       <display value="Repair of prior service or installation"/>
       <definition value="Repair of prior service or installation"/>
     </concept>
     <concept>
       <code value="B"/>
-      <!--  Temporary service or installation  -->
+    <!--   Temporary service or installation   -->
       <display value="Temporary service or installation"/>
       <definition value="Temporary service or installation"/>
     </concept>
     <concept>
       <code value="C"/>
-      <!--  TMJ treatment  -->
+    <!--   TMJ treatment   -->
       <display value="TMJ treatment"/>
       <definition value="Treatment associated with TMJ"/>
     </concept>
     <concept>
       <code value="E"/>
-      <!--  Implant or associated with an implant  -->
+    <!--   Implant or associated with an implant   -->
       <display value="Implant or associated with an implant"/>
       <definition value="Implant or associated with an implant"/>
     </concept>
     <concept>
       <code value="X"/>
-      <!--  none   -->
+    <!--   none    -->
       <display value="None"/>
       <definition value="None"/>
     </concept>

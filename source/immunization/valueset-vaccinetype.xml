@@ -6,19 +6,29 @@
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>Around the world, various different coding systems are used for immunizations:</p>
+      
       
       <ul> 
         
+        
         <li>USA: CVX (
+          
           <a href="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx">http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx</a>)
+        
         </li>
         
+        
         <li>Australia: ACIR (
+          
           <a href="http://www.medicareaustralia.gov.au/provider/vendors/files/9560-1301-acir-idi-vaccine-codes.pdf">urn:oid:1.2.36.1.2001.1005.17</a>)
+        
         </li>
       
+      
       </ul>
+    
     
     </div>
   </text>
@@ -26,8 +36,8 @@
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.22"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-cvx"/>
-  <status value="active"/>
   <name value="Vaccine Administered Value Set"/>
+  <status value="active"/>
   <publisher value="HL7 FHIR"/>
   <contact>
     <telecom>
@@ -37,11 +47,11 @@
   </contact>
   <description value="This identifies the vaccine substance administered - CVX codes"/>
   <compose>
-  <!--  USA  -->
+  <!--   USA   -->
     <include>
       <system value="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx"/>
     </include>
-    <!--  Australian ACIR codes  -->
+  <!--   Australian ACIR codes   -->
     <include>
       <system value="urn:oid:1.2.36.1.2001.1005.17"/>
     </include>

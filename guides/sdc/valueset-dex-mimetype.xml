@@ -1,23 +1,23 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <name value="DEX mapping language mime types"/>
+  <status value="draft"/>
   <publisher value="Office of the National Coordinator for Health IT"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http:\\healthit.gov"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http:\\healthit.gov"/>
+    </telecom>
   </contact>
   <description value="The list of mime types that identify mapping languages supported by DEX."/>
-  <copyright value="Mime types have no IP restrictions"/>  
-  <status value="draft"/>
+  <copyright value="Mime types have no IP restrictions"/>
   <compose>
     <include>
-      <system value="http://example.com">
-        <!-- TODO - fix this -->
-      </system>
+      <system value="http://example.com"/>
+    <!--  TODO - fix this  -->
       <concept>
-        <code value="application/sparql-results+xml"></code>
+        <code value="application/sparql-results+xml"/>
         <display value="SPARQL"/>
       </concept>
       <concept>
@@ -27,9 +27,7 @@
       <concept>
         <code value="application/xquery"/>
         <display value="X-Query"/>
-        <!-- Note: There is no mime type for X-Path as it's not intended to stand alone.  X-Query makes use of XPath and is intended to stand alone. -->
       </concept>
     </include>
   </compose>
 </ValueSet>
-

@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/qicore-procedure-not-performed-reason"/>
-  <status value="active"/>
   <name value="Procedure Not Performed Reason (SNOMED-CT)"/>
+  <status value="active"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <contact>
     <telecom>

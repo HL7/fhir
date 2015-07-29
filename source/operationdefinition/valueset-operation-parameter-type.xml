@@ -2,17 +2,17 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/operation-definition-parameter-type"/>
+  <name value="Parameter Types used in Operation Definitions"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <name value="Parameter Types used in Operation Definitions"/>
   <publisher value="HL7, Inc. FHIR project"/>
+  <date value="2014-07-22"/>
   <description value="Parameter Types used in Operation Definitions"/>
   <extensible value="false"/>
-  <date value="2014-07-22"/>
   <compose>
-  <!--  search parameters  -->
+  <!--   search parameters   -->
     <import value="http://hl7.org/fhir/ValueSet/search-param-type"/>
-    <!--  FHIR data types & Resources  -->
+  <!--   FHIR data types & Resources   -->
     <import value="http://hl7.org/fhir/ValueSet/defined-types"/>
   </compose>
 </ValueSet>

@@ -3,14 +3,14 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://www.example.com/valueset/provider-classification"/>
   <version value="0.01"/>
-  <status value="draft"/>
   <name value="HSPC Provider Classification Value Set Definition"/>
-  <immutable value="true"/>
+  <status value="draft"/>
   <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
   <description value="TBD"/>
+  <immutable value="true"/>
   <copyright value="TBD"/>
   <extensible value="true"/>
-  <date value="2015-02-09"/>
   <compose>
     <include>
       <system value="http://need.a.uri.org/practitioner/administrativeAffiliation"/>

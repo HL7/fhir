@@ -6,74 +6,182 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
+      
+      
       <p>
         
+        
+        
+        
         <b>Gender Code</b>: The code representing the gender of a person
+      
+      
+      
       </p>
+      
+      
+      
       
       <table>
         
+        
+        
+        
         <tbody>
           
+          
+          
+          
           <tr>
+            
+            
+            
             
             <th>Code</th>
             
+            
+            
+            
             <th>Display</th>
+            
+            
+            
             
             <th>Definition</th>
           
+          
+          
+          
           </tr>
           
+          
+          
+          
           <tr>
+            
+            
+            
             
             <td>0</td>
             
+            
+            
+            
             <td>Unknown</td>
+            
+            
+            
             
             <td>Not known, not observed, not recorded, or refused.</td>
           
+          
+          
+          
           </tr>
           
+          
+          
+          
           <tr>
+            
+            
+            
             
             <td>1</td>
             
+            
+            
+            
             <td>Male</td>
+            
+            
+            
             
             <td>A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both.</td>
           
+          
+          
+          
           </tr>
           
+          
+          
+          
           <tr>
+            
+            
+            
             
             <td>2</td>
             
+            
+            
+            
             <td>Female</td>
+            
+            
+            
             
             <td>A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both.</td>
           
+          
+          
+          
           </tr>
+          
+          
+          
           
           <tr>
             
+            
+            
+            
             <td>3</td>
             
+            
+            
+            
             <td>Not specified</td>
+            
+            
+            
             
             <td>Not specified</td>
           
+          
+          
+          
           </tr>
+        
+        
+        
         
         </tbody>
       
+      
+      
+      
       </table>
+      
+      
+      
       
       <ul>
         
+        
+        
+        
         <li/>
       
+      
+      
+      
       </ul>
+    
+    
+    
     
     </div>
   </text>
@@ -82,8 +190,8 @@
       <id value="2179414"/>
       <url value="http://example.org/2179414"/>
       <version value="1.0"/>
-      <status value="active"/>
       <name value="Gender Code"/>
+      <status value="active"/>
       <description value="All codes representing the gender of a person."/>
       <compose>
         <include>
@@ -92,17 +200,17 @@
             <code value="C17998"/>
             <display value="Unknown"/>
           </concept>
-          <!--             <definition value="Not known, not observed, not recorded, or refused. "/> -->
+        <!--                <definition value="Not known, not observed, not recorded, or refused. "/>    -->
           <concept>
             <code value="C20197"/>
             <display value="Male"/>
           </concept>
-          <!--             <definition value="A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both."/> -->
+        <!--                <definition value="A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both."/>    -->
           <concept>
             <code value="C16576"/>
             <display value="Female"/>
           </concept>
-          <!--             <definition value="A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both."/> -->
+        <!--                <definition value="A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both."/>    -->
           <concept>
             <code value="C38046"/>
             <display value="Not specified"/>
@@ -113,7 +221,7 @@
   </contained>
   <contained>
     <ValueSet>
-    <!--             <definition value="Not specified"/> -->
+    <!--                <definition value="Not specified"/>    -->
       <id value="2179414-permitted"/>
       <status value="active"/>
       <codeSystem>
@@ -179,6 +287,8 @@
   </identifier>
   <version value="1.0"/>
   <name value="Gender Code"/>
+  <status value="active"/>
+  <publisher value="DCP"/>
   <useContext>
     <coding>
       <system value="http://example.org/FBPP"/>
@@ -245,8 +355,6 @@
       <display value="Sulindac for Breast"/>
     </coding>
   </useContext>
-  <status value="active"/>
-  <publisher value="DCP"/>
   <element>
     <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
       <valueInteger value="1"/>

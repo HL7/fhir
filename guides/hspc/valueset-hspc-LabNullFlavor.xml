@@ -3,8 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://ihc.org/fhir/ValueSet/LabNullFlavor"/>
   <version value="0.01"/>
-  <status value="draft"/>
   <name value="LabNullFlavor"/>
+  <status value="draft"/>
   <publisher value="Intermountain Healthcare"/>
   <contact>
     <telecom>
@@ -12,9 +12,9 @@
       <value value="http://www.clinicaleleement.com"/>
     </telecom>
   </contact>
+  <date value="2014-06-25"/>
   <description value="A list of reasons why a lab result may have no value"/>
   <copyright value="IHC"/>
-  <date value="2014-06-25"/>
   <compose>
     <include>
       <system value="http://ihc.org/fhir/Namespace/cks"/>

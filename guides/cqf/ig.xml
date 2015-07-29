@@ -1,19 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="cqf"/>
   <url value="http://hl7.org/fhir/cqf"/>
   <name value="QI-Core Implementation Guide"/>
-  <publisher value="ONC"/>
   <status value="draft"/>
   <experimental value="false"/>
-
-  <dependency>  
+  <publisher value="ONC"/>
+  <dependency>
     <type value="reference"/>
     <uri value="http://hl7.org/fhir/daf"/>
   </dependency>
-
   <package>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="allergyintolerance-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+      <valueUri value="allergyintolerance-qicore-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-adverseevent-qicore-profile-spreadsheet.xml"/>
@@ -114,9 +114,7 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="substance-qicore-profile-spreadsheet.xml"/>
     </extension>
-
     <name value="base"/>
-    
     <resource>
       <purpose value="example"/>
       <name value="QICore AdverseEvent"/>
@@ -143,7 +141,7 @@
       <exampleFor>
         <reference value="allergyintolerance-qicore-profile-spreadsheet.xml"/>
       </exampleFor>
-    </resource>	
+    </resource>
     <resource>
       <purpose value="example"/>
       <name value="QICore Communication"/>
@@ -342,8 +340,7 @@
         <reference value="specimen-qicore-profile-spreadsheet.xml"/>
       </exampleFor>
     </resource>
-  </package>  
-  
+  </package>
   <page>
     <source value="qicore.html"/>
     <name value="Home Page"/>

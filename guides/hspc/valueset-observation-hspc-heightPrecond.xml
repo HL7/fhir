@@ -3,9 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="valueset-observation-hspc-heightPrecond"/>
   <version value="0.01"/>
-  <status value="draft"/>
   <name value="HSPC Height Meas Associated Precondition"/>
-  <immutable value="true"/>
+  <status value="draft"/>
   <publisher value="HSPC"/>
   <contact>
     <telecom>
@@ -13,10 +12,11 @@
       <value value="http://healthcaresoa.org"/>
     </telecom>
   </contact>
+  <date value="2015-05-19"/>
   <description value="The conditions during which an individual&#39;s height was measured."/>
+  <immutable value="true"/>
   <copyright value="Intermountain Healthcare"/>
   <extensible value="true"/>
-  <date value="2015-05-19"/>
   <codeSystem>
     <system value="Internountain Healthcare HDD"/>
     <caseSensitive value="true"/>

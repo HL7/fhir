@@ -213,15 +213,14 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		try {
 			thePathStack.add("question(" + answers.indexOf(answerQuestion) + ")");
 			validateQuestionAnswers(theErrors, theQuestion, thePathStack, type, answerQuestion, theAnswers, theValidateRequired);
-			validateQuestionGroups(theErrors, theQuestion, answerQuestion, thePathStack, theAnswers, theValidateRequired);
 		} finally {
 			thePathStack.removeLast();
 		}
 	}
 
-	private void validateQuestionGroups(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent theAnswerQuestion,
+	private void validateQuestionGroups(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionAnswerComponent theAnswer,
 			LinkedList<String> thePathSpec, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
-		validateGroups(theErrors, theQuestion.getGroup(), theAnswerQuestion.getGroup(), thePathSpec, theAnswers, theValidateRequired);
+		validateGroups(theErrors, theQuestion.getGroup(), theAnswer.getGroup(), thePathSpec, theAnswers, theValidateRequired);
 	}
 
 	private void validateGroupGroups(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent theAnsGroup,
@@ -346,6 +345,8 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 								linkId, coding.getSystem(), coding.getCode(), optionsRef);
 					}
 				}
+
+				validateQuestionGroups(theErrors, theQuestion, nextAnswer, thePathStack, theAnswers, theValidateRequired);
 
 			} finally {
 				thePathStack.removeLast();

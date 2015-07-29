@@ -1,14 +1,16 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <name value="Administrative Gender Codes"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
   </contact>
   <description value="This value set defines the set of codes that can be used to indicate the administrative gender of a person"/>
-  <status value="draft"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
@@ -16,21 +18,18 @@
         <code value="F"/>
         <designation>
           <language value="ru"/>
-          <value value="">
         </designation>
       </concept>
       <concept>
         <code value="M"/>
         <designation>
           <language value="ru"/>
-          <value value="">
         </designation>
       </concept>
       <concept>
         <code value="UN"/>
         <designation>
           <language value="ru"/>
-          <value value="">
         </designation>
       </concept>
     </include>
@@ -40,10 +39,8 @@
         <code value="UNK"/>
         <designation>
           <language value="ru"/>
-          <value value="">
         </designation>
       </concept>
     </include>
   </compose>
 </ValueSet>
-

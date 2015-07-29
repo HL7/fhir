@@ -159,7 +159,7 @@ public class LoincToDEConvertor {
 				Identifier id = new Identifier();
 				id.setSystem("http://hl7.org/fhir/commondataelement/loinc");
 				id.setValue(code);
-				de.setIdentifier(id);
+				de.addIdentifier(id);
 				de.setPublisher("Regenstrief + FHIR Project Team");
 				if (!col(row, "STATUS").equals("ACTIVE"))
 	 				de.setStatus(ConformanceResourceStatus.DRAFT); // till we get good at this

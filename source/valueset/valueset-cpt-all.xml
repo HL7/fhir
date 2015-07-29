@@ -3,12 +3,12 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="cpt-all"/>
   <url value="http://hl7.org/fhir/ValueSet/cpt-all"/>
-  <status value="active"/>
   <name value="All CPT codes"/>
+  <status value="active"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
+  <date value="2015-03-12"/>
   <description value="A value set that includes all CPT codes"/>
   <copyright value="CPT copyright 2014 American Medical Association. All rights reserved."/>
-  <date value="2015-03-12"/>
   <compose>
     <include>
       <system value="http://www.ama-assn.org/go/cpt"/>

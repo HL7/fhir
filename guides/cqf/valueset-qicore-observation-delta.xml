@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <version value="0.1.0"/>
-  <status value="draft"/>
   <name value="QICore Observation Delta Value Set Definition"/>
+  <status value="draft"/>
   <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
     <telecom>
@@ -11,9 +11,9 @@
       <value value="http://www.hl7.org/Special/committees/cqi"/>
     </telecom>
   </contact>
+  <date value="2015-02-09"/>
   <description value="Code indicating how the current observation compares to previous observations - e.g., no change, rising trend, decreasing trend, etc..."/>
   <extensible value="true"/>
-  <date value="2015-02-09"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v2/0078"/>

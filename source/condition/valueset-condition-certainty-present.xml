@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-certainty-present"/>
-  <status value="draft"/>
   <name value="Condition/Diagnosis Certainty"/>
+  <status value="draft"/>
   <publisher value="CQF Project team"/>
   <contact>
     <telecom>
@@ -25,23 +25,23 @@
       <concept>
         <code value="410515003"/>
       </concept>
-      <!--  Known present (qualifier value)  -->
+    <!--   Known present (qualifier value)   -->
       <concept>
         <code value="410591008"/>
       </concept>
-      <!--  Definitely present (qualifier value)  -->
+    <!--   Definitely present (qualifier value)   -->
       <concept>
         <code value="410605003"/>
       </concept>
-      <!--  Confirmed present (qualifier value)  -->
+    <!--   Confirmed present (qualifier value)   -->
       <concept>
         <code value="410590009"/>
       </concept>
-      <!--  Known possible (qualifier value)  -->
+    <!--   Known possible (qualifier value)   -->
       <concept>
         <code value="410592001"/>
       </concept>
-      <!--  Probably present (qualifier value)  -->
+    <!--   Probably present (qualifier value)   -->
       <concept>
         <code value="415684004"/>
       </concept>

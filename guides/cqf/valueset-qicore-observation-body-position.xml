@@ -2,9 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <version value="0.01"/>
-  <status value="draft"/>
   <name value="Body Position"/>
-  <immutable value="true"/>
+  <status value="draft"/>
   <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
     <telecom>
@@ -12,10 +11,11 @@
       <value value="http://www.hl7.org/Special/committees/cqi"/>
     </telecom>
   </contact>
+  <date value="2015-02-10"/>
   <description value="SNOMED CT code system values descending from the following:&#39;body position finding&#39; 9851009"/>
+  <immutable value="true"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <extensible value="true"/>
-  <date value="2015-02-10"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

@@ -202,12 +202,12 @@
       <reference value="#map"/>
     </valueReference>
   </extension>
-  <!--  set of loinc codes for cholesterol for LONC 2.36  -->
+<!--    set of loinc codes for cholesterol for LONC 2.36    -->
   <url value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
   <version value="2.0"/>
+  <name value="NHIN PurposeOfUse"/>
   <status value="active"/>
   <experimental value="false"/>
-  <name value="NHIN PurposeOfUse"/>
   <publisher value="Nationwide Health Information Network (NHIN)"/>
   <contact>
     <telecom>
@@ -215,8 +215,8 @@
       <value value="https://www.healthit.gov/sites/default/files/nhin-authorization-framework-production-specification-v2.0-1.pdf"/>
     </telecom>
   </contact>
-  <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the V3 Purpose of use Code system"/>
   <date value="2010-01-29"/>
+  <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the V3 Purpose of use Code system"/>
   <codeSystem>
     <system value="http://healthit.gov/nhin/purposeofuse"/>
     <version value="2.0"/>

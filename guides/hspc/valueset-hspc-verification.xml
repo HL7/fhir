@@ -4,11 +4,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:0.00.000.0.000000.0.00.002"/>
   </extension>
-  <status value="active"/>
-  <!--  
+<!--   
     CIMI group to provide values
-   -->
+    -->
   <name value="HSPC Verification"/>
+  <status value="active"/>
   <publisher value="CIMI"/>
   <contact>
     <telecom>

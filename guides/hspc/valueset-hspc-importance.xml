@@ -4,8 +4,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:0.00.000.0.000000.0.00.001"/>
   </extension>
-  <status value="active"/>
-  <!--  
+<!--   
     Board Member	PatientImportance:BM:19266	BM
     Financial Donor	PatientImportance:FD:19268	FD
     Foreign Dignitary	PatientImportance:FOR:19274	FOR
@@ -16,8 +15,9 @@
     Staff Member	PatientImportance:STF:19272	STF
     Staff Physician	PatientImportance:DR:19267	DR
     Very Important Person	PatientImportance:VIP:19273	VIP
-   -->
+    -->
   <name value="Importance"/>
+  <status value="active"/>
   <publisher value="CIMI"/>
   <contact>
     <telecom>

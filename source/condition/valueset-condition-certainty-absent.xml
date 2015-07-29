@@ -2,8 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-certainty-absent"/>
-  <status value="draft"/>
   <name value="Condition/Diagnosis Certainty"/>
+  <status value="draft"/>
   <publisher value="CQF Project team"/>
   <contact>
     <telecom>
@@ -25,15 +25,15 @@
       <concept>
         <code value="410516002"/>
       </concept>
-      <!--  Known absent (qualifier value)  -->
+    <!--   Known absent (qualifier value)   -->
       <concept>
         <code value="410593006"/>
       </concept>
-      <!--  Probably NOT present (qualifier value)  -->
+    <!--   Probably NOT present (qualifier value)   -->
       <concept>
         <code value="428263003"/>
       </concept>
-      <!--  NOT suspected (qualifier value)  -->
+    <!--   NOT suspected (qualifier value)   -->
       <concept>
         <code value="410594000"/>
       </concept>

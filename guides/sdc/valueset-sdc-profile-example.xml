@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <status value="active"/>
   <name value="AHRQ_Medication_Q1 "/>
+  <status value="active"/>
+  <date value="2014"/>
   <description value="The answer list for question 1 on the AHRQ &#39;Medication or Other Substance&#39; form"/>
   <copyright value="This material contains content from LOINC® (&gt;a href=&quot;http://loinc.org&quot;&lt;http://loinc.org&gt;/a&lt;). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at http://loinc.org/terms-of-use"/>
-  <date value="2014"/>
   <codeSystem>
     <system value="http://loinc.org/vs/LL2654-3"/>
     <caseSensitive value="true"/>
