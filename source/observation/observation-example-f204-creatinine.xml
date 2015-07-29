@@ -1,60 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+
+<Observation xmlns="http://hl7.org/fhir">
   <id value="f204"/>
- <code><!--Kind of observation = Serum Creatinine, Using only a local code in this example -->
+<!-- The observation is complete -->
+<!-- No reliability concerns -->
+  <identifier>
+    <system value="https://intranet.aumc.nl/labvalues"/>
+  <!-- Does not exist -->
+    <value value="1304-03720-Creatinine"/>
+  </identifier>
+<!-- Creatinine was measured on April fourth -->
+  <status value="final"/>
+  <code>
+  <!-- Kind of observation = Serum Creatinine, Using only a local code in this example  -->
     <coding>
-       <system value="https://intranet.aumc.nl/labtestcodes"/><!--Does not exist-->
-       <code value="20005"/>
-       <display value="Creatinine(Serum)"/>
+      <system value="https://intranet.aumc.nl/labtestcodes"/>
+    <!-- Does not exist -->
+      <code value="20005"/>
+      <display value="Creatinine(Serum)"/>
     </coding>
- </code>
- <valueQuantity><!--Creatinine=122mmol/L-->
+  </code>
+  <subject>
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+  </subject>
+  <issued value="2013-04-04T14:34:00+01:00"/>
+  <performer>
+    <reference value="Practitioner/f202"/>
+    <display value="Luigi Maas"/>
+  </performer>
+  <valueQuantity>
+  <!-- Creatinine=122mmol/L -->
     <value value="122"/>
     <units value="umol/L"/>
     <system value="http://snomed.info/sct"/>
     <code value="258814008"/>
- </valueQuantity>
- <interpretation>
-     <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="166717003"/>
-        <display value="Serum creatinine raised"/>
-     </coding>
-     <coding>
-         <system value="http://hl7.org/fhir/v2/0078" />
-         <code value="H" />
-     </coding>
- </interpretation>
- <issued value="2013-04-04T14:34:00+01:00"/><!--Creatinine was measured on April fourth-->
- <status value="final"/><!--The observation is complete-->
- <!--No reliability concerns-->
-
-
- <identifier>
-    <system value="https://intranet.aumc.nl/labvalues"/><!--Does not exist-->
-    <value value="1304-03720-Creatinine"/>
- </identifier>
- <subject><!--It entails Roel's Creatinine level-->
-     <reference value="Patient/f201"/>
-     <display value="Roel"/>
- </subject>
- <performer><!--The creatinine level was measured by Luigi Maas-->
-     <reference value="Practitioner/f202"/>
-     <display value="Luigi Maas"/>
- </performer>
- <referenceRange><!--Healthy creatinine level ranges from 64umol/L to 104umol/L-->
+  </valueQuantity>
+  <interpretation>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="166717003"/>
+      <display value="Serum creatinine raised"/>
+    </coding>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0078"/>
+      <code value="H"/>
+    </coding>
+  </interpretation>
+  <referenceRange>
+  <!-- Healthy creatinine level ranges from 64umol/L to 104umol/L -->
     <low>
-        <value value="64"/>
+      <value value="64"/>
     </low>
     <high>
-        <value value="104"/>
+      <value value="104"/>
     </high>
     <meaning>
-        <coding>
-            <system value="http://hl7.org/fhir/referencerange-meaning"/>
-            <code value="normal"/>
-            <display value="Normal Range"/>
-        </coding>
+      <coding>
+        <system value="http://hl7.org/fhir/referencerange-meaning"/>
+        <code value="normal"/>
+        <display value="Normal Range"/>
+      </coding>
     </meaning>
- </referenceRange>
+  </referenceRange>
 </Observation>

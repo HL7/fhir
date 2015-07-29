@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jul 29, 2015 12:40+1000 for FHIR v0.5.0
+// Generated on Wed, Jul 29, 2015 20:59+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -47,6 +47,7 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.InstantType;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.model.*;
 import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
@@ -94,6 +95,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -108,6 +110,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -122,6 +125,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -136,6 +140,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -150,6 +155,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -164,6 +170,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -178,6 +185,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -192,6 +200,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -206,6 +215,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -220,6 +230,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -234,6 +245,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -248,6 +260,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -262,6 +275,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -276,6 +290,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -290,6 +305,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -304,6 +320,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -318,6 +335,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -336,6 +354,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -354,6 +373,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -372,6 +392,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -396,6 +417,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -414,6 +436,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -438,6 +461,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -468,6 +492,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -486,6 +511,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -506,6 +532,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -534,6 +561,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -552,6 +580,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -570,6 +599,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -596,6 +626,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -620,6 +651,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -644,6 +676,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -668,6 +701,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -692,6 +726,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -716,6 +751,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -740,6 +776,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -816,6 +853,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -838,6 +876,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -858,6 +897,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -878,6 +918,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -902,6 +943,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -922,6 +964,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -942,6 +985,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -962,6 +1006,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -998,6 +1043,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1032,6 +1078,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1060,6 +1107,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1084,6 +1132,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1108,6 +1157,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1124,6 +1174,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1146,10 +1197,15 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
   protected void parseResourceAttributes(XmlPullParser xpp, Resource res) throws Exception {
+    if (!comments.isEmpty()) {
+      res.getFormatCommentsPre().addAll(comments);
+      comments.clear();
+     }
   }
 
   protected boolean parseResourceContent(int eventType, XmlPullParser xpp, Resource res) throws Exception {
@@ -1217,6 +1273,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1257,6 +1314,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1289,6 +1347,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1327,6 +1386,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1349,6 +1409,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1379,6 +1440,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1401,6 +1463,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1429,6 +1492,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1465,6 +1529,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1483,6 +1548,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1503,6 +1569,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1537,6 +1604,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1555,6 +1623,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1579,6 +1648,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1597,6 +1667,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1623,6 +1694,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1647,6 +1719,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1665,6 +1738,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1691,6 +1765,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1709,6 +1784,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1735,6 +1811,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1757,6 +1834,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1797,6 +1875,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1815,6 +1894,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1837,6 +1917,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1879,6 +1960,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1951,6 +2033,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1973,6 +2056,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -1991,6 +2075,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2021,6 +2106,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2069,6 +2155,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2103,6 +2190,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2135,6 +2223,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2155,6 +2244,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2175,6 +2265,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2241,6 +2332,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2263,6 +2355,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2283,6 +2376,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2303,6 +2397,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2323,6 +2418,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2341,6 +2437,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2361,6 +2458,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2387,6 +2485,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2407,6 +2506,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2427,6 +2527,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2447,6 +2548,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2469,6 +2571,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2489,6 +2592,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2519,6 +2623,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2567,6 +2672,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2585,6 +2691,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2603,6 +2710,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2621,6 +2729,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2659,6 +2768,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2675,6 +2785,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2717,6 +2828,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2733,6 +2845,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2775,6 +2888,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2795,6 +2909,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2815,6 +2930,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2837,6 +2953,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2883,6 +3000,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2901,6 +3019,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2921,6 +3040,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2947,6 +3067,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -2967,6 +3088,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3015,6 +3137,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3033,6 +3156,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3051,6 +3175,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3067,6 +3192,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3085,6 +3211,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3103,6 +3230,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3157,6 +3285,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3175,6 +3304,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3195,6 +3325,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3213,6 +3344,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3245,6 +3377,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3267,6 +3400,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3285,6 +3419,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3321,6 +3456,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3339,6 +3475,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3367,6 +3504,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3385,6 +3523,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3403,6 +3542,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3425,6 +3565,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3455,6 +3596,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3475,6 +3617,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3525,6 +3668,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3543,6 +3687,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3573,6 +3718,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3593,6 +3739,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3631,6 +3778,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3649,6 +3797,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3679,6 +3828,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3695,6 +3845,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3711,6 +3862,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3727,6 +3879,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3761,6 +3914,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3781,6 +3935,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3823,6 +3978,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3865,6 +4021,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3883,6 +4040,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3905,6 +4063,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3951,6 +4110,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -3985,6 +4145,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4005,6 +4166,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4039,6 +4201,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4059,6 +4222,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4099,6 +4263,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4131,6 +4296,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4169,6 +4335,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4191,6 +4358,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4215,6 +4383,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4263,6 +4432,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4281,6 +4451,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4319,6 +4490,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4335,6 +4507,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4353,6 +4526,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4403,6 +4577,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4421,6 +4596,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4447,6 +4623,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4465,6 +4642,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4493,6 +4671,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4527,6 +4706,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4579,6 +4759,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4597,6 +4778,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4617,6 +4799,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4653,6 +4836,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4673,6 +4857,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4707,6 +4892,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4741,6 +4927,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4777,6 +4964,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4795,6 +4983,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4815,6 +5004,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4849,6 +5039,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4885,6 +5076,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4907,6 +5099,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4935,6 +5128,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4971,6 +5165,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -4987,6 +5182,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5017,6 +5213,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5037,6 +5234,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5095,6 +5293,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5113,6 +5312,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5135,6 +5335,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5153,6 +5354,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5181,6 +5383,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5203,6 +5406,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5223,6 +5427,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5245,6 +5450,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5263,6 +5469,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5309,6 +5516,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5345,6 +5553,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5371,6 +5580,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5423,6 +5633,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5441,6 +5652,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5461,6 +5673,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5491,6 +5704,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5511,6 +5725,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5541,6 +5756,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5559,6 +5775,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5581,6 +5798,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5629,6 +5847,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5647,6 +5866,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5665,6 +5885,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5685,6 +5906,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5711,6 +5933,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5729,6 +5952,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5757,6 +5981,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5797,6 +6022,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5819,6 +6045,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5857,6 +6084,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5877,6 +6105,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5915,6 +6144,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5943,6 +6173,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5963,6 +6194,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5981,6 +6213,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -5999,6 +6232,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6017,6 +6251,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6035,6 +6270,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6077,6 +6313,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6103,6 +6340,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6149,6 +6387,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6183,6 +6422,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6203,6 +6443,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6241,6 +6482,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6275,6 +6517,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6299,6 +6542,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6317,6 +6561,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6355,6 +6600,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6387,6 +6633,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6425,6 +6672,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6445,6 +6693,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6469,6 +6718,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6489,6 +6739,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6529,6 +6780,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6547,6 +6799,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6569,6 +6822,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6607,6 +6861,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6633,6 +6888,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6651,6 +6907,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6669,6 +6926,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6693,6 +6951,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6725,6 +6984,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6745,6 +7005,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6754,10 +7015,24 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
-        res.setCode(parseCodeableConcept(xpp));
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
+        res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
+        res.setStatusElement(parseEnumeration(xpp, Observation.ObservationStatus.NULL, new Observation.ObservationStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
         res.setCategory(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
+        res.setCode(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
+        res.setSubject(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
+        res.setEncounter(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "effective")) {
+        res.setEffective(parseType("effective", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("issued")) {
+        res.setIssuedElement(parseInstant(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performer")) {
+        res.getPerformer().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
         res.setValue(parseType("value", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dataAbsentReason")) {
@@ -6766,28 +7041,14 @@ public class XmlParser extends XmlParserBase {
         res.setInterpretation(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comments")) {
         res.setCommentsElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "effective")) {
-        res.setEffective(parseType("effective", xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("issued")) {
-        res.setIssuedElement(parseInstant(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatusElement(parseEnumeration(xpp, Observation.ObservationStatus.NULL, new Observation.ObservationStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "bodySite")) {
         res.setBodySite(parseType("bodySite", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("method")) {
         res.setMethod(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.getIdentifier().add(parseIdentifier(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
-        res.setSubject(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("specimen")) {
         res.setSpecimen(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performer")) {
-        res.getPerformer().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("device")) {
         res.setDevice(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
-        res.setEncounter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("referenceRange")) {
         res.getReferenceRange().add(parseObservationObservationReferenceRangeComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("related")) {
@@ -6799,6 +7060,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6823,6 +7085,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6841,6 +7104,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6863,6 +7127,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6915,6 +7180,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6933,6 +7199,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6965,6 +7232,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6983,6 +7251,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -6999,6 +7268,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7023,6 +7293,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7053,6 +7324,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7071,6 +7343,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7099,6 +7372,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7129,6 +7403,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7151,6 +7426,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7199,6 +7475,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7227,6 +7504,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7247,6 +7525,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7265,6 +7544,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7283,6 +7563,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7317,6 +7598,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7361,6 +7643,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7389,6 +7672,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7407,6 +7691,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7441,6 +7726,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7459,6 +7745,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7493,6 +7780,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7519,6 +7807,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7541,6 +7830,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7593,6 +7883,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7609,6 +7900,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7627,6 +7919,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7645,6 +7938,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7663,6 +7957,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7705,6 +8000,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7721,6 +8017,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7767,6 +8064,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7783,6 +8081,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7823,6 +8122,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7841,6 +8141,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7875,6 +8176,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7895,6 +8197,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7919,6 +8222,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7949,6 +8253,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -7979,6 +8284,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8009,6 +8315,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8041,6 +8348,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8067,6 +8375,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8087,6 +8396,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8105,6 +8415,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8149,6 +8460,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8183,6 +8495,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8215,6 +8528,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8239,6 +8553,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8263,6 +8578,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8305,6 +8621,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8323,6 +8640,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8353,6 +8671,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8385,6 +8704,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8411,6 +8731,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8431,6 +8752,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8457,6 +8779,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8521,6 +8844,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8539,6 +8863,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8561,6 +8886,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8577,6 +8903,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8593,6 +8920,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8623,6 +8951,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8645,6 +8974,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8669,6 +8999,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8689,6 +9020,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8707,6 +9039,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8733,6 +9066,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8767,6 +9101,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8803,6 +9138,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8837,6 +9173,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8855,6 +9192,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8909,6 +9247,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8927,6 +9266,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8945,6 +9285,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8963,6 +9304,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -8989,6 +9331,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9009,6 +9352,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9031,6 +9375,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9049,6 +9394,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9067,6 +9413,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9109,6 +9456,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9127,6 +9475,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9177,6 +9526,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9199,6 +9549,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9217,6 +9568,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9233,6 +9585,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9249,6 +9602,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9301,6 +9655,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9319,6 +9674,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9341,6 +9697,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9367,6 +9724,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9387,6 +9745,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9407,6 +9766,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9429,6 +9789,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9449,6 +9810,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9469,6 +9831,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9495,6 +9858,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9513,6 +9877,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9539,6 +9904,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9567,6 +9933,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -9611,6 +9978,7 @@ public class XmlParser extends XmlParserBase {
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
+    parseElementClose(res);
     return res;
   }
 
@@ -10583,6 +10951,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10595,6 +10964,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10607,6 +10977,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10619,6 +10990,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10631,6 +11003,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10643,6 +11016,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10655,6 +11029,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10667,6 +11042,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10679,6 +11055,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10691,6 +11068,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10703,6 +11081,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10715,6 +11094,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10727,6 +11107,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10739,6 +11120,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10751,6 +11133,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10763,6 +11146,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10775,6 +11159,7 @@ public class XmlParser extends XmlParserBase {
         
       xml.enter(FHIR_NS, name);
       composeElementElements(value);
+      composeElementClose(value);
       xml.exit(FHIR_NS, name);
     }    
   }    
@@ -10788,7 +11173,8 @@ public class XmlParser extends XmlParserBase {
       composeElementElements(element);
       if (element.hasValue()) {
         composeType("value", element.getValue());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -10802,6 +11188,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDiv()) {
         composeXhtml("div", element.getDiv());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10817,6 +11204,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEndElement()) {
         composeDateTime("end", element.getEndElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10841,6 +11229,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUserSelectedElement()) {
         composeBoolean("userSelected", element.getUserSelectedElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10856,6 +11245,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasHigh()) {
         composeQuantity("high", element.getHigh());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10879,6 +11269,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10912,6 +11303,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCreationElement()) {
         composeDateTime("creation", element.getCreationElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10927,6 +11319,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDenominator()) {
         composeQuantity("denominator", element.getDenominator());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10944,6 +11337,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10974,6 +11368,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDataElement()) {
         composeString("data", element.getDataElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -10989,6 +11384,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDisplayElement()) {
         composeString("display", element.getDisplayElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11005,6 +11401,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11031,6 +11428,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAssigner()) {
         composeReference("assigner", element.getAssigner());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11055,6 +11453,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasBlobElement()) {
         composeBase64Binary("blob", element.getBlobElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11078,6 +11477,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11101,6 +11501,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11124,6 +11525,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11147,6 +11549,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11170,6 +11573,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11272,6 +11676,7 @@ public class XmlParser extends XmlParserBase {
         for (ElementDefinition.ElementDefinitionMappingComponent e : element.getMapping()) 
           composeElementDefinitionElementDefinitionMappingComponent("mapping", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11293,6 +11698,7 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRulesElement())
         composeEnumeration("rules", element.getRulesElement(), new ElementDefinition.SlicingRulesEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11311,6 +11717,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxElement()) {
         composeString("max", element.getMaxElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11330,6 +11737,7 @@ public class XmlParser extends XmlParserBase {
         if (element.hasAggregation()) 
           for (Enumeration<ElementDefinition.AggregationMode> e : element.getAggregation()) 
             composeEnumeration("aggregation", e, new ElementDefinition.AggregationModeEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11353,6 +11761,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasXpathElement()) {
         composeString("xpath", element.getXpathElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11369,7 +11778,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasValueSet()) {
         composeType("valueSet", element.getValueSet());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -11387,6 +11797,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMapElement()) {
         composeString("map", element.getMapElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11406,6 +11817,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11444,6 +11856,7 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("periodUnits", element.getPeriodUnitsElement(), new Timing.UnitsOfTimeEnumFactory());
       if (element.hasWhenElement())
         composeEnumeration("when", element.getWhenElement(), new Timing.EventTimingEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11482,6 +11895,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11515,6 +11929,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11542,6 +11957,7 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getTag()) 
           composeCoding("tag", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11564,6 +11980,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11577,6 +11994,7 @@ public class XmlParser extends XmlParserBase {
         for (Parameters.ParametersParameterComponent e : element.getParameter()) 
           composeParametersParametersParameterComponent("parameter", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11600,11 +12018,15 @@ public class XmlParser extends XmlParserBase {
         for (Parameters.ParametersParameterComponent e : element.getPart()) 
           composeParametersParametersParameterComponent("part", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeResourceAttributes(Resource element) throws Exception {
+    if (style != OutputStyle.CANONICAL)
+      for (String comment : element.getFormatCommentsPre())
+        xml.comment(comment, getOutputStyle() == OutputStyle.PRETTY);
   }
 
   protected void composeResourceElements(Resource element) throws Exception {
@@ -11686,6 +12108,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11732,6 +12155,7 @@ public class XmlParser extends XmlParserBase {
         for (AllergyIntolerance.AllergyIntoleranceEventComponent e : element.getEvent()) 
           composeAllergyIntoleranceAllergyIntoleranceEventComponent("event", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11767,6 +12191,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentElement()) {
         composeString("comment", element.getCommentElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11814,6 +12239,7 @@ public class XmlParser extends XmlParserBase {
         for (Appointment.AppointmentParticipantComponent e : element.getParticipant()) 
           composeAppointmentAppointmentParticipantComponent("participant", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11834,6 +12260,7 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("required", element.getRequiredElement(), new Appointment.ParticipantRequiredEnumFactory());
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new Appointment.ParticipationStatusEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11868,6 +12295,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEndElement()) {
         composeInstant("end", element.getEndElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11891,6 +12319,7 @@ public class XmlParser extends XmlParserBase {
         for (AuditEvent.AuditEventObjectComponent e : element.getObject()) 
           composeAuditEventAuditEventObjectComponent("object", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11921,6 +12350,7 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getPurposeOfEvent()) 
           composeCoding("purposeOfEvent", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11966,6 +12396,7 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getPurposeOfUse()) 
           composeCoding("purposeOfUse", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11980,6 +12411,7 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new AuditEvent.AuditEventParticipantNetworkTypeEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -11999,6 +12431,7 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getType()) 
           composeCoding("type", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12036,6 +12469,7 @@ public class XmlParser extends XmlParserBase {
         for (AuditEvent.AuditEventObjectDetailComponent e : element.getDetail()) 
           composeAuditEventAuditEventObjectDetailComponent("detail", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12051,6 +12485,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeBase64Binary("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12076,6 +12511,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCreatedElement()) {
         composeDate("created", element.getCreatedElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12091,6 +12527,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasContentElement()) {
         composeBase64Binary("content", element.getContentElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12121,6 +12558,7 @@ public class XmlParser extends XmlParserBase {
         for (Attachment e : element.getImage()) 
           composeAttachment("image", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12146,6 +12584,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSignature()) {
         composeSignature("signature", element.getSignature());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12161,6 +12600,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12191,6 +12631,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasResponse()) {
         composeBundleBundleEntryResponseComponent("response", element.getResponse());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12205,6 +12646,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasScoreElement()) {
         composeDecimal("score", element.getScoreElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12231,6 +12673,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIfNoneExistElement()) {
         composeString("ifNoneExist", element.getIfNoneExistElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12252,6 +12695,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLastModifiedElement()) {
         composeInstant("lastModified", element.getLastModifiedElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12307,6 +12751,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNotesElement()) {
         composeString("notes", element.getNotesElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12322,6 +12767,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMember()) {
         composeReference("member", element.getMember());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12344,6 +12790,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDetail()) {
         composeCarePlanCarePlanActivityDetailComponent("detail", element.getDetail());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12393,6 +12840,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNoteElement()) {
         composeString("note", element.getNoteElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12496,6 +12944,7 @@ public class XmlParser extends XmlParserBase {
         for (Claim.MissingTeethComponent e : element.getMissingTeeth()) 
           composeClaimMissingTeethComponent("missingTeeth", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12517,6 +12966,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPerson()) {
         composeReference("person", element.getPerson());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12532,6 +12982,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDiagnosis()) {
         composeCoding("diagnosis", element.getDiagnosis());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12566,6 +13017,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOriginalRuleset()) {
         composeCoding("originalRuleset", element.getOriginalRuleset());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12630,6 +13082,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasProsthesis()) {
         composeClaimProsthesisComponent("prosthesis", element.getProsthesis());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12670,6 +13123,7 @@ public class XmlParser extends XmlParserBase {
         for (Claim.SubDetailComponent e : element.getSubDetail()) 
           composeClaimSubDetailComponent("subDetail", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12706,6 +13160,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUdi()) {
         composeCoding("udi", element.getUdi());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12724,6 +13179,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPriorMaterial()) {
         composeCoding("priorMaterial", element.getPriorMaterial());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12742,6 +13198,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExtractionDateElement()) {
         composeDate("extractionDate", element.getExtractionDateElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12834,6 +13291,7 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.CoverageComponent e : element.getCoverage()) 
           composeClaimResponseCoverageComponent("coverage", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12858,6 +13316,7 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.ItemDetailComponent e : element.getDetail()) 
           composeClaimResponseItemDetailComponent("detail", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12876,6 +13335,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12896,6 +13356,7 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.SubDetailComponent e : element.getSubDetail()) 
           composeClaimResponseSubDetailComponent("subDetail", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12914,6 +13375,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12930,6 +13392,7 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.SubdetailAdjudicationComponent e : element.getAdjudication()) 
           composeClaimResponseSubdetailAdjudicationComponent("adjudication", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12948,6 +13411,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12979,6 +13443,7 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.AddedItemsDetailComponent e : element.getDetail()) 
           composeClaimResponseAddedItemsDetailComponent("detail", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -12997,6 +13462,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13016,6 +13482,7 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.AddedItemDetailAdjudicationComponent e : element.getAdjudication()) 
           composeClaimResponseAddedItemDetailAdjudicationComponent("adjudication", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13034,6 +13501,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13055,6 +13523,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13073,6 +13542,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13107,6 +13577,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOriginalRuleset()) {
         composeCoding("originalRuleset", element.getOriginalRuleset());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13172,6 +13643,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getAction()) 
           composeReference("action", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13188,6 +13660,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getItem()) 
           composeReference("item", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13203,6 +13676,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCauseElement()) {
         composeString("cause", element.getCauseElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13218,6 +13692,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReasonElement()) {
         composeString("reason", element.getReasonElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13267,6 +13742,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13278,7 +13754,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -13333,6 +13810,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPriority()) {
         composeCodeableConcept("priority", element.getPriority());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13344,7 +13822,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -13398,6 +13877,7 @@ public class XmlParser extends XmlParserBase {
         for (Composition.SectionComponent e : element.getSection()) 
           composeCompositionSectionComponent("section", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13416,6 +13896,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasParty()) {
         composeReference("party", element.getParty());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13436,6 +13917,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getDetail()) 
           composeReference("detail", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13458,6 +13940,7 @@ public class XmlParser extends XmlParserBase {
         for (Composition.SectionComponent e : element.getSection()) 
           composeCompositionSectionComponent("section", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13515,6 +13998,7 @@ public class XmlParser extends XmlParserBase {
         for (ConceptMap.SourceElementComponent e : element.getElement()) 
           composeConceptMapSourceElementComponent("element", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13531,6 +14015,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13550,6 +14035,7 @@ public class XmlParser extends XmlParserBase {
         for (ConceptMap.TargetElementComponent e : element.getTarget()) 
           composeConceptMapTargetElementComponent("target", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13578,6 +14064,7 @@ public class XmlParser extends XmlParserBase {
         for (ConceptMap.OtherElementComponent e : element.getProduct()) 
           composeConceptMapOtherElementComponent("product", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13596,6 +14083,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeString("code", element.getCodeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13658,6 +14146,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNotesElement()) {
         composeString("notes", element.getNotesElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13674,6 +14163,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getAssessment()) 
           composeReference("assessment", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13690,6 +14180,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getDetail()) 
           composeReference("detail", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13701,7 +14192,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasSite()) {
         composeType("site", element.getSite());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -13716,6 +14208,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13731,6 +14224,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13805,6 +14299,7 @@ public class XmlParser extends XmlParserBase {
         for (Conformance.ConformanceDocumentComponent e : element.getDocument()) 
           composeConformanceConformanceDocumentComponent("document", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13821,6 +14316,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13839,6 +14335,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReleaseDateElement()) {
         composeDateTime("releaseDate", element.getReleaseDateElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13854,6 +14351,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13893,6 +14391,7 @@ public class XmlParser extends XmlParserBase {
         for (UriType e : element.getCompartment()) 
           composeUri("compartment", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13916,6 +14415,7 @@ public class XmlParser extends XmlParserBase {
         for (Conformance.ConformanceRestSecurityCertificateComponent e : element.getCertificate()) 
           composeConformanceConformanceRestSecurityCertificateComponent("certificate", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13931,6 +14431,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasBlobElement()) {
         composeBase64Binary("blob", element.getBlobElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13974,6 +14475,7 @@ public class XmlParser extends XmlParserBase {
         for (Conformance.ConformanceRestResourceSearchParamComponent e : element.getSearchParam()) 
           composeConformanceConformanceRestResourceSearchParamComponent("searchParam", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -13988,6 +14490,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14019,6 +14522,7 @@ public class XmlParser extends XmlParserBase {
         for (StringType e : element.getChain()) 
           composeString("chain", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14033,6 +14537,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14048,6 +14553,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDefinition()) {
         composeReference("definition", element.getDefinition());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14070,6 +14576,7 @@ public class XmlParser extends XmlParserBase {
         for (Conformance.ConformanceMessagingEventComponent e : element.getEvent()) 
           composeConformanceConformanceMessagingEventComponent("event", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14102,6 +14609,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14119,6 +14627,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14194,6 +14703,7 @@ public class XmlParser extends XmlParserBase {
         for (Contract.ComputableLanguageComponent e : element.getRule()) 
           composeContractComputableLanguageComponent("rule", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14210,6 +14720,7 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getRole()) 
           composeCodeableConcept("role", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14242,6 +14753,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNet()) {
         composeMoney("net", element.getNet());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14260,6 +14772,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSignatureElement()) {
         composeString("signature", element.getSignatureElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14310,6 +14823,7 @@ public class XmlParser extends XmlParserBase {
         for (Contract.TermComponent e : element.getGroup()) 
           composeContractTermComponent("group", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14326,6 +14840,7 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getRole()) 
           composeCodeableConcept("role", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14358,6 +14873,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNet()) {
         composeMoney("net", element.getNet());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14369,7 +14885,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -14380,7 +14897,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -14391,7 +14909,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -14431,6 +14950,7 @@ public class XmlParser extends XmlParserBase {
         for (Contraindication.ContraindicationMitigationComponent e : element.getMitigation()) 
           composeContraindicationContraindicationMitigationComponent("mitigation", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14449,6 +14969,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAuthor()) {
         composeReference("author", element.getAuthor());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14502,6 +15023,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getContract()) 
           composeReference("contract", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14556,6 +15078,7 @@ public class XmlParser extends XmlParserBase {
         for (ElementDefinition e : element.getElement()) 
           composeElementDefinition("element", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14572,6 +15095,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14593,6 +15117,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentsElement()) {
         composeString("comments", element.getCommentsElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14652,6 +15177,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14692,6 +15218,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLanguageCode()) {
         composeCodeableConcept("languageCode", element.getLanguageCode());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14710,6 +15237,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasProductionSpecElement()) {
         composeString("productionSpec", element.getProductionSpecElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14747,6 +15275,7 @@ public class XmlParser extends XmlParserBase {
         for (DeviceMetric.DeviceMetricCalibrationComponent e : element.getCalibration()) 
           composeDeviceMetricDeviceMetricCalibrationComponent("calibration", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14763,6 +15292,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTimeElement()) {
         composeInstant("time", element.getTimeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14811,6 +15341,7 @@ public class XmlParser extends XmlParserBase {
         composeType("timing", element.getTiming());
       }      if (element.hasPriorityElement())
         composeEnumeration("priority", element.getPriorityElement(), new DeviceUseRequest.DeviceUseRequestPriorityEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14848,7 +15379,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasTiming()) {
         composeType("timing", element.getTiming());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -14898,6 +15430,7 @@ public class XmlParser extends XmlParserBase {
         for (Annotation e : element.getNote()) 
           composeAnnotation("note", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14918,6 +15451,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasActor()) {
         composeReference("actor", element.getActor());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -14942,6 +15476,7 @@ public class XmlParser extends XmlParserBase {
         for (DiagnosticOrder.DiagnosticOrderEventComponent e : element.getEvent()) 
           composeDiagnosticOrderDiagnosticOrderEventComponent("event", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15008,6 +15543,7 @@ public class XmlParser extends XmlParserBase {
         for (Attachment e : element.getPresentedForm()) 
           composeAttachment("presentedForm", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15023,6 +15559,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLink()) {
         composeReference("link", element.getLink());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15072,6 +15609,7 @@ public class XmlParser extends XmlParserBase {
         for (DocumentManifest.DocumentManifestRelatedComponent e : element.getRelated()) 
           composeDocumentManifestDocumentManifestRelatedComponent("related", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15083,7 +15621,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasP()) {
         composeType("p", element.getP());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -15098,6 +15637,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRef()) {
         composeReference("ref", element.getRef());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15166,6 +15706,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasContext()) {
         composeDocumentReferenceDocumentReferenceContextComponent("context", element.getContext());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15180,6 +15721,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15209,6 +15751,7 @@ public class XmlParser extends XmlParserBase {
         for (DocumentReference.DocumentReferenceContextRelatedComponent e : element.getRelated()) 
           composeDocumentReferenceDocumentReferenceContextRelatedComponent("related", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15224,6 +15767,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRef()) {
         composeReference("ref", element.getRef());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15255,6 +15799,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOrganization()) {
         composeReference("organization", element.getOrganization());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15294,6 +15839,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequestOrganization()) {
         composeReference("requestOrganization", element.getRequestOrganization());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15367,6 +15913,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPartOf()) {
         composeReference("partOf", element.getPartOf());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15381,6 +15928,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15400,6 +15948,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIndividual()) {
         composeReference("individual", element.getIndividual());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15447,6 +15996,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getDischargeDiagnosis()) 
           composeReference("dischargeDiagnosis", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15464,6 +16014,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15504,6 +16055,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRelationship()) {
         composeCoding("relationship", element.getRelationship());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15543,6 +16095,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequestOrganization()) {
         composeReference("requestOrganization", element.getRequestOrganization());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15590,6 +16143,7 @@ public class XmlParser extends XmlParserBase {
         for (EpisodeOfCare.EpisodeOfCareCareTeamComponent e : element.getCareTeam()) 
           composeEpisodeOfCareEpisodeOfCareCareTeamComponent("careTeam", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15604,6 +16158,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15623,6 +16178,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15662,6 +16218,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequestOrganization()) {
         composeReference("requestOrganization", element.getRequestOrganization());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15702,6 +16259,7 @@ public class XmlParser extends XmlParserBase {
         for (FamilyMemberHistory.FamilyMemberHistoryConditionComponent e : element.getCondition()) 
           composeFamilyMemberHistoryFamilyMemberHistoryConditionComponent("condition", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15722,6 +16280,7 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasNoteElement()) {
         composeString("note", element.getNoteElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15752,6 +16311,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15796,6 +16356,7 @@ public class XmlParser extends XmlParserBase {
         for (Goal.GoalOutcomeComponent e : element.getOutcome()) 
           composeGoalGoalOutcomeComponent("outcome", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15807,7 +16368,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasResult()) {
         composeType("result", element.getResult());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -15842,6 +16404,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getMember()) 
           composeReference("member", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15859,6 +16422,7 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasExcludeElement()) {
         composeBoolean("exclude", element.getExcludeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15944,6 +16508,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAvailabilityExceptionsElement()) {
         composeString("availabilityExceptions", element.getAvailabilityExceptionsElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15960,6 +16525,7 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getSpecialty()) 
           composeCodeableConcept("specialty", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15981,6 +16547,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAvailableEndTimeElement()) {
         composeTime("availableEndTime", element.getAvailableEndTimeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -15996,6 +16563,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDuring()) {
         composePeriod("during", element.getDuring());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16027,6 +16595,7 @@ public class XmlParser extends XmlParserBase {
         for (ImagingObjectSelection.StudyComponent e : element.getStudy()) 
           composeImagingObjectSelectionStudyComponent("study", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16049,6 +16618,7 @@ public class XmlParser extends XmlParserBase {
         for (ImagingObjectSelection.SeriesComponent e : element.getSeries()) 
           composeImagingObjectSelectionSeriesComponent("series", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16068,6 +16638,7 @@ public class XmlParser extends XmlParserBase {
         for (ImagingObjectSelection.InstanceComponent e : element.getInstance()) 
           composeImagingObjectSelectionInstanceComponent("instance", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16090,6 +16661,7 @@ public class XmlParser extends XmlParserBase {
         for (ImagingObjectSelection.FramesComponent e : element.getFrames()) 
           composeImagingObjectSelectionFramesComponent("frames", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16106,6 +16678,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16167,6 +16740,7 @@ public class XmlParser extends XmlParserBase {
         for (ImagingStudy.ImagingStudySeriesComponent e : element.getSeries()) 
           composeImagingStudyImagingStudySeriesComponent("series", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16209,6 +16783,7 @@ public class XmlParser extends XmlParserBase {
         for (ImagingStudy.ImagingStudySeriesInstanceComponent e : element.getInstance()) 
           composeImagingStudyImagingStudySeriesInstanceComponent("instance", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16237,6 +16812,7 @@ public class XmlParser extends XmlParserBase {
         for (Attachment e : element.getContent()) 
           composeAttachment("content", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16306,6 +16882,7 @@ public class XmlParser extends XmlParserBase {
         for (Immunization.ImmunizationVaccinationProtocolComponent e : element.getVaccinationProtocol()) 
           composeImmunizationImmunizationVaccinationProtocolComponent("vaccinationProtocol", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16323,6 +16900,7 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getReasonNotGiven()) 
           composeCodeableConcept("reasonNotGiven", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16341,6 +16919,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReportedElement()) {
         composeBoolean("reported", element.getReportedElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16374,6 +16953,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDoseStatusReason()) {
         composeCodeableConcept("doseStatusReason", element.getDoseStatusReason());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16394,6 +16974,7 @@ public class XmlParser extends XmlParserBase {
         for (ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent e : element.getRecommendation()) 
           composeImmunizationRecommendationImmunizationRecommendationRecommendationComponent("recommendation", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16430,6 +17011,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getSupportingPatientInformation()) 
           composeReference("supportingPatientInformation", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16445,6 +17027,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDateTime("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16466,6 +17049,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSeriesElement()) {
         composeString("series", element.getSeriesElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16531,6 +17115,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPage()) {
         composeImplementationGuideImplementationGuidePageComponent("page", element.getPage());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16547,6 +17132,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16561,6 +17147,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUriElement()) {
         composeUri("uri", element.getUriElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16580,6 +17167,7 @@ public class XmlParser extends XmlParserBase {
         for (ImplementationGuide.ImplementationGuidePackageResourceComponent e : element.getResource()) 
           composeImplementationGuideImplementationGuidePackageResourceComponent("resource", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16605,6 +17193,7 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasExampleFor()) {
         composeReference("exampleFor", element.getExampleFor());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16620,6 +17209,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16652,6 +17242,7 @@ public class XmlParser extends XmlParserBase {
         for (ImplementationGuide.ImplementationGuidePageComponent e : element.getPage()) 
           composeImplementationGuideImplementationGuidePageComponent("page", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16700,6 +17291,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEmptyReason()) {
         composeCodeableConcept("emptyReason", element.getEmptyReason());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16722,6 +17314,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasItem()) {
         composeReference("item", element.getItem());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16767,6 +17360,7 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new Location.LocationStatusEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16785,6 +17379,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAltitudeElement()) {
         composeDecimal("altitude", element.getAltitudeElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16830,6 +17425,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasContent()) {
         composeAttachment("content", element.getContent());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16859,6 +17455,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPackage()) {
         composeMedicationMedicationPackageComponent("package", element.getPackage());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16879,6 +17476,7 @@ public class XmlParser extends XmlParserBase {
         for (Medication.MedicationProductBatchComponent e : element.getBatch()) 
           composeMedicationMedicationProductBatchComponent("batch", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16894,6 +17492,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAmount()) {
         composeRatio("amount", element.getAmount());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16909,6 +17508,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExpirationDateElement()) {
         composeDateTime("expirationDate", element.getExpirationDateElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16925,6 +17525,7 @@ public class XmlParser extends XmlParserBase {
         for (Medication.MedicationPackageContentComponent e : element.getContent()) 
           composeMedicationMedicationPackageContentComponent("content", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16940,6 +17541,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAmount()) {
         composeQuantity("amount", element.getAmount());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -16992,6 +17594,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDosage()) {
         composeMedicationAdministrationMedicationAdministrationDosageComponent("dosage", element.getDosage());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17019,6 +17622,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRate()) {
         composeRatio("rate", element.getRate());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17077,6 +17681,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSubstitution()) {
         composeMedicationDispenseMedicationDispenseSubstitutionComponent("substitution", element.getSubstitution());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17113,6 +17718,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17133,6 +17739,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getResponsibleParty()) 
           composeReference("responsibleParty", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17177,6 +17784,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSubstitution()) {
         composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponent("substitution", element.getSubstitution());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17213,6 +17821,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17236,6 +17845,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExpectedSupplyDuration()) {
         composeDuration("expectedSupplyDuration", element.getExpectedSupplyDuration());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17251,6 +17861,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReason()) {
         composeCodeableConcept("reason", element.getReason());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17295,6 +17906,7 @@ public class XmlParser extends XmlParserBase {
         for (MedicationStatement.MedicationStatementDosageComponent e : element.getDosage()) 
           composeMedicationStatementMedicationStatementDosageComponent("dosage", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17330,6 +17942,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17377,6 +17990,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getData()) 
           composeReference("data", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17394,6 +18008,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDetails()) {
         composeReference("details", element.getDetails());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17418,6 +18033,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEndpointElement()) {
         composeUri("endpoint", element.getEndpointElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17436,6 +18052,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEndpointElement()) {
         composeUri("endpoint", element.getEndpointElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17484,6 +18101,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReplacedBy()) {
         composeReference("replacedBy", element.getReplacedBy());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17500,6 +18118,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17520,6 +18139,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17569,6 +18189,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEnteralFormula()) {
         composeNutritionOrderNutritionOrderEnteralFormulaComponent("enteralFormula", element.getEnteralFormula());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17601,6 +18222,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasInstructionElement()) {
         composeString("instruction", element.getInstructionElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17616,6 +18238,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAmount()) {
         composeQuantity("amount", element.getAmount());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17631,6 +18254,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasFoodType()) {
         composeCodeableConcept("foodType", element.getFoodType());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17656,6 +18280,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasInstructionElement()) {
         composeString("instruction", element.getInstructionElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17693,6 +18318,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAdministrationInstructionElement()) {
         composeString("administrationInstruction", element.getAdministrationInstructionElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17710,7 +18336,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRate()) {
         composeType("rate", element.getRate());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -17719,11 +18346,32 @@ public class XmlParser extends XmlParserBase {
       composeDomainResourceAttributes(element);
       xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
+      }
+      if (element.hasStatusElement())
+        composeEnumeration("status", element.getStatusElement(), new Observation.ObservationStatusEnumFactory());
+      if (element.hasCategory()) {
+        composeCodeableConcept("category", element.getCategory());
+      }
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
-      if (element.hasCategory()) {
-        composeCodeableConcept("category", element.getCategory());
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
+      }
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
+      }
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }      if (element.hasIssuedElement()) {
+        composeInstant("issued", element.getIssuedElement());
+      }
+      if (element.hasPerformer()) { 
+        for (Reference e : element.getPerformer()) 
+          composeReference("performer", e);
       }
       if (element.hasValue()) {
         composeType("value", element.getValue());
@@ -17736,37 +18384,16 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentsElement()) {
         composeString("comments", element.getCommentsElement());
       }
-      if (element.hasEffective()) {
-        composeType("effective", element.getEffective());
-      }      if (element.hasIssuedElement()) {
-        composeInstant("issued", element.getIssuedElement());
-      }
-      if (element.hasStatusElement())
-        composeEnumeration("status", element.getStatusElement(), new Observation.ObservationStatusEnumFactory());
       if (element.hasBodySite()) {
         composeType("bodySite", element.getBodySite());
       }      if (element.hasMethod()) {
         composeCodeableConcept("method", element.getMethod());
       }
-      if (element.hasIdentifier()) { 
-        for (Identifier e : element.getIdentifier()) 
-          composeIdentifier("identifier", e);
-      }
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
-      }
       if (element.hasSpecimen()) {
         composeReference("specimen", element.getSpecimen());
       }
-      if (element.hasPerformer()) { 
-        for (Reference e : element.getPerformer()) 
-          composeReference("performer", e);
-      }
       if (element.hasDevice()) {
         composeReference("device", element.getDevice());
-      }
-      if (element.hasEncounter()) {
-        composeReference("encounter", element.getEncounter());
       }
       if (element.hasReferenceRange()) { 
         for (Observation.ObservationReferenceRangeComponent e : element.getReferenceRange()) 
@@ -17780,6 +18407,7 @@ public class XmlParser extends XmlParserBase {
         for (Observation.ObservationComponentComponent e : element.getComponent()) 
           composeObservationObservationComponentComponent("component", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17804,6 +18432,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17818,6 +18447,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17839,6 +18469,7 @@ public class XmlParser extends XmlParserBase {
         for (Observation.ObservationReferenceRangeComponent e : element.getReferenceRange()) 
           composeObservationObservationReferenceRangeComponent("referenceRange", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17906,6 +18537,7 @@ public class XmlParser extends XmlParserBase {
         for (OperationDefinition.OperationDefinitionParameterComponent e : element.getParameter()) 
           composeOperationDefinitionOperationDefinitionParameterComponent("parameter", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17922,6 +18554,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17958,6 +18591,7 @@ public class XmlParser extends XmlParserBase {
         for (OperationDefinition.OperationDefinitionParameterComponent e : element.getPart()) 
           composeOperationDefinitionOperationDefinitionParameterComponent("part", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -17971,7 +18605,8 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("strength", element.getStrengthElement(), new Enumerations.BindingStrengthEnumFactory());
       if (element.hasValueSet()) {
         composeType("valueSet", element.getValueSet());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -17984,6 +18619,7 @@ public class XmlParser extends XmlParserBase {
         for (OperationOutcome.OperationOutcomeIssueComponent e : element.getIssue()) 
           composeOperationOutcomeOperationOutcomeIssueComponent("issue", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18007,6 +18643,7 @@ public class XmlParser extends XmlParserBase {
         for (StringType e : element.getLocation()) 
           composeString("location", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18041,6 +18678,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getDetail()) 
           composeReference("detail", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18056,6 +18694,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSchedule()) {
         composeTiming("schedule", element.getSchedule());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18087,6 +18726,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getFulfillment()) 
           composeReference("fulfillment", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18124,6 +18764,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasActiveElement()) {
         composeBoolean("active", element.getActiveElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18146,6 +18787,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAddress()) {
         composeAddress("address", element.getAddress());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18212,6 +18854,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasActiveElement()) {
         composeBoolean("active", element.getActiveElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18243,6 +18886,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18261,6 +18905,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasGenderStatus()) {
         composeCodeableConcept("genderStatus", element.getGenderStatus());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18276,6 +18921,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPreferredElement()) {
         composeBoolean("preferred", element.getPreferredElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18290,6 +18936,7 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Patient.LinkTypeEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18330,6 +18977,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPaymentStatus()) {
         composeCoding("paymentStatus", element.getPaymentStatus());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18386,6 +19034,7 @@ public class XmlParser extends XmlParserBase {
         for (PaymentReconciliation.NotesComponent e : element.getNote()) 
           composePaymentReconciliationNotesComponent("note", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18416,6 +19065,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAmount()) {
         composeMoney("amount", element.getAmount());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18431,6 +19081,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18474,6 +19125,7 @@ public class XmlParser extends XmlParserBase {
         for (Person.PersonLinkComponent e : element.getLink()) 
           composePersonPersonLinkComponent("link", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18488,6 +19140,7 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasAssuranceElement())
         composeEnumeration("assurance", element.getAssuranceElement(), new Person.IdentityAssuranceLevelEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18533,6 +19186,7 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getCommunication()) 
           composeCodeableConcept("communication", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18563,6 +19217,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getHealthcareService()) 
           composeReference("healthcareService", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18585,6 +19240,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIssuer()) {
         composeReference("issuer", element.getIssuer());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18659,6 +19315,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getUsed()) 
           composeReference("used", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18670,7 +19327,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasSite()) {
         composeType("site", element.getSite());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -18685,6 +19343,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRole()) {
         composeCodeableConcept("role", element.getRole());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18699,6 +19358,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18714,6 +19374,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasManipulated()) {
         composeReference("manipulated", element.getManipulated());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18765,6 +19426,7 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasPriorityElement())
         composeEnumeration("priority", element.getPriorityElement(), new ProcedureRequest.ProcedureRequestPriorityEnumFactory());
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18776,7 +19438,8 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasSite()) {
         composeType("site", element.getSite());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -18836,6 +19499,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18848,6 +19512,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSequenceLinkIdElement()) {
         composeInteger("sequenceLinkId", element.getSequenceLinkIdElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18899,6 +19564,7 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getError()) 
           composeCoding("error", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18914,6 +19580,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18959,6 +19626,7 @@ public class XmlParser extends XmlParserBase {
         for (Signature e : element.getSignature()) 
           composeSignature("signature", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -18977,6 +19645,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUserId()) {
         composeIdentifier("userId", element.getUserId());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19000,6 +19669,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAgent()) {
         composeProvenanceProvenanceAgentComponent("agent", element.getAgent());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19035,6 +19705,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasGroup()) {
         composeQuestionnaireGroupComponent("group", element.getGroup());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19071,6 +19742,7 @@ public class XmlParser extends XmlParserBase {
         for (Questionnaire.QuestionComponent e : element.getQuestion()) 
           composeQuestionnaireQuestionComponent("question", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19105,6 +19777,7 @@ public class XmlParser extends XmlParserBase {
         for (Questionnaire.GroupComponent e : element.getGroup()) 
           composeQuestionnaireGroupComponent("group", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19140,6 +19813,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasGroup()) {
         composeQuestionnaireAnswersGroupComponent("group", element.getGroup());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19169,6 +19843,7 @@ public class XmlParser extends XmlParserBase {
         for (QuestionnaireAnswers.QuestionComponent e : element.getQuestion()) 
           composeQuestionnaireAnswersQuestionComponent("question", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19188,6 +19863,7 @@ public class XmlParser extends XmlParserBase {
         for (QuestionnaireAnswers.QuestionAnswerComponent e : element.getAnswer()) 
           composeQuestionnaireAnswersQuestionAnswerComponent("answer", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19203,6 +19879,7 @@ public class XmlParser extends XmlParserBase {
         for (QuestionnaireAnswers.GroupComponent e : element.getGroup()) 
           composeQuestionnaireAnswersGroupComponent("group", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19260,6 +19937,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasFulfillmentTime()) {
         composePeriod("fulfillmentTime", element.getFulfillmentTime());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19301,6 +19979,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19339,6 +20018,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMitigationElement()) {
         composeString("mitigation", element.getMitigationElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19361,6 +20041,7 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasRationaleElement()) {
         composeString("rationale", element.getRationaleElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19387,6 +20068,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentElement()) {
         composeString("comment", element.getCommentElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19437,6 +20119,7 @@ public class XmlParser extends XmlParserBase {
         for (CodeType e : element.getTarget()) 
           composeCode("target", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19453,6 +20136,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19486,6 +20170,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentElement()) {
         composeString("comment", element.getCommentElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19526,6 +20211,7 @@ public class XmlParser extends XmlParserBase {
         for (Specimen.SpecimenContainerComponent e : element.getContainer()) 
           composeSpecimenSpecimenContainerComponent("container", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19552,7 +20238,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasBodySite()) {
         composeType("bodySite", element.getBodySite());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -19571,6 +20258,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getAdditive()) 
           composeReference("additive", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19598,7 +20286,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasAdditive()) {
         composeType("additive", element.getAdditive());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -19685,6 +20374,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDifferential()) {
         composeStructureDefinitionStructureDefinitionDifferentialComponent("differential", element.getDifferential());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19701,6 +20391,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19722,6 +20413,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentsElement()) {
         composeString("comments", element.getCommentsElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19735,6 +20427,7 @@ public class XmlParser extends XmlParserBase {
         for (ElementDefinition e : element.getElement()) 
           composeElementDefinition("element", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19748,6 +20441,7 @@ public class XmlParser extends XmlParserBase {
         for (ElementDefinition e : element.getElement()) 
           composeElementDefinition("element", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19782,6 +20476,7 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getTag()) 
           composeCoding("tag", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19802,6 +20497,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasHeaderElement()) {
         composeString("header", element.getHeaderElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19829,6 +20525,7 @@ public class XmlParser extends XmlParserBase {
         for (Substance.SubstanceIngredientComponent e : element.getIngredient()) 
           composeSubstanceSubstanceIngredientComponent("ingredient", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19847,6 +20544,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasQuantity()) {
         composeQuantity("quantity", element.getQuantity());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19862,6 +20560,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSubstance()) {
         composeReference("substance", element.getSubstance());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19889,6 +20588,7 @@ public class XmlParser extends XmlParserBase {
         for (Supply.SupplyDispenseComponent e : element.getDispense()) 
           composeSupplySupplyDispenseComponent("dispense", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19928,6 +20628,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getReceiver()) 
           composeReference("receiver", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -19970,6 +20671,7 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getReceiver()) 
           composeReference("receiver", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20008,6 +20710,7 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasWhen()) {
         composeSupplyRequestSupplyRequestWhenComponent("when", element.getWhen());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20023,6 +20726,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSchedule()) {
         composeTiming("schedule", element.getSchedule());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20097,6 +20801,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTeardown()) {
         composeTestScriptTestScriptTeardownComponent("teardown", element.getTeardown());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20113,6 +20818,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20130,6 +20836,7 @@ public class XmlParser extends XmlParserBase {
         for (TestScript.TestScriptMetadataCapabilitiesComponent e : element.getCapabilities()) 
           composeTestScriptTestScriptMetadataCapabilitiesComponent("capabilities", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20145,6 +20852,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20173,6 +20881,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasConformance()) {
         composeReference("conformance", element.getConformance());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20191,6 +20900,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasResource()) {
         composeReference("resource", element.getResource());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20212,6 +20922,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSourceIdElement()) {
         composeId("sourceId", element.getSourceIdElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20228,6 +20939,7 @@ public class XmlParser extends XmlParserBase {
         for (TestScript.TestScriptSetupActionComponent e : element.getAction()) 
           composeTestScriptTestScriptSetupActionComponent("action", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20243,6 +20955,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAssert()) {
         composeTestScriptTestScriptSetupActionAssertComponent("assert", element.getAssert());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20293,6 +21006,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeString("url", element.getUrlElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20308,6 +21022,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeString("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20367,6 +21082,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasWarningOnlyElement()) {
         composeBoolean("warningOnly", element.getWarningOnlyElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20389,6 +21105,7 @@ public class XmlParser extends XmlParserBase {
         for (TestScript.TestScriptTestActionComponent e : element.getAction()) 
           composeTestScriptTestScriptTestActionComponent("action", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20404,6 +21121,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAssert()) {
         composeTestScriptTestScriptSetupActionAssertComponent("assert", element.getAssert());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20417,6 +21135,7 @@ public class XmlParser extends XmlParserBase {
         for (TestScript.TestScriptTeardownActionComponent e : element.getAction()) 
           composeTestScriptTestScriptTeardownActionComponent("action", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20429,6 +21148,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOperation()) {
         composeTestScriptTestScriptSetupActionOperationComponent("operation", element.getOperation());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20496,6 +21216,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExpansion()) {
         composeValueSetValueSetExpansionComponent("expansion", element.getExpansion());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20512,6 +21233,7 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20534,6 +21256,7 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
           composeValueSetConceptDefinitionComponent("concept", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20563,6 +21286,7 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
           composeValueSetConceptDefinitionComponent("concept", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20581,6 +21305,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeString("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20602,6 +21327,7 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptSetComponent e : element.getExclude()) 
           composeValueSetConceptSetComponent("exclude", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20625,6 +21351,7 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptSetFilterComponent e : element.getFilter()) 
           composeValueSetConceptSetFilterComponent("filter", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20644,6 +21371,7 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptDefinitionDesignationComponent e : element.getDesignation()) 
           composeValueSetConceptDefinitionDesignationComponent("designation", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20661,6 +21389,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeCode("value", element.getValueElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20690,6 +21419,7 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
           composeValueSetValueSetExpansionContainsComponent("contains", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20704,7 +21434,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasValue()) {
         composeType("value", element.getValue());
-      }      xml.exit(FHIR_NS, name);
+      }      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -20732,6 +21463,7 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
           composeValueSetValueSetExpansionContainsComponent("contains", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20763,6 +21495,7 @@ public class XmlParser extends XmlParserBase {
         for (VisionPrescription.VisionPrescriptionDispenseComponent e : element.getDispense()) 
           composeVisionPrescriptionVisionPrescriptionDispenseComponent("dispense", e);
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -20815,6 +21548,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNotesElement()) {
         composeString("notes", element.getNotesElement());
       }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }

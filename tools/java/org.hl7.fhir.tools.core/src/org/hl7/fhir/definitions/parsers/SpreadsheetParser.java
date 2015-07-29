@@ -308,6 +308,8 @@ public class SpreadsheetParser {
           resource.setFmmLevel(sheet.rows.get(row).get(1));
         if (sheet.rows.get(row).size() >= 2 && "fmm-no-warnings".equals(sheet.rows.get(row).get(0)))
           resource.setFmmLevelNoWarnings(sheet.rows.get(row).get(1));
+        if (sheet.rows.get(row).size() >= 2 && "proposed-order".equals(sheet.rows.get(row).get(0)))
+          resource.setProposedOrder(sheet.rows.get(row).get(1));
       }
     }
   }

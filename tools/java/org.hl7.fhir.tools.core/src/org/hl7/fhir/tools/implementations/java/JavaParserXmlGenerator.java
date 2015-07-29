@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.utilities.Utilities;
 
 public class JavaParserXmlGenerator extends JavaBaseGenerator {
@@ -210,6 +211,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("      eventType = nextNoWhitespace(xpp);\r\n");
     write("    }\r\n");
     write("    next(xpp);\r\n");
+    write("    parseElementClose(res);\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -236,6 +238,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("      eventType = nextNoWhitespace(xpp);\r\n");
     write("    }\r\n");
     write("    next(xpp);\r\n");
+    write("    parseElementClose(res);\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -375,6 +378,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("      eventType = nextNoWhitespace(xpp);\r\n");
     write("    }\r\n");
     write("    next(xpp);\r\n");
+    write("    parseElementClose(res);\r\n");
     write("    return res;\r\n");
     write("  }\r\n\r\n");    
   }
@@ -388,7 +392,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("  protected void parse"+upFirst(tn).replace(".", "")+"Attributes(XmlPullParser xpp, "+tn+" res) throws Exception {\r\n");
     if (!Utilities.noString(n.typeCode()))
       write("    parse"+n.typeCode()+"Attributes(xpp, res);\r\n");
-
+    else
+      write("    if (!comments.isEmpty()) {\r\n      res.getFormatCommentsPre().addAll(comments);\r\n      comments.clear();\r\n     }\r\n");
+    
     for (ElementDefn e : n.getElements()) {
       if (e.isXmlAttribute()) {
         write("    if (xpp.getAttributeValue(null, \""+e.getName()+"\") != null)\r\n");
@@ -798,6 +804,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("        \r\n");
     write("      xml.enter(FHIR_NS, name);\r\n");
     write("      composeElementElements(value);\r\n");
+    write("      composeElementClose(value);\r\n");
     write("      xml.exit(FHIR_NS, name);\r\n");
     write("    }    \r\n");
     write("  }    \r\n");
@@ -820,6 +827,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("        \r\n");
     write("      xml.enter(FHIR_NS, name);\r\n");
     write("      composeElementElements(value);\r\n");
+    write("      composeElementClose(value);\r\n");
     write("      xml.exit(FHIR_NS, name);\r\n");
     write("    }    \r\n");
     write("  }    \r\n");
@@ -929,6 +937,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       if (!e.typeCode().equals("xml:lang") && !e.isXmlAttribute()) 
         genElement(n, e, type);
     }
+    write("      composeElementClose(element);\r\n");
     write("      xml.exit(FHIR_NS, name);\r\n");
     write("    }\r\n");    
     write("  }\r\n\r\n");    
@@ -940,6 +949,12 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("  protected void compose"+upFirst(tn).replace(".", "")+"Attributes("+tn+" element) throws Exception {\r\n");
     if (!Utilities.noString(n.typeCode()))
       write("    compose"+n.typeCode()+"Attributes(element);\r\n");
+    else {
+      write("    if (style != OutputStyle.CANONICAL)\r\n");
+      write("      for (String comment : element.getFormatCommentsPre())\r\n");
+      write("        xml.comment(comment, getOutputStyle() == OutputStyle.PRETTY);\r\n");
+    }
+
       
     for (ElementDefn e : n.getElements()) { 
       if (e.isXmlAttribute()) {

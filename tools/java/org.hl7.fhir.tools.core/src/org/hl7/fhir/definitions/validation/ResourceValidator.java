@@ -160,6 +160,14 @@ public class ResourceValidator extends BaseValidator {
         hint(errors, IssueType.REQUIRED, parent.getName(), false, "Resource elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
         System.out.println("Resource "+parent.getName()+": elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
       }
+      if (!Utilities.noString(parent.getProposedOrder())) {
+        w5Order = listW5Elements(parent, parent.getProposedOrder());
+        if (!w5Order.equals(w5CorrectOrder)) {
+          rule(errors, IssueType.REQUIRED, parent.getName(), false, "Resource elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
+        } else 
+          System.out.println("Proposed order for "+parent.getName()+": build order ok");
+        
+      }
     }
     if (Utilities.noString(parent.getEnteredInErrorStatus()))
       if (hasStatus(parent, "entered-in-error"))
@@ -277,6 +285,19 @@ public class ResourceValidator extends BaseValidator {
     if (rule(errors, IssueType.STRUCTURE, parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
       rule(errors, IssueType.STRUCTURE, parent.getName(), vsWarnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private String listW5Elements(ResourceDefn parent, String proposedOrder) {
+    String[] names = proposedOrder.split("\\,"); 
+    List<String> items = new ArrayList<String>();
+    for (String n : names) {
+      ElementDefn e = parent.getRoot().getElementByName(n);
+      if (e == null)
+        throw new Error("Unable to resolve element in proposed order: "+n);
+      if (!Utilities.noString(e.getW5()))
+        items.add(e.getName()+"(="+e.getW5()+")");
+    }
+    return items.toString();
+  }
 
   private String listW5Correct(ResourceDefn parent) {
     List<String> items = new ArrayList<String>();

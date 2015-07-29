@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+
+<Bundle xmlns="http://hl7.org/fhir">
   <id value="father"/>
   <meta>
     <lastUpdated value="2013-05-28T22:12:21Z"/>
   </meta>
   <type value="document"/>
-  <!-- The Composition resource -->
+<!--  The Composition resource  -->
   <entry>
     <fullUrl value="http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57"/>
     <resource>
@@ -32,7 +33,7 @@
           <reference value="Practitioner/example"/>
           <display value="Doctor Dave"/>
         </author>
-        <!-- The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc. -->
+      <!--  The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc.  -->
         <encounter>
           <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
         </encounter>
@@ -42,14 +43,14 @@
             <reference value="urn:uuid:d0dd51d3-3ab2-4c84-b697-a630c3e40e7a"/>
           </content>
         </section>
-        <!-- Points to the list that groups the medications on discharge -->
+      <!--  Points to the list that groups the medications on discharge  -->
         <section>
           <title value="Medications on Discharge"/>
           <content>
             <reference value="urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
           </content>
         </section>
-        <!-- Points to the list that groups the allergies -->
+      <!--  Points to the list that groups the allergies  -->
         <section>
           <title value="Known allergies"/>
           <content>
@@ -59,9 +60,9 @@
       </Composition>
     </resource>
   </entry>
-  <!-- The Practitioner Resource. In this document they are the author of the document
+<!--  The Practitioner Resource. In this document they are the author of the document
     (There is a reference from the document resource). Note that, strictly, it doesn't need to be within the document as the
-    recipient knows where to go and get it if they need it - assuming it is available on-line of course.-->
+    recipient knows where to go and get it if they need it - assuming it is available on-line of course. -->
   <entry>
     <fullUrl value="http://fhir.healthintersections.com.au/open/Practitioner/example"/>
     <resource>
@@ -74,8 +75,10 @@
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
             
+            
             <p>Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar
               2012</p>
+          
           
           </div>
         </text>
@@ -91,7 +94,8 @@
         <practitionerRole>
           <managingOrganization>
             <reference value="Organization/1"/>
-          </managingOrganization><!--   Referring Practitioner for the first 3 months of 2012   -->
+          </managingOrganization>
+        <!--    Referring Practitioner for the first 3 months of 2012    -->
           <role>
             <coding>
               <system value="http://hl7.org/fhir/v2/0286"/>
@@ -106,7 +110,7 @@
       </Practitioner>
     </resource>
   </entry>
-  <!-- The Patient who is the subject of the document. Same coments as practitioner. -->
+<!--  The Patient who is the subject of the document. Same coments as practitioner.  -->
   <entry>
     <fullUrl value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
     <resource>
@@ -115,7 +119,9 @@
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
+            
             <h1>Eve Everywoman</h1>
+          
           </div>
         </text>
         <name>
@@ -138,7 +144,7 @@
       </Patient>
     </resource>
   </entry>
-  <!-- The encounter that is being documented.-->
+<!--  The encounter that is being documented. -->
   <entry>
     <fullUrl value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
     <resource>
@@ -175,7 +181,7 @@
       </Encounter>
     </resource>
   </entry>
-  <!-- Reasons for admission.-->
+<!--  Reasons for admission. -->
   <entry>
     <fullUrl value="urn:uuid:d0dd51d3-3ab2-4c84-b697-a630c3e40e7a"/>
     <resource>
@@ -186,21 +192,36 @@
         <text>
           <status value="additional"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
+            
             <table>
+              
               <thead>
+                
                 <tr>
+                  
                   <td>Details</td>
-                  <td></td>
+                  
+                  <td/>
+                
                 </tr>
+              
               </thead>
+              
               <tbody>
+                
                 <tr>
+                  
                   <td>Acute Asthmatic attack. Was wheezing
                         for days prior to admission.</td>
-                  <td></td>
+                  
+                  <td/>
+                
                 </tr>
+              
               </tbody>
+            
             </table>
+          
           </div>
         </text>
         <code>
@@ -216,7 +237,7 @@
         </subject>
         <status value="current"/>
         <mode value="working"/>
-        <!-- This is an entry that refers to an Observation resource in this document. -->
+      <!--  This is an entry that refers to an Observation resource in this document.  -->
         <entry>
           <item>
             <reference value="urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81"/>
@@ -237,6 +258,7 @@
           <div xmlns="http://www.w3.org/1999/xhtml"> Acute Asthmatic attack. Was wheezing
                         for days prior to admission. </div>
         </text>
+        <status value="final"/>
         <code>
           <coding>
             <system value="http://loinc.org"/>
@@ -245,12 +267,10 @@
           <text value="Reason for admission"/>
         </code>
         <valueString value="Acute Asthmatic attack. Was wheezing for days prior to admission."/>
-        <status value="final"/>
-        
       </Observation>
     </resource>
   </entry>
-  <!-- The list of medications on discharge-->
+<!--  The list of medications on discharge -->
   <entry>
     <fullUrl value="urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
     <resource>
@@ -261,26 +281,47 @@
         <text>
           <status value="additional"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
+            
             <table>
+              
               <thead>
+                
                 <tr>
+                  
                   <td>Medication</td>
+                  
                   <td>Last Change</td>
+                  
                   <td>Last ChangeReason</td>
+                
                 </tr>
+              
               </thead>
+              
               <tbody>
+                
                 <tr>
+                  
                   <td>Theophylline 200mg BD after meals</td>
+                  
                   <td>continued</td>
+                
                 </tr>
+                
                 <tr>
+                  
                   <td>Ventolin Inhaler</td>
+                  
                   <td>stopped</td>
+                  
                   <td>Getting side effect of tremor</td>
+                
                 </tr>
+              
               </tbody>
+            
             </table>
+          
           </div>
         </text>
         <code>
@@ -296,14 +337,14 @@
         </subject>
         <status value="current"/>
         <mode value="working"/>
-        <!-- This is an entry that refers to a MedicationPrescription resource in this document.
-                It is a new medication (as indicated by the flag)-->
+      <!--  This is an entry that refers to a MedicationPrescription resource in this document.
+                It is a new medication (as indicated by the flag) -->
         <entry>
           <flag>
             <coding>
-              <!-- The flag refers to the valueset containing permissable codes for changes
+            <!--  The flag refers to the valueset containing permissable codes for changes
                             to medication status that occurred during this encounter. Possible values are started,
-                            continued, stopped, changed-->
+                            continued, stopped, changed -->
               <system value="http://www.ithealthboard.health.nz/fhir/ValueSet/medicationStatus"/>
               <code value="started"/>
             </coding>
@@ -312,11 +353,11 @@
             <reference value="urn:uuid:124a6916-5d84-4b8c-b250-10cefb8e6e86"/>
           </item>
         </entry>
-        <!-- This is an entry that refers to a medicationPrescription that is available on an external server.
+      <!--  This is an entry that refers to a medicationPrescription that is available on an external server.
                 In practice, you may still want an entry in the document as well, but it's not necessary. The medication
                 was stopped on this admission. Note that the deleted element is also true. Because the resource is
                 no longer active, we assume that it was deleted on the server, so following the link would result
-                in an http status code of 410 (Though you can always use the history to get previous versions)-->
+                in an http status code of 410 (Though you can always use the history to get previous versions) -->
         <entry>
           <flag>
             <coding>
@@ -333,7 +374,7 @@
       </List>
     </resource>
   </entry>
-  <!-- The first medication in the medications list -->
+<!--  The first medication in the medications list  -->
   <entry>
     <fullUrl value="urn:uuid:124a6916-5d84-4b8c-b250-10cefb8e6e86"/>
     <resource>
@@ -341,19 +382,21 @@
         <meta>
           <lastUpdated value="2013-05-05T16:13:03Z"/>
         </meta>
-        <!-- The Human readible version of the script -->
+      <!--  The Human readible version of the script  -->
         <text>
           <status value="generated"/>
-          <!-- This text section can be exctly the same as CDA -->
           <div xmlns="http://www.w3.org/1999/xhtml">
+            
             <p>Theophylline 200mg twice a day</p>
+          
           </div>
+        <!--  This text section can be exctly the same as CDA  -->
         </text>
-        <!-- The medication. This is currently modelled as a contained resource within the prescription, but could also be a separate
+        <contained>
+        <!--  The medication. This is currently modelled as a contained resource within the prescription, but could also be a separate
                     resource either within the document bundle, or a reference to the medication on a server. The latter
                     (i.e. where the medication terminology is hosted on a publically available server and simply referenced from the
-                MedicationPrescription resource is particularly attractive... -->
-        <contained>
+                MedicationPrescription resource is particularly attractive...  -->
           <Medication>
             <id value="med1"/>
             <name value="Theophylline 200mg"/>
@@ -365,13 +408,13 @@
             </code>
           </Medication>
         </contained>
-        <!-- The patient details will generally be in the Document resource in the Document bundle, but could just as easily
-        point to a patient resource on a server-->
+      <!--  The patient details will generally be in the Document resource in the Document bundle, but could just as easily
+        point to a patient resource on a server -->
         <patient>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Peter Patient"/>
         </patient>
-        <!-- The prescriber details could also be within the bundle, but has the same options as patient-->
+      <!--  The prescriber details could also be within the bundle, but has the same options as patient -->
         <prescriber>
           <reference value="Practitioner/example"/>
           <display value="Peter Practitioner"/>
@@ -379,8 +422,8 @@
         <reasonCodeableConcept>
           <text value="Management of Asthma"/>
         </reasonCodeableConcept>
-        <!-- a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
-        within the document bundle or simply a reference to a remote server. See comment in the contained resource-->
+      <!--  a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
+        within the document bundle or simply a reference to a remote server. See comment in the contained resource -->
         <medicationReference>
           <reference value="#med1"/>
           <display value="Theophylline 200mg BD"/>
@@ -389,7 +432,7 @@
           <additionalInstructions>
             <text value="Take with Food"/>
           </additionalInstructions>
-          <!-- twice a day -->
+        <!--  twice a day  -->
           <scheduledTiming>
             <repeat>
               <frequency value="2"/>
@@ -397,7 +440,7 @@
               <periodUnits value="d"/>
             </repeat>
           </scheduledTiming>
-          <!-- Orally -->
+        <!--  Orally  -->
           <route>
             <coding>
               <system value="http://snomed.info/sct"/>
@@ -415,7 +458,7 @@
       </MedicationPrescription>
     </resource>
   </entry>
-  <!-- The list of known allergies-->
+<!--  The list of known allergies -->
   <entry>
     <fullUrl value="urn:uuid:68f86194-e6e1-4f65-b64a-5314256f8d7b"/>
     <resource>
@@ -426,20 +469,35 @@
         <text>
           <status value="additional"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
+            
             <table>
+              
               <thead>
+                
                 <tr>
+                  
                   <td>Allergen</td>
+                  
                   <td>Reaction</td>
+                
                 </tr>
+              
               </thead>
+              
               <tbody>
+                
                 <tr>
+                  
                   <td>Doxycycline</td>
+                  
                   <td>Hives</td>
+                
                 </tr>
+              
               </tbody>
+            
             </table>
+          
           </div>
         </text>
         <code>
@@ -455,7 +513,7 @@
         </subject>
         <status value="current"/>
         <mode value="working"/>
-        <!-- This is an entry that refers to an allergy resource in this document. -->
+      <!--  This is an entry that refers to an allergy resource in this document.  -->
         <entry>
           <item>
             <reference value="urn:uuid:47600e0f-b6b5-4308-84b5-5dec157f7637"/>
@@ -464,7 +522,7 @@
       </List>
     </resource>
   </entry>
-  <!-- The Allergy.-->
+<!--  The Allergy. -->
   <entry>
     <fullUrl value="urn:uuid:47600e0f-b6b5-4308-84b5-5dec157f7637"/>
     <resource>

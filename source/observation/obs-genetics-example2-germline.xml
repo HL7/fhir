@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+<Observation xmlns="http://hl7.org/fhir">
   <id value="genetics-example2-germline"/>
-
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
     <valueString value="GRCh 37"/>
   </extension>
@@ -24,7 +23,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsObservedAllele">
     <valueString value="C"/>
   </extension>
-
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneId">
     <valueCodeableConcept>
       <coding>
@@ -38,7 +36,7 @@
     <valueCode value="NM_007294.3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
-    <valueString value="c.181T>G"/>
+    <valueString value="c.181T&gt;G"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">
     <valueCode value="ClinVar:17661"/>
@@ -57,10 +55,10 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsProteinReferenceSequenceId">
     <valueCode value="NP_009225.1"/>
-  </extension>	
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAminoAcidChange">
     <valueString value="p.Cys61Gly"/>
-  </extension>		
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicSourceClass">
     <valueCodeableConcept>
       <coding>
@@ -69,15 +67,14 @@
         <display value="Germline"/>
       </coding>
     </valueCodeableConcept>
-  </extension>	
-
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsSpecies">
     <valueString value="Human"/>
-  </extension>	
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsCIGAR">
     <valueString value="CATAAAGGACaCTGTGAAGGC"/>
-  </extension>	
-  
+  </extension>
+  <status value="final"/>
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -85,19 +82,16 @@
       <display value="BRCA1 gene mutation analysis"/>
     </coding>
   </code>
-  <status value="final"/> 
-
   <subject>
     <reference value="Patient/genetics-example2-germline"/>
     <display value="Molecular Lab Patient ID: HOSP-23456"/>
   </subject>
+  <performer>
+    <reference value="Practitioner/genetics-example2-germline"/>
+    <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
   <specimen>
     <reference value="Specimen/genetics-example2-germline"/>
     <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
   </specimen>
-  <performer>
-    <reference value="Practitioner/genetics-example2-germline"/>
-    <display value="Molecular Diagnostic Laboratory"/>
-  </performer>    
-
 </Observation>

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+
+<Observation xmlns="http://hl7.org/fhir">
   <id value="picture"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      Ultrasound Image on patient &quot;James Chalmers&quot;:
+      <br/>
+      
+      <img alt="WADO reference to image" src="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+    
+    </div>
+  </text>
   <extension url="http://hl7.org/fhir/StructureDefinitionpicture#accession">
     <valueIdentifier>
       <system value="http://acme-imaging.com/accession/2012"/>
@@ -19,13 +30,14 @@
       <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
     </valueIdentifier>
   </extension>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      Ultrasound Image on patient "James Chalmers":<br/>
-      <img src="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033" alt="WADO reference to image"/>
-    </div>
-  </text>
+  <identifier>
+    <type>
+      <text value="InstanceUID"/>
+    </type>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+  </identifier>
+  <status value="final"/>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/image-modality4"/>
@@ -33,27 +45,17 @@
       <display value="Ultrasound"/>
     </coding>
   </code>
-  <valueAttachment>
-    <contentType value="application/dicom"/>
-    <!-- The actual image could be anywhere. This is a WADO example -->
-    <url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
-  </valueAttachment>
-  <status value="final"/>
-
-
-  <identifier>
-    <type><text value="InstanceUID"/></type>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
-  </identifier>
-
   <subject>
     <reference value="Patient/example"/>
   </subject>
   <performer>
     <reference value="Practitioner/example"/>
   </performer>
-
+  <valueAttachment>
+    <contentType value="application/dicom"/>
+  <!--  The actual image could be anywhere. This is a WADO example  -->
+    <url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+  </valueAttachment>
   <component>
     <code>
       <coding>
@@ -102,5 +104,4 @@
       <value value="1"/>
     </valueQuantity>
   </component>
-
 </Observation>

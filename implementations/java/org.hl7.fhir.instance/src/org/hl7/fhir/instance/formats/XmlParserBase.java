@@ -36,6 +36,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
@@ -163,7 +164,6 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
     xpp.setInput(input, "UTF-8");
     next(xpp);
     nextNoWhitespace(xpp);
-    comments.clear();
     
     return xpp;
   }
@@ -175,7 +175,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 	    return xpp.next();    
   }
 
-  private List<String> comments = new ArrayList<String>();
+  protected List<String> comments = new ArrayList<String>();
 	
   protected int nextNoWhitespace(XmlPullParser xpp) throws Exception {
     int eventType = xpp.getEventType();
@@ -224,11 +224,18 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
       idMap.put(e.getId(), e);
     }
     if (!comments.isEmpty()) {
-      e.getFormatComments().addAll(comments);
+      e.getFormatCommentsPre().addAll(comments);
       comments.clear();
     }
   }
 
+  protected void parseElementClose(Base e) throws Exception {
+    if (!comments.isEmpty()) {
+      e.getFormatCommentsPost().addAll(comments);
+      comments.clear();
+    }
+  }
+  
   protected void parseBackboneAttributes(XmlPullParser xpp, Element e) throws Exception {
   	parseElementAttributes(xpp, e);
   }
@@ -306,12 +313,17 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 
 	protected void composeElementAttributes(Element element) throws Exception {
 	  if (style != OutputStyle.CANONICAL)
-    for (String comment : element.getFormatComments())
-      xml.comment(comment, false);
+	    for (String comment : element.getFormatCommentsPre())
+	      xml.comment(comment, getOutputStyle() == OutputStyle.PRETTY);
 		if (element.getId() != null) 
 			xml.attribute("id", element.getId());
 	}
 
+  protected void composeElementClose(Base base) throws Exception {
+    if (style != OutputStyle.CANONICAL)
+      for (String comment : base.getFormatCommentsPost())
+        xml.comment(comment, getOutputStyle() == OutputStyle.PRETTY);
+  }
 	protected void composeTypeAttributes(Type type) throws Exception {
 		composeElementAttributes(type);
 	}

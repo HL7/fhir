@@ -161,7 +161,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
     if (json.has("fhir_comments") && handleComments) {
       JsonArray array = json.getAsJsonArray("fhir_comments");
       for (int i = 0; i < array.size(); i++) {
-        e.getFormatComments().add(array.get(i).getAsString());
+        e.getFormatCommentsPre().add(array.get(i).getAsString());
       }
     }
   }
@@ -263,7 +263,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
   }
 
 	protected boolean makeComments(Element element) {
-		return !handleComments && (style != OutputStyle.CANONICAL) && !element.getFormatComments().isEmpty();
+		return !handleComments && (style != OutputStyle.CANONICAL) && !element.getFormatCommentsPre().isEmpty() && !element.getFormatCommentsPost().isEmpty();
 	}
 	
   protected void composeDomainResource(String name, DomainResource e) throws Exception {

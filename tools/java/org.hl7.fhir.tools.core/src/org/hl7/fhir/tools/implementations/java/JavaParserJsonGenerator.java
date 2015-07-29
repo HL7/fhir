@@ -666,7 +666,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("      prop(\"id\", element.getId());\r\n");
     write("      if (makeComments(element)) {\r\n");
     write("        openArray(\"fhir_comments\");\r\n");
-    write("        for (String s : element.getFormatComments())\r\n");
+    write("        for (String s : element.getFormatCommentsPre())\r\n");
+    write("          prop(null,  s);\r\n");
+    write("        for (String s : element.getFormatCommentsPost())\r\n");
     write("          prop(null,  s);\r\n");
     write("         closeArray();\r\n");
     write("      }\r\n");

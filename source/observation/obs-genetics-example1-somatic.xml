@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+<Observation xmlns="http://hl7.org/fhir">
   <id value="genetics-example1-somatic"/>
-
   <contained>
     <Condition>
       <id value="c1"/>
@@ -25,8 +24,7 @@
       </category>
       <clinicalStatus value="working"/>
     </Condition>
-  </contained>	
-
+  </contained>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
     <valueString value="GRCh 37"/>
   </extension>
@@ -57,13 +55,11 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsTranscriptReferenceSequenseId">
     <valueCode value="ENSESTT00000085772.1"/>
   </extension>
-
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
-    <valueString value="c.2573T>G"/>
+    <valueString value="c.2573T&gt;G"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">
     <valueCode value="COSM12979G"/>
@@ -82,13 +78,13 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsProteinReferenceSequenceId">
     <valueCode value="ENSESTP00000085772.1"/>
-  </extension>	
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAminoAcidChange">
     <valueString value="p.Leu858Arg"/>
-  </extension>		
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAlleleName">
     <valueString value="p.L858R"/>
-  </extension>	
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicSourceClass">
     <valueCodeableConcept>
       <coding>
@@ -97,19 +93,19 @@
         <display value="Somatic"/>
       </coding>
     </valueCodeableConcept>
-  </extension>	
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsSpecies">
     <valueString value="Human"/>
-  </extension>	
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsCIGAR">
     <valueString value="GATTTTGGGCtGGCCAAACTG"/>
-  </extension>			
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAssessedCondition">
     <valueReference>
       <reference value="#c1"/>
     </valueReference>
   </extension>
-  
+  <status value="final"/>
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -117,22 +113,17 @@
       <display value="EGFR gene mutation analysis"/>
     </coding>
   </code>
-  <comments value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
-  <status value="final"/> 
   <subject>
     <reference value="Patient/genetics-example1-somatic"/>
     <display value="Molecular Lab Patient ID: HOSP-23456"/>
   </subject>
-  <specimen>
-    <reference value="Specimen/genetics-example1-somatic"/>
-    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
-  </specimen>
   <performer>
     <reference value="Practitioner/genetics-example1-somatic"/>
     <display value="Molecular Diagnostic Laboratory"/>
   </performer>
-
+  <comments value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
+  <specimen>
+    <reference value="Specimen/genetics-example1-somatic"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
 </Observation>
-
-
-

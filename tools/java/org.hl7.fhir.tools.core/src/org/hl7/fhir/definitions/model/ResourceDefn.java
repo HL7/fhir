@@ -60,6 +60,7 @@ public class ResourceDefn  {
   private String enteredInErrorStatus;
   private String fmmLevel;
   private String fmmLevelNoWarnings;
+  private String proposedOrder;
 
   private List<InheritedMapping> inheritedMappings = new ArrayList<InheritedMapping>();
 
@@ -262,6 +263,14 @@ public class ResourceDefn  {
       if (p.getId().equals(id))
         return p;
     return null;
+  }
+
+  public String getProposedOrder() {
+    return proposedOrder;
+  }
+
+  public void setProposedOrder(String proposedOrder) {
+    this.proposedOrder = proposedOrder;
   }
   
   
