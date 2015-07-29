@@ -97,6 +97,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
@@ -6287,37 +6288,36 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genW5(boolean types) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table border=\"1\">\r\n<tr>\r\n");
-    List<String> names = new ArrayList<String>();
-    for (String n : definitions.getW5s().keySet()) 
-      if (definitions.getW5s().get(n).isDisplay())
-        names.add(n);
-    Collections.sort(names);
+    List<W5Entry> items = new ArrayList<W5Entry>();
+    for (W5Entry e : definitions.getW5list()) 
+      if (e.isDisplay())
+        items.add(e);
     
     b.append("<td>Resource</td>");
-    for (String n : names) {
-      b.append("<td><span title=\"").append(Utilities.escapeXml(definitions.getW5s().get(n).getDescription())).append("\">").append(n).append("</span></td>");
+    for (W5Entry e : items) {
+      b.append("<td><span title=\"").append(Utilities.escapeXml(definitions.getW5s().get(e.getCode()).getDescription())).append("\">").append(e.getCode()).append("</span></td>");
       
     }
     b.append("</tr>\r\n");
-    processW5(b, names, "clinical", types);
-    processW5(b, names, "administration", types);
-    processW5(b, names, "infrastructure", types);
+    processW5(b, items, "clinical", types);
+    processW5(b, items, "administration", types);
+    processW5(b, items, "infrastructure", types);
     
     b.append("</table>\r\n");
     
     return b.toString();
   }
 
-  private void processW5(StringBuilder b, List<String> names, String cat, boolean types) throws Exception {
-    b.append("<tr><td colspan=\"").append(Integer.toString(names.size() + 1)).append("\"><b>")
+  private void processW5(StringBuilder b, List<W5Entry> items, String cat, boolean types) throws Exception {
+    b.append("<tr><td colspan=\"").append(Integer.toString(items.size() + 1)).append("\"><b>")
             .append(Utilities.escapeXml(definitions.getW5s().get(cat).getDescription())).append("</b></td></tr>\r\n");
     for (String rn : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResourceByName(rn);
       if (cat.equals(r.getRoot().getW5())) {
         b.append("<tr>\r\n <td>").append(rn).append("</td>\r\n");
-        for (String n : names) {
+        for (W5Entry e : items) {
           b.append(" <td>");
-          addMatchingFields(b, r.getRoot().getElements(), r.getRoot().getName(), n, true, types);
+          addMatchingFields(b, r.getRoot().getElements(), r.getRoot().getName(), e.getCode(), true, types);
           b.append("</td>\r\n");
         }
         b.append("</tr>\r\n");
