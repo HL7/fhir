@@ -94,19 +94,19 @@
     <name value="base"/>
   <!--  value sets that are imported by directly referenced value sets in the profiles  -->
     <resource>
-      <purpose value="valueset"/>
+      <purpose value="terminology"/>
       <sourceUri value="profiles\valueset-daf-substance-ndfrt.xml"/>
     </resource>
     <resource>
-      <purpose value="valueset"/>
+      <purpose value="terminology"/>
       <sourceUri value="profiles\valueset-daf-substance-rxnorm.xml"/>
     </resource>
     <resource>
-      <purpose value="valueset"/>
+      <purpose value="terminology"/>
       <sourceUri value="profiles\valueset-daf-substance-sct.xml"/>
     </resource>
     <resource>
-      <purpose value="valueset"/>
+      <purpose value="terminology"/>
       <sourceUri value="profiles\valueset-daf-substance-unii.xml"/>
     </resource>
     <resource>

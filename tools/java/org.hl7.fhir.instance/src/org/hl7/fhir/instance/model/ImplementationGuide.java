@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 20:59+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 30, 2015 18:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -125,9 +125,9 @@ public class ImplementationGuide extends DomainResource {
          */
         EXAMPLE, 
         /**
-         * The resource defines a value set used in the Implementation Guide
+         * The resource defines a value set or concept map used in the Implementation Guide
          */
-        VALUESET, 
+        TERMINOLOGY, 
         /**
          * The resource defines a profile (StructureDefinition) that is used in the implementation guide
          */
@@ -145,8 +145,8 @@ public class ImplementationGuide extends DomainResource {
                 return null;
         if ("example".equals(codeString))
           return EXAMPLE;
-        if ("valueset".equals(codeString))
-          return VALUESET;
+        if ("terminology".equals(codeString))
+          return TERMINOLOGY;
         if ("profile".equals(codeString))
           return PROFILE;
         if ("dictionary".equals(codeString))
@@ -156,7 +156,7 @@ public class ImplementationGuide extends DomainResource {
         public String toCode() {
           switch (this) {
             case EXAMPLE: return "example";
-            case VALUESET: return "valueset";
+            case TERMINOLOGY: return "terminology";
             case PROFILE: return "profile";
             case DICTIONARY: return "dictionary";
             default: return "?";
@@ -165,7 +165,7 @@ public class ImplementationGuide extends DomainResource {
         public String getSystem() {
           switch (this) {
             case EXAMPLE: return "http://hl7.org/fhir/guide-resource-purpose";
-            case VALUESET: return "http://hl7.org/fhir/guide-resource-purpose";
+            case TERMINOLOGY: return "http://hl7.org/fhir/guide-resource-purpose";
             case PROFILE: return "http://hl7.org/fhir/guide-resource-purpose";
             case DICTIONARY: return "http://hl7.org/fhir/guide-resource-purpose";
             default: return "?";
@@ -174,7 +174,7 @@ public class ImplementationGuide extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case EXAMPLE: return "The resource is intended as an example";
-            case VALUESET: return "The resource defines a value set used in the Implementation Guide";
+            case TERMINOLOGY: return "The resource defines a value set or concept map used in the Implementation Guide";
             case PROFILE: return "The resource defines a profile (StructureDefinition) that is used in the implementation guide";
             case DICTIONARY: return "The resource contains a dictionary that is part of the implementation guide";
             default: return "?";
@@ -183,7 +183,7 @@ public class ImplementationGuide extends DomainResource {
         public String getDisplay() {
           switch (this) {
             case EXAMPLE: return "Example";
-            case VALUESET: return "Value Set";
+            case TERMINOLOGY: return "Terminology";
             case PROFILE: return "Profile";
             case DICTIONARY: return "Dictionary";
             default: return "?";
@@ -198,8 +198,8 @@ public class ImplementationGuide extends DomainResource {
                 return null;
         if ("example".equals(codeString))
           return GuideResourcePurpose.EXAMPLE;
-        if ("valueset".equals(codeString))
-          return GuideResourcePurpose.VALUESET;
+        if ("terminology".equals(codeString))
+          return GuideResourcePurpose.TERMINOLOGY;
         if ("profile".equals(codeString))
           return GuideResourcePurpose.PROFILE;
         if ("dictionary".equals(codeString))
@@ -209,8 +209,8 @@ public class ImplementationGuide extends DomainResource {
     public String toCode(GuideResourcePurpose code) {
       if (code == GuideResourcePurpose.EXAMPLE)
         return "example";
-      if (code == GuideResourcePurpose.VALUESET)
-        return "valueset";
+      if (code == GuideResourcePurpose.TERMINOLOGY)
+        return "terminology";
       if (code == GuideResourcePurpose.PROFILE)
         return "profile";
       if (code == GuideResourcePurpose.DICTIONARY)
@@ -913,7 +913,7 @@ public class ImplementationGuide extends DomainResource {
          * Why the resource is included in the guide.
          */
         @Child(name = "purpose", type = {CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="example | valueset | profile | dictionary", formalDefinition="Why the resource is included in the guide." )
+        @Description(shortDefinition="example | terminology | profile | dictionary", formalDefinition="Why the resource is included in the guide." )
         protected Enumeration<GuideResourcePurpose> purpose;
 
         /**

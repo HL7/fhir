@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/patient.xsd">
+
+<DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="f001"/>
   <contained>
     <DiagnosticOrder>
       <id value="req"/>
       <subject>
-          <reference value="Patient/f001"/>
-          <display value="P. van den Heuvel"/>
+        <reference value="Patient/f001"/>
+        <display value="P. van den Heuvel"/>
       </subject>
       <orderer>
         <reference value="Practitioner/f001"/>
@@ -18,57 +19,37 @@
         <value value="L2381"/>
       </identifier>
       <encounter>
-        <reference value="Encounter/f001"/><!--TODO Correcte verwijzing-->
+        <reference value="Encounter/f001"/>
+      <!-- TODO Correcte verwijzing -->
       </encounter>
-      <reason><text value="patient almost fainted during procedure"/></reason>
+      <reason>
+        <text value="patient almost fainted during procedure"/>
+      </reason>
       <item>
         <code>
           <coding>
             <system value="http://loinc.org"/>
-            <!--  LOINC  -->
+          <!--   LOINC   -->
             <code value="58410-2"/>
             <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
           </coding>
         </code>
         <bodySiteCodeableConcept>
           <coding>
-              <system value="http://snomed.info/sct"/>
-              <code value="14975008"/>
-              <display value="Forearm structure"/>
+            <system value="http://snomed.info/sct"/>
+            <code value="14975008"/>
+            <display value="Forearm structure"/>
           </coding>
         </bodySiteCodeableConcept>
       </item>
     </DiagnosticOrder>
   </contained>
-  <code>
-      <coding>
-          <system value="http://loinc.org"/>
-          <code value="58410-2"/>
-          <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
-      </coding>
-  </code>
-  <status value="final"/>
-  <!-- OID: 2.16.840.1.113883.4.642.1.7 -->
-  <issued value="2013-05-15T19:32:52+01:00"/>
-  <!-- ISO 8601 -->
-  <subject>
-    <!-- Linked to a RESOURCE Patient -->
-    <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
-    <reference value="Patient/f001"/>
-    <display value="P. van den Heuvel"/>
-  </subject>
-  <performer>
-    <reference value="Organization/f001"/>
-    <display value="Burgers University Medical Centre"/>
-  </performer>
   <identifier>
     <use value="official"/>
     <system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
     <value value="nr1239044"/>
   </identifier>
-  <requestDetail>
-    <reference value="#req"/>
-  </requestDetail>
+  <status value="final"/>
   <serviceCategory>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -76,12 +57,32 @@
       <display value="Haematology test"/>
     </coding>
     <coding>
-      <system value="http://hl7.org/fhir/v2/0074" />
-      <code value="HM" />
+      <system value="http://hl7.org/fhir/v2/0074"/>
+      <code value="HM"/>
     </coding>
   </serviceCategory>
-
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="58410-2"/>
+      <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
+    </coding>
+  </code>
+<!--  ISO 8601  -->
+  <subject>
+    <reference value="Patient/f001"/>
+    <display value="P. van den Heuvel"/>
+  </subject>
   <effectiveDateTime value="2013-04-02"/>
+<!--  OID: 2.16.840.1.113883.4.642.1.7  -->
+  <issued value="2013-05-15T19:32:52+01:00"/>
+  <performer>
+    <reference value="Organization/f001"/>
+    <display value="Burgers University Medical Centre"/>
+  </performer>
+  <requestDetail>
+    <reference value="#req"/>
+  </requestDetail>
   <result>
     <reference value="Observation/f001"/>
   </result>

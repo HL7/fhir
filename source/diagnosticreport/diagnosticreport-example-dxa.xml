@@ -6,216 +6,322 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
 			
+      
       <h2>DXA BONE DENSITOMETRY</h2>
 			
+      
       <table>
 				
+        
         <tr>
 					
+          
           <td>NAME</td>
 					
+          
           <td>XXXXXXX</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>DOB</td>
 					
+          
           <td>10/02/1974</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>REFERRING DR</td>
 					
+          
           <td>Smith, Jane</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>INDICATIONS</td>
 					
+          
           <td>Early menopause on estrogen levels. No period  for 18 months</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>PROCEDURE</td>
 					
+          
           <td>Dual energy x-ray absorptiometry (DEXA)</td>
 				
+        
         </tr>
 			
+      
       </table>
 			
+      
       <h3>Bone Mineral Density</h3>
 			
+      
       <table>
 				
+        
         <tr>
 					
+          
           <td>Scan Type</td>
 					
+          
           <td>Region</td>
 					
+          
           <td>Measured</td>
 					
+          
           <td>Age</td>
 					
+          
           <td>BMD</td>
 					
+          
           <td>T-Score</td>
 					
+          
           <td>Z-Score</td>
 					
+          
           <td>?BMD(g/cm2)</td>
 					
+          
           <td>?BMD(%)</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>AP Spine</td>
 					
+          
           <td>L1-L4</td>
 					
+          
           <td>17/06/2008</td>
 					
+          
           <td>34.4</td>
 					
+          
           <td>1.148 g/cm²</td>
 					
+          
           <td>-0.4</td>
 					
+          
           <td>-0.5</td>
 					
+          
           <td>-</td>
 					
+          
           <td>-</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>Left Femur</td>
 					
+          
           <td>Neck</td>
 					
+          
           <td>17/06/2008</td>
 					
+          
           <td>34.4</td>
 					
+          
           <td>0.891 g/cm²</td>
 					
+          
           <td>-1.0</td>
 					
+          
           <td>-0.9</td>
 					
+          
           <td>-</td>
 					
+          
           <td>-</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>Left Femur</td>
 					
+          
           <td>Total</td>
 					
+          
           <td>17/06/2008</td>
 					
+          
           <td>34.4</td>
 					
+          
           <td>0.887 g/cm²</td>
 					
+          
           <td>-1.2</td>
 					
+          
           <td>-1.3</td>
 					
+          
           <td>-</td>
 					
+          
           <td>-</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>Right Femur</td>
 					
+          
           <td>Neck</td>
 					
+          
           <td>17/06/2008</td>
 					
+          
           <td>34.4</td>
 					
+          
           <td>0.885 g/cm²</td>
 					
+          
           <td>-1.0</td>
 					
+          
           <td>-1.0</td>
 					
+          
           <td>-</td>
 					
+          
           <td>-</td>
 				
+        
         </tr>
 				
+        
         <tr>
 					
+          
           <td>Right Femur</td>
 					
+          
           <td>Total</td>
 					
+          
           <td>17/06/2008</td>
 					
+          
           <td>34.4</td>
 					
+          
           <td>0.867 g/cm²</td>
 					
+          
           <td>-1.4</td>
 					
+          
           <td>-1.4</td>
 					
+          
           <td>-</td>
 					
+          
           <td>-</td>
 				
+        
         </tr>
 			
+      
       </table>
 			
+      
       <p>Assessment:</p>
 			
+      
       <ul>
 				
+        
         <li>The Spine L1-L4 BMD is normal.</li>
 				
+        
         <li>The Left Femur Neck BMD is in the osteopenic range. Relative fracture risk is about 2.</li>
 				
+        
         <li>The Left Femur Total BMD is in the osteopenic range. Relative fracture risk is about 2.</li>
 				
+        
         <li>The Right Femur Neck BMD is in the osteopenic range. Relative fracture risk is about 2.</li>
 				
+        
         <li>The Right Femur Total BMD is in the osteopenic range. Relative fracture risk is about 2.</li>
 			
+      
       </ul>
 			
+      
       <p>
 				
+        
         <b>COMMENT</b>
 			
+      
       </p>
 			
+      
       <p>Osteopenia on measured BMD. The estimated 10-year probability of fracture based on present age, gender and measured BMD is less than 10%. This absolute fracture risk remains low. A follow-up assessment may be considered in 2 to 3 years to monitor the trend in BMD.</p>
 			
+      
       <p>Thank you for your referral.  Dr Peter Ng  17/06/2008</p>
 			
+      
       <pre>
 Note:
 WHO classification of osteoporosis (WHO Technical Report Series 1994: 843)
@@ -229,11 +335,12 @@ Reference for 10-year probability of fracture risk: Kanis JA, Johnell O, Oden A,
 GE LUNAR PRODIGY DENSITOMETER
 </pre>
 		
+    
     </div>
   </text>
   <contained>
     <Observation>
-    <!--    Here is one of the measurements above encoded as an observation for example purposes.    -->
+    <!--     Here is one of the measurements above encoded as an observation for example purposes.     -->
       <id value="r1"/>
       <status value="final"/>
       <code>
@@ -246,7 +353,7 @@ GE LUNAR PRODIGY DENSITOMETER
       <subject>
         <reference value="Patient/pat2"/>
       </subject>
-    <!--    well, actually. this isn't the patient, but it'll do for now    -->
+    <!--     well, actually. this isn't the patient, but it'll do for now     -->
       <performer>
         <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
         <display value="Acme Imaging Diagnostics"/>
@@ -265,8 +372,9 @@ GE LUNAR PRODIGY DENSITOMETER
       </bodySiteCodeableConcept>
     </Observation>
   </contained>
-<!--    femur, laterality = left    -->
-<!--    first, various administrative/context stuff    -->
+  <status value="final"/>
+<!--     femur, laterality = left     -->
+<!--     first, various administrative/context stuff     -->
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -274,22 +382,21 @@ GE LUNAR PRODIGY DENSITOMETER
     </coding>
     <text value="DXA BONE DENSITOMETRY"/>
   </code>
-  <status value="final"/>
-<!--    all this report is final    -->
-  <issued value="2008-06-18T09:23:00+10:00"/>
   <subject>
     <reference value="Patient/pat2"/>
   </subject>
-<!--    well, actually. this isn't the patient, but it'll do for now    -->
+  <effectiveDateTime value="2008-06-17"/>
+<!--     all this report is final     -->
+  <issued value="2008-06-18T09:23:00+10:00"/>
+<!--     well, actually. this isn't the patient, but it'll do for now     -->
   <performer>
     <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
     <display value="Acme Imaging Diagnostics"/>
   </performer>
-  <effectiveDateTime value="2008-06-17"/>
   <result>
     <reference value="#r1"/>
   </result>
-<!--    the imaging service marks this to help find categories of patient    -->
+<!--     the imaging service marks this to help find categories of patient     -->
   <codedDiagnosis>
     <coding>
       <system value="http://snomed.info/sct"/>

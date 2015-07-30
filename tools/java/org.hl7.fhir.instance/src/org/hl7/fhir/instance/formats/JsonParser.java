@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jul 29, 2015 20:59+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 30, 2015 18:15+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -3124,8 +3124,22 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
-    if (json.has("content"))
-      res.setContent(parseReference(json.getAsJsonObject("content")));
+    if (json.has("text"))
+      res.setText(parseNarrative(json.getAsJsonObject("text")));
+    if (json.has("mode"))
+      res.setModeElement(parseCode(json.get("mode").getAsString()));
+    if (json.has("_mode"))
+      parseElementProperties(json.getAsJsonObject("_mode"), res.getModeElement());
+    if (json.has("orderedBy"))
+      res.setOrderedBy(parseCodeableConcept(json.getAsJsonObject("orderedBy")));
+    if (json.has("entry")) {
+      JsonArray array = json.getAsJsonArray("entry");
+      for (int i = 0; i < array.size(); i++) {
+        res.getEntry().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("emptyReason"))
+      res.setEmptyReason(parseCodeableConcept(json.getAsJsonObject("emptyReason")));
     if (json.has("section")) {
       JsonArray array = json.getAsJsonArray("section");
       for (int i = 0; i < array.size(); i++) {
@@ -4819,39 +4833,39 @@ public class JsonParser extends JsonParserBase {
   protected DiagnosticReport parseDiagnosticReport(JsonObject json) throws Exception {
     DiagnosticReport res = new DiagnosticReport();
     parseDomainResourceProperties(json, res);
-    if (json.has("code"))
-      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
-    if (json.has("status"))
-      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), DiagnosticReport.DiagnosticReportStatus.NULL, new DiagnosticReport.DiagnosticReportStatusEnumFactory()));
-    if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
-    if (json.has("issued"))
-      res.setIssuedElement(parseInstant(json.get("issued").getAsString()));
-    if (json.has("_issued"))
-      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssuedElement());
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("performer"))
-      res.setPerformer(parseReference(json.getAsJsonObject("performer")));
-    if (json.has("encounter"))
-      res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), DiagnosticReport.DiagnosticReportStatus.NULL, new DiagnosticReport.DiagnosticReportStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("serviceCategory"))
+      res.setServiceCategory(parseCodeableConcept(json.getAsJsonObject("serviceCategory")));
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("encounter"))
+      res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
+    Type effective = parseType("effective", json);
+    if (effective != null)
+      res.setEffective(effective);
+    if (json.has("issued"))
+      res.setIssuedElement(parseInstant(json.get("issued").getAsString()));
+    if (json.has("_issued"))
+      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssuedElement());
+    if (json.has("performer"))
+      res.setPerformer(parseReference(json.getAsJsonObject("performer")));
     if (json.has("requestDetail")) {
       JsonArray array = json.getAsJsonArray("requestDetail");
       for (int i = 0; i < array.size(); i++) {
         res.getRequestDetail().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("serviceCategory"))
-      res.setServiceCategory(parseCodeableConcept(json.getAsJsonObject("serviceCategory")));
-    Type effective = parseType("effective", json);
-    if (effective != null)
-      res.setEffective(effective);
     if (json.has("specimen")) {
       JsonArray array = json.getAsJsonArray("specimen");
       for (int i = 0; i < array.size(); i++) {
@@ -15656,8 +15670,24 @@ public class JsonParser extends JsonParserBase {
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
-      if (element.hasContent()) {
-        composeReference("content", element.getContent());
+      if (element.hasText()) {
+        composeNarrative("text", element.getText());
+      }
+      if (element.hasModeElement()) {
+        composeCodeCore("mode", element.getModeElement(), false);
+        composeCodeExtras("mode", element.getModeElement(), false);
+      }
+      if (element.hasOrderedBy()) {
+        composeCodeableConcept("orderedBy", element.getOrderedBy());
+      }
+      if (element.hasEntry()) {
+        openArray("entry");
+        for (Reference e : element.getEntry()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasEmptyReason()) {
+        composeCodeableConcept("emptyReason", element.getEmptyReason());
       }
       if (element.hasSection()) {
         openArray("section");
@@ -17715,44 +17745,44 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeDiagnosticReportInner(DiagnosticReport element) throws Exception {
       composeDomainResourceElements(element);
-      if (element.hasCode()) {
-        composeCodeableConcept("code", element.getCode());
-      }
-      if (element.hasStatusElement()) {
-        composeEnumerationCore("status", element.getStatusElement(), new DiagnosticReport.DiagnosticReportStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatusElement(), new DiagnosticReport.DiagnosticReportStatusEnumFactory(), false);
-      }
-      if (element.hasIssuedElement()) {
-        composeInstantCore("issued", element.getIssuedElement(), false);
-        composeInstantExtras("issued", element.getIssuedElement(), false);
-      }
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
-      }
-      if (element.hasPerformer()) {
-        composeReference("performer", element.getPerformer());
-      }
-      if (element.hasEncounter()) {
-        composeReference("encounter", element.getEncounter());
-      }
       if (element.hasIdentifier()) {
         openArray("identifier");
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier(null, e);
         closeArray();
       };
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new DiagnosticReport.DiagnosticReportStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new DiagnosticReport.DiagnosticReportStatusEnumFactory(), false);
+      }
+      if (element.hasServiceCategory()) {
+        composeCodeableConcept("serviceCategory", element.getServiceCategory());
+      }
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
+      }
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
+      }
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }
+      if (element.hasIssuedElement()) {
+        composeInstantCore("issued", element.getIssuedElement(), false);
+        composeInstantExtras("issued", element.getIssuedElement(), false);
+      }
+      if (element.hasPerformer()) {
+        composeReference("performer", element.getPerformer());
+      }
       if (element.hasRequestDetail()) {
         openArray("requestDetail");
         for (Reference e : element.getRequestDetail()) 
           composeReference(null, e);
         closeArray();
       };
-      if (element.hasServiceCategory()) {
-        composeCodeableConcept("serviceCategory", element.getServiceCategory());
-      }
-      if (element.hasEffective()) {
-        composeType("effective", element.getEffective());
-      }
       if (element.hasSpecimen()) {
         openArray("specimen");
         for (Reference e : element.getSpecimen()) 

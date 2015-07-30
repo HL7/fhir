@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 29, 2015 20:59+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 30, 2015 18:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -48,11 +48,11 @@ public class Narrative extends BaseNarrative implements INarrative {
 
     public enum NarrativeStatus {
         /**
-         * The contents of the narrative are entirely generated from the structured data in the resource.
+         * The contents of the narrative are entirely generated from the structured data in the content.
          */
         GENERATED, 
         /**
-         * The contents of the narrative are entirely generated from the structured data in the resource and some of the content is generated from extensions
+         * The contents of the narrative are entirely generated from the structured data in the content and some of the content is generated from extensions
          */
         EXTENSIONS, 
         /**
@@ -60,7 +60,7 @@ public class Narrative extends BaseNarrative implements INarrative {
          */
         ADDITIONAL, 
         /**
-         * the contents of the narrative are some equivalent of "No human-readable text provided for this resource"
+         * The contents of the narrative are some equivalent of "No human-readable text provided in this case"
          */
         EMPTY, 
         /**
@@ -100,10 +100,10 @@ public class Narrative extends BaseNarrative implements INarrative {
         }
         public String getDefinition() {
           switch (this) {
-            case GENERATED: return "The contents of the narrative are entirely generated from the structured data in the resource.";
-            case EXTENSIONS: return "The contents of the narrative are entirely generated from the structured data in the resource and some of the content is generated from extensions";
+            case GENERATED: return "The contents of the narrative are entirely generated from the structured data in the content.";
+            case EXTENSIONS: return "The contents of the narrative are entirely generated from the structured data in the content and some of the content is generated from extensions";
             case ADDITIONAL: return "The contents of the narrative contain additional information not found in the structured data";
-            case EMPTY: return "the contents of the narrative are some equivalent of 'No human-readable text provided for this resource'";
+            case EMPTY: return "The contents of the narrative are some equivalent of 'No human-readable text provided in this case'";
             default: return "?";
           }
         }

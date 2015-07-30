@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jul 29, 2015 20:59+1000 for FHIR v0.5.0
+// Generated on Thu, Jul 30, 2015 18:15+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -47,7 +47,6 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.InstantType;
-import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.model.*;
 import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
@@ -2944,8 +2943,16 @@ public class XmlParser extends XmlParserBase {
         res.setTitleElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCode(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("content")) {
-        res.setContent(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("text")) {
+        res.setText(parseNarrative(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("mode")) {
+        res.setModeElement(parseCode(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("orderedBy")) {
+        res.setOrderedBy(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("entry")) {
+        res.getEntry().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("emptyReason")) {
+        res.setEmptyReason(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("section")) {
         res.getSection().add(parseCompositionSectionComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -4393,26 +4400,26 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
-        res.setCode(parseCodeableConcept(xpp));
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
+        res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, DiagnosticReport.DiagnosticReportStatus.NULL, new DiagnosticReport.DiagnosticReportStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("issued")) {
-        res.setIssuedElement(parseInstant(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
-        res.setSubject(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performer")) {
-        res.setPerformer(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
-        res.setEncounter(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.getIdentifier().add(parseIdentifier(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestDetail")) {
-        res.getRequestDetail().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("serviceCategory")) {
         res.setServiceCategory(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
+        res.setCode(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
+        res.setSubject(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
+        res.setEncounter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "effective")) {
         res.setEffective(parseType("effective", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("issued")) {
+        res.setIssuedElement(parseInstant(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performer")) {
+        res.setPerformer(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestDetail")) {
+        res.getRequestDetail().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("specimen")) {
         res.getSpecimen().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("result")) {
@@ -13933,8 +13940,21 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
-      if (element.hasContent()) {
-        composeReference("content", element.getContent());
+      if (element.hasText()) {
+        composeNarrative("text", element.getText());
+      }
+      if (element.hasModeElement()) {
+        composeCode("mode", element.getModeElement());
+      }
+      if (element.hasOrderedBy()) {
+        composeCodeableConcept("orderedBy", element.getOrderedBy());
+      }
+      if (element.hasEntry()) { 
+        for (Reference e : element.getEntry()) 
+          composeReference("entry", e);
+      }
+      if (element.hasEmptyReason()) {
+        composeCodeableConcept("emptyReason", element.getEmptyReason());
       }
       if (element.hasSection()) { 
         for (Composition.SectionComponent e : element.getSection()) 
@@ -15486,37 +15506,37 @@ public class XmlParser extends XmlParserBase {
       composeDomainResourceAttributes(element);
       xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
-      if (element.hasCode()) {
-        composeCodeableConcept("code", element.getCode());
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
       }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new DiagnosticReport.DiagnosticReportStatusEnumFactory());
-      if (element.hasIssuedElement()) {
-        composeInstant("issued", element.getIssuedElement());
+      if (element.hasServiceCategory()) {
+        composeCodeableConcept("serviceCategory", element.getServiceCategory());
+      }
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
       }
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
-      if (element.hasPerformer()) {
-        composeReference("performer", element.getPerformer());
-      }
       if (element.hasEncounter()) {
         composeReference("encounter", element.getEncounter());
       }
-      if (element.hasIdentifier()) { 
-        for (Identifier e : element.getIdentifier()) 
-          composeIdentifier("identifier", e);
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }      if (element.hasIssuedElement()) {
+        composeInstant("issued", element.getIssuedElement());
+      }
+      if (element.hasPerformer()) {
+        composeReference("performer", element.getPerformer());
       }
       if (element.hasRequestDetail()) { 
         for (Reference e : element.getRequestDetail()) 
           composeReference("requestDetail", e);
       }
-      if (element.hasServiceCategory()) {
-        composeCodeableConcept("serviceCategory", element.getServiceCategory());
-      }
-      if (element.hasEffective()) {
-        composeType("effective", element.getEffective());
-      }      if (element.hasSpecimen()) { 
+      if (element.hasSpecimen()) { 
         for (Reference e : element.getSpecimen()) 
           composeReference("specimen", e);
       }

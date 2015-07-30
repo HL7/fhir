@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--    <?xml version="1.0" encoding="UTF-8"?>    -->
-<!--    Placeholder copied from base resource example.  To be updated for QICore.     -->
-<!--    lab report example: a CBC    -->
+<!--     <?xml version="1.0" encoding="UTF-8"?>     -->
+<!--     Placeholder copied from base resource example.  To be updated for QICore.      -->
+<!--     lab report example: a CBC     -->
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="diagnosticreport-qicore-example"/>
   <text>
@@ -11,9 +11,11 @@
       
       
       
+      
       <h3>CBC Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2011 11:45</h3>
 
             
+      
       
       
       <pre>
@@ -39,23 +41,25 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           
       
       
+      
       <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
       
+    
     
     
     </div>
   </text>
   <contained>
-  <!--   
+  <!--    
   all the data items (= Observations) are contained
   in this diagnostic report. It would be equally
     valid - and normal - for them to be separate trackable
     items. However for the purposes of this example, it's
   more convenient to have them here. For more discussion,
   see under "Contained Resources" on the Resource Definitions
-  topic page    -->
-  <!--    for users steeped in v2, each observation roughly corresponds with an
-    OBX, and the Diagnostic Report with an ORU_R01 message    -->
+  topic page     -->
+  <!--     for users steeped in v2, each observation roughly corresponds with an
+    OBX, and the Diagnostic Report with an ORU_R01 message     -->
     <Observation>
       <id value="r1"/>
       <status value="final"/>
@@ -592,7 +596,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       <reference value="Location/example"/>
     </valueReference>
   </extension>
-<!--    first, various administrative/context stuff    -->
+  <identifier>
+    <system value="http://acme.com/lab/reports"/>
+    <value value="5234342"/>
+  </identifier>
+  <status value="final"/>
+  <serviceCategory>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0074"/>
+      <code value="HM"/>
+    </coding>
+  </serviceCategory>
+<!--     first, various administrative/context stuff     -->
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -605,28 +620,17 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </coding>
     <text value="Complete Blood Count"/>
   </code>
-  <status value="final"/>
-<!--    all this report is final    -->
-  <issued value="2011-03-04T11:45:33+11:00"/>
   <subject>
     <reference value="Patient/pat2"/>
   </subject>
+  <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
+<!--     all this report is final     -->
+  <issued value="2011-03-04T11:45:33+11:00"/>
   <performer>
     <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
     <display value="Acme Laboratory, Inc"/>
   </performer>
-  <identifier>
-    <system value="http://acme.com/lab/reports"/>
-    <value value="5234342"/>
-  </identifier>
-  <serviceCategory>
-    <coding>
-      <system value="http://hl7.org/fhir/v2/0074"/>
-      <code value="HM"/>
-    </coding>
-  </serviceCategory>
-  <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
-<!--    now the atomic results    -->
+<!--     now the atomic results     -->
   <result>
     <reference value="#r1"/>
   </result>
@@ -678,10 +682,10 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <result>
     <reference value="#r17"/>
   </result>
-<!--    finally, here's a pdf representation of the same report.
+<!--     finally, here's a pdf representation of the same report.
     A consuming application could choose to display either the
 	html version above, or the pdf version - they both need to convey the
-	same information    -->
+	same information     -->
   <presentedForm>
     <contentType value="application/pdf"/>
     <language value="en-AU"/>

@@ -135,7 +135,7 @@ public class IgParser {
           Example example = new Example(r.getName(), id, r.getDescription(), fn, false, ExampleType.XmlFile, false);
           example.setIg(igd.getCode());
           igd.getExamples().add(example);
-        } else if (r.getPurpose() == GuideResourcePurpose.VALUESET) {
+        } else if (r.getPurpose() == GuideResourcePurpose.TERMINOLOGY) {
           ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(fn));
           if (id.contains(File.separator))
             if (id.startsWith("valueset-"))

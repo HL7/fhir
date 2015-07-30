@@ -3,7 +3,7 @@
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="micro"/>
   <contained>
-  <!-- 
+  <!--  
 
 This diagnostic report shows how to do a microbiology isolate and sensitivity. This is a particular complex case, with two different susceptibilities.
 
@@ -70,8 +70,8 @@ OBR|3|xxxx|xxxxxxx|60418^Susceptibility - Disk diffusion (Billed)|||201209110727
 OBX|1|ST|60036^Oxacillin Screen&KB Zone|1|60416|||SUSCEPT||A~S|F||N|||^9315|
 OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
 
- -->
-  <!--  first, a series of atomic results matching the atomice result OBXs  -->
+  -->
+  <!--   first, a series of atomic results matching the atomice result OBXs   -->
     <Observation>
       <id value="obx1-4"/>
       <status value="final"/>
@@ -83,14 +83,14 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueCodeableConcept>
-      <!--  CE  -->
+      <!--   CE   -->
         <coding>
           <system value="http://acme.org/lab/codes/organisms"/>
           <code value="Staaur"/>
@@ -111,11 +111,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueCodeableConcept>
         <coding>
@@ -126,7 +126,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </Observation>
   </contained>
   <contained>
-  <!--  this is an interpretation without a value, as in the source message. Quite Strange  -->
+  <!--   this is an interpretation without a value, as in the source message. Quite Strange   -->
     <Observation>
       <id value="obx2-1"/>
       <status value="final"/>
@@ -139,11 +139,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <interpretation>
         <coding>
@@ -166,11 +166,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="2"/>
@@ -197,11 +197,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="4"/>
@@ -228,11 +228,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.5"/>
@@ -259,11 +259,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="1"/>
@@ -290,11 +290,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.5"/>
@@ -321,11 +321,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="8"/>
@@ -352,11 +352,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="2"/>
@@ -383,11 +383,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.5"/>
@@ -414,11 +414,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="4"/>
@@ -444,11 +444,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.5"/>
@@ -475,11 +475,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.5"/>
@@ -505,11 +505,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="2"/>
@@ -536,11 +536,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.5"/>
@@ -566,11 +566,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.5"/>
@@ -597,11 +597,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.5"/>
@@ -628,15 +628,15 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="0.0526"/>
-      <!--  not sure what to do with <=1/19  -->
+      <!--   not sure what to do with <=1/19   -->
         <comparator value="&lt;="/>
       </valueQuantity>
       <interpretation>
@@ -660,11 +660,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueQuantity>
         <value value="1"/>
@@ -690,11 +690,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <valueString value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
     </Observation>
@@ -712,11 +712,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
       <interpretation>
         <coding>
@@ -727,7 +727,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </Observation>
   </contained>
   <contained>
-  <!-- 
+  <!--  
     now, nested observations for the groups/panels
 
     we're working bottom to top, so first we encounter an
@@ -736,11 +736,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     Note that we don't have to work bottom to top - the contained
     resources can appear in any order, but since the root does have
     to appear last, we weill work up to it
-   -->
+    -->
     <Observation>
       <id value="obr-2"/>
       <status value="final"/>
-    <!--  OBR 2  -->
+    <!--   OBR 2   -->
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/panels"/>
@@ -750,13 +750,13 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <performer>
         <display value="Todd Ashby"/>
-      <!--  of course, in practive, this would be a real reference  -->
+      <!--   of course, in practive, this would be a real reference   -->
       </performer>
-    <!--  now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed  -->
+    <!--   now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed   -->
       <related>
         <type value="has-member"/>
         <target>
@@ -874,11 +874,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </Observation>
   </contained>
   <contained>
-  <!--  now we encounter another inner group: susceptibility measured by disk diffusion  -->
+  <!--   now we encounter another inner group: susceptibility measured by disk diffusion   -->
     <Observation>
       <id value="obr-3"/>
       <status value="final"/>
-    <!--  OBR 3  -->
+    <!--   OBR 3   -->
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/panels"/>
@@ -888,7 +888,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <related>
         <type value="has-member"/>
@@ -899,11 +899,11 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </Observation>
   </contained>
   <contained>
-  <!--  organism group: Staphylococcus aureus. You'd repeat at this level if you had more than one organism  -->
+  <!--   organism group: Staphylococcus aureus. You'd repeat at this level if you had more than one organism   -->
     <Observation>
       <id value="org1"/>
       <status value="final"/>
-    <!--  OBR 1  -->
+    <!--   OBR 1   -->
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/organisms"/>
@@ -913,7 +913,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </code>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <related>
         <type value="has-member"/>
@@ -927,14 +927,14 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
           <reference value="#obx1-5"/>
         </target>
       </related>
-    <!--  group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped  -->
+    <!--   group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped   -->
       <related>
         <type value="has-member"/>
         <target>
           <reference value="#obr-2"/>
         </target>
       </related>
-    <!--  group - Disk diffusion  -->
+    <!--   group - Disk diffusion   -->
       <related>
         <type value="has-member"/>
         <target>
@@ -944,19 +944,31 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </Observation>
   </contained>
   <contained>
-  <!--  ORC information  -->
+  <!--   ORC information   -->
     <DiagnosticOrder>
       <id value="req"/>
       <subject>
         <reference value="Patient/example"/>
-      <!--  patient chosen at random  -->
+      <!--   patient chosen at random   -->
       </subject>
       <identifier>
         <value value="255337816"/>
       </identifier>
     </DiagnosticOrder>
   </contained>
-<!--  start of the main resource  -->
+  <identifier>
+    <system value="http://hnam.org/identifiers/orders"/>
+  <!--   seems like a likely choice   -->
+    <value value="290741144"/>
+  </identifier>
+  <status value="final"/>
+  <serviceCategory>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0074"/>
+      <code value="MB"/>
+    </coding>
+  </serviceCategory>
+<!--   start of the main resource   -->
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -964,31 +976,19 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </coding>
     <text value="Culture, MRSA"/>
   </code>
-  <status value="final"/>
-  <issued value="2009-08-10T08:25:44+10:00"/>
   <subject>
     <reference value="Patient/example"/>
-  <!--  patient chosen at random  -->
+  <!--   patient chosen at random   -->
   </subject>
+  <effectiveDateTime value="2009-08-07T19:00:00+10:00"/>
+  <issued value="2009-08-10T08:25:44+10:00"/>
   <performer>
     <display value="Todd Ashby"/>
-  <!--  of course, in practive, this would be a real reference  -->
+  <!--   of course, in practive, this would be a real reference   -->
   </performer>
-  <identifier>
-    <system value="http://hnam.org/identifiers/orders"/>
-  <!--  seems like a likely choice  -->
-    <value value="290741144"/>
-  </identifier>
   <requestDetail>
     <reference value="#req"/>
   </requestDetail>
-  <serviceCategory>
-    <coding>
-      <system value="http://hl7.org/fhir/v2/0074"/>
-      <code value="MB"/>
-    </coding>
-  </serviceCategory>
-  <effectiveDateTime value="2009-08-07T19:00:00+10:00"/>
   <result>
     <reference value="#org1"/>
   </result>

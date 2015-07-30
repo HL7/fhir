@@ -20,7 +20,7 @@
     </extension>
     <name value="base"/>
     <resource>
-      <purpose value="valueset"/>
+      <purpose value="terminology"/>
       <sourceUri value="valueset-dataelement-sdccode.xml"/>
     </resource>
     <resource>
