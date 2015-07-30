@@ -1,0 +1,51 @@
+To do task list for DSTU2
+
+282 open tasks
+http://fhir.org
+remove disqus
+fix terminology sub-system (upgrade fhir-dev.healthintersections.com.au)
+check all redirects / publishing QA
+expansion - revisit handling of value sets that are too large
+search - value set / profile / IG / core / v3 / v2
+revisit profile resource identification in igs 
+fix summary element handling
+fix links in narrative embedded in html pages
+json / profile format
+xml / profile format
+finish IG building/rendering
+Resource guide
+More RDF work
+fix pascal compiler
+Examples
+* Clem's vital signs observations
+* Russian ECG example 
+* provenance examples for security
+
+
+
+
+
+move to wiki:
+------------------
+
+
+
+
+POssible  Best Practice GUides
+
+Each guide consists of 
+- an identifier to which you can claim conformance (guides are not normative)
+- profiles, value sets other testable assertions
+- business process descriptions
+- User interface requirements
+
+
+Suggested Guides:
+- choosing a code from a value set
+- authoring a value set 
+- authoring a code system
+- identifying patients
+- presenting a medication
+- recording a patient's medical history
+- recording a patient's allergies and intolerances
+- recording a patients' current medications

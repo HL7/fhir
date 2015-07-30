@@ -190,6 +190,10 @@ public class TableGenerator extends BaseGenerator {
           c.addPiece(gen.new Piece(prefix+pp[1].toLowerCase()+".html", pp[1], null));
         else
           c.addPiece(gen.new Piece(null, pp[1], null));
+      } else if (p.contains("[")) {
+        String[] pp = p.split("\\[");
+        presentLogicalMappingWord(gen, c, pp[0], prefix);
+        c.addPiece(gen.new Piece(null, "["+pp[1], null));
       } else {
         presentLogicalMappingWord(gen, c, p, prefix);
       }
