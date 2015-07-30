@@ -1,0 +1,26 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="HSPC Temperature Units of Measure Value Set"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>  
+    <system value="other"/>
+    <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="The codes that describe the units of measure used for temperature."/>
+  <copyright value="This value set includes content from UCUM. Implementer use of UCUM is not covered by this agreement"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+        <system value="http://unitsofmeasure.org"/>
+        <concept>
+			<code value="[degF]"/>
+			<display value="Fahrenheit"/>
+	    </concept>
+	    <concept>
+			<code value="Cel"/>
+			<display value="Celsius"/>
+	    </concept>
+    </include>
+  </compose>
+</ValueSet>

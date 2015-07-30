@@ -245,6 +245,11 @@
     <display value="Weakly-reactive"/>
     <display value="Weakly-reactive (qualifier value)"/>
   </concept>
+  <concept id="118376009" display="Thermocouple device">
+    <display value="Thermocouple device (physical object)"/>
+    <display value="Thermocouple device"/>
+    <display value="Thermocouple"/>
+  </concept>
   <concept id="11896004" display="Inter-">
     <display value="Intermediate"/>
     <display value="Inter-"/>
@@ -1058,6 +1063,11 @@
     <display value="Oral cavity"/>
     <display value="Entire oral cavity (body structure)"/>
   </concept>
+  <concept id="181261002" display="Entire rectum">
+    <display value="Entire rectum (body structure)"/>
+    <display value="Entire rectum"/>
+    <display value="Rectum"/>
+  </concept>
   <concept id="18131002" display="Acute fulminating (qualifier value)">
     <display value="Acute fulminating"/>
     <display value="Acute fulminating (qualifier value)"/>
@@ -1086,6 +1096,14 @@
     <display value="Entire patella"/>
     <display value="Patella"/>
     <display value="Entire patella (body structure)"/>
+  </concept>
+  <concept id="182245002" display="Entire upper limb">
+    <display value="Entire upper limb (body structure)"/>
+    <display value="Entire upper limb"/>
+    <display value="Arm"/>
+    <display value="Arm region"/>
+    <display value="UL - Upper limb"/>
+    <display value="Upper limb"/>
   </concept>
   <concept id="182836005" display="Medication review">
     <display value="Medication review"/>
@@ -1124,6 +1142,12 @@
     <display value="Insulin-dependent diabetes maturity onset"/>
     <display value="Type 1 diabetes mellitus maturity onset"/>
     <display value="Type I diabetes mellitus maturity onset (disorder)"/>
+  </concept>
+  <concept id="1910005" display="Entire ear">
+    <display value="Entire ear (body structure)"/>
+    <display value="Entire ear"/>
+    <display value="Ear"/>
+    <display value="Vestibulocochlear organ"/>
   </concept>
   <concept id="19440001" display="Explosion (physical force)">
     <display value="Explosion"/>
@@ -1209,9 +1233,24 @@
     <display value="Nasal sinus structure"/>
     <display value="Nasal sinus structure (body structure)"/>
   </concept>
+  <concept id="209570001" display="Entire right thigh">
+    <display value="Entire right thigh (body structure)"/>
+    <display value="Entire right thigh"/>
+    <display value="Right thigh"/>
+  </concept>
+  <concept id="209672000" display="Entire left thigh">
+    <display value="Entire left thigh (body structure)"/>
+    <display value="Entire left thigh"/>
+    <display value="Left thigh"/>
+  </concept>
   <concept id="21005005" display="Burning epigastric pain">
     <display value="Burning epigastric pain"/>
     <display value="Burning epigastric pain (finding)"/>
+  </concept>
+  <concept id="21082005" display="Entire mouth region">
+    <display value="Entire mouth region (body structure)"/>
+    <display value="Entire mouth region"/>
+    <display value="Mouth"/>
   </concept>
   <concept id="21306003" display="Jejunal structure (body structure)">
     <display value="Jejunum"/>
@@ -1928,10 +1967,20 @@
     <display value="HRCT - High resolution computed tomography"/>
     <display value="High resolution CT of lungs (procedure)"/>
   </concept>
+  <concept id="241699003" display="Entire right ankle">
+    <display value="Entire right ankle (body structure)"/>
+    <display value="Entire right ankle"/>
+    <display value="Right ankle"/>
+  </concept>
   <concept id="241716000" display="Patient controlled analgesia (procedure)">
     <display value="Patient controlled analgesia"/>
     <display value="PCA - Patient controlled analgesia"/>
     <display value="Patient controlled analgesia (procedure)"/>
+  </concept>
+  <concept id="241784008" display="Entire left ankle">
+    <display value="Entire left ankle (body structure)"/>
+    <display value="Entire left ankle"/>
+    <display value="Left ankle"/>
   </concept>
   <concept id="243899009" display="Transverse plane (body structure)">
     <display value="Horizontal plane"/>
@@ -2079,6 +2128,11 @@
     <display value="Haematology test"/>
     <display value="Hematology test"/>
     <display value="Hematology test (procedure)"/>
+  </concept>
+  <concept id="252465000" display="Pulse oximetry">
+    <display value="Pulse oximetry (procedure)"/>
+    <display value="Pulse oximetry"/>
+    <display value="Transcutaneous pulse oximetry"/>
   </concept>
   <concept id="25267002" display="Insertion of intracardiac pacemaker (procedure)">
     <display value="Insertion of intracardiac pacemaker"/>
@@ -4124,6 +4178,15 @@
     <display value="Acute renal insufficiency due to procedure"/>
     <display value="Acute renal failure due to procedure (disorder)"/>
   </concept>
+  <concept id="362620003" display="Entire temporal region">
+    <display value="Entire temporal region (body structure)"/>
+    <display value="Entire temporal region"/>
+  </concept>
+  <concept id="362732006" display="Entire axillary region">
+    <display value="Entire axillary region (body structure)"/>
+    <display value="Axilla"/>
+    <display value="Entire axillary region"/>
+  </concept>
   <concept id="36293008" display="Hospital-based outpatient pain clinic (environment)">
     <display value="Hospital-based outpatient pain clinic"/>
     <display value="Hospital-based outpatient pain clinic (environment)"/>
@@ -5011,6 +5074,11 @@
     <display value="Fatal (qualifier value)"/>
     <display value="Fatal"/>
   </concept>
+  <concept id="39937001" display="Skin structure">
+    <display value="Skin structure (body structure)"/>
+    <display value="Skin"/>
+    <display value="Skin structure"/>
+  </concept>
   <concept id="399488007" display="Midline (qualifier value)">
     <display value="Midline (qualifier value)"/>
     <display value="Midline"/>
@@ -5490,6 +5558,10 @@
     <display value="Estimated (qualifier value)"/>
     <display value="Estimated"/>
   </concept>
+  <concept id="414585002" display="Left lateral tilt">
+    <display value="Left lateral tilt (finding)"/>
+    <display value="Left lateral tilt"/>
+  </concept>
   <concept id="4147007" display="Mass (morphologic abnormality)">
     <display value="Localised mass"/>
     <display value="Mass (morphologic abnormality)"/>
@@ -5517,6 +5589,10 @@
     <display value="Puffs"/>
     <display value="Puff - unit of product usage (qualifier value)"/>
     <display value="Puff - unit of product usage"/>
+  </concept>
+  <concept id="415346000" display="Right lateral tilt">
+    <display value="Right lateral tilt (finding)"/>
+    <display value="Right lateral tilt"/>
   </concept>
   <concept id="415684004" display="Suspected (qualifier value)">
     <display value="Suspected (qualifier value)"/>
@@ -6668,6 +6744,10 @@
     <display value="Pharmacist"/>
     <display value="Pharmacist (occupation)"/>
   </concept>
+  <concept id="462983001" display="Liquid-crystal patient thermometer">
+    <display value="Liquid-crystal patient thermometer (physical object)"/>
+    <display value="Liquid-crystal patient thermometer"/>
+  </concept>
   <concept id="463698006" display="Pneumograph (physical object)">
     <display value="Pneumograph (physical object)"/>
     <display value="Pneumograph"/>
@@ -6676,6 +6756,10 @@
     <display value="Chloride measurement"/>
     <display value="Chloride measurement, NOS"/>
     <display value="Chloride measurement (procedure)"/>
+  </concept>
+  <concept id="467862000" display="Capillary patient thermometer, mercury">
+    <display value="Capillary patient thermometer, mercury (physical object)"/>
+    <display value="Capillary patient thermometer, mercury"/>
   </concept>
   <concept id="46825001" display="Electrocardiographic monitoring (procedure)">
     <display value="Electrocardiographic monitoring (regime/therapy)"/>
@@ -7093,6 +7177,12 @@
     <display value="Unknown physical agent"/>
     <display value="Unidentified physical agent"/>
   </concept>
+  <concept id="59126009" display="Entire right upper arm">
+    <display value="Entire right upper arm (body structure)"/>
+    <display value="Entire right upper arm"/>
+    <display value="Right arm"/>
+    <display value="Right upper arm"/>
+  </concept>
   <concept id="59139008" display="Crushing chest pain (finding)">
     <display value="Crushing chest pain (finding)"/>
     <display value="Crushing chest pain"/>
@@ -7420,6 +7510,11 @@
     <display value="At midday"/>
     <display value="Noon (qualifier value)"/>
   </concept>
+  <concept id="72098002" display="Entire left upper arm">
+    <display value="Entire left upper arm (body structure)"/>
+    <display value="Entire left upper arm"/>
+    <display value="Left arm"/>
+  </concept>
   <concept id="72311000" display="Health maintenance organization (environment)">
     <display value="Health maintenance organization"/>
     <display value="Prepaid healthcare organization"/>
@@ -7706,6 +7801,12 @@
     <display value="Principal diagnosis (contextual qualifier)"/>
     <display value="PR - principal diagnosis"/>
     <display value="Principal diagnosis (contextual qualifier) (qualifier value)"/>
+  </concept>
+  <concept id="83418008" display="Entire fetus">
+    <display value="Entire fetus (body structure)"/>
+    <display value="Entire fetus"/>
+    <display value="Fetus"/>
+    <display value="Foetus"/>
   </concept>
   <concept id="83644001" display="Dull pain (finding)">
     <display value="Dull pain"/>
