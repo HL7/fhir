@@ -61,8 +61,8 @@ general references to pre-existing documents.
 All documents have the same structure: a <a href="bundle.html">Bundle</a>
 of resources of <a href="bundle-definitions.html#Bundle.type">type</a> "document"
 that has a <a href="composition.html">Composition</a> resource as the first resource
-in the bundle, followed by a series of other resources referenced from the <i>Composition</i>
-resource that provides guidance on how they fit together. The bundle gathers all the content
+in the bundle, followed by a series of other resources, referenced from the <code>Composition</code>
+resource that provide supporting evidence for the document. The bundle gathers all the content
 of the document into a single XML or JSON document which may be signed and managed as required.
 The resources include both human readable and computer processable portions. In addition, the bundle
 may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a>,
@@ -74,7 +74,7 @@ The composition resource is the foundation of the clinical document. It:
 <ul>
  <li>provides identity and its purpose, sets the context of the document</li>
  <li>carries key information such as the subject and author, and who attests to the document</li>
- <li>divides the document up into a series of sections that contain other resources identified in this specification that carry the content</li>
+ <li>divides the document up into a series of sections, each with their own narrative</li>
 </ul>
 <p>
 Any resource referenced directly in the Composition SHALL be included in the bundle when the document
@@ -133,18 +133,18 @@ documents derived from the same composition SHALL have a different document id.
 <h3>Document Presentation</h3>
 <p>
 When the document is presented for human consumption, applications must present the
-collated narrative portions of the following resources in order:
+collated narrative portions in order:
 </p>
 <ol>
- <li>The Composition resource</li>
+ <li>The Composition resource Narrative</li>
  <li>The Subject resource</li>
- <li><a href="list.html">List</a> resources referenced directly in <i>section.content</i></li>
+ <li>The <code>section.text</code> Narratives</li>
 </ol>
 <p>
 The presentation of the document is called the 'attested content' of the document. Additional
 resources can be included in the bundle (e.g. resources referenced from the List that represent the section.content
-SHOULD be in the bundle, and other additional resources they reference can be included), but these are not 
-attested content. Specifically, the Composition.attester attests to the presented form of the document.
+SHOULD be in the bundle, and other additional resources they reference can be included), but these (and any narrative) 
+are not attested content. Specifically, the <code>Composition.attester</code> attests to the presented form of the document.
 </p>
 <p>
 The Composition resource narrative should summarize the important parts of the document header that are required
@@ -154,7 +154,7 @@ together. <!-- todo: title -->
 </p>
 <p>
 The <a href="downloads.html#refimpl">XML Tools reference implementation</a> includes a
-XSLT transform that converts a document into browser-ready XHTML.
+XSLT transform that converts an XML document into browser-ready XHTML.
 </p>
 
 
@@ -180,8 +180,8 @@ CSS stylesheet. Stylesheet references can only refer to
 a CSS stylesheet - other forms of stylesheet are not acceptable.
 </p>
 <p>
-Relative (internal) references SHOULD be used for stylesheets, because�the viewer may be unable to resolve 
-external content at the time of viewing, due to�technical problems or local�policy decisions.
+Relative (internal) references SHOULD be used for stylesheets, because the viewer may be unable to resolve 
+external content at the time of viewing, due to�technical problems or local policy decisions.
 </p>
 <p>
 Any stylesheet referenced or used SHALL NOT alter the presentation in such a way 
@@ -305,7 +305,6 @@ for handling documents beyond the options described above.
 A client can ask a server to generate a fully bundled document from a composition resource.
 For details, see <a href="composition-operations.html">Generate Document Operation</a>.
 </p>
-
 
 
 </div>

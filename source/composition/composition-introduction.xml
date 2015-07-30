@@ -14,8 +14,8 @@ Note: <a href="http://en.wikipedia.org/wiki/EN_13606">EN 13606</a> uses the term
 to refer to a single commit to an EHR system, and offers some common examples: a consultation 
 note, a progress note, a report or a letter, an investigation report, a prescription form 
 and a set of bedside nursing observations. These logical examples are all valid uses of a 
-Composition resource, but it is not required that all the resources are updated in 
-a single commit.
+Composition resource, but for FHIR purposes, it is not always required that all the resources 
+are updated in  a single commit.
 </p>
 </div>
 
@@ -48,16 +48,24 @@ query responses, etc.)  The content of bundles is typically algorithmically dete
 The <a href="composition.html">Composition</a> resource – defines a set of healthcare-related information that is assembled 
 together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
 that has clinical attestation with regard to who is making the statement. The composition resource provides the basic structure 
-of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle.  Compositions will 
-often reference Lists as the focus of particular sections.
+of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle 
+containing the Composition and it's entries. 
 </li>
 </ul>
 
 <p>
-While a Composition organizes clinical and administrative content, it doesn't directly contain any of this information.  The
-content of the various sections defined by a Composition are satisfied by the resources pointed to by those sections.  The 
-complete set of content to make up a document includes the Composition resource together with various resources pointed to or indirectly
+The Composition resource organizes clinical and administrative content into sections, each of which contains a narrative, 
+and references other resources for supporting data. The narrative content of the various sections in a Composition are 
+supported by the resources referenced in the section entries.  The complete set of content to make up a document includes 
+the Composition resource together with various resources pointed to or indirectly
 connected to the Composition all gathered together into a <a href="bundle.html">Bundle</a> for transport and persistence.
+The following list of Composition references SHALL be included in the bundle:
+</p>
+<%res-ref-list Composition%>
+
+<p>
+Other resources referred to by those resources may be included in the bundle at the discretion of the authoring 
+system, or as specified by any applicable profiles. 
 </p>
 </div>
 
@@ -106,12 +114,9 @@ differences between CDA and the composition resource:
  Composition resources are wrapped into <a href="documents.html">Document</a> structures, for exchange
  of the whole package (the composition and its parts), and this wrapped, sealed entity is equivalent to a CDA document, 
  where the Bundle.id is equivalent in function to ClinicalDocument.id (but not identical, if interconverting, since it's a transform between them)</li>
- <li>The composition section defines a section (or sub-section) of the document, but unlike in CDA, the section content is 
-   actually a reference to another <a href="resourcelist.html">resource</a> that actually holds both the narrative 
-   and data content for the section. This design means that the narrative and data can be reused in many other ways. 
-   Note that the most common resource to use for the content of a section is the <a href="list.html">List</a> resource.
-   When a composition and its lists are wrapped into <a href="documents.html">Document</a>, the List narrative 
-   is part of the 'attested content' (see below), and an indivisible part of the document.
+ <li>The composition section defines a section (or sub-section) of the document, but unlike in CDA, the section entries are 
+   actually references to other <a href="resourcelist.html">resources</a> that hold the supporting data content for the section. 
+   This design means that the data can be reused in many other ways. 
    </li>
 </ul>
 <p>
