@@ -1060,25 +1060,35 @@ public class SpreadsheetParser {
 	    throw new Exception("Value set file names must start with 'valueset-'");
 	  
 	  IParser p;
-	  FileInputStream input;
+	  String filename;
 	  if (new File(Utilities.path(folder, ref+".xml")).exists()) {
 	    p = new XmlParser();
-	    input = new FileInputStream(Utilities.path(folder, ref+".xml"));
+	    filename = Utilities.path(folder, ref+".xml");
 	  } else if (new File(Utilities.path(folder, ref+".json")).exists()) {
 	    p = new JsonParser();
-	    input = new FileInputStream(Utilities.path(folder, ref+".json"));
+	    filename = Utilities.path(folder, ref+".json");
 	  } else if (new File(Utilities.path(dataTypesFolder, ref+".xml")).exists()) {
       p = new XmlParser();
-      input = new FileInputStream(Utilities.path(dataTypesFolder, ref+".xml"));
+      filename = Utilities.path(dataTypesFolder, ref+".xml");
     } else if (new File(Utilities.path(dataTypesFolder, ref+".json")).exists()) {
       p = new JsonParser();
-      input = new FileInputStream(Utilities.path(dataTypesFolder, ref+".json"));
+      filename = Utilities.path(dataTypesFolder, ref+".json");
     } else 
 	    throw new Exception("Unable to find source for "+ref+" in "+folder+" ("+Utilities.path(folder, ref+".xml/json)"));
 
-	  try {
-	    ValueSet result = ValueSetUtilities.makeShareable((ValueSet) p.parse(input));
-	    result.setId(ref.substring(9));
+	    ValueSet result;
+	    try {
+	      FileInputStream input = null;
+	      try {
+	        input = new FileInputStream(filename);
+	        result = ValueSetUtilities.makeShareable((ValueSet) p.parse(input));
+	      } finally {
+	        IOUtils.closeQuietly(input);
+	      }
+	    } catch (Exception e) {
+	      throw new Exception("Error loading value set '"+filename+"': "+e.getMessage(), e);
+	    }
+ 	    result.setId(ref.substring(9));
 	    result.setExperimental(true);
 	    if (!result.hasVersion())
 	      result.setVersion(version);
@@ -1086,9 +1096,6 @@ public class SpreadsheetParser {
       result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
       result.setUserData("committee", committee);
 	    return result;
-	  } finally {
-	    IOUtils.closeQuietly(input);
-	  }
 	}
 
 	private String checkV3Mapping(String value) {
