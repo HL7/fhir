@@ -112,7 +112,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
 //    triple(fhir("FHIR"), isa, none("spec"));
 
     prefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-    prefix("rdfs", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+    prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
     prefix("fhir", "http://hl7.org/fhir/");
     prefix("fhir-vs", "http://hl7.org/fhir/ValueSet/");
     prefix("ex", "http://hl7.org/fhir/StructureDefinition/");

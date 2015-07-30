@@ -42,9 +42,25 @@
 	</custodian>
   <section>
     <title value="History of present illness"/>
-    <content>
-      <!-- bad example, need to find a list of actual conditions -->
-      <reference value="List/example"/> 
-    </content>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <table>
+          <tr><td><b>Code</b></td><td><b>Date</b></td><td><b>Type</b></td><td><b>BodySite</b></td><td><b>Severity</b></td></tr>
+          <tr><td>Stroke</td><td>2010-07-18</td><td>Diagnosis</td><td></td><td></td></tr>
+          <tr><td>Burnt Ear</td><td>2012-05-24</td><td>Diagnosis</td><td>Left Ear</td><td></td></tr>
+          <tr><td>Asthma</td><td>2012-11-12</td><td>Finding</td><td></td><td>Mild</td></tr>
+        </table>
+      </div>
+    </text>
+    <entry>
+      <reference value="Condition/stroke"/>
+    </entry>
+    <entry>
+      <reference value="Condition/example"/>
+    </entry>
+    <entry>
+      <reference value="Condition/example2"/>
+    </entry>
   </section>
 </Composition>
