@@ -27,7 +27,7 @@
     <coding>
       <system value="http://example.org/local/if1"/>
       <code value="l3"/>
-      <code value="Follow Level 3 Protocol"/>
+      <display value="Follow Level 3 Protocol"/>
     </coding>
   </code>
 </Flag>
