@@ -487,72 +487,37 @@ HTTP/1.1 200 OK
 
 <p>
 It's also possible to validate a set of concepts against their relevant value
-sets in <a href="valueset-operations.html#batch-validate">a single batch operation</a>, to support high-volume process and reduce network
-latency effects. In this case, the client passes the server the following information:
-</p>
-<ul>
- <li> a series of pairs of parameters, where each pair contains</li>
- <li> a CodeableConcept containing the concept to be validated</li>
- <li> a URI referring to the value set against which the code should be validated</li>
- <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
-</ul>
-<p>
-Code system URIs may be used to refer to the implicit value set that includes
-all the codes in the code system  (as described for the validation operation).
-</p>
-
-<p>
-The server returns a series of parameters, one for each submitted item, each of
-which has a result, a message, and a display (same as for the $validate-code operation).
-</p>
-<p>
-This operation could be used, for instance, to validate a set of codes in a
-CDA document, by converting from the CDA CD data type to CodeableConcepts.
+sets by using the <code>$validate-code</code> operation in a <a href="http.html#batch">Batch</a> 
+interaction.
 </p>
 
 <div class="example">
-<p><b>Examples</b></p>
+<p><b>Example</b></p>
 <p>
 A request to validate 2 concepts from a CDA document, with OIDs for value set identifiers:
 </p>
 <pre class="http">
-POST [base]/ValueSet/$batch-validate
+POST [base]
 [other headers]
 
 {
-  "ResourceType" : "Parameters",
-  "parameter" : [
-    {
-    "name" : "item",
-    "part" : [
-      {
-      "name" : "concept",
-      "valueCodeableConcept" : {
-        "system" : "http://loinc.org",
-        "code" : "2324-4"
-      },
+  "ResourceType": "Bundle",
+  "type": "batch",
+  "entry": [{
+    "request": {
+      "method": "Get",
+      "url": "ValueSet?system=http://loinc.org&amp;code=2324-4&amp;uri=urn:oid:1.2.3.4.6"
     }
-      "name" : "uri",
-      "valueUri" : "urn:oid:1.2.3.4.6"
-    ]
   },
   {
-    "name" : "item",
-    "part" : [
-      {
-      "name" : "concept",
-      "valueCodeableConcept" : {
-        "system" : "http://snomed.info/sct",
-        "code" : "22298006"
-      },
+    "request": {
+      "method": "GET",
+      "url": "ValueSet?system=http://snomed.info/sct&amp;codes=22298006&amp;uri=urn:oid:1.2.3.4.7"
     }
-      "name" : "uri",
-      "valueUri" : "urn:oid:1.2.3.4.7"
-    ]
-  }
-  ]
+  }]
 }
 </pre>
+
 <p>
 The server responds with a series of validation outcomes (JSON this time):
 </p>
@@ -561,40 +526,40 @@ HTTP/1.1 200 OK
 [other headers]
 
 {
-  "resourceType" : "Parameters",
-  "parameter" : [
-    {
-      "name" : "item",
-      "part" : [
-        {
-        "name" : "result",
-        "valueBoolean" : "false"
+  "ResourceType": "Bundle",
+  "type": "batch-response",
+  "entry": [{
+    "resource": {
+      "resourceType": "Parameters",
+      "parameter": [{
+        "name": "result",
+        "valueBoolean": "false"
       },
       {
-        "name" : "message",
-        "valueString" : "'2324-4' is not a valid LOINC code"
-      }
-    ]
+        "name": "message",
+        "valueString": "'2324-4' is not a valid LOINC code"
+      }]
+    }
   },
   {
-      "name" : "item",
-      "part" : [
-        {
-        "name" : "result",
-        "valueBoolean" : "false"
+    "resource": {
+      "resourceType": "Parameters",
+      "parameter": [{
+        "name": "result",
+        "valueBoolean": "false"
       },
       {
-        "name" : "message",
-        "valueString" : "The concept is not in the specified value set (\"Organisms\")"
+        "name": "message",
+        "valueString": "The concept is not in the specified value set (\"Organisms\")"
       },
       {
-        "name" : "display",
-        "valueString" : "Myocardial infarction"
-      }
-    ]
-  }]
-}
+        "name": "display",
+        "valueString": "Myocardial infarction"
+      }]
+    }]
+  }
 </pre>
+
 </div>
 
 
@@ -662,107 +627,110 @@ HTTP/1.1 200 OK
 <h3>Batch Translation</h3>
 
 <p>
-It's also possible to translate a set of concepts in <a href="conceptmap-operations.html#batch-translate">a single batch operation</a>, to support high-volume process and reduce network
-latency effects. In this case, the client passes the server the following information:
-</p>
-<ul>
- <li> a series of parameter tuples, where each pair contains</li>
- <li> a CodeableConcept containing the concept to be translated</li>
- <li> a URI that identifies the target value set into which to translate the concept</li>
- <li> (optional) A reference to a particular map to use for the translation </li>
-</ul>
-
-<p>
-The server returns a series of parameters, one for each submitted item, each of
-which has a result, a message, and an outcome (same as for the $translate operation).
+It's also possible to validate a set of concepts against their relevant value
+sets by using the <code>$translate</code> operation in a <a href="http.html#batch">Batch</a> 
+interaction.
 </p>
 
 <div class="example">
-<p><b>Examples</b></p>
+<p><b>Example</b></p>
 <p>
 A request to translate 2 concepts from a CDA document, with OIDs for value set identifiers:
 </p>
 <pre class="http">
-POST [base]/ConceptMap/$batch-translate
+POST [base]
 [other headers]
 
 {
-  "ResourceType" : "Parameters",
-  "parameter" : [
-    {
-    "name" : "item",
-    "part" : [
-      {
-      "name" : "concept",
-      "valueCodeableConcept" : {
-        "system" : "http://loinc.org",
-        "code" : "2324-4"
+  "ResourceType": "Bundle",
+  "type": "batch",
+  "entry": [{
+    "resource": {
+      "ResourceType": "Parameters",
+      "parameter": [{
+        "name": "concept",
+        "valueCodeableConcept": {
+          "system": "http://loinc.org",
+          "code": "2324-4"
+        }
       },
+      {
+        "name": "target",
+        "valueUri": "urn:oid:1.2.3.4.6"
+      }]
+    },
+    "request": {
+      "method": "POST",
+      "url": "ConceptMap/$translate"
     }
-      "name" : "target",
-      "valueUri" : "urn:oid:1.2.3.4.6"
-    ]
   },
   {
-    "name" : "item",
-    "part" : [
-      {
-      "name" : "concept",
-      "valueCodeableConcept" : {
-        "system" : "http://snomed.info/sct",
-        "code" : "22298006"
+    "resource": {
+      "ResourceType": "Parameters",
+      "parameter": [{
+        "name": "concept",
+        "valueCodeableConcept": {
+          "system": "http://snomed.info/sct",
+          "code": "22298006"
+        }
       },
-    }
-      "name" : "target",
-      "valueUri" : "urn:oid:1.2.3.4.7"
-    ]
+      {
+        "name": "target",
+        "valueUri": "urn:oid:1.2.3.4.7"
+      }]
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "ConceptMap/$translate"
+      }
+    }]
   }
-  ]
-}
 </pre>
 <p>
-The server responds with a series of validation outcomes:
+The server responds with a series of translation outcomes:
 </p>
 <pre class="http">
 HTTP/1.1 200 OK
 [other headers]
 
 {
-  "resourceType" : "Parameters",
-  "parameter" : [
-    {
-      "name" : "item",
-      "part" : [
-        {
-        "name" : "result",
-        "valueBoolean" : "false"
+  "ResourceType": "Bundle",
+  "type": "batch-response",
+  "entry": [{
+    "resource": {
+      "resourceType": "Parameters",
+      "parameter": [{
+        "name": "result",
+        "valueBoolean": "false"
       },
       {
-        "name" : "message",
-        "valueString" : "'2324-4' is not a valid LOINC code"
-      }
-    ]
+        "name": "message",
+        "valueString": "'2324-4' is not a valid LOINC code"
+      }]
+    }
   },
   {
-      "name" : "item",
-      "part" : [
-        {
-        "name" : "result",
-        "valueBoolean" : "false"
+    "resource": {
+      "resourceType": "Parameters",
+      "parameter": [{
+        "name": "result",
+        "valueBoolean": "false"
       },
       {
-        "name" : "outcome",
-        "valueCodeableConcept" : {
-          "coding" : {
-            "system" : "http://example.com/codesystems/example",
-            "code" : "xxxx"
+        "name": "outcome",
+        "valueCodeableConcept": {
+          "coding": {
+            "system": "http://example.com/codesystems/example",
+            "code": "xxxx"
           }
         }
-      }
-    ]
+      }]
+    }
   }]
 }
 </pre>
+
 </div>
 
 <a name="closure"> </a>
@@ -948,13 +916,13 @@ instance, with an SQL query like this:
  Select * from Observations, Patients, Encounters, Conditions, Observations as Obs2 where
    Observations.patient = Patients.Key and Patients.Age > 50 and 
    Observations.encounter = Encounters.Key and Encounter.clinic = [key] 
-	   and encounter.date >= [date] and encounter.date &lt;= [date] and
-	 Conditions.patient = Patients.Key and Conditions.code 
-	   in (<span style="color: DarkGreen">select Source From ClosureTable 
-		   where Scope = "patient-problems" and Target = "http://snomed.info/sct|90560007"</span>) and
-	 Obs2.patient = Patients.Key and Obs2.value > 0.19 and Obs2.code 
-	   in (<span style="color: DarkGreen">select Source From ClosureTable 
-		   where Scope = "obs-code" and Target = "http://loinc.org|LP41281-4"</span>)
+     and encounter.date >= [date] and encounter.date &lt;= [date] and
+   Conditions.patient = Patients.Key and Conditions.code 
+     in (<span style="color: DarkGreen">select Source From ClosureTable 
+       where Scope = "patient-problems" and Target = "http://snomed.info/sct|90560007"</span>) and
+   Obs2.patient = Patients.Key and Obs2.value > 0.19 and Obs2.code 
+     in (<span style="color: DarkGreen">select Source From ClosureTable 
+       where Scope = "obs-code" and Target = "http://loinc.org|LP41281-4"</span>)
 </pre>
 <p>
 Note that in real clinical systems, tables are usually far more structured than this 
