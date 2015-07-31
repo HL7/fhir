@@ -11,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-<!--  this is the canonical definition for the _id search parameter  -->
+  <code value="part-agree"/>
   <base value="Patient"/>
   <type value="token"/>
   <description value="Search by url for a participation agreement"/>
