@@ -676,6 +676,7 @@ public class SpreadsheetParser {
 //        if (!n.toLowerCase().equals(n))
 //          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" must be all lowercase "+ getLocation(row));
         sp.setName(n);
+        sp.setCode(n);
         String d = sheet.getColumn(row, "Description");
         sp.setType(SearchParamType.fromCode(sheet.getColumn(row, "Type")));
         List<String> pn = new ArrayList<String>();

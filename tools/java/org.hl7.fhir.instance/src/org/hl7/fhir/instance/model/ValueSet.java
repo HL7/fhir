@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 30, 2015 18:15+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 31, 2015 16:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -360,7 +360,7 @@ public class ValueSet extends DomainResource {
         /**
          * Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.
          */
-        @Child(name = "concept", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "concept", type = {}, order=4, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Concepts in the code system", formalDefinition="Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are." )
         protected List<ConceptDefinitionComponent> concept;
 

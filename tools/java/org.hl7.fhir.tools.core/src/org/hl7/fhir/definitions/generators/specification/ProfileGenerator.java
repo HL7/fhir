@@ -621,6 +621,7 @@ public class ProfileGenerator {
     sp.setId(id.replace("[", "").replace("]", ""));
     sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
     sp.setName(spd.getCode());
+    sp.setCode(spd.getCode());
     sp.setDate(genDate.getTime());
     sp.setPublisher(p.getPublisher());
     for (StructureDefinitionContactComponent tc : p.getContact()) {

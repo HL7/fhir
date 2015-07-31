@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Jul 30, 2015 18:15+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 31, 2015 16:27+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -9501,6 +9501,10 @@ public class JsonParser extends JsonParserBase {
       res.setRequirementsElement(parseString(json.get("requirements").getAsString()));
     if (json.has("_requirements"))
       parseElementProperties(json.getAsJsonObject("_requirements"), res.getRequirementsElement());
+    if (json.has("code"))
+      res.setCodeElement(parseCode(json.get("code").getAsString()));
+    if (json.has("_code"))
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
     if (json.has("base"))
       res.setBaseElement(parseCode(json.get("base").getAsString()));
     if (json.has("_base"))
@@ -23600,6 +23604,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequirementsElement()) {
         composeStringCore("requirements", element.getRequirementsElement(), false);
         composeStringExtras("requirements", element.getRequirementsElement(), false);
+      }
+      if (element.hasCodeElement()) {
+        composeCodeCore("code", element.getCodeElement(), false);
+        composeCodeExtras("code", element.getCodeElement(), false);
       }
       if (element.hasBaseElement()) {
         composeCodeCore("base", element.getBaseElement(), false);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 30, 2015 18:15+1000 for FHIR v0.5.0
+// Generated on Fri, Jul 31, 2015 16:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -328,10 +328,10 @@ public class SearchParameter extends DomainResource {
     protected UriType url;
 
     /**
-     * The name of the standard or custom search parameter.
+     * A free text natural language name identifying the search parameter.
      */
     @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1)
-    @Description(shortDefinition="Name of search parameter", formalDefinition="The name of the standard or custom search parameter." )
+    @Description(shortDefinition="Informal name for this search parameter", formalDefinition="A free text natural language name identifying the search parameter." )
     protected StringType name;
 
     /**
@@ -377,48 +377,55 @@ public class SearchParameter extends DomainResource {
     protected StringType requirements;
 
     /**
+     * The code used in the URL or the parameter name in a parameters resource for this search parameter.
+     */
+    @Child(name = "code", type = {CodeType.class}, order=8, min=1, max=1)
+    @Description(shortDefinition="Code used in URL", formalDefinition="The code used in the URL or the parameter name in a parameters resource for this search parameter." )
+    protected CodeType code;
+
+    /**
      * The base resource type that this search parameter refers to.
      */
-    @Child(name = "base", type = {CodeType.class}, order=8, min=1, max=1)
+    @Child(name = "base", type = {CodeType.class}, order=9, min=1, max=1)
     @Description(shortDefinition="The resource type this search parameter applies to", formalDefinition="The base resource type that this search parameter refers to." )
     protected CodeType base;
 
     /**
      * The type of value a search parameter refers to, and how the content is interpreted.
      */
-    @Child(name = "type", type = {CodeType.class}, order=9, min=1, max=1)
+    @Child(name = "type", type = {CodeType.class}, order=10, min=1, max=1)
     @Description(shortDefinition="number | date | string | token | reference | composite | quantity | uri", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
     protected Enumeration<SearchParamType> type;
 
     /**
      * A description of the search parameters and how it used.
      */
-    @Child(name = "description", type = {StringType.class}, order=10, min=1, max=1)
+    @Child(name = "description", type = {StringType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="Documentation for  search parameter", formalDefinition="A description of the search parameters and how it used." )
     protected StringType description;
 
     /**
      * An XPath expression that returns a set of elements for the search parameter.
      */
-    @Child(name = "xpath", type = {StringType.class}, order=11, min=0, max=1)
+    @Child(name = "xpath", type = {StringType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="XPath that extracts the values", formalDefinition="An XPath expression that returns a set of elements for the search parameter." )
     protected StringType xpath;
 
     /**
      * How the search parameter relates to the set of elements returned by evaluating the xpath query.
      */
-    @Child(name = "xpathUsage", type = {CodeType.class}, order=12, min=0, max=1)
+    @Child(name = "xpathUsage", type = {CodeType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="normal | phonetic | nearby | distance | other", formalDefinition="How the search parameter relates to the set of elements returned by evaluating the xpath query." )
     protected Enumeration<XPathUsageType> xpathUsage;
 
     /**
      * Types of resource (if a resource is referenced).
      */
-    @Child(name = "target", type = {CodeType.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "target", type = {CodeType.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
     protected List<CodeType> target;
 
-    private static final long serialVersionUID = -30383162L;
+    private static final long serialVersionUID = -742596414L;
 
   /*
    * Constructor
@@ -430,10 +437,11 @@ public class SearchParameter extends DomainResource {
   /*
    * Constructor
    */
-    public SearchParameter(UriType url, StringType name, CodeType base, Enumeration<SearchParamType> type, StringType description) {
+    public SearchParameter(UriType url, StringType name, CodeType code, CodeType base, Enumeration<SearchParamType> type, StringType description) {
       super();
       this.url = url;
       this.name = name;
+      this.code = code;
       this.base = base;
       this.type = type;
       this.description = description;
@@ -485,7 +493,7 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return {@link #name} (The name of the standard or custom search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A free text natural language name identifying the search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -505,7 +513,7 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @param value {@link #name} (The name of the standard or custom search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A free text natural language name identifying the search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public SearchParameter setNameElement(StringType value) { 
       this.name = value;
@@ -513,14 +521,14 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return The name of the standard or custom search parameter.
+     * @return A free text natural language name identifying the search parameter.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value The name of the standard or custom search parameter.
+     * @param value A free text natural language name identifying the search parameter.
      */
     public SearchParameter setName(String value) { 
         if (this.name == null)
@@ -807,6 +815,51 @@ public class SearchParameter extends DomainResource {
           this.requirements = new StringType();
         this.requirements.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #code} (The code used in the URL or the parameter name in a parameters resource for this search parameter.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+     */
+    public CodeType getCodeElement() { 
+      if (this.code == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.code");
+        else if (Configuration.doAutoCreate())
+          this.code = new CodeType(); // bb
+      return this.code;
+    }
+
+    public boolean hasCodeElement() { 
+      return this.code != null && !this.code.isEmpty();
+    }
+
+    public boolean hasCode() { 
+      return this.code != null && !this.code.isEmpty();
+    }
+
+    /**
+     * @param value {@link #code} (The code used in the URL or the parameter name in a parameters resource for this search parameter.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+     */
+    public SearchParameter setCodeElement(CodeType value) { 
+      this.code = value;
+      return this;
+    }
+
+    /**
+     * @return The code used in the URL or the parameter name in a parameters resource for this search parameter.
+     */
+    public String getCode() { 
+      return this.code == null ? null : this.code.getValue();
+    }
+
+    /**
+     * @param value The code used in the URL or the parameter name in a parameters resource for this search parameter.
+     */
+    public SearchParameter setCode(String value) { 
+        if (this.code == null)
+          this.code = new CodeType();
+        this.code.setValue(value);
       return this;
     }
 
@@ -1100,13 +1153,14 @@ public class SearchParameter extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("name", "string", "A free text natural language name identifying the search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("status", "code", "The status of this search parameter definition.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the search parameter.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the search parameter definition was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("requirements", "string", "The Scope and Usage that this search parameter was created to meet.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("code", "code", "The code used in the URL or the parameter name in a parameters resource for this search parameter.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("base", "code", "The base resource type that this search parameter refers to.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("description", "string", "A description of the search parameters and how it used.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -1130,6 +1184,7 @@ public class SearchParameter extends DomainResource {
         };
         dst.date = date == null ? null : date.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
+        dst.code = code == null ? null : code.copy();
         dst.base = base == null ? null : base.copy();
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
@@ -1157,9 +1212,9 @@ public class SearchParameter extends DomainResource {
         return compareDeep(url, o.url, true) && compareDeep(name, o.name, true) && compareDeep(status, o.status, true)
            && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
            && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(base, o.base, true) && compareDeep(type, o.type, true) && compareDeep(description, o.description, true)
-           && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true) && compareDeep(target, o.target, true)
-          ;
+           && compareDeep(code, o.code, true) && compareDeep(base, o.base, true) && compareDeep(type, o.type, true)
+           && compareDeep(description, o.description, true) && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true)
+           && compareDeep(target, o.target, true);
       }
 
       @Override
@@ -1171,18 +1226,19 @@ public class SearchParameter extends DomainResource {
         SearchParameter o = (SearchParameter) other;
         return compareValues(url, o.url, true) && compareValues(name, o.name, true) && compareValues(status, o.status, true)
            && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(date, o.date, true) && compareValues(requirements, o.requirements, true) && compareValues(base, o.base, true)
-           && compareValues(type, o.type, true) && compareValues(description, o.description, true) && compareValues(xpath, o.xpath, true)
-           && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true);
+           && compareValues(date, o.date, true) && compareValues(requirements, o.requirements, true) && compareValues(code, o.code, true)
+           && compareValues(base, o.base, true) && compareValues(type, o.type, true) && compareValues(description, o.description, true)
+           && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (name == null || name.isEmpty())
            && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (base == null || base.isEmpty()) && (type == null || type.isEmpty())
-           && (description == null || description.isEmpty()) && (xpath == null || xpath.isEmpty()) && (xpathUsage == null || xpathUsage.isEmpty())
-           && (target == null || target.isEmpty());
+           && (requirements == null || requirements.isEmpty()) && (code == null || code.isEmpty()) && (base == null || base.isEmpty())
+           && (type == null || type.isEmpty()) && (description == null || description.isEmpty()) && (xpath == null || xpath.isEmpty())
+           && (xpathUsage == null || xpathUsage.isEmpty()) && (target == null || target.isEmpty());
       }
 
   @Override
@@ -1192,7 +1248,7 @@ public class SearchParameter extends DomainResource {
 
   @SearchParamDefinition(name="description", path="SearchParameter.description", description="Documentation for  search parameter", type="string" )
   public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="name", path="SearchParameter.name", description="Name of search parameter", type="string" )
+  @SearchParamDefinition(name="name", path="SearchParameter.name", description="Informal name for this search parameter", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="target", path="SearchParameter.target", description="Types of resource (if a resource reference)", type="token" )
   public static final String SP_TARGET = "target";
