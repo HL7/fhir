@@ -166,6 +166,7 @@ import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.SearchParameter;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
@@ -927,10 +928,6 @@ public class Publisher implements URIResolver {
     page.log(" ...vocab #1", LogMessageType.Process);
     new ValueSetImporterV2(page, page.getValidationErrors()).execute();
     analyseV3();
-    if (isGenerate) {
-      generateConformanceStatement(true, "base");
-      generateConformanceStatement(false, "base2");
-    }
     generateValueSetsPart1();
     for (BindingSpecification cd : page.getDefinitions().getUnresolvedBindings()) {
       String ref = cd.getReference();
@@ -962,6 +959,12 @@ public class Publisher implements URIResolver {
   }
 
   private void loadValueSets2() throws Exception {
+    page.log(" ...default conformance statements", LogMessageType.Process);
+   
+    if (isGenerate) {
+      generateConformanceStatement(true, "base");
+      generateConformanceStatement(false, "base2");
+    }
     page.log(" ...resource ValueSet", LogMessageType.Process);
     ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
     if (isGenerate && wantBuild("ValueSet")) {
@@ -1064,6 +1067,15 @@ public class Publisher implements URIResolver {
 
         for (SearchParameterDefn i : rd.getSearchParams().values()) {
           res.getSearchParam().add(makeSearchParam(conf, rn, i));
+          if (i.getType().equals(SearchType.reference)) 
+            res.getSearchInclude().add(new StringType(rn+"."+i.getCode()));
+        }
+        for (String rni : page.getDefinitions().sortedResourceNames()) {
+          ResourceDefn rdi = page.getDefinitions().getResourceByName(rni);
+          for (SearchParameterDefn ii : rdi.getSearchParams().values()) {
+            if (ii.getType().equals(SearchType.reference) && ii.getTargets().contains(rn)) 
+              res.getSearchRevInclude().add(new StringType(rni+"."+ii.getCode()));
+          }
         }
       }
     } else {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 31, 2015 16:27+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 1, 2015 08:37+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 import org.hl7.fhir.instance.model.annotations.Block;

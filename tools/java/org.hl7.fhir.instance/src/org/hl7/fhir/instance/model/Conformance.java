@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 31, 2015 16:27+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 1, 2015 08:37+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2686,13 +2686,20 @@ public class Conformance extends DomainResource implements IBaseConformance {
         protected List<StringType> searchInclude;
 
         /**
+         * A list of _revinclude (reverse include) values supported by the server.
+         */
+        @Child(name = "searchRevInclude", type = {StringType.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="_revinclude values supported by the server", formalDefinition="A list of _revinclude (reverse include) values supported by the server." )
+        protected List<StringType> searchRevInclude;
+
+        /**
          * Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
          */
-        @Child(name = "searchParam", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "searchParam", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Search params supported by implementation", formalDefinition="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation." )
         protected List<ConformanceRestResourceSearchParamComponent> searchParam;
 
-        private static final long serialVersionUID = -921508401L;
+        private static final long serialVersionUID = 1781959905L;
 
     /*
      * Constructor
@@ -3171,6 +3178,60 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
+         * @return {@link #searchRevInclude} (A list of _revinclude (reverse include) values supported by the server.)
+         */
+        public List<StringType> getSearchRevInclude() { 
+          if (this.searchRevInclude == null)
+            this.searchRevInclude = new ArrayList<StringType>();
+          return this.searchRevInclude;
+        }
+
+        public boolean hasSearchRevInclude() { 
+          if (this.searchRevInclude == null)
+            return false;
+          for (StringType item : this.searchRevInclude)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #searchRevInclude} (A list of _revinclude (reverse include) values supported by the server.)
+         */
+    // syntactic sugar
+        public StringType addSearchRevIncludeElement() {//2 
+          StringType t = new StringType();
+          if (this.searchRevInclude == null)
+            this.searchRevInclude = new ArrayList<StringType>();
+          this.searchRevInclude.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #searchRevInclude} (A list of _revinclude (reverse include) values supported by the server.)
+         */
+        public ConformanceRestResourceComponent addSearchRevInclude(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.searchRevInclude == null)
+            this.searchRevInclude = new ArrayList<StringType>();
+          this.searchRevInclude.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #searchRevInclude} (A list of _revinclude (reverse include) values supported by the server.)
+         */
+        public boolean hasSearchRevInclude(String value) { 
+          if (this.searchRevInclude == null)
+            return false;
+          for (StringType v : this.searchRevInclude)
+            if (v.equals(value)) // string
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #searchParam} (Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
          */
         public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
@@ -3222,6 +3283,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("conditionalUpdate", "boolean", "A flag that indicates that the server supports conditional update.", 0, java.lang.Integer.MAX_VALUE, conditionalUpdate));
           childrenList.add(new Property("conditionalDelete", "code", "A code that indicates how the server supports conditional delete.", 0, java.lang.Integer.MAX_VALUE, conditionalDelete));
           childrenList.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
+          childrenList.add(new Property("searchRevInclude", "string", "A list of _revinclude (reverse include) values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchRevInclude));
           childrenList.add(new Property("searchParam", "", "Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
 
@@ -3246,6 +3308,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
           for (StringType i : searchInclude)
             dst.searchInclude.add(i.copy());
         };
+        if (searchRevInclude != null) {
+          dst.searchRevInclude = new ArrayList<StringType>();
+          for (StringType i : searchRevInclude)
+            dst.searchRevInclude.add(i.copy());
+        };
         if (searchParam != null) {
           dst.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           for (ConformanceRestResourceSearchParamComponent i : searchParam)
@@ -3265,8 +3332,8 @@ public class Conformance extends DomainResource implements IBaseConformance {
            && compareDeep(versioning, o.versioning, true) && compareDeep(readHistory, o.readHistory, true)
            && compareDeep(updateCreate, o.updateCreate, true) && compareDeep(conditionalCreate, o.conditionalCreate, true)
            && compareDeep(conditionalUpdate, o.conditionalUpdate, true) && compareDeep(conditionalDelete, o.conditionalDelete, true)
-           && compareDeep(searchInclude, o.searchInclude, true) && compareDeep(searchParam, o.searchParam, true)
-          ;
+           && compareDeep(searchInclude, o.searchInclude, true) && compareDeep(searchRevInclude, o.searchRevInclude, true)
+           && compareDeep(searchParam, o.searchParam, true);
       }
 
       @Override
@@ -3279,7 +3346,8 @@ public class Conformance extends DomainResource implements IBaseConformance {
         return compareValues(type, o.type, true) && compareValues(versioning, o.versioning, true) && compareValues(readHistory, o.readHistory, true)
            && compareValues(updateCreate, o.updateCreate, true) && compareValues(conditionalCreate, o.conditionalCreate, true)
            && compareValues(conditionalUpdate, o.conditionalUpdate, true) && compareValues(conditionalDelete, o.conditionalDelete, true)
-           && compareValues(searchInclude, o.searchInclude, true);
+           && compareValues(searchInclude, o.searchInclude, true) && compareValues(searchRevInclude, o.searchRevInclude, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -3288,7 +3356,8 @@ public class Conformance extends DomainResource implements IBaseConformance {
            && (readHistory == null || readHistory.isEmpty()) && (updateCreate == null || updateCreate.isEmpty())
            && (conditionalCreate == null || conditionalCreate.isEmpty()) && (conditionalUpdate == null || conditionalUpdate.isEmpty())
            && (conditionalDelete == null || conditionalDelete.isEmpty()) && (searchInclude == null || searchInclude.isEmpty())
-           && (searchParam == null || searchParam.isEmpty());
+           && (searchRevInclude == null || searchRevInclude.isEmpty()) && (searchParam == null || searchParam.isEmpty())
+          ;
       }
 
   }
@@ -4289,11 +4358,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
     @Block()
     public static class ConformanceMessagingComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * An address to which messages and/or replies are to be sent.
+         * An endpoint (network accessible address) to which messages and/or replies are to be sent.
          */
-        @Child(name = "endpoint", type = {UriType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Actual endpoint being described", formalDefinition="An address to which messages and/or replies are to be sent." )
-        protected UriType endpoint;
+        @Child(name = "endpoint", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="A messaging service end point", formalDefinition="An endpoint (network accessible address) to which messages and/or replies are to be sent." )
+        protected List<ConformanceMessagingEndpointComponent> endpoint;
 
         /**
          * Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
@@ -4316,7 +4385,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         @Description(shortDefinition="Declare support for this event", formalDefinition="A description of the solution's support for an event at this end point." )
         protected List<ConformanceMessagingEventComponent> event;
 
-        private static final long serialVersionUID = -1356115534L;
+        private static final long serialVersionUID = -712362545L;
 
     /*
      * Constructor
@@ -4326,51 +4395,42 @@ public class Conformance extends DomainResource implements IBaseConformance {
       }
 
         /**
-         * @return {@link #endpoint} (An address to which messages and/or replies are to be sent.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
+         * @return {@link #endpoint} (An endpoint (network accessible address) to which messages and/or replies are to be sent.)
          */
-        public UriType getEndpointElement() { 
+        public List<ConformanceMessagingEndpointComponent> getEndpoint() { 
           if (this.endpoint == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConformanceMessagingComponent.endpoint");
-            else if (Configuration.doAutoCreate())
-              this.endpoint = new UriType(); // bb
+            this.endpoint = new ArrayList<ConformanceMessagingEndpointComponent>();
           return this.endpoint;
         }
 
-        public boolean hasEndpointElement() { 
-          return this.endpoint != null && !this.endpoint.isEmpty();
-        }
-
         public boolean hasEndpoint() { 
-          return this.endpoint != null && !this.endpoint.isEmpty();
+          if (this.endpoint == null)
+            return false;
+          for (ConformanceMessagingEndpointComponent item : this.endpoint)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #endpoint} (An address to which messages and/or replies are to be sent.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
+         * @return {@link #endpoint} (An endpoint (network accessible address) to which messages and/or replies are to be sent.)
          */
-        public ConformanceMessagingComponent setEndpointElement(UriType value) { 
-          this.endpoint = value;
-          return this;
+    // syntactic sugar
+        public ConformanceMessagingEndpointComponent addEndpoint() { //3
+          ConformanceMessagingEndpointComponent t = new ConformanceMessagingEndpointComponent();
+          if (this.endpoint == null)
+            this.endpoint = new ArrayList<ConformanceMessagingEndpointComponent>();
+          this.endpoint.add(t);
+          return t;
         }
 
-        /**
-         * @return An address to which messages and/or replies are to be sent.
-         */
-        public String getEndpoint() { 
-          return this.endpoint == null ? null : this.endpoint.getValue();
-        }
-
-        /**
-         * @param value An address to which messages and/or replies are to be sent.
-         */
-        public ConformanceMessagingComponent setEndpoint(String value) { 
-          if (Utilities.noString(value))
-            this.endpoint = null;
-          else {
-            if (this.endpoint == null)
-              this.endpoint = new UriType();
-            this.endpoint.setValue(value);
-          }
+    // syntactic sugar
+        public ConformanceMessagingComponent addEndpoint(ConformanceMessagingEndpointComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.endpoint == null)
+            this.endpoint = new ArrayList<ConformanceMessagingEndpointComponent>();
+          this.endpoint.add(t);
           return this;
         }
 
@@ -4510,7 +4570,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("endpoint", "uri", "An address to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
+          childrenList.add(new Property("endpoint", "", "An endpoint (network accessible address) to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
           childrenList.add(new Property("reliableCache", "unsignedInt", "Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).", 0, java.lang.Integer.MAX_VALUE, reliableCache));
           childrenList.add(new Property("documentation", "string", "Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("event", "", "A description of the solution's support for an event at this end point.", 0, java.lang.Integer.MAX_VALUE, event));
@@ -4519,7 +4579,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
       public ConformanceMessagingComponent copy() {
         ConformanceMessagingComponent dst = new ConformanceMessagingComponent();
         copyValues(dst);
-        dst.endpoint = endpoint == null ? null : endpoint.copy();
+        if (endpoint != null) {
+          dst.endpoint = new ArrayList<ConformanceMessagingEndpointComponent>();
+          for (ConformanceMessagingEndpointComponent i : endpoint)
+            dst.endpoint.add(i.copy());
+        };
         dst.reliableCache = reliableCache == null ? null : reliableCache.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         if (event != null) {
@@ -4548,13 +4612,157 @@ public class Conformance extends DomainResource implements IBaseConformance {
         if (!(other instanceof ConformanceMessagingComponent))
           return false;
         ConformanceMessagingComponent o = (ConformanceMessagingComponent) other;
-        return compareValues(endpoint, o.endpoint, true) && compareValues(reliableCache, o.reliableCache, true)
-           && compareValues(documentation, o.documentation, true);
+        return compareValues(reliableCache, o.reliableCache, true) && compareValues(documentation, o.documentation, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (endpoint == null || endpoint.isEmpty()) && (reliableCache == null || reliableCache.isEmpty())
            && (documentation == null || documentation.isEmpty()) && (event == null || event.isEmpty())
+          ;
+      }
+
+  }
+
+    @Block()
+    public static class ConformanceMessagingEndpointComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * A list of the messaging transport protocol(s) identifiers, supported by this endpoint.
+         */
+        @Child(name = "protocol", type = {Coding.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="http | ftp | mllp +", formalDefinition="A list of the messaging transport protocol(s) identifiers, supported by this endpoint." )
+        protected Coding protocol;
+
+        /**
+         * The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.
+         */
+        @Child(name = "address", type = {UriType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Address of end point", formalDefinition="The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier." )
+        protected UriType address;
+
+        private static final long serialVersionUID = 1294656428L;
+
+    /*
+     * Constructor
+     */
+      public ConformanceMessagingEndpointComponent() {
+        super();
+      }
+
+    /*
+     * Constructor
+     */
+      public ConformanceMessagingEndpointComponent(Coding protocol, UriType address) {
+        super();
+        this.protocol = protocol;
+        this.address = address;
+      }
+
+        /**
+         * @return {@link #protocol} (A list of the messaging transport protocol(s) identifiers, supported by this endpoint.)
+         */
+        public Coding getProtocol() { 
+          if (this.protocol == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEndpointComponent.protocol");
+            else if (Configuration.doAutoCreate())
+              this.protocol = new Coding(); // cc
+          return this.protocol;
+        }
+
+        public boolean hasProtocol() { 
+          return this.protocol != null && !this.protocol.isEmpty();
+        }
+
+        /**
+         * @param value {@link #protocol} (A list of the messaging transport protocol(s) identifiers, supported by this endpoint.)
+         */
+        public ConformanceMessagingEndpointComponent setProtocol(Coding value) { 
+          this.protocol = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #address} (The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
+         */
+        public UriType getAddressElement() { 
+          if (this.address == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEndpointComponent.address");
+            else if (Configuration.doAutoCreate())
+              this.address = new UriType(); // bb
+          return this.address;
+        }
+
+        public boolean hasAddressElement() { 
+          return this.address != null && !this.address.isEmpty();
+        }
+
+        public boolean hasAddress() { 
+          return this.address != null && !this.address.isEmpty();
+        }
+
+        /**
+         * @param value {@link #address} (The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
+         */
+        public ConformanceMessagingEndpointComponent setAddressElement(UriType value) { 
+          this.address = value;
+          return this;
+        }
+
+        /**
+         * @return The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.
+         */
+        public String getAddress() { 
+          return this.address == null ? null : this.address.getValue();
+        }
+
+        /**
+         * @param value The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.
+         */
+        public ConformanceMessagingEndpointComponent setAddress(String value) { 
+            if (this.address == null)
+              this.address = new UriType();
+            this.address.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("protocol", "Coding", "A list of the messaging transport protocol(s) identifiers, supported by this endpoint.", 0, java.lang.Integer.MAX_VALUE, protocol));
+          childrenList.add(new Property("address", "uri", "The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.", 0, java.lang.Integer.MAX_VALUE, address));
+        }
+
+      public ConformanceMessagingEndpointComponent copy() {
+        ConformanceMessagingEndpointComponent dst = new ConformanceMessagingEndpointComponent();
+        copyValues(dst);
+        dst.protocol = protocol == null ? null : protocol.copy();
+        dst.address = address == null ? null : address.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceMessagingEndpointComponent))
+          return false;
+        ConformanceMessagingEndpointComponent o = (ConformanceMessagingEndpointComponent) other;
+        return compareDeep(protocol, o.protocol, true) && compareDeep(address, o.address, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceMessagingEndpointComponent))
+          return false;
+        ConformanceMessagingEndpointComponent o = (ConformanceMessagingEndpointComponent) other;
+        return compareValues(address, o.address, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (protocol == null || protocol.isEmpty()) && (address == null || address.isEmpty())
           ;
       }
 
@@ -4584,23 +4792,16 @@ public class Conformance extends DomainResource implements IBaseConformance {
         protected Enumeration<ConformanceEventMode> mode;
 
         /**
-         * A list of the messaging transport protocol(s) identifiers, supported by this endpoint.
-         */
-        @Child(name = "protocol", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="http | ftp | mllp +", formalDefinition="A list of the messaging transport protocol(s) identifiers, supported by this endpoint." )
-        protected List<Coding> protocol;
-
-        /**
          * A resource associated with the event.  This is the resource that defines the event.
          */
-        @Child(name = "focus", type = {CodeType.class}, order=5, min=1, max=1)
+        @Child(name = "focus", type = {CodeType.class}, order=4, min=1, max=1)
         @Description(shortDefinition="Resource that's focus of message", formalDefinition="A resource associated with the event.  This is the resource that defines the event." )
         protected CodeType focus;
 
         /**
          * Information about the request for this event.
          */
-        @Child(name = "request", type = {StructureDefinition.class}, order=6, min=1, max=1)
+        @Child(name = "request", type = {StructureDefinition.class}, order=5, min=1, max=1)
         @Description(shortDefinition="Profile that describes the request", formalDefinition="Information about the request for this event." )
         protected Reference request;
 
@@ -4612,7 +4813,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * Information about the response for this event.
          */
-        @Child(name = "response", type = {StructureDefinition.class}, order=7, min=1, max=1)
+        @Child(name = "response", type = {StructureDefinition.class}, order=6, min=1, max=1)
         @Description(shortDefinition="Profile that describes the response", formalDefinition="Information about the response for this event." )
         protected Reference response;
 
@@ -4624,11 +4825,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
          */
-        @Child(name = "documentation", type = {StringType.class}, order=8, min=0, max=1)
+        @Child(name = "documentation", type = {StringType.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Endpoint-specific event documentation", formalDefinition="Guidance on how this event is handled, such as internal system trigger points, business rules, etc." )
         protected StringType documentation;
 
-        private static final long serialVersionUID = 231905194L;
+        private static final long serialVersionUID = -47031390L;
 
     /*
      * Constructor
@@ -4764,46 +4965,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             if (this.mode == null)
               this.mode = new Enumeration<ConformanceEventMode>(new ConformanceEventModeEnumFactory());
             this.mode.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #protocol} (A list of the messaging transport protocol(s) identifiers, supported by this endpoint.)
-         */
-        public List<Coding> getProtocol() { 
-          if (this.protocol == null)
-            this.protocol = new ArrayList<Coding>();
-          return this.protocol;
-        }
-
-        public boolean hasProtocol() { 
-          if (this.protocol == null)
-            return false;
-          for (Coding item : this.protocol)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #protocol} (A list of the messaging transport protocol(s) identifiers, supported by this endpoint.)
-         */
-    // syntactic sugar
-        public Coding addProtocol() { //3
-          Coding t = new Coding();
-          if (this.protocol == null)
-            this.protocol = new ArrayList<Coding>();
-          this.protocol.add(t);
-          return t;
-        }
-
-    // syntactic sugar
-        public ConformanceMessagingEventComponent addProtocol(Coding t) { //3
-          if (t == null)
-            return this;
-          if (this.protocol == null)
-            this.protocol = new ArrayList<Coding>();
-          this.protocol.add(t);
           return this;
         }
 
@@ -4994,7 +5155,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("code", "Coding", "A coded identifier of a supported messaging event.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("category", "code", "The impact of the content of the message.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("mode", "code", "The mode of this event declaration - whether application is sender or receiver.", 0, java.lang.Integer.MAX_VALUE, mode));
-          childrenList.add(new Property("protocol", "Coding", "A list of the messaging transport protocol(s) identifiers, supported by this endpoint.", 0, java.lang.Integer.MAX_VALUE, protocol));
           childrenList.add(new Property("focus", "code", "A resource associated with the event.  This is the resource that defines the event.", 0, java.lang.Integer.MAX_VALUE, focus));
           childrenList.add(new Property("request", "Reference(StructureDefinition)", "Information about the request for this event.", 0, java.lang.Integer.MAX_VALUE, request));
           childrenList.add(new Property("response", "Reference(StructureDefinition)", "Information about the response for this event.", 0, java.lang.Integer.MAX_VALUE, response));
@@ -5007,11 +5167,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         dst.code = code == null ? null : code.copy();
         dst.category = category == null ? null : category.copy();
         dst.mode = mode == null ? null : mode.copy();
-        if (protocol != null) {
-          dst.protocol = new ArrayList<Coding>();
-          for (Coding i : protocol)
-            dst.protocol.add(i.copy());
-        };
         dst.focus = focus == null ? null : focus.copy();
         dst.request = request == null ? null : request.copy();
         dst.response = response == null ? null : response.copy();
@@ -5027,9 +5182,8 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return false;
         ConformanceMessagingEventComponent o = (ConformanceMessagingEventComponent) other;
         return compareDeep(code, o.code, true) && compareDeep(category, o.category, true) && compareDeep(mode, o.mode, true)
-           && compareDeep(protocol, o.protocol, true) && compareDeep(focus, o.focus, true) && compareDeep(request, o.request, true)
-           && compareDeep(response, o.response, true) && compareDeep(documentation, o.documentation, true)
-          ;
+           && compareDeep(focus, o.focus, true) && compareDeep(request, o.request, true) && compareDeep(response, o.response, true)
+           && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
@@ -5045,8 +5199,8 @@ public class Conformance extends DomainResource implements IBaseConformance {
 
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
-           && (mode == null || mode.isEmpty()) && (protocol == null || protocol.isEmpty()) && (focus == null || focus.isEmpty())
-           && (request == null || request.isEmpty()) && (response == null || response.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (mode == null || mode.isEmpty()) && (focus == null || focus.isEmpty()) && (request == null || request.isEmpty())
+           && (response == null || response.isEmpty()) && (documentation == null || documentation.isEmpty())
           ;
       }
 

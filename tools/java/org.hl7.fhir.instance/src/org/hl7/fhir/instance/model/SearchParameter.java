@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 31, 2015 16:27+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 1, 2015 08:37+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1254,6 +1254,8 @@ public class SearchParameter extends DomainResource {
   public static final String SP_TARGET = "target";
   @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type this search parameter applies to", type="token" )
   public static final String SP_BASE = "base";
+  @SearchParamDefinition(name="code", path="SearchParameter.code", description="Code used in URL", type="token" )
+  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="type", path="SearchParameter.type", description="number | date | string | token | reference | composite | quantity | uri", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="url", path="SearchParameter.url", description="Literal URL used to reference this search parameter", type="uri" )

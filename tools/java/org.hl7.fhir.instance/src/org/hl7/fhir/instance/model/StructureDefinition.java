@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 31, 2015 16:27+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 1, 2015 08:37+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -57,6 +57,10 @@ public class StructureDefinition extends DomainResource {
          */
         RESOURCE, 
         /**
+         * A logical model - a conceptual package of data that will be mapped to resources for implementation
+         */
+        LOGICAL, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -67,12 +71,15 @@ public class StructureDefinition extends DomainResource {
           return DATATYPE;
         if ("resource".equals(codeString))
           return RESOURCE;
+        if ("logical".equals(codeString))
+          return LOGICAL;
         throw new Exception("Unknown StructureDefinitionKind code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case DATATYPE: return "datatype";
             case RESOURCE: return "resource";
+            case LOGICAL: return "logical";
             default: return "?";
           }
         }
@@ -80,6 +87,7 @@ public class StructureDefinition extends DomainResource {
           switch (this) {
             case DATATYPE: return "http://hl7.org/fhir/structure-definition-kind";
             case RESOURCE: return "http://hl7.org/fhir/structure-definition-kind";
+            case LOGICAL: return "http://hl7.org/fhir/structure-definition-kind";
             default: return "?";
           }
         }
@@ -87,6 +95,7 @@ public class StructureDefinition extends DomainResource {
           switch (this) {
             case DATATYPE: return "A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions";
             case RESOURCE: return "A resource defined by the FHIR specification";
+            case LOGICAL: return "A logical model - a conceptual package of data that will be mapped to resources for implementation";
             default: return "?";
           }
         }
@@ -94,6 +103,7 @@ public class StructureDefinition extends DomainResource {
           switch (this) {
             case DATATYPE: return "Data Type";
             case RESOURCE: return "Resource";
+            case LOGICAL: return "Logical Model";
             default: return "?";
           }
         }
@@ -108,6 +118,8 @@ public class StructureDefinition extends DomainResource {
           return StructureDefinitionKind.DATATYPE;
         if ("resource".equals(codeString))
           return StructureDefinitionKind.RESOURCE;
+        if ("logical".equals(codeString))
+          return StructureDefinitionKind.LOGICAL;
         throw new IllegalArgumentException("Unknown StructureDefinitionKind code '"+codeString+"'");
         }
     public String toCode(StructureDefinitionKind code) {
@@ -115,6 +127,8 @@ public class StructureDefinition extends DomainResource {
         return "datatype";
       if (code == StructureDefinitionKind.RESOURCE)
         return "resource";
+      if (code == StructureDefinitionKind.LOGICAL)
+        return "logical";
       return "?";
       }
     }
@@ -987,7 +1001,7 @@ public class StructureDefinition extends DomainResource {
      * Defines the kind of structure that this definition is describing.
      */
     @Child(name = "kind", type = {CodeType.class}, order=17, min=1, max=1)
-    @Description(shortDefinition="datatype | resource", formalDefinition="Defines the kind of structure that this definition is describing." )
+    @Description(shortDefinition="datatype | resource | logical", formalDefinition="Defines the kind of structure that this definition is describing." )
     protected Enumeration<StructureDefinitionKind> kind;
 
     /**
@@ -2331,7 +2345,7 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="url", path="StructureDefinition.url", description="Literal URL used to reference this StructureDefinition", type="uri" )
   public static final String SP_URL = "url";
-  @SearchParamDefinition(name="kind", path="StructureDefinition.kind", description="datatype | resource", type="token" )
+  @SearchParamDefinition(name="kind", path="StructureDefinition.kind", description="datatype | resource | logical", type="token" )
   public static final String SP_KIND = "kind";
   @SearchParamDefinition(name="version", path="StructureDefinition.version", description="The version identifier of the profile", type="token" )
   public static final String SP_VERSION = "version";

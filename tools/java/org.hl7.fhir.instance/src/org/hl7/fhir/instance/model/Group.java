@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 31, 2015 16:27+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 1, 2015 08:37+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -197,7 +197,14 @@ public class Group extends DomainResource {
         @Description(shortDefinition="Group includes or excludes", formalDefinition="If true, indicates the characteristic is one that is NOT held by members of the group." )
         protected BooleanType exclude;
 
-        private static final long serialVersionUID = 803478031L;
+        /**
+         * The period over which the characteristic is tested. E.g. the patient had an operation during the month of June.
+         */
+        @Child(name = "period", type = {Period.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Period over which characteristic is tested", formalDefinition="The period over which the characteristic is tested. E.g. the patient had an operation during the month of June." )
+        protected Period period;
+
+        private static final long serialVersionUID = -1000688967L;
 
     /*
      * Constructor
@@ -356,11 +363,36 @@ public class Group extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #period} (The period over which the characteristic is tested. E.g. the patient had an operation during the month of June.)
+         */
+        public Period getPeriod() { 
+          if (this.period == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create GroupCharacteristicComponent.period");
+            else if (Configuration.doAutoCreate())
+              this.period = new Period(); // cc
+          return this.period;
+        }
+
+        public boolean hasPeriod() { 
+          return this.period != null && !this.period.isEmpty();
+        }
+
+        /**
+         * @param value {@link #period} (The period over which the characteristic is tested. E.g. the patient had an operation during the month of June.)
+         */
+        public GroupCharacteristicComponent setPeriod(Period value) { 
+          this.period = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A code that identifies the kind of trait being asserted.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("value[x]", "CodeableConcept|boolean|Quantity|Range", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, java.lang.Integer.MAX_VALUE, value));
           childrenList.add(new Property("exclude", "boolean", "If true, indicates the characteristic is one that is NOT held by members of the group.", 0, java.lang.Integer.MAX_VALUE, exclude));
+          childrenList.add(new Property("period", "Period", "The period over which the characteristic is tested. E.g. the patient had an operation during the month of June.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
       public GroupCharacteristicComponent copy() {
@@ -369,6 +401,7 @@ public class Group extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
         dst.exclude = exclude == null ? null : exclude.copy();
+        dst.period = period == null ? null : period.copy();
         return dst;
       }
 
@@ -380,7 +413,7 @@ public class Group extends DomainResource {
           return false;
         GroupCharacteristicComponent o = (GroupCharacteristicComponent) other;
         return compareDeep(code, o.code, true) && compareDeep(value, o.value, true) && compareDeep(exclude, o.exclude, true)
-          ;
+           && compareDeep(period, o.period, true);
       }
 
       @Override
@@ -395,7 +428,204 @@ public class Group extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
-           && (exclude == null || exclude.isEmpty());
+           && (exclude == null || exclude.isEmpty()) && (period == null || period.isEmpty());
+      }
+
+  }
+
+    @Block()
+    public static class GroupMemberComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * A reference to the entity that is a member of the group. Must be consistent with Group.type.
+         */
+        @Child(name = "entity", type = {Patient.class, Practitioner.class, Device.class, Medication.class, Substance.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Reference to the group member", formalDefinition="A reference to the entity that is a member of the group. Must be consistent with Group.type." )
+        protected Reference entity;
+
+        /**
+         * The actual object that is the target of the reference (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
+         */
+        protected Resource entityTarget;
+
+        /**
+         * The period that the member was in the group, if known.
+         */
+        @Child(name = "period", type = {Period.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Period member belonged to the group", formalDefinition="The period that the member was in the group, if known." )
+        protected Period period;
+
+        /**
+         * A flag to indicate that the member is no longer in the group, but previously may have been a member.
+         */
+        @Child(name = "inactive", type = {BooleanType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="If member is no longer in group", formalDefinition="A flag to indicate that the member is no longer in the group, but previously may have been a member." )
+        protected BooleanType inactive;
+
+        private static final long serialVersionUID = -333869055L;
+
+    /*
+     * Constructor
+     */
+      public GroupMemberComponent() {
+        super();
+      }
+
+    /*
+     * Constructor
+     */
+      public GroupMemberComponent(Reference entity) {
+        super();
+        this.entity = entity;
+      }
+
+        /**
+         * @return {@link #entity} (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
+         */
+        public Reference getEntity() { 
+          if (this.entity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create GroupMemberComponent.entity");
+            else if (Configuration.doAutoCreate())
+              this.entity = new Reference(); // cc
+          return this.entity;
+        }
+
+        public boolean hasEntity() { 
+          return this.entity != null && !this.entity.isEmpty();
+        }
+
+        /**
+         * @param value {@link #entity} (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
+         */
+        public GroupMemberComponent setEntity(Reference value) { 
+          this.entity = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #entity} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
+         */
+        public Resource getEntityTarget() { 
+          return this.entityTarget;
+        }
+
+        /**
+         * @param value {@link #entity} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
+         */
+        public GroupMemberComponent setEntityTarget(Resource value) { 
+          this.entityTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #period} (The period that the member was in the group, if known.)
+         */
+        public Period getPeriod() { 
+          if (this.period == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create GroupMemberComponent.period");
+            else if (Configuration.doAutoCreate())
+              this.period = new Period(); // cc
+          return this.period;
+        }
+
+        public boolean hasPeriod() { 
+          return this.period != null && !this.period.isEmpty();
+        }
+
+        /**
+         * @param value {@link #period} (The period that the member was in the group, if known.)
+         */
+        public GroupMemberComponent setPeriod(Period value) { 
+          this.period = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #inactive} (A flag to indicate that the member is no longer in the group, but previously may have been a member.). This is the underlying object with id, value and extensions. The accessor "getInactive" gives direct access to the value
+         */
+        public BooleanType getInactiveElement() { 
+          if (this.inactive == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create GroupMemberComponent.inactive");
+            else if (Configuration.doAutoCreate())
+              this.inactive = new BooleanType(); // bb
+          return this.inactive;
+        }
+
+        public boolean hasInactiveElement() { 
+          return this.inactive != null && !this.inactive.isEmpty();
+        }
+
+        public boolean hasInactive() { 
+          return this.inactive != null && !this.inactive.isEmpty();
+        }
+
+        /**
+         * @param value {@link #inactive} (A flag to indicate that the member is no longer in the group, but previously may have been a member.). This is the underlying object with id, value and extensions. The accessor "getInactive" gives direct access to the value
+         */
+        public GroupMemberComponent setInactiveElement(BooleanType value) { 
+          this.inactive = value;
+          return this;
+        }
+
+        /**
+         * @return A flag to indicate that the member is no longer in the group, but previously may have been a member.
+         */
+        public boolean getInactive() { 
+          return this.inactive == null || this.inactive.isEmpty() ? false : this.inactive.getValue();
+        }
+
+        /**
+         * @param value A flag to indicate that the member is no longer in the group, but previously may have been a member.
+         */
+        public GroupMemberComponent setInactive(boolean value) { 
+            if (this.inactive == null)
+              this.inactive = new BooleanType();
+            this.inactive.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("entity", "Reference(Patient|Practitioner|Device|Medication|Substance)", "A reference to the entity that is a member of the group. Must be consistent with Group.type.", 0, java.lang.Integer.MAX_VALUE, entity));
+          childrenList.add(new Property("period", "Period", "The period that the member was in the group, if known.", 0, java.lang.Integer.MAX_VALUE, period));
+          childrenList.add(new Property("inactive", "boolean", "A flag to indicate that the member is no longer in the group, but previously may have been a member.", 0, java.lang.Integer.MAX_VALUE, inactive));
+        }
+
+      public GroupMemberComponent copy() {
+        GroupMemberComponent dst = new GroupMemberComponent();
+        copyValues(dst);
+        dst.entity = entity == null ? null : entity.copy();
+        dst.period = period == null ? null : period.copy();
+        dst.inactive = inactive == null ? null : inactive.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof GroupMemberComponent))
+          return false;
+        GroupMemberComponent o = (GroupMemberComponent) other;
+        return compareDeep(entity, o.entity, true) && compareDeep(period, o.period, true) && compareDeep(inactive, o.inactive, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof GroupMemberComponent))
+          return false;
+        GroupMemberComponent o = (GroupMemberComponent) other;
+        return compareValues(inactive, o.inactive, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (entity == null || entity.isEmpty()) && (period == null || period.isEmpty())
+           && (inactive == null || inactive.isEmpty());
       }
 
   }
@@ -452,16 +682,11 @@ public class Group extends DomainResource {
     /**
      * Identifies the resource instances that are members of the group.
      */
-    @Child(name = "member", type = {Patient.class, Practitioner.class, Device.class, Medication.class, Substance.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "member", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who or what is in group", formalDefinition="Identifies the resource instances that are members of the group." )
-    protected List<Reference> member;
-    /**
-     * The actual objects that are the target of the reference (Identifies the resource instances that are members of the group.)
-     */
-    protected List<Resource> memberTarget;
+    protected List<GroupMemberComponent> member;
 
-
-    private static final long serialVersionUID = -2109490913L;
+    private static final long serialVersionUID = 1401345819L;
 
   /*
    * Constructor
@@ -770,16 +995,16 @@ public class Group extends DomainResource {
     /**
      * @return {@link #member} (Identifies the resource instances that are members of the group.)
      */
-    public List<Reference> getMember() { 
+    public List<GroupMemberComponent> getMember() { 
       if (this.member == null)
-        this.member = new ArrayList<Reference>();
+        this.member = new ArrayList<GroupMemberComponent>();
       return this.member;
     }
 
     public boolean hasMember() { 
       if (this.member == null)
         return false;
-      for (Reference item : this.member)
+      for (GroupMemberComponent item : this.member)
         if (!item.isEmpty())
           return true;
       return false;
@@ -789,31 +1014,22 @@ public class Group extends DomainResource {
      * @return {@link #member} (Identifies the resource instances that are members of the group.)
      */
     // syntactic sugar
-    public Reference addMember() { //3
-      Reference t = new Reference();
+    public GroupMemberComponent addMember() { //3
+      GroupMemberComponent t = new GroupMemberComponent();
       if (this.member == null)
-        this.member = new ArrayList<Reference>();
+        this.member = new ArrayList<GroupMemberComponent>();
       this.member.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Group addMember(Reference t) { //3
+    public Group addMember(GroupMemberComponent t) { //3
       if (t == null)
         return this;
       if (this.member == null)
-        this.member = new ArrayList<Reference>();
+        this.member = new ArrayList<GroupMemberComponent>();
       this.member.add(t);
       return this;
-    }
-
-    /**
-     * @return {@link #member} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the resource instances that are members of the group.)
-     */
-    public List<Resource> getMemberTarget() { 
-      if (this.memberTarget == null)
-        this.memberTarget = new ArrayList<Resource>();
-      return this.memberTarget;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -825,7 +1041,7 @@ public class Group extends DomainResource {
         childrenList.add(new Property("name", "string", "A label assigned to the group for human identification and communication.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("quantity", "unsignedInt", "A count of the number of resource instances that are part of the group.", 0, java.lang.Integer.MAX_VALUE, quantity));
         childrenList.add(new Property("characteristic", "", "Identifies the traits shared by members of the group.", 0, java.lang.Integer.MAX_VALUE, characteristic));
-        childrenList.add(new Property("member", "Reference(Patient|Practitioner|Device|Medication|Substance)", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
+        childrenList.add(new Property("member", "", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
       }
 
       public Group copy() {
@@ -847,8 +1063,8 @@ public class Group extends DomainResource {
             dst.characteristic.add(i.copy());
         };
         if (member != null) {
-          dst.member = new ArrayList<Reference>();
-          for (Reference i : member)
+          dst.member = new ArrayList<GroupMemberComponent>();
+          for (GroupMemberComponent i : member)
             dst.member.add(i.copy());
         };
         return dst;
@@ -893,7 +1109,7 @@ public class Group extends DomainResource {
     return ResourceType.Group;
    }
 
-  @SearchParamDefinition(name="member", path="Group.member", description="Who or what is in group", type="reference" )
+  @SearchParamDefinition(name="member", path="Group.member.entity", description="Reference to the group member", type="reference" )
   public static final String SP_MEMBER = "member";
   @SearchParamDefinition(name="characteristic-value", path="", description="A composite of both characteristic and value", type="composite" )
   public static final String SP_CHARACTERISTICVALUE = "characteristic-value";
