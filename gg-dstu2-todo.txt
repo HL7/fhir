@@ -8,7 +8,6 @@ check all redirects / publishing QA
 expansion - revisit handling of value sets that are too large
 search - value set / profile / IG / core / v3 / v2
 revisit profile resource identification in igs 
-fix summary element handling
 fix links in narrative embedded in html pages
 json / profile format
 xml / profile format

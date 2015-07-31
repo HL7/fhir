@@ -226,6 +226,12 @@ public class XSDBaseGenerator {
     write("      <xs:restriction base=\"" + cd.getBaseType() + "\">\r\n");
     write("        <xs:sequence>\r\n");
 
+    write("          <xs:element name=\"extension\" type=\"Extension\" minOccurs=\"0\" maxOccurs=\"unbounded\">\r\n");
+    write("            <xs:annotation>\r\n");
+    write("              <xs:documentation xml:lang=\"en\">Exception as inherited from Element</xs:documentation>\r\n");
+    write("            </xs:annotation>\r\n");
+    write("          </xs:element>\r\n");
+
     ElementDefn elem = definitions.getTypes().get(cd.getBaseType());
     for (ElementDefn e : elem.getElements()) {
       if (e.getName().equals("[type]"))
