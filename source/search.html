@@ -583,6 +583,8 @@ The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
  <li><b>[parameter]=[id]</b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
+ <li><b>[parameter]=[type]/[id]</b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference), 
+   for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>)</li>
  <li><b>[parameter]=[url]</b> where the [url] is an absolute URL - a reference to a resource by its absolute location</li>
 </ul>
 <p>
@@ -590,19 +592,26 @@ Note that if a relative reference resolves to the same value as a specified abso
 </p>
 <p>
 Some references are allowed to point to more than one type of resource. e.g. subject : Reference(Patient|Group|Device|..).
-In these cases, multiple different resources may have the same logical identifier. In this case, the client can specify
-a type modifier after the name of the parameter to be explicit about the intended type:
+In these cases, multiple different resources may have the same logical identifier. Servers SHOULD reject a search where 
+the logical id refers to more than one matching resource across different types.
+In order to allow the client to perform a search in these situations can specify the type explicitly:
+</p>
+<pre>
+ GET [base]/Condition?subject=Patient/23
+</pre>
+<p>
+This searches for any conditions where the subject refers to the patient resource with the
+logical identifier "23". A modifier is also defined to to allow the client to be explicit 
+about the intended type:
 </p>
 <pre>
  GET [base]/Condition?subject:Patient=23
 </pre>
 <p>
-This searches for any conditions where the subject refers to the patient resource with the
-logical identifier "23". The server SHOULD reject a search where the logical id refers to
-more than one matching resource across different types. Note that the :[type] modifier
-can't be used with a reference to a resource found on another server, since the server
-would not usually know what type that resource has (but since these are absolute
-references, there can be no ambiguity about the type).
+This has the same effect as the previous search. The modifier becomes useful when used with chaining
+as in explained in the next section. Note that the <code>[type]</code> modifier can't be used with a reference to a resource found on another server, 
+since the server would not usually know what type that resource has (but since these are absolute references, 
+there can be no ambiguity about the type).
 </p>
 
 <h4>Chained parameters</h4>
@@ -624,7 +633,7 @@ searches on patient name, then the search
 </pre>
 <p>
 is a request to return all the lab reports that have a subject whose name includes "peter". Because
-the Diagnostic Report subject can be one of a set of different resources, it's possible to limit
+the Diagnostic Report subject can be one of a set of different resources, it's necessary to limit
 the search to a particular type:
 </p>
 <pre>
@@ -639,11 +648,9 @@ Advanced Search Note:
 Where a chained parameter searches a resource reference that may have more than one
 different type of resource as its target, the parameter chain may end up referring
 to search parameters with the same name on more than one kind of resource at once.
-The parameter names defined in FHIR have consistent types wherever they are used.
-Implementers defining their own names need to be sure that they do not create
-unprocessable combinations. Servers SHOULD reject queries chained queries
-that lead to disjoint types along the path (e.g. the client has to specify
-the type explicitly using the syntax in the second example above).
+Servers SHOULD reject a search where the logical id refers to more than one matching 
+resource across different types (e.g. the client has to specify the type explicitly 
+using the syntax in the second example above).
 </p>
 
 <a name="composite" />
