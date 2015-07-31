@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+One common use of Group is to report observations on aggregated patient data.
+Typically, in these cases, there won't be must descriptive content 
+about the group - just that some user made a selection. The group will
+be referred to from one or more Observations
+-->
+<Group xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\Group.xsd">
+  <id value="102"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Selected Patients</p>
+      <ul>
+        <li>Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321</li>
+        <li>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</li>
+        <li>Patient Simon Notsowell @ Acme Healthcare, Inc. MR = 123457, DECEASED</li>
+        <li>Patient Sandy Notsowell @ Acme Healthcare, Inc. MR = 123458, DECEASED</li>
+      </ul>
+    </div>
+  </text>
+  <type value="person"/>
+  <actual value="true"/>
+  <member>
+    <entity>
+      <reference value="Patient/pat1"/>
+    </entity>
+    <period>
+      <start value="2014-10-08"/>
+    </period>
+  </member>
+  <member>
+    <entity>
+      <reference value="Patient/pat2"/>
+    </entity>
+    <period>
+      <start value="2015-04-02"/>
+    </period>
+    <inactive value="true"/>
+  </member>
+  <member>
+    <entity>
+      <reference value="Patient/pat3"/>
+    </entity>
+    <period>
+      <start value="2015-08-06"/>
+    </period>
+  </member>
+  <member>
+    <entity>
+      <reference value="Patient/pat4"/>
+    </entity>
+    <period>
+      <start value="2015-08-06"/>
+    </period>
+  </member>
+</Group>
