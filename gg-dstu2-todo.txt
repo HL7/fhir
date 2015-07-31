@@ -16,6 +16,8 @@ finish IG building/rendering
 Resource guide
 More RDF work
 fix pascal compiler
+add external link icon
+
 Examples
 * Clem's vital signs observations
 * Russian ECG example 
