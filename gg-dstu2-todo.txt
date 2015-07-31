@@ -17,6 +17,8 @@ Resource guide
 More RDF work
 fix pascal compiler
 add external link icon
+fix up UML diagrams
+
 
 Examples
 * Clem's vital signs observations
