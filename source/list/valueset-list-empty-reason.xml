@@ -33,7 +33,7 @@
       </extension>
       <code value="withheld"/>
       <display value="Information Withheld"/>
-      <definition value="Information was not provided due to privacy or confidentiality concerns. Note that it should not be assumed that this means that the particular information in question was withheld due to its contents - it can also be a policy decision"/>
+      <definition value="The content of the list was not provided due to privacy or confidentiality concerns. Note that it should not be assumed that this means that the particular information in question was withheld due to its contents - it can also be a policy decision"/>
     </concept>
     <concept>
       <code value="unavailable"/>
