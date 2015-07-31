@@ -434,11 +434,12 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, path, isValidToken(e.getName(), !path.contains(".")), "Name "+e.getName()+" is not a valid element name");
 	  rule(errors, IssueType.STRUCTURE, path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
-		if (hasSummary && e.getMinCardinality() == 0 && path.contains(".")) {
-      rule(errors, IssueType.STRUCTURE, path, optionalParent || e.isSummary(),  "An element with a minimum cardinality = 1 must be in the summary");
-      optionalParent = false;
-		}
-		hasSummary = hasSummary && e.isSummary();
+		
+    if (!hasSummary)
+      e.setSummaryItem(true);
+    rule(errors, IssueType.STRUCTURE, path, optionalParent || e.isSummary() || !path.contains(".") || e.getMinCardinality() == 0,  "An element with a minimum cardinality = 1 must be in the summary ("+path+")");
+    optionalParent = optionalParent || e.getMinCardinality() == 0;
+    
 		hint(errors, IssueType.STRUCTURE, path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
     checkDefinitions(errors, path, e);
     warning(errors, IssueType.STRUCTURE, path, !path.contains(".") || !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
