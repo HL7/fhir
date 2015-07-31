@@ -1140,6 +1140,8 @@ public class ProfileGenerator {
       } else {
         ElementDefinition.TypeRefComponent type = new ElementDefinition.TypeRefComponent();
         type.setCode(t.getName());
+        if (t.hasProfile())
+          type.addProfile(t.getProfile());
         dst.getType().add(type);
       }
     }

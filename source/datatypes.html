@@ -716,6 +716,14 @@ or a way of making identifiers unique. The <code>value</code> SHALL be unique wi
 and have a consistent meaning wherever it appears. Both <code>system</code> and <code>value</code> are always case sensitive.
 </p>
 <p>
+In addition to the system the provides a uniqueness scope, and the value, identifiers may also have a
+<code>type</code>, which may be useful when a system encounters identifiers with unknown system values. 
+Note, however, that the type of an identifier is not a well controlled vocabulary with wide variations
+in practice. The <code>type</code> deals only with general categories of identifiers and SHOULD not be 
+used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple 
+categories due to variations in common usage.
+</p>
+<p>
 FHIR defines <a href="identifier-registry.html">some useful URIs directly</a>. OIDs (urn:oid:) and UUIDs (urn:uuid:) 
 may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> and should be if the 
 content is shared or exchanged across institutional boundaries. If the identifier itself 

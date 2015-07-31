@@ -4,6 +4,76 @@
   <id value="registry"/>
   <type value="collection"/>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/NamingSystem/us-ssn"/>
+    <resource>
+      <NamingSystem>
+        <id value="us-ssn"/>
+        <name value="United States Social Security Number"/>
+        <status value="active"/>
+        <type value="identifier"/>
+        <publisher value="United States Social Security Administration"/>
+        <contact>  
+          <telecom>
+            <system value="other"/>
+            <value value="http://www.ssa.gov/"/>
+          </telecom>
+        </contact>
+        <date value="2015-07-31"/>
+        <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/identifier-type"/>
+            <code value="SB"/>
+          </coding>
+        </category>
+        <uniqueId>  
+          <type value="uri"/>
+          <value value="http://hl7.org/fhir/sid/us-ssn"/>
+          <preferred value="true"/>
+         </uniqueId>
+        <uniqueId>  
+          <type value="oid"/>
+          <value value="2.16.840.1.113883.4.1"/>
+         </uniqueId>
+      </NamingSystem>
+    </resource>
+  </entry>    
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/NamingSystem/us-npi"/>
+    <resource>
+      <NamingSystem>
+        <id value="us-npi"/>
+        <name value="United States National Provider Identifier"/>
+        <status value="active"/>
+        <type value="identifier"/>
+        <publisher value="Centers for Medicare and Medicaid Services"/>
+        <contact>  
+          <telecom>
+            <system value="other"/>
+            <value value="http://www.cms.gov/"/>
+          </telecom>
+        </contact>
+        <date value="2015-07-31"/>
+        <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="PRN"/>
+          </coding>
+        </category>
+        <uniqueId>  
+          <type value="uri"/>
+          <value value="http://hl7.org/fhir/sid/us-npi"/>
+          <preferred value="true"/>
+         </uniqueId>
+        <uniqueId>  
+          <type value="oid"/>
+          <value value="2.16.840.1.113883.4.6"/>
+         </uniqueId>
+      </NamingSystem>
+    </resource>
+  </entry>    
+  <entry>
     <fullUrl value="http://hl7.org/fhir/NamingSystem/4.3.2"/>
     <resource>
       <NamingSystem>
@@ -14,6 +84,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.2"/>
@@ -36,6 +112,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.1"/>
@@ -58,6 +140,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.5"/>
@@ -80,6 +168,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.4"/>
@@ -102,6 +196,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.6"/>
@@ -124,6 +224,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.8"/>
@@ -146,6 +252,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.9"/>
@@ -168,6 +280,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.11"/>
@@ -190,6 +308,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.10"/>
@@ -212,6 +336,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.12"/>
@@ -234,6 +364,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.13"/>
@@ -256,6 +392,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.15"/>
@@ -278,6 +420,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.18"/>
@@ -300,6 +448,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.19"/>
@@ -322,6 +476,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.16"/>
@@ -344,6 +504,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.17"/>
@@ -366,6 +532,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.20"/>
@@ -388,6 +560,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.21"/>
@@ -410,6 +588,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.22"/>
@@ -432,6 +616,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.25"/>
@@ -454,6 +644,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.24"/>
@@ -476,6 +672,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.23"/>
@@ -498,6 +700,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.26"/>
@@ -520,6 +728,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.27"/>
@@ -542,6 +756,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.29"/>
@@ -564,6 +784,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.28"/>
@@ -586,6 +812,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.30"/>
@@ -608,6 +840,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.36"/>
@@ -630,6 +868,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.37"/>
@@ -652,6 +896,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.38"/>
@@ -674,6 +924,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.31"/>
@@ -696,6 +952,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.33"/>
@@ -718,6 +980,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.34"/>
@@ -740,6 +1008,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.35"/>
@@ -762,6 +1036,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.32"/>
@@ -784,6 +1064,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.39"/>
@@ -806,6 +1092,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.40"/>
@@ -828,6 +1120,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.41"/>
@@ -850,6 +1148,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.42"/>
@@ -872,6 +1176,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.44"/>
@@ -894,6 +1204,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.45"/>
@@ -916,6 +1232,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.46"/>
@@ -938,6 +1260,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.47"/>
@@ -960,6 +1288,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.48"/>
@@ -982,6 +1316,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.49"/>
@@ -1004,6 +1344,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.51"/>
@@ -1026,6 +1372,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.50"/>
@@ -1048,6 +1400,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.53"/>
@@ -1070,6 +1428,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.55"/>
@@ -1092,6 +1456,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.54"/>
@@ -1114,6 +1484,12 @@
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
         <country value="USA"/>
+        <category>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="DL"/>
+          </coding>
+        </category>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.56"/>

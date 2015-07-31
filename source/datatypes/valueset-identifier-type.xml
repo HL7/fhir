@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-warning">
+    <valueString value="Types are for general categories of identifiers. See [the identifier registry](identifier-registry.html) for a list of common identifier systems"/>
+  </extension>
   <name value="Identifier Type Codes"/>
   <status value="draft"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -24,6 +27,11 @@
       <code value="SNO"/>
       <display value="Serial Number"/>
       <definition value="An identifier affixed to an item by the manufacturer when it is first made, where each item has a different identifier"/>
+    </concept>
+    <concept>
+      <code value="SB"/>
+      <display value="Social Beneficiary Identifier"/>
+      <definition value="An identifier issued by a governmental organization to an individual for the purpose of the receipt of social services and benefits"/>
     </concept>
     <concept>
       <code value="PLAC"/>
@@ -56,9 +64,6 @@
       </concept>
       <concept>
         <code value="EN"/>
-      </concept>
-      <concept>
-        <code value="SS"/>
       </concept>
       <concept>
         <code value="TAX"/>

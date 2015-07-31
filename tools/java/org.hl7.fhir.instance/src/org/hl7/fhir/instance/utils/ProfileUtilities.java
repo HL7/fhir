@@ -977,31 +977,33 @@ public class ProfileUtilities {
     boolean first = true;
     Element source = e.getType().get(0); // either all types are the same, or we don't consider any of them the same
     
+    TypeRefComponent tl = null;
     for (TypeRefComponent t : e.getType()) {
       if (first) 
         first = false; 
       else 
-        c.addPiece(checkForNoChange(source, gen.new Piece(null,", ", null)));
+        c.addPiece(checkForNoChange(tl, gen.new Piece(null,", ", null)));
+      tl = t;
       if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.hasProfile())) {
         if (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           String rn = t.getProfile().get(0).getValue().substring(40);
-          c.addPiece(checkForNoChange(source, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
+          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
         } else if (t.getProfile().get(0).getValue().startsWith("#"))
-          c.addPiece(checkForNoChange(source, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().get(0).getValue().substring(1).toLowerCase()+".html", t.getProfile().get(0).getValue(), null)));
+          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().get(0).getValue().substring(1).toLowerCase()+".html", t.getProfile().get(0).getValue(), null)));
         else
-          c.addPiece(checkForNoChange(source, gen.new Piece(corePath+t.getProfile().get(0).getValue(), t.getProfile().get(0).getValue(), null)));
+          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getProfile().get(0).getValue(), t.getProfile().get(0).getValue(), null)));
       } else if (t.hasProfile()) { // a profiled type
         String ref;
         ref = pkp.getLinkForProfile(profile, t.getProfile().get(0).getValue());
         if (ref != null) {
           String[] parts = ref.split("\\|");
-          c.addPiece(checkForNoChange(source, gen.new Piece(corePath+parts[0], parts[1], t.getCode())));
+          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+parts[0], parts[1], t.getCode())));
         } else
-          c.addPiece(checkForNoChange(source, gen.new Piece(corePath+ref, t.getCode(), null)));
+          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+ref, t.getCode(), null)));
       } else if (pkp.hasLinkFor(t.getCode())) {
-        c.addPiece(checkForNoChange(source, gen.new Piece(corePath+pkp.getLinkFor(t.getCode()), t.getCode(), null)));
+        c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(t.getCode()), t.getCode(), null)));
       } else
-        c.addPiece(checkForNoChange(source, gen.new Piece(null, t.getCode(), null)));
+        c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
     }
     return c;
   }
@@ -1059,7 +1061,7 @@ public class ProfileUtilities {
 
   private Piece checkForNoChange(Element source, Piece piece) {
     if (source.hasUserData(DERIVATION_EQUALS)) {
-      piece.addStyle("opacity: 0.5");
+      piece.addStyle("opacity: 0.4");
     }
     return piece;
   }

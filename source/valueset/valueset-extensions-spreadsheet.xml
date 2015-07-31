@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
+  <WindowHeight>16875</WindowHeight>
   <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -4306,7 +4306,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R40C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="42" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="43" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.25"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -5778,6 +5778,16 @@
     <Cell><Data ss:Type="String">A code that replaces this - use this code instead</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">Usually such codes are deprecated (retired)</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">warning</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s106"><Data ss:Type="String">string{http://hl7.org/fhir/markdown}</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Extra warning about the correct use of the value set</Data></Cell>
+    <Cell><Data ss:Type="String">An extra warning about the correct use of the value set </Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -5795,7 +5805,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5812,8 +5822,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>30</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>43</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

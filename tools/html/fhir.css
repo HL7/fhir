@@ -618,3 +618,9 @@ code {
   display: inline-block; 
   min-width: 2.5em; 
 }
+
+div.warning {
+  background-color: #FFE6E6;
+  border: 1px silver solid;
+  padding: 5px;
+}

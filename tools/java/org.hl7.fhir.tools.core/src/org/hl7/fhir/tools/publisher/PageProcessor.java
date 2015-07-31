@@ -564,6 +564,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("v2xref"))
         src = s1 + xreferencesForV2(name, com[1]) + s3;      
+      else if (com[0].equals("vs-warning"))
+        src = s1 + vsWarning((ValueSet) resource) + s3;      
       else if (com[0].equals("conceptmaplistv2"))
         src = s1 + conceptmaplist("http://hl7.org/fhir/ValueSet/v2-"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
       else if (com[0].equals("conceptmaplistv3"))
@@ -895,6 +897,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   }
 
+  private String vsWarning(ValueSet resource) throws Exception {
+    String warning = ToolingExtensions.readStringExtension(resource, "http://hl7.org/fhir/StructureDefinition/valueset-warning");
+    if (Utilities.noString(warning))
+      return "";
+    return "<div class=\"warning\">\r\n<p><b>Note for Implementer:</b></p>"+processMarkdown("vs-warning", warning, "")+"</div>\r\n";
+  }
+
   private String fileTail(String name) {
     int i = name.lastIndexOf(File.separator);
     return name.substring(i+1);
@@ -909,15 +918,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return definitions.getWorkgroups().containsKey(code) ? definitions.getWorkgroups().get(code).getName() : "?"+code+"?";
   }
 
-  private String genIdentifierList() {
+  private String genIdentifierList() throws Exception {
     StringBuilder b = new StringBuilder();
     for (NamingSystem ns : definitions.getNamingSystems()) {
       b.append("<tr>\r\n");
       b.append("  <td>"+Utilities.escapeXml(ns.getName())+"</td>\r\n");
       String uri = getUri(ns);
       String oid = getOid(ns);
-      b.append("  <td>"+Utilities.escapeXml(uri)+(oid == null || uri.endsWith(oid) ? "" : " / "+oid)+"</td>\r\n");
-      b.append("  <td>"+""+"</td>\r\n");
+      b.append("  <td>"+Utilities.escapeXml(uri)+"</td>\r\n");
+      b.append("  <td>"+(oid == null ? "" : oid)+"</td>\r\n");
+      if (ns.hasCategory()) {
+        Coding c = ns.getCategory().getCoding().get(0);
+        if (c == null)
+          b.append("  <td>"+Utilities.escapeXml(ns.getCategory().getText())+"</td>\r\n");
+        else {
+         if (c.getSystem().equals("http://hl7.org/fhir/identifier-type")) 
+           b.append("  <td><a href=\"valueset-identifier-type.html#"+c.getCode()+"\">"+c.getCode()+"</a></td>\r\n");
+         else if (c.getSystem().equals("http://hl7.org/fhir/v2/0203")) 
+           b.append("  <td><a href=\"v2/0203/index.html#"+c.getCode()+"\">"+c.getCode()+"</a></td>\r\n");
+         else 
+           throw new Exception("Unknown Identifier Type System");
+        }        
+      } else
+        b.append("  <td></td>\r\n");
+      b.append("  <td>"+Utilities.escapeXml(ns.getDescription())+"</td>\r\n");
       b.append("</tr>\r\n");
     }
     return b.toString();
@@ -3228,6 +3252,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("w5"))
         src = s1+genW5("true".equals(com[1]))+s3;
+      else if (com[0].equals("vs-warning"))
+        src = s1 + vsWarning((ValueSet) resource) + s3;      
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else  if (com[0].equals("conceptmaplistvs")) {
@@ -3598,6 +3624,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true, false)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("vs-warning"))
+        src = s1 + vsWarning((ValueSet) resource) + s3;      
       else if (com[0].equals("maponthispage"))
           src = s1+s3;
       else if (com[0].equals("onthispage"))
@@ -6062,11 +6090,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   @Override
   public String getLinkForProfile(StructureDefinition profile, String url) throws Exception {
     String fn;
+    if (url.equals("http://hl7.org/fhir/markdown"))  // magic
+      return "narrative.html#markdown|markdown";
+      
     if (!url.startsWith("#")) {
       String[] path = url.split("#");
       profile = new ProfileUtilities(workerContext).getProfile(null, path[0]);
-      if (profile == null && url.startsWith("StructureDefinition/"))
-        return "hspc-"+url.substring(8)+".html|"+url.substring(8);
+//      if (profile == null && url.startsWith("StructureDefinition/"))
+//        return "hspc-"+url.substring(8)+".html|"+url.substring(8);
     }
     if (profile != null) {
       fn = profile.getUserString("filename");

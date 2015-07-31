@@ -37,24 +37,27 @@ Some values may be dropped and others will likely be added in the coming months 
 institutes formal processes around URIs in vocabulary.
 </p>
 
+<p>
+The URI column indicates the correct value to use in the <a href="datatypes.html#Identifier">Identifier</a>.<code>system</code>. 
+The OID is provided for compatibility with V2/CDA based systems.
+</p>
+
 <table class="grid">
  <tr>
    <th>identifier</th>
-   <th width="150">URI / OID</th>
+   <th>URI</th>
+   <th>OID</th>
+   <th>Type</th>
    <th>Comment</th>
  </tr>
 
  <tr style="border-bottom: 0px">
    <td>URIs (<a href="http://www.w3.org">W3C</a>): when the identifier is a URI</td>
    <td>urn:ietf:rfc:3986 <a name="rn:ietf:rfc:3986"> </a></td>
+   <td></td>
+   <td></td>
    <td>As defined by <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a> (with many schemes defined in many RFCs). 
-   OIDs and UUIDs are represented in their URN form (<a href="http://www.ietf.org/rfc/rfc3001.txt">urn:oid:</a> and <a href="http://www.ietf.org/rfc/rfc4122.txt">urn:uuid:</a> 
-   - plain <a href="http://tools.ietf.org/id/draft-larmouth-oid-iri-04.txt">oid:</a> and uuid: are not used). Note that UUIDs are always lowercase in a IRI<br/>No OID</td>
- </tr>
- <tr style="border-bottom: 0px">
-   <td>SSN (<a href="http://www.ssa.gov/ssnumber/">US Government</a>)</td>
-   <td>http://hl7.org/fhir/sid/us-ssn <a name="ttp://hl7.org/fhir/sid/us-ssn"> </a> / 2.16.840.1.113883.4.1</td>
-   <td colspan="2">US SSNs are represented with dashes removed</td>
+   For OIDs and UUIDs, use the URN form (<a href="http://www.ietf.org/rfc/rfc3001.txt">urn:oid:</a> (note: lowercase) and <a href="http://www.ietf.org/rfc/rfc4122.txt">urn:uuid:</a></td>
  </tr>
  <%identifierlist%>
 
