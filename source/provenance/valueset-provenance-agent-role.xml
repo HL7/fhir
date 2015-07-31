@@ -73,5 +73,13 @@
       <display value="Informant"/>
       <definition value="A person who reported information that contributed to the resource"/>
     </concept>
+    <concept>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
+        <valueString value="The responsibility for this may be assigned to someone else, but the accountability is not. Requests for copies of the records are directed to the custodian"/>
+      </extension>
+      <code value="custodian"/>
+      <display value="Custodian"/>
+      <definition value="The entity that is accountable for maintaining a true an accurate copy of the original record"/>
+    </concept>
   </codeSystem>
 </ValueSet>

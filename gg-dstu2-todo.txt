@@ -17,6 +17,8 @@ More RDF work
 fix pascal compiler
 add external link icon
 fix up UML diagrams
+EMF page - update to XCore
+fix up minify
 
 
 Examples
