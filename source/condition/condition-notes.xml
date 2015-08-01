@@ -1,15 +1,42 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h3>Use of Condition.code</h3>
-
 <p>
 Many of the code systems used for coding conditions will provide codes that define not only the condition itself, but may 
 also specify a particular stage, location, or causality as part of the code. This is particularly true if 
 SNOMED-CT is used for the condition, and especially if expressions are allowed. 
 </p>
 <p>
+The Condition.code may also include such concepts as "history of X" and "good health", where it is useful or appropriate to make such assertions.. 
+It can also be used to capture "risk of" and "fear of" in addition to physical conditions.
+</p>
+<p>
 When the Condition.code specifies additional properties of the condition, the other properties are not given 
 a value - instead, the value must be understood from the Condition.code. 
+</p>
+<h3>Use of Condition.evidence</h3>
+
+<p>
+The Condition.evidence provides the basis for whatever is present in Condition.code.
+</p>
+
+<h3>Use of Condition.abatementRange</h3>
+
+<p>
+A range is used to communicate age period of subject at time of abatement. 
+</p>
+
+<h3>Use of Condition.asserter</h3>
+
+<p>
+If the data enterer is different from the asserter and needs to be known, this could be captured using a Provenance instance pointing to the Condition.
+For example,  it is possible that a nurse records the condition on behalf of a physician.  The physician is taking responsibility, despite the nurse entering it into the medical record.
+</p>
+
+<h3>Use of Condition.clinicalStatus</h3>
+
+<p>
+The Condition.stage and Condition.clinicalStatus may have interdependencies. For example, some "stages" of cancer, etc. will be different for a remission than for the initial occurrence.
 </p>
 
 </div>
