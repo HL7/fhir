@@ -49,13 +49,13 @@
       <display value="Below low normal"/>
     </coding>
   </interpretation>
-  <bodySiteCodeableConcept>
+  <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="308046002"/>
       <display value="Superficial forearm vein"/>
     </coding>
-  </bodySiteCodeableConcept>
+  </bodySite>
   <method>
     <coding>
       <system value="http://snomed.info/sct"/>

@@ -69,7 +69,7 @@ Authored by: Eric M Haas  Health eData Inc.
 		<!-- the time of collection is required. Usually a point in time, but can be a period
       (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine) -->
 		<collectedDateTime value="2014-12-05"/>
-		<bodySiteCodeableConcept>
+		<bodySite>
 			<!--choice of SNOMED CT concept code...-->
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -84,6 +84,6 @@ Authored by: Eric M Haas  Health eData Inc.
 				<display value="Arm"/>
 			</coding>
 			<text value="Drawn from Arm"/>
-		</bodySiteCodeableConcept>
+		</bodySite>
 	</collection>
 </Specimen>

@@ -23478,7 +23478,7 @@ effectiveTime element when known.
 					<Data ss:Type="String">13. MAY contain zero or one [0..1] targetSiteCode (CONF:14270). </Data>
 				</Cell>
 				<Cell ss:StyleID="s85">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 			</Row>
 			<Row ss:AutoFitHeight="0" ss:Height="30">

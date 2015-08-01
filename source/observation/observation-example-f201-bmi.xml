@@ -101,14 +101,14 @@
   </interpretation>
 <!-- The observation is complete -->
 <!-- No reliability concerns -->
-  <bodySiteCodeableConcept>
+  <bodySite>
   <!-- BMI effective to whole body -->
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="38266002"/>
       <display value="Entire body as a whole"/>
     </coding>
-  </bodySiteCodeableConcept>
+  </bodySite>
   <method>
   <!-- BMI method is measurement as an action -->
     <coding>

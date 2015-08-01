@@ -4058,7 +4058,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
@@ -11335,7 +11335,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
@@ -18310,7 +18310,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
@@ -25251,7 +25251,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
@@ -32596,7 +32596,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell>
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 			</Row>
 			<Row ss:AutoFitHeight="0">
@@ -33227,7 +33227,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
@@ -39129,7 +39129,7 @@ See wiki</Font>
 				<Cell ss:Index="3" ss:StyleID="s104"/>
 				<Cell ss:StyleID="s105"/>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 				<Cell ss:StyleID="s107"/>
 				<Cell ss:StyleID="s107">

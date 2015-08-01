@@ -3693,7 +3693,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
-					<Data ss:Type="String">Specimen.collection.bodySiteCodeableConcept</Data>
+					<Data ss:Type="String">Specimen.collection.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
@@ -3771,7 +3771,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
-					<Data ss:Type="String">Specimen.collection.bodySiteCodeableConcept.coding</Data>
+					<Data ss:Type="String">Specimen.collection.bodySite.coding</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
@@ -3847,7 +3847,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
-					<Data ss:Type="String">Specimen.collection.bodySiteCodeableConcept.coding.system</Data>
+					<Data ss:Type="String">Specimen.collection.bodySite.coding.system</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
@@ -3926,7 +3926,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
-					<Data ss:Type="String">Specimen.collection.bodySiteCodeableConcept.coding.code</Data>
+					<Data ss:Type="String">Specimen.collection.bodySite.coding.code</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
@@ -4006,7 +4006,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
-					<Data ss:Type="String">Specimen.collection.bodySiteCodeableConcept.coding.display</Data>
+					<Data ss:Type="String">Specimen.collection.bodySite.coding.display</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
@@ -4409,7 +4409,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
-					<Data ss:Type="String">Specimen.collection.bodySiteCodeableConcept.text</Data>
+					<Data ss:Type="String">Specimen.collection.bodySite.text</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
@@ -27131,7 +27131,7 @@ See wiki</Font>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s174">
-					<Data ss:Type="String">DiagnosticOrder.item.bodySite[x]</Data>
+					<Data ss:Type="String">DiagnosticOrder.item.bodySite</Data>
 				</Cell>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s85"/>
@@ -27740,7 +27740,7 @@ See wiki</Font>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s174">
-					<Data ss:Type="String">DiagnosticOrder.item.bodySite[x]</Data>
+					<Data ss:Type="String">DiagnosticOrder.item.bodySite</Data>
 				</Cell>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s85"/>

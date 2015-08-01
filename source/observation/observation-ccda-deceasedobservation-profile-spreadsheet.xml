@@ -1834,7 +1834,7 @@ a. This statusCode SHALL contain exactly one [1..1] @code="completed" Completed 
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -1899,7 +1899,7 @@ a. This statusCode SHALL contain exactly one [1..1] @code="completed" Completed 
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell>
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 			</Row>
 			<Row ss:AutoFitHeight="0" ss:Height="45">
@@ -22997,7 +22997,7 @@ a. This statusCode SHALL contain exactly one [1..1] @code="completed" Completed 
 				<Cell ss:StyleID="s108"/>
 				<Cell ss:StyleID="s108"/>
 				<Cell ss:StyleID="s85">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 				<Cell ss:StyleID="s106"/>
 				<Cell ss:StyleID="s105"/>

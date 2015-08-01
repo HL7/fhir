@@ -2163,7 +2163,7 @@ Completed (CodeSystem: ActStatus 2.16.840.1.113883.5.14)
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">

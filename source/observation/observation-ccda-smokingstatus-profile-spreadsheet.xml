@@ -1836,7 +1836,7 @@ a. This statusCode SHALL contain exactly one [1..1] @code="completed" Completed 
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">

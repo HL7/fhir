@@ -34,13 +34,13 @@
             <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
           </coding>
         </code>
-        <bodySiteCodeableConcept>
+        <bodySite>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="14975008"/>
             <display value="Forearm structure"/>
           </coding>
-        </bodySiteCodeableConcept>
+        </bodySite>
       </item>
     </DiagnosticOrder>
   </contained>

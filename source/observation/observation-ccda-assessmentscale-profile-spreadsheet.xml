@@ -30589,7 +30589,7 @@ ActStatus 2.16.840.1.113883.5.14) (CONF:14444).
 			<Row ss:AutoFitHeight="0">
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s85">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s85"/>
@@ -31792,7 +31792,7 @@ a. If xsi:type="CD" , MAY have a translation code to further specify the source 
 			<Row ss:AutoFitHeight="0">
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s85">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s85"/>

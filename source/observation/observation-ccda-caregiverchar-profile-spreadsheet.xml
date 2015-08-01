@@ -1688,7 +1688,7 @@ ActStatus 2.16.840.1.113883.5.14) (CONF:14233). </Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">Observation.bodySite[x][x]
+					<Data ss:Type="String">Observation.bodySite[x]
 </Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
@@ -22778,11 +22778,11 @@ ActStatus 2.16.840.1.113883.5.14) (CONF:14233).
 					<Data ss:Type="String">9/21/2014 EH:</Data>
 				</Cell>
 				<Cell ss:StyleID="s85">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 				<Cell ss:StyleID="s84"/>
 				<Cell ss:StyleID="s85">
-					<Data ss:Type="String">Observation.bodySite[x]</Data>
+					<Data ss:Type="String">Observation.bodySite</Data>
 				</Cell>
 				<Cell ss:StyleID="s84">
 					<Data ss:Type="String">0..0</Data>

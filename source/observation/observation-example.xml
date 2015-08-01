@@ -7,7 +7,15 @@
   <id value="example"/>
 <!--  the mandatory quality flags:  -->
   <status value="final"/>
-<!-- 
+  <!-- category code is A code that classifies the the general type of observation being made. This is used for searching, sorting and display purposes.-->
+    <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="vital-signs"/>
+      <display value="Vital Signs"/>
+    </coding>
+    </category>
+ <!-- 
     Observations are often coded in multiple code systems.
       - Loinc provides a very specific code (though not usefully more specific in this particular case)
       - snomed provides a clinically relevant code that is usually less granular than LOINC

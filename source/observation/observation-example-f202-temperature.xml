@@ -44,13 +44,13 @@
   </interpretation>
 <!-- In the meantime a new oral temperature is measured -->
 <!-- http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3418963/ -->
-  <bodySiteCodeableConcept>
+  <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="74262004"/>
       <display value="Oral cavity"/>
     </coding>
-  </bodySiteCodeableConcept>
+  </bodySite>
   <method>
     <coding>
       <system value="http://snomed.info/sct"/>
