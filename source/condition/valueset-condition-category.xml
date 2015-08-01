@@ -2,7 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-category"/>
-  <name value="Condition/Problem/Diagnosis Codes"/>
+  <name value="Condition Category Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -11,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Example value set for Condition (Problem/Diagnosis) Categories"/>
+  <description value="Preferred value set for Condition Categories"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/condition-category"/>
     <caseSensitive value="true"/>
