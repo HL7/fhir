@@ -4,7 +4,7 @@
   <id value="f201"/>
   <status value="final"/>
 <!-- No identifier or request details were available -->
-  <serviceCategory>
+  <category>
   <!-- The request was honored by the Department of Radiology -->
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -15,7 +15,7 @@
       <system value="http://hl7.org/fhir/v2/0074"/>
       <code value="RAD"/>
     </coding>
-  </serviceCategory>
+  </category>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>

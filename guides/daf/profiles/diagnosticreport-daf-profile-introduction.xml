@@ -44,7 +44,7 @@ The DAFDiagnosticReport profile mapping to Meaningful Use data elements and FHIR
 		  <tr>
 		    <td/>
 			<td>Diagnostic Test Category</td>
-			<td>DiagnosticReport.serviceCategory</td>
+			<td>DiagnosticReport.category</td>
 		  </tr>
 		  <tr>
 		    <td/>

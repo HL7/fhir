@@ -2027,7 +2027,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s115">
-					<Data ss:Type="String">DiagnosticReport.serviceCategory</Data>
+					<Data ss:Type="String">DiagnosticReport.category</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">

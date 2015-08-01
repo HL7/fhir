@@ -20,7 +20,7 @@
     </DiagnosticOrder>
   </contained>
   <status value="final"/>
-  <serviceCategory>
+  <category>
   <!-- Lab test -->
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -31,7 +31,7 @@
       <system value="http://hl7.org/fhir/v2/0074"/>
       <code value="LAB"/>
     </coding>
-  </serviceCategory>
+  </category>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>

@@ -703,12 +703,12 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     <value value="5234342"/>
   </identifier>
   <status value="final"/>
-  <serviceCategory>
+  <category>
     <coding>
       <system value="http://hl7.org/fhir/v2/0074"/>
       <code value="HM"/>
     </coding>
-  </serviceCategory>
+  </category>
 <!--    first, various administrative/context stuff    -->
   <code>
     <coding>

@@ -31,7 +31,7 @@ The DiagnosticReport resource does not yet provide full support for detailed str
 The DiagnosticReport resource has the following aspects:
 </p>
 <ul>
- <li>status, issued, identifier, performer, serviceCategory: information about the diagnostic report itself</li>
+ <li>status, issued, identifier, performer, category: information about the diagnostic report itself</li>
  <li>subject, diagnostic[x]: information about the subject of the report</li>
  <li>request details: a reference to 0 or more <a href="diagnosticorder.html">DiagnosticOrder resources</a> to allow the report to connect to clinical work flows</li>
  <li>results: a reference to 0 or more <a href="observation.html">Observation resources</a> which provide

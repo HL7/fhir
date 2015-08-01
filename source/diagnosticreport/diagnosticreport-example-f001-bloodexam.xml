@@ -50,7 +50,7 @@
     <value value="nr1239044"/>
   </identifier>
   <status value="final"/>
-  <serviceCategory>
+  <category>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="252275004"/>
@@ -60,7 +60,7 @@
       <system value="http://hl7.org/fhir/v2/0074"/>
       <code value="HM"/>
     </coding>
-  </serviceCategory>
+  </category>
   <code>
     <coding>
       <system value="http://loinc.org"/>
