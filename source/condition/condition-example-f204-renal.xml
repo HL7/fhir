@@ -40,7 +40,7 @@
     </coding>
  </severity>
  <onsetDateTime value="2013-03-11"/>
- <abatementDate value="2013-03-20"/><!--After the nine days of inpatient admission, the problem went in remission-->
+ <abatementDateTime value="2013-03-20"/><!--After the nine days of inpatient admission, the problem went in remission-->
  <stage><!--The problem is temporary and will not become permanent renal insufficiency-->
   <summary>
     <coding>
