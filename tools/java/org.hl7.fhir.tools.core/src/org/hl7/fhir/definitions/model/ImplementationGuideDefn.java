@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.ImplementationGuide;
+import org.hl7.fhir.instance.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -246,5 +248,28 @@ public class ImplementationGuideDefn {
 
   public String getPath() {
     return isCore() ? "" : code+File.separator;
+  }
+
+  public ImplementationGuidePageComponent getVSRegistry() {
+    return getVSRegistryPage(ig.getPage().getPage());
+  }
+
+  private ImplementationGuidePageComponent getVSRegistryPage(List<ImplementationGuidePageComponent> pages) {
+    for (ImplementationGuidePageComponent page : pages) {
+      if ((page.getKind().equals(GuidePageKind.LIST) || page.getKind().equals(GuidePageKind.DIRECTORY)) && hasType(page, "ValueSet")) 
+          return page;
+      ImplementationGuidePageComponent p = getVSRegistryPage(page.getPage());
+      if (p != null)
+        return p;
+    }
+    return null;
+  }
+
+  private boolean hasType(ImplementationGuidePageComponent page, String value) {
+    for (CodeType t : page.getType()) {
+      if (t.getValue().equals(value))
+        return true;
+    }
+    return false;
   }
 }

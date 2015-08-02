@@ -1,83 +1,120 @@
-<ig code="hspc" title="HSPC">
-  <dependsOn code="cqf"/>
-  <dependsOn code="daf"/>
-  <publishing homepage="hspc.html"/>
-  <!-- 
-    the normal order for this file is:
-      value sets
-      concept maps
-      profiles
-      dictionaries
-      examples
-      pages      
-      
-    order rules:
-    
-    -->
-  <!-- 
-    value seta. This is just a file name. everything else of interest is in the value set 
-    <valueSet source="filename, relative to this file"/> 
-    value sets don't have to be listed here; they can be loaded implicitly by referring to them
-    in a spreadsheet, or by including them in bundles. So the primary use here is if you 
-    want to include other valuesets not directly referenced in a spreadsheet (e.g. imports
-    in a value set))
-  -->
-  <!-- 
-    concept maps: same as value sets, except that there's no way to load them implicitly (though you can define them in a spreadsheet)
-    <conceptMap source="filename, relative to this file"/> 
-    you don't have to load the value sets prior to loading the concept maps that refer to them
-  -->
-  <!--
-    profiles. You have to list all the profiles that are in this implementation guide. 
-    <profile source=filename, relative to this file" type="[see below]"/> 
-    there's two types: 
-      spreadsheet - loads as a normal spreadsheet
-      bundle - loads as a bundle of structure definitions (and possibly value sets and concept maps)
-    all the rest of the information is extracted from the targets
-    
-    note: profiles are loaded in order. Derived profiles must be loaded after the profiles they are derived from.
-  --> 
-  <profile source="patient-hspc-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="practitioner-hspc-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="provenance-hspc-attribution-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="hspc-stdlabobs-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="hspc-stdlabobsqty-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="location-hspc-servicedeliverylocation-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-age-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-height-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-standardlabobscoded-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-standardlabobsivlpq.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-standardlabobsnarrative-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-standardlabobsreal-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-standardlabobstiter-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-stdlabobsord-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="observation-hspc-weight-profile-spreadsheet.xml" type="spreadsheet"/>
-  <!--<profile source="observation-hspc-directahg-spreadsheet.xml" type="spreadsheet"/>-->    
-  <profile source="observation-hspc-heartrate-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="organization-hspc-organization-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="hspc-headcircumference-profile-spreadsheet.xml" type="spreadsheet"/>  
-  <profile source="hspc-estimatedduedate-profile-spreadsheet.xml" type="spreadsheet"/>  
-  <profile source="hspc-boneage-profile-spreadsheet.xml" type="spreadsheet"/>  
-  <profile source="hspc-bmi-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="hspc-respiratoryrate-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="hspc-gestationalageatbirth-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="hspc-bodytemperature-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="hspc-systolicbp-profile-spreadsheet.xml" type="spreadsheet"/>
-  <profile source="hspc-diastolicbp-profile-spreadsheet.xml" type="spreadsheet"/>
+<?xml version="1.0" encoding="UTF-8"?>
 
-  <!--
-    dictionaries
-    <dictionary name="" source="">
-  -->
-    <dictionary id="hspc-qnlab-de" name="HSPC Quantitative Labs dictionary" source="hspc-qnlab-de.xml"/>
-    
-  <!--
-    Examples
-    <example name="" source="" description=""/>
-  -->  
-
-<!--
-hspc-QuantitativeLab-dataelements.xml
-
--->  
-</ig>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hspc"/>
+  <url value="http://hl7.org/fhir/hspc"/>
+  <name value="HSPC Implementation Guide"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Health Services Platform Consortium"/>
+  <dependency>
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/cqf"/>
+  </dependency>
+  <dependency>
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/daf"/>
+  </dependency>
+  <package>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="patient-hspc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="practitioner-hspc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="provenance-hspc-attribution-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-stdlabobs-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-stdlabobsqty-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="location-hspc-servicedeliverylocation-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-age-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-height-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobscoded-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobsivlpq.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobsnarrative-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobsreal-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-standardlabobstiter-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-stdlabobsord-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-weight-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-hspc-heartrate-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="organization-hspc-organization-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-headcircumference-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-estimatedduedate-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-boneage-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-bmi-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-respiratoryrate-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-gestationalageatbirth-profile-spreadsheet.xml"/>
+    </extension>
+    <name value="base"/>
+    <resource>
+      <purpose value="dictionary"/>
+      <name value="HSPC Quantitative Labs dictionary"/>
+      <sourceUri value="hspc-qnlab-de.xml"/>
+    </resource>
+  </package>
+  <page>
+    <source value="hspc.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
+    <page>
+      <source value="hspc-toc.html"/>
+      <name value="Table of Contents"/>
+      <kind value="toc"/>
+    </page>
+    <page>
+      <source value="registry.html"/>
+      <name value="Registry"/>
+      <kind value="list"/>
+      <type value="Conformance"/>
+      <type value="StructureDefinition"/>
+      <type value="ValueSet"/>
+      <type value="ConceptMap"/>
+    </page>
+    <page>
+      <source value="hspc-qnlab-de.xml"/>
+      <name value="Observations Dictionary"/>
+      <kind value="dictionary"/>
+      <type value="DataElement"/>
+    </page>
+  </page>
+</ImplementationGuide>

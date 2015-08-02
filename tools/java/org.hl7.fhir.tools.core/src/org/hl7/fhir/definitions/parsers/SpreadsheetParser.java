@@ -1986,7 +1986,7 @@ public class SpreadsheetParser {
     return bindings;
   }
 
-  public LogicalModel parseLogicalModel(String path) throws Exception {
+  public LogicalModel parseLogicalModel() throws Exception {
     ResourceDefn resource = new ResourceDefn();
     isLogicalModel = true;
     

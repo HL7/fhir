@@ -1,81 +1,123 @@
-<ig code="sdc" title="Structured Data Capture">
-  <dependsOn code="uslab"/>
-  <!-- used for invariants -->
-<!--  <acronym target="observation-daf-results-dafresultobservationcode" id="daf-cod"/>
-  <acronym target="observation-daf-results-dafresultobsquantity" id="daf-qty"/>
-  <acronym target="observation-daf-results-dafresultobsratio" id="daf-rto"/>
-  <acronym target="observation-daf-results-dafresultobsother" id="daf-oth"/>
-  <acronym target="diagnosticreport-daf-dafdiagnosticreport" id="daf-dir"/>
-  <acronym target="diagnosticorder-daf-dafdiagnosticorder" id="daf-dio"/>-->
+<?xml version="1.0" encoding="UTF-8"?>
 
-  <image source="sdc-generic-workflow.png"/>
-
-
-  <publishing homepage="sdc.html"/>
-  <!-- 
-    the normal order for this file is:
-      value sets
-      concept maps
-      profiles
-      dictionaries
-      examples
-      pages      
-      
-    order rules:
-    
-    -->
-  <!-- 
-    value seta. This is just a file name. everything else of interest is in the value set 
-    <valueSet source="filename, relative to this file"/> 
-    value sets don't have to be listed here; they can be loaded implicitly by referring to them
-    in a spreadsheet, or by including them in bundles. So the primary use here is if you 
-    want to include other valuesets not directly referenced in a spreadsheet (e.g. imports
-    in a value set))
-  -->
-
-  
-  <!-- 
-    concept maps: same as value sets, except that there's no way to load them implicitly (though you can define them in a spreadsheet)
-    <conceptMap source="filename, relative to this file"/> 
-    you don't have to load the value sets prior to loading the concept maps that refer to them
-  -->
-  <!--
-    profiles. You have to list all the profiles that are in this implementation guide. 
-    <profile source=filename, relative to this file" type="[see below]"/> 
-    there's two types: 
-      spreadsheet - loads as a normal spreadsheet
-      bundle - loads as a bundle of structure definitions (and possibly value sets and concept maps)
-    all the rest of the information is extracted from the targets
-    
-    note: profiles are loaded in order. Derived profiles must be loaded after the profiles they are derived from.
-  --> 
- <profile source="dataelement-sdc-profile-spreadsheet.xml" type="spreadsheet">
-   <example name="CCDA-Gender" description="FHIR Gender with mapping to CCDA" source="dataelement-sdc-profile-example.xml"/>
- </profile>
- <profile source="questionnaireanswers-sdc-profile-spreadsheet.xml" type="spreadsheet">
-   <example name="SDC" description="Stand-alone answer set" source="questionnaireanswers-sdc-profile-example.xml"/>
-   <example name="SDC-LOINC" description="Set of several examples - medication, AHRQ and NCI formsSDC medication example with LOINC codes populated" source="questionnaire-sdc-profile-example-loinc.xml"/>
- </profile>
- <profile source="questionnaire-sdc-profile-spreadsheet.xml" type="spreadsheet">
-   <example name="SDC" description="Set of several examples - medication, AHRQ and NCI forms" source="questionnaire-sdc-profile-example.xml"/>
-   <example name="SDC" description="Cancer pathology questionnaire with flow-control extensions" source="questionnaire-example-cap.xml"/>
- </profile>
- <profile source="valueset-sdc-profile-spreadsheet.xml" type="spreadsheet"/>
-  
-  <!--
-    Examples
-    <example name="" source="" description=""/>
-    
-    putting an example inside a profile indicates that it's subject to that profile
-  -->    
-  <example name="SDC Form Designer" description="SDC Form authoring system" source="conformance-sdc-form-designer.xml"/>
-  <example name="SDC Form Filler" description="SDC System for completing forms" source="conformance-sdc-form-filler.xml"/>
-  <example name="SDC Form Manager" description="SDC Repository for forms" source="conformance-sdc-form-manager.xml"/>
-  <example name="SDC Form Receiver" description="SDC Repository for completed forms" source="conformance-sdc-form-receiver.xml"/>
-  
-  
-  <page source="sdc.html"/>
-  <page source="sdc-intro.html"/>
-  <page source="sdc-security.html"/>
-
-</ig>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="sdc"/>
+  <url value="http://hl7.org/fhir/sdc"/>
+  <name value="Structured Data Capture"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="NEHTA"/>
+  <dependency>
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/uslab"/>
+  </dependency>
+  <package>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="dataelement-sdc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="questionnaire-sdc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="valueset-sdc-profile-spreadsheet.xml"/>
+    </extension>
+    <name value="base"/>
+    <resource>
+      <purpose value="example"/>
+      <name value="CCDA-Gender"/>
+      <description value="FHIR Gender with mapping to CCDA"/>
+      <sourceUri value="dataelement-sdc-profile-example.xml"/>
+      <exampleFor>
+        <reference value="dataelement-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="SDC"/>
+      <description value="Stand-alone answer set"/>
+      <sourceUri value="questionnaireanswers-sdc-profile-example.xml"/>
+      <exampleFor>
+        <reference value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="SDC-LOINC"/>
+      <description value="Set of several examples - medication, AHRQ and NCI formsSDC medication example with LOINC codes populated"/>
+      <sourceUri value="questionnaire-sdc-profile-example-loinc.xml"/>
+      <exampleFor>
+        <reference value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="SDC"/>
+      <description value="Set of several examples - medication, AHRQ and NCI forms"/>
+      <sourceUri value="questionnaire-sdc-profile-example.xml"/>
+      <exampleFor>
+        <reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="SDC"/>
+      <description value="Cancer pathology questionnaire with flow-control extensions"/>
+      <sourceUri value="questionnaire-example-cap.xml"/>
+      <exampleFor>
+        <reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="SDC Form Designer"/>
+      <description value="SDC Form authoring system"/>
+      <sourceUri value="conformance-sdc-form-designer.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="SDC Form Filler"/>
+      <description value="SDC System for completing forms"/>
+      <sourceUri value="conformance-sdc-form-filler.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="SDC Form Manager"/>
+      <description value="SDC Repository for forms"/>
+      <sourceUri value="conformance-sdc-form-manager.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="SDC Form Receiver"/>
+      <description value="SDC Repository for completed forms"/>
+      <sourceUri value="conformance-sdc-form-receiver.xml"/>
+    </resource>
+  </package>
+  <binary value="sdc-generic-workflow.png"/>
+  <page>
+    <source value="sdc.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
+    <page>
+      <source value="sdc-intro.html"/>
+      <name value="Introduction"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="sdc-security.html"/>
+      <name value="Security Details"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="registry.html"/>
+      <name value="Registry"/>
+      <kind value="list"/>
+      <type value="Conformance"/>
+      <type value="StructureDefinition"/>
+      <type value="ValueSet"/>
+      <type value="ConceptMap"/>
+    </page>
+  </page>
+</ImplementationGuide>

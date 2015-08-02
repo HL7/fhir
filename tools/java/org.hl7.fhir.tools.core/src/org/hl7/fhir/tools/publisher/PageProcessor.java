@@ -124,6 +124,9 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingCom
 import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageComponent;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.instance.model.NamingSystem;
 import org.hl7.fhir.instance.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.instance.model.NamingSystem.NamingSystemUniqueIdComponent;
@@ -607,6 +610,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+getWgLink(file, com[1])+s3;
       } else if (com[0].equals("wgt")) {
         src = s1+getWgTitle(com[1])+s3;
+      } else if (com[0].equals("ig.registry")) {
+        src = s1+buildIgRegistry(ig, com[1])+s3;
       } else if (com[0].equals("profileheader")) {
         src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1])+s3;
       } else if (com.length != 1)
@@ -895,6 +900,36 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String buildIgRegistry(ImplementationGuideDefn ig, String types) throws Exception {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"codes\">\r\n");
+    b.append("<tr><td><b>Id</b></td><td><b>Name</b></td><td><b>Description</b></td></tr>\r\n");
+    for (String type : types.split("\\,")) {
+      List<String> ids = new ArrayList<String>();
+      Map<String, ImplementationGuidePackageResourceComponent> map = new HashMap<String, ImplementationGuidePackageResourceComponent>();
+      for (ImplementationGuidePackageComponent p : ig.getIg().getPackage()) {
+        for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
+          Resource ar = (Resource) r.getUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE);
+          if (ar != null && ar.getResourceType().toString().equals(type)) {
+            String id = ar.getId();
+            ids.add(id);
+            map.put(id, r);
+          }
+        }
+      }
+      if (ids.size() > 0) {
+        Collections.sort(ids);
+        b.append("<tr><td colspan=\"3\" style=\"background: #DFDFDF\"><b>"+Utilities.pluralizeMe(type)+"</b></td></tr>\r\n");
+        for (String id : ids) {
+          ImplementationGuidePackageResourceComponent r = map.get(id);
+          b.append("<tr><td><a href=\""+Utilities.changeFileExt(r.getSourceUriType().asStringValue(), ".html")+"\">"+id+"</a></td><td>"+Utilities.escapeXml(r.getName())+"</td><td>"+Utilities.escapeXml(r.getDescription())+"</td></tr>\r\n");
+        }
+      }
+    }
+    b.append("</table>\r\n");
+    return b.toString();
   }
 
   private String vsWarning(ValueSet resource) throws Exception {
@@ -3676,6 +3711,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateToc(com[1], 1) + s3;
       } else if (com[0].equals("toc2")) {
         src = s1 + generateToc(com[1], 2) + s3;
+      } else if (com[0].equals("ig.registry")) {
+        src = s1+buildIgRegistry(ig, com[1])+s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -3891,17 +3928,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           if (vs.getUserData(ToolResourceUtilities.NAME_RES_IG) == ig)
             found = true;
         }
-        if (found) {
+        ImplementationGuidePageComponent p = ig.getVSRegistry();
+        if (found && p != null) {
           b.append(" <li><a href=\"");
           b.append(ig.getCode());
-          b.append("/terminologies-valuesets.html\">");
-          b.append(ig.getName());
+          b.append("/"+p.getSource()+"\">");
+          b.append(ig.getName()+" "+p.getName());
           b.append("</a></li>\r\n");
         }
       }
     }
     return b.toString();
   }
+
 
   private String igLink(ImplementationGuideDefn ig) {
     WorkGroup wg = definitions.getWorkgroups().get(ig.getCommittee());

@@ -4114,7 +4114,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
 
     src = TextFile.fileToString(actualName).replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processPageIncludesForBook(file, src, "page", null, null);
+    src = page.processPageIncludesForBook(file, src, "page", null, ig);
     cachePage(file, src, logicalName);
   }
 

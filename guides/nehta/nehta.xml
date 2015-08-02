@@ -1,9 +1,42 @@
-<ig code="hspc" title="HSPC">
-    <publishing homepage="nehta.html" />
-    <logicalModel id="colorectal" source="colorectal-spreadsheet.xml" type="spreadsheet" />
-    <logicalModel id="event-summary" source="event-summary-spreadsheet.xml" type="spreadsheet" />
-    <logicalModel id="shared-health-summary" source="shared-health-summary-spreadsheet.xml" type="spreadsheet" />
-    <logicalModel id="specialist-letter" source="specialist-letter-spreadsheet.xml" type="spreadsheet" />
-    <logicalModel id="australian-organ-donor-register" source="australian-organ-donor-register-spreadsheet.xml" type="spreadsheet" />
-    <page source="nehta.html" />
-</ig>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="nehta"/>
+  <url value="http://hl7.org/fhir/nehta"/>
+  <name value="NEHTA Logical Model"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="NEHTA"/>
+  <package>
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
+      <valueUri value="colorectal-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
+      <valueUri value="event-summary-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
+      <valueUri value="shared-health-summary-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
+      <valueUri value="specialist-letter-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
+      <valueUri value="australian-organ-donor-register-spreadsheet.xml"/>
+    </extension>
+    <name value="base"/>
+  </package>
+  <page>
+    <source value="nehta.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
+    <page>
+      <source value="registry.html"/>
+      <name value="Registry"/>
+      <kind value="list"/>
+      <type value="Conformance"/>
+      <type value="StructureDefinition"/>
+      <type value="ValueSet"/>
+      <type value="ConceptMap"/>
+    </page>
+  </page>
+</ImplementationGuide>

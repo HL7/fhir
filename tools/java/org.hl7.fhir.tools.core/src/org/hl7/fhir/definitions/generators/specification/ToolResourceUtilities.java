@@ -12,6 +12,7 @@ public class ToolResourceUtilities {
   
   public static final Object EXT_PROFILE_SPREADSHEET = "http://hl7.org/fhir/tools-profile-spreadsheet";
   public static final Object EXT_LOGICAL_SPREADSHEET = "http://hl7.org/fhir/tools-logical-spreadsheet";
+  public static final String RES_ACTUAL_RESOURCE = "spec.ig.res";
 
   public static void updateUsage(Resource res, String usage) {
     if (Utilities.noString(usage))

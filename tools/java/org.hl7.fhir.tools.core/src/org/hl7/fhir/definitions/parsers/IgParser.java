@@ -87,7 +87,8 @@ public class IgParser {
     
     // first: parse the IG, then use it 
     String myRoot = Utilities.path(rootDir, "guides", igd.getCode());
-    ImplementationGuide ig = (ImplementationGuide) new XmlParser().parse(new FileInputStream(Utilities.path(myRoot, "ig.xml")));
+    CSFile file = new CSFile(Utilities.path(rootDir, igd.getSource()));
+    ImplementationGuide ig = (ImplementationGuide) new XmlParser().parse(new FileInputStream(file));
     if (!ig.getUrl().startsWith("http://hl7.org/fhir/")) // for things published in the hl7.org/fhir namespace...
       throw new Exception("Illegal namespace");
     if (!ig.getUrl().equals("http://hl7.org/fhir/"+ig.getId()))
@@ -137,9 +138,9 @@ public class IgParser {
           igd.getExamples().add(example);
         } else if (r.getPurpose() == GuideResourcePurpose.TERMINOLOGY) {
           ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(fn));
-          if (id.contains(File.separator))
+//          if (id.contains(File.separator))
             if (id.startsWith("valueset-"))
-              id = id.substring(8);
+              id = id.substring(9);
           vs.setId(id);
           vs.setUrl("http://hl7.org/fhir/ValueSet/"+id);
           vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
@@ -147,7 +148,12 @@ public class IgParser {
           vs.setUserData("filename", "valueset-"+id);
           vs.setUserData("committee", committee);
           igd.getValueSets().add(vs);
-          r.setName(vs.getName());
+          if (!r.hasName())
+            r.setName(vs.getName());
+          if (!r.hasDescription())
+            r.setDescription(vs.getDescription());
+          r.setUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE, vs);
+          r.setSource(new UriType(fn.getName()));
         } else if (r.getPurpose() == GuideResourcePurpose.PROFILE) {
           throw new Error("Not implemented yet");
         } else if (r.getPurpose() == GuideResourcePurpose.DICTIONARY) {
@@ -165,127 +171,165 @@ public class IgParser {
       // second pass: load the spreadsheets
       for (Extension ex : p.getExtension()) {
         if (ex.getUrl().equals(ToolResourceUtilities.EXT_PROFILE_SPREADSHEET)) {
-//          String s = ((UriType) ex.getValue()).getValue();
-//          File fn = new File(Utilities.path(myRoot, s));
-//          if (!fn.exists())
-//            throw new Exception("Spreadsheet "+s+" in package "+p.getName()+" in IG "+ig.getName()+" could not be located");          
-//          Profile pr = new Profile(igd.getCode());
-//          ex.setUserData(ToolResourceUtilities.NAME_RES_PROFILE, pr);
-//          pr.setSource(fn.getAbsolutePath());
-//          pr.setSourceType(ConformancePackageSourceType.Spreadsheet);
-//          SpreadsheetParser sparser = new SpreadsheetParser(pr.getCategory(), new CSFileInputStream(pr.getSource()), Utilities.noString(pr.getId()) ? pr.getSource() : pr.getId(), igd, 
-//                rootDir, logger, null, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings);
-//          sparser.getBindings().putAll(commonBindings);
-//          sparser.setFolder(Utilities.getDirectoryForFile(pr.getSource()));
-//          sparser.parseConformancePackage(pr, null, Utilities.getDirectoryForFile(pr.getSource()), pr.getCategory(), issues);
-//          igd.getProfiles().add(pr);
-//          // what remains to be done now is to update the package with the loaded resources, but we need to wait for all the profiles to generated, so we'll do that later
+          String s = ((UriType) ex.getValue()).getValue();
+          File fn = new File(Utilities.path(myRoot, s));
+          if (!fn.exists())
+            throw new Exception("Spreadsheet "+s+" in package "+p.getName()+" in IG "+ig.getName()+" could not be located");          
+          Profile pr = new Profile(igd.getCode());
+          ex.setUserData(ToolResourceUtilities.NAME_RES_PROFILE, pr);
+          pr.setSource(fn.getAbsolutePath());
+          pr.setSourceType(ConformancePackageSourceType.Spreadsheet);
+          SpreadsheetParser sparser = new SpreadsheetParser(pr.getCategory(), new CSFileInputStream(pr.getSource()), Utilities.noString(pr.getId()) ? pr.getSource() : pr.getId(), igd, 
+                rootDir, logger, null, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings);
+          sparser.getBindings().putAll(commonBindings);
+          sparser.setFolder(Utilities.getDirectoryForFile(pr.getSource()));
+          sparser.parseConformancePackage(pr, null, Utilities.getDirectoryForFile(pr.getSource()), pr.getCategory(), issues);
+          igd.getProfiles().add(pr);
+          // what remains to be done now is to update the package with the loaded resources, but we need to wait for all the profiles to generated, so we'll do that later
+          for (BindingSpecification bs : sparser.getBindings().values()) {
+            if (!commonBindings.containsValue(bs) && bs.getValueSet() != null) {
+              ValueSet vs  = bs.getValueSet();
+              String path = vs.getUserString("path");
+              path = path.substring(path.lastIndexOf("/")+1);              
+              ig.getPackage().get(0).addResource().setName(vs.getName()).setDescription(vs.getDescription()).setSource(new UriType(path)).setUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE, vs);
+            }
+          }
+        }
+        if (ex.getUrl().equals(ToolResourceUtilities.EXT_LOGICAL_SPREADSHEET)) {
+          File fn = new CSFile(Utilities.path(myRoot, ((UriType) ex.getValue()).getValue()));
+//          String source = Utilities.path(file.getParent(), e.getAttribute("source"));
+          String s = fn.getName();
+          if (s.endsWith("-spreadsheet.xml"))
+            s = s.substring(0, s.length()-16);
+          String id = igd.getCode()+"-"+s;
+          SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(fn), id, igd, rootDir, logger, null, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings);
+          sparser.getBindings().putAll(commonBindings);
+          sparser.setFolder(Utilities.getDirectoryForFile(fn.getAbsolutePath()));
+          LogicalModel lm = sparser.parseLogicalModel();
+          lm.setId(id);
+          lm.setSource(fn.getAbsolutePath());
+          lm.getResource().setName(lm.getId());
+          igd.getLogicalModels().add(lm);
         }
       }
     }
     
-    // second, parse the old ig, and use that. This is being phased out
-    CSFile file = new CSFile(Utilities.path(rootDir, igd.getSource()));
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true); 
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document xdoc = builder.parse(new CSFileInputStream(file));
-    Element root = xdoc.getDocumentElement();
-    if (!root.getNodeName().equals("ig")) 
-      throw new Exception("wrong base node");
-    Element e = XMLUtil.getFirstChild(root);
-    while (e != null) {
-      if (e.getNodeName().equals("dependsOn")) {
-        // we ignore this for now
-      } else if (e.getNodeName().equals("publishing")) {
-//        if (e.hasAttribute("homepage")) 
-//          igd.setPage(e.getAttribute("homepage"));
-      } else if (e.getNodeName().equals("page")) {
-//        igd.getPageList().add(e.getAttribute("source"));
-      } else if (e.getNodeName().equals("image")) {
-//        moved above igd.getImageList().add(e.getAttribute("source"));
-      } else if (e.getNodeName().equals("valueset")) {
-//        XmlParser xml = new XmlParser();
-//        ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(Utilities.path(file.getParent(), e.getAttribute("source"))));
-//        String id = Utilities.changeFileExt(new File(Utilities.path(file.getParent(), e.getAttribute("source"))).getName(), "");
-//        if (id.startsWith("valueset-"))
-//          id = id.substring(9);
-//        if (!vs.hasId() || !vs.hasUrl()) {
-//          vs.setId(id);
-//          vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
-//        }
-//        vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
-//        vs.setUserData("path", igd.getCode()+File.separator+"valueset-"+vs.getId()+".html");
-//        vs.setUserData("filename", "valueset-"+vs.getId());
-//        vs.setUserData("committee", committee);
-//        igd.getValueSets().add(vs);
-      } else if (e.getNodeName().equals("acronym")) {
-        igd.getTlas().put(e.getAttribute("target"), e.getAttribute("id"));        
-      } else if (e.getNodeName().equals("example")) {
-//        String filename = e.getAttribute("source");
-//        File efile = new File(Utilities.path(file.getParent(), filename));
-//        Example example = new Example(e.getAttribute("name"), Utilities.changeFileExt(efile.getName(), ""), e.getAttribute("name"), efile, false, ExampleType.XmlFile, false);
-//        example.setIg(igd.getCode());
-//        igd.getExamples().add(example);
-      } else if (e.getNodeName().equals("profile")) {
-//        moved above
-        Profile p = new Profile(igd.getCode());
-        p.setSource(Utilities.path(file.getParent(), e.getAttribute("source")));
-        if ("spreadsheet".equals(e.getAttribute("type"))) {
-          p.setSourceType(ConformancePackageSourceType.Spreadsheet);
-          SpreadsheetParser sparser = new SpreadsheetParser(p.getCategory(), new CSFileInputStream(p.getSource()), Utilities.noString(p.getId()) ? p.getSource() : p.getId(), igd, 
-              rootDir, logger, null, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings);
-          sparser.getBindings().putAll(commonBindings);
-          sparser.setFolder(Utilities.getDirectoryForFile(p.getSource()));
-          sparser.parseConformancePackage(p, null, Utilities.getDirectoryForFile(p.getSource()), p.getCategory(), issues);
-        } else {
-          throw new Exception("Unknown profile type in IG : "+e.getNodeName());
-          // parseConformanceDocument(p, p.getId(), new File(p.getSource()), p.getCategory());    
-        } 
-        
-        String id = e.getAttribute("id"); 
-        if (Utilities.noString(id))
-          id = Utilities.changeFileExt(e.getAttribute("source"), "");
-        igd.getProfiles().add(p);
-        Element ex = XMLUtil.getFirstChild(e);
-        while (ex != null) {
-          if (ex.getNodeName().equals("example")) {
-            String filename = ex.getAttribute("source");
-            Example example = new Example(ex.getAttribute("name"), Utilities.changeFileExt(Utilities.getFileNameForName(filename), ""), ex.getAttribute("name"), new File(Utilities.path(file.getParent(), filename)), false, ExampleType.XmlFile, false);
-            p.getExamples().add(example);
-          } else
-            throw new Exception("Unknown element name in IG: "+ex.getNodeName());
-          ex = XMLUtil.getNextSibling(ex);
-        }
-      } else if (e.getNodeName().equals("dictionary")) {
-//        Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), igd.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))), igd);
-//        igd.getDictionaries().add(d);
-      } else if (e.getNodeName().equals("logicalModel")) {
-        String source = Utilities.path(file.getParent(), e.getAttribute("source"));
-        String id = igd.getCode()+"-"+e.getAttribute("id");
-        SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(source), id, igd, rootDir, logger, null, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings);
-        sparser.getBindings().putAll(commonBindings);
-        sparser.setFolder(Utilities.getDirectoryForFile(source));
-        LogicalModel lm = sparser.parseLogicalModel(source);
-        lm.setId(id);
-        lm.setSource(source);
-        lm.getResource().setName(lm.getId());
-        igd.getLogicalModels().add(lm);
-      } else
-        throw new Exception("Unknown element name in IG: "+e.getNodeName());
-      e = XMLUtil.getNextSibling(e);
-    }    
+//    // second, parse the old ig, and use that. This is being phased out
+//    CSFile file = new CSFile(Utilities.path(rootDir, igd.getSource()));
+//    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//    factory.setNamespaceAware(true); 
+//    DocumentBuilder builder = factory.newDocumentBuilder();
+//    Document xdoc = builder.parse(new CSFileInputStream(file));
+//    Element root = xdoc.getDocumentElement();
+//    if (!root.getNodeName().equals("ig")) 
+//      throw new Exception("wrong base node");
+//    Element e = XMLUtil.getFirstChild(root);
+//    while (e != null) {
+//      if (e.getNodeName().equals("dependsOn")) {
+//        // we ignore this for now
+//      } else if (e.getNodeName().equals("publishing")) {
+////        if (e.hasAttribute("homepage")) 
+////          igd.setPage(e.getAttribute("homepage"));
+//      } else if (e.getNodeName().equals("page")) {
+////        igd.getPageList().add(e.getAttribute("source"));
+//      } else if (e.getNodeName().equals("image")) {
+////        moved above igd.getImageList().add(e.getAttribute("source"));
+//      } else if (e.getNodeName().equals("valueset")) {
+////        XmlParser xml = new XmlParser();
+////        ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(Utilities.path(file.getParent(), e.getAttribute("source"))));
+////        String id = Utilities.changeFileExt(new File(Utilities.path(file.getParent(), e.getAttribute("source"))).getName(), "");
+////        if (id.startsWith("valueset-"))
+////          id = id.substring(9);
+////        if (!vs.hasId() || !vs.hasUrl()) {
+////          vs.setId(id);
+////          vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
+////        }
+////        vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
+////        vs.setUserData("path", igd.getCode()+File.separator+"valueset-"+vs.getId()+".html");
+////        vs.setUserData("filename", "valueset-"+vs.getId());
+////        vs.setUserData("committee", committee);
+////        igd.getValueSets().add(vs);
+//      } else if (e.getNodeName().equals("acronym")) {
+//        igd.getTlas().put(e.getAttribute("target"), e.getAttribute("id"));        
+//      } else if (e.getNodeName().equals("example")) {
+////        String filename = e.getAttribute("source");
+////        File efile = new File(Utilities.path(file.getParent(), filename));
+////        Example example = new Example(e.getAttribute("name"), Utilities.changeFileExt(efile.getName(), ""), e.getAttribute("name"), efile, false, ExampleType.XmlFile, false);
+////        example.setIg(igd.getCode());
+////        igd.getExamples().add(example);
+//      } else if (e.getNodeName().equals("profile")) {
+////        moved above
+////        Profile p = new Profile(igd.getCode());
+////        p.setSource(Utilities.path(file.getParent(), e.getAttribute("source")));
+////        if ("spreadsheet".equals(e.getAttribute("type"))) {
+////          p.setSourceType(ConformancePackageSourceType.Spreadsheet);
+////          SpreadsheetParser sparser = new SpreadsheetParser(p.getCategory(), new CSFileInputStream(p.getSource()), Utilities.noString(p.getId()) ? p.getSource() : p.getId(), igd, 
+////              rootDir, logger, null, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings);
+////          sparser.getBindings().putAll(commonBindings);
+////          sparser.setFolder(Utilities.getDirectoryForFile(p.getSource()));
+////          sparser.parseConformancePackage(p, null, Utilities.getDirectoryForFile(p.getSource()), p.getCategory(), issues);
+////          for (BindingSpecification bs : sparser.getBindings().values()) {
+////            if (!commonBindings.containsValue(bs) && bs.getValueSet() != null) {
+////              ValueSet vs  = bs.getValueSet();
+////              String path = vs.getUserString("filename")+".xml";
+////              ig.getPackage().get(0).addResource().setName(vs.getName()).setDescription(vs.getDescription()).setSource(new UriType(path)).setUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE, vs);
+////            }
+////          }
+////        } else {
+////          throw new Exception("Unknown profile type in IG : "+e.getNodeName());
+////          // parseConformanceDocument(p, p.getId(), new File(p.getSource()), p.getCategory());    
+////        } 
+////        
+////        String id = e.getAttribute("id"); 
+////        if (Utilities.noString(id))
+////          id = Utilities.changeFileExt(e.getAttribute("source"), "");
+////        igd.getProfiles().add(p);
+////        Element ex = XMLUtil.getFirstChild(e);
+////        while (ex != null) {
+////          if (ex.getNodeName().equals("example")) {
+////            String filename = ex.getAttribute("source");
+////            Example example = new Example(ex.getAttribute("name"), Utilities.changeFileExt(Utilities.getFileNameForName(filename), ""), ex.getAttribute("name"), new File(Utilities.path(file.getParent(), filename)), false, ExampleType.XmlFile, false);
+////            p.getExamples().add(example);
+////          } else
+////            throw new Exception("Unknown element name in IG: "+ex.getNodeName());
+////          ex = XMLUtil.getNextSibling(ex);
+////        }
+//      } else if (e.getNodeName().equals("dictionary")) {
+////        Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), igd.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))), igd);
+////        igd.getDictionaries().add(d);
+//      } else if (e.getNodeName().equals("logicalModel")) {
+////        String source = Utilities.path(file.getParent(), e.getAttribute("source"));
+////        String id = igd.getCode()+"-"+e.getAttribute("id");
+////        SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(source), id, igd, rootDir, logger, null, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings);
+////        sparser.getBindings().putAll(commonBindings);
+////        sparser.setFolder(Utilities.getDirectoryForFile(source));
+////        LogicalModel lm = sparser.parseLogicalModel(source);
+////        lm.setId(id);
+////        lm.setSource(source);
+////        lm.getResource().setName(lm.getId());
+////        igd.getLogicalModels().add(lm);
+//      } else
+//        throw new Exception("Unknown element name in IG: "+e.getNodeName());
+//      e = XMLUtil.getNextSibling(e);
+//    }    
   }
 
   private void processPage(ImplementationGuidePageComponent page, ImplementationGuideDefn igd) throws Exception {
     if (!page.hasName())
       throw new Exception("Page "+page.getSource()+" has no name");
-    if (page.getKind() == GuidePageKind.PAGE && page.hasSource()) {
+    if (page.getKind() == GuidePageKind.PAGE || page.getKind() == GuidePageKind.DIRECTORY || page.getKind() == GuidePageKind.LIST) {
+      checkExists(igd, page.getSource());
       igd.getPageList().add(page.getSource());
     }
     for (ImplementationGuidePageComponent pp : page.getPage()) {
       processPage(pp, igd);
     }
+  }
+
+  private void checkExists(ImplementationGuideDefn igd, String source) throws Exception {
+    File f = new File(Utilities.path(igd.getPath(), source));
+    if (f.exists())
+      throw new Exception("Unable to find file "+source);
     
   }
   

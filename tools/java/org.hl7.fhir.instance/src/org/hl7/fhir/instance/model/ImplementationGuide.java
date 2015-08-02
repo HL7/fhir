@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Aug 1, 2015 08:37+1000 for FHIR v0.5.0
+// Generated on Sun, Aug 2, 2015 19:42+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -137,6 +137,10 @@ public class ImplementationGuide extends DomainResource {
          */
         DICTIONARY, 
         /**
+         * The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide
+         */
+        LOGICAL, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -151,6 +155,8 @@ public class ImplementationGuide extends DomainResource {
           return PROFILE;
         if ("dictionary".equals(codeString))
           return DICTIONARY;
+        if ("logical".equals(codeString))
+          return LOGICAL;
         throw new Exception("Unknown GuideResourcePurpose code '"+codeString+"'");
         }
         public String toCode() {
@@ -159,6 +165,7 @@ public class ImplementationGuide extends DomainResource {
             case TERMINOLOGY: return "terminology";
             case PROFILE: return "profile";
             case DICTIONARY: return "dictionary";
+            case LOGICAL: return "logical";
             default: return "?";
           }
         }
@@ -168,6 +175,7 @@ public class ImplementationGuide extends DomainResource {
             case TERMINOLOGY: return "http://hl7.org/fhir/guide-resource-purpose";
             case PROFILE: return "http://hl7.org/fhir/guide-resource-purpose";
             case DICTIONARY: return "http://hl7.org/fhir/guide-resource-purpose";
+            case LOGICAL: return "http://hl7.org/fhir/guide-resource-purpose";
             default: return "?";
           }
         }
@@ -177,6 +185,7 @@ public class ImplementationGuide extends DomainResource {
             case TERMINOLOGY: return "The resource defines a value set or concept map used in the Implementation Guide";
             case PROFILE: return "The resource defines a profile (StructureDefinition) that is used in the implementation guide";
             case DICTIONARY: return "The resource contains a dictionary that is part of the implementation guide";
+            case LOGICAL: return "The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide";
             default: return "?";
           }
         }
@@ -186,6 +195,7 @@ public class ImplementationGuide extends DomainResource {
             case TERMINOLOGY: return "Terminology";
             case PROFILE: return "Profile";
             case DICTIONARY: return "Dictionary";
+            case LOGICAL: return "Logical Model";
             default: return "?";
           }
         }
@@ -204,6 +214,8 @@ public class ImplementationGuide extends DomainResource {
           return GuideResourcePurpose.PROFILE;
         if ("dictionary".equals(codeString))
           return GuideResourcePurpose.DICTIONARY;
+        if ("logical".equals(codeString))
+          return GuideResourcePurpose.LOGICAL;
         throw new IllegalArgumentException("Unknown GuideResourcePurpose code '"+codeString+"'");
         }
     public String toCode(GuideResourcePurpose code) {
@@ -215,6 +227,8 @@ public class ImplementationGuide extends DomainResource {
         return "profile";
       if (code == GuideResourcePurpose.DICTIONARY)
         return "dictionary";
+      if (code == GuideResourcePurpose.LOGICAL)
+        return "logical";
       return "?";
       }
     }
@@ -913,7 +927,7 @@ public class ImplementationGuide extends DomainResource {
          * Why the resource is included in the guide.
          */
         @Child(name = "purpose", type = {CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="example | terminology | profile | dictionary", formalDefinition="Why the resource is included in the guide." )
+        @Description(shortDefinition="example | terminology | profile | dictionary | logical", formalDefinition="Why the resource is included in the guide." )
         protected Enumeration<GuideResourcePurpose> purpose;
 
         /**

@@ -1,73 +1,345 @@
-<ig code="uslab" title="US Laboratory Implementation Guide (ex LRF)">
-  <acronym target="dr-uslab-uslabdr" id="usl-pdr"/>
-  <acronym target="obs-uslab-uslabobscode" id="usl-cod"/>
-  <acronym target="obs-uslab-uslabobsquantity" id="usl-qty"/>
-  <acronym target="obs-uslab-uslabobsother" id="usl-oth"/>
-  <acronym target="obs-uslab-uslabobsratio" id="usl-rto"/>
-  <acronym target="org-uslab-uslaborderfacility" id="usl-bdf"/>
-  <acronym target="org-uslab-uslabperforminglab" id="usl-pfl"/>
-  <acronym target="org-uslab-uslabcctarget" id="usl-cct"/>
-  <acronym target="spec-uslab-uslabspec" id="usl-spm"/>
-  <acronym target="patient-uslab-uslabpatient" id="usl-pat"/>
-  <acronym target="patient-uslab-uslabphpatient" id="usl-php"/>
-  <acronym target="do-uslab-uslabdo" id="usl-do"/>
-  <acronym target="pract-uslab-uslabpract" id="usl-prc"/>
-  <acronym target="pract-uslab-uslabphpract" id="usl-prh"/>
+<?xml version="1.0" encoding="UTF-8"?>
 
-  <publishing homepage="uslab.html"/>
-    
-  <profile source="cond-uslab-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="USLab Condition Example1" description="USLab Condition Profile Canonical Example: Lead Exposure" source="cond-uslab-example1.xml"/>		
-    <example name="USLab Condition Example2" description="USLab Reason for Study Profile Canonical Example: Lead Exposure" source="cond-uslab-example2.xml"/>		
-  </profile>
-  <profile source="do-uslab-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="USLab DiagnosticOrder Example1" description="USLabOrder  Blood Lead " source="do-uslab-example1.xml"/>		
-  </profile>
-  <profile source="dr-uslab-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="USLab DiagnosticReport Example1" description="USLabReport DiagnosticReport Profile Canonical Example: Childhood Blood Lead Report" source="dr-uslab-example1.xml"/> 		
-  </profile>
-  <profile source="obs-uslab-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="USLab Observation Example1" description="USLab Quantitative Observation Profile Example: Capillary Blood Lead" source="obs-uslab-example1.xml"/>		
-    <example name="USLab Observation Example2" description="USLab Coded Observation Profile Example: N gonorrhoeae PCR" source="obs-uslab-example2.xml"/>		
-    <example name="USLab Observation Example3" description="USLab Other (string) Observation Profile Example: S.aureus" source="obs-uslab-example3.xml"/>		
-    <example name="USLab Observation Example4" description="USLab Ratio Observation Profile Example: Dengue Titer" source="obs-uslab-example4.xml"/>		
-    <example name="USLab Observation Example5" description="USLab Quantitative Observation Profile Example: Blood Lead" source="obs-uslab-example5.xml"/>		
-    <example name="USLab Observation Example6" description="USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel" source="obs-uslab-example6.xml"/>		
-    <example name="USLab Observation Example7" description="USLab Coded Observation Profile Example: C trachomatis PCR" source="obs-uslab-example7.xml"/>		
-    <example name="USLab Observation Example8" description="USLab Range Observation Profile  Example: WBCs in Urine" source="obs-uslab-example8.xml"/>		
-  </profile>
-  <profile source="org-uslab-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="USLab Observation Example1" description="USLab Ordering Organization Profile Canonical Example: University Hospital" source="org-uslab-example1.xml"/>		
-    <example name="USLab Observation Example2" description="USLab Copy to Organization Profile Canonical Example: Children's Hospital" source="org-uslab-example2.xml"/>		
-    <example name="USLab Observation Example3" description="USLab Performing Lab Organization Profile Canonical Example: Acme Labs" source="org-uslab-example3.xml"/>		
-  </profile>
-  <profile source="patient-uslab-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="USLab Patient Example1" description="Description: USLab Patient Profile Canonical Example: Todd Lerr" source="patient-uslab-example1.xml"/>		
-    <example name="USLab Patient Example2" description="Description: USLab PHPatient Profile Canonical Example: Todd Lerr" source="patient-uslab-example2.xml"/>		
-  </profile>
-  <profile source="pract-uslab-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="USLab Practitioner Example1" description="USLab Practitioner Canonical Example: Dr Leonard T Bloodraw Jr" source="pract-uslab-example1.xml"/>		
-    <example name="USLab PHPractitioner Example2" description="USLab PHPractitioner Canonical Example: Dr Bill T Lookafter Jr" source="pract-uslab-example2.xml"/>		
-    <example name="USLab PHPractitioner Example3" description="USLab PHPractitioner Canonical Example: Gregory F House PhD" source="pract-uslab-example3.xml"/>		
-  </profile>
-  <profile source="spec-uslab-profile-spreadsheet.xml" type="spreadsheet">
-    <example name="USLab Specimen Example1" description="USLab Specimen Profile Canonical Example: Blood" source="spec-uslab-example1.xml"/>		
-    <example name="USLab Specimen Example2" description="USLab Specimen Profile  Example: Urine- first catch" source="spec-uslab-example2.xml"/>		
-  </profile>
-    
-  <example name="USLabOrder Orderer" description="USLabOrder Orderer" source="conformance-uslaborder-orderer.xml"/>
-  <example name="USLabOrder Receiver" description="USLabOrder Receiver" source="conformance-uslaborder-receiver.xml"/>
-  <example name="USLabReport Sender" description="USLabReport Sender" source="conformance-uslabreport-sender.xml"/>
-  <example name="USLabReport Receiver" description="USLabReport Receiver" source="conformance-uslabreport-receiver.xml"/>
-  <example name="USLab Value Set List" description="USLab Value Set List" source="list-uslab-valuesets.xml"/>
-  
-  <page source="uslab.html"/>
-  <page source="uslaborder.html"/>
-  <page source="uslabreport.html"/>
-  <page source="uslabphreport.html"/>
-  <page source="uslaborder-guide.html"/>
-  <page source="uslabreport.html"/>
-  <page source="uslabreport-guide.html"/>
-  <page source="uslabphreport.html"/>
-  <page source="uslabphreport-guide.html"/>  
-</ig>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="uslab"/>
+  <url value="http://hl7.org/fhir/uslab"/>
+  <name value="US Lab Implementation Guides"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </useContext>
+  <package>
+  <!--  US Lab Profiles  -->
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="cond-uslab-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="do-uslab-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="dr-uslab-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="obs-uslab-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="org-uslab-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="patient-uslab-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="pract-uslab-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="spec-uslab-profile-spreadsheet.xml"/>
+    </extension>
+  <!-- 
+    <acronym target="dr-uslab-uslabdr" id="usl-pdr"/>
+    <acronym target="obs-uslab-uslabobscode" id="usl-cod"/>
+    <acronym target="obs-uslab-uslabobsquantity" id="usl-qty"/>
+    <acronym target="obs-uslab-uslabobsother" id="usl-oth"/>
+    <acronym target="obs-uslab-uslabobsratio" id="usl-rto"/>
+    <acronym target="org-uslab-uslaborderfacility" id="usl-bdf"/>
+    <acronym target="org-uslab-uslabperforminglab" id="usl-pfl"/>
+    <acronym target="org-uslab-uslabcctarget" id="usl-cct"/>
+    <acronym target="spec-uslab-uslabspec" id="usl-spm"/>
+    <acronym target="patient-uslab-uslabpatient" id="usl-pat"/>
+    <acronym target="patient-uslab-uslabphpatient" id="usl-php"/>
+    <acronym target="do-uslab-uslabdo" id="usl-do"/>
+    <acronym target="pract-uslab-uslabpract" id="usl-prc"/>
+    <acronym target="pract-uslab-uslabphpract" id="usl-prh"/>
+   -->
+    <name value="base"/>
+  <!--  examples  -->
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Condition Example1"/>
+      <description value="USLab Condition Profile Canonical Example: Lead Exposure"/>
+      <sourceUri value="cond-uslab-example1.xml"/>
+      <exampleFor>
+        <reference value="cond-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Condition Example2"/>
+      <description value="USLab Reason for Study Profile Canonical Example: Lead Exposure"/>
+      <sourceUri value="cond-uslab-example2.xml"/>
+      <exampleFor>
+        <reference value="cond-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab DiagnosticOrder Example1"/>
+      <description value="USLabOrder  Blood Lead "/>
+      <sourceUri value="do-uslab-example1.xml"/>
+      <exampleFor>
+        <reference value="do-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab DiagnosticReport Example1"/>
+      <description value="USLabReport DiagnosticReport Profile Canonical Example: Childhood Blood Lead Report"/>
+      <sourceUri value="dr-uslab-example1.xml"/>
+      <exampleFor>
+        <reference value="dr-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example1"/>
+      <description value="USLab Quantitative Observation Profile Example: Capillary Blood Lead"/>
+      <sourceUri value="obs-uslab-example1.xml"/>
+      <exampleFor>
+        <reference value="obs-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example2"/>
+      <description value="USLab Coded Observation Profile Example: N gonorrhoeae PCR"/>
+      <sourceUri value="obs-uslab-example2.xml"/>
+      <exampleFor>
+        <reference value="obs-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example3"/>
+      <description value="USLab Other (string) Observation Profile Example: S.aureus"/>
+      <sourceUri value="obs-uslab-example3.xml"/>
+      <exampleFor>
+        <reference value="obs-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example4"/>
+      <description value="USLab Ratio Observation Profile Example: Dengue Titer"/>
+      <sourceUri value="obs-uslab-example4.xml"/>
+      <exampleFor>
+        <reference value="obs-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example5"/>
+      <description value="USLab Quantitative Observation Profile Example: Blood Lead"/>
+      <sourceUri value="obs-uslab-example5.xml"/>
+      <exampleFor>
+        <reference value="obs-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example6"/>
+      <description value="USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel"/>
+      <sourceUri value="obs-uslab-example6.xml"/>
+      <exampleFor>
+        <reference value="obs-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example7"/>
+      <description value="USLab Coded Observation Profile Example: C trachomatis PCR"/>
+      <sourceUri value="obs-uslab-example7.xml"/>
+      <exampleFor>
+        <reference value="obs-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example8"/>
+      <description value="USLab Range Observation Profile  Example: WBCs in Urine"/>
+      <sourceUri value="obs-uslab-example8.xml"/>
+      <exampleFor>
+        <reference value="obs-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example1"/>
+      <description value="USLab Ordering Organization Profile Canonical Example: University Hospital"/>
+      <sourceUri value="org-uslab-example1.xml"/>
+      <exampleFor>
+        <reference value="org-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example2"/>
+      <description value="USLab Copy to Organization Profile Canonical Example: Children&#39;s Hospital"/>
+      <sourceUri value="org-uslab-example2.xml"/>
+      <exampleFor>
+        <reference value="org-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Observation Example3"/>
+      <description value="USLab Performing Lab Organization Profile Canonical Example: Acme Labs"/>
+      <sourceUri value="org-uslab-example3.xml"/>
+      <exampleFor>
+        <reference value="org-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Patient Example1"/>
+      <description value="Description: USLab Patient Profile Canonical Example: Todd Lerr"/>
+      <sourceUri value="patient-uslab-example1.xml"/>
+      <exampleFor>
+        <reference value="patient-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Patient Example2"/>
+      <description value="Description: USLab PHPatient Profile Canonical Example: Todd Lerr"/>
+      <sourceUri value="patient-uslab-example2.xml"/>
+      <exampleFor>
+        <reference value="patient-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Practitioner Example1"/>
+      <description value="USLab Practitioner Canonical Example: Dr Leonard T Bloodraw Jr"/>
+      <sourceUri value="pract-uslab-example1.xml"/>
+      <exampleFor>
+        <reference value="pract-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab PHPractitioner Example2"/>
+      <description value="USLab PHPractitioner Canonical Example: Dr Bill T Lookafter Jr"/>
+      <sourceUri value="pract-uslab-example2.xml"/>
+      <exampleFor>
+        <reference value="pract-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab PHPractitioner Example3"/>
+      <description value="USLab PHPractitioner Canonical Example: Gregory F House PhD"/>
+      <sourceUri value="pract-uslab-example3.xml"/>
+      <exampleFor>
+        <reference value="pract-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Specimen Example1"/>
+      <description value="USLab Specimen Profile Canonical Example: Blood"/>
+      <sourceUri value="spec-uslab-example1.xml"/>
+      <exampleFor>
+        <reference value="spec-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLab Specimen Example2"/>
+      <description value="USLab Specimen Profile  Example: Urine- first catch"/>
+      <sourceUri value="spec-uslab-example2.xml"/>
+      <exampleFor>
+        <reference value="spec-uslab-profile"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLabOrder Orderer"/>
+      <description value="USLabOrder Orderer"/>
+      <sourceUri value="conformance-uslaborder-orderer.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLabOrder Receiver"/>
+      <description value="USLabOrder Receiver"/>
+      <sourceUri value="conformance-uslaborder-receiver.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLabReport Sender"/>
+      <description value="USLabReport Sender"/>
+      <sourceUri value="conformance-uslabreport-sender.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="USLabReport Receiver"/>
+      <description value="USLabReport Receiver"/>
+      <sourceUri value="conformance-uslabreport-receiver.xml"/>
+    </resource>
+  </package>
+<!--  not necessary
+  <resource>
+    <purpose value=""/>
+    <name value="USLab Value Set List"/>
+    <description value="USLab Value Set List"/>
+    <sourceUri value="list-uslab-valuesets.xml"/>
+  </resource>
+   -->
+  <page>
+    <source value="uslab.html"/>
+    <name value="US Lab Implementation Guide"/>
+    <kind value="page"/>
+    <page>
+      <source value="uslab-toc.html"/>
+      <name value="Table of Contents"/>
+      <kind value="toc"/>
+    </page>
+    <page>
+      <source value="uslaborder.html"/>
+      <name value="Diagnostic Order Page"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="uslabreport.html"/>
+      <name value="Lab Report Page"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="uslabphreport.html"/>
+      <name value="Kab Reports - Public Health"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="uslaborder-guide.html"/>
+      <name value="Orders Guide"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="uslabreport-guide.html"/>
+      <name value="lab report guide"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="uslabphreport.html"/>
+      <name value="Lab Reports - Public Health"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="uslabphreport-guide.html"/>
+      <name value="Lab Reports - Guide (public health)"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="registry.html"/>
+      <name value="Registry"/>
+      <kind value="list"/>
+      <type value="Conformance"/>
+      <type value="StructureDefinition"/>
+      <type value="ValueSet"/>
+      <type value="ConceptMap"/>
+    </page>
+  </page>
+</ImplementationGuide>

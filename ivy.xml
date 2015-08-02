@@ -45,5 +45,6 @@
     <dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.5.2"/>
     <dependency org="com.github.rjeschke" name="txtmark" rev="0.11"/>        
     <dependency org="org.pegdown" name="pegdown" rev="1.5.0"/>
+    <dependency org="nl.siegmann.epublib" name="epublib" rev="3.1"/>
   </dependencies>
 </ivy-module>
