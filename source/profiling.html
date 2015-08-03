@@ -587,6 +587,7 @@ Note that local codes are not as interoperable as standard published code system
 </p>
 
 <a name="mustSupport"> </a>
+<a name="mustsupport"> </a>
 <h3>Must Support</h3>
 <p>
 One property that can be declared on profiles that is not declared on the resource or data type definitions is "Must Support".
@@ -595,7 +596,9 @@ This is distinct from cardinality.  It is possible to have an element with a min
 to support the element.
 </p>
 <p>
-The meaning of "support" is left deliberately ambiguous.  Examples might include:
+The meaning of "support" is not defined by the base FHIR specification, but can be set to 
+true in a profile. When a profile does this, it SHALL also make clear
+exactly what kind of "support" is required. Examples might include:
 </p>
 <ul>
   <li>The system must be able to store and retrieve the element</li>
@@ -605,11 +608,14 @@ The meaning of "support" is left deliberately ambiguous.  Examples might include
   <li>etc.</li>
 </ul>
 <p>
-The specific meaning of "Must Support" for the purposes of a particular profile SHALL be described in the Profile.description or in other documentation for the
-implementation guide the profile is part of.
+The specific meaning of "Must Support" for the purposes of a particular profile SHALL be described in the <code>element.definition</code>, 
+the general <code>StructureDefinition.description</code> or in other documentation for the implementation guide the profile is part of.
 </p>
 <p>
 If creating a profile based on another profile, Must Support can be changed from false to true, but cannot be changed from true to false.
+Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of 
+the important elements to make use of the resource), nor is it automatically mustSupport - however both 
+of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
 
 <a name="search"> </a>
