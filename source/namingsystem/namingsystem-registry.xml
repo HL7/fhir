@@ -19,13 +19,18 @@
           </telecom>
         </contact>
         <date value="2015-07-31"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/identifier-type"/>
             <code value="SB"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>  
           <type value="uri"/>
           <value value="http://hl7.org/fhir/sid/us-ssn"/>
@@ -45,7 +50,7 @@
         <id value="us-npi"/>
         <name value="United States National Provider Identifier"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="Centers for Medicare and Medicaid Services"/>
         <contact>  
           <telecom>
@@ -54,13 +59,18 @@
           </telecom>
         </contact>
         <date value="2015-07-31"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="PRN"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>  
           <type value="uri"/>
           <value value="http://hl7.org/fhir/sid/us-npi"/>
@@ -80,16 +90,21 @@
         <id value="4.3.2"/>
         <name value="Alaska Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.2"/>
@@ -108,16 +123,21 @@
         <id value="4.3.1"/>
         <name value="Alabama Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.1"/>
@@ -136,16 +156,21 @@
         <id value="4.3.5"/>
         <name value="Arkansas Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.5"/>
@@ -164,16 +189,21 @@
         <id value="4.3.4"/>
         <name value="Arizona Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.4"/>
@@ -192,16 +222,21 @@
         <id value="4.3.6"/>
         <name value="California Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.6"/>
@@ -220,16 +255,21 @@
         <id value="4.3.8"/>
         <name value="Colorado Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.8"/>
@@ -248,16 +288,21 @@
         <id value="4.3.9"/>
         <name value="Connecticut Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.9"/>
@@ -276,16 +321,21 @@
         <id value="4.3.11"/>
         <name value="DC Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.11"/>
@@ -304,16 +354,21 @@
         <id value="4.3.10"/>
         <name value="Delaware Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.10"/>
@@ -332,16 +387,21 @@
         <id value="4.3.12"/>
         <name value="Florida Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.12"/>
@@ -360,16 +420,21 @@
         <id value="4.3.13"/>
         <name value="Georgia Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.13"/>
@@ -388,16 +453,21 @@
         <id value="4.3.15"/>
         <name value="Hawaii Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.15"/>
@@ -416,16 +486,21 @@
         <id value="4.3.18"/>
         <name value="Indiana Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.18"/>
@@ -444,16 +519,21 @@
         <id value="4.3.19"/>
         <name value="Iowa Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.19"/>
@@ -472,16 +552,21 @@
         <id value="4.3.16"/>
         <name value="Idaho Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.16"/>
@@ -500,16 +585,21 @@
         <id value="4.3.17"/>
         <name value="Illinois Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.17"/>
@@ -528,16 +618,21 @@
         <id value="4.3.20"/>
         <name value="Kansas Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.20"/>
@@ -556,16 +651,21 @@
         <id value="4.3.21"/>
         <name value="Kentucky Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.21"/>
@@ -584,16 +684,21 @@
         <id value="4.3.22"/>
         <name value="Louisiana Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.22"/>
@@ -612,16 +717,21 @@
         <id value="4.3.25"/>
         <name value="Massachusetts Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.25"/>
@@ -640,16 +750,21 @@
         <id value="4.3.24"/>
         <name value="Maryland Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.24"/>
@@ -668,16 +783,21 @@
         <id value="4.3.23"/>
         <name value="Maine Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.23"/>
@@ -696,16 +816,21 @@
         <id value="4.3.26"/>
         <name value="Michigan Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.26"/>
@@ -724,16 +849,21 @@
         <id value="4.3.27"/>
         <name value="Minnesota Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.27"/>
@@ -752,16 +882,21 @@
         <id value="4.3.29"/>
         <name value="Missouri Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.29"/>
@@ -780,16 +915,21 @@
         <id value="4.3.28"/>
         <name value="Mississippi Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.28"/>
@@ -808,16 +948,21 @@
         <id value="4.3.30"/>
         <name value="Montana Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.30"/>
@@ -836,16 +981,21 @@
         <id value="4.3.36"/>
         <name value="New York Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.36"/>
@@ -864,16 +1014,21 @@
         <id value="4.3.37"/>
         <name value="North Carolina Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.37"/>
@@ -892,16 +1047,21 @@
         <id value="4.3.38"/>
         <name value="North Dakota Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.38"/>
@@ -920,16 +1080,21 @@
         <id value="4.3.31"/>
         <name value="Nebraska Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.31"/>
@@ -948,16 +1113,21 @@
         <id value="4.3.33"/>
         <name value="New Hampshire Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.33"/>
@@ -976,16 +1146,21 @@
         <id value="4.3.34"/>
         <name value="New Jersey Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.34"/>
@@ -1004,16 +1179,21 @@
         <id value="4.3.35"/>
         <name value="New Mexico Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.35"/>
@@ -1032,16 +1212,21 @@
         <id value="4.3.32"/>
         <name value="Nevada Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.32"/>
@@ -1060,16 +1245,21 @@
         <id value="4.3.39"/>
         <name value="Ohio Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.39"/>
@@ -1088,16 +1278,21 @@
         <id value="4.3.40"/>
         <name value="Oklahoma Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.40"/>
@@ -1116,16 +1311,21 @@
         <id value="4.3.41"/>
         <name value="Oregon Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.41"/>
@@ -1144,16 +1344,21 @@
         <id value="4.3.42"/>
         <name value="Pennsylvania Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.42"/>
@@ -1172,16 +1377,21 @@
         <id value="4.3.44"/>
         <name value="Rhode Island Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.44"/>
@@ -1200,16 +1410,21 @@
         <id value="4.3.45"/>
         <name value="South Carolina Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.45"/>
@@ -1228,16 +1443,21 @@
         <id value="4.3.46"/>
         <name value="South Dakota Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.46"/>
@@ -1256,16 +1476,21 @@
         <id value="4.3.47"/>
         <name value="Tennessee Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.47"/>
@@ -1284,16 +1509,21 @@
         <id value="4.3.48"/>
         <name value="Texas Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.48"/>
@@ -1312,16 +1542,21 @@
         <id value="4.3.49"/>
         <name value="Utah Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.49"/>
@@ -1340,16 +1575,21 @@
         <id value="4.3.51"/>
         <name value="Virginia Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.51"/>
@@ -1368,16 +1608,21 @@
         <id value="4.3.50"/>
         <name value="Vermont Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.50"/>
@@ -1396,16 +1641,21 @@
         <id value="4.3.53"/>
         <name value="Washington Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.53"/>
@@ -1424,16 +1674,21 @@
         <id value="4.3.55"/>
         <name value="Wisconsin Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.55"/>
@@ -1452,16 +1707,21 @@
         <id value="4.3.54"/>
         <name value="West Virginia Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.54"/>
@@ -1480,16 +1740,21 @@
         <id value="4.3.56"/>
         <name value="Wyoming Driver&#39;s License"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
-        <country value="USA"/>
-        <category>
+        <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
             <code value="DL"/>
           </coding>
-        </category>
+        </type>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
         <uniqueId>
           <type value="oid"/>
           <value value="2.16.840.1.113883.4.3.56"/>

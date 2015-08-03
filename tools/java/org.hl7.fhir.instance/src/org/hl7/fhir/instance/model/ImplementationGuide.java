@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 3, 2015 22:12+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 06:48+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -133,6 +133,10 @@ public class ImplementationGuide extends DomainResource {
          */
         PROFILE, 
         /**
+         * The resource defines an extension (StructureDefinition) that is used in the implementation guide
+         */
+        EXTENSION, 
+        /**
          * The resource contains a dictionary that is part of the implementation guide
          */
         DICTIONARY, 
@@ -153,6 +157,8 @@ public class ImplementationGuide extends DomainResource {
           return TERMINOLOGY;
         if ("profile".equals(codeString))
           return PROFILE;
+        if ("extension".equals(codeString))
+          return EXTENSION;
         if ("dictionary".equals(codeString))
           return DICTIONARY;
         if ("logical".equals(codeString))
@@ -164,6 +170,7 @@ public class ImplementationGuide extends DomainResource {
             case EXAMPLE: return "example";
             case TERMINOLOGY: return "terminology";
             case PROFILE: return "profile";
+            case EXTENSION: return "extension";
             case DICTIONARY: return "dictionary";
             case LOGICAL: return "logical";
             default: return "?";
@@ -174,6 +181,7 @@ public class ImplementationGuide extends DomainResource {
             case EXAMPLE: return "http://hl7.org/fhir/guide-resource-purpose";
             case TERMINOLOGY: return "http://hl7.org/fhir/guide-resource-purpose";
             case PROFILE: return "http://hl7.org/fhir/guide-resource-purpose";
+            case EXTENSION: return "http://hl7.org/fhir/guide-resource-purpose";
             case DICTIONARY: return "http://hl7.org/fhir/guide-resource-purpose";
             case LOGICAL: return "http://hl7.org/fhir/guide-resource-purpose";
             default: return "?";
@@ -184,6 +192,7 @@ public class ImplementationGuide extends DomainResource {
             case EXAMPLE: return "The resource is intended as an example";
             case TERMINOLOGY: return "The resource defines a value set or concept map used in the Implementation Guide";
             case PROFILE: return "The resource defines a profile (StructureDefinition) that is used in the implementation guide";
+            case EXTENSION: return "The resource defines an extension (StructureDefinition) that is used in the implementation guide";
             case DICTIONARY: return "The resource contains a dictionary that is part of the implementation guide";
             case LOGICAL: return "The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide";
             default: return "?";
@@ -194,6 +203,7 @@ public class ImplementationGuide extends DomainResource {
             case EXAMPLE: return "Example";
             case TERMINOLOGY: return "Terminology";
             case PROFILE: return "Profile";
+            case EXTENSION: return "Extension";
             case DICTIONARY: return "Dictionary";
             case LOGICAL: return "Logical Model";
             default: return "?";
@@ -212,6 +222,8 @@ public class ImplementationGuide extends DomainResource {
           return GuideResourcePurpose.TERMINOLOGY;
         if ("profile".equals(codeString))
           return GuideResourcePurpose.PROFILE;
+        if ("extension".equals(codeString))
+          return GuideResourcePurpose.EXTENSION;
         if ("dictionary".equals(codeString))
           return GuideResourcePurpose.DICTIONARY;
         if ("logical".equals(codeString))
@@ -225,6 +237,8 @@ public class ImplementationGuide extends DomainResource {
         return "terminology";
       if (code == GuideResourcePurpose.PROFILE)
         return "profile";
+      if (code == GuideResourcePurpose.EXTENSION)
+        return "extension";
       if (code == GuideResourcePurpose.DICTIONARY)
         return "dictionary";
       if (code == GuideResourcePurpose.LOGICAL)
@@ -927,7 +941,7 @@ public class ImplementationGuide extends DomainResource {
          * Why the resource is included in the guide.
          */
         @Child(name = "purpose", type = {CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="example | terminology | profile | dictionary | logical", formalDefinition="Why the resource is included in the guide." )
+        @Description(shortDefinition="example | terminology | profile | extension | dictionary | logical", formalDefinition="Why the resource is included in the guide." )
         protected Enumeration<GuideResourcePurpose> purpose;
 
         /**

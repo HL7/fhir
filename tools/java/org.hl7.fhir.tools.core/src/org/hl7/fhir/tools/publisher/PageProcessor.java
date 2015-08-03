@@ -962,24 +962,36 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String oid = getOid(ns);
       b.append("  <td>"+Utilities.escapeXml(uri)+"</td>\r\n");
       b.append("  <td>"+(oid == null ? "" : oid)+"</td>\r\n");
-      if (ns.hasCategory()) {
-        Coding c = ns.getCategory().getCoding().get(0);
+      String country = getCountry(ns);
+      country = country == null ? "" : " ("+country+")";
+      if (ns.hasType()) {
+        Coding c = ns.getType().getCoding().get(0);
         if (c == null)
-          b.append("  <td>"+Utilities.escapeXml(ns.getCategory().getText())+"</td>\r\n");
+          b.append("  <td>"+Utilities.escapeXml(ns.getType().getText())+country+"</td>\r\n");
         else {
          if (c.getSystem().equals("http://hl7.org/fhir/identifier-type")) 
-           b.append("  <td><a href=\"valueset-identifier-type.html#"+c.getCode()+"\">"+c.getCode()+"</a></td>\r\n");
+           b.append("  <td><a href=\"valueset-identifier-type.html#"+c.getCode()+"\">"+c.getCode()+"</a>"+country+"</td>\r\n");
          else if (c.getSystem().equals("http://hl7.org/fhir/v2/0203")) 
-           b.append("  <td><a href=\"v2/0203/index.html#"+c.getCode()+"\">"+c.getCode()+"</a></td>\r\n");
+           b.append("  <td><a href=\"v2/0203/index.html#"+c.getCode()+"\">"+c.getCode()+"</a>"+country+"</td>\r\n");
          else 
            throw new Exception("Unknown Identifier Type System");
         }        
       } else
-        b.append("  <td></td>\r\n");
+        b.append("  <td>"+country+"</td>\r\n");
       b.append("  <td>"+Utilities.escapeXml(ns.getDescription())+"</td>\r\n");
       b.append("</tr>\r\n");
     }
     return b.toString();
+  }
+
+  private String getCountry(NamingSystem ns) {
+    for (CodeableConcept cc : ns.getUseContext()) {
+      for (Coding c : cc.getCoding()) {
+        if (c.getSystem().equals("urn:iso:std:iso:3166"))
+          return c.hasDisplay() ? c.getDisplay() : c.getCode();
+      }
+    }
+    return null;
   }
 
   private String getOid(NamingSystem ns) {
