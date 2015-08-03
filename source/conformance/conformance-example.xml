@@ -36,10 +36,15 @@
   </contact>
   <date value="2012-01-04"/>
   <description value="This is the FHIR conformance statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
+  <kind value="instance"/>
   <software>
     <name value="EHR"/>
     <version value="0.00.020.2134"/>
   </software>
+  <implementation>
+    <description value="main EHR at ACME"/>
+    <url value="http://10.2.3.4/fhir"/>
+  </implementation>
 <!--  while the FHIR infrastructure is turning over prior to development, a version is 
     required. Note that this may be rescinded later?  -->
   <fhirVersion value="0.07"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 06:48+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 07:26+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -46,6 +46,92 @@ import org.hl7.fhir.instance.model.api.*;
  */
 @ResourceDef(name="Conformance", profile="http://hl7.org/fhir/Profile/Conformance")
 public class Conformance extends DomainResource implements IBaseConformance {
+
+    public enum ConformanceStatementKind {
+        /**
+         * The Conformance instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point
+         */
+        INSTANCE, 
+        /**
+         * The Conformance instance represents the capabilities of a system or piece of software, independent of a particular installation.
+         */
+        CAPABILITY, 
+        /**
+         * The Conformance instance represents a set of requirements for other systems to meet.  E.g. as part of an implementation guide or 'request for proposal'
+         */
+        REQUIREMENTS, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static ConformanceStatementKind fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("instance".equals(codeString))
+          return INSTANCE;
+        if ("capability".equals(codeString))
+          return CAPABILITY;
+        if ("requirements".equals(codeString))
+          return REQUIREMENTS;
+        throw new Exception("Unknown ConformanceStatementKind code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case INSTANCE: return "instance";
+            case CAPABILITY: return "capability";
+            case REQUIREMENTS: return "requirements";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case INSTANCE: return "http://hl7.org/fhir/conformance-statement-kind";
+            case CAPABILITY: return "http://hl7.org/fhir/conformance-statement-kind";
+            case REQUIREMENTS: return "http://hl7.org/fhir/conformance-statement-kind";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INSTANCE: return "The Conformance instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point";
+            case CAPABILITY: return "The Conformance instance represents the capabilities of a system or piece of software, independent of a particular installation.";
+            case REQUIREMENTS: return "The Conformance instance represents a set of requirements for other systems to meet.  E.g. as part of an implementation guide or 'request for proposal'";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INSTANCE: return "Instance";
+            case CAPABILITY: return "Capability";
+            case REQUIREMENTS: return "Requirements";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ConformanceStatementKindEnumFactory implements EnumFactory<ConformanceStatementKind> {
+    public ConformanceStatementKind fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("instance".equals(codeString))
+          return ConformanceStatementKind.INSTANCE;
+        if ("capability".equals(codeString))
+          return ConformanceStatementKind.CAPABILITY;
+        if ("requirements".equals(codeString))
+          return ConformanceStatementKind.REQUIREMENTS;
+        throw new IllegalArgumentException("Unknown ConformanceStatementKind code '"+codeString+"'");
+        }
+    public String toCode(ConformanceStatementKind code) {
+      if (code == ConformanceStatementKind.INSTANCE)
+        return "instance";
+      if (code == ConformanceStatementKind.CAPABILITY)
+        return "capability";
+      if (code == ConformanceStatementKind.REQUIREMENTS)
+        return "requirements";
+      return "?";
+      }
+    }
 
     public enum UnknownContentCode {
         /**
@@ -5612,44 +5698,51 @@ public class Conformance extends DomainResource implements IBaseConformance {
     protected StringType copyright;
 
     /**
+     * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
+     */
+    @Child(name = "kind", type = {CodeType.class}, order=11, min=1, max=1)
+    @Description(shortDefinition="instance | capability | requirements", formalDefinition="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase)." )
+    protected Enumeration<ConformanceStatementKind> kind;
+
+    /**
      * Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.
      */
-    @Child(name = "software", type = {}, order=11, min=0, max=1)
+    @Child(name = "software", type = {}, order=12, min=0, max=1)
     @Description(shortDefinition="Software that is covered by this conformance statement", formalDefinition="Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation." )
     protected ConformanceSoftwareComponent software;
 
     /**
      * Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.
      */
-    @Child(name = "implementation", type = {}, order=12, min=0, max=1)
+    @Child(name = "implementation", type = {}, order=13, min=0, max=1)
     @Description(shortDefinition="If this describes a specific instance", formalDefinition="Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program." )
     protected ConformanceImplementationComponent implementation;
 
     /**
      * The version of the FHIR specification on which this conformance statement is based.
      */
-    @Child(name = "fhirVersion", type = {IdType.class}, order=13, min=1, max=1)
+    @Child(name = "fhirVersion", type = {IdType.class}, order=14, min=1, max=1)
     @Description(shortDefinition="FHIR Version", formalDefinition="The version of the FHIR specification on which this conformance statement is based." )
     protected IdType fhirVersion;
 
     /**
      * A code that indicates whether the application accepts unknown elements or extensions when reading resources.
      */
-    @Child(name = "acceptUnknown", type = {CodeType.class}, order=14, min=1, max=1)
+    @Child(name = "acceptUnknown", type = {CodeType.class}, order=15, min=1, max=1)
     @Description(shortDefinition="no | extensions | elements | both", formalDefinition="A code that indicates whether the application accepts unknown elements or extensions when reading resources." )
     protected Enumeration<UnknownContentCode> acceptUnknown;
 
     /**
      * A list of the formats supported by this implementation using their content types.
      */
-    @Child(name = "format", type = {CodeType.class}, order=15, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name = "format", type = {CodeType.class}, order=16, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="formats supported (xml | json | mime type)", formalDefinition="A list of the formats supported by this implementation using their content types." )
     protected List<CodeType> format;
 
     /**
      * A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.
      */
-    @Child(name = "profile", type = {StructureDefinition.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "profile", type = {StructureDefinition.class}, order=17, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Profiles for use cases supported", formalDefinition="A list of profiles that represent different use cases supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}." )
     protected List<Reference> profile;
     /**
@@ -5661,25 +5754,25 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    @Child(name = "rest", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "rest", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="If the endpoint is a RESTful one", formalDefinition="A definition of the restful capabilities of the solution, if any." )
     protected List<ConformanceRestComponent> rest;
 
     /**
      * A description of the messaging capabilities of the solution.
      */
-    @Child(name = "messaging", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "messaging", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="If messaging is supported", formalDefinition="A description of the messaging capabilities of the solution." )
     protected List<ConformanceMessagingComponent> messaging;
 
     /**
      * A document definition.
      */
-    @Child(name = "document", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "document", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<ConformanceDocumentComponent> document;
 
-    private static final long serialVersionUID = -279432719L;
+    private static final long serialVersionUID = 1863739648L;
 
   /*
    * Constructor
@@ -5691,9 +5784,10 @@ public class Conformance extends DomainResource implements IBaseConformance {
   /*
    * Constructor
    */
-    public Conformance(DateTimeType date, IdType fhirVersion, Enumeration<UnknownContentCode> acceptUnknown) {
+    public Conformance(DateTimeType date, Enumeration<ConformanceStatementKind> kind, IdType fhirVersion, Enumeration<UnknownContentCode> acceptUnknown) {
       super();
       this.date = date;
+      this.kind = kind;
       this.fhirVersion = fhirVersion;
       this.acceptUnknown = acceptUnknown;
     }
@@ -6221,6 +6315,51 @@ public class Conformance extends DomainResource implements IBaseConformance {
     }
 
     /**
+     * @return {@link #kind} (The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
+     */
+    public Enumeration<ConformanceStatementKind> getKindElement() { 
+      if (this.kind == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.kind");
+        else if (Configuration.doAutoCreate())
+          this.kind = new Enumeration<ConformanceStatementKind>(new ConformanceStatementKindEnumFactory()); // bb
+      return this.kind;
+    }
+
+    public boolean hasKindElement() { 
+      return this.kind != null && !this.kind.isEmpty();
+    }
+
+    public boolean hasKind() { 
+      return this.kind != null && !this.kind.isEmpty();
+    }
+
+    /**
+     * @param value {@link #kind} (The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
+     */
+    public Conformance setKindElement(Enumeration<ConformanceStatementKind> value) { 
+      this.kind = value;
+      return this;
+    }
+
+    /**
+     * @return The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
+     */
+    public ConformanceStatementKind getKind() { 
+      return this.kind == null ? null : this.kind.getValue();
+    }
+
+    /**
+     * @param value The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
+     */
+    public Conformance setKind(ConformanceStatementKind value) { 
+        if (this.kind == null)
+          this.kind = new Enumeration<ConformanceStatementKind>(new ConformanceStatementKindEnumFactory());
+        this.kind.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #software} (Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.)
      */
     public ConformanceSoftwareComponent getSoftware() { 
@@ -6606,6 +6745,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         childrenList.add(new Property("description", "string", "A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("requirements", "string", "Explains why this conformance statement is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.", 0, java.lang.Integer.MAX_VALUE, copyright));
+        childrenList.add(new Property("kind", "code", "The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("software", "", "Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.", 0, java.lang.Integer.MAX_VALUE, software));
         childrenList.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, java.lang.Integer.MAX_VALUE, implementation));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
@@ -6635,6 +6775,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         dst.description = description == null ? null : description.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
+        dst.kind = kind == null ? null : kind.copy();
         dst.software = software == null ? null : software.copy();
         dst.implementation = implementation == null ? null : implementation.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
@@ -6682,7 +6823,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
            && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
            && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(description, o.description, true)
            && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
+           && compareDeep(kind, o.kind, true) && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
            && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
            && compareDeep(format, o.format, true) && compareDeep(profile, o.profile, true) && compareDeep(rest, o.rest, true)
            && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true);
@@ -6698,8 +6839,8 @@ public class Conformance extends DomainResource implements IBaseConformance {
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(acceptUnknown, o.acceptUnknown, true)
-           && compareValues(format, o.format, true);
+           && compareValues(copyright, o.copyright, true) && compareValues(kind, o.kind, true) && compareValues(fhirVersion, o.fhirVersion, true)
+           && compareValues(acceptUnknown, o.acceptUnknown, true) && compareValues(format, o.format, true);
       }
 
       public boolean isEmpty() {
@@ -6707,7 +6848,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
            && (name == null || name.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty())
            && (description == null || description.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (software == null || software.isEmpty())
+           && (copyright == null || copyright.isEmpty()) && (kind == null || kind.isEmpty()) && (software == null || software.isEmpty())
            && (implementation == null || implementation.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
            && (acceptUnknown == null || acceptUnknown.isEmpty()) && (format == null || format.isEmpty())
            && (profile == null || profile.isEmpty()) && (rest == null || rest.isEmpty()) && (messaging == null || messaging.isEmpty())

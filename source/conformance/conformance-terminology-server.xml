@@ -26,6 +26,10 @@
   </contact>
   <date value="2015-07-05"/>
   <description value="Basic conformance statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
+  <kind value="capability"/>
+  <software>
+    <name value="ACME Terminology Server"/>
+  </software>
   <fhirVersion value="0.5.0"/>
 <!--  this can be either, but accepting unknown elements is 
     preferred for forwards compatibility (Not that it matters during the DSTU period) -->

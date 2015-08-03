@@ -10,7 +10,7 @@
         <id value="us-ssn"/>
         <name value="United States Social Security Number"/>
         <status value="active"/>
-        <type value="identifier"/>
+        <kind value="identifier"/>
         <publisher value="United States Social Security Administration"/>
         <contact>  
           <telecom>

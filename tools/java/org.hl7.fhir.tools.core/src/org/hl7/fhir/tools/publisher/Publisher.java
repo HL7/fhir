@@ -136,6 +136,7 @@ import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceSearchParamComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceStatementKind;
 import org.hl7.fhir.instance.model.Conformance.ResourceInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
 import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
@@ -1035,6 +1036,8 @@ public class Publisher implements URIResolver {
     conf.setAcceptUnknown(full ? UnknownContentCode.BOTH : UnknownContentCode.NO);
     conf.getFormat().add(Factory.newCode("xml"));
     conf.getFormat().add(Factory.newCode("json"));
+    conf.setKind(ConformanceStatementKind.CAPABILITY);
+    conf.getSoftware().setName("Insert your softwware name here...");
     ConformanceRestComponent rest = new Conformance.ConformanceRestComponent();
     conf.getRest().add(rest);
     rest.setMode(RestfulConformanceMode.SERVER);
