@@ -862,7 +862,7 @@
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s86" ss:Width="29.25"/>
    <Column ss:StyleID="s86" ss:Width="34.5"/>
-   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="260.25"/>
+   <Column ss:StyleID="s86" ss:Width="383.25"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="60" ss:Span="1"/>
@@ -1613,7 +1613,7 @@
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">indirectTarget</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">focal-subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1623,7 +1623,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/indirectTarget}</Data><NamedCell
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/observation-focal-subject}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3846,7 +3846,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3860,11 +3860,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
