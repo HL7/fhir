@@ -141,6 +141,7 @@ import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
 import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
+import org.hl7.fhir.instance.model.Conformance.UnknownContentCode;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DataElement;
@@ -1031,7 +1032,7 @@ public class Publisher implements URIResolver {
     conf.setStatus(ConformanceResourceStatus.DRAFT);
     conf.setDate(page.getGenDate().getTime());
     conf.setFhirVersion(page.getVersion());
-    conf.setAcceptUnknown(false);
+    conf.setAcceptUnknown(full ? UnknownContentCode.BOTH : UnknownContentCode.NO);
     conf.getFormat().add(Factory.newCode("xml"));
     conf.getFormat().add(Factory.newCode("json"));
     ConformanceRestComponent rest = new Conformance.ConformanceRestComponent();

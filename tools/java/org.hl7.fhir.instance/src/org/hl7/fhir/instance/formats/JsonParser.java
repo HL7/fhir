@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Aug 2, 2015 19:42+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 3, 2015 22:12+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -3492,7 +3492,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_fhirVersion"))
       parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
     if (json.has("acceptUnknown"))
-      res.setAcceptUnknownElement(parseBoolean(json.get("acceptUnknown").getAsBoolean()));
+      res.setAcceptUnknownElement(parseEnumeration(json.get("acceptUnknown").getAsString(), Conformance.UnknownContentCode.NULL, new Conformance.UnknownContentCodeEnumFactory()));
     if (json.has("_acceptUnknown"))
       parseElementProperties(json.getAsJsonObject("_acceptUnknown"), res.getAcceptUnknownElement());
     if (json.has("format")) {
@@ -16171,8 +16171,8 @@ public class JsonParser extends JsonParserBase {
         composeIdExtras("fhirVersion", element.getFhirVersionElement(), false);
       }
       if (element.hasAcceptUnknownElement()) {
-        composeBooleanCore("acceptUnknown", element.getAcceptUnknownElement(), false);
-        composeBooleanExtras("acceptUnknown", element.getAcceptUnknownElement(), false);
+        composeEnumerationCore("acceptUnknown", element.getAcceptUnknownElement(), new Conformance.UnknownContentCodeEnumFactory(), false);
+        composeEnumerationExtras("acceptUnknown", element.getAcceptUnknownElement(), new Conformance.UnknownContentCodeEnumFactory(), false);
       }
       if (element.hasFormat()) {
         openArray("format");

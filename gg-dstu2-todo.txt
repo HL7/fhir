@@ -19,7 +19,7 @@ add external link icon
 fix up UML diagrams
 EMF page - update to XCore
 fix up minify
-
+epub
 
 Examples
 * Clem's vital signs observations

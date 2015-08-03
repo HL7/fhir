@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 2, 2015 19:42+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 3, 2015 22:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -46,6 +46,106 @@ import org.hl7.fhir.instance.model.api.*;
  */
 @ResourceDef(name="Conformance", profile="http://hl7.org/fhir/Profile/Conformance")
 public class Conformance extends DomainResource implements IBaseConformance {
+
+    public enum UnknownContentCode {
+        /**
+         * The application does not accept either unknown elements or extensions
+         */
+        NO, 
+        /**
+         * The application accepts unknown extensions, but not unknown elements
+         */
+        EXTENSIONS, 
+        /**
+         * The application accepts unknown elements, but not unknown extensions
+         */
+        ELEMENTS, 
+        /**
+         * The application accepts unknown elements and extensions
+         */
+        BOTH, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static UnknownContentCode fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("no".equals(codeString))
+          return NO;
+        if ("extensions".equals(codeString))
+          return EXTENSIONS;
+        if ("elements".equals(codeString))
+          return ELEMENTS;
+        if ("both".equals(codeString))
+          return BOTH;
+        throw new Exception("Unknown UnknownContentCode code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case NO: return "no";
+            case EXTENSIONS: return "extensions";
+            case ELEMENTS: return "elements";
+            case BOTH: return "both";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case NO: return "http://hl7.org/fhir/unknown-content-code";
+            case EXTENSIONS: return "http://hl7.org/fhir/unknown-content-code";
+            case ELEMENTS: return "http://hl7.org/fhir/unknown-content-code";
+            case BOTH: return "http://hl7.org/fhir/unknown-content-code";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case NO: return "The application does not accept either unknown elements or extensions";
+            case EXTENSIONS: return "The application accepts unknown extensions, but not unknown elements";
+            case ELEMENTS: return "The application accepts unknown elements, but not unknown extensions";
+            case BOTH: return "The application accepts unknown elements and extensions";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case NO: return "Neither Elements or Extensions";
+            case EXTENSIONS: return "Unknown Extensions";
+            case ELEMENTS: return "Unknown Elements";
+            case BOTH: return "Unknown Elements and Extensions";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class UnknownContentCodeEnumFactory implements EnumFactory<UnknownContentCode> {
+    public UnknownContentCode fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("no".equals(codeString))
+          return UnknownContentCode.NO;
+        if ("extensions".equals(codeString))
+          return UnknownContentCode.EXTENSIONS;
+        if ("elements".equals(codeString))
+          return UnknownContentCode.ELEMENTS;
+        if ("both".equals(codeString))
+          return UnknownContentCode.BOTH;
+        throw new IllegalArgumentException("Unknown UnknownContentCode code '"+codeString+"'");
+        }
+    public String toCode(UnknownContentCode code) {
+      if (code == UnknownContentCode.NO)
+        return "no";
+      if (code == UnknownContentCode.EXTENSIONS)
+        return "extensions";
+      if (code == UnknownContentCode.ELEMENTS)
+        return "elements";
+      if (code == UnknownContentCode.BOTH)
+        return "both";
+      return "?";
+      }
+    }
 
     public enum RestfulConformanceMode {
         /**
@@ -5533,11 +5633,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
     protected IdType fhirVersion;
 
     /**
-     * A flag that indicates whether the application accepts unknown elements as part of a resource.
+     * A code that indicates whether the application accepts unknown elements or extensions when reading resources.
      */
-    @Child(name = "acceptUnknown", type = {BooleanType.class}, order=14, min=1, max=1)
-    @Description(shortDefinition="True if application accepts unknown elements", formalDefinition="A flag that indicates whether the application accepts unknown elements as part of a resource." )
-    protected BooleanType acceptUnknown;
+    @Child(name = "acceptUnknown", type = {CodeType.class}, order=14, min=1, max=1)
+    @Description(shortDefinition="no | extensions | elements | both", formalDefinition="A code that indicates whether the application accepts unknown elements or extensions when reading resources." )
+    protected Enumeration<UnknownContentCode> acceptUnknown;
 
     /**
      * A list of the formats supported by this implementation using their content types.
@@ -5579,7 +5679,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<ConformanceDocumentComponent> document;
 
-    private static final long serialVersionUID = -137792036L;
+    private static final long serialVersionUID = -279432719L;
 
   /*
    * Constructor
@@ -5591,7 +5691,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
   /*
    * Constructor
    */
-    public Conformance(DateTimeType date, IdType fhirVersion, BooleanType acceptUnknown) {
+    public Conformance(DateTimeType date, IdType fhirVersion, Enumeration<UnknownContentCode> acceptUnknown) {
       super();
       this.date = date;
       this.fhirVersion = fhirVersion;
@@ -6214,14 +6314,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     }
 
     /**
-     * @return {@link #acceptUnknown} (A flag that indicates whether the application accepts unknown elements as part of a resource.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
+     * @return {@link #acceptUnknown} (A code that indicates whether the application accepts unknown elements or extensions when reading resources.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
      */
-    public BooleanType getAcceptUnknownElement() { 
+    public Enumeration<UnknownContentCode> getAcceptUnknownElement() { 
       if (this.acceptUnknown == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.acceptUnknown");
         else if (Configuration.doAutoCreate())
-          this.acceptUnknown = new BooleanType(); // bb
+          this.acceptUnknown = new Enumeration<UnknownContentCode>(new UnknownContentCodeEnumFactory()); // bb
       return this.acceptUnknown;
     }
 
@@ -6234,26 +6334,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
     }
 
     /**
-     * @param value {@link #acceptUnknown} (A flag that indicates whether the application accepts unknown elements as part of a resource.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
+     * @param value {@link #acceptUnknown} (A code that indicates whether the application accepts unknown elements or extensions when reading resources.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
      */
-    public Conformance setAcceptUnknownElement(BooleanType value) { 
+    public Conformance setAcceptUnknownElement(Enumeration<UnknownContentCode> value) { 
       this.acceptUnknown = value;
       return this;
     }
 
     /**
-     * @return A flag that indicates whether the application accepts unknown elements as part of a resource.
+     * @return A code that indicates whether the application accepts unknown elements or extensions when reading resources.
      */
-    public boolean getAcceptUnknown() { 
-      return this.acceptUnknown == null || this.acceptUnknown.isEmpty() ? false : this.acceptUnknown.getValue();
+    public UnknownContentCode getAcceptUnknown() { 
+      return this.acceptUnknown == null ? null : this.acceptUnknown.getValue();
     }
 
     /**
-     * @param value A flag that indicates whether the application accepts unknown elements as part of a resource.
+     * @param value A code that indicates whether the application accepts unknown elements or extensions when reading resources.
      */
-    public Conformance setAcceptUnknown(boolean value) { 
+    public Conformance setAcceptUnknown(UnknownContentCode value) { 
         if (this.acceptUnknown == null)
-          this.acceptUnknown = new BooleanType();
+          this.acceptUnknown = new Enumeration<UnknownContentCode>(new UnknownContentCodeEnumFactory());
         this.acceptUnknown.setValue(value);
       return this;
     }
@@ -6509,7 +6609,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         childrenList.add(new Property("software", "", "Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.", 0, java.lang.Integer.MAX_VALUE, software));
         childrenList.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, java.lang.Integer.MAX_VALUE, implementation));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
-        childrenList.add(new Property("acceptUnknown", "boolean", "A flag that indicates whether the application accepts unknown elements as part of a resource.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
+        childrenList.add(new Property("acceptUnknown", "code", "A code that indicates whether the application accepts unknown elements or extensions when reading resources.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
         childrenList.add(new Property("format", "code", "A list of the formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, format));
         childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A list of profiles that represent different use cases supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));

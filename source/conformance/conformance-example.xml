@@ -44,7 +44,7 @@
     required. Note that this may be rescinded later?  -->
   <fhirVersion value="0.07"/>
 <!--  this system accepts unknown content in the resources  -->
-  <acceptUnknown value="true"/>
+  <acceptUnknown value="both"/>
 <!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
   <format value="xml"/>
   <format value="json"/>
