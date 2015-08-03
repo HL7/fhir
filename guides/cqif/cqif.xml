@@ -48,6 +48,15 @@
         <reference value="basic-knowledgemodule-cqif-profile-spreadsheet.xml"/>
       </exampleFor>
     </resource>
+<!--    <resource>
+      <purpose value="example"/>
+      <name value="CQIF GuidanceRequest"/>
+      <description value="GuidanceRequest for a Guideline Appropriate Ordering module evaluation"/>
+      <sourceUri value="guidance-operation-request-example-v2.xml"/>
+      <exampleFor>
+        <reference value="basic-guidancerequest-cqif-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource> -->
   </package>
   <page>
     <source value="cqif.html"/>
