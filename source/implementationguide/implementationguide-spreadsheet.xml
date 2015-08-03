@@ -20,7 +20,8 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>11</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1687,7 +1688,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">example | terminology | profile | dictionary | logical</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">example | terminology | profile | extension | dictionary | logical</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Why the resource is included in the guide</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3875,7 +3876,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7580,7 +7580,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="guide-resource-purpose">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="414.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="195.75"/>
@@ -7632,6 +7632,12 @@
     <Cell><Data ss:Type="String">The resource defines a profile (StructureDefinition) that is used in the implementation guide</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">extension</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell><Data ss:Type="String">The resource defines an extension (StructureDefinition) that is used in the implementation guide</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">dictionary</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Dictionary</Data></Cell>
@@ -7651,10 +7657,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
