@@ -15,25 +15,37 @@
 <p>This section of the guide discusses the profiles and operation definitions used to meet the three main use cases of:</p>
 
 <ol>
-	<li>Sharing – The representation of computable knowledge artifacts</li>
-	<li>Evaluation – The evaluation of knowledge artifacts</li>
-	<li>Distribution – The exposure of a searchable repository of knowledge artifacts</li>
+	<li>Sharing - The representation of computable knowledge artifacts</li>
+	<li>Evaluation - The evaluation of knowledge artifacts</li>
+	<li>Distribution - The exposure of a searchable repository of knowledge artifacts</li>
 </ol>
 
 <a name="sharing"/>
 <h3>Sharing</h3>
-<p>The Clinical Decision Support Knowledge Artifact Specification defines four types of artifacts:</p>
+<p>This implementation guide defines the following types of artifacts:</p>
 
 <ul>
+	<li>Simple Rules</li>
 	<li>Event Condition Action (ECA) Rules</li>
 	<li>Documentation Templates</li>
 	<li>Order Sets</li>
 	<li>Libraries</li>
 </ul>
 
-<p>Each of these artifact types are represented in this guide by a separate structure defining the specific structures involved. Each of these structures is derived from the <a href="knowledgemodule-cqif-cqif-knowledgemodule.html">KnowledgeModule</a> structure defined in the common section.</p>
+<p>To represent these artifact types, this guide introduces the <a href="guidanceartifact-cqif-cqif-guidanceartifact.html">GuidanceArtifact</a> structure. This structure derives from the <a href="knowledgemodule-cqif-cqif-knowledgemodule.html">KnowledgeModule</a> structure defined in the common section, and introduces elements to enable representation of the structures involved in each of these artifact types.</p>
 
-<p>In addition, to support the use of artifacts defined within the existing specification, a <a href="guidanceartifact-cqif-cqif-guidanceartifact.html">GuidanceArtifact</a> structure is introduced that allows CDS KAS artifacts to be used directly.</p>
+<p>In addition, the use of artifact definitions that are based on the existing Clinical Decision Support Knowledge Artifact Specification is supported by allowing the content element to contain a DocumentReference that points to the actual artifact.</p>
+
+<p>The following sections discuss the use of the GuidanceArtifact structure to represent each of these artifact types.</p>
+
+<a name="simple-rules"/>
+<h4>Simple Rules</h4>
+
+<p>This implementation guide introduces the notion of a Simple Rule to allow for the sharing, evaluation, and distribution of simple decision support rules that don't necessarily fit the pattern established by Event-Condition-Action rules.</p>
+
+<p>For example, a decision support service may support the evaluation of creatinine levels as part of assessing renal function. A Simple Rule allows an artifact to be defined that contains only the evaluation logic involved in determining creatinine level. This logic may then be shared independently from the larger Event-Condition-Action rule describing the overall renal function assessment.</p>
+
+<p>For simple rules, the rule element is used to define the logic involved in the rule, and the result of evaluating this expression is the result of the rule.</p>
 
 <a name="eca-rules"/>
 <h4>Event Condition Action (ECA) Rules</h4>
@@ -63,25 +75,25 @@
 
 <p>The Create, Update, and Delete actions indicate that particular resources should be created, modified, or removed, and the Fire Event action indicates that a particular named event should occur.</p>
 
-<p>This guide introduces the <a href="ecarule-cqif-cqif-ecarule.html">ECARule</a> structure to model ECA rules.</p>
+<p>To represent ECA Rules, the event element of the GuidanceArtifact is used to represent the triggering events for the artifact, the rule element is used to provide the expression for the condition of the rule, and the action element defines the actions to be performed.</p>
 
 <a name="documentation-templates"/>
 <h4>Documentation Templates</h4>
 
 <p>A documentation template is a structured form for recording information on a patient into a set of pre-defined data slots. These templates are used to guide structure data entry within an EHR or other clinical information system. Some examples of clinical documents that can be represented via documentation template artifacts are encounter summaries, procedure notes, patient-reported outcomes, and flowsheets.</p>
 
-<p>Within FHIR, the <a href="../questionnaire.html">Questionnaire</a> resource is available for modeling the structure of questionnaires. As such, the Documentation Template artifact is realized as a derivative of <a href="knowledgemodule-cqif-cqif-knowledgemodule.html">KnowledgeModule</a> that adds a reference to a particular <a href="../questionnaire.html">Questionnaire</a>.</p>
+<p>Within FHIR, the <a href="../questionnaire.html">Questionnaire</a> resource is available for modeling the structure of questionnaires. As such, a Documentation Template artifact is represented by using the content element of the GuidanceArtifact structure to refer to a particular <a href="../questionnaire.html">Questionnaire</a>.</p>
 
-<p>However, Documentation Templates as described by the Clinical Decision Support Knowledge Artifact Specification allow not only questions to be defined, but the behavior of the questionnaire as well. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="documentationtemplate-cqif-cqif-documentationtemplate.html">DocumentationTemplate</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
+<p>However, Documentation Templates as described by the Clinical Decision Support Knowledge Artifact Specification allow not only questions to be defined, but the behavior of the questionnaire as well. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="questionnaire-cqif-cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
 
-<p>The content of a documentation template artifact is then specified by referencing either a Questionnaire directly, or a DocumentationTemplate if behavioral functionality is required.</p>
+<p>The content of a documentation template artifact is then specified by referencing either a Questionnaire directly, or a CQIF-Questionnaire if behavioral functionality is required.</p>
 
 <a name="order-sets"/>
 <h4>Order Sets</h4>
 
 <p>An order set is a pre-defined and approved group of orders related to a particular clinical condition (e.g. hypertension treatment and monitoring) or stage of care (e.g. hospital admission to Coronary Care Unit). An order set is used as a checklist for the clinician when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry system (CPOE).</p>
 
-<p>Within this implementation guide, the <a href="orderset-cqif-cqif-orderset.html">OrderSet</a> structure is derived from <a href="knowledgemodule-cqif-cqif-knowledgemodule.html">KnowledgeModule</a> and introduces the ability to define hierarchical groups of orderables, together with behaviors that determine how the orderable items are related to eachother.</p>
+<p>Within this implementation guide, order sets are represented using the action elements of the GuidanceArtifact structure. The action element provides the ability to define hierarchical groups of actions, where each specific action defines a specific orderable item, together with behaviors that determine how the orderable items are related to eachother.</p>
 
 <p>In general, each orderable is a template-level description of a specific FHIR resource, with the order set definition providing for additional behavioral components by defining expressions for the values of various components of the orderable that are evaluated in context when the order set is presented. This allows the general description of the order set to be presented structurally, while still allowing for maximum flexibility and customization of the contents based on the patient, encounter, and setting at the point-of-care.</p>
 
@@ -90,10 +102,12 @@
 
 <p>Libraries were introduced into the Clinical Decision Support Knowledge Artifact Specification as a means of reusing components of artifact definitions. While this is an important use case, for the purposes of this comment-only ballot, its implementation has been deferred. We seek comment on the use case for reusing components of artifact definitions and whether this is a critical requirement that should be covered by this implementation guide.</p>
 
-<a name="guidance-artifacts"/>
-<h4>Guidance Artifacts</h4>
+<a name="cds-kas-artifacts"/>
+<h4>CDS KAS Artifacts</h4>
 
 <p>In order to allow existing artifacts defined according to the current Clinical Decision Support Knowledge Artifact Specification, this implementation guide defines a <a href="guidanceartifact-cqif-cqif-guidanceartifact.html">GuidanceArtifact</a> structure derived from <a href="knowledgemodule-cqif-cqif-knowledgemodule.html">KnowledgeModule</a>, but whose content is determined by a <a href="../documentreference.html">DocumentReference</a> to a CDS KAS artifact.</p>
+
+<p>In this case, the information represented in the KnowledgeModule can be inferred from the referenced artifact, and potentially generated by a simple transform.</p>
 
 <a name="evaluation"/>
 <h3>Evaluation</h3>
@@ -133,16 +147,8 @@
 			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
 		</tr>
 		<tr>
-			<td><a href="ecarule-cqif-cqif-ecarule.html">CQIF-ECARule</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
-		</tr>
-		<tr>
-			<td><a href="documentationtemplate-cqif-cqif-documentationtemplate.html">CQIF-DocumentationTemplate</a></td>
+			<td><a href="questionnaire-cqif-cqif-questionnaire.html">CQIF-Questionnaire</a></td>
 			<td><a href="[%fhir-path%]questionnaire.html">Questionnaire</a></td>
-		</tr>
-		<tr>
-			<td><a href="orderset-cqif-cqif-orderset.html">CQIF-OrderSet</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
 		</tr>
 	</tbody>
 </table>

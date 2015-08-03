@@ -32,6 +32,12 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="documentreference-evidence-cqif-profile-spreadsheet.xml"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="basic-guidanceartifact-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="questionnaire-cqif-profile-spreadsheet.xml"/>
+    </extension>
     <name value="base"/>
     <resource>
       <purpose value="example"/>
