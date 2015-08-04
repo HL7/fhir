@@ -72,7 +72,7 @@ Another use case for grouping a set of observations is for assessment tools such
 		A value set is bound to the ValueCodeableConcept element. In the USLab Observation Profile, for example, the ValueCodeableConcept element is bound to  <a href="uslab/valueset-obs-uslab-codedresults.html">USlab Coded Results</a> which is composed of several SNOMED CT heirarchies. The source system may also provide there own ("local") coded result values as well. Hence coded results are often coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example above.
 		</li>
 		<li>
-		For boolean values use valueCodeableConcept and select codes from HL7 Version 2 Table 0136 <a href="v2/0136/index.html">HL7 Version 2 Table 0136</a>. These "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed.
+		The boolean data type is rarely used for Observation.value[x] because most observations result values are never truly boolean due to exceptional values such as "unknown".   If needed, use valueCodeableConcept  for booean concept instead and select codes from HL7 Version 2 Table 0136 <a href="v2/0136/index.html">HL7 Version 2 Table 0136</a>. These "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed.
 		  </li>
 		<li>
    Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Attachment, or Ratio
