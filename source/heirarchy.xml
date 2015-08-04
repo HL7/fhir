@@ -241,7 +241,6 @@ signatures.html
 			<page type="resource" resource="Flag"/>
 			<page type="resource" resource="Communication"/>
 			<page type="resource" resource="CommunicationRequest"/>
-			<page type="resource" resource="Supply"/>
 			<page type="resource" resource="SupplyDelivery"/>
 			<page type="resource" resource="SupplyRequest"/>			
 			<page type="resource" resource="Order"/>

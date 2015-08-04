@@ -2268,7 +2268,7 @@ jurisdication</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance|Supply)</Data>
+					<Data ss:Type="String">Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -4279,7 +4279,7 @@ jurisdication</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance|Supply)</Data>
+					<Data ss:Type="String">Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">

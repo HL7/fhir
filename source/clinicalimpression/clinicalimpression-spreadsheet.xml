@@ -2765,7 +2765,7 @@ See wiki for guidance</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
-					<Data ss:Type="String">Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationPrescription|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|Supply|VisionPrescription)</Data>
+					<Data ss:Type="String">Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationPrescription|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
@@ -2841,7 +2841,7 @@ See wiki for guidance</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
-					<Data ss:Type="String">Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationPrescription | DiagnosticOrder | NutritionOrder | Supply | Appointment)</Data>
+					<Data ss:Type="String">Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationPrescription | DiagnosticOrder | NutritionOrder | SupplyRequest | Appointment)</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
