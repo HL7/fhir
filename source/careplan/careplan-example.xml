@@ -22,7 +22,7 @@
       <code>
         <text value="Obesity"/>
       </code>
-      <clinicalStatus value="confirmed"/>
+      <verificationStatus value="confirmed"/>
     </Condition>
   </contained>
   <contained>

@@ -26,7 +26,7 @@
         <!-- Could coded if we wanted to...-->
         <text value="Overseas encounter"/>
       </code>
-      <clinicalStatus value="confirmed"/>
+      <verificationStatus value="confirmed"/>
     </Condition>
   </contained>
   <contained>

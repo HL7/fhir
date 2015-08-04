@@ -20,7 +20,7 @@
       <code>
         <text value="pregnancy"/>
       </code>
-      <clinicalStatus value="confirmed"/>
+      <verificationStatus value="confirmed"/>
     </Condition>
   </contained>
   <contained>

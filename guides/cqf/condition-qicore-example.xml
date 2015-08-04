@@ -39,7 +39,7 @@
     <display value="Diagnosis"/>
    </coding>
  </category>
- <clinicalStatus value="confirmed"/>
+  <verificationStatus value="confirmed"/>
  <severity>
    <coding>
     <system value="http://snomed.info/sct"/>

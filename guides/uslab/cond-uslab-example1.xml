@@ -27,6 +27,6 @@ Description: USLab Condition Profile Canonical Example: Lead Exposure -->
 			<display value="Diagnosis"/>
 		</coding>
 	</category>
-	<clinicalStatus value="provisional"/>
+	<verificationStatus value="provisional"/>
 	<notes value="Elevated lead levels on screening"/>
 </Condition>
