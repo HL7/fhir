@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 07:26+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -897,10 +897,10 @@ public class Condition extends DomainResource {
     protected CodeableConcept code;
 
     /**
-     * A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.
+     * A category assigned to the condition.
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="E.g. complaint | symptom | finding | diagnosis", formalDefinition="A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis." )
+    @Description(shortDefinition="complaint | symptom | finding | diagnosis", formalDefinition="A category assigned to the condition." )
     protected CodeableConcept category;
 
     /**
@@ -927,7 +927,7 @@ public class Condition extends DomainResource {
     /**
      * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    @Child(name = "abatement", type = {DateType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1)
+    @Child(name = "abatement", type = {DateTimeType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="If/when in resolution/remission", formalDefinition="The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate." )
     protected Type abatement;
 
@@ -1233,7 +1233,7 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #category} (A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.)
+     * @return {@link #category} (A category assigned to the condition.)
      */
     public CodeableConcept getCategory() { 
       if (this.category == null)
@@ -1249,7 +1249,7 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @param value {@link #category} (A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.)
+     * @param value {@link #category} (A category assigned to the condition.)
      */
     public Condition setCategory(CodeableConcept value) { 
       this.category = value;
@@ -1419,14 +1419,14 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public DateType getAbatementDateType() throws Exception { 
-      if (!(this.abatement instanceof DateType))
-        throw new Exception("Type mismatch: the type DateType was expected, but "+this.abatement.getClass().getName()+" was encountered");
-      return (DateType) this.abatement;
+    public DateTimeType getAbatementDateTimeType() throws Exception { 
+      if (!(this.abatement instanceof DateTimeType))
+        throw new Exception("Type mismatch: the type DateTimeType was expected, but "+this.abatement.getClass().getName()+" was encountered");
+      return (DateTimeType) this.abatement;
     }
 
-    public boolean hasAbatementDateType() throws Exception { 
-      return this.abatement instanceof DateType;
+    public boolean hasAbatementDateTimeType() throws Exception { 
+      return this.abatement instanceof DateTimeType;
     }
 
     /**
@@ -1747,11 +1747,11 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("asserter", "Reference(Practitioner|Patient)", "Person who takes responsibility for asserting the existence of the condition as part of the electronic record.", 0, java.lang.Integer.MAX_VALUE, asserter));
         childrenList.add(new Property("dateAsserted", "date", "Estimated or actual date the condition/problem/diagnosis was first detected/suspected.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
         childrenList.add(new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("clinicalStatus", "code", "The clinical status of the condition.", 0, java.lang.Integer.MAX_VALUE, clinicalStatus));
         childrenList.add(new Property("severity", "CodeableConcept", "A subjective assessment of the severity of the condition as evaluated by the clinician.", 0, java.lang.Integer.MAX_VALUE, severity));
         childrenList.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
-        childrenList.add(new Property("abatement[x]", "date|Age|boolean|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
+        childrenList.add(new Property("abatement[x]", "dateTime|Age|boolean|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
         childrenList.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
         childrenList.add(new Property("evidence", "", "Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.", 0, java.lang.Integer.MAX_VALUE, evidence));
         childrenList.add(new Property("location", "", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, location));

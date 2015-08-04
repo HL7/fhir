@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 07:26+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -648,9 +648,9 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * Anatomical location where the request test should be performed.  This is the target site.
          */
-        @Child(name = "bodySite", type = {CodeableConcept.class, BodySite.class}, order=3, min=0, max=1)
+        @Child(name = "bodySite", type = {CodeableConcept.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Location of requested test (if applicable)", formalDefinition="Anatomical location where the request test should be performed.  This is the target site." )
-        protected Type bodySite;
+        protected CodeableConcept bodySite;
 
         /**
          * The status of this individual item within the order.
@@ -666,7 +666,7 @@ public class DiagnosticOrder extends DomainResource {
         @Description(shortDefinition="Events specific to this item", formalDefinition="A summary of the events of interest that have occurred as this item of the request is processed." )
         protected List<DiagnosticOrderEventComponent> event;
 
-        private static final long serialVersionUID = 1960490281L;
+        private static final long serialVersionUID = 381238192L;
 
     /*
      * Constructor
@@ -771,34 +771,13 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
-        public Type getBodySite() { 
+        public CodeableConcept getBodySite() { 
+          if (this.bodySite == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosticOrderItemComponent.bodySite");
+            else if (Configuration.doAutoCreate())
+              this.bodySite = new CodeableConcept(); // cc
           return this.bodySite;
-        }
-
-        /**
-         * @return {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
-         */
-        public CodeableConcept getBodySiteCodeableConcept() throws Exception { 
-          if (!(this.bodySite instanceof CodeableConcept))
-            throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.bodySite.getClass().getName()+" was encountered");
-          return (CodeableConcept) this.bodySite;
-        }
-
-        public boolean hasBodySiteCodeableConcept() throws Exception { 
-          return this.bodySite instanceof CodeableConcept;
-        }
-
-        /**
-         * @return {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
-         */
-        public Reference getBodySiteReference() throws Exception { 
-          if (!(this.bodySite instanceof Reference))
-            throw new Exception("Type mismatch: the type Reference was expected, but "+this.bodySite.getClass().getName()+" was encountered");
-          return (Reference) this.bodySite;
-        }
-
-        public boolean hasBodySiteReference() throws Exception { 
-          return this.bodySite instanceof Reference;
         }
 
         public boolean hasBodySite() { 
@@ -808,7 +787,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @param value {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
-        public DiagnosticOrderItemComponent setBodySite(Type value) { 
+        public DiagnosticOrderItemComponent setBodySite(CodeableConcept value) { 
           this.bodySite = value;
           return this;
         }
@@ -906,7 +885,7 @@ public class DiagnosticOrder extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("specimen", "Reference(Specimen)", "If the item is related to a specific specimen.", 0, java.lang.Integer.MAX_VALUE, specimen));
-          childrenList.add(new Property("bodySite[x]", "CodeableConcept|Reference(BodySite)", "Anatomical location where the request test should be performed.  This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySite));
+          childrenList.add(new Property("bodySite", "CodeableConcept", "Anatomical location where the request test should be performed.  This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("status", "code", "The status of this individual item within the order.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("event", "@DiagnosticOrder.event", "A summary of the events of interest that have occurred as this item of the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
         }
@@ -1744,7 +1723,7 @@ public class DiagnosticOrder extends DomainResource {
   public static final String SP_ITEMPASTSTATUS = "item-past-status";
   @SearchParamDefinition(name="patient", path="DiagnosticOrder.subject", description="Who and/or what test is about", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="bodysite", path="DiagnosticOrder.item.bodySite[x]", description="Location of requested test (if applicable)", type="token" )
+  @SearchParamDefinition(name="bodysite", path="DiagnosticOrder.item.bodySite", description="Location of requested test (if applicable)", type="token" )
   public static final String SP_BODYSITE = "bodysite";
   @SearchParamDefinition(name="item-date", path="DiagnosticOrder.item.event.dateTime", description="The date at which the event happened", type="date" )
   public static final String SP_ITEMDATE = "item-date";

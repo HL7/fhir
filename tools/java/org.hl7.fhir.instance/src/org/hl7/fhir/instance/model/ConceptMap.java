@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 07:26+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1997,17 +1997,19 @@ public class ConceptMap extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="url", path="ConceptMap.url", description="The url of the concept map", type="uri" )
   public static final String SP_URL = "url";
+  @SearchParamDefinition(name="targetsystem", path="ConceptMap.element.target.codeSystem", description="System of the target (if necessary)", type="uri" )
+  public static final String SP_TARGETSYSTEM = "targetsystem";
   @SearchParamDefinition(name="version", path="ConceptMap.version", description="The version identifier of the concept map", type="token" )
   public static final String SP_VERSION = "version";
   @SearchParamDefinition(name="publisher", path="ConceptMap.publisher", description="Name of the publisher of the concept map", type="string" )
   public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="targetsystem", path="ConceptMap.element.target.codeSystem", description="System of the target (if necessary)", type="uri" )
-  public static final String SP_TARGETSYSTEM = "targetsystem";
   @SearchParamDefinition(name="product", path="ConceptMap.element.target.product.element", description="Reference to element/field/valueset mapping depends on", type="uri" )
   public static final String SP_PRODUCT = "product";
   @SearchParamDefinition(name="sourcecode", path="ConceptMap.element.code", description="Identifies element being mapped", type="token" )
   public static final String SP_SOURCECODE = "sourcecode";
-  @SearchParamDefinition(name="source", path="ConceptMap.source[x]", description="The system for any concepts mapped by this concept map", type="reference" )
+  @SearchParamDefinition(name="sourceuri", path="ConceptMap.sourceUri", description="Identifies the source of the concepts which are being mapped", type="reference" )
+  public static final String SP_SOURCEURI = "sourceuri";
+  @SearchParamDefinition(name="source", path="ConceptMap.sourceReference", description="Identifies the source of the concepts which are being mapped", type="reference" )
   public static final String SP_SOURCE = "source";
   @SearchParamDefinition(name="description", path="ConceptMap.description", description="Text search in the description of the concept map", type="string" )
   public static final String SP_DESCRIPTION = "description";

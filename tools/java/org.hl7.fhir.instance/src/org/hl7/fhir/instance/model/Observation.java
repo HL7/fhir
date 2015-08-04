@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 07:26+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1073,10 +1073,10 @@ public class Observation extends DomainResource {
     protected Enumeration<ObservationStatus> status;
 
     /**
-     * Describes the general type of observation being made and is used to group or limit searching of observations.
+     * A code that classifies the the general type of observation being made.  This is used  for searching, sorting and display purposes.
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="Classification of  type of observation", formalDefinition="Describes the general type of observation being made and is used to group or limit searching of observations." )
+    @Description(shortDefinition="Classification of  type of observation", formalDefinition="A code that classifies the the general type of observation being made.  This is used  for searching, sorting and display purposes." )
     protected CodeableConcept category;
 
     /**
@@ -1167,9 +1167,9 @@ public class Observation extends DomainResource {
     /**
      * Indicates the site on the subject's body where the observation was made ( i.e. the target site).
      */
-    @Child(name = "bodySite", type = {CodeableConcept.class, BodySite.class}, order=13, min=0, max=1)
+    @Child(name = "bodySite", type = {CodeableConcept.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Observed body part", formalDefinition="Indicates the site on the subject's body where the observation was made ( i.e. the target site)." )
-    protected Type bodySite;
+    protected CodeableConcept bodySite;
 
     /**
      * Indicates the mechanism used to perform the observation.
@@ -1223,7 +1223,7 @@ public class Observation extends DomainResource {
     @Description(shortDefinition="Component results", formalDefinition="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations." )
     protected List<ObservationComponentComponent> component;
 
-    private static final long serialVersionUID = -1735708167L;
+    private static final long serialVersionUID = -931593572L;
 
   /*
    * Constructor
@@ -1327,7 +1327,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #category} (Describes the general type of observation being made and is used to group or limit searching of observations.)
+     * @return {@link #category} (A code that classifies the the general type of observation being made.  This is used  for searching, sorting and display purposes.)
      */
     public CodeableConcept getCategory() { 
       if (this.category == null)
@@ -1343,7 +1343,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @param value {@link #category} (Describes the general type of observation being made and is used to group or limit searching of observations.)
+     * @param value {@link #category} (A code that classifies the the general type of observation being made.  This is used  for searching, sorting and display purposes.)
      */
     public Observation setCategory(CodeableConcept value) { 
       this.category = value;
@@ -1849,34 +1849,13 @@ public class Observation extends DomainResource {
     /**
      * @return {@link #bodySite} (Indicates the site on the subject's body where the observation was made ( i.e. the target site).)
      */
-    public Type getBodySite() { 
+    public CodeableConcept getBodySite() { 
+      if (this.bodySite == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Observation.bodySite");
+        else if (Configuration.doAutoCreate())
+          this.bodySite = new CodeableConcept(); // cc
       return this.bodySite;
-    }
-
-    /**
-     * @return {@link #bodySite} (Indicates the site on the subject's body where the observation was made ( i.e. the target site).)
-     */
-    public CodeableConcept getBodySiteCodeableConcept() throws Exception { 
-      if (!(this.bodySite instanceof CodeableConcept))
-        throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.bodySite.getClass().getName()+" was encountered");
-      return (CodeableConcept) this.bodySite;
-    }
-
-    public boolean hasBodySiteCodeableConcept() throws Exception { 
-      return this.bodySite instanceof CodeableConcept;
-    }
-
-    /**
-     * @return {@link #bodySite} (Indicates the site on the subject's body where the observation was made ( i.e. the target site).)
-     */
-    public Reference getBodySiteReference() throws Exception { 
-      if (!(this.bodySite instanceof Reference))
-        throw new Exception("Type mismatch: the type Reference was expected, but "+this.bodySite.getClass().getName()+" was encountered");
-      return (Reference) this.bodySite;
-    }
-
-    public boolean hasBodySiteReference() throws Exception { 
-      return this.bodySite instanceof Reference;
     }
 
     public boolean hasBodySite() { 
@@ -1886,7 +1865,7 @@ public class Observation extends DomainResource {
     /**
      * @param value {@link #bodySite} (Indicates the site on the subject's body where the observation was made ( i.e. the target site).)
      */
-    public Observation setBodySite(Type value) { 
+    public Observation setBodySite(CodeableConcept value) { 
       this.bodySite = value;
       return this;
     }
@@ -2122,7 +2101,7 @@ public class Observation extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the simple observation instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "The status of the result value.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("category", "CodeableConcept", "Describes the general type of observation being made and is used to group or limit searching of observations.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("category", "CodeableConcept", "A code that classifies the the general type of observation being made.  This is used  for searching, sorting and display purposes.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'name'.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The healthcare event  ( e.g. a patient and healthcare provider interaction ) during which this observation is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
@@ -2133,7 +2112,7 @@ public class Observation extends DomainResource {
         childrenList.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, java.lang.Integer.MAX_VALUE, dataAbsentReason));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
-        childrenList.add(new Property("bodySite[x]", "CodeableConcept|Reference(BodySite)", "Indicates the site on the subject's body where the observation was made ( i.e. the target site).", 0, java.lang.Integer.MAX_VALUE, bodySite));
+        childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made ( i.e. the target site).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("device", "Reference(Device|DeviceMetric)", "The device used to generate the observation data.", 0, java.lang.Integer.MAX_VALUE, device));

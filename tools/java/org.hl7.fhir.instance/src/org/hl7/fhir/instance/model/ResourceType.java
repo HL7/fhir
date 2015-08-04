@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Tue, Aug 4, 2015 07:26+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
 
 public enum ResourceType {
     Account,
@@ -92,7 +92,6 @@ public enum ResourceType {
     StructureDefinition,
     Subscription,
     Substance,
-    Supply,
     SupplyDelivery,
     SupplyRequest,
     TestScript,
@@ -280,8 +279,6 @@ public enum ResourceType {
       return "subscription";
     case Substance:
       return "substance";
-    case Supply:
-      return "supply";
     case SupplyDelivery:
       return "supplydelivery";
     case SupplyRequest:

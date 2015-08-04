@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 07:26+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -375,11 +375,11 @@ public class DiagnosticReport extends DomainResource {
     protected Enumeration<DiagnosticReportStatus> status;
 
     /**
-     * The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.
+     * A code that classifies the dlinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.
      */
-    @Child(name = "serviceCategory", type = {CodeableConcept.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="Biochemistry, Hematology etc.", formalDefinition="The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI." )
-    protected CodeableConcept serviceCategory;
+    @Child(name = "category", type = {CodeableConcept.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Service category", formalDefinition="A code that classifies the dlinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes." )
+    protected CodeableConcept category;
 
     /**
      * A code or name that describes this diagnostic report.
@@ -514,7 +514,7 @@ public class DiagnosticReport extends DomainResource {
     @Description(shortDefinition="Entire Report as issued", formalDefinition="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent." )
     protected List<Attachment> presentedForm;
 
-    private static final long serialVersionUID = 1654147823L;
+    private static final long serialVersionUID = 488621746L;
 
   /*
    * Constructor
@@ -622,26 +622,26 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #serviceCategory} (The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.)
+     * @return {@link #category} (A code that classifies the dlinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.)
      */
-    public CodeableConcept getServiceCategory() { 
-      if (this.serviceCategory == null)
+    public CodeableConcept getCategory() { 
+      if (this.category == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DiagnosticReport.serviceCategory");
+          throw new Error("Attempt to auto-create DiagnosticReport.category");
         else if (Configuration.doAutoCreate())
-          this.serviceCategory = new CodeableConcept(); // cc
-      return this.serviceCategory;
+          this.category = new CodeableConcept(); // cc
+      return this.category;
     }
 
-    public boolean hasServiceCategory() { 
-      return this.serviceCategory != null && !this.serviceCategory.isEmpty();
+    public boolean hasCategory() { 
+      return this.category != null && !this.category.isEmpty();
     }
 
     /**
-     * @param value {@link #serviceCategory} (The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.)
+     * @param value {@link #category} (A code that classifies the dlinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.)
      */
-    public DiagnosticReport setServiceCategory(CodeableConcept value) { 
-      this.serviceCategory = value;
+    public DiagnosticReport setCategory(CodeableConcept value) { 
+      this.category = value;
       return this;
     }
 
@@ -1286,7 +1286,7 @@ public class DiagnosticReport extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "The status of the diagnostic report as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("serviceCategory", "CodeableConcept", "The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
+        childrenList.add(new Property("category", "CodeableConcept", "A code that classifies the dlinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("code", "CodeableConcept", "A code or name that describes this diagnostic report.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The link to the health care event (encounter) when the order was made.", 0, java.lang.Integer.MAX_VALUE, encounter));
@@ -1312,7 +1312,7 @@ public class DiagnosticReport extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
-        dst.serviceCategory = serviceCategory == null ? null : serviceCategory.copy();
+        dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
@@ -1369,7 +1369,7 @@ public class DiagnosticReport extends DomainResource {
         if (!(other instanceof DiagnosticReport))
           return false;
         DiagnosticReport o = (DiagnosticReport) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(serviceCategory, o.serviceCategory, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true)
            && compareDeep(effective, o.effective, true) && compareDeep(issued, o.issued, true) && compareDeep(performer, o.performer, true)
            && compareDeep(requestDetail, o.requestDetail, true) && compareDeep(specimen, o.specimen, true)
@@ -1391,8 +1391,8 @@ public class DiagnosticReport extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (serviceCategory == null || serviceCategory.isEmpty()) && (code == null || code.isEmpty())
-           && (subject == null || subject.isEmpty()) && (encounter == null || encounter.isEmpty()) && (effective == null || effective.isEmpty())
+           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty())
+           && (encounter == null || encounter.isEmpty()) && (effective == null || effective.isEmpty())
            && (issued == null || issued.isEmpty()) && (performer == null || performer.isEmpty()) && (requestDetail == null || requestDetail.isEmpty())
            && (specimen == null || specimen.isEmpty()) && (result == null || result.isEmpty()) && (imagingStudy == null || imagingStudy.isEmpty())
            && (image == null || image.isEmpty()) && (conclusion == null || conclusion.isEmpty()) && (codedDiagnosis == null || codedDiagnosis.isEmpty())
@@ -1422,14 +1422,14 @@ public class DiagnosticReport extends DomainResource {
   public static final String SP_CODE = "code";
   @SearchParamDefinition(name="date", path="DiagnosticReport.effective[x]", description="The clinically relevant time of the report", type="date" )
   public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="category", path="DiagnosticReport.category", description="Which diagnostic discipline/department created the report", type="token" )
+  public static final String SP_CATEGORY = "category";
   @SearchParamDefinition(name="patient", path="DiagnosticReport.subject", description="The subject of the report if a patient", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="request", path="DiagnosticReport.requestDetail", description="What was requested", type="reference" )
   public static final String SP_REQUEST = "request";
   @SearchParamDefinition(name="specimen", path="DiagnosticReport.specimen", description="The specimen details", type="reference" )
   public static final String SP_SPECIMEN = "specimen";
-  @SearchParamDefinition(name="service", path="DiagnosticReport.serviceCategory", description="Which diagnostic discipline/department created the report", type="token" )
-  public static final String SP_SERVICE = "service";
   @SearchParamDefinition(name="performer", path="DiagnosticReport.performer", description="Who was the source of the report (organization)", type="reference" )
   public static final String SP_PERFORMER = "performer";
   @SearchParamDefinition(name="identifier", path="DiagnosticReport.identifier", description="An identifier for the report", type="token" )

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 07:26+1000 for FHIR v0.5.0
+// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -52,7 +52,7 @@ public class Contract extends DomainResource {
         /**
          * Who or what actors are assigned roles in this Contract.
          */
-        @Child(name = "entity", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class, Supply.class}, order=1, min=1, max=1)
+        @Child(name = "entity", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Contract Actor Type", formalDefinition="Who or what actors are assigned roles in this Contract." )
         protected Reference entity;
 
@@ -166,7 +166,7 @@ public class Contract extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("entity", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance|Supply)", "Who or what actors are assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, entity));
+          childrenList.add(new Property("entity", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "Who or what actors are assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, entity));
           childrenList.add(new Property("role", "CodeableConcept", "Role type of actors assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, role));
         }
 
@@ -1447,7 +1447,7 @@ public class Contract extends DomainResource {
         /**
          * The actor assigned a role in this Contract Provision.
          */
-        @Child(name = "entity", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class, Supply.class}, order=1, min=1, max=1)
+        @Child(name = "entity", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Contract Term Actor", formalDefinition="The actor assigned a role in this Contract Provision." )
         protected Reference entity;
 
@@ -1561,7 +1561,7 @@ public class Contract extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("entity", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance|Supply)", "The actor assigned a role in this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, entity));
+          childrenList.add(new Property("entity", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "The actor assigned a role in this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, entity));
           childrenList.add(new Property("role", "CodeableConcept", "Role played by the actor assigned this role in this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, role));
         }
 
