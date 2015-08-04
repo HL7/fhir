@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/valueset.xsd">
+<id value="focal-subject"></id>
+	<name value="Focal Subject Codes"/>
+	<status value="draft"/>
+	<!--  Extension: Focal Subject	 Example VS composed from SNOMED CT f and V3 for observation targets donor, fetus, spouse as uses case arise may buidl on this .	
+  -->
+	<publisher value="HL7 International - Orders and Observations WG"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="Example VS composed from SNOMED CT and V3 codes for observation targets: donor, fetus, spouse. As uses case are discovered may add more values."/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="83418008"></code>
+				<display value="Fetus"/>
+			</concept>
+		
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/v3/ParticipationType"></system>
+			<concept>
+				<code value="DON"></code>
+				<display value="donor"></display>
+			</concept>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/v3/RoleCode"></system>
+			<concept>
+				<code value="SPS"></code>
+				<display value="spouse"></display>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
