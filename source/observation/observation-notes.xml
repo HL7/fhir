@@ -69,7 +69,7 @@ Another use case for grouping a set of observations is for assessment tools such
 			</pre>
 		</li>
 		<li>
-		A value set is bound to the ValueCodeableConcept element. In the USLab Observation Profile, for example, the ValueCodeableConcept element is bound to  <a href="uslab/valueset-obs-uslab-codedresults.html">USlab Coded Results</a> which is composed of several SNOMED CT heirarchies. The source system may also provide there own ("local") coded result values as well. Hence coded results are often coded in multiple value sets based on different code systems and these may be mapped using the <a href="ConceptMap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example above.
+		A value set is bound to the ValueCodeableConcept element. In the USLab Observation Profile, for example, the ValueCodeableConcept element is bound to  <a href="uslab/valueset-obs-uslab-codedresults.html">USlab Coded Results</a> which is composed of several SNOMED CT heirarchies. The source system may also provide there own ("local") coded result values as well. Hence coded results are often coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example above.
 		</li>
 		<li>
 		For boolean values use valueCodeableConcept and select codes from HL7 Version 2 Table 0136 <a href="v2/0136/index.html">HL7 Version 2 Table 0136</a>. These "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed.
