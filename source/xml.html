@@ -89,6 +89,56 @@ Operational systems may choose to use schema tools to check validation, but are 
 required to do so. Exchanged content SHALL NOT specify the schema or even contain the schema 
 instance namespace in the resource itself. 
 </p>
+<a name="schema-gen"> </a>
+<h3>Code Generation Schema</h3>
+
+<p>
+In addition to the validation schema, this specification provides a
+set of schema suitable for code generation usage. These schema describe
+the same XML syntax, but apply less validation in order to create a 
+schema that works with more code generation frameworks. 
+</p>
+<p>
+Specifically, these schemas are generated without any xs:choice elements, 
+for code generators that don't deal with choices well. Implementers that 
+use these schemas will need to enforce the correct usage of the 
+<a href="formats.html#choice">choice elements</a> without schema
+support.
+</p>
+<p>
+Implementers making use of schema driven code generation tooling need
+to consider how to handle the <a href="datatypes.html#decimal">decimal</a>
+data type. The decimal data type is defined to be precision aware - that 
+is, that implementers need to preserve the difference between "2.0" and
+"2.00" - this is ubiquitiously considered important in handling observed
+data in healthcare. Both schemas map this data type to xsd:decimal, but
+the base xsd:decimal type is specified not to be precision aware. Schema
+driven implementations vary as to how precision is handled, and implementers
+will need to determine how their generated code handles decimals, and 
+consider changing the type for decimal in the schema from xsd:decimal
+to xsd:string. Specifically, implementers may wish to change 
+</p>
+<pre>
+  &lt;xs:simpleType name=&quot;decimal-primitive&quot;&gt;
+    &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+      &lt;xs:pattern value=&quot;-?([0]|([1-9][0-9]*))(\.[0-9]+)?&quot;/&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+</pre>
+<p>
+to this:
+</p>
+<pre>
+  &lt;xs:simpleType name=&quot;decimal-primitive&quot;&gt;
+    &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+      &lt;xs:pattern value=&quot;-?([0]|([1-9][0-9]*))(\.[0-9]+)?&quot;/&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+</pre>
+<p>
+Note that most code generation frameworks ignore the pattern restriction.
+</p>
+
 
 <a name="canonical"> </a>
 <a name="digsig"> </a>
