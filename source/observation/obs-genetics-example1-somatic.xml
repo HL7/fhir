@@ -22,7 +22,7 @@
           <display value="Finding"/>
         </coding>
       </category>
-      <clinicalStatus value="working"/>
+      <verificationStatus value="provisional"/>
     </Condition>
   </contained>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">

@@ -32,7 +32,8 @@
          <code value="finding"/>
      </coding>
  </category>
- <clinicalStatus value="confirmed"/>
+    <clinicalStatus value="active"/>
+    <verificationStatus value="confirmed"/>
  <severity>
     <coding>
         <system value="http://snomed.info/sct"/>

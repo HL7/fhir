@@ -31,7 +31,8 @@
          <code value="finding"/>
      </coding>
  </category>
- <clinicalStatus value="working"/><!--The patient is being treated on the basis that this is the problem, but it is still not confirmed (<certainty> is therewith also working)-->
+    <clinicalStatus value="active"/>
+    <verificationStatus value="differential"/><!--The patient is being treated on the basis that this is the problem, but it is still not confirmed (<certainty> is therewith also working)-->
  <severity>
     <coding>
         <system value="http://snomed.info/sct"/>

@@ -23,6 +23,7 @@
     <display value="Diagnosis"/>
    </coding>
  </category>
- <clinicalStatus value="confirmed"/>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
  <onsetDateTime value="2010-07-18"/>
 </Condition>

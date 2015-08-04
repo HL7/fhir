@@ -17,5 +17,6 @@
        <display value="Bacterial infectious disease"/> 
     </coding>
  </code>
- <clinicalStatus value="working"/>
+    <clinicalStatus value="active"/>
+    <verificationStatus value="differential"/>
 </Condition>

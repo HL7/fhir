@@ -30,7 +30,8 @@
         <code value="finding" />
     </coding>
  </category>
- <clinicalStatus value="confirmed"/>
+    <clinicalStatus value="active"/>
+    <verificationStatus value="confirmed"/> 
  <severity><!--The fever is mild -->
     <coding>
         <system value="http://snomed.info/sct"/>

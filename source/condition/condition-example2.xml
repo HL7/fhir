@@ -18,7 +18,8 @@
     <display value="Finding"/>
    </coding>
  </category>
- <clinicalStatus value="confirmed"/>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
  <severity>
    <coding>
     <system value="http://snomed.info/sct"/>
