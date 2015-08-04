@@ -1,15 +1,15 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<h2>Notes:</h2>
-	   <p> 
+	<p> 
    At its simplest, a resource instances can consist of only a code and a value, and status flag.  
     The relevance of other properties will vary based on the type of observation.  
 </p>
-    <p><a href="observation-profiles.html">Profiles</a> will be created to provide guidance on capturing certain types 
+	<p>
+		<a href="observation-profiles.html">Profiles</a> will be created to provide guidance on capturing certain types 
     of simple observations.  This resource focuses on the level of detail
     captured by most systems.  However, any "simple" observation can easily 
 	be broken into numerous components and sub-components to provide additional
     information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensionst</a> can be used to introduce this additional complexity. </p>
-    
 	<h3>Grouping of Observations</h3>
 	<p>
 Many observations have important relationships to other observations and need to be assembled in groups together (traditionally referred to as "panels" or " batteries" by laboratories) that can be used to represent relationships between the individual data items.  One way to do this is to reference the individual observations in the <a href="diagnosticreport.html#4.21.2">DiagnosticReport</a> resource where the DiagnosticReport.code is the name of the panel.  Additionally, the set of observations, which can themselves be simple observations (e.g. atomic results) or can themselves be groups/panels of other observations because the Observation resource has two structures for grouping observations which allows for complex nesting of results.  Several <a href="diagnosticreport-examples.html">examples</a> demonstrate observation grouping using DiagnosticReport. 
@@ -41,7 +41,7 @@ Another use case for grouping a set of observations is for assessment tools such
 			</ul>
 		</li>
 		<li>
-		If the data element is usually coded or if the type associated with the Observation.code defines a coded value, use CodeableConcept instead   of string datatype even if the value is uncoded text.  For example the LOINC 43304-5 <i>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</i> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' wtih a standard code translation the Observation.valueCodeableConcept would be:
+		If the data element is usually coded or if the type associated with the Observation.code defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  For example the LOINC 43304-5 <i>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</i> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' wtih a standard code translation the Observation.valueCodeableConcept would be:
 			<pre class="json">
 			"valueCodeableConcept": {
 			"coding": [
@@ -69,11 +69,16 @@ Another use case for grouping a set of observations is for assessment tools such
 			</pre>
 		</li>
 		<li>
+		A value set is bound to the ValueCodeableConcept element. In the USLab Observation Profile, for example, the ValueCodeableConcept element is bound to  <a href="uslab/valueset-obs-uslab-codedresults.html">USlab Coded Results</a> which is composed of several SNOMED CT heirarchies. The source system may also provide there own ("local") coded result values as well. Hence coded results are often coded in multiple value sets based on different code systems and these may be mapped using the <a href="ConceptMap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example above.
+		</li>
+		<li>
+		For boolean values use valueCodeableConcept and select codes from HL7 Version 2 Table 0136 <a href="v2/0136/index.html">HL7 Version 2 Table 0136</a>. These "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed.
+		  </li>
+		<li>
    Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Attachment, or Ratio
  </li>
 	</ul>
-	
-<h3>Physiologically Relevant Time of the Observation</h3>
+	<h3>Physiologically Relevant Time of the Observation</h3>
 	<p> The appliesDateTime or appliesPeriod is the time that the observation is most 
     relevant as an observation of the subject. For a biological subject (e.g. a human patient), 
     this is the physiologically relevant time of the observation. 
@@ -83,14 +88,10 @@ Another use case for grouping a set of observations is for assessment tools such
     In the case of an observation obtained directly from a subject (e.g., BP, 
     Chest X-ray), this is the start and end time of the observation process, which again, is 
     often reported as a single point in time.</p>
-	
-
 	<h3>Reference Range</h3>
-		<p>
+	<p>
 		Most commonly observations will only have one generic reference range.  Reference ranges may be useful for lab tests and other measures like systolic blood pressure, but will have little 	relevance for something like "pregnancy status". Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.
 		</p>
- 
- <h3>Cancelled or Aborted Observations</h3>
-<p>If a measurement or test could not be completed, (for example if the specimen is unsatisfactory or the provider cancelled the order) then the status value should be updated to "cancelled" and the specific details given - preferrably as coded  values - in dataabsentreason or valueCodeableConcept.  Additional information may provided in comments as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrate this using a coded value for unsatisfactory specimen in dataabsentreason.</p>
-
+	<h3>Cancelled or Aborted Observations</h3>
+	<p>If a measurement or test could not be completed, (for example if the specimen is unsatisfactory or the provider cancelled the order) then the status value should be updated to "cancelled" and the specific details given - preferrably as coded  values - in dataabsentreason or valueCodeableConcept.  Additional information may provided in comments as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrate this using a coded value for unsatisfactory specimen in dataabsentreason.</p>
 </div>
