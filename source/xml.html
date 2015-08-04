@@ -112,7 +112,7 @@ data type. The decimal data type is defined to be precision aware - that
 is, that implementers need to preserve the difference between "2.0" and
 "2.00" - this is ubiquitiously considered important in handling observed
 data in healthcare. Both schemas map this data type to xsd:decimal, but
-the base xsd:decimal type is specified not to be precision aware. Schema
+the base <a href="http://www.w3.org/TR/xmlschema-2/#decimal">W3C schema decimal type</a> is specified not to be precision aware. Schema
 driven implementations vary as to how precision is handled, and implementers
 will need to determine how their generated code handles decimals, and 
 consider changing the type for decimal in the schema from xsd:decimal
@@ -135,6 +135,10 @@ to this:
     &lt;/xs:restriction&gt;
   &lt;/xs:simpleType&gt;
 </pre>
+<p>
+Alternatively, if supported, implementers may wish to use the 
+<a href="http://www.w3.org/TR/xsd-precisionDecimal/">precisionDecimal</a> from the XSD 1.1 framework.
+</p>
 <p>
 Note that most code generation frameworks ignore the pattern restriction.
 </p>
