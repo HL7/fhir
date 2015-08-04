@@ -340,6 +340,7 @@ public class Publisher implements URIResolver {
   private Bundle conceptMapsFeed;
   private Bundle v2Valuesets;
   private Bundle v3Valuesets;
+  private Bundle dataElements;
   private boolean noPartialBuild;
   private List<Fragment> fragments = new ArrayList<Publisher.Fragment>();
   private Map<String, String> xmls = new HashMap<String, String>();
@@ -657,7 +658,7 @@ public class Publisher implements URIResolver {
 
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
         r.setConformancePack(makeConformancePack(r));
-        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(r.getConformancePack(), r, "core"));
+        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(r.getConformancePack(), r, "core"));
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
         ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
         r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -666,7 +667,7 @@ public class Publisher implements URIResolver {
 
     for (ResourceDefn r : page.getDefinitions().getResources().values()) {
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(r.getConformancePack(), r, "core"));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(r.getConformancePack(), r, "core"));
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -745,14 +746,14 @@ public class Publisher implements URIResolver {
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(pt, page.getValidationErrors());
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(pt, page.getValidationErrors());
     page.getProfiles().put(profile.getUrl(), profile);
     pt.setProfile(profile);
     // todo: what to do in the narrative?
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(t);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(t);
     page.getProfiles().put(profile.getUrl(), profile);
     page.getProfiles().put(profile.getName(), profile);
     t.setProfile(profile);
@@ -765,7 +766,7 @@ public class Publisher implements URIResolver {
 
 
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(t);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(t);
     page.getProfiles().put(profile.getUrl(), profile);
     page.getProfiles().put(profile.getName(), profile);
     t.setProfile(profile);
@@ -779,7 +780,7 @@ public class Publisher implements URIResolver {
   private void genTypeProfile(TypeDefn t) throws Exception {
     StructureDefinition profile;
     try {
-      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(t);
+      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(t);
       page.getProfiles().put(profile.getUrl(), profile);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
@@ -797,7 +798,7 @@ public class Publisher implements URIResolver {
     // what we're going to do:
     //  create StructureDefinition structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
+      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
       p.setUserData("pack", ap);
       profile.setResource(p);
       page.getProfiles().put(p.getUrl(), p);
@@ -1003,6 +1004,11 @@ public class Publisher implements URIResolver {
     valueSetsFeed.setId("valuesets");
     valueSetsFeed.setType(BundleType.COLLECTION);
     valueSetsFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+
+    dataElements = new Bundle();
+    dataElements.setId("dataelements");
+    dataElements.setType(BundleType.COLLECTION);
+    dataElements.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
 
     conceptMapsFeed = new Bundle();
     conceptMapsFeed.setId("conceptmaps");
@@ -1883,6 +1889,15 @@ public class Publisher implements URIResolver {
 //      if (ec > 0)
 //        throw new Exception("Cannot continue due to value set mis-identification");
 
+      checkBundleURLs(dataElements);
+      s = new FileOutputStream(page.getFolders().dstDir + "dataelements.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, dataElements);
+      s.close();
+      Utilities.copyFile(page.getFolders().dstDir + "dataelements.xml", page.getFolders().dstDir + "examples" + File.separator + "dataelements.xml");
+      s = new FileOutputStream(page.getFolders().dstDir + "dataelements.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, dataElements);
+      s.close();
+
       checkBundleURLs(valueSetsFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "valuesets.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, valueSetsFeed);
@@ -1923,35 +1938,43 @@ public class Publisher implements URIResolver {
       produceComparisons();
       
       page.log("....validator", LogMessageType.Process);
-      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
+      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.xml.zip");
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
-      zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
-      zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
       zip.addFileName("profiles-others.xml", page.getFolders().dstDir + "profiles-others.xml", false);
-      zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
       zip.addFileName("extension-definitions.xml", page.getFolders().dstDir + "extension-definitions.xml", false);
-      zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
       zip.addFileName("search-parameters.xml", page.getFolders().dstDir + "search-parameters.xml", false);
-      zip.addFileName("search-parameters.json", page.getFolders().dstDir + "search-parameters.json", false);
       zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
-      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
       zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
-      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
       zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
-      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
-      zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
+      zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
       zip.addFiles(page.getFolders().dstDir, "", ".xsd", null);
       zip.addFiles(page.getFolders().dstDir, "", ".sch", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt", null);
       zip.close();
 
-      if (web) {
-        page.log("....validator-min", LogMessageType.Process);
-        minify(page.getFolders().dstDir + "validation.zip", page.getFolders().dstDir + "validation-min.zip");
-      }
+      zip = new ZipGenerator(page.getFolders().dstDir + "validation.json.zip");
+      zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
+      zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
+      zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
+      zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
+      zip.addFileName("search-parameters.json", page.getFolders().dstDir + "search-parameters.json", false);
+      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
+      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
+      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
+      zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
+      zip.addFileName("dataelements.json", page.getFolders().dstDir + "dataelements.json", false);
+      zip.addFiles(page.getFolders().dstDir, "", ".xsd", null);
+      zip.addFiles(page.getFolders().dstDir, "", ".sch", null);
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl", null);
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt", null);
+      zip.close();
+
+      page.log("....validator-min", LogMessageType.Process);
+      minify(page.getFolders().dstDir + "validation.xml.zip", page.getFolders().dstDir + "validation-min.xml.zip");
+      minify(page.getFolders().dstDir + "validation.json.zip", page.getFolders().dstDir + "validation-min.json.zip");
 
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"), false);
@@ -2257,7 +2280,7 @@ public class Publisher implements URIResolver {
         p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
         p.setName(rd.getName());
         p.addContact().addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
-        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
+        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
         bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
       }
     } else
@@ -3303,7 +3326,7 @@ public class Publisher implements URIResolver {
   }
 
   private void produceOperation(ImplementationGuideDefn ig, String name, String id, String resourceName, Operation op) throws Exception {
-    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(name, id, resourceName, op);
+    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(name, id, resourceName, op);
 
     String dir = ig == null ? "" : ig.getCode()+File.separator;
     

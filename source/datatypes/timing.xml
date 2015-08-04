@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16875</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>13275</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -794,6 +794,11 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s153">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:Indent="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -1427,7 +1432,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">BID | TID | QID | AM | PM +</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3685,7 +3690,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3699,11 +3704,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8089,7 +8095,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s139"><Data ss:Type="String">BID</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s139"><Data ss:Type="String">BID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Two times a day at institution specified time</Data></Cell>
@@ -8100,7 +8106,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">TID</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">TID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Three times a day at institution specified time</Data></Cell>
@@ -8111,7 +8117,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">QID</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">QID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Four times a day at institution specified time</Data></Cell>
@@ -8122,7 +8128,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">AM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">AM</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Every morning at institution specified times</Data></Cell>
@@ -8133,7 +8139,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">PM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">PM</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Every afternoon at institution specified times</Data></Cell>
@@ -8142,45 +8148,45 @@
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">QD</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">QD</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Every Day at institution specified times</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">QOD</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">QOD</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Every Other Day at institution specified times</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Q4H</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Q4H</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Every 4 hours at institution specified times</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Q6H</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Q6H</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Every 6 Hours  at institution specified times</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -8660,7 +8666,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
