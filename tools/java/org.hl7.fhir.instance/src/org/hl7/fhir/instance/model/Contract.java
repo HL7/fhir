@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 09:53-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -3374,16 +3374,16 @@ public class Contract extends DomainResource {
     return ResourceType.Contract;
    }
 
-  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
-  public static final String SP_SIGNER = "signer";
-  @SearchParamDefinition(name="patient", path="Contract.subject", description="The identity of the target of the contract (if a patient)", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="subject", path="Contract.subject", description="The identity of the target of the contract", type="reference" )
-  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="actor", path="Contract.actor.entity", description="Contract Actor Type", type="reference" )
   public static final String SP_ACTOR = "actor";
   @SearchParamDefinition(name="identifier", path="Contract.identifier", description="The identity of the contract", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="subject", path="Contract.subject", description="The identity of the target of the contract", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="patient", path="Contract.subject", description="The identity of the target of the contract (if a patient)", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
+  public static final String SP_SIGNER = "signer";
 
 }
 

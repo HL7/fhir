@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 09:53-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -635,10 +635,10 @@ public class Slot extends DomainResource {
 
   @SearchParamDefinition(name="schedule", path="Slot.schedule", description="The Schedule Resource that we are seeking a slot within", type="reference" )
   public static final String SP_SCHEDULE = "schedule";
-  @SearchParamDefinition(name="start", path="Slot.start", description="Appointment date/time.", type="date" )
-  public static final String SP_START = "start";
   @SearchParamDefinition(name="slottype", path="Slot.type", description="The type of appointments that can be booked into the slot", type="token" )
   public static final String SP_SLOTTYPE = "slottype";
+  @SearchParamDefinition(name="start", path="Slot.start", description="Appointment date/time.", type="date" )
+  public static final String SP_START = "start";
   @SearchParamDefinition(name="fbtype", path="Slot.freeBusyType", description="The free/busy status of the appointment", type="token" )
   public static final String SP_FBTYPE = "fbtype";
 

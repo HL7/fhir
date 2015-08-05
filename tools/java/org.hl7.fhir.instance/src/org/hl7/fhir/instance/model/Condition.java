@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 09:53-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -871,23 +871,23 @@ public class Condition extends DomainResource {
     protected Encounter encounterTarget;
 
     /**
-     * Person who takes responsibility for asserting the existence of the condition as part of the electronic record.
+     * Individual who is making the condition statement.
      */
     @Child(name = "asserter", type = {Practitioner.class, Patient.class}, order=3, min=0, max=1)
-    @Description(shortDefinition="Person who asserts this condition", formalDefinition="Person who takes responsibility for asserting the existence of the condition as part of the electronic record." )
+    @Description(shortDefinition="Person who asserts this condition", formalDefinition="Individual who is making the condition statement." )
     protected Reference asserter;
 
     /**
-     * The actual object that is the target of the reference (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     * The actual object that is the target of the reference (Individual who is making the condition statement.)
      */
     protected Resource asserterTarget;
 
     /**
-     * Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
+     * A date, when  the Condition statement was documented.
      */
-    @Child(name = "dateAsserted", type = {DateType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="When first detected/suspected/entered", formalDefinition="Estimated or actual date the condition/problem/diagnosis was first detected/suspected." )
-    protected DateType dateAsserted;
+    @Child(name = "dateRecorded", type = {DateType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="When first entered", formalDefinition="A date, when  the Condition statement was documented." )
+    protected DateType dateRecorded;
 
     /**
      * Identification of the condition, problem or diagnosis.
@@ -980,7 +980,7 @@ public class Condition extends DomainResource {
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected StringType notes;
 
-    private static final long serialVersionUID = 440303384L;
+    private static final long serialVersionUID = -1242442771L;
 
   /*
    * Constructor
@@ -1128,7 +1128,7 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #asserter} (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     * @return {@link #asserter} (Individual who is making the condition statement.)
      */
     public Reference getAsserter() { 
       if (this.asserter == null)
@@ -1144,7 +1144,7 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @param value {@link #asserter} (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     * @param value {@link #asserter} (Individual who is making the condition statement.)
      */
     public Condition setAsserter(Reference value) { 
       this.asserter = value;
@@ -1152,14 +1152,14 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #asserter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     * @return {@link #asserter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Individual who is making the condition statement.)
      */
     public Resource getAsserterTarget() { 
       return this.asserterTarget;
     }
 
     /**
-     * @param value {@link #asserter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     * @param value {@link #asserter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Individual who is making the condition statement.)
      */
     public Condition setAsserterTarget(Resource value) { 
       this.asserterTarget = value;
@@ -1167,50 +1167,50 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
+     * @return {@link #dateRecorded} (A date, when  the Condition statement was documented.). This is the underlying object with id, value and extensions. The accessor "getDateRecorded" gives direct access to the value
      */
-    public DateType getDateAssertedElement() { 
-      if (this.dateAsserted == null)
+    public DateType getDateRecordedElement() { 
+      if (this.dateRecorded == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Condition.dateAsserted");
+          throw new Error("Attempt to auto-create Condition.dateRecorded");
         else if (Configuration.doAutoCreate())
-          this.dateAsserted = new DateType(); // bb
-      return this.dateAsserted;
+          this.dateRecorded = new DateType(); // bb
+      return this.dateRecorded;
     }
 
-    public boolean hasDateAssertedElement() { 
-      return this.dateAsserted != null && !this.dateAsserted.isEmpty();
+    public boolean hasDateRecordedElement() { 
+      return this.dateRecorded != null && !this.dateRecorded.isEmpty();
     }
 
-    public boolean hasDateAsserted() { 
-      return this.dateAsserted != null && !this.dateAsserted.isEmpty();
+    public boolean hasDateRecorded() { 
+      return this.dateRecorded != null && !this.dateRecorded.isEmpty();
     }
 
     /**
-     * @param value {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
+     * @param value {@link #dateRecorded} (A date, when  the Condition statement was documented.). This is the underlying object with id, value and extensions. The accessor "getDateRecorded" gives direct access to the value
      */
-    public Condition setDateAssertedElement(DateType value) { 
-      this.dateAsserted = value;
+    public Condition setDateRecordedElement(DateType value) { 
+      this.dateRecorded = value;
       return this;
     }
 
     /**
-     * @return Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
+     * @return A date, when  the Condition statement was documented.
      */
-    public Date getDateAsserted() { 
-      return this.dateAsserted == null ? null : this.dateAsserted.getValue();
+    public Date getDateRecorded() { 
+      return this.dateRecorded == null ? null : this.dateRecorded.getValue();
     }
 
     /**
-     * @param value Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
+     * @param value A date, when  the Condition statement was documented.
      */
-    public Condition setDateAsserted(Date value) { 
+    public Condition setDateRecorded(Date value) { 
       if (value == null)
-        this.dateAsserted = null;
+        this.dateRecorded = null;
       else {
-        if (this.dateAsserted == null)
-          this.dateAsserted = new DateType();
-        this.dateAsserted.setValue(value);
+        if (this.dateRecorded == null)
+          this.dateRecorded = new DateType();
+        this.dateRecorded.setValue(value);
       }
       return this;
     }
@@ -1800,8 +1800,8 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("patient", "Reference(Patient)", "Indicates the patient who the condition record is associated with.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "Encounter during which the condition was first asserted.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("asserter", "Reference(Practitioner|Patient)", "Person who takes responsibility for asserting the existence of the condition as part of the electronic record.", 0, java.lang.Integer.MAX_VALUE, asserter));
-        childrenList.add(new Property("dateAsserted", "date", "Estimated or actual date the condition/problem/diagnosis was first detected/suspected.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
+        childrenList.add(new Property("asserter", "Reference(Practitioner|Patient)", "Individual who is making the condition statement.", 0, java.lang.Integer.MAX_VALUE, asserter));
+        childrenList.add(new Property("dateRecorded", "date", "A date, when  the Condition statement was documented.", 0, java.lang.Integer.MAX_VALUE, dateRecorded));
         childrenList.add(new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("clinicalStatus", "code", "The clinical status of the condition.", 0, java.lang.Integer.MAX_VALUE, clinicalStatus));
@@ -1828,7 +1828,7 @@ public class Condition extends DomainResource {
         dst.patient = patient == null ? null : patient.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.asserter = asserter == null ? null : asserter.copy();
-        dst.dateAsserted = dateAsserted == null ? null : dateAsserted.copy();
+        dst.dateRecorded = dateRecorded == null ? null : dateRecorded.copy();
         dst.code = code == null ? null : code.copy();
         dst.category = category == null ? null : category.copy();
         dst.clinicalStatus = clinicalStatus == null ? null : clinicalStatus.copy();
@@ -1873,7 +1873,7 @@ public class Condition extends DomainResource {
           return false;
         Condition o = (Condition) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true)
-           && compareDeep(asserter, o.asserter, true) && compareDeep(dateAsserted, o.dateAsserted, true) && compareDeep(code, o.code, true)
+           && compareDeep(asserter, o.asserter, true) && compareDeep(dateRecorded, o.dateRecorded, true) && compareDeep(code, o.code, true)
            && compareDeep(category, o.category, true) && compareDeep(clinicalStatus, o.clinicalStatus, true)
            && compareDeep(verificationStatus, o.verificationStatus, true) && compareDeep(severity, o.severity, true)
            && compareDeep(onset, o.onset, true) && compareDeep(abatement, o.abatement, true) && compareDeep(stage, o.stage, true)
@@ -1889,7 +1889,7 @@ public class Condition extends DomainResource {
         if (!(other instanceof Condition))
           return false;
         Condition o = (Condition) other;
-        return compareValues(dateAsserted, o.dateAsserted, true) && compareValues(clinicalStatus, o.clinicalStatus, true)
+        return compareValues(dateRecorded, o.dateRecorded, true) && compareValues(clinicalStatus, o.clinicalStatus, true)
            && compareValues(verificationStatus, o.verificationStatus, true) && compareValues(notes, o.notes, true)
           ;
       }
@@ -1897,7 +1897,7 @@ public class Condition extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
            && (encounter == null || encounter.isEmpty()) && (asserter == null || asserter.isEmpty())
-           && (dateAsserted == null || dateAsserted.isEmpty()) && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
+           && (dateRecorded == null || dateRecorded.isEmpty()) && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
            && (clinicalStatus == null || clinicalStatus.isEmpty()) && (verificationStatus == null || verificationStatus.isEmpty())
            && (severity == null || severity.isEmpty()) && (onset == null || onset.isEmpty()) && (abatement == null || abatement.isEmpty())
            && (stage == null || stage.isEmpty()) && (evidence == null || evidence.isEmpty()) && (location == null || location.isEmpty())
@@ -1910,40 +1910,40 @@ public class Condition extends DomainResource {
     return ResourceType.Condition;
    }
 
+  @SearchParamDefinition(name="severity", path="Condition.severity", description="The severity of the condition", type="token" )
+  public static final String SP_SEVERITY = "severity";
+  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
+  public static final String SP_CLINICALSTATUS = "clinicalstatus";
+  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
+  public static final String SP_ONSETINFO = "onset-info";
+  @SearchParamDefinition(name="code", path="Condition.code", description="Code for the condition", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
+  public static final String SP_EVIDENCE = "evidence";
+  @SearchParamDefinition(name="dueto-item", path="Condition.dueTo.target", description="Relationship target resource", type="reference" )
+  public static final String SP_DUETOITEM = "dueto-item";
+  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter when condition first asserted", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
+  public static final String SP_ONSET = "onset";
   @SearchParamDefinition(name="asserter", path="Condition.asserter", description="Person who asserts this condition", type="reference" )
   public static final String SP_ASSERTER = "asserter";
-  @SearchParamDefinition(name="following-code", path="Condition.occurredFollowing.code", description="Relationship target by means of a predefined code", type="token" )
-  public static final String SP_FOLLOWINGCODE = "following-code";
+  @SearchParamDefinition(name="date-recorded", path="Condition.dateRecorded", description="A date, when the Condition statement was documented", type="date" )
+  public static final String SP_DATERECORDED = "date-recorded";
+  @SearchParamDefinition(name="stage", path="Condition.stage.summary", description="Simple summary (disease specific)", type="token" )
+  public static final String SP_STAGE = "stage";
+  @SearchParamDefinition(name="following-item", path="Condition.occurredFollowing.target", description="Relationship target resource", type="reference" )
+  public static final String SP_FOLLOWINGITEM = "following-item";
+  @SearchParamDefinition(name="patient", path="Condition.patient", description="Who has the condition?", type="reference" )
+  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="dueto-code", path="Condition.dueTo.code", description="Relationship target by means of a predefined code", type="token" )
   public static final String SP_DUETOCODE = "dueto-code";
   @SearchParamDefinition(name="location", path="Condition.location.site[x]", description="Location - may include laterality", type="token" )
   public static final String SP_LOCATION = "location";
-  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
-  public static final String SP_ONSET = "onset";
-  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
-  public static final String SP_EVIDENCE = "evidence";
-  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
-  public static final String SP_ONSETINFO = "onset-info";
-  @SearchParamDefinition(name="following-item", path="Condition.occurredFollowing.target", description="Relationship target resource", type="reference" )
-  public static final String SP_FOLLOWINGITEM = "following-item";
-  @SearchParamDefinition(name="severity", path="Condition.severity", description="The severity of the condition", type="token" )
-  public static final String SP_SEVERITY = "severity";
-  @SearchParamDefinition(name="code", path="Condition.code", description="Code for the condition", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter when condition first asserted", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
-  @SearchParamDefinition(name="date-asserted", path="Condition.dateAsserted", description="When first detected/suspected/entered", type="date" )
-  public static final String SP_DATEASSERTED = "date-asserted";
-  @SearchParamDefinition(name="stage", path="Condition.stage.summary", description="Simple summary (disease specific)", type="token" )
-  public static final String SP_STAGE = "stage";
   @SearchParamDefinition(name="category", path="Condition.category", description="The category of the condition", type="token" )
   public static final String SP_CATEGORY = "category";
-  @SearchParamDefinition(name="patient", path="Condition.patient", description="Who has the condition?", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="dueto-item", path="Condition.dueTo.target", description="Relationship target resource", type="reference" )
-  public static final String SP_DUETOITEM = "dueto-item";
-  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
-  public static final String SP_CLINICALSTATUS = "clinicalstatus";
+  @SearchParamDefinition(name="following-code", path="Condition.occurredFollowing.code", description="Relationship target by means of a predefined code", type="token" )
+  public static final String SP_FOLLOWINGCODE = "following-code";
 
 }
 

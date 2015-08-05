@@ -11,7 +11,7 @@
  <asserter>
      <reference value="Practitioner/f201"/>
  </asserter>
- <dateAsserted value="2013-04-04"/><!--The problem was entered at April fourth-->
+    <dateRecorded value="2013-04-04"/><!--The problem was entered at April fourth-->
  <code><!--The problem is a fever-->
     <coding>
        <system value="http://snomed.info/sct"/>

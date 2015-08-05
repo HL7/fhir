@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 09:53-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1552,22 +1552,22 @@ public class QuestionnaireAnswers extends DomainResource {
     return ResourceType.QuestionnaireAnswers;
    }
 
-  @SearchParamDefinition(name="author", path="QuestionnaireAnswers.author", description="The author of the questionnaire", type="reference" )
-  public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="questionnaire", path="QuestionnaireAnswers.questionnaire", description="The questionnaire the answers are provided for", type="reference" )
-  public static final String SP_QUESTIONNAIRE = "questionnaire";
-  @SearchParamDefinition(name="patient", path="QuestionnaireAnswers.subject", description="The patient that is the subject of the questionnaire", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="authored", path="QuestionnaireAnswers.authored", description="When the questionnaire was authored", type="date" )
   public static final String SP_AUTHORED = "authored";
+  @SearchParamDefinition(name="questionnaire", path="QuestionnaireAnswers.questionnaire", description="The questionnaire the answers are provided for", type="reference" )
+  public static final String SP_QUESTIONNAIRE = "questionnaire";
+  @SearchParamDefinition(name="subject", path="QuestionnaireAnswers.subject", description="The subject of the questionnaire", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="author", path="QuestionnaireAnswers.author", description="The author of the questionnaire", type="reference" )
+  public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="patient", path="QuestionnaireAnswers.subject", description="The patient that is the subject of the questionnaire", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="encounter", path="QuestionnaireAnswers.encounter", description="Encounter during which questionnaire was authored", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="source", path="QuestionnaireAnswers.source", description="The person who answered the questions", type="reference" )
   public static final String SP_SOURCE = "source";
   @SearchParamDefinition(name="status", path="QuestionnaireAnswers.status", description="The status of the questionnaire answers", type="token" )
   public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="subject", path="QuestionnaireAnswers.subject", description="The subject of the questionnaire", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="encounter", path="QuestionnaireAnswers.encounter", description="Encounter during which questionnaire was authored", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
 
 }
 

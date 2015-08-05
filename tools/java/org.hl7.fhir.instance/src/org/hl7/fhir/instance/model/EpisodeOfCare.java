@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 09:53-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1206,26 +1206,26 @@ public class EpisodeOfCare extends DomainResource {
     return ResourceType.EpisodeOfCare;
    }
 
-  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference" )
-  public static final String SP_ORGANIZATION = "organization";
-  @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="The patient that this EpisodeOfCare applies to", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="condition", path="EpisodeOfCare.condition", description="A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for", type="reference" )
-  public static final String SP_CONDITION = "condition";
-  @SearchParamDefinition(name="status", path="EpisodeOfCare.status", description="The current status of the Episode of Care as provided (does not check the status history collection)", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="care-manager", path="EpisodeOfCare.careManager", description="The practitioner that is the care manager/care co-ordinator for this patient", type="reference" )
-  public static final String SP_CAREMANAGER = "care-manager";
-  @SearchParamDefinition(name="type", path="EpisodeOfCare.type", description="Specific type of EpisodeOfCare", type="token" )
-  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="date", path="EpisodeOfCare.period", description="The provided date search value falls within the episode of care's period", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference" )
-  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
   @SearchParamDefinition(name="identifier", path="EpisodeOfCare.identifier", description="Identifier(s) by which this EpisodeOfCare is known", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="condition", path="EpisodeOfCare.condition", description="A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for", type="reference" )
+  public static final String SP_CONDITION = "condition";
+  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference" )
+  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
+  @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="The patient that this EpisodeOfCare applies to", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
   @SearchParamDefinition(name="team-member", path="EpisodeOfCare.careTeam.member", description="A Practitioner or Organization allocated to the care team for this EpisodeOfCare", type="reference" )
   public static final String SP_TEAMMEMBER = "team-member";
+  @SearchParamDefinition(name="type", path="EpisodeOfCare.type", description="Specific type of EpisodeOfCare", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="care-manager", path="EpisodeOfCare.careManager", description="The practitioner that is the care manager/care co-ordinator for this patient", type="reference" )
+  public static final String SP_CAREMANAGER = "care-manager";
+  @SearchParamDefinition(name="status", path="EpisodeOfCare.status", description="The current status of the Episode of Care as provided (does not check the status history collection)", type="token" )
+  public static final String SP_STATUS = "status";
 
 }
 

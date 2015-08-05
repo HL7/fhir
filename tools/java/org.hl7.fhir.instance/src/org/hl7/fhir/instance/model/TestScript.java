@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 09:53-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -5966,10 +5966,10 @@ public class TestScript extends DomainResource {
 
   @SearchParamDefinition(name="testscript-setup-capabilities", path="TestScript.setup.metadata.capabilities.description", description="TestScript setup required and validated capabilities", type="string" )
   public static final String SP_TESTSCRIPTSETUPCAPABILITIES = "testscript-setup-capabilities";
-  @SearchParamDefinition(name="description", path="TestScript.description", description="TestScript description", type="string" )
-  public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="name", path="TestScript.name", description="TestScript name", type="string" )
   public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="description", path="TestScript.description", description="TestScript description", type="string" )
+  public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="testscript-capabilities", path="TestScript.metadata.capabilities.description", description="TestScript required and validated capabilities", type="string" )
   public static final String SP_TESTSCRIPTCAPABILITIES = "testscript-capabilities";
   @SearchParamDefinition(name="testscript-test-capabilities", path="TestScript.test.metadata.capabilities.description", description="TestScript test required and validated capabilities", type="string" )

@@ -12,7 +12,7 @@
  <asserter>
      <reference value="Practitioner/f201"/>
  </asserter>
- <dateAsserted value="2013-03-11"/>
+    <dateRecorded value="2013-03-11"/>
  <code>
      <coding>
        <system value="http://snomed.info/sct"/>

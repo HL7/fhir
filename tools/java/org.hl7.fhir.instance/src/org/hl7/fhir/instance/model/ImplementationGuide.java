@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 09:53-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2982,26 +2982,26 @@ public class ImplementationGuide extends DomainResource {
     return ResourceType.ImplementationGuide;
    }
 
+  @SearchParamDefinition(name="date", path="ImplementationGuide.date", description="The implementation guide publication date", type="date" )
+  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="dependency", path="ImplementationGuide.dependency.uri", description="Where to find dependency", type="uri" )
   public static final String SP_DEPENDENCY = "dependency";
-  @SearchParamDefinition(name="status", path="ImplementationGuide.status", description="The current status of the implementation guide", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="description", path="ImplementationGuide.description", description="Text search in the description of the implementation guide", type="string" )
-  public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="name", path="ImplementationGuide.name", description="Name of the implementation guide", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="context", path="ImplementationGuide.useContext", description="A use context assigned to the structure", type="token" )
   public static final String SP_CONTEXT = "context";
-  @SearchParamDefinition(name="experimental", path="ImplementationGuide.experimental", description="If for testing purposes, not real usage", type="token" )
-  public static final String SP_EXPERIMENTAL = "experimental";
-  @SearchParamDefinition(name="date", path="ImplementationGuide.date", description="The implementation guide publication date", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="url", path="ImplementationGuide.url", description="Literal URL used to reference this Implementation Guide", type="uri" )
-  public static final String SP_URL = "url";
   @SearchParamDefinition(name="publisher", path="ImplementationGuide.publisher", description="Name of the publisher of the implementation guide", type="string" )
   public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="description", path="ImplementationGuide.description", description="Text search in the description of the implementation guide", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="experimental", path="ImplementationGuide.experimental", description="If for testing purposes, not real usage", type="token" )
+  public static final String SP_EXPERIMENTAL = "experimental";
   @SearchParamDefinition(name="version", path="ImplementationGuide.version", description="The version identifier of the implementation guide", type="token" )
   public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="url", path="ImplementationGuide.url", description="Literal URL used to reference this Implementation Guide", type="uri" )
+  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="status", path="ImplementationGuide.status", description="The current status of the implementation guide", type="token" )
+  public static final String SP_STATUS = "status";
 
 }
 

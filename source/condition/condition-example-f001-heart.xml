@@ -12,7 +12,7 @@
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </asserter>
-    <dateAsserted value="2011-10-05"/>
+    <dateRecorded value="2011-10-05"/>
     <code>
         <coding>
             <system value="http://snomed.info/sct"/>
