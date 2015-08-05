@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Sampled ECG potentials (Leads I, II, II). There are 2 chunks (numbered as 0 and 1) for each lead. The voltage of each lead is near zero. -->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/observation.xsd">
-	<id value="ekg-exam"/>
+	<id value="ekg"/>
 	<status value="final"/>
 	<category>
 		<coding>
