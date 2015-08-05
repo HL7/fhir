@@ -38,14 +38,12 @@
    </coding>
  </severity>
  <onsetDateTime value="2012-05-24"/>
- <location>
-  <siteCodeableConcept>
+ <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="49521004"/>
       <display value="Left external ear structure"/>
     </coding>
     <text value="Left Ear"/>
-  </siteCodeableConcept>
- </location>
+ </bodySite>
 </Condition>

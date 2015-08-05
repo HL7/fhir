@@ -51,13 +51,11 @@
     </coding>
   </summary>
  </stage>
- <location> 
-  <siteCodeableConcept>
+ <bodySite> 
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="181414000"/>
         <display value="Kidney"/> 
     </coding>
-  </siteCodeableConcept>
- </location>
+ </bodySite>
 </Condition>

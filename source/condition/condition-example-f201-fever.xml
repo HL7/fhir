@@ -54,13 +54,11 @@
      <display value="Temperature"/>
   </detail>
  </evidence>
- <location><!--Fever applies to whole body-->
-  <siteCodeableConcept>
+ <bodySite><!--Fever applies to whole body-->
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
         <display value="Entire body as a whole"/>  
     </coding>
-  </siteCodeableConcept>
- </location>
+ </bodySite>
 </Condition>
