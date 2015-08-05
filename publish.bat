@@ -5,7 +5,7 @@ for /f "usebackq" %%x in (`dir /od /b "%ProgramFiles%\java\jdk*"`) do set newest
 set JAVA_HOME=%newestJDK%
 echo Using %JAVA_HOME%
 
-set ANT_OPTS=-Dhttp.proxyPort=80 -Dhttp.proxyHost=gatekeeper.mitre.org
+set ANT_OPTS=-Xms64m 
 call ant Publisher -Dargs="%*"
 
 PAUSE
