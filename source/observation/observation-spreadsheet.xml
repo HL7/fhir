@@ -16,13 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowIconic/>
-  <WindowHeight>13275</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowHeight>11055</WindowHeight>
+  <WindowWidth>24915</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>135</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -6572,7 +6571,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="34" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="35" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s141" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s141" ss:AutoFitWidth="0" ss:Width="143.25"/>
@@ -6751,6 +6750,15 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Y</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="Default"><Data ss:Type="String">EKG</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">EKG Example using SampledData data type</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ekg</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-example-sample-data.xml</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">!EEG Example</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -6917,12 +6925,13 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6930,14 +6939,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>22</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -7439,7 +7447,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

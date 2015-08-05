@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sampled ECG potentials (Leads I, II, II). There are 2 chunks (numbered as 0 and 1) for each lead. The voltage of each lead is near zero. -->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/observation.xsd">
+	<id value="ekg"/>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="procedure"/>
+			<display value="Procedure"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="urn:oid:2.16.840.1.113883.6.24"/>
+			<code value="131328"/>
+			<display value="MDC_ECG_ELEC_POTL"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/f001"/>
+		<display value="P. van de Heuvel"/>
+	</subject>
+	<effectiveDateTime value="2015-02-19T09:30:35"/>
+	<performer>
+		<reference value="Practitioner/f005"/>
+		<display value="A. Langeveld"/>
+	</performer>
+	<device>
+		<display value="12 lead EKG Device Metric"/>
+	</device>
+	<!-- Lead I data chunk 0 -->
+	<component>
+		<code>
+			<coding>
+				<system value="urn:oid:2.16.840.1.113883.6.24"/>
+				<code value="131329"/>
+				<display value="MDC_ECG_ELEC_POTL_I"/>
+			</coding>
+		</code>
+		<valueSampledData>
+			<!-- Zero potential -->
+			<origin>
+				<value value="2048"/>
+			</origin>
+			<!-- period in ms = 1000/frequency -->
+			<period value="10"/>
+			<!--  factor.value -->
+			<factor value="1.612"/>
+			<!--  voltage-min -->
+			<lowerLimit value="-3300"/>
+			<!--  voltage-max -->
+			<upperLimit value="3300"/>
+			<dimensions/>
+			<data value="2041 2043 2037 2047 2060 2062 2051 2023 2014 2027 2034 2033 2040 2047 2047 2053 2058 2064 2059 2063 2061 2052 2053 2038 1966 1885 1884 2009 2129 2166 2137 2102 2086 2077 2067 2067 2060 2059 2062 2062 2060 2057 2045 2047 2057 2054 2042 2029 2027 2018 2007 1995 2001 2012 2024 2039 2068 2092 2111 2125 2131 2148 2137 2138 2128 2128 2115 2099 2097 2096 2101 2101 2091 2073 2076 2077 2084 2081 2088 2092 2070 2069 2074 2077 2075 2068 2064 2060 2062 2074 2075 2074 2075 2063 2058 2058 2064 2064 2070 2074 2067 2060 2062 2063 2061 2059 2048 2052 2049 2048 2051 2059 2059 2066 2077 2073"/>
+		</valueSampledData>
+	</component>
+	<!-- Lead II data chunk 0 -->
+	<component>
+		<code>
+			<coding>
+				<system value="urn:oid:2.16.840.1.113883.6.24"/>
+				<code value="131330"/>
+				<display value="MDC_ECG_ELEC_POTL_II"/>
+			</coding>
+		</code>
+		<valueSampledData>
+			<!-- Zero potential -->
+			<origin>
+				<value value="2048"/>
+			</origin>
+			<!-- period in ms = 1000/frequency -->
+			<period value="10"/>
+			<!--  factor.value -->
+			<factor value="1.612"/>
+			<!--  voltage-min -->
+			<lowerLimit value="-3300"/>
+			<!--  voltage-max -->
+			<upperLimit value="3300"/>
+			<dimensions/>
+			<data value="2041 2043 2037 2047 2060 2062 2051 2023 2014 2027 2034 2033 2040 2047 2047 2053 2058 2064 2059 2063 2061 2052 2053 2038 1966 1885 1884 2009 2129 2166 2137 2102 2086 2077 2067 2067 2060 2059 2062 2062 2060 2057 2045 2047 2057 2054 2042 2029 2027 2018 2007 1995 2001 2012 2024 2039 2068 2092 2111 2125 2131 2148 2137 2138 2128 2128 2115 2099 2097 2096 2101 2101 2091 2073 2076 2077 2084 2081 2088 2092 2070 2069 2074 2077 2075 2068 2064 2060 2062 2074 2075 2074 2075 2063 2058 2058 2064 2064 2070 2074 2067 2060 2062 2063 2061 2059 2048 2052 2049 2048 2051 2059 2059 2066 2077 2073"/>
+		</valueSampledData>
+	</component>
+	<!-- Lead III data chunk 0 -->
+	<component>
+		<code>
+			<coding>
+				<system value="urn:oid:2.16.840.1.113883.6.24"/>
+				<code value="131389"/>
+				<display value="MDC_ECG_ELEC_POTL_III"/>
+			</coding>
+		</code>
+		<valueSampledData>
+			<!-- Zero potential -->
+			<origin>
+				<value value="2048"/>
+			</origin>
+			<!-- period in ms = 1000/frequency -->
+			<period value="10"/>
+			<!--  factor.value -->
+			<factor value="1.612"/>
+			<!--  voltage-min -->
+			<lowerLimit value="-3300"/>
+			<!--  voltage-max -->
+			<upperLimit value="3300"/>
+			<dimensions/>
+			<data value="2041 2043 2037 2047 2060 2062 2051 2023 2014 2027 2034 2033 2040 2047 2047 2053 2058 2064 2059 2063 2061 2052 2053 2038 1966 1885 1884 2009 2129 2166 2137 2102 2086 2077 2067 2067 2060 2059 2062 2062 2060 2057 2045 2047 2057 2054 2042 2029 2027 2018 2007 1995 2001 2012 2024 2039 2068 2092 2111 2125 2131 2148 2137 2138 2128 2128 2115 2099 2097 2096 2101 2101 2091 2073 2076 2077 2084 2081 2088 2092 2070 2069 2074 2077 2075 2068 2064 2060 2062 2074 2075 2074 2075 2063 2058 2058 2064 2064 2070 2074 2067 2060 2062 2063 2061 2059 2048 2052 2049 2048 2051 2059 2059 2066 2077 2073"/>
+		</valueSampledData>
+	</component>
+</Observation>
