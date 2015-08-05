@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="valueset-nehta-crc-tumour-stage-n"/>
+    <meta>
+        <lastUpdated value="2015-06-11T16:01:03.224+10:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml"><!-- Snipped for brevity --></div>
+    </text>
+    <!-- DMc ?? SR says to make into a NEHTA oid -->
+    <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+    </extension>-->
+    <url value="http://hl7.org/fhir/vs/nehta-crc-tumour-stage-n"/>
+    <version value="20150625"/>
+    <name value="CrcTumourStageN"/>
+    <publisher value="HL7 (FHIR Project)"/>
+    <contact>
+        <telecom>
+            <system value="other"/>
+            <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="fhir@lists.hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="Lists the options for Colorectal cancer tumour stage N"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2015-06-11T16:01:03+10:00"/>
+    <codeSystem>
+        
+        <!-- DMc ?? SR says to make into a NEHTA oid -->
+        <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+            <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+        </extension>-->
+
+        <system value="http://hl7.org/fhir/nehta-crc-tumour-stage-n"/>
+        <version value="20150625"/>
+        <caseSensitive value="true"/>
+        <concept>
+            <code value="nx"/>
+            <display value="NX Regional lymph nodes cannot be assessed"/>
+            <definition value="NX Regional lymph nodes cannot be assessed"/>
+        </concept>
+        <concept>
+            <code value="n0"/>
+            <display value="N0 No regional lymph node metastasis"/>
+            <definition value="N0 No regional lymph node metastasis"/>
+        </concept>
+        <concept>
+            <code value="n1"/>
+            <display value="N1 Metastasis in 1-3 regional lymph nodes"/>
+            <definition value="N1 Metastasis in 1-3 regional lymph nodes"/>
+        </concept>
+        <concept>
+            <code value="n1a"/>
+            <display value="N1a Metastasis in one regional lymph node"/>
+            <definition value="N1a Metastasis in one regional lymph node"/>
+        </concept>
+        <concept>
+            <code value="n1b"/>
+            <display value="N1b Metastasis in 2-3 regional lymph nodes"/>
+            <definition value="N1b Metastasis in 2-3 regional lymph nodes"/>
+        </concept>
+        <concept>
+            <code value="n1c"/>
+            <display value="N1c Tumour deposit(s) in the subserosa, mesentery, or nonperitonealised pericolic or perirectal tissues without regional nodal metastasis"/>
+            <definition value="N1c Tumour deposit(s) in the subserosa, mesentery, or nonperitonealised pericolic or perirectal tissues without regional nodal metastasis"/>
+        </concept>
+        <concept>
+            <code value="n2"/>
+            <display value="N2 Metastasis in 4 or more regional lymph nodes"/>
+            <definition value="N2 Metastasis in 4 or more regional lymph nodes"/>
+        </concept>
+        <concept>
+            <code value="n2a"/>
+            <display value="N2a Metastasis in 4-6 regional lymph nodes"/>
+            <definition value="N2a Metastasis in 4-6 regional lymph nodes"/>
+        </concept>
+        <concept>
+            <code value="n2b"/>
+            <display value="N2b Metastasis in 7 or more regional lymph nodes"/>
+            <definition value="N2b Metastasis in 7 or more regional lymph nodes"/>
+        </concept>
+        
+    </codeSystem>
+</ValueSet>

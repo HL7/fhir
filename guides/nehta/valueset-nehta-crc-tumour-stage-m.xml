@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="valueset-nehta-crc-tumour-stage-m"/>
+    <meta>
+        <lastUpdated value="2015-06-11T16:01:03.224+10:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml"><!-- Snipped for brevity --></div>
+    </text>
+    <!-- DMc ?? SR says to make into a NEHTA oid -->
+    <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+    </extension>-->
+    <url value="http://hl7.org/fhir/vs/nehta-crc-tumour-stage-m"/>
+    <version value="20150626"/>
+    <name value="CrcTumourStageM"/>
+    <publisher value="HL7 (FHIR Project)"/>
+    <contact>
+        <telecom>
+            <system value="other"/>
+            <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="fhir@lists.hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="Lists the options for Colorectal cancer tumour stage M"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2015-06-11T16:01:03+10:00"/>
+    <codeSystem>
+        
+        <!-- DMc ?? SR says to make into a NEHTA oid -->
+        <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+            <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+        </extension>-->
+
+        <system value="http://hl7.org/fhir/nehta-crc-tumour-stage-m"/>
+        <version value="20150626"/>
+        <caseSensitive value="true"/>
+        <concept>
+            <code value="m0"/>
+            <display value="M0 No distant metastasis"/>
+            <definition value="M0 No distant metastasis"/>
+        </concept>
+        <concept>
+            <code value="m1"/>
+            <display value="M1 Distant metastasis"/>
+            <definition value="M1 Distant metastasis"/>
+        </concept>
+        <concept>
+            <code value="m1a"/>
+            <display value="M1a Metastasis confined to one organ or site (e.g. liver, lung, ovary, nonregional node)"/>
+            <definition value="M1a Metastasis confined to one organ or site (e.g. liver, lung, ovary, nonregional node)"/>
+        </concept>
+        <concept>
+            <code value="m1b"/>
+            <display value="M1b Metastases in more than one organ/site or the peritoneum"/>
+            <definition value="M1b Metastases in more than one organ/site or the peritoneum"/>
+        </concept>
+                
+    </codeSystem>
+</ValueSet>

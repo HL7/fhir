@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="valueset-nehta-crc-tumour-stage-t"/>
+    <meta>
+        <lastUpdated value="2015-06-11T16:01:03.224+10:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml"><!-- Snipped for brevity --></div>
+    </text>
+    <!-- DMc ?? SR says to make into a NEHTA oid -->
+    <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+    </extension>-->
+    <url value="http://hl7.org/fhir/vs/nehta-crc-tumour-stage-t"/>
+    <version value="20150625"/>
+    <name value="CrcTumourStageT"/>
+    <publisher value="HL7 (FHIR Project)"/>
+    <contact>
+        <telecom>
+            <system value="other"/>
+            <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="fhir@lists.hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="Lists the options for Colorectal cancer tumour stage T"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2015-06-11T16:01:03+10:00"/>
+    <codeSystem>
+        
+        <!-- DMc ?? SR says to make into a NEHTA oid -->
+        <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+            <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+        </extension>-->
+
+        <system value="http://hl7.org/fhir/nehta-crc-tumour-stage-t"/>
+        <version value="20150625"/>
+        <caseSensitive value="true"/>
+        <concept>
+            <code value="tx"/>
+            <display value="TX Primary tumour cannot be assessed"/>
+            <definition value="TX Primary tumour cannot be assessed"/>
+        </concept>
+        <concept>
+            <code value="t0"/>
+            <display value="T0 No evidence of primary tumour"/>
+            <definition value="T0 No evidence of primary tumour"/>
+        </concept>
+        <concept>
+            <code value="tis"/>
+            <display value="Tis Carcinoma in situ: intraepithelial or invasion of lamina propria"/>
+            <definition value="Tis Carcinoma in situ: intraepithelial or invasion of lamina propria"/>
+        </concept>
+        <concept>
+            <code value="t1"/>
+            <display value="T1 Tumour invades submucosa"/>
+            <definition value="T1 Tumour invades submucosa"/>
+        </concept>
+        <concept>
+            <code value="t2"/>
+            <display value="T2 Tumour invades muscularis propria"/>
+            <definition value="T2 Tumour invades muscularis propria"/>
+        </concept>
+        <concept>
+            <code value="t3"/>
+            <display value="T3 Tumour invades through the muscularis propria into pericolorectal tissues"/>
+            <definition value="T3 Tumour invades through the muscularis propria into pericolorectal tissues"/>
+        </concept>
+        <concept>
+            <code value="t4a"/>
+            <display value="T4a Tumour penetrates to the surface of the visceral peritoneum"/>
+            <definition value="T4a Tumour penetrates to the surface of the visceral peritoneum"/>
+        </concept>
+        <concept>
+            <code value="t4b"/>
+            <display value="T4b Tumour directly invades or is adherent to other organs or structures"/>
+            <definition value="T4b Tumour directly invades or is adherent to other organs or structures"/>
+        </concept>
+    </codeSystem>
+</ValueSet>
