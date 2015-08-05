@@ -1024,6 +1024,10 @@
     <display value="Cardiac valve structure"/>
     <display value="Cardiac valve structure (body structure)"/>
   </concept>
+  <concept id="174059005" display="Proctocolectomy"/>
+  <concept id="174071004" display="Extended right hemicolectomy (procedure)">
+    <display value="Extended right hemicolectomy"/>
+  </concept>
   <concept id="17472008" display="Knife, device (physical object)">
     <display value="Knife, device"/>
     <display value="Knife"/>
@@ -1934,6 +1938,9 @@
     <display value="Endoscopic brushings of GIT"/>
     <display value="Endoscopic brushings of gastrointestinal tract (procedure)"/>
   </concept>
+  <concept id="235326000" display="Right hemicolectomy (procedure)">
+    <display value="Right hemicolectomy"/>
+  </concept>
   <concept id="238131007" display="Overweight (finding)">
     <display value="Overweight"/>
     <display value="Patient overweight"/>
@@ -2064,6 +2071,7 @@
     <display value="Patient underweight"/>
     <display value="Underweight (finding)"/>
   </concept>
+  <concept id="248448006" display="Involved"/>
   <concept id="248490000" display="Bloating symptom (finding)">
     <display value="Abdomen feels bloated"/>
     <display value="Bloating symptom"/>
@@ -2912,6 +2920,7 @@
     <display value="Moderately resistant"/>
     <display value="Moderately resistant (qualifier value)"/>
   </concept>
+  <concept id="260362008" display="Very low"/>
   <concept id="260369004" display="Increasing (qualifier value)">
     <display value="Increasing"/>
     <display value="Increasing (qualifier value)"/>
@@ -2924,6 +2933,7 @@
     <display value="Detected"/>
     <display value="Detected (qualifier value)"/>
   </concept>
+  <concept id="260384008" display="Long duration"/>
   <concept id="260385009" display="Negative (qualifier value)">
     <display value="Negative"/>
     <display value="Negative for"/>
@@ -2942,6 +2952,7 @@
     <display value="Numerous"/>
     <display value="Numerous (qualifier value)"/>
   </concept>
+  <concept id="260402009" display="Short duration"/>
   <concept id="260405006" display="Trace (qualifier value)">
     <display value="Trace"/>
     <display value="Trace (qualifier value)"/>
@@ -3089,6 +3100,7 @@
     <display value="Creation of jejunostomy"/>
     <display value="Creation of jejunostomy (procedure)"/>
   </concept>
+  <concept id="265414003" display="Abdominoperineal resection of rectum (procedure)"/>
   <concept id="26593000" display="Paroxysmal (qualifier value)">
     <display value="Paroxysmal"/>
     <display value="Paroxysmal (qualifier value)"/>
@@ -3106,6 +3118,7 @@
     <display value="Oral route (qualifier value)"/>
     <display value="A digestive tract route that begins in the mouth."/>
   </concept>
+  <concept id="2667000" display="Absent"/>
   <concept id="266919005" display="Never smoked tobacco (finding)">
     <display value="Never smoked tobacco (finding)"/>
     <display value="Never smoked"/>
@@ -3135,6 +3148,11 @@
     <display value="Laboratory test order cancelation"/>
     <display value="Laboratory test order cancellation"/>
     <display value="Laboratory test order cancellation (procedure)"/>
+  </concept>
+  <concept id="26925005" display="Transverse colectomy (procedure)">
+    <display value="Transverse colectomy"/>
+    <display value="Excision of transverse colon"/>
+    <display value="Resection of transverse colon"/>
   </concept>
   <concept id="270427003" display="Patient-initiated encounter">
     <display value="Patient-initiated encounter"/>
@@ -3674,6 +3692,7 @@
     <display value="Every evening"/>
     <display value="Every evening (qualifier value)"/>
   </concept>
+  <concept id="307666008" display="Total colectomy with ileorectal anastomosis"/>
   <concept id="308046002" display="Superficial forearm vein">
     <display value="Structure of superficial forearm vein (body structure)"/>
     <display value="Structure of superficial forearm vein"/>
@@ -3958,6 +3977,8 @@
     <display value="Jaguar gum"/>
     <display value="Guar gum (substance)"/>
   </concept>
+  <concept id="32622004" display="Descending colon"/>
+  <concept id="32713005" display="Caecum"/>
   <concept id="32750006" display="Inspection (procedure)">
     <display value="Visual observation"/>
     <display value="Visual examination"/>
@@ -4042,6 +4063,7 @@
     <display value="Blistering"/>
     <display value="Blister (morphologic abnormality)"/>
   </concept>
+  <concept id="34000006" display="Crohn&#39;s disease"/>
   <concept id="34068001" display="Heart valve replacement">
     <display value="Replacement of unspecified heart valve"/>
     <display value="Heart valve replacement, NOS"/>
@@ -4500,6 +4522,7 @@
     <display value="Improved (qualifier value)"/>
     <display value="Improved"/>
   </concept>
+  <concept id="385432009" display="Not applicable"/>
   <concept id="385434005" display="Improbable diagnosis (contextual qualifier) (qualifier value)">
     <display value="Improbable diagnosis (contextual qualifier) (qualifier value)"/>
     <display value="Improbable diagnosis"/>
@@ -5354,6 +5377,9 @@
     <display value="Specimen obtained by amputation (specimen)"/>
     <display value="Specimen obtained by amputation"/>
   </concept>
+  <concept id="408657005" display="Mesorectal specimen completely intact"/>
+  <concept id="408658000" display="Mesorectal specimen nearly completely intact "/>
+  <concept id="408659008" display="Intactness of mesorectal specimen incomplete"/>
   <concept id="409051000" display="Stabilized (qualifier value)">
     <display value="Stabilized (qualifier value)"/>
     <display value="Stabilized"/>
@@ -6677,6 +6703,9 @@
     <display value="Parotid"/>
     <display value="Parotid gland structure (body structure)"/>
   </concept>
+  <concept id="4558008" display="Anterior resection of rectum (procedure)">
+    <display value="Anterior resection of rectum"/>
+  </concept>
   <concept id="45618002" display="Skilled nursing facility (environment)">
     <display value="Skilled care facility"/>
     <display value="Skilled nursing facility"/>
@@ -6858,6 +6887,7 @@
     <display value="Prior diagnosis"/>
     <display value="PX"/>
   </concept>
+  <concept id="48338005" display="Hepatic flexure"/>
   <concept id="48387007" display="Trachy">
     <display value="Trachy"/>
     <display value="Surgical tracheostomy"/>
@@ -6869,6 +6899,7 @@
     <display value="Tracheostomy"/>
     <display value="Tracheotomy"/>
   </concept>
+  <concept id="485005" display="Transverse colon"/>
   <concept id="48544008" display="Structure of right lower quadrant of abdomen (body structure)">
     <display value="Structure of right lower quadrant of abdomen"/>
     <display value="Structure of right lower quadrant of abdomen (body structure)"/>
@@ -6916,6 +6947,7 @@
     <display value="Anchovy, NOS"/>
     <display value="Anchovy"/>
   </concept>
+  <concept id="49832006" display="Rectosigmoid junction"/>
   <concept id="49909006" display="Mucus (substance)">
     <display value="Mucus (substance)"/>
     <display value="Mucus"/>
@@ -7223,6 +7255,7 @@
     <display value="Boil"/>
     <display value="Furunculus"/>
   </concept>
+  <concept id="60184004" display="Sigmoid colon"/>
   <concept id="60621009" display="Quetelet index">
     <display value="Body mass index"/>
     <display value="Body mass index, NOS"/>
@@ -7258,6 +7291,7 @@
     <display value="Mental hospital"/>
     <display value="Psychiatric hospital (environment)"/>
   </concept>
+  <concept id="62482003" display="Low"/>
   <concept id="62507009" display="Pins and needles (finding)">
     <display value="Tingling sensation"/>
     <display value="Tingling"/>
@@ -7314,6 +7348,7 @@
     <display value="Diseases"/>
     <display value="Disease (disorder)"/>
   </concept>
+  <concept id="64766004" display="Ulcerative colitis"/>
   <concept id="64859006" display="Osteoporosis (disorder)">
     <display value="Osteoporosis"/>
     <display value="Osteoporosis, NOS"/>
@@ -7526,6 +7561,7 @@
     <display value="Fruit"/>
     <display value="Fruit (substance)"/>
   </concept>
+  <concept id="72592005" display="Splenic flexure"/>
   <concept id="72705000" display="Mother">
     <display value="Mother"/>
     <display value="Mother, NOS"/>
@@ -7788,6 +7824,12 @@
     <display value="Stumbling (event)"/>
     <display value="Stumbling (finding)"/>
   </concept>
+  <concept id="82619000" display="Left colectomy (procedure)">
+    <display value="Left colectomy"/>
+    <display value="Left hemicolectomy"/>
+    <display value="Resection of descending colon"/>
+    <display value="Resection of left hemicolon"/>
+  </concept>
   <concept id="83030008" display="Retropharyngeal area">
     <display value="Retropharyngeal area"/>
     <display value="Retropharyngeal space"/>
@@ -7983,6 +8025,7 @@
     <display value="Biopsy of soft tissue of forearm, superficial"/>
     <display value="Biopsy of soft tissue of forearm, superficial (procedure)"/>
   </concept>
+  <concept id="9040008" display="Ascending colon"/>
   <concept id="90484001" display="Hospital-based outpatient general surgery clinic (environment)">
     <display value="Hospital-based outpatient general surgery clinic"/>
     <display value="Hospital-based outpatient general surgery clinic (environment)"/>
