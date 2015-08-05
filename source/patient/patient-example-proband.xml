@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+
+<Patient xmlns="http://hl7.org/fhir">
   <id value="proband"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
-        <b>Annie Proband</b>: Female, born 1966-04-04</p>
+        
+        <b>Annie Proband</b>: Female, born 1966-04-04
+      </p>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
@@ -19,16 +24,18 @@
   </extension>
   <identifier>
     <use value="usual"/>
-    <type><text value="Computer-Stored Abulatory Records (COSTAR)"/></type>
-    <!-- This OID has been used below for illustration purposes only -->
+    <type>
+      <text value="Computer-Stored Abulatory Records (COSTAR)"/>
+    </type>
+  <!--  This OID has been used below for illustration purposes only  -->
     <system value="urn:oid:2.16.840.1.113883.6.117"/>
     <value value="999999999"/>
     <assigner>
       <display value="Boston Massachesetts General Hospital"/>
     </assigner>
   </identifier>
-  <gender value="female" />
+  <active value="true"/>
+  <gender value="female"/>
   <birthDate value="1966-04-04"/>
   <deceasedBoolean value="false"/>
-  <active value="true"/>
 </Patient>

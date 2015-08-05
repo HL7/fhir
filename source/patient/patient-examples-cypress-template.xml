@@ -29,6 +29,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="[%patient_id%]"/>
         </identifier>
+        <active value="true"/>
         <name>
           <use value="official"/>
           <family value="[%last name%]"/>
@@ -39,7 +40,6 @@
         <managingOrganization>
           <reference value="Organization/[%organization%]"/>
         </managingOrganization>
-        <active value="true"/>
       </Patient>
     </resource>
   </entry> [%endloop%] 

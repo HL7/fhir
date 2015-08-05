@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+
+<Patient xmlns="http://hl7.org/fhir">
   <id value="xds"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>Patient John Doe, M, 27-May 1956. ID: 89765a87b</p>
+    
     </div>
   </text>
   <identifier>
@@ -19,21 +21,21 @@
     <system value="urn:oid:1.2.3.4.5"/>
     <value value="89765a87b"/>
   </identifier>
+  <active value="true"/>
   <name>
     <family value="Doe"/>
     <given value="John"/>
   </name>
-  <gender value="male" />
+  <gender value="male"/>
   <birthDate value="1956-05-27"/>
   <address>
-      <line value="100 Main St"/>
-      <city value="Metropolis"/>
-      <state value="Il"/>
-      <postalCode value="44130"/>
-      <country value="USA"/>
+    <line value="100 Main St"/>
+    <city value="Metropolis"/>
+    <state value="Il"/>
+    <postalCode value="44130"/>
+    <country value="USA"/>
   </address>
   <managingOrganization>
     <reference value="Organization/2"/>
   </managingOrganization>
-  <active value="true"/>
 </Patient>

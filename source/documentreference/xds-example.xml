@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+
+<Bundle xmlns="http://hl7.org/fhir">
   <id value="xds"/>
   <meta>
     <lastUpdated value="2013-07-01T13:11:33Z"/>
@@ -8,7 +8,7 @@
   <type value="transaction"/>
   <entry>
     <fullUrl value="urn:uuid:3fdc72f4-a11d-4a9d-9260-a9f745779e1d"/>
-    <resource> 
+    <resource>
       <DocumentReference>
         <meta>
           <lastUpdated value="2013-07-01T13:11:33Z"/>
@@ -16,8 +16,9 @@
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <a href="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"
-              >Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005</div>
+            
+            <a href="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32">Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005
+          </div>
         </text>
         <masterIdentifier>
           <system value="urn:ietf:rfc:3986"/>
@@ -33,7 +34,7 @@
             <display value="History and Physical"/>
           </coding>
         </type>
-        <format value="urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.16.1.4"/> 
+        <format value="urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.16.1.4"/>
         <author>
           <reference value="Practitioner/a3"/>
         </author>
@@ -46,7 +47,7 @@
         <description value="Physical"/>
         <content>
           <contentType value="text/plain"/>
-          <language value="en-us"/> 
+          <language value="en-us"/>
           <url value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
         </content>
         <context>
@@ -71,9 +72,9 @@
   </entry>
   <entry>
     <fullUrl value="http://localhost:9556/svc/fhir/Patient/a2"/>
-    <!-- if the server can find a matching resource, use that, else create a new 
-      resource with these details -->
-    <resource>  
+    <resource>
+    <!--  if the server can find a matching resource, use that, else create a new 
+      resource with these details  -->
       <Patient>
         <id value="a2"/>
         <meta>
@@ -100,11 +101,11 @@
       <method value="POST"/>
       <url value="Patient"/>
       <ifNoneExist value="Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
-    </request> 
+    </request>
   </entry>
   <entry>
     <fullUrl value="http://localhost:9556/svc/fhir/Practitioner/a3"/>
-    <resource>  
+    <resource>
       <Practitioner>
         <id value="a3"/>
         <meta>
@@ -119,7 +120,7 @@
           <family value="Smitty"/>
           <given value="Gerald"/>
         </name>
-				<practitionerRole>
+        <practitionerRole>
           <managingOrganization>
             <display value="Cleveland Clinic"/>
           </managingOrganization>
@@ -133,14 +134,13 @@
               <code value="Orthopedic"/>
             </coding>
           </specialty>
-				</practitionerRole>
-				<practitionerRole>
+        </practitionerRole>
+        <practitionerRole>
           <managingOrganization>
             <display value="Parma Community"/>
           </managingOrganization>
-				</practitionerRole>
+        </practitionerRole>
       </Practitioner>
-
     </resource>
     <request>
       <method value="POST"/>
@@ -149,10 +149,10 @@
   </entry>
   <entry>
     <fullUrl value="http://localhost:9556/svc/fhir/Practitioner/a4"/>
-    <resource>  
+    <resource>
       <Practitioner>
         <id value="a4"/>
-        <!-- cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au -->
+      <!--  cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au  -->
         <meta>
           <lastUpdated value="2013-07-01T13:11:33Z"/>
         </meta>
@@ -165,7 +165,7 @@
           <family value="Dopplemeyer"/>
           <given value="Sherry"/>
         </name>
-				<practitionerRole>
+        <practitionerRole>
           <managingOrganization>
             <display value="Cleveland Clinic"/>
           </managingOrganization>
@@ -179,14 +179,13 @@
               <code value="Orthopedic"/>
             </coding>
           </specialty>
-				</practitionerRole>
-				<practitionerRole>
+        </practitionerRole>
+        <practitionerRole>
           <managingOrganization>
             <display value="Berea Community"/>
           </managingOrganization>
-				</practitionerRole>
+        </practitionerRole>
       </Practitioner>
-
     </resource>
     <request>
       <method value="POST"/>
@@ -195,7 +194,7 @@
   </entry>
   <entry>
     <fullUrl value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
-    <resource>  
+    <resource>
       <Binary>
         <id value="1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
         <meta>
@@ -203,7 +202,7 @@
         </meta>
         <contentType value="text/plain"/>
         <content value="YXNkYXNkYXNkYXNkYXNk"/>
-      </Binary>    
+      </Binary>
     </resource>
     <request>
       <method value="POST"/>

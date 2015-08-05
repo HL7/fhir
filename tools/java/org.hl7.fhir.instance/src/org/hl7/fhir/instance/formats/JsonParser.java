@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:40+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -8217,6 +8217,10 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("active"))
+      res.setActiveElement(parseBoolean(json.get("active").getAsBoolean()));
+    if (json.has("_active"))
+      parseElementProperties(json.getAsJsonObject("_active"), res.getActiveElement());
     if (json.has("name")) {
       JsonArray array = json.getAsJsonArray("name");
       for (int i = 0; i < array.size(); i++) {
@@ -8285,10 +8289,6 @@ public class JsonParser extends JsonParserBase {
         res.getLink().add(parsePatientPatientLinkComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("active"))
-      res.setActiveElement(parseBoolean(json.get("active").getAsBoolean()));
-    if (json.has("_active"))
-      parseElementProperties(json.getAsJsonObject("_active"), res.getActiveElement());
     return res;
   }
 
@@ -21996,6 +21996,10 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
+      if (element.hasActiveElement()) {
+        composeBooleanCore("active", element.getActiveElement(), false);
+        composeBooleanExtras("active", element.getActiveElement(), false);
+      }
       if (element.hasName()) {
         openArray("name");
         for (HumanName e : element.getName()) 
@@ -22067,10 +22071,6 @@ public class JsonParser extends JsonParserBase {
           composePatientPatientLinkComponent(null, e);
         closeArray();
       };
-      if (element.hasActiveElement()) {
-        composeBooleanCore("active", element.getActiveElement(), false);
-        composeBooleanExtras("active", element.getActiveElement(), false);
-      }
   }
 
   protected void composePatientContactComponent(String name, Patient.ContactComponent element) throws Exception {

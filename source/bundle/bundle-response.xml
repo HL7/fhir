@@ -1,65 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+
+<Bundle xmlns="http://hl7.org/fhir">
   <id value="bundle-response"/>
-  <!-- this example bundle is a transaction response  -->
+<!--  this example bundle is a transaction response   -->
   <meta>
     <lastUpdated value="2014-08-18T01:43:33Z"/>
-    <!-- when the transaction response was constructed --> 
-  </meta> 
-  <type value="transaction-response"/>  
-
-  <!-- 
+  <!--  when the transaction response was constructed  -->
+  </meta>
+  <type value="transaction-response"/>
+<!--  
     one entry for each entry in the transaction, in order, with a 
     response
-  -->
+   -->
   <entry>
     <fullUrl value="http://example.org/fhir/Patient/12423"/>
-    <!-- response for the simple create operation -->
-    <!-- whether to return the result resource depends on client preference -->
     <resource>
+    <!--  response for the simple create operation  -->
+    <!--  whether to return the result resource depends on client preference  -->
       <Patient>
         <id value="12423"/>
         <meta>
           <versionId value="1"/>
           <lastUpdated value="2014-08-18T01:43:31Z"/>
         </meta>
-       <text>
-         <status value="generated"/>
-         <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div>
-       </text>
-       <name>
-         <use value="official"/>
-         <family value="Chalmers"/>
-         <given value="Peter"/>
-         <given value="James"/>
-       </name>
-       <gender value="male" />
-       <birthDate value="1974-12-25"/>
-       <active value="true"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div>
+        </text>
+        <active value="true"/>
+        <name>
+          <use value="official"/>
+          <family value="Chalmers"/>
+          <given value="Peter"/>
+          <given value="James"/>
+        </name>
+        <gender value="male"/>
+        <birthDate value="1974-12-25"/>
       </Patient>
     </resource>
-    <!-- now, details about the action to take with the resource -->
+  <!--  now, details about the action to take with the resource  -->
     <response>
-      <!-- important responses from the server -->
+    <!--  important responses from the server  -->
       <status value="201 Created"/>
       <location value="Patient/12423/_history/1"/>
       <etag value="W/1"/>
     </response>
   </entry>
-  
   <entry>
-    <!-- response to the conditional create operation -->
-    <!-- in this case, there was a match to the If-None-Exist header -->
+  <!--  response to the conditional create operation  -->
+  <!--  in this case, there was a match to the If-None-Exist header  -->
     <response>
-      <!-- no action taken -->
+    <!--  no action taken  -->
       <status value="200 OK"/>
     </response>
   </entry>
   <entry>
-    <!-- response to a simple update operation -->
-    <!-- no return resource for this example, though in a 
+  <!--  response to a simple update operation  -->
+  <!--  no return resource for this example, though in a 
       real transaction, all entries would have a resource or all would not 
-    -->
+     -->
     <response>
       <status value="200 OK"/>
       <location value="Patient/123/_history/4"/>
@@ -67,58 +66,57 @@
     </response>
   </entry>
   <entry>
-    <!-- response to the conditional update operation -->
+  <!--  response to the conditional update operation  -->
     <response>
-      <!-- created a new resource for this one -->
+    <!--  created a new resource for this one  -->
       <status value="201 Created"/>
       <location value="Patient/12424/_history/1"/>
       <etag value="W/1"/>
     </response>
   </entry>
   <entry>
-    <!-- response to the simple delete operation -->
+  <!--  response to the simple delete operation  -->
     <response>
-      <!-- successful deletion -->
+    <!--  successful deletion  -->
       <status value="202 Accepted"/>
     </response>
   </entry>
   <entry>
-    <!-- response to the conditional delete operation -->
+  <!--  response to the conditional delete operation  -->
     <response>
-      <!-- delete matching resource - but you can't find out what was deleted - an inherent limitation in a condition delete -->
+    <!--  delete matching resource - but you can't find out what was deleted - an inherent limitation in a condition delete  -->
       <status value="DELETE"/>
     </response>
   </entry>
   <entry>
     <fullUrl value="urn:uuid:7f9724ed-ef8d-4434-aacb-41869db83233"/>
-    <!-- operation response -->
     <resource>
+    <!--  operation response  -->
       <Parameters>
         <parameter>
           <name value="name"/>
           <valueString value="LOINC"/>
         </parameter>
-        <!-- etc -->
+      <!--  etc  -->
       </Parameters>
     </resource>
     <response>
-      <!-- POST to [base]/ValueSet/$lookup - invoking a lookup operation (see Terminology Service) -->
+    <!--  POST to [base]/ValueSet/$lookup - invoking a lookup operation (see Terminology Service)  -->
       <status value="200 ok"/>
     </response>
   </entry>
   <entry>
     <fullUrl value="urn:uuid:e7bcef8e-5ef9-4d2b-87d5-b42b1eec9125"/>
-    <!-- response to search -->
     <resource>
+    <!--  response to search  -->
       <Bundle>
         <id value="fb6ed6cb-324e-4588-87cd-0c92c68986ca"/>
-        <type value="searchset"/>  
-        <!-- etc -->
+        <type value="searchset"/>
+      <!--  etc  -->
       </Bundle>
-    </resource>    
+    </resource>
     <response>
       <status value="200 OK"/>
     </response>
   </entry>
 </Bundle>
-

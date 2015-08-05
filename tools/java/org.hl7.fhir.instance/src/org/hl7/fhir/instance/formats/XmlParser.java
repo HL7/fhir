@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:40+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 17:27+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -7493,6 +7493,8 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("active")) {
+        res.setActiveElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.getName().add(parseHumanName(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("telecom")) {
@@ -7523,8 +7525,6 @@ public class XmlParser extends XmlParserBase {
         res.setManagingOrganization(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("link")) {
         res.getLink().add(parsePatientPatientLinkComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("active")) {
-        res.setActiveElement(parseBoolean(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -18852,6 +18852,9 @@ public class XmlParser extends XmlParserBase {
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
       }
+      if (element.hasActiveElement()) {
+        composeBoolean("active", element.getActiveElement());
+      }
       if (element.hasName()) { 
         for (HumanName e : element.getName()) 
           composeHumanName("name", e);
@@ -18901,9 +18904,6 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLink()) { 
         for (Patient.PatientLinkComponent e : element.getLink()) 
           composePatientPatientLinkComponent("link", e);
-      }
-      if (element.hasActiveElement()) {
-        composeBoolean("active", element.getActiveElement());
       }
       composeElementClose(element);
       xml.exit(FHIR_NS, name);

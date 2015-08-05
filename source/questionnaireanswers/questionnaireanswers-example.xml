@@ -6,6 +6,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <pre>
             Comorbidity? YES
               Cardial Comorbidity? YES
@@ -19,6 +20,7 @@
                 pT category: 1a
               ...
           </pre>
+    
     
     </div>
   </text>
@@ -89,9 +91,9 @@
   <group>
     <title value="Cancer Quality Forum Questionnaire 2012"/>
     <group>
-    <!--  COMORBIDITY  -->
-    <!--  First main section of the form, questions about comorbidity  -->
-    <!--  section contains one question: whether there is comorbidity  -->
+    <!--   COMORBIDITY   -->
+    <!--   First main section of the form, questions about comorbidity   -->
+    <!--   section contains one question: whether there is comorbidity   -->
       <question>
         <answer>
           <valueCoding>
@@ -100,8 +102,8 @@
             <display value="Yes"/>
           </valueCoding>
           <group>
-          <!--  COMORBIDITY/CARDIAL  -->
-          <!--  Subsection about specific comorbidity: cardial  -->
+          <!--   COMORBIDITY/CARDIAL   -->
+          <!--   Subsection about specific comorbidity: cardial   -->
             <question>
               <answer>
                 <valueCoding>
@@ -111,7 +113,7 @@
               </answer>
             </question>
             <question>
-            <!--  This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code  -->
+            <!--   This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code   -->
               <answer>
                 <valueCoding>
                   <system value="http://cancer.questionnaire.org/system/code/yesno"/>
@@ -131,8 +133,8 @@
         </answer>
       </question>
     </group>
-  <!--  HISTOPATHOLOGY  -->
-  <!--  TODO: decide how to do this
+  <!--   HISTOPATHOLOGY   -->
+  <!--   TODO: decide how to do this
     <group>
 
       <group>
@@ -142,6 +144,6 @@
           </dataResource>
         </question>
       </group>
-    </group>  -->
+    </group>   -->
   </group>
 </QuestionnaireAnswers>

@@ -1,33 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+
+<Patient xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <table>
+        
         <tbody>
+          
           <tr>
+            
             <td>Name</td>
-            <td>Peter James <b>Chalmers</b> (&quot;Jim&quot;)</td>
+            
+            <td>Peter James 
+              <b>Chalmers</b> (&quot;Jim&quot;)
+            </td>
+          
           </tr>
+          
           <tr>
+            
             <td>Address</td>
+            
             <td>534 Erewhon, Pleasantville, Vic, 3999</td>
+          
           </tr>
+          
           <tr>
+            
             <td>Contacts</td>
+            
             <td>Home: unknown. Work: (03) 5555 6473</td>
+          
           </tr>
+          
           <tr>
+            
             <td>Id</td>
+            
             <td>MRN: 12345 (Acme Healthcare)</td>
+          
           </tr>
+        
         </tbody>
+      
       </table>    
+    
     </div>
   </text>
-  <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
+<!--  MRN assigned by ACME healthcare on 6-May 2001  -->
   <identifier>
     <use value="usual"/>
     <type>
@@ -45,8 +68,8 @@
       <display value="Acme Healthcare"/>
     </assigner>
   </identifier>
-
-  <!-- Peter James Chalmers, but called "Jim" -->
+  <active value="true"/>
+<!--  Peter James Chalmers, but called "Jim"  -->
   <name>
     <use value="official"/>
     <family value="Chalmers"/>
@@ -57,26 +80,23 @@
     <use value="usual"/>
     <given value="Jim"/>
   </name>
-
   <telecom>
     <use value="home"/>
-    <!-- home communication details aren't known -->
+  <!--  home communication details aren't known  -->
   </telecom>
   <telecom>
     <system value="phone"/>
     <value value="(03) 5555 6473"/>
     <use value="work"/>
   </telecom>
-
-  <!-- use FHIR code system for male / female -->
-  <gender value="male" />
+<!--  use FHIR code system for male / female  -->
+  <gender value="male"/>
   <birthDate value="1974-12-25">
-	<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
-		<valueDateTime value="1974-12-25T14:35:45-05:00"/>
-	</extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+      <valueDateTime value="1974-12-25T14:35:45-05:00"/>
+    </extension>
   </birthDate>
   <deceasedBoolean value="false"/>
-
   <address>
     <use value="home"/>
     <line value="534 Erewhon St"/>
@@ -84,7 +104,6 @@
     <state value="Vic"/>
     <postalCode value="3999"/>
   </address>
-
   <contact>
     <relationship>
       <coding>
@@ -92,10 +111,9 @@
         <code value="partner"/>
       </coding>
     </relationship>
-
     <name>
       <family value="du">
-        <!-- the "du" part is a family name prefix (VV in iso 21090) -->
+      <!--  the "du" part is a family name prefix (VV in iso 21090)  -->
         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
           <valueCode value="VV"/>
         </extension>
@@ -103,23 +121,17 @@
       <family value="Marché"/>
       <given value="Bénédicte"/>
     </name>
-	  
     <telecom>
       <system value="phone"/>
       <value value="+33 (237) 998327"/>
     </telecom>
-	  
-	<gender value="female"/>
-	<period>
-		<!-- The contact relationship started in 2012 -->
-		<start value="2012"/>
-	</period>
+    <gender value="female"/>
+    <period>
+    <!--  The contact relationship started in 2012  -->
+      <start value="2012"/>
+    </period>
   </contact>
-
   <managingOrganization>
     <reference value="Organization/1"/>
   </managingOrganization>
-
-  <active value="true"/>
-
 </Patient>

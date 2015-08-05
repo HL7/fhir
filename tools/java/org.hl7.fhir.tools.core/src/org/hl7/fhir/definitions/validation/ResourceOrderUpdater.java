@@ -22,7 +22,7 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 
 /**
- * To run the resource oder updater, do things in this order:
+ * To run the resource order updater, do things in this order:
  * 
  * - Get everything running so the build completes with no errors 
  * - make sure no one else is working on the same resource

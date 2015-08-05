@@ -1,36 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+
+<Patient xmlns="http://hl7.org/fhir">
   <id value="animal"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <table>
+        
         <tbody>
+          
           <tr>
+            
             <td>Id</td>
+            
             <td>Kenzi (Dog: Golden Retriever)</td>
+          
           </tr>
+          
           <tr>
+            
             <td>Owner</td>
+            
             <td>Peter Chalmers, 534 Erewhon, Pleasantville, Vic, 3999</td>
+          
           </tr>
+          
           <tr>
+            
             <td>Contacts</td>
+            
             <td>Work: (03) 5555 6473</td>
+          
           </tr>
+          
           <tr>
+            
             <td>Id</td>
+            
             <td>Dog Tag: 1234123 (Maroondah City Council)</td>
+          
           </tr>
+        
         </tbody>
+      
       </table>
+    
     </div>
   </text>
-
-  <!-- Dog tag, under Maroondah City council -->
+<!--  Dog tag, under Maroondah City council  -->
   <identifier>
-    <type><text value="Dog Tag"/></type>
+    <type>
+      <text value="Dog Tag"/>
+    </type>
     <system value="http://www.maroondah.vic.gov.au/AnimalRegFees.aspx"/>
     <value value="1234123"/>
     <period>
@@ -40,15 +62,14 @@
       <display value="Maroondah City Council"/>
     </assigner>
   </identifier>
-
-  <!-- Dog's name: Kenzi -->
+  <active value="true"/>
+<!--  Dog's name: Kenzi  -->
   <name>
     <use value="usual"/>
     <given value="Kenzi"/>
   </name>
-  <gender value="female" />
+  <gender value="female"/>
   <birthDate value="2010-03-23"/>
-
   <contact>
     <relationship>
       <coding>
@@ -67,7 +88,6 @@
       <use value="work"/>
     </telecom>
   </contact>
-
   <animal>
     <species>
       <coding>
@@ -95,10 +115,7 @@
       </coding>
     </genderStatus>
   </animal>
-
   <managingOrganization>
-    <display value="Pete's Vetinary Services"/>
+    <display value="Pete&#39;s Vetinary Services"/>
   </managingOrganization>
-
-  <active value="true"/>
 </Patient>

@@ -1,58 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+
+<Patient xmlns="http://hl7.org/fhir">
   <id value="us01"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <table>
+        
         <tbody>
+          
           <tr>
+            
             <td>Name</td>
-            <td>Peter James <b>Chalmers</b> ("Jim")</td>
+            
+            <td>Peter James 
+              <b>Chalmers</b> (&quot;Jim&quot;)
+            </td>
+          
           </tr>
+          
           <tr>
+            
             <td>Address</td>
+            
             <td>534 Erewhon, Pleasantville, Orange County, 3999</td>
+          
           </tr>
+          
           <tr>
+            
             <td>Contacts</td>
+            
             <td>Home: unknown. Work: (03) 5555 6473</td>
+          
           </tr>
+          
           <tr>
+            
             <td>Id</td>
+            
             <td>MRN: 12345 (Acme Healthcare)</td>
+          
           </tr>
+        
         </tbody>
+      
       </table>
+    
     </div>
   </text>
-  
   <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
     <valueCodeableConcept>
       <coding>
-        <system value="http://hl7.org/fhir/v3/Race" />
-        <code value="1096-7" />
+        <system value="http://hl7.org/fhir/v3/Race"/>
+        <code value="1096-7"/>
       </coding>
-    </valueCodeableConcept>    
+    </valueCodeableConcept>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
     <valueCodeableConcept>
       <coding>
-        <system value="http://hl7.org/fhir/v3/Ethnicity" />
-        <code value="2162-6" />
+        <system value="http://hl7.org/fhir/v3/Ethnicity"/>
+        <code value="2162-6"/>
       </coding>
-    </valueCodeableConcept>    
+    </valueCodeableConcept>
   </extension>
-
-  <!-- Peter James Chalmers, but called "Jim" -->
+  <active value="true"/>
+<!--  Peter James Chalmers, but called "Jim"  -->
   <name>
     <use value="official"/>
     <family value="Chalmers"/>
     <given value="Peter"/>
     <given value="James"/>
   </name>
-  
   <telecom>
     <system value="phone"/>
     <value value="(03) 5555 6473"/>
@@ -66,10 +87,9 @@
     <value value="person@example.org"/>
     <use value="work"/>
   </telecom>
-  
   <address>
     <extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
-      <valueString value="Orange County" />
+      <valueString value="Orange County"/>
     </extension>
     <use value="home"/>
     <line value="534 Erewhon St"/>
@@ -77,7 +97,4 @@
     <state value="Vic"/>
     <postalCode value="3999"/>
   </address>
-  
-  <active value="true"/>
-  
 </Patient>

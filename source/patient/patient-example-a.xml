@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
-  <id value="pat1"/>
 
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="pat1"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321</p>
+    
     </div>
   </text>
-
   <identifier>
     <use value="usual"/>
     <type>
@@ -21,19 +21,17 @@
     <system value="urn:oid:0.1.2.3.4.5.6.7"/>
     <value value="654321"/>
   </identifier>
-
+  <active value="true"/>
   <name>
     <use value="official"/>
     <family value="Donald"/>
     <given value="Duck"/>
   </name>
-  <gender value="male" />
-
+  <gender value="male"/>
   <photo>
     <contentType value="image/gif"/>
     <data value="R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"/>
   </photo>
-
   <contact>
     <relationship>
       <coding>
@@ -42,23 +40,18 @@
       </coding>
     </relationship>
     <organization>
-      <!-- Which organization to contact to reach this patient -->
       <reference value="Organization/1"/>
       <display value="Walt Disney Corporation"/>
     </organization>
   </contact>
-
   <managingOrganization>
     <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
   </managingOrganization>
-
   <link>
     <other>
       <reference value="Patient/pat2"/>
     </other>
-    <type value="seealso" />
+    <type value="seealso"/>
   </link>
-
-  <active value="true"/>
 </Patient>

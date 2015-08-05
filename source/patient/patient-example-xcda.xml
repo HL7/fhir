@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <Patient xmlns="http://hl7.org/fhir">
   <id value="xcda"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>Henry Levin the 7th</p>
+    
     </div>
   </text>
   <identifier>
@@ -18,16 +21,15 @@
     <system value="urn:oid:2.16.840.1.113883.19.5"/>
     <value value="12345"/>
   </identifier>
+  <active value="true"/>
   <name>
     <family value="Levin"/>
     <given value="Henry"/>
   </name>
-  <gender value="male" />
+  <gender value="male"/>
   <birthDate value="1932-09-24"/>
-
   <managingOrganization>
     <reference value="Organization/2.16.840.1.113883.19.5"/>
     <display value="Good Health Clinic"/>
   </managingOrganization>
-  <active value="true"/>
 </Patient>

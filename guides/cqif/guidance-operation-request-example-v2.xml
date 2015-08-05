@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Parameters xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<Parameters xmlns="http://hl7.org/fhir">
   <id value="guidance-operation-request-example-v2"/>
-  <!-- This example demonstrates the request for a guidance operation using the GuidanceRequest proposed resource. -->
+<!--  This example demonstrates the request for a guidance operation using the GuidanceRequest proposed resource.  -->
   <parameter>
     <name value="request"/>
     <resource>
       <Basic>
         <id value="guidanceRequest1"/>
         <meta>
-          <!-- TODO: Should only need to declare GuidanceRequest, but don't have derivative profile functionality tested yet -->
+        <!--  TODO: Should only need to declare GuidanceRequest, but don't have derivative profile functionality tested yet  -->
           <profile value="http://hl7.org/fhir/StructureDefinition/knowledgerequest-cqif-cqif-knowledgerequest"/>
           <profile value="http://hl7.org/fhir/StructureDefinition/guidancerequest-cqif-cqif-guidancerequest"/>
         </meta>
         <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-initiatingOrganization">
-          <valueReference> 
+          <valueReference>
             <reference value="Organization/1"/>
           </valueReference>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-initiatingPerson">
-          <valueReference> 
+          <valueReference>
             <reference value="Practitioner/1"/>
           </valueReference>
         </extension>
@@ -35,12 +36,12 @@
           </valueCoding>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-receivingOrganization">
-          <valueReference> 
+          <valueReference>
             <reference value="Organization/1"/>
           </valueReference>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-receivingPerson">
-          <valueReference> 
+          <valueReference>
             <reference value="Practitioner/1"/>
           </valueReference>
         </extension>
@@ -62,11 +63,11 @@
             <code value="inpatient"/>
           </valueCoding>
         </extension>
-        <!-- Server-provided module id for IHE Guideline Appropriate Ordering decision support -->
+      <!--  Server-provided module id for IHE Guideline Appropriate Ordering decision support  -->
         <modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-module">
-			<valueReference>
-				<reference value="Basic/guideline-appropriate-ordering"/>
-			</valueReference>
+          <valueReference>
+            <reference value="Basic/guideline-appropriate-ordering"/>
+          </valueReference>
         </modifierExtension>
         <code>
           <coding>
@@ -75,7 +76,7 @@
         </code>
       </Basic>
     </resource>
-  </parameter> 
+  </parameter>
   <parameter>
     <name value="inputResource"/>
     <resource>
@@ -83,16 +84,16 @@
         <id value="example"/>
         <meta>
           <profile value="http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient"/>
-          <!-- TODO: Profile URL for the IHE GAO patient profile -->
-          <!--profile value="http://hl7.org/fhir/StructureDefinition/patient-gao-gao-patient"/-->  
+        <!--  TODO: Profile URL for the IHE GAO patient profile  -->
+        <!-- profile value="http://hl7.org/fhir/StructureDefinition/patient-gao-gao-patient"/ -->
         </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <!-- snip -->
+            
           </div>
         </text>
-        <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
+      <!--  MRN assigned by ACME healthcare on 6-May 2001  -->
         <identifier>
           <use value="usual"/>
           <type>
@@ -110,8 +111,8 @@
             <display value="Acme Healthcare"/>
           </assigner>
         </identifier>
-
-        <!-- Peter James Chalmers, but called "Jim" -->
+        <active value="true"/>
+      <!--  Peter James Chalmers, but called "Jim"  -->
         <name>
           <use value="official"/>
           <family value="Chalmers"/>
@@ -122,26 +123,23 @@
           <use value="usual"/>
           <given value="Jim"/>
         </name>
-
         <telecom>
           <use value="home"/>
-          <!-- home communication details aren't known -->
+        <!--  home communication details aren't known  -->
         </telecom>
         <telecom>
           <system value="phone"/>
           <value value="(03) 5555 6473"/>
           <use value="work"/>
         </telecom>
-
-        <!-- use FHIR code system for male / female -->
-        <gender value="male" />
+      <!--  use FHIR code system for male / female  -->
+        <gender value="male"/>
         <birthDate value="1974-12-25">
-			<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
-			  <valueDateTime value="1974-12-25T14:35:45-05:00"/>
-			</extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+            <valueDateTime value="1974-12-25T14:35:45-05:00"/>
+          </extension>
         </birthDate>
         <deceasedBoolean value="false"/>
-
         <address>
           <use value="home"/>
           <line value="534 Erewhon St"/>
@@ -149,7 +147,6 @@
           <state value="Vic"/>
           <postalCode value="3999"/>
         </address>
-
         <contact>
           <relationship>
             <coding>
@@ -157,10 +154,9 @@
               <code value="partner"/>
             </coding>
           </relationship>
-
           <name>
             <family value="du">
-              <!-- the "du" part is a family name prefix (VV in iso 21090) -->
+            <!--  the "du" part is a family name prefix (VV in iso 21090)  -->
               <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
                 <valueCode value="VV"/>
               </extension>
@@ -168,55 +164,38 @@
             <family value="Marché"/>
             <given value="Bénédicte"/>
           </name>
-
           <telecom>
             <system value="phone"/>
             <value value="+33 (237) 998327"/>
           </telecom>
         </contact>
-
-        <managingOrganization> 
+        <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
-
-        <active value="true"/>
-
       </Patient>
     </resource>
-  </parameter> 
+  </parameter>
   <parameter>
     <name value="resource"/>
     <resource>
       <Order>
         <id value="order1"/>
-        <meta>
-          <!-- TODO: Profile url for IHE GAO Order profile? 
-          <profile value="http://hl7.org/fhir/StructureDefinition/order-gao-gao-order"/>-->
-          <!-- TODO: Build aucrad order profile
-          <profile value="http://hl7.org/fhir/StructureDefinition/order-aucrad-aucrad-order"/> -->
-        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <!-- Snipped for brevity -->
+            
           </div>
         </text>
         <contained>
           <DiagnosticOrder>
             <id value="diagnosticOrder1"/>
-            <meta>
-              <!-- TODO: Profile url for IHE GAO DiagnositOrder profile -->
-              <!-- profile value="http://hl7.org/fhir/StructureDefinition/diagnosticorder-gao-gao-diagnosticorder"/-->
-              <!-- TODO: Build aucrad diagnostic order profile -->
-              <!--profile value="http://hl7.org/fhir/StructureDefinition/diagnosticorder-aucrad-aucrad-diagnosticorder"/-->
-            </meta>
-            <subject> 
+            <subject>
               <reference value="Patient/example"/>
             </subject>
             <item>
               <code>
                 <coding>
-                  <!-- TODO: This will need to use the ACR Commons code -->
+                <!--  TODO: This will need to use the ACR Commons code  -->
                   <system value="http://www.ama-assn.org/go/cpt"/>
                   <code value="70450"/>
                   <display value="CT, head, wo iv contrast"/>
@@ -226,15 +205,15 @@
           </DiagnosticOrder>
         </contained>
         <date value="2012-12-28T09:03:04+11:00"/>
-        <subject> 
+        <subject>
           <reference value="Patient/example"/>
         </subject>
-        <source> 
+        <source>
           <reference value="Practitioner/example"/>
         </source>
         <reasonCodeableConcept>
           <coding>
-            <!-- TODO: This will need to use the ACR Commons code -->
+          <!--  TODO: This will need to use the ACR Commons code  -->
             <system value="http://hl7.org/fhir/sid/icd-9"/>
             <code value="70450"/>
             <display value="Headache, Chronic, no new features"/>
@@ -242,9 +221,8 @@
         </reasonCodeableConcept>
         <detail>
           <reference value="#diagnosticOrder1"/>
-        </detail> 
+        </detail>
       </Order>
     </resource>
-  </parameter> 
+  </parameter>
 </Parameters>
-

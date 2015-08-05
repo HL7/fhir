@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd">
+
+<Patient xmlns="http://hl7.org/fhir">
   <id value="dicom"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml"> Patient MINT_TEST, ID = MINT1234. Age = 56y, Size =
       1.83m, Weight = 72.58kg </div>
   </text>
-
   <extension url="http://nema.org/fhir/extensions#0010:1010">
     <valueQuantity>
       <value value="56"/>
@@ -26,27 +25,23 @@
       <unit value="kg"/>
     </valueQuantity>
   </extension>
-
   <identifier>
     <system value="http://nema.org/examples/patients"/>
     <value value="MINT1234"/>
   </identifier>
+  <active value="true"/>
   <name>
     <family value="MINT_TEST"/>
   </name>
-	<gender value="male">
-		<extension url="http://nema.org/examples/extensions#gender">
-			<valueCoding>
-				<system value="http://nema.org/examples/gender"/>
-				<code value="M"/>
-			</valueCoding>
-		</extension>
+  <gender value="male">
+    <extension url="http://nema.org/examples/extensions#gender">
+      <valueCoding>
+        <system value="http://nema.org/examples/gender"/>
+        <code value="M"/>
+      </valueCoding>
+    </extension>
   </gender>
-
-
   <managingOrganization>
     <reference value="Organization/1"/>
   </managingOrganization>
-
-  <active value="true"/>
 </Patient>
