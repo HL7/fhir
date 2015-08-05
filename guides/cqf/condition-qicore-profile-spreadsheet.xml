@@ -1088,6 +1088,44 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s227">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s228">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s229">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s230">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s231">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s232">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1895,7 +1933,7 @@
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreConditionEvidence</Data><NamedCell
+    <Cell ss:StyleID="s128"><Data ss:Type="String">!QICoreConditionEvidence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3442,8 +3480,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6114,20 +6152,20 @@
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s161"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="33.75">
-    <Cell ss:StyleID="s125"><Data ss:Type="String">QICoreConditionEvidence</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Observations pertaining to the problem, condition, or diagnosis </Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-codes</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Observations pertaining to the problem, condition, or diagnosis </Data></Cell>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s161"/>
+   <Row ss:AutoFitHeight="0" ss:Height="33.75" ss:StyleID="s232">
+    <Cell ss:StyleID="s227"><Data ss:Type="String">!QICoreConditionEvidence</Data></Cell>
+    <Cell ss:StyleID="s228"><Data ss:Type="String">Observations pertaining to the problem, condition, or diagnosis </Data></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s230"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-codes</Data></Cell>
+    <Cell ss:StyleID="s228"><Data ss:Type="String">Observations pertaining to the problem, condition, or diagnosis </Data></Cell>
+    <Cell ss:StyleID="s229"/>
+    <Cell ss:StyleID="s229"/>
+    <Cell ss:StyleID="s229"/>
+    <Cell ss:StyleID="s229"/>
+    <Cell ss:StyleID="s229"/>
+    <Cell ss:StyleID="s229"/>
+    <Cell ss:StyleID="s231"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.45" ss:StyleID="s179">
     <Cell ss:StyleID="s117"><Data ss:Type="String">!QICoreProblemSeverity</Data></Cell>
@@ -6508,7 +6546,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
