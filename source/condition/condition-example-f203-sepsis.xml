@@ -57,14 +57,4 @@
     </coding>
   </siteCodeableConcept>
  </location>
- <!-- todo - this is an illegal reference (Grahame, 2/2/2015)
- 
- <dueTo><!- -Bacterial sepsis is due to Staphylococcus Aureus-!>
-  
-  <target>
-     <reference value="Substance/f202"/>
-     <display value="Staphylococcus Aureus"/>
-  </target>
- </dueTo>
- -->
 </Condition>

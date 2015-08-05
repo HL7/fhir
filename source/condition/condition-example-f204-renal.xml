@@ -60,11 +60,4 @@
     </coding>
   </siteCodeableConcept>
  </location>
- <dueTo>  
-  <!--TODO the difference between "due-to" and "follows" is very unclear in the current documentation-->
-  <target>    
-     <reference value="Procedure/f201"/>
-     <display value="TPF chemotherapy for the sphenoid bone"/>
-  </target>
- </dueTo>
 </Condition>
