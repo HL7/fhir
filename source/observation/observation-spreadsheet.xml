@@ -6571,7 +6571,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="35" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="36" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s141" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s141" ss:AutoFitWidth="0" ss:Width="143.25"/>
@@ -6769,13 +6769,22 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">Glasgow Score</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">Glasgow Score 1</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Clinical assessment tool example - Glasgow Score</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">Clinical assessment tool example - GCS using related Observations</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">glasgow</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-example-glasgow.xml</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s123"><Data ss:Type="String">Glasgow Score 2</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">Clinical assessment tool example - GCS using related QuestionnaireAnswer</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">gcs-qa</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-example-glasgow-qa.xml</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">Genetics Observation Example1 Somatic</Data></Cell>
@@ -6784,7 +6793,7 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">genetics-example1-somatic</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">obs-genetics-example1-somatic.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Standard Profile for Genetics</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">Genetics Observation Example2 Germlin</Data></Cell>
@@ -6793,7 +6802,7 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">genetics-example2-germline</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">obs-genetics-example2-germline.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Standard Profile for Genetics</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
@@ -6945,7 +6954,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
+     <ActiveRow>18</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

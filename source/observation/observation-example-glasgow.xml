@@ -59,7 +59,7 @@
             <valueDecimal value="5"/>
           <!--  0..1 Value of extension  -->
           </extension>
-          <system value="http://r.details.loinc.org/AnswerList/LL357-5"/>
+          <system value="http://loinc.org"/>
           <code value="LA6566-9"/>
           <display value="Localizing pain"/>
         </coding>
@@ -94,10 +94,10 @@
         <!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
           <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
           <!--  from Element: extension  -->
-            <valueDecimal value="5"/>
+            <valueDecimal value="4"/>
           <!--  0..1 Value of extension  -->
           </extension>
-          <system value="http://r.details.loinc.org/AnswerList/LL356-7"/>
+          <system value="http://loinc.org"/>
         <!-- technicallly the code is '5' and the LA is the identifier to do hav e both  would require an extention -->
           <code value="LA6560-2"/>
           <display value="Confused"/>
@@ -133,10 +133,10 @@
         <!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
           <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
           <!--  from Element: extension  -->
-            <valueDecimal value="5"/>
+            <valueDecimal value="4"/>
           <!--  0..1 Value of extension  -->
           </extension>
-          <system value="http://r.details.loinc.org/AnswerList/LL355-9"/>
+          <system value="http://loinc.org"/>
         <!-- technicallly the code is '4' and the LA is the identifier to do hav e both  would require an extention -->
           <code value="LA6556-0"/>
           <display value="Eyes open spontaneously"/>
