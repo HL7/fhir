@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
+
+<!-- 
 <li>file: org-uslab-example1.xml</li>
 				<li> id: uslab-example1</li>
 				<li> Name: USLab Organization Example1 </li>
@@ -8,35 +9,35 @@
 Published by HL7 Orders and Observation Work Group
 Authored by: Eric M Haas  Health eData Inc.
 
--->
-<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
-	<id value="org-uslab-example1"/>
-	<identifier>
-		<use value="official"/>
-		<system value="https://nppes.cms.hhs.gov/NPPES/"/>
-		<!-- NPI -->
-		<value value="1235349085"/>
-	</identifier>
-	<name value="University Hospital"/>
-	<telecom>
-		<system value="phone"/>
-		<value value="(+1) 555-227-1234"/>
-	</telecom>
-	<telecom>
-		<system value="fax"/>
-		<value value="(+1) 555-227-6622"/>
-	</telecom>
-	<address>
-		<!-- EH extension for us county -->
-		<extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
-			<valueString value="42043"/>
-		</extension>
-		<use value="work"/>
-		<line value="Firstcare Way"/>
-		<line value="Building 1"/>
-		<city value="Harrisburg"/>
-		<state value="PA"/>
-		<postalCode value="17111"/>
-		<country value="USA"/>
-	</address>
+ -->
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="org-uslab-example1"/>
+  <identifier>
+    <use value="official"/>
+    <system value="https://nppes.cms.hhs.gov/NPPES/"/>
+  <!--  NPI  -->
+    <value value="1235349085"/>
+  </identifier>
+  <name value="University Hospital"/>
+  <telecom>
+    <system value="phone"/>
+    <value value="(+1) 555-227-1234"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="(+1) 555-227-6622"/>
+  </telecom>
+  <address>
+  <!--  EH extension for us county  -->
+    <extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
+      <valueString value="42043"/>
+    </extension>
+    <use value="work"/>
+    <line value="Firstcare Way"/>
+    <line value="Building 1"/>
+    <city value="Harrisburg"/>
+    <state value="PA"/>
+    <postalCode value="17111"/>
+    <country value="USA"/>
+  </address>
 </Organization>

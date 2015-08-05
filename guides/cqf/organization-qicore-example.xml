@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
-<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
-  <id value="organization-qicore-example"/>
 
+<!--  Placeholder copied from base resource example.  To be updated for QICore.   -->
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="organization-qicore-example"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      Health Level Seven International<br/>
-				3300 Washtenaw Avenue, Suite 227<br/>
-				Ann Arbor, MI 48104<br/>
-				USA<br/>
-				(+1) 734-677-7777 (phone)<br/>
-				(+1) 734-677-6622 (fax)<br/>
-				E-mail:  <a href="mailto:hq@HL7.org">hq@HL7.org</a>
+      Health Level Seven International
+      <br/>
+				3300 Washtenaw Avenue, Suite 227
+      <br/>
+				Ann Arbor, MI 48104
+      <br/>
+				USA
+      <br/>
+				(+1) 734-677-7777 (phone)
+      <br/>
+				(+1) 734-677-6622 (fax)
+      <br/>
+				E-mail:  
+      <a href="mailto:hq@HL7.org">hq@HL7.org</a>
+    
     </div>
   </text>
-
-  <!-- HL7 itself -->
-  <name value="Health Level Seven International"/>
+  <active value="true"/>
   <type>
     <coding>
-        <system value="http://hl7.org/fhir/organization-type"/>
-        <code value="team"/>
-        <display value="Organizational team"/>
+      <system value="http://hl7.org/fhir/organization-type"/>
+      <code value="team"/>
+      <display value="Organizational team"/>
     </coding>
   </type>
+<!--  HL7 itself  -->
+  <name value="Health Level Seven International"/>
   <telecom>
     <system value="phone"/>
     <value value="(+1) 734-677-7777"/>
@@ -44,5 +52,4 @@
     <postalCode value="48104"/>
     <country value="USA"/>
   </address>
-  <active value="true"/>
 </Organization>
