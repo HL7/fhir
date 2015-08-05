@@ -34,13 +34,13 @@
     <rate><!--   600 mg/m^2 over 30 minutes   -->
       <numerator>
         <value value="600"/>
-        <units value="mg/m^2"/>
+        <unit value="mg/m^2"/>
         <system value="http://snomed.info/sct"/>
         <code value="258682000"/>
       </numerator>
       <denominator>
         <value value="30"/>
-        <units value="minutes"/>
+        <unit value="minutes"/>
         <system value="http://snomed.info/sct"/>
         <code value="258702006"/>
       </denominator>

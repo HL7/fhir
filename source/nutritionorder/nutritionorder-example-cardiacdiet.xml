@@ -116,7 +116,7 @@ edited by Eric Haas Health eData Inc
 			</modifier>
 			<amount>
 				<value value="2"/>
-				<units value="grams"/>
+				<unit value="grams"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>
@@ -131,7 +131,7 @@ edited by Eric Haas Health eData Inc
 			</modifier>
 			<amount>
 				<value value="1500"/>
-				<units value="milliliter"/>
+				<unit value="milliliter"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL"/>
 			</amount>

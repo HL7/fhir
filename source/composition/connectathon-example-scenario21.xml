@@ -219,7 +219,7 @@
       </name>
       <valueQuantity>
         <value value="120"/>
-        <units value="mm(Hg)"/>
+        <unit value="mm(Hg)"/>
         <system value="http://unitsofmeasure.org" />
       </valueQuantity>
       <status value="final"/>
@@ -250,7 +250,7 @@
       </name>
       <valueQuantity>
         <value value="80"/>
-        <units value="mm(Hg)"/>
+        <unit value="mm(Hg)"/>
         <system value="http://unitsofmeasure.org" />
       </valueQuantity>
       <status value="final"/>

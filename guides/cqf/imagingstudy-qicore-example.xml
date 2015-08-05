@@ -11,18 +11,18 @@
     <valueRange>
       <low>
         <value value="200.0"/>
-        <units value="Gy"/>
+        <unit value="Gy"/>
       </low>
       <high>
         <value value="1234.5"/>
-        <units value="Gy"/>
+        <unit value="Gy"/>
       </high>
     </valueRange>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDuration">
     <valueQuantity>
       <value value="25" />
-      <units value="sec" />
+      <unit value="sec" />
       <system value="http://unitsofmeasure.org" />
       <code value="s" />
     </valueQuantity>

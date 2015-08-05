@@ -87,7 +87,7 @@ see narrative this the screen that leads to follow up order for whole blood lead
     -->
   <valueQuantity>
     <value value="65"/>
-    <units value="microgram per deciliter"/>
+    <unit value="microgram per deciliter"/>
     <system value="http://unitsofmeasure.org"/>
     <code value="ug/dL"/>
   </valueQuantity>
@@ -106,7 +106,7 @@ see narrative this the screen that leads to follow up order for whole blood lead
   <referenceRange>
     <high>
       <value value="5.0"/>
-      <units value="microgram per deciliter"/>
+      <unit value="microgram per deciliter"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="ug/dL"/>
     </high>

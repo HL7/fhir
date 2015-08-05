@@ -28,7 +28,7 @@
     </participant>
     <length>
         <value value="140"/>
-        <units value="min"/>
+        <unit value="min"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="min"/>
     </length>

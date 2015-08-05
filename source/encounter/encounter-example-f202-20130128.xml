@@ -25,7 +25,7 @@
  </participant>
  <length>
     <value value="56"/>
-    <units value="minutes"/>
+    <unit value="minutes"/>
     <system value="http://snomed.info/sct"/>
     <code value="258701004"/>
  </length>

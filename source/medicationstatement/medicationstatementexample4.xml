@@ -54,7 +54,7 @@
     <maxDosePerPeriod>
       <numerator>
         <value value="3"/>
-        <units value="capsules" />
+        <unit value="capsules" />
         <system value="http://snomed.info/sct" />
         <code value="385055001"/>
       </numerator>

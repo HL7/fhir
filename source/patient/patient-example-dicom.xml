@@ -11,19 +11,19 @@
   <extension url="http://nema.org/fhir/extensions#0010:1010">
     <valueQuantity>
       <value value="56"/>
-      <units value="Y"/>
+      <unit value="Y"/>
     </valueQuantity>
   </extension>
   <extension url="http://nema.org/fhir/extensions#0010:1020">
     <valueQuantity>
       <value value="1.83"/>
-      <units value="m"/>
+      <unit value="m"/>
     </valueQuantity>
   </extension>
   <extension url="http://nema.org/fhir/extensions#0010:1030">
     <valueQuantity>
       <value value="72.58"/>
-      <units value="kg"/>
+      <unit value="kg"/>
     </valueQuantity>
   </extension>
 

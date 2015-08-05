@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 12:40+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -252,10 +252,10 @@ public class JsonParser extends JsonParserBase {
       res.setComparatorElement(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
       parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorElement());
-    if (json.has("units"))
-      res.setUnitsElement(parseString(json.get("units").getAsString()));
-    if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsElement());
+    if (json.has("unit"))
+      res.setUnitElement(parseString(json.get("unit").getAsString()));
+    if (json.has("_unit"))
+      parseElementProperties(json.getAsJsonObject("_unit"), res.getUnitElement());
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
@@ -456,10 +456,10 @@ public class JsonParser extends JsonParserBase {
       res.setComparatorElement(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
       parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorElement());
-    if (json.has("units"))
-      res.setUnitsElement(parseString(json.get("units").getAsString()));
-    if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsElement());
+    if (json.has("unit"))
+      res.setUnitElement(parseString(json.get("unit").getAsString()));
+    if (json.has("_unit"))
+      parseElementProperties(json.getAsJsonObject("_unit"), res.getUnitElement());
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
@@ -482,10 +482,10 @@ public class JsonParser extends JsonParserBase {
       res.setComparatorElement(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
       parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorElement());
-    if (json.has("units"))
-      res.setUnitsElement(parseString(json.get("units").getAsString()));
-    if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsElement());
+    if (json.has("unit"))
+      res.setUnitElement(parseString(json.get("unit").getAsString()));
+    if (json.has("_unit"))
+      parseElementProperties(json.getAsJsonObject("_unit"), res.getUnitElement());
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
@@ -508,10 +508,10 @@ public class JsonParser extends JsonParserBase {
       res.setComparatorElement(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
       parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorElement());
-    if (json.has("units"))
-      res.setUnitsElement(parseString(json.get("units").getAsString()));
-    if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsElement());
+    if (json.has("unit"))
+      res.setUnitElement(parseString(json.get("unit").getAsString()));
+    if (json.has("_unit"))
+      parseElementProperties(json.getAsJsonObject("_unit"), res.getUnitElement());
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
@@ -534,10 +534,10 @@ public class JsonParser extends JsonParserBase {
       res.setComparatorElement(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
       parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorElement());
-    if (json.has("units"))
-      res.setUnitsElement(parseString(json.get("units").getAsString()));
-    if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsElement());
+    if (json.has("unit"))
+      res.setUnitElement(parseString(json.get("unit").getAsString()));
+    if (json.has("_unit"))
+      parseElementProperties(json.getAsJsonObject("_unit"), res.getUnitElement());
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
@@ -560,10 +560,10 @@ public class JsonParser extends JsonParserBase {
       res.setComparatorElement(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
       parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorElement());
-    if (json.has("units"))
-      res.setUnitsElement(parseString(json.get("units").getAsString()));
-    if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsElement());
+    if (json.has("unit"))
+      res.setUnitElement(parseString(json.get("unit").getAsString()));
+    if (json.has("_unit"))
+      parseElementProperties(json.getAsJsonObject("_unit"), res.getUnitElement());
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
@@ -3333,9 +3333,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
     if (json.has("clinicalStatus"))
-      res.setClinicalStatusElement(parseEnumeration(json.get("clinicalStatus").getAsString(), Condition.ConditionClinicalStatus.NULL, new Condition.ConditionClinicalStatusEnumFactory()));
+      res.setClinicalStatusElement(parseCode(json.get("clinicalStatus").getAsString()));
     if (json.has("_clinicalStatus"))
       parseElementProperties(json.getAsJsonObject("_clinicalStatus"), res.getClinicalStatusElement());
+    if (json.has("verificationStatus"))
+      res.setVerificationStatusElement(parseEnumeration(json.get("verificationStatus").getAsString(), Condition.ConditionVerificationStatus.NULL, new Condition.ConditionVerificationStatusEnumFactory()));
+    if (json.has("_verificationStatus"))
+      parseElementProperties(json.getAsJsonObject("_verificationStatus"), res.getVerificationStatusElement());
     if (json.has("severity"))
       res.setSeverity(parseCodeableConcept(json.getAsJsonObject("severity")));
     Type onset = parseType("onset", json);
@@ -12145,9 +12149,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("comparator", element.getComparatorElement(), new Quantity.QuantityComparatorEnumFactory(), false);
         composeEnumerationExtras("comparator", element.getComparatorElement(), new Quantity.QuantityComparatorEnumFactory(), false);
       }
-      if (element.hasUnitsElement()) {
-        composeStringCore("units", element.getUnitsElement(), false);
-        composeStringExtras("units", element.getUnitsElement(), false);
+      if (element.hasUnitElement()) {
+        composeStringCore("unit", element.getUnitElement(), false);
+        composeStringExtras("unit", element.getUnitElement(), false);
       }
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -12409,9 +12413,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("comparator", element.getComparatorElement(), new Age.QuantityComparatorEnumFactory(), false);
         composeEnumerationExtras("comparator", element.getComparatorElement(), new Age.QuantityComparatorEnumFactory(), false);
       }
-      if (element.hasUnitsElement()) {
-        composeStringCore("units", element.getUnitsElement(), false);
-        composeStringExtras("units", element.getUnitsElement(), false);
+      if (element.hasUnitElement()) {
+        composeStringCore("unit", element.getUnitElement(), false);
+        composeStringExtras("unit", element.getUnitElement(), false);
       }
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -12441,9 +12445,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("comparator", element.getComparatorElement(), new Count.QuantityComparatorEnumFactory(), false);
         composeEnumerationExtras("comparator", element.getComparatorElement(), new Count.QuantityComparatorEnumFactory(), false);
       }
-      if (element.hasUnitsElement()) {
-        composeStringCore("units", element.getUnitsElement(), false);
-        composeStringExtras("units", element.getUnitsElement(), false);
+      if (element.hasUnitElement()) {
+        composeStringCore("unit", element.getUnitElement(), false);
+        composeStringExtras("unit", element.getUnitElement(), false);
       }
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -12473,9 +12477,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("comparator", element.getComparatorElement(), new Money.QuantityComparatorEnumFactory(), false);
         composeEnumerationExtras("comparator", element.getComparatorElement(), new Money.QuantityComparatorEnumFactory(), false);
       }
-      if (element.hasUnitsElement()) {
-        composeStringCore("units", element.getUnitsElement(), false);
-        composeStringExtras("units", element.getUnitsElement(), false);
+      if (element.hasUnitElement()) {
+        composeStringCore("unit", element.getUnitElement(), false);
+        composeStringExtras("unit", element.getUnitElement(), false);
       }
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -12505,9 +12509,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("comparator", element.getComparatorElement(), new Distance.QuantityComparatorEnumFactory(), false);
         composeEnumerationExtras("comparator", element.getComparatorElement(), new Distance.QuantityComparatorEnumFactory(), false);
       }
-      if (element.hasUnitsElement()) {
-        composeStringCore("units", element.getUnitsElement(), false);
-        composeStringExtras("units", element.getUnitsElement(), false);
+      if (element.hasUnitElement()) {
+        composeStringCore("unit", element.getUnitElement(), false);
+        composeStringExtras("unit", element.getUnitElement(), false);
       }
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -12537,9 +12541,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("comparator", element.getComparatorElement(), new Duration.QuantityComparatorEnumFactory(), false);
         composeEnumerationExtras("comparator", element.getComparatorElement(), new Duration.QuantityComparatorEnumFactory(), false);
       }
-      if (element.hasUnitsElement()) {
-        composeStringCore("units", element.getUnitsElement(), false);
-        composeStringExtras("units", element.getUnitsElement(), false);
+      if (element.hasUnitElement()) {
+        composeStringCore("unit", element.getUnitElement(), false);
+        composeStringExtras("unit", element.getUnitElement(), false);
       }
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -15908,8 +15912,12 @@ public class JsonParser extends JsonParserBase {
         composeCodeableConcept("category", element.getCategory());
       }
       if (element.hasClinicalStatusElement()) {
-        composeEnumerationCore("clinicalStatus", element.getClinicalStatusElement(), new Condition.ConditionClinicalStatusEnumFactory(), false);
-        composeEnumerationExtras("clinicalStatus", element.getClinicalStatusElement(), new Condition.ConditionClinicalStatusEnumFactory(), false);
+        composeCodeCore("clinicalStatus", element.getClinicalStatusElement(), false);
+        composeCodeExtras("clinicalStatus", element.getClinicalStatusElement(), false);
+      }
+      if (element.hasVerificationStatusElement()) {
+        composeEnumerationCore("verificationStatus", element.getVerificationStatusElement(), new Condition.ConditionVerificationStatusEnumFactory(), false);
+        composeEnumerationExtras("verificationStatus", element.getVerificationStatusElement(), new Condition.ConditionVerificationStatusEnumFactory(), false);
       }
       if (element.hasSeverity()) {
         composeCodeableConcept("severity", element.getSeverity());

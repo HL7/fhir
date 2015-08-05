@@ -109,7 +109,7 @@ edited by Eric Haas Health eData Inc
 			</modifier>
 			<amount>
 				<value value="2"/>
-				<units value="grams"/>
+				<unit value="grams"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>
@@ -124,7 +124,7 @@ edited by Eric Haas Health eData Inc
 			</modifier>
 			<amount>
 				<value value="1000"/>
-				<units value="milligrams"/>
+				<unit value="milligrams"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mg"/>
 			</amount>
@@ -139,7 +139,7 @@ edited by Eric Haas Health eData Inc
 			</modifier>
 			<amount>
 				<value value="2"/>
-				<units value="grams"/>
+				<unit value="grams"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>

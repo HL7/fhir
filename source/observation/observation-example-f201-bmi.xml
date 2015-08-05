@@ -24,7 +24,7 @@
       </performer>
       <valueQuantity>
         <value value="182"/>
-        <units value="centimeter"/>
+        <unit value="centimeter"/>
         <system value="http://snomed.info/sct"/>
         <code value="258672001"/>
       </valueQuantity>
@@ -52,7 +52,7 @@
       </performer>
       <valueQuantity>
         <value value="103.7"/>
-        <units value="kilogram"/>
+        <unit value="kilogram"/>
         <system value="http://snomed.info/sct"/>
         <code value="258683005"/>
       </valueQuantity>

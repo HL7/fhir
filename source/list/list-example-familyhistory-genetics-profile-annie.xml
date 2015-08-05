@@ -63,7 +63,7 @@
       </relationship>
       <deceasedAge>
         <value value="50"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </deceasedAge>
@@ -77,7 +77,7 @@
         </type>
         <onsetAge>
           <value value="45"/>
-          <units value="years"/>
+          <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
         </onsetAge>
@@ -133,7 +133,7 @@
       </relationship>
       <ageAge>
         <value value="72"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -157,7 +157,7 @@
       </relationship>
       <deceasedAge>
         <value value="77"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </deceasedAge>
@@ -171,7 +171,7 @@
         </type>
         <onsetAge>
           <value value="55"/>
-          <units value="years"/>
+          <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
         </onsetAge>
@@ -195,7 +195,7 @@
       </relationship>
       <deceasedAge>
         <value value="76"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </deceasedAge>
@@ -218,7 +218,7 @@
       </relationship>
       <deceasedAge>
         <value value="74"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </deceasedAge>
@@ -241,7 +241,7 @@
       </relationship>
       <deceasedAge>
         <value value="73"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </deceasedAge>
@@ -255,7 +255,7 @@
         </type>
         <onsetAge>
           <value value="72"/>
-          <units value="years"/>
+          <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
         </onsetAge>
@@ -311,7 +311,7 @@
       </relationship>
       <ageAge>
         <value value="32"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -326,7 +326,7 @@
         </type>
         <onsetAge>
           <value value="32"/>
-          <units value="years"/>
+          <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
         </onsetAge>
@@ -383,7 +383,7 @@
           <!--Age was 31 in source, but 36 in diagram -->
     <ageAge>
         <value value="36"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -398,7 +398,7 @@
         </type>
         <onsetAge>
           <value value="35"/>
-          <units value="years"/>
+          <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
         </onsetAge>
@@ -421,7 +421,7 @@
       </relationship>
       <ageAge>
         <value value="30"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -476,7 +476,7 @@
       </relationship>
       <ageAge>
         <value value="16"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -532,7 +532,7 @@
       </relationship>
       <ageAge>
         <value value="15"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -570,7 +570,7 @@
       </relationship>
       <ageAge>
         <value value="35"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -624,7 +624,7 @@
       </relationship>
       <ageAge>
         <value value="17"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -678,7 +678,7 @@
       </relationship>
       <ageAge>
         <value value="56"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -732,7 +732,7 @@
       </relationship>
       <ageAge>
         <value value="57"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -795,7 +795,7 @@
       </relationship>
       <ageAge>
         <value value="60"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -849,7 +849,7 @@
       </relationship>
       <ageAge>
         <value value="57"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -920,7 +920,7 @@
       <gender value="female"/>
       <ageAge>
         <value value="30"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
@@ -934,7 +934,7 @@
         </type>
         <onsetAge>
           <value value="30"/>
-          <units value="years"/>
+          <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
         </onsetAge>
@@ -990,7 +990,7 @@
       <gender value="female"/>
     <ageAge>
         <value value="31"/>
-        <units value="years"/>
+        <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>

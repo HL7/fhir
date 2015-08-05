@@ -31,13 +31,13 @@
     <rate><!--   175 mg/m^2 over 3 hours  -->
       <numerator>
         <value value="175"/>
-        <units value="mg/m^2"/>
+        <unit value="mg/m^2"/>
         <system value="http://snomed.info/sct"/>
         <code value="258682000"/>
       </numerator>
       <denominator>
         <value value="3"/>
-        <units value="hours"/>
+        <unit value="hours"/>
         <system value="http://snomed.info/sct"/>
         <code value="258702006"/>
       </denominator>

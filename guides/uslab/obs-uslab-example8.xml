@@ -87,11 +87,11 @@ see narrative this the screen that leads to follow up order for whole blood lead
   <valueRange>
     <low>
       <value value="10"/>
-      <units value="WBC/HPF"/>
+      <unit value="WBC/HPF"/>
     </low>
     <high>
       <value value="20"/>
-      <units value="WBC/HPF"/>
+      <unit value="WBC/HPF"/>
     </high>
   </valueRange>
 <!--   eH dataabsent reason  would go here if valueQuantity was empty e.g.:
@@ -109,13 +109,13 @@ see narrative this the screen that leads to follow up order for whole blood lead
   <referenceRange>
     <low>
       <value value="0"/>
-      <units value="WBC/HPF"/>
+      <unit value="WBC/HPF"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="/[HPF]"/>
     </low>
     <high>
       <value value="5"/>
-      <units value="WBC/HPF"/>
+      <unit value="WBC/HPF"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="/[HPF]"/>
     </high>

@@ -99,7 +99,7 @@ edited by Eric Haas Health eData Inc
 		</schedule>
 		<quantity>
 			<value value="1"/>
-			<units value="8 oz bottle"/>
+			<unit value="8 oz bottle"/>
 		</quantity>
 		<!-- EH:  use the .instructions element to list diet  supplement order
 		<instruction value="Glucerna Shake at 3pm and HS"/>

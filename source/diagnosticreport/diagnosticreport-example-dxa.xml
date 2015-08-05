@@ -360,7 +360,7 @@ GE LUNAR PRODIGY DENSITOMETER
       </performer>
       <valueQuantity>
         <value value="0.887"/>
-        <units value="g/cm²"/>
+        <unit value="g/cm²"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="g/cm-2"/>
       </valueQuantity>

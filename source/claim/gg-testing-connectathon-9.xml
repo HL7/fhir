@@ -59,7 +59,7 @@
     <serviceDate value="2015-05-10"/>
     <unitPrice>
       <value value="65.00"/>
-      <units value="$"/>
+      <unit value="$"/>
       <system value="urn:iso:std:4217"/>
       <code value="USD"/>
     </unitPrice>
@@ -80,7 +80,7 @@
     <serviceDate value="2015-05-10"/>
     <unitPrice>
       <value value="105.00"/>
-      <units value="$"/>
+      <unit value="$"/>
       <system value="urn:iso:std:4217"/>
       <code value="USD"/>
     </unitPrice>
@@ -109,7 +109,7 @@
     <serviceDate value="2015-05-10"/>
     <unitPrice>
       <value value="105.00"/>
-      <units value="$"/>
+      <unit value="$"/>
       <system value="urn:iso:std:4217"/>
       <code value="USD"/>
     </unitPrice>

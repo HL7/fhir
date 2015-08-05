@@ -63,7 +63,7 @@ edited by Eric Haas Health eData Inc-->
 		<additiveProductName value="Acme High Carbohydrate Additive"/>
 		<caloricDensity>
 			<value value="20"/>
-			<units value="calories per ounce"/>
+			<unit value="calories per ounce"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="cal/[foz_us]"/>
 		</caloricDensity>
@@ -84,12 +84,12 @@ edited by Eric Haas Health eData Inc-->
 				<repeat>
 					<frequency value="1"/>
 					<duration value="3"/>
-					<units value="h"/>
+					<unit value="h"/>
 				</repeat>
 			</scheduleTiming>
 			<quantity>
 				<value value="4"/>
-				<units value="ounces"/>
+				<unit value="ounces"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="[foz_us]"/>
 			</quantity>
@@ -97,7 +97,7 @@ edited by Eric Haas Health eData Inc-->
 		
 		<maxVolumeToDeliver>
 			<value value="32"/>
-			<units value="ounces"/>
+			<unit value="ounces"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="[foz_us]"/>
 		</maxVolumeToDeliver>

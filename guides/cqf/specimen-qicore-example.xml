@@ -41,7 +41,7 @@
         <valueBoolean value="false"/>
       </extension>
       <value value="6"/>
-      <units value="mL"/>
+      <unit value="mL"/>
     </quantity>
   </collection>
   <treatment>
@@ -69,7 +69,7 @@
     </type>
     <capacity>
       <value value="10"/>
-      <units value="mL"/>
+      <unit value="mL"/>
     </capacity>
 
   </container>

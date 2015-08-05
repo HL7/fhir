@@ -10165,7 +10165,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.valueRange.low.units</Data>
+					<Data ss:Type="String">Observation.valueRange.low.unit</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
@@ -10526,7 +10526,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.valueRange.high.units</Data>
+					<Data ss:Type="String">Observation.valueRange.high.unit</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">
@@ -17478,7 +17478,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
-					<Data ss:Type="String">Observation.valueQuantity.units</Data>
+					<Data ss:Type="String">Observation.valueQuantity.unit</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s107">

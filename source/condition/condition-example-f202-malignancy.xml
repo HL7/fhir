@@ -35,7 +35,7 @@
    </severity>
    <onsetAge>
       <value value="52"/>
-      <units value="years"/>
+      <unit value="years"/>
       <system value="http://snomed.info/sct"/>
       <code value="258707000"/>
    </onsetAge>

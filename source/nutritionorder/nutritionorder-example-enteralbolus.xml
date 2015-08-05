@@ -91,7 +91,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		<additiveProductName value="Acme Lipid Additive"/>
 		<caloricDensity>
 			<value value="1.5"/>
-			<units value="calories per milliliter"/>
+			<unit value="calories per milliliter"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="cal/mL"/>
 		</caloricDensity>
@@ -115,14 +115,14 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 			</schedule>
 			<quantity>
 				<value value="240"/>
-				<units value="milliliters"/>
+				<unit value="milliliters"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL"/>
 			</quantity>
 		</administration>
 		<maxVolumeToDeliver>
 			<value value="1440"/>
-			<units value="milliliter/day"/>
+			<unit value="milliliter/day"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mL/d"/>
 		</maxVolumeToDeliver>

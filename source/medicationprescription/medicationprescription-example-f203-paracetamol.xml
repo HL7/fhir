@@ -36,13 +36,13 @@
   <maxDosePerPeriod><!--3000mg/24h-->
     <numerator>
         <value value="3000"/>
-        <units value="milligram"/>
+        <unit value="milligram"/>
         <system value="http://snomed.info/sct"/>
         <code value="258684004"/>
     </numerator>
     <denominator>
         <value value="24"/>
-        <units value="hours"/>
+        <unit value="hours"/>
         <system value="http://snomed.info/sct"/>
         <code value="258702006"/>
     </denominator>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1140,7 +1140,7 @@ public class Timing extends Type implements ICompositeType {
      * A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes.
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="BID | TID | QID | AM | PM +", formalDefinition="A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes." )
+    @Description(shortDefinition="QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +", formalDefinition="A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes." )
     protected CodeableConcept code;
 
     private static final long serialVersionUID = 791565112L;

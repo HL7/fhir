@@ -68,7 +68,7 @@
       </item>
       <amount>
         <value value="7.5"/>
-        <units value="gm"/>
+        <unit value="gm"/>
         <system value="http://unitsofmeasure.org"/>
       </amount>
     </content>

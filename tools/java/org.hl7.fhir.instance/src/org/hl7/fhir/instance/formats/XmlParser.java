@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 12:40+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -449,8 +449,8 @@ public class XmlParser extends XmlParserBase {
         res.setValueElement(parseDecimal(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comparator")) {
         res.setComparatorElement(parseEnumeration(xpp, Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("units")) {
-        res.setUnitsElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("unit")) {
+        res.setUnitElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -664,8 +664,8 @@ public class XmlParser extends XmlParserBase {
         res.setValueElement(parseDecimal(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comparator")) {
         res.setComparatorElement(parseEnumeration(xpp, Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("units")) {
-        res.setUnitsElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("unit")) {
+        res.setUnitElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -689,8 +689,8 @@ public class XmlParser extends XmlParserBase {
         res.setValueElement(parseDecimal(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comparator")) {
         res.setComparatorElement(parseEnumeration(xpp, Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("units")) {
-        res.setUnitsElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("unit")) {
+        res.setUnitElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -714,8 +714,8 @@ public class XmlParser extends XmlParserBase {
         res.setValueElement(parseDecimal(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comparator")) {
         res.setComparatorElement(parseEnumeration(xpp, Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("units")) {
-        res.setUnitsElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("unit")) {
+        res.setUnitElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -739,8 +739,8 @@ public class XmlParser extends XmlParserBase {
         res.setValueElement(parseDecimal(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comparator")) {
         res.setComparatorElement(parseEnumeration(xpp, Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("units")) {
-        res.setUnitsElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("unit")) {
+        res.setUnitElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -764,8 +764,8 @@ public class XmlParser extends XmlParserBase {
         res.setValueElement(parseDecimal(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comparator")) {
         res.setComparatorElement(parseEnumeration(xpp, Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("units")) {
-        res.setUnitsElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("unit")) {
+        res.setUnitElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -3120,7 +3120,9 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
         res.setCategory(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("clinicalStatus")) {
-        res.setClinicalStatusElement(parseEnumeration(xpp, Condition.ConditionClinicalStatus.NULL, new Condition.ConditionClinicalStatusEnumFactory()));
+        res.setClinicalStatusElement(parseCode(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("verificationStatus")) {
+        res.setVerificationStatusElement(parseEnumeration(xpp, Condition.ConditionVerificationStatus.NULL, new Condition.ConditionVerificationStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("severity")) {
         res.setSeverity(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "onset")) {
@@ -11247,8 +11249,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasComparatorElement())
         composeEnumeration("comparator", element.getComparatorElement(), new Quantity.QuantityComparatorEnumFactory());
-      if (element.hasUnitsElement()) {
-        composeString("units", element.getUnitsElement());
+      if (element.hasUnitElement()) {
+        composeString("unit", element.getUnitElement());
       }
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -11455,8 +11457,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasComparatorElement())
         composeEnumeration("comparator", element.getComparatorElement(), new Age.QuantityComparatorEnumFactory());
-      if (element.hasUnitsElement()) {
-        composeString("units", element.getUnitsElement());
+      if (element.hasUnitElement()) {
+        composeString("unit", element.getUnitElement());
       }
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -11479,8 +11481,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasComparatorElement())
         composeEnumeration("comparator", element.getComparatorElement(), new Count.QuantityComparatorEnumFactory());
-      if (element.hasUnitsElement()) {
-        composeString("units", element.getUnitsElement());
+      if (element.hasUnitElement()) {
+        composeString("unit", element.getUnitElement());
       }
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -11503,8 +11505,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasComparatorElement())
         composeEnumeration("comparator", element.getComparatorElement(), new Money.QuantityComparatorEnumFactory());
-      if (element.hasUnitsElement()) {
-        composeString("units", element.getUnitsElement());
+      if (element.hasUnitElement()) {
+        composeString("unit", element.getUnitElement());
       }
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -11527,8 +11529,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasComparatorElement())
         composeEnumeration("comparator", element.getComparatorElement(), new Distance.QuantityComparatorEnumFactory());
-      if (element.hasUnitsElement()) {
-        composeString("units", element.getUnitsElement());
+      if (element.hasUnitElement()) {
+        composeString("unit", element.getUnitElement());
       }
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -11551,8 +11553,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasComparatorElement())
         composeEnumeration("comparator", element.getComparatorElement(), new Duration.QuantityComparatorEnumFactory());
-      if (element.hasUnitsElement()) {
-        composeString("units", element.getUnitsElement());
+      if (element.hasUnitElement()) {
+        composeString("unit", element.getUnitElement());
       }
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -14115,8 +14117,11 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCategory()) {
         composeCodeableConcept("category", element.getCategory());
       }
-      if (element.hasClinicalStatusElement())
-        composeEnumeration("clinicalStatus", element.getClinicalStatusElement(), new Condition.ConditionClinicalStatusEnumFactory());
+      if (element.hasClinicalStatusElement()) {
+        composeCode("clinicalStatus", element.getClinicalStatusElement());
+      }
+      if (element.hasVerificationStatusElement())
+        composeEnumeration("verificationStatus", element.getVerificationStatusElement(), new Condition.ConditionVerificationStatusEnumFactory());
       if (element.hasSeverity()) {
         composeCodeableConcept("severity", element.getSeverity());
       }

@@ -24,7 +24,7 @@
   <effectiveDateTime value="2014-12-05T09:30:10+01:00"/>
   <valueQuantity>
     <value value="95"/>
-    <units value="%"/>
+    <unit value="%"/>
     <system value="https://rtmms.nist.gov"/>
     <code value="262688"/>
   </valueQuantity>
@@ -41,13 +41,13 @@
   <referenceRange>
     <low>
       <value value="90"/>
-      <units value="%"/>
+      <unit value="%"/>
       <system value="https://rtmms.nist.gov"/>
       <code value="262688"/>
     </low>
     <high>
       <value value="99"/>
-      <units value="%"/>
+      <unit value="%"/>
       <system value="https://rtmms.nist.gov"/>
       <code value="262688"/>
     </high>

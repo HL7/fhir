@@ -38,7 +38,7 @@
     <diameter value="14.0"/>
     <duration>
       <value value="1"/>
-      <units value="month"/>
+      <unit value="month"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="month"/>
     </duration>
@@ -60,7 +60,7 @@
     <diameter value="14.0"/>
     <duration>
       <value value="1"/>
-      <units value="month"/>
+      <unit value="month"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="month"/>
     </duration>

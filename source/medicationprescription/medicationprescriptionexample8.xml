@@ -31,20 +31,20 @@
     </route>
     <doseQuantity>
       <value value="80"/>
-      <units value="mg"/>
+      <unit value="mg"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="mg"/>
     </doseQuantity>
     <rate>
       <numerator>
         <value value="80"/>
-        <units value="mg"/>
+        <unit value="mg"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="mg"/>
       </numerator>
       <denominator>
         <value value="60"/>
-        <units value="minutes"/>
+        <unit value="minutes"/>
         <system value="http://snomed.info/sct"/>
         <code value="258702006"/>
       </denominator>

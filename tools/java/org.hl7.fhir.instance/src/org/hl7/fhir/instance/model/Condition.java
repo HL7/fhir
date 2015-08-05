@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 4, 2015 10:21+1000 for FHIR v0.5.0
+// Generated on Wed, Aug 5, 2015 12:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -46,15 +46,15 @@ import org.hl7.fhir.instance.model.api.*;
 @ResourceDef(name="Condition", profile="http://hl7.org/fhir/Profile/Condition")
 public class Condition extends DomainResource {
 
-    public enum ConditionClinicalStatus {
+    public enum ConditionVerificationStatus {
         /**
          * This is a tentative diagnosis - still a candidate that is under consideration
          */
         PROVISIONAL, 
         /**
-         * The patient is being treated on the basis that this is the condition, but it is still not confirmed
+         * One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment
          */
-        WORKING, 
+        DIFFERENTIAL, 
         /**
          * There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition
          */
@@ -75,13 +75,13 @@ public class Condition extends DomainResource {
          * added to help the parsers
          */
         NULL;
-        public static ConditionClinicalStatus fromCode(String codeString) throws Exception {
+        public static ConditionVerificationStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("provisional".equals(codeString))
           return PROVISIONAL;
-        if ("working".equals(codeString))
-          return WORKING;
+        if ("differential".equals(codeString))
+          return DIFFERENTIAL;
         if ("confirmed".equals(codeString))
           return CONFIRMED;
         if ("refuted".equals(codeString))
@@ -90,12 +90,12 @@ public class Condition extends DomainResource {
           return ENTEREDINERROR;
         if ("unknown".equals(codeString))
           return UNKNOWN;
-        throw new Exception("Unknown ConditionClinicalStatus code '"+codeString+"'");
+        throw new Exception("Unknown ConditionVerificationStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case PROVISIONAL: return "provisional";
-            case WORKING: return "working";
+            case DIFFERENTIAL: return "differential";
             case CONFIRMED: return "confirmed";
             case REFUTED: return "refuted";
             case ENTEREDINERROR: return "entered-in-error";
@@ -105,19 +105,19 @@ public class Condition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PROVISIONAL: return "http://hl7.org/fhir/condition-status";
-            case WORKING: return "http://hl7.org/fhir/condition-status";
-            case CONFIRMED: return "http://hl7.org/fhir/condition-status";
-            case REFUTED: return "http://hl7.org/fhir/condition-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/condition-status";
-            case UNKNOWN: return "http://hl7.org/fhir/condition-status";
+            case PROVISIONAL: return "http://hl7.org/fhir/condition-ver-status";
+            case DIFFERENTIAL: return "http://hl7.org/fhir/condition-ver-status";
+            case CONFIRMED: return "http://hl7.org/fhir/condition-ver-status";
+            case REFUTED: return "http://hl7.org/fhir/condition-ver-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/condition-ver-status";
+            case UNKNOWN: return "http://hl7.org/fhir/condition-ver-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
             case PROVISIONAL: return "This is a tentative diagnosis - still a candidate that is under consideration";
-            case WORKING: return "The patient is being treated on the basis that this is the condition, but it is still not confirmed";
+            case DIFFERENTIAL: return "One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment";
             case CONFIRMED: return "There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition";
             case REFUTED: return "This condition has been ruled out by diagnostic and clinical evidence";
             case ENTEREDINERROR: return "The statement was entered in error and Is not valid";
@@ -128,7 +128,7 @@ public class Condition extends DomainResource {
         public String getDisplay() {
           switch (this) {
             case PROVISIONAL: return "Provisional";
-            case WORKING: return "Working";
+            case DIFFERENTIAL: return "Differential";
             case CONFIRMED: return "Confirmed";
             case REFUTED: return "Refuted";
             case ENTEREDINERROR: return "Entered In Error";
@@ -138,37 +138,37 @@ public class Condition extends DomainResource {
         }
     }
 
-  public static class ConditionClinicalStatusEnumFactory implements EnumFactory<ConditionClinicalStatus> {
-    public ConditionClinicalStatus fromCode(String codeString) throws IllegalArgumentException {
+  public static class ConditionVerificationStatusEnumFactory implements EnumFactory<ConditionVerificationStatus> {
+    public ConditionVerificationStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("provisional".equals(codeString))
-          return ConditionClinicalStatus.PROVISIONAL;
-        if ("working".equals(codeString))
-          return ConditionClinicalStatus.WORKING;
+          return ConditionVerificationStatus.PROVISIONAL;
+        if ("differential".equals(codeString))
+          return ConditionVerificationStatus.DIFFERENTIAL;
         if ("confirmed".equals(codeString))
-          return ConditionClinicalStatus.CONFIRMED;
+          return ConditionVerificationStatus.CONFIRMED;
         if ("refuted".equals(codeString))
-          return ConditionClinicalStatus.REFUTED;
+          return ConditionVerificationStatus.REFUTED;
         if ("entered-in-error".equals(codeString))
-          return ConditionClinicalStatus.ENTEREDINERROR;
+          return ConditionVerificationStatus.ENTEREDINERROR;
         if ("unknown".equals(codeString))
-          return ConditionClinicalStatus.UNKNOWN;
-        throw new IllegalArgumentException("Unknown ConditionClinicalStatus code '"+codeString+"'");
+          return ConditionVerificationStatus.UNKNOWN;
+        throw new IllegalArgumentException("Unknown ConditionVerificationStatus code '"+codeString+"'");
         }
-    public String toCode(ConditionClinicalStatus code) {
-      if (code == ConditionClinicalStatus.PROVISIONAL)
+    public String toCode(ConditionVerificationStatus code) {
+      if (code == ConditionVerificationStatus.PROVISIONAL)
         return "provisional";
-      if (code == ConditionClinicalStatus.WORKING)
-        return "working";
-      if (code == ConditionClinicalStatus.CONFIRMED)
+      if (code == ConditionVerificationStatus.DIFFERENTIAL)
+        return "differential";
+      if (code == ConditionVerificationStatus.CONFIRMED)
         return "confirmed";
-      if (code == ConditionClinicalStatus.REFUTED)
+      if (code == ConditionVerificationStatus.REFUTED)
         return "refuted";
-      if (code == ConditionClinicalStatus.ENTEREDINERROR)
+      if (code == ConditionVerificationStatus.ENTEREDINERROR)
         return "entered-in-error";
-      if (code == ConditionClinicalStatus.UNKNOWN)
+      if (code == ConditionVerificationStatus.UNKNOWN)
         return "unknown";
       return "?";
       }
@@ -906,74 +906,81 @@ public class Condition extends DomainResource {
     /**
      * The clinical status of the condition.
      */
-    @Child(name = "clinicalStatus", type = {CodeType.class}, order=7, min=1, max=1)
-    @Description(shortDefinition="provisional | working | confirmed | refuted | entered-in-error | unknown", formalDefinition="The clinical status of the condition." )
-    protected Enumeration<ConditionClinicalStatus> clinicalStatus;
+    @Child(name = "clinicalStatus", type = {CodeType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="active | relapse | remission | resolved", formalDefinition="The clinical status of the condition." )
+    protected CodeType clinicalStatus;
+
+    /**
+     * The verification status to support the clinical status of the condition.
+     */
+    @Child(name = "verificationStatus", type = {CodeType.class}, order=8, min=1, max=1)
+    @Description(shortDefinition="provisional | differential | confirmed | refuted | entered-in-error | unknown", formalDefinition="The verification status to support the clinical status of the condition." )
+    protected Enumeration<ConditionVerificationStatus> verificationStatus;
 
     /**
      * A subjective assessment of the severity of the condition as evaluated by the clinician.
      */
-    @Child(name = "severity", type = {CodeableConcept.class}, order=8, min=0, max=1)
+    @Child(name = "severity", type = {CodeableConcept.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Subjective severity of condition", formalDefinition="A subjective assessment of the severity of the condition as evaluated by the clinician." )
     protected CodeableConcept severity;
 
     /**
      * Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
      */
-    @Child(name = "onset", type = {DateTimeType.class, Age.class, Period.class, Range.class, StringType.class}, order=9, min=0, max=1)
+    @Child(name = "onset", type = {DateTimeType.class, Age.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Estimated or actual date,  date-time, or age", formalDefinition="Estimated or actual date or date-time  the condition began, in the opinion of the clinician." )
     protected Type onset;
 
     /**
      * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    @Child(name = "abatement", type = {DateTimeType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1)
+    @Child(name = "abatement", type = {DateTimeType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=11, min=0, max=1)
     @Description(shortDefinition="If/when in resolution/remission", formalDefinition="The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate." )
     protected Type abatement;
 
     /**
      * Clinical stage or grade of a condition. May include formal severity assessments.
      */
-    @Child(name = "stage", type = {}, order=11, min=0, max=1)
+    @Child(name = "stage", type = {}, order=12, min=0, max=1)
     @Description(shortDefinition="Stage/grade, usually assessed formally", formalDefinition="Clinical stage or grade of a condition. May include formal severity assessments." )
     protected ConditionStageComponent stage;
 
     /**
      * Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.
      */
-    @Child(name = "evidence", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "evidence", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Supporting evidence", formalDefinition="Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed." )
     protected List<ConditionEvidenceComponent> evidence;
 
     /**
      * The anatomical location where this condition manifests itself.
      */
-    @Child(name = "location", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "location", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Anatomical location, if relevant", formalDefinition="The anatomical location where this condition manifests itself." )
     protected List<ConditionLocationComponent> location;
 
     /**
      * Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.
      */
-    @Child(name = "dueTo", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "dueTo", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Causes for this Condition", formalDefinition="Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition." )
     protected List<ConditionDueToComponent> dueTo;
 
     /**
      * Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.
      */
-    @Child(name = "occurredFollowing", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "occurredFollowing", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Precedent for this Condition", formalDefinition="Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition." )
     protected List<ConditionOccurredFollowingComponent> occurredFollowing;
 
     /**
      * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    @Child(name = "notes", type = {StringType.class}, order=16, min=0, max=1)
+    @Child(name = "notes", type = {StringType.class}, order=17, min=0, max=1)
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected StringType notes;
 
-    private static final long serialVersionUID = -1214455844L;
+    private static final long serialVersionUID = 440303384L;
 
   /*
    * Constructor
@@ -985,11 +992,11 @@ public class Condition extends DomainResource {
   /*
    * Constructor
    */
-    public Condition(Reference patient, CodeableConcept code, Enumeration<ConditionClinicalStatus> clinicalStatus) {
+    public Condition(Reference patient, CodeableConcept code, Enumeration<ConditionVerificationStatus> verificationStatus) {
       super();
       this.patient = patient;
       this.code = code;
-      this.clinicalStatus = clinicalStatus;
+      this.verificationStatus = verificationStatus;
     }
 
     /**
@@ -1259,12 +1266,12 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #clinicalStatus} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getClinicalStatus" gives direct access to the value
      */
-    public Enumeration<ConditionClinicalStatus> getClinicalStatusElement() { 
+    public CodeType getClinicalStatusElement() { 
       if (this.clinicalStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.clinicalStatus");
         else if (Configuration.doAutoCreate())
-          this.clinicalStatus = new Enumeration<ConditionClinicalStatus>(new ConditionClinicalStatusEnumFactory()); // bb
+          this.clinicalStatus = new CodeType(); // bb
       return this.clinicalStatus;
     }
 
@@ -1279,7 +1286,7 @@ public class Condition extends DomainResource {
     /**
      * @param value {@link #clinicalStatus} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getClinicalStatus" gives direct access to the value
      */
-    public Condition setClinicalStatusElement(Enumeration<ConditionClinicalStatus> value) { 
+    public Condition setClinicalStatusElement(CodeType value) { 
       this.clinicalStatus = value;
       return this;
     }
@@ -1287,17 +1294,66 @@ public class Condition extends DomainResource {
     /**
      * @return The clinical status of the condition.
      */
-    public ConditionClinicalStatus getClinicalStatus() { 
+    public String getClinicalStatus() { 
       return this.clinicalStatus == null ? null : this.clinicalStatus.getValue();
     }
 
     /**
      * @param value The clinical status of the condition.
      */
-    public Condition setClinicalStatus(ConditionClinicalStatus value) { 
+    public Condition setClinicalStatus(String value) { 
+      if (Utilities.noString(value))
+        this.clinicalStatus = null;
+      else {
         if (this.clinicalStatus == null)
-          this.clinicalStatus = new Enumeration<ConditionClinicalStatus>(new ConditionClinicalStatusEnumFactory());
+          this.clinicalStatus = new CodeType();
         this.clinicalStatus.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #verificationStatus} (The verification status to support the clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getVerificationStatus" gives direct access to the value
+     */
+    public Enumeration<ConditionVerificationStatus> getVerificationStatusElement() { 
+      if (this.verificationStatus == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Condition.verificationStatus");
+        else if (Configuration.doAutoCreate())
+          this.verificationStatus = new Enumeration<ConditionVerificationStatus>(new ConditionVerificationStatusEnumFactory()); // bb
+      return this.verificationStatus;
+    }
+
+    public boolean hasVerificationStatusElement() { 
+      return this.verificationStatus != null && !this.verificationStatus.isEmpty();
+    }
+
+    public boolean hasVerificationStatus() { 
+      return this.verificationStatus != null && !this.verificationStatus.isEmpty();
+    }
+
+    /**
+     * @param value {@link #verificationStatus} (The verification status to support the clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getVerificationStatus" gives direct access to the value
+     */
+    public Condition setVerificationStatusElement(Enumeration<ConditionVerificationStatus> value) { 
+      this.verificationStatus = value;
+      return this;
+    }
+
+    /**
+     * @return The verification status to support the clinical status of the condition.
+     */
+    public ConditionVerificationStatus getVerificationStatus() { 
+      return this.verificationStatus == null ? null : this.verificationStatus.getValue();
+    }
+
+    /**
+     * @param value The verification status to support the clinical status of the condition.
+     */
+    public Condition setVerificationStatus(ConditionVerificationStatus value) { 
+        if (this.verificationStatus == null)
+          this.verificationStatus = new Enumeration<ConditionVerificationStatus>(new ConditionVerificationStatusEnumFactory());
+        this.verificationStatus.setValue(value);
       return this;
     }
 
@@ -1749,6 +1805,7 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("clinicalStatus", "code", "The clinical status of the condition.", 0, java.lang.Integer.MAX_VALUE, clinicalStatus));
+        childrenList.add(new Property("verificationStatus", "code", "The verification status to support the clinical status of the condition.", 0, java.lang.Integer.MAX_VALUE, verificationStatus));
         childrenList.add(new Property("severity", "CodeableConcept", "A subjective assessment of the severity of the condition as evaluated by the clinician.", 0, java.lang.Integer.MAX_VALUE, severity));
         childrenList.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
         childrenList.add(new Property("abatement[x]", "dateTime|Age|boolean|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
@@ -1775,6 +1832,7 @@ public class Condition extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.category = category == null ? null : category.copy();
         dst.clinicalStatus = clinicalStatus == null ? null : clinicalStatus.copy();
+        dst.verificationStatus = verificationStatus == null ? null : verificationStatus.copy();
         dst.severity = severity == null ? null : severity.copy();
         dst.onset = onset == null ? null : onset.copy();
         dst.abatement = abatement == null ? null : abatement.copy();
@@ -1817,10 +1875,11 @@ public class Condition extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true)
            && compareDeep(asserter, o.asserter, true) && compareDeep(dateAsserted, o.dateAsserted, true) && compareDeep(code, o.code, true)
            && compareDeep(category, o.category, true) && compareDeep(clinicalStatus, o.clinicalStatus, true)
-           && compareDeep(severity, o.severity, true) && compareDeep(onset, o.onset, true) && compareDeep(abatement, o.abatement, true)
-           && compareDeep(stage, o.stage, true) && compareDeep(evidence, o.evidence, true) && compareDeep(location, o.location, true)
-           && compareDeep(dueTo, o.dueTo, true) && compareDeep(occurredFollowing, o.occurredFollowing, true)
-           && compareDeep(notes, o.notes, true);
+           && compareDeep(verificationStatus, o.verificationStatus, true) && compareDeep(severity, o.severity, true)
+           && compareDeep(onset, o.onset, true) && compareDeep(abatement, o.abatement, true) && compareDeep(stage, o.stage, true)
+           && compareDeep(evidence, o.evidence, true) && compareDeep(location, o.location, true) && compareDeep(dueTo, o.dueTo, true)
+           && compareDeep(occurredFollowing, o.occurredFollowing, true) && compareDeep(notes, o.notes, true)
+          ;
       }
 
       @Override
@@ -1831,18 +1890,19 @@ public class Condition extends DomainResource {
           return false;
         Condition o = (Condition) other;
         return compareValues(dateAsserted, o.dateAsserted, true) && compareValues(clinicalStatus, o.clinicalStatus, true)
-           && compareValues(notes, o.notes, true);
+           && compareValues(verificationStatus, o.verificationStatus, true) && compareValues(notes, o.notes, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
            && (encounter == null || encounter.isEmpty()) && (asserter == null || asserter.isEmpty())
            && (dateAsserted == null || dateAsserted.isEmpty()) && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
-           && (clinicalStatus == null || clinicalStatus.isEmpty()) && (severity == null || severity.isEmpty())
-           && (onset == null || onset.isEmpty()) && (abatement == null || abatement.isEmpty()) && (stage == null || stage.isEmpty())
-           && (evidence == null || evidence.isEmpty()) && (location == null || location.isEmpty()) && (dueTo == null || dueTo.isEmpty())
-           && (occurredFollowing == null || occurredFollowing.isEmpty()) && (notes == null || notes.isEmpty())
-          ;
+           && (clinicalStatus == null || clinicalStatus.isEmpty()) && (verificationStatus == null || verificationStatus.isEmpty())
+           && (severity == null || severity.isEmpty()) && (onset == null || onset.isEmpty()) && (abatement == null || abatement.isEmpty())
+           && (stage == null || stage.isEmpty()) && (evidence == null || evidence.isEmpty()) && (location == null || location.isEmpty())
+           && (dueTo == null || dueTo.isEmpty()) && (occurredFollowing == null || occurredFollowing.isEmpty())
+           && (notes == null || notes.isEmpty());
       }
 
   @Override

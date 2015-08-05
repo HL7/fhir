@@ -93,7 +93,7 @@ edited by Eric Haas Health eData Inc
 		</schedule>
 		<quantity>
 			<value value="1"/>
-			<units value="8 oz can"/>
+			<unit value="8 oz can"/>
 		</quantity>
 	</supplement>
 </NutritionOrder>

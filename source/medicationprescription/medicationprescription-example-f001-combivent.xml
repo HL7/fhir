@@ -64,7 +64,7 @@
         </route>
         <doseQuantity>
             <value value="10"/>
-            <units value="ml"/>
+            <unit value="ml"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="ml"/>
         </doseQuantity>
@@ -77,13 +77,13 @@
         <numberOfRepeatsAllowed value="20"/>
         <quantity>
             <value value="100"/>
-            <units value="mcg"/>
+            <unit value="mcg"/>
             <system value="urn:oid:2.16.840.1.113883.6.8"/> <!-- http://unitsofmeasure.org (UCUM code system) -->
             <code value="ug"/>
         </quantity>
         <expectedSupplyDuration>
             <value value="40"/>
-            <units value="days"/>
+            <unit value="days"/>
             <system value="urn:oid:2.16.840.1.113883.6.8"/> <!-- http://unitsofmeasure.org (UCUM code system) -->
             <code value="d"/>
         </expectedSupplyDuration>

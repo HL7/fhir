@@ -79,7 +79,7 @@
       </product>
       <dailyAmount>
         <value value="80"/>
-        <units value="mmol"/>
+        <unit value="mmol"/>
         <system value="http://snomed.info/sct"/>
         <code value="258718000"/>
       </dailyAmount>

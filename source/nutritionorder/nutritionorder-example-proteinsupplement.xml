@@ -68,7 +68,7 @@ edited by Eric Haas Health eData Inc
 		</schedule>
 		<quantity>
 			<value value="1"/>
-			<units value="scoop"/>
+			<unit value="scoop"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="{scoop}"/>
 		</quantity>

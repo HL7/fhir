@@ -5349,7 +5349,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       cu = " (UCUM: "+quantity.getCode()+")";
     if ("http://snomed.info/sct".equals(quantity.getSystem()))
       cu = " (SNOMED CT: "+quantity.getCode()+")";
-    return quantity.getValue().toString()+quantity.getUnits()+cu;
+    return quantity.getValue().toString()+quantity.getUnit()+cu;
   }
 
   private String summarise(CodeableConcept cc) throws Exception {

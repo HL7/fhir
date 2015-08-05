@@ -33,7 +33,7 @@
             <amount>
                 <numerator>
                     <value value="100"/>
-                    <units value="ml"/>
+                    <unit value="ml"/>
                     <system value="http://unitsofmeasure.org"/> <!-- UnitsOfMeasure.org clasification system -->
                     <code value="ml"/>
                 </numerator>

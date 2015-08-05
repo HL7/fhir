@@ -67,7 +67,7 @@
     
     <quantity>
       <value value="6"/>
-      <units value="mL"/> <!-- e.g. full -->
+      <unit value="mL"/> <!-- e.g. full -->
     </quantity>
     
     <!-- method is usually implied by type --> 
@@ -97,7 +97,7 @@
     </type>
     <capacity>
       <value value="10"/>
-      <units value="mL"/>
+      <unit value="mL"/>
     </capacity> 
      
     <!-- if there's only one container, then this value is the same 
@@ -105,7 +105,7 @@
      than one container -->
     <specimenQuantity>
       <value value="6"/>
-      <units value="mL"/>
+      <unit value="mL"/>
     </specimenQuantity>
 
     <additiveReference>

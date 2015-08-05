@@ -34,7 +34,7 @@
   <valueQuantity>
   <!-- Bicarbonate=28mmol/L -->
     <value value="28"/>
-    <units value="mmol/L"/>
+    <unit value="mmol/L"/>
     <system value="http://snomed.info/sct"/>
     <code value="258813002"/>
   </valueQuantity>

@@ -32,7 +32,7 @@
   <valueQuantity>
   <!-- Creatinine=122mmol/L -->
     <value value="122"/>
-    <units value="umol/L"/>
+    <unit value="umol/L"/>
     <system value="http://snomed.info/sct"/>
     <code value="258814008"/>
   </valueQuantity>

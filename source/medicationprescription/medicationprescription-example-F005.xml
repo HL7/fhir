@@ -39,7 +39,7 @@
             <repeat>
                 <frequency value="1"/>
                 <duration value="1"/>
-                <units value="d"/>
+                <unit value="d"/>
             </repeat>
         </timingSchedule>
         <site>
@@ -58,7 +58,7 @@
         </route>
         <doseQuantity>
             <value value="5"/>
-            <units value="mg"/>
+            <unit value="mg"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="mg"/>
         </doseQuantity>

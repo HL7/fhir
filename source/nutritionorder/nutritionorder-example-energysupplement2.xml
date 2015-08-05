@@ -71,12 +71,12 @@ edited by Eric Haas Health eData Inc
         </boundsPeriod>
 				<when value="AC"/>
 				<duration value="0"/>
-				<units value="min"/>
+				<unit value="min"/>
 			</repeat>
 		</schedule>
 		<quantity>
 			<value value="1"/>
-			<units value="4 oz container"/>
+			<unit value="4 oz container"/>
 		</quantity>
 	</supplement>
 	<status value="active"/>

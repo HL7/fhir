@@ -21,13 +21,13 @@
 			<valueRange>
 				<low>
 					<value value="160"/>
-					<units value="lbs"/>
+					<unit value="lbs"/>
 					<system value="http://unitsofmeasure.org"/>
 					<code value="[lb_av]"/>
 				</low>
 				<high>
 					<value value="180"/>
-					<units value="lbs"/>
+					<unit value="lbs"/>
 					<system value="http://unitsofmeasure.org"/>
 					<code value="[lb_av]"/>
 				</high>

@@ -26,7 +26,7 @@
   </authorizingPrescription>
   <quantity>
     <value value="10"/>
-    <units value="ml"/>
+    <unit value="ml"/>
     <system value="http://unitsofmeasure.org"/>
     <code value="ml"/>
   </quantity>

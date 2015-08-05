@@ -32,7 +32,7 @@
   <valueQuantity>
   <!-- Temperature=39 degrees Celsius -->
     <value value="39"/>
-    <units value="degrees C"/>
+    <unit value="degrees C"/>
     <system value="http://snomed.info/sct"/>
     <code value="258710007"/>
   </valueQuantity>
@@ -62,7 +62,7 @@
   <!--  0..* Provides guide for interpretation  -->
     <low>
       <value value="37.5"/>
-      <units value="degrees C"/>
+      <unit value="degrees C"/>
     </low>
   </referenceRange>
 </Observation>

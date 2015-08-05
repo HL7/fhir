@@ -1262,8 +1262,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (q.hasComparator())
       x.addText(q.getComparator().toCode());
     x.addText(q.getValue().toString());
-    if (q.hasUnits())
-      x.addText(" "+q.getUnits());
+    if (q.hasUnit())
+      x.addText(" "+q.getUnit());
     else if (q.hasCode())
       x.addText(" "+q.getCode());
     if (showCodeDetails && q.hasCode()) {
@@ -1283,8 +1283,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addText(q.getHigh().getValue().toString());
     else 
       x.addText("?");
-    if (q.getLow().hasUnits())
-      x.addText(" "+q.getLow().getUnits());
+    if (q.getLow().hasUnit())
+      x.addText(" "+q.getLow().getUnit());
   }
   
   private void renderHumanName(HumanName name, XhtmlNode x) {

@@ -56,7 +56,7 @@ editor Eric Haas Health eData Inc
 		
 		<caloricDensity>
 			<value value="1"/>
-			<units value="calories per milliliter"/>
+			<unit value="calories per milliliter"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="cal/mL"/>
 		</caloricDensity>
@@ -79,7 +79,7 @@ editor Eric Haas Health eData Inc
 			</schedule>
 			<rateQuantity>
 				<value value="60"/>
-				<units value="ml/hr"/>
+				<unit value="ml/hr"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL/h"/>
 			</rateQuantity>
@@ -94,7 +94,7 @@ editor Eric Haas Health eData Inc
 			</schedule>
 			<rateQuantity>
 				<value value="80"/>
-				<units value="ml/hr"/>
+				<unit value="ml/hr"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL/h"/>
 			</rateQuantity>
@@ -109,7 +109,7 @@ editor Eric Haas Health eData Inc
 			</schedule>
 			<rateQuantity>
 				<value value="100"/>
-				<units value="ml/hr"/>
+				<unit value="ml/hr"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL/h"/>
 			</rateQuantity>
@@ -117,7 +117,7 @@ editor Eric Haas Health eData Inc
 		
 		<maxVolumeToDeliver>
 			<value value="880"/>
-			<units value="milliliter/day"/>
+			<unit value="milliliter/day"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mL/d"/>
 		</maxVolumeToDeliver>

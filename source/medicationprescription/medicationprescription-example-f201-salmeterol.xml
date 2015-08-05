@@ -68,13 +68,13 @@
       <!--2 puffs per day-->
       <numerator>
         <value value="2"/>
-        <units value="puffs"/>
+        <unit value="puffs"/>
         <system value="http://snomed.info/sct"/>
         <code value="415215001"/>
       </numerator>
       <denominator>
         <value value="1"/>
-        <units value="daily"/>
+        <unit value="daily"/>
         <system value="http://snomed.info/sct"/>
         <code value="259032004"/>
       </denominator>

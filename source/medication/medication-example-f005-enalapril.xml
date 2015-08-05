@@ -28,7 +28,7 @@
             <item> 1..1 Reference(Medication) A product in the package </item>
             <amount>
             <value value="30"/>
-            <units value="Pill"/>
+            <unit value="Pill"/>
             <system value="http://snomed.info/sct"/>
             <code value="46992007"/>
             </amount>

@@ -22,13 +22,13 @@
 </type>
   <quantity>
     <value value="36"/>
-    <units value="tbl" />
+    <unit value="tbl" />
     <system value="http://unitsofmeasure.org"/>
     <code value="tbl"/>    
   </quantity>
 <daysSupply>
   <value value="9"/>
-  <units value="Day" />
+  <unit value="Day" />
   <system value="http://unitsofmeasure.org"/>
   <code value="D"/>   
 </daysSupply>

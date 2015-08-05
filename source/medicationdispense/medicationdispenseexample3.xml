@@ -27,7 +27,7 @@
   </quantity>
 <daysSupply>
   <value value="10"/>
-  <units value="Day" />
+  <unit value="Day" />
   <system value="http://unitsofmeasure.org"/>
   <code value="D"/>   
 </daysSupply>
