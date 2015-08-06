@@ -12,7 +12,7 @@
   </contact>
   <description value="A set of codes that describe the individual&#39;s current military status"/>
   <codeSystem>
-    <system value="Intermountain Healthcare HDD"/>
+    <system value="http://hl7.org/fhir/patient-hspc-veteranMilitaryStatus"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="8ca8cc2b-baa0-4cb6-8863-418173c125d1"/>

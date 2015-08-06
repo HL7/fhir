@@ -12,7 +12,7 @@
   </contact>
   <description value="This value set defines the set of codes used to identify the service delivery location."/>
   <codeSystem>
-    <system value="Intermountain Healthcare Health Data Dictionary"/>
+    <system value="http://hl7.org/fhir/location-hspc-serviceDeliveryLocation-key-value-set"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="119"/>

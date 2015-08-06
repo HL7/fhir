@@ -16,7 +16,7 @@
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
   </extension>-->
     
-  <url value="http://hl7.org/fhir/vs/nehta-involved-notinvolved"/>  
+  <url value="http://hl7.org/fhir/ValueSet/nehta-involved-notinvolved"/>  
   <version value="20150618"/>
   <name value="InvolvedNotinvolved"/>
   <publisher value="NEHTA"/>
@@ -49,7 +49,7 @@
   </compose>
   <codeSystem>
  
-    <system value="http://hl7.org/fhir/nehta-notidentified-present-presentextensive"/>
+    <system value="http://hl7.org/fhir/nehta-involved-notinvolved"/>
     <version value="20150619"/>
     <caseSensitive value="true"/>
     <concept>

@@ -18,7 +18,7 @@
   <copyright value="TBD"/>
   <extensible value="true"/>
   <codeSystem>
-    <system value="Intermountain Healthcare HDD"/>
+    <system value="http://hl7.org/fhir/observation-hspc-dataOriginationMode"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="14610118"/>

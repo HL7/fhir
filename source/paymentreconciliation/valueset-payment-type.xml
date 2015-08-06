@@ -13,7 +13,7 @@
   <description value="This value set includes sample Contract Type codes."/>
   <copyright value="This is an example set"/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/contracttypecodes"/>
+    <system value="http://hl7.org/fhir/payment-type"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="payment"/>

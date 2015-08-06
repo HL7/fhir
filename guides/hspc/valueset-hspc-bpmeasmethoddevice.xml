@@ -10,7 +10,7 @@
   <description value="A set of codes that describe the method or device used to measure a systolic blood pressure."/>
   <status value="draft"/>
   <codeSystem>
-	    <system value="Intermountain Healthcare HDD"/>
+	    <system value="http://hl7.org/fhir/hspc-bpmeasmethoddevice"/>
 	    <caseSensitive value="true"/>
 	    <concept>
 			<code value="2102"/>

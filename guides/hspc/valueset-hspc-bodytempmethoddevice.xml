@@ -10,7 +10,7 @@
     <extensible value="true"/>
     <date value="2015-06-11"/>
     <codeSystem>
-		<system value="Intermountain Healthcare"/>
+		<system value="http://hl7.org/fhir/hspc-bodytempmethoddevice"/>
 		<caseSensitive value="true"/>
 		<concept>
 			<code value="30277"/>

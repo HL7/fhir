@@ -12,7 +12,7 @@
   </contact>
   <description value="A set of values that describe the type of system the telecom value belongs to."/>
   <codeSystem>
-    <system value="Intermountain Health Care HDD"/>
+    <system value="http://hl7.org/fhir/patient-hspc-telecomSystem"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="fax"/>

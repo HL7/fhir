@@ -12,7 +12,7 @@
   </contact>
   <description value="The set of values that describe how usage of the service delivery location name."/>
   <codeSystem>
-    <system value="Intermountain Healthcare HDD"/>
+    <system value="http://hl7.org/fhir/location-hspc-serviceDeliveryLocationNameUse"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="ABR"/>

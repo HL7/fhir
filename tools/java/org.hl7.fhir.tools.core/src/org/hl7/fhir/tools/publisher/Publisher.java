@@ -622,7 +622,7 @@ public class Publisher implements URIResolver {
   }
 
   @SuppressWarnings("unchecked")
-  private void loadIgReference(Resource ae) {
+  private void loadIgReference(Resource ae) throws Exception {
     page.getIgResources().put(ae.getId(), ae);
     if (ae instanceof ValueSet) {
       ValueSet vs = (ValueSet) ae;
@@ -633,8 +633,12 @@ public class Publisher implements URIResolver {
     if (ae instanceof ConceptMap)
       page.getConceptMaps().put(ae.getId(), (ConceptMap) ae);
 
-    if (ae instanceof StructureDefinition) 
-      page.getProfiles().put(ae.getId(), (StructureDefinition) ae);
+    if (ae instanceof StructureDefinition)  {
+      StructureDefinition sd = (StructureDefinition) ae;
+      if (page.getProfiles().containsKey(sd.getUrl()))
+        throw new Exception("Duplicate Profile URL "+sd.getUrl());
+      page.getProfiles().put(sd.getUrl(), sd);
+    }
   }
 
   @SuppressWarnings("unchecked")
@@ -659,6 +663,8 @@ public class Publisher implements URIResolver {
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
         r.setConformancePack(makeConformancePack(r));
         r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(r.getConformancePack(), r, "core"));
+        if (page.getProfiles().containsKey(r.getProfile().getUrl()))
+          throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
         ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
         r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -668,6 +674,8 @@ public class Publisher implements URIResolver {
     for (ResourceDefn r : page.getDefinitions().getResources().values()) {
       r.setConformancePack(makeConformancePack(r));
       r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(r.getConformancePack(), r, "core"));
+      if (page.getProfiles().containsKey(r.getProfile().getUrl()))
+        throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -747,6 +755,8 @@ public class Publisher implements URIResolver {
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
     StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(pt, page.getValidationErrors());
+    if (page.getProfiles().containsKey(profile.getUrl()))
+      throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
     pt.setProfile(profile);
     // todo: what to do in the narrative?
@@ -754,6 +764,8 @@ public class Publisher implements URIResolver {
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
     StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(t);
+    if (page.getProfiles().containsKey(profile.getUrl()))
+      throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
     page.getProfiles().put(profile.getName(), profile);
     t.setProfile(profile);
@@ -767,6 +779,8 @@ public class Publisher implements URIResolver {
 
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
     StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(t);
+    if (page.getProfiles().containsKey(profile.getUrl()))
+      throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
     page.getProfiles().put(profile.getName(), profile);
     t.setProfile(profile);
@@ -801,6 +815,8 @@ public class Publisher implements URIResolver {
       StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
       p.setUserData("pack", ap);
       profile.setResource(p);
+      if (page.getProfiles().containsKey(p.getUrl()))
+        throw new Exception("Duplicate Profile URL "+p.getUrl());
       page.getProfiles().put(p.getUrl(), p);
     } else {
       profile.getResource().setUserData("pack", ap);
@@ -812,6 +828,8 @@ public class Publisher implements URIResolver {
           StructureDefinition base = getSnapShotForProfile(profile.getResource().getBase());
           new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, profile.getResource(), profile.getResource().getBase().split("#")[0], profile.getResource().getName(), page, page.getValidationErrors());
         }
+        if (page.getProfiles().containsKey(profile.getResource().getUrl()))
+          throw new Exception("Duplicate Profile URL "+profile.getResource().getUrl());
         page.getProfiles().put(profile.getResource().getUrl(), profile.getResource());
       }
     if (!Utilities.noString(filename))
@@ -866,6 +884,8 @@ public class Publisher implements URIResolver {
       if (base == null)
         base = new ProfileUtilities(page.getWorkerContext()).getProfile(null, ae.getBase());
       new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, ae, ae.getBase().split("#")[0], ae.getName(), page, page.getValidationErrors());
+      if (page.getProfiles().containsKey(ae.getUrl()))
+        throw new Exception("Duplicate Profile URL "+ae.getUrl());
       page.getProfiles().put(ae.getUrl(), ae);
     }
   }
@@ -5272,7 +5292,6 @@ public class Publisher implements URIResolver {
         if (ToolingExtensions.getOID(vs.getCodeSystem()) == null)
           throw new Exception("No OID on value set define for "+vs.getUrl());
       }
-      page.getVsValidator().validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
 
       page.getValueSets().put(vs.getUrl(), vs);
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
@@ -5280,11 +5299,10 @@ public class Publisher implements URIResolver {
         page.getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
         page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
       }
-
-//    for (String n : page.getDefinitions().getExtraValuesets().keySet()) {
-//      ValueSet vs = page.getDefinitions().getExtraValuesets().get(n);
-//      generateValueSetPart1(n, vs, n, null, page.getRegistry().idForName(n));
       
+    }
+    for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
+      page.getVsValidator().validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
     }
   }
   

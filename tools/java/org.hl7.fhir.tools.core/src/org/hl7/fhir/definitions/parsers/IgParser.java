@@ -184,6 +184,7 @@ public class IgParser {
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(pr.getSource()));
           sparser.parseConformancePackage(pr, null, Utilities.getDirectoryForFile(pr.getSource()), pr.getCategory(), issues);
+//          System.out.println("load "+pr.getId()+" from "+s);
           igd.getProfiles().add(pr);
           // what remains to be done now is to update the package with the loaded resources, but we need to wait for all the profiles to generated, so we'll do that later
           for (BindingSpecification bs : sparser.getBindings().values()) {

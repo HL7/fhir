@@ -325,6 +325,8 @@ public class SourceParser {
         for (Example ex : ig.getExamples())
           definitions.getResourceByName(ex.getResourceName()).getExamples().add(ex);
         for (Profile p : ig.getProfiles()) {
+          if (definitions.getPackMap().containsKey(p.getId()))
+            throw new Exception("Duplicate Pack id "+p.getId());
           definitions.getPackList().add(p);
           definitions.getPackMap().put(p.getId(), p);
         }
@@ -584,6 +586,8 @@ public class SourceParser {
         pack.setTitle(n);
         pack.setSource(spreadsheet.getAbsolutePath());
         pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
+        if (definitions.getPackMap().containsKey(n))
+          throw new Exception("Duplicate Pack id "+n);
         definitions.getPackList().add(pack);
         definitions.getPackMap().put(n, pack);
         sparser.parseConformancePackage(pack, definitions, Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()), pack.getCategory(), issues);
@@ -593,8 +597,11 @@ public class SourceParser {
     } else {
       Profile pack = new Profile(usage);
       parseConformanceDocument(pack, n, spreadsheet, usage);
+      if (definitions.getPackMap().containsKey(n))
+        throw new Exception("Duplicate Pack id "+n);
       definitions.getPackList().add(pack);
       definitions.getPackMap().put(n, pack);
+      throw new Error("check this!");
     }
   }
 
@@ -655,6 +662,9 @@ public class SourceParser {
         definitions.getUnresolvedBindings().add(cd);
       }
     }
+    if (!page.getDefinitions().getBoundValueSets().containsKey("http://hl7.org/fhir/ValueSet/data-absent-reason"))
+      throw new Exception("d-a-r not found");
+
   }
 
   private void loadPrimitives() throws Exception {
@@ -707,6 +717,8 @@ public class SourceParser {
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(dstDir, page, t.getName(), true);
       t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
       t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
+      if (context.getProfiles().containsKey(t.getProfile().getUrl()))
+        throw new Exception("Duplicate Profile "+t.getProfile().getUrl());
       context.getProfiles().put(t.getProfile().getUrl(), t.getProfile());
       context.getProfiles().put(t.getProfile().getName(), t.getProfile());
     } catch (Exception e) {

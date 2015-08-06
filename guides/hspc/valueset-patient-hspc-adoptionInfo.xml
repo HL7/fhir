@@ -12,7 +12,7 @@
   </contact>
   <description value="A set of value that describe the state of the medical records of an adopted child."/>
   <codeSystem>
-    <system value="Intermountain Healthcare HDD"/>
+    <system value="http://hl7.org/fhir/patient-hspc-adoptionInfo"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="5ee777e9-7916-4e41-bfc1-083a5b106937"/>

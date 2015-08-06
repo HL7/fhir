@@ -17,7 +17,7 @@
   <copyright value="TBD"/>
   <extensible value="true"/>
   <codeSystem>
-    <system value="Intermountain Healthcare"/>
+    <system value="http://hl7.org/fhir/observation-hspc-weightPrecond"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="84123"/>

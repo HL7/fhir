@@ -13,7 +13,7 @@
   <description value="This value set includes a sample set of Forms codes"/>
   <copyright value="This is an example set"/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/adjudication-error"/>
+    <system value="http://hl7.org/fhir/forms-codes"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="1"/>

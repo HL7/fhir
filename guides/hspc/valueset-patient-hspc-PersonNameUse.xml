@@ -12,7 +12,7 @@
   </contact>
   <description value="The set of values that describe the manner an individual uses a name."/>
   <codeSystem>
-    <system value="Intermountain Health Care HDD"/>
+    <system value="http://hl7.org/fhir/patient-hspc-PersonNameUse"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="188"/>

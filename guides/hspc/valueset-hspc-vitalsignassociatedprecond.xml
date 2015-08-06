@@ -11,7 +11,7 @@
   <copyright value="TBD"/>
   <extensible value="true"/>
   <codeSystem>
-    <system value="Intermountain Healtcare HDD"/>
+    <system value="http://hl7.org/fhir/hspc-vitalsignassociatedprecond"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="1942"/>

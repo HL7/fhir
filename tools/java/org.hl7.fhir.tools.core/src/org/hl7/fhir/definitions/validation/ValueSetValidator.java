@@ -56,6 +56,8 @@ public class ValueSetValidator extends BaseValidator {
   private Set<ValueSet> handled = new HashSet<ValueSet>();
   private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
   private Set<String> styleExemptions;
+  private Set<String> valueSets = new HashSet<String>();
+  private Set<String> codeSystems = new HashSet<String>();
 
   public ValueSetValidator(WorkerContext context, List<String> fixups, Set<String> styleExemptions) {
     this.context = context;
@@ -108,9 +110,18 @@ public class ValueSetValidator extends BaseValidator {
       fixup(vs);
 
     if (vs.hasCodeSystem()) {
+      if (!valueSets.contains(vs.getUrl())) {
+        if (rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].codeSystem", !codeSystems.contains(vs.getCodeSystem().getSystem()), "Duplicate Code System definition for "+vs.getCodeSystem().getSystem()))
+          codeSystems.add(vs.getCodeSystem().getSystem());
+        valueSets.add(vs.getUrl());
+      }
+        
+      rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].codeSystem", vs.getCodeSystem().getSystem().startsWith("http://") || 
+          vs.getCodeSystem().getSystem().startsWith("urn:") , "Unacceptable code system url "+vs.getCodeSystem().getSystem());
+      
       Set<String> codes = new HashSet<String>();
-      if (rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", vs.getCodeSystem().hasSystem(), "If a value set has a define, it must have a system")) {
-        rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].define", vs.getCodeSystem().hasCaseSensitiveElement() && vs.getCodeSystem().getCaseSensitive(), 
+      if (rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].codeSystem", vs.getCodeSystem().hasSystem(), "If a value set has a define, it must have a system")) {
+        rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].codeSystem", vs.getCodeSystem().hasCaseSensitiveElement() && vs.getCodeSystem().getCaseSensitive(), 
             "Value set "+nameForErrors+" ("+vs.getName()+"): All value sets that define codes must mark them as case sensitive",
             "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: All value sets that define codes must mark them as case sensitive");
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, vs.getCodeSystem().getConcept());
@@ -127,12 +138,16 @@ public class ValueSetValidator extends BaseValidator {
         }
       }
     }
+    
     if (vs.hasCompose()) {
+      if (!context.getCodeSystems().containsKey("http://hl7.org/fhir/data-absent-reason") && !vs.getUrl().contains("v3"))
+        throw new Error("d-a-r not found");
+      
       int i = 0;
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
         i++;
         rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", context.getCodeSystems().containsKey(inc.getSystem()) || isKnownCodeSystem(inc.getSystem()), 
-            "The system '"+inc.getSystem()+"' is not valid");
+            "The system '"+inc.getSystem()+"' is not valid (in "+context.getCodeSystems().keySet().toString()+")");
         
         if (canValidate(inc.getSystem())) {
           for (ConceptReferenceComponent cc : inc.getConcept()) {

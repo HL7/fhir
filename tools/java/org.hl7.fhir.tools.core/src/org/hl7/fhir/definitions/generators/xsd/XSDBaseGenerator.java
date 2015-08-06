@@ -297,6 +297,8 @@ public class XSDBaseGenerator {
         write("  <xs:complexType name=\"" + pt.getCode() + "\">\r\n");
         write("    <xs:annotation>\r\n");
         write("      <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(pt.getDefinition())+"</xs:documentation>\r\n");
+        if (!Utilities.noString(pt.getComment()))
+            write("      <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(pt.getComment())+"</xs:documentation>\r\n");
         write("      <xs:documentation xml:lang=\"en\">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>\r\n");
         write("    </xs:annotation>\r\n");
         write("    <xs:complexContent>\r\n");
@@ -328,6 +330,8 @@ public class XSDBaseGenerator {
         write("  <xs:complexType name=\"" + sp.getCode() + "\">\r\n");
         write("    <xs:annotation>\r\n");
         write("      <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(sp.getDefinition())+"</xs:documentation>\r\n");
+        if (!Utilities.noString(sp.getComment()))
+          write("      <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(sp.getComment())+"</xs:documentation>\r\n");
         write("      <xs:documentation xml:lang=\"en\">If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions</xs:documentation>\r\n");
         write("    </xs:annotation>\r\n");
         write("    <xs:complexContent>\r\n");

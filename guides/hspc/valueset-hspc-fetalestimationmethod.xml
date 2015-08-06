@@ -11,7 +11,7 @@
   <copyright value="TBD"/>
   <extensible value="true"/>
   <codeSystem>
-    <system value="Intermountain Healthcare"/>
+    <system value="http://hl7.org/fhir/hspc-fetalestimationmethod"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="103241"/>

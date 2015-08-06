@@ -158,7 +158,7 @@ public class ResourceValidator extends BaseValidator {
       String w5CorrectOrder = listW5Correct(parent);
       if (!w5Order.equals(w5CorrectOrder)) {
         hint(errors, IssueType.REQUIRED, parent.getName(), false, "Resource elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
-        System.out.println("Resource "+parent.getName()+": elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
+//        System.out.println("Resource "+parent.getName()+": elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
       }
       if (!Utilities.noString(parent.getProposedOrder())) {
         w5Order = listW5Elements(parent, parent.getProposedOrder());

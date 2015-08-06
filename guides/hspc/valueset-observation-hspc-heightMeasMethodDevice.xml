@@ -18,7 +18,7 @@
   <copyright value="Intermountain Healthcare"/>
   <extensible value="true"/>
   <codeSystem>
-    <system value="Internountain Healthcare HDD"/>
+    <system value="http://hl7,org/fhir/valueset-observation-hspc-heightMeasMethodDevice"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="2057"/>

@@ -12,7 +12,7 @@
   </contact>
   <description value="A set of codes that describe the manner in which an addressed is used."/>
   <codeSystem>
-    <system value="Intermountain Healthcare HDD"/>
+    <system value="http://hl7.org/fhir/patient-hspc-addressUse"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="15053040"/>
