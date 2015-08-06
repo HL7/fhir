@@ -1079,9 +1079,9 @@ public class SpreadsheetParser {
 
 	    ValueSet result;
 	    try {
-	      FileInputStream input = null;
+	      CSFileInputStream input = null;
 	      try {
-	        input = new FileInputStream(filename);
+	        input = new CSFileInputStream(filename);
 	        result = ValueSetUtilities.makeShareable((ValueSet) p.parse(input));
 	      } finally {
 	        IOUtils.closeQuietly(input);
