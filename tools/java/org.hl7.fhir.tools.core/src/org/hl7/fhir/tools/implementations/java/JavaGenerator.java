@@ -89,7 +89,11 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     private long sourceDate;
     private long targetDate;
     private List<JavaClass> dependencies;
-    public Boolean doCompile;  
+    public Boolean doCompile;
+    
+    public String getName() {
+    	return sourceFile.getName();
+    }
   }
 
   private static final boolean IN_PROCESS = false;
@@ -574,7 +578,7 @@ public boolean doesCompile() {
           }
         }
         if (!found)
-          throw new Error("unable to find import "+imp);
+          throw new Error("unable to find import for class " + jc.getName() + ": " +imp);
       }
         
     }

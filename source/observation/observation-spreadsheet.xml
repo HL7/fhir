@@ -2158,7 +2158,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(AllergyIntolerance|Condition|FamilyMemberHistory|ImagingStudy|Immunization|MedicationStatement|Procedure|QuestionnaireAnswers|Observation)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(AllergyIntolerance|Condition|FamilyMemberHistory|ImagingStudy|Immunization|MedicationStatement|Procedure|QuestionnaireResponse|Observation)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
@@ -2208,7 +2208,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and a set of related observations or sometimes questionnaireanswers  from which the measure is derived.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and a set of related observations or sometimes QuestionnaireResponse  from which the measure is derived.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2271,7 +2271,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Observation|QuestionnaireAnswers)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Observation|QuestionnaireResponse)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6954,8 +6954,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

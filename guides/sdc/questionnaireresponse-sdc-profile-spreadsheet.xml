@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -933,7 +933,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">questionnaireanswers-sdc</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">questionnaireresponse-sdc</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
@@ -953,7 +953,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Defines how the questionnaire answers resource is used to reflect form data within the ONC's Structured Data Capture standard.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Defines how the questionnaire response resource is used to reflect form data within the ONC's Structured Data Capture standard.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -973,15 +973,15 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/StructureDefinition/questionnaireanswers-sdc-form</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/StructureDefinition/questionnaireresponse-sdc-form</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">questionnaireanswers-sdc-profile-introduction.xml</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">questionnaireresponse-sdc-profile-introduction.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">notes</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">questionnaireanswers-sdc-profile-notes.xml</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">questionnaireresponse-sdc-profile-notes.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
@@ -1160,7 +1160,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">QuestionnaireAnswers</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">QuestionnaireResponse</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Form Data</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1191,7 +1191,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.identifier</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1223,7 +1223,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.questionnaire</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1255,7 +1255,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.status</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1287,7 +1287,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.subject</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1320,7 +1320,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.author</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1353,7 +1353,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.authored</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.authored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1387,7 +1387,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.source</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1418,7 +1418,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.encounter</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1449,7 +1449,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1480,7 +1480,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.linkId</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.linkId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1511,7 +1511,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.title</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.title</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1543,7 +1543,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.text</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1575,7 +1575,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.subject</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1606,13 +1606,13 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.group</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">@QuestionnaireAnswers.group</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">@QuestionnaireResponse.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1638,7 +1638,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.question</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1669,7 +1669,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.question.linkId</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.question.linkId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1701,7 +1701,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.question.text</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.question.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1733,7 +1733,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.question.answer</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.question.answer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1764,7 +1764,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.question.answer.value[x]</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.question.answer.value[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1796,13 +1796,13 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireAnswers.group.question.answer.group</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QuestionnaireResponse.group.question.answer.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">@QuestionnaireAnswers.group</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">@QuestionnaireResponse.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>

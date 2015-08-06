@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -5244,7 +5244,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Generates a [[[Questionnaire]]] instance  based on a specified [[[StructureDefinition]]], creating questions for each core element or extension element found in the StructureDefinition.    If the operation is not called at the instance level, one of the *identifier*, *profile* or *url* 'in' parameters must be provided.  (If called at the instance level, these parameters will be ignored.  If more than one is specified, servers may raise an error or may resolve with the parameter of their choice.)  The response will contain a [[[Questionnaire]]] instance based on the specified [[[StructureDefinition]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.  Nested groups are used to handle complex structures and data types.  If the 'supportedOnly' parameter is set to true, only those elements marked as &quot;must support&quot; will be included.  This operation is intended to enable auto-generation of simple interfaces for arbitrary profiles.  The 'questionnaire' approach to data entry has limitations that will make it less optimal than custom-defined interfaces.  However, this function may be useful for simple applications or for systems that wish to support &quot;non-core&quot; resources with minimal development effort.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">**Open Issue**: Ideally, extensions should be populated in the generated [[[Questionnaire]]] that will support taking [[[QuestionnaireAnswers]]] resources generated from the Questionnaire and turning them back into the appropriate resources.</Data><NamedCell
+    <Cell ss:StyleID="s133"><Data ss:Type="String">**Open Issue**: Ideally, extensions should be populated in the generated [[[Questionnaire]]] that will support taking [[[QuestionnaireResponse]]] resources generated from the Questionnaire and turning them back into the appropriate resources.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$questionnaire-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$questionnaire-response.txt</Data></Cell>

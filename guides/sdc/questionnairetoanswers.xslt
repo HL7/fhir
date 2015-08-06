@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns="http://hl7.org/fhir" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:f="http://hl7.org/fhir" exclude-result-prefixes="xs f">
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 	<xsl:template match="/">
     <xsl:apply-templates select="//f:Questionnaire"/>
 	</xsl:template>
 	<xsl:template match="f:Questionnaire">
-    <QuestionnaireAnswers>
+    <QuestionnaireResponse>
       <questionnaire>
         <reference value="Questionnaire/{f:id/@value}"/>
       </questionnaire>
@@ -15,7 +15,7 @@
       </subject>
       <authored value="???"/>
       <xsl:apply-templates select="f:group|f:question"/>
-    </QuestionnaireAnswers>
+    </QuestionnaireResponse>
 	</xsl:template>
 	<xsl:template match="f:group">
     <xsl:copy>

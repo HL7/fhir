@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Conformance xmlns="http://hl7.org/fhir">
   <id value="conformance-sdc-form-receiver"/>
@@ -96,11 +96,11 @@
                
           <tr>
                   
-            <th>QuestionnaireAnswers</th>
+            <th>QuestionnaireResponse</th>
                   
             <td>
                      
-              <a title="Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update." href="#QuestionnaireAnswers-search-type">SHALL</a>
+              <a title="Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update." href="#QuestionnaireResponse-search-type">SHALL</a>
                   
             </td>
                   
@@ -110,7 +110,7 @@
                   
             <td>
                      
-              <a title="Allows review of prior versions of an answer set - allows reversion to previously recorded versions" href="#QuestionnaireAnswers-history-instance">SHALL</a>
+              <a title="Allows review of prior versions of an answer set - allows reversion to previously recorded versions" href="#QuestionnaireResponse-history-instance">SHALL</a>
                   
             </td>
                   
@@ -118,25 +118,25 @@
                   
             <td>
                      
-              <a title="Allows checking an answer set for validity against submission rules without persisting any data" href="#QuestionnaireAnswers-validate">SHALL</a>
+              <a title="Allows checking an answer set for validity against submission rules without persisting any data" href="#QuestionnaireResponse-validate">SHALL</a>
                   
             </td>
                   
             <td>
                      
-              <a title="Allows recording a completed or partially-completed form" href="#QuestionnaireAnswers-create">SHALL</a>
+              <a title="Allows recording a completed or partially-completed form" href="#QuestionnaireResponse-create">SHALL</a>
                   
             </td>
                   
             <td>
                      
-              <a title="Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)" href="#QuestionnaireAnswers-update">SHALL</a>
+              <a title="Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)" href="#QuestionnaireResponse-update">SHALL</a>
                   
             </td>
                   
             <td>
                      
-              <a title="Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances." href="#QuestionnaireAnswers-delete">SHALL</a>
+              <a title="Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances." href="#QuestionnaireResponse-delete">SHALL</a>
                   
             </td>
                
@@ -152,7 +152,7 @@
          
       <h3>
             
-        <a href="../questionnaireanswers.html">QuestionnaireAnswers</a>
+        <a href="../questionnaireresponse.html">QuestionnaireResponse</a>
          
       </h3>
          
@@ -180,7 +180,7 @@
                   
             <th>
                      
-              <a name="QuestionnaireAnswers-search-type"> </a>
+              <a name="QuestionnaireResponse-search-type"> </a>
                      
               <span>search-type</span>
                   
@@ -200,7 +200,7 @@
                   
             <th>
                      
-              <a name="QuestionnaireAnswers-create"> </a>
+              <a name="QuestionnaireResponse-create"> </a>
                      
               <span>create</span>
                   
@@ -220,7 +220,7 @@
                   
             <th>
                      
-              <a name="QuestionnaireAnswers-update"> </a>
+              <a name="QuestionnaireResponse-update"> </a>
                      
               <span>update</span>
                   
@@ -240,7 +240,7 @@
                   
             <th>
                      
-              <a name="QuestionnaireAnswers-delete"> </a>
+              <a name="QuestionnaireResponse-delete"> </a>
                      
               <span>delete</span>
                   
@@ -260,7 +260,7 @@
                   
             <th>
                      
-              <a name="QuestionnaireAnswers-history-instance"> </a>
+              <a name="QuestionnaireResponse-history-instance"> </a>
                      
               <span>history-instance</span>
                   
@@ -280,7 +280,7 @@
                   
             <th>
                      
-              <a name="QuestionnaireAnswers-validate"> </a>
+              <a name="QuestionnaireResponse-validate"> </a>
                      
               <span>validate</span>
                   
@@ -302,7 +302,7 @@
          
       <h4>Search</h4>
          
-      <p>Supported Includes: QuestionnaireAnswers.questionnaire Questionnaire.group.question.options</p>
+      <p>Supported Includes: QuestionnaireResponse.questionnaire Questionnaire.group.question.options</p>
          
       <table class="list">
             
@@ -424,7 +424,7 @@
       <description value="Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]."/>
     </security>
     <resource>
-      <type value="QuestionnaireAnswers"/>
+      <type value="QuestionnaireResponse"/>
       <profile>
         <reference value="http://hl7.org/fhir/StructureDefinition/dataelement-sdc"/>
       </profile>
@@ -470,14 +470,14 @@
         <code value="validate"/>
         <documentation value="Allows checking an answer set for validity against submission rules without persisting any data"/>
       </interaction>
-      <searchInclude value="QuestionnaireAnswers.questionnaire"/>
+      <searchInclude value="QuestionnaireResponse.questionnaire"/>
       <searchInclude value="Questionnaire.group.question.options"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="author"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireanswers#author"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireresponse#author"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
@@ -485,7 +485,7 @@
           <valueCode value="SHALL"/>
         </extension>
         <name value="authored"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireanswers#authored"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireresponse#authored"/>
         <type value="date"/>
       </searchParam>
       <searchParam>
@@ -493,7 +493,7 @@
           <valueCode value="SHALL"/>
         </extension>
         <name value="questionnaire"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireanswers#questionnaire"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireresponse#questionnaire"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
@@ -501,7 +501,7 @@
           <valueCode value="SHALL"/>
         </extension>
         <name value="status"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireanswers#status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireresponse#status"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
@@ -509,7 +509,7 @@
           <valueCode value="SHALL"/>
         </extension>
         <name value="subject"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireanswers#subject"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireresponse#subject"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
@@ -517,7 +517,7 @@
           <valueCode value="SHOULD"/>
         </extension>
         <name value="encounter"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireanswers#encounter"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/questionnaireresponse#encounter"/>
         <type value="token"/>
       </searchParam>
     </resource>

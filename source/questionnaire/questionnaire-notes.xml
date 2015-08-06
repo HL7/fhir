@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h2>
 Notes:
@@ -6,7 +6,7 @@ Notes:
 <ul>
 <li>Questionnaires may be used to represent predefined forms or pannels, referenced using Questionnaire.group.concept.</li>
 <li>A Questionnaire's contents are placed inside its single nested Group, which may contain Questions or subgroups with Questions.</li>
-<li>Groups and Questions may have linkIds allowing groups and question answers captured in a <a href="questionnaireanswers.html">QuestionnaireAnswers</a>
+<li>Groups and Questions may have linkIds allowing groups and question answers captured in a <a href="questionnaireresponse.html">QuestionnaireResponse</a>
 to be associated with their corresponding group or question.</li>
 <li>Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires. 
 It explicitly does not try to standardize or streamline exchange of its contents outside its context of use, although exchanging partners may further
@@ -34,11 +34,11 @@ such <b>Questionnaires</b> using other, more specific, Resources increases the a
 </p> 
 
 <p>
-It is entirely possible for data to exist in both QuestionnaireAnswers and in other resources.  For example, data may be captured in 
-<a href="questionnaireanswers.html">QuestionnaireAnswers</a> as part of an intake questionnaire.  That data may then be propagated into the 
+It is entirely possible for data to exist in both QuestionnaireResponse and in other resources.  For example, data may be captured in 
+<a href="questionnaireresponse.html">QuestionnaireResponse</a> as part of an intake questionnaire.  That data may then be propagated into the 
 <a href="patient.html">Patient</a> resource (demographics), <a href="familymemberhistory.html">FamilyMemberHistory</a>, <a href="allergyintolerance.html">AllergyIntolerance</a>, 
 <a href="medicationstatement.html">MedicationStatement</a> and <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original 
-<a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance can be retained for traceability purposes.  For example, if a questionnaire question asks "what is your weight", 
+<a href="questionnaireresponse.html">QuestionnaireResponse</a> instance can be retained for traceability purposes.  For example, if a questionnaire question asks "what is your weight", 
 that can then result in the creation of an <a href="observation.html">Observation</a> with the appropriate <code>Observation.code</code> and the specified answer as the 
 <code>Observation.valueQuantity</code>.
 </p>
@@ -70,8 +70,8 @@ purposes:</p>
   <li><b>identifier</b> is used to reference the overall questionnaire in business terms.  It is the number printed across the top of the form or listed beside the form
   when making a choice between alternate forms.</li>
   <li>The <b>id</b> attribute supported on each element is used for references within a resource, for example linking narrative to discrete elements</li>
-  <li>The <b>linkId</b> element on questions and groups establishes a link between elements in a <a href="questionnaireanswers.html">QuestionnaireAnsers</a> and their
-  definition inside a Questionnaire.  This is the <i>only</i> way to link between the groups and questions in a Questionnaire and QuestionnaireAnswers</li>
+  <li>The <b>linkId</b> element on questions and groups establishes a link between elements in a <a href="questionnaireresponse.html">QuestionnaireAnsers</a> and their
+  definition inside a Questionnaire.  This is the <i>only</i> way to link between the groups and questions in a Questionnaire and QuestionnaireResponse</li>
 </ul>
 
 <h3>Question Definitions</h3>
@@ -89,7 +89,7 @@ mechanisms defined in the specification for linking a Question (or Group) to a s
 <p>
 Linking to formal definitions of a question allows data captured by distinct questionnaires to be compared.  If systems have the necessary mappings to the
 formal definition, linkages to formal definitions may also be used to automatically pre-populate or extract data from a corresponding 
-<a href="questionnaireanswers.html">QuestionnaireAnswers</a> resource.
+<a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
 </p>
 <p>
 NOTE: Even if standard question definitions are referenced using <code>concept</code> or the <code>deReference</code> extension, information such as the question text,
@@ -106,14 +106,14 @@ These rules will need to be established within implementation environments.
 
 <h3>Question types</h3>
 <p>
-The codes for the data type for each question is slightly different than the data types allowed in the <a href="questionnaireanswers.html">QuestionnaireAnswers</a> resource.
+The codes for the data type for each question is slightly different than the data types allowed in the <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
 Where the names are the same (ignoring case), the "answer" must use the specified type.  Where the names are different, the mappings are as follows:
 </p>
 <table>
   <tbody>
     <tr>
       <th>Questionnaire AnswerFormat code</th>
-      <th>QuestionnaireAnswers data type</th>
+      <th>QuestionnaireResponse data type</th>
     </tr>
     <tr>
       <td>text</td>

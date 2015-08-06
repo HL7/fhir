@@ -145,7 +145,7 @@ public class ValidationMessage
       return true;
     if (path.startsWith("dataelement-sdc-sdcelement."))
       return true;
-    if (path.startsWith("questionnaireanswers-sdc-structureddatacaptureanswers."))
+    if (path.startsWith("questionnaireresponse-sdc-structureddatacaptureanswers."))
       return true;
     if (path.startsWith("valueset-sdc-structureddatacapturevalueset."))
       return true;

@@ -1,4 +1,4 @@
-<!-- FHIR Hierarchy -->
+﻿<!-- FHIR Hierarchy -->
 <!--
 
 todo: compartments
@@ -213,7 +213,7 @@ signatures.html
 			<page type="resource" resource="Specimen"/>
 			<!--<page type="resource" resource="DeviceObservationReport"/>-->
 			<page type="resource" resource="Questionnaire"/>
-			<page type="resource" resource="QuestionnaireAnswers"/>
+			<page type="resource" resource="QuestionnaireResponse"/>
 			<page type="resource" resource="FamilyMemberHistory"/>
 			<page type="resource" resource="VisionPrescription"/>
 		</page>

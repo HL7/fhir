@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 
 [%settitle Resource Index%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -94,7 +94,7 @@
       <ul>
         <li><a href="dataelement.html">DataElement</a> is used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</li>
         <li><a href="questionnaire.html">Questionnaire</a> is used to define form definitions that may be downloaded for manual and/or automatic population</li>
-        <li><a href="questionnaireanswers.html">QuestionnaireAnswers</a> is used to share instance data captured using questionnaire forms</li>
+        <li><a href="questionnaireresponse.html">QuestionnaireResponse</a> is used to share instance data captured using questionnaire forms</li>
         <li><a href="valueset.html">ValueSet</a> is used to define allowed values for data elements and for questions in questionnaires</li>
       </ul>
       <p>
@@ -112,7 +112,7 @@
           <ul>
             <li><a href="sdc/dataelement-sdc.html">SDC Data Element (DE) Profile</a> - Constraints and extensions for capturing data elements</li>
             <li><a href="sdc/questionnaire-sdc.html">SDC Questionnaire Profile</a> - Constraints and extensions for capturing form designs</li>
-            <li><a href="sdc/questionnaireanswers-sdc.html">SDC Questionnaire Answers Profile</a> - Constraints and extensions for capturing form data instances</li>
+            <li><a href="sdc/questionnaireresponse-sdc.html">SDC Questionnaire Response Profile</a> - Constraints and extensions for capturing form data instances</li>
             <li><a href="sdc/valueset-sdc.html">SDC Value Set Profile</a> - Constraints and extensions for defining lists of allowed codes</li>
           </ul>
         </li>
@@ -132,7 +132,7 @@
       <h3>Pre-population service</h3>
       <p>
         The <a href="questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="questionnaire-operations.html#populate">populate</a>.
-        This operation supports generating a "blank" <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance based on a specified
+        This operation supports generating a "blank" <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance based on a specified
         <a href="questionnaire.html">Questionnaire</a>.  It also allows for the returned questionnaire to be partially or even fully completed based
         on data passed in to the operation or data already available to the server on which the operation is invoked.
       </p>
@@ -143,7 +143,7 @@
       <ul>
         <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
         <li>Support <code>content</code> parameters consisting of a <a href="http.html#binary">Binary</a> resource containing a C-CDA document</li>
-        <li>Populate the returned <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance for all questions referencing
+        <li>Populate the returned <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance for all questions referencing
           <a href="dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
       </ul>
       <p>

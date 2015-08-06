@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -936,11 +936,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">questionnaireanswers-extensions</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">questionnaireresponse-extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Core extensions for QuestionnaireAnswers</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Core extensions for QuestionnaireResponse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
@@ -956,7 +956,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Contains standard extensions for QuestionnaireAnswers, amongst others for validation</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Contains standard extensions for QuestionnaireResponse, amongst others for validation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -976,8 +976,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/questionnaireanswers-"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/questionnaireanswers-</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/questionnaireresponse-"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/questionnaireresponse-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -4431,7 +4431,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">QuestionnaireAnswers.group;QuestionnaireAnswers.group.question;QuestionnaireAnswers.group.question.answer</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">QuestionnaireResponse.group;QuestionnaireResponse.group.question;QuestionnaireResponse.group.question.answer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4452,7 +4452,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Allows discovery of questionnaires.  Also allows organization of lists of questionnaires into hierarchies for presentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">This should be drawn from one of the resources identified as an author of the QuestionnaireAnswers overall</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">This should be drawn from one of the resources identified as an author of the QuestionnaireResponse overall</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">./participation[typeCode=SBJ]/role</Data><NamedCell
@@ -4467,7 +4467,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">QuestionnaireAnswers</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">QuestionnaireResponse</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Reviewer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4484,7 +4484,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Who verified completion of form?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Individual responsible for ensuring that the questionnaire answers have been completed appropriately and signs off on the content.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Individual responsible for ensuring that the questionnaire response have been completed appropriately and signs off on the content.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Clinical research questionnaires where reviewers check content for QA and protocol adherence purposes as well as assessment coordinators</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

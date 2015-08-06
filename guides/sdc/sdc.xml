@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="sdc"/>
@@ -16,7 +16,7 @@
       <valueUri value="dataelement-sdc-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+      <valueUri value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="questionnaire-sdc-profile-spreadsheet.xml"/>
@@ -38,9 +38,9 @@
       <purpose value="example"/>
       <name value="SDC"/>
       <description value="Stand-alone answer set"/>
-      <sourceUri value="questionnaireanswers-sdc-profile-example.xml"/>
+      <sourceUri value="questionnaireresponse-sdc-profile-example.xml"/>
       <exampleFor>
-        <reference value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+        <reference value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
       </exampleFor>
     </resource>
     <resource>
@@ -49,7 +49,7 @@
       <description value="Set of several examples - medication, AHRQ and NCI formsSDC medication example with LOINC codes populated"/>
       <sourceUri value="questionnaire-sdc-profile-example-loinc.xml"/>
       <exampleFor>
-        <reference value="questionnaireanswers-sdc-profile-spreadsheet.xml"/>
+        <reference value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
       </exampleFor>
     </resource>
     <resource>

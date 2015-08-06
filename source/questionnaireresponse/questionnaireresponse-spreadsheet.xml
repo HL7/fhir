@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-06-11T11:40:36Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,8 +20,9 @@
   <WindowWidth>22575</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -976,7 +977,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">QuestionnaireAnswers</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">QuestionnaireResponse</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Form</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1011,7 +1012,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.identifier</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1047,7 +1048,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.questionnaire</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Form</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1083,7 +1084,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="195">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.status</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1095,7 +1096,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">QuestionnaireAnswersStatus</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">QuestionnaireResponseStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1105,7 +1106,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">in-progress | completed | amended</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The lifecycle status of the questionnaire answers as a whole.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The lifecycle status of the questionnaire response as a whole.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">The information on questionnaires  may possibly be gathered during multiple sessions and altered after considered being finished. Questionnaires with just questions may serve as template forms, with the applicable publication statuses</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1121,7 +1122,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.subject</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Patient, Focus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1142,7 +1143,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The subject of the questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Must know the subject context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1158,7 +1159,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.author</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Laboratory, Service, Practitioner, Department, Company</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1179,7 +1180,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Person who received and recorded the answers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Need to know who interpreted the subject's answers to the questions in the questionnaire, and selected the appropriate options for answers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1196,7 +1197,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.authored</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.authored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Date Created, Date published, Date Issued, Date updated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1217,7 +1218,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Date this version was authored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The date and/or time that this version of the questionnaire answers was authored</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The date and/or time that this version of the questionnaire response was authored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1234,7 +1235,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.source</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1271,7 +1272,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.encounter</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1291,7 +1292,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Primary encounter during which the answers were collected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Encounter during which this set of questionnaire response were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Some institutions track questionnaires under a specific encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1308,7 +1309,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1326,7 +1327,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Grouped questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A group of questions to a possibly similarly grouped set of questions in the questionnaire answers</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A group of questions to a possibly similarly grouped set of questions in the questionnaire response</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Need to be able to logically group answers to grouped questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1344,7 +1345,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.linkId</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.linkId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1362,7 +1363,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Corresponding group within Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireResponse resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1378,7 +1379,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.title</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.title</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1413,7 +1414,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.text</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1447,7 +1448,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.subject</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1465,7 +1466,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The subject this group's answers are about</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">More specific subject this section's answers are about, details the subject given in QuestionnaireResponse</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Sometimes a group of answers is about a specific participant, artifact or piece of information in the patient's care or record, e.g. a specific Problem, RelatedPerson, Allergy etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1481,14 +1482,14 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.group</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="Number">1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">@QuestionnaireAnswers.group</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">@QuestionnaireResponse.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1498,7 +1499,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Nested questionnaire answers group</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Nested questionnaire response group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A sub-group within a group. The ordering of groups within this group is relevant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1516,7 +1517,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.question</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Responses, Contents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1553,7 +1554,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.question.linkId</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.question.linkId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1571,7 +1572,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Corresponding question within Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireResponse resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1587,7 +1588,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.question.text</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.question.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1621,7 +1622,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.question.answer</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.question.answer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1655,7 +1656,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.question.answer.value[x]</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.question.answer.value[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1690,13 +1691,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireAnswers.group.question.answer.group</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.group.question.answer.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">@QuestionnaireAnswers.group</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">@QuestionnaireResponse.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3842,6 +3843,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3923,7 +3925,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">GroupHaveSubOrQuestions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">QuestionnaireAnswers.group</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">QuestionnaireResponse.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Groups may either contain questions or groups but not both</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4442,56 +4444,56 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">status</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">QuestionnaireAnswers.status</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">The status of the questionnaire answers</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">QuestionnaireResponse.status</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">The status of the questionnaire response</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">authored</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireAnswers.authored</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireResponse.authored</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">When the questionnaire was authored</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireAnswers.subject</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireResponse.subject</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The subject of the questionnaire</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">author</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireAnswers.author</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireResponse.author</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The author of the questionnaire</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s117"><Data ss:Type="String">questionnaire</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireAnswers.questionnaire</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireResponse.questionnaire</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The questionnaire the answers are provided for</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireAnswers.encounter</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireResponse.encounter</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Encounter during which questionnaire was authored</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Patient</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireAnswers.subject</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireResponse.subject</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The patient that is the subject of the questionnaire</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">source</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireAnswers.source</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">QuestionnaireResponse.source</Data></Cell>
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5636,8 +5638,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">core-extensions</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">questionnaireanswers-extensions.xml</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">questionnaireanswers-extensions-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">questionnaireresponse-extensions.xml</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">questionnaireresponse-extensions-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
@@ -5949,11 +5951,11 @@
     <Cell ss:StyleID="s139"><Data ss:Type="String">General</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">General questionnaire answers example</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">General questionnaire response example</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="Number">3141</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">questionnaireanswers-example.xml</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">questionnaireresponse-example.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data><NamedCell
@@ -5962,9 +5964,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">Lifelines</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world lifelines questionnaire answers (fictively taken from the patient)</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world lifelines questionnaire response (fictively taken from the patient)</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">f201</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">questionnaireanswers-example-f201-lifelines.xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">questionnaireresponse-example-f201-lifelines.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -5973,18 +5975,18 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world NSW My Personal Health Record example</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">bb</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">questionnaireanswers-example-bluebook.xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">questionnaireresponse-example-bluebook.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">Glasgow Coma Score</Data></Cell>
+    <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Glasgow Coma Score answers example</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">gcs</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">questionnaireanswers-example-gcs.xml</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"/>
@@ -6301,7 +6303,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6322,7 +6323,8 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6402,8 +6404,8 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s146"><Data ss:Type="String">QuestionnaireAnswersStatus</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Lifecycle status of the questionnaire answers</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">QuestionnaireResponseStatus</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Lifecycle status of the questionnaire response</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">#questionnaire-answers-status</Data></Cell>
@@ -6938,7 +6940,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">In Progress</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">This QuestionnaireAnswers has been partially filled out with answers, but changes or additions are still expected to be made to it.</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This QuestionnaireResponse has been partially filled out with answers, but changes or additions are still expected to be made to it.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6949,7 +6951,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">This QuestionnaireAnswers has been filled out with answers, and the current content is regarded as definitive.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">This QuestionnaireResponse has been filled out with answers, and the current content is regarded as definitive.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6960,7 +6962,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Amended</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">This QuestionnaireAnswers has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -1209,7 +1209,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">QuestionnaireAnswers.status</Data></Cell>
+    <Cell><Data ss:Type="String">QuestionnaireResponse.status</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>

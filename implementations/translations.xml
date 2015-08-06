@@ -511,8 +511,8 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="es">Cuestionario</translation>
 		<translation lang="fr">Questionnaire</translation>
 	</item>
-	<item id="QuestionnaireAnswers">
-		<translation lang="en">QuestionnaireAnswers</translation>
+	<item id="QuestionnaireResponse">
+		<translation lang="en">QuestionnaireResponse</translation>
 		<translation lang="fr">RéponseQuestionnaire</translation>
 	</item>
 	<item id="ReferralRequest">

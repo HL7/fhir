@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 [%settitle Resource Index%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -41,7 +41,7 @@ This specific profile makes use of the following resources:
 <ul>
   <li><a href="[%fhir-path%]dataelement.html">DataElement</a> is used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</li>
   <li><a href="[%fhir-path%]questionnaire.html">Questionnaire</a> is used to define form definitions that may be downloaded for manual and/or automatic population</li>
-  <li><a href="[%fhir-path%]questionnaireanswers.html">QuestionnaireAnswers</a> is used to share instance data captured using questionnaire forms</li>
+  <li><a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a> is used to share instance data captured using questionnaire forms</li>
   <li><a href="[%fhir-path%]valueset.html">ValueSet</a> is used to define allowed values for data elements and for questions in questionnaires</li>
 </ul>
 <p>
@@ -62,7 +62,7 @@ The SDC specification consists of the following components:
     <ul>
       <li><a href="dataelement-sdc.html">SDC Data Element (DE) Profile</a> - Constraints and extensions for capturing data elements</li>
       <li><a href="questionnaire-sdc.html">SDC Questionnaire Profile</a> - Constraints and extensions for capturing form designs</li>
-      <li><a href="questionnaireanswers-sdc.html">SDC Questionnaire Answers Profile</a> - Constraints and extensions for capturing form data instances</li>
+      <li><a href="questionnaireresponse-sdc.html">SDC Questionnaire Response Profile</a> - Constraints and extensions for capturing form data instances</li>
       <li><a href="valueset-sdc.html">SDC Value Set Profile</a> - Constraints and extensions for defining lists of allowed codes</li>
     </ul>
   </li>
@@ -86,7 +86,7 @@ The SDC specification consists of the following components:
 <h3>Pre-population service</h3>
 <p>
 The <a href="[%fhir-path%]questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="[%fhir-path%]questionnaire-operations.html#populate">populate</a>.
-This operation supports generating a "blank" <a href="[%fhir-path%]questionnaireanswers.html">QuestionnaireAnswers</a> instance based on a specified
+This operation supports generating a "blank" <a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a> instance based on a specified
 <a href="[%fhir-path%]questionnaire.html">Questionnaire</a>.  It also allows for the returned questionnaire to be partially or even fully completed based
 on data passed in to the operation or data already available to the server on which the operation is invoked.
 </p>
@@ -97,7 +97,7 @@ For SDC purposes, server systems claiming to support roles that require support 
 <ul>
   <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
   <li>Support <code>content</code> parameters consisting of a <a href="[%fhir-path%]http.html#binary">Binary</a> resource containing a C-CDA* document</li>
-  <li>Populate the returned <a href="[%fhir-path%]questionnaireanswers.html">QuestionnaireAnswers</a> instance for all questions referencing
+  <li>Populate the returned <a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a> instance for all questions referencing
   <a href="[%fhir-path%]dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
 </ul>
 <p>
