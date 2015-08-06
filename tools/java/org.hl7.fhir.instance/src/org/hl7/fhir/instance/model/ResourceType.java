@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 00:54-0600 for FHIR v0.5.0
 
 public enum ResourceType {
     Account,
@@ -81,7 +81,7 @@ public enum ResourceType {
     ProcessResponse,
     Provenance,
     Questionnaire,
-    QuestionnaireAnswers,
+    QuestionnaireResponse,
     ReferralRequest,
     RelatedPerson,
     RiskAssessment,
@@ -257,8 +257,8 @@ public enum ResourceType {
       return "provenance";
     case Questionnaire:
       return "questionnaire";
-    case QuestionnaireAnswers:
-      return "questionnaireanswers";
+    case QuestionnaireResponse:
+      return "questionnaireresponse";
     case ReferralRequest:
       return "referralrequest";
     case RelatedPerson:

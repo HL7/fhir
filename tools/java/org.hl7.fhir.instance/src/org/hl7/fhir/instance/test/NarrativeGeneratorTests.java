@@ -28,7 +28,7 @@ public class NarrativeGeneratorTests {
 
 	@Test
 	public void test() throws Exception {
-		process("C:\\work\\org.hl7.fhir\\build\\source\\questionnaireanswers\\questionnaireanswers-example-f201-lifelines.xml");
+		process("C:\\work\\org.hl7.fhir\\build\\source\\questionnaireresponse\\questionnaireresponse-example-f201-lifelines.xml");
 	}
 
 	private void process(String path) throws Exception {

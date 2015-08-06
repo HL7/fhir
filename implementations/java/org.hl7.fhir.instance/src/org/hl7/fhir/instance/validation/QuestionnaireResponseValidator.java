@@ -25,9 +25,9 @@ import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Questionnaire.AnswerFormat;
 import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
-import org.hl7.fhir.instance.model.QuestionnaireAnswers;
-import org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionAnswerComponent;
-import org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionnaireAnswersStatus;
+import org.hl7.fhir.instance.model.QuestionnaireResponse;
+import org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionAnswerComponent;
+import org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionnaireResponseStatus;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
@@ -40,11 +40,11 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.utils.WorkerContext;
 
 /**
- * Validates that an instance of {@link QuestionnaireAnswers} is valid against the {@link Questionnaire} that it claims to conform to.
+ * Validates that an instance of {@link QuestionnaireResponse} is valid against the {@link Questionnaire} that it claims to conform to.
  * 
  * @author James Agnew
  */
-public class QuestionnaireAnswersValidator extends BaseValidator {
+public class QuestionnaireResponseValidator extends BaseValidator {
 
 	/* *****************************************************************
 	 * Note to anyone working on this class -
@@ -55,7 +55,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 
 	private WorkerContext myWorkerCtx;
 
-	public QuestionnaireAnswersValidator(WorkerContext theWorkerCtx) {
+	public QuestionnaireResponseValidator(WorkerContext theWorkerCtx) {
 		this.myWorkerCtx = theWorkerCtx;
 	}
 
@@ -65,12 +65,12 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		return Collections.unmodifiableSet(retVal);
 	}
 
-	private List<org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent> findAnswersByLinkId(List<org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent> theQuestion,
+	private List<org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent> findAnswersByLinkId(List<org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent> theQuestion,
 			String theLinkId) {
 		Validate.notBlank(theLinkId, "theLinkId must not be blank");
 
-		ArrayList<org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent> retVal = new ArrayList<QuestionnaireAnswers.QuestionComponent>();
-		for (org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent next : theQuestion) {
+		ArrayList<org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent> retVal = new ArrayList<QuestionnaireResponse.QuestionComponent>();
+		for (org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent next : theQuestion) {
 			if (theLinkId.equals(next.getLinkId())) {
 				retVal.add(next);
 			}
@@ -78,11 +78,11 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		return retVal;
 	}
 
-	private List<org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent> findGroupByLinkId(List<org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent> theGroups, String theLinkId) {
+	private List<org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent> findGroupByLinkId(List<org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent> theGroups, String theLinkId) {
 		Validate.notBlank(theLinkId, "theLinkId must not be blank");
 
-		ArrayList<org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent> retVal = new ArrayList<QuestionnaireAnswers.GroupComponent>();
-		for (org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent next : theGroups) {
+		ArrayList<org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent> retVal = new ArrayList<QuestionnaireResponse.GroupComponent>();
+		for (org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent next : theGroups) {
 			if (theLinkId.equals(next.getLinkId())) {
 				retVal.add(next);
 			}
@@ -90,12 +90,12 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		return retVal;
 	}
 
-	public void validate(List<ValidationMessage> theErrors, QuestionnaireAnswers theAnswers) {
+	public void validate(List<ValidationMessage> theErrors, QuestionnaireResponse theAnswers) {
 		LinkedList<String> pathStack = new LinkedList<String>();
-		pathStack.add("QuestionnaireAnswers");
-		pathStack.add(QuestionnaireAnswers.SP_QUESTIONNAIRE);
+		pathStack.add("QuestionnaireResponse");
+		pathStack.add(QuestionnaireResponse.SP_QUESTIONNAIRE);
 
-		if (!fail(theErrors, IssueType.INVALID, pathStack, theAnswers.hasQuestionnaire(), "QuestionnaireAnswers does not specity which questionnaire it is providing answers to")) {
+		if (!fail(theErrors, IssueType.INVALID, pathStack, theAnswers.hasQuestionnaire(), "QuestionnaireResponse does not specity which questionnaire it is providing answers to")) {
 			return;
 		}
 
@@ -105,9 +105,9 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			return;
 		}
 
-		QuestionnaireAnswersStatus status = theAnswers.getStatus();
+		QuestionnaireResponseStatus status = theAnswers.getStatus();
 		boolean validateRequired = false;
-		if (status == QuestionnaireAnswersStatus.COMPLETED || status == QuestionnaireAnswersStatus.AMENDED) {
+		if (status == QuestionnaireResponseStatus.COMPLETED || status == QuestionnaireResponseStatus.AMENDED) {
 			validateRequired = true;
 		}
 
@@ -116,7 +116,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		validateGroup(theErrors, questionnaire.getGroup(), theAnswers.getGroup(), pathStack, theAnswers, validateRequired);
 	}
 
-	private Questionnaire getQuestionnaire(QuestionnaireAnswers theAnswers, Reference theQuestionnaireRef) {
+	private Questionnaire getQuestionnaire(QuestionnaireResponse theAnswers, Reference theQuestionnaireRef) {
 		Questionnaire retVal;
 		if (theQuestionnaireRef.getReferenceElement().isLocal()) {
 			retVal = (Questionnaire) theQuestionnaireRef.getResource();
@@ -133,7 +133,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		return retVal;
 	}
 
-	private ValueSet getValueSet(QuestionnaireAnswers theAnswers, Reference theQuestionnaireRef) {
+	private ValueSet getValueSet(QuestionnaireResponse theAnswers, Reference theQuestionnaireRef) {
 		ValueSet retVal;
 		if (theQuestionnaireRef.getReferenceElement().isLocal()) {
 			retVal = (ValueSet) theQuestionnaireRef.getResource();
@@ -150,10 +150,10 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		return retVal;
 	}
 
-	private void validateGroup(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent theAnsGroup,
-			LinkedList<String> thePathStack, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
+	private void validateGroup(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent theAnsGroup,
+			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
 
-		for (org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent next : theAnsGroup.getQuestion()) {
+		for (org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent next : theAnsGroup.getQuestion()) {
 			rule(theErrors, IssueType.INVALID, thePathStack, isNotBlank(next.getLinkId()), "Question found with no linkId");
 		}
 
@@ -169,7 +169,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 
 		// Check that there are no extra answers
 		for (int i = 0; i < theAnsGroup.getQuestion().size(); i++) {
-			org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent nextQuestion = theAnsGroup.getQuestion().get(i);
+			org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent nextQuestion = theAnsGroup.getQuestion().get(i);
 			thePathStack.add("question(" + i + ")");
 			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, allowedQuestions.contains(nextQuestion.getLinkId()), "Found answer with linkId[{0}] but this ID is not allowed at this position",
 					nextQuestion.getLinkId());
@@ -180,8 +180,8 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 
 	}
 
-	private void validateQuestion(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent theAnsGroup,
-			LinkedList<String> thePathStack, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
+	private void validateQuestion(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent theAnsGroup,
+			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
 		String linkId = theQuestion.getLinkId();
 		if (!fail(theErrors, IssueType.INVALID, thePathStack, isNotBlank(linkId), "Questionnaire is invalid, question found with no link ID")) {
 			return;
@@ -196,7 +196,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			type = AnswerFormat.NULL;
 		}
 
-		List<org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent> answers = findAnswersByLinkId(theAnsGroup.getQuestion(), linkId);
+		List<org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent> answers = findAnswersByLinkId(theAnsGroup.getQuestion(), linkId);
 		if (answers.size() > 1) {
 			rule(theErrors, IssueType.BUSINESSRULE, thePathStack, !theQuestion.getRequired(), "Multiple answers repetitions found with linkId[{0}]", linkId);
 		}
@@ -209,7 +209,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 			return;
 		}
 
-		org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent answerQuestion = answers.get(0);
+		org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent answerQuestion = answers.get(0);
 		try {
 			thePathStack.add("question(" + answers.indexOf(answerQuestion) + ")");
 			validateQuestionAnswers(theErrors, theQuestion, thePathStack, type, answerQuestion, theAnswers, theValidateRequired);
@@ -218,24 +218,24 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 		}
 	}
 
-	private void validateQuestionGroups(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionAnswerComponent theAnswer,
-			LinkedList<String> thePathSpec, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
+	private void validateQuestionGroups(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionAnswerComponent theAnswer,
+			LinkedList<String> thePathSpec, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
 		validateGroups(theErrors, theQuestion.getGroup(), theAnswer.getGroup(), thePathSpec, theAnswers, theValidateRequired);
 	}
 
-	private void validateGroupGroups(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent theAnsGroup,
-			LinkedList<String> thePathSpec, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
+	private void validateGroupGroups(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent theAnsGroup,
+			LinkedList<String> thePathSpec, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
 		validateGroups(theErrors, theQuestGroup.getGroup(), theAnsGroup.getGroup(), thePathSpec, theAnswers, theValidateRequired);
 	}
 
-	private void validateGroups(List<ValidationMessage> theErrors, List<GroupComponent> theQuestionGroups, List<org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent> theAnswerGroups,
-			LinkedList<String> thePathStack, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
+	private void validateGroups(List<ValidationMessage> theErrors, List<GroupComponent> theQuestionGroups, List<org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent> theAnswerGroups,
+			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
 		Set<String> allowedGroups = new HashSet<String>();
 		for (GroupComponent nextQuestionGroup : theQuestionGroups) {
 			String linkId = nextQuestionGroup.getLinkId();
 			allowedGroups.add(linkId);
 
-			List<org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent> answerGroups = findGroupByLinkId(theAnswerGroups, linkId);
+			List<org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent> answerGroups = findGroupByLinkId(theAnswerGroups, linkId);
 			if (answerGroups.isEmpty()) {
 				if (nextQuestionGroup.getRequired()) {
 					if (theValidateRequired) {
@@ -254,7 +254,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 					thePathStack.removeLast();
 				}
 			}
-			for (org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent nextAnswerGroup : answerGroups) {
+			for (org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent nextAnswerGroup : answerGroups) {
 				int index = theAnswerGroups.indexOf(answerGroups.get(1));
 				thePathStack.add("group(" + index + ")");
 				validateGroup(theErrors, nextQuestionGroup, nextAnswerGroup, thePathStack, theAnswers, theValidateRequired);
@@ -264,7 +264,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 
 		// Make sure there are no groups in answers that aren't in the questionnaire
 		int idx = -1;
-		for (org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent next : theAnswerGroups) {
+		for (org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent next : theAnswerGroups) {
 			idx++;
 			if (!allowedGroups.contains(next.getLinkId())) {
 				thePathStack.add("group(" + idx + ")");
@@ -276,7 +276,7 @@ public class QuestionnaireAnswersValidator extends BaseValidator {
 	}
 
 	private void validateQuestionAnswers(List<ValidationMessage> theErrors, QuestionComponent theQuestion, LinkedList<String> thePathStack, AnswerFormat type,
-			org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionComponent answerQuestion, QuestionnaireAnswers theAnswers, boolean theValidateRequired) {
+			org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent answerQuestion, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
 
 		String linkId = theQuestion.getLinkId();
 		Set<Class<? extends Type>> allowedAnswerTypes = determineAllowedAnswerTypes(type);

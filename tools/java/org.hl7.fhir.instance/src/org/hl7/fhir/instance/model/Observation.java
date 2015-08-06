@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 00:54-0600 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -568,7 +568,7 @@ public class Observation extends DomainResource {
         /**
          * A reference to the observation or questionnaireanswer that is related to this observation.
          */
-        @Child(name = "target", type = {Observation.class, QuestionnaireAnswers.class}, order=2, min=1, max=1)
+        @Child(name = "target", type = {Observation.class, QuestionnaireResponse.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Resource that is related to this one", formalDefinition="A reference to the observation or questionnaireanswer that is related to this observation." )
         protected Reference target;
 
@@ -685,7 +685,7 @@ public class Observation extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A code specifying the kind of relationship that exists with the target resource.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("target", "Reference(Observation|QuestionnaireAnswers)", "A reference to the observation or questionnaireanswer that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Reference(Observation|QuestionnaireResponse)", "A reference to the observation or questionnaireanswer that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public ObservationRelatedComponent copy() {
@@ -2215,58 +2215,58 @@ public class Observation extends DomainResource {
     return ResourceType.Observation;
    }
 
-  @SearchParamDefinition(name="subject", path="Observation.subject", description="The subject that the observation is about", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="encounter", path="Observation.encounter", description="Healthcare event related to the observation", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="date", path="Observation.effective[x]", description="Obtained date/time. If the obtained element is a period, a date that falls in the period", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="component-value-quantity", path="Observation.component.valueQuantity", description="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
-  public static final String SP_COMPONENTVALUEQUANTITY = "component-value-quantity";
+  @SearchParamDefinition(name="code", path="Observation.code", description="The code of the observation type", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="subject", path="Observation.subject", description="The subject that the observation is about", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="component-data-absent-reason", path="Observation.component.dataAbsentReason", description="The reason why the expected value in the element Observation.component.value[x] is missing.", type="token" )
+  public static final String SP_COMPONENTDATAABSENTREASON = "component-data-absent-reason";
+  @SearchParamDefinition(name="value-concept", path="Observation.valueCodeableConcept", description="The value of the observation, if the value is a CodeableConcept", type="token" )
+  public static final String SP_VALUECONCEPT = "value-concept";
+  @SearchParamDefinition(name="value-date", path="Observation.valueDateTime|Observation.valuePeriod", description="The value of the observation, if the value is a date or period of time", type="date" )
+  public static final String SP_VALUEDATE = "value-date";
   @SearchParamDefinition(name="related", path="", description="Related Observations - search on related-type and related-target together", type="composite" )
   public static final String SP_RELATED = "related";
   @SearchParamDefinition(name="patient", path="Observation.subject", description="The subject that the observation is about (if patient)", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="specimen", path="Observation.specimen", description="Specimen used for this observation", type="reference" )
   public static final String SP_SPECIMEN = "specimen";
-  @SearchParamDefinition(name="component-value-concept", path="Observation.component.valueCodeableConcept", description="The value of the component observation, if the value is a CodeableConcept", type="token" )
-  public static final String SP_COMPONENTVALUECONCEPT = "component-value-concept";
-  @SearchParamDefinition(name="component-code-value-[x]", path="", description="Both component code and one of the component value parameters", type="composite" )
-  public static final String SP_COMPONENTCODEVALUEX = "component-code-value-[x]";
-  @SearchParamDefinition(name="value-quantity", path="Observation.valueQuantity", description="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
-  public static final String SP_VALUEQUANTITY = "value-quantity";
-  @SearchParamDefinition(name="value-date", path="Observation.valueDateTime|Observation.valuePeriod", description="The value of the observation, if the value is a date or period of time", type="date" )
-  public static final String SP_VALUEDATE = "value-date";
-  @SearchParamDefinition(name="value-string", path="Observation.valueString", description="The value of the observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
-  public static final String SP_VALUESTRING = "value-string";
   @SearchParamDefinition(name="component-code", path="Observation.component.code", description="The component code of the observation type", type="token" )
   public static final String SP_COMPONENTCODE = "component-code";
-  @SearchParamDefinition(name="status", path="Observation.status", description="The status of the observation", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="value-concept", path="Observation.valueCodeableConcept", description="The value of the observation, if the value is a CodeableConcept", type="token" )
-  public static final String SP_VALUECONCEPT = "value-concept";
-  @SearchParamDefinition(name="code", path="Observation.code", description="The code of the observation type", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="related-target", path="Observation.related.target", description="Resource that is related to this one", type="reference" )
-  public static final String SP_RELATEDTARGET = "related-target";
-  @SearchParamDefinition(name="data-absent-reason", path="Observation.dataAbsentReason", description="The reason why the expected value in the element Observation.value[x] is missing.", type="token" )
-  public static final String SP_DATAABSENTREASON = "data-absent-reason";
-  @SearchParamDefinition(name="category", path="Observation.category", description="The classification of the type of observation", type="token" )
-  public static final String SP_CATEGORY = "category";
-  @SearchParamDefinition(name="component-data-absent-reason", path="Observation.component.dataAbsentReason", description="The reason why the expected value in the element Observation.component.value[x] is missing.", type="token" )
-  public static final String SP_COMPONENTDATAABSENTREASON = "component-data-absent-reason";
-  @SearchParamDefinition(name="device", path="Observation.device", description="The Device that generated the observation data.", type="reference" )
-  public static final String SP_DEVICE = "device";
-  @SearchParamDefinition(name="related-type", path="Observation.related.type", description="has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by", type="token" )
-  public static final String SP_RELATEDTYPE = "related-type";
-  @SearchParamDefinition(name="performer", path="Observation.performer", description="Who performed the observation", type="reference" )
-  public static final String SP_PERFORMER = "performer";
+  @SearchParamDefinition(name="value-string", path="Observation.valueString", description="The value of the observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
+  public static final String SP_VALUESTRING = "value-string";
   @SearchParamDefinition(name="identifier", path="Observation.identifier", description="The unique Id for a particular observation", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="component-code-value-[x]", path="", description="Both component code and one of the component value parameters", type="composite" )
+  public static final String SP_COMPONENTCODEVALUEX = "component-code-value-[x]";
   @SearchParamDefinition(name="code-value-[x]", path="", description="Both code and one of the value parameters", type="composite" )
   public static final String SP_CODEVALUEX = "code-value-[x]";
+  @SearchParamDefinition(name="performer", path="Observation.performer", description="Who performed the observation", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+  @SearchParamDefinition(name="value-quantity", path="Observation.valueQuantity", description="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
+  public static final String SP_VALUEQUANTITY = "value-quantity";
+  @SearchParamDefinition(name="component-value-quantity", path="Observation.component.valueQuantity", description="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
+  public static final String SP_COMPONENTVALUEQUANTITY = "component-value-quantity";
+  @SearchParamDefinition(name="data-absent-reason", path="Observation.dataAbsentReason", description="The reason why the expected value in the element Observation.value[x] is missing.", type="token" )
+  public static final String SP_DATAABSENTREASON = "data-absent-reason";
+  @SearchParamDefinition(name="encounter", path="Observation.encounter", description="Healthcare event related to the observation", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="related-type", path="Observation.related.type", description="has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by", type="token" )
+  public static final String SP_RELATEDTYPE = "related-type";
+  @SearchParamDefinition(name="related-target", path="Observation.related.target", description="Resource that is related to this one", type="reference" )
+  public static final String SP_RELATEDTARGET = "related-target";
   @SearchParamDefinition(name="component-value-string", path="Observation.component.valueString", description="The value of the component observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
   public static final String SP_COMPONENTVALUESTRING = "component-value-string";
+  @SearchParamDefinition(name="component-value-concept", path="Observation.component.valueCodeableConcept", description="The value of the component observation, if the value is a CodeableConcept", type="token" )
+  public static final String SP_COMPONENTVALUECONCEPT = "component-value-concept";
+  @SearchParamDefinition(name="category", path="Observation.category", description="The classification of the type of observation", type="token" )
+  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="device", path="Observation.device", description="The Device that generated the observation data.", type="reference" )
+  public static final String SP_DEVICE = "device";
+  @SearchParamDefinition(name="status", path="Observation.status", description="The status of the observation", type="token" )
+  public static final String SP_STATUS = "status";
 
 }
 

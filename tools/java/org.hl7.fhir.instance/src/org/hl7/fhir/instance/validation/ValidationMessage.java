@@ -1,33 +1,33 @@
 package org.hl7.fhir.instance.validation;
 
 /*
-Copyright (c) 2011+, HL7, Inc
-All rights reserved.
+ Copyright (c) 2011+, HL7, Inc
+ All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification, 
+ are permitted provided that the following conditions are met:
 
  * Redistributions of source code must retain the above copyright notice, this 
-   list of conditions and the following disclaimer.
+ list of conditions and the following disclaimer.
  * Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
-   and/or other materials provided with the distribution.
+ this list of conditions and the following disclaimer in the documentation 
+ and/or other materials provided with the distribution.
  * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
-   prior written permission.
+ endorse or promote products derived from this software without specific 
+ prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
-POSSIBILITY OF SUCH DAMAGE.
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -42,26 +42,26 @@ import org.hl7.fhir.utilities.Utilities;
 public class ValidationMessage 
 {
   public enum Source {
-    ExampleValidator,
-    ProfileValidator,
+    ExampleValidator, 
+    ProfileValidator, 
     ResourceValidator, 
-    InstanceValidator,
-    Schema,
-    Schematron,
+    InstanceValidator, 
+    Schema, 
+    Schematron, 
     Publisher, 
-    Ontology,
+    Ontology, 
     ProfileComparer
   }
-  
+
   private Source source;
   private int line;
-  private int col; 
+  private int col;
   private String location;
   private String message;
   private OperationOutcome.IssueType type;
   private IssueSeverity level;
   private String html;
-  
+
   
   public ValidationMessage(Source source, OperationOutcome.IssueType type, String path, String message, IssueSeverity level) {
     super();
@@ -78,7 +78,7 @@ public class ValidationMessage
     if (type == null)
       throw new Error("A type must be provided");
   }
-  
+
   public ValidationMessage(Source source, OperationOutcome.IssueType type, int line, int col, String path, String message, IssueSeverity level) {
     super();
     this.line = line;
@@ -92,9 +92,9 @@ public class ValidationMessage
     if (level == IssueSeverity.NULL)
       determineLevel(path);
     if (type == null)
-    	throw new Error("A type must be provided");
+      throw new Error("A type must be provided");
   }
-  
+
   public ValidationMessage(Source source, OperationOutcome.IssueType type, String path, String message, String html, IssueSeverity level) {
     super();
     this.line = -1;
@@ -110,7 +110,7 @@ public class ValidationMessage
     if (type == null)
       throw new Error("A type must be provided");
   }
-  
+
   public ValidationMessage(Source source, OperationOutcome.IssueType type, int line, int col, String path, String message, String html, IssueSeverity level) {
     super();
     this.line = line;
@@ -145,7 +145,7 @@ public class ValidationMessage
       return true;
     if (path.startsWith("dataelement-sdc-sdcelement."))
       return true;
-    if (path.startsWith("questionnaireanswers-sdc-structureddatacaptureanswers."))
+    if (path.startsWith("questionnaireresponse-sdc-structureddatacaptureanswers."))
       return true;
     if (path.startsWith("valueset-sdc-structureddatacapturevalueset."))
       return true;
@@ -171,19 +171,21 @@ public class ValidationMessage
   public void setMessage(String message) {
     this.message = message;
   }
+
   public IssueSeverity getLevel() {
     return level;
   }
   public void setLevel(IssueSeverity level) {
     this.level = level;
   }
-  
+
   public Source getSource() {
     return source;
   }
   public void setSource(Source source) {
     this.source = source;
   }
+
   public String getLocation() {
     return location;
   }
@@ -214,7 +216,7 @@ public class ValidationMessage
     issue.setSeverity(level);
     issue.getDetails().setText(message);
     if (source != null) {
-      issue.getExtension().add(ToolingExtensions.makeIssueSource(source));      
+      issue.getExtension().add(ToolingExtensions.makeIssueSource(source));
     }
     return issue;
   }
@@ -241,7 +243,7 @@ public class ValidationMessage
     b.append("message", message);
     return b.build();
   }
-  
+
   
   
 }

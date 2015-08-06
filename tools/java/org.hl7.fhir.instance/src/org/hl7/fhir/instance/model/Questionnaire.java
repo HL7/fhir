@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 00:54-0600 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -390,10 +390,10 @@ public class Questionnaire extends DomainResource {
     @Block()
     public static class GroupComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.
          */
         @Child(name = "linkId", type = {StringType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="To link questionnaire with questionnaire answers", formalDefinition="An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource." )
+        @Description(shortDefinition="To link questionnaire with questionnaire response", formalDefinition="An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource." )
         protected StringType linkId;
 
         /**
@@ -455,7 +455,7 @@ public class Questionnaire extends DomainResource {
       }
 
         /**
-         * @return {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
+         * @return {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
         public StringType getLinkIdElement() { 
           if (this.linkId == null)
@@ -475,7 +475,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @param value {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
+         * @param value {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
         public GroupComponent setLinkIdElement(StringType value) { 
           this.linkId = value;
@@ -483,14 +483,14 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * @return An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.
          */
         public String getLinkId() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
-         * @param value An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * @param value An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.
          */
         public GroupComponent setLinkId(String value) { 
           if (Utilities.noString(value))
@@ -813,7 +813,7 @@ public class Questionnaire extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("linkId", "string", "An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
+          childrenList.add(new Property("linkId", "string", "An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("title", "string", "The human-readable name for this section of the questionnaire.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("concept", "Coding", "Identifies a how this group of questions is known in a particular terminology such as LOINC.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("text", "string", "Additional text for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, text));
@@ -884,10 +884,10 @@ public class Questionnaire extends DomainResource {
     @Block()
     public static class QuestionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
+         * An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.
          */
         @Child(name = "linkId", type = {StringType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="To link questionnaire with questionnaire answers", formalDefinition="An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource." )
+        @Description(shortDefinition="To link questionnaire with questionnaire response", formalDefinition="An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource." )
         protected StringType linkId;
 
         /**
@@ -954,7 +954,7 @@ public class Questionnaire extends DomainResource {
       }
 
         /**
-         * @return {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
+         * @return {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
         public StringType getLinkIdElement() { 
           if (this.linkId == null)
@@ -974,7 +974,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @param value {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
+         * @param value {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
         public QuestionComponent setLinkIdElement(StringType value) { 
           this.linkId = value;
@@ -982,14 +982,14 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
+         * @return An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.
          */
         public String getLinkId() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
-         * @param value An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
+         * @param value An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.
          */
         public QuestionComponent setLinkId(String value) { 
           if (Utilities.noString(value))
@@ -1316,7 +1316,7 @@ public class Questionnaire extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("linkId", "string", "An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
+          childrenList.add(new Property("linkId", "string", "An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("concept", "Coding", "Identifies a how this question is known in a particular terminology such as LOINC.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("text", "string", "The actual question as shown to the user to prompt them for an answer.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("type", "code", "The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1426,7 +1426,7 @@ public class Questionnaire extends DomainResource {
      * Identifies the types of subjects that can be the subject of the questionnaire.
      */
     @Child(name = "subjectType", type = {CodeType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Resource that can be subject of QuestionnaireAnswers", formalDefinition="Identifies the types of subjects that can be the subject of the questionnaire." )
+    @Description(shortDefinition="Resource that can be subject of QuestionnaireResponse", formalDefinition="Identifies the types of subjects that can be the subject of the questionnaire." )
     protected List<CodeType> subjectType;
 
     /**
@@ -1881,20 +1881,20 @@ public class Questionnaire extends DomainResource {
     return ResourceType.Questionnaire;
    }
 
-  @SearchParamDefinition(name="title", path="Questionnaire.group.title", description="All or part of the name of the questionnaire (title for the root group of the questionnaire)", type="string" )
-  public static final String SP_TITLE = "title";
-  @SearchParamDefinition(name="status", path="Questionnaire.status", description="The status of the questionnaire", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="code", path="Questionnaire.group.concept", description="A code that corresponds to the questionnaire or one of its groups", type="token" )
-  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="date", path="Questionnaire.date", description="When the questionnaire was last changed", type="date" )
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="Questionnaire.identifier", description="An identifier for the questionnaire", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="version", path="Questionnaire.version", description="The business version of the questionnaire", type="string" )
-  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="code", path="Questionnaire.group.concept", description="A code that corresponds to the questionnaire or one of its groups", type="token" )
+  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="publisher", path="Questionnaire.publisher", description="The author of the questionnaire", type="string" )
   public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="title", path="Questionnaire.group.title", description="All or part of the name of the questionnaire (title for the root group of the questionnaire)", type="string" )
+  public static final String SP_TITLE = "title";
+  @SearchParamDefinition(name="version", path="Questionnaire.version", description="The business version of the questionnaire", type="string" )
+  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="status", path="Questionnaire.status", description="The status of the questionnaire", type="token" )
+  public static final String SP_STATUS = "status";
 
 }
 
