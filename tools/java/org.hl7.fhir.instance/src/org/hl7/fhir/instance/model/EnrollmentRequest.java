@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -615,12 +615,12 @@ public class EnrollmentRequest extends DomainResource {
     return ResourceType.EnrollmentRequest;
    }
 
-  @SearchParamDefinition(name="identifier", path="EnrollmentRequest.identifier", description="The business identifier of the Enrollment", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="subject", path="EnrollmentRequest.subject", description="The party to be enrolled", type="reference" )
-  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="patient", path="EnrollmentRequest.subject", description="The party to be enrolled", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="subject", path="EnrollmentRequest.subject", description="The party to be enrolled", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="identifier", path="EnrollmentRequest.identifier", description="The business identifier of the Enrollment", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

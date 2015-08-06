@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -745,16 +745,16 @@ public class SupplyDelivery extends DomainResource {
     return ResourceType.SupplyDelivery;
    }
 
-  @SearchParamDefinition(name="identifier", path="SupplyDelivery.identifier", description="External identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="receiver", path="SupplyDelivery.receiver", description="Who collected the Supply", type="reference" )
-  public static final String SP_RECEIVER = "receiver";
   @SearchParamDefinition(name="patient", path="SupplyDelivery.patient", description="Patient for whom the item is supplied", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="supplier", path="SupplyDelivery.supplier", description="Dispenser", type="reference" )
-  public static final String SP_SUPPLIER = "supplier";
+  @SearchParamDefinition(name="receiver", path="SupplyDelivery.receiver", description="Who collected the Supply", type="reference" )
+  public static final String SP_RECEIVER = "receiver";
   @SearchParamDefinition(name="status", path="SupplyDelivery.status", description="in-progress | completed | abandoned", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="SupplyDelivery.identifier", description="External identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="supplier", path="SupplyDelivery.supplier", description="Dispenser", type="reference" )
+  public static final String SP_SUPPLIER = "supplier";
 
 }
 

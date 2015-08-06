@@ -660,7 +660,7 @@ public class QuestionnaireBuilder {
   private void processDataType(StructureDefinition profile, GroupComponent group, ElementDefinition element, String path, TypeRefComponent t, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     if (t.getCode().equals("code"))
       addCodeQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("string") || t.getCode().equals("id") || t.getCode().equals("oid"))
+    else if (t.getCode().equals("string") || t.getCode().equals("id") || t.getCode().equals("oid") || t.getCode().equals("markdown"))
       addStringQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("uri"))
       addUriQuestions(group, element, path, answerGroups);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -998,28 +998,28 @@ public class Communication extends DomainResource {
     return ResourceType.Communication;
    }
 
-  @SearchParamDefinition(name="identifier", path="Communication.identifier", description="Unique identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
   @SearchParamDefinition(name="sender", path="Communication.sender", description="Message sender", type="reference" )
   public static final String SP_SENDER = "sender";
-  @SearchParamDefinition(name="subject", path="Communication.subject", description="Focus of message", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="patient", path="Communication.subject", description="Focus of message", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="recipient", path="Communication.recipient", description="Message recipient", type="reference" )
-  public static final String SP_RECIPIENT = "recipient";
-  @SearchParamDefinition(name="received", path="Communication.received", description="When received", type="date" )
-  public static final String SP_RECEIVED = "received";
-  @SearchParamDefinition(name="medium", path="Communication.medium", description="Communication medium", type="token" )
-  public static final String SP_MEDIUM = "medium";
-  @SearchParamDefinition(name="encounter", path="Communication.encounter", description="Encounter leading to message", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
-  @SearchParamDefinition(name="category", path="Communication.category", description="Message category", type="token" )
-  public static final String SP_CATEGORY = "category";
   @SearchParamDefinition(name="sent", path="Communication.sent", description="When sent", type="date" )
   public static final String SP_SENT = "sent";
+  @SearchParamDefinition(name="category", path="Communication.category", description="Message category", type="token" )
+  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="patient", path="Communication.subject", description="Focus of message", type="reference" )
+  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="status", path="Communication.status", description="in-progress | completed | suspended | rejected | failed", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="subject", path="Communication.subject", description="Focus of message", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="received", path="Communication.received", description="When received", type="date" )
+  public static final String SP_RECEIVED = "received";
+  @SearchParamDefinition(name="encounter", path="Communication.encounter", description="Encounter leading to message", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="identifier", path="Communication.identifier", description="Unique identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="medium", path="Communication.medium", description="Communication medium", type="token" )
+  public static final String SP_MEDIUM = "medium";
+  @SearchParamDefinition(name="recipient", path="Communication.recipient", description="Message recipient", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
 
 }
 

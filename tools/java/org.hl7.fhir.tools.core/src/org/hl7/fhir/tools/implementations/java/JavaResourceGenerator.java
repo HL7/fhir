@@ -982,6 +982,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       return "String";
     if (n.equals("CodeType"))
       return "String";
+    if (n.equals("MarkdownType"))
+      return "String";
     if (n.equals("Base64BinaryType"))
       return "byte[]";
     if (n.equals("UriType"))

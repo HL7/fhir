@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -830,20 +830,20 @@ public class SupplyRequest extends DomainResource {
     return ResourceType.SupplyRequest;
    }
 
-  @SearchParamDefinition(name="date", path="SupplyRequest.date", description="When the request was made", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="identifier", path="SupplyRequest.identifier", description="Unique identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="kind", path="SupplyRequest.kind", description="The kind of supply (central, non-stock, etc)", type="token" )
-  public static final String SP_KIND = "kind";
   @SearchParamDefinition(name="patient", path="SupplyRequest.patient", description="Patient for whom the item is supplied", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="supplier", path="SupplyRequest.supplier", description="Who is intended to fulfill the request", type="reference" )
-  public static final String SP_SUPPLIER = "supplier";
   @SearchParamDefinition(name="source", path="SupplyRequest.source", description="Who initiated this order", type="reference" )
   public static final String SP_SOURCE = "source";
   @SearchParamDefinition(name="status", path="SupplyRequest.status", description="requested | completed | failed | cancelled", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="date", path="SupplyRequest.date", description="When the request was made", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="identifier", path="SupplyRequest.identifier", description="Unique identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="supplier", path="SupplyRequest.supplier", description="Who is intended to fulfill the request", type="reference" )
+  public static final String SP_SUPPLIER = "supplier";
+  @SearchParamDefinition(name="kind", path="SupplyRequest.kind", description="The kind of supply (central, non-stock, etc)", type="token" )
+  public static final String SP_KIND = "kind";
 
 }
 

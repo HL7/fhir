@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -470,375 +470,6 @@ public class Condition extends DomainResource {
 
   }
 
-    @Block()
-    public static class ConditionLocationComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Code that identifies the structural location.
-         */
-        @Child(name = "site", type = {CodeableConcept.class, BodySite.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Location - may include laterality", formalDefinition="Code that identifies the structural location." )
-        protected Type site;
-
-        private static final long serialVersionUID = 1429072605L;
-
-    /*
-     * Constructor
-     */
-      public ConditionLocationComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #site} (Code that identifies the structural location.)
-         */
-        public Type getSite() { 
-          return this.site;
-        }
-
-        /**
-         * @return {@link #site} (Code that identifies the structural location.)
-         */
-        public CodeableConcept getSiteCodeableConcept() throws Exception { 
-          if (!(this.site instanceof CodeableConcept))
-            throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.site.getClass().getName()+" was encountered");
-          return (CodeableConcept) this.site;
-        }
-
-        public boolean hasSiteCodeableConcept() throws Exception { 
-          return this.site instanceof CodeableConcept;
-        }
-
-        /**
-         * @return {@link #site} (Code that identifies the structural location.)
-         */
-        public Reference getSiteReference() throws Exception { 
-          if (!(this.site instanceof Reference))
-            throw new Exception("Type mismatch: the type Reference was expected, but "+this.site.getClass().getName()+" was encountered");
-          return (Reference) this.site;
-        }
-
-        public boolean hasSiteReference() throws Exception { 
-          return this.site instanceof Reference;
-        }
-
-        public boolean hasSite() { 
-          return this.site != null && !this.site.isEmpty();
-        }
-
-        /**
-         * @param value {@link #site} (Code that identifies the structural location.)
-         */
-        public ConditionLocationComponent setSite(Type value) { 
-          this.site = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("site[x]", "CodeableConcept|Reference(BodySite)", "Code that identifies the structural location.", 0, java.lang.Integer.MAX_VALUE, site));
-        }
-
-      public ConditionLocationComponent copy() {
-        ConditionLocationComponent dst = new ConditionLocationComponent();
-        copyValues(dst);
-        dst.site = site == null ? null : site.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ConditionLocationComponent))
-          return false;
-        ConditionLocationComponent o = (ConditionLocationComponent) other;
-        return compareDeep(site, o.site, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ConditionLocationComponent))
-          return false;
-        ConditionLocationComponent o = (ConditionLocationComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (site == null || site.isEmpty());
-      }
-
-  }
-
-    @Block()
-    public static class ConditionDueToComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Code that identifies the target of this relationship. The code takes the place of a detailed instance target.
-         */
-        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Relationship target by means of a predefined code", formalDefinition="Code that identifies the target of this relationship. The code takes the place of a detailed instance target." )
-        protected CodeableConcept code;
-
-        /**
-         * Target of the relationship.
-         */
-        @Child(name = "target", type = {Condition.class, Procedure.class, MedicationAdministration.class, Immunization.class, MedicationStatement.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Relationship target resource", formalDefinition="Target of the relationship." )
-        protected Reference target;
-
-        /**
-         * The actual object that is the target of the reference (Target of the relationship.)
-         */
-        protected Resource targetTarget;
-
-        private static final long serialVersionUID = -660755940L;
-
-    /*
-     * Constructor
-     */
-      public ConditionDueToComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
-         */
-        public CodeableConcept getCode() { 
-          if (this.code == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConditionDueToComponent.code");
-            else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept(); // cc
-          return this.code;
-        }
-
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
-        }
-
-        /**
-         * @param value {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
-         */
-        public ConditionDueToComponent setCode(CodeableConcept value) { 
-          this.code = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #target} (Target of the relationship.)
-         */
-        public Reference getTarget() { 
-          if (this.target == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConditionDueToComponent.target");
-            else if (Configuration.doAutoCreate())
-              this.target = new Reference(); // cc
-          return this.target;
-        }
-
-        public boolean hasTarget() { 
-          return this.target != null && !this.target.isEmpty();
-        }
-
-        /**
-         * @param value {@link #target} (Target of the relationship.)
-         */
-        public ConditionDueToComponent setTarget(Reference value) { 
-          this.target = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
-         */
-        public Resource getTargetTarget() { 
-          return this.targetTarget;
-        }
-
-        /**
-         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
-         */
-        public ConditionDueToComponent setTargetTarget(Resource value) { 
-          this.targetTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("target", "Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
-        }
-
-      public ConditionDueToComponent copy() {
-        ConditionDueToComponent dst = new ConditionDueToComponent();
-        copyValues(dst);
-        dst.code = code == null ? null : code.copy();
-        dst.target = target == null ? null : target.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ConditionDueToComponent))
-          return false;
-        ConditionDueToComponent o = (ConditionDueToComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(target, o.target, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ConditionDueToComponent))
-          return false;
-        ConditionDueToComponent o = (ConditionDueToComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (target == null || target.isEmpty())
-          ;
-      }
-
-  }
-
-    @Block()
-    public static class ConditionOccurredFollowingComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Code that identifies the target of this relationship. The code takes the place of a detailed instance target.
-         */
-        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Relationship target by means of a predefined code", formalDefinition="Code that identifies the target of this relationship. The code takes the place of a detailed instance target." )
-        protected CodeableConcept code;
-
-        /**
-         * Target of the relationship.
-         */
-        @Child(name = "target", type = {Condition.class, Procedure.class, MedicationAdministration.class, Immunization.class, MedicationStatement.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Relationship target resource", formalDefinition="Target of the relationship." )
-        protected Reference target;
-
-        /**
-         * The actual object that is the target of the reference (Target of the relationship.)
-         */
-        protected Resource targetTarget;
-
-        private static final long serialVersionUID = -660755940L;
-
-    /*
-     * Constructor
-     */
-      public ConditionOccurredFollowingComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
-         */
-        public CodeableConcept getCode() { 
-          if (this.code == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConditionOccurredFollowingComponent.code");
-            else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept(); // cc
-          return this.code;
-        }
-
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
-        }
-
-        /**
-         * @param value {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
-         */
-        public ConditionOccurredFollowingComponent setCode(CodeableConcept value) { 
-          this.code = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #target} (Target of the relationship.)
-         */
-        public Reference getTarget() { 
-          if (this.target == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConditionOccurredFollowingComponent.target");
-            else if (Configuration.doAutoCreate())
-              this.target = new Reference(); // cc
-          return this.target;
-        }
-
-        public boolean hasTarget() { 
-          return this.target != null && !this.target.isEmpty();
-        }
-
-        /**
-         * @param value {@link #target} (Target of the relationship.)
-         */
-        public ConditionOccurredFollowingComponent setTarget(Reference value) { 
-          this.target = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
-         */
-        public Resource getTargetTarget() { 
-          return this.targetTarget;
-        }
-
-        /**
-         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
-         */
-        public ConditionOccurredFollowingComponent setTargetTarget(Resource value) { 
-          this.targetTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("target", "Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
-        }
-
-      public ConditionOccurredFollowingComponent copy() {
-        ConditionOccurredFollowingComponent dst = new ConditionOccurredFollowingComponent();
-        copyValues(dst);
-        dst.code = code == null ? null : code.copy();
-        dst.target = target == null ? null : target.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ConditionOccurredFollowingComponent))
-          return false;
-        ConditionOccurredFollowingComponent o = (ConditionOccurredFollowingComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(target, o.target, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ConditionOccurredFollowingComponent))
-          return false;
-        ConditionOccurredFollowingComponent o = (ConditionOccurredFollowingComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (target == null || target.isEmpty())
-          ;
-      }
-
-  }
-
     /**
      * This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
@@ -955,32 +586,18 @@ public class Condition extends DomainResource {
     /**
      * The anatomical location where this condition manifests itself.
      */
-    @Child(name = "location", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "bodySite", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Anatomical location, if relevant", formalDefinition="The anatomical location where this condition manifests itself." )
-    protected List<ConditionLocationComponent> location;
-
-    /**
-     * Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.
-     */
-    @Child(name = "dueTo", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Causes for this Condition", formalDefinition="Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition." )
-    protected List<ConditionDueToComponent> dueTo;
-
-    /**
-     * Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.
-     */
-    @Child(name = "occurredFollowing", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Precedent for this Condition", formalDefinition="Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition." )
-    protected List<ConditionOccurredFollowingComponent> occurredFollowing;
+    protected List<CodeableConcept> bodySite;
 
     /**
      * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    @Child(name = "notes", type = {StringType.class}, order=17, min=0, max=1)
+    @Child(name = "notes", type = {StringType.class}, order=15, min=0, max=1)
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected StringType notes;
 
-    private static final long serialVersionUID = -1242442771L;
+    private static final long serialVersionUID = -341227215L;
 
   /*
    * Constructor
@@ -1627,122 +1244,42 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #location} (The anatomical location where this condition manifests itself.)
+     * @return {@link #bodySite} (The anatomical location where this condition manifests itself.)
      */
-    public List<ConditionLocationComponent> getLocation() { 
-      if (this.location == null)
-        this.location = new ArrayList<ConditionLocationComponent>();
-      return this.location;
+    public List<CodeableConcept> getBodySite() { 
+      if (this.bodySite == null)
+        this.bodySite = new ArrayList<CodeableConcept>();
+      return this.bodySite;
     }
 
-    public boolean hasLocation() { 
-      if (this.location == null)
+    public boolean hasBodySite() { 
+      if (this.bodySite == null)
         return false;
-      for (ConditionLocationComponent item : this.location)
+      for (CodeableConcept item : this.bodySite)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #location} (The anatomical location where this condition manifests itself.)
+     * @return {@link #bodySite} (The anatomical location where this condition manifests itself.)
      */
     // syntactic sugar
-    public ConditionLocationComponent addLocation() { //3
-      ConditionLocationComponent t = new ConditionLocationComponent();
-      if (this.location == null)
-        this.location = new ArrayList<ConditionLocationComponent>();
-      this.location.add(t);
+    public CodeableConcept addBodySite() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.bodySite == null)
+        this.bodySite = new ArrayList<CodeableConcept>();
+      this.bodySite.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Condition addLocation(ConditionLocationComponent t) { //3
+    public Condition addBodySite(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.location == null)
-        this.location = new ArrayList<ConditionLocationComponent>();
-      this.location.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #dueTo} (Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.)
-     */
-    public List<ConditionDueToComponent> getDueTo() { 
-      if (this.dueTo == null)
-        this.dueTo = new ArrayList<ConditionDueToComponent>();
-      return this.dueTo;
-    }
-
-    public boolean hasDueTo() { 
-      if (this.dueTo == null)
-        return false;
-      for (ConditionDueToComponent item : this.dueTo)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #dueTo} (Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.)
-     */
-    // syntactic sugar
-    public ConditionDueToComponent addDueTo() { //3
-      ConditionDueToComponent t = new ConditionDueToComponent();
-      if (this.dueTo == null)
-        this.dueTo = new ArrayList<ConditionDueToComponent>();
-      this.dueTo.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public Condition addDueTo(ConditionDueToComponent t) { //3
-      if (t == null)
-        return this;
-      if (this.dueTo == null)
-        this.dueTo = new ArrayList<ConditionDueToComponent>();
-      this.dueTo.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #occurredFollowing} (Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.)
-     */
-    public List<ConditionOccurredFollowingComponent> getOccurredFollowing() { 
-      if (this.occurredFollowing == null)
-        this.occurredFollowing = new ArrayList<ConditionOccurredFollowingComponent>();
-      return this.occurredFollowing;
-    }
-
-    public boolean hasOccurredFollowing() { 
-      if (this.occurredFollowing == null)
-        return false;
-      for (ConditionOccurredFollowingComponent item : this.occurredFollowing)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #occurredFollowing} (Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.)
-     */
-    // syntactic sugar
-    public ConditionOccurredFollowingComponent addOccurredFollowing() { //3
-      ConditionOccurredFollowingComponent t = new ConditionOccurredFollowingComponent();
-      if (this.occurredFollowing == null)
-        this.occurredFollowing = new ArrayList<ConditionOccurredFollowingComponent>();
-      this.occurredFollowing.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public Condition addOccurredFollowing(ConditionOccurredFollowingComponent t) { //3
-      if (t == null)
-        return this;
-      if (this.occurredFollowing == null)
-        this.occurredFollowing = new ArrayList<ConditionOccurredFollowingComponent>();
-      this.occurredFollowing.add(t);
+      if (this.bodySite == null)
+        this.bodySite = new ArrayList<CodeableConcept>();
+      this.bodySite.add(t);
       return this;
     }
 
@@ -1811,9 +1348,7 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("abatement[x]", "dateTime|Age|boolean|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
         childrenList.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
         childrenList.add(new Property("evidence", "", "Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.", 0, java.lang.Integer.MAX_VALUE, evidence));
-        childrenList.add(new Property("location", "", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("dueTo", "", "Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.", 0, java.lang.Integer.MAX_VALUE, dueTo));
-        childrenList.add(new Property("occurredFollowing", "", "Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.", 0, java.lang.Integer.MAX_VALUE, occurredFollowing));
+        childrenList.add(new Property("bodySite", "CodeableConcept", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("notes", "string", "Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.", 0, java.lang.Integer.MAX_VALUE, notes));
       }
 
@@ -1842,20 +1377,10 @@ public class Condition extends DomainResource {
           for (ConditionEvidenceComponent i : evidence)
             dst.evidence.add(i.copy());
         };
-        if (location != null) {
-          dst.location = new ArrayList<ConditionLocationComponent>();
-          for (ConditionLocationComponent i : location)
-            dst.location.add(i.copy());
-        };
-        if (dueTo != null) {
-          dst.dueTo = new ArrayList<ConditionDueToComponent>();
-          for (ConditionDueToComponent i : dueTo)
-            dst.dueTo.add(i.copy());
-        };
-        if (occurredFollowing != null) {
-          dst.occurredFollowing = new ArrayList<ConditionOccurredFollowingComponent>();
-          for (ConditionOccurredFollowingComponent i : occurredFollowing)
-            dst.occurredFollowing.add(i.copy());
+        if (bodySite != null) {
+          dst.bodySite = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : bodySite)
+            dst.bodySite.add(i.copy());
         };
         dst.notes = notes == null ? null : notes.copy();
         return dst;
@@ -1877,8 +1402,7 @@ public class Condition extends DomainResource {
            && compareDeep(category, o.category, true) && compareDeep(clinicalStatus, o.clinicalStatus, true)
            && compareDeep(verificationStatus, o.verificationStatus, true) && compareDeep(severity, o.severity, true)
            && compareDeep(onset, o.onset, true) && compareDeep(abatement, o.abatement, true) && compareDeep(stage, o.stage, true)
-           && compareDeep(evidence, o.evidence, true) && compareDeep(location, o.location, true) && compareDeep(dueTo, o.dueTo, true)
-           && compareDeep(occurredFollowing, o.occurredFollowing, true) && compareDeep(notes, o.notes, true)
+           && compareDeep(evidence, o.evidence, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(notes, o.notes, true)
           ;
       }
 
@@ -1900,8 +1424,7 @@ public class Condition extends DomainResource {
            && (dateRecorded == null || dateRecorded.isEmpty()) && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
            && (clinicalStatus == null || clinicalStatus.isEmpty()) && (verificationStatus == null || verificationStatus.isEmpty())
            && (severity == null || severity.isEmpty()) && (onset == null || onset.isEmpty()) && (abatement == null || abatement.isEmpty())
-           && (stage == null || stage.isEmpty()) && (evidence == null || evidence.isEmpty()) && (location == null || location.isEmpty())
-           && (dueTo == null || dueTo.isEmpty()) && (occurredFollowing == null || occurredFollowing.isEmpty())
+           && (stage == null || stage.isEmpty()) && (evidence == null || evidence.isEmpty()) && (bodySite == null || bodySite.isEmpty())
            && (notes == null || notes.isEmpty());
       }
 
@@ -1910,40 +1433,32 @@ public class Condition extends DomainResource {
     return ResourceType.Condition;
    }
 
-  @SearchParamDefinition(name="severity", path="Condition.severity", description="The severity of the condition", type="token" )
-  public static final String SP_SEVERITY = "severity";
-  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
-  public static final String SP_CLINICALSTATUS = "clinicalstatus";
-  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
-  public static final String SP_ONSETINFO = "onset-info";
-  @SearchParamDefinition(name="code", path="Condition.code", description="Code for the condition", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
-  public static final String SP_EVIDENCE = "evidence";
-  @SearchParamDefinition(name="dueto-item", path="Condition.dueTo.target", description="Relationship target resource", type="reference" )
-  public static final String SP_DUETOITEM = "dueto-item";
-  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter when condition first asserted", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
-  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
-  public static final String SP_ONSET = "onset";
-  @SearchParamDefinition(name="asserter", path="Condition.asserter", description="Person who asserts this condition", type="reference" )
-  public static final String SP_ASSERTER = "asserter";
   @SearchParamDefinition(name="date-recorded", path="Condition.dateRecorded", description="A date, when the Condition statement was documented", type="date" )
   public static final String SP_DATERECORDED = "date-recorded";
-  @SearchParamDefinition(name="stage", path="Condition.stage.summary", description="Simple summary (disease specific)", type="token" )
-  public static final String SP_STAGE = "stage";
-  @SearchParamDefinition(name="following-item", path="Condition.occurredFollowing.target", description="Relationship target resource", type="reference" )
-  public static final String SP_FOLLOWINGITEM = "following-item";
-  @SearchParamDefinition(name="patient", path="Condition.patient", description="Who has the condition?", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="dueto-code", path="Condition.dueTo.code", description="Relationship target by means of a predefined code", type="token" )
-  public static final String SP_DUETOCODE = "dueto-code";
-  @SearchParamDefinition(name="location", path="Condition.location.site[x]", description="Location - may include laterality", type="token" )
-  public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="category", path="Condition.category", description="The category of the condition", type="token" )
   public static final String SP_CATEGORY = "category";
-  @SearchParamDefinition(name="following-code", path="Condition.occurredFollowing.code", description="Relationship target by means of a predefined code", type="token" )
-  public static final String SP_FOLLOWINGCODE = "following-code";
+  @SearchParamDefinition(name="patient", path="Condition.patient", description="Who has the condition?", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="asserter", path="Condition.asserter", description="Person who asserts this condition", type="reference" )
+  public static final String SP_ASSERTER = "asserter";
+  @SearchParamDefinition(name="body-site", path="Condition.bodySite", description="Anatomical location, if relevant", type="token" )
+  public static final String SP_BODYSITE = "body-site";
+  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
+  public static final String SP_EVIDENCE = "evidence";
+  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
+  public static final String SP_ONSET = "onset";
+  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
+  public static final String SP_ONSETINFO = "onset-info";
+  @SearchParamDefinition(name="severity", path="Condition.severity", description="The severity of the condition", type="token" )
+  public static final String SP_SEVERITY = "severity";
+  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter when condition first asserted", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
+  public static final String SP_CLINICALSTATUS = "clinicalstatus";
+  @SearchParamDefinition(name="code", path="Condition.code", description="Code for the condition", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="stage", path="Condition.stage.summary", description="Simple summary (disease specific)", type="token" )
+  public static final String SP_STAGE = "stage";
 
 }
 

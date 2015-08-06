@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -679,18 +679,18 @@ public class Substance extends DomainResource {
     return ResourceType.Substance;
    }
 
-  @SearchParamDefinition(name="identifier", path="Substance.identifier", description="Unique identifier for the substance", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="substance", path="Substance.ingredient.substance", description="A component of the substance", type="reference" )
+  public static final String SP_SUBSTANCE = "substance";
   @SearchParamDefinition(name="container-identifier", path="Substance.instance.identifier", description="Identifier of the package/container", type="token" )
   public static final String SP_CONTAINERIDENTIFIER = "container-identifier";
   @SearchParamDefinition(name="quantity", path="Substance.instance.quantity", description="Amount of substance in the package", type="number" )
   public static final String SP_QUANTITY = "quantity";
-  @SearchParamDefinition(name="substance", path="Substance.ingredient.substance", description="A component of the substance", type="reference" )
-  public static final String SP_SUBSTANCE = "substance";
-  @SearchParamDefinition(name="expiry", path="Substance.instance.expiry", description="Expiry date of package or container of substance", type="date" )
-  public static final String SP_EXPIRY = "expiry";
   @SearchParamDefinition(name="type", path="Substance.type", description="The type of the substance", type="token" )
   public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="identifier", path="Substance.identifier", description="Unique identifier for the substance", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="expiry", path="Substance.instance.expiry", description="Expiry date of package or container of substance", type="date" )
+  public static final String SP_EXPIRY = "expiry";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1897,38 +1897,38 @@ public class Immunization extends DomainResource {
     return ResourceType.Immunization;
    }
 
-  @SearchParamDefinition(name="date", path="Immunization.date", description="Vaccination  (non)-Administration Date", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="requester", path="Immunization.requester", description="The practitioner who ordered the vaccination", type="reference" )
-  public static final String SP_REQUESTER = "requester";
-  @SearchParamDefinition(name="identifier", path="Immunization.identifier", description="Business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="reason", path="Immunization.explanation.reason", description="Why immunization occurred", type="token" )
-  public static final String SP_REASON = "reason";
-  @SearchParamDefinition(name="performer", path="Immunization.performer", description="The practitioner who administered the vaccination", type="reference" )
-  public static final String SP_PERFORMER = "performer";
   @SearchParamDefinition(name="reaction", path="Immunization.reaction.detail", description="Additional information on reaction", type="reference" )
   public static final String SP_REACTION = "reaction";
-  @SearchParamDefinition(name="lot-number", path="Immunization.lotNumber", description="Vaccine Lot Number", type="string" )
-  public static final String SP_LOTNUMBER = "lot-number";
-  @SearchParamDefinition(name="subject", path="Immunization.patient", description="The patient for the vaccination record", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="vaccine-type", path="Immunization.vaccineType", description="Vaccine Product Type Administered", type="token" )
-  public static final String SP_VACCINETYPE = "vaccine-type";
-  @SearchParamDefinition(name="notgiven", path="Immunization.wasNotGiven", description="Administrations which were not given", type="token" )
-  public static final String SP_NOTGIVEN = "notgiven";
-  @SearchParamDefinition(name="manufacturer", path="Immunization.manufacturer", description="Vaccine Manufacturer", type="reference" )
-  public static final String SP_MANUFACTURER = "manufacturer";
+  @SearchParamDefinition(name="requester", path="Immunization.requester", description="The practitioner who ordered the vaccination", type="reference" )
+  public static final String SP_REQUESTER = "requester";
   @SearchParamDefinition(name="dose-sequence", path="Immunization.vaccinationProtocol.doseSequence", description="What dose number within series?", type="number" )
   public static final String SP_DOSESEQUENCE = "dose-sequence";
-  @SearchParamDefinition(name="patient", path="Immunization.patient", description="The patient for the vaccination record", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="reason-not-given", path="Immunization.explanation.reasonNotGiven", description="Explanation of reason vaccination was not administered", type="token" )
-  public static final String SP_REASONNOTGIVEN = "reason-not-given";
+  @SearchParamDefinition(name="vaccine-type", path="Immunization.vaccineType", description="Vaccine Product Type Administered", type="token" )
+  public static final String SP_VACCINETYPE = "vaccine-type";
   @SearchParamDefinition(name="location", path="Immunization.location", description="The service delivery location or facility in which the vaccine was / was to be administered", type="reference" )
   public static final String SP_LOCATION = "location";
+  @SearchParamDefinition(name="reason", path="Immunization.explanation.reason", description="Why immunization occurred", type="token" )
+  public static final String SP_REASON = "reason";
+  @SearchParamDefinition(name="subject", path="Immunization.patient", description="The patient for the vaccination record", type="reference" )
+  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="reaction-date", path="Immunization.reaction.date", description="When did reaction start?", type="date" )
   public static final String SP_REACTIONDATE = "reaction-date";
+  @SearchParamDefinition(name="notgiven", path="Immunization.wasNotGiven", description="Administrations which were not given", type="token" )
+  public static final String SP_NOTGIVEN = "notgiven";
+  @SearchParamDefinition(name="date", path="Immunization.date", description="Vaccination  (non)-Administration Date", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="reason-not-given", path="Immunization.explanation.reasonNotGiven", description="Explanation of reason vaccination was not administered", type="token" )
+  public static final String SP_REASONNOTGIVEN = "reason-not-given";
+  @SearchParamDefinition(name="patient", path="Immunization.patient", description="The patient for the vaccination record", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="lot-number", path="Immunization.lotNumber", description="Vaccine Lot Number", type="string" )
+  public static final String SP_LOTNUMBER = "lot-number";
+  @SearchParamDefinition(name="manufacturer", path="Immunization.manufacturer", description="Vaccine Manufacturer", type="reference" )
+  public static final String SP_MANUFACTURER = "manufacturer";
+  @SearchParamDefinition(name="performer", path="Immunization.performer", description="The practitioner who administered the vaccination", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+  @SearchParamDefinition(name="identifier", path="Immunization.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

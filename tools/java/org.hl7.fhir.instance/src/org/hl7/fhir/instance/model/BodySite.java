@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -418,10 +418,10 @@ public class BodySite extends DomainResource {
     return ResourceType.BodySite;
    }
 
-  @SearchParamDefinition(name="code", path="BodySite.code", description="Named anatomical location", type="token" )
-  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="patient", path="BodySite.patient", description="Patient to whom bodysite belongs", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="code", path="BodySite.code", description="Named anatomical location", type="token" )
+  public static final String SP_CODE = "code";
 
 }
 

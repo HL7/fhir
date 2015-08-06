@@ -5783,7 +5783,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s106"><Data ss:Type="String">string{http://hl7.org/fhir/markdown}</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s106"><Data ss:Type="String">markdown</Data></Cell>
     <Cell><Data ss:Type="String">N</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Extra warning about the correct use of the value set</Data></Cell>
     <Cell><Data ss:Type="String">An extra warning about the correct use of the value set </Data></Cell>

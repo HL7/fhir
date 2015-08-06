@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -4847,16 +4847,16 @@ public class Claim extends DomainResource {
     return ResourceType.Claim;
    }
 
-  @SearchParamDefinition(name="identifier", path="Claim.identifier", description="The primary identifier of the financial resource", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="provider", path="Claim.provider", description="Provider responsible for the claim", type="reference" )
-  public static final String SP_PROVIDER = "provider";
-  @SearchParamDefinition(name="use", path="Claim.use", description="The kind of financial resource", type="token" )
-  public static final String SP_USE = "use";
   @SearchParamDefinition(name="patient", path="Claim.patient", description="Patient", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="priority", path="Claim.priority", description="Processing priority requested", type="token" )
   public static final String SP_PRIORITY = "priority";
+  @SearchParamDefinition(name="use", path="Claim.use", description="The kind of financial resource", type="token" )
+  public static final String SP_USE = "use";
+  @SearchParamDefinition(name="provider", path="Claim.provider", description="Provider responsible for the claim", type="reference" )
+  public static final String SP_PROVIDER = "provider";
+  @SearchParamDefinition(name="identifier", path="Claim.identifier", description="The primary identifier of the financial resource", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

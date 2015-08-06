@@ -91,6 +91,14 @@
    <SheetName>resource-aggregation-mode</SheetName>
    <SheetName>property-representation</SheetName>
    <Xct>
+    <Count>0</Count>
+    <SheetIndex>0</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>1</SheetIndex>
+   </Xct>
+   <Xct>
     <Count>16</Count>
     <SheetIndex>2</SheetIndex>
     <Crn>
@@ -190,12 +198,53 @@
      <Text>!16</Text>
     </Crn>
    </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>3</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>4</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>5</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>6</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>7</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>8</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>9</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>10</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>11</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>12</SheetIndex>
+   </Xct>
   </SupBook>
-  <WindowHeight>11400</WindowHeight>
-  <WindowWidth>22575</WindowWidth>
+  <WindowHeight>16875</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>632</TabRatio>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -946,11 +995,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>28</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1034,11 +1083,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="data-absent-reason">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
+    <Cell><Data ss:Type="String">Parent</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comment</Data></Cell>
@@ -1047,35 +1097,35 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell><Data ss:Type="String">Unknown</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Unknown</Data></Cell>
     <Cell><Data ss:Type="String">The value is not known</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=NullFlavor.UNK</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.UNK</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">asked</Data></Cell>
-    <Cell><Data ss:Type="String">Asked</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Asked</Data></Cell>
     <Cell><Data ss:Type="String">The source human does not know the value</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=NullFlavor.ASKU</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.ASKU</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">temp</Data></Cell>
-    <Cell><Data ss:Type="String">Temp</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Temp</Data></Cell>
     <Cell><Data ss:Type="String">There is reason to expect (from the workflow) that the value may become known</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NAV</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NAV</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">not-asked</Data></Cell>
-    <Cell><Data ss:Type="String">Not Asked</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Not Asked</Data></Cell>
     <Cell><Data ss:Type="String">The workflow didn't lead to this value being known</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NASK</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NASK</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">masked</Data></Cell>
-    <Cell><Data ss:Type="String">Masked</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Masked</Data></Cell>
     <Cell><Data ss:Type="String">The information is not available due to security, privacy or related reasons</Data></Cell>
     <Cell><Data ss:Type="String">Using &quot;masked&quot; may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information.</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.MSK</Data></Cell>
@@ -1083,23 +1133,32 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">unsupported</Data></Cell>
-    <Cell><Data ss:Type="String">Unsupported</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Unsupported</Data></Cell>
     <Cell><Data ss:Type="String">The source system wasn't capable of supporting this element</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="String">astext</Data></Cell>
-    <Cell><Data ss:Type="String">As Text</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">As Text</Data></Cell>
     <Cell><Data ss:Type="String">The content of the data is represented in the resource narrative</Data></Cell>
     <Cell><Data ss:Type="String">it may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">error</Data></Cell>
-    <Cell><Data ss:Type="String">Error</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Error</Data></Cell>
     <Cell><Data ss:Type="String">Some system or workflow process error means that the information is not available</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="String">NaN</Data></Cell>
+    <Cell><Data ss:Type="String">#8</Data></Cell>
+    <Cell><Data ss:Type="String">Not a Number</Data></Cell>
+    <Cell><Data ss:Type="String">NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value</Data></Cell>
+    <Cell><Data ss:Type="String">This is sometimes ab output value from measuring devices</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1109,6 +1168,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -46,6 +46,7 @@ import org.hl7.fhir.instance.model.ExtensionHelper;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
@@ -173,6 +174,8 @@ public class ToolingExtensions {
       return ((StringType) ex.getValue()).getValue();
     if ((ex.getValue() instanceof UriType))
       return ((UriType) ex.getValue()).getValue();
+    if ((ex.getValue() instanceof MarkdownType))
+      return ((MarkdownType) ex.getValue()).getValue();
     return null;
   }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1246,20 +1246,20 @@ public class SearchParameter extends DomainResource {
     return ResourceType.SearchParameter;
    }
 
-  @SearchParamDefinition(name="code", path="SearchParameter.code", description="Code used in URL", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="name", path="SearchParameter.name", description="Informal name for this search parameter", type="string" )
-  public static final String SP_NAME = "name";
   @SearchParamDefinition(name="description", path="SearchParameter.description", description="Documentation for  search parameter", type="string" )
   public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="name", path="SearchParameter.name", description="Informal name for this search parameter", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="target", path="SearchParameter.target", description="Types of resource (if a resource reference)", type="token" )
+  public static final String SP_TARGET = "target";
+  @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type this search parameter applies to", type="token" )
+  public static final String SP_BASE = "base";
+  @SearchParamDefinition(name="code", path="SearchParameter.code", description="Code used in URL", type="token" )
+  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="type", path="SearchParameter.type", description="number | date | string | token | reference | composite | quantity | uri", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="url", path="SearchParameter.url", description="Literal URL used to reference this search parameter", type="uri" )
   public static final String SP_URL = "url";
-  @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type this search parameter applies to", type="token" )
-  public static final String SP_BASE = "base";
-  @SearchParamDefinition(name="target", path="SearchParameter.target", description="Types of resource (if a resource reference)", type="token" )
-  public static final String SP_TARGET = "target";
 
 }
 

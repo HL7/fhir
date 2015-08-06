@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1255,18 +1255,18 @@ public class MedicationStatement extends DomainResource {
     return ResourceType.MedicationStatement;
    }
 
-  @SearchParamDefinition(name="identifier", path="MedicationStatement.identifier", description="Return statements with this external identity", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="patient", path="MedicationStatement.patient", description="The identity of a patient to list statements  for", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="medication", path="MedicationStatement.medicationReference", description="Code for medicine or text in medicine name", type="reference" )
   public static final String SP_MEDICATION = "medication";
+  @SearchParamDefinition(name="patient", path="MedicationStatement.patient", description="The identity of a patient to list statements  for", type="reference" )
+  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="source", path="MedicationStatement.informationSource", description="Who the information in the statement came from", type="reference" )
   public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="effectivedate", path="MedicationStatement.effective[x]", description="Date when patient was taking (or not taking) the medication", type="date" )
-  public static final String SP_EFFECTIVEDATE = "effectivedate";
   @SearchParamDefinition(name="status", path="MedicationStatement.status", description="Return statements that match the given status", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="MedicationStatement.identifier", description="Return statements with this external identity", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="effectivedate", path="MedicationStatement.effective[x]", description="Date when patient was taking (or not taking) the medication", type="date" )
+  public static final String SP_EFFECTIVEDATE = "effectivedate";
 
 }
 

@@ -1,5 +1,5 @@
 [diagram]
-classes=decimal,integer,boolean,instant,date,base64Binary,string,code,dateTime,id,uri,oid,time,unsignedInt,positiveInt
+classes=decimal,integer,boolean,instant,date,base64Binary,string,code,dateTime,id,uri,oid,time,unsignedInt,positiveInt,markdown
 element-attributes=true
 
 [directions]
@@ -16,5 +16,6 @@ uri=100;60
 unsignedInt=-180;130
 positiveInt=-80;130
 code=10;130
-id=120;130
+id=60;130
+markdown=130;130
 oid=260;130

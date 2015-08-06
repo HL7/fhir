@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1852,16 +1852,16 @@ public class Procedure extends DomainResource {
     return ResourceType.Procedure;
    }
 
-  @SearchParamDefinition(name="date", path="Procedure.performed[x]", description="Date/Period the procedure was performed", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="performer", path="Procedure.performer.person", description="The reference to the practitioner", type="reference" )
-  public static final String SP_PERFORMER = "performer";
   @SearchParamDefinition(name="patient", path="Procedure.patient", description="The identity of a patient to list procedures  for", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="location", path="Procedure.location", description="Where the procedure happened", type="reference" )
   public static final String SP_LOCATION = "location";
+  @SearchParamDefinition(name="performer", path="Procedure.performer.person", description="The reference to the practitioner", type="reference" )
+  public static final String SP_PERFORMER = "performer";
   @SearchParamDefinition(name="encounter", path="Procedure.encounter", description="The encounter when procedure performed", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="date", path="Procedure.performed[x]", description="Date/Period the procedure was performed", type="date" )
+  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="type", path="Procedure.type", description="Type of procedure", type="token" )
   public static final String SP_TYPE = "type";
 

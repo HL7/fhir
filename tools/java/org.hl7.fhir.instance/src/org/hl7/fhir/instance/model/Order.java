@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -640,24 +640,24 @@ public class Order extends DomainResource {
     return ResourceType.Order;
    }
 
-  @SearchParamDefinition(name="date", path="Order.date", description="When the order was made", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="identifier", path="Order.identifier", description="Instance id fromsource, target, and/or  others", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference" )
-  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="detail", path="Order.detail", description="What action is being ordered", type="reference" )
+  public static final String SP_DETAIL = "detail";
   @SearchParamDefinition(name="patient", path="Order.subject", description="Patient this order is about", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="source", path="Order.source", description="Who initiated the order", type="reference" )
   public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="detail", path="Order.detail", description="What action is being ordered", type="reference" )
-  public static final String SP_DETAIL = "detail";
+  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference" )
+  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="when", path="Order.when.schedule", description="A formal schedule", type="date" )
   public static final String SP_WHEN = "when";
   @SearchParamDefinition(name="target", path="Order.target", description="Who is intended to fulfill the order", type="reference" )
   public static final String SP_TARGET = "target";
   @SearchParamDefinition(name="when_code", path="Order.when.code", description="Code specifies when request should be done. The code may simply be a priority code", type="token" )
   public static final String SP_WHENCODE = "when_code";
+  @SearchParamDefinition(name="date", path="Order.date", description="When the order was made", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="identifier", path="Order.identifier", description="Instance id fromsource, target, and/or  others", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

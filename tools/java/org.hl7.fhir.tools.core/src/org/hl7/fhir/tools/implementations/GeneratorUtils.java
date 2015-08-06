@@ -306,6 +306,8 @@ public class GeneratorUtils {
 			return "string";
 		else if (name.equals("oid"))
 			return "string";
+    else if (name.equals("markdown"))
+      return "string";
 		else if (name.equals("uuid"))
 			return "string";
 		else if (name.equals("sid"))
@@ -340,8 +342,10 @@ public class GeneratorUtils {
 			return "Base64Binary";
 		else if (name.equals("instant"))
 			return "Instant";
-		else if (name.equals("string"))
-			return "FhirString";
+    else if (name.equals("string"))
+      return "FhirString";
+    else if (name.equals("markdown"))
+      return "FhirString";
 		else if (name.equals("uri"))
 			return "FhirUri";
 		else if (name.equals("code"))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2148,24 +2148,24 @@ public class ImagingStudy extends DomainResource {
 
   @SearchParamDefinition(name="uid", path="ImagingStudy.series.instance.uid", description="The instance unique identifier", type="token" )
   public static final String SP_UID = "uid";
-  @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study identifier for the image", type="token" )
-  public static final String SP_STUDY = "study";
-  @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopClass", description="The type of the instance", type="token" )
-  public static final String SP_DICOMCLASS = "dicom-class";
-  @SearchParamDefinition(name="modality", path="ImagingStudy.series.modality", description="The modality of the series", type="token" )
-  public static final String SP_MODALITY = "modality";
-  @SearchParamDefinition(name="bodysite", path="ImagingStudy.series.bodySite", description="The body site studied", type="token" )
-  public static final String SP_BODYSITE = "bodysite";
-  @SearchParamDefinition(name="patient", path="ImagingStudy.patient", description="Who the study is about", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="series", path="ImagingStudy.series.uid", description="The identifier of the series of images", type="token" )
   public static final String SP_SERIES = "series";
-  @SearchParamDefinition(name="started", path="ImagingStudy.started", description="When the study was started", type="date" )
-  public static final String SP_STARTED = "started";
-  @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession identifier for the study", type="token" )
-  public static final String SP_ACCESSION = "accession";
+  @SearchParamDefinition(name="patient", path="ImagingStudy.patient", description="Who the study is about", type="reference" )
+  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="order", path="ImagingStudy.order", description="The order for the image", type="reference" )
   public static final String SP_ORDER = "order";
+  @SearchParamDefinition(name="bodysite", path="ImagingStudy.series.bodySite", description="The body site studied", type="token" )
+  public static final String SP_BODYSITE = "bodysite";
+  @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession identifier for the study", type="token" )
+  public static final String SP_ACCESSION = "accession";
+  @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study identifier for the image", type="token" )
+  public static final String SP_STUDY = "study";
+  @SearchParamDefinition(name="modality", path="ImagingStudy.series.modality", description="The modality of the series", type="token" )
+  public static final String SP_MODALITY = "modality";
+  @SearchParamDefinition(name="started", path="ImagingStudy.started", description="When the study was started", type="date" )
+  public static final String SP_STARTED = "started";
+  @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopClass", description="The type of the instance", type="token" )
+  public static final String SP_DICOMCLASS = "dicom-class";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 5, 2015 12:56-0400 for FHIR v0.5.0
+// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -569,16 +569,16 @@ public class Flag extends DomainResource {
     return ResourceType.Flag;
    }
 
-  @SearchParamDefinition(name="date", path="Flag.period", description="Time period when flag is active", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="subject", path="Flag.subject", description="The identity of a subject to list flags for", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="patient", path="Flag.subject", description="The identity of a subject to list flags for", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="author", path="Flag.author", description="Flag creator", type="reference" )
   public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="patient", path="Flag.subject", description="The identity of a subject to list flags for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="subject", path="Flag.subject", description="The identity of a subject to list flags for", type="reference" )
+  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="encounter", path="Flag.encounter", description="Alert relevant during encounter", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="date", path="Flag.period", description="Time period when flag is active", type="date" )
+  public static final String SP_DATE = "date";
 
 }
 

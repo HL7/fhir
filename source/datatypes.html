@@ -213,6 +213,7 @@ In addition to the base primitive types, a few additional primitive types are de
 <a name="id"> </a>
 <a name="unsignedInt"> </a>
 <a name="positiveInt"> </a>
+<a name="markdown"> </a>
 
 <table class="list">
  <tr>
@@ -228,6 +229,7 @@ In addition to the base primitive types, a few additional primitive types are de
  <tr><td>id</td><td>string</td><td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)  
    <br/>regex: [%id_regex%]</td></tr>
 
+ <tr><td>markdown</td><td>string</td><td>A string that may contain markdown syntax for optional processing by a mark down presentation engine</td></tr>
  <tr><td>unsignedInt</td><td>int</td><td>Any non-negative integer (e.g. >= 0)<br/>regex: [0-9]+</td></tr>
  <tr><td>positiveInt</td><td>int</td><td>Any positive integer (e.g. > 0)<br/>regex: [1-9][0-9]*</td></tr>
 </table>
@@ -241,6 +243,19 @@ Some additional notes about the <code>id</code> datatype:
  <li>In a typical FHIR URL, like http://example.com/fhir/Patient/<span style="color: navy">1234</span>, the last part "1234" (highlighted in navy) is the part that is an id datatype</li>
  <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b), which SHALL be in lowercase</li>
 </ul>
+
+<p>
+Some additional notes about the <code>markdown</code> datatype:
+</p>
+<ul>
+ <li>Systems are not required to have markdown support, and there is considerable variation in markdown syntax, 
+   so the content of the string should be readable without markdown processing, per merkdown philosophy</li>
+ <li>The preferred markdown syntax is described at <a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>
+   (see tests here: <a href="http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip">http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip</a>)</li> 
+ <li>DSTU note: <a href="http://commonmark.org/">CommonMark</a> is a new arrival but may gain sufficient impetus to be preferred in a future version. 
+   Feedback on this is welcome</li>
+</ul>
+
 <!-- 
 boolean: [%dtusage boolean%]
 integer: [%dtusage integer%]
@@ -1064,6 +1079,7 @@ Some elements do not have a specified type. The type is represented by the wildc
  <li><a href="datatypes.html#uri">uri</a></li>
  <li><a href="datatypes.html#boolean">boolean</a></li>
  <li><a href="datatypes.html#code">code</a> - if the extension definition provides a binding to a suitable set of codes</li>
+ <li><a href="datatypes.html#markdown">markdown</a></li>
  <li><a href="datatypes.html#base64Binary">base64Binary</a></li>
  <li><a href="datatypes.html#Coding">Coding</a></li>
  <li><a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
