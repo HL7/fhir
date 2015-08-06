@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<!-- This example demonstrates the GuidanceArtifact structure used to define an ECA rule -->
+	<id value="guidanceartifact-ecarule-example"/>
+	<meta>
+		<!-- TODO: Should be able to claim conformance with only the guidance artifact, need derived profiles to work first -->
+		<profile value="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/guidanceartifact-cqif-cqif-guidanceartifact"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Chalmydia Screening CDS Example Using Common</div>
+	</text>
+	<!-- Version -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleVersion">
+		<valueString value="1.0.0"/>
+	</extension>
+	<!-- Title -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-title">
+		<valueCode value="Chlamydia Screening CDS Example Using Common"/>
+	</extension>
+	<!-- Description -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-description">
+		<valueString value="Chlamydia Screening CDS Example Using Common"/>
+	</extension>
+	<!-- PublicationDate -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-publicationDate">
+		<valueDate value="2015-07-22"/>
+	</extension>
+	<!-- Topic -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-topic">
+		<valueCodeableConcept>
+			<text value="Chlamydia Screeening"/>
+		</valueCodeableConcept>
+	</extension>
+	<!-- Keyword -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-keyword">
+		<valueString value="Chlamydia Screening"/>
+	</extension>
+	<!-- Model -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-model">
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-model#name">
+			<valueString value="QUICK"/>
+		</extension>
+	</extension>
+	<!-- Library -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-library">
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-library#name">
+			<valueString value="Common"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-library#id">
+			<valueString value="ChlamydiaScreening_CDS_Common"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-library#version">
+			<valueString value="2.0.0"/>
+		</extension>
+	</extension>
+	<!-- Content -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-content">
+		<valueAttachment>
+			<contentType value="application/cql+text"/>
+			<url value="http://cqlrepository.org/ChlamydiaScreening_CDS_UsingCommon.cql"/>
+			<title value="Chlamydia Screening CDS Using Common"/>
+		</valueAttachment>
+	</extension>
+	<!-- Rule -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-rule">
+		<valueString value="No Screening"/>
+	</extension>
+	<!-- Action -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action">
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action#title">
+			<valueString value="Patient has not had chlamydia screening within the recommended timeframe..."/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action#customization">
+			<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action#customization.path">
+				<valueString value="~"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action#customization.expression">
+				<valueString value="ChlamydiaScreeningRequest"/>
+			</extension>
+		</extension>
+	</extension>
+	<!-- Status -->
+	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleStatus">
+		<valueCode value="draft"/>
+	</modifierExtension>
+	<!-- Evaluation Supported -->
+	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-evaluationSupported">
+		<valueBoolean value="true"/>
+	</modifierExtension>
+	<!-- Identifier -->
+	<identifier>
+		<use value="official"/>
+		<value value="ChlamydiaScreening_CDS_UsingCommon"/>
+	</identifier>
+	<!-- Code -->
+	<code>
+		<coding>
+			<code value="eca-rule"/>
+		</coding>
+	</code>
+</Basic>

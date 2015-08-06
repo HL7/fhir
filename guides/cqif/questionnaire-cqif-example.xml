@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<!-- This example demonstrates the CQIF-Questionnaire profile of Questionnaire to represent dynamic logic in a Questionnaire -->
+	<id value="cqif-questionnaire-example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/questionnaire-cqif-cqif-questionnaire"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">PHQ-9 Questionnaire with dynamic logic</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-content">
+		<valueAttachment>
+			<contentType value="application/elm+xml"/>
+			<url value="http://elmrepository.org/PHQ-9Logic.elm"/>
+		</valueAttachment>
+	</extension>
+	<!-- Identifier -->
+	<identifier>
+		<use value="official"/>
+		<value value="phq-9"/>
+	</identifier>
+	<version value="1.0.0"/>
+	<status value="draft"/>
+	<subjectType value="Patient"/>
+	<group>
+		<title value="Patient Health Questionnaire (PHQ-9)"/>
+		<concept>
+			<system value="http://loinc.org"/>
+			<code value="44249-1"/>
+			<display value="PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9"/>
+		</concept>
+		<text value="Your responses to this questionnaire will help your doctor diagnose and manage your mental health. In responding to the question, please consider how often have you been bothered by any of the following problems over the last 2 weeks?"/>
+		<question>
+			<linkId value="LittleInterest"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44250-9"/>
+			</concept>
+			<text value="Little interest or pleasure in doing things"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="FeelingDown"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44255-8"/>
+			</concept>
+			<text value="Feeling down, depressed, or hopeless"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="TroubleSleeping"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44259-0"/>
+			</concept>
+			<text value="Trouble falling or staying asleep"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="FeelingTired"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44254-1"/>
+			</concept>
+			<text value="Feeling tired or having little energy"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="BadAppetite"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44251-7"/>
+			</concept>
+			<text value="Poor appetite or overeating"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="FeelingBadAboutSelf"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44258-2"/>
+			</concept>
+			<text value="Feeling bad about yourself - or that you are a failure or have let yourself or your family down"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="TroubleConcentrating"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44252-5"/>
+			</concept>
+			<text value="Trouble concentrating on things, such as reading the newspaper or watching television"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="MovingSpeaking"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44253-3"/>
+			</concept>
+			<text value="Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="ThoughtsOfHurting"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44250-8"/>
+			</concept>
+			<text value="Thoughts that you would be better off dead, or of hurting yourself"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-expression">
+				<valueString value="CalculateTotalScore"/>
+			</extension>
+			<linkId value="TotalScore"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44261-6"/>
+			</concept>
+			<text value="Total score"/>
+			<type value="integer"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDepressionAnswersList"/>
+			</options>
+		</question>
+		<question>
+			<linkId value="Difficulty"/>
+			<concept>
+				<system value="http://loinc.org"/>
+				<code value="44256-6"/>
+			</concept>
+			<text value="If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people"/>
+			<type value="string"/>
+			<required value="true"/>
+			<options>
+				<reference value="ValueSet/LOINCDifficultyAnswersList"/>
+			</options>
+		</question>
+	</group>
+</Questionnaire>

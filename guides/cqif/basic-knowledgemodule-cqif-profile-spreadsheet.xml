@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-03T16:27:10Z</LastSaved>
+  <LastSaved>2015-08-06T16:29:31Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -1900,7 +1900,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">expression</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">content</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1910,7 +1910,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-expression}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-content}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3539,9 +3539,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3558,6 +3558,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>25</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6581,12 +6582,12 @@
     <Cell ss:StyleID="s161"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">library</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Library</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">The resource is a shareable library of formalized knowledge</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s161"/>
@@ -7114,6 +7115,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

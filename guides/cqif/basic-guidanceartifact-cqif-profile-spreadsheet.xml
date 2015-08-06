@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-03T16:27:10Z</LastSaved>
+  <LastSaved>2015-08-06T16:29:31Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,8 +24,8 @@
   <WindowWidth>20250</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1213,7 +1213,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">content</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">structure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1223,7 +1223,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-content}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-structure}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3851,7 +3851,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3872,8 +3871,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6530,7 +6529,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">ArtifactType</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The type of guidance artifact</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">#artifact-type</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -6992,7 +6991,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -7773,12 +7771,12 @@
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"><Data ss:Type="String">library</Data></Cell>
-    <Cell ss:StyleID="s147"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Library</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">A Library Artifact</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s160"/>
@@ -8276,6 +8274,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8295,7 +8294,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R6</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

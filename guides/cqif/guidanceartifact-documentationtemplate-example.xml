@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<!-- This example demonstrates the GuidanceArtifact structure used to represent a Document Template artifact  -->
+	<id value="guidanceartifact-documentationtemplate-example"/>
+	<meta>
+		<!-- TODO: Should be able to claim conformance with only the guidance artifact, need derived profiles to work first -->
+		<profile value="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/guidanceartifact-cqif-cqif-guidanceartifact"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Patient Health Questionnaire (PHQ-9)</div>
+	</text>
+	<!-- Version -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleVersion">
+		<valueString value="1.0.0"/>
+	</extension>
+	<!-- Title -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-title">
+		<valueCode value="Patient Health Questionnaire (PHQ-9)"/>
+	</extension>
+	<!-- Description -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-description">
+		<valueString value="Patient Depression Assessment (PHQ-9)"/>
+	</extension>
+	<!-- PublicationDate -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-publicationDate">
+		<valueDate value="2015-07-22"/>
+	</extension>
+	<!-- Topic -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-topic">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="35489007"/>
+				<display value="Depression disorder"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-topic">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="116154003"/>
+				<display value="Patient"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<!-- Keyword -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-keyword">
+		<valueString value="Patient Health Questionnaire"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-keyword">
+		<valueString value="Depression Assessment"/>
+	</extension>
+	<!-- RelatedResource -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource">
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource#type">
+			<valueCode value="derived-from"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource#uri">
+			<valueUri value="http://www.integration.samhsa.gov/images/res/PHQ%20-%20Questions.pdf"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource#description">
+			<valueString value="PHQ-9 Patient Depression Questionnaire"/>
+		</extension>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource">
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource#type">
+			<valueCode value="documentation"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource#uri">
+			<valueUri value="http://www.qualityforum.org/QPS/0712"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource#description">
+			<valueString value="Depression Utilization of the PHQ-9 Tool"/>
+		</extension>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource">
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource#type">
+			<valueCode value="evidence"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-relatedResource#description">
+			<valueString value="Kurt Kroenke, Robert L Spitzer, Janet B W Williams. The PHQ-9: Validity of a Brief Depression Severity Measure. J Gen Intern Med. 2001 September; 16(9): 606–613. doi: 10.1046/j.1525-1497.2001.016009606.x. PMCID: PMC1495268"/>
+		</extension>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-structure">
+		<valueReference>
+			<reference value="Questionnaire/phq-9"/>
+		</valueReference>
+	</extension>
+	<!-- Status -->
+	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleStatus">
+		<valueCode value="draft"/>
+	</modifierExtension>
+	<!-- Evaluation Supported -->
+	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-evaluationSupported">
+		<valueBoolean value="false"/>
+	</modifierExtension>
+	<!-- Identifier -->
+	<identifier>
+		<use value="official"/>
+		<value value="phq-9"/>
+	</identifier>
+	<!-- Code -->
+	<code>
+		<coding>
+			<code value="documentation-template"/>
+		</coding>
+	</code>
+</Basic>

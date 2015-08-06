@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-30T19:45:15Z</LastSaved>
+  <LastSaved>2015-08-06T18:24:47Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -25,6 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4327,7 +4328,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R31C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="70" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="71" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.25"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -5419,7 +5420,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(DocumentReference)</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Attachment</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
@@ -5644,7 +5645,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(DocumentReference)</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Attachment</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
@@ -6169,7 +6170,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(ValueSet)</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">string|Reference(ValueSet)</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
@@ -6312,6 +6313,31 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">content</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">content</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The content of the module</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The content of the module, if any. If this is a library, this would be the CQL or ELM representation of the library contents</Data></Cell>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s107"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s106"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s105"><Data ss:Type="String">expression</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data></Cell>
@@ -6325,8 +6351,8 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">An expression of CQL or CDATA-encoded ELM</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The name of an expression in a referenced library</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The name of an expression in a referenced library that describes the logic for a particular context</Data></Cell>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s108"/>
@@ -6339,7 +6365,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -6349,7 +6375,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -6373,7 +6399,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>52</TopRowBottomPane>
+   <TopRowBottomPane>55</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6390,7 +6416,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>63</ActiveRow>
+     <ActiveRow>67</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -8576,12 +8602,12 @@
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">derived-from</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">Derived From</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">The module is derived from the resource</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s160"/>
