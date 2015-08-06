@@ -1,8 +1,11 @@
 #  Build & Run FHIR Publisher, and push output to gh-pages
 
 langauge: java
+
+# JDK has been set to JDK8 to see if this clears up transient memory issues
 jdk:
-  - oraclejdk7
+  - oraclejdk8
+
 script: ./build.sh
 sudo: false
 notifications:
