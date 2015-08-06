@@ -345,7 +345,7 @@ public class GeneratorUtils {
     else if (name.equals("string"))
       return "FhirString";
     else if (name.equals("markdown"))
-      return "FhirString";
+      return "Markdown";
 		else if (name.equals("uri"))
 			return "FhirUri";
 		else if (name.equals("code"))

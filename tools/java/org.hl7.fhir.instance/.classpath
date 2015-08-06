@@ -17,7 +17,7 @@
 	<classpathentry kind="lib" path="../imports/txtmark-0.11.jar"/>
 	<classpathentry kind="lib" path="../imports/rhino-1.7R4.jar"/>
 	<classpathentry kind="lib" path="../imports/pegdown-1.5.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-logging-api-1.1.jar"/>
+	<classpathentry kind="lib" path="../imports/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="../imports/commons-logging-api-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
