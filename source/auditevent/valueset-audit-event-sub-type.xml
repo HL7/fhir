@@ -84,7 +84,7 @@
     </include>
     <include>
       <system value="http://hl7.org/fhir/restful-interaction"/>
-      <concept>
+<!--      <concept>
         <code value="read"/>
       </concept>
       <concept>
@@ -119,7 +119,7 @@
       </concept>
       <concept>
         <code value="transaction"/>
-      </concept>
+      </concept> -->
     </include>
   </compose>
 </ValueSet>
