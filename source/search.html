@@ -48,6 +48,7 @@ complexity that they require.
 <a href="#include">_include</a><br/>
 <a href="#revinclude">_revinclude</a><br/>
 <a href="#summary">_summary</a><br/>
+<a href="#elements">_elements</a><br/>
 <a href="#contained">_contained</a><br/>
 <a href="#containedType">_containedType</a><br/>
 </td>
@@ -1144,8 +1145,37 @@ may repeat many times.
 </p>
 <p>
 Servers are not obliged to return just a summary as requested. There is only 
-one summary form defined for each resource in order to allow servers to store the 
-summarized form in advance.
+alimited number of summary forms defined for resources in order to allow servers 
+to store the summarized form in advance. Servers SHOULD mark the resources with the 
+tag <a href="v3/SecurityIntegrityObservationValue/index.html#SUBSETTED">SUBSETTED</a> 
+to ensure that the incomplete resource is not actually used to overwrite 
+a complete resource.
+</p>
+
+<a name="elements"> </a>
+<h4>Elements</h4>
+<p>
+If one of the summary views defined above is not appropriate, a client can 
+request a specific set of elements be returned as part of a resource using
+the _elements parameter:
+</p>
+<pre>
+   GET [base]/Patient?_elements=identifier,active,link
+</pre>
+<p>
+The _elements parameter consists of a comma separated list of base element
+names (e.g. elements defined at the root level in the resource). Only 
+elements that are listed are to be returned. Clients SHOULD list all mandatory
+elements in a resource as part of the list of elements. The list of elements
+does not apply to <a href="#include">included resources</a>.
+</p>
+<p>
+Servers are not obliged to return just the requested elements. 
+Servers SHOULD always return mandatory elements whether they are 
+requested or not. Servers SHOULD mark the resources with the 
+tag <a href="v3/SecurityIntegrityObservationValue/index.html#SUBSETTED">SUBSETTED</a> 
+to ensure that the incomplete resource is not actually used to overwrite 
+a complete resource.
 </p>
 
 <a name="score"> </a>

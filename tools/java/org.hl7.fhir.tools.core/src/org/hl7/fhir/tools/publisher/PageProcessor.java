@@ -6601,19 +6601,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     v3src = null;
     v3Valuesets = null;
     v2Valuesets = null;
-//    codeSystems = null;
-//    valueSets = null;
-//    conceptMaps = null;
-//    profiles = null;
     igResources.clear();
     svgs.clear();
     translations = null;
-    breadCrumbManager.clear();
     registry = null;
     epub = null;
     searchTypeUsage = null;
     vsValidator = null;
     System.gc();
+  }
+
+  public void clean2() {
+    codeSystems.clear();
+    valueSets.clear();
+    conceptMaps.clear();
+    profiles.clear();
+    System.gc();
+    
   }
   
 }

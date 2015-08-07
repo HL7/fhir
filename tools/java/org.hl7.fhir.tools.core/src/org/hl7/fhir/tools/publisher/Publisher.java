@@ -4751,6 +4751,7 @@ public class Publisher implements URIResolver {
   
   private void roundTrip() throws Exception {
     page.log("Reference Platform Validation", LogMessageType.Process);
+    page.clean2();
 
     page.log("Round Trip #1", LogMessageType.Process);
     List<String> list = new ArrayList<String>();
