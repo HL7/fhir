@@ -29,7 +29,6 @@ Presently open issues for this resource:
  <li>This resource represents a condition of susceptibility to a substance, with a list of supporting events and/or symptoms,
    and has no direct relationship to an event reporting framework; this will be re-assessed when Adverse Event reporting resource(s) and/or profiles are added to FHIR (not expected to happen prior to DSTU 2)
  </li>
- <li>There is no "didNotOccur" flag on the event. Is this necessary? (not found in any surveyed systems)</li>  
  <li>Other HL7 models and the openEHR archetype have "exposure date" but this is not found in any surveyed systems, so this is left as an extension (more appropriate for adverse event reporting)</li>  
 </ul>
 
@@ -125,6 +124,21 @@ such as history, examination and diagnoses stored elsewhere in the record, if it
 </p>
 
 <p>
+<b>AllergyIntolerance and RiskAssessment</b></p>
+<p>
+AllergyIntolerance describes a specific type of risk - propensity to reaction to a substance while <a href="riskassessment.html">RiskAssessment</a> describes 
+general risks to a subject, not generally based on a reaction.
+</p>
+
+<p>
+<b>AllergyIntolerance and Immunization.reaction</b></p>
+<p>
+<a href="immunization-definitions.html#Immunization.reaction">Immunization.reaction</a> may be an indication of an allergy or intolerance. If this is deamed to be the case, a separate 
+<a href="allergyintolerance.html">AllergyIntolerance</a> record should be created to indicate it, as most systems will not query against past Immunization.reaction.
+</p>
+
+
+<p>
 <b>Misuse</b></p>
 <ul>
 <li>Not to be used for recording physiological reactions to physical agents, such as heat, cold, sunlight, 
@@ -133,7 +147,7 @@ such as history, examination and diagnoses stored elsewhere in the record, if it
    abnormal use or mistakes/errors made in maladministration of an agent or substance; incorrect dosage; mislabelling; 
    harm or injury caused by an intervention or procedure; overdose/poisoning etc</li>
 <li>Not to be used as a proxy for an Adverse Event Report. See above for how it may be used as one component of an Adverse Event Report</li>
-<li>Not to be used for recording alerts</li>
+<li>Not to be used for recording alerts. Alerts are handled using <a href="flag.html">Flag</a> or - where event-specific, <a href="contraindication.html">Contraindication</a></li>
 <li>Not to be used for recording failed therapy</li>
 </ul>
 </div>

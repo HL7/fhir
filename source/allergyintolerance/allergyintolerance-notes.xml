@@ -1,5 +1,22 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<h3>Negated Allergies and Intolerances</h3>
+<ul>
+<li><i>No Known Allergies</i> is reported using the <a href="list.html">List</a> resource </li>
+</ul>
+
+<h3>Use of AllergyIntolerance.criticality</h3>
+<p>
+Systems that only support one notion will have to determine whether what they're capturing is criticality or severity and 
+map to the appropriate place.  Criticality refers to the likelihood the allergy/intolerance could result in significant 
+harm.  Severity refers to the degree of manifestation of the reaction symptom.  Moderate breathing difficulty would have 
+high criticality while a severe rash would have low criticality. Severity is specific to a particular reaction occurrence.
+</p>
+<p>
+For systems that only track generic reaction characteristics rather than a specific reaction will provide guidance to use 
+the "reaction" structure and simply provide no date.
+</p>
+
 <h3>References</h3>
 
 <ul>
