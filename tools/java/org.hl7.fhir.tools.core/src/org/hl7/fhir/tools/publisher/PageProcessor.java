@@ -6590,7 +6590,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void clean() {
     // recover some memory. Keep only what is needed for validation
-    definitions = null;
+//    definitions = null;
     navigation = null;
     ini = null;
     prevSidebars.clear();

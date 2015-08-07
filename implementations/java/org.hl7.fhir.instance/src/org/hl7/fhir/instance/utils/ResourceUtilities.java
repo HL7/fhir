@@ -35,7 +35,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
  */
 public class ResourceUtilities {
 
-  public final static String FHIR_LANGUAGE = "urn:ietf:params:language";
+  public final static String FHIR_LANGUAGE = "urn:ietf:bcp:47";
 
 	public static boolean isAnError(OperationOutcome error) {
 		for (OperationOutcomeIssueComponent t : error.getIssue())

@@ -104,7 +104,7 @@
   <communication>
     <language>
       <coding>
-        <system value="urn:iso:std:iso:639:-1"/>
+        <system value="urn:ietf:bcp:47"/>
         <code value="nl-NL"/>
         <display value="Dutch"/>
       </coding>
