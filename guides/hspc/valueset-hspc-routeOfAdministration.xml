@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://www.example.com/valueset/deltaflag"/>
+  <version value="0.01"/>
+  <name value="HSPC HL7 v3Route of Administration Value Set Definition"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="Select HL7 v3 codes that have 'is-a' relationships to the RouteOfAdministration code system."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/RoutOfAdministration"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_RouteByMethod"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/RoutOfAdministration"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_RouteBySite"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

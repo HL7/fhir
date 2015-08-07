@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <version value="0.01"/>
+  <name value="HSPC Likelihood Value Set"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="SELECT SNOMED CT code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+			<code value="410594000"/>
+			<display value="Definitely NOT present (qualifier value)"/>
+	  </concept>
+      <concept>
+			<code value="410593006"/>
+			<display value="Probably NOT present (qualifier value)"/>
+	  </concept>
+      <concept>
+			<code value="410590009"/>
+			<display value="Known possible (qualifier value)"/>
+	  </concept>
+      <concept>
+			<code value="410592001"/>
+			<display value="Probably present (qualifier value)"/>
+	  </concept>
+      <concept>
+			<code value="255545003"/>
+			<display value="Definite (qualifier value)"/>
+	  </concept>
+    </include>
+  </compose>
+</ValueSet>

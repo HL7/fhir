@@ -85,6 +85,33 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-gestationalageatbirth-profile-spreadsheet.xml"/>
     </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-bodytemperature-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-diastolicbp-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-systolicbp-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-logicalassert-profile-spreadsheet.xml"/>
+    </extension>
+    <!--<extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-medicationstatement-profile-spreadsheet.xml"/>
+    </extension>-->
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-allergyintolerance-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-clinicalobservation-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-clinicalassertcondition-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-tqbilirubin-profile-spreadsheet.xml"/>
+    </extension>
     <name value="base"/>
     <resource>
       <purpose value="dictionary"/>

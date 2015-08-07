@@ -19,11 +19,11 @@
   </text>
   <url value="http://www.example.com/valueset/deltaflag"/>
   <version value="0.01"/>
-  <name value="HSPC Body Site Precoordinated Value Set Definition"/>
+  <name value="HSPC Associated Precondition Value Set Definition"/>
   <status value="draft"/>
   <publisher value="Health Services Platform Consortium (HSPC)"/>
   <date value="2015-02-09"/>
-  <description value="SELECT SNOMED CT code system values representing precoordinated body sites."/>
+  <description value="SELECT SNOMED CT code system values representing associated preconditions."/>
   <immutable value="true"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <extensible value="true"/>
@@ -33,7 +33,7 @@
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
-        <value value="91723000"/>
+        <value value="307142001"/>
       </filter>
     </include>
   </compose>

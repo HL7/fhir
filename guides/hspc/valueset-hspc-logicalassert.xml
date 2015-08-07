@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <version value="0.01"/>
+  <name value="HSPC Logical Assertion Value Set"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="SELECT SNOMED CT code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+			<code value="363346000"/>
+			<display value="Malignant neoplastic disease (disorder)"/>
+	  </concept>
+      <concept>
+			<code value="266987004"/>
+			<display value="History of malignant enoplasm (situation)"/>
+	  </concept>
+      <concept>
+			<code value="161505003"/>
+			<display value="History of heart failure (situation)"/>
+	  </concept>
+      <concept>
+			<code value="414415007"/>
+			<display value="History of chronic lung disease (situation)"/>
+	  </concept>
+      <concept>
+			<code value="428904003"/>
+			<display value="History of thromboembolism of vein (situation)"/>
+	  </concept>
+    </include>
+  </compose>
+</ValueSet>

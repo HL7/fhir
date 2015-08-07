@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <version value="0.01"/>
+  <name value="HSPC Allergy Intolerance Type Value Set"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-08-06"/>
+  <description value="SELECT SNOMED CT and Intermountain Healthcare HDD code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <codeSystem>
+		<system value="http://hl7.org/fhir/hspc-allergyintolerancetype"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="521059339"/>
+			<display value="Intolerance"/>
+			<definition value="An abnormal ability to tolerate a food, drug, or environmental substance."/>
+		</concept>
+  </codeSystem>
+  <compose>
+    <include>
+		<system value="http://snomed.info/sct"/>
+		<concept>
+			<code value="419199007"/>
+			<display value="Allergy to substance (disorder)"/>
+		</concept>
+    </include>
+  </compose>
+</ValueSet>

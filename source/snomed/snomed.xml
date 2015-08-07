@@ -123,6 +123,11 @@
     <display value="Free-standing ambulatory surgery facility"/>
     <display value="Free-standing ambulatory surgery facility (environment)"/>
   </concept>
+  <concept id="105590001" display="Substance (substance)">
+    <display value="Substance (substance)"/>
+    <display value="Substance"/>
+    <display value="Substances"/>
+  </concept>
   <concept id="106292003" display="Professional nurse (occupation)">
     <display value="Nurse"/>
     <display value="Professional nurse"/>
@@ -856,6 +861,10 @@
     <display value="DD"/>
     <display value="Death diagnosis (contextual qualifier)"/>
     <display value="Death diagnosis (contextual qualifier) (qualifier value)"/>
+  </concept>
+  <concept id="161505003" display="History of heart failure (situation)">
+    <display value="H/O: heart failure"/>
+    <display value="History of heart failure"/>
   </concept>
   <concept id="16208003" display="Low fat diet (finding)">
     <display value="LF - Low fat diet"/>
@@ -2322,6 +2331,10 @@
     <display value="Big"/>
     <display value="Large (qualifier value)"/>
   </concept>
+  <concept id="255545003" display="Definite (qualifier value)">
+    <display value="Definite (qualifier value)"/>
+    <display value="Definite"/>
+  </concept>
   <concept id="255549009" display="Anterior (qualifier value)">
     <display value="Fore"/>
     <display value="Front of"/>
@@ -3128,6 +3141,14 @@
   <concept id="266927001" display="Tobacco smoking consumption unknown (finding)">
     <display value="Tobacco smoking consumption unknown"/>
     <display value="Tobacco smoking consumption unknown (finding)"/>
+  </concept>
+  <concept id="266987004" display="History of malignant neoplasm (situation)">
+    <display value="History of malignant neoplasm (situation)"/>
+    <display value="H/O: cancer"/>
+    <display value="H/O: malignancy"/>
+    <display value="H/O: malignant neoplasm"/>
+    <display value="H/O: mitotic lesion"/>
+    <display value="History of malignant neoplasm"/>
   </concept>
   <concept id="267065001" display="Urine appearance (observable entity)">
     <display value="Urine appearance"/>
@@ -5584,6 +5605,10 @@
     <display value="Estimated (qualifier value)"/>
     <display value="Estimated"/>
   </concept>
+  <concept id="414415007" display="History of chronic lung disease (situation)">
+    <display value="History of chronic lung disease (situation)"/>
+    <display value="History of chronic lung disease"/>
+  </concept>
   <concept id="414585002" display="Left lateral tilt">
     <display value="Left lateral tilt (finding)"/>
     <display value="Left lateral tilt"/>
@@ -6148,6 +6173,11 @@
     <display value="Staphylococcus aureus bacteremia"/>
     <display value="Bacteraemia due to Staphylococcus aureus"/>
     <display value="Bacteremia due to Staphylococcus aureus (finding)"/>
+  </concept>
+  <concept id="428904003" display="History of thromboembolism of vein (situation)">
+    <display value="History of thromboembolism of vein (situation)"/>
+    <display value="History of thromboembolism of vein"/>
+    <display value="History of venous thromboembolic disease"/>
   </concept>
   <concept id="429040005" display="Ulcer (disorder)">
     <display value="Ulcer (disorder)"/>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <version value="0.01"/>
+    <name value="HSPC Clinical Assert Status Value Set"/>
+    <status value="draft"/>
+    <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <date value="2015-07-31"/>
+    <description value="SELECT SNOMED CT and Intermountain Healthcare HDD code system values."/>
+    <immutable value="true"/>
+    <copyright value="TBD"/>
+    <extensible value="true"/>
+    <codeSystem>
+		<system value="http://hl7.org/fhir/hspc-clinicalassertstatus"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="1797"/>
+			<display value="Resolved"/>
+			<definition value="Indication that a symptom or condition is subsided or healed."/>
+		</concept>
+		<concept>
+			<code value="69074"/>
+			<display value="Error"/>
+			<definition value="The state of being mistaken."/>
+		</concept>
+    </codeSystem>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+				<code value="55561003"/>
+				<display value="Active (qualifier value)"/>
+			</concept>
+			<concept>
+				<code value="260385009"/>
+				<display value="Ruled out (qualifier value)"/>
+			</concept>
+            <concept>
+				<code value="261665006"/>
+				<display value="Unknown (qualifier value)"/>
+			</concept>
+            <concept>
+				<code value="410605003"/>
+				<display value="Confirmed present (qualifier value)"/>
+			</concept>
+        </include>
+    </compose>
+</ValueSet>
