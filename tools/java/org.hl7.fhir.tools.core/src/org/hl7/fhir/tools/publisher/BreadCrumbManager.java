@@ -614,6 +614,16 @@ public class BreadCrumbManager {
     this.definitions = definitions;
   }
 
+  public void clear() {
+    translations = null;
+    definitions = null;
+    home = null;
+    map.clear();
+    pages.clear();
+    pagesMap.clear();
+    
+  }
+
   
 }
 

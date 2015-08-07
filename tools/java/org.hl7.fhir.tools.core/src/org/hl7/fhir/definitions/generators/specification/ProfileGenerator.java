@@ -872,8 +872,8 @@ public class ProfileGenerator {
         for (int i = 1; i < e.getDiscriminator().size(); i++) { // we've already process the first in the list
           ce.getSlicing().addDiscriminator(e.getDiscriminator().get(i).trim());
         }
-        ce = new ElementDefinition();
-        elements.add(ce);
+//        ce = new ElementDefinition();
+//        elements.add(ce);
         ce.setPath(path);
         slices.add(path);
       }

@@ -581,7 +581,7 @@ public class ProfileUtilities {
     List<ElementDefinition> result = new ArrayList<ElementDefinition>();
     for (int i = start; i <= end; i++) {
       String statedPath = context.getElement().get(i).getPath();
-      if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
+      if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() - 2 && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
         result.add(context.getElement().get(i));
       } else if (result.isEmpty()) {
 //        System.out.println("ignoring "+statedPath+" in differential of "+profileName);

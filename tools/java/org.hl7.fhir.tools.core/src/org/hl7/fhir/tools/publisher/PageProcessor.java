@@ -6587,6 +6587,33 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public ValueSetValidator getVsValidator() {
     return vsValidator;
   }
-  
+
+  public void clean() {
+    // recover some memory. Keep only what is needed for validation
+    definitions = null;
+    navigation = null;
+    ini = null;
+    prevSidebars.clear();
+    orderedResources.clear();
+    sectionTrackerCache.clear();
+    toc.clear();;
+    v2src = null;
+    v3src = null;
+    v3Valuesets = null;
+    v2Valuesets = null;
+//    codeSystems = null;
+//    valueSets = null;
+//    conceptMaps = null;
+//    profiles = null;
+    igResources.clear();
+    svgs.clear();
+    translations = null;
+    breadCrumbManager.clear();
+    registry = null;
+    epub = null;
+    searchTypeUsage = null;
+    vsValidator = null;
+    System.gc();
+  }
   
 }

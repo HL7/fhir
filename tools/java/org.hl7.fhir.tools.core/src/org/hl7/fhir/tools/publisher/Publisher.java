@@ -4654,6 +4654,7 @@ public class Publisher implements URIResolver {
   private void validateXml() throws Exception {
     if (buildFlags.get("all") && isGenerate)
       produceCoverageWarnings();
+    page.clean();
     page.log("Validating XML", LogMessageType.Process);
     page.log(".. Loading schemas", LogMessageType.Process);
     StreamSource[] sources = new StreamSource[1];
