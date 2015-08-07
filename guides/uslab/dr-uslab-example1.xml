@@ -48,10 +48,10 @@ see narrative
     <reference value="Practitioner/uslab-example3"/>
     <display value="Gregory F House, PhD"/>
   </performer>
-  <requestDetail>
+  <request>
     <reference value="DiagnosticOrder/uslab-example1"/>
     <display value="USLan Example1"/>
-  </requestDetail>
+  </request>
   <specimen>
     <reference value="Specimen/uslab-example1"/>
     <display value="Blood Sample"/>

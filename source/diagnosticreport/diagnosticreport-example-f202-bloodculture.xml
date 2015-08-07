@@ -50,9 +50,9 @@
     <display value="AUMC"/>
   </performer>
 <!-- No identifier was available -->
-  <requestDetail>
+  <request>
     <reference value="#req"/>
-  </requestDetail>
+  </request>
   <result>
     <reference value="Observation/f206"/>
     <display value="Results for staphylococcus analysis on Roel&#39;s blood culture"/>

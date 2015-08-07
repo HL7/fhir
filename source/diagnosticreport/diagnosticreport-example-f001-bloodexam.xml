@@ -80,9 +80,9 @@
     <reference value="Organization/f001"/>
     <display value="Burgers University Medical Centre"/>
   </performer>
-  <requestDetail>
+  <request>
     <reference value="#req"/>
-  </requestDetail>
+  </request>
   <result>
     <reference value="Observation/f001"/>
   </result>

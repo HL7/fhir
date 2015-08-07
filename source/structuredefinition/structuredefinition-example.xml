@@ -191,14 +191,14 @@
       <isModifier value="false"/>
     </element>
     <element>
-      <path value="DiagnosticReport.requestDetail"/>
+      <path value="DiagnosticReport.request"/>
       <short value="What was requested"/>
       <definition value="Details concerning a single pathology test requested."/>
       <comments value="Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single Pathology test result resource. Note that there are also cases where one request leads to multiple reports."/>
       <min value="0"/>
       <max value="*"/>
       <base>
-        <path value="DiagnosticReport.requestDetail"/>
+        <path value="DiagnosticReport.request"/>
         <min value="0"/>
         <max value="*"/>
       </base>

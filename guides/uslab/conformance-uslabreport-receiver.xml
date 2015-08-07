@@ -323,7 +323,7 @@
 			
       <h4>Search</h4>
 			
-      <p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report</p>
+      <p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.request, DiagnosticReport.specimen, DiagnosticReport.report</p>
 			
       <h2>REST  behavior</h2>
 			
@@ -598,7 +598,7 @@
 			
       <h4>Search</h4>
 			
-      <p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report</p>
+      <p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.request, DiagnosticReport.specimen, DiagnosticReport.report</p>
 		
     </div>
   </text>
@@ -692,7 +692,7 @@ or when receiver in client  mode  =Push: The source is a client, and when new da
       </interaction  -->
     <!--  EH  flags for support for versioning, read history, update create
 		<versioning value="versioned|no-version" -->
-      <searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report"/>
+      <searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.request, DiagnosticReport.specimen, DiagnosticReport.report"/>
     </resource>
   </rest>
 <!--  EH: comment out for now
@@ -775,7 +775,7 @@ or when receiver in client  mode  =Push: The source is a client, and when new da
       </interaction  -->
     <!--  EH  flags for support for versioning, read history, update create
 		<versioning value="versioned|no-version" -->
-      <searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report"/>
+      <searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.request, DiagnosticReport.specimen, DiagnosticReport.report"/>
     </resource>
   </rest>
 </Conformance>

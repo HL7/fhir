@@ -1385,7 +1385,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">DiagnosticReport.requestDetail</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">DiagnosticReport.request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -4610,7 +4610,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">request</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">DiagnosticReport.requestDetail</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">DiagnosticReport.request</Data></Cell>
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
