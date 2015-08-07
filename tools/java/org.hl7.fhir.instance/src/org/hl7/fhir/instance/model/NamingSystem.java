@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -689,10 +689,10 @@ public class NamingSystem extends DomainResource {
     protected StringType responsible;
 
     /**
-     * The date  (and optionally time) when the system was registered or published.
+     * The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes.
      */
     @Child(name = "date", type = {DateTimeType.class}, order=6, min=1, max=1)
-    @Description(shortDefinition="Publication Date(/time)", formalDefinition="The date  (and optionally time) when the system was registered or published." )
+    @Description(shortDefinition="Publication Date(/time)", formalDefinition="The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes." )
     protected DateTimeType date;
 
     /**
@@ -1036,7 +1036,7 @@ public class NamingSystem extends DomainResource {
     }
 
     /**
-     * @return {@link #date} (The date  (and optionally time) when the system was registered or published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       if (this.date == null)
@@ -1056,7 +1056,7 @@ public class NamingSystem extends DomainResource {
     }
 
     /**
-     * @param value {@link #date} (The date  (and optionally time) when the system was registered or published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public NamingSystem setDateElement(DateTimeType value) { 
       this.date = value;
@@ -1064,14 +1064,14 @@ public class NamingSystem extends DomainResource {
     }
 
     /**
-     * @return The date  (and optionally time) when the system was registered or published.
+     * @return The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes.
      */
     public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date  (and optionally time) when the system was registered or published.
+     * @param value The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes.
      */
     public NamingSystem setDate(Date value) { 
         if (this.date == null)
@@ -1334,7 +1334,7 @@ public class NamingSystem extends DomainResource {
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the naming system.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("responsible", "string", "The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.", 0, java.lang.Integer.MAX_VALUE, responsible));
-        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the system was registered or published.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("type", "CodeableConcept", "Categorizes a namingsystem for easier search by grouping related namingsystems.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("description", "string", "Details about what the namespace identifies including scope, granularity, version labeling, etc.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of naming systems.", 0, java.lang.Integer.MAX_VALUE, useContext));

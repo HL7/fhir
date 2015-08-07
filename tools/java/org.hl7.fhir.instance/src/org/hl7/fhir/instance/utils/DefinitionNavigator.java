@@ -147,7 +147,7 @@ public class DefinitionNavigator {
       DefinitionNavigator dn = new DefinitionNavigator(context, sd, 0, path, names, sd.getConstrainedType());
       typeChildren = dn.children();
     } else
-      throw new Exception("Unable to find definition for "+type.getCode());
+      throw new Exception("Unable to find definition for "+type.getCode()+(type.hasProfile() ? "("+type.getProfile()+")" : ""));
     typeOfChildren = type;
   }
 

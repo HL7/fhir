@@ -269,7 +269,7 @@ public class XSDGenerator  {
 			else
 				for (TypeRef t : e.getTypes()) {
 					String tn = encodeType(e, t, true);
-					String n = e.getName().replace("[x]", tn.toUpperCase().substring(0, 1) + tn.substring(1));
+					String n = e.getName().replace("[x]", nameForType(tn));
 					if (t.getName().equals("Reference"))
  	          n = e.getName().replace("[x]", "Reference");
   			  write("            <xs:element name=\""+n+"\" type=\""+encodeType(e, t, true)+"\""+close+"\r\n");
@@ -326,7 +326,14 @@ public class XSDGenerator  {
 		}
 	}
 
-	private void scanTypes(ElementDefn root, ElementDefn focus) {
+	private CharSequence nameForType(String type) {
+	  if (definitions.getConstraints().containsKey(type))
+      return definitions.getConstraints().get(type).getBaseType();
+    else 
+      return Utilities.capitalize(type);
+	 }
+
+  private void scanTypes(ElementDefn root, ElementDefn focus) {
 	  for (ElementDefn e : focus.getElements()) {
 	    if (e.getTypes().size() == 0 && e.getElements().size() > 0) {
         int i = 0;

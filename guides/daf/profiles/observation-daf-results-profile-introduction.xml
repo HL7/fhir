@@ -63,7 +63,7 @@ The DAFResults profile mapping to Meaningful Use data elements and FHIR Resource
 		  <tr>
 		    <td/>
 			<td>Lab Test Result</td>
-			<td>Observation.value[x](Code,Quantity,Ratio or other)</td>
+			<td>Observation.value[x](Code,SimpleQuantity,Ratio or other)</td>
 		  </tr>
 		  <tr>
 		    <td/>

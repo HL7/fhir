@@ -871,7 +871,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       renderTiming((Timing) e, x);
     } else if (e instanceof Range) {
       renderRange((Range) e, x);
-    } else if (e instanceof Quantity || e instanceof Duration) {
+    } else if (e instanceof Quantity) {
       renderQuantity((Quantity) e, x, showCodeDetails);
     } else if (e instanceof Ratio) {
       renderQuantity(((Ratio) e).getNumerator(), x, showCodeDetails);
@@ -983,7 +983,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof Timing) {
       renderTiming((Timing) e, x);
       return true;
-    } else if (e instanceof Quantity || e instanceof Duration) {
+    } else if (e instanceof Quantity) {
       renderQuantity((Quantity) e, x, showCodeDetails);
       return true;
     } else if (e instanceof Ratio) {

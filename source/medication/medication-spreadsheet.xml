@@ -2527,7 +2527,7 @@ if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give 
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s88">
-					<Data ss:Type="String">Quantity</Data>
+					<Data ss:Type="String">SimpleQuantity</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s88">

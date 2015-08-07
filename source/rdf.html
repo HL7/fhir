@@ -120,6 +120,36 @@ reference concepts that are not defined within the RDF content provided as part 
 specification, and implementers will need to locate them elsewhere.
 </p>
 
+<a name="decimal"> </a>
+<h3>Decimal Precision</h3>
+<p>
+todo.
+<!-- 
+From Tony:
+This is what it should be:
+ 
+fhir:string rdf:type owl:Class ;
+           
+            rdfs:subClassOf fhir:Element ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty fhir:value ;
+                              owl:allValuesFrom [ rdf:type rdfs:Datatype ;
+                                                  owl:onDatatype xsd:string ;
+                                                  owl:withRestrictions ( [ xsd:minLength 1 ]
+                                                                         [ xsd:maxLength 1000000 ]
+                                                                       )
+                                                ]
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty fhir:value ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ;
+           
+            rdfs:comment "A sequence of Unicode characters with a minimum of 1 and max 1000000" .
+-->
+</p>
+
 <a name="profile"> </a>
 <h3>RDF Representation of Profiles</h3>
 <p>

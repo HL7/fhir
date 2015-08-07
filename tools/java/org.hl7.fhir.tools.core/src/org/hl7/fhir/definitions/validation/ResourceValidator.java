@@ -505,8 +505,20 @@ public class ResourceValidator extends BaseValidator {
 		if (e.typeCode().equals("code") && parent != null && !e.isNoBindingAllowed()) {
 		  rule(errors, IssueType.STRUCTURE, path, e.hasBinding(), "An element of type code must have a binding");
 		}
-    if ((e.usesType("Coding") && !parentName.equals("CodeableConcept")) || (e.usesType("CodeableConcept") && !e.usesType("Quantity"))) {
+    if ((e.usesType("Coding") && !parentName.equals("CodeableConcept")) || (e.usesType("CodeableConcept") && !(e.usesType("Quantity") || e.usesType("SimpleQuantity")))) {
       warning(errors, IssueType.STRUCTURE, path, e.hasBinding(), "An element of type CodeableConcept or Coding must have a binding");
+    }
+    if (e.getTypes().size() > 1) {
+      Set<String> types = new HashSet<String>();
+      for (TypeRef t : e.getTypes()) {
+        String base = null;
+        if (definitions.getConstraints().containsKey(t.getName()))
+          base = definitions.getConstraints().get(t.getName()).getBaseType();
+        else
+          base = t.getName();
+        rule(errors, IssueType.STRUCTURE, path, !types.contains(base), "Element type combination includes multiple actual types that are the same");
+        types.add(base);
+      }
     }
 		
 		if (e.hasBinding()) {

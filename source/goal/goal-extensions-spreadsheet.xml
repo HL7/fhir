@@ -9125,7 +9125,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s95">
-					<Data ss:Type="String">Quantity | Range | CodeableConcept</Data>
+					<Data ss:Type="String">SimpleQuantity | Range | CodeableConcept</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s95">

@@ -2563,7 +2563,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
-					<Data ss:Type="String">Range | Quantity</Data>
+					<Data ss:Type="String">Range | SimpleQuantity</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
@@ -3147,7 +3147,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
-					<Data ss:Type="String">Quantity</Data>
+					<Data ss:Type="String">SimpleQuantity</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">

@@ -2263,7 +2263,7 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">Condition.onsetAge</Data>
+					<Data ss:Type="String">Condition.onsetQuantity</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">
@@ -20515,7 +20515,7 @@ See wiki</Font>
 				</Cell>
 				<Cell ss:StyleID="s95"/>
 				<Cell ss:StyleID="s132">
-					<Data ss:Type="String">Condition.onsetAge</Data>
+					<Data ss:Type="String">Condition.onsetQuantity</Data>
 				</Cell>
 				<Cell ss:StyleID="s133">
 					<Data ss:Type="String">Search based on Condition onsetAge</Data>

@@ -449,7 +449,7 @@ public class ProfileGenerator {
     e.setMin(1);
     e.setMax("1");
     e.setIsModifier(false);
-    
+        
     String s = definitions.getTLAs().get(pt.getName().toLowerCase());
     if (s == null)
       throw new Exception("There is no TLA for '"+pt.getName()+"' in fhir.ini");
@@ -463,10 +463,37 @@ public class ProfileGenerator {
     p.setDifferential(new StructureDefinitionDifferentialComponent());
     p.getDifferential().getElement().add(e);
 
+    StructureDefinition base = getTypeSnapshot(pt.getBaseType());
+    
+    if (!pt.getRules().isEmpty()) {
+      // need to generate a differential based on the rules. 
+      // throw new Exception("todo");
+      for (String rule : pt.getRules().keySet()) {
+        String[] parts = rule.split("\\.");
+        String value = pt.getRules().get(rule);
+        ElementDefinition er = findElement(p.getDifferential(), pt.getBaseType()+'.'+parts[0]); 
+        if (er == null) { 
+          er = new ElementDefinition();
+          er.setPath(pt.getBaseType()+'.'+parts[0]);
+          p.getDifferential().getElement().add(er);
+        }
+        if (parts[1].equals("min"))
+          er.setMin(Integer.parseInt(value));
+        else if (parts[1].equals("max"))
+          er.setMax(value);
+        else if (parts[1].equals("defn"))
+          er.setDefinition(value);
+        
+      }
+      List<String> errors = new ArrayList<String>();
+      new ProfileUtilities(context).sortDifferential(base, p, p.getName(), pkp, errors);
+      for (String se : errors)
+        issues.add(new ValidationMessage(Source.ProfileValidator, IssueType.STRUCTURE, -1, -1, p.getUrl(), se, IssueSeverity.WARNING));
+    }
+    
     reset();
     
     // now, the snapshot
-    StructureDefinition base = getTypeSnapshot(pt.getBaseType());
     new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType(), p.getName(), pkp, issues);
     for (ElementDefinition ed : p.getSnapshot().getElement())
       generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
@@ -489,6 +516,14 @@ public class ProfileGenerator {
     return p;
   }
   
+  private ElementDefinition findElement(StructureDefinitionDifferentialComponent differential, String path) {
+    for (ElementDefinition ed : differential.getElement()) {
+      if (ed.getPath().equals(path))
+        return ed;
+    }
+    return null;
+  }
+
   private ElementDefinition getParent(ElementDefinition e, List<ElementDefinition> elist) {
     String p = e.getPath();
     if (!p.contains("."))
@@ -894,8 +929,15 @@ public class ProfileGenerator {
             ce.addType().setCode(snapshot == SnapShotMode.DataType ? "Element" : "BackboneElement");
         } else for (TypeRef t : expandedTypes) {
           TypeRefComponent type = new TypeRefComponent();
-          type.setCode(t.getName());
-          String profile = t.getProfile();
+          String profile = null;
+          if (definitions.getConstraints().containsKey(t.getName())) {
+            ProfiledType pt = definitions.getConstraints().get(t.getName());
+            type.setCode(pt.getBaseType());
+            profile = "http://hl7.org/fhir/StructureDefinition/"+pt.getName();
+          } else {
+            type.setCode(t.getName());
+            profile = t.getProfile();
+          }
           if (profile == null && t.hasParams()) {
             profile = t.getParams().get(0);
           }

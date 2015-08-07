@@ -1,5 +1,8 @@
 package org.hl7.fhir.definitions.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.hl7.fhir.instance.model.StructureDefinition;
 
 public class ProfiledType {
@@ -7,7 +10,8 @@ public class ProfiledType {
   private String definition;
   private String description;
   private String baseType;
-
+  private Map<String, String> rules = new HashMap<String, String>();
+  
   private Invariant invariant;
   private StructureDefinition profile;
   
@@ -50,6 +54,11 @@ public class ProfiledType {
   public void setProfile(StructureDefinition profile) {
     this.profile = profile;
   }
+  public Map<String, String> getRules() {
+    return rules;
+  }
+
+
   
   
 }

@@ -491,9 +491,9 @@ public class QuestionnaireBuilder {
         else
           return true;
       }
-    } else if (t.getCode().equals("Quantity"))
+    } else if (t.getCode().equals("Quantity")) {
       return obj instanceof Quantity;
-    else
+    } else
       throw new Exception("Not Done Yet");
   }
 
@@ -694,6 +694,8 @@ public class QuestionnaireBuilder {
       addCodingQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Quantity"))
       addQuantityQuestions(group, element, path, answerGroups);
+    else if (t.getCode().equals("SimpleQuantity"))
+      addSimpleQuantityQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
@@ -883,6 +885,14 @@ public class QuestionnaireBuilder {
       addQuestion(group, AnswerFormat.STRING, path, "label", "label:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "system", "system:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "value", "value:", answerGroups);
+    }
+
+    private void addSimpleQuantityQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireResponse.GroupComponent> answerGroups) throws Exception {
+      ToolingExtensions.addType(group, "Quantity");
+      addQuestion(group, AnswerFormat.DECIMAL, path, "value", "value:", answerGroups);
+      addQuestion(group, AnswerFormat.STRING, path, "units", "units:", answerGroups);
+      addQuestion(group, AnswerFormat.STRING, path, "code", "coded units:", answerGroups);
+      addQuestion(group, AnswerFormat.STRING, path, "system", "units system:", answerGroups);
     }
 
     private void addQuantityQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireResponse.GroupComponent> answerGroups) throws Exception {

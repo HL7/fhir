@@ -1048,14 +1048,24 @@ public class SvgGenerator extends BaseGenerator {
           return;
       }
       
-      if (tr.getName().equals("*"))
+      if (tr.getName().equals("*")) {
         prog.attribute(xml, "xlink:href", prefix+"datatypes.html#open");
-      else if (tr.getName().startsWith("@")) 
+        prog.element(xml, "a", tr.getName());
+      } else if (tr.getName().startsWith("@")) { 
         prog.attribute(xml, "title", "@"+tr.getName().substring(1));
-      else
+        prog.element(xml, "a", tr.getName());
+      } else if (definitions.getConstraints().containsKey(tr.getName())) {
+        ProfiledType pt = definitions.getConstraints().get(tr.getName());
+        prog.attribute(xml, "xlink:href", prefix+definitions.getSrcFile(pt.getBaseType()) + ".html#" + pt.getBaseType());
+        prog.element(xml, "a", pt.getBaseType());
+        prog.text(xml, "(");
         prog.attribute(xml, "xlink:href", prefix+definitions.getSrcFile(tr.getName()) + ".html#" + tr.getName());
-      
-      prog.element(xml, "a", tr.getName());
+        prog.element(xml, "a", tr.getName());
+        prog.text(xml, ")");
+      } else {
+        prog.attribute(xml, "xlink:href", prefix+definitions.getSrcFile(tr.getName()) + ".html#" + tr.getName());
+        prog.element(xml, "a", tr.getName());
+      }
       
       if (tr.getParams().size() > 0) {
         prog.text(xml, "(");
@@ -1068,7 +1078,7 @@ public class SvgGenerator extends BaseGenerator {
           prog.element(xml, "a", t);
           firstP = false;
         }
-        xml.text(")");
+        prog.text(xml, ")");
       }
       first = false;
     }

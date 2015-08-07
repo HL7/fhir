@@ -464,8 +464,6 @@ public class ProfileUtilities {
 
 
   private StructureDefinition getProfileForDataType(TypeRefComponent type) {
-    if (type.hasProfile() && !type.getCode().equals("Reference") && !type.getCode().equals("Extension")) 
-      throw new Error("handling profiles is not supported yet");
     for (StructureDefinition ae : context.getProfiles().values()) {
       if (ae.getName().equals(type.getCode())) {
         return ae;
@@ -1386,7 +1384,7 @@ public class ProfileUtilities {
   }
 
   private boolean isDataType(String value) {
-    return Utilities.existsInList(value, "Identifier", "HumanName", "Address", "ContactPoint", "Timing", "Quantity", "Attachment", "Range", 
+    return Utilities.existsInList(value, "Identifier", "HumanName", "Address", "ContactPoint", "Timing", "MeasuredQuantity", "Quantity", "Attachment", "Range", 
           "Period", "Ratio", "CodeableConcept", "Coding", "SampledData", "Age", "Distance", "Duration", "Count", "Money");
   }
 
@@ -1614,7 +1612,10 @@ public class ProfileUtilities {
           ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+child.getSelf().getType().get(0).getCode()).getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (ed.getPath().endsWith("[x]") && !child.getSelf().getPath().endsWith("[x]")) {
           String p = child.getSelf().getPath().substring(ed.getPath().length()-3);
-          ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+p).getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+          StructureDefinition sd = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+p);
+          if (sd == null)
+            throw new Error("Unable to find profile "+p);
+          ccmp = new ElementDefinitionComparer(false, sd.getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else {
           throw new Error("Not handled yet (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
         }

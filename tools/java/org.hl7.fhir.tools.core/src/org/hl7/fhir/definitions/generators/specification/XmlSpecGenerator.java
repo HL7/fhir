@@ -40,6 +40,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
@@ -119,7 +120,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       write("<span title=\"" + Utilities.escapeXml(root.getDefinition())
           + "\"><b>");
     else
-      write("<a href=\"" + (defPage + "#" + root.getName()).replace("[", "_").replace("]", "_") + "\" title=\""
+      write("<a href=\"" + (defPage + "#" + root.getName()) + "\" title=\""
           + Utilities.escapeXml(root.getDefinition())
           + "\" class=\"dict\"><b>");
     write(rn);
@@ -170,7 +171,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			write("<span title=\"" + Utilities.escapeXml(root.getDefinition())
 					+ "\"><b>");
 		else
-			write("<a href=\"" + (defPage + "#" + root.getName()).replace("[", "_").replace("]", "_") + "\" title=\""
+			write("<a href=\"" + (defPage + "#" + root.getName()) + "\" title=\""
 					+ Utilities.escapeXml(root.getDefinition())
 					+ "\" class=\"dict\"><b>");
 		write(rn);
@@ -272,10 +273,10 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			else
 				write("&lt;<span title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\">");
 		} else if (elem.isModifier() || elem.getMustSupport()) 
-      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_")+ "\" title=\"" + Utilities .escapeXml(elem.getEnhancedDefinition()) 
+      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(elem.getEnhancedDefinition()) 
             + "\" class=\"dict\"><span style=\"text-decoration: underline\">");
 		else
-			write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_") + "\" title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\" class=\"dict\">");
+			write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en) + "\" title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\" class=\"dict\">");
 
 		// element contains xhtml
 		if (!elem.getTypes().isEmpty() && elem.getTypes().get(0).isXhtml()) {
@@ -314,7 +315,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			if (elem.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(elem.typeCode()))) {
 			  doneType = true;
 			  TypeRef t = elem.getTypes().get(0);
-  			write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(t.getName())+ ".html#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
+  			write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(t.getName())+ ".html#" + t.getName()) + "\">" + t.getName()+ "</a></span>]\"/");
 			}
 			write("&gt;");
 
@@ -493,11 +494,11 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       closeOut = "";
       throw new Error("not done yet");
     } else if (elem.getIsModifier() || elem.getMustSupport()) { 
-      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_")+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
+      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
             + "\" class=\"dict\"><span style=\"text-decoration: underline\">");
       closeOut = "</b></span></a>";
     } else {
-      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_") + "\" title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\" class=\"dict\">");
+      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en) + "\" title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\" class=\"dict\">");
       closeOut = "</b></a>";
     }
     write("<b>"+Utilities.escapeXml(en));
@@ -729,9 +730,17 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         write(t.getName());
       else if (t.getName().equals("Extension") && t.getParams().size() == 0 && !Utilities.noString(t.getProfile()))
         write("<a href=\""+prefix+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
-      else
+      else if (definitions.getConstraints().containsKey(t.getName())) {
+        ProfiledType pt = definitions.getConstraints().get(t.getName());
+        write("<a href=\"" + (dtRoot + definitions.getSrcFile(pt.getBaseType())
+        + ".html#" + pt.getBaseType() + "\">" + pt.getBaseType())+"</a>");
+        w = w + pt.getBaseType().length()+2; 
+        write("(<a style=\"color:navy\" href=\"" + (dtRoot + definitions.getSrcFile(t.getName())
+        + ".html#" + t.getName() + "\">" + t.getName())
+        + "</a>)");
+      } else
         write("<a href=\"" + (dtRoot + definitions.getSrcFile(t.getName())
-            + ".html#" + t.getName() + "\">" + t.getName()).replace("[", "_").replace("]", "_")
+            + ".html#" + t.getName() + "\">" + t.getName())
             + "</a>");
       if (t.hasParams()) {
         write("(");
@@ -759,7 +768,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             write("<a href=\""+prefix+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
           else
             write("<a href=\"" + (dtRoot + definitions.getSrcFile(p)
-                + ".html#" + p).replace("[", "_").replace("]", "_") + "\">" + p + "</a>");
+                + ".html#" + p) + "\">" + p + "</a>");
 
           firstp = false;
         }

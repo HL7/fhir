@@ -61,12 +61,12 @@
           <display value="natural mother"/>
         </coding>
       </relationship>
-      <deceasedAge>
+      <deceasedQuantity>
         <value value="50"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </deceasedAge>
+      </deceasedQuantity>
       <condition>
         <type>
           <coding>
@@ -75,12 +75,12 @@
             <display value="Ovarian Carcinoma"/>
           </coding>
         </type>
-        <onsetAge>
+        <onsetQuantity>
           <value value="45"/>
           <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
-        </onsetAge>
+        </onsetQuantity>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -131,12 +131,12 @@
           <display value="natural father"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="72"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
       <deceasedBoolean value="false"/>
     </FamilyMemberHistory>
   </contained>
@@ -155,12 +155,12 @@
           <display value="maternal grandmother"/>
         </coding>
       </relationship>
-      <deceasedAge>
+      <deceasedQuantity>
         <value value="77"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </deceasedAge>
+      </deceasedQuantity>
       <condition>
         <type>
           <coding>
@@ -169,12 +169,12 @@
             <display value="Breast Carcinoma"/>
           </coding>
         </type>
-        <onsetAge>
+        <onsetQuantity>
           <value value="55"/>
           <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
-        </onsetAge>
+        </onsetQuantity>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -193,12 +193,12 @@
           <display value="maternal grandfather"/>
         </coding>
       </relationship>
-      <deceasedAge>
+      <deceasedQuantity>
         <value value="76"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </deceasedAge>
+      </deceasedQuantity>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -216,12 +216,12 @@
           <display value="paternal grandmother"/>
         </coding>
       </relationship>
-      <deceasedAge>
+      <deceasedQuantity>
         <value value="74"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </deceasedAge>
+      </deceasedQuantity>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -239,12 +239,12 @@
           <display value="paternal grandfather"/>
         </coding>
       </relationship>
-      <deceasedAge>
+      <deceasedQuantity>
         <value value="73"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </deceasedAge>
+      </deceasedQuantity>
       <condition>
         <type>
           <coding>
@@ -253,12 +253,12 @@
             <display value="Colorectal Carcinoma"/>
           </coding>
         </type>
-        <onsetAge>
+        <onsetQuantity>
           <value value="72"/>
           <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
-        </onsetAge>
+        </onsetQuantity>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -309,12 +309,12 @@
           <display value="natural brother"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="32"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
       <deceasedBoolean value="false"/>
       <condition>
         <type>
@@ -324,12 +324,12 @@
             <display value="Rectal Carcinoma"/>
           </coding>
         </type>
-        <onsetAge>
+        <onsetQuantity>
           <value value="32"/>
           <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
-        </onsetAge>
+        </onsetQuantity>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -381,12 +381,12 @@
         </coding>
       </relationship>
           <!--Age was 31 in source, but 36 in diagram -->
-    <ageAge>
+    <ageQuantity>
         <value value="36"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
       <deceasedBoolean value="false"/>
       <condition>
         <type>
@@ -396,12 +396,12 @@
             <display value="Ductal Carcinoma In Situ of the Breast"/>
           </coding>
         </type>
-        <onsetAge>
+        <onsetQuantity>
           <value value="35"/>
           <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
-        </onsetAge>
+        </onsetQuantity>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -419,12 +419,12 @@
           <display value="brother-in-law"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="30"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -474,12 +474,12 @@
           <display value="Nephew"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="16"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
       <deceasedBoolean value="false"/>
     </FamilyMemberHistory>
   </contained>
@@ -530,12 +530,12 @@
           <display value="niece"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="15"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
       <deceasedBoolean value="false"/>
       <condition>
         <type>
@@ -568,12 +568,12 @@
           <display value="significant other"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="35"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -622,12 +622,12 @@
           <display value="natural daughter"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="17"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -676,12 +676,12 @@
           <display value="paternal uncle"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="56"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -730,12 +730,12 @@
           <display value="paternal aunt"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="57"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
       <condition>
         <type>
           <coding>
@@ -793,12 +793,12 @@
           <display value="maternal uncle"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="60"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -847,12 +847,12 @@
           <display value="maternal aunt"/>
         </coding>
       </relationship>
-      <ageAge>
+      <ageQuantity>
         <value value="57"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -918,12 +918,12 @@
         </coding>
       </relationship>
       <gender value="female"/>
-      <ageAge>
+      <ageQuantity>
         <value value="30"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
     <condition>
         <type>
           <coding>
@@ -932,12 +932,12 @@
             <display value="Breast Carcinoma"/>
           </coding>
         </type>
-        <onsetAge>
+        <onsetQuantity>
           <value value="30"/>
           <unit value="years"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="a"/>
-        </onsetAge>
+        </onsetQuantity>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -988,12 +988,12 @@
         </coding>
       </relationship>
       <gender value="female"/>
-    <ageAge>
+    <ageQuantity>
         <value value="31"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
-      </ageAge>
+      </ageQuantity>
     </FamilyMemberHistory>
   </contained>
   <code>

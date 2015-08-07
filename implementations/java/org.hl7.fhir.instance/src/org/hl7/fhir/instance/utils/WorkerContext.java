@@ -139,11 +139,15 @@ public class WorkerContext implements NameResolver {
   }
 
   public void seeQuestionnaire(String url, Questionnaire theQuestionnaire) throws Exception {
+    if (questionnaires.get(theQuestionnaire.getId()) != null)
+      throw new Exception("duplicate extension definition: "+theQuestionnaire.getId());
     questionnaires.put(theQuestionnaire.getId(), theQuestionnaire);
     questionnaires.put(url, theQuestionnaire);
   }
 
-  public void seeValueSet(String url, ValueSet vs) {
+  public void seeValueSet(String url, ValueSet vs) throws Exception {
+    if (valueSets.containsKey(vs.getUrl()))
+      throw new Exception("Duplicate Profile "+vs.getUrl());
     valueSets.put(vs.getId(), vs);
     valueSets.put(url, vs);
     valueSets.put(vs.getUrl(), vs);
@@ -152,7 +156,9 @@ public class WorkerContext implements NameResolver {
     }
   }
 
-  public void seeProfile(String url, StructureDefinition p) {
+  public void seeProfile(String url, StructureDefinition p) throws Exception {
+    if (profiles.containsKey(p.getUrl()))
+      throw new Exception("Duplicate Profile "+p.getUrl());
     profiles.put(p.getId(), p);
     profiles.put(url, p);
     profiles.put(p.getUrl(), p);
@@ -415,7 +421,7 @@ public class WorkerContext implements NameResolver {
 
   public StructureDefinition getTypeStructure(TypeRefComponent type) {
     if (type.hasProfile())
-      return profiles.get(type.getProfile());
+      return profiles.get(type.getProfile().get(0).getValue());
     else
       return profiles.get(type.getCode());
   }

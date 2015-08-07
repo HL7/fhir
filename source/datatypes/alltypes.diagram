@@ -1,5 +1,5 @@
 [diagram]
-classes=Identifier,HumanName,Address,ContactPoint,Timing,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money,Annotation,Signature
+classes=Identifier,HumanName,Address,ContactPoint,Timing,Quantity,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money,Annotation,Signature
 attributes=false
 
 [size]
@@ -19,13 +19,14 @@ HumanName=175;-40
 Address=175;40
 Signature=-150;40
 Annotation=170;0
-ContactPoint=170;80
-Quantity=-10;80
-SampledData=70;80
+ContactPoint=180;80
+Quantity=-30;80
+SampledData=90;80
 Age=-150;130
-Distance=-95;130
-Duration=-10;130
-Count=75;130
-Money=150;130
+Distance=-115;130
+Quantity=-10;130
+Duration=90;130
+Count=125;130
+Money=170;130
 
 

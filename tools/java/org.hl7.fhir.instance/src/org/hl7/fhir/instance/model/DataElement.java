@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -677,10 +677,10 @@ public class DataElement extends DomainResource {
     protected List<DataElementContactComponent> contact;
 
     /**
-     * The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).
+     * The date that this version of the Data Element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the data element  changes.
      */
     @Child(name = "date", type = {DateTimeType.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="Date for this version of the data element", formalDefinition="The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired)." )
+    @Description(shortDefinition="Date for this version of the data element", formalDefinition="The date that this version of the Data Element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the data element  changes." )
     protected DateTimeType date;
 
     /**
@@ -1102,7 +1102,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #date} (The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date that this version of the Data Element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the data element  changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       if (this.date == null)
@@ -1122,7 +1122,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @param value {@link #date} (The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date that this version of the Data Element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the data element  changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DataElement setDateElement(DateTimeType value) { 
       this.date = value;
@@ -1130,14 +1130,14 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).
+     * @return The date that this version of the Data Element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the data element  changes.
      */
     public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).
+     * @param value The date that this version of the Data Element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the data element  changes.
      */
     public DataElement setDate(Date value) { 
       if (value == null)
@@ -1378,7 +1378,7 @@ public class DataElement extends DomainResource {
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("date", "dateTime", "The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("date", "dateTime", "The date that this version of the Data Element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the data element  changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("stringency", "code", "Identifies how precise the data element is in its definition.", 0, java.lang.Integer.MAX_VALUE, stringency));

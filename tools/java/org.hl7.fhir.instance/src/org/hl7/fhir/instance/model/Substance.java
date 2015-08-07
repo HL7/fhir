@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -65,11 +65,11 @@ public class Substance extends DomainResource {
         /**
          * The amount of the substance.
          */
-        @Child(name = "quantity", type = {Quantity.class}, order=3, min=0, max=1)
+        @Child(name = "quantity", type = {SimpleQuantity.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Amount of substance in the package", formalDefinition="The amount of the substance." )
-        protected Quantity quantity;
+        protected SimpleQuantity quantity;
 
-        private static final long serialVersionUID = -1474380480L;
+        private static final long serialVersionUID = -794314734L;
 
     /*
      * Constructor
@@ -154,12 +154,12 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #quantity} (The amount of the substance.)
          */
-        public Quantity getQuantity() { 
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceInstanceComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity(); // cc
+              this.quantity = new SimpleQuantity(); // cc
           return this.quantity;
         }
 
@@ -170,7 +170,7 @@ public class Substance extends DomainResource {
         /**
          * @param value {@link #quantity} (The amount of the substance.)
          */
-        public SubstanceInstanceComponent setQuantity(Quantity value) { 
+        public SubstanceInstanceComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -179,7 +179,7 @@ public class Substance extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifier associated with the package/container (usually a label affixed directly).", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("expiry", "dateTime", "When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.", 0, java.lang.Integer.MAX_VALUE, expiry));
-          childrenList.add(new Property("quantity", "Quantity", "The amount of the substance.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("quantity", "SimpleQuantity", "The amount of the substance.", 0, java.lang.Integer.MAX_VALUE, quantity));
         }
 
       public SubstanceInstanceComponent copy() {

@@ -762,6 +762,14 @@ public class SourceParser {
             ProfiledType pt = new ProfiledType();
             pt.setDefinition(sheet.getColumn(i, "Definition"));
             pt.setDescription(sheet.getColumn(i, "Rules"));
+            String structure = sheet.getColumn(i, "Structure");
+            if (!Utilities.noString(structure)) {
+              String[] parts = structure.split("\\;");
+              for (String pp : parts) {
+                String[] words = pp.split("\\=");
+                pt.getRules().put(words[0], words[1]);
+              }
+            }
             pt.setName(n);
             pt.setBaseType(p);
             pt.setInvariant(inv);

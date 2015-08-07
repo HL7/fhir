@@ -464,8 +464,6 @@ public class ProfileUtilities {
 
 
   private StructureDefinition getProfileForDataType(TypeRefComponent type) {
-    if (type.hasProfile() && !type.getCode().equals("Reference") && !type.getCode().equals("Extension")) 
-      throw new Error("handling profiles is not supported yet");
     for (StructureDefinition ae : context.getProfiles().values()) {
       if (ae.getName().equals(type.getCode())) {
         return ae;
@@ -1386,7 +1384,7 @@ public class ProfileUtilities {
   }
 
   private boolean isDataType(String value) {
-    return Utilities.existsInList(value, "Identifier", "HumanName", "Address", "ContactPoint", "Timing", "Quantity", "Attachment", "Range", 
+    return Utilities.existsInList(value, "Identifier", "HumanName", "Address", "ContactPoint", "Timing", "SimpleQuantity", "Quantity", "Attachment", "Range", 
           "Period", "Ratio", "CodeableConcept", "Coding", "SampledData", "Age", "Distance", "Duration", "Count", "Money");
   }
 

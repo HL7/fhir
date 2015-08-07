@@ -1632,14 +1632,18 @@ public class SpreadsheetParser {
       return null;  
 	  if (e.getTypes().size() != 1) 
       throw new Exception("Unable to process "+column+" unless a single type is specified (types = "+e.typeCode()+") "+getLocation(row));
+    String type = e.typeCode();
+    if (definitions != null && definitions.getConstraints().containsKey(type))
+      type = definitions.getConstraints().get(type).getBaseType();
+    
     if (source.startsWith("{")) {
       JsonParser json = new JsonParser();
-      return json.parseType(source, e.typeCode());
+      return json.parseType(source, type);
     } else if (source.startsWith("<")) {
       XmlParser xml = new XmlParser();
-      return xml.parseType(source, e.typeCode());
+      return xml.parseType(source, type);
     } else {
-      String type = e.typeCode();
+      
       if (type.equals("string"))
         return new StringType(source);
       if (type.equals("boolean"))

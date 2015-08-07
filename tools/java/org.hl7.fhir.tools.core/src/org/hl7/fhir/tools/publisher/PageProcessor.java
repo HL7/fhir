@@ -6151,10 +6151,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //        return "hspc-"+url.substring(8)+".html|"+url.substring(8);
     }
     if (profile != null) {
-      fn = profile.getUserString("filename");
+      fn = profile.getUserString("path");
+      if (fn == null) {
+        fn = profile.getUserString("filename");
+        if (fn != null) {
+          fn = Utilities.changeFileExt(fn, ".html");
+        }
+      }
       if (fn == null)
         return "|??";
-      return Utilities.changeFileExt(fn, ".html")+"|"+profile.getName();
+      return fn+"|"+profile.getName();
     }
     return null;
   }

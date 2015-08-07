@@ -39,7 +39,7 @@
             <display value="Boxelder IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -82,7 +82,7 @@
             <display value="Acetaminophen [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -125,7 +125,7 @@
             <display value="Acetone [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -168,7 +168,7 @@
             <display value="Acetylcholine receptor binding Ab [Moles/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -211,7 +211,7 @@
             <display value="Acetylcholine receptor modulation Ab/Acetylcholine Ab.total in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -254,7 +254,7 @@
             <display value="Prostatic acid phosphatase [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -294,7 +294,7 @@
             <display value="Actin IgG Ab [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -337,7 +337,7 @@
             <display value="Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -380,7 +380,7 @@
             <display value="Alanine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -423,7 +423,7 @@
             <display value="Albumin [Mass/volume] in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -466,7 +466,7 @@
             <display value="Albumin [Mass/volume] in Cerebral spinal fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -509,7 +509,7 @@
             <display value="Albumin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -555,7 +555,7 @@
             <display value="Albumin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="40"/>
@@ -600,7 +600,7 @@
             <display value="Microalbumin [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -643,7 +643,7 @@
             <display value="Albumin/Protein.total in Urine by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -686,7 +686,7 @@
             <display value="Aldolase [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -729,7 +729,7 @@
             <display value="Aldosterone [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -772,7 +772,7 @@
             <display value="Alkaline phosphatase.bone [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -818,7 +818,7 @@
             <display value="Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="40"/>
@@ -863,7 +863,7 @@
             <display value="Alkaline phosphatase.liver [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -906,7 +906,7 @@
             <display value="Alpha 1 antitrypsin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -949,7 +949,7 @@
             <display value="Alpha 1 globulin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -992,7 +992,7 @@
             <display value="Alpha 1 globulin/Protein.total in Urine by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1035,7 +1035,7 @@
             <display value="Alpha 2 globulin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1078,7 +1078,7 @@
             <display value="Alpha 2 globulin/Protein.total in Urine by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1121,7 +1121,7 @@
             <display value="Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1164,7 +1164,7 @@
             <display value="Alpha-1-Fetoprotein [Multiple of the median] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1207,7 +1207,7 @@
             <display value="Alternaria alternata IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1250,7 +1250,7 @@
             <display value="Common Ragweed IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1293,7 +1293,7 @@
             <display value="Ammonia [Moles/volume] in Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1336,7 +1336,7 @@
             <display value="Amylase [Enzymatic activity/volume] in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1379,7 +1379,7 @@
             <display value="Amylase [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1422,7 +1422,7 @@
             <display value="Anabasine [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1465,7 +1465,7 @@
             <display value="Cashew Nut IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1508,7 +1508,7 @@
             <display value="Androstanolone [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1551,7 +1551,7 @@
             <display value="Androstenedione [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1594,7 +1594,7 @@
             <display value="Angiotensin converting enzyme [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1637,7 +1637,7 @@
             <display value="Anion gap 3 in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1680,7 +1680,7 @@
             <display value="Antithrombin actual/normal in Platelet poor plasma by Chromogenic method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1723,7 +1723,7 @@
             <display value="Apolipoprotein A-I [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1766,7 +1766,7 @@
             <display value="Apolipoprotein B-100 [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1809,7 +1809,7 @@
             <display value="Peanut IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1852,7 +1852,7 @@
             <display value="Arginine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1895,7 +1895,7 @@
             <display value="Arsenic [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1938,7 +1938,7 @@
             <display value="Wormwood IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -1981,7 +1981,7 @@
             <display value="Mugwort IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2024,7 +2024,7 @@
             <display value="Ascorbate [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2070,7 +2070,7 @@
             <display value="Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="9999"/>
@@ -2115,7 +2115,7 @@
             <display value="Aspergillus fumigatus IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2158,7 +2158,7 @@
             <display value="Aspergillus sp Ab [Titer] in Serum by Complement fixation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2201,7 +2201,7 @@
             <display value="Lenscale IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2244,7 +2244,7 @@
             <display value="Aureobasidium pullulans IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2287,7 +2287,7 @@
             <display value="Oat IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2330,7 +2330,7 @@
             <display value="Barbiturates [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2373,7 +2373,7 @@
             <display value="Base deficit in Venous cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2416,7 +2416,7 @@
             <display value="Base deficit in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2459,7 +2459,7 @@
             <display value="Base excess in Arterial blood by calculation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2502,7 +2502,7 @@
             <display value="Base excess in Capillary blood by calculation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2545,7 +2545,7 @@
             <display value="Base excess in Blood by calculation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2588,7 +2588,7 @@
             <display value="Base excess in Venous blood by calculation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2631,7 +2631,7 @@
             <display value="Basophils/100 leukocytes in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2674,7 +2674,7 @@
             <display value="Basophils/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2717,7 +2717,7 @@
             <display value="Basophils/100 leukocytes in Body fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2760,7 +2760,7 @@
             <display value="Basophils/100 leukocytes in Cerebral spinal fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2803,7 +2803,7 @@
             <display value="Basophils [#/volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2846,7 +2846,7 @@
             <display value="Beef IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2889,7 +2889,7 @@
             <display value="Benzodiazepines [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2932,7 +2932,7 @@
             <display value="Brazil Nut IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -2975,7 +2975,7 @@
             <display value="Beta 2 glycoprotein 1 IgA Ab [Units/volume] in Serum or Plasma by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3018,7 +3018,7 @@
             <display value="Beta 2 glycoprotein 1 IgG Ab [Units/volume] in Serum or Plasma by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3061,7 +3061,7 @@
             <display value="Beta 2 glycoprotein 1 IgM Ab [Units/volume] in Serum or Plasma by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3104,7 +3104,7 @@
             <display value="Beta globulin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3147,7 +3147,7 @@
             <display value="Beta globulin/Protein.total in Urine by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3190,7 +3190,7 @@
             <display value="Beta hydroxybutyrate [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3233,7 +3233,7 @@
             <display value="Beta-2-Microglobulin [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3276,7 +3276,7 @@
             <display value="Silver Birch IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3319,7 +3319,7 @@
             <display value="Bicarbonate [Moles/volume] in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3362,7 +3362,7 @@
             <display value="Bicarbonate [Moles/volume] in Arterial cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3405,7 +3405,7 @@
             <display value="Bicarbonate [Moles/volume] in Venous cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3448,7 +3448,7 @@
             <display value="Bicarbonate [Moles/volume] in Capillary blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3491,7 +3491,7 @@
             <display value="Bicarbonate [Moles/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3534,7 +3534,7 @@
             <display value="Bicarbonate [Moles/volume] in Venous blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3577,7 +3577,7 @@
             <display value="Bilirubin.total [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3620,7 +3620,7 @@
             <display value="Bilirubin.indirect [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3663,7 +3663,7 @@
             <display value="Blastomyces dermatitidis Ab [Titer] in Serum by Complement fixation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3706,7 +3706,7 @@
             <display value="Blasts/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3749,7 +3749,7 @@
             <display value="Cockroach IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3787,7 +3787,7 @@
             <display value="Breath rate spontaneous --on ventilator"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3830,7 +3830,7 @@
             <display value="Caffeine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3873,7 +3873,7 @@
             <display value="Calcidiol+Calciferol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3916,7 +3916,7 @@
             <display value="Calcidiol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -3959,7 +3959,7 @@
             <display value="Calciferol (Vit D2) [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4002,7 +4002,7 @@
             <display value="Calcitonin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4045,7 +4045,7 @@
             <display value="Calcitriol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4088,7 +4088,7 @@
             <display value="Calcium.ionized [Moles/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4131,7 +4131,7 @@
             <display value="Calcium.ionized [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4177,7 +4177,7 @@
             <display value="Calcium [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="200"/>
@@ -4222,7 +4222,7 @@
             <display value="Calcium [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4265,7 +4265,7 @@
             <display value="Calcium [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4308,7 +4308,7 @@
             <display value="Cancer Ag 125 [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4351,7 +4351,7 @@
             <display value="Cancer Ag 15-3 [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4394,7 +4394,7 @@
             <display value="Cancer Ag 19-9 [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4437,7 +4437,7 @@
             <display value="Cancer Ag 27-29 [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4480,7 +4480,7 @@
             <display value="Crab IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4523,7 +4523,7 @@
             <display value="Candida albicans IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4566,7 +4566,7 @@
             <display value="Carbamazepine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4609,7 +4609,7 @@
             <display value="Carbon dioxide [Partial pressure] in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4652,7 +4652,7 @@
             <display value="Carbon dioxide [Partial pressure] in Arterial cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4695,7 +4695,7 @@
             <display value="Carbon dioxide [Partial pressure] in Venous cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4738,7 +4738,7 @@
             <display value="Carbon dioxide [Partial pressure] in Capillary blood by Transcutaneous CO2 monitor"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4781,7 +4781,7 @@
             <display value="Carbon dioxide [Partial pressure] in Venous blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4824,7 +4824,7 @@
             <display value="Carbon dioxide, total [Moles/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4870,7 +4870,7 @@
             <display value="Carbon dioxide, total [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="300"/>
@@ -4915,7 +4915,7 @@
             <display value="Carboxyhemoglobin/Hemoglobin.total in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -4958,7 +4958,7 @@
             <display value="Carboxyhemoglobin/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5001,7 +5001,7 @@
             <display value="Carboxyhemoglobin/Hemoglobin.total in Venous blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5044,7 +5044,7 @@
             <display value="Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5087,7 +5087,7 @@
             <display value="Cardiolipin IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5130,7 +5130,7 @@
             <display value="Cardiolipin IgM Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5173,7 +5173,7 @@
             <display value="Carnitine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5216,7 +5216,7 @@
             <display value="Carnitine esters [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5259,7 +5259,7 @@
             <display value="Carnitine free (C0) [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5302,7 +5302,7 @@
             <display value="Pecan or Hickory Nut IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5345,7 +5345,7 @@
             <display value="Pecan or Hickory Tree IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5388,7 +5388,7 @@
             <display value="Casein IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5431,7 +5431,7 @@
             <display value="Cat dander IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5474,7 +5474,7 @@
             <display value="CD19 cells/100 cells in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5517,7 +5517,7 @@
             <display value="CD19 cells/100 cells in Unspecified specimen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5560,7 +5560,7 @@
             <display value="CD19 cells [#/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5603,7 +5603,7 @@
             <display value="CD2 cells/100 cells in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5646,7 +5646,7 @@
             <display value="CD2 cells [#/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5689,7 +5689,7 @@
             <display value="CD3 cells/100 cells in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5732,7 +5732,7 @@
             <display value="CD3+CD8+ (T8 suppressor cells) cells [#/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5775,7 +5775,7 @@
             <display value="CD3-CD16+CD56+ (Natural killer) cells/100 cells in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5818,7 +5818,7 @@
             <display value="CD3 cells [#/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5861,7 +5861,7 @@
             <display value="CD45 (Lymphs) cells/100 cells in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5904,7 +5904,7 @@
             <display value="Cells Counted Total [#] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5947,7 +5947,7 @@
             <display value="Cells Counted Total [#] in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -5990,7 +5990,7 @@
             <display value="Cells Counted Total [#] in Cerebral spinal fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6033,7 +6033,7 @@
             <display value="Ceruloplasmin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6076,7 +6076,7 @@
             <display value="Goosefoot IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6122,7 +6122,7 @@
             <display value="Chloride [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="10"/>
           <maxValueDecimal value="300"/>
@@ -6167,7 +6167,7 @@
             <display value="Chloride [Moles/volume] in Sweat"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6210,7 +6210,7 @@
             <display value="Chloride [Moles/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6253,7 +6253,7 @@
             <display value="Chocolate IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6296,7 +6296,7 @@
             <display value="Cholesterol in HDL [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6339,7 +6339,7 @@
             <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6382,7 +6382,7 @@
             <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6425,7 +6425,7 @@
             <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6468,7 +6468,7 @@
             <display value="Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6511,7 +6511,7 @@
             <display value="Cholesterol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6554,7 +6554,7 @@
             <display value="Cholesterol non HDL [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6597,7 +6597,7 @@
             <display value="Cholesterol.total/Cholesterol in HDL [Mass Ratio] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6635,7 +6635,7 @@
             <display value="Choriogonadotropin [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6673,7 +6673,7 @@
             <display value="Choriogonadotropin.beta subunit [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6716,7 +6716,7 @@
             <display value="Choriogonadotropin [Multiple of the median] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6759,7 +6759,7 @@
             <display value="Chromogranin A [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6802,7 +6802,7 @@
             <display value="Citrate [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6845,7 +6845,7 @@
             <display value="Citrulline [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6888,7 +6888,7 @@
             <display value="Orange IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6931,7 +6931,7 @@
             <display value="Cladosporium sphaerospermum IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -6974,7 +6974,7 @@
             <display value="Clostridium tetani IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7017,7 +7017,7 @@
             <display value="Activated clotting time in Blood by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7060,7 +7060,7 @@
             <display value="Dilute Russell viper venom time (dRVVT) actual/normal in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7103,7 +7103,7 @@
             <display value="Dilute Russell viper venom time (dRVVT) factor substitution in Platelet poor plasma by Coagulation assay --immediately after addition of normal plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7146,7 +7146,7 @@
             <display value="Dilute Russell viper venom time (dRVVT) in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7189,7 +7189,7 @@
             <display value="Coagulation factor IX activity actual/normal in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7232,7 +7232,7 @@
             <display value="Coagulation factor V activity actual/normal in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7275,7 +7275,7 @@
             <display value="Coagulation factor VII activity actual/normal in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7318,7 +7318,7 @@
             <display value="Coagulation factor VIII activity actual/normal in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7361,7 +7361,7 @@
             <display value="Coagulation factor X activity actual/normal in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7404,7 +7404,7 @@
             <display value="Activated partial thromboplastin time (aPTT).factor substitution in Platelet poor plasma by Coagulation assay --immediately after addition of normal plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7447,7 +7447,7 @@
             <display value="Activated partial thromboplastin time (aPTT) in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7490,7 +7490,7 @@
             <display value="Thrombin time in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7533,7 +7533,7 @@
             <display value="Prothrombin time (PT) factor substitution in Platelet poor plasma by Coagulation assay --immediately after addition of normal plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7570,7 +7570,7 @@
             <display value="HIV 1 Ab [Presence] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7613,7 +7613,7 @@
             <display value="Prothrombin time (PT) in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7656,7 +7656,7 @@
             <display value="Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7699,7 +7699,7 @@
             <display value="Coconut IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7737,7 +7737,7 @@
             <display value="Collagen crosslinked N-telopeptide/Creatinine [Molar ratio] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7775,7 +7775,7 @@
             <display value="Collection duration of Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7813,7 +7813,7 @@
             <display value="Collection of urine specimen end time"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7851,7 +7851,7 @@
             <display value="Collection of urine specimen start time"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7888,7 +7888,7 @@
             <display value="Collection time of Semen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7926,7 +7926,7 @@
             <display value="Collection time of Unspecified specimen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -7969,7 +7969,7 @@
             <display value="Complement C1 esterase inhibitor [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8012,7 +8012,7 @@
             <display value="Complement C3 [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8055,7 +8055,7 @@
             <display value="Complement C4 [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8098,7 +8098,7 @@
             <display value="Complement total hemolytic CH50 [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8141,7 +8141,7 @@
             <display value="Copper [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8184,7 +8184,7 @@
             <display value="Corticotropin [Mass/volume] in Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8227,7 +8227,7 @@
             <display value="Cortisol [Mass/volume] in Serum or Plasma --PM trough specimen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8270,7 +8270,7 @@
             <display value="Cortisol Free [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8313,7 +8313,7 @@
             <display value="Cortisol [Mass/volume] in Saliva (oral fluid)"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8356,7 +8356,7 @@
             <display value="Cortisol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8399,7 +8399,7 @@
             <display value="Cortisol [Mass/volume] in Serum or Plasma --AM peak specimen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8442,7 +8442,7 @@
             <display value="Hazelnut IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8485,7 +8485,7 @@
             <display value="Corynebacterium diphtheriae IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8528,7 +8528,7 @@
             <display value="Cotinine [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8571,7 +8571,7 @@
             <display value="Cow whey IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8614,7 +8614,7 @@
             <display value="C peptide [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8657,7 +8657,7 @@
             <display value="C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8700,7 +8700,7 @@
             <display value="C reactive protein [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8743,7 +8743,7 @@
             <display value="Creatine kinase.BB/Creatine kinase.total in Serum or Plasma by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8786,7 +8786,7 @@
             <display value="Creatine kinase [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8829,7 +8829,7 @@
             <display value="Creatine Kinase.macromolecular type 1/Creatine kinase.total in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8872,7 +8872,7 @@
             <display value="Creatine Kinase.macromolecular type 2/Creatine kinase.total in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8915,7 +8915,7 @@
             <display value="Creatine kinase.MB [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -8958,7 +8958,7 @@
             <display value="Creatine kinase.MB/Creatine kinase.total in Serum or Plasma by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9001,7 +9001,7 @@
             <display value="Creatine kinase.MB/Creatine kinase.total in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9044,7 +9044,7 @@
             <display value="Creatine kinase.MM/Creatine kinase.total in Serum or Plasma by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9087,7 +9087,7 @@
             <display value="Creatinine [Mass/volume] in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9133,7 +9133,7 @@
             <display value="Creatinine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="99.9"/>
@@ -9178,7 +9178,7 @@
             <display value="Creatinine [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9221,7 +9221,7 @@
             <display value="Creatinine [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9264,7 +9264,7 @@
             <display value="Cyclic citrullinated peptide IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9307,7 +9307,7 @@
             <display value="Cyclosporine [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9350,7 +9350,7 @@
             <display value="Bermuda grass IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9393,7 +9393,7 @@
             <display value="Cytomegalovirus IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9431,7 +9431,7 @@
             <display value="Cytomegalovirus IgM Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9469,7 +9469,7 @@
             <display value="Cytomegalovirus DNA [#/volume] (viral load) in Unspecified specimen by Probe and target amplification method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9512,7 +9512,7 @@
             <display value="Cocksfoot IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9549,7 +9549,7 @@
             <display value="Daptomycin [Susceptibility]"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9592,7 +9592,7 @@
             <display value="Carrot IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9635,7 +9635,7 @@
             <display value="Dehydroepiandrosterone (DHEA) [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9678,7 +9678,7 @@
             <display value="Dehydroepiandrosterone sulfate (DHEA-S) [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9715,7 +9715,7 @@
             <display value="Delivery date Estimated"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9758,7 +9758,7 @@
             <display value="American house dust mite IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9801,7 +9801,7 @@
             <display value="European house dust mite IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9844,7 +9844,7 @@
             <display value="Digoxin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9887,7 +9887,7 @@
             <display value="Streptococcal DNAse B [Titer] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9930,7 +9930,7 @@
             <display value="Dog dander IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -9973,7 +9973,7 @@
             <display value="Dog epithelium IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10016,7 +10016,7 @@
             <display value="Dopamine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10059,7 +10059,7 @@
             <display value="Dopamine [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10102,7 +10102,7 @@
             <display value="Egg white IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10145,7 +10145,7 @@
             <display value="Egg yolk IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10188,7 +10188,7 @@
             <display value="Ehrlichia chaffeensis IgM Ab [Titer] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10231,7 +10231,7 @@
             <display value="Endomysium IgA Ab [Titer] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10274,7 +10274,7 @@
             <display value="Eosinophils/100 leukocytes in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10317,7 +10317,7 @@
             <display value="Eosinophils/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10360,7 +10360,7 @@
             <display value="Eosinophils/100 leukocytes in Body fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10403,7 +10403,7 @@
             <display value="Eosinophils/100 leukocytes in Cerebral spinal fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10446,7 +10446,7 @@
             <display value="Eosinophils [#/volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10489,7 +10489,7 @@
             <display value="Epinephrine [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10532,7 +10532,7 @@
             <display value="Epithelial cells [#/area] in Urine sediment by Microscopy high power field"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10569,7 +10569,7 @@
             <display value="Epstein Barr virus capsid IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10612,7 +10612,7 @@
             <display value="Epstein Barr virus capsid IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10650,7 +10650,7 @@
             <display value="Epstein Barr virus capsid IgM Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10688,7 +10688,7 @@
             <display value="Epstein Barr virus DNA [#/volume] (viral load) in Unspecified specimen by Probe and target amplification method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10726,7 +10726,7 @@
             <display value="Epstein Barr virus nuclear IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10764,7 +10764,7 @@
             <display value="Epstein Barr virus nuclear IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10810,7 +10810,7 @@
             <display value="Erythrocyte distribution width [Ratio] by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="99.9"/>
@@ -10858,7 +10858,7 @@
             <display value="Erythrocyte mean corpuscular hemoglobin concentration [Mass/volume] by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="999.9"/>
@@ -10903,7 +10903,7 @@
             <display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10946,7 +10946,7 @@
             <display value="Erythrocyte sedimentation rate"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -10989,7 +10989,7 @@
             <display value="Erythrocyte sedimentation rate by Westergren method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11032,7 +11032,7 @@
             <display value="Erythrocytes [#/area] in Urine sediment by Microscopy high power field"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11073,7 +11073,7 @@
             <display value="Erythrocytes [#/volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="99.9"/>
@@ -11118,7 +11118,7 @@
             <display value="Erythrocytes [#/volume] in Body fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11161,7 +11161,7 @@
             <display value="Erythrocytes [#/volume] in Cerebral spinal fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11204,7 +11204,7 @@
             <display value="Erythrocytes [#/volume] in Urine by Test strip"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11247,7 +11247,7 @@
             <display value="Nucleated erythrocytes/100 leukocytes [Ratio] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11290,7 +11290,7 @@
             <display value="Nucleated erythrocytes/100 leukocytes [Ratio] in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11328,7 +11328,7 @@
             <display value="Erythropoietin (EPO) [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11371,7 +11371,7 @@
             <display value="Glucose mean value [Mass/volume] in Blood Estimated from glycated hemoglobin"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11414,7 +11414,7 @@
             <display value="Estradiol (E2) [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11457,7 +11457,7 @@
             <display value="Estriol (E3) [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11500,7 +11500,7 @@
             <display value="Estriol (E3).unconjugated [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11543,7 +11543,7 @@
             <display value="Estriol (E3).unconjugated [Multiple of the median] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11586,7 +11586,7 @@
             <display value="Estrogen [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11629,7 +11629,7 @@
             <display value="Ethanol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11672,7 +11672,7 @@
             <display value="Ethylene glycol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11715,7 +11715,7 @@
             <display value="Gum-Tree IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11758,7 +11758,7 @@
             <display value="Ferritin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11801,7 +11801,7 @@
             <display value="Number of fetuses by US"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11839,7 +11839,7 @@
             <display value="Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11882,7 +11882,7 @@
             <display value="Fibrinogen [Mass/volume] in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11925,7 +11925,7 @@
             <display value="Folate [Mass/volume] in Red Blood Cells"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -11968,7 +11968,7 @@
             <display value="Folate [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12006,7 +12006,7 @@
             <display value="Follitropin [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12049,7 +12049,7 @@
             <display value="Strawberry IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12092,7 +12092,7 @@
             <display value="White Ash IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12135,7 +12135,7 @@
             <display value="Fructosamine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12178,7 +12178,7 @@
             <display value="Fusarium moniliforme IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12221,7 +12221,7 @@
             <display value="Codfish IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12259,7 +12259,7 @@
             <display value="Galactomannan Ag [Units/volume] in Serum or Plasma by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12302,7 +12302,7 @@
             <display value="Gamma globulin [Mass/volume] in Cerebral spinal fluid by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12345,7 +12345,7 @@
             <display value="Gamma globulin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12388,7 +12388,7 @@
             <display value="Gamma globulin/Protein.total in Urine by Electrophoresis"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12431,7 +12431,7 @@
             <display value="Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12469,7 +12469,7 @@
             <display value="Oxygen gas flow Oxygen delivery system"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12512,7 +12512,7 @@
             <display value="Gastrin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12555,7 +12555,7 @@
             <display value="Gentamicin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12598,7 +12598,7 @@
             <display value="Gentamicin [Mass/volume] in Serum or Plasma --peak"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12641,7 +12641,7 @@
             <display value="Gentamicin [Mass/volume] in Serum or Plasma --trough"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12679,7 +12679,7 @@
             <display value="Gestational age"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12717,7 +12717,7 @@
             <display value="Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (MDRD)"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12760,7 +12760,7 @@
             <display value="Glucose [Mass/volume] in Serum or Plasma --1 hour post 100 g glucose PO"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12803,7 +12803,7 @@
             <display value="Glucose [Mass/volume] in Serum or Plasma --1 hour post 50 g glucose PO"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12846,7 +12846,7 @@
             <display value="Glucose [Mass/volume] in Serum or Plasma --2 hours post 100 g glucose PO"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12889,7 +12889,7 @@
             <display value="Glucose [Mass/volume] in Serum or Plasma --3 hours post 100 g glucose PO"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12932,7 +12932,7 @@
             <display value="Glucose [Mass/volume] in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -12975,7 +12975,7 @@
             <display value="Glucose [Mass/volume] in Cerebral spinal fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13018,7 +13018,7 @@
             <display value="Glucose [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13061,7 +13061,7 @@
             <display value="Glucose [Mass/volume] in Urine by Test strip"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13099,7 +13099,7 @@
             <display value="Glucose-6-Phosphate dehydrogenase [Enzymatic activity/mass] in Red Blood Cells"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13142,7 +13142,7 @@
             <display value="Fasting glucose [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13185,7 +13185,7 @@
             <display value="Glutamate [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13228,7 +13228,7 @@
             <display value="Glutamine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13271,7 +13271,7 @@
             <display value="Gluten IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13314,7 +13314,7 @@
             <display value="Soybean IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13357,7 +13357,7 @@
             <display value="Glycine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13395,7 +13395,7 @@
             <display value="Helicobacter pylori IgA Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13433,7 +13433,7 @@
             <display value="Helicobacter pylori IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13471,7 +13471,7 @@
             <display value="Helicobacter pylori IgM Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13514,7 +13514,7 @@
             <display value="Hematocrit [Volume Fraction] of Blood by Impedance"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13560,7 +13560,7 @@
             <display value="Hematocrit [Volume Fraction] of Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="100"/>
@@ -13605,7 +13605,7 @@
             <display value="Hematocrit [Volume Fraction] of Blood by Centrifugation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13648,7 +13648,7 @@
             <display value="Hematocrit [Volume Fraction] of Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13691,7 +13691,7 @@
             <display value="Hemoglobin A1c/Hemoglobin.total in Blood by HPLC"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13734,7 +13734,7 @@
             <display value="Hemoglobin A1c/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13777,7 +13777,7 @@
             <display value="Hemoglobin A1/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13820,7 +13820,7 @@
             <display value="Hemoglobin A2/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13863,7 +13863,7 @@
             <display value="Hemoglobin C/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13906,7 +13906,7 @@
             <display value="Hemoglobin E/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13949,7 +13949,7 @@
             <display value="Hemoglobin [Entitic mass] in Reticulocytes"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -13992,7 +13992,7 @@
             <display value="Hemoglobin F/Hemoglobin.total in Blood by Kleihauer-Betke method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14035,7 +14035,7 @@
             <display value="Hemoglobin F/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14078,7 +14078,7 @@
             <display value="Free Hemoglobin [Mass/volume] in Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14121,7 +14121,7 @@
             <display value="Free Hemoglobin [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14164,7 +14164,7 @@
             <display value="Hemoglobin [Mass/volume] in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14210,7 +14210,7 @@
             <display value="Hemoglobin [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="50"/>
@@ -14255,7 +14255,7 @@
             <display value="Hemoglobin [Mass/volume] in Venous blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14298,7 +14298,7 @@
             <display value="Hemoglobin S/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14336,7 +14336,7 @@
             <display value="Hepatitis B virus DNA [#/volume] (viral load) in Serum or Plasma by Probe and target amplification method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14374,7 +14374,7 @@
             <display value="Hepatitis B virus surface Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14412,7 +14412,7 @@
             <display value="Hepatitis C virus RNA [log units/volume] (viral load) in Serum or Plasma by Probe and target amplification method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14450,7 +14450,7 @@
             <display value="Herpes simplex virus 1+2 IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14493,7 +14493,7 @@
             <display value="Histidine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14536,7 +14536,7 @@
             <display value="Histoplasma capsulatum mycelial phase Ab [Titer] in Serum by Complement fixation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14579,7 +14579,7 @@
             <display value="Histoplasma capsulatum yeast phase Ab [Titer] in Serum by Complement fixation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14617,7 +14617,7 @@
             <display value="HIV 1 RNA [Log #/volume] (viral load) in Plasma by Probe and signal amplification method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14655,7 +14655,7 @@
             <display value="HIV 1 RNA [#/volume] (viral load) in Serum or Plasma by Probe and target amplification method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14698,7 +14698,7 @@
             <display value="Lobster IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14741,7 +14741,7 @@
             <display value="Homocysteine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14784,7 +14784,7 @@
             <display value="Barley IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14827,7 +14827,7 @@
             <display value="Hyaline casts [#/area] in Urine sediment by Microscopy low power field"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14870,7 +14870,7 @@
             <display value="IgA [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14908,7 +14908,7 @@
             <display value="IgE [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14945,7 +14945,7 @@
             <display value="IgG index in Serum and CSF"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -14988,7 +14988,7 @@
             <display value="IgG [Mass/volume] in Cerebral spinal fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15031,7 +15031,7 @@
             <display value="IgG [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15074,7 +15074,7 @@
             <display value="IgG subclass 1 [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15117,7 +15117,7 @@
             <display value="IgG subclass 2 [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15160,7 +15160,7 @@
             <display value="IgG subclass 3 [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15203,7 +15203,7 @@
             <display value="IgG subclass 4 [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15246,7 +15246,7 @@
             <display value="IgG synthesis rate [Mass/time] in Serum and CSF by calculation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15289,7 +15289,7 @@
             <display value="IgM [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15332,7 +15332,7 @@
             <display value="Immunoglobulin light chains.kappa.free [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15375,7 +15375,7 @@
             <display value="Immunoglobulin light chains.kappa/Immunoglobulin light chains.lambda [Mass Ratio] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15418,7 +15418,7 @@
             <display value="Immunoglobulin light chains.kappa [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15461,7 +15461,7 @@
             <display value="Immunoglobulin light chains.lambda.free [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15504,7 +15504,7 @@
             <display value="Immunoglobulin light chains.lambda [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15547,7 +15547,7 @@
             <display value="Inhibin A [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15585,7 +15585,7 @@
             <display value="Insulin [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15623,7 +15623,7 @@
             <display value="Insulin Free [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15666,7 +15666,7 @@
             <display value="Insulin-like growth factor binding protein 3 [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15709,7 +15709,7 @@
             <display value="Insulin-like growth factor-I [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15752,7 +15752,7 @@
             <display value="Iron binding capacity [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15795,7 +15795,7 @@
             <display value="Iron [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15838,7 +15838,7 @@
             <display value="Iron saturation [Mass Fraction] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15881,7 +15881,7 @@
             <display value="Islet cell 512 Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15924,7 +15924,7 @@
             <display value="Isoleucine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -15967,7 +15967,7 @@
             <display value="Isopropanol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16010,7 +16010,7 @@
             <display value="Walnut IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16053,7 +16053,7 @@
             <display value="Mountain Juniper IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16096,7 +16096,7 @@
             <display value="Ketones [Mass/volume] in Urine by Test strip"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16139,7 +16139,7 @@
             <display value="Lactate dehydrogenase [Enzymatic activity/volume] in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16182,7 +16182,7 @@
             <display value="Lactate [Moles/volume] in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16225,7 +16225,7 @@
             <display value="Lactate [Moles/volume] in Plasma venous"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16268,7 +16268,7 @@
             <display value="Lactate [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16311,7 +16311,7 @@
             <display value="Lamotrigine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16354,7 +16354,7 @@
             <display value="Latex IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16397,7 +16397,7 @@
             <display value="Lead [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16440,7 +16440,7 @@
             <display value="Lecithin/Sphingomyelin [Ratio] in Amniotic fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16483,7 +16483,7 @@
             <display value="Leucine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16526,7 +16526,7 @@
             <display value="Leukocytes [#/area] in Urine sediment by Microscopy high power field"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16572,7 +16572,7 @@
             <display value="Leukocytes [#/volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="999.9"/>
@@ -16617,7 +16617,7 @@
             <display value="Levetiracetam [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16660,7 +16660,7 @@
             <display value="Lidocaine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16703,7 +16703,7 @@
             <display value="Privet IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16746,7 +16746,7 @@
             <display value="Lipoprotein a [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16789,7 +16789,7 @@
             <display value="Lithium [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16832,7 +16832,7 @@
             <display value="Perennial rye grass IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16875,7 +16875,7 @@
             <display value="Lupus anticoagulant neutralization platelet [Time] in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16913,7 +16913,7 @@
             <display value="Lutropin [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16956,7 +16956,7 @@
             <display value="Tomato IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -16999,7 +16999,7 @@
             <display value="Lymphocytes/100 leukocytes in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17042,7 +17042,7 @@
             <display value="Lymphocytes/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17085,7 +17085,7 @@
             <display value="Lymphocytes/100 leukocytes in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17128,7 +17128,7 @@
             <display value="Lymphocytes/100 leukocytes in Cerebral spinal fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17171,7 +17171,7 @@
             <display value="Lymphocytes [#/volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17214,7 +17214,7 @@
             <display value="Lysine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17257,7 +17257,7 @@
             <display value="Macrophages/100 leukocytes in Body fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17300,7 +17300,7 @@
             <display value="Macrophages/100 leukocytes in Cerebral spinal fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17343,7 +17343,7 @@
             <display value="Magnesium [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17386,7 +17386,7 @@
             <display value="Magnesium [Moles/volume] in Red Blood Cells"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17429,7 +17429,7 @@
             <display value="Apple IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17475,7 +17475,7 @@
             <display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="500"/>
@@ -17515,7 +17515,7 @@
             <display value="Measles virus IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17558,7 +17558,7 @@
             <display value="Mercury [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17601,7 +17601,7 @@
             <display value="Mesothelial cells/100 leukocytes in Body fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17644,7 +17644,7 @@
             <display value="Metamyelocytes/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17687,7 +17687,7 @@
             <display value="Metamyelocytes [#/volume] in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17730,7 +17730,7 @@
             <display value="Metanephrine [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17773,7 +17773,7 @@
             <display value="Metanephrine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17816,7 +17816,7 @@
             <display value="Methanol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17859,7 +17859,7 @@
             <display value="Methemoglobin/Hemoglobin.total in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17902,7 +17902,7 @@
             <display value="Methemoglobin/Hemoglobin.total in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17945,7 +17945,7 @@
             <display value="Methionine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -17988,7 +17988,7 @@
             <display value="Methotrexate [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18031,7 +18031,7 @@
             <display value="Methylmalonate [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18074,7 +18074,7 @@
             <display value="Milk IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18117,7 +18117,7 @@
             <display value="Mitochondria M2 IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18160,7 +18160,7 @@
             <display value="Monocytes/100 leukocytes in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18203,7 +18203,7 @@
             <display value="Monocytes/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18246,7 +18246,7 @@
             <display value="Monocytes/100 leukocytes in Cerebral spinal fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18289,7 +18289,7 @@
             <display value="Monocytes [#/volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18332,7 +18332,7 @@
             <display value="Monocytes [#/volume] in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18375,7 +18375,7 @@
             <display value="White mulberry IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18418,7 +18418,7 @@
             <display value="Mucor racemosus IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18461,7 +18461,7 @@
             <display value="Mullerian inhibiting substance [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18499,7 +18499,7 @@
             <display value="Mumps virus IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18537,7 +18537,7 @@
             <display value="Mumps virus IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18580,7 +18580,7 @@
             <display value="Banana IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18623,7 +18623,7 @@
             <display value="Mycophenolate [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18661,7 +18661,7 @@
             <display value="Mycoplasma pneumoniae IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18699,7 +18699,7 @@
             <display value="Mycoplasma pneumoniae IgM Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18742,7 +18742,7 @@
             <display value="Myelin basic protein [Mass/volume] in Cerebral spinal fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18785,7 +18785,7 @@
             <display value="Myelocytes/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18828,7 +18828,7 @@
             <display value="Myelocytes [#/volume] in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18871,7 +18871,7 @@
             <display value="Myeloperoxidase Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18914,7 +18914,7 @@
             <display value="Myoglobin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -18957,7 +18957,7 @@
             <display value="Natriuretic peptide B [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19000,7 +19000,7 @@
             <display value="Neutrophil cytoplasmic IgG Ab [Titer] in Serum by Immunofluorescence"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19043,7 +19043,7 @@
             <display value="Neutrophil cytoplasmic Ab.perinuclear [Titer] in Serum by Immunofluorescence"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19086,7 +19086,7 @@
             <display value="Neutrophils/100 leukocytes in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19129,7 +19129,7 @@
             <display value="Neutrophils/100 leukocytes in Body fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19172,7 +19172,7 @@
             <display value="Neutrophils/100 leukocytes in Cerebral spinal fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19215,7 +19215,7 @@
             <display value="Neutrophils.band form/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19258,7 +19258,7 @@
             <display value="Neutrophils.band form/100 leukocytes in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19301,7 +19301,7 @@
             <display value="Neutrophils.band form/100 leukocytes in Cerebral spinal fluid by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19344,7 +19344,7 @@
             <display value="Neutrophils [#/volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19387,7 +19387,7 @@
             <display value="Neutrophils.segmented/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19430,7 +19430,7 @@
             <display value="Nicotine [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19473,7 +19473,7 @@
             <display value="Norepinephrine [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19516,7 +19516,7 @@
             <display value="Normetanephrine [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19559,7 +19559,7 @@
             <display value="Normetanephrine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19602,7 +19602,7 @@
             <display value="Nornicotine [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19645,7 +19645,7 @@
             <display value="Nuclear Ab [Titer] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19688,7 +19688,7 @@
             <display value="10-Hydroxycarbazepine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19731,7 +19731,7 @@
             <display value="17-Hydroxyprogesterone [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19774,7 +19774,7 @@
             <display value="5-Hydroxyindoleacetate [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19817,7 +19817,7 @@
             <display value="1,3 beta glucan [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19860,7 +19860,7 @@
             <display value="Opiates [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19903,7 +19903,7 @@
             <display value="Ornithine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19946,7 +19946,7 @@
             <display value="Rice IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -19989,7 +19989,7 @@
             <display value="Osmolality of Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20032,7 +20032,7 @@
             <display value="Osmolality of Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20075,7 +20075,7 @@
             <display value="Oval fat bodies (globules) [#/area] in Urine sediment by Microscopy high power field"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20118,7 +20118,7 @@
             <display value="Oxalate [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20161,7 +20161,7 @@
             <display value="Oxygen [Partial pressure] in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20204,7 +20204,7 @@
             <display value="Oxygen [Partial pressure] in Arterial cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20247,7 +20247,7 @@
             <display value="Oxygen [Partial pressure] in Venous cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20290,7 +20290,7 @@
             <display value="Oxygen [Partial pressure] in Venous blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20333,7 +20333,7 @@
             <display value="Oxygen saturation in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20376,7 +20376,7 @@
             <display value="Oxygen saturation in Venous blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20419,7 +20419,7 @@
             <display value="Fractional oxyhemoglobin in Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20462,7 +20462,7 @@
             <display value="Fractional oxyhemoglobin in Venous blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20505,7 +20505,7 @@
             <display value="Shrimp IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20548,7 +20548,7 @@
             <display value="Parathyrin.intact [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20586,7 +20586,7 @@
             <display value="Parvovirus B19 IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20624,7 +20624,7 @@
             <display value="Parvovirus B19 IgM Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20667,7 +20667,7 @@
             <display value="Bahia grass IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20710,7 +20710,7 @@
             <display value="Scallop IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20753,7 +20753,7 @@
             <display value="Penicillium notatum IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20791,7 +20791,7 @@
             <display value="pH of Arterial blood adjusted to patients actual temperature"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20834,7 +20834,7 @@
             <display value="Phenobarbital [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20877,7 +20877,7 @@
             <display value="Phenylalanine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20920,7 +20920,7 @@
             <display value="Phenytoin Free [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -20963,7 +20963,7 @@
             <display value="Phenytoin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21006,7 +21006,7 @@
             <display value="Timothy IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21044,7 +21044,7 @@
             <display value="pH of Arterial blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21082,7 +21082,7 @@
             <display value="pH of Arterial cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21120,7 +21120,7 @@
             <display value="pH of Venous cord blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21158,7 +21158,7 @@
             <display value="pH of Capillary blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21196,7 +21196,7 @@
             <display value="pH of Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21234,7 +21234,7 @@
             <display value="pH of Venous blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21272,7 +21272,7 @@
             <display value="pH of Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21310,7 +21310,7 @@
             <display value="pH of Gastric fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21348,7 +21348,7 @@
             <display value="pH of Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21386,7 +21386,7 @@
             <display value="pH of Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21424,7 +21424,7 @@
             <display value="pH of Urine by Test strip"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21467,7 +21467,7 @@
             <display value="Phosphate [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21510,7 +21510,7 @@
             <display value="Phosphate [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21553,7 +21553,7 @@
             <display value="Phosphate [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21596,7 +21596,7 @@
             <display value="Phosphatidylserine IgM Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21639,7 +21639,7 @@
             <display value="Pistachio IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21682,7 +21682,7 @@
             <display value="English Plantain IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21725,7 +21725,7 @@
             <display value="Plasma cells/100 leukocytes in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21768,7 +21768,7 @@
             <display value="American Sycamore IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21811,7 +21811,7 @@
             <display value="Platelet mean volume [Entitic volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21857,7 +21857,7 @@
             <display value="Platelets [#/volume] in Blood by Automated count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="9999"/>
@@ -21902,7 +21902,7 @@
             <display value="Kentucky blue grass IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21945,7 +21945,7 @@
             <display value="Cottonwood IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -21988,7 +21988,7 @@
             <display value="Pork IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22034,7 +22034,7 @@
             <display value="Potassium [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="20"/>
@@ -22079,7 +22079,7 @@
             <display value="Potassium [Moles/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22122,7 +22122,7 @@
             <display value="Prealbumin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22160,7 +22160,7 @@
             <display value="Pregnancy associated plasma protein A [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22203,7 +22203,7 @@
             <display value="Pregnenolone [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22246,7 +22246,7 @@
             <display value="Progesterone [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22289,7 +22289,7 @@
             <display value="Prolactin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22332,7 +22332,7 @@
             <display value="Proline [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22375,7 +22375,7 @@
             <display value="Promyelocytes/100 leukocytes in Blood by Manual count"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22418,7 +22418,7 @@
             <display value="Promyelocytes [#/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22461,7 +22461,7 @@
             <display value="Propoxyphene [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22504,7 +22504,7 @@
             <display value="Prostate Specific Ag Free [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22547,7 +22547,7 @@
             <display value="Prostate Specific Ag Free/Prostate specific Ag.total in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22590,7 +22590,7 @@
             <display value="Prostate specific Ag [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22633,7 +22633,7 @@
             <display value="Proteinase 3 Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22676,7 +22676,7 @@
             <display value="Protein C actual/normal in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22719,7 +22719,7 @@
             <display value="Protein C Ag actual/normal in Platelet poor plasma by Immunologic method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22757,7 +22757,7 @@
             <display value="Protein/Creatinine [Mass Ratio] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22800,7 +22800,7 @@
             <display value="Protein [Mass/volume] in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22843,7 +22843,7 @@
             <display value="Protein [Mass/volume] in Cerebral spinal fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22889,7 +22889,7 @@
             <display value="Protein [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="40"/>
@@ -22934,7 +22934,7 @@
             <display value="Protein [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -22977,7 +22977,7 @@
             <display value="Protein [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23020,7 +23020,7 @@
             <display value="Protein S actual/normal in Platelet poor plasma by Coagulation assay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23063,7 +23063,7 @@
             <display value="Protein S Ag actual/normal in Platelet poor plasma by Immunologic method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23106,7 +23106,7 @@
             <display value="Protoporphyrin Free [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23149,7 +23149,7 @@
             <display value="Protoporphyrin.zinc [Mass/volume] in Red Blood Cells"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23192,7 +23192,7 @@
             <display value="Almond IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23235,7 +23235,7 @@
             <display value="Pyridoxine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23278,7 +23278,7 @@
             <display value="Pyruvate [Moles/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23321,7 +23321,7 @@
             <display value="White Oak IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23364,7 +23364,7 @@
             <display value="Virginia Live Oak IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23407,7 +23407,7 @@
             <display value="Reagin Ab [Titer] in Serum by RPR"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23450,7 +23450,7 @@
             <display value="Renin [Enzymatic activity/volume] in Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23493,7 +23493,7 @@
             <display value="Reticulocytes/100 erythrocytes in Blood by Manual"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23536,7 +23536,7 @@
             <display value="Reticulocytes [#/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23579,7 +23579,7 @@
             <display value="Retinol [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23622,7 +23622,7 @@
             <display value="Retinyl palmitate [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23660,7 +23660,7 @@
             <display value="Rheumatoid factor [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23698,7 +23698,7 @@
             <display value="Rubella virus IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23736,7 +23736,7 @@
             <display value="Rubella virus IgM Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23779,7 +23779,7 @@
             <display value="Clam IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23822,7 +23822,7 @@
             <display value="Baker&#39;s yeast IgA Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23865,7 +23865,7 @@
             <display value="Baker&#39;s yeast IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23908,7 +23908,7 @@
             <display value="Salicylates [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23951,7 +23951,7 @@
             <display value="Salmon IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -23994,7 +23994,7 @@
             <display value="Saltwort IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24037,7 +24037,7 @@
             <display value="SCL-70 extractable nuclear Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24080,7 +24080,7 @@
             <display value="Selenium [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24123,7 +24123,7 @@
             <display value="Serine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24166,7 +24166,7 @@
             <display value="Sesame Seed IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24209,7 +24209,7 @@
             <display value="Sex hormone binding globulin [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24252,7 +24252,7 @@
             <display value="Sexual abstinence duration"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24295,7 +24295,7 @@
             <display value="Sirolimus [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24338,7 +24338,7 @@
             <display value="Sjogrens syndrome-B extractable nuclear Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24381,7 +24381,7 @@
             <display value="Smooth muscle Ab [Titer] in Serum by Immunofluorescence"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24427,7 +24427,7 @@
             <display value="Sodium [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="50"/>
           <maxValueDecimal value="300"/>
@@ -24472,7 +24472,7 @@
             <display value="Sodium [Moles/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24515,7 +24515,7 @@
             <display value="Sodium [Moles/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24558,7 +24558,7 @@
             <display value="Potato IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24601,7 +24601,7 @@
             <display value="Somatotropin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24644,7 +24644,7 @@
             <display value="Johnson grass IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24681,7 +24681,7 @@
             <display value="Specific gravity of Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24719,7 +24719,7 @@
             <display value="Volume of 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24762,7 +24762,7 @@
             <display value="Volume of Semen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24805,7 +24805,7 @@
             <display value="Volume of Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24848,7 +24848,7 @@
             <display value="Volume of unspecified time Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24886,7 +24886,7 @@
             <display value="Weight of Sweat"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24929,7 +24929,7 @@
             <display value="Spermatozoa Motile/100 spermatozoa in Semen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -24972,7 +24972,7 @@
             <display value="Spermatozoa [#/volume] in Semen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25015,7 +25015,7 @@
             <display value="Spermatozoa Normal/100 spermatozoa in Semen"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25058,7 +25058,7 @@
             <display value="Streptococcus pneumoniae 12 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25101,7 +25101,7 @@
             <display value="Streptococcus pneumoniae 14 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25144,7 +25144,7 @@
             <display value="Streptococcus pneumoniae 19 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25187,7 +25187,7 @@
             <display value="Streptococcus pneumoniae 1 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25230,7 +25230,7 @@
             <display value="Streptococcus pneumoniae 23 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25273,7 +25273,7 @@
             <display value="Streptococcus pneumoniae 26 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25316,7 +25316,7 @@
             <display value="Streptococcus pneumoniae 3 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25359,7 +25359,7 @@
             <display value="Streptococcus pneumoniae 4 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25402,7 +25402,7 @@
             <display value="Streptococcus pneumoniae 51 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25445,7 +25445,7 @@
             <display value="Streptococcus pneumoniae 68 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25488,7 +25488,7 @@
             <display value="Streptococcus pneumoniae 8 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25531,7 +25531,7 @@
             <display value="Streptococcus pneumoniae 9 IgG Ab [Mass/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25574,7 +25574,7 @@
             <display value="Streptolysin O Ab [Titer] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25617,7 +25617,7 @@
             <display value="Tacrolimus [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25660,7 +25660,7 @@
             <display value="Taurine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25703,7 +25703,7 @@
             <display value="Testosterone Free [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25746,7 +25746,7 @@
             <display value="Testosterone Free/Testosterone.total in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25789,7 +25789,7 @@
             <display value="Testosterone [Mass/volume] in Serum or Plasma by Detection limit &lt;= 1.0 ng/dL"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25832,7 +25832,7 @@
             <display value="Testosterone [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25875,7 +25875,7 @@
             <display value="Theophylline [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25918,7 +25918,7 @@
             <display value="Thiamine [Mass/volume] in Blood"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -25961,7 +25961,7 @@
             <display value="Thiamine [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26004,7 +26004,7 @@
             <display value="Threonine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26047,7 +26047,7 @@
             <display value="Tuna IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26085,7 +26085,7 @@
             <display value="Thyroglobulin Ab [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26128,7 +26128,7 @@
             <display value="Thyroglobulin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26171,7 +26171,7 @@
             <display value="Thyroglobulin recovery in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26209,7 +26209,7 @@
             <display value="Thyroperoxidase Ab [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26247,7 +26247,7 @@
             <display value="Thyrotropin [Units/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26290,7 +26290,7 @@
             <display value="Thyroxine (T4) free [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26333,7 +26333,7 @@
             <display value="Thyroxine (T4) [Mass/volume] in Dried blood spot"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26376,7 +26376,7 @@
             <display value="Thyroxine (T4) [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26419,7 +26419,7 @@
             <display value="Tissue transglutaminase IgA Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26462,7 +26462,7 @@
             <display value="Tissue transglutaminase IgG Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26505,7 +26505,7 @@
             <display value="Tobramycin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26548,7 +26548,7 @@
             <display value="Tobramycin [Mass/volume] in Serum or Plasma --peak"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26591,7 +26591,7 @@
             <display value="Tobramycin [Mass/volume] in Serum or Plasma --trough"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26634,7 +26634,7 @@
             <display value="Topiramate [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26677,7 +26677,7 @@
             <display value="Transferrin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26720,7 +26720,7 @@
             <display value="Lipase [Enzymatic activity/volume] in Body fluid"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26763,7 +26763,7 @@
             <display value="Lipase [Enzymatic activity/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26806,7 +26806,7 @@
             <display value="Triglyceride [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26849,7 +26849,7 @@
             <display value="Triiodothyronine (T3) Free [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26892,7 +26892,7 @@
             <display value="Triiodothyronine (T3) [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26935,7 +26935,7 @@
             <display value="Triiodothyronine resin uptake (T3RU) in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -26978,7 +26978,7 @@
             <display value="Triiodothyronine (T3).reverse [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27021,7 +27021,7 @@
             <display value="Wheat IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27064,7 +27064,7 @@
             <display value="Troponin I.cardiac [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27107,7 +27107,7 @@
             <display value="Tryptase [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27150,7 +27150,7 @@
             <display value="Tyrosine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27193,7 +27193,7 @@
             <display value="White Elm IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27236,7 +27236,7 @@
             <display value="Urate [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27279,7 +27279,7 @@
             <display value="Urate [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27322,7 +27322,7 @@
             <display value="Urate [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27368,7 +27368,7 @@
             <display value="Urea nitrogen [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
           <minValueDecimal value="0"/>
           <maxValueDecimal value="999"/>
@@ -27413,7 +27413,7 @@
             <display value="Urea nitrogen [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27456,7 +27456,7 @@
             <display value="Urea nitrogen [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27499,7 +27499,7 @@
             <display value="Urobilinogen [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27542,7 +27542,7 @@
             <display value="Nettle IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27585,7 +27585,7 @@
             <display value="Valine [Moles/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27628,7 +27628,7 @@
             <display value="Valproate [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27671,7 +27671,7 @@
             <display value="Vancomycin [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27714,7 +27714,7 @@
             <display value="Vancomycin [Mass/volume] in Serum or Plasma --peak"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27757,7 +27757,7 @@
             <display value="Vancomycin [Mass/volume] in Serum or Plasma --trough"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27800,7 +27800,7 @@
             <display value="Vanillylmandelate [Mass/volume] in Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27843,7 +27843,7 @@
             <display value="Vanillylmandelate [Mass/time] in 24 hour Urine"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27886,7 +27886,7 @@
             <display value="Varicella zoster virus IgG Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27924,7 +27924,7 @@
             <display value="Varicella zoster virus IgM Ab [Units/volume] in Serum by Immunoassay"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -27962,7 +27962,7 @@
             <display value="von Willebrand factor (vWf) Ag [Units/volume] in Platelet poor plasma by Immunologic method"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -28005,7 +28005,7 @@
             <display value="von Willebrand factor (vWf) ristocetin cofactor actual/normal in Platelet poor plasma by Aggregation"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -28048,7 +28048,7 @@
             <display value="Weight of Stone"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -28091,7 +28091,7 @@
             <display value="Corn IgE Ab [Units/volume] in Serum"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>
@@ -28134,7 +28134,7 @@
             <display value="Zinc [Mass/volume] in Serum or Plasma"/>
           </code>
           <type>
-            <code value="Quantity"/>
+            <code value="SimpleQuantity"/>
           </type>
         </element>
       </DataElement>

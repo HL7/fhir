@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -244,7 +244,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * The amount of therapeutic or other substance given at one administration event.
          */
-        @Child(name = "dose", type = {Range.class, Quantity.class}, order=8, min=0, max=1)
+        @Child(name = "dose", type = {Range.class, SimpleQuantity.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Amount of medication per dose", formalDefinition="The amount of therapeutic or other substance given at one administration event." )
         protected Type dose;
 
@@ -546,14 +546,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * @return {@link #dose} (The amount of therapeutic or other substance given at one administration event.)
          */
-        public Quantity getDoseQuantity() throws Exception { 
-          if (!(this.dose instanceof Quantity))
-            throw new Exception("Type mismatch: the type Quantity was expected, but "+this.dose.getClass().getName()+" was encountered");
-          return (Quantity) this.dose;
+        public SimpleQuantity getDoseSimpleQuantity() throws Exception { 
+          if (!(this.dose instanceof SimpleQuantity))
+            throw new Exception("Type mismatch: the type SimpleQuantity was expected, but "+this.dose.getClass().getName()+" was encountered");
+          return (SimpleQuantity) this.dose;
         }
 
-        public boolean hasDoseQuantity() throws Exception { 
-          return this.dose instanceof Quantity;
+        public boolean hasDoseSimpleQuantity() throws Exception { 
+          return this.dose instanceof SimpleQuantity;
         }
 
         public boolean hasDose() { 
@@ -625,7 +625,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("dose[x]", "Range|Quantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, dose));
+          childrenList.add(new Property("dose[x]", "Range|SimpleQuantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, dose));
           childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
@@ -708,9 +708,9 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
         /**
          * The amount that is to be dispensed for one fill.
          */
-        @Child(name = "quantity", type = {Quantity.class}, order=4, min=0, max=1)
+        @Child(name = "quantity", type = {SimpleQuantity.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Amount of medication to supply per dispense", formalDefinition="The amount that is to be dispensed for one fill." )
-        protected Quantity quantity;
+        protected SimpleQuantity quantity;
 
         /**
          * Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. 
@@ -720,7 +720,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         @Description(shortDefinition="Days supply per dispense", formalDefinition="Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. \nIn some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors." )
         protected Duration expectedSupplyDuration;
 
-        private static final long serialVersionUID = 312252966L;
+        private static final long serialVersionUID = -1690502728L;
 
     /*
      * Constructor
@@ -854,12 +854,12 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
         /**
          * @return {@link #quantity} (The amount that is to be dispensed for one fill.)
          */
-        public Quantity getQuantity() { 
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDispenseComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity(); // cc
+              this.quantity = new SimpleQuantity(); // cc
           return this.quantity;
         }
 
@@ -870,7 +870,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
         /**
          * @param value {@link #quantity} (The amount that is to be dispensed for one fill.)
          */
-        public MedicationPrescriptionDispenseComponent setQuantity(Quantity value) { 
+        public MedicationPrescriptionDispenseComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -906,7 +906,7 @@ In some situations, this attribute may be used instead of quantity to identify t
           childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
           childrenList.add(new Property("validityPeriod", "Period", "Design Comments: This indicates the validity period of a prescription (stale dating the Prescription) \nIt reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. \nRationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.", 0, java.lang.Integer.MAX_VALUE, validityPeriod));
           childrenList.add(new Property("numberOfRepeatsAllowed", "positiveInt", "An integer indicating the number of repeats of the Dispense. \nUsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.", 0, java.lang.Integer.MAX_VALUE, numberOfRepeatsAllowed));
-          childrenList.add(new Property("quantity", "Quantity", "The amount that is to be dispensed for one fill.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("quantity", "SimpleQuantity", "The amount that is to be dispensed for one fill.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("expectedSupplyDuration", "Duration", "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. \nIn some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.", 0, java.lang.Integer.MAX_VALUE, expectedSupplyDuration));
         }
 

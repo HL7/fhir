@@ -759,6 +759,8 @@ public class Publisher implements URIResolver {
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
     pt.setProfile(profile);
+    page.getProfiles().put(profile.getUrl(), profile);
+    page.getProfiles().put(profile.getName(), profile);
     // todo: what to do in the narrative?
   }
 

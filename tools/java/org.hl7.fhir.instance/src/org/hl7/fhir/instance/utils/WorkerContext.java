@@ -420,7 +420,7 @@ public class WorkerContext implements NameResolver {
 
   public StructureDefinition getTypeStructure(TypeRefComponent type) {
     if (type.hasProfile())
-      return profiles.get(type.getProfile());
+      return profiles.get(type.getProfile().get(0).getValue());
     else
       return profiles.get(type.getCode());
   }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -216,7 +216,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * The amount of therapeutic or other substance given at one administration event.
          */
-        @Child(name = "dose", type = {Range.class, Quantity.class}, order=8, min=0, max=1)
+        @Child(name = "dose", type = {Range.class, SimpleQuantity.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Amount of medication per dose", formalDefinition="The amount of therapeutic or other substance given at one administration event." )
         protected Type dose;
 
@@ -518,14 +518,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * @return {@link #dose} (The amount of therapeutic or other substance given at one administration event.)
          */
-        public Quantity getDoseQuantity() throws Exception { 
-          if (!(this.dose instanceof Quantity))
-            throw new Exception("Type mismatch: the type Quantity was expected, but "+this.dose.getClass().getName()+" was encountered");
-          return (Quantity) this.dose;
+        public SimpleQuantity getDoseSimpleQuantity() throws Exception { 
+          if (!(this.dose instanceof SimpleQuantity))
+            throw new Exception("Type mismatch: the type SimpleQuantity was expected, but "+this.dose.getClass().getName()+" was encountered");
+          return (SimpleQuantity) this.dose;
         }
 
-        public boolean hasDoseQuantity() throws Exception { 
-          return this.dose instanceof Quantity;
+        public boolean hasDoseSimpleQuantity() throws Exception { 
+          return this.dose instanceof SimpleQuantity;
         }
 
         public boolean hasDose() { 
@@ -597,7 +597,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("dose[x]", "Range|Quantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, dose));
+          childrenList.add(new Property("dose[x]", "Range|SimpleQuantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, dose));
           childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
@@ -933,16 +933,16 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The amount of medication that has been dispensed. Includes unit of measure.
      */
-    @Child(name = "quantity", type = {Quantity.class}, order=6, min=0, max=1)
+    @Child(name = "quantity", type = {SimpleQuantity.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Amount dispensed", formalDefinition="The amount of medication that has been dispensed. Includes unit of measure." )
-    protected Quantity quantity;
+    protected SimpleQuantity quantity;
 
     /**
      * The amount of medication expressed as a timing amount.
      */
-    @Child(name = "daysSupply", type = {Quantity.class}, order=7, min=0, max=1)
+    @Child(name = "daysSupply", type = {SimpleQuantity.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Days Supply", formalDefinition="The amount of medication expressed as a timing amount." )
-    protected Quantity daysSupply;
+    protected SimpleQuantity daysSupply;
 
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
@@ -1010,7 +1010,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     @Description(shortDefinition="Deals with substitution of one medicine for another", formalDefinition="Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why." )
     protected MedicationDispenseSubstitutionComponent substitution;
 
-    private static final long serialVersionUID = -1930133151L;
+    private static final long serialVersionUID = -2129516411L;
 
   /*
    * Constructor
@@ -1276,12 +1276,12 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #quantity} (The amount of medication that has been dispensed. Includes unit of measure.)
      */
-    public Quantity getQuantity() { 
+    public SimpleQuantity getQuantity() { 
       if (this.quantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.quantity");
         else if (Configuration.doAutoCreate())
-          this.quantity = new Quantity(); // cc
+          this.quantity = new SimpleQuantity(); // cc
       return this.quantity;
     }
 
@@ -1292,7 +1292,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @param value {@link #quantity} (The amount of medication that has been dispensed. Includes unit of measure.)
      */
-    public MedicationDispense setQuantity(Quantity value) { 
+    public MedicationDispense setQuantity(SimpleQuantity value) { 
       this.quantity = value;
       return this;
     }
@@ -1300,12 +1300,12 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #daysSupply} (The amount of medication expressed as a timing amount.)
      */
-    public Quantity getDaysSupply() { 
+    public SimpleQuantity getDaysSupply() { 
       if (this.daysSupply == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.daysSupply");
         else if (Configuration.doAutoCreate())
-          this.daysSupply = new Quantity(); // cc
+          this.daysSupply = new SimpleQuantity(); // cc
       return this.daysSupply;
     }
 
@@ -1316,7 +1316,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @param value {@link #daysSupply} (The amount of medication expressed as a timing amount.)
      */
-    public MedicationDispense setDaysSupply(Quantity value) { 
+    public MedicationDispense setDaysSupply(SimpleQuantity value) { 
       this.daysSupply = value;
       return this;
     }
@@ -1678,8 +1678,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         childrenList.add(new Property("dispenser", "Reference(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, dispenser));
         childrenList.add(new Property("authorizingPrescription", "Reference(MedicationPrescription)", "Indicates the medication order that is being dispensed against.", 0, java.lang.Integer.MAX_VALUE, authorizingPrescription));
         childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("quantity", "Quantity", "The amount of medication that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
-        childrenList.add(new Property("daysSupply", "Quantity", "The amount of medication expressed as a timing amount.", 0, java.lang.Integer.MAX_VALUE, daysSupply));
+        childrenList.add(new Property("quantity", "SimpleQuantity", "The amount of medication that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
+        childrenList.add(new Property("daysSupply", "SimpleQuantity", "The amount of medication expressed as a timing amount.", 0, java.lang.Integer.MAX_VALUE, daysSupply));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("whenPrepared", "dateTime", "The time when the dispensed product was packaged and reviewed.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
         childrenList.add(new Property("whenHandedOver", "dateTime", "The time the dispensed product was provided to the patient or their representative.", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));

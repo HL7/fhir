@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 6, 2015 09:52+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -765,11 +765,11 @@ public class Medication extends DomainResource {
         /**
          * The amount of the product that is in the package.
          */
-        @Child(name = "amount", type = {Quantity.class}, order=2, min=0, max=1)
+        @Child(name = "amount", type = {SimpleQuantity.class}, order=2, min=0, max=1)
         @Description(shortDefinition="How many are in the package?", formalDefinition="The amount of the product that is in the package." )
-        protected Quantity amount;
+        protected SimpleQuantity amount;
 
-        private static final long serialVersionUID = -1385430192L;
+        private static final long serialVersionUID = -1150048030L;
 
     /*
      * Constructor
@@ -833,12 +833,12 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #amount} (The amount of the product that is in the package.)
          */
-        public Quantity getAmount() { 
+        public SimpleQuantity getAmount() { 
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageContentComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Quantity(); // cc
+              this.amount = new SimpleQuantity(); // cc
           return this.amount;
         }
 
@@ -849,7 +849,7 @@ public class Medication extends DomainResource {
         /**
          * @param value {@link #amount} (The amount of the product that is in the package.)
          */
-        public MedicationPackageContentComponent setAmount(Quantity value) { 
+        public MedicationPackageContentComponent setAmount(SimpleQuantity value) { 
           this.amount = value;
           return this;
         }
@@ -857,7 +857,7 @@ public class Medication extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("item", "Reference(Medication)", "Identifies one of the items in the package.", 0, java.lang.Integer.MAX_VALUE, item));
-          childrenList.add(new Property("amount", "Quantity", "The amount of the product that is in the package.", 0, java.lang.Integer.MAX_VALUE, amount));
+          childrenList.add(new Property("amount", "SimpleQuantity", "The amount of the product that is in the package.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
       public MedicationPackageContentComponent copy() {

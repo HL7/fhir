@@ -25,11 +25,11 @@
      <text value='Stroke'/>
     </type>
 
-   <onsetAge>
+   <onsetQuantity>
      <value value="56" />
      <unit value="a" />
      <system value="http://unitsofmeasure.org" />
-   </onsetAge>
+   </onsetQuantity>
 
   </condition>
 </FamilyMemberHistory>
