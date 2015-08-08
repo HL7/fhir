@@ -10,7 +10,7 @@
 
 <h3>Document Formats</h3>
 <p>
-In addition to a mime type (which is mandatory), there is also a <i>format</i> element of type 
+In addition to a <code>.content.contentType</code>, there is also a <i>format</i> element of type 
 <a href="datatypes.html#Coding">Coding</a> that indicates that the format and/or content of the 
 document conforms to additional rules beyond the base format indicated in the mimeType. This is most 
 often used when the mime-type is text/xml, to provide additional information for finding the correct
