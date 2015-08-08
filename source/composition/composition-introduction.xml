@@ -11,11 +11,11 @@ composition.
 
 <p>
 Note: <a href="http://en.wikipedia.org/wiki/EN_13606">EN 13606</a> uses the term "Composition" 
-to refer to a single commit to an EHR system, and offers some common examples: a consultation 
-note, a progress note, a report or a letter, an investigation report, a prescription form 
-and a set of bedside nursing observations. These logical examples are all valid uses of a 
-Composition resource, but for FHIR purposes, it is not always required that all the resources 
-are updated in  a single commit.
+to refer to a single commit to an EHR system, and offers some common examples: a composition 
+containing a consultation note, a progress note, a report or a letter, an investigation report, 
+a prescription form or a set of bedside nursing observations. Using Composition for an attested
+EHR commit is a valid uses of the Composition resource, but for FHIR purposes, it would be usual
+to make more granular updates with individual provenance statements.
 </p>
 </div>
 
