@@ -1,0 +1,29 @@
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+  <id value="xcda1"/>   
+  <identifier>
+    <use value="official"/>
+    <system value="http://healthcare.example.org/identifiers/staff"/>
+    <value value="D234123"/>
+  </identifier>
+  <name>
+    <family value="Dopplemeyer"/>
+    <given value="Sherry"/>
+  </name>
+  <telecom>
+    <system value="email"/>
+    <value value="john.doe@healthcare.example.org"/>
+  </telecom>
+  <practitionerRole>
+
+    <managingOrganization>
+      <display value="Cleveland Clinic"/>
+    </managingOrganization>
+
+    <role>
+      <text value="Primary Surgon"/>
+    </role>
+    <specialty>
+      <text value="Orthopedic"/>
+    </specialty>
+  </practitionerRole>
+</Practitioner>

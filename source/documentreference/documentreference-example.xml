@@ -9,54 +9,22 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     the only option is for the author information to be contained in the Document Reference -->
   <contained>
     <Practitioner>
-      <id value="a1"/>    
-        <name>
-          <family value="Dopplemeyer"/>
-          <given value="Sherry"/>
-        </name>
-        <telecom>
-          <system value="email"/>
-          <value value="john.doe@healthcare.example.org"/>
-        </telecom>
-      <practitionerRole>
-					
-				<managingOrganization>
-					<display value="Cleveland Clinic"/>
-				</managingOrganization>
-	<!--
-				<organization>
-					<display value="Berea Community"/>
-				</organization>      
-	-->
-				<role><text value="Primary Surgon"/></role>
-				<specialty><text value="Orthopedic"/></specialty>
-			</practitionerRole>
-    </Practitioner>
-  </contained>
-  <contained>
-    <Practitioner>
       <id value="a2"/> 
         <name>
           <family value="Smitty"/>
           <given value="Gerald"/>
         </name>
-        <telecom>
-          <system value="email"/>
-          <value value="john.doe@healthcare.example.org"/>
-        </telecom>
-    <practitionerRole>
-			
-      <managingOrganization>
-        <display value="Cleveland Clinic"/>
-      </managingOrganization>
-<!--
-      <organization>
-        <display value="Parma Community"/>
-      </organization>      
--->
-      <role><text value="Attending"/></role>
-      <specialty><text value="Orthopedic"/></specialty>
-		</practitionerRole>  
+      <practitionerRole>
+        <managingOrganization>
+          <display value="Cleveland Clinic"/>
+        </managingOrganization>
+        <role>
+          <text value="Attending"/>
+        </role>
+        <specialty>
+          <text value="Orthopedic"/>
+        </specialty>
+      </practitionerRole>  
     </Practitioner>
   </contained>
   <masterIdentifier>
@@ -81,7 +49,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
       </coding>
   </class>
   <author>
-    <reference value="#a1"/>
+    <reference value="Practitioner/xcda1"/>
   </author>
   <author>
     <reference value="#a2"/>
@@ -106,6 +74,9 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     <hash value="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
   </content>
   <context>
+    <encounter>
+      <reference value="Encounter/xcda"/>
+    </encounter>
     <event>
       <coding>
         <system value="http://ihe.net/xds/connectathon/eventCodes"/>
@@ -124,9 +95,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
         <display value="Outpatient"/>
       </coding>
     </facilityType>
-  </context>    
-
-<!--
     <practiceSetting>
       <coding>
         <system value="http://www.ihe.net/xds/connectathon/practiceSettingCodes"/>
@@ -134,10 +102,8 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
         <display value="General Medicine"/>
       </coding>
     </practiceSetting>
-
-  <currentSubject>
-    <reference value="Patient/xcda"/>
-  </currentSubject>
--->
-
+    <sourcePatientInfo>
+      <reference value="Patient/xcda"/>
+    </sourcePatientInfo	>
+  </context>    
 </DocumentReference>

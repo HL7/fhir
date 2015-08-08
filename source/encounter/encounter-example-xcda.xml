@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
+  <id value="xcda"/>
+  <identifier>
+    <use value="official"/>
+    <system value="http://healthcare.example.org/identifiers/enocunter"/>
+    <value value="1234213.52345873"/>
+  </identifier>
+  <status value="finished"/>
+  <class value="outpatient"/>
+  <patient>
+    <reference value="Patient/xcda"/>
+  </patient>
+  <participant>
+    <individual>
+      <reference value="Practitioner/xcda1"/>
+    </individual>
+  </participant>
+  <reason>
+    <coding>
+      <system value="http://ihe.net/xds/connectathon/eventCodes"/>
+      <code value="T-D8200"/>
+      <display value="Arm"/>
+    </coding>
+  </reason>
+</Encounter>
