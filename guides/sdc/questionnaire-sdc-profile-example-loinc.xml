@@ -728,7 +728,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-defaultValue">
           <valueString value="AHRQ F8"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-defaultAsFixed">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-readOnly">
           <valueBoolean value="true"/>
         </extension>
         <text value="Form ID:"/>

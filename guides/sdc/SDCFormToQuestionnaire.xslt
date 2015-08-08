@@ -428,7 +428,7 @@
       </xsl:for-each>
       <xsl:call-template name="checkGuards"/>
       <xsl:if test="*/sdc:default_element/sdc:read_only='true' or */mfi13:default_value_read_only='true'">
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#defaultAsFixed">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#readOnly">
           <valueBoolean value="true"/>
         </extension>
       </xsl:if>

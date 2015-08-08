@@ -100,7 +100,7 @@
   <!-- label, hidden, instruction, security, tooltip, style, markup -->
   <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-label']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-hidden']|
-                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-defaultAsFixed']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-readOnly']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-instruction']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-security']|
