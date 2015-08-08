@@ -256,6 +256,16 @@ However, care is still needed when displaying the narrative:
 Also note that the inclusion of an external reference to an image can allow the server that hosts the image to track 
 when the resource is displayed. This may be a feature or a problem depending on the context.
 </p>
+<a name="stylesheets"> </a>
+<p>
+In addition, to narrative <a href="documents.html">Documents</a> may also contain 
+stylesheets. Unlike with CDA, the stylesheets are simple CSS stylesheets, not 
+executable XSLT, so the same security risks do not apply. However CSS stylesheets
+may still reference external content (e.g. background images), and applications 
+displaying documents should ensure that CSS links are not automatically followed 
+without checking their safety first, and that session/identifying information 
+does not leak with any use of external links.
+</p>
 
 
 </div>
