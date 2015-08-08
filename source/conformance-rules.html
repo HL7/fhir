@@ -17,26 +17,37 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
-The contents of a resource and the formats used to represent it SHALL
-conform to the rules described in this specification, as defined in the 
-narrative of the specification, and as controlled by the conformance 
-properties defined below.
+The FHIR specification describes a set of <a href="resource.html">resources</a>,
+and several different frameworks for exchanging resources between different systems. 
+Because of its general nature and wide applicability, the rules made in this 
+specification are generally fairly loose. As a consequence, this specification 
+allows that different applications may not be able to be interoperate because of 
+how they use optional features. As a consequence, applications claiming 
+conformance to this specification make the claim in respect of a specific 
+exchange framework, and in regard to a specific details about their usage of 
+those frameworks and resource contents. 
 </p>
 <p>
-Note: This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.
+Application claim conformance to one (or more) of the following exchange
+framworks:
 </p>
+<ul>
+ <li>"RESTful FHIR": the <a href="http.html">RESTful api</a></li>
+ <li>"FHIR messaging": <a href="messaging.html">message based exchange</a></li>
+ <li>"FHIR documents": <a href="documents.html">document based exchange</a></li>
+</ul>
 <p>
-Because of its general nature and wide applicability, the rules made in this specification are generally fairly loose.
-As a consequence (unlike RFC 2119), this specification allows that different applications may not be able to be interoperate 
-because of how they use optional features. To allow applications to manage this, FHIR provides 
-a <a href="profiling.html">conformance layer</a> that implementers and  national/regional programs can use to provide a computable statement about 
+To provide details about specific usage of the frameworks and resource 
+contents, FHIR provides a <a href="profiling.html">conformance layer</a> that implementers and
+national/regional programs can use to provide a computable statement about 
 how the resources and their exchange paradigms are used to solve particular use cases. 
-The conformance layer itself is implemented using the following resources:
+The conformance layer itself is implemented using the following key resources:
 </p>
 <table class="grid">
  <tr> <td><a href="valueset.html">Value Set</a></td> <td>Defines a set of coded values (see "<a href="terminologies.html">Using Codes</a>" for more details)</td>  </tr>
  <tr> <td><a href="structuredefinition.html">StructureDefinition</a></td> <td>Makes rules about how a resource (or type) and its data elements are used in a particular context. A structure definition references value sets for the coded elements in a resource</td>  </tr>
  <tr> <td><a href="conformance.html">Conformance</a></td> <td>A statement of the kinds of resources and operations provided and/or consumed by an application. The conformance resource references profiles to describe specific use of resources by the application</td>  </tr>
+ <tr> <td><a href="implementationguide.html">Implementation Guide</a></td> <td>A single coherent collection of conformance statements, profiles, value set, and documentation describing a set of interoperable applications</td>  </tr>
 </table>
 <p>
 The specification also provides a number of tools that can assist with enforcing technical conformance 
@@ -49,6 +60,19 @@ to this base specification:
 </ul> 
 <p>
 Note that none of these tools are able to check complete conformance to this specification.
+</p>
+
+<a name="cardinality"> </a>
+<h3>Base Conformance Rules</h3>
+<p>
+The contents of a resource and the formats used to represent resources SHALL
+conform to the rules described in this specification, as defined in the 
+narrative of the specification, and as controlled by the conformance 
+properties defined below.
+</p>
+<p>
+Note: This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.
+Unlike RFC 2119, however, this specification allows that different applications may not be able to be interoperate because of how they use optional features.
 </p>
 <p>
 Data elements defined in resources and data types have 3 properties that are 
