@@ -12,6 +12,7 @@
 	  <value value="1"/>
 	</identifier>
 	<date value="2012-01-04T09:10:14Z"/>
+  <title value="Consultation Note"/>
 	<type>
 	  <coding>
 		<system value="http://loinc.org"/>

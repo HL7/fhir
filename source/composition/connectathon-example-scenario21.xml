@@ -26,6 +26,7 @@
       </text>
       <date value='2013-06-06T12:30:00'/>
       <!-- the time this document was created -->
+      <title value="Progress Note"/>
       <!-- What type of document is this - e.g. Discharge Summary, referral, Consultation note -->
       <type>
         <coding>
