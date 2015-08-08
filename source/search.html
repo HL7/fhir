@@ -304,6 +304,16 @@ the following prefixes are used:
   <td>the range below the search value intersects (i.e. overlaps) with the range of the target value or the range of the search value fully contains the range of the target value</td>
  </tr>
  <tr>
+	<td>sa</td>
+	<td>the value for the parameter in the resource starts after the provided value</td>
+  <td>the range of the search value does overlap with the range of the target value, and the range below the search value contains the range of the target value</td>
+ </tr>
+ <tr>
+	<td>eb</td>
+	<td>the value for the parameter in the resource ends before the provided value</td>
+  <td>the range of the search value does overlap with the range of the target value, and the range above the search value contains the range of the target value</td>
+ </tr>
+ <tr>
 	<td>ap</td>
 	<td>the value for the parameter in the resource is approximately the same to the provided value.<br/> 
 	Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate</td>
@@ -312,7 +322,8 @@ the following prefixes are used:
 </table>
 <p>
 If no prefix is present, the prefix 'eq' is assumed. Note that the way search parameters operate 
-is not the same as the way the operations on two numbers work in a mathematical sense
+is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> ('starts-after') and 
+<code>eb</code> ('ends-before') are not used with integer values.
 </p>
 <p>
 For each prefix above, two interpretations are provided - the simple intent of the prefix, and the 

@@ -115,8 +115,16 @@ dateChar     = DIGIT / "T" / "-" / "." / "+"
 	Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate</td>
  </tr>
 <tr>
-<td>pr</td>
-<td>The set is empty or not (value is false or true)</td>
+ <td>sa</td>
+ <td>The value starts after the specified value</td>
+</tr>
+<tr>
+ <td>eb</td>
+ <td>The value ends before the specified value</td>
+</tr>
+<tr>
+ <td>pr</td>
+ <td>The set is empty or not (value is false or true)</td>
 </tr>
 <tr>
 <td>po</td>
@@ -145,7 +153,7 @@ dateChar     = DIGIT / "T" / "-" / "." / "+"
 </tbody>
 </table>
 <p>
-For detailed rules about the operators eq, ne, le, ge, lt, and gt see 
+For detailed rules about the operators eq, ne, le, ge, lt, gt, sa, and eb see 
 <a href="search.html#prefix">Search Prefixes</a>.
 </p>
 
