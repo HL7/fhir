@@ -5,15 +5,15 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 -->
 <DocumentReference xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/documentreference.xsd">
   <id value="example"/>
-    <!-- Many XDS systems do not trak any id for the author. When systems don't do this, 
+  <!-- Many XDS systems do not trak any id for the author. When systems don't do this, 
     the only option is for the author information to be contained in the Document Reference -->
   <contained>
     <Practitioner>
       <id value="a2"/> 
-        <name>
-          <family value="Smitty"/>
-          <given value="Gerald"/>
-        </name>
+      <name>
+        <family value="Smitty"/>
+        <given value="Gerald"/>
+      </name>
       <practitionerRole>
         <managingOrganization>
           <display value="Cleveland Clinic"/>
@@ -36,17 +36,17 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   </subject>
   <type>
     <coding>
-	<system value="http://loinc.org"/>
-	<code value="34108-1"/>
-	<display value="Outpatient Note"/>
+      <system value="http://loinc.org"/>
+      <code value="34108-1"/>
+      <display value="Outpatient Note"/>
     </coding>
   </type>
   <class>
-      <coding>
-        <system value="http://ihe.net/xds/connectathon/classCodes"/>
-        <code value="History and Physical"/>
-        <display value="History and Physical"/>
-      </coding>
+    <coding>
+      <system value="http://ihe.net/xds/connectathon/classCodes"/>
+      <code value="History and Physical"/>
+      <display value="History and Physical"/>
+    </coding>
   </class>
   <author>
     <reference value="Practitioner/xcda1"/>
@@ -57,7 +57,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <created value="2005-12-24T09:35:00+11:00"/>
   <indexed value="2005-12-24T09:43:41+11:00"/>
   <status value="current"/>
-  
+
   <description value="Physical"/>
   <confidentiality>
     <coding>

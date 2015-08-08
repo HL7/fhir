@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13275</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>11400</WindowHeight>
+  <WindowWidth>22575</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1167,7 +1167,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">uri</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1183,7 +1183,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Helps the processing. Usually is a URN that identifies. For IHE defined Document Content profiles this is a urn issued by IHE.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Note that while IHE mostly issues URNs for format types, not all documents can be identified as URIs</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">n/a</Data><NamedCell
@@ -3587,11 +3587,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3608,8 +3607,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>30</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4277,7 +4276,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">format</Data></Cell>
-    <Cell><Data ss:Type="String">uri</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">DocumentReference.format</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -4375,6 +4374,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4394,8 +4394,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>17</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

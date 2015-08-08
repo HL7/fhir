@@ -10,25 +10,39 @@
 
 <h3>Document Formats</h3>
 <p>
-In addition to a mime type (which is mandatory), there is also a <i>format</i> element which carries
-a URI. This element has one or more identifiers that indicate that the format and/or content of the 
+In addition to a mime type (which is mandatory), there is also a <i>format</i> element of type 
+<a href="datatypes.html#Coding">Coding</a> that indicates that the format and/or content of the 
 document conforms to additional rules beyond the base format indicated in the mimeType. This is most 
 often used when the mime-type is text/xml, to provide additional information for finding the correct
-document.
+document. 
 </p>
 <p>
-Defined URIs:
+Several organizations define codes for document formats:
 </p>
 <ul>
- <li><a href="http://www.astm.org/Standards/E2369.htm">ASTM CCR</a>: urn:astm-org:CCR</li>
- <li>CCDA: urn:hl7-org:sdwg:ccda-level-1:1.1, urn:hl7-org:sdwg:ccda-level-2:1.1 and urn:hl7-org:sdwg:ccda-level-3:1.1</li>
- <li>IHE defines URIs <a href="http://wiki.ihe.net/index.php?title=IHE_Format_Codes">here</a> and 
-   OIDs <a href="http://wiki.ihe.net/index.php?title=PCC_Vocabulary_Registry_and_Data_Dictionary">here</a> (prefix OIDs with urn:oid: in the resource).</li> 
+ <li>HL7 for CCDA levels:
+   <ul>
+     <li>urn:hl7-org:sdwg:ccda-level-1:1.1</li>
+     <li>urn:hl7-org:sdwg:ccda-level-2:1.1</li>
+     <li>urn:hl7-org:sdwg:ccda-level-3:1.1</li>
+   </ul>
+  </li>
+ <li>ASTM for CCR:
+   <ul>
+     <li>urn:astm-org:CCR</li>
+   </ul>
+  </li>
+ <li>IHE:
+   <ul>
+     <li>See <a href="http://wiki.ihe.net/index.php?title=IHE_Format_Codes">IHE Format Codes</a></li>
+     <li>See <a href="http://wiki.ihe.net/index.php?title=PCC_Vocabulary_Registry_and_Data_Dictionary">PCC Vocabulary Registry</a></li>
+   </ul>
+  </li>
 </ul>
 <p>
-Other URIs can be used for items not on this list.
+Note that IHE specifies that their URNs and OIDs are codes in the code system <code>urn:oid:1.3.6.1.4.1.19376.1.2.3</code>.
+HL7 and ASTM URIs are in the general URI code system <code>urn:ietf:rfc:3986</code>.
 </p>
-
 
 <h3>Generating a Document Reference</h3>
 <p>
