@@ -118,6 +118,11 @@ differences between CDA and the composition resource:
    actually references to other <a href="resourcelist.html">resources</a> that hold the supporting data content for the section. 
    This design means that the data can be reused in many other ways. 
    </li>
+  <li>Unlike CDA, the context defined in the <code>Composition</code> - the confidentiality, subject, author, event and 
+  event period and encounter apply to the composition and do not specifically apply to the resources referenced from 
+  the <code>section.entry</code>. There is no context flow model in FHIR, so each resource referenced from 
+  within a <code>composition</code> expresses its own individual context.  In this way, clinical content can 
+  safely be extracted from the Composition.</li>
 </ul>
 <p>
 In addition, note that both the code lists (e.g. <a href="valueset-composition-status.html">Composition status</a>) and the composition resource are <a href="composition-mappings.html">mapped</a> to v3 and/or CDA.
