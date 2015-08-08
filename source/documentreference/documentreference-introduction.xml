@@ -34,6 +34,18 @@ stored on some other server system. The document reference is also able to addre
 by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or a v2 message query, though 
 the way each of these service calls works must be specified in some external standard or other documentation.
 </p>
+<p>
+A <code>DocumentReference</code> describes some other document. This means that there are two sets of 
+provenance information relevant here: the provenance of the document, and the provenance of the document
+reference. Sometimes, the provenance information is closely related, as when the document producer also 
+produces the DocumentReference, but in other workflows, the document reference is generated later by
+other actors. In the <code>DocumentReference</code> resource, the <a href="resource.html#Meta">meta</a>
+content refers to the provenance of the reference itself, while the content described below concerns
+the document it references. Like all resources, there is overlap between the information in the 
+resource directly, and in the general <a href="provenance.html">Provenance</a> resource. This is 
+discussed as <a href="provenance.html#overlap">part of the description of the Provenance resource</a>.
+</p>
+
 </div>
 
 </div>
