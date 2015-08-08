@@ -41,7 +41,10 @@ prescriber and medication.  Some resources (e.g. List, Composition) may provide 
 rules about what content must (or must not) be included in the resource narrative.  Consideration 
 should be given to the fact that referenced resources may be updated without updating 
 referencing resources, so the proportion of content of a referenced resource included 
-in a referencing resource should be limited.
+in a referencing resource should be limited. 
+Systems MAY choose how narrative is generated, including how much de-referencing to 
+perform, but SHALL NOT assume that the resource is rendered in any particular context 
+when generating narrative, since resources will be used in multiple contexts.
 </p>
 <p>
 Resources SHOULD always contain narrative to support human-consumption
