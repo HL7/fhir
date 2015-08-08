@@ -1256,7 +1256,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">preliminary | final | appended | amended | entered-in-error</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">preliminary | final | amended | entered-in-error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3658,7 +3658,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3675,8 +3675,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7395,7 +7395,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='composition-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s138" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s138" ss:Width="80.25"/>
    <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="34.5"/>
@@ -7464,24 +7464,13 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
     <Cell ss:StyleID="s143"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">appended</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Appended ap Appended</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorized person. The modifications added new information to the composition or document, but did not revise existing content</Data></Cell>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">If systems are not able to be sure whether existing information has changed or not, they should use the status &quot;amended&quot;</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s142"><Data ss:Type="String">amended</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Amended</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorized person</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as &quot;final&quot; and the composition is complete and verified by an authorized person</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
     <Cell ss:StyleID="s143"/>
@@ -8009,7 +7998,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
