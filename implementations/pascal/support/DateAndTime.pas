@@ -1080,7 +1080,7 @@ begin
     inc(local.hour);
     local.minute := 0;
   end;
-  if local.hour >= 60 then
+  if local.hour >= 24 then
   begin
     inc(local.day);
     local.hour := 0;

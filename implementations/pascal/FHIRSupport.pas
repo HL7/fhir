@@ -423,6 +423,7 @@ Type
     FOrigin: String;
     FId: String;
     FMeta: TFhirMeta;
+    FNeedsObject: boolean;
     procedure SetResource(const Value: TFhirResource);
     function GetFeed: TFhirBundle;
     procedure SetFeed(const Value: TFhirBundle);
@@ -533,6 +534,11 @@ Type
       If this has a value when the response is returned, then it will be returned in the Access-Control-Allow-Origin header
     }
     Property Origin : String read FOrigin write FOrigin;
+
+    {@member NeedsObject
+      Set by the RESTful server if it needs an object to respond properly. Do not change in a script.
+    }
+    Property NeedsObject : boolean read FNeedsObject write FNeedsObject;
   end;
 
   ERestfulException = class (EAdvException)

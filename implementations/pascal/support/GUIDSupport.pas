@@ -135,7 +135,7 @@ end;
 
 function NewGuidURN : String;
 begin
-  result := 'urn:uuid:'+copy(GUIDToString(CreateGUID), 2, 36);
+  result := 'urn:uuid:'+copy(GUIDToString(CreateGUID), 2, 36).ToLower;
 end;
 
 

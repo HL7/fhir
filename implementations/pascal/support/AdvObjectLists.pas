@@ -395,9 +395,12 @@ begin
   Assert(Condition(oList <> Self, 'AddAll',
     'Cannot addall items from a list to itself.'));
 
+  if (oList <> nil) then
+  begin
   Capacity := IntegerMax(Count + oList.Count, Capacity);
   for iIndex := 0 to oList.Count - 1 do
     Add(oList[iIndex].Link);
+  end;
 end;
 
 

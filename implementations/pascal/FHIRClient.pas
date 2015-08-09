@@ -33,6 +33,7 @@ Type
     client : TIdHTTP;
     ssl : TIdSSLIOHandlerSocketOpenSSL;
     FOnClientStatus : TFHIRClientStatusEvent;
+    FLastUpdated : TDateAndTime;
     procedure status(msg : String);
     function serialise(resource : TFhirResource):TStream; overload;
     function makeUrl(tail : String; params : TAdvStringMatch = nil) : String;
@@ -63,7 +64,6 @@ Type
 
     property OnClientStatus : TFHIRClientStatusEvent read FOnClientStatus write FOnClientStatus;
 
-    function lastUpdate : TDateAndTime;
   end;
 
 implementation
@@ -244,7 +244,7 @@ Var
   src, frm : TStream;
   ct : String;
 begin
-  raise Exception.Create('Not don yet');
+  raise Exception.Create('Not done yet');
 //  src := serialise(resource);
 //  try
 //    src.Position := 0;
@@ -562,11 +562,6 @@ begin
   finally
     result.Free;
   end;
-end;
-
-function TFhirClient.lastUpdate: TDateAndTime;
-begin
-  result := nil;
 end;
 
 end.

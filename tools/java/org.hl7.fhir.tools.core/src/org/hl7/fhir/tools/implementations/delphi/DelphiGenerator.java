@@ -936,7 +936,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+");");
           con1.append("'"+defCodeType.escape(d)+"');");
           con3.append("'"+defCodeType.escape(n)+"');");
-          con6.append("'"+defCodeType.escape(n+": "+t)+"');");
+          con6.append("'"+breakString(defCodeType.escape(n+": "+t))+"');");
           con7.append(""+t+");");
         }
         else {
@@ -945,7 +945,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+", ");
           con1.append("'"+defCodeType.escape(d)+"',\r\n     ");
           con3.append("'"+defCodeType.escape(n)+"', ");
-          con6.append("'"+defCodeType.escape(n+": "+t)+"',\r\n     ");
+          con6.append("'"+breakString(defCodeType.escape(n+": "+t))+"',\r\n     ");
           con7.append(""+t+", ");
           if (con4.length() - l4 > 250) {
             con4.append("\r\n      ");
@@ -966,6 +966,13 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       defCodeConst.enumConsts.add(con6.toString());
       defCodeConst.enumConsts.add(con7.toString());
     }
+  }
+
+  private String breakString(String s) {
+    if (s.length() > 250)
+      return s.substring(0, 250)+"'+'"+s.substring(250);
+    else
+      return s;
   }
 
   private String getTarget(Set<String> targets) throws Exception {
@@ -1677,10 +1684,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "        result."+s+".Add("+parse+"){y.2}\r\n");
         if (summary) 
           workingComposerX.append("  for i := 0 to elem."+s+".Count - 1 do\r\n"+
-              "    "+srlsd+"(xml, '"+e.getName()+"', "+srls.replace("#", "elem."+s+"[i]")+");\r\n");
+              "    "+srlsd+"(xml, '"+e.getName()+"', "+getParam3(tn)+srls.replace("#", "elem."+s+"[i]")+");\r\n");
         else
           workingComposerX.append("  if not SummaryOnly then\r\n    for i := 0 to elem."+s+".Count - 1 do\r\n"+
-              "      "+srlsd+"(xml, '"+e.getName()+"', "+srls.replace("#", "elem."+s+"[i]")+");\r\n");
+              "      "+srlsd+"(xml, '"+e.getName()+"', "+getParam3(tn)+srls.replace("#", "elem."+s+"[i]")+");\r\n");
         if (typeIsPrimitive(e.typeCode())) 
           workingParserJ.append(
               "      if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"') then\r\n"+
@@ -1717,7 +1724,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
               "  begin\r\n"+
                   "    json.valueArray('"+e.getName()+"');\r\n"+
                   "    for i := 0 to elem."+s+".Count - 1 do\r\n"+
-                  "      "+srlsdJ+"(json, '',"+srls.replace("#", "elem."+s+"[i]")+"); {z - "+e.typeCode()+"}\r\n"+
+                  "      "+srlsdJ+"(json, '', "+getParam3(tn)+srls.replace("#", "elem."+s+"[i]")+"); {z - "+e.typeCode()+"}\r\n"+
                   "    json.FinishArray;\r\n"+
               "  end;\r\n");
       }
@@ -1874,7 +1881,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
               workingComposerX.append("  "+sum2+"Compose"+parseName(tn)+"(xml, '"+e.getName()+"', elem."+s+"Element);{x.2}\r\n");
             } else {
               workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(child, path+'/"+e.getName()+"') {b}\r\n");
-              workingComposerX.append("  "+sum2+"Compose"+parseName(tn)+"(xml, '"+e.getName()+"', elem."+s+");{x.2}\r\n");
+              workingComposerX.append("  "+sum2+"Compose"+parseName(tn)+"(xml, '"+e.getName()+"', "+getParam3(tn)+"elem."+s+");{x.2}\r\n");
             }
           }
             if (typeIsPrimitive(e.typeCode())) {
@@ -1887,7 +1894,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
               workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"Value(json, '"+e.getName()+"', elem."+s+"Element, false);\r\n");
               workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"Props(json, '"+e.getName()+"', elem."+s+"Element, false);\r\n");
             } else
-              workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"(json, '"+e.getName()+"', elem."+s+"); {a}\r\n");
+              workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"(json, '"+e.getName()+"', "+getParam3(tn)+"elem."+s+"); {a}\r\n");
         } else {
           String pfx = e.getName().contains("[x]") ? e.getName().replace("[x]", "") : "";
           int i = 0;
@@ -1937,7 +1944,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     return tn.equalsIgnoreCase("uri") || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("code") || tn.equalsIgnoreCase("boolean")
         || tn.equalsIgnoreCase("integer")  || tn.equals("unsignedInt")  || tn.equals("positiveInt")|| tn.equalsIgnoreCase("instant") || tn.equalsIgnoreCase("time")
         || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("date") || tn.equalsIgnoreCase("id") || tn.equalsIgnoreCase("oid")
-        || tn.equalsIgnoreCase("decimal") || tn.equalsIgnoreCase("string") || tn.equalsIgnoreCase("base64Binary");
+        || tn.equalsIgnoreCase("decimal") || tn.equalsIgnoreCase("string") || tn.equalsIgnoreCase("base64Binary") || tn.equalsIgnoreCase("markdown");
   }
 
   private String breakConstant(String typeCode) {
@@ -1953,6 +1960,14 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     else
       return tn.startsWith("TFhir") ? tn.substring(5) : tn.substring(1);
   }
+
+  private String getParam3(String tn) {
+    if (tn.equals("TFhirResource"))  
+      return "elem, ";
+    else
+      return "";
+  }
+
 
   private void defineList(String tn, String tnl, String sn, ClassCategory category, boolean isAbstract) {
     if (generics)
@@ -2259,6 +2274,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     if (tn == null) {
       return "";
     } else if (tn.equals("xml:lang")) {
+      return "TFhirString";
+    } else if (tn.equals("markdown")) {
       return "TFhirString";
     } else if (tn.equals("xhtml")) {
       return "TFhirXHtmlNode"; 
@@ -3323,13 +3340,13 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public boolean doesCompile() {
-    String dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\RAD Studio\\12.0\\bin\\dcc64.exe";
+    String dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\Studio\\16\\bin\\dcc64.exe";
     return new File(dcc).exists();
   }
 
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
-    dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\RAD Studio\\12.0\\bin\\dcc64.exe";
+    dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\Studio\\16\\bin\\dcc64.exe";
     exe = rootDir+"implementations\\pascal\\fhirtest.exe";
     logger.log("Compiling Pascal implementation using "+dcc, LogMessageType.Process);
     new File(exe).delete();

@@ -76,6 +76,7 @@ Type
     Procedure WriteXml(iElement : IXMLNode; first : boolean); override;
     Procedure WriteXmlNode(iDoc : IXMLNode; first : boolean); override;
     Procedure WriteXmlDocument(iDoc : IXMLDocument); overload; override;
+    procedure inject(const bytes : TBytes); override;
   End;
 
 Implementation
@@ -136,6 +137,11 @@ Begin
   FAttributes.Free;
   FAttributes := nil;
 End;
+
+procedure TMsXmlBuilder.inject(const bytes: TBytes);
+begin
+  raise Exception.Create('Inject is not supported on the MSXml Builder');
+end;
 
 procedure TMsXmlBuilder.Build(oStream: TStream);
 Var

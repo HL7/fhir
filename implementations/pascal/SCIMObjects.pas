@@ -204,6 +204,7 @@ Type
     Property Timezone : String read GetTimezone write SetTimezone;
 
     Property emails : TSCIMContactList read GetEmails;
+    procedure clearEmails;
     Property phoneNums : TSCIMContactList read GetPhoneNums;
     Property ims : TSCIMContactList read GetIms;
     Property addresses : TSCIMAddressList read GetAddresses;
@@ -261,8 +262,13 @@ end;
 function TSCIMObject.GetCreatedUTC: TDateAndTime;
 begin
   FCreatedUTC.free;
+  if FCreated <> nil then
+  begin
   FCreatedUTC := FCreated.AsUTC;
   result := FCreatedUTC;
+  end
+  else
+    result := nil;
 end;
 
 function TSCIMObject.GetExternalId: String;
@@ -294,8 +300,13 @@ end;
 function TSCIMObject.GetLastModifiedUTC: TDateAndTime;
 begin
   FLastModifiedUTC.free;
+  if FLastModified <> nil then
+  begin
   FLastModifiedUTC := FLastModified.AsUTC;
   result := FLastModifiedUTC;
+  end
+  else
+    result := nil;
 end;
 
 function TSCIMObject.GetLocation: String;
@@ -470,6 +481,12 @@ procedure TSCIMUser.clearEntitlements;
 begin
   if FJson.has('entitlements') then
     FJson.clear('entitlements');
+end;
+
+procedure TSCIMUser.clearEmails;
+begin
+  if FJson.has('emails') then
+    FJson.clear('emails');
 end;
 
 procedure TSCIMUser.copyFrom(source: TSCIMUser);

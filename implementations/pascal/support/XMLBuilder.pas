@@ -31,7 +31,7 @@ POSSIBILITY OF SUCH DAMAGE.
 interface
 
 uses
-  Classes,
+  SysUtils, Classes,
   AdvStreams, AdvStringMatches, AdvObjectLists, AdvObjects,
   IdSoapMsXml, Xml.xmlintf;
 
@@ -103,11 +103,14 @@ type
     Procedure WriteXmlNode(iNode : IXMLNode; first : boolean); overload; virtual; abstract;
     Procedure WriteXmlDocument(iDoc : IXMLDocument); overload; virtual; abstract;
 
+    procedure inject(Const aBytes : TBytes); Overload; virtual; abstract; // not supported on all implementations
+
     property IsPretty : boolean read FIsPretty Write FIsPretty;
     property CharEncoding : String read FCharEncoding write FCharEncoding;
     property CurrentNamespaces : TXmlBuilderNamespaceList Read GetCurrentNamespaces;
     property NoHeader : Boolean read FNoHeader write FNoHeader;
     property Canonicalise : TXmlCanonicalisationMethodSet read FCanonicalise write FCanonicalise;
+
 
     // consumer has to call this manually if it wants to change namespaes, before it starts playing with attributes or namesapces.
     // it must call pop if it calls push

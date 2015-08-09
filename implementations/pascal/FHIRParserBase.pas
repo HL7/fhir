@@ -159,6 +159,7 @@ Type
   private
     FLang: String;
     FSummaryOnly: Boolean;
+    FNoHeader: Boolean;
   protected
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList = nil); overload; virtual;
 //    Procedure ComposeBinary(xml : TXmlBuilder; binary : TFhirBinary);
@@ -178,7 +179,10 @@ Type
     Function MimeType : String; virtual;
     Property Lang : String read FLang write FLang;
     Property SummaryOnly : Boolean read FSummaryOnly write FSummaryOnly;
+    property NoHeader : Boolean read FNoHeader write FNoHeader;
   End;
+
+  TFHIRComposerClass = class of TFHIRComposer;
 
   TFHIRXmlComposerBase = class (TFHIRComposer)
   private
@@ -191,7 +195,8 @@ Type
     Procedure Text(xml : TXmlBuilder; name, value : String);
     procedure closeOutElement(xml : TXmlBuilder; value : TFhirBase);
     Procedure ComposeDomainResource(xml : TXmlBuilder; name : String; value : TFhirDomainResource);
-    Procedure ComposeInnerResource(xml : TXmlBuilder; name : String; value : TFhirResource); overload;
+    Procedure ComposeInnerResource(xml : TXmlBuilder; name : String; holder : TFhirDomainResource; value : TFhirResource); overload;
+    Procedure ComposeInnerResource(xml : TXmlBuilder; name : String; holder : TFHIRElement; value : TFhirResource); overload;
   Public
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
     Procedure Compose(node : IXmlDomNode; oResource : TFhirResource; links : TFhirBundleLinkList = nil); Overload;
@@ -215,7 +220,8 @@ Type
 
     Procedure composeComments(json : TJSONWriter; base : TFHIRBase);
     procedure ComposeDomainResource(json : TJSONWriter; name : String; oResource : TFhirDomainResource); overload; virtual;
-    procedure ComposeInnerResource(json : TJSONWriter; name : String; oResource : TFhirResource); overload; virtual;
+    procedure ComposeInnerResource(json : TJSONWriter; name : String; holder : TFHIRElement; oResource : TFhirResource); overload; virtual;
+    procedure ComposeInnerResource(json : TJSONWriter; name : String; holder : TFhirDomainResource; oResource : TFhirResource); overload; virtual;
     Procedure ComposeResource(json : TJSONWriter; oResource : TFhirResource; links : TFhirBundleLinkList); overload; virtual;
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList); overload; override;
 //    Procedure ComposeExtension(json : TJSONWriter; name : String; extension : TFhirExtension; noObj : boolean = false); virtual;
@@ -549,6 +555,7 @@ begin
     xml := TAdvXmlBuilder.Create;
     try
       xml.IsPretty := isPretty;
+    xml.NoHeader := NoHeader;
       xml.CurrentNamespaces.DefaultNS := FHIR_NS;
       xml.Start;
       if FComment <> '' then
@@ -640,6 +647,16 @@ begin
   xml.close(name);
 
     end;
+
+procedure TFHIRXmlComposerBase.ComposeInnerResource(xml: TXmlBuilder; name: String; holder: TFhirDomainResource; value: TFhirResource);
+begin
+  if value <> nil then
+  begin
+    xml.open(name);
+    ComposeResource(xml, value, nil);
+    xml.close(name);
+  end;
+end;
 
 //procedure TFHIRXmlComposerBase.Compose(stream: TStream; ResourceType : TFhirResourceType; oTags: TFHIRCodingList; isPretty: Boolean);
 //var
@@ -782,9 +799,28 @@ begin
   json.FinishObject;
 end;
 
-procedure TFHIRJsonComposerBase.composeInnerResource(json: TJSONWriter; name: String; oResource: TFhirResource);
+procedure TFHIRJsonComposerBase.ComposeInnerResource(json: TJSONWriter; name: String; holder: TFhirDomainResource; oResource: TFhirResource);
 begin
   if oResource <> nil then
+  begin
+    json.ValueObject(name);
+    ComposeResource(json, oResource, nil);
+    json.FinishObject;
+  end;
+end;
+
+procedure TFHIRJsonComposerBase.composeInnerResource(json: TJSONWriter; name: String; holder : TFHIRElement; oResource: TFhirResource);
+var
+  blob : TAdvBuffer;
+begin
+  if (holder <> nil) and (holder.Tag <> nil) then
+begin
+    blob := holder.Tag as TAdvBuffer;
+    json.ValueObject(name);
+    json.ProduceBytes(blob.AsBytes);
+    json.FinishObject;
+  end
+  else if oResource <> nil then
   begin
     json.ValueObject(name);
     ComposeResource(json, oResource, nil);
@@ -1030,9 +1066,18 @@ begin
   raise exception.create('don''t use TFHIRXmlComposerBase directly - use TFHIRXmlComposer');
 end;
 
-procedure TFHIRXmlComposerBase.ComposeInnerResource(xml: TXmlBuilder; name: String; value: TFhirResource);
+procedure TFHIRXmlComposerBase.ComposeInnerResource(xml: TXmlBuilder; name: String; holder : TFHIRElement; value: TFhirResource);
+var
+  blob : TAdvBuffer;
 begin
-  if value <> nil then
+  if (holder <> nil) and (holder.Tag <> nil) then
+  begin
+    blob := holder.Tag as TAdvBuffer;
+    xml.open(name);
+    xml.inject(blob.AsBytes);
+    xml.close(name);
+  end
+  else if value <> nil then
   begin
   xml.open(name);
   ComposeResource(xml, value, nil);
@@ -1871,11 +1916,11 @@ begin
   if bPrefixLinks then
   begin
     pfx := base+'/'+CODES_TFHIRResourceType[a]+'/';
-    pfxp := base+'/'+'profile/'
+    pfxp := base+'/'+'StructureDefinition/'
   end
   else
   begin
-    pfxp := '../profile/';
+    pfxp := '../StructureDefinition/';
     pfx := '';
   end;
 

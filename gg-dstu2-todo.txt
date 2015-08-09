@@ -9,8 +9,8 @@ expansion - revisit handling of value sets that are too large
 search - value set / profile / IG / core / v3 / v2
 revisit profile resource identification in igs 
 fix links in narrative embedded in html pages
-json / profile format
-xml / profile format
+json / profile format (EK)
+xml / profile format (EK)
 finish IG building/rendering
 Resource guide
 More RDF work
@@ -18,7 +18,6 @@ fix pascal compiler
 add external link icon
 fix up UML diagrams
 EMF page - update to XCore
-fix up minify
 epub
 
 Examples

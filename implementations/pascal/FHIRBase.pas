@@ -338,6 +338,7 @@ type
     Procedure ListProperties(oList : TFHIRPropertyList; bInheritedProperties : Boolean); Override;
   public
     Constructor Create; Override;
+    Constructor Create(name : String) ; Overload;
     Destructor Destroy; Override;
     {!script hide}
     function Link : TFhirXHtmlNode; Overload;
@@ -919,6 +920,13 @@ end;
 function TFhirXHtmlNode.Clone: TFhirXHtmlNode;
 begin
   result := TFhirXHtmlNode(inherited Clone);
+end;
+
+constructor TFhirXHtmlNode.Create(name: String);
+begin
+  Create;
+  NodeType := fhntElement;
+  FName := name;
 end;
 
 constructor TFhirXHtmlNode.Create;

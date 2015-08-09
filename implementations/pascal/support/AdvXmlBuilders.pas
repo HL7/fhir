@@ -79,6 +79,7 @@ Type
     Procedure WriteXml(iElement : IXMLNode; first : boolean); override;
     Procedure WriteXmlNode(iNode : IXMLNode; first : boolean); override;
     Procedure WriteXmlDocument(iDoc : IXMLDocument); override;
+    procedure inject(const bytes : TBytes); override;
   End;
 
   // http://www.w3.org/TR/2012/WD-xml-c14n2-testcases-20120105/
@@ -147,6 +148,11 @@ begin
     result := CurrentNamespaces.Matches[uri]+':'+name
   else
     raise Exception.Create('Unregistered namespace '+uri);
+end;
+
+procedure TAdvXmlBuilder.inject(const bytes: TBytes);
+begin
+  xml.ProduceBytes(bytes);
 end;
 
 function TAdvXmlBuilder.nsIsUsed(elem: IXmlNode; ns: String): boolean;
@@ -418,6 +424,7 @@ begin
     xml.AddNamespace('', CurrentNamespaces.DefaultNS);
     CurrentNamespaces.DefaultSet := false;
   end;
+
   if IsPretty then
     xml.ProduceText(sName, StringTrimWhitespace(sValue))
   else

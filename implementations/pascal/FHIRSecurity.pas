@@ -24,6 +24,7 @@ type
   TFHIRSecurityRights = class (TAdvObject)
   private
     FSource : String;
+    FId : String;
     FUserInfo : boolean;
     FAdministerUsers : boolean;
     FReadAll : boolean;
@@ -56,6 +57,14 @@ function UriForScope(scope : String): String;
 function prefixScope(uri : String): String;
 
 implementation
+
+function secureToStr(secure : boolean):String;
+begin
+  if secure then
+    result := 'Secure'
+  else
+    result := 'Unsecure';
+end;
 
 { TFHIRSecurityRights }
 
@@ -118,10 +127,15 @@ begin
   inherited;
 end;
 
+var
+  GID : integer;
 procedure TFHIRSecurityRights.init;
 var
   a : TFhirResourceType;
 begin
+  GId := GId + 1;
+  FId := inttostr(GID);
+
   for a := Low(TFhirResourceType) to High(TFhirResourceType) do
   begin
     FReadAllowed[a] := false;
@@ -170,6 +184,7 @@ procedure TFHIRSecurityRights.processScopes(scopes: TStringList; base : TFHIRSec
 var
   a : TFhirResourceType;
   s : String;
+  writeall : boolean;
 begin
   FSource := scopes.CommaText.replace(',', ' ');
   if (scopes.IndexOf('openid') > -1) and (scopes.IndexOf('profile') > -1) and ((base = nil)  or (base.canGetUserInfo)) then
@@ -178,15 +193,21 @@ begin
     FAdministerUsers := true;
 
   FReadAll := true;
+  writeall := true;
   for a := Low(TFhirResourceType) to High(TFhirResourceType) do
   begin
     if (base <> nil) and not base.canRead(a) then
       FReadAllowed[a] := false
-    else if not (assigned(base) or secure or (a in nonSecureTypes)) then
-      FReadAllowed[a] := true
+    else if not assigned(base) and not (secure or (a in nonSecureTypes)) then
+      // no base, so default system access, which is everything if secure, otherwise the non sure types
+      FReadAllowed[a] := false
     else if scopes.IndexOf('user/*.*') > -1 then
       FReadAllowed[a] := true
     else if scopes.IndexOf('patient/*.*') > -1 then
+      FReadAllowed[a] := true
+    else if scopes.IndexOf('user/*.read') > -1 then
+      FReadAllowed[a] := true
+    else if scopes.IndexOf('patient/*.read') > -1 then
       FReadAllowed[a] := true
     else if scopes.IndexOf('user/'+CODES_TFHIRResourceType[a]+'.*') > -1 then
       FReadAllowed[a] := true
@@ -203,11 +224,16 @@ begin
 
     if (base <> nil) and not base.canWrite(a) then
       FWriteAllowed[a] := false
-    else if not (assigned(base) or secure or (a in nonSecureTypes)) then
-      FWriteAllowed[a] := true
+    else if not assigned(base) and not (secure or (a in nonSecureTypes)) then
+      // no base, so default system access, which is everything if secure, otherwise the non sure types
+      FWriteAllowed[a] := false
     else if scopes.IndexOf('user/*.*') > -1 then
       FWriteAllowed[a] := true
     else if scopes.IndexOf('patient/*.*') > -1 then
+      FWriteAllowed[a] := true
+    else if scopes.IndexOf('user/*.write') > -1 then
+      FWriteAllowed[a] := true
+    else if scopes.IndexOf('patient/*.write') > -1 then
       FWriteAllowed[a] := true
     else if scopes.IndexOf('user/'+CODES_TFHIRResourceType[a]+'.*') > -1 then
       FWriteAllowed[a] := true
@@ -219,7 +245,29 @@ begin
       FWriteAllowed[a] := true
     else
       FWriteAllowed[a] := false;
+    if (a <> frtNull) then
+      writeall := writeall and FWriteAllowed[a];
   end;
+
+  s := '';
+  if FUserInfo then
+    s := 'openid profile';
+  if FAdministerUsers then
+    s := s + ' '+ SCIM_ADMINISTRATOR;
+  if writeall and FReadAll then
+    s := s +' User/*.*'
+  else
+  begin
+    for a := Low(TFhirResourceType) to High(TFhirResourceType) do
+      if (a <> frtNull) then
+        if FWriteAllowed[a] and FReadAllowed[a] then
+          s := s +' '+CODES_TFHIRResourceType[a]+'.*'
+        else if FReadAllowed[a] then
+          s := s +' '+CODES_TFHIRResourceType[a]+'.read'
+        else if FWriteAllowed[a] then
+          s := s +' '+CODES_TFHIRResourceType[a]+'.write'
+  end;
+  FSource := s.Trim;
 end;
 
 

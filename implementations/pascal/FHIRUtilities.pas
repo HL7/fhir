@@ -32,8 +32,8 @@ interface
 
 uses
   SysUtils, Classes,
-  StringSupport, GuidSupport, DateSupport, BytesSupport, OidSupport,
-  AdvObjects,
+  StringSupport, GuidSupport, DateSupport, BytesSupport, OidSupport, EncodeSupport,
+  AdvObjects, AdvStringBuilders,
 
   IdSoapMime, TextUtilities, ZLib,
 
@@ -46,6 +46,16 @@ const
   MIN_DATE = DATETIME_MIN;
   MAX_DATE = DATETIME_MAX;
   ANY_CODE_VS = 'http://www.healthintersections.com.au/fhir/ValueSet/anything';
+
+type
+  TFhirConceptMapConceptList = TFhirConceptMapElementList;
+  TFhirConceptMapConceptMapList = TFhirConceptMapElementMapList;
+  TFhirConceptMapConcept = TFhirConceptMapElement;
+  TFhirConceptMapConceptMap = TFhirConceptMapElementMap;
+
+const
+  ValueSetStatusActive = ConformanceResourceStatusActive;
+  ConformanceStatementStatusActive = ConformanceResourceStatusActive;
 
 function HumanNameAsText(name : TFhirHumanName):String;
 function GetEmailAddress(contacts : TFhirContactPointList):String;
@@ -74,6 +84,7 @@ Function FhirHtmlToText(html : TFhirXHtmlNode):String;
 function FindContainedResource(resource : TFhirDomainResource; ref : TFhirReference) : TFhirResource;
 function LoadFromFormParam(part : TIdSoapMimePart; lang : String) : TFhirResource;
 function LoadDTFromFormParam(part : TIdSoapMimePart; lang, name : String; type_ : TFHIRTypeClass) : TFhirType;
+function LoadDTFromParam(value : String; lang, name : String; type_ : TFHIRTypeClass) : TFhirType;
 
 function BuildOperationOutcome(lang : String; e : exception) : TFhirOperationOutcome; overload;
 Function BuildOperationOutcome(lang, message : String) : TFhirOperationOutcome; overload;
@@ -94,6 +105,8 @@ function GetExtension(element : TFhirElement; url : string) : TFhirExtension;
 
 procedure BuildNarrative(op: TFhirOperationOutcome; opDesc : String); overload;
 procedure BuildNarrative(vs : TFhirValueSet); overload;
+procedure ComposeXHtml(s : TAdvStringBuilder; node: TFhirXHtmlNode); overload;
+function ComposeXHtml(node: TFhirXHtmlNode) : String; overload;
 
 Function removeCaseAndAccents(s : String) : String;
 
@@ -185,6 +198,12 @@ type
     procedure setSystem(type_ : TFhirContactPointSystem; value : String);
   end;
 
+  TFhirValueSetHelper = class helper for TFhirValueSet
+  public
+    function context : string;
+    function source : string;
+  end;
+
   TFHIROperationOutcomeHelper = class helper (TFHIRDomainResourceHelper) for TFhirOperationOutcome
   public
     function rule(level : TFhirIssueSeverity; source, typeCode, path : string; test : boolean; msg : string) : boolean;
@@ -193,6 +212,32 @@ type
     function hint(source, typeCode, path : string; test : boolean; msg : string) : boolean;
 
     function hasErrors : boolean;
+  end;
+
+  TFhirConceptMapElementHelper = class helper (TFhirElementHelper) for TFhirConceptMapElement
+  public
+    function systemObject : TFhirUri;
+    function system : String;
+  end;
+
+  TFhirConceptMapElementDependsOnHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementDependsOn
+  public
+    function conceptObject : TFhirUri;
+    function concept : String;
+  end;
+
+  TFhirConceptMapHelper = class helper (TFhirResourceHelper) for TFhirConceptMap
+  public
+    function conceptList : TFhirConceptMapElementList;
+    function context : string;
+    function sourceDesc: String;
+    function targetDesc: String;
+  end;
+
+  TFhirConceptMapElementMapHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementMap
+  public
+    function systemObject : TFhirUri;
+    function system : String;
   end;
 
   TFHIRBundleHelper = class helper (TFhirResourceHelper) for TFHIRBundle
@@ -239,6 +284,8 @@ type
   TFhirResourceMetaHelper = class helper for TFhirMeta
   public
     function HasTag(system, code : String)  : boolean;
+    function addTag(system, code, display : String) : TFhirCoding;
+    function removeTag(system, code : String) : boolean;
   end;
 
 function Path(const parts : array of String) : String;
@@ -247,6 +294,11 @@ function Path(const parts : array of String) : String;
 function ZCompressBytes(const s: TBytes): TBytes;
 function ZDecompressBytes(const s: TBytes): TBytes;
 function TryZDecompressBytes(const s: TBytes): TBytes;
+
+function gen(coding : TFHIRCoding):String; overload;
+function gen(code : TFhirCodeableConcept):String; overload;
+function gen(t : TFhirType):String; overload;
+
 
 implementation
 
@@ -399,20 +451,20 @@ begin
     begin
       if (iter.Current.list <> nil)  then
       begin
-      if StringStartsWith(iter.Current.Type_, 'Reference(') then
+        if StringStartsWith(iter.Current.Type_, 'Reference(') then
       begin
         for i := 0 to iter.Current.List.count - 1 do
-          if (iter.current.list[i] <> nil)  and not StringStartsWith(TFhirReference(iter.current.list[i]).reference, '#') then
+            if (iter.current.list[i] <> nil)  and not StringStartsWith(TFhirReference(iter.current.list[i]).reference, '#') then
             list.add(iter.Current.list[i].Link)
       end
         else if (iter.Current.Type_ = 'Resource') then
       begin
-        for i := 0 to iter.Current.List.count - 1 do
-          iterateReferences(path+'/'+iter.Current.Name, TFhirReference(iter.current.list[i]), list)
-      end
+          for i := 0 to iter.Current.List.count - 1 do
+            iterateReferences(path+'/'+iter.Current.Name, TFhirReference(iter.current.list[i]), list)
+        end
         else if not ((node is TFHIRPrimitiveType) and (iter.current.name = 'value')) then
         for i := 0 to iter.Current.list.Count - 1 Do
-          iterateReferences(path+'/'+iter.Current.Name, iter.Current.list[i], list);
+            iterateReferences(path+'/'+iter.Current.Name, iter.Current.list[i], list);
       end;
       iter.Next;
     end;
@@ -959,6 +1011,27 @@ begin
   end;
 end;
 
+function LoadDTFromParam(value : String; lang, name : String; type_ : TFHIRTypeClass) : TFhirType;
+var
+  ct : String;
+  parser : TFHIRParser;
+  mem : TStringStream;
+begin
+  parser := TFHIRJsonParser.Create(lang);
+  try
+    // first, figure out the format
+    mem := TStringStream.Create(value, TEncoding.UTF8);
+    try
+      parser.source := mem;
+      result := parser.ParseDT(name, type_);
+    finally
+      mem.Free;
+    end;
+  finally
+    parser.Free;
+  end;
+end;
+
 function LoadFromFormParam(part : TIdSoapMimePart; lang : String) : TFhirResource;
 var
   ct : String;
@@ -1160,6 +1233,14 @@ begin
       ex.value := TFhirCode.create;
       TFhirCode(ex.value).value := source;
       self.issueList.add(issue.link);
+      if self.text = nil then
+      begin
+        self.text := TFhirNarrative.Create;
+        self.text.div_ := TFhirXHtmlNode.Create;
+        self.text.div_.NodeType := fhntElement;
+        self.text.div_.Name := 'div';
+        self.text.div_.AddChild('div').SetAttribute('style', 'background: Salmon').AddText(msg);
+      end;
     finally
       issue.free;
     end;
@@ -1550,6 +1631,78 @@ begin
   {$ENDIF}
 end;
 
+{ TFhirConceptMapElementHelper }
+
+function TFhirConceptMapElementHelper.systemObject: TFhirUri;
+  begin
+  result := codeSystemElement;
+  end;
+
+function TFhirConceptMapElementHelper.system: String;
+begin
+  result := codeSystem;
+end;
+
+{ TFhirConceptMapElementMapHelper }
+
+function TFhirConceptMapElementMapHelper.systemObject: TFhirUri;
+begin
+  result := codeSystemElement;
+end;
+
+function TFhirConceptMapElementMapHelper.system: String;
+begin
+  result := codeSystem;
+end;
+
+{ TFhirConceptMapHelper }
+
+function TFhirConceptMapHelper.conceptList: TFhirConceptMapElementList;
+begin
+  result := elementList;
+end;
+
+function TFhirConceptMapHelper.context: string;
+var
+  i: Integer;
+begin
+  result := '';
+  for i := 0 to useContextList.Count - 1 do
+    result := result + gen(useContextList[i]);
+end;
+
+function TFhirConceptMapHelper.sourceDesc: String;
+begin
+  if source = nil then
+    result := ''
+  else if source is TFhirUri then
+    result := TFhirUri(source).value
+  else
+    result := TFhirReference(source).reference
+end;
+
+function TFhirConceptMapHelper.targetDesc: String;
+begin
+  if target = nil then
+    result := ''
+  else if target is TFhirUri then
+    result := TFhirUri(target).value
+  else
+    result := TFhirReference(target).reference
+end;
+
+{ TFhirConceptMapElementDependsOnHelper }
+
+function TFhirConceptMapElementDependsOnHelper.conceptObject: TFhirUri;
+begin
+  result := elementElement;
+end;
+
+function TFhirConceptMapElementDependsOnHelper.concept: String;
+begin
+  result := element;
+end;
+
 
 { TFHIRDomainResourceHelper }
 
@@ -1562,7 +1715,7 @@ begin
   begin
 
     if containedList[i] is TFhirDomainResource then
-    begin
+begin
       containedList.AddAll(TFhirDomainResource(containedList[i]).containedList);
       TFhirDomainResource(containedList[i]).containedList.Clear;
     end;
@@ -1681,7 +1834,7 @@ begin
 end;
 
 function TFHIRCodingListHelper.json: TBytes;
-begin
+  begin
   SetLength(result, 0);
 end;
 
@@ -1729,8 +1882,8 @@ begin
   else if (base = 'urn:uuid:') then
   begin
     if isGuid(id) then
-    result := base+id
-  else
+      result := base+id
+    else
       raise Exception.Create('The resource id "'+id+'" has a base of "urn:uuid:" but is not a valid UUID');
   end
   else if not base.StartsWith('http://') and not base.StartsWith('https://')  then
@@ -1841,7 +1994,7 @@ var
 begin
   for i := 0 to parameterList.Count - 1 do
     if (parameterList[i].name = name) then
-    begin
+begin
       result := true;
       exit;
     end;
@@ -1873,6 +2026,19 @@ end;
 
 { TFhirResourceMetaHelper }
 
+function TFhirResourceMetaHelper.addTag(system, code, display: String): TFhirCoding;
+var
+  c : TFhirCoding;
+begin
+  if not hasTag(system, code) then
+  begin
+    c := tagList.Append;
+    c.system := system;
+    c.code := code;
+    c.display := display;
+  end;
+end;
+
 function TFhirResourceMetaHelper.HasTag(system, code: String): boolean;
 var
   i : integer;
@@ -1880,6 +2046,23 @@ begin
   result := false;
   for i := 0 to taglist.Count - 1 do
     result := result or (taglist[i].system = system) and (taglist[i].code = code);
+end;
+
+function TFhirResourceMetaHelper.removeTag(system, code : String): boolean;
+var
+  i : integer;
+  c : TFhirCoding;
+begin
+  result := false;
+  for i := TagList.Count -1 downto 0 do
+  begin
+    c := TagList[i];
+    if (c.system = system) and (c.code = code) then
+    begin
+      result := true;
+      TagList.DeleteByIndex(i);
+    end;
+  end;
 end;
 
 function Path(const parts : array of String) : String;
@@ -1951,6 +2134,119 @@ begin
      if Item(j).telecomList[i].system = type_ then
        result := Item(j).telecomList[i].value;
 end;
+
+{ TFhirValueSetHelper }
+
+function TFhirValueSetHelper.context: string;
+var
+  i: Integer;
+begin
+  result := '';
+  for i := 0 to useContextList.Count - 1 do
+    result := result + gen(useContextList[i]);
+end;
+
+function csName(url : string) : String;
+    begin
+  if url.StartsWith('http://hl7.org/fhir/v2') then
+    result := 'V2 '
+  else if url.StartsWith('http://hl7.org/fhir/v3') then
+    result := 'V3 '
+  else if url.StartsWith('http://hl7.org/fhir') then
+    result := 'FHIR '
+  else if url = 'http://snomed.info/sct' then
+    result := 'SCT '
+  else if url = 'http://loinc.org' then
+    result := 'LOINC '
+  else
+    result := 'Other';
+end;
+function TFhirValueSetHelper.source: string;
+var
+  b : TAdvStringBuilder;
+  comp : TFhirValueSetComposeInclude;
+begin
+  b := TAdvStringBuilder.Create;
+  try
+    if define <> nil then
+      b.Append(csName(define.system));
+    if (compose <> nil) then
+      for comp in compose.includeList do
+        b.Append(csName(comp.system));
+    result := b.AsString;
+  finally
+    b.Free;
+  end;
+end;
+
+procedure ComposeXHtml(s : TAdvStringBuilder; node: TFhirXHtmlNode);
+var
+  i : Integer;
+begin
+  if node = nil then
+    exit;
+  case node.NodeType of
+    fhntText : s.Append(EncodeXML(node.Content, xmlText));
+    fhntComment : s.Append('<!-- '+EncodeXML(node.Content, xmlText)+' -->');
+    fhntElement :
+      begin
+      s.append('<'+node.name);
+      for i := 0 to node.Attributes.count - 1 do
+        s.Append(' '+node.Attributes[i].Name+'="'+EncodeXML(node.Attributes[i].Value, xmlAttribute)+'"');
+      if node.ChildNodes.count = 0 then
+        s.append('/>')
+      else
+begin
+        s.append('>');
+        for i := 0 to node.ChildNodes.count - 1 do
+          ComposeXHtml(s, node.ChildNodes[i]);
+        s.append('</'+node.name+'>')
+      end;
+end;
+    fhntDocument:
+      for i := 0 to node.ChildNodes.count - 1 do
+        ComposeXHtml(s, node.ChildNodes[i]);
+  else
+    raise exception.create('not supported');
+  end;
+end;
+
+
+function ComposeXHtml(node: TFhirXHtmlNode) : String;
+var
+  b : TAdvStringBuilder;
+begin
+  b := TAdvStringBuilder.Create;
+  try
+    ComposeXHtml(b, node);
+    result := b.AsString;
+  finally
+    b.Free;
+  end;
+
+end;
+
+function gen(t : TFhirType):String;
+begin
+  if (t = nil) then
+    result := ''
+  else if t is TFhirCodeableConcept then
+    result := gen(TFhirCodeableConcept(t))
+  else if t is TFhirCoding then
+    result := gen(TFhirCoding(t))
+  else if t is TFhirString then
+    result := TFhirString(t).value
+  else if t is TFhirEnum then
+    result := TFhirEnum(t).value
+  else if t is TFhirBoolean then
+    if TFhirBoolean(t).value then
+      result := 'true'
+    else
+      result := 'false'
+  else
+    raise Exception.Create('Type '+t.className+' not handled yet');
+end;
+
 
 end.
 
