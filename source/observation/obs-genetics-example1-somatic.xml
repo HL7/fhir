@@ -31,14 +31,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsChromosome">
     <valueString value="7"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicReferenceSequenceId">
-    <valueCode value="NC_000007.13"/>
-  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStart">
     <valueInteger value="55259515"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStop">
-    <valueInteger value="55259515"/>
+    <valueInteger value="55259516"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsReferenceAllele">
     <valueString value="T"/>
@@ -46,7 +43,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsObservedAllele">
     <valueString value="G"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneId">
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGene">
     <valueCodeableConcept>
       <coding>
         <system value="http://www.genenames.org"/>
@@ -76,9 +73,6 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsProteinReferenceSequenceId">
-    <valueCode value="ENSESTP00000085772.1"/>
-  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAminoAcidChange">
     <valueString value="p.Leu858Arg"/>
   </extension>
@@ -95,10 +89,16 @@
     </valueCodeableConcept>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsSpecies">
-    <valueString value="Human"/>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="337915000"/> 
+        </coding>
+        <text value="Homo sapiens"/>
+    </valueCodeableConcept>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsCIGAR">
-    <valueString value="GATTTTGGGCtGGCCAAACTG"/>
+    <valueString value="1M"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAssessedCondition">
     <valueReference>
@@ -121,6 +121,13 @@
     <reference value="Practitioner/genetics-example1-somatic"/>
     <display value="Molecular Diagnostic Laboratory"/>
   </performer>
+  <interpretation> 
+      <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="POS"/>
+      </coding>
+      <text value="positive"/>
+  </interpretation>
   <comments value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
   <specimen>
     <reference value="Specimen/genetics-example1-somatic"/>

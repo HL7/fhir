@@ -8,14 +8,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsChromosome">
     <valueString value="17"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicReferenceSequenceId">
-    <valueCode value="NC_000017.10"/>
-  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStart">
     <valueInteger value="41258504"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStop">
-    <valueInteger value="41258504"/>
+    <valueInteger value="41258505"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsReferenceAllele">
     <valueString value="A"/>
@@ -23,7 +20,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsObservedAllele">
     <valueString value="C"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneId">
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGene">
     <valueCodeableConcept>
       <coding>
         <system value="http://www.genenames.org"/>
@@ -31,9 +28,6 @@
         <display value="BRCA1"/>
       </coding>
     </valueCodeableConcept>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsTranscriptReferenceSequenseId">
-    <valueCode value="NM_007294.3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
     <valueString value="c.181T&gt;G"/>
@@ -53,9 +47,6 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsProteinReferenceSequenceId">
-    <valueCode value="NP_009225.1"/>
-  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAminoAcidChange">
     <valueString value="p.Cys61Gly"/>
   </extension>
@@ -69,10 +60,16 @@
     </valueCodeableConcept>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsSpecies">
-    <valueString value="Human"/>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="337915000"/> 
+        </coding>
+        <text value="Homo sapiens"/>
+    </valueCodeableConcept>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsCIGAR">
-    <valueString value="CATAAAGGACaCTGTGAAGGC"/>
+    <valueString value="1M"/>
   </extension>
   <status value="final"/>
   <code>
