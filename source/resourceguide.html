@@ -14,12 +14,233 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
-This page provides an overview of the resources provided in FHIR.
+The FHIR specification defines a set of resources, and an infrastructure for handling resources. 
+In order to use FHIR to create solutions for integration requirements, implementers must map their 
+problems to resources and their content. 
 </p>
 <p>
-Well, it <b>will</b>.
+The resources are classified into 5 sections:
 </p>
+<ol>
+ <li><a href="#clinical"><b>Clinical</b></a>: The content of a clinical record </li>
+ <li><a href="#identification"><b>Identification</b></a>: Entities involved in the care process</li>
+ <li><a href="#workflow"><b>Workflow</b></a>: Manage the healthcare process</li>
+ <li><a href="#financial"><b>Financial</b></a>: Resources that support the billing and payment parts of FHIR</li>
+ <li><a href="#conformance"><b>Conformance</b></a>: Resources use to manage specification, development and testing of FHIR solutions</li>
+ <li><a href="#infrastructure"><b>Infrastructure</b></a>: General functionality, and resources for internal FHIR requirements</li>
+</ol>
+<p>
+This page describes the resources and their functional intent in more detail to assist implementers to 
+understand their purpose and scope, and their supporting ontology.
+</p>
+
+<a name="w5"> </a>
+<h3>Resource Ontology</h3>
+
+<p>
+In addition to the overall classification above, Resources and the data elements in them are 
+tagged into an overall ontology that provides consistent meaning across the resources. 
+</p>
+
+<p>
+One of the most fundamental aspects of a resource is it's overall kind - where it fits
+into the whole picture. Some resources are records of past events, some are plans for
+the future, etc. This table summarises the known resource types:
+</p>
+<table>
+ <tr> 
+  <td><b>Type</b></td>
+  <td><b>Description</b></td>
+ </tr>
+ <tr> 
+  <td><a name="Record"> </a>Record</td>
+  <td>RIM: Act in mood code EVN</td>
+ </tr>
+ <tr> 
+  <td><a name="Warning"> </a>Warning</td>
+  <td>RIM: Act in mood code ?</td>
+ </tr>
+ <tr> 
+  <td><a name="Plan"> </a>Plan</td>
+  <td>RIM: Act in mood code PRP?</td>
+ </tr>
+ <tr> 
+  <td><a name="Thing"> </a>Thing</td>
+  <td>RIM: Entity or Role? </td>
+ </tr>
+</table>
+<p>
+Todo: an explanation of the w5 ontology, along with a table summarising it's principal properties
+</p>
+
 </div>
+
+<a name="clinical"> </a>
+<h3>Clinical</h3>
+
+<table class="grid">
+  <tr>
+    <td><b>Resource</b></td>
+    <td><b>Usage</b></td>
+    <td><b>Type</b></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="background-color: #eeeeee"><b>General:</b> These are the resources that appear everywhere, in patient, episode, and discharge summaries</td>
+  </tr>  
+
+  <tr>
+    <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
+    <td>[%resdesc AllergyIntolerance%]</td>
+    <td>Warning</td>
+  </tr>
+  <tr>
+    <td><a href="condition.html">Condition</a> (Problem)</td>
+    <td>[%resdesc Condition%]</td>
+    <td>Record</td>
+  </tr>
+  <tr>
+    <td><a href="procedure.html">Procedure</a></td>
+    <td>[%resdesc Procedure%]</td>
+    <td>Record</td>
+  </tr>
+  <tr>
+    <td><a href="familymemberhistory.html">FamilyMemberHistory</a></td>
+    <td>[%resdesc FamilyMemberHistory%]</td>
+    <td>Record</td>
+  </tr>
+  
+  <tr>
+    <td colspan="3" style="background-color: #eeeeee"><b>Clinical Process:</b> These resources support the clinical process - evaluating patients, and referring them to other care providers </td>
+  </tr>  
+  <tr>
+    <td><a href="referralrequest.html">ReferralRequest</a></td>
+    <td>[%resdesc ReferralRequest%]</td>
+    <td>Event</td>
+  </tr>
+  <tr>
+    <td><a href="procedurerequest.html">ProcedureRequest</a></td>
+    <td>[%resdesc ProcedureRequest%]</td>
+    <td>Event</td>
+  </tr>
+  <tr>
+    <td><a href="contraindication.html">Contraindication</a></td>
+    <td>[%resdesc Contraindication%]</td>
+    <td>Warning</td>
+  </tr>
+  <tr>
+    <td><a href="riskassessment.html">RiskAssessment</a></td>
+    <td>[%resdesc RiskAssessment%]</td>
+    <td>Record</td>
+  </tr>
+  <tr>
+    <td><a href="clinicalimpression.html">ClinicalImpression</a></td>
+    <td>[%resdesc ClinicalImpression%]</td>
+    <td>Event</td>
+  </tr>
+
+  <tr>
+    <td colspan="3" style="background-color: #eeeeee"><b>Care Provision:</b> Resources related to planning a patient's care</td>
+  </tr>  
+  
+  
+  <tr>
+    <td><a href="careplan.html">CarePlan</a></td>
+    <td>[%resdesc CarePlan%]</td>
+    <td>Plan</td>
+  </tr>
+  <tr>
+    <td><a href="goal.html">Goal</a></td>
+    <td>[%resdesc Goal%]</td>
+    <td>Plan</td>
+  </tr>
+  <tr>
+    <td><a href="nutritionorder.html">NutritionOrder</a></td>
+    <td>[%resdesc NutritionOrder%]</td>
+    <td>Plan</td>
+  </tr>
+  <tr>
+    <td><a href="visionprescription.html">VisionPrescription</a></td>
+    <td>[%resdesc VisionPrescription%]</td>
+    <td>Record</td>
+  </tr>
+
+  <tr>
+    <td colspan="3" style="background-color: #eeeeee"><b>Medication:</b> Supporting the medication process</td>
+  </tr>  
+  
+  <tr>
+    <td><a href="medication.html">Medication</a></td>
+    <td>[%resdesc Medication%]</td>
+    <td>Thing</td>
+  </tr>
+  <tr>
+    <td><a href="medicationprescription.html">MedicationPrescription</a></td>
+    <td>[%resdesc MedicationPrescription%]</td>
+    <td>Instruction</td>
+  </tr>
+  <tr>
+    <td><a href="medicationadministration.html">MedicationAdministration</a></td>
+    <td>[%resdesc MedicationAdministration%]</td>
+    <td>Record</td>
+  </tr>
+  <tr>
+    <td><a href="medicationdispense.html">MedicationDispense</a></td>
+    <td>[%resdesc MedicationDispense%]</td>
+    <td>Record</td>
+  </tr>
+  <tr>
+    <td><a href="medicationstatement.html">MedicationStatement</a></td>
+    <td>[%resdesc MedicationStatement%]</td>
+    <td>Record</td>
+  </tr>
+  <tr>
+    <td colspan="3" style="background-color: #eeeeee"><b>Medication:</b> Supporting the medication process</td>
+  </tr>  
+  <tr>
+    <td><a href="immunization.html">Immunization</a></td>
+    <td>[%resdesc Immunization%]</td>
+    <td>Record</td>
+  </tr>
+  <tr>
+    <td><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td>
+    <td>[%resdesc ImmunizationRecommendation%]</td>
+    <td>Plan</td>
+  </tr>
+</table>  
+<!--
+  <tr>
+    <td colspan="3" style="background-color: #eeeeee"><b>Diagnostics:</b> Support for interations with the diagnostic process</td>
+  </tr>  
+  
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p><b>:</b></p>
+<ul>
+  <li><a title="[%resdesc Observation%]" href="observation.html">Observation</a>[%fmm Observation%]</li>
+  <li><a title="[%resdesc DiagnosticReport%]" href="diagnosticreport.html">DiagnosticReport</a>[%fmm DiagnosticReport%]</li>
+  <li><a title="[%resdesc DiagnosticOrder%]" href="diagnosticorder.html">DiagnosticOrder</a>[%fmm DiagnosticOrder%]</li>
+  <li><a title="[%resdesc ImagingStudy%]" href="imagingstudy.html">ImagingStudy</a>[%fmm ImagingStudy%]</li>
+  <li><a title="[%resdesc ImagingObjectSelection%]" href="imagingobjectselection.html">ImagingObjectSelection</a>[%fmm ImagingObjectSelection%]</li>
+  <li><a title="[%resdesc Specimen%]" href="specimen.html">Specimen</a>[%fmm Specimen%]</li>
+  <li><a title="[%resdesc BodySite%]" href="bodysite.html">BodySite</a>[%fmm BodySite%]</li>
+-->
+  
+<a name="identification"> </a>
+<h3>Identification</h3>
+
+<a name="workflow"> </a>
+<h3>Workflow</h3>
+
+<a name="financial"> </a>
+<h3>Financial</h3>
+
+<a name="conformance"> </a>
+<h3>Conformance</h3>
+
+<a name="infrastructure"> </a>
+<h3>Infrastructure</h3>
+
+
 
 [%file newfooter%]
 
