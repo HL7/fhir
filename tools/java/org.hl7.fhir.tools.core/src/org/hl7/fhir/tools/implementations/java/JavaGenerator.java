@@ -759,6 +759,11 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
       ProcessBuilder builder = new ProcessBuilder(command);
       builder.directory(new File(folders.dstDir));
       final Process process = builder.start();
+      BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+      String s;
+      while ((s = stdError.readLine()) != null) {
+        System.err.println(s);
+      }    
       process.waitFor();
       String result = TextFile.fileToString(err);
       if (!"ok".equals(result))
