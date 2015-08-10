@@ -28,13 +28,13 @@
     <reference value="Medication/54ba8e550cf2ef25ba8bcfd2"/>
   </medicationReference>
   <dosageInstruction>
-    <scheduleTiming>
+    <timing>
       <repeat>
         <frequency value="2"/>
         <period value="21"/>
         <periodUnits value="d"/>
       </repeat>
-    </scheduleTiming>
+    </timing>
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>

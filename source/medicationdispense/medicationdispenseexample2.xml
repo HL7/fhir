@@ -46,13 +46,13 @@
         <display value="With or after food"/>
       </coding>
     </additionalInstructions>
-    <scheduleTiming>
+    <timing>
       <repeat>
         <frequency value="3"/>
         <period value="1"/>
         <periodUnits value="d"/>
       </repeat>
-    </scheduleTiming>
+    </timing>
     <site>
       <coding>
         <system value="http://snomed.info/sct"/>

@@ -39,7 +39,7 @@
   <whenPrepared value="2015-03-01T10:48:00Z"/>
   <whenHandedOver value="2015-03-01T10:59:00Z"/>
   <dosageInstruction>
-    <scheduleTiming>
+    <timing>
       <event value="2015-03-01"/>
       <repeat>
         <duration value="3"/>
@@ -48,7 +48,7 @@
         <period value="1"/>
         <periodUnits value="d"/>
       </repeat>
-    </scheduleTiming>
+    </timing>
     <asNeededBoolean value="true" />
     <route>
       <coding>

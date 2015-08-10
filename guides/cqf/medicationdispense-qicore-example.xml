@@ -84,13 +84,13 @@
         <code value="ml"/>
       </valueQuantity>
     </extension>
-    <scheduleTiming>
+    <timing>
       <repeat>
         <frequency value="3"/>
         <period value="1"/>
         <periodUnits value="d"/>
       </repeat>
-    </scheduleTiming>
+    </timing>
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>
