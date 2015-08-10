@@ -25,10 +25,14 @@
  </medicationReference>
  <dosageInstruction>  
   <text value="Flucloxacilline 12g/24h"/>
-  <scheduledPeriod>
-    <start value="2013-03-11"/>
-    <end value="2013-03-21"/>
-  </scheduledPeriod>
+   <timing>
+     <repeat>
+       <boundsPeriod>
+         <start value="2013-03-11"/>
+         <end value="2013-03-21"/>
+       </boundsPeriod>
+     </repeat>
+  </timing>
   <route><!--Medication follows the respiratory tract-->
     <coding>
        <system value="http://snomed.info/sct"/>
