@@ -4308,7 +4308,7 @@ public class Publisher implements URIResolver {
   private void produceDictionaryProfile(Dictionary d, String srcbase, String destbase, DataElement de, ImplementationGuideDefn ig) throws Exception {
     // first, sort out identifiers
     String template = TextFile.fileToString(Utilities.changeFileExt(srcbase, "-profile.xml"));
-    String file = Utilities.changeFileExt(destbase, "-"+de.getId()+".xml");    
+    String file = Utilities.changeFileExt(destbase, "-"+de.getId());    
 
     // second, generate the profile.
     Map<String, String> variables = new HashMap<String, String>();
