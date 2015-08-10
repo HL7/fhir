@@ -43,7 +43,7 @@
                 <display value="With or after food"/>
             </coding>
         </additionalInstructions>
-        <scheduledTiming>
+        <timing>
             <event value="2015-01-15"/>
             <repeat>
                 <duration value="1"/>
@@ -52,7 +52,7 @@
                 <period value="1"/>
                 <periodUnits value="d"/>
             </repeat>
-        </scheduledTiming>
+        </timing>
         <site>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -82,7 +82,7 @@
                 <display value="With or after food"/>
             </coding>
         </additionalInstructions>
-        <scheduledTiming>
+        <timing>
             <event value="2015-01-15"/>
             <repeat>
                 <duration value="11"/>
@@ -91,7 +91,7 @@
                 <period value="1"/>
                 <periodUnits value="d"/>
             </repeat>
-        </scheduledTiming>
+        </timing>
         <site>
             <coding>
                 <system value="http://snomed.info/sct"/>

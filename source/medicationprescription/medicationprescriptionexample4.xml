@@ -36,7 +36,7 @@
     </medicationReference>
     <dosageInstruction>
         <text value="Use 2 puffs twice daily as needed" />
-        <scheduledTiming>
+        <timing>
             <repeat>
                 <duration value="3"/>
                 <durationUnits value="d"/>
@@ -44,7 +44,7 @@
                 <period value="1"/>
                 <periodUnits value="d"/>
             </repeat>
-        </scheduledTiming>
+        </timing>
         <asNeededBoolean value="true"></asNeededBoolean>
         <route>
             <coding>

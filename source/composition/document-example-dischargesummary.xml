@@ -390,13 +390,13 @@
             <text value="Take with Food"/>
           </additionalInstructions>
         <!--   twice a day   -->
-          <scheduledTiming>
+          <timing>
             <repeat>
               <frequency value="2"/>
               <period value="1"/>
               <periodUnits value="d"/>
             </repeat>
-          </scheduledTiming>
+          </timing>
         <!--   Orally   -->
           <route>
             <coding>

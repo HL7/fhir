@@ -37,7 +37,7 @@
         <additionalInstructions>
           <text value="for use during pregnancy, contact physician"/>
         </additionalInstructions>
-        <scheduledTiming>
+        <timing>
             <repeat>
                 <boundsPeriod>
                     <start value="2013-08-04"/>
@@ -47,7 +47,7 @@
                 <period value="1"/>
                 <periodUnits value="d"/>
             </repeat>
-        </scheduledTiming>
+        </timing>
         <site>
             <coding>
                 <system value="http://snomed.info/sct"/>

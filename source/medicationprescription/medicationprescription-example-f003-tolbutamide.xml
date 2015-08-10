@@ -32,7 +32,7 @@
         <display value="prescribed medication"/>
     </medicationReference> 
     <dosageInstruction>
-        <scheduledTiming>
+        <timing>
             <repeat>
                 <boundsPeriod>
                     <start value="2011-05-01"/>
@@ -41,7 +41,7 @@
                 <period value="1"/>
                 <periodUnits value="d"/>
             </repeat>
-        </scheduledTiming>
+        </timing>
         <site>
             <coding>
                 <system value="http://snomed.info/sct"/>
