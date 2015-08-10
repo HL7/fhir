@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Substance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/substance.xsd">
- <id value="f203"/>
- <type>   
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="88480006"/>
-      <display value="Potassium"/>
-    </coding>  
- </type>    
+	<id value="f203"/>
+	<identifier>
+		<system value="http://acme.org/indentifiers/substances"/>
+		<value value="1234"/>
+	</identifier>
+	<category><coding>
+			<system value="http://hl7.org.fhir/substance-category"/>
+			<code value="chemical"/>
+			<display value="Chemical"/>
+		</coding></category>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="88480006"/>
+			<display value="Potassium"/>
+		</coding>
+	</code>
 </Substance>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/FHIRBuild/schema/valueset.xsd">
+	<url value="http://hl7.org/fhir/ValueSet/observation-category"/>
+	<name value="Substance Category Codes"/>
+	<status value="draft"/>
+	<publisher value="HL7 Orders and Observations Workgroup"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="Substance category codes"/>
+	<codeSystem>
+		<system value="http://hl7.org/fhir/substance-category"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="allergen"/>
+			<display value="Allergen"/>
+			<definition value="A substance that causes an allergic reaction"/>
+		</concept>
+		<concept>
+			<code value="biological"/>
+			<display value="Biological Substance"/>
+			<definition value="A substance that is produced by or extracted from a biological source"/>
+		</concept>
+		<concept>
+			<code value="body"/>
+			<display value="Body Substance"/>
+			<definition value="A substance that comes directly from a human or an animal (e.g blood, urine, feces, tears, etc.)"/>
+		</concept>
+		<concept>
+			<code value="chemical"/>
+			<display value="Chemical"/>
+			<definition value="Any organic or inorganic substance of a particular molecular identity, including -- (i) any combination of such substances occurring in whole or in part as a result of a chemical reaction or occurring in nature and (ii) any element or uncombined radical (http://www.epa.gov/opptintr/import-export/pubs/importguide.pdf)."/>
+		</concept>
+		<concept>
+			<code value="food"/>
+			<display value="Dietary Substance"/>
+			<definition value="A food, dietary ingredient, or dietary supplement for human or animal"/>
+		</concept>
+		<concept>
+			<code value="drug"/>
+			<display value="Drug or Medicament"/>
+			<definition value="A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease in man or other animals (Federal Food Drug and Cosmetic Act)."/>
+		</concept>
+		<concept>
+			<code value="material"/>
+			<display value="Material"/>
+			<definition value="A finished product which is not normally ingested, absorbed or injected (e.g. Steel, iron, wood, plastic and paper)."/>
+		</concept>
+	</codeSystem>
+</ValueSet>

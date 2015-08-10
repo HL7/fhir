@@ -8,12 +8,12 @@
   <contained>
     <Substance>
       <id value="hep"/>
-      <type>
+      <code>
         <coding>
           <system value="http://hl7.org/fhir/v3/EntityCode"/>
           <code value="HEPL"/>
         </coding>
-      </type>
+      </code>
     </Substance>
   </contained>
 
