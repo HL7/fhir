@@ -33,13 +33,13 @@
   </medicationReference>  
   <dosage>
     <text value="one capsule three times daily" />
-    <schedule>
+    <timing>
       <repeat>
         <frequency value="3"/>
         <period value="1"/>
         <periodUnits value="d"/>
       </repeat>
-    </schedule>
+    </timing>
     <asNeededBoolean value="false" />
     <route>
       <coding>

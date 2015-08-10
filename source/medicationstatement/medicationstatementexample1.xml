@@ -33,13 +33,13 @@
   </medicationReference> 
   <dosage>
     <text value="one tablet four times daily as needed for pain" />
-    <schedule>
+    <timing>
       <repeat>
         <frequency value="4"/>
         <period value="1"/>
         <periodUnits value="d"/>
       </repeat>
-    </schedule>
+    </timing>
     <asNeededBoolean value="true" />
     <route>
       <coding>
