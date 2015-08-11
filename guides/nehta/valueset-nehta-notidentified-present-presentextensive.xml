@@ -2,7 +2,7 @@
 
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-nehta-crc-intactness-of-mesorectum"/>
+  <id value="valueset-nehta-notidentified-present-presentextensive"/>
   <meta>
     <lastUpdated value="2015-06-11T06:01:03.224+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
@@ -16,9 +16,9 @@
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
   </extension>-->
     
-  <url value="http://hl7.org/fhir/ValueSet/nehta-crc-intactness-of-mesorectum"/>  
+  <url value="http://hl7.org/fhir/ValueSet/nehta-notidentified-present-presentextensive"/>  
   <version value="20150618"/>
-  <name value="MesorectumIntactness"/>
+  <name value="NotIdentifiedPresentPresentExtensive"/>
   <publisher value="NEHTA"/>
   <contact>
     <telecom>
@@ -30,7 +30,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="For rectal resections this field indicates the intactness of the mesorectum."/>
+  <description value="This is the code has the options of Not identified, present and present and extensive."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
       Health Terminology Standards Development Organisation (IHTSDO), and distributed by
    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
@@ -42,18 +42,26 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="408659008"/>
-        <display value="Intactness of mesorectal specimen incomplete" />
+        <code value="52101004"/>
+        <display value="Present"/>
       </concept>
-      <concept>
-        <code value="408658000"/>
-        <display value="Mesorectal specimen nearly completely intact "/>
-      </concept>
-      <concept>
-        <code value="408657005"/>
-        <display value="Mesorectal specimen completely intact"/>
-      </concept>
-      
     </include>
   </compose>
+  <codeSystem>
+ 
+    <system value="http://hl7.org/fhir/nehta-notidentified-present-presentextensive"/>
+    <version value="20150619"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="not_identified"/>
+      <display value="Not identified"/>
+      <definition value="Indicates whether value was not identified"/>
+    </concept>
+    <concept>
+      <code value="present_and_extensive"/>
+      <display value="Present and extensive"/>
+      <definition value="Indicates whether invasion was presetn and extensive"/>
+    </concept>
+        
+  </codeSystem>
 </ValueSet>
