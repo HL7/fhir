@@ -319,6 +319,8 @@ public class ValueSetValidator extends BaseValidator {
     if (cs == null) 
       return context.getTerminologyServices().validateCode(system, code, null) == null;
     else {
+      if (!cs.hasCodeSystem())
+        throw new Error("ValueSet "+cs.getName()+"/"+cs.getUrl()+" has no code system!");
       if (hasCode(code, cs.getCodeSystem().getConcept()))
         return true;
       return false;

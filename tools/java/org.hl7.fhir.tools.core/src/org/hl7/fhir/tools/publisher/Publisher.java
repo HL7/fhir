@@ -1555,6 +1555,10 @@ public class Publisher implements URIResolver {
     if (buildFlags.get("all")) {
       copyStaticContent();
     }
+    for (ValueSet vs : page.getWorkerContext().getCodeSystems().values())
+      if (!vs.hasCodeSystem())
+        throw new Error("ValueSet "+vs.getName()+"/"+vs.getUrl()+" has no code system!");
+        
     XMIResource resource = new XMIResourceImpl();
     resource.load(new CSFileInputStream(eCorePath), null);
     org.hl7.fhir.definitions.ecore.fhir.Definitions eCoreDefs = (org.hl7.fhir.definitions.ecore.fhir.Definitions) resource.getContents().get(0);
@@ -1610,6 +1614,9 @@ public class Publisher implements URIResolver {
     sg.close();
 
     produceSchemaZip();
+    for (ValueSet vs : page.getWorkerContext().getCodeSystems().values())
+      if (!vs.hasCodeSystem())
+        throw new Error("ValueSet "+vs.getName()+"/"+vs.getUrl()+" has no code system!");
     page.log("Produce Content", LogMessageType.Process);
     produceSpec();
 
@@ -1719,6 +1726,10 @@ public class Publisher implements URIResolver {
       ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
       ed.setUserData("path", (ig.isCore() ? "" : ig.getCode()+File.separator) + filename+".html");  
     }
+    for (ValueSet vs : page.getWorkerContext().getCodeSystems().values())
+      if (!vs.hasCodeSystem())
+        throw new Error("ValueSet "+vs.getName()+"/"+vs.getUrl()+" has no code system!");
+
     loadValueSets2();
     page.log(" ...extensions", LogMessageType.Process);
 
@@ -5219,8 +5230,9 @@ public class Publisher implements URIResolver {
   }
 
   private void generateValueSetsPart2() throws Exception {
+
     for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
-        generateValueSetPart2(vs);
+      generateValueSetPart2(vs);
     }
     for (ValueSet vs : page.getDefinitions().getExtraValuesets().values())
       generateValueSetPart2(vs);

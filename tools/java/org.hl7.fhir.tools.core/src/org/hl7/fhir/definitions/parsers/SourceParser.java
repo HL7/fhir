@@ -791,6 +791,9 @@ public class SourceParser {
 
     WorkGroup wg = definitions.getWorkgroups().get(ini.getStringProperty("workgroups", n));
     
+    if (wg == null)
+      throw new Exception("No Workgroup found for resource "+n+": '"+ini.getStringProperty("workgroups", n)+"'");
+    
     SpreadsheetParser sparser = new SpreadsheetParser("core", new CSFileInputStream(
         spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions, page, false, ini, wg.getCode());
     ResourceDefn root;

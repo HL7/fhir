@@ -435,11 +435,11 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
   public ValueSetExpansionOutcome expand(ValueSet vs) {
     try {
       if (vs.hasExpansion()) {
-        return new ValueSetExpansionOutcome(vs);
+        return new ValueSetExpansionOutcome(vs.copy());
       }
       String cacheFn = Utilities.path(cache, determineCacheId(vs)+".json");
       if (new File(cacheFn).exists())
-        return loadFromCache(vs, cacheFn);
+        return loadFromCache(vs.copy(), cacheFn);
       return expandOnServer(vs, cacheFn);
     } catch (Exception e) {
       return new ValueSetExpansionOutcome(e.getMessage());

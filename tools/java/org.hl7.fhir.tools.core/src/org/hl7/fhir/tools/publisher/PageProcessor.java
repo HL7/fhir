@@ -270,7 +270,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     workerContext = new WorkerContext(null, client, codeSystems, valueSets, conceptMaps, profiles);
   }
 
-  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
+//  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
   public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:980/open";
   
   public final static String WEB_PUB_NAME = "DSTU2 Ballot Source";
@@ -3502,6 +3502,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (result.getError() != null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--1-->"+processExpansionError(result.getError())+"</div>";
       ValueSet exp = result.getValueset();
+      if (exp == vs)
+        throw new Exception("Expansion cannot be the same instance");
       exp.setCompose(null);
       exp.setCodeSystem(null);
       exp.setText(null); 
@@ -6500,6 +6502,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (result.getValueset() == null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--4-->"+processExpansionError("(no error returned)")+"</div>";
       ValueSet exp = result.getValueset();
+      if (exp == vs)
+        throw new Exception("Expansion cannot be the same instance");
       exp.setCompose(null);
       exp.setCodeSystem(null);
       exp.setText(null); 

@@ -1,1 +1,0 @@
-{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":{"coding":[{"system":"http://hl7.org/fhir/issue-type","code":"exception"}]},"details":"Error sending HTTP Post/Put Payload"}]}
