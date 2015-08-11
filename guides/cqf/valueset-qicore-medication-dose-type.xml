@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="SNOMED CT Dietary Finding Codes"/>
+  <name value="SNOMED CT Dosages Codes"/>
   <status value="draft"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <contact>

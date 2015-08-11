@@ -16,6 +16,7 @@
   <description value="All prescribable medication formulations represented using  either a &#39;generic&#39; or &#39;brand-specific&#39; concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form)"/>
   <compose>
     <include>
+      <!--    This is a proposed URI for the RXNorm code system - not yet registered    -->	
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
       <filter>
         <property value="TTY"/>
