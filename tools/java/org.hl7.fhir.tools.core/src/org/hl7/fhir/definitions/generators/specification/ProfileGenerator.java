@@ -748,6 +748,10 @@ public class ProfileGenerator {
     SearchParameter sp = new SearchParameter();
     sp.setId(id.replace("[", "").replace("]", ""));
     sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
+    if (context.getSearchParameters().containsKey(sp.getUrl()))
+      throw new Exception("Duplicated Search Parameter "+sp.getUrl());
+    context.getSearchParameters().put(sp.getUrl(), sp);
+    
     sp.setName(spd.getCode());
     sp.setCode(spd.getCode());
     sp.setDate(genDate.getTime());

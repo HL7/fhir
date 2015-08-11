@@ -768,6 +768,9 @@ public class SpreadsheetParser {
           sp.setXpathUsage(readSearchXPathUsage(sheet.getColumn(row, "Path Usage"), row));
         }
         sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
+        if (context.getSearchParameters().containsKey(sp.getUrl()))
+          throw new Exception("Duplicated Search Parameter "+sp.getUrl());
+        context.getSearchParameters().put(sp.getUrl(), sp);
         pack.getSearchParameters().add(sp);
       }
     }
