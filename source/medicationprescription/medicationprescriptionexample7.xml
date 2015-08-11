@@ -28,7 +28,7 @@
         <display value="Intravenous route"/>
       </coding>
     </route>
-    <rate><!--   175 mg/m^2 over 3 hours  -->
+    <rateRatio><!--   175 mg/m^2 over 3 hours  -->
       <numerator>
         <value value="175"/>
         <unit value="mg/m^2"/>
@@ -41,6 +41,6 @@
         <system value="http://snomed.info/sct"/>
         <code value="258702006"/>
       </denominator>
-    </rate>
+    </rateRatio>
   </dosageInstruction>
 </MedicationPrescription>

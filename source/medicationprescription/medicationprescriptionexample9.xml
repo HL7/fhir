@@ -31,7 +31,7 @@
         <display value="Intravenous route"/>
       </coding>
     </route>
-    <rate><!--   600 mg/m^2 over 30 minutes   -->
+    <rateRatio><!--   600 mg/m^2 over 30 minutes   -->
       <numerator>
         <value value="600"/>
         <unit value="mg/m^2"/>
@@ -44,6 +44,6 @@
         <system value="http://snomed.info/sct"/>
         <code value="258702006"/>
       </denominator>
-    </rate>
+    </rateRatio>
   </dosageInstruction>
 </MedicationPrescription>
