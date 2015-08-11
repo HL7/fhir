@@ -94,4 +94,16 @@ does not mandate that FHIR servers migrate information between such records on f
  <li>Health information administrators may call the process "merging", but it is often implemented as "linking" at the record level</li>
  <li>Servers are allowed to implement merging/record migration even though it is not mandated. </li>
 </ul>
+<blockquote>
+<p>
+DSTU Note: We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
+other functionality such as the GET operation (where the result is the old version of the Patient), searching, reverse includes etc.<br/>
+E.g. Should observation resources from all linked/merged patients be returned when querying for one of them?<br/>
+How should an unlink behaviour be done? (Assuming that no data was "re-allocated" as part of merge)
+These suggested updated behaviours could be the subject of a future connectathon.
+</p>
+<p>
+Please provide your feedback through tracker item <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=7345" target="_blank">7345</a>
+</p>
+</blockquote>
 </div>
