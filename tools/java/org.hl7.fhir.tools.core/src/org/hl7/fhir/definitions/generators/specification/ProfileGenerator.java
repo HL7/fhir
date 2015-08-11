@@ -400,7 +400,7 @@ public class ProfileGenerator {
     p.setName(t.getName());
     p.setPublisher("HL7 FHIR Standard");
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
-    p.setDescription("Base StructureDefinition for "+t.getName()+" Resource");
+    p.setDescription("Base StructureDefinition for "+t.getName()+" Type");
     p.setRequirements(t.getRequirements());
     p.setDate(genDate.getTime());
     p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
@@ -421,9 +421,11 @@ public class ProfileGenerator {
     containedSlices.clear();
     
     p.getDifferential().getElement().get(0).getType().clear();
-    p.getDifferential().getElement().get(0).addType().setCode("Element");
     p.getSnapshot().getElement().get(0).getType().clear();
-    p.getSnapshot().getElement().get(0).addType().setCode("Element");
+    if (!t.getName().equals("Element")) {
+      p.getDifferential().getElement().get(0).addType().setCode("Element");
+      p.getSnapshot().getElement().get(0).addType().setCode("Element");
+    }
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
