@@ -222,7 +222,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 //                write("<a href=\"valueset-"+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a><!-- d -->");
             } else
               throw new Exception("Internal reference "+cd.getReference()+" not handled yet");
-          } else
+          } else if (cd.getReference().startsWith("http:"))
+            write("<a href=\""+cd.getReference()+"\">"+cd.getReference()+"</a><!-- e -->");            
+          else
             write("<a href=\""+prefix+"valueset-"+cd.getReference()+".html\">http://hl7.org/fhir/"+cd.getReference()+"</a><!-- e -->");            
         } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
           write("<a href=\""+prefix+"valueset-"+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a><!-- f -->");            
@@ -297,7 +299,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDescription();
-      else  
+      else if (cd.getValueSet() == null)
+        return bs+": <a href=\""+(cd.getReference().startsWith("http") ? cd.getReference() : prefix+cd.getReference()+".html")+"\">See "+cd.getDescription()+"</a> ("+cd.getDefinition()+")";
+      else
         return bs+": <a href=\""+prefix+cd.getReference()+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
       if (Utilities.noString(cd.getReference())) 

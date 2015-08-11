@@ -145,7 +145,9 @@ public class ProfileGenerator {
 
   private void generateElementDefinition(ElementDefinition ed, ElementDefinition parent) {
     DataElement de = new DataElement();
-    de.setId(ed.getPath());
+    de.setId(ed.getPath().replace("[x]", "X"));
+    if (de.getId().length() > 64)
+      de.setId(de.getId().substring(0, 64));
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
     de.setUrl("http://hl7.org/fhir/DataElement/"+de.getId());
     if (dataElements != null)
@@ -298,6 +300,7 @@ public class ProfileGenerator {
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
+    p.setConstrainedType(type.getBase());
     p.setPublisher("HL7 FHIR Standard");
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+type.getCode()+" type: "+type.getDefinition());
@@ -1282,6 +1285,20 @@ public class ProfileGenerator {
         }
       }
     }
+    for (String in : src.getInvariants().keySet()) {
+      ElementDefinitionConstraintComponent con = new ElementDefinitionConstraintComponent();
+      Invariant inv = src.getInvariants().get(in);
+      con.setKey(inv.getId());
+      con.setRequirements(inv.getRequirements());
+      if (Utilities.noString(inv.getSeverity()))
+        con.setSeverity(ConstraintSeverity.ERROR);
+      else
+        con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
+      con.setHuman(inv.getEnglish());
+      con.setXpath(inv.getXpath());
+      dst.getConstraint().add(con);
+    }
+
     if (src.hasBinding())
       dst.setBinding(generateBinding(src.getBinding()));
     if (src.getElements().isEmpty()) {

@@ -1177,6 +1177,11 @@ public class SpreadsheetParser {
       
 	    this.profileExtensionBase = ap.metadata("extension.uri");
 
+      Map<String,Invariant> invariants = null;
+      sheet = loadSheet("Extensions-Inv");
+      if (sheet != null) {
+        invariants = readInvariants(sheet, "");
+      }
       sheet = loadSheet("Extensions");
       if (sheet != null) {
         int row = 0;
@@ -1184,7 +1189,7 @@ public class SpreadsheetParser {
           if (sheet.getColumn(row, "Code").startsWith("!"))
             row++;
           else 
-            row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap, issues);
+            row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants);
         }
       }
 
@@ -1265,7 +1270,7 @@ public class SpreadsheetParser {
         if (sheet.getColumn(row, "Code").startsWith("!"))
           row++;
         else
-          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, ap.metadata("extension.uri"), ap, issues);
+          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants);
       }
     }
     sheet = loadSheet(n+"-Search");
@@ -1693,7 +1698,7 @@ public class SpreadsheetParser {
 		  }
 	}
 
-  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap, List<ValidationMessage> issues) throws Exception {
+  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap, List<ValidationMessage> issues, Map<String, Invariant> invariants) throws Exception {
 	  // first, we build the extension definition
     StructureDefinition ex = new StructureDefinition();
     ex.setUserData(ToolResourceUtilities.NAME_RES_IG, ig == null ? "core" : ig.getCode());
@@ -1733,8 +1738,15 @@ public class SpreadsheetParser {
 	  exe.getElements().add(exu);
 	  exu.setFixed(new UriType(ex.getUrl()));
 	  exu.getTypes().add(new TypeRef().setName("uri"));
+
+	  if (invariants != null) {
+	    for (Invariant inv : invariants.values()) {
+	      if (inv.getContext().equals(name))
+	        exe.getInvariants().put(inv.getId(), inv);
+	    }
+	  }
      
-    parseExtensionElement(sheet, row, definitions, exe);
+    parseExtensionElement(sheet, row, definitions, exe, false);
     String sl = exe.getShortDefn();
     ex.setName(sheet.getColumn(row, "Name"));
     if (!ex.hasName())
@@ -1767,7 +1779,13 @@ public class SpreadsheetParser {
       ElementDefn child = new ElementDefn();
       p.getElements().add(child);
       child.setName(n.substring(n.lastIndexOf(".")+1));
-      parseExtensionElement(sheet, row, definitions, child);
+      parseExtensionElement(sheet, row, definitions, child, true);
+      if (invariants != null) {
+        for (Invariant inv : invariants.values()) {
+          if (inv.getContext().equals(n))
+            child.getInvariants().put(inv.getId(), inv);
+        }
+      }
       row++;
     }
 	  
@@ -1785,7 +1803,7 @@ public class SpreadsheetParser {
     return url.substring(url.lastIndexOf("/")+1);
   }
 
-  private void parseExtensionElement(Sheet sheet, int row, Definitions definitions, ElementDefn exe) throws Exception {
+  private void parseExtensionElement(Sheet sheet, int row, Definitions definitions, ElementDefn exe, boolean nested) throws Exception {
     // things that go on Extension
     String[] card = sheet.getColumn(row, "Card.").split("\\.\\.");
     if (card.length != 2 || !Utilities.isInteger(card[0])
@@ -1812,6 +1830,8 @@ public class SpreadsheetParser {
     exe.setShortDefn(sheet.getColumn(row, "Short Label"));
 
     exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
+    if (nested && exe.isModifier())
+      throw new Exception("Cannot create a nested extension that is a modifier @"+getLocation(row));
     exe.getTypes().add(new TypeRef().setName("Extension"));
     
     // things that go on Extension.value

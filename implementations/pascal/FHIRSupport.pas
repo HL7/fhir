@@ -42,7 +42,7 @@ uses
   StringSupport, DecimalSupport, GuidSupport,
   AdvObjects, AdvBuffers, AdvStringLists, AdvStringMatches,
   DateAndTime, JWT, SCIMObjects,
-  FHirBase, FHirResources, FHIRConstants, FHIRComponents, FHIRTypes, FHIRSecurity;
+  FHirBase, FHirResources, FHIRConstants, FHIRTypes, FHIRSecurity;
 
 Const
    HTTP_OK_200 = 200;
@@ -1169,7 +1169,7 @@ begin
   result := TFhirQuantity.create;
   try
     result.value := value;
-    result.units := units;
+    result.unit_ := units;
     result.link;
   finally
     result.free;
@@ -1181,7 +1181,7 @@ begin
   result := TFhirQuantity.create;
   try
     result.value := value;
-    result.units := units;
+    result.unit_ := units;
     result.system := system;
     result.code := code;
     result.link;

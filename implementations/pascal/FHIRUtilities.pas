@@ -37,7 +37,7 @@ uses
 
   IdSoapMime, TextUtilities, ZLib,
 
-  FHIRSupport, FHIRParserBase, FHIRParser, FHIRBase, FHIRTypes, FHIRComponents, FHIRResources, FHIRConstants;
+  FHIRSupport, FHIRParserBase, FHIRParser, FHIRBase, FHIRTypes, FHIRResources, FHIRConstants;
 
 Type
   ETooCostly = class (Exception);
@@ -47,15 +47,6 @@ const
   MAX_DATE = DATETIME_MAX;
   ANY_CODE_VS = 'http://www.healthintersections.com.au/fhir/ValueSet/anything';
 
-type
-  TFhirConceptMapConceptList = TFhirConceptMapElementList;
-  TFhirConceptMapConceptMapList = TFhirConceptMapElementMapList;
-  TFhirConceptMapConcept = TFhirConceptMapElement;
-  TFhirConceptMapConceptMap = TFhirConceptMapElementMap;
-
-const
-  ValueSetStatusActive = ConformanceResourceStatusActive;
-  ConformanceStatementStatusActive = ConformanceResourceStatusActive;
 
 function HumanNameAsText(name : TFhirHumanName):String;
 function GetEmailAddress(contacts : TFhirContactPointList):String;
@@ -141,6 +132,13 @@ type
     procedure setExtensionString(url, value : String);
   end;
 
+  TFhirElementDefinitionTypeHelper = class helper for TFhirElementDefinitionType
+  private
+    function GetProfile: String;
+  public
+    property profile : String read GetProfile;
+  end;
+
   TFHIRResourceHelper = class helper for TFHIRResource
   private
     function GetXmlId: String;
@@ -206,10 +204,10 @@ type
 
   TFHIROperationOutcomeHelper = class helper (TFHIRDomainResourceHelper) for TFhirOperationOutcome
   public
-    function rule(level : TFhirIssueSeverity; source, typeCode, path : string; test : boolean; msg : string) : boolean;
-    function error(source, typeCode, path : string; test : boolean; msg : string) : boolean;
-    function warning(source, typeCode, path : string; test : boolean; msg : string) : boolean;
-    function hint(source, typeCode, path : string; test : boolean; msg : string) : boolean;
+    function rule(level : TFhirIssueSeverity; source : String; typeCode : TFhirIssueType; path : string; test : boolean; msg : string) : boolean;
+    function error(source : String; typeCode : TFhirIssueType; path : string; test : boolean; msg : string) : boolean;
+    function warning(source : String; typeCode : TFhirIssueType; path : string; test : boolean; msg : string) : boolean;
+    function hint(source : String; typeCode : TFhirIssueType; path : string; test : boolean; msg : string) : boolean;
 
     function hasErrors : boolean;
   end;
@@ -220,24 +218,12 @@ type
     function system : String;
   end;
 
-  TFhirConceptMapElementDependsOnHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementDependsOn
-  public
-    function conceptObject : TFhirUri;
-    function concept : String;
-  end;
-
   TFhirConceptMapHelper = class helper (TFhirResourceHelper) for TFhirConceptMap
   public
     function conceptList : TFhirConceptMapElementList;
     function context : string;
     function sourceDesc: String;
     function targetDesc: String;
-  end;
-
-  TFhirConceptMapElementMapHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementMap
-  public
-    function systemObject : TFhirUri;
-    function system : String;
   end;
 
   TFHIRBundleHelper = class helper (TFhirResourceHelper) for TFHIRBundle
@@ -600,8 +586,8 @@ begin
       for i := 0 to value.eventList.count - 1 do
         result := DateTimeMax(result, AsUTCMax(value.eventList[i]));
   end
-  else if (value.repeat_.bounds <> nil) and (value.repeat_.bounds.end_ <> nil) then
-    result := asUTCMax(value.repeat_.bounds.end_Element)
+  else if (value.repeat_.bounds <> nil) and (value.repeat_.bounds is TFhirPeriod) and (TFhirPeriod(value.repeat_.bounds).end_ <> nil) then
+    result := asUTCMax(TFhirPeriod(value.repeat_.bounds).end_Element)
   else if (value.repeat_.count <> '') and (value.eventList.Count > 0) and
     (value.repeat_.frequency <> '') and (value.repeat_.period <> '') and (value.repeat_.periodunits <> UnitsOfTimeNull) then
   begin
@@ -682,7 +668,7 @@ begin
     outcome.text.div_ := ParseXhtml(lang, '<div><p>'+FormatTextToHTML(message)+'</p></div>', xppReject);
     report := outcome.issueList.Append;
     report.severity := issueSeverityError;
-    report.details := message;
+    report.diagnostics := message;
     result := outcome.Link;
   finally
     outcome.free;
@@ -779,6 +765,7 @@ begin
       tr.addTag('td').addTag('b').addText('Severity');
       tr.addTag('td').addTag('b').addText('Location');
       tr.addTag('td').addTag('b').addText('Details');
+      tr.addTag('td').addTag('b').addText('Diagnostics');
       tr.addTag('td').addTag('b').addText('Type');
       if (hasSource) then
         tr.addTag('td').addTag('b').addText('Source');
@@ -798,8 +785,9 @@ begin
              d := true;
            td.addText(s.Value);
         end;
-        tr.addTag('td').addText(issue.details);
-        tr.addTag('td').addText(gen(issue.Code));
+        tr.addTag('td').addText(gen(issue.details));
+        tr.addTag('td').addText(issue.diagnostics);
+        tr.addTag('td').addText(CODES_TFhirIssueType[issue.code]);
         if (hasSource) then
           tr.addTag('td').addText(gen(getExtension(issue, 'http://hl7.org/fhir/tools#issue-source')));
       end;
@@ -849,7 +837,7 @@ begin
 end;
 
 
-procedure addDefineRowToTable(t : TFhirXHtmlNode; c : TFHIRValueSetDefineConcept; indent : integer);
+procedure addDefineRowToTable(t : TFhirXHtmlNode; c : TFhirValueSetCodeSystemConcept; indent : integer);
 var
   tr, td : TFhirXHtmlNode;
   s : string;
@@ -894,11 +882,11 @@ var
   i : integer;
 begin
   p := x.addTag('p');
-  p.addText('This value set defines it''s own terms in the system '+vs.Define.System);
+  p.addText('This value set defines it''s own terms in the system '+vs.CodeSystem.System);
   t := x.addTag('table');
   addTableHeaderRowStandard(t);
-  for i := 0 to vs.Define.ConceptList.Count - 1 do
-    addDefineRowToTable(t, vs.Define.ConceptList[i], 0);
+  for i := 0 to vs.CodeSystem.ConceptList.Count - 1 do
+    addDefineRowToTable(t, vs.CodeSystem.ConceptList[i], 0);
 end;
 
 
@@ -941,7 +929,7 @@ begin
       h.addText(vs.Name);
       p := x.addTag('p');
       p.addText(vs.Description);
-      if (vs.Define <> nil) then
+      if (vs.CodeSystem <> nil) then
         generateDefinition(x, vs);
       if (vs.Compose <> nil) then
         generateComposition(x, vs);
@@ -1145,9 +1133,9 @@ end;
     if (e :=:= nil) then
       return nil;
     vs : TFHIRValueSet := (ValueSet) e.Resource;
-    if (vs.Define :=:= nil) then
+    if (vs.CodeSystem :=:= nil) then
       return nil;
-    for (ValueSetDefineConceptComponent c : vs.Define.Concept) begin
+    for (ValueSetDefineConceptComponent c : vs.CodeSystem.Concept) begin
       ValueSetDefineConceptComponent v := getConceptForCode(c, code);   
       if (v <> nil) then
         return v;
@@ -1183,7 +1171,7 @@ end;
 
   private boolean codeExistsInValueSet(AtomEntry cs, String code) begin
     vs : TFHIRValueSet := (ValueSet) cs.Resource;
-    for (ValueSetDefineConceptComponent c : vs.Define.Concept) begin
+    for (ValueSetDefineConceptComponent c : vs.CodeSystem.Concept) begin
       if (inConcept(code, c)) then
         return true;
     end;
@@ -1210,7 +1198,7 @@ end;
 { TFHIROperationOutcomeHelper }
 
 
-function TFHIROperationOutcomeHelper.error(source, typeCode, path: string; test: boolean; msg: string): boolean;
+function TFHIROperationOutcomeHelper.error(source : String; typeCode : TFhirIssueType; path: string; test: boolean; msg: string): boolean;
 var
   issue : TFhirOperationOutcomeIssue;
   ex : TFhirExtension;
@@ -1220,13 +1208,8 @@ begin
     issue := TFhirOperationOutcomeIssue.create;
     try
       issue.severity := IssueSeverityError;
-      issue.code := TFhirCodeableConcept.create;
-      with issue.code.codingList.Append do
-      begin
-        system := 'http://hl7.org/fhir/issue-type';
-        code := typeCode;
-      end;
-      issue.details := msg;
+      issue.code := typeCode;
+      issue.diagnostics := msg;
       issue.locationList.Append.value := path;
       ex := issue.ExtensionList.Append;
       ex.url := 'http://hl7.org/fhir/tools#issue-source';
@@ -1257,7 +1240,7 @@ begin
     result := result or (issueList[i].severity in [IssueSeverityFatal, IssueSeverityError]);
 end;
 
-function TFHIROperationOutcomeHelper.hint(source, typeCode, path: string; test: boolean; msg: string): boolean;
+function TFHIROperationOutcomeHelper.hint(source : String; typeCode : TFhirIssueType; path: string; test: boolean; msg: string): boolean;
 var
   issue : TFhirOperationOutcomeIssue;
   ex : TFhirExtension;
@@ -1267,13 +1250,8 @@ begin
     issue := TFhirOperationOutcomeIssue.create;
     try
       issue.severity := IssueSeverityInformation;
-      issue.code := TFhirCodeableConcept.create;
-      with issue.code.codingList.Append do
-      begin
-        system := 'http://hl7.org/fhir/issue-type';
-        code := typeCode;
-      end;
-      issue.details := msg;
+      issue.code := typeCode;
+      issue.diagnostics := msg;
       issue.locationList.Append.value := path;
       ex := issue.ExtensionList.Append;
       ex.url := 'http://hl7.org/fhir/tools#issue-source';
@@ -1287,7 +1265,7 @@ begin
   result := test;
 end;
 
-function TFHIROperationOutcomeHelper.rule(level: TFhirIssueSeverity; source, typeCode, path: string; test: boolean; msg: string): boolean;
+function TFHIROperationOutcomeHelper.rule(level: TFhirIssueSeverity; source : String; typeCode : TFhirIssueType; path: string; test: boolean; msg: string): boolean;
 var
   issue : TFhirOperationOutcomeIssue;
   ex : TFhirExtension;
@@ -1297,13 +1275,8 @@ begin
     issue := TFhirOperationOutcomeIssue.create;
     try
       issue.severity := level;
-      issue.code := TFhirCodeableConcept.create;
-      with issue.code.codingList.Append do
-      begin
-        system := 'http://hl7.org/fhir/issue-type';
-        code := typeCode;
-      end;
-      issue.details := msg;
+      issue.code := typeCode;
+      issue.diagnostics := msg;
       issue.locationList.Append.value := path;
       ex := issue.ExtensionList.Append;
       ex.url := 'http://hl7.org/fhir/tools#issue-source';
@@ -1317,7 +1290,7 @@ begin
   result := test;
 end;
 
-function TFHIROperationOutcomeHelper.warning(source, typeCode, path: string; test: boolean; msg: string): boolean;
+function TFHIROperationOutcomeHelper.warning(source : String; typeCode : TFhirIssueType; path: string; test: boolean; msg: string): boolean;
 var
   issue : TFhirOperationOutcomeIssue;
   ex : TFhirExtension;
@@ -1327,13 +1300,8 @@ begin
     issue := TFhirOperationOutcomeIssue.create;
     try
       issue.severity := IssueSeverityWarning;
-      issue.code := TFhirCodeableConcept.create;
-      with issue.code.codingList.Append do
-      begin
-        system := 'http://hl7.org/fhir/issue-type';
-        code := typeCode;
-      end;
-      issue.details := msg;
+      issue.code := typeCode;
+      issue.diagnostics := msg;
       issue.locationList.Append.value := path;
       ex := issue.ExtensionList.Append;
       ex.url := 'http://hl7.org/fhir/tools#issue-source';
@@ -1643,18 +1611,6 @@ begin
   result := codeSystem;
 end;
 
-{ TFhirConceptMapElementMapHelper }
-
-function TFhirConceptMapElementMapHelper.systemObject: TFhirUri;
-begin
-  result := codeSystemElement;
-end;
-
-function TFhirConceptMapElementMapHelper.system: String;
-begin
-  result := codeSystem;
-end;
-
 { TFhirConceptMapHelper }
 
 function TFhirConceptMapHelper.conceptList: TFhirConceptMapElementList;
@@ -1689,18 +1645,6 @@ begin
     result := TFhirUri(target).value
   else
     result := TFhirReference(target).reference
-end;
-
-{ TFhirConceptMapElementDependsOnHelper }
-
-function TFhirConceptMapElementDependsOnHelper.conceptObject: TFhirUri;
-begin
-  result := elementElement;
-end;
-
-function TFhirConceptMapElementDependsOnHelper.concept: String;
-begin
-  result := element;
 end;
 
 
@@ -2168,8 +2112,8 @@ var
 begin
   b := TAdvStringBuilder.Create;
   try
-    if define <> nil then
-      b.Append(csName(define.system));
+    if codeSystem <> nil then
+      b.Append(csName(codeSystem.system));
     if (compose <> nil) then
       for comp in compose.includeList do
         b.Append(csName(comp.system));
@@ -2247,6 +2191,16 @@ begin
     raise Exception.Create('Type '+t.className+' not handled yet');
 end;
 
+
+{ TFhirElementDefinitionTypeHelper }
+
+function TFhirElementDefinitionTypeHelper.GetProfile: String;
+begin
+  if profileList.Count = 1 then
+    result := profileList[0].value
+  else
+    result := '';
+end;
 
 end.
 

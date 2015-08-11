@@ -1214,10 +1214,10 @@ Header(Session, FBaseURL, lang)+
         if (links <> nil) and (links.Matches['z-edit-src'] <> '') then
           s.append('. Edit this as <a href="'+patchToWeb(links.Matches['z-edit-src'])+'?srcformat=xml">XML</a> or <a href="'+patchToWeb(links.Matches['z-edit-src'])+'?srcformat=json">JSON</a>');
         if (links <> nil) and (links.Matches['edit-form'] <> '') then
-          if (oResource is TFHIRQuestionnaireAnswers) then
+          if (oResource is TFHIRQuestionnaireResponse) then
           begin
-            if (TFHIRQuestionnaireAnswers(oResource).questionnaire <> nil) then
-              s.append('. <a href="'+patchToWeb(links.Matches['edit-form'])+'">Edit this Resource</a> (or <a href="'+TFHIRQuestionnaireAnswers(oResource).questionnaire.reference+'">see the questionnaire</a>)')
+            if (TFHIRQuestionnaireResponse(oResource).questionnaire <> nil) then
+              s.append('. <a href="'+patchToWeb(links.Matches['edit-form'])+'">Edit this Resource</a> (or <a href="'+TFHIRQuestionnaireResponse(oResource).questionnaire.reference+'">see the questionnaire</a>)')
           end
           else
             s.append('. <a href="'+patchToWeb(links.Matches['edit-form'])+'">Edit this Resource</a> (or <a href="'+links.Matches['edit-form']+'">see resources underlying that</a>)');
@@ -1346,10 +1346,10 @@ end;
 //
 //        {$IFNDEF FHIR-DSTU}
 //        if e.links.GetRel('edit-form') <> '' then
-//          if (e.resource is TFHIRQuestionnaireAnswers) then
+//          if (e.resource is TFHIRQuestionnaireResponse) then
 //          begin
-//            if (TFHIRQuestionnaireAnswers(e.resource).questionnaire <> nil) then
-//              s.append(' <a href="'+patchToWeb(e.links.GetRel('edit-form'))+'">Edit this Resource</a> (or <a href="'+TFHIRQuestionnaireAnswers(e.resource).questionnaire.reference+'">see the questionnaire</a>)')
+//            if (TFHIRQuestionnaireResponse(e.resource).questionnaire <> nil) then
+//              s.append(' <a href="'+patchToWeb(e.links.GetRel('edit-form'))+'">Edit this Resource</a> (or <a href="'+TFHIRQuestionnaireResponse(e.resource).questionnaire.reference+'">see the questionnaire</a>)')
 //          end
 //          else
 //            s.append(' <a href="'+patchToWeb(e.links.GetRel('edit-form'))+'">Edit this Resource</a> (or just see <a href="'+e.links.GetRel('edit-form')+'">the Questionnaire</a>)');
@@ -1417,7 +1417,7 @@ end;
 
 
 const
-  TYPE_TITLE : Array[TFhirBundleType] of String = ('', 'Document', 'Message', 'Transaction', 'Trnsaction Response', 'History Record', 'Search Results', 'Resource Collection');
+  TYPE_TITLE : Array[TFhirBundleType] of String = ('', 'Document', 'Message', 'Transaction', 'Trnsaction Response', 'Batch', 'Batch Response', 'History Record', 'Search Results', 'Resource Collection');
 
 {
 procedure TFHIRXhtmlComposer.Compose(stream: TStream; oMeta: TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
@@ -1594,10 +1594,10 @@ Header(Session, FBaseURL, lang)+
           s.append(' Edit this as <a href="'+patchToWeb(e.tags['z-edit-src'])+'?srcformat=xml">XML</a> or <a href="'+patchToWeb(e.tags['z-edit-src'])+'?srcformat=json">JSON</a>.');
 
         if e.tags['edit-form'] <> '' then
-          if (e.resource is TFHIRQuestionnaireAnswers) then
+          if (e.resource is TFHIRQuestionnaireResponse) then
           begin
-            if (TFHIRQuestionnaireAnswers(e.resource).questionnaire <> nil) then
-              s.append(' <a href="'+patchToWeb(e.tags['edit-form'])+'">Edit this Resource</a> (or <a href="'+TFHIRQuestionnaireAnswers(e.resource).questionnaire.reference+'">see the questionnaire</a>)')
+            if (TFHIRQuestionnaireResponse(e.resource).questionnaire <> nil) then
+              s.append(' <a href="'+patchToWeb(e.tags['edit-form'])+'">Edit this Resource</a> (or <a href="'+TFHIRQuestionnaireResponse(e.resource).questionnaire.reference+'">see the questionnaire</a>)')
           end
           else
             s.append(' <a href="'+patchToWeb(e.tags['edit-form'])+'">Edit this Resource</a> (or just see <a href="'+e.tags['edit-form']+'">the Questionnaire</a>)');

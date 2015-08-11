@@ -322,8 +322,8 @@ begin
               op := TFhirOperationOutcome(comp.resource);
               if (op.text <> nil) and (op.text.div_ <> nil) then
                 Raise EFHIRClientException.create(FhirHtmlToText(op.text.div_), comp.resource.link as TFhirOperationOutcome)
-              else if (op.issueList.Count > 0) and (op.issueList[0].details <> '') then
-                Raise EFHIRClientException.create(op.issueList[0].details, comp.resource.link as TFhirOperationOutcome)
+              else if (op.issueList.Count > 0) and (op.issueList[0].diagnostics <> '') then
+                Raise EFHIRClientException.create(op.issueList[0].diagnostics, comp.resource.link as TFhirOperationOutcome)
               else
                 raise exception.Create(cnt)
             end

@@ -63,7 +63,44 @@ public class ValueSetValidator extends BaseValidator {
     this.context = context;
     this.fixups = fixups;
     this.styleExemptions = styleExemptions;
-  }
+    codeSystems.add("http://snomed.info/sct");
+    codeSystems.add("http://www.nlm.nih.gov/research/umls/rxnorm");
+    codeSystems.add("http://loinc.org");
+    codeSystems.add("http://unitsofmeasure.org");
+    codeSystems.add("http://ncimeta.nci.nih.gov");
+    codeSystems.add("http://www.ama-assn.org/go/cpt");
+    codeSystems.add("http://hl7.org/fhir/ndfrt");
+    codeSystems.add("http://fdasis.nlm.nih.gov");
+    codeSystems.add("http://hl7.org/fhir/sid/ndc");
+    codeSystems.add("http://www2a.cdc.gov/vaccines/");
+    codeSystems.add("iis/iisstandards/vaccines.asp?rpt=cvx");
+    codeSystems.add("urn:iso:std:iso:3166");
+    codeSystems.add("http://www.nubc.org/patient-discharge");
+    codeSystems.add("http://www.radlex.org");
+    codeSystems.add("http://hl7.org/fhir/sid/icd-10");
+    codeSystems.add("http://hl7.org/fhir/sid/icpc2");
+    codeSystems.add("http://www.icd10data.com/icd10pcs");
+    codeSystems.add("http://hl7.org/fhir/sid/icd-9");
+    codeSystems.add("http://hl7.org/fhir/v2/[X](/v)");
+    codeSystems.add("http://hl7.org/fhir/v3/[X]");
+    codeSystems.add("http://www.whocc.no/atc");
+    codeSystems.add("urn:ietf:bcp:47");
+    codeSystems.add("urn:ietf:bcp:13");
+    codeSystems.add("urn:iso:std:iso:11073:10101");
+    codeSystems.add("http://www.genenames.org");
+    codeSystems.add("http://www.ensembl.org");
+    codeSystems.add("http://www.ncbi.nlm.nih.gov/nuccore");
+    codeSystems.add("http://www.ncbi.nlm.nih.gov/clinvar");
+    codeSystems.add("http://sequenceontology.org");
+    codeSystems.add("http://www.hgvs.org/mutnomen");
+    codeSystems.add("http://www.ncbi.nlm.nih.gov/projects/SNP");
+    codeSystems.add("http://cancer.sanger.ac.uk/");
+    codeSystems.add("cancergenome/projects/cosmic");
+    codeSystems.add("http://www.lrg-sequence.org");
+    codeSystems.add("http://www.omim.org");
+    codeSystems.add("http://www.ncbi.nlm.nih.gov/pubmed");
+    codeSystems.add("http://www.pharmgkb.org");
+    codeSystems.add("http://clinicaltrials.gov");  }
 
   public boolean nullVSWord(String wp) {
     return 

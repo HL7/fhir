@@ -87,7 +87,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   private DelphiCodeGenerator defCodeType;
-  private DelphiCodeGenerator defCodeComp;
   private DelphiCodeGenerator defCodeRes;
   private DelphiCodeGenerator defCodeConst;
   private DelphiCodeGenerator prsrCode;
@@ -226,7 +225,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     types.add("TFhirResourceFactory");
     defCodeRes.classImpls.add(factoryImpl.toString());
     defCodeRes.classImpls.add("function TFHIRResourceFactory.makeByName(const name : String) : TFHIRBase;\r\nbegin\r\n  "+factoryByName.toString().substring(7)+"  else\r\n    result := nil;\r\nend;\r\n\r\n");
-    defCodeComp.finish();
     defCodeType.finish();
     defCodeRes.finish();
     defCodeConst.finish();
@@ -290,7 +288,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeRes.start();
     defCodeRes.name = "FHIRResources";
     defCodeRes.comments.add("FHIR v"+version+" generated "+Config.DATE_FORMAT().format(genDate));
-    defCodeRes.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper, FHIRComponents, FHIRComponents_Wrapper, DateAndTime, DateAndTime_Wrapper");
+    defCodeRes.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper, DateAndTime, DateAndTime_Wrapper");
     defCodeRes.uses.add("SysUtils");
     defCodeRes.uses.add("Classes");
     defCodeRes.uses.add("StringSupport");
@@ -301,13 +299,12 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeRes.uses.add("DateAndTime");
     defCodeRes.uses.add("FHIRBase");
     defCodeRes.uses.add("FHIRTypes");
-    defCodeRes.uses.add("FHIRComponents");
 
     defCodeConst = new DelphiCodeGenerator(new FileOutputStream(implDir+"FHIRConstants.pas"));
     defCodeConst.start();
     defCodeConst.name = "FHIRConstants";
     defCodeConst.comments.add("FHIR v"+version+" generated "+Config.DATE_FORMAT().format(genDate));
-    defCodeConst.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper, FHIRComponents, FHIRComponents_Wrapper, FHIRResources, FHIRResources_Wrapper");
+    defCodeConst.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper, FHIRResources, FHIRResources_Wrapper");
     defCodeConst.precomments.add("!ignore ALL_RESOURCE_TYPES");
     defCodeConst.uses.add("SysUtils");
     defCodeConst.uses.add("Classes");
@@ -319,7 +316,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeConst.uses.add("DateAndTime");
     defCodeConst.uses.add("FHIRBase");
     defCodeConst.uses.add("FHIRTypes");
-    defCodeConst.uses.add("FHIRComponents");
     defCodeConst.uses.add("FHIRResources");
 
     defCodeType = new DelphiCodeGenerator(new FileOutputStream(implDir+"FHIRTypes.pas"));
@@ -338,22 +334,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeType.uses.add("EncdDecd");
     defCodeType.uses.add("DateAndTime");
     defCodeType.uses.add("FHIRBase");
-
-    defCodeComp = new DelphiCodeGenerator(new FileOutputStream(implDir+"FHIRComponents.pas"));
-    defCodeComp.start();
-    defCodeComp.name = "FHIRComponents";
-    defCodeComp.comments.add("FHIR v"+version+" generated "+Config.DATE_FORMAT().format(genDate));
-    defCodeComp.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper");
-    defCodeComp.uses.add("SysUtils");
-    defCodeComp.uses.add("Classes");
-    defCodeComp.uses.add("StringSupport");
-    defCodeComp.uses.add("DecimalSupport");
-    defCodeComp.uses.add("AdvBuffers");
-    if (generics)
-      defCodeComp.uses.add("AdvGenerics");
-    defCodeComp.uses.add("DateAndTime");
-    defCodeComp.uses.add("FHIRBase");
-    defCodeComp.uses.add("FHIRTypes");
 
     factoryIntf = new StringBuilder();
     factoryImpl = new StringBuilder();
@@ -3184,7 +3164,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrCode.uses.add("FHIRBase");
     prsrCode.uses.add("FHIRResources");
     prsrCode.uses.add("FHIRConstants");
-    prsrCode.uses.add("FHIRComponents");
     prsrCode.uses.add("FHIRTypes");
     prsrCode.uses.add("MsXmlParser");
     prsrCode.uses.add("XmlBuilder");
