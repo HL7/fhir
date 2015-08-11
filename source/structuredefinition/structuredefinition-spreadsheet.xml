@@ -92,11 +92,11 @@
     <SheetIndex>10</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>11400</WindowHeight>
-  <WindowWidth>22575</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4314,7 +4314,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4430,7 +4429,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A structure must have a base unless it’s type is 'abstract'</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">(f:type/@value = 'abstract') or f:base</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">(f:abstract/@value = 'true') or exists(f:base)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">5</Data><NamedCell
@@ -4440,7 +4439,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If the type is 'extension' then the structure must have context information</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:type/@value = 'extension') or (f:context and f:contextType)</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:constrainedType/@value = 'extension') or (exists(f:context) and exists(f:contextType))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">6</Data><NamedCell
@@ -4450,7 +4449,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A structure must have either a differential, or a snapshot (or both)</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">f:snapshot or f:differential</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">exists(f:snapshot) or exists(f:differential)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">7</Data><NamedCell
@@ -4460,7 +4459,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If the type is Resource or Type, the url has to start with &quot;http://hl7.org/fhir/StructureDefinition/&quot; and the tail must match the name</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:type/@value=('Resource', 'Type')) or f:url/@value=concat('http://hl7.org/fhir/StructureDefinition/', f:name/@value)</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:kind/@value=('resource', 'type')) or f:url/@value=concat('http://hl7.org/fhir/StructureDefinition/', f:name/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">8</Data><NamedCell
@@ -4851,6 +4850,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4871,7 +4871,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

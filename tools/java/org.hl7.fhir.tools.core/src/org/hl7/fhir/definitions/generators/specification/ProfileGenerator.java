@@ -180,6 +180,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
+    p.setBase("Element");
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());

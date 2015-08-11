@@ -145,7 +145,7 @@ public class SchematronGenerator  extends TextStreamWriter {
         c++;
     }
     if (c > 0) {
-	    ln_i("<sch:rule context=\""+path+"\">");
+	    ln_i("<sch:rule context=\"//"+path+"\">");
 	    for (Invariant inv : ed.getInvariants().values()) {
 	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
 	        if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))

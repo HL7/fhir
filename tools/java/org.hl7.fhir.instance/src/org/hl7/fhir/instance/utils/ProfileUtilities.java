@@ -1096,7 +1096,10 @@ public class ProfileUtilities {
       boolean hasDef = element != null;
       boolean ext = false;
       if (s.equals("extension") || s.equals("modifierExtension")) { 
-        row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
+        if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(pkp, element.getType().get(0).getProfile().get(0).getValue())) 
+          row.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+        else
+          row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
         ext = true;
       } else if (!hasDef || element.getType().size() == 0)
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
@@ -1199,6 +1202,14 @@ public class ProfileUtilities {
     }
   }
 
+
+
+  private boolean extensionIsComplex(ProfileKnowledgeProvider pkp, String value) {
+    StructureDefinition ext = context.getExtensionDefinitions().get(value);
+    if (ext == null)
+      return false;
+    return ext.getSnapshot().getElement().size() > 5;
+  }
 
 
   private String getRowColor(ElementDefinition element) {
