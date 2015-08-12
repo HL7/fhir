@@ -386,7 +386,7 @@ public class ToolsHelper {
       Resource r = xp.parse(in);
     	System.err.print(".");
       JsonParser jp = new JsonParser();
-      FileOutputStream out = new FileOutputStream(source);
+      FileOutputStream out = new FileOutputStream(tmp);
       jp.setOutputStyle(OutputStyle.PRETTY);
       jp.compose(out, r);
       out.close();
