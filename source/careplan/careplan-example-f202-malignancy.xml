@@ -4,11 +4,11 @@
   <contained>
     <Medication>
       <id value="doce"/>
-      <name value="Docetaxel"/>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="108806006"/>
+          <display value="Docetaxel"/>
         </coding>
       </code>
     </Medication>
@@ -16,11 +16,11 @@
   <contained>
     <Medication>
       <id value="cisp"/>
-      <name value="Cisplatin"/>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="57066004"/>
+          <display value="Cisplatin"/>
         </coding>
       </code>
     </Medication>
@@ -28,11 +28,11 @@
   <contained>
     <Medication>
       <id value="fluo"/>
-      <name value="5-Fluorouracil"/>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="3127006"/>
+          <display value="Fluorouracil"/>
         </coding>
       </code>
     </Medication>
@@ -41,7 +41,9 @@
     <Medication>
       <id value="tpf"/>
       <!--TPF consists of Docetaxel, Cisplatin and Fluorouracil-->
-      <name value="TPF"/>
+      <code>
+        <text value="TPF"/>
+      </code>
       <product>
         <ingredient>
           <item>
