@@ -371,7 +371,9 @@ public class ToolsHelper {
   }
 
   public void testRoundTrip(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  	System.out.println("Round trip from "+rootDir+" to "+tmpDir+":"+Integer.toString(names.size())+" files");
     for (String n : names) {
+    	System.err.println("  "+n);
       String source = rootDir + n + ".xml";
       // String tmpJson = tmpDir + n + ".json";
       String dest = tmpDir + n.replace(File.separator, "-") + ".java.xml";
