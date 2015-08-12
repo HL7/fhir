@@ -281,7 +281,7 @@ var
 begin
   for s in names do
     try
-      roundtrip(src+s+'.xml', dst+s+'.pascal.xml');
+      roundtrip(src+s+'.xml', dst+s.Replace('/', '_')+'.pascal.xml');
     except
       on e : exception do
         raise Exception.Create('Error Processing '+s+': '+e.message);

@@ -404,6 +404,8 @@ public boolean doesCompile() {
     List<String> options = new ArrayList<String>();
     options.add("-encoding");
     options.add("UTF-8");
+    options.add("-target");
+    options.add("1.6");
     StringBuilder path= new StringBuilder();
     for (String n : paths)
       path.append(File.pathSeparator+n);
