@@ -33,6 +33,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
@@ -370,7 +371,8 @@ public class ToolsHelper {
     }
   }
 
-  public void testRoundTrip(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void testRoundTrip(String rootDir, String tmpDir, Collection<String> names) throws Throwable {
+		try {
   	System.err.println("Round trip from "+rootDir+" to "+tmpDir+":"+Integer.toString(names.size())+" files");
     for (String n : names) {
     	System.err.print("  "+n);
@@ -391,17 +393,23 @@ public class ToolsHelper {
     	System.err.print(".");
       // TextFile.stringToFile(new String(json.toByteArray()), tmpJson);
       
-      r = jp.parse(new ByteArrayInputStream(json.toByteArray()));
+      byte[] ba = json.toByteArray();
       json = null;
+    	System.err.print(",");
+  		r = jp.parse(new ByteArrayInputStream(ba));
     	System.err.print(".");
       FileOutputStream s = new FileOutputStream(dest);
       new XmlParser().compose(s, r, true);
     	System.err.println("!");
       s.close();
     }
+		} catch (Throwable e) {
+			System.err.println("Error: "+e.getMessage());
+			throw e;
+	  }
   }
 
-  private void executeTest(String[] args) throws Exception {
+  private void executeTest(String[] args) throws Throwable {
   	try {
   		@SuppressWarnings("unchecked")
   		List<String> lines = FileUtils.readLines(new File(args[1]), "UTF-8");
