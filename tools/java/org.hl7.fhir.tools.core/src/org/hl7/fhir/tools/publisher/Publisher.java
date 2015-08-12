@@ -4659,7 +4659,8 @@ public class Publisher implements URIResolver {
 
   private void validationProcess() throws Exception {
     validateXml();
-    roundTrip();
+    if (web)
+      roundTrip();
   }
   
   private void validateXml() throws Exception {
