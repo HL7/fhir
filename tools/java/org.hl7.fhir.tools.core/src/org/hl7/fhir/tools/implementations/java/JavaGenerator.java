@@ -865,7 +865,11 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
   public void test(FolderManager folders, Collection<String> names) throws Exception {
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
-      t.testRoundTrip(folders.dstDir, folders.tmpDir, names);
+      try {
+        t.testRoundTrip(folders.dstDir, folders.tmpDir, names);
+      } catch (Throwable e) {
+        throw new Exception(e);
+      }
     } else {
       System.out.println("Roundtrip: "+names);
       StringBuilder b = new StringBuilder();
