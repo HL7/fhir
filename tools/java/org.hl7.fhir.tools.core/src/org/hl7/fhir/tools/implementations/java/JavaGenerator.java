@@ -862,6 +862,7 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
       ToolsHelper t = new ToolsHelper();
       t.testRoundTrip(folders.dstDir, folders.tmpDir, names);
     } else {
+      System.out.println("Roundtrip: "+names);
       StringBuilder b = new StringBuilder();
       b.append(folders.dstDir);
       b.append("\r\n");
