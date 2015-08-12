@@ -402,6 +402,8 @@ public class ToolsHelper {
       new XmlParser().compose(s, r, true);
     	System.err.println("!");
       s.close();
+      r = null;
+      System.gc();
     }
 		} catch (Throwable e) {
 			System.err.println("Error: "+e.getMessage());
