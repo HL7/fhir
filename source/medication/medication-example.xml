@@ -9,7 +9,6 @@
     <div xmlns="http://www.w3.org/1999/xhtml">123456789: Penicillin VK oral suspension 125mg/5ml</div>
   </text>
    
-  <name value="Penicillin VK oral suspension 125mg/5ml"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>

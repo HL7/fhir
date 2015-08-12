@@ -22,11 +22,11 @@
   <contained>
     <Medication>
       <id value="2"/>
-      <name value="ACETAMINOPHEN"/>
       <code>
         <coding>
           <system value="urn:oid:2.16.840.1.113883.6.73"/>
           <code value="N02BE01"/>
+          <display value="paracetamol"/>
         </coding>
       </code>
       <product>
