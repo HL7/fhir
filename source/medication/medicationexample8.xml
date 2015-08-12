@@ -9,8 +9,10 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Hydrocortisone 1%, Salicyclic Acid 5% in Glaxal Base</div>
   </text>
-   
-  <name value="Hydrocortisone 1%, Salicyclic Acid 5% in Glaxal Base"/>
+
+  <code>
+    <text value="Hydrocortisone 1%, Salicyclic Acid 5% in Glaxal Base"/>
+  </code>
   <isBrand value="false"/>
   <kind value="product"/>
   <product>

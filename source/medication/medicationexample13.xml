@@ -11,8 +11,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">3 ML Insulin, Aspart, Human 100 UNT/ML Prefilled Syringe [NovoLog]</div>
   </text>
    
-  <name value="3 ML Insulin, Aspart, Human 100 UNT/ML Prefilled Syringe [NovoLog]"/>
-  <code>
+   <code>
     <coding>
       <system value="http://purl.bioontology.org/ontology/RXNORM/847265"/>
       <code value="847265"/>

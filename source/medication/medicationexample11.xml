@@ -11,8 +11,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Novo-Prednisone</div>
   </text>
    
-  <name value="Novo-Prednisone"/>
-  <code>
+   <code>
     <coding>
       <system value="http://hc-sc.gc.ca"/>
       <code value="00021695"/>

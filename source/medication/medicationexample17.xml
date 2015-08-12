@@ -2,7 +2,6 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medication.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="medexample017" />
-    <name value="Gentamycin "/>
     <code>
       <coding>
         <system value="http://snomed.info/sct"/>

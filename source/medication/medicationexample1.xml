@@ -3,12 +3,14 @@
  xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="medexample001"/>
 
-  <!-- this example includes the <name> element only -->
+  <!-- this example includes the code text element only -->
   
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Amoxicillin 250mg/5ml Suspension</div>
   </text>
    
-  <name value="Amoxicillin 250mg/5ml Suspension"/>
+  <code>
+    <text value="Amoxicillin 250mg/5ml Suspension"/>
+  </code>
 </Medication>
