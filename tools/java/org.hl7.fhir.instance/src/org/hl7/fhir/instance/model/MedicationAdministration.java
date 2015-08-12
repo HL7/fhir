@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -200,11 +200,11 @@ public class MedicationAdministration extends DomainResource {
         /**
          * Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.
          */
-        @Child(name = "rate", type = {Ratio.class}, order=6, min=0, max=1)
+        @Child(name = "rate", type = {Ratio.class, Quantity.class, Range.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Dose quantity per unit of time", formalDefinition="Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity." )
-        protected Ratio rate;
+        protected Type rate;
 
-        private static final long serialVersionUID = -638542361L;
+        private static final long serialVersionUID = -1465497586L;
 
     /*
      * Constructor
@@ -361,13 +361,47 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #rate} (Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.)
          */
-        public Ratio getRate() { 
-          if (this.rate == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.rate");
-            else if (Configuration.doAutoCreate())
-              this.rate = new Ratio(); // cc
+        public Type getRate() { 
           return this.rate;
+        }
+
+        /**
+         * @return {@link #rate} (Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.)
+         */
+        public Ratio getRateRatio() throws Exception { 
+          if (!(this.rate instanceof Ratio))
+            throw new Exception("Type mismatch: the type Ratio was expected, but "+this.rate.getClass().getName()+" was encountered");
+          return (Ratio) this.rate;
+        }
+
+        public boolean hasRateRatio() throws Exception { 
+          return this.rate instanceof Ratio;
+        }
+
+        /**
+         * @return {@link #rate} (Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.)
+         */
+        public Quantity getRateQuantity() throws Exception { 
+          if (!(this.rate instanceof Quantity))
+            throw new Exception("Type mismatch: the type Quantity was expected, but "+this.rate.getClass().getName()+" was encountered");
+          return (Quantity) this.rate;
+        }
+
+        public boolean hasRateQuantity() throws Exception { 
+          return this.rate instanceof Quantity;
+        }
+
+        /**
+         * @return {@link #rate} (Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.)
+         */
+        public Range getRateRange() throws Exception { 
+          if (!(this.rate instanceof Range))
+            throw new Exception("Type mismatch: the type Range was expected, but "+this.rate.getClass().getName()+" was encountered");
+          return (Range) this.rate;
+        }
+
+        public boolean hasRateRange() throws Exception { 
+          return this.rate instanceof Range;
         }
 
         public boolean hasRate() { 
@@ -377,7 +411,7 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @param value {@link #rate} (Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.)
          */
-        public MedicationAdministrationDosageComponent setRate(Ratio value) { 
+        public MedicationAdministrationDosageComponent setRate(Type value) { 
           this.rate = value;
           return this;
         }
@@ -389,7 +423,7 @@ public class MedicationAdministration extends DomainResource {
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.   E.g. topical, intravenous, etc.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.", 0, java.lang.Integer.MAX_VALUE, rate));
+          childrenList.add(new Property("rate[x]", "Ratio|Quantity|Range", "Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.", 0, java.lang.Integer.MAX_VALUE, rate));
         }
 
       public MedicationAdministrationDosageComponent copy() {
@@ -487,14 +521,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The original request, instruction or authority to perform the administration.
      */
-    @Child(name = "prescription", type = {MedicationPrescription.class}, order=5, min=0, max=1)
+    @Child(name = "prescription", type = {MedicationOrder.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Order administration performed against", formalDefinition="The original request, instruction or authority to perform the administration." )
     protected Reference prescription;
 
     /**
      * The actual object that is the target of the reference (The original request, instruction or authority to perform the administration.)
      */
-    protected MedicationPrescription prescriptionTarget;
+    protected MedicationOrder prescriptionTarget;
 
     /**
      * Set this to true if the record is saying that the medication was NOT administered.
@@ -557,7 +591,7 @@ public class MedicationAdministration extends DomainResource {
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
     protected MedicationAdministrationDosageComponent dosage;
 
-    private static final long serialVersionUID = 1854331183L;
+    private static final long serialVersionUID = -320745165L;
 
   /*
    * Constructor
@@ -821,19 +855,19 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #prescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationPrescription getPrescriptionTarget() { 
+    public MedicationOrder getPrescriptionTarget() { 
       if (this.prescriptionTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.prescription");
         else if (Configuration.doAutoCreate())
-          this.prescriptionTarget = new MedicationPrescription(); // aa
+          this.prescriptionTarget = new MedicationOrder(); // aa
       return this.prescriptionTarget;
     }
 
     /**
      * @param value {@link #prescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationAdministration setPrescriptionTarget(MedicationPrescription value) { 
+    public MedicationAdministration setPrescriptionTarget(MedicationOrder value) { 
       this.prescriptionTarget = value;
       return this;
     }
@@ -1194,7 +1228,7 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal to whom the medication was given.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("practitioner", "Reference(Practitioner)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, practitioner));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("prescription", "Reference(MedicationPrescription)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
+        childrenList.add(new Property("prescription", "Reference(MedicationOrder)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
         childrenList.add(new Property("reasonGiven", "CodeableConcept", "A code indicating why the medication was given.", 0, java.lang.Integer.MAX_VALUE, reasonGiven));
@@ -1287,7 +1321,7 @@ public class MedicationAdministration extends DomainResource {
     return ResourceType.MedicationAdministration;
    }
 
-  @SearchParamDefinition(name="medication", path="MedicationAdministration.medicationReference", description="Return administrations of this medication", type="reference" )
+  @SearchParamDefinition(name="medication", path="MedicationAdministration.medicationReference", description="Return administrations of this medication resource", type="reference" )
   public static final String SP_MEDICATION = "medication";
   @SearchParamDefinition(name="effectivetime", path="MedicationAdministration.effectiveTime[x]", description="Date administration happened (or did not happen)", type="date" )
   public static final String SP_EFFECTIVETIME = "effectivetime";
@@ -1303,6 +1337,8 @@ public class MedicationAdministration extends DomainResource {
   public static final String SP_DEVICE = "device";
   @SearchParamDefinition(name="notgiven", path="MedicationAdministration.wasNotGiven", description="Administrations that were not made", type="token" )
   public static final String SP_NOTGIVEN = "notgiven";
+  @SearchParamDefinition(name="code", path="MedicationAdministration.medicationCodeableConcept", description="Return administrations of this medication code", type="token" )
+  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="encounter", path="MedicationAdministration.encounter", description="Return administrations that share this encounter", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="identifier", path="MedicationAdministration.identifier", description="Return administrations with this external identity", type="token" )

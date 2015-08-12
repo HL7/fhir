@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -3403,7 +3403,7 @@ public class Claim extends DomainResource {
     /**
      * Prescription to support the dispensing of Pharmacy or Vision products.
      */
-    @Child(name = "prescription", type = {MedicationPrescription.class, VisionPrescription.class}, order=13, min=0, max=1)
+    @Child(name = "prescription", type = {MedicationOrder.class, VisionPrescription.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Prescription", formalDefinition="Prescription to support the dispensing of Pharmacy or Vision products." )
     protected Reference prescription;
 
@@ -3415,14 +3415,14 @@ public class Claim extends DomainResource {
     /**
      * Original prescription to support the dispensing of pharmacy services, medications or products.
      */
-    @Child(name = "originalPrescription", type = {MedicationPrescription.class}, order=14, min=0, max=1)
+    @Child(name = "originalPrescription", type = {MedicationOrder.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription to support the dispensing of pharmacy services, medications or products." )
     protected Reference originalPrescription;
 
     /**
      * The actual object that is the target of the reference (Original prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    protected MedicationPrescription originalPrescriptionTarget;
+    protected MedicationOrder originalPrescriptionTarget;
 
     /**
      * The party to be reimbursed for the services.
@@ -3532,7 +3532,7 @@ public class Claim extends DomainResource {
     @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
     protected List<MissingTeethComponent> missingTeeth;
 
-    private static final long serialVersionUID = 1120349447L;
+    private static final long serialVersionUID = 4272227L;
 
   /*
    * Constructor
@@ -4115,19 +4115,19 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    public MedicationPrescription getOriginalPrescriptionTarget() { 
+    public MedicationOrder getOriginalPrescriptionTarget() { 
       if (this.originalPrescriptionTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.originalPrescription");
         else if (Configuration.doAutoCreate())
-          this.originalPrescriptionTarget = new MedicationPrescription(); // aa
+          this.originalPrescriptionTarget = new MedicationOrder(); // aa
       return this.originalPrescriptionTarget;
     }
 
     /**
      * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    public Claim setOriginalPrescriptionTarget(MedicationPrescription value) { 
+    public Claim setOriginalPrescriptionTarget(MedicationOrder value) { 
       this.originalPrescriptionTarget = value;
       return this;
     }
@@ -4701,8 +4701,8 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("fundsReserve", "Coding", "In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.", 0, java.lang.Integer.MAX_VALUE, fundsReserve));
         childrenList.add(new Property("enterer", "Reference(Practitioner)", "Person who created the invoice/claim/pre-determination or pre-authorization.", 0, java.lang.Integer.MAX_VALUE, enterer));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));
-        childrenList.add(new Property("prescription", "Reference(MedicationPrescription|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
-        childrenList.add(new Property("originalPrescription", "Reference(MedicationPrescription)", "Original prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
+        childrenList.add(new Property("prescription", "Reference(MedicationOrder|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
+        childrenList.add(new Property("originalPrescription", "Reference(MedicationOrder)", "Original prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
         childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("referral", "Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
         childrenList.add(new Property("diagnosis", "", "Ordered list of patient diagnosis for which care is sought.", 0, java.lang.Integer.MAX_VALUE, diagnosis));

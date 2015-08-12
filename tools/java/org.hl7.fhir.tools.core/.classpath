@@ -19,7 +19,6 @@
 	<classpathentry kind="lib" path="../imports/svnkit-javahl16-1.8.5.jar"/>
 	<classpathentry kind="lib" path="../imports/antlr-runtime-3.4.jar"/>
 	<classpathentry kind="lib" path="../imports/gson-2.3.jar"/>
-	<classpathentry kind="lib" path="../imports/Saxon-B-9.0.jar"/>
 	<classpathentry kind="lib" path="../imports/httpclient-4.2.3.jar"/>
 	<classpathentry kind="lib" path="../imports/httpcore-4.2.2.jar"/>
 	<classpathentry kind="lib" path="../imports/httpmime-4.2.3.jar"/>
@@ -28,10 +27,9 @@
 	<classpathentry kind="lib" path="../imports/ST4-4.0.7.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="../imports/poi-3.10.1.jar"/>
-	<classpathentry kind="lib" path="../imports/saxon-dom-8.7.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-io-1.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.rdf"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.implementation"/>
-	<classpathentry kind="lib" path="../imports/jazzy-core-0.5.2.jar"/>
+	<classpathentry kind="lib" path="../imports/Saxon-HE-9.5.1-5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

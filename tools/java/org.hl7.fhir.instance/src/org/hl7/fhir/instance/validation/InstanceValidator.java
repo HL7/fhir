@@ -1019,12 +1019,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private void bpCheck(List<ValidationMessage> errors, IssueType invalid, int line, int col, String literalPath, boolean test, String message) {
+  	if (bpWarnings != null) {
     switch (bpWarnings) {
     case Error: rule(errors, invalid, line, col, literalPath, test, message);
     case Warning: warning(errors, invalid, line, col, literalPath, test, message);
     case Hint: hint(errors, invalid, line, col, literalPath, test, message);
     default: // do nothing
     }
+  }
   }
   
   private void validateElement(List<ValidationMessage> errors, StructureDefinition profile, ElementDefinition definition, StructureDefinition cprofile, ElementDefinition context, WrapperElement element, String actualType, NodeStack stack) throws Exception {

@@ -381,7 +381,7 @@ public class QuestionnaireBuilder {
 	      result.add(new TypeRefComponent().setCode("CodeableConcept"));
 	      result.add(new TypeRefComponent().setCode("Attachment"));
 	      result.add(new TypeRefComponent().setCode("Identifier"));
-	      result.add(new TypeRefComponent().setCode("MeasuredQuantity"));
+	      result.add(new TypeRefComponent().setCode("Quantity"));
 	      result.add(new TypeRefComponent().setCode("Range"));
 	      result.add(new TypeRefComponent().setCode("Period"));
 	      result.add(new TypeRefComponent().setCode("Ratio"));
@@ -694,8 +694,8 @@ public class QuestionnaireBuilder {
       addCodingQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Quantity"))
       addQuantityQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("MeasuredQuantity"))
-      addMeasuredQuantityQuestions(group, element, path, answerGroups);
+    else if (t.getCode().equals("SimpleQuantity"))
+      addSimpleQuantityQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
@@ -887,7 +887,7 @@ public class QuestionnaireBuilder {
       addQuestion(group, AnswerFormat.STRING, path, "value", "value:", answerGroups);
     }
 
-    private void addQuantityQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireResponse.GroupComponent> answerGroups) throws Exception {
+    private void addSimpleQuantityQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireResponse.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Quantity");
       addQuestion(group, AnswerFormat.DECIMAL, path, "value", "value:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "units", "units:", answerGroups);
@@ -895,8 +895,8 @@ public class QuestionnaireBuilder {
       addQuestion(group, AnswerFormat.STRING, path, "system", "units system:", answerGroups);
     }
 
-    private void addMeasuredQuantityQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireResponse.GroupComponent> answerGroups) throws Exception {
-      ToolingExtensions.addType(group, "MeasuredQuantity");
+    private void addQuantityQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireResponse.GroupComponent> answerGroups) throws Exception {
+      ToolingExtensions.addType(group, "Quantity");
       addQuestion(group, AnswerFormat.CHOICE, path, "comparator", "comp:", answerGroups, resolveValueSet("http://hl7.org/fhir/vs/quantity-comparator"));
       addQuestion(group, AnswerFormat.DECIMAL, path, "value", "value:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "units", "units:", answerGroups);

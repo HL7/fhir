@@ -19,6 +19,7 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Parameters;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -55,6 +56,7 @@ public class WorkerContext implements NameResolver {
   private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
+  private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
   private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   private String version;
   private List<String> resourceNames = new ArrayList<String>();
@@ -424,6 +426,10 @@ public class WorkerContext implements NameResolver {
       return profiles.get(type.getProfile().get(0).getValue());
     else
       return profiles.get(type.getCode());
+  }
+
+  public Map<String, SearchParameter> getSearchParameters() {
+    return searchParameters;
   }
 
 }

@@ -581,7 +581,7 @@ public class ProfileUtilities {
     List<ElementDefinition> result = new ArrayList<ElementDefinition>();
     for (int i = start; i <= end; i++) {
       String statedPath = context.getElement().get(i).getPath();
-      if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
+      if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() - 2 && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
         result.add(context.getElement().get(i));
       } else if (result.isEmpty()) {
         // System.out.println("ignoring "+statedPath+" in differential of "+profileName);
@@ -1096,6 +1096,9 @@ public class ProfileUtilities {
       boolean hasDef = element != null;
       boolean ext = false;
       if (s.equals("extension") || s.equals("modifierExtension")) { 
+        if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(pkp, element.getType().get(0).getProfile().get(0).getValue())) 
+          row.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+        else
         row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
         ext = true;
       } else if (!hasDef || element.getType().size() == 0)
@@ -1199,6 +1202,14 @@ public class ProfileUtilities {
     }
   }
 
+
+
+  private boolean extensionIsComplex(ProfileKnowledgeProvider pkp, String value) {
+    StructureDefinition ext = context.getExtensionDefinitions().get(value);
+    if (ext == null)
+      return false;
+    return ext.getSnapshot().getElement().size() > 5;
+  }
 
 
   private String getRowColor(ElementDefinition element) {
@@ -1384,7 +1395,7 @@ public class ProfileUtilities {
   }
 
   private boolean isDataType(String value) {
-    return Utilities.existsInList(value, "Identifier", "HumanName", "Address", "ContactPoint", "Timing", "MeasuredQuantity", "Quantity", "Attachment", "Range", 
+    return Utilities.existsInList(value, "Identifier", "HumanName", "Address", "ContactPoint", "Timing", "SimpleQuantity", "Quantity", "Attachment", "Range", 
           "Period", "Ratio", "CodeableConcept", "Coding", "SampledData", "Age", "Distance", "Duration", "Count", "Money");
   }
 

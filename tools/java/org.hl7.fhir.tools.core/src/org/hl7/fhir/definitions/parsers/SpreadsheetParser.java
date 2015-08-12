@@ -1713,10 +1713,10 @@ public class SpreadsheetParser {
 	  String name = sheet.getColumn(row, "Code");
 	  String context = null;
 	  if (Utilities.noString(name))
-	    throw new Exception("No code found on Extension");
+	    throw new Exception("No code found on Extension at "+getLocation(row));
 	  
 	  if (name.contains("."))
-	    throw new Exception("Extension Definition Error: Extension names cannot contain '.': "+name);
+	    throw new Exception("Extension Definition Error: Extension names cannot contain '.': "+name+"  at "+getLocation(row));
 	
 	  ex.setUrl(uri+name);
     ex.setId(tail(ex.getUrl()));

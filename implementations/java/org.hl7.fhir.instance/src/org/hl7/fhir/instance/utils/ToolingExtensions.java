@@ -120,6 +120,16 @@ public class ToolingExtensions {
     }
   }
 
+  public static void addStringExtension(Element e, String url, String content) throws Exception {
+    if (!Utilities.noString(content)) {
+      Extension ex = getExtension(e, url);
+      if (ex != null)
+        ex.setValue(new StringType(content));
+      else
+        e.getExtension().add(Factory.newExtension(url, new StringType(content), true));   
+    }
+  }
+
   public static void addIntegerExtension(DomainResource dr, String url, int value) throws Exception {
     Extension ex = getExtension(dr, url);
     if (ex != null)

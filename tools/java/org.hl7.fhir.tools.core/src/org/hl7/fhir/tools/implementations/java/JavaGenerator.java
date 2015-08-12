@@ -442,13 +442,14 @@ public boolean doesCompile() {
     AddJarToJar(jar, importsDir+sl+"xpp3-1.1.4c.jar", names);
     AddJarToJar(jar, importsDir+sl+"gson-2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-codec-1.9.jar", names);
-    AddJarToJar(jar, importsDir+sl+"Saxon-B-9.0.jar", names);
+//    AddJarToJar(jar, importsDir+sl+"Saxon-B-9.0.jar", names);
+//    AddJarToJar(jar, importsDir+sl+"saxon-dom-8.7.jar", names);
+    AddJarToJar(jar, importsDir+sl+"Saxon-HE-9.5.1-5.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-lang3-3.3.2.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-logging-1.1.1.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);    
     AddJarToJar(jar, importsDir+sl+"httpclient-4.2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"httpcore-4.2.2.jar", names);
-
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl).length(), names);
@@ -471,7 +472,7 @@ public boolean doesCompile() {
     AddJarToJar(jar, importsDir+sl+"gson-2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-codec-1.9.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-io-1.2.jar", names);
-    AddJarToJar(jar, importsDir+sl+"Saxon-B-9.0.jar", names);
+    AddJarToJar(jar, importsDir+sl+"Saxon-HE-9.5.1-5.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-lang3-3.3.2.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-logging-1.1.1.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);    

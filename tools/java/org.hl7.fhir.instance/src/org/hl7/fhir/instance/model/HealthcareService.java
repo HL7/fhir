@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 7, 2015 11:14+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2045,6 +2045,8 @@ public class HealthcareService extends DomainResource {
   public static final String SP_PROGRAMNAME = "programname";
   @SearchParamDefinition(name="characteristic", path="HealthcareService.characteristic", description="One of the HealthcareService's characteristics", type="token" )
   public static final String SP_CHARACTERISTIC = "characteristic";
+  @SearchParamDefinition(name="identifier", path="HealthcareService.identifier", description="External Identifiers for this item", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

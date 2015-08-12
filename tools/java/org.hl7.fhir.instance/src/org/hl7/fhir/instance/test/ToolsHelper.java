@@ -33,6 +33,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
@@ -370,30 +371,46 @@ public class ToolsHelper {
     }
   }
 
-  public void testRoundTrip(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void testRoundTrip(String rootDir, String tmpDir, Collection<String> names) throws Throwable {
+		try {
+  	System.err.println("Round trip from "+rootDir+" to "+tmpDir+":"+Integer.toString(names.size())+" files");
     for (String n : names) {
+    	System.err.print("  "+n);
       String source = rootDir + n + ".xml";
       // String tmpJson = tmpDir + n + ".json";
+      String tmp = tmpDir + n.replace(File.separator, "-") + ".tmp";
       String dest = tmpDir + n.replace(File.separator, "-") + ".java.xml";
       
       FileInputStream in = new FileInputStream(source);
       XmlParser xp = new XmlParser();
       Resource r = xp.parse(in);
+    	System.err.print(".");
       JsonParser jp = new JsonParser();
-      ByteArrayOutputStream json = new ByteArrayOutputStream();
+      FileOutputStream out = new FileOutputStream(tmp);
       jp.setOutputStyle(OutputStyle.PRETTY);
-      jp.compose(json, r);
-      json.close();
-      // TextFile.stringToFile(new String(json.toByteArray()), tmpJson);
+      jp.compose(out, r);
+      out.close();
+      r = null;
+    	System.err.print(".");
       
-      r = jp.parse(new ByteArrayInputStream(json.toByteArray()));
-      FileOutputStream s = new FileOutputStream(dest);
-      new XmlParser().compose(s, r, true);
-      s.close();
+      in = new FileInputStream(tmp);
+    	System.err.print(",");
+  		r = jp.parse(in);
+    	System.err.print(".");
+      out = new FileOutputStream(dest);
+      new XmlParser().compose(out, r, true);
+    	System.err.println("!");
+      out.close();
+      r = null;
+      System.gc();
+    }
+		} catch (Throwable e) {
+			System.err.println("Error: "+e.getMessage());
+			throw e;
     }
   }
 
-  private void executeTest(String[] args) throws Exception {
+  private void executeTest(String[] args) throws Throwable {
   	try {
   		@SuppressWarnings("unchecked")
   		List<String> lines = FileUtils.readLines(new File(args[1]), "UTF-8");

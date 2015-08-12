@@ -12,8 +12,8 @@
     <dependency org="de.regnis.q.sequence" name="sequence-library" rev="1.0.2"/>
     <dependency org="junit" name="junit" rev="4.11"/>
     <dependency org="net.java.dev.jna" name="jna" rev="3.5.2"/>
-    <dependency org="net.sf.saxon" name="Saxon-B" rev="9.0"/>
-    <dependency org="net.sf.saxon" name="saxon-dom" rev="8.7"/>
+<!--    <dependency org="net.sf.saxon" name="Saxon-B" rev="9.0"/>
+    <dependency org="net.sf.saxon" name="saxon-dom" rev="8.7"/> -->
     <dependency org="org.antlr" name="antlr-runtime" rev="3.4"/>
     <dependency org="org.antlr" name="ST4" rev="4.0.7"/>
     <dependency org="org.apache.commons" name="commons-lang3" rev="3.3.2"/>
@@ -45,5 +45,6 @@
     <dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.5.2"/>
     <dependency org="com.github.rjeschke" name="txtmark" rev="0.11"/>        
     <dependency org="org.pegdown" name="pegdown" rev="1.5.0"/>
+    <dependency org="net.sf.saxon" name="Saxon-HE" rev="9.5.1-5" />
   </dependencies>
 </ivy-module>
