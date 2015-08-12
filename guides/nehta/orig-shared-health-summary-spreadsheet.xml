@@ -2677,7 +2677,7 @@ SNOMED CT-AU Concept Id: 11000036103 |Adverse reaction type reference set|</Data
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
-					<Data ss:Type="String">Reference(MedicationPrescription|MedicationDispense|MedicationStatement)</Data>
+					<Data ss:Type="String">Reference(MedicationOrder|MedicationDispense|MedicationStatement)</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">

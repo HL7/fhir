@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is an example of a prescription for an inhaler -->
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationorder.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="medrx004"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345"/>
+    </identifier>
+    <dateWritten value="2015-01-15"/>
+    <status value="active"/>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/f001"/>
+        <display value="Eve Everywoman"/>         
+    </patient>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f002"/>
+        <display value="encounter who leads to this priscription"/>
+    </encounter>
+    <reasonCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="195967001"/>
+            <display value="Asthma"/>
+        </coding>
+    </reasonCodeableConcept>
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+        <reference value="Medication/MedicationExample12"/>
+        <display value="prescribed medication"/>
+    </medicationReference>
+    <dosageInstruction>
+        <text value="Use 2 puffs twice daily as needed" />
+        <timing>
+            <repeat>
+                <duration value="3"/>
+                <durationUnits value="d"/>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
+            </repeat>
+        </timing>
+        <asNeededBoolean value="true"></asNeededBoolean>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="422237004"/>
+                <display value="Inhalation"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="2" />
+            <system value="http://snomed.info/sct"/>
+            <code value="415215001"/>
+        </doseQuantity>
+    </dosageInstruction>          
+</MedicationOrder>

@@ -27,6 +27,6 @@
   </when>
   
   <detail>
-    <reference value="MedicationPrescription/example"/>
+    <reference value="MedicationOrder/example"/>
   </detail>
 </Order>

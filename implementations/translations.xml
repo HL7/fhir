@@ -353,11 +353,11 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="es">DispensaciónMedicación</translation>
 		<translation lang="fr">DispensationMédicaments</translation>
 	</item>
-	<item id="MedicationPrescription">
-		<translation lang="en">MedicationPrescription</translation>
-		<translation lang="zh">药方</translation>
-		<translation lang="es">PrescripciónMedicación</translation>
-		<translation lang="fr">PrescriptionMédicamenteuse</translation>
+	<item id="MedicationOrder">
+		<translation lang="en">MedicationOrder</translation>
+		<translation lang="zh">药方TODO</translation>
+		<translation lang="es">PrescripciónMedicaciónTODO</translation>
+		<translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
 	</item>
 	<item id="MedicationStatement">
 		<translation lang="en">MedicationStatement</translation>

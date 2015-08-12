@@ -36,17 +36,17 @@ DomainResource
   diff : Resource
   snapshot : DomainResource
 
-MedicationPrescription
+MedicationOrder
   type : Resource
   abstract : false
   diff : DomainResource
-  snapshot : MedicationPrescription
+  snapshot : MedicationOrder
 
-MyMedicationPrscription
+MyMedicationOrder
   type : constraint
   abstract : false
-  diff : MedicationPrescription
-  snapshot : MedicationPrescription
+  diff : MedicationOrder
+  snapshot : MedicationOrder
 
 
 Extension

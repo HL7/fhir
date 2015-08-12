@@ -945,7 +945,7 @@ clinical resource refers to. The client requests that the subject
 resources be included in the results set by providing one or more
 _include parameters. An alternative scenario is where the client 
 wishes to fetch a particular resource, and any resources that refer
-to it. For example, the client may wish to fetch a MedicationPrescription,
+to it. For example, the client may wish to fetch a MedicationOrder,
 and any provenance resources that refer to the prescription. This is known
 as a reverse include, and specified by providing a _revinclude parameter.
 </p>
@@ -958,11 +958,11 @@ are already done by search parameter.
 Each _include parameter specifies a search parameter to join on:
 </p>
 <pre>
- GET [base]/MedicationPrescription?_include=MedicationPrescription:patient&amp;criteria...
- GET [base]/MedicationPrescription?_revinclude=Provenance:target&amp;criteria...
+ GET [base]/MedicationOrder?_include=MedicationOrder:patient&amp;criteria...
+ GET [base]/MedicationOrder?_revinclude=Provenance:target&amp;criteria...
 </pre>
 <p>
-The first search means, for any matching MedicationPrescription, include 
+  The first search means, for any matching MedicationOrder, include 
 any patient that the medication prescriptions in the result set refer to. 
 The second search means, for any matching prescriptions, return all 
 the provenance resources that refer to them. 
@@ -988,13 +988,13 @@ matches, and which are includes).
 </p>
 <p>
 The inclusion process can be recursive, if the modifier <code>:recurse</code> is included. 
-For example, this example search returns all the <a href="medicationprescription.html">Medication
+  For example, this example search returns all the <a href="medicationorder.html">Medication
 Prescription</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
 </p>
 <pre>
 GET [base]/MedicationDispense?_include=MedicationDispense.authorizingPrescription
-    &amp;_include:recurse=MedicationPrescription.prescriber&amp;criteria...
+    &amp;_include:recurse=MedicationOrder.prescriber&amp;criteria...
 </pre>
 <p>
 This technique applies to circular relationships as well. For example, 
@@ -1039,14 +1039,14 @@ alone as a coherent package.
 <p>
 By default, search results only include resources that are not contained in other resources. 
 A chained condition will be evaluated inside contained resources. To illustrate this, consider
-a MedicationPrescription resource that has a contained Medication resource specifying 
+a MedicationOrder resource that has a contained Medication resource specifying 
 a custom formulation that has ingredient that has a value Substance/x23. In this case, a search:
 </p>
 <pre>
-GET MedicationPrescription?medication.ingredient=Substance/x23
+GET MedicationOrder?medication.ingredient=Substance/x23
 </pre>
 <p>
-will include the MedicationPrescription resource in the results. However this search:
+  will include the MedicationOrder resource in the results. However this search:
 </p>
 <pre>
 GET Medication?ingredient=Substance/x23
@@ -1084,7 +1084,7 @@ search results:
   ...
   &lt;entry&gt;
     &lt;resource&gt;
-      &lt;MedicationPrescription&gt;
+      &lt;MedicationOrder&gt;
         &lt;id value=&quot;23&quot;&gt;
         ....
         &lt;contained&gt;
@@ -1094,7 +1094,7 @@ search results:
           &lt;/Medication&gt;
         &lt;contained&gt;
 
-      &lt;/MedicationPrescription&gt;
+      &lt;/MedicationOrder&gt;
     &lt;/resource&gt;
     &lt;search&gt;
       &lt;mode value=&quot;match&quot;/&gt;
@@ -1112,7 +1112,7 @@ differently:
 &lt;Bundle&gt;
   ...
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;http://example.com/fhir/MedicationPrescription/23#&quot;/&gt;
+    &lt;fullUrl value=&quot;http://example.com/fhir/MedicationOrder/23#&quot;/&gt;
     &lt;resource&gt;
       &lt;Medication&gt;
         &lt;id value=&quot;m1&quot;&gt;

@@ -21,7 +21,7 @@ The following kinds of orders have been defined:
   </tr>
   <tr>
     <td>Order to supply a prescription</td>
-	<td><a href="medicationprescription.html">MedicationPrescription</a></td>
+  	<td><a href="medicationorder.html">MedicationOrder</a></td>
 	<td>0..* <a href="medicationadministration.html">MedicationAdministration</a> or <a href="medicationdispense.html">MedicationDispense</a></td>
 	<td></td>
   </tr>

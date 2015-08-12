@@ -17,7 +17,7 @@ cases it might be used for home-health reporting, such as recording self-adminis
 </p>
 <table border="1" cellpadding="1" cellspacing="2" frame="box">
     <tr>
-        <td><a href="medicationprescription.html">MedicationPrescription</a></td>
+        <td><a href="medicationorder.html">MedicationOrder</a></td>
         <td>An order for both supply of the medication and the instructions for administration of the medicine to a patient.</td>
     </tr>
     <tr>

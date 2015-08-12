@@ -19,7 +19,7 @@ Common usage includes:
 </p>
 <table border="1" cellpadding="1" cellspacing="2" frame="box">
     <tr>
-        <td><a href="medicationprescription.html">MedicationPrescription</a></td>
+        <td><a href="medicationorder.html">MedicationOrder</a></td>
         <td>An order for both supply of the medication and the instructions for administration of the medicine to a patient.</td>
     </tr>
     <tr>
@@ -39,7 +39,7 @@ Common usage includes:
 </table>
 
 <p>
-This resource is distinct from <a href="medicationprescription.html">MedicationPrescription</a>, <a href="medicationdispense.html">MedicationDispense</a> 
+    This resource is distinct from <a href="medicationorder.html">MedicationOrder</a>, <a href="medicationdispense.html">MedicationDispense</a> 
 and <a href="medicationadministration.html">MedicationAdministration</a>.  Each of those resources refer to specific events - an individual 
 order, an individual provisioning of medication or an individual dosing.  MedicationStatement is a broader assertion covering a wider 
 timespan and independent of specific events.  The existence of resource instances of any of the preceding three types may be used to infer 

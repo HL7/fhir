@@ -11,7 +11,7 @@
     <reference value="Practitioner/example"/>
   </dispenser>
   <authorizingPrescription>
-    <reference value="MedicationPrescription/medicationprescriptionexample2" />
+    <reference value="MedicationOrder/medicationorderexample2" />
   </authorizingPrescription>
 <type>
   <coding>

@@ -1,0 +1,104 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+	<a name="scope_and_usage"> </a>
+	<h3>Scope and Usage</h3>
+	
+	
+<p>
+	This profile sets expectations for use of the <a href="../medicationorder.html">MedicationOrder</a> resource to record summary of prescribed medications for a patient within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
+For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases. 
+The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name, 
+the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data elements which are derived from ONC 2014 Edition S&amp;CC standards and DAF use cases and lastly the third column identifies the mapping to FHIR resources and attributes.
+</p>
+</div>
+
+<div>
+	<a name="MU_data_element_mapping"> </a>
+	<h3>Meaningful Use Data Element Mapping</h3>
+<p>
+	The DAFMedicationOrder profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.
+</p>
+<br/>
+	<table class="grid">
+        <thead>
+          <tr>
+            <th>Meaningful Use Data Element Name</th>
+			<th>Mapping to Priority DAF Data Elements</th>
+            <th>FHIR Resource Mapping</th>
+          </tr>
+        </thead>
+        <tbody>
+		  <tr>
+		    <td>Medications</td>
+			<td/>
+			<td/>
+		  </tr>
+          <tr>
+		    <td/>
+			<td>Medication Material</td>
+          	<td>MedicationOrder.medication.code</td>
+		  </tr>
+		  <tr>
+		    <td/>
+			<td>Medication Start and End Time</td>
+		  	<td>MedicationOrder.dosageInstruction.schedule[x]</td>
+		  </tr>
+		  <tr>
+		    <td/>
+			<td>Medication Dosage units</td>
+			<td>MedicationOrder.dosageInstruction.dose[x]</td>
+		  </tr>
+		  <tr>
+		    <td/>
+			<td>Medication Schedule(when/how often)</td>
+			<td>MedicationOrder.dosageInstruction.schedule[x]</td>
+		  </tr>
+		  <tr>
+		    <td/>
+			<td>Medication Administration Route</td>
+			<td>MedicationOrder.dosageInstruction.route</td>
+		  </tr>
+		  <tr>
+		    <td/>
+			<td>Medication Administration Body site</td>
+			<td>MedicationOrder.dosageInstruction.site</td>
+		  </tr>
+		  <tr>
+		    <td/>
+			<td>Medication Dosage Rate</td>
+			<td>MedicationOrder.dosageInstruction.rate</td>
+		  </tr>
+		  <tr>
+		    <td/>
+			<td>Max Medication Dosage quantity</td>
+			<td>MedicationOrder.dosageInstruction.maxDosePerPeriod</td>
+		  </tr>
+		</tbody>
+	</table>
+
+</div>
+
+
+<div>
+	<a name="boundaries_and_relationships"> </a>
+	<h3>Boundaries and Relationships</h3>
+<p>
+This profile relies on the following other profiles:
+</p>
+<ul>
+  <li><a href="patient-daf.html">DAFPatient</a> which defines DAF Patient profile is used by DAFMedicationOrder profile to refer to patients.</li>
+  <li><a href="medication-daf.html">DAFMedication</a> is used by the this profile to code the medication material(e.g drug).</li>
+  <li><a href="../extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. 
+  Specifically the <a href="../extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
+  See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>
+</ul>
+</div>
+
+
+</div>
+
+
+
+
+

@@ -1,0 +1,53 @@
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationorder.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="medrx008"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Name: Gentamicin 80mg/100ml IV</p>
+      <p><b>80mg IV over one hour</b></p>
+    </div>
+  </text>
+  <status value="active" />
+  <medicationReference>
+    <reference value="Medication/medicationexample17"/>
+  </medicationReference>
+  <dosageInstruction>
+    <text value="Gentamicin 80mg IV over one hour"/>
+    <timing>
+      <repeat>
+        <frequency value="3"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
+      </repeat>
+    </timing>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="47625008"/>
+        <display value="Intravenous route"/>
+      </coding>
+    </route>
+    <doseQuantity>
+      <value value="80"/>
+      <unit value="mg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg"/>
+    </doseQuantity>
+    <rateRatio>
+      <numerator>
+        <value value="80"/>
+        <unit value="mg"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mg"/>
+      </numerator>
+      <denominator>
+        <value value="60"/>
+        <unit value="minutes"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258702006"/>
+      </denominator>
+    </rateRatio>
+  </dosageInstruction>
+</MedicationOrder>

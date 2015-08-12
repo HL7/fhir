@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is a prescription with an increasing dose -->
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationorder.xsd"
+ xmlns="http://hl7.org/fhir">
+    <!-- Not sure how to reference an id -->
+  <id value="medrx003"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345"/>
+    </identifier>
+    <dateWritten value="2015-01-15"/>
+    <status value="active"/>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/f001"/>
+        <display value="Eve Everywoman"/>         
+    </patient>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f002"/>
+        <display value="encounter who leads to this priscription"/>
+    </encounter>
+    <reasonCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="195967001"/>
+            <display value="Asthma"/>
+        </coding>
+    </reasonCodeableConcept>
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+        <reference value="Medication/MedicationExample11"/>
+        <display value="prescribed medication"/>
+    </medicationReference>
+    <dosageInstruction>
+        <text value="Take 1 tablet twice daily for 3 days" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after food"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <event value="2015-03-01"/>
+            <repeat>
+                <duration value="3"/>
+                <durationUnits value="d"/>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
+            </repeat>
+        </timing>
+        <site>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="181220002"/>
+                <display value="Entire oral cavity"/>
+            </coding>
+        </site>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="1"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="TAB"/>
+        </doseQuantity>
+    </dosageInstruction>    
+    <dosageInstruction>
+        <text value="Take 2 tablet twice daily for 3 days" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after food"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <event value="2015-03-04"/>
+            <repeat>
+                <duration value="3"/>
+                <durationUnits value="d"/>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
+            </repeat>
+        </timing>
+        <site>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="181220002"/>
+                <display value="Entire oral cavity"/>
+            </coding>
+        </site>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="2"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="TAB"/>
+        </doseQuantity>
+    </dosageInstruction>  
+    <dosageInstruction>
+        <text value="Take 3 tablet twice daily for 3 days" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after food"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <event value="2015-03-07"/>
+            <repeat>
+                <duration value="3"/>
+                <durationUnits value="d"/>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
+            </repeat>
+        </timing>
+        <site>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="181220002"/>
+                <display value="Entire oral cavity"/>
+            </coding>
+        </site>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="3"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="TAB"/>
+        </doseQuantity>
+    </dosageInstruction>         
+</MedicationOrder>

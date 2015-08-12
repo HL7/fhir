@@ -29,7 +29,7 @@ Goals may address the prevention of illness, cure or mitigation of a condition, 
 <h2>Boundaries and Relationships</h2>
 <p>
 Goals are typically established in the context of a <a href="careplan.html">CarePlan</a>.  However, goals may also be directly
-referenced by request-type resources (e.g. <a href="medicationprescription.html">MedicationPrescription</a> or <a href="referralrequest.html">ReferralRequest</a>)
+    referenced by request-type resources (e.g. <a href="medicationorder.html">MedicationOrder</a> or <a href="referralrequest.html">ReferralRequest</a>)
 by using an extension.
 </p>
 <p>

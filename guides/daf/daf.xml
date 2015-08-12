@@ -56,7 +56,7 @@
       <valueUri value="profiles\medicationdispense-daf-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="profiles\medicationprescription-daf-profile-spreadsheet.xml"/>
+      <valueUri value="profiles\medicationorder-daf-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\medicationstatement-daf-profile-spreadsheet.xml"/>

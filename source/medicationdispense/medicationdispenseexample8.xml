@@ -22,7 +22,7 @@
     <reference value="Practitioner/example"/>
   </dispenser>
   <authorizingPrescription>
-    <reference value="MedicationPrescription/medicationprescriptionexample6" />
+    <reference value="MedicationOrder/medicationorderexample6" />
   </authorizingPrescription>
   <medicationReference>
     <reference value="Medication/54ba8e550cf2ef25ba8bcfd2"/>

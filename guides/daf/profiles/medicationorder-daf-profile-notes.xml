@@ -1,0 +1,33 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+	<a name="search_parameters"> </a>
+	<h4>Search Parameters</h4>
+<p>
+The full list of supported search parameters are can be accessed at <a href="conformance-daf-query-requestor.html">DAF Requestor conformance expectations</a> and <a href="conformance-daf-query-responder.html">DAF Responder conformance expectations</a>.
+</p>
+
+	<a name="example_usage_scenarios"> </a>
+	<h4>Example Usage Scenarios</h4>
+
+<p>
+	The following are example usage scenarios for the DAFMedicationOrder profile:
+</p>
+<ul>
+	<li>Query for medications that have been prescribed to a particular patient</li>
+	<li>Query for all patients who have been prescribed a particular medication</li>
+	<li>Query for all patients who were prescribed a particular medication within a particular time period</li>
+</ul>
+
+	<a name="profiles_specific_implementation_guidance"> </a>
+	<h4>Profile specific implementation guidance</h4>
+
+<p>
+Implementers need to be mindful of the following during their implementation
+</p>
+<ul>
+	
+	<p><b>Representing No Known MedicationsPrescribed:</b> No Known Medications will be represented using the <a href="list-daf-dafmedicationlist.html">DAFMedicationList</a> profile with no entries.</p>
+	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
+</ul>
+
+</div>

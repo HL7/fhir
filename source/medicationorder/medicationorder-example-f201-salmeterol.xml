@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationorder.xsd">
+  <id value="f201"/>
+  <!--No identifier could be provided-->
+  <dateWritten value="2013-03-11"/>
+  <status value="active"/>
+  <patient>
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+  </patient>
+  <prescriber>
+    <reference value="Practitioner/f201"/>
+    <display value="Dokter Bonsig"/>
+  </prescriber>
+  <reasonReference>
+    <reference value="Condition/f201"/>
+    <display value="fever"/>
+  </reasonReference>
+  <medicationReference>
+    <reference value="Medication/f201"/>
+    <display value="25ug Salmeterol + 250ug Fluticasone"/>
+  </medicationReference>
+  <dosageInstruction>
+    <text value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
+    <timing>
+      <!--2 months-->
+      <repeat>
+        <boundsPeriod>
+          <start value="2013-03-11"/>
+          <end value="2013-05-11"/>
+        </boundsPeriod>
+        <!-- twice per day -->
+        <frequency value="2"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
+      </repeat>
+    </timing>
+    <site>
+      <!--Medication enters the oral cavity-->
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="74262004"/>
+        <display value="Oral cavity"/>
+      </coding>
+    </site>
+    <route>
+      <!--Medication follows the respiratory tract-->
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="321667001"/>
+        <display value="Respiratory tract"/>
+      </coding>
+    </route>
+    <method>
+      <!--Medication is administered with a specific inhaler-->
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="320276009"/>
+        <display value="Salmeterol+fluticasone 25/250ug inhaler"/>
+      </coding>
+    </method>
+    <doseQuantity>
+      <value value="1"/>
+      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <code value="PUFF"/>
+    </doseQuantity>
+    <maxDosePerPeriod>
+      <!--2 puffs per day-->
+      <numerator>
+        <value value="2"/>
+        <unit value="puffs"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="415215001"/>
+      </numerator>
+      <denominator>
+        <value value="1"/>
+        <unit value="daily"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="259032004"/>
+      </denominator>
+    </maxDosePerPeriod>
+  </dosageInstruction>
+  <!--<dispense> and <substitution> are not available for this patient-->
+</MedicationOrder>

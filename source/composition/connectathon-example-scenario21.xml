@@ -277,13 +277,13 @@
       <mode value="working"/>
       <item>
         <item>
-          <reference value='http://hl7.org.nz/fhir/MedicationPrescription/medsample1'/>
+          <reference value='http://hl7.org.nz/fhir/MedicationOrder/medsample1'/>
           <display value="Medication 1"/>
         </item>
       </item>
       <item>
         <item>
-          <reference value='http://hl7.org.nz/fhir/MedicationPrescription/medsample2'/>
+          <reference value='http://hl7.org.nz/fhir/MedicationOrder/medsample2'/>
           <display value="Medication 2"/>
         </item>
       </item>
@@ -296,7 +296,7 @@
 
 
     <!-- Sample content only -->
-    <MedicationPrescription xmlns="http://hl7.org/fhir">
+    <MedicationOrder xmlns="http://hl7.org/fhir">
       <id value="nz-medsample1"/>
       <meta>
         <lastUpdated value="2013-05-28T22:12:21Z"/>
@@ -307,7 +307,7 @@
       </text>
 
       <!-- All the other details of the Medication here -->
-    </MedicationPrescription>
+    </MedicationOrder>
 
   </item>
 
@@ -316,7 +316,7 @@
 
 
     <!-- Sample content only -->
-    <MedicationPrescription xmlns="http://hl7.org/fhir">
+    <MedicationOrder xmlns="http://hl7.org/fhir">
       <id value="nz-medsample2"/>
       <meta>
         <lastUpdated value="2013-05-28T22:12:21Z"/>
@@ -327,7 +327,7 @@
       </text>
 
       <!-- All the other details of the Medication here -->
-    </MedicationPrescription>
+    </MedicationOrder>
 
   </item>
 

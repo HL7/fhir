@@ -198,7 +198,7 @@ signatures.html
 			<page type="resource" resource="Contraindication"/>
 			<page type="resource" resource="RiskAssessment"/>
 			<page type="resource" resource="Medication"/>
-			<page type="resource" resource="MedicationPrescription"/>
+			<page type="resource" resource="MedicationOrder"/>
 			<page type="resource" resource="MedicationAdministration"/>
 			<page type="resource" resource="MedicationDispense"/>
 			<page type="resource" resource="MedicationStatement"/>
