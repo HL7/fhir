@@ -1834,18 +1834,21 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             else {
               if (td.hasParams())
                 throw new Exception("Type "+td.summary()+" has parameters");                
-              workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(td.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(td.getName())+"(child, path+'/"+pfx+getTitle(td.getName())+"'){x.3}\r\n");
-              workingComposerX.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName())+") {6} then\r\n    Compose"+getTitle(td.getName())+"(xml, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName())+"(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
-              if (typeIsPrimitive(td.getName())) {
-                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName())+") then \r\n"+
+              String tname = td.getName();
+              ProfiledType tc = definitions.getConstraints().get(tname);
+              String tpname = tc == null ? tname : tc.getBaseType();
+              workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(tpname)+"') then\r\n        result."+s+" := Parse"+getTitle(tname)+"(child, path+'/"+pfx+getTitle(tname)+"'){x.3}\r\n");
+              workingComposerX.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(tname)+") {6} then\r\n    Compose"+getTitle(tname)+"(xml, '"+pfx+getTitle(tpname)+"', "+getTypeName(tname)+"(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
+              if (typeIsPrimitive(tname)) {
+                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(tname)+") then \r\n"+
                     "  begin\r\n"+
-                    "    Compose"+getTitle(td.getName())+"Value(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName())+"(elem."+s+"), false);\r\n"+
-                    "    Compose"+getTitle(td.getName())+"Props(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName())+"(elem."+s+"), false);\r\n  end"+(i == t-1?";" : "")+"\r\n");
-                workingParserJ.append("    if jsn.has('"+pfx+getTitle(td.getName())+"') or jsn.has('_"+pfx+getTitle(td.getName())+"') then\r\n      result."+s+" := parse"+Utilities.capitalize(td.getName())+"(jsn['"+pfx+getTitle(td.getName())+"'], jsn.vObj['_"+pfx+getTitle(td.getName())+"']);\r\n");
+                    "    Compose"+getTitle(tname)+"Value(json, '"+pfx+getTitle(tpname)+"', "+getTypeName(tname)+"(elem."+s+"), false);\r\n"+
+                    "    Compose"+getTitle(tname)+"Props(json, '"+pfx+getTitle(tpname)+"', "+getTypeName(tname)+"(elem."+s+"), false);\r\n  end"+(i == t-1?";" : "")+"\r\n");
+                workingParserJ.append("    if jsn.has('"+pfx+getTitle(tpname)+"') or jsn.has('_"+pfx+getTitle(tname)+"') then\r\n      result."+s+" := parse"+Utilities.capitalize(tname)+"(jsn['"+pfx+getTitle(tpname)+"'], jsn.vObj['_"+pfx+getTitle(tpname)+"']);\r\n");
               } else {
-                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName())+") then \r\n"+
-                    "    Compose"+getTitle(td.getName())+"(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName())+"(elem."+s+")) "+(i == t-1?";" : "")+"\r\n");
-                workingParserJ.append("    if jsn.has('"+pfx+getTitle(td.getName())+"') {a4} then\r\n      result."+s+" := Parse"+getTitle(td.getName())+"(jsn.vObj['"+pfx+getTitle(td.getName())+"']);\r\n");
+                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(tname)+") then \r\n"+
+                    "    Compose"+getTitle(tname)+"(json, '"+pfx+getTitle(tpname)+"', "+getTypeName(tname)+"(elem."+s+")) "+(i == t-1?";" : "")+"\r\n");
+                workingParserJ.append("    if jsn.has('"+pfx+getTitle(tpname)+"') {a4} then\r\n      result."+s+" := Parse"+getTitle(tname)+"(jsn.vObj['"+pfx+getTitle(tpname)+"']);\r\n");
               }
             }
             i++;
@@ -3319,13 +3322,13 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public boolean doesCompile() {
-    String dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\Studio\\16\\bin\\dcc64.exe";
+    String dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\Studio\\16.0\\bin\\dcc64.exe";
     return new File(dcc).exists();
   }
 
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
-    dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\Studio\\16\\bin\\dcc64.exe";
+    dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\Studio\\16.0\\bin\\dcc64.exe";
     exe = rootDir+"implementations\\pascal\\fhirtest.exe";
     logger.log("Compiling Pascal implementation using "+dcc, LogMessageType.Process);
     new File(exe).delete();

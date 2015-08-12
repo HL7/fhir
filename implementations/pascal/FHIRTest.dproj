@@ -91,7 +91,7 @@
         <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
-        <Debugger_RunParams>-tests C:\work\org.hl7.fhir\build\temp\ctrl-pascal.ini C:\work\org.hl7.fhir\build\temp\ctrl-pascal.out</Debugger_RunParams>
+        <Debugger_RunParams>C:\work\org.hl7.fhir\build\publish\condition-example-f202-malignancy.xml C:\work\org.hl7.fhir\build\publish\condition-example-f202-malignancy.xml.out</Debugger_RunParams>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>None</Manifest_File>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
@@ -194,7 +194,6 @@
         <DCCReference Include="FHIRParserBase.pas"/>
         <DCCReference Include="FHIRConstants.pas"/>
         <DCCReference Include="FHIRTypes.pas"/>
-        <DCCReference Include="FHIRComponents.pas"/>
         <DCCReference Include="FHIRResources.pas"/>
         <DCCReference Include="FHIRParser.pas"/>
         <DCCReference Include="FHIRSupport.pas"/>

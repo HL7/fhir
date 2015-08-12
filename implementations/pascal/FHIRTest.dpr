@@ -100,7 +100,6 @@ uses
   FHIRParserBase in 'FHIRParserBase.pas',
   FHIRConstants in 'FHIRConstants.pas',
   FHIRTypes in 'FHIRTypes.pas',
-  FHIRComponents in 'FHIRComponents.pas',
   FHIRResources in 'FHIRResources.pas',
   FHIRParser in 'FHIRParser.pas',
   FHIRSupport in 'FHIRSupport.pas',
