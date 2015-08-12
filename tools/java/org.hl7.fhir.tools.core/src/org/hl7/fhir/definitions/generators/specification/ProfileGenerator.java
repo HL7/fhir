@@ -908,8 +908,8 @@ public class ProfileGenerator {
     if (e.hasMustSupport())
       ce.setMustSupport(e.isMustSupport());
 
-    if (!Utilities.noString(e.getDeclaredTypeName()))
-      ToolingExtensions.addStringExtension(ce, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", e.getDeclaredTypeName());
+    if (!Utilities.noString(e.getStatedType()))
+      ToolingExtensions.addStringExtension(ce, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", e.getStatedType());
         
     if (e.getMaxLength() != null) 
       ce.setMax(e.getMaxLength()); 
