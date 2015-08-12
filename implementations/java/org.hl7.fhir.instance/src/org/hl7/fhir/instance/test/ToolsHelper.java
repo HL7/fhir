@@ -378,6 +378,7 @@ public class ToolsHelper {
     	System.err.print("  "+n);
       String source = rootDir + n + ".xml";
       // String tmpJson = tmpDir + n + ".json";
+      String tmp = tmpDir + n.replace(File.separator, "-") + ".tmp";
       String dest = tmpDir + n.replace(File.separator, "-") + ".java.xml";
       
       FileInputStream in = new FileInputStream(source);
@@ -385,23 +386,21 @@ public class ToolsHelper {
       Resource r = xp.parse(in);
     	System.err.print(".");
       JsonParser jp = new JsonParser();
-      ByteArrayOutputStream json = new ByteArrayOutputStream();
+      FileOutputStream out = new FileOutputStream(source);
       jp.setOutputStyle(OutputStyle.PRETTY);
-      jp.compose(json, r);
-      json.close();
+      jp.compose(out, r);
+      out.close();
       r = null;
     	System.err.print(".");
-      // TextFile.stringToFile(new String(json.toByteArray()), tmpJson);
       
-      byte[] ba = json.toByteArray();
-      json = null;
+      in = new FileInputStream(tmp);
     	System.err.print(",");
-  		r = jp.parse(new ByteArrayInputStream(ba));
+  		r = jp.parse(in);
     	System.err.print(".");
-      FileOutputStream s = new FileOutputStream(dest);
-      new XmlParser().compose(s, r, true);
+      out = new FileOutputStream(dest);
+      new XmlParser().compose(out, r, true);
     	System.err.println("!");
-      s.close();
+      out.close();
       r = null;
       System.gc();
     }
