@@ -14,9 +14,9 @@
   </patient>
   <status value="completed"/>
   <effectiveDateTime value="2012-06-01T14:30:00+14:00"/>
-  <medication>
+  <medicationReference>
     <reference value="Medication/example"/> 
-  </medication>
+  </medicationReference>
   <dosage>
     <route>
       <coding>
