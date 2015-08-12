@@ -896,6 +896,7 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
         while ((s = stdError.readLine()) != null) {
           System.err.println(s);
         }    
+        i++;
         process.waitFor();
         if (file.exists())
           done = true;

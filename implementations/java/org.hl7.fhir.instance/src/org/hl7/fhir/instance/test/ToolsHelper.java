@@ -373,7 +373,7 @@ public class ToolsHelper {
   public void testRoundTrip(String rootDir, String tmpDir, Collection<String> names) throws Exception {
   	System.err.println("Round trip from "+rootDir+" to "+tmpDir+":"+Integer.toString(names.size())+" files");
     for (String n : names) {
-    	System.err.println("  "+n);
+    	System.err.print("  "+n);
       String source = rootDir + n + ".xml";
       // String tmpJson = tmpDir + n + ".json";
       String dest = tmpDir + n.replace(File.separator, "-") + ".java.xml";
@@ -381,16 +381,22 @@ public class ToolsHelper {
       FileInputStream in = new FileInputStream(source);
       XmlParser xp = new XmlParser();
       Resource r = xp.parse(in);
+    	System.err.print(".");
       JsonParser jp = new JsonParser();
       ByteArrayOutputStream json = new ByteArrayOutputStream();
       jp.setOutputStyle(OutputStyle.PRETTY);
       jp.compose(json, r);
       json.close();
+      r = null;
+    	System.err.print(".");
       // TextFile.stringToFile(new String(json.toByteArray()), tmpJson);
       
       r = jp.parse(new ByteArrayInputStream(json.toByteArray()));
+      json = null;
+    	System.err.print(".");
       FileOutputStream s = new FileOutputStream(dest);
       new XmlParser().compose(s, r, true);
+    	System.err.println("!");
       s.close();
     }
   }
