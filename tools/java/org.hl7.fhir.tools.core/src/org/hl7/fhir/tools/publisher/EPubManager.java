@@ -24,6 +24,8 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 
+import nl.siegmann.epublib.epub.EpubReader;
+
 public class EPubManager implements FileNotifier {
   public static final String XHTML_TYPE = "application/xhtml+xml";
   public static final String CSS_TYPE = "application/css";
@@ -85,6 +87,7 @@ public class EPubManager implements FileNotifier {
     build(zip);
     zip.close();
     
+    new EpubReader().readEpub(new FileInputStream(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")));
 //    zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub.zip"));
 //    zip.addFileName("fhir-v"+page.getVersion()+".epub", Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"), false);
 //    zip.close();
@@ -211,9 +214,11 @@ public class EPubManager implements FileNotifier {
 
   private void addToSpine(XMLWriter xml, String n) throws IOException {
     int i = getEntryIndex(n);
-    xml.comment(n, false);
-    xml.attribute("idref", "n"+Integer.toString(i));
-    xml.element("itemref", null);
+    if (i >= 0) {
+      xml.comment(n, false);
+      xml.attribute("idref", "n"+Integer.toString(i));
+      xml.element("itemref", null);
+    }
   }
 
   private void build(ZipGenerator zip) throws FileNotFoundException, Exception {
