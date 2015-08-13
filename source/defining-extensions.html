@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-      
+
 [%settitle Extensibility%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -22,22 +22,22 @@
 <p>
 All extensions used in resources require a formal published definition which can be used
 by application developers, or the applications themselves, to help integrate extensions
-into the healthcare process they support. 
+into the healthcare process they support.
 </p>
 <p>
 Every extension in a resource refers directly to its definition, which is made available
-as a <a href="structuredefinition.html">StructureDefinition</a>. A resource can 
-be <a href="profiling.html">profiled</a> to specify where particular extensions are used. 
+as a <a href="structuredefinition.html">StructureDefinition</a>. A resource can
+be <a href="profiling.html">profiled</a> to specify where particular extensions are used.
 </p>
 <p>
-Whenever resources containing extensions are exchanged, the definitions of the extensions 
-SHALL be available to all the parties that share the resources. Each extension contains a 
-URI that references the source of the definitions as a Resource Profile. The source SHOULD 
-be a literal reference, such as an http: url that refers to an end-point that responds with 
+Whenever resources containing extensions are exchanged, the definitions of the extensions
+SHALL be available to all the parties that share the resources. Each extension contains a
+URI that references the source of the definitions as a Resource Profile. The source SHOULD
+be a literal reference, such as an http: url that refers to an end-point that responds with
 the contents of the definitions - preferably a <a href="http.html">FHIR RESTful server</a>
-supporting the Resources Profile, or a logical reference (e.g. using a urn:) - for instance, 
+supporting the Resources Profile, or a logical reference (e.g. using a urn:) - for instance,
 to a national published standard.
-Extensions may be defined by any project or jurisdiction, up to and including international standards organizations such as HL7 itself. 
+Extensions may be defined by any project or jurisdiction, up to and including international standards organizations such as HL7 itself.
 </p>
 <p>
 Before defining a new extension, attempt to reuse existing extensions defined in one of the <a href="#registration">shared registries described below</a>.
@@ -45,7 +45,7 @@ Before defining a new extension, attempt to reuse existing extensions defined in
 
 <h3>Context</h3>
 <p>
-Extensions are always defined against some particular context - the type of element 
+Extensions are always defined against some particular context - the type of element
 that they may be used to extend. The following are possible contexts for an extension:
 </p>
 <table class="codes">
@@ -65,28 +65,28 @@ Extensions SHALL only be used on a target for which they are defined.
 <a name="registration"> </a>
 <h3>Publishing Extension Definitions</h3>
 <p>
-As well as defining the base element structure for resources, HL7 also publishes extensions, including as <a href="extensibility-registry.html">part of this specification</a>. 
-HL7 publishes such data definitions as extensions rather than as part of the base resource structure 
-in order to keep the base resource structure simple and concise, and to allow implementers not to 
-engage with an entire world's worth of functionality up front. Note that HL7 does not generally define 
-"modifier" extensions - if HL7 publishes an element that modifies the meaning of other elements, it 
+As well as defining the base element structure for resources, HL7 also publishes extensions, including as <a href="extensibility-registry.html">part of this specification</a>.
+HL7 publishes such data definitions as extensions rather than as part of the base resource structure
+in order to keep the base resource structure simple and concise, and to allow implementers not to
+engage with an entire world's worth of functionality up front. Note that HL7 does not generally define
+"modifier" extensions - if HL7 publishes an element that modifies the meaning of other elements, it
 will mostly be part of the resource content itself, since everyone has to understand the extension anyway.
 </p>
 <p>
-Before extensions can be used in instances, their definition SHALL be published. 
+Before extensions can be used in instances, their definition SHALL be published.
 HL7 maintains two extension registries:
 </p>
 <ol>
- <li>HL7 approved extensions, approved by an appropriate part of the HL7 community following a review process, and which have formal standing</li> 
+ <li>HL7 approved extensions, approved by an appropriate part of the HL7 community following a review process, and which have formal standing</li>
  <li>Provided as a service to the community, where anyone can register an extension</li>
 </ol>
 <p>
-Users are encouraged to register their extensions in the second registry, though this is not required. 
-All that is required is that the extension is published in a context that is available for users 
+Users are encouraged to register their extensions in the second registry, though this is not required.
+All that is required is that the extension is published in a context that is available for users
 of the extension. So, for example, if a particular
 extension is only used within a single institution, the definition of the extension
 can be placed on the institution's intranet. However since, by their nature, resources
-tend to travel well, it's always better to use the HL7 or other publicly accessible 
+tend to travel well, it's always better to use the HL7 or other publicly accessible
 extension registries.
 </p>
 <p>
@@ -100,8 +100,10 @@ be used for this data whenever the data is represented in instances. Application
 HL7-defined extensions published to represent equivalent data in the interest of maximum interoperability.
 </p>
 <p>
-To minimize complexity for implementers, HL7 will not elevate content defined in an HL7-approved extension to
-be content defined in a core resource in future versions of the resource once that resource is normative.
+To minimize complexity for implementers, HL7 will not elevate widely adopted extensions (defined by HL7 or other organizations) to be content defined
+in a core resource in future versions of the resource unless there is widespread endorsement of such a migration from the implementer community.  This
+policy ensures that widespread adoption of an extension does not result in a forced migration to a core element. Extensions labeled as 'draft'
+may be moved in either direction, but after extensions are finalised as norrmative they won't be moved.
 </p>
 <p>
 In some cases, an HL7 work group or other body may publish a profile whose sole
