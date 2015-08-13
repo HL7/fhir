@@ -16,7 +16,9 @@
   </target>
 
   <path id="saxon.path">
-    <pathelement path="tools/java/imports/Saxon-B-9.0.jar"/>
+    <fileset dir="tools/java/imports">
+      <include name="*.jar"/>
+    </fileset>
   </path>
   <property name="saxon.classname" value="net.sf.saxon.TransformerFactoryImpl"/>
 
