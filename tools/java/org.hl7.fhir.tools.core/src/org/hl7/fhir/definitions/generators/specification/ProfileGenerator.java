@@ -180,7 +180,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
-    p.setBase("Element");
+    p.setBase("http://hl7.org/fhir/StructureDefinition/Element");
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
@@ -396,7 +396,7 @@ public class ProfileGenerator {
     p.setAbstract(t.getName().equals("Element"));
     p.setUserData("filename", t.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+t.getName());
-    p.setBase(t.typeCode());
+    p.setBase("http://hl7.org/fhir/StructureDefinition/"+t.typeCode());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(t.getName());
@@ -573,7 +573,7 @@ public class ProfileGenerator {
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(r.isAbstract());
-    p.setBase(r.getRoot().typeCode());
+    p.setBase("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", r.getName().toLowerCase()+".html");
 
