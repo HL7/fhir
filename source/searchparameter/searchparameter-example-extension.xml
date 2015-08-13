@@ -16,4 +16,5 @@
   <type value="token"/>
   <description value="Search by url for a participation agreement"/>
   <xpath value="http://example.org/fhir/StructureDefinition/participation-agreement"/>
+  <xpathUsage value="normal"/>
 </SearchParameter>

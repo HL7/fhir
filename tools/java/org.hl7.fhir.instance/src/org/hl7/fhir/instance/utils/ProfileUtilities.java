@@ -676,6 +676,11 @@ public class ProfileUtilities {
         else if (derived.hasRequirementsElement()) 
           derived.getRequirementsElement().setUserData(DERIVATION_EQUALS, true);
       }
+      // sdf-9
+      if (derived.hasRequirements() && !base.getPath().contains("."))
+        derived.setRequirements(null);
+      if (base.hasRequirements() && !base.getPath().contains("."))
+        base.setRequirements(null);
       
       if (derived.hasAlias()) {
         if (!Base.compareDeep(derived.getAlias(), base.getAlias(), false))

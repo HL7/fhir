@@ -393,9 +393,10 @@ public class ProfileGenerator {
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ t.getName());
 // no base on data types and resources    p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // master profile
     p.setKind(StructureDefinitionKind.DATATYPE);
-    p.setAbstract(false);
+    p.setAbstract(t.getName().equals("Element"));
     p.setUserData("filename", t.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+t.getName());
+    p.setBase(t.typeCode());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(t.getName());
@@ -406,6 +407,7 @@ public class ProfileGenerator {
     p.setDate(genDate.getTime());
     p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
 
+    
     Set<String> containedSlices = new HashSet<String>();
 
     // first, the differential
@@ -571,6 +573,7 @@ public class ProfileGenerator {
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(r.isAbstract());
+    p.setBase(r.getRoot().typeCode());
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", r.getName().toLowerCase()+".html");
 
@@ -585,7 +588,9 @@ public class ProfileGenerator {
     if (r.getWg() != null)
       p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, r.getWg().getUrl()));
     p.setDescription("Base StructureDefinition for "+r.getRoot().getName()+" Resource");
-    p.setRequirements(r.getRequirements());
+    p.setRequirements(r.getRoot().getRequirements());
+    if (!p.hasRequirements())
+      p.setRequirements(r.getRoot().getRequirements());
     p.setDate(genDate.getTime());
     p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
 
@@ -669,7 +674,8 @@ public class ProfileGenerator {
     p.setDescription(resource.getRoot().getShortDefn());    
     if (!p.hasDescriptionElement() && pack.hasMetadata("description"))
       p.setDescription(pack.metadata("description"));
-    if (pack.hasMetadata("requirements"))
+    p.setRequirements(resource.getRoot().getRequirements());
+    if (!p.hasRequirements() && pack.hasMetadata("requirements"))
       p.setRequirements(pack.metadata("requirements"));
 
     if (pack.hasMetadata("date"))
@@ -903,7 +909,7 @@ public class ProfileGenerator {
       if (!Utilities.noString(e.getShortDefn()))
         ce.setShort(e.getShortDefn());
     }
-    if (!Utilities.noString(e.getRequirements())) 
+    if (path.contains(".") && !Utilities.noString(e.getRequirements())) 
       ce.setRequirements(e.getRequirements());
     if (e.hasMustSupport())
       ce.setMustSupport(e.isMustSupport());
@@ -1004,7 +1010,6 @@ public class ProfileGenerator {
     ce.setDefaultValue(e.getDefaultValue());
     ce.setMeaningWhenMissing(e.getMeaningWhenMissing());
     ce.setExample(e.getExample());
-    ce.setRequirements(e.getRequirements());
     for (String s : e.getAliases())
       ce.addAlias(s);
     
