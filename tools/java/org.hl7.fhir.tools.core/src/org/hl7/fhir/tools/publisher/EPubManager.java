@@ -24,7 +24,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 
-import nl.siegmann.epublib.epub.EpubReader;
+//import nl.siegmann.epublib.epub.EpubReader;
 
 public class EPubManager implements FileNotifier {
   public static final String XHTML_TYPE = "application/xhtml+xml";
@@ -87,7 +87,7 @@ public class EPubManager implements FileNotifier {
     build(zip);
     zip.close();
     
-    new EpubReader().readEpub(new FileInputStream(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")));
+//    new EpubReader().readEpub(new FileInputStream(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")));
 //    zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub.zip"));
 //    zip.addFileName("fhir-v"+page.getVersion()+".epub", Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"), false);
 //    zip.close();
@@ -218,7 +218,8 @@ public class EPubManager implements FileNotifier {
       xml.comment(n, false);
       xml.attribute("idref", "n"+Integer.toString(i));
       xml.element("itemref", null);
-    }
+    } else 
+      System.out.println("Can't find "+n+" in epub");
   }
 
   private void build(ZipGenerator zip) throws FileNotFoundException, Exception {
