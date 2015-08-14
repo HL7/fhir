@@ -22,6 +22,38 @@
 
 <p>The specific domains of quality measurement and decision support each make use of the functionality defined by these use cases. As such, the objective of this section of the guide is to establish the common aspects by defining base structures that can then be extended and utilized by each specific domain.</p>
 
+<a name="contents"></a>
+<h2>Contents</h2>
+
+<p>The following table lists the CQIF profiles that are part of the IG, and the underlying FHIR resources:</p>
+
+<table class="list">
+	<thead>
+		<tr>
+			<th><b>CQIF FHIR Profile</b></th>
+			<th><b>Base FHIR Resource</b></th>
+		</tr>
+	</thead>
+	<tbody>
+        <tr>
+			<td><a href="knowledgerequest-cqif-cqif-knowledgerequest.html">CQIF-KnowledgeRequest</a></td>
+			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+		</tr>
+		<tr>
+			<td><a href="knowledgeresponse-cqif-cqif-knowledgeresponse.html">CQIF-KnowledgeResponse</a></td>
+			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+		</tr>
+		<tr>
+			<td><a href="knowledgemodule-cqif-cqif-knowledgemodule.html">CQIF-KnowledgeModule</a></td>
+			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+		</tr>
+		<tr>
+			<td><a href="evidence-cqif-cqif-evidence.html">CQIF-Evidence</a></td>
+			<td><a href="[%fhir-path%]documentreference.html">DocumentReference</a></td>
+		</tr>
+	</tbody>
+</table>
+
 <a name="sharing"/>
 <h2>Sharing</h2>
 <p>The sharing use case is considered first, because it establishes structures that are then utilized by the other two use cases. Broadly, this use case involves enabling a Healthcare Delivery System such as an Electronic Health Record System or a Clinical Decision Support Service, to obtain a computable definition of a knowledge artifact, such as a quality measure, or a decision support rule. This section of the implementation guide defines the <a href="knowledgemodule-cqif-cqif-knowledgemodule.html">KnowledgeModule</a> structure, which establishes the elements common to knowledge artifacts from both domains.</p>
@@ -158,37 +190,6 @@ The <a href="knowledgemodule-cqif-cqif-knowledgemodule-definitions.html#knowledg
 
 <p>NOTE: Providing the ability to search on Evaluation Result Semantics, Data Requirements, and Relationships to specific Knowledge Modules was deferred. We seek comment on whether these requirements are seen as vital to a quality service implementation.</p>
 
-<a name="contents"></a>
-<h2>Contents</h2>
-
-<p>The following table lists the CQIF profiles that are part of the IG, and the underlying FHIR resources:</p>
-
-<table class="list">
-	<thead>
-		<tr>
-			<th><b>CQIF FHIR Profile</b></th>
-			<th><b>Base FHIR Resource</b></th>
-		</tr>
-	</thead>
-	<tbody>
-        <tr>
-			<td><a href="knowledgerequest-cqif-cqif-knowledgerequest.html">CQIF-KnowledgeRequest</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
-		</tr>
-		<tr>
-			<td><a href="knowledgeresponse-cqif-cqif-knowledgeresponse.html">CQIF-KnowledgeResponse</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
-		</tr>
-		<tr>
-			<td><a href="knowledgemodule-cqif-cqif-knowledgemodule.html">CQIF-KnowledgeModule</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
-		</tr>
-		<tr>
-			<td><a href="evidence-cqif-cqif-evidence.html">CQIF-Evidence</a></td>
-			<td><a href="[%fhir-path%]documentreference.html">DocumentReference</a></td>
-		</tr>
-	</tbody>
-</table>
 </div>
 [%file newfooter%]
 </body>
