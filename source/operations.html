@@ -20,12 +20,15 @@ a repository of typed resources (read, update, search, etc). These interactions 
 the RESTful paradigm of managing state by Create/Read/Update/Delete actions on a set of identified
 resources. While this approach solves many use cases, there is some specific
 functionality that can be met more efficiently using an RPC-like paradigm,
-where named operations are performed with inputs and outputs. This specification
-describes a light operation framework that seamlessly extends the RESTful API.
+where named operations are performed with inputs and outputs. Operations are used where the server
+needs to play an active role in formulating the content of the response, not merely return existing
+information, or where the intended purpose is to cause side effects - modification of existing
+resources, or creation of new resourcse. This specification describes a light operation framework that
+seamlessly extends the RESTful API.
 </p>
 <p>
 Operations have the following general properties:
-</p> 
+</p>
 <ul>
  <li>Each operation has a name</li>
  <li>Each operation has a list of 'in' and 'out' parameters</li>
@@ -58,9 +61,9 @@ by different implementers can be resolved by use of the
 <a href="conformance.html">conformance statement</a>.
 </p>
 <p>
-In addition, the definition of these operations  or additional run time operations does not 
-prevent the use of other kinds of operations that are not dependent on and/or not integrated 
-with the RESTful API, as long as their addressing scheme does not clash with the scheme 
+In addition, the definition of these operations  or additional run time operations does not
+prevent the use of other kinds of operations that are not dependent on and/or not integrated
+with the RESTful API, as long as their addressing scheme does not clash with the scheme
 defined herein.
 </p>
 
@@ -190,8 +193,8 @@ they will have no id property.
 <h3>Executing an Operation Asynchronously</h3>
 
 <p>
-DSTU NOTE: there is no defined correct way to execute 
-operations asynchronously. See here for ongoing 
+DSTU NOTE: there is no defined correct way to execute
+operations asynchronously. See here for ongoing
 <a href="http://wiki.hl7.org/index.php?title=FHIR_Asynchronous_Exchange">Discussion</a>
 of the options. The <a href="messaging.html#operations">messaging page</a>
 describes a way to execute operations asynchronously using messages.
