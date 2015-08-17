@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example demonstrates the use of the the .image elements
+-->
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticreport.xsd">
+	<id value="ultrasound"/>
+	<status value="final"/>
+	<!-- No identifier or request details were available -->
+	<category>
+		<!-- The request was honored by the Department of Radiology -->
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="394914008"/>
+			<display value="Radiology"/>
+		</coding>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0074"/>
+			<code value="RAD"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="45036003"/>
+			<display value="Ultrasonography of abdomen"/>
+		</coding>
+		<text value="Abdominal Ultrasound"/>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<effectiveDateTime value="2012-12-01T12:00:00+01:00"/>
+	<issued value="2012-12-01T12:00:00+01:00"/>
+	<performer>
+		<reference value="Practitioner/example"/>
+	</performer>
+	<image>
+		<comment value="A comment about the image"/>
+		<link>
+			<reference value="Media/1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+			<display value="WADO example image"/>
+		</link>
+	</image>
+	<conclusion value="Unremarkable study"></conclusion>
+</DiagnosticReport>
