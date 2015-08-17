@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-31T23:48:41Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2015-08-17T04:46:11Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1389,7 +1389,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">For some observations it may be important to know the link between an observation and a particular encounter.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">review mapping</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String"></Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2172,7 +2172,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The resource from which an observation is derived</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A reference to a resource from which this observation value is derived. For example an Observation resource for a calculated anion gap or Apgar score Observation or a QuestionnaireAnswer resource for an Assessment Tool Observation.( 5/18/2015 EH: TODO need to get a specific example /use cases for example using something other than Observtion)  </Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A reference to a resource from which this observation value is derived. For example an Observation resource for a calculated anion gap or Apgar score Observation or a QuestionnaireAnswer resource for an Assessment Tool Observation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Observations that are a group of observations should be separate resources referenced using the related element with type &quot;has-member&quot; or as component observation(s).</Data><NamedCell
@@ -4528,9 +4528,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4538,15 +4538,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5056,7 +5056,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5077,7 +5076,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6573,7 +6572,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="36" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s141" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s141" ss:AutoFitWidth="0" ss:Width="143.25"/>
@@ -6632,6 +6631,15 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Blood Pressure Measurement</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">blood-pressure</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">observation-example-bloodpressure.xml</Data></Cell>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s145"><Data ss:Type="String">Cancelled</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Blood Pressure Measurement Cancelled</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">blood-pressure-cancel</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">observation-example-bloodpressure-cancel.xml</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -6936,6 +6944,7 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6955,8 +6964,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

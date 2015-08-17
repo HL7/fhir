@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ This is an example of a cancelled standard blood pressure measurement. with a Observation/component/dataAbsentReason valued due to cancellation.
+
+ Blood Pressure is a regarded as a single observation, and
+ presented that way in plain text: 120/80. Also, it is usually
+ interpreted as a single value, though intepretation can also
+ be offered to the parts individually
+
+ Technically, though, a blood pressure is a pair of component
+ observations. LOINC code 55284-4 notes say:
+   This term is intended as a section header for various
+   blood pressure measurements (e.g., systolic, diastolic).
+   LOINC discourages the reporting of two numbers, such as
+   systolic and diastolic blood pressure (e.g., 120/80),
+   in one observation. They should be reported as two
+   separate variables, systolic (LOINC 8480-6) and
+   diastolic (LOINC 8462-4)
+
+ This example shows the standard way to represent a meaurement that cause the expected values to be empty
+ single resource, with a narrative in the standard form, and two
+ component observations for the actual values with Observation/component/dataAbsentReason valued due to cancellation
+
+
+-->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/observation.xsd">
+	<id value="blood-pressure-cancel"/>
+	<meta>
+		<lastUpdated value="2014-01-30T22:35:23+11:00"/>
+	</meta>
+	<!--	EH  Narrative created by build
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107/60 mmHg (low)</div>
+	</text>
+-->
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281"/>
+	</identifier>
+	<status value="cancelled"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="55284-4"/>
+			<display value="Blood pressure systolic &amp; diastolic"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<effectiveDateTime value="2012-09-17"/>
+	<performer>
+		<reference value="Practitioner/example"/>
+	</performer>
+	<!-- an interpretation offered to the combination observation
+        generally, it would only be appropriate to offer an interpretation
+        of an observation that has no value if it has "COMP" (component)
+        observations -->
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="L"/>
+			<display value="Below low normal"/>
+		</coding>
+		<text value="low"/>
+	</interpretation>
+	<comments value="In this example, the blood pressure measurements are not available due to cancellation of the order.  Data absent reason is present for each component"/>
+	<!-- for an observation with components, these cannot disagree with the flags on the components -->
+	<bodySite>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="368209003"/>
+			<display value="Right arm"/>
+		</coding>
+	</bodySite>
+	<component>
+		<!--
+           Observations are often coded in multiple code systems.
+           - Loinc provides a very specific code (though not usefully more specific in this particular case)
+           - snomed provides a clinically relevant code that is usually less granular than LOINC
+           - the source system provides its own code, which may be less or more granular than LOINC
+	 this instance shows the concept. The other codes only have a LOINC code -->
+       
+		<code>
+			<!-- LOINC - always recommended to have a LOINC code -->
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="8480-6"/>
+				<display value="Systolic blood pressure"/>
+			</coding>
+			<!-- SNOMED CT Codes - becoming more common -->
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="271649006"/>
+				<display value="Systolic blood pressure"/>
+			</coding>
+			<!-- Also, a local code specific to the source system -->
+			<coding>
+				<system value="http://acme.org/devices/clinical-codes"/>
+				<code value="bp-s"/>
+				<display value="Systolic Blood pressure"/>
+			</coding>
+			<!-- that shows the concept. The next two names only have a LOINC code -->
+		</code>
+		<!-- no value due to some error 
+    <valueQuantity>
+      <value value="107"/>
+      <unit value="mm[Hg]"/>
+    </valueQuantity>
+-->
+		<dataAbsentReason>
+			<coding>
+				<system value="http://hl7.org/fhir/data-absent-reason"/>
+				<code value="not-asked"/>
+				<display value="Not Asked"/>
+			</coding>
+		</dataAbsentReason>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="8462-4"/>
+				<display value="Diastolic blood pressure"/>
+			</coding>
+		</code>
+		<!-- no value due to some error 
+    <valueQuantity>
+      <value value="60"/>
+      <unit value="mm[Hg]"/>
+    </valueQuantity>
+-->
+		<dataAbsentReason>
+			<coding>
+				<system value="http://hl7.org/fhir/data-absent-reason"/>
+				<code value="not-asked"/>
+				<display value="Not Asked"/>
+			</coding>
+		</dataAbsentReason>
+	</component>
+</Observation>
