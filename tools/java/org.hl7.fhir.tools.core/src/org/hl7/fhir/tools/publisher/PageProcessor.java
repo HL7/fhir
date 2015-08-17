@@ -2070,7 +2070,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     for (String s : entries) {
       TocEntry t = toc.get(s);
-      if (!s.startsWith("?") && ((part == 1 && rootInd(s) < 4) || (part == 2 && rootInd(s) >= 4))) {
+      if (!t.isIg() && !s.startsWith("?") && ((part == 1 && rootInd(s) < 4) || (part == 2 && rootInd(s) >= 4))) {
         String nd = s;
         while (nd.endsWith(".0"))
           nd = nd.substring(0, nd.length()-2);

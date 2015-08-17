@@ -1812,7 +1812,7 @@ public class Publisher implements URIResolver {
       page.getVsValidator().checkDuplicates(page.getValidationErrors());
 
       if (buildFlags.get("all")) {
-        page.getToc().put("1.1", new TocEntry("1.1", "Table Of Contents", "toc.html"));
+        page.getToc().put("1.1", new TocEntry("1.1", "Table Of Contents", "toc.html", false));
         page.log(" ...page toc.html", LogMessageType.Process);
         producePage("toc.html", null);
       }
@@ -3236,7 +3236,7 @@ public class Publisher implements URIResolver {
     svg.generate(resource, page.getFolders().dstDir + n + ".svg", "1");
 
     String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(resource.getName());
-    SectionTracker st = new SectionTracker(prefix);
+    SectionTracker st = new SectionTracker(prefix, false);
     st.start("");
     page.getSectionTrackerCache().put(n, st);
 
@@ -3975,6 +3975,9 @@ public class Publisher implements URIResolver {
     src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes, ig, false);
     if (st != null)
       src = insertSectionNumbers(src, st, title + ".html", level, null);
+    else if (ig != null && !ig.isCore())
+      src = addSectionNumbers(title + ".html", title, src, null, 1, null, ig);
+
     page.getEpub().registerFile(prefix +title + ".html", "StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE, false);
     TextFile.stringToFile(src, page.getFolders().dstDir + prefix +title + ".html");
     new ProfileUtilities(page.getWorkerContext()).generateSchematrons(new FileOutputStream(page.getFolders().dstDir + prefix +title + ".sch"), profile.getResource());
@@ -4258,7 +4261,7 @@ public class Publisher implements URIResolver {
     svg.generate(lm.getResource(), page.getFolders().dstDir + fn+".svg", "2");
 
     String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(lm.getId());
-    SectionTracker st = new SectionTracker(prefix);
+    SectionTracker st = new SectionTracker(prefix, true);
     st.start("");
     page.getSectionTrackerCache().put(fn, st);
 
@@ -4429,12 +4432,12 @@ public class Publisher implements URIResolver {
       // page.getNavigation().getIndexPrefixForFile(logicalName+".html");
       String prefix;
       if (ig != null)
-        prefix = ig.getIndexPrefixForFile(logicalName + ".html");
+        prefix = ig.getIndexPrefixForFile(file, logicalName + ".html");
       else
         prefix = page.getBreadCrumbManager().getIndexPrefixForFile(logicalName + ".html");
       if (Utilities.noString(prefix))
         throw new Exception("No indexing home for logical place " + logicalName);
-      page.getSectionTrackerCache().put(logicalName, new SectionTracker(prefix));
+      page.getSectionTrackerCache().put(logicalName, new SectionTracker(prefix, ig != null));
     }
     SectionTracker st = page.getSectionTrackerCache().get(logicalName);
     st.start(id);
@@ -4516,7 +4519,7 @@ public class Publisher implements URIResolver {
         && (node.getName().equals("h1") || node.getName().equals("h2") || node.getName().equals("h3") || node.getName().equals("h4")
             || node.getName().equals("h5") || node.getName().equals("h6"))) {
       String v = st.getIndex(Integer.parseInt(node.getName().substring(1)));
-      TocEntry t = new TocEntry(v, node.allText(), link);
+      TocEntry t = new TocEntry(v, node.allText(), link, st.isIg());
       page.getToc().put(v, t);
       node.addText(0, " ");
       XhtmlNode span = node.addTag(0, "span");

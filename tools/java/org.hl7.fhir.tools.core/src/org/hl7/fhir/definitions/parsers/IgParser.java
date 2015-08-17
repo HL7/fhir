@@ -217,6 +217,7 @@ public class IgParser {
         }
       }
     }
+    igd.numberPages();
     
 //    // second, parse the old ig, and use that. This is being phased out
 //    CSFile file = new CSFile(Utilities.path(rootDir, igd.getSource()));

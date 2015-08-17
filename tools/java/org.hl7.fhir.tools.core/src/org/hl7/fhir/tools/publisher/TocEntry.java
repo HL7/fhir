@@ -33,11 +33,14 @@ public class TocEntry {
   private String value;
   private String text;
   private String link;
-  public TocEntry(String value, String text, String link) {
+  private boolean isIg;
+  
+  public TocEntry(String value, String text, String link, boolean isIg) {
     super();
     this.value = value;
     this.text = text;
     this.link = link;
+    this.isIg = isIg;
   }
   public String getValue() {
     return value;
@@ -47,6 +50,9 @@ public class TocEntry {
   }
   public String getLink() {
     return link;
+  }
+  public boolean isIg() {
+    return isIg;
   }
   
   

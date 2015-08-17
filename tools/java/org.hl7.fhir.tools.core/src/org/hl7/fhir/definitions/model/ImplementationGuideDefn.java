@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.ImplementationGuide;
 import org.hl7.fhir.instance.model.ImplementationGuide.GuidePageKind;
@@ -49,7 +50,7 @@ public class ImplementationGuideDefn {
   private String code;
   private boolean core; 
   private String name;
-  private String page;
+  private String pagename;
   private boolean review;
   private String source;
   private String ballot;
@@ -73,7 +74,7 @@ public class ImplementationGuideDefn {
     this.code = code;
     this.name = name;
     this.source = source;
-    this.page = page;
+    this.pagename = pagename;
     this.review = review;
     this.committee = committee;
     this.fmm = fmm;
@@ -95,7 +96,7 @@ public class ImplementationGuideDefn {
   }
 
   public String getPage() {
-    return page;
+    return pagename;
   }
   public boolean isReview() {
     return review;
@@ -108,8 +109,8 @@ public class ImplementationGuideDefn {
     return source;
   }
 
-  public void setPage(String page) {
-    this.page = page;
+  public void setPage(String pagename) {
+    this.pagename = pagename;
   }
 
   public List<String> getPageList() {
@@ -294,8 +295,26 @@ public class ImplementationGuideDefn {
     return false;
   }
 
-  public String getIndexPrefixForFile(String string) {
-    return sectionId+".??";
+  private ImplementationGuidePageComponent getPage(String n, ImplementationGuidePageComponent node) {
+    if (n.equals(node.getSource()))
+      return node;
+    for (ImplementationGuidePageComponent page : node.getPage()) {
+      ImplementationGuidePageComponent p = getPage(n, page);
+      if (p != null)
+        return p;
+    }
+    return null;
+  }
+
+  
+  public String getIndexPrefixForFile(String page, String logicalName) {
+    if (page.startsWith(code+"\\"))
+      page = page.substring(code.length()+1);
+    ImplementationGuidePageComponent p = getPage(page, ig.getPage());
+    if (p == null)
+      return sectionId+".??";
+    else
+      return p.getUserString(ToolResourceUtilities.NAME_PAGE_INDEX);
   }
 
   public String getPrefix() {
@@ -331,10 +350,44 @@ public class ImplementationGuideDefn {
   private void addPage(HeirarchicalTableGenerator gen, List<Row> rows, ImplementationGuidePageComponent page) {
     Row row = gen.new Row();
     rows.add(row);
-    row.getCells().add(gen.new Cell("", page.getSource(), page.getName(), null, null));
+    row.setIcon(getIcon(page.getKind()), page.getKind().getDisplay());
+    
+    String ndx = page.getUserString(ToolResourceUtilities.NAME_PAGE_INDEX);
+    if (ndx == null)
+      ndx = "";
+    else
+      ndx = ndx + " ";
+    row.getCells().add(gen.new Cell("", page.getSource(), ndx + page.getName(), null, null));
     for (ImplementationGuidePageComponent p : page.getPage()) {
       addPage(gen, row.getSubRows(), p);
     }
   }
+
+  private String getIcon(GuidePageKind kind) {
+    switch (kind) {
+    case PAGE: return "icon-page.png";  
+    case EXAMPLE: return "icon-example.png"; 
+    case LIST: return "icon-list.gif";
+    case INCLUDE: return "icon-include.png";
+    case DIRECTORY: return "icon-directory.gif";
+    case DICTIONARY: return "icon-dictionary.png";
+    case TOC: return "icon-toc.png";
+    case RESOURCE: return "icon-resource.png";
+    default: return "icon-page.png";
+    }
+  }
   
+  public void numberPages() {
+    ig.getPage().setUserData(ToolResourceUtilities.NAME_PAGE_INDEX, sectionId+".0");
+    numberPages(ig.getPage().getPage(), sectionId+".");
+  }
+
+  private void numberPages(List<ImplementationGuidePageComponent> list, String prefix) {
+    for (int i = 0; i < list.size(); i++) {
+      ImplementationGuidePageComponent page = list.get(i);
+      page.setUserData(ToolResourceUtilities.NAME_PAGE_INDEX, prefix+Integer.toString(i+1)+(page.hasPage() ? ".0" : ""));
+      numberPages(page.getPage(), prefix+Integer.toString(i+1)+".");
+    }
+  }
+
 }
