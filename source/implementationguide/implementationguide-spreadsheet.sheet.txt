@@ -1,0 +1,550 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = GuideDependencyType
+  Binding = code list
+  Reference = #guide-dependency-type
+  Definition = How a dependency is represented when the guide is published
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = GuidePageKind
+  Binding = code list
+  Reference = #guide-page-kind
+  Definition = The kind of an included page
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = GuideResourcePurpose
+  Binding = code list
+  Reference = #guide-resource-purpose
+  Definition = Why a resource is included in the guide
+  Conformance = required
+
+=== Sheet guide-dependency-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = reference
+  Display = Reference
+  Definition = The guide is referred to by URL
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = inclusion
+  Display = Inclusion
+  Definition = The guide is embedded in this guide when published
+
+=== Sheet guide-page-kind =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = page
+  Display = Page
+  Definition = This is a page of content that is included in the implementation guide. It has no particular function
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = example
+  Display = Example
+  Definition = This is a page that represents a human readable rendering of an example
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = list
+  Display = List
+  Definition = This is a page that represents a list of resources of one or more types
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = include
+  Display = Include
+  Definition = This is a page that is where an included guide is injected
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = directory
+  Display = Directory
+  Definition = This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = dictionary
+  Display = Dictionary
+  Definition = This is a page that creates the listed resources as a dictionary
+  Parent = #5
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = toc
+  Display = Table Of Contents
+  Definition = This is a generated page that contains the table of contents
+
+=== Sheet guide-resource-purpose =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = example
+  Display = Example
+  Definition = The resource is intended as an example
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = terminology
+  Display = Terminology
+  Definition = The resource defines a value set or concept map used in the Implementation Guide
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = profile
+  Display = Profile
+  Definition = The resource defines a profile (StructureDefinition) that is used in the implementation guide
+
+ -- Row 4 -----------------------------------
+  Id = 6
+  Code = extension
+  Display = Extension
+  Definition = The resource defines an extension (StructureDefinition) that is used in the implementation guide
+
+ -- Row 5 -----------------------------------
+  Id = 4
+  Code = dictionary
+  Display = Dictionary
+  Definition = The resource contains a dictionary that is part of the implementation guide
+
+ -- Row 6 -----------------------------------
+  Id = 5
+  Code = logical
+  Display = Logical Model
+  Definition = The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ImplementationGuide
+  Card. = 1..1
+  Type = DomainResource
+  Short Label = A set of rules about how FHIR is used
+  Definition = A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts
+  Requirements = An implementation guide is able to define default profiles that must apply to any use of a resource, so validation services may need to take one or more implementation guide resources when validating
+  RIM Mapping = n/a
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = ImplementationGuide.url
+  Card. = 1..1
+  Aliases = url, authoritative-url, destination, identity
+  Summary = Y
+  Type = uri
+  Short Label = Literal URL used to reference this Implementation Guide
+  Definition = An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published
+  Requirements = This is required to allow hosting Implementation Guides on multiple different servers, and to allow for the editorial process
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = ImplementationGuide.version
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Logical id for this version of the Implementation Guide
+  Definition = The identifier that is used to identify this version of the Implementation Guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Implementation Guide author manually
+  Requirements = There may be multiple resource versions of the Implementation Guide that have this same identifier. The resource version id will change for technical reasons, whereas the stated version number needs to be under the author\'s control
+  w5 = id.version
+
+ -- Row 4 -----------------------------------
+  Element = ImplementationGuide.name
+  Card. = 1..1
+  Summary = y
+  Type = string
+  Short Label = Informal name for this Implementation Guide
+  Definition = A free text natural language name identifying the Implementation Guide
+  Comments = Not expected to be globally unique
+
+ -- Row 5 -----------------------------------
+  Element = ImplementationGuide.status
+  Card. = 1..1
+  Is Modifier = yes
+  Summary = y
+  Type = code
+  Binding = ConformanceResourceStatus
+  Short Label = draft | active | retired
+  Definition = The status of the Implementation Guide
+  Requirements = Allows filtering of Implementation Guides that are appropriate for use vs. not
+  w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = ImplementationGuide.experimental
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = If for testing purposes, not real usage
+  Definition = This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Requirements = Allows filtering of Implementation Guides that are appropriate for use vs. not
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = ImplementationGuide.publisher
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the implementation guide
+  Requirements = Helps establish the \"authority/credibility\" of the implementation guide.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
+  w5 = who.witness
+
+ -- Row 8 -----------------------------------
+  Element = ImplementationGuide.contact
+  Card. = 0..*
+  Summary = y
+  UML = left
+  Short Label = Contact details of the publisher
+  Definition = Contacts to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number (tel:), etc.
+
+ -- Row 9 -----------------------------------
+  Element = ImplementationGuide.contact.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of a individual to contact
+  Definition = The name of an individual to contact regarding the implementation guide
+  Comments = If there is no named individual, the telecom is for the organization as a whole
+
+ -- Row 10 -----------------------------------
+  Element = ImplementationGuide.contact.telecom
+  Card. = 0..*
+  Summary = Y
+  Type = ContactPoint
+  Short Label = Contact details for individual or publisher
+  Definition = Contact details for individual (if a name was provided) or the publisher
+
+ -- Row 11 -----------------------------------
+  Element = ImplementationGuide.date
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Date for this version of the Implementation Guide
+  Definition = The date that this version of the Implementation Guide was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the implementation guide changes
+  Comments = Additional specific dates may be added as extensions
+  w5 = when.recorded
+
+ -- Row 12 -----------------------------------
+  Element = ImplementationGuide.description
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Natural language description of the Implementation Guide
+  Definition = A free text natural language description of the Implementation Guide and its use
+  Comments = This field can be used for things such as why the Implementation Guide was written, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.  It is *not* a rendering of the Implementation Guide as conveyed in Implementation Guide.text. This item SHOULD be populated unless the information is available from context.
+
+ -- Row 13 -----------------------------------
+  Element = ImplementationGuide.useContext
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ConformanceUseContext
+  Short Label = The implementation guide is intended to support these contexts
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined
+  Requirements = Assist in searching for appropriate implementation guide
+
+ -- Row 14 -----------------------------------
+  Element = ImplementationGuide.copyright
+  Card. = 0..1
+  Aliases = License,Restrictions
+  Type = string
+  Short Label = Use and/or Publishing restrictions
+  Definition = A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings
+
+ -- Row 15 -----------------------------------
+  Element = ImplementationGuide.fhirVersion
+  Card. = 0..1
+  Summary = y
+  Type = id
+  Short Label = FHIR Version this Implementation Guide targets
+  Definition = The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is $version$ for this version
+  Comments = A Implementation Guide should specify the target it applies to, as ImplementationGuides are rarely valid across multiple versions of FHIR
+
+ -- Row 16 -----------------------------------
+  Element = ImplementationGuide.dependency
+  Card. = 0..*
+  Summary = Y
+  Short Label = Another Implementation guide this depends on
+  Definition = Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc defined in other implementation guides
+
+ -- Row 17 -----------------------------------
+  Element = ImplementationGuide.dependency.type
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = GuideDependencyType
+  Short Label = reference | inclusion
+  Definition = How the dependency is represented when the guide is published
+  Comments = For information about processing included guides, see [Including Guides]{implementationguide.html#include}
+
+ -- Row 18 -----------------------------------
+  Element = ImplementationGuide.dependency.uri
+  Card. = 1..1
+  Summary = Y
+  Type = uri
+  Short Label = Where to find dependency
+  Definition = Where the dependncy is located
+  Comments = When a guide is published, and the type is \'include\', this will be a relative reference within the guide
+
+ -- Row 19 -----------------------------------
+  Element = ImplementationGuide.package
+  Card. = 1..*
+  Summary = Y
+  Short Label = Group of resources as used in .page.package
+  Definition = A logial group of resources. Logical groups can be used when building pages
+
+ -- Row 20 -----------------------------------
+  Element = ImplementationGuide.package.name
+  Card. = 1..1
+  Summary = Y
+  Type = string
+  Short Label = Name used .page.package
+  Definition = The name for the group, as used in page.package
+
+ -- Row 21 -----------------------------------
+  Element = ImplementationGuide.package.description
+  Card. = 0..1
+  Type = string
+  Short Label = Human readable text describing the package
+
+ -- Row 22 -----------------------------------
+  Element = ImplementationGuide.package.resource
+  Card. = 1..*
+  Summary = Y
+  Short Label = Resource in the implementation guide
+  Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
+
+ -- Row 23 -----------------------------------
+  Element = ImplementationGuide.package.resource.purpose
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = GuideResourcePurpose
+  Short Label = example | terminology | profile | extension | dictionary | logical
+  Definition = Why the resource is included in the guide
+  Requirements = This element is provided so that implementation guide tooling does not have to guess the purpose of including a resource in the implementation guide based on the type or context
+  Comments = The purpose alters the way that a resource is handled when a guide is built. At present, only value set and concept map resources are allowed for terminology resources, and only StructureDefinition, SearchPerameter, and OperationDefinition for profile. Dictionaries must be bundles of DataElement or Medication at this time
+
+ -- Row 24 -----------------------------------
+  Element = ImplementationGuide.package.resource.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Human Name for the resource
+  Definition = A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)
+
+ -- Row 25 -----------------------------------
+  Element = ImplementationGuide.package.resource.description
+  Card. = 0..1
+  Type = string
+  Short Label = Reason why included in guide
+  Definition = A description of the reason that a resource has been included in the implementation guide
+  Comments = This is mostly used with examples to explain why it is present (though they can have extensive comments in the examples)
+
+ -- Row 26 -----------------------------------
+  Element = ImplementationGuide.package.resource.acronym
+  Card. = 0..1
+  Type = string
+  Short Label = Short code to identify the resource
+  Definition = A short code that may be used to identify the resource throughout the implementation guide
+  Comments = This is used when generating schematrons from profiles, for example, but has other uses. Publishing tooling may autogenerate this value, but a human assigned value is more useful. This value must be unique within an implementation guide (across included guides as well)
+
+ -- Row 27 -----------------------------------
+  Element = ImplementationGuide.package.resource.source[x]
+  Card. = 1..1
+  Summary = y
+  Type = uri|Reference(Any)
+  Short Label = Location of the resource
+  Definition = Where this resource is found
+  Comments = Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it
+
+ -- Row 28 -----------------------------------
+  Element = ImplementationGuide.package.resource.exampleFor
+  Card. = 0..1
+  Type = Reference(StructureDefinition)
+  Short Label = Resource this is an example of (if applicable)
+  Definition = Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions
+  Comments = Examples:\n* StructureDefinition -> Any\n* ValueSet -> expansion\n* OperationDefinition -> Parameters\n* Questionnaire -> QuestionnaireResponse
+
+ -- Row 29 -----------------------------------
+  Element = ImplementationGuide.global
+  Card. = 0..*
+  Summary = Y
+  Short Label = Profiles that apply globally
+  Definition = A set of profiles that all resources covered by this implementation guide must conform to
+  Comments = See (reference) for a discussion of which resources are \'covered\' by an implementation guide
+
+ -- Row 30 -----------------------------------
+  Element = ImplementationGuide.global.type
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = ResourceType
+  Short Label = Type this profiles applies to
+  Definition = The type of resource that all instances must conform to
+  Comments = The type must match that of the profile that is referred to, but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available
+
+ -- Row 31 -----------------------------------
+  Element = ImplementationGuide.global.profile
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(StructureDefinition)
+  Short Label = Profile that all resources must conform to
+  Definition = A reference to the profile that all instances must conform to
+
+ -- Row 32 -----------------------------------
+  Element = ImplementationGuide.binary
+  Card. = 0..*
+  Type = uri
+  Short Label = Image, css, script, etc
+  Definition = A binary file that is included in the  implementation guide when it is published
+  Comments = This is principally included for the FHIR publishing tool, but may be useful when extracting and reusing content from the implementation guide
+
+ -- Row 33 -----------------------------------
+  Element = ImplementationGuide.page
+  Card. = 1..1
+  Summary = Y
+  Short Label = Page/Section in the Guide
+  Definition = A page / section in the implementation guide. The root page is the implementation guide home page
+  Comments = Pages automatically become sections if they have sub-pages. By convention, the home page is called index.html
+
+ -- Row 34 -----------------------------------
+  Element = ImplementationGuide.page.source
+  Card. = 1..1
+  Summary = Y
+  Type = uri
+  Short Label = Where to find that page
+  Definition = The source address for the page
+  Comments = The publishing tool will auto-generate source for list (source = n/a), and inject included implementations for include (source = uri of guide to include)
+
+ -- Row 35 -----------------------------------
+  Element = ImplementationGuide.page.name
+  Card. = 1..1
+  Summary = Y
+  Type = string
+  Short Label = Short name shown for navigational assistance
+  Definition = A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc
+
+ -- Row 36 -----------------------------------
+  Element = ImplementationGuide.page.kind
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = GuidePageKind
+  Short Label = page | example | list | include | directory | dictionary | toc
+  Definition = The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest
+
+ -- Row 37 -----------------------------------
+  Element = ImplementationGuide.page.type
+  Card. = 0..*
+  Type = code
+  Binding = ResourceType
+  Short Label = Kind of resource to include in the list
+  Definition = For constructed pages, what kind of resources to include in the list
+
+ -- Row 38 -----------------------------------
+  Element = ImplementationGuide.page.package
+  Card. = 0..*
+  Type = string
+  Short Label = Name of package to include
+  Definition = For constructed pages, a list of packages to include in the page (or else empty for everything)
+
+ -- Row 39 -----------------------------------
+  Element = ImplementationGuide.page.format
+  Card. = 0..1
+  Type = code
+  Binding = MimeType
+  Short Label = Format of the page (e.g. html, markdown etc)
+  Definition = The format of the page
+  Comments = This is primarily for the pubishing tool, that will convert all pages to html format. HTML pages are pre-processed, see xxxx
+
+ -- Row 40 -----------------------------------
+  Element = ImplementationGuide.page.page
+  Card. = 0..*
+  Type = @ImplementationGuide.page
+  Short Label = Nested Pages / Sections
+  Definition = Nested Pages/Sections under this page
+  Comments = The implementation guide breadcrumbs are generated from this structure
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = url
+  Type = uri
+  Path = ImplementationGuide.url
+
+ -- Row 2 -----------------------------------
+  Name = version
+  Type = token
+  Description = The version identifier of the implementation guide
+  Path = ImplementationGuide.version
+
+ -- Row 3 -----------------------------------
+  Name = name
+  Type = string
+  Description = Name of the implementation guide
+  Path = ImplementationGuide.name
+
+ -- Row 4 -----------------------------------
+  Name = publisher
+  Type = string
+  Description = Name of the publisher of the implementation guide
+  Path = ImplementationGuide.publisher
+
+ -- Row 5 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search in the description of the implementation guide
+  Path = ImplementationGuide.description
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = The current status of the implementation guide
+  Path = ImplementationGuide.status
+
+ -- Row 7 -----------------------------------
+  Name = date
+  Type = date
+  Description = The implementation guide publication date
+  Path = ImplementationGuide.date
+
+ -- Row 8 -----------------------------------
+  Name = context
+  Type = token
+  Description = A use context assigned to the structure
+  Path = ImplementationGuide.useContext
+
+ -- Row 9 -----------------------------------
+  Name = experimental
+  Type = token
+  Path = ImplementationGuide.experimental
+
+ -- Row 10 -----------------------------------
+  Name = dependency
+  Type = uri
+  Path = ImplementationGuide.dependency.uri
+
+ -- Row 11 -----------------------------------
+  Name = !reference
+  Type = reference
+  Path = ImplementationGuide.resource.sourceReference
+
+ -- Row 12 -----------------------------------
+  Name = !source
+  Type = uri
+  Path = ImplementationGuide.resource.sourceUri
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

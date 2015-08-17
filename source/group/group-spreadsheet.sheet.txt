@@ -1,0 +1,300 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = GroupKind
+  Binding = unbound
+  Definition = Kind of particular resource.  E.g. cow, syringe, lake, etc.
+
+ -- Row 2 -----------------------------------
+  Binding Name = GroupCharacteristicKind
+  Binding = unbound
+  Definition = List of characteristics used to describe group members.  E.g. gender, age, owner, location, etc.
+
+ -- Row 3 -----------------------------------
+  Binding Name = GroupCharacteristicValue
+  Binding = unbound
+  Definition = Value of descriptive member characteristic.  E.g. red, male, pneumonia, caucasian, etc.
+
+ -- Row 4 -----------------------------------
+  Binding Name = GroupType
+  Binding = code list
+  Reference = #group-type
+  Definition = Types of resources that are part of group
+
+=== Sheet group-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = person
+  Display = Person
+  Definition = Group contains \"person\" Patient resources
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = animal
+  Display = Animal
+  Definition = Group contains \"animal\" Patient resources
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = practitioner
+  Display = Practitioner
+  Definition = Group contains healthcare practitioner resources
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = device
+  Display = Device
+  Definition = Group contains Device resources
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = medication
+  Display = Medication
+  Definition = Group contains Medication resources
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = substance
+  Display = Substance
+  Definition = Group contains Substance resources
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Group
+  English = Can only have members if group is \"actual\"
+  XPath = f:actual/@value=\'true\' or not(exists(f:member))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Group
+  Type = DomainResource
+  Short Label = Group of multiple entities
+  Definition = Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn\'t an Organization
+  RIM Mapping = Entity[determinerCode=\"GRP\" or determinerCode=\"GRP_KIND\"]
+  To Do = We need determiner codes that indicate we\'re talking about a group even when we haven\'t specified a specific quantity
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Group.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = Unique id
+  Definition = A unique business identifier for this group
+  Requirements = Allows the group to be referenced from external specifications
+  RIM Mapping = unique(./id[displayable=\"true\" and scope=\"OBJ\"])
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Group.type
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = GroupType
+  Short Label = person | animal | practitioner | device | medication | substance
+  Definition = Identifies the broad classification of the kind of resources the group includes
+  Requirements = Identifies what type of resources the group is made up of
+  Comments = Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medicaiton or Substance for the other types.)
+  RIM Mapping = person: ./classCode=\"PSN\"  animal: ./classCode=\"ANM\"  device: ./classCode=\"DEV\"  medication: ./classCode=\"MMAT\" and ./playedRole[isNormalRole() and classCode=\"THER\"]  food: ./classCode=\"FOOD\"
+  Committee Notes = Do we need \"mixed\" groups?
+  w5 = class
+
+ -- Row 4 -----------------------------------
+  Element = Group.actual
+  Card. = 1..1
+  Summary = y
+  Inv. = 1
+  Type = boolean
+  Short Label = Descriptive or actual
+  Definition = If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals
+  Requirements = There are use-cases for groups that define specific collections of individuals, and other groups that define \"types\" of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this flag.
+  RIM Mapping = true: ./determinerCode=\"GRP\"  false: ./determinerCode=\"GRP_KIND\"
+
+ -- Row 5 -----------------------------------
+  Element = Group.code
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = GroupKind
+  Short Label = Kind of Group members
+  Definition = Provides a specific type of resource the group includes.  E.g. \"cow\", \"syringe\", etc.
+  Comments = This would generally be omitted for Person resources
+  RIM Mapping = ./code
+
+ -- Row 6 -----------------------------------
+  Element = Group.name
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Label for Group
+  Definition = A label assigned to the group for human identification and communication
+  Requirements = Used to identify the group in human communication
+  RIM Mapping = ./name[type=\"ST\"]
+
+ -- Row 7 -----------------------------------
+  Element = Group.quantity
+  Card. = 0..1
+  Summary = y
+  Type = unsignedInt
+  Short Label = Number of members
+  Definition = A count of the number of resource instances that are part of the group
+  Requirements = Group size is a common defining characteristic
+  Comments = Note that the quantity may be less than the number of members if some of the members are not active
+  RIM Mapping = ./quantity
+
+ -- Row 8 -----------------------------------
+  Element = Group.characteristic
+  Card. = 0..*
+  UML = right
+  Short Label = Trait of group members
+  Definition = Identifies the traits shared by members of the group
+  Requirements = Needs to be a generic mechanism for identifying what individuals can be part of a group
+  Comments = All the identified characteristics must be true for an entity to a member of the group
+  RIM Mapping = ./playedRole[isNormalRole()]/participation[isNormalParticipation() and typeCode=\"SBJ\"]/act[isNormalAct and classCode=\"OBS\" and moodCode=\"EVN\"]
+
+ -- Row 9 -----------------------------------
+  Element = Group.characteristic.code
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = GroupCharacteristicKind
+  Short Label = Kind of characteristic
+  Definition = A code that identifies the kind of trait being asserted
+  Requirements = Need a formal way of identifying the characteristic being described
+  RIM Mapping = ./code
+
+ -- Row 10 -----------------------------------
+  Element = Group.characteristic.value[x]
+  Card. = 1..1
+  Type = CodeableConcept|boolean|Quantity|Range
+  Binding = GroupCharacteristicValue
+  Short Label = Value held by characteristic
+  Definition = The value of the trait that holds (or does not hold - see \'exclude\') for members of the group
+  Requirements = The value of the characteristic is what determines group membership.
+  Comments = For Range, it means members of the group have a value that falls somewhere within the specified range.
+  RIM Mapping = ./value
+
+ -- Row 11 -----------------------------------
+  Element = Group.characteristic.exclude
+  Card. = 1..1
+  Is Modifier = y
+  Type = boolean
+  Short Label = Group includes or excludes
+  Definition = If true, indicates the characteristic is one that is NOT held by members of the group
+  Requirements = Sometimes group membership is determined by characteristics not possessed
+  Comments = This is labeled as \"Is Modifier\" because applications cannot wrongly include excluded members as included or vice versa
+  RIM Mapping = ./valueNegationInd
+
+ -- Row 12 -----------------------------------
+  Element = Group.characteristic.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Period over which characteristic is tested
+  Definition = The period over which the characteristic is tested. E.g. the patient had an operation during the month of June
+
+ -- Row 13 -----------------------------------
+  Element = Group.member
+  Card. = 0..*
+  Inv. = 1
+  Short Label = Who or what is in group
+  Definition = Identifies the resource instances that are members of the group.
+  Requirements = Often the only thing of interest about a group is \"who\'s in it\"
+  RIM Mapping = ./scopedRole[isNormalRole() and classCode=\"MBR\"]/player
+  Committee Notes = Is \"group of groups\" in the 80%?
+
+ -- Row 14 -----------------------------------
+  Element = Group.member.entity
+  Card. = 1..1
+  Type = Reference(Patient|Practitioner|Device|Medication|Substance)
+  Short Label = Reference to the group member
+  Definition = A reference to the entity that is a member of the group. Must be consistent with Group.type
+
+ -- Row 15 -----------------------------------
+  Element = Group.member.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Period member belonged to the group
+  Definition = The period that the member was in the group, if known
+  Requirements = Need to track who was in a group at a  particular time
+  Missing Meaning = The member is in the group at this time
+
+ -- Row 16 -----------------------------------
+  Element = Group.member.inactive
+  Card. = 0..1
+  Type = boolean
+  Short Label = If member is no longer in group
+  Definition = A flag to indicate that the member is no longer in the group, but previously may have been a member
+  Requirements = Sometimes you don\'t know when someone stopped being in a group, but not when
+  Default Value = False
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = type
+  Type = token
+  Description = The type of resources the group contains
+  Path = Group.type
+
+ -- Row 2 -----------------------------------
+  Name = code
+  Type = token
+  Description = The kind of resources contained
+  Path = Group.code
+
+ -- Row 3 -----------------------------------
+  Name = actual
+  Type = token
+  Path = Group.actual
+
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Group.identifier
+
+ -- Row 5 -----------------------------------
+  Name = member
+  Type = reference
+  Path = Group.member.entity
+
+ -- Row 6 -----------------------------------
+  Name = characteristic
+  Type = token
+  Path = Group.characteristic.code
+
+ -- Row 7 -----------------------------------
+  Name = value
+  Type = token
+  Path = Group.characteristic.value[x]
+
+ -- Row 8 -----------------------------------
+  Name = exclude
+  Type = token
+  Path = Group.characteristic.exclude
+
+ -- Row 9 -----------------------------------
+  Name = characteristic-value
+  Type = composite
+  Description = A composite of both characteristic and value
+  Path = characteristic & value
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General #1
+  Identity = 101
+  Description = General Group Example, Characteristic Based
+  Filename = group-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = General #2
+  Identity = 102
+  Description = General Group Example, Member Based
+  Filename = group-example-member.xml
+
+=== Sheet Examples =====================================

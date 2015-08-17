@@ -1,0 +1,130 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet DeviceMetricObservation =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = DeviceMetricObservation
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 3 -----------------------------------
+  Element = Observation.value[x]
+  Card. = 0..*
+  Must Support = Y
+  Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period
+
+ -- Row 4 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..0
+  Must Support = N
+  Type = CodeableConcept
+
+ -- Row 5 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..1
+  Must Support = N
+  Type = CodeableConcept
+
+ -- Row 6 -----------------------------------
+  Element = Observation.comments
+  Card. = 0..1
+  Must Support = N
+  Type = string
+
+ -- Row 7 -----------------------------------
+  Element = Observation.effectiveDateTime
+  Card. = 1..1
+  Must Support = Y
+  Type = dateTime
+
+ -- Row 8 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..0
+  Must Support = N
+  Type = instant
+
+ -- Row 9 -----------------------------------
+  Element = Observation.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+
+ -- Row 10 -----------------------------------
+  Element = !Observation.reliability
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+
+ -- Row 11 -----------------------------------
+  Element = Observation.bodySite[x]
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 12 -----------------------------------
+  Element = Observation.method
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 13 -----------------------------------
+  Element = Observation.identifier
+  Card. = 0..*
+  Must Support = Y
+  Type = Identifier
+
+ -- Row 14 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient | Device)
+
+ -- Row 15 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..0
+  Must Support = N
+  Type = Reference(Specimen)
+
+ -- Row 16 -----------------------------------
+  Element = Observation.device
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(DeviceMetric)
+  Committee Notes = [#3689]
+
+ -- Row 17 -----------------------------------
+  Element = Observation.encounter
+  Card. = 0..0
+  Must Support = N
+  Type = Reference(Encounter)
+
+ -- Row 18 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = Observation.related
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 20 -----------------------------------
+  Element = Observation.related.type
+  Card. = 0..1
+  Must Support = Y
+  Type = code
+
+ -- Row 21 -----------------------------------
+  Element = Observation.related.target
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Observation)
+
+=== Sheet Search =====================================

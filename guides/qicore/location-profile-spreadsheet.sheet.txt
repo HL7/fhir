@@ -1,0 +1,53 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICore-USPSState
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/usps-state
+  Definition = Two letter USPS alphabetic codes.
+  Conformance = preferred
+
+=== Sheet QICore-Location-Inv =====================================
+
+=== Sheet QICore-Location =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Location
+  Profile Name = QICore-Location
+  Type = Resource
+  QDM Mapping = Encounter.facility location
+
+ -- Row 2 -----------------------------------
+  Element = Location.type
+  Must Support = Y
+  QDM Mapping = Encounter.facility location
+
+ -- Row 3 -----------------------------------
+  Element = Location.address
+
+ -- Row 4 -----------------------------------
+  Element = Location.address.state
+  Binding = QICore-USPSState
+
+ -- Row 5 -----------------------------------
+  Element = Location.address.country
+  Binding = USCountry
+
+ -- Row 6 -----------------------------------
+  Element = Location.managingOrganization
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 7 -----------------------------------
+  Element = Location.status
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Location.partOf
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 9 -----------------------------------
+  Element = Location.mode
+  Must Support = Y
+
+=== Sheet Search =====================================

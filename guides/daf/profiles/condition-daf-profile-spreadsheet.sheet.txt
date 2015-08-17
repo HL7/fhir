@@ -1,0 +1,236 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DAFProblemCode
+  Binding = value set
+  Reference = valueset-problem
+  Definition = Valueset to describe the actual problem experienced by the patient
+  Description = Value set to identify the actual problem
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = !DAFProblemCategory
+  Binding = value set
+  Reference = valueset-problem-type
+  Definition = Valueset to identify if the problem is a Finding, Symptom, Condition etc.
+  Description = Value set to identify the category of the problem
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = DAFProblemSeverity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-severity
+  Definition = Valueset to identify the severity of the problem
+  Description = Value set to identify the severity of the problem
+  Conformance = required
+  Uri = http://hl7.org/fhir/ValueSet/condition-severity
+
+ -- Row 4 -----------------------------------
+  Binding Name = DAFProblemConcernStatus
+  Binding = value set
+  Reference = valueset-concern-status
+  Definition = Valueset to identify if the problem is active/resolved/inactive
+  Description = Value set to identify the problem concern status to know if it is still active or inactive or resolved
+  Conformance = required
+
+=== Sheet DAF-Condition =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = DAFCondition
+  Type = Resource
+  Definition = The occurrence of a condition
+
+ -- Row 2 -----------------------------------
+  Element = Condition.identifier
+  Card. = 0..*
+  Must Support = Y
+  Type = Identifier
+
+ -- Row 3 -----------------------------------
+  Element = Condition.patient
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
+
+ -- Row 4 -----------------------------------
+  Element = Condition.encounter
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
+
+ -- Row 5 -----------------------------------
+  Element = Condition.asserter
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
+
+ -- Row 6 -----------------------------------
+  Element = Condition.dateAsserted
+  Card. = 0..1
+  Must Support = Y
+  Type = date
+
+ -- Row 7 -----------------------------------
+  Element = Condition.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFProblemCode
+
+ -- Row 8 -----------------------------------
+  Element = Condition.category
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 9 -----------------------------------
+  Element = Condition.clinicalStatus
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+
+ -- Row 10 -----------------------------------
+  Element = !Condition.extension
+  Profile Name = concernStatus
+  Card. = 0..1
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-concernStatus}
+  Binding = DAFProblemConcernStatus
+
+ -- Row 11 -----------------------------------
+  Element = !Condition.certainty
+  Card. = 0..1
+  Type = CodeableConcept
+
+ -- Row 12 -----------------------------------
+  Element = Condition.severity
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFProblemSeverity
+  Short Label = mild | moderate | severe | fatal
+
+ -- Row 13 -----------------------------------
+  Element = Condition.onset[x]
+  Profile Name = onsetroot
+  Discriminator = @type
+  Card. = 0..1
+
+ -- Row 14 -----------------------------------
+  Element = Condition.onsetQuantity
+  Profile Name = onsetquantity
+  Card. = 0..1
+  Must Support = Y
+  Type = Age
+
+ -- Row 15 -----------------------------------
+  Element = Condition.onsetDateTime
+  Profile Name = onsetdatetime
+  Card. = 0..1
+  Must Support = Y
+  Type = dateTime
+
+ -- Row 16 -----------------------------------
+  Element = Condition.abatementBoolean
+  Card. = 0..1
+  Must Support = Y
+  Type = boolean
+  Definition = Constrained to Boolean.
+
+ -- Row 17 -----------------------------------
+  Element = !Condition.stage
+  Card. = 0..1
+
+ -- Row 18 -----------------------------------
+  Element = !Condition.stage.summary
+  Card. = 0..1
+  Type = CodeableConcept
+
+ -- Row 19 -----------------------------------
+  Element = !Condition.stage.assessment
+  Card. = 0..*
+  Type = Reference(Any)
+
+ -- Row 20 -----------------------------------
+  Element = !Condition.evidence
+  Card. = 0..*
+
+ -- Row 21 -----------------------------------
+  Element = !Condition.evidence.code
+  Card. = 0..1
+  Type = CodeableConcept
+
+ -- Row 22 -----------------------------------
+  Element = !Condition.evidence.detail
+  Card. = 0..*
+  Type = Reference(Any)
+
+ -- Row 23 -----------------------------------
+  Element = !Condition.location
+  Card. = 0..*
+
+ -- Row 24 -----------------------------------
+  Element = !Condition.location.code
+  Card. = 0..1
+  Type = CodeableConcept
+
+ -- Row 25 -----------------------------------
+  Element = !Condition.location.detail
+  Card. = 0..1
+  Type = string
+
+ -- Row 26 -----------------------------------
+  Element = !Condition.dueTo
+  Card. = 0..*
+
+ -- Row 27 -----------------------------------
+  Element = !Condition.dueTo.code
+  Card. = 0..1
+  Type = CodeableConcept
+
+ -- Row 28 -----------------------------------
+  Element = !Condition.dueTo.target
+  Card. = 0..1
+  Type = Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)
+
+ -- Row 29 -----------------------------------
+  Element = !Condition.occurredFollowing
+  Card. = 0..*
+
+ -- Row 30 -----------------------------------
+  Element = !Condition.occurredFollowing.code
+  Card. = 0..1
+  Type = CodeableConcept
+
+ -- Row 31 -----------------------------------
+  Element = !Condition.occurredFollowing.target
+  Card. = 0..1
+  Type = Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)
+
+ -- Row 32 -----------------------------------
+  Element = Condition.notes
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = age
+  Type = number
+  Description = Search based on Condition onsetAge
+  Path = Condition.onsetQuantity
+
+ -- Row 2 -----------------------------------
+  Name = abated
+  Type = string
+  Description = Search based on Condition\'s status of resolved
+  Path = Condition.abatementBoolean
+
+ -- Row 3 -----------------------------------
+  Name = concernStatus
+  Type = token
+  Description = Search by status of the Condition Concern
+  Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/us-core-concernStatus}

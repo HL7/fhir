@@ -1,0 +1,33 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ConformanceExpectation
+  Binding = code list
+  Reference = #conformance-expectation
+  Definition = Indicates the degree of adherence to a specified behavior or capability expected in order for a system to be deemed conformant with a specification
+  Conformance = required
+
+=== Sheet conformance-expectation =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = SHALL
+  Definition = Support for the specified capability is required to be considered conformant
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = SHOULD
+  Definition = Support for the specified capability is strongly encouraged and failure to support it should only occur after careful consideration
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = MAY
+  Definition = Support for the specified capability is not necessary to be considered conformant and the requirement should be considered strictly optional
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = SHOULD-NOT
+  Definition = Support for the specified capability is strongly discouraged and should occur only after careful consideration
+
+=== Sheet Search =====================================

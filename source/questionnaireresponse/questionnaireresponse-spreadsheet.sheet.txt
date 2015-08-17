@@ -1,0 +1,349 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QuestionnaireResponseStatus
+  Binding = code list
+  Reference = #questionnaire-answers-status
+  Definition = Lifecycle status of the questionnaire response
+  Conformance = required
+  Oid = required
+
+=== Sheet questionnaire-answers-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = in-progress
+  Display = In Progress
+  Definition = This QuestionnaireResponse has been partially filled out with answers, but changes or additions are still expected to be made to it.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = completed
+  Display = Completed
+  Definition = This QuestionnaireResponse has been filled out with answers, and the current content is regarded as definitive.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = amended
+  Display = Amended
+  Definition = This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = QuestionnaireResponse.group
+  English = Groups may either contain questions or groups but not both
+  XPath = not(exists(f:group) and exists(f:question))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = QuestionnaireResponse
+  Aliases = Form
+  Type = DomainResource
+  Short Label = A structured set of questions and their answers
+  Definition = A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions
+  Requirements = To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.
+  RIM Mapping = Observation[moodCode=EVN]
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = QuestionnaireResponse.identifier
+  Card. = 0..1
+  Summary = y
+  Type = Identifier
+  Short Label = Unique id for this set of answers
+  Definition = A business identifier assigned to a particular completed (or partially completed) questionnaire
+  Requirements = Used for tracking, registration and other business purposes
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = QuestionnaireResponse.questionnaire
+  Card. = 0..1
+  Aliases = Form
+  Summary = y
+  Type = Reference(Questionnaire)
+  Short Label = Form being answered
+  Definition = Indicates the Questionnaire resource that defines the form for which answers are being provided
+  Requirements = Needed to allow editing of the questionnaire in a manner that enforces the constraints of the original form.
+  RIM Mapping = ./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]
+
+ -- Row 4 -----------------------------------
+  Element = QuestionnaireResponse.status
+  Card. = 1..1
+  Is Modifier = y
+  Summary = y
+  Type = code
+  Binding = QuestionnaireResponseStatus
+  Short Label = in-progress | completed | amended
+  Definition = The lifecycle status of the questionnaire response as a whole.
+  Requirements = The information on questionnaires  may possibly be gathered during multiple sessions and altered after considered being finished. Questionnaires with just questions may serve as template forms, with the applicable publication statuses
+  RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)
+  w5 = status
+
+ -- Row 5 -----------------------------------
+  Element = QuestionnaireResponse.subject
+  Card. = 0..1
+  Aliases = Patient, Focus
+  Summary = y
+  Type = Reference(Any)
+  Short Label = The subject of the questions
+  Definition = The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information
+  Requirements = Must know the subject context
+  RIM Mapping = .participation[typeCode=SBJ].role
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = QuestionnaireResponse.author
+  Card. = 0..1
+  Aliases = Laboratory, Service, Practitioner, Department, Company
+  Summary = y
+  Type = Reference(Device|Practitioner|Patient|RelatedPerson)
+  Short Label = Person who received and recorded the answers
+  Definition = Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system
+  Requirements = Need to know who interpreted the subject\'s answers to the questions in the questionnaire, and selected the appropriate options for answers.
+  Comments = Mapping a subject\'s answers to multiple choice options and determining what to put in the textual answer is a matter of interpretation.  Authoring by device would indicate that some portion of the questionnaire had been auto-populated.
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
+
+ -- Row 7 -----------------------------------
+  Element = QuestionnaireResponse.authored
+  Card. = 0..1
+  Aliases = Date Created, Date published, Date Issued, Date updated
+  Summary = y
+  Type = dateTime
+  Short Label = Date this version was authored
+  Definition = The date and/or time that this version of the questionnaire response was authored
+  Requirements = Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers.
+  Comments = May be different from the update time of the resource itself, because that is the status of the collection and authoring.  This element is optional to allow for systems that may not know the value, however it SHOULD be populated if possible.
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 8 -----------------------------------
+  Element = QuestionnaireResponse.source
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+  Short Label = The person who answered the questions
+  Definition = The person who answered the questions about the subject.
+  Requirements = When answering questions about a subject that is minor, incapable of answering or an animal, another human source is used to answer the questions
+  Comments = If not specified, no inference can be made about who provided the data
+  RIM Mapping = .participation[typeCode=INF].role
+  w5 = who.source
+
+ -- Row 9 -----------------------------------
+  Element = QuestionnaireResponse.encounter
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Encounter)
+  Short Label = Primary encounter during which the answers were collected
+  Definition = Encounter during which this set of questionnaire response were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.
+  Requirements = Some institutions track questionnaires under a specific encounter
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  Committee Notes = Is this 80%? Is this 0..*?
+  w5 = context
+
+ -- Row 10 -----------------------------------
+  Element = QuestionnaireResponse.group
+  Card. = 0..1
+  UML = right
+  Type = =Group
+  Short Label = Grouped questions
+  Definition = A group of questions to a possibly similarly grouped set of questions in the questionnaire response
+  Requirements = Need to be able to logically group answers to grouped questions
+  Comments = The Questionnaire itself has one \"root\" group with the actual contents of the Questionnaire
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]
+
+ -- Row 11 -----------------------------------
+  Element = QuestionnaireResponse.group.linkId
+  Card. = 0..1
+  Type = string
+  Short Label = Corresponding group within Questionnaire
+  Definition = Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireResponse resource.
+  Requirements = Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]
+
+ -- Row 12 -----------------------------------
+  Element = QuestionnaireResponse.group.title
+  Card. = 0..1
+  Type = string
+  Short Label = Name for this group
+  Definition = Text that is displayed above the contents of the group
+  Requirements = When including text for the questionnaire with the answers, sections may have a section header
+  Comments = On the root group, this is the title of the questionnaire
+  RIM Mapping = .title
+
+ -- Row 13 -----------------------------------
+  Element = QuestionnaireResponse.group.text
+  Card. = 0..1
+  Type = string
+  Short Label = Additional text for the group
+  Definition = Additional text for the group, used for display purposes
+  Requirements = When including text for the questionnaire, each section may contain additional explanations are background text
+  RIM Mapping = .text
+
+ -- Row 14 -----------------------------------
+  Element = QuestionnaireResponse.group.subject
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = The subject this group\'s answers are about
+  Definition = More specific subject this section\'s answers are about, details the subject given in QuestionnaireResponse
+  Requirements = Sometimes a group of answers is about a specific participant, artifact or piece of information in the patient\'s care or record, e.g. a specific Problem, RelatedPerson, Allergy etc.
+  RIM Mapping = .participation[typeCode=SBJ].role or .outboundRelationship[typeCode=SUBJ].target
+
+ -- Row 15 -----------------------------------
+  Element = QuestionnaireResponse.group.group
+  Card. = 0..*
+  Inv. = 1
+  Type = @QuestionnaireResponse.group
+  Short Label = Nested questionnaire response group
+  Definition = A sub-group within a group. The ordering of groups within this group is relevant
+  Requirements = Reports can consist of complex nested groups
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]
+
+ -- Row 16 -----------------------------------
+  Element = QuestionnaireResponse.group.question
+  Card. = 0..*
+  Aliases = Responses, Contents
+  UML = down
+  Inv. = 1
+  Type = =Question
+  Short Label = Questions in this group
+  Definition = Set of questions within this group. The order of questions within the group is relevant
+  Requirements = Must register answers to questions
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN or DEF]
+
+ -- Row 17 -----------------------------------
+  Element = QuestionnaireResponse.group.question.linkId
+  Card. = 0..1
+  Type = string
+  Short Label = Corresponding question within Questionnaire
+  Definition = Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireResponse resource.
+  Requirements = Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]
+
+ -- Row 18 -----------------------------------
+  Element = QuestionnaireResponse.group.question.text
+  Card. = 0..1
+  Type = string
+  Short Label = Text of the question as it is shown to the user
+  Definition = The actual question as shown to the user to prompt them for an answer.
+  Requirements = When including text for the questionnaire, each question may contain its actual question display text
+  RIM Mapping = .code.display
+
+ -- Row 19 -----------------------------------
+  Element = QuestionnaireResponse.group.question.answer
+  Card. = 0..*
+  UML = right
+  Short Label = The response(s) to the question
+  Definition = The respondent\'s answer(s) to the question
+  Comments = We nest the value because we can\'t have a repeating structure that has variable type
+  RIM Mapping = .value[type=LIST_ANY]
+
+ -- Row 20 -----------------------------------
+  Element = QuestionnaireResponse.group.question.answer.value[x]
+  Card. = 0..1
+  Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Short Label = Single-valued answer to the question
+  Definition = The answer (or one of the answers) provided by the respondant to the question
+  Requirements = Need to be able to retain a single-valued answer to a question
+  Comments = More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
+  RIM Mapping = .item
+
+ -- Row 21 -----------------------------------
+  Element = QuestionnaireResponse.group.question.answer.group
+  Card. = 0..*
+  Type = @QuestionnaireResponse.group
+  Short Label = Nested questionnaire group
+  Definition = Nested group, containing nested question for this question. The order of groups within the question is relevant
+  Requirements = It is useful to have \"sub-questions\", questions which normally appear when certain answers are given and which collect additional details.
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the questionnaire response
+  Path = QuestionnaireResponse.status
+
+ -- Row 2 -----------------------------------
+  Name = authored
+  Type = date
+  Description = When the questionnaire was authored
+  Path = QuestionnaireResponse.authored
+
+ -- Row 3 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The subject of the questionnaire
+  Path = QuestionnaireResponse.subject
+
+ -- Row 4 -----------------------------------
+  Name = author
+  Type = reference
+  Description = The author of the questionnaire
+  Path = QuestionnaireResponse.author
+
+ -- Row 5 -----------------------------------
+  Name = questionnaire
+  Type = reference
+  Description = The questionnaire the answers are provided for
+  Path = QuestionnaireResponse.questionnaire
+
+ -- Row 6 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = Encounter during which questionnaire was authored
+  Path = QuestionnaireResponse.encounter
+
+ -- Row 7 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The patient that is the subject of the questionnaire
+  Path = QuestionnaireResponse.subject
+  Target Types = Patient
+
+ -- Row 8 -----------------------------------
+  Name = source
+  Type = reference
+  Path = QuestionnaireResponse.source
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = core-extensions
+  IG Name = core
+  Filename = questionnaireresponse-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = 3141
+  Description = General questionnaire response example
+  Filename = questionnaireresponse-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Lifelines
+  Identity = f201
+  Description = Real-world lifelines questionnaire response (fictively taken from the patient)
+  Filename = questionnaireresponse-example-f201-lifelines.xml
+
+ -- Row 3 -----------------------------------
+  Name = BlueBook
+  Identity = bb
+  Description = Real-world NSW My Personal Health Record example
+  Filename = questionnaireresponse-example-bluebook.xml
+
+ -- Row 4 -----------------------------------
+  Name = Glasgow Coma Score
+  Identity = gcs
+  Description = Glasgow Coma Score example asnswers
+  Filename = questionnaireresponse-example-gcs.xml
+
+=== Sheet Examples =====================================

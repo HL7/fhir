@@ -1,0 +1,61 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = KnowledgeResponseCode
+  Binding = code list
+  Reference = #knowledge-response-code
+  Definition = The code for knowledge responses
+  Conformance = required
+
+=== Sheet knowledge-response-code =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = response
+  Display = Response
+  Definition = The resource is a knowledge response
+
+=== Sheet CQIF-KnowledgeResponse =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Basic
+  Profile Name = CQIF-KnowledgeResponse
+  Type = DomainResource
+  Short Label = The response to a knowledge request
+  Definition = A knowledge response is the formal response to a previous knowledge request, describing the result of the evaluation of the requested artifact or artifacts. This information is used as part of the knowledgeEvaluation operation definition.
+
+ -- Row 2 -----------------------------------
+  Element = Basic.extension
+  Profile Name = requestId
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-requestId}
+
+ -- Row 3 -----------------------------------
+  Element = Basic.modifierExtension
+  Profile Name = module
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-module}
+
+ -- Row 4 -----------------------------------
+  Element = Basic.modifierExtension
+  Profile Name = status
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-responseStatus}
+
+ -- Row 5 -----------------------------------
+  Element = Basic.extension
+  Profile Name = evaluationMessage
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-evaluationMessage}
+
+ -- Row 6 -----------------------------------
+  Element = Basic.id
+  Short Label = The id of the response
+  Definition = The server-generated id for the response
+
+ -- Row 7 -----------------------------------
+  Element = Basic.code
+  Binding = KnowledgeResponseCode
+
+=== Sheet Search =====================================

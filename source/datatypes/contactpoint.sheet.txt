@@ -1,0 +1,172 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ContactPointSystem
+  Binding = code list
+  Reference = #contact-point-system
+  Definition = Telecommunications form for contact point
+  v2 = http://hl7.org/fhir/ValueSet/v2-0202
+
+ -- Row 2 -----------------------------------
+  Binding Name = ContactPointUse
+  Binding = code list
+  Reference = #contact-point-use
+  Definition = Use of contact point
+  v2 = http://hl7.org/fhir/ValueSet/v2-0201
+  v3 = http://hl7.org/fhir/ValueSet/v3-AddressUse
+
+=== Sheet contact-point-system =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = phone
+  Display = Phone
+  Definition = The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
+  v2 = ~0202.PH
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = fax
+  Display = Fax
+  Definition = The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
+  v2 = ~0202.FX
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = email
+  Display = Email
+  Definition = The value is an email address
+  v2 = <0202.Internet(for email addresses)
+
+ -- Row 4 -----------------------------------
+  Id = 5
+  Code = pager
+  Display = Pager
+  Definition = The value is a pager number. These may be local pager numbers that are only usable on a particular pager system
+  v2 = ~0202.BP
+
+ -- Row 5 -----------------------------------
+  Id = 4
+  Code = other
+  Display = URL
+  Definition = A contact that is not a phone, fax, or email address. The format of the value SHOULD be a URL. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses. If this is not a URL, then it will require human interpretation
+  v2 = <0202.Internet(for non-email kinds of addresses)
+
+=== Sheet contact-point-use =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = home
+  Display = Home
+  Definition = A communication contact point at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
+  v2 = >0201.PRN,>0201.ORN,>0201.VHN
+  v3 = =AddressUse.H
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = work
+  Display = Work
+  Definition = An office contact point. First choice for business related contacts during business hours.
+  v2 = ~0201.WPN
+  v3 = =AddressUse.WP
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = temp
+  Display = Temp
+  Definition = A temporary contact point. The period can provide more detailed information.
+  v3 = =AddressUse.TMP
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = old
+  Display = Old
+  Definition = This contact point is no longer in use (or was never correct, but retained for records)
+  v3 = >AddressUse.OLD(Old and Bad),>AddressUse.BAD(Old and Bad)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = mobile
+  Display = Mobile
+  Definition = A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business
+  v2 = ~0201.PRS
+  v3 = =AddressUse.MC
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 2
+  Context = ContactPoint
+  English = A system is required if a value is provided.
+  XPath = not(exists(f:value)) or exists(f:system)
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ContactPoint
+  Type = Structure
+  Short Label = Details of a Technology mediated contact point (phone, fax, email, etc)
+  Definition = Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
+  Requirements = Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.
+  v2 Mapping = XTN
+  RIM Mapping = TEL
+  ServD Mapping = ContactPoint
+
+ -- Row 2 -----------------------------------
+  Element = ContactPoint.system
+  Card. = 0..1
+  Inv. = 2
+  Type = code
+  Binding = ContactPointSystem
+  Short Label = phone | fax | email | pager | other
+  Definition = Telecommunications form for contact point - what communications system is required to make use of the contact
+  v2 Mapping = XTN.3
+  RIM Mapping = ./scheme
+  ServD Mapping = ./ContactPointType
+
+ -- Row 3 -----------------------------------
+  Element = ContactPoint.value
+  Card. = 0..1
+  Type = string
+  Short Label = The actual contact point details
+  Definition = The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
+  Requirements = Need to support legacy numbers that are not in a tightly controlled format
+  Comments = Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value
+  v2 Mapping = XTN.1 (or XTN.12)
+  RIM Mapping = ./url
+  ServD Mapping = ./Value
+
+ -- Row 4 -----------------------------------
+  Element = ContactPoint.use
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = ContactPointUse
+  Short Label = home | work | temp | old | mobile - purpose of this contact point
+  Definition = Identifies the purpose for the contact point
+  Requirements = Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose
+  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old
+  v2 Mapping = XTN.2 - but often indicated by field
+  RIM Mapping = unique(./use)
+  ServD Mapping = ./ContactPointPurpose
+
+ -- Row 5 -----------------------------------
+  Element = ContactPoint.rank
+  Card. = 0..1
+  Type = positiveInt
+  Short Label = Specify preferred order of use (1 = highest)
+  Definition = Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values
+  Comments = Note that rank does not necessarily follow the order in which the contacts are represented in the instance
+  v2 Mapping = n/a
+  RIM Mapping = n/a
+
+ -- Row 6 -----------------------------------
+  Element = ContactPoint.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Time period when the contact point was/is in use
+  Definition = Time period when the contact point was/is in use
+  v2 Mapping = N/A
+  RIM Mapping = ./useablePeriod[type=\"IVL<TS>\"]
+  ServD Mapping = ./StartDate and ./EndDate

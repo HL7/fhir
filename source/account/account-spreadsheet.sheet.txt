@@ -1,0 +1,184 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AccountStatus
+  Binding = code list
+  Reference = #account-status
+  Definition = Indicates whether the account is available to be used
+  Conformance = Preferred
+
+=== Sheet account-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Display = Active
+  Definition = This account is active and may be used
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = inactive
+  Display = Inactive
+  Definition = This account is inactive and should not be used to track financial information
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Account
+  Aliases = Cost center, Record
+  Type = DomainResource
+  Definition = A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
+
+ -- Row 2 -----------------------------------
+  Element = Account.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Account number
+  Definition = Unique identifier used to reference the account.  May or may not be intended for human use.  (E.g. credit card number)
+
+ -- Row 3 -----------------------------------
+  Element = Account.name
+  Card. = 0..1
+  Aliases = Title
+  Type = string
+  Short Label = Human-readable label
+  Definition = Name used for the account when displaying it to humans in reports, etc.
+
+ -- Row 4 -----------------------------------
+  Element = Account.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = E.g. patient, expense, depreciation
+  Definition = Categorizes the account for reporting and searching purposes
+
+ -- Row 5 -----------------------------------
+  Element = Account.status
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = AccountStatus
+  Short Label = active | inactive
+  Definition = Indicates whether the account is presently used/useable or not
+  To Do = Are there other statuses?  If not, should this be boolean?
+
+ -- Row 6 -----------------------------------
+  Element = Account.activePeriod
+  Card. = 0..1
+  Type = Period
+  Short Label = Valid from..to
+  Definition = Indicates the period of time over which the account is allowed
+  Comments = Transactions cannot typically be posted to account outside of its \"active\" period
+  To Do = Is this in the 80%?  Better name?
+
+ -- Row 7 -----------------------------------
+  Element = Account.currency
+  Card. = 0..1
+  Type = Coding
+  Short Label = Base currency in which balance is tracked
+  Definition = Identifies the currency to which transactions must be converted when crediting or debiting the account.
+  Comments = Tracked separately from balance because currency might be known when balance is not.  In some cases, balance might be expressed in a currency other than the base currency for the account
+  To Do = Is this in the 80%?
+
+ -- Row 8 -----------------------------------
+  Element = Account.balance
+  Card. = 0..1
+  Type = Money
+  Short Label = How much is in account?
+  Definition = Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.
+
+ -- Row 9 -----------------------------------
+  Element = Account.coveragePeriod
+  Card. = 0..1
+  Type = Period
+  Short Label = Transaction window
+  Definition = Identifies the period of time the account applies to.  E.g. accounts created per fiscal year, quarter, etc.
+  Comments = It is possible for transactions relevant to a coverage period to be posted to the account before or after the coverage period.
+  To Do = Better name?
+
+ -- Row 10 -----------------------------------
+  Element = Account.subject
+  Card. = 0..1
+  Aliases = target
+  Type = Reference(Patient|Device|Practitioner|Location|HealthcareService|Organization)
+  Short Label = What is account tied to?
+  Definition = Identifies the patient, device, practitioner, location or other object the account is associated with
+  To Do = Is there a use-case for 0..*?  Would this be in the 80%?
+
+ -- Row 11 -----------------------------------
+  Element = Account.owner
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Who is responsible?
+  Definition = Indicates the organization, department, etc. with responsibility for the account.
+
+ -- Row 12 -----------------------------------
+  Element = Account.description
+  Card. = 0..1
+  Type = string
+  Short Label = Explanation of purpose/use
+  Definition = Provides additional information about what the account tracks and how it is used
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Account.identifier
+
+ -- Row 2 -----------------------------------
+  Name = name
+  Type = string
+  Path = Account.name
+
+ -- Row 3 -----------------------------------
+  Name = type
+  Type = token
+  Path = Account.type
+
+ -- Row 4 -----------------------------------
+  Name = status
+  Type = token
+  Path = Account.status
+
+ -- Row 5 -----------------------------------
+  Name = balance
+  Type = number
+  Path = Account.balance
+
+ -- Row 6 -----------------------------------
+  Name = period
+  Type = date
+  Path = Account.coveragePeriod
+
+ -- Row 7 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = Account.subject
+
+ -- Row 8 -----------------------------------
+  Name = owner
+  Type = reference
+  Path = Account.owner
+  Target Types = Organization
+
+ -- Row 9 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Account.subject
+  Target Types = Patient
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Example
+  Identity = example
+  Description = General Account example
+  Filename = account-example.xml
+  Type = xml
+
+=== Sheet Examples =====================================

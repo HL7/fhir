@@ -1,0 +1,57 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Binary
+  Type = Resource
+  Short Label = Pure binary content defined by sime other format than FHIR
+  Definition = A binary resource can contain any content, whether text, image, pdf, zip archive, etc
+  Requirements = There are situations where it is useful or required to handle pure binary content using the same framework as other resources
+  Comments = Typically, Binary resources are used for handling content such as:  * CDA Documents (i.e. with XDS) * PDF Documents * Images (the Media resource is preferred for handling images, but not possible when the content is already binary - e.g. XDS)
+  RIM Mapping = N/A
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = Binary.contentType
+  Card. = 1..1
+  Type = code
+  Binding = MimeType
+  Short Label = MimeType of the binary content
+  Definition = MimeType of the binary content represented as a standard MimeType (BCP 13)
+
+ -- Row 3 -----------------------------------
+  Element = Binary.content
+  Card. = 1..1
+  Type = base64Binary
+  Short Label = The actual content
+  Definition = The actual content, base64 encoded
+  Comments = If the content type is itself base64 encoding, then this will be base64 encoded twice - what is created by un-base64ing the content must be the specified content type
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = contenttype
+  Type = token
+  Path = Binary.contentType
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = PDF Example
+  Identity = example
+  Description = Binary Example - a PDF document
+  Filename = binary-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Patient Photo
+  Identity = f006
+  Description = Example Patient photo as a binary
+  Filename = binary-f006.xml
+
+=== Sheet Examples =====================================

@@ -1,0 +1,71 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = hspc-TiterLabCodes
+  Binding = value set
+  Reference = valueset-TiterLabCodes
+  Definition = The list of LOINC codes that are used for titration tests
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = hspc-abnInt-NumericNom
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/hspc-abnInt-NumericNom
+  Definition = The set of codes that describe in what way a lab value is abnormal
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = hspc-deltaFlag-numericNom
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/hspc-deltaFlag-numericNom
+  Definition = The set of codes that describe the significant changes in test values
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = hspc-LabNullFlavor
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/hspc-LabNullFlavor
+  Definition = The list of reasons a lab value may be missing
+  Conformance = preferred
+
+=== Sheet hspc-stdtiter-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation
+  English = Must have either a value or a dataAbsentReason but not both
+  XPath = (f:value or f:dataAbsentReason) and (not(f:value and f:dataAbsentReason))
+  Severity = error
+
+=== Sheet hspc-stdtiter =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = StandardLabObsTiter
+  Type = {http://hl7.org/fhir/StructureDefinition/hspc-std}
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Binding = hspc-TiterLabCodes
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueRatio
+  Card. = 0..1
+  Inv. = 1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Inv. = 1
+  Binding = hspc-LabNullFlavor
+
+ -- Row 5 -----------------------------------
+  Element = Observation.interpretation
+  Binding = hspc-abnInt-NumericNom
+
+ -- Row 6 -----------------------------------
+  Element = Observation.DeltaFlag
+  Binding = hspc-deltaFlag-numericNom
+
+=== Sheet Search =====================================

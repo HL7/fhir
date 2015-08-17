@@ -1,0 +1,89 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet DAF-MedicationDispense =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationDispense
+  Profile Name = DAFMedicationDispense
+
+ -- Row 2 -----------------------------------
+  Element = MedicationDispense.identifier
+  Card. = 0..1
+  Must Support = Y
+  Type = Identifier
+
+ -- Row 3 -----------------------------------
+  Element = MedicationDispense.status
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = MedicationDispense.patient
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
+
+ -- Row 5 -----------------------------------
+  Element = MedicationDispense.dispenser
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}
+
+ -- Row 6 -----------------------------------
+  Element = MedicationDispense.authorizingPrescription
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(MedicationOrder){http://hl7.org/fhir/StructureDefinition/daf-medicationorder}
+
+ -- Row 7 -----------------------------------
+  Element = MedicationDispense.medication
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
+
+ -- Row 8 -----------------------------------
+  Element = MedicationDispense.dosageInstruction
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.additionalInstructions
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.scheduled[x]
+  Must Support = Y
+  Type = dateTime|Period|Timing
+
+ -- Row 11 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.asNeeded[x]
+  Must Support = Y
+  Type = boolean | CodeableConcept
+
+ -- Row 12 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.site
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.route
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.method
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 15 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.dose[x]
+  Must Support = Y
+  Type = Range | SimpleQuantity
+
+ -- Row 16 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.rate
+  Must Support = Y
+
+=== Sheet Search =====================================

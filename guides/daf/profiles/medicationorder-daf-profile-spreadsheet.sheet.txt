@@ -1,0 +1,113 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet DAF-MedicationOrder =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationOrder
+  Profile Name = DAFMedicationOrder
+
+ -- Row 2 -----------------------------------
+  Element = MedicationOrder.identifier
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 3 -----------------------------------
+  Element = MedicationOrder.dateWritten
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = MedicationOrder.status
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = MedicationOrder.patient
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
+
+ -- Row 6 -----------------------------------
+  Element = MedicationOrder.prescriber
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}
+
+ -- Row 7 -----------------------------------
+  Element = MedicationOrder.encounter
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
+
+ -- Row 8 -----------------------------------
+  Element = !MedicationOrder.reason[x]
+  Card. = 0..1
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}
+
+ -- Row 9 -----------------------------------
+  Element = !MedicationOrder.note
+  Card. = 0..1
+  Type = CodeableConcept
+
+ -- Row 10 -----------------------------------
+  Element = MedicationOrder.medication
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
+
+ -- Row 11 -----------------------------------
+  Element = MedicationOrder.dosageInstruction
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 12 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.text
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = !MedicationOrder.dosageInstruction.additionalInstructions
+  Card. = 0..*
+
+ -- Row 14 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.scheduled[x]
+  Card. = 0..*
+  Must Support = Y
+  Type = dateTime|Period|Timing
+
+ -- Row 15 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.asNeeded[x]
+  Card. = 0..1
+  Must Support = Y
+  Type = boolean | CodeableConcept
+
+ -- Row 16 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.site
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 17 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.route
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 18 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.method
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.dose[x]
+  Card. = 0..1
+  Must Support = Y
+  Type = Range | SimpleQuantity
+
+ -- Row 20 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.rate
+  Must Support = Y
+
+ -- Row 21 -----------------------------------
+  Element = !MedicationOrder.dosageInstruction.maxDosePerPeriod
+
+=== Sheet Search =====================================

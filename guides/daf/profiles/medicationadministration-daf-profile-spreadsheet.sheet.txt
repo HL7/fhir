@@ -1,0 +1,149 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DAFBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
+  Definition = This identifies the body site at which the substance was administered
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.3.88.12.3221.8.9
+
+ -- Row 2 -----------------------------------
+  Binding Name = DAFRoute
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-medication-route
+  Definition = This identifies the route of substance administration.
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.3.88.12.3221.8.11
+
+=== Sheet DAF-MedicationAdministration =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationAdministration
+  Profile Name = DAFMedicationAdministration
+  Type = Resource
+  Definition = Profile of MedicationAdministration for clinical quality rules and measures.
+
+ -- Row 2 -----------------------------------
+  Element = MedicationAdministration.identifier
+  Card. = 0..*
+  Must Support = Y
+  Type = Identifier
+
+ -- Row 3 -----------------------------------
+  Element = MedicationAdministration.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+
+ -- Row 4 -----------------------------------
+  Element = MedicationAdministration.patient
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
+
+ -- Row 5 -----------------------------------
+  Element = MedicationAdministration.practitioner
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}
+
+ -- Row 6 -----------------------------------
+  Element = MedicationAdministration.encounter
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
+
+ -- Row 7 -----------------------------------
+  Element = MedicationAdministration.prescription
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(MedicationOrder){http://hl7.org/fhir/StructureDefinition/daf-medicationorder}
+
+ -- Row 8 -----------------------------------
+  Element = MedicationAdministration.wasNotGiven
+  Card. = 0..1
+  Must Support = Y
+  Type = boolean
+
+ -- Row 9 -----------------------------------
+  Element = MedicationAdministration.reasonNotGiven
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 10 -----------------------------------
+  Element = MedicationAdministration.effectiveTime[x]
+  Card. = 1..1
+  Must Support = Y
+  Type = dateTime|Period
+
+ -- Row 11 -----------------------------------
+  Element = MedicationAdministration.medication
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
+
+ -- Row 12 -----------------------------------
+  Element = MedicationAdministration.device
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Device)
+
+ -- Row 13 -----------------------------------
+  Element = MedicationAdministration.dosage
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = !MedicationAdministration.dosage.timing[x]
+  Card. = 0..1
+  Must Support = Y
+  Type = dateTime|Period
+
+ -- Row 15 -----------------------------------
+  Element = !MedicationAdministration.dosage.asNeeded[x]
+  Card. = 0..1
+  Must Support = Y
+  Type = boolean | CodeableConcept
+
+ -- Row 16 -----------------------------------
+  Element = MedicationAdministration.dosage.site
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFBodySite
+
+ -- Row 17 -----------------------------------
+  Element = MedicationAdministration.dosage.route
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFRoute
+
+ -- Row 18 -----------------------------------
+  Element = MedicationAdministration.dosage.method
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 19 -----------------------------------
+  Element = MedicationAdministration.dosage.quantity
+  Card. = 0..1
+  Must Support = Y
+  Type = SimpleQuantity
+
+ -- Row 20 -----------------------------------
+  Element = MedicationAdministration.dosage.rate
+  Card. = 0..1
+  Must Support = Y
+  Type = Ratio
+
+ -- Row 21 -----------------------------------
+  Element = !MedicationAdministration.dosage.maxDosePerPeriod
+  Card. = 0..1
+  Must Support = Y
+  Type = Ratio
+
+=== Sheet Search =====================================

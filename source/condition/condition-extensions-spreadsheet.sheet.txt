@@ -1,0 +1,51 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ConditionState
+  Binding = code list
+  Reference = #condition-state
+  Definition = Enumeration indicating whether the condition is currently active, inactive, or has resolved
+  Description = active| inactive| resolved
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = ConditionCause
+  Binding = value set
+  Reference = valueset-condition-cause
+  Definition = Codes that describe causes of patient conditions.  E.g. Surgical mishap, escalation of a previous condition, etc.
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = ConditionPredecessor
+  Binding = value set
+  Reference = valueset-condition-predecessor
+  Definition = Codes that describe activities or observations that occurred prior to the condition
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = ConditionOutcome
+  Binding = value set
+  Reference = valueset-condition-outcome
+  Definition = Codes that describe the assessed outcome of the condition
+  Description = E.g 21134002 - Disability; 370996005 - Patient Condition Resolved; 37522003 - Determination of outcome, death unavoidable.
+  Conformance = example
+
+=== Sheet condition-state =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Definition = The condition is active
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = inactive
+  Definition = The condition inactive but not resolved
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = resolved
+  Definition = The condition is resolved
+
+=== Sheet Search =====================================

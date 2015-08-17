@@ -1,0 +1,404 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = MedicationAdministrationStatus
+  Binding = code list
+  Reference = #medication-admin-status
+  Definition = A set of codes indicating the current status of a MedicationAdministration
+  Conformance = required
+  v3 = ActStatus
+
+ -- Row 2 -----------------------------------
+  Binding Name = MedicationAdministrationNegationReason
+  Binding = value set
+  Reference = valueset-reason-medication-not-given-codes
+  Definition = A set of codes indicating the reason why the MedicationAdministration is negated.
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = MedicationAdministrationReason
+  Binding = value set
+  Reference = valueset-reason-medication-given-codes
+  Definition = A set of codes indicating the reason why the MedicationAdministration was made.
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = MedicationAdministrationSite
+  Binding = value set
+  Reference = valueset-approach-site-codes
+  Definition = A coded concept describing the site location the medicine enters into or onto the body
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = RouteOfAdministration
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/route-codes
+  Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = MedicationAdministrationMethod
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/administration-method-codes
+  Definition = A coded concept describing the technique by which the medicine is administered
+  Conformance = example
+
+=== Sheet medication-admin-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = in-progress
+  Display = In Progress
+  Definition = The administration has started but has not yet completed.
+  v3 = ActStatus.active
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = on-hold
+  Display = On Hold
+  Definition = Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called \"suspended\".
+  v3 = ActStatus.suspended
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = completed
+  Display = Completed
+  Definition = All actions that are implied by the administration have occurred.
+  v3 = ActStatus.completed
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The administration was entered in error and therefore nullified.
+  v3 = ActStatus.nullified
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = stopped
+  Display = Stopped
+  Definition = Actions implied by the administration have been permanently halted, before all of them occurred.
+  v3 = ActStatus.aborted
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = MedicationAdministration.dosage
+  English = SHALL have at least one of dosage.quantity and dosage.rate
+  XPath = exists(f:quantity) or exists(f:rate)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = MedicationAdministration.reasonNotGiven
+  English = Reason not given is only permitted if wasNotGiven is true
+  XPath = not(exists(f:reasonNotGiven) and f:wasNotGiven/@value=\'false\')
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = MedicationAdministration.reasonGiven
+  English = Reason given is only permitted if wasNotGiven is false
+  XPath = not(exists(f:reasonGiven) and f:wasNotGiven/@value=\'true\')
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationAdministration
+  Type = DomainResource
+  Short Label = Administration of medication to a patient
+  Definition = Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner
+  RIM Mapping = SubstanceAdministration
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = MedicationAdministration.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = External identifier
+  Definition = External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
+  v2 Mapping = RXA-25-Administered Barcode Identifier? (V2 def\'n of RXA-25 refers to the \'give\' occurrence; appears not to discuss \'administer\' cardinality which would seem to be 0..*)
+  RIM Mapping = id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = MedicationAdministration.status
+  Card. = 1..1
+  Is Modifier = Y
+  Type = code
+  Binding = MedicationAdministrationStatus
+  Short Label = in-progress | on-hold | completed | entered-in-error | stopped
+  Definition = Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
+  v2 Mapping = RXA-20-Completion Status
+  RIM Mapping = statusCode
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = MedicationAdministration.patient
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Who received medication?
+  Definition = The person or animal to whom the medication was given.
+  v2 Mapping = PID-3-Patient ID List
+  RIM Mapping = subject->Patient
+  w5 = who.focus
+
+ -- Row 5 -----------------------------------
+  Element = MedicationAdministration.practitioner
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Who administered substance?
+  Definition = The individual who was responsible for giving the medication to the patient.
+  v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
+  RIM Mapping = performer->Role
+  w5 = who.actor
+
+ -- Row 6 -----------------------------------
+  Element = MedicationAdministration.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Encounter administered as part of
+  Definition = The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.
+  v2 Mapping = PV1-19-Visit Number
+  RIM Mapping = component->EncounterEvent
+  w5 = context
+
+ -- Row 7 -----------------------------------
+  Element = MedicationAdministration.prescription
+  Card. = 0..1
+  Type = Reference(MedicationOrder)
+  Short Label = Order administration performed against
+  Definition = The original request, instruction or authority to perform the administration.
+  v2 Mapping = ORC-3-Filler Order Number / ORC-2-Placer Order Number
+  RIM Mapping = InFullfillmentOf->SubstanceAdministration
+
+ -- Row 8 -----------------------------------
+  Element = MedicationAdministration.wasNotGiven
+  Card. = 0..1
+  Is Modifier = Y
+  Type = boolean
+  Short Label = True if medication not administered
+  Definition = Set this to true if the record is saying that the medication was NOT administered.
+  v2 Mapping = RXA-20-Completion Status=\'NA\'
+  RIM Mapping = actionNegationInd
+  Missing Meaning = If this is missing, then the medication was administered
+
+ -- Row 9 -----------------------------------
+  Element = MedicationAdministration.reasonNotGiven
+  Card. = 0..*
+  Inv. = 2
+  Type = CodeableConcept
+  Binding = MedicationAdministrationNegationReason
+  Short Label = Reason administration not performed
+  Definition = A code indicating why the administration was not performed.
+  v2 Mapping = RXA-9-Administration Notes:RXA-20-Completion Status=\'NA\'
+  RIM Mapping = Reason->Observation->Value
+
+ -- Row 10 -----------------------------------
+  Element = MedicationAdministration.reasonGiven
+  Card. = 0..*
+  Inv. = 3
+  Type = CodeableConcept
+  Binding = MedicationAdministrationReason
+  Short Label = Reason administration performed
+  Definition = A code indicating why the medication was given.
+
+ -- Row 11 -----------------------------------
+  Element = MedicationAdministration.effectiveTime[x]
+  Card. = 1..1
+  Type = dateTime|Period
+  Short Label = Start and end time of administration
+  Definition = An interval of time during which the administration took place (or did not take place, when the \'notGiven\' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
+  v2 Mapping = RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration
+  RIM Mapping = effectiveTime
+  Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
+  w5 = when.done
+
+ -- Row 12 -----------------------------------
+  Element = MedicationAdministration.medication[x]
+  Card. = 1..1
+  Type = CodeableConcept|Reference(Medication)
+  Short Label = What was administered?
+  Definition = Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
+  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the administered medication. When the only available information is a text description of the medication, Medication.code.text should be used
+  v2 Mapping = RXA-5-Administered Code
+  RIM Mapping = Consumeable->AdministerableMedication
+
+ -- Row 13 -----------------------------------
+  Element = MedicationAdministration.device
+  Card. = 0..*
+  Type = Reference(Device)
+  Short Label = Device used to administer
+  Definition = The device used in administering the medication to the patient.  E.g. a particular infusion pump
+  v2 Mapping = PRT-10-Participation Device
+  RIM Mapping = device->Access  OR device->AssignedDevice
+
+ -- Row 14 -----------------------------------
+  Element = MedicationAdministration.note
+  Card. = 0..1
+  Type = string
+  Short Label = Information about the administration
+  Definition = Extra information about the medication administration that is not conveyed by the other attributes.
+
+ -- Row 15 -----------------------------------
+  Element = MedicationAdministration.dosage
+  Card. = 0..1
+  UML = right
+  Short Label = Details of how medication was taken
+  Definition = Indicates how the medication is/was used by the patient
+  RIM Mapping = component->SubstanceAdministrationEvent
+  To Do = The RMIM has priority code on the act relationship.  How do we handle this?
+
+ -- Row 16 -----------------------------------
+  Element = MedicationAdministration.dosage.text
+  Card. = 0..1
+  Type = string
+  Short Label = Dosage Instructions
+  Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+
+ -- Row 17 -----------------------------------
+  Element = MedicationAdministration.dosage.site
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationAdministrationSite
+  Short Label = Body site administered to
+  Definition = A coded specification of the anatomic site where the medication first entered the body.  E.g. \"left arm\"
+  v2 Mapping = RXR-2-Administration Site
+  RIM Mapping = approachSiteCode
+
+ -- Row 18 -----------------------------------
+  Element = MedicationAdministration.dosage.route
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = RouteOfAdministration
+  Short Label = Path of substance into body
+  Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.   E.g. topical, intravenous, etc.
+  v2 Mapping = RXR-1-Route
+  RIM Mapping = routeCode
+
+ -- Row 19 -----------------------------------
+  Element = MedicationAdministration.dosage.method
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationAdministrationMethod
+  Short Label = How drug was administered
+  Definition = A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration.
+  v2 Mapping = RXR-4-Administration Method
+  RIM Mapping = methodCode
+
+ -- Row 20 -----------------------------------
+  Element = MedicationAdministration.dosage.quantity
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Amount administered in one dose
+  Definition = The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
+  Comments = If the administration is not instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount administered over period of time of a single administration (as indicated by schedule)
+  v2 Mapping = RXA-6-Administered Amount / RXA-7.1-Administered Units.code / RXA-7.3-Administered Units.name of coding system (uri<->code system mapping required)
+  RIM Mapping = doseQuantity
+
+ -- Row 21 -----------------------------------
+  Element = MedicationAdministration.dosage.rate[x]
+  Card. = 0..1
+  Type = Ratio|Range
+  Short Label = Dose quantity per unit of time
+  Definition = Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also be expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.
+  Comments = If the rate changes over time, each change should be captured as a distinct \"dosage\" repetition.  This element should *not* be used to convey an average rate.
+  v2 Mapping = RXA-12-Administered Per (Time Unit)
+  RIM Mapping = rateQuantity
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = device
+  Type = reference
+  Description = Return administrations with this administration device identity
+  Path = MedicationAdministration.device
+
+ -- Row 2 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = Return administrations that share this encounter
+  Path = MedicationAdministration.encounter
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Return administrations with this external identity
+  Path = MedicationAdministration.identifier
+
+ -- Row 4 -----------------------------------
+  Name = medication
+  Type = reference
+  Description = Return administrations of this medication resource
+  Path = MedicationAdministration.medicationReference
+
+ -- Row 5 -----------------------------------
+  Name = code
+  Type = token
+  Description = Return administrations of this medication code
+  Path = MedicationAdministration.medicationCodeableConcept
+
+ -- Row 6 -----------------------------------
+  Name = notgiven
+  Type = token
+  Description = Administrations that were not made
+  Path = MedicationAdministration.wasNotGiven
+
+ -- Row 7 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a patient to list administrations  for
+  Path = MedicationAdministration.patient
+
+ -- Row 8 -----------------------------------
+  Name = prescription
+  Type = reference
+  Description = The identity of a prescription to list administrations from
+  Path = MedicationAdministration.prescription
+
+ -- Row 9 -----------------------------------
+  Name = status
+  Type = token
+  Description = MedicationAdministration event status (for example one of active/paused/completed/nullified)
+  Path = MedicationAdministration.status
+
+ -- Row 10 -----------------------------------
+  Name = effectivetime
+  Type = date
+  Description = Date administration happened (or did not happen)
+  Path = MedicationAdministration.effectiveTime[x]
+
+ -- Row 11 -----------------------------------
+  Name = practitioner
+  Type = reference
+  Path = MedicationAdministration.practitioner
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = medicationadministration-extensions
+  IG Name = core
+  Filename = medicationadministration-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Oral Admin
+  Identity = medadminexample01
+  Description = Example of an oral administration
+  Filename = medicationadministrationexample1.xml
+
+ -- Row 2 -----------------------------------
+  Name = IV Admin
+  Identity = medadminexample02
+  Description = Example of an IV administration
+  Filename = medicationadministrationexample2.xml
+
+ -- Row 3 -----------------------------------
+  Name = IV Admin Not Given
+  Identity = medadminexample03
+  Description = Example of an IV administration not given
+  Filename = medicationadministrationexample3.xml
+
+=== Sheet Examples =====================================

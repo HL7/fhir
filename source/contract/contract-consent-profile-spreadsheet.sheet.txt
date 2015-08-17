@@ -1,0 +1,516 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet ConsentDirective =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Contract
+  Profile Name = ConsentDirective
+  Type = DomainResource
+  Short Label = Consent Directive
+  Definition = A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:   • To one or more identified entities in a defined role   • To perform one or more operations (e.g., collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g., when unconscious   • For specified time period, e.g., effective and expiration dates   • In certain context, e.g., in an emergency   A consent directive is an instance of governing jurisdictional and organization privacy policies, which may or may not be backed up by a signed document (paper or electronic). [HITSP TP30]
+  To Do = FinancialContract
+
+ -- Row 2 -----------------------------------
+  Element = Contract.identifier
+  Profile Name = ConsentDirective.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Consent Directive identifier
+  Definition = Unique identifier for this Consent Directive.
+  To Do = FinancialContract id
+
+ -- Row 3 -----------------------------------
+  Element = Contract.issued
+  Profile Name = ConsentDirective.issued
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When this Consent Directive was issued
+  Definition = Date and time when this Consent Directive was executed and became effective.
+  To Do = FinancialContract effectiveTime
+
+ -- Row 4 -----------------------------------
+  Element = Contract.applies
+  Profile Name = ConsentDirective.applies
+  Card. = 0..1
+  Type = Period
+  Short Label = Effective time
+  Definition = Time period during which this Consent Directive is in effect.
+  To Do = FinancialContract activityTime
+
+ -- Row 5 -----------------------------------
+  Element = Contract.subject
+  Profile Name = ConsentDirective.subject
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Subject of this Consent Directive
+  Definition = Patient information and actions taken on that information that are governed by this Consent Directive.
+  To Do = Role
+
+ -- Row 6 -----------------------------------
+  Element = Contract.authority
+  Profile Name = ConsentDirective.authority
+  Card. = 0..*
+  Type = Reference(Organization)
+  Short Label = Authority under which this Consent Directive has standing
+  Definition = A formally recognized grouping of people, principals, organizations, or jurisdictions with legal standing to promulgate, administer, and enforce privacy policies and applicable Consent Directives.
+  To Do = Role Scoper
+
+ -- Row 7 -----------------------------------
+  Element = Contract.domain
+  Profile Name = ConsentDirective.domain
+  Card. = 0..*
+  Aliases = scope of governance jurisdication
+  Type = Reference(Location)
+  Short Label = Domain in which this Consent Directive applies
+  Definition = Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to privacy protection and control of the collection, access, use and disclosure of resources.
+
+ -- Row 8 -----------------------------------
+  Element = Contract.type
+  Profile Name = ConsentDirective.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = Consent Directive Type
+  Definition = Specific type of patient privacy Consent Directive reflecting the range of patient discretion over granting of rights to patient information and actions that may be taken on that information.  E.g., Opt-in, opt-out, Share All (such as authorization to disclose to payer for payment purposes or benefit eligibility), Share Partial(such as Title 38 Section 7332 and 42 CFR Part 2), Implied Consent, such as a HIPAA Notice of Privacy Practices.
+  To Do = CNTRCT
+
+ -- Row 9 -----------------------------------
+  Element = Contract.subType
+  Profile Name = ConsentDirective.subType
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Consent Directive Subtype
+  Definition = A specialized type of an overarching or more general Consent Directive, such as a patient\'s right to opt-out of a Patient Directory under HIPAA or a multiparty 42 CFR Part 2 consent used in a health information exchange context by a Qualified Service Organization.
+  To Do = e.g., RECOV
+
+ -- Row 10 -----------------------------------
+  Element = Contract.action
+  Profile Name = ConsentDirective.action
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Consent Directive Action
+  Definition = Action stipulated by this Consent Directive.
+  To Do = e.g., JURISPOL
+
+ -- Row 11 -----------------------------------
+  Element = Contract.actionReason
+  Profile Name = ConsentDirective.actionReason
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Consent Directive Action Reason
+  Definition = Reason for action stipulated by this Consent Directive.
+  To Do = e.g., QUALIMP
+
+ -- Row 12 -----------------------------------
+  Element = Contract.actor
+  Profile Name = ConsentDirective.actor
+  Card. = 0..*
+  Short Label = Consent Directive Actor
+  Definition = List of Consent Directive actors.
+
+ -- Row 13 -----------------------------------
+  Element = Contract.actor.entity
+  Profile Name = ConsentDirective.actor.entity
+  Card. = 1..1
+  Type = Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
+  Short Label = Consent Directive Actor Type
+  Definition = Who or what actors are assigned roles in this Consent Directive.
+
+ -- Row 14 -----------------------------------
+  Element = Contract.actor.role
+  Profile Name = ConsentDirective.actor.role
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Consent Directive Actor Role
+  Definition = Role type of actors assigned roles in this Consent Directive.
+
+ -- Row 15 -----------------------------------
+  Element = Contract.valuedItem
+  Profile Name = ConsentDirective.valuedItem
+  Card. = 0..0
+  Short Label = Contract Valued Item
+  Definition = Contract Valued Item List
+  To Do = COCT_RM440000UV09 ValuedItem classCode INVE
+
+ -- Row 16 -----------------------------------
+  Element = Contract.valuedItem.entity[x]
+  Profile Name = ConsentDirective.valuedItem.entity[x]
+  Card. = 0..1
+  Type = CodeableConcept|Reference(Any)
+  Short Label = Contract Valued Item Type
+  Definition = Specific type of Contract Valued Item that may be priced.
+  To Do = COCT_RM440000UV09 ValuedItem code
+
+ -- Row 17 -----------------------------------
+  Element = Contract.valuedItem.identifier
+  Profile Name = ConsentDirective.valuedItem.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Contract Valued Item Identifier
+  Definition = Identifies a Contract Valued Item instance.
+  To Do = COCT_RM440000UV09 ValuedItem id
+
+ -- Row 18 -----------------------------------
+  Element = Contract.valuedItem.effectiveTime
+  Profile Name = ConsentDirective.valuedItem.effectiveTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Contract Valued Item Effective Time
+  Definition = Indicates the time during which this Contract ValuedItem information is effective.
+  To Do = COCT_RM440000UV09 ValuedItem effectiveTime
+
+ -- Row 19 -----------------------------------
+  Element = Contract.valuedItem.quantity
+  Profile Name = ConsentDirective.valuedItem.quantity
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Count of Contract Valued Items
+  Definition = Specifies the units by which the Contract Valued Item is measured or counted, and quantifies the countable or measurable Contract Valued Item instances.
+  To Do = COCT_RM440000UV09 ValuedItem unitQuantity
+
+ -- Row 20 -----------------------------------
+  Element = Contract.valuedItem.unitPrice
+  Profile Name = ConsentDirective.valuedItem.unitprice
+  Card. = 0..1
+  Type = Money
+  Short Label = Contract Valued Item fee, charge, or cost.
+  Definition = A Contract Valued Item unit valuation measure.
+  v2 Mapping = F12
+  To Do = COCT_RM440000UV09 ValuedItem unitPriceAmt
+
+ -- Row 21 -----------------------------------
+  Element = Contract.valuedItem.factor
+  Profile Name = ConsentDirective.valuedItem.factor
+  Card. = 0..1
+  Type = decimal
+  Short Label = Contract Valued Item Price Scaling Factor
+  Definition = A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+  v2 Mapping = F13/F14
+  To Do = COCT_RM440000UV09 ValuedItem factorNumber
+
+ -- Row 22 -----------------------------------
+  Element = Contract.valuedItem.points
+  Profile Name = ConsentDirective.valuedItem.points
+  Card. = 0..1
+  Type = decimal
+  Short Label = Contract Valued Item Difficulty Scaling Factor
+  Definition = An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.
+  v2 Mapping = F13/F14
+  To Do = COCT_RM440000UV09 ValuedItem pointNumber
+
+ -- Row 23 -----------------------------------
+  Element = Contract.valuedItem.net
+  Profile Name = ConsentDirective.valuedItem.net
+  Card. = 0..1
+  Type = Money
+  Short Label = Total Contract Valued Item Value
+  Definition = Expresses the product of the Contract Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  v2 Mapping = F13/F14
+  To Do = COCT_RM440000UV09 ValuedItem netAmt
+
+ -- Row 24 -----------------------------------
+  Element = Contract.signer
+  Profile Name = ConsentDirective.signer
+  Card. = 0..*
+  Short Label = Consent Directive Signer
+  Definition = Party signing this Consent Directive.
+
+ -- Row 25 -----------------------------------
+  Element = Contract.signer.type
+  Profile Name = ConsentDirective.signer.type
+  Card. = 1..1
+  Type = Coding
+  Short Label = Consent Directive Signer Type
+  Definition = Role of this Consent Directive signer, e.g., patient who is Consent Directive Grantee, the Substitute Decision Maker such as a person with Power of Attorney to whom the patient has granted or delegated rights to execute a Consent Directive on the patient\'s behalf, a notary public or witness.
+
+ -- Row 26 -----------------------------------
+  Element = Contract.signer.party
+  Profile Name = ConsentDirective.signer.party
+  Card. = 1..1
+  Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Consent Directive Signatory party
+  Definition = Party which is a signatory to this Consent Directive.
+
+ -- Row 27 -----------------------------------
+  Element = Contract.signer.signature
+  Profile Name = ConsentDirective.signer.signature
+  Card. = 1..1
+  Type = string
+  Short Label = Consent Directive Documentation Signature
+  Definition = Legally binding Consent Directive DSIG signature contents in Base64.
+
+ -- Row 28 -----------------------------------
+  Element = Contract.term
+  Profile Name = ConsentDirective.term
+  Card. = 0..*
+  Short Label = Consent Directive Term List
+  Definition = One or more Consent DirectiveProvisions, which may be related and conveyed as a group, and may contain nested groups.
+
+ -- Row 29 -----------------------------------
+  Element = Contract.term.identifier
+  Profile Name = ConsentDirective.term.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Consent Directive Term identifier
+  Definition = Unique identifier for this particular Consent Directive Provision.
+
+ -- Row 30 -----------------------------------
+  Element = Contract.term.issued
+  Profile Name = ConsentDirective.term.issued
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Consent Directive Term Issue Date Time
+  Definition = When this Consent Directive Provision was issued.
+
+ -- Row 31 -----------------------------------
+  Element = Contract.term.applies
+  Profile Name = ConsentDirective.term.applies
+  Card. = 0..1
+  Type = Period
+  Short Label = Consent Directive Term Effective Time
+  Definition = Relevant time or time-period when this Consent Directive Provision is applicable.
+
+ -- Row 32 -----------------------------------
+  Element = Contract.term.type
+  Profile Name = ConsentDirective.term.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = Consent Directive Term Type
+  Definition = Type of Consent Directive Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g., life time maximum benefit.
+
+ -- Row 33 -----------------------------------
+  Element = Contract.term.subType
+  Profile Name = ConsentDirective.term.subType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = Consent Directive Term Subtype
+  Definition = Subtype of this Consent Directive Provision, e.g., life time maximum payment for a contract term for specific valued item, e.g., disability payment.
+
+ -- Row 34 -----------------------------------
+  Element = Contract.term.subject
+  Profile Name = ConsentDirective.term.subject
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = Subject  of this Consent Directive Term
+  Definition = Who or what this Consent Directive Provision is about.
+
+ -- Row 35 -----------------------------------
+  Element = Contract.term.action
+  Profile Name = ConsentDirective.term.action
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Consent Directive Term Action
+  Definition = Action stipulated by this Consent Directive Provision.
+
+ -- Row 36 -----------------------------------
+  Element = Contract.term.actionReason
+  Profile Name = ConsentDirective.term.actionReason
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Consent Directive Term Action Reason
+  Definition = Reason or purpose for the action stipulated by this Consent Directive Provision.
+
+ -- Row 37 -----------------------------------
+  Element = Contract.term.actor
+  Profile Name = ConsentDirective.term.actor
+  Card. = 0..*
+  Short Label = Consent Directive  Term Actor List
+  Definition = List of actors participating in this Consent Directive Provision.
+
+ -- Row 38 -----------------------------------
+  Element = Contract.term.actor.entity
+  Profile Name = ConsentDirective.term.actor.entity
+  Card. = 1..1
+  Type = Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
+  Short Label = Consent Directive Term Actor
+  Definition = The actor assigned a role in this Consent Directive Provision.
+
+ -- Row 39 -----------------------------------
+  Element = Contract.term.actor.role
+  Profile Name = ConsentDirective.term.actor.role
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Consent Directive Term Actor Role
+  Definition = Role played by the actor assigned this role in this Consent Directive Provision.
+
+ -- Row 40 -----------------------------------
+  Element = Contract.term.text
+  Profile Name = ConsentDirective.term.text
+  Card. = 0..1
+  Type = string
+  Short Label = Human readable Consent Directive term text
+  Definition = Human readable form of this Consent Directive Provision.
+
+ -- Row 41 -----------------------------------
+  Element = Contract.term.valuedItem
+  Profile Name = ConsentDirective.term.valuedItem
+  Card. = 0..0
+  Short Label = Contract Term Valued Item
+  Definition = Contract Provision Valued Item List
+  To Do = COCT_RM440000UV09 ValuedUnitItem classCode INVE
+
+ -- Row 42 -----------------------------------
+  Element = Contract.term.valuedItem.entity[x]
+  Profile Name = ConsentDirective.term.valuedItem.entity[x]
+  Card. = 0..1
+  Type = CodeableConcept|Reference(Any)
+  Short Label = Contract Term Valued Item Type
+  Definition = Specific type of Contract Provision Valued Item that may be priced.
+  To Do = COCT_RM440000UV09 ValuedUnitItem code
+
+ -- Row 43 -----------------------------------
+  Element = Contract.term.valuedItem.identifier
+  Profile Name = ConsentDirective.term.valuedItem.
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Contract Term Valued Item Identifier
+  Definition = Identifies a Contract Provision Valued Item instance.
+  To Do = COCT_RM440000UV09 ValuedUnitItem id
+
+ -- Row 44 -----------------------------------
+  Element = Contract.term.valuedItem.effectiveTime
+  Profile Name = ConsentDirective.term.valuedItem.effectiveTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Contract Term Valued Item Effective Time
+  Definition = Indicates the time during which this Contract Term ValuedItem information is effective.
+  To Do = COCT_RM440000UV09 ValuedUnitItem effectiveTime
+
+ -- Row 45 -----------------------------------
+  Element = Contract.term.valuedItem.quantity
+  Profile Name = ConsentDirective.term.valuedItem.quantity
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Contract Term Valued Item Count
+  Definition = Specifies the units by which the Contract Provision Valued Item is measured or counted, and quantifies the countable or measurable Contract Term Valued Item instances.
+  To Do = COCT_RM440000UV09 ValuedUnitItem unitQuantity
+
+ -- Row 46 -----------------------------------
+  Element = Contract.term.valuedItem.unitPrice
+  Profile Name = ConsentDirective.term.valuedItem.unitPrice
+  Card. = 0..1
+  Type = Money
+  Short Label = Contract Term Valued Item fee, charge, or cost.
+  Definition = A Contract Provision Valued Item unit valuation measure.
+  To Do = COCT_RM440000UV09 ValuedUnitItem unitPriceAmt
+
+ -- Row 47 -----------------------------------
+  Element = Contract.term.valuedItem.factor
+  Profile Name = ConsentDirective.term.valuedItem.factor
+  Card. = 0..1
+  Type = decimal
+  Short Label = Contract Term Valued Item Price Scaling Factor
+  Definition = A real number that represents a multiplier used in determining the overall value of the Contract Provision Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+  To Do = COCT_RM440000UV09 ValuedUnitItem factorNumber
+
+ -- Row 48 -----------------------------------
+  Element = Contract.term.valuedItem.points
+  Profile Name = ConsentDirective.term.valuedItem.points
+  Card. = 0..1
+  Type = decimal
+  Short Label = Contract Term Valued Item Difficulty Scaling Factor
+  Definition = An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Provision Valued Item, such that a monetary amount can be assigned to each point.
+  To Do = COCT_RM440000UV09 ValuedUnitItem pointNumber
+
+ -- Row 49 -----------------------------------
+  Element = Contract.term.valuedItem.net
+  Profile Name = ConsentDirective.term.valuedItem.net
+  Card. = 0..1
+  Type = Money
+  Short Label = Total Contract Term Valued Item Value
+  Definition = Expresses the product of the Contract Provision Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+
+ -- Row 50 -----------------------------------
+  Element = Contract.term.group
+  Profile Name = ConsentDirective.term.group
+  Card. = 0..*
+  Type = @Contract.term
+  Short Label = Nested Consent DirectiveTerm Group
+  Definition = Nested group of Consent Directive Provision.
+
+ -- Row 51 -----------------------------------
+  Element = Contract.binding[x]
+  Profile Name = ConsentDirective.binding[x]
+  Card. = 1..1
+  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
+  Short Label = Binding Consent Directive
+  Definition = Legally binding onsent Directive Provision.  This is the signed and legally recognized representation of the Consent Directive. that is considered the \"source of truth\", which would be the basis for legal action related to enforcement of the onsent Directive Provision.
+
+ -- Row 52 -----------------------------------
+  Element = !Contract.bindingDateTime
+  Profile Name = !ConsentDirective.bindingDateTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Binding Consent Directive legally effective date time
+  Definition = Date and time at which the legally binding onsent Directive Provision became effective.
+
+ -- Row 53 -----------------------------------
+  Element = Contract.friendly
+  Profile Name = ConsentDirective.friendly
+  Card. = 0..*
+  Short Label = Consent Directive Friendly Language
+  Definition = The \"patient friendly language\" versionof the Consent Directive in whole or in parts. \"Patient friendly language\" means the representation of the  Consent Directive and  Consent Directive Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the  Consent Directive understand the roles, actions, obligations, responsibilities, and implication of the agreement.
+
+ -- Row 54 -----------------------------------
+  Element = Contract.friendly.content[x]
+  Profile Name = ConsentDirective.friendly.content[x]
+  Card. = 1..1
+  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
+  Short Label = Easily comprehended representation of this Consent Directive
+  Definition = Human readable rendering of this  Consent Directive in a format and representation intended to enhance comprehension and ensure understandability.
+
+ -- Row 55 -----------------------------------
+  Element = !Contract.friendly.dateTime
+  Profile Name = !ConsentDirective.friendly.dateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Easily comprehended representation of this Consent Directive creation date/time
+  Definition = Creation date and time of the human readable rendering of this  Consent Directive in a format and representation intended to enhance comprehension and ensure understandability.
+
+ -- Row 56 -----------------------------------
+  Element = Contract.legal
+  Profile Name = ConsentDirective.legal
+  Card. = 0..*
+  Short Label = Consent Directive Legal Language
+  Definition = List of Legal expressions or representations of this  Consent Directive.
+
+ -- Row 57 -----------------------------------
+  Element = Contract.legal.content[x]
+  Profile Name = ConsentDirective.legal.content[x]
+  Card. = 1..1
+  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
+  Short Label = Consent Directive Legal Text
+  Definition = Legal  Consent Directive text in human renderable form.
+
+ -- Row 58 -----------------------------------
+  Element = !Contract.legal.dateTime
+  Profile Name = !ConsentDirective.legal.dateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Legal Consent Directive text creation date time
+  Definition = Creation date and time of this legal C Consent Directive text in human renderable form.
+
+ -- Row 59 -----------------------------------
+  Element = Contract.rule
+  Profile Name = ConsentDirective.rule
+  Card. = 0..*
+  Short Label = Computable Consent Directive Language
+  Definition = List of Computable Policy Rule Language Representations of this  Consent Directive.
+
+ -- Row 60 -----------------------------------
+  Element = Contract.rule.content[x]
+  Profile Name = ConsentDirective.rule.content[x]
+  Card. = 1..1
+  Type = Attachment|Reference(DocumentReference)
+  Short Label = Computable Consent Directive Rules
+  Definition = Computable Consent Directive conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).
+
+ -- Row 61 -----------------------------------
+  Element = !Contract.rule.dateTime
+  Profile Name = !ConsentDirective.rule.dateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Computable Consent Directive Rules creation date time
+  Definition = Creation data and time of the computable rule representation of this  Consent Directive.
+
+=== Sheet Search =====================================

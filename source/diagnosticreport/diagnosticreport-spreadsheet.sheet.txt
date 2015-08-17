@@ -1,0 +1,494 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AdjunctDiagnosis
+  Binding = value set
+  Reference = valueset-clinical-findings
+  Definition = Diagnoses codes provided as adjuncts to the report
+  Description = SNOMED CT Clinical Findings
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = DiagnosticReportCodes
+  Binding = value set
+  Reference = valueset-report-codes
+  Definition = Codes that describe Diagnostic Reports
+  Description = LOINC Codes for Diagnostic Reports
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = DiagnosticServiceSection
+  Binding = value set
+  Reference = valueset-diagnostic-service-sections
+  Definition = Codes for diagnostic service sections
+  Description = HL7 v2 table 0074
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality
+  Description = SNOMED CT Body site concepts
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = DiagnosticReportStatus
+  Binding = code list
+  Reference = #diagnostic-report-status
+  Definition = The status of the diagnostic report as a whole
+  Conformance = required
+
+=== Sheet diagnostic-report-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = registered
+  Display = Registered
+  Definition = The existence of the report is registered, but there is nothing yet available
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = partial
+  Display = Partial
+  Definition = This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = final
+  Display = Final
+  Definition = The report is complete and verified by an authorized person
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = corrected
+  Display = Corrected
+  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person
+
+ -- Row 5 -----------------------------------
+  Id = 6
+  Code = appended
+  Display = Appended
+  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn\'t changed
+
+ -- Row 6 -----------------------------------
+  Id = 7
+  Code = cancelled
+  Display = Cancelled
+  Definition = The report is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\")
+
+ -- Row 7 -----------------------------------
+  Id = 8
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The report has been withdrawn following previous Final release
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticReport
+  Aliases = Report, Test, Result, Results, Labs, Laboratory
+  Type = DomainResource
+  Short Label = A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports
+  Definition = The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
+  Requirements = To support reporting for any diagnostic report into a clinical data repository.
+  Comments = This is intended to capture a single report, and is not suitable for use in displaying summary information that covers multiple reports.  For example, this resource has not been designed for laboratory cumulative reporting formats nor detailed structured reports for sequencing.
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
+  Committee Notes = It\'s not clear how to handle cumulative reports
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = DiagnosticReport.identifier
+  Card. = 0..*
+  Aliases = ReportID
+  Summary = y
+  Type = Identifier
+  Short Label = Id for external references to this report
+  Definition = The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider
+  Requirements = Need to know what identifier to use when making queries about this report from the source laboratory, and for linking to the report outside FHIR context
+  v2 Mapping = OBR-51-Observation Group ID (todo: check semantic intent of OBR-51 with OOWG)
+  RIM Mapping = id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = DiagnosticReport.status
+  Card. = 1..1
+  Is Modifier = y
+  Summary = y
+  Type = code
+  Binding = DiagnosticReportStatus
+  Short Label = registered | partial | final | corrected | appended | cancelled | entered-in-error
+  Definition = The status of the diagnostic report as a whole
+  Requirements = Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.
+  Comments = This is labeled as \"Is Modifier\" because applications need to take appropriate action if a report is withdrawn
+  v2 Mapping = OBR-25-Result Status (not 1:1 mapping)
+  RIM Mapping = statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type \"revise\"
+  Committee Notes = [#5692]
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticReport.category
+  Card. = 0..1
+  Aliases = Department, Sub-department, service, discipline
+  Summary = y
+  Type = CodeableConcept
+  Binding = DiagnosticServiceSection
+  Short Label = Service category
+  Definition = A code that classifies the dlinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.
+  Comments = The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.
+  v2 Mapping = OBR-24-Diagnostic Service Section ID
+  RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code < LabService].code
+  Committee Notes = #8514
+  w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticReport.code
+  Card. = 1..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = DiagnosticReportCodes
+  Short Label = Name/Code for this diagnostic report
+  Definition = A code or name that describes this diagnostic report
+  v2 Mapping = OBR-4-Universal Service ID (V2 doesn\'t provide an easy way to indicate both the ordered test and the performed panel)
+  RIM Mapping = code
+  Committee Notes = #5961
+  w5 = what
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticReport.subject
+  Card. = 1..1
+  Aliases = Patient
+  Summary = y
+  Type = Reference(Patient|Group|Device|Location)
+  Short Label = The subject of the report, usually, but not always, the patient
+  Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
+  Requirements = SHALL know the subject context
+  v2 Mapping = PID-3-Patient ID List (no V2 mapping for Group or Device)
+  RIM Mapping = participation[typeCode=SBJ]
+  w5 = who.focus
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticReport.encounter
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Encounter)
+  Short Label = Health care event when test ordered
+  Definition = The link to the health care event (encounter) when the order was made.
+  RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  Committee Notes = [#3839]
+  w5 = context
+
+ -- Row 8 -----------------------------------
+  Element = DiagnosticReport.effective[x]
+  Card. = 1..1
+  Aliases = Observation time, Effective Time
+  Summary = y
+  Type = dateTime|Period
+  Short Label = Clinically Relevant time/time-period for report
+  Definition = The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
+  Requirements = Need to know where in the patient history to file/present this report
+  Comments = If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.
+  v2 Mapping = OBR-7-Observation Date/Time
+  RIM Mapping = effectiveTime
+  w5 = when.done
+
+ -- Row 9 -----------------------------------
+  Element = DiagnosticReport.issued
+  Card. = 1..1
+  Aliases = Date Created, Date published, Date Issued
+  Summary = y
+  Type = instant
+  Short Label = DateTime this version was released
+  Definition = The date and time that this version of the report was released from the source diagnostic service
+  Requirements = Clinicians need to be able to check the date that the report was released
+  Comments = May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report .
+  v2 Mapping = OBR-22-Results Rpt/Status Chng - Date/Time
+  RIM Mapping = participation[typeCode=VRF or AUT].time
+  Committee Notes = #7500
+  w5 = when.recorded
+
+ -- Row 10 -----------------------------------
+  Element = DiagnosticReport.performer
+  Card. = 1..1
+  Aliases = Laboratory, Service, Practitioner, Department, Company
+  Summary = y
+  Type = Reference(Practitioner|Organization)
+  Short Label = Responsible Diagnostic Service
+  Definition = The diagnostic service that is responsible for issuing the report
+  Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
+  Comments = This is not necessarily the source of the atomic data items - it is the entity that takes responsibility for the clinical report.
+  v2 Mapping = PRT-8-Participation Organization (where this PRT-4-Participation = \"PO\")
+  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  w5 = who.witness
+
+ -- Row 11 -----------------------------------
+  Element = DiagnosticReport.request
+  Card. = 0..*
+  Type = Reference(DiagnosticOrder|ProcedureRequest|ReferralRequest)
+  Short Label = What was requested
+  Definition = Details concerning a test or procedure requested.
+  Requirements = Need to be able to track completion of requests based on reports issued and also to report what diagnostic tests were requested (not always the same as what is delivered)
+  Comments = Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
+  RIM Mapping = outboundRelationship[typeCode=FLFS].target
+
+ -- Row 12 -----------------------------------
+  Element = DiagnosticReport.specimen
+  Card. = 0..*
+  Type = Reference(Specimen)
+  Short Label = Specimens this report is based on
+  Definition = Details about the specimens on which this diagnostic report is based
+  Requirements = Need to be able to report information about the collected specimens on which the report is based
+  Comments = If the specimen is sufficiently specified with a code in the Test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per Observation or group.
+  v2 Mapping = SPM
+  RIM Mapping = participation[typeCode=SBJ]
+
+ -- Row 13 -----------------------------------
+  Element = DiagnosticReport.result
+  Card. = 0..*
+  Aliases = Data, Atomic Value, Result, Atomic result, Data, Test, Analyte,Battery, Organiser
+  Type = Reference(Observation)
+  Short Label = Observations - simple, or complex nested groups
+  Definition = Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").
+  Requirements = Need to be able to individual results, or report groups of results, where the result grouping is arbitrary, but meaningful. This structure is recursive - observations can contain observations
+  RIM Mapping = outboundRelationship[typeCode=COMP].target
+
+ -- Row 14 -----------------------------------
+  Element = DiagnosticReport.imagingStudy
+  Card. = 0..*
+  Type = Reference(ImagingStudy|ImagingObjectSelection)
+  Short Label = Reference to full details of imaging associated with the diagnostic report
+  Definition = One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
+  Comments = dImagingStudy and ImageObjectStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.
+  RIM Mapping = outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]
+  Committee Notes = 6246
+
+ -- Row 15 -----------------------------------
+  Element = DiagnosticReport.image
+  Card. = 0..*
+  Aliases = DICOM, Slides, Scans
+  Summary = Y
+  UML = 360;125
+  Short Label = Key images associated with this report
+  Definition = A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
+  Requirements = Many diagnostic services include images in the report as part of their service
+  v2 Mapping = OBX?
+  RIM Mapping = outboundRelationship[typeCode=COMP].target
+
+ -- Row 16 -----------------------------------
+  Element = DiagnosticReport.image.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Comment about the image (e.g. explanation)
+  Definition = A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer\'s attention to important features.
+  Requirements = The provider of the report should make a comment about each image included in the report.
+  Comments = The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion.
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
+
+ -- Row 17 -----------------------------------
+  Element = DiagnosticReport.image.link
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Media)
+  Short Label = Reference to the image source
+  RIM Mapping = .value.reference
+
+ -- Row 18 -----------------------------------
+  Element = DiagnosticReport.conclusion
+  Card. = 0..1
+  Aliases = Report
+  Type = string
+  Short Label = Clinical Interpretation of test results
+  Definition = Concise and clinically contextualized narrative interpretation of the diagnostic report
+  Requirements = Need to be able to provide a conclusion that is not lost amongst the basic result data
+  Comments = Typically, a report is either [all data, no narrative (e.g. Core lab)] or [a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density)], or [all narrative (e.g. typical imaging report, histopathology)]. In all of these cases, the narrative goes in \"text\".
+  v2 Mapping = OBX
+  RIM Mapping = inboundRelationship[typeCode=\"SPRT\"].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)
+
+ -- Row 19 -----------------------------------
+  Element = DiagnosticReport.codedDiagnosis
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = AdjunctDiagnosis
+  Short Label = Codes for the conclusion
+  v2 Mapping = OBX
+  RIM Mapping = inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)
+
+ -- Row 20 -----------------------------------
+  Element = DiagnosticReport.presentedForm
+  Card. = 0..*
+  Type = Attachment
+  Short Label = Entire Report as issued
+  Definition = Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
+  Requirements = Gives Laboratory the ability to provide its own fully formatted report for clinical fidelity
+  Comments = Application/pdf is recommended as the most reliable and interoperable in this context.
+  v2 Mapping = OBX
+  RIM Mapping = text (type=ED)
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the report
+  Path = DiagnosticReport.status
+
+ -- Row 2 -----------------------------------
+  Name = issued
+  Type = date
+  Description = When the report was issued
+  Path = DiagnosticReport.issued
+
+ -- Row 3 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The subject of the report
+  Path = DiagnosticReport.subject
+
+ -- Row 4 -----------------------------------
+  Name = performer
+  Type = reference
+  Description = Who was the source of the report (organization)
+  Path = DiagnosticReport.performer
+
+ -- Row 5 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = An identifier for the report
+  Path = DiagnosticReport.identifier
+
+ -- Row 6 -----------------------------------
+  Name = category
+  Type = token
+  Description = Which diagnostic discipline/department created the report
+  Path = DiagnosticReport.category
+
+ -- Row 7 -----------------------------------
+  Name = date
+  Type = date
+  Description = The clinically relevant time of the report
+  Path = DiagnosticReport.effective[x]
+
+ -- Row 8 -----------------------------------
+  Name = specimen
+  Type = reference
+  Description = The specimen details
+  Path = DiagnosticReport.specimen
+
+ -- Row 9 -----------------------------------
+  Name = code
+  Type = token
+  Description = The code for the report as a whole, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result
+  Path = DiagnosticReport.code
+
+ -- Row 10 -----------------------------------
+  Name = result
+  Type = reference
+  Description = Link to an atomic result (observation resource)
+  Path = DiagnosticReport.result
+
+ -- Row 11 -----------------------------------
+  Name = diagnosis
+  Type = token
+  Description = A coded diagnosis on the report
+  Path = DiagnosticReport.codedDiagnosis
+
+ -- Row 12 -----------------------------------
+  Name = image
+  Type = reference
+  Description = A reference to the image source.
+  Path = DiagnosticReport.image.link
+
+ -- Row 13 -----------------------------------
+  Name = request
+  Type = reference
+  Description = Reference to the test or procedure request.
+  Path = DiagnosticReport.request
+
+ -- Row 14 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The subject of the report if a patient
+  Path = DiagnosticReport.subject
+  Target Types = Patient
+
+ -- Row 15 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = The Encounter when the order was made
+  Path = DiagnosticReport.encounter
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Example Lipid Profile
+  IG Name = core
+  Filename = diagnosticreport-profile-lipids.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = diagnosticreport-extensions
+  IG Name = core
+  Filename = diagnosticreport-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = 101
+  Description = General Lab Report Example
+  Filename = diagnosticreport-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Assorted Collection
+  Identity = 72ac8493-52ac-41bd-8d5d-7258c289b5ea
+  Description = Various reports gathered from v2 messages
+  Filename = diagnosticreport-examples-general.xml
+
+ -- Row 3 -----------------------------------
+  Name = Report Feed
+  Identity = 72ac8493-52ac-41bd-8d5d-7258c289b5ea
+  Description = Snapshot of a live feed from a laboratory
+  Filename = diagnosticreport-examples-lab-text.xml
+
+ -- Row 4 -----------------------------------
+  Name = Blood examination
+  Identity = f001
+  Description = Real-world patient example
+  Filename = diagnosticreport-example-f001-bloodexam.xml
+
+ -- Row 5 -----------------------------------
+  Name = CT of the brain
+  Identity = f201
+  Description = Real-world patient example
+  Filename = diagnosticreport-example-f201-brainct.xml
+
+ -- Row 6 -----------------------------------
+  Name = Blood culture
+  Identity = f202
+  Description = Real-world patient example
+  Filename = diagnosticreport-example-f202-bloodculture.xml
+
+ -- Row 7 -----------------------------------
+  Name = Bone Density
+  Identity = 102
+  Description = Imaging Example (Bone Density DXA)
+  Filename = diagnosticreport-example-dxa.xml
+
+ -- Row 8 -----------------------------------
+  Name = Micro Isolate and Sensitivities
+  Identity = micro
+  Description = An example of a complex Micro Isolate and Sensitivities
+  Filename = diagnosticreport-micro1.xml
+
+ -- Row 9 -----------------------------------
+  Name = Lipid profile
+  Identity = lipids
+  Description = Lipid profile
+  Filename = diagnosticreport-example-lipids.xml
+  Profile = Example Lipid Profile
+
+=== Sheet Examples =====================================

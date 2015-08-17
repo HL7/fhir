@@ -1,0 +1,115 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ClinicalAssertion
+  Binding = value set
+  Reference = valueset-clinicalFinding
+  Definition = The set of codes that describe the thing being asserted as existing in or for the individual
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = YesNo
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0136
+  Definition = The set of values to indicate affirmative or negative
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = BodyLocationPrecoord
+  Binding = value set
+  Reference = valueset-observation-bodysite-precoordinated
+  Definition = A set of codes that describe pre-coordinated body locations
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = FocalSubjectRelationship
+  Binding = value set
+  Reference = valueset-focalSubject
+  Definition = The set of codes that describe the subject of an observation when not the patient of record
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = Likelihood
+  Binding = value set
+  Reference = valueset-likelihood
+  Definition = A set of codes that describe the level of certainty, if any, that the observation exists or procedure was done
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = ClinicalAssertStatus
+  Binding = value set
+  Reference = valueset-clinicalAssertStatus
+  Definition = The set of codes that describe the state of the assertion
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = AssociatedPrecondition
+  Binding = value set
+  Reference = valueset-associatedprecondition
+  Definition = The pre-existing condtions that affect the assertion of the condition
+  Conformance = preferred
+
+=== Sheet hspc-clinicalassert =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = HSPC Clincal Assert Condition
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Condition.asserter
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}
+
+ -- Row 3 -----------------------------------
+  Element = Condition.code
+  Binding = ClinicalAssertion
+
+ -- Row 4 -----------------------------------
+  Element = Condition.extension
+  Profile Name = HistoryIndicator
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-clinicalobservation#HistoryIndicator}
+  Binding = YesNo
+
+ -- Row 5 -----------------------------------
+  Element = Condition.location
+
+ -- Row 6 -----------------------------------
+  Element = Condition.location.siteCodeableConcept
+  Type = CodeableConcept
+  Binding = BodyLocationPrecoord
+
+ -- Row 7 -----------------------------------
+  Element = Condition.extension
+  Profile Name = AssociatedPrecondition
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Binding = AssociatedPrecondition
+
+ -- Row 8 -----------------------------------
+  Element = Condition.extension
+  Profile Name = FocalSubject
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}
+  Binding = FocalSubjectRelationship
+
+ -- Row 9 -----------------------------------
+  Element = Condition.extension
+  Profile Name = Likelihood
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-logicalassert#Likelihood}
+  Binding = Likelihood
+
+ -- Row 10 -----------------------------------
+  Element = Condition.extension
+  Profile Name = RiskForIndicator
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-clinicalobservation#RiskForIndicator}
+  Binding = YesNo
+
+ -- Row 11 -----------------------------------
+  Element = Condition.clinicalStatus
+  Binding = ClinicalAssertStatus
+
+=== Sheet Search =====================================

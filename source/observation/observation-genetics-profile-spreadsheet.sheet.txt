@@ -1,0 +1,311 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = HGNC-geneIdentfiers
+  Binding = reference
+  Reference = http://www.genenames.org
+  Definition = International curated set of gene identifiers
+  Description = Gene Identifiers Reference
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.6.281
+
+ -- Row 2 -----------------------------------
+  Binding Name = HGVS-variantNomenclature
+  Binding = reference
+  Reference = http://www.hgvs.org/mutnomen/
+  Definition = International nomenclature for variant naming
+  Description = Sequence Variation Nomenclature
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.6.282
+
+ -- Row 3 -----------------------------------
+  Binding Name = RefSeq-ReferenceSequences
+  Binding = reference
+  Reference = http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore
+  Definition = NCBI central repository of reference sequences
+  Description = NCBI (the USA\'s National Center for Biotechnology Communication) Referene Sequence Identifiers
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.6.280
+
+ -- Row 4 -----------------------------------
+  Binding Name = LOINC-AnswerLists
+  Binding = reference
+  Reference = http://loinc.org
+  Definition = Laboratory LOINC codes for genetics
+  Description = Laboratory LOINC
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = ENSEMBL-ReferenceSequences
+  Binding = reference
+  Reference = http://www.ensembl.org/
+  Definition = ENSEMBL central repository of reference sequences
+  Description = ENSEMBL reference sequence identifiers maintained jointly by the European Bioinformatics Institute and Welcome Trust Sanger Institute.
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = ClinVar-variant-database
+  Binding = reference
+  Reference = http://www.ncbi.nlm.nih.gov/clinvar/variation
+  Definition = NCBI central respository of potentially clinically relevant variants
+  Description = NCBI central respository for curating pathogenicity of potentially clinically relevant variants
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = COSMIC-cancer-mutation-database
+  Binding = reference
+  Reference = http://cancer.sanger.ac.uk/cancergenome/projects/cosmic/
+  Definition = Catalog of Somatic Mutations in Cancer
+  Description = Catalog of Somatic Mutations in Cancer maintained by the Welcome Trust Sanger Institute
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.3.912
+
+ -- Row 8 -----------------------------------
+  Binding Name = BbSNP-variant-database
+  Binding = reference
+  Reference = http://www.ncbi.nlm.nih.gov/projects/SNP/
+  Definition = NCBI database of variants
+  Description = NCBI  central repository of variants, including germline and somatic variants
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.6.284
+
+ -- Row 9 -----------------------------------
+  Binding Name = SO-SequenceOntology
+  Binding = reference
+  Reference = http://www.sequenceontology.org/
+  Definition = Sequence Ontology maintains terminologies for characterizing sequencing data
+  Description = SO-Sequence Ontology  is a collaborative ontology project for the definition of sequence features used in biological sequence annotation.
+  Conformance = preferred
+
+=== Sheet Genetics =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = Genetics
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = GenomeBuild
+  Card. = 0..1
+  Type = Extension{#GenomeBuild}
+  Short Label = GenomeBuild
+  Definition = The Genome Build used for reference, following GRCh build versions e.g. \'GRCh 37\'.  Version number must be included if a versioned release of a primary build was used.
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Chromosome
+  Card. = 0..1
+  Type = Extension{#Chromosome}
+  Short Label = Chr
+  Definition = The chromosome containing the genetic finding - values should be 1-23, X, Y, mitochondrial, viral, bacterial.
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension
+  Profile Name = GenomicStart
+  Card. = 0..1
+  Type = Extension{#GenomicStart}
+  Short Label = Genomic Start
+  Definition = Inclusive 0-based nucleotide position for start of genomic finding on the positive (+) genomics strand.
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension
+  Profile Name = GenomicStop
+  Card. = 0..1
+  Type = Extension{#GenomicStop}
+  Short Label = GenomicEnd
+  Definition = Exclusive 0-based nucleotide position for end of genomic finding on the positive (+) genomic strand.
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension
+  Profile Name = ReferenceAllele
+  Card. = 0..1
+  Type = Extension{#ReferenceAllele}
+  Short Label = RefAllele
+  Definition = Nucleotide(s) from genomic start to genomic stop on the positive (+) strand of the genomic reference sequence.
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension
+  Profile Name = ObservedAllele
+  Card. = 0..1
+  Type = Extension{#ObservedAllele}
+  Short Label = ObsAllele
+  Definition = Oserved nucleotides from genomic start to genomic stop on the positive (+) genomic strand.
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Gene
+  Card. = 0..1
+  Type = Extension{#Gene}
+  Short Label = Gene
+  Definition = Gene region in which the sequence is found. Currently values from HGNC and Entrez are supported. Other systems can be added.
+
+ -- Row 9 -----------------------------------
+  Element = Observation.extension
+  Profile Name = TranscriptReferenceSequenseId
+  Card. = 0..1
+  Type = Extension{#TranscriptReferenceSequenseId}
+  Short Label = TransReferenceSeqID
+  Definition = Reference identifier for cDNA transcript, with version, from NCBI\'s RefSeq or ENSEMBL
+
+ -- Row 10 -----------------------------------
+  Element = Observation.extension
+  Profile Name = DNASequenceVariation
+  Card. = 0..1
+  Type = Extension{#DNASequenceVariation}
+  Short Label = HGVSdnaVariant
+  Definition = cDNA variant following HGVS nomenclature on the given TranscriptReferenceSequenceId.
+
+ -- Row 11 -----------------------------------
+  Element = Observation.extension
+  Profile Name = VariationId
+  Card. = 0..1
+  Type = Extension{#VariationId}
+  Short Label = VariantId
+  Definition = Identifier for variant.  If a germline variant, ClinVar or dbSNP identifier should be used. If ClinVar is used, the identifier should be prefixed with \'ClinVar:\' (e.g. ClinVar:17661).  dbSNP ids are start with \'rs\' (rs28897672) and COSMIC id\'s start with \'COSM\' (e.g. COSM12979). Note, dbSNP id\'s are not unique to a variant but a location, so nucleotide change and germline/somatic classification are needed to resolve.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used.
+
+ -- Row 12 -----------------------------------
+  Element = Observation.extension
+  Profile Name = DNARegionName
+  Card. = 0..1
+  Type = Extension{#DNARegionName}
+  Short Label = RegionName
+  Definition = Details of exonic location of variant (e.g. Exon 1).
+
+ -- Row 13 -----------------------------------
+  Element = Observation.extension
+  Profile Name = DNASequenceVariationType
+  Card. = 0..1
+  Type = Extension{#DNASequenceVariationType}
+  Short Label = DNAvariantType
+  Definition = Codified type for associated DNA Sequence Variation.  DNA Sequence Variations use the HGVS notation which implies the DNA Sequence Variation Type, but the concurrent use of this code will allow a standard and explicit type for technical and display convenience. LOINC Answer List values 48019-4 or Sequence Ontology vaues.
+  To Do = Need OID for SO
+
+ -- Row 14 -----------------------------------
+  Element = Observation.extension
+  Profile Name = ProteinReferenceSequenceId
+  Card. = 0..1
+  Type = Extension{#ProteinReferenceSequenceId}
+  Short Label = ProteinReferenceSeq
+  Definition = Reference identifier for protein transcript, with version, from NCBI\'s RefSeq or ENSEMBL.
+
+ -- Row 15 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AminoAcidChange
+  Card. = 0..1
+  Type = Extension{#AminoAcidChange}
+  Short Label = HGVSproteinChange
+  Definition = Protein variant following HGVS nomenclature on the given ProteinReferenceSequenceId.
+
+ -- Row 16 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AminoAcidChangeType
+  Card. = 0..1
+  Type = Extension{#AminoAcidChangeType}
+  Short Label = ProteinChangeType
+  Definition = Type of variation expressed using Sequence Ontology or LOINC answer list 48006-1.
+  To Do = Need OID for SO
+
+ -- Row 17 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AlleleName
+  Card. = 0..1
+  Type = Extension{#AlleleName}
+  Short Label = AlleleName
+  Definition = Common name for variant or gene allele
+
+ -- Row 18 -----------------------------------
+  Element = Observation.extension
+  Profile Name = GenomicSourceClass
+  Card. = 0..1
+  Type = Extension{#GenomicSourceClass}
+  Short Label = GenomicSource
+  Definition = The genomic class of the variant: Germline for inherited genome, somatic for cancer genome (e.g. DNA from tumor cells), and prenatal for fetal genome. Associated with LOINC answer list: 48002-0
+
+ -- Row 19 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AllelicState
+  Card. = 0..1
+  Type = Extension{#AllelicState}
+  Short Label = AllelicState
+  Definition = The level of occurrence of a DNA Sequence Variation.  Heterozygous: present in one of the two genes of homologous chromosomes, while Homozygous means it\'s present in both genes.  Hemizygous: Variation in the only single copy of a gene in a non-homologous chromosome (i.e. male X and Y chromosome).  Homoplasmic: Variation is present in all of the copies of mitochondrial DNA while Hemiplasmic is present in only some copies. LOINC Answer List values 53034-5
+
+ -- Row 20 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Species
+  Card. = 0..1
+  Type = Extension{#Species}
+  Short Label = Species
+  Definition = supports testing of human, viruses, and bacteria
+
+ -- Row 21 -----------------------------------
+  Element = Observation.extension
+  Profile Name = CIGAR
+  Card. = 0..1
+  Type = Extension{#CIGAR}
+  Short Label = CIGAR
+  Definition = Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).
+
+ -- Row 22 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AssessedCondition
+  Card. = 0..1
+  Type = Extension{#AssessedCondition}
+  Short Label = AssessedCondition
+  Definition = Used to denote condition context for genetic testing, which may influence reported variants and interpretation for large genomic testing panels e.g. lung cancer or familial breast cancer.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = gene-identifier
+  Type = string
+  Description = HGNC gene symbol and identifier
+  Path = Observation.extension(GeneId)
+
+ -- Row 2 -----------------------------------
+  Name = dna-variant
+  Type = string
+  Description = HGVS DNA variant
+  Path = Observation.extension(DNASequenceVariation)
+
+ -- Row 3 -----------------------------------
+  Name = amino-acid-change
+  Type = string
+  Description = HGVS Protein Change
+  Path = Observation.extension(AminoAcidChange)
+
+ -- Row 4 -----------------------------------
+  Name = assessed-condition
+  Type = string
+  Description = Condition assessed by genetic test
+  Path = Observation.extension(AssessedCondition)
+
+ -- Row 5 -----------------------------------
+  Name = gene-dnavariant
+  Type = string
+  Description = HGNC gene symbol and HGVS DNA Variant
+  Path = Observation.extension(GeneIdentifier, DNASequenceVariation)
+
+ -- Row 6 -----------------------------------
+  Name = gene-amino-acid-change
+  Type = string
+  Description = HGNC gene symbol and HGVS Protein change
+  Path = Observation.extension(GeneIdentifier, AminoAcidChange)
+
+ -- Row 7 -----------------------------------
+  Name = condition-gene
+  Type = string
+  Description = HGNC gene symbol and assessed condition context
+  Path = Observation.extension(AssessedCondition, GeneId)
+
+ -- Row 8 -----------------------------------
+  Name = condition-gene-dnavariant
+  Type = string
+  Description = HGNC gene symbol  HGVS DNA variant, and assessed condition context
+  Path = Observation.extension(AssessedCondition, GeneId, DNASequenceVariation)
+
+ -- Row 9 -----------------------------------
+  Name = chromosome-genomicstart
+  Type = string
+  Description = Chromosome and Genomic Starting Position
+  Path = Observation.extension(Chromosome, GenomicStart)

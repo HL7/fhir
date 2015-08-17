@@ -1,0 +1,601 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = ConceptMap.element.target
+  English = If the map is narrower or inexact, there SHALL be some comments
+  XPath = exists(f:comments) or ((f:equivalence/@value != \'narrower\') and (f:equivalence/@value != \'inexact\'))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ConceptMap
+  UML = 10;10
+  Type = DomainResource
+  Short Label = A map from one set of concepts to one or more other concepts
+  Definition = A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models
+  RIM Mapping = N/A
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = ConceptMap.url
+  Card. = 0..1
+  Summary = y
+  Type = uri
+  Short Label = Globally unique logical id for concept map
+  Definition = An absolute URL that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this concept map is (or will be) published
+  RIM Mapping = N/A
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = ConceptMap.identifier
+  Card. = 0..1
+  Summary = y
+  Type = Identifier
+  Short Label = Additional identifier for the concept map
+  Definition = Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.
+  Comments = Typically, this is used for values that can go in a v3 II data type
+  w5 = id
+
+ -- Row 4 -----------------------------------
+  Element = ConceptMap.version
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Logical id for this version of the concept map
+  Definition = The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
+  Comments = There may be multiple resource versions of the concept map that have this same identifier
+  RIM Mapping = N/A
+  w5 = id.version
+
+ -- Row 5 -----------------------------------
+  Element = ConceptMap.name
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Informal name for this concept map
+  Definition = A free text natural language name describing the concept map
+  Requirements = Support human navigation
+  Comments = Not expected to be unique
+  RIM Mapping = N/A
+
+ -- Row 6 -----------------------------------
+  Element = ConceptMap.status
+  Card. = 1..1
+  Is Modifier = Yes
+  Summary = y
+  Type = code
+  Binding = ConformanceResourceStatus
+  Short Label = draft | active | retired
+  Definition = The status of the concept map
+  Requirements = Identify when/if the concept map should be used.
+  Comments = Allows filtering of ConceptMaps that are appropriate for use
+  RIM Mapping = N/A
+  w5 = status
+
+ -- Row 7 -----------------------------------
+  Element = ConceptMap.experimental
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = If for testing purposes, not real usage
+  Definition = This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Comments = Allows filtering of ConceptMaps that are appropriate for use
+  w5 = class
+
+ -- Row 8 -----------------------------------
+  Element = ConceptMap.publisher
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the concept map
+  Requirements = Helps establish the \"authority/credibility\" of the concept map.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
+  w5 = who.witness
+
+ -- Row 9 -----------------------------------
+  Element = ConceptMap.contact
+  Card. = 0..*
+  Summary = y
+  UML = 350;120
+  Short Label = Contact details of the publisher
+  Definition = Contacts to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number (tel:), etc.
+
+ -- Row 10 -----------------------------------
+  Element = ConceptMap.contact.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of a individual to contact
+  Definition = The name of an individual to contact regarding the concept map
+  Comments = If there is no named individual, the telecom is for the organization as a whole
+
+ -- Row 11 -----------------------------------
+  Element = ConceptMap.contact.telecom
+  Card. = 0..*
+  Summary = Y
+  Type = ContactPoint
+  Short Label = Contact details for individual or publisher
+  Definition = Contact details for individual (if a name was provided) or the publisher
+
+ -- Row 12 -----------------------------------
+  Element = ConceptMap.date
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Date for given status
+  Definition = The date that this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the concept map changes
+  Requirements = Need to know when a concept map was first legal for use or became withdrawn or replaced.
+  Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions
+  RIM Mapping = N/A
+  w5 = when.recorded
+
+ -- Row 13 -----------------------------------
+  Element = ConceptMap.description
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Human language description of the concept map
+  Definition = A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.
+  Requirements = Human understandability
+  Comments = The description is not intended to describe the semantics of the concept map. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes.
+  RIM Mapping = N/A
+
+ -- Row 14 -----------------------------------
+  Element = ConceptMap.useContext
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ConformanceUseContext
+  Short Label = Content intends to support these contexts
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of concept maps.
+  Requirements = Assist in searching for appropriate concept maps
+  RIM Mapping = N/A
+
+ -- Row 15 -----------------------------------
+  Element = ConceptMap.requirements
+  Card. = 0..1
+  Type = string
+  Short Label = Why is this needed?
+  Definition = Explains why this concept map is needed and why it\'s been constrained as it has
+  Comments = This element does not describe the usage of the concept map (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+
+ -- Row 16 -----------------------------------
+  Element = ConceptMap.copyright
+  Card. = 0..1
+  Type = string
+  Short Label = Use and/or Publishing restrictions
+  Definition = A copyright statement relating to the concept map and/or its contents
+  Comments = Frequently, the copyright differs between the concept map, and codes that are included. The copyright statement should clearly differentiate between these when required
+
+ -- Row 17 -----------------------------------
+  Element = ConceptMap.source[x]
+  Card. = 1..1
+  Summary = Y
+  Type = uri | Reference(ValueSet|StructureDefinition)
+  Short Label = Identifies the source of the concepts which are being mapped
+  Definition = The source value set that specifies the concepts that are being mapped
+  Comments = Should be a version specific reference. URIs SHOULD be absolute
+
+ -- Row 18 -----------------------------------
+  Element = ConceptMap.target[x]
+  Card. = 1..1
+  Summary = Y
+  Type = uri | Reference(ValueSet|StructureDefinition)
+  Short Label = Provides context to the mappings
+  Definition = The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made
+  Comments = Should be a version specific reference. URIs SHOULD be absolute
+
+ -- Row 19 -----------------------------------
+  Element = ConceptMap.element
+  Card. = 0..*
+  Aliases = code, concept, item
+  UML = 350;20
+  Type = =SourceElement
+  Short Label = Mappings for a concept from the source set
+  Definition = Mappings for an individual concept in the source to one or more concepts in the target
+  Comments = Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped mutliple times with different comments or dependencies
+
+ -- Row 20 -----------------------------------
+  Element = ConceptMap.element.codeSystem
+  Card. = 0..1
+  Type = uri
+  Short Label = Code System (if value set crosses code systems)
+  Definition = An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system)
+
+ -- Row 21 -----------------------------------
+  Element = ConceptMap.element.code
+  Card. = 0..1
+  Type = code
+  Binding = !
+  Short Label = Identifies element being mapped
+  Definition = Identity (code or path) or the element/item being mapped
+
+ -- Row 22 -----------------------------------
+  Element = ConceptMap.element.target
+  Card. = 0..*
+  UML = 520;20
+  Type = =TargetElement
+  Short Label = Concept in target system for element
+  Definition = A concept from the target value set that this concept maps to
+  Comments = Ideally there would only be one map, with equal or equivalent mapping. But multiple maps are allowed for several narrower options, or to assert that other concepts are unmatched
+
+ -- Row 23 -----------------------------------
+  Element = ConceptMap.element.target.codeSystem
+  Card. = 0..1
+  Type = uri
+  Short Label = System of the target (if necessary)
+  Definition = An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems)
+  Comments = Should be a version specific reference
+
+ -- Row 24 -----------------------------------
+  Element = ConceptMap.element.target.code
+  Card. = 0..1
+  Type = code
+  Binding = !
+  Short Label = Code that identifies the target element
+  Definition = Identity (code or path) or the element/item that the map refers to
+
+ -- Row 25 -----------------------------------
+  Element = ConceptMap.element.target.equivalence
+  Card. = 1..1
+  Is Modifier = Yes
+  Type = code
+  Binding = ConceptMapEquivalence
+  Short Label = equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
+  Definition = The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is \'wider\' than the source)
+
+ -- Row 26 -----------------------------------
+  Element = ConceptMap.element.target.comments
+  Card. = 0..1
+  Inv. = 1
+  Type = string
+  Short Label = Description of status/issues in mapping
+  Definition = A description of status/issues in mapping that conveys additional information not represented in  the structured data
+
+ -- Row 27 -----------------------------------
+  Element = ConceptMap.element.target.dependsOn
+  Card. = 0..*
+  UML = 550;180
+  Type = =OtherElement
+  Short Label = Other elements required for this mapping (from context)
+  Definition = A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value
+
+ -- Row 28 -----------------------------------
+  Element = ConceptMap.element.target.dependsOn.element
+  Card. = 1..1
+  Type = uri
+  Short Label = Reference to element/field/valueset mapping depends on
+  Definition = A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition
+
+ -- Row 29 -----------------------------------
+  Element = ConceptMap.element.target.dependsOn.codeSystem
+  Card. = 1..1
+  Type = uri
+  Short Label = Code System (if necessary)
+  Definition = An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems)
+
+ -- Row 30 -----------------------------------
+  Element = ConceptMap.element.target.dependsOn.code
+  Card. = 1..1
+  Type = string
+  Short Label = Value of the referenced element
+  Definition = Identity (code or path) or the element/item that the map depends on / refers to
+
+ -- Row 31 -----------------------------------
+  Element = ConceptMap.element.target.product
+  Card. = 0..*
+  Type = @ConceptMap.element.target.dependsOn
+  Short Label = Other concepts that this mapping also produces
+  Definition = A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = url
+  Type = uri
+  Description = The url of the concept map
+  Path = ConceptMap.url
+
+ -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Additional identifier for the concept map
+  Path = ConceptMap.identifier
+
+ -- Row 3 -----------------------------------
+  Name = version
+  Type = token
+  Description = The version identifier of the concept map
+  Path = ConceptMap.version
+
+ -- Row 4 -----------------------------------
+  Name = name
+  Type = string
+  Description = Name of the concept map
+  Path = ConceptMap.name
+
+ -- Row 5 -----------------------------------
+  Name = publisher
+  Type = string
+  Description = Name of the publisher of the concept map
+  Path = ConceptMap.publisher
+
+ -- Row 6 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search in the description of the concept map
+  Path = ConceptMap.description
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the concept map
+  Path = ConceptMap.status
+
+ -- Row 8 -----------------------------------
+  Name = date
+  Type = date
+  Description = The concept map publication date
+  Path = ConceptMap.date
+
+ -- Row 9 -----------------------------------
+  Name = source
+  Type = reference
+  Path = ConceptMap.sourceReference
+
+ -- Row 10 -----------------------------------
+  Name = sourceuri
+  Type = reference
+  Path = ConceptMap.sourceUri
+
+ -- Row 11 -----------------------------------
+  Name = target
+  Type = reference
+  Path = ConceptMap.target[x]
+
+ -- Row 12 -----------------------------------
+  Name = sourcesystem
+  Type = uri
+  Path = ConceptMap.element.codeSystem
+
+ -- Row 13 -----------------------------------
+  Name = targetsystem
+  Type = uri
+  Path = ConceptMap.element.target.codeSystem
+
+ -- Row 14 -----------------------------------
+  Name = sourcecode
+  Type = token
+  Path = ConceptMap.element.code
+
+ -- Row 15 -----------------------------------
+  Name = targetcode
+  Type = token
+  Path = ConceptMap.element.target.code
+
+ -- Row 16 -----------------------------------
+  Name = dependson
+  Type = uri
+  Path = ConceptMap.element.target.dependsOn.element
+
+ -- Row 17 -----------------------------------
+  Name = product
+  Type = uri
+  Path = ConceptMap.element.target.product.element
+
+ -- Row 18 -----------------------------------
+  Name = context
+  Type = token
+  Description = A use context assigned to the concept map
+  Path = ConceptMap.useContext
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = 101
+  Description = General ConceptMap Example
+  Filename = conceptmap-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Speciment Type
+  Identity = 102
+  Description = Specimen Type v2 -> SNOMED-CT Mapping
+  Filename = conceptmap-example-specimen-type.xml
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = translate
+  Use = Resource | Instance
+  Documentation = Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server. || One (and only one) of the in parameters (code, coding, codeableConcept) must be provided, to identify the code that is to be translated.  || The operation returns a set of parameters including a \'result\' for whether there is an acceptable match, and a list of possible matches. Note that the list of matches may include notes of codes for which mapping is specifically excluded, so implementers have to check the match.equivalence for each match
+  Type = operation
+  Example.Request = $translate-request.txt
+  Example.Response = $translate-response.txt
+  Title = Concept Translation
+
+ -- Row 2 -----------------------------------
+  Name = translate.code
+  Use = in
+  Documentation = The code that is to be translated. If a code is provided, a system must be provided
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = translate.system
+  Use = in
+  Documentation = The system for the code that is to be translated
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = translate.version
+  Use = in
+  Documentation = The version of the system, if one was provided in the source data
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = translate.valueSet
+  Use = in
+  Documentation = Identifies the value set used when the concept (system/code pair) was chosen. May be a logical id, or an absolute or relative location
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = translate.coding
+  Use = in
+  Documentation = A coding to translate
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = translate.codeableConcept
+  Use = in
+  Documentation = A full codeableConcept to validate. The server can translate any of the coding values (e.g. existing translations) as it chooses
+  Type = CodeableConcept
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = translate.target
+  Use = in
+  Documentation = Identifies the value set in which a translation is sought. May be a logical id, or an absolute or relative location
+  Type = uri
+  Min = 1
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = translate.dependency
+  Use = in
+  Documentation = Another element that may help produce the correct mapping
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 10 -----------------------------------
+  Name = translate.dependency.element
+  Documentation = The element for this dependency
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = translate.dependency.concept
+  Documentation = The value for this dependency
+  Type = CodeableConcept
+  Min = 0
+  Max = 1
+
+ -- Row 12 -----------------------------------
+  Name = translate.result
+  Use = out
+  Documentation = True if the concept could be translated successfully. The value can only be true if at least one returned match has an equivalence which is not  unmatched or disjoint
+  Type = boolean
+  Min = 1
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = translate.message
+  Use = out
+  Documentation = Error details, for display to a human. If this is provided when result = true, the message carries hints and warnings (e.g. a note that the matches could be improved by providing additional detail)
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = translate.match
+  Use = out
+  Documentation = A concept in the target value set with an equivalence. Note that there may be multiple matches of equal or differing equivalence, and the matches may include equivalence values that mean that there is no match
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 15 -----------------------------------
+  Name = translate.match.equivalence
+  Documentation = A code indicating the equivalence of the translation, using values from [ConceptMapEquivalence]{concept-map-equivalence.html}
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 16 -----------------------------------
+  Name = translate.match.concept
+  Documentation = The translation outcome. Note that this would never have userSelected = true, since the process of translations implies that the user is not selecting the code (and only the client could know differently)
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 17 -----------------------------------
+  Name = translate.match.product
+  Documentation = Another element that is the product of this mapping
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 18 -----------------------------------
+  Name = translate.match.product.element
+  Documentation = The element for this product
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 19 -----------------------------------
+  Name = translate.match.product.concept
+  Documentation = The value for this product
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 20 -----------------------------------
+  Name = closure
+  Use = System
+  Documentation = This operation provides support for ongoing maintenance of a client-side closure table based on server-side terminological logic. For details of how this is used, see [Maintaining a Closure Table](terminology-service.html#closure)
+  Type = operation
+  Example.Request = $closure-request.txt
+  Example.Response = $closure-response.txt
+  Title = Closure Table Maintenance
+
+ -- Row 21 -----------------------------------
+  Name = closure.name
+  Use = in
+  Documentation = The name that defines the particular context for the subsumption based closure table
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 22 -----------------------------------
+  Name = closure.concept
+  Use = in
+  Documentation = Concepts to add to the closure table
+  Type = Coding
+  Min = 0
+  Max = *
+
+ -- Row 23 -----------------------------------
+  Name = closure.version
+  Use = in
+  Documentation = A request to resynchronise - request to send all new entries since the nominated version was sent by the server
+  Type = id
+  Min = 0
+  Max = 1
+
+ -- Row 24 -----------------------------------
+  Name = closure.return
+  Use = out
+  Documentation = A list of new entries (code / system --> code/system) that the client should add to its closure table. The only kind of entry mapping equivalences that can be returned are equal, narrower, wider, and unmatched
+  Type = ConceptMap
+  Min = 1
+  Max = 1

@@ -1,0 +1,455 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = GlobalStatementValues
+  Binding = code list
+  Reference = #global-statement-values
+  Definition = The set of values for the global statements about the exclusion.
+  Conformance = Required
+  Oid = 1.2.36.1.2001.1001.101.104.16299
+
+ -- Row 2 -----------------------------------
+  Binding Name = SubstanceAgentValues
+  Binding = value set
+  Reference = valueset-nehta-SubstanceAgentValues
+  Definition = The set of values for the agent or substance causing the adverse reaction experienced by the subject of care.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.15521
+
+ -- Row 3 -----------------------------------
+  Binding Name = ClinicalManifestationValues
+  Binding = value set
+  Reference = valueset-nehta-ClinicalManifestationValues
+  Definition = The set of values for recording clinical manifestation of an adverse reaction.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.15564
+
+ -- Row 4 -----------------------------------
+  Binding Name = AdverseReactionTypeValues
+  Definition = The set of values for the type of adverse reaction.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.15554
+
+ -- Row 5 -----------------------------------
+  Binding Name = MedicinesTerminology
+  Binding = value set
+  Reference = valueset-nehta-MedicinesTerminology
+  Definition = A set of values used to refer to medicines and other therapeutic goods.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16115
+
+ -- Row 6 -----------------------------------
+  Binding Name = ProblemDiagnosisReferenceSet
+  Definition = The Problem/Diagnosis reference set provides terminology to support the recording of a subject of care problem or diagnosis for medical records within Australia.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16617
+
+ -- Row 7 -----------------------------------
+  Binding Name = ProcedureFoundationReferenceSet
+  Definition = The Procedure foundation reference set provides the broadest possible terminology to support the recording of clinical interventions in Australian eHealth implementations.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16580
+
+=== Sheet global-statement-values =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = 01
+  Display = None known
+  Definition = No information about adverse reactions to any substance is known.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = 02
+  Display = Not asked
+  Definition = No information about adverse reactions to any substance is available because the patient was not asked or not able to be asked.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = 03
+  Display = None supplied
+  Definition = No information about adverse reactions to any substance is supplied.
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = SharedHealthSummary
+  Type = Logical
+  Short Label = Shared Health Summary
+  Definition = A clinical document written by the nominated provider, which contains key pieces of information about an individual’s health status and is useful to a wide range of providers in assessing individuals and delivering care. (PCEHR Concept of Operations document)
+  Logical Mapping = Composition
+
+ -- Row 2 -----------------------------------
+  Element = SharedHealthSummary.subjectofCare
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Subject of Care
+  Definition = Person who receives healthcare services.
+  Logical Mapping = Composition.subject:Patient
+
+ -- Row 3 -----------------------------------
+  Element = SharedHealthSummary.documentAuthor
+  Card. = 1..1
+  Type = Reference(Patient|Practitioner|RelatedPerson|Device)
+  Short Label = Document Author
+  Definition = Composer of the document.
+  Logical Mapping = Composition.author\nComposition.attester.party
+
+ -- Row 4 -----------------------------------
+  Element = SharedHealthSummary.documentType
+  Card. = 1..1
+  Type = Identifier
+  Short Label = Document Type
+  Definition = Type of document.
+  Logical Mapping = Composition.code[LOINC:60591-5]
+
+ -- Row 5 -----------------------------------
+  Element = SharedHealthSummary.dateTimeAttested
+  Card. = 1..1
+  Type = dateTime
+  Short Label = DateTime Attested
+  Definition = The date and time that the document author or document authoriser or approver confirms that a document is complete and genuine.
+  Logical Mapping = Composition.date
+
+ -- Row 6 -----------------------------------
+  Element = SharedHealthSummary.adverseReactions
+  Card. = 1..1
+  Type = *
+  Short Label = Adverse Reactions
+  Definition = Information about adverse reactions of the patient (including allergies and intolerances), and any relevant reaction details. This includes statements about adverse reactions that need to be positively recorded as absent or excluded.
+  Logical Mapping = Composition.section
+
+ -- Row 7 -----------------------------------
+  Element = SharedHealthSummary.adverseReactions.exclusionStatementAdverseReactions
+  Card. = 0..1
+  Type = *
+  Short Label = Exclusion Statement - Adverse Reactions
+  Definition = Statements about adverse reactions that need to be positively recorded as absent or excluded.
+  Logical Mapping = n/a
+
+ -- Row 8 -----------------------------------
+  Element = SharedHealthSummary.adverseReactions.exclusionStatementAdverseReactions.globalStatement
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = GlobalStatementValues
+  Short Label = Global Statement
+  Definition = The statement about the absence or exclusion.
+  Logical Mapping = Composition.section.emptyReason
+
+ -- Row 9 -----------------------------------
+  Element = SharedHealthSummary.adverseReactions.adverseReaction
+  Card. = 0..*
+  Type = *
+  Short Label = Adverse Reaction
+  Definition = A harmful or undesirable effect associated with exposure to any substance or agent.
+  Logical Mapping = Composition.section.entry:AllergyIntolerance
+
+ -- Row 10 -----------------------------------
+  Element = SharedHealthSummary.adverseReactions.adverseReaction.substanceAgent
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = SubstanceAgentValues
+  Short Label = Substance/Agent
+  Definition = Identification of a substance, agent, or a class of substance, that is considered to be responsible for the adverse reaction.
+  Logical Mapping = AllergyIntolerance.substance
+
+ -- Row 11 -----------------------------------
+  Element = SharedHealthSummary.adverseReactions.adverseReaction.event
+  Card. = 0..1
+  Type = *
+  Short Label = Reaction Event
+  Definition = Details about each adverse reaction event.
+  Logical Mapping = AllergyIntolerance.event
+
+ -- Row 12 -----------------------------------
+  Element = SharedHealthSummary.adverseReactions.adverseReaction.event.manifestation
+  Card. = 1..*
+  Type = CodeableConcept
+  Binding = ClinicalManifestationValues
+  Short Label = Manifestation
+  Definition = Presentation or exhibition of signs and symptoms of the adverse reaction expressed as a single word, phrase or brief description.
+  Logical Mapping = AllergyIntolerance.event.manifestation
+
+ -- Row 13 -----------------------------------
+  Element = SharedHealthSummary.adverseReactions.adverseReaction.event.reactionType
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = AdverseReactionTypeValues
+  Short Label = Reaction Type
+  Definition = The type of reaction, as determined by the clinician.
+  Logical Mapping = AllergyIntolerance.type // cardinality mismatch
+
+ -- Row 14 -----------------------------------
+  Element = SharedHealthSummary.medicationOrders
+  Card. = 1..1
+  Type = *
+  Short Label = Medication Orders
+  Definition = Medicines that the subject of care is using.
+  Logical Mapping = Composition.section
+
+ -- Row 15 -----------------------------------
+  Element = SharedHealthSummary.medicationOrders.exclusionStatementMedications
+  Card. = 0..1
+  Type = *
+  Short Label = Exclusion Statement - Medications
+  Definition = Statement to positively assert that the patient has not been prescribed or is not taking certain medication.
+  Logical Mapping = n/a
+
+ -- Row 16 -----------------------------------
+  Element = SharedHealthSummary.medicationOrders.exclusionStatementMedications.globalStatement
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = GlobalStatementValues
+  Short Label = Global Statement
+  Definition = The statement about the absence or exclusion of certain medication.
+  Logical Mapping = Composition.section.emptyReason
+
+ -- Row 17 -----------------------------------
+  Element = SharedHealthSummary.medicationOrders.medicationInstruction
+  Card. = 0..*
+  Type = *
+  Short Label = Medication Instruction
+  Definition = Information pertaining to one or more therapeutic goods that is represented to achieve, or is likely to achieve, its principal intended action by pharmacological, chemical, immunological or metabolic means in or on the body of a human.
+  Logical Mapping = Composition.section.entry:MedicationStatement
+
+ -- Row 18 -----------------------------------
+  Element = SharedHealthSummary.medicationOrders.medicationInstruction.therapeuticGoodIdentification
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = MedicinesTerminology
+  Short Label = Therapeutic Good Identification
+  Definition = The medicine, vaccine or other therapeutic good being ordered for, administered to or used by the subject of care.
+  Logical Mapping = MedicationStatement.medicationCodeableConcept
+
+ -- Row 19 -----------------------------------
+  Element = SharedHealthSummary.medicationOrders.medicationInstruction.directions
+  Card. = 1..1
+  Type = string
+  Short Label = Directions
+  Definition = A complete narrative description of how much, when and how to use the medicine, vaccine or other therapeutic good.
+  Logical Mapping = MedicationStatement.dosage.text
+
+ -- Row 20 -----------------------------------
+  Element = SharedHealthSummary.medicationOrders.medicationInstruction.clinicalIndication
+  Card. = 0..1
+  Type = string
+  Short Label = Clinical Indication
+  Definition = Reason for ordering the medicine, vaccine or other therapeutic good.
+  Logical Mapping = MedicationStatement.reasonForUseCodeableConcept.text
+
+ -- Row 21 -----------------------------------
+  Element = SharedHealthSummary.medicationOrders.medicationInstruction.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Medication Instruction Comment
+  Definition = Any additional information that may be needed to ensure the continuity of supply, rationale for current dose and timing, or safe and appropriate use.
+  Logical Mapping = MedicationStatement.note
+
+ -- Row 22 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory
+  Card. = 1..1
+  Type = *
+  Short Label = Medical History
+  Definition = The history of the subject of care\'s problems, diagnoses and medical or surgical procedures.
+  Logical Mapping = Composition.section
+
+ -- Row 23 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.problemDiagnosis
+  Card. = 0..*
+  Type = *
+  Short Label = Problem/Diagnosis
+  Definition = A health condition that, as determined by a clinician, may have impact on the physical, mental or social well-being of a person. A diagnosis is determined by scientific evaluation of pathological and pathophysiological findings identified from the patient\'s clinical history, family history, physical examination and diagnostic investigations.
+  Logical Mapping = Composition.section.entry:Condition
+
+ -- Row 24 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.problemDiagnosis.identification
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ProblemDiagnosisReferenceSet
+  Short Label = Problem/Diagnosis Identification
+  Definition = Identification of the problem or diagnosis.
+  Logical Mapping = Condition.code
+
+ -- Row 25 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.problemDiagnosis.dateofOnset
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Date of Onset
+  Definition = Estimated or actual date the problem or diagnosis began, as indicated or identified by the clinician.
+  Logical Mapping = Condition.onsetDateTime
+
+ -- Row 26 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.problemDiagnosis.dateofResolutionRemission
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Date of Resolution/Remission
+  Definition = Estimated or actual date the problem or diagnosis resolved or went into remission, as indicated or identified by the clinician.
+  Logical Mapping = Condition.abatementDate
+
+ -- Row 27 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.problemDiagnosis.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Problem/Diagnosis Comment
+  Definition = Additional narrative about the problem or diagnosis not captured in other fields.
+  Logical Mapping = Coondition.notes
+
+ -- Row 28 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.exclusionStatementProblemsandDiagnoses
+  Card. = 0..1
+  Type = *
+  Short Label = Exclusion Statement - Problems and Diagnoses
+  Definition = Statements which positively assert that the patient does not have the problem or diagnosis.
+  Logical Mapping = n/a
+
+ -- Row 29 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.exclusionStatementProblemsandDiagnoses.globalStatement
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = GlobalStatementValues
+  Short Label = Global Statement
+  Definition = The statement about the absence or exclusion.
+  Logical Mapping = Composition.section.emptyReason
+
+ -- Row 30 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.procedure
+  Card. = 0..*
+  Type = *
+  Short Label = Procedure
+  Definition = A clinical activity carried out for therapeutic, evaluative, investigative, screening or diagnostic purposes.
+  Logical Mapping = Composition.section.entry:Condition
+
+ -- Row 31 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.procedure.name
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ProcedureFoundationReferenceSet
+  Short Label = Procedure Name
+  Definition = The name of the procedure (to be) performed.
+  Logical Mapping = Condition.code
+
+ -- Row 32 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.procedure.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Procedure Comment
+  Definition = Additional narrative about the procedure not captured in other fields.
+  Logical Mapping = Coondition.notes
+
+ -- Row 33 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.procedure.dateTime
+  Card. = 1..1
+  Type = Period
+  Short Label = Procedure DateTime
+  Definition = Date, and optionally time, of the Procedure action.
+  Logical Mapping = Condition.onsetDateTime
+
+ -- Row 34 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.exclusionStatementProcedures
+  Card. = 0..1
+  Type = *
+  Short Label = Exclusion Statement - Procedures
+  Definition = Statements to positively assert that a certain procedure has not been performed on the patient.
+  Logical Mapping = n/a
+
+ -- Row 35 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.exclusionStatementProcedures.globalStatement
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = GlobalStatementValues
+  Short Label = Global Statement
+  Definition = The statement about the absence or exclusion of procedure performed on the patient.
+  Logical Mapping = Composition.section.emptyReason
+
+ -- Row 36 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem
+  Card. = 0..*
+  Type = *
+  Short Label = Uncategorised Medical History Item
+  Definition = A medical history entry that has not been categorised as either Procedure or Problem/Diagnosis .
+  Logical Mapping = Composition.section.entry:Condition
+
+ -- Row 37 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem.description
+  Card. = 1..1
+  Type = string
+  Short Label = Medical History Item Description
+  Definition = A description of the problem, diagnosis or procedure as a medical history item.
+  Logical Mapping = Condition.code.text
+
+ -- Row 38 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem.timeInterval
+  Card. = 0..1
+  Type = Period
+  Short Label = Medical History Item TimeInterval
+  Definition = The date range during which the problem or diagnosis applied or the procedure occurred.
+  Logical Mapping = Condition.onsetDateTime + Condition.AbatementDate
+
+ -- Row 39 -----------------------------------
+  Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Medical History Item Comment
+  Definition = Additional narrative about the problem, diagnosis or procedure.
+  Logical Mapping = Coondition.notes
+
+ -- Row 40 -----------------------------------
+  Element = SharedHealthSummary.immunisations
+  Card. = 1..1
+  Type = *
+  Short Label = Immunisations
+  Definition = Information about vaccines given to the subject of care.
+  Logical Mapping = Composition.section
+
+ -- Row 41 -----------------------------------
+  Element = SharedHealthSummary.immunisations.medicationAction
+  Card. = 0..*
+  Type = *
+  Short Label = Medication Action
+  Definition = The act of administering a dose of a vaccine to a person for the purpose of preventing or minimising the effects of a disease by producing immunity or to counter the effects of an infectious organism.
+  Logical Mapping = Composition.section.entry:Immunization
+
+ -- Row 42 -----------------------------------
+  Element = SharedHealthSummary.immunisations.medicationAction.therapeuticGoodIdentification
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = MedicinesTerminology
+  Short Label = Therapeutic Good Identification
+  Definition = The medicine, vaccine or other therapeutic good being ordered for, administered to or used by the subject of care.
+  Logical Mapping = Immunization.vaccineType
+
+ -- Row 43 -----------------------------------
+  Element = SharedHealthSummary.immunisations.medicationAction.sequenceNumber
+  Card. = 0..1
+  Type = integer
+  Short Label = Sequence Number
+  Definition = The sequence number specific to the action being recorded.
+  Logical Mapping = Immunization.vaccinationProtocol.doseSequence
+
+ -- Row 44 -----------------------------------
+  Element = SharedHealthSummary.immunisations.medicationAction.dateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Medication Action DateTime
+  Definition = Date, and optionally time, that the medication action is completed.
+  Logical Mapping = Immunization.date
+
+ -- Row 45 -----------------------------------
+  Element = SharedHealthSummary.immunisations.exclusionStatementMedications
+  Card. = 0..1
+  Type = *
+  Short Label = Exclusion Statement - Medications
+  Definition = Statements that positively assert that the patient has not received immunisations.
+  Logical Mapping = n/a
+
+ -- Row 46 -----------------------------------
+  Element = SharedHealthSummary.immunisations.exclusionStatementMedications.globalStatement
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = GlobalStatementValues
+  Short Label = Global Statement
+  Definition = The statement about the absence or exclusion of certain medication.
+  Logical Mapping = Composition.section.emptyReason

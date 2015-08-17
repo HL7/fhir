@@ -1,0 +1,161 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = PersonNameUse
+  Binding = value set
+  Reference = valueset-patient-PersonNameUse
+  Definition = The manner by which an individual uses a name
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = TelecomSystem
+  Binding = value set
+  Reference = valueset-patient-telecomSystem
+  Definition = A set of codes that describe the telecom system
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = TelecomType
+  Binding = value set
+  Reference = valueset-patient-telecomType
+  Definition = A set of codes that describe the type of usage for a telecom value.
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = HSPCAdministrativeGender
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0001
+  Definition = The gender of a person used for administrative purposes
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = HSPCAddressUse
+  Binding = value set
+  Reference = valueset-patient-addressUse
+  Definition = A set of codes that describe the manner in which an addressed is used.
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = HSPCMaritalStatus
+  Binding = value set
+  Reference = valueset-patient-maritalStatus
+  Definition = Marital status of the patient
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = CommunicationMode
+  Binding = value set
+  Reference = valueset-communicationMode
+  Definition = A set of codes that describe the method by which an individual communicates
+  Conformance = preferred
+
+ -- Row 8 -----------------------------------
+  Binding Name = VeteranMilitaryStatus
+  Binding = value set
+  Reference = valueset-patient-veteranMilitaryStatus
+  Definition = The state of an individual\'s service in the military
+  Conformance = preferred
+
+ -- Row 9 -----------------------------------
+  Binding Name = YesNo
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0136
+  Definition = The set of values to indicate affirmative or negative
+  Conformance = preferred
+
+ -- Row 10 -----------------------------------
+  Binding Name = AddressType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/hspc-location-addressType
+  Definition = Identifies the different representations of an address which may affect how it is used.
+  Conformance = preferred
+
+=== Sheet HSPC-Patient =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Patient
+  Profile Name = hspc patient
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  QDM Mapping = Patient Characteristic
+
+ -- Row 2 -----------------------------------
+  Element = Patient.name
+
+ -- Row 3 -----------------------------------
+  Element = Patient.name.use
+  Binding = PersonNameUse
+
+ -- Row 4 -----------------------------------
+  Element = Patient.telecom
+
+ -- Row 5 -----------------------------------
+  Element = Patient.telecom.system
+  Binding = TelecomSystem
+
+ -- Row 6 -----------------------------------
+  Element = Patient.telecom.use
+  Binding = TelecomType
+
+ -- Row 7 -----------------------------------
+  Element = Patient.gender
+  Binding = HSPCAdministrativeGender
+
+ -- Row 8 -----------------------------------
+  Element = Patient.address
+
+ -- Row 9 -----------------------------------
+  Element = Patient.address.use
+  Binding = HSPCAddressUse
+
+ -- Row 10 -----------------------------------
+  Element = Patient.address.extension
+  Profile Name = address.primaryInd
+  Card. = 0..1
+  Type = Extension{#PrimaryIndicator}
+  Comments = Make general extension
+
+ -- Row 11 -----------------------------------
+  Element = Patient.address.extension
+  Profile Name = addressType
+  Card. = 0..1
+  Type = Extension{#AddressType}
+
+ -- Row 12 -----------------------------------
+  Element = Patient.maritalStatus
+  Profile Name = AdministrativeMaritalStatus
+  Binding = HSPCMaritalStatus
+
+ -- Row 13 -----------------------------------
+  Element = Patient.contact
+  Profile Name = Contact
+  Discriminator = patient.contact.relationship|true|openAtEnd
+  Card. = 0..1
+
+ -- Row 14 -----------------------------------
+  Element = Patient.contact.relationship
+  Profile Name = emergencyContact
+  Card. = 0..1
+  Type = CodeableConcept
+  Value = <relationship><coding><system value=\"http://hl7.org/fhir/v2/AddressUse\"/><code value=\"EC\"/><display value=\"Emergency Contact\"/></coding></relationship>
+
+ -- Row 15 -----------------------------------
+  Element = Patient.communication
+
+ -- Row 16 -----------------------------------
+  Element = Patient.communication.extension
+  Profile Name = communication.mode
+  Card. = 0..1
+  Type = Extension{#communicationMode}
+  Comments = HL7 Comm. Mode. TBD
+
+ -- Row 17 -----------------------------------
+  Element = Patient.communication.extension
+  Profile Name = preferenceInd
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-preferred}
+
+ -- Row 18 -----------------------------------
+  Element = Patient.militaryService
+  Profile Name = militaryService
+  Binding = VeteranMilitaryStatus

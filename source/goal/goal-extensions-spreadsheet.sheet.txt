@@ -1,0 +1,33 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = GoalRelationshipType
+  Binding = code list
+  Reference = #goal-relationship-type
+  Definition = Types of relationships between two goals
+  Conformance = required
+
+=== Sheet goal-relationship-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = predecessor
+  Definition = Indicates that the target goal is one which must be met before striving for the current goal
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = successor
+  Definition = Indicates that the target goal is a desired objective once the current goal is met
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = replacement
+  Definition = Indicates that this goal has been replaced by the target goal
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = other
+  Definition = Indicates that the relationship is not covered by one of the pre-defined codes.  (An extension may convey more information about the meaning of the relationship.)
+
+=== Sheet Search =====================================

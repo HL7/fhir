@@ -1,0 +1,216 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = EntityNamePartQualifier
+  Binding = code list
+  Reference = #name-part-qualifier
+  Definition = A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = ProbabilityDistributionType
+  Binding = code list
+  Reference = #probability-distribution-type
+  Definition = Codes specifying the type of probability distribution
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = PostalAddressUse
+  Binding = code list
+  Reference = #postal-address-use
+  Definition = Uses of an address not included in Address.use
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = NullFlavor
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-NullFlavor
+  Definition = A collection of codes specifying why a valid value is not present
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = StringCoding
+  Binding = unbound
+  Definition = A coded representation for a string.  Could be codes for country in a country address part, codes for prefixes in a name part, etc.
+
+ -- Row 6 -----------------------------------
+  Binding Name = VerificationMethodCoding
+  Binding = unbound
+  Definition = A list of verification methods
+
+=== Sheet name-part-qualifier =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = LS
+  Display = Legal status
+  Definition = For organizations a suffix indicating the legal status, e.g., Inc., \"Co.\", \"AG\", \"GmbH\", \"B.V.\" \"S.A.\", \"Ltd.\" Etc.
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = AC
+  Display = Academic
+  Definition = Indicates that a prefix like \"Dr.\" or a suffix like \"M.D.\" or \"Ph.D.\" is an academic title.
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = NB
+  Display = Nobility
+  Definition = In Europe and Asia, there are still people with nobility titles (aristocrats). German \"von\" is generally a nobility title, not a mere voorvoegsel. Others are \"Earl of\" or \"His Majesty King of...\" etc. Rarely used nowadays, but some systems do keep  track of this.
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = PR
+  Display = Professional
+  Definition = Primarily in the British Imperial culture people tend to have an abbreviation of their professional organization as part of their credential suffices
+
+ -- Row 5 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = HON
+  Display = Honorific
+  Definition = An honorific such as \"The Right Honourable\" or \"Weledelgeleerde Heer\".
+
+ -- Row 6 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = BR
+  Display = Birth
+  Definition = A name that a person was given at birth or established as a consequence of adoption. NOTE: This is not used for temporary names assigned at birth such as \'Baby of Smith\' – which is just a name with a use code of TEMP
+
+ -- Row 7 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = AD
+  Display = Acquired
+  Definition = A name part a person acquired. The name part may be acquired by adoption, or the person may have chosen to use the name part for some other reason. NOTE  This differs from an other/psuedonym/alias in that an acquired name part is acquired on a formal basis rather than an informal one (e.g. registered as part of the official name)
+
+ -- Row 8 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = SP
+  Display = Spouse
+  Definition = The name assumed from the partner in a marital relationship. Usually the spouse‘s family name. No inference about gender may be made from the existence of spouse names
+
+ -- Row 9 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = MID
+  Display = Middle Name
+  Definition = Indicates that the name part is a middle name. In general, the  English  \"middle name\"  concept is all of the given names after the first. This qualifier may be used to explicitly indicate which given names are considered to be middle names. The middle name qualifier may also be used with family names. This is a Scandinavian use case, matching the concept of \"mellomnavn\"/\"mellannamn\". There are specific rules that indicate what names may be taken as a mellannamnin different Scandinavian countries
+
+ -- Row 10 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = CL
+  Display = Call me
+  Definition = Callme is used to indicate which of the various name parts is used when interacting with the person
+
+ -- Row 11 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifierR2
+  Code = IN
+  Display = Initial
+  Definition = Indicates that a name part is just an initial. Initials do not imply a trailing period since this would not work with non-Latin scripts. Initials may consist of more than one letter, e.g., \"Ph.\" could stand for \"Philippe\" or \"Th.\" for \"Thomas\"
+
+=== Sheet probability-distribution-type =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = B
+  Display = beta
+  Definition = The beta-distribution is used for data that is bounded on both sides and may or may not be skewed (e.g., occurs when probabilities are estimated.) Two parameters a and b are available to adjust the curve. The mean m and variance s2 relate as follows: m = a/ (a + b) and s2 = ab/((a + b)2 (a + b + 1)).
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = E
+  Display = exponential
+  Definition = Used for data that describes extinction. The exponential distribution is a special form of g-distribution where a = 1, hence, the relationship to mean m and variance s2 are m = b and s2 = b2.
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = F
+  Display = F
+  Definition = Used to describe the quotient of two c2 random variables. The F-distribution has two parameters n1 and n2, which are the numbers of degrees of freedom of the numerator and denominator variable respectively. The relationship to mean m and variance s2 are: m = n2 / (n2 - 2) and s2 = (2 n2 (n2 + n1 - 2)) / (n1 (n2 - 2)2 (n2 - 4)).
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = G
+  Display = (gamma)
+  Definition = The gamma-distribution used for data that is skewed and bounded to the right, i.e. where the maximum of the distribution curve is located near the origin. The g-distribution has a two parameters a and b. The relationship to mean m and variance s2 is m = a b and s2 = a b2.
+
+ -- Row 5 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = LN
+  Display = log-normal
+  Definition = The logarithmic normal distribution is used to transform skewed random variable X into a normally distributed random variable U = log X. The log-normal distribution can be specified with the properties mean m and standard deviation s. Note however that mean m and standard deviation s are the parameters of the raw value distribution, not the transformed parameters of the lognormal distribution that are conventionally referred to by the same letters. Those log-normal parameters mlog and slog relate to the mean m and standard deviation s of the data value through slog2 = log (s2/m2 + 1) and mlog = log m - slog2/2.
+
+ -- Row 6 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = N
+  Display = normal (Gaussian)
+  Definition = This is the well-known bell-shaped normal distribution. Because of the central limit theorem, the normal distribution is the distribution of choice for an unbounded random variable that is an outcome of a combination of many stochastic processes. Even for values bounded on a single side (i.e. greater than 0) the normal distribution may be accurate enough if the mean is \"far away\" from the bound of the scale measured in terms of standard deviations.
+
+ -- Row 7 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = T
+  Display = T
+  Definition = Used to describe the quotient of a normal random variable and the square root of a c2 random variable. The t-distribution has one parameter n, the number of degrees of freedom. The relationship to mean m and variance s2 are: m = 0 and s2 = n / (n - 2)
+
+ -- Row 8 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = U
+  Display = uniform
+  Definition = The uniform distribution assigns a constant probability over the entire interval of possible outcomes, while all outcomes outside this interval are assumed to have zero probability. The width of this interval is 2s sqrt(3). Thus, the uniform distribution assigns the probability densities f(x) = sqrt(2 s sqrt(3)) to values m - s sqrt(3) >= x <= m + s sqrt(3) and f(x) = 0 otherwise.
+
+ -- Row 9 -----------------------------------
+  System = http://hl7.org/fhir/v3/ProbabilityDistributionType
+  Code = X2
+  Display = chi square
+  Definition = Used to describe the sum of squares of random variables which occurs when a variance is estimated (rather than presumed) from the sample. The only parameter of the c2-distribution is n, so called the number of degrees of freedom (which is the number of independent parts in the sum). The c2-distribution is a special type of g-distribution with parameter a = n /2 and b = 2. Hence, m = n and s2 = 2 n.
+
+=== Sheet postal-address-use =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = BAD
+  Display = bad address
+  Definition = Description: A flag indicating that the address is bad, in fact, useless.
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = CONF
+  Display = confidential address
+  Definition = Description: Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses. Lloyd to supply more complete description.
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = HP
+  Display = primary home
+  Definition = Description: The primary home, to reach a person after business hours.
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = HV
+  Display = vacation home
+  Definition = Description: A vacation home, to reach a person while on vacation.
+
+ -- Row 5 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = DIR
+  Display = direct
+  Definition = Description: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a \'private line\'.
+
+ -- Row 6 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = PUB
+  Display = public
+  Definition = Description: Indicates a work place address or telecommunication address that is a \'standard\' address which may reach a reception service, mail-room, or other intermediary prior to the target entity.
+
+ -- Row 7 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = PHYS
+  Display = physical visit address
+  Definition = Description: Used primarily to visit an address.
+
+ -- Row 8 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = PST
+  Display = postal address
+  Definition = Description: Used to send mail.
+
+=== Sheet Search =====================================

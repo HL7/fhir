@@ -1,0 +1,95 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = KeyValueSet
+  Binding = value set
+  Reference = valueset-location-serviceDeliveryLocation-key-value-set
+  Definition = The kinds of service delivery locations
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = Status
+  Binding = value set
+  Reference = valueset-location-serviceDeliveryLocation-status
+  Definition = The state of the service delivery location
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = LocationNameUse
+  Binding = value set
+  Reference = valueset-location-serviceDeliveryLocationNameUse
+  Definition = The usage of the name given for the service delivery location, i.e. abbreviation, legal name, alias.
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = YesNo
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0136
+  Definition = The set of values to indicate affirmative or negative
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = AddressType
+  Binding = value set
+  Reference = valueset-location-addressType
+  Definition = Identifies the different representations of an address which may affect how it is used.
+  Conformance = preferred
+
+=== Sheet HSPC-ServiceDeliveryLocation =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Location
+  Profile Name = HSPCServiceDeliveryLocation
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 2 -----------------------------------
+  Element = Location.name
+  Card. = 0..*
+
+ -- Row 3 -----------------------------------
+  Element = Location.name.extension
+  Profile Name = NameUse
+  Card. = 0..1
+  Type = Extension{#LocationNameUse}
+
+ -- Row 4 -----------------------------------
+  Element = Location.name.extension
+  Profile Name = Period
+  Card. = 0..1
+  Type = Extension{#Period}
+
+ -- Row 5 -----------------------------------
+  Element = Location.telecom
+
+ -- Row 6 -----------------------------------
+  Element = Location.telecom.extension
+  Profile Name = telecom.preferred
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-preferred}
+
+ -- Row 7 -----------------------------------
+  Element = Location.address
+  Card. = 0..*
+
+ -- Row 8 -----------------------------------
+  Element = Location.address.extension
+  Profile Name = PrimaryIndicator
+  Card. = 0..1
+  Type = Extension{#PrimaryIndicator}
+
+ -- Row 9 -----------------------------------
+  Element = Location.address.extension
+  Profile Name = AddressType
+  Card. = 0..1
+  Type = Extension{#AddressType}
+
+ -- Row 10 -----------------------------------
+  Element = Location.physicalType
+  Binding = KeyValueSet
+
+ -- Row 11 -----------------------------------
+  Element = Location.status
+  Binding = Status
+
+=== Sheet Search =====================================

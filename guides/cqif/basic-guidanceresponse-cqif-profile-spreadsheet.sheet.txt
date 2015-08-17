@@ -1,0 +1,23 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet CQIF-GuidanceResponse =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Basic
+  Profile Name = CQIF-GuidanceResponse
+  Type = DomainResource
+  Short Label = The formal response to a guidance request
+  Definition = A guidance response is the formal response to a previous guidance request. It is a derivative of the knowledge response that provides additional information relevant specifically to clinical decision support such as a description of any proposed actions to be taken
+
+ -- Row 2 -----------------------------------
+  Element = Basic.extension
+  Profile Name = outputParameters
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-outputParameters}
+
+ -- Row 3 -----------------------------------
+  Element = Basic.extension
+  Profile Name = action
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-action}
+
+=== Sheet Search =====================================

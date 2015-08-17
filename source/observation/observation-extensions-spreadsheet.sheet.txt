@@ -1,0 +1,12 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = FocalSubject
+  Binding = value set
+  Reference = valueset-focal-subject
+  Definition = codes for observation targets.  Derived from from both V3 and SNOMED CT code systems
+  Description = Derived from from both V3 and SNOMED CT code systems
+  Conformance = example
+
+=== Sheet Search =====================================

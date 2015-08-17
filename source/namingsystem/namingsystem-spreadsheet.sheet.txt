@@ -1,0 +1,360 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = NamingSystemType
+  Binding = code list
+  Reference = #namingsystem-type
+  Definition = Identifies the purpose of the namingsystem
+
+ -- Row 2 -----------------------------------
+  Binding Name = NamingSystemCategory
+  Binding = unbound
+  Definition = Identifies the general purpose of the namingsystem identifiers provided.  E.g. Driver, Provider, Patient, Bank, etc.
+
+ -- Row 3 -----------------------------------
+  Binding Name = Country
+  Binding = reference
+  Reference = http://www.iso.org/iso/country_codes
+  Definition = Codes for identifying countries
+  Description = The complete set of ISO country codes, as maintained form time to time
+
+ -- Row 4 -----------------------------------
+  Binding Name = NamingSystemIdentifierType
+  Binding = code list
+  Reference = #namingsystem-identifier-type
+  Definition = Identifies the style of unique identifier used to identify a namepace
+
+=== Sheet namingsystem-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = codesystem
+  Display = Code System
+  Definition = The namingsystem is used to define concepts and symbols to represent those concepts.  E.g. UCUM, LOINC, NDC code, local lab codes, etc.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = identifier
+  Display = Identifier
+  Definition = The namingsystem is used to manage identifiers (e.g. license numbers, order numbers, etc.)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = root
+  Display = Root
+  Definition = The namingsystem is used as the root for other identifiers and namingsystems
+
+=== Sheet namingsystem-identifier-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = oid
+  Display = OID
+  Definition = An ISO object identifier.  E.g. 1.2.3.4.5
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = uuid
+  Display = UUID
+  Definition = A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = uri
+  Display = URI
+  Definition = A uniform resource identifier (ideally a URL - uniform resource locator).  E.g. http://unitsofmeasure.org
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = other
+  Display = Other
+  Definition = Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = NamingSystem
+  English = Root systems cannot have uuid or sid identifiers
+  XPath = not(f:type/@value=\'root\' and f:uniqueId/f:type=(\'uuid\', \'ruid\'))
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = NamingSystem
+  English = Can\'t have more than one preferred identifier for a type
+  XPath = not(exists(for $type in distinct-values(f:uniqueId/f:type) return if (count(f:uniqueId[f:type/@value=$type and f:primary/@value=\'true\'])>1) then $type else ()))
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = NamingSystem
+  English = Can only have replacedBy if namingsystem is retired
+  XPath = not(f:replacedBy) or f:status/@value=\'retired\'
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = NamingSystem
+  Type = DomainResource
+  Short Label = System of unique identification
+  Definition = A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.
+  v2 Mapping = N/A
+  RIM Mapping = N/A
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = NamingSystem.name
+  Card. = 1..1
+  Type = string
+  Short Label = Human-readable label
+  Definition = The descriptive name of this particular identifier type or code system
+  Comments = The\"symbolic name\" for an OID would be captured as an extension
+
+ -- Row 3 -----------------------------------
+  Element = NamingSystem.status
+  Card. = 1..1
+  Is Modifier = Y
+  Type = code
+  Binding = ConformanceResourceStatus
+  Short Label = draft | active | retired
+  Definition = Indicates whether the namingsystem is \"ready for use\" or not.
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = NamingSystem.kind
+  Card. = 1..1
+  Type = code
+  Binding = NamingSystemType
+  Short Label = codesystem | identifier | root
+  Definition = Indicates the purpose for the namingsystem - what kinds of things does it make unique?
+  w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = NamingSystem.publisher
+  Card. = 0..1
+  Summary = y
+  UML = right
+  Type = string
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the naming system
+  Requirements = Helps establish the \"authority/credibility\" of the naming system.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
+  w5 = who.witness
+
+ -- Row 6 -----------------------------------
+  Element = NamingSystem.contact
+  Card. = 0..*
+  Summary = y
+  Short Label = Contact details of the publisher
+  Definition = Contacts to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number (tel:), etc.
+
+ -- Row 7 -----------------------------------
+  Element = NamingSystem.contact.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of a individual to contact
+  Definition = The name of an individual to contact regarding the naming system
+  Comments = If there is no named individual, the telecom is for the organization as a whole
+
+ -- Row 8 -----------------------------------
+  Element = NamingSystem.contact.telecom
+  Card. = 0..*
+  Summary = Y
+  Type = ContactPoint
+  Short Label = Contact details for individual or publisher
+  Definition = Contact details for individual (if a name was provided) or the publisher
+
+ -- Row 9 -----------------------------------
+  Element = NamingSystem.responsible
+  Card. = 0..1
+  Type = string
+  Short Label = Who maintains system namespace?
+  Definition = The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
+  Comments = This is the primary organization.  Responsibility for some aspects of a namespace may be delegated
+  w5 = who.witness
+
+ -- Row 10 -----------------------------------
+  Element = NamingSystem.date
+  Card. = 1..1
+  Summary = y
+  Type = dateTime
+  Short Label = Publication Date(/time)
+  Definition = The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes
+  Comments = Additional specific dates may be added as extensions
+  w5 = when.recorded
+
+ -- Row 11 -----------------------------------
+  Element = NamingSystem.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = IdentifierType
+  Short Label = e.g. driver,  provider,  patient, bank etc
+  Definition = Categorizes a namingsystem for easier search by grouping related namingsystems.
+  Comments = This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well.
+
+ -- Row 12 -----------------------------------
+  Element = NamingSystem.description
+  Card. = 0..1
+  Type = string
+  Short Label = What does namingsystem identify?
+  Definition = Details about what the namespace identifies including scope, granularity, version labeling, etc.
+
+ -- Row 13 -----------------------------------
+  Element = NamingSystem.useContext
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ConformanceUseContext
+  Short Label = Content intends to support these contexts
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of naming systems
+  Requirements = Assist in searching for appropriate content
+
+ -- Row 14 -----------------------------------
+  Element = NamingSystem.usage
+  Card. = 0..1
+  Type = string
+  Short Label = How/where is it used
+  Definition = Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
+
+ -- Row 15 -----------------------------------
+  Element = NamingSystem.uniqueId
+  Card. = 1..*
+  UML = down
+  Short Label = Unique identifiers used for system
+  Definition = Indicates how the system may be identified when referenced in electronic exchange
+  Comments = Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
+
+ -- Row 16 -----------------------------------
+  Element = NamingSystem.uniqueId.type
+  Card. = 1..1
+  Type = code
+  Binding = NamingSystemIdentifierType
+  Short Label = oid | uuid | uri | other
+  Definition = Identifies the unique identifier scheme used for this particular identifier.
+  Comments = Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc.
+
+ -- Row 17 -----------------------------------
+  Element = NamingSystem.uniqueId.value
+  Card. = 1..1
+  Type = string
+  Short Label = The unique identifier
+  Definition = The string that should be sent over the wire to identify the code system or identifier system
+  w5 = id
+
+ -- Row 18 -----------------------------------
+  Element = NamingSystem.uniqueId.preferred
+  Card. = 0..1
+  Type = boolean
+  Short Label = Is this the id that should be used for this type
+  Definition = Indicates whether this identifier is the \"preferred\" identifier of this type.
+  Missing Meaning = If there are multiple ids, and one is labelled \"preferred\", then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn
+
+ -- Row 19 -----------------------------------
+  Element = NamingSystem.uniqueId.period
+  Card. = 0..1
+  Type = Period
+  Short Label = When is identifier valid?
+  Definition = Identifies the period of time over which this identifier is considered appropriate to refer to the namingsystem.  Outside of this window, the identifier might be non-deterministic
+  Comments = Within a registry, a given identifier should only be \"active\" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)
+
+ -- Row 20 -----------------------------------
+  Element = NamingSystem.replacedBy
+  Card. = 0..1
+  Inv. = 3
+  Type = Reference(NamingSystem)
+  Short Label = Use this instead
+  Definition = For namingsystems that are retired, indicates the namingsystem that should be used in their place (if any)
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = type
+  Type = token
+  Path = NamingSystem.type
+
+ -- Row 2 -----------------------------------
+  Name = name
+  Type = string
+  Path = NamingSystem.name
+
+ -- Row 3 -----------------------------------
+  Name = date
+  Type = date
+  Path = NamingSystem.date
+
+ -- Row 4 -----------------------------------
+  Name = status
+  Type = token
+  Path = NamingSystem.status
+
+ -- Row 5 -----------------------------------
+  Name = kind
+  Type = token
+  Path = NamingSystem.kind
+
+ -- Row 6 -----------------------------------
+  Name = responsible
+  Type = string
+  Path = NamingSystem.responsible
+
+ -- Row 7 -----------------------------------
+  Name = idtype
+  Type = token
+  Path = NamingSystem.uniqueId.type
+
+ -- Row 8 -----------------------------------
+  Name = value
+  Type = string
+  Path = NamingSystem.uniqueId.value
+
+ -- Row 9 -----------------------------------
+  Name = period
+  Type = date
+  Path = NamingSystem.uniqueId.period
+
+ -- Row 10 -----------------------------------
+  Name = publisher
+  Type = string
+  Path = NamingSystem.publisher
+
+ -- Row 11 -----------------------------------
+  Name = contact
+  Type = string
+  Path = NamingSystem.contact.name
+
+ -- Row 12 -----------------------------------
+  Name = telecom
+  Type = token
+  Path = NamingSystem.contact.telecom
+
+ -- Row 13 -----------------------------------
+  Name = replacedby
+  Type = reference
+  Path = NamingSystem.replacedBy
+
+ -- Row 14 -----------------------------------
+  Name = context
+  Type = token
+  Path = NamingSystem.useContext
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = namingsystem-example
+  Identity = example
+  Description = Example of how to use Naming System
+  Filename = namingsystem-example.xml
+  Type = xml
+
+ -- Row 2 -----------------------------------
+  Name = namingsystem-registry
+  Identity = registry
+  Description = Common US Driver\'s license identification
+  Filename = namingsystem-registry.xml
+  Type = xml
+
+=== Sheet Examples =====================================

@@ -1,0 +1,295 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ProcedureRequestStatus
+  Binding = code list
+  Reference = #procedure-request-status
+  Definition = The status of the request
+
+ -- Row 2 -----------------------------------
+  Binding Name = ProcedureRequestPriority
+  Binding = code list
+  Reference = #procedure-request-priority
+  Definition = The priority of the request
+
+=== Sheet procedure-request-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = proposed
+  Display = Proposed
+  Definition = The request has been proposed
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = draft
+  Display = Draft
+  Definition = The request is in preliminary form, prior to being requested
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = requested
+  Display = Requested
+  Definition = The request has been placed
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = received
+  Display = Received
+  Definition = The receiving system has received the request but not yet decided whether it will be performed
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = accepted
+  Display = Accepted
+  Definition = The receiving system has accepted the request, but work has not yet commenced
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = in-progress
+  Display = In Progress
+  Definition = The work to fulfill the request is happening
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = completed
+  Display = Completed
+  Definition = The work has been complete, the report(s) released, and no further work is planned
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = suspended
+  Display = Suspended
+  Definition = The request has been held by originating system/user request
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = rejected
+  Display = Rejected
+  Definition = The receiving system has declined to fulfill the request
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = aborted
+  Display = Aborted
+  Definition = The request was attempted, but due to some procedural error, it could not be completed
+
+=== Sheet procedure-request-priority =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = routine
+  Display = Routine
+  Definition = The request has a normal priority.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = urgent
+  Display = Urgent
+  Definition = The request should be done urgently.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = stat
+  Display = Stat
+  Definition = The request is time-critical.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = asap
+  Display = ASAP
+  Definition = The request should be acted on as soon as possible.
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ProcedureRequest
+  Type = DomainResource
+  Short Label = A request for a procedure to be performed
+  Definition = A request for a procedure to be performed. May be a proposal or an order.
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = ProcedureRequest.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Identifier
+  Definition = Identifiers assigned to this order by the order or by the receiver.
+  QUICK mapping = ClinicalStatement.identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = ProcedureRequest.subject
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Subject
+  Definition = The patient who will receive the procedure.
+  QUICK mapping = ClinicalStatement.subject
+  w5 = who.focus
+
+ -- Row 4 -----------------------------------
+  Element = ProcedureRequest.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Label = Procedure Type
+  Definition = The specific procedure that is ordered. Use text if the exact nature of the procedure can\'t be coded.
+  QUICK mapping = Procedure.procedureCode
+  w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = ProcedureRequest.bodySite
+  Card. = 0..*
+  Short Label = Target body sites
+  Definition = Indicates the sites on the subject\'s body where the procedure should be performed ( i.e. the target sites).
+  Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
+  Comments = Only used if not implicit in code found in ProcedureRequest.type
+  QUICK mapping = Procedure.targetBodySite
+  RIM Mapping = targetSiteCode
+
+ -- Row 6 -----------------------------------
+  Element = ProcedureRequest.bodySite.site[x]
+  Card. = 1..1
+  Type = CodeableConcept|Reference(BodySite)
+  Short Label = Target body site
+  Definition = Indicates the site on the subject\'s body where the procedure should be performed ( i.e. the target sites).
+  Requirements = Knowing where the procedure is made is important for tracking if multiple site are possible.
+  Comments = Only used if not implicit in code found in ProcedureRequest.type
+
+ -- Row 7 -----------------------------------
+  Element = ProcedureRequest.indication
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Indication
+  Definition = The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.
+  QUICK mapping = Action.indication.reason
+
+ -- Row 8 -----------------------------------
+  Element = ProcedureRequest.timing[x]
+  Card. = 0..1
+  Type = dateTime|Period|Timing
+  Short Label = Procedure timing schedule
+  Definition = The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
+  QUICK mapping = Procedure.procedureSchedule
+  w5 = when.planned
+
+ -- Row 9 -----------------------------------
+  Element = ProcedureRequest.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Encounter
+  Definition = The encounter within which the procedure proposal or request was created.
+  QUICK mapping = ClinicalStatement.encounter
+  w5 = context
+
+ -- Row 10 -----------------------------------
+  Element = ProcedureRequest.performer
+  Card. = 0..1
+  Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
+  Short Label = Performer
+  Definition = E.g. surgeon, anaethetist, endoscopist.
+  w5 = who.actor
+
+ -- Row 11 -----------------------------------
+  Element = ProcedureRequest.status
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = ProcedureRequestStatus
+  Short Label = proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
+  Definition = The status of the order.
+  QUICK mapping = Action.currentStatus
+  w5 = status
+
+ -- Row 12 -----------------------------------
+  Element = ProcedureRequest.notes
+  Card. = 0..*
+  Type = string
+  Short Label = Notes
+  Definition = Any other notes associated with this proposal or order - e.g., provider instructions.
+  QUICK mapping = ClinicalStatement.additionalText
+
+ -- Row 13 -----------------------------------
+  Element = ProcedureRequest.asNeeded[x]
+  Card. = 0..1
+  Type = boolean|CodeableConcept
+  Short Label = PRN
+  Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
+  QUICK mapping = Proposal.prnReason.reason
+
+ -- Row 14 -----------------------------------
+  Element = ProcedureRequest.orderedOn
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When Requested
+  Definition = The time when the request was made.
+  QUICK mapping = Proposal.proposedAtTime
+  w5 = when.recorded
+
+ -- Row 15 -----------------------------------
+  Element = ProcedureRequest.orderer
+  Card. = 0..1
+  Type = Reference(Practitioner|Patient|RelatedPerson|Device)
+  Short Label = Ordering Party
+  Definition = The healthcare professional responsible for proposing or ordering the procedure.
+  QUICK mapping = ClinicalStatement.statementAuthor
+  w5 = who.author
+
+ -- Row 16 -----------------------------------
+  Element = ProcedureRequest.priority
+  Card. = 0..1
+  Type = code
+  Binding = ProcedureRequestPriority
+  Short Label = routine | urgent | stat | asap
+  Definition = The clinical priority associated with this order.
+  QUICK mapping = Proposal.urgency
+  w5 = grade
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Search by subject
+  Path = ProcedureRequest.subject
+
+ -- Row 2 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Search by subject - a patient
+  Path = ProcedureRequest.subject
+
+ -- Row 3 -----------------------------------
+  Name = orderer
+  Type = reference
+  Path = ProcedureRequest.orderer
+
+ -- Row 4 -----------------------------------
+  Name = performer
+  Type = reference
+  Path = ProcedureRequest.performer
+
+ -- Row 5 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = ProcedureRequest.encounter
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = procedurerequest-extensions
+  IG Name = core
+  Filename = procedurerequest-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Head CT
+  Identity = example
+  Description = An example of a Head CT procedure
+  Filename = procedurerequest-example.xml
+
+=== Sheet Examples =====================================

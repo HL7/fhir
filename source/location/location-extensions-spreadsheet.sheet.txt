@@ -1,0 +1,10 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = alias
+  Type = string
+  Description = Include Locations that contain the provided alias
+  Path = #alias

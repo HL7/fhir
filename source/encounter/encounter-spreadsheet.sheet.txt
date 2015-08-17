@@ -1,0 +1,786 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = EncounterState
+  Binding = code list
+  Reference = #encounter-state
+  Definition = Current state of the encounter
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = EncounterType
+  Binding = value set
+  Reference = valueset-encounter-type
+  Definition = The type of encounter
+  Description = A specific code indicating type of service provided
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = EncounterClass
+  Binding = code list
+  Reference = #encounter-class
+  Definition = Classification of the encounter
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = ParticipantType
+  Binding = value set
+  Reference = valueset-encounter-participant-type
+  Definition = Role of participant in encounter
+  Conformance = extensible
+
+ -- Row 5 -----------------------------------
+  Binding Name = Courtesies
+  Binding = value set
+  Reference = valueset-encounter-special-courtesy
+  Definition = Special courtesies
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = Arrangements
+  Binding = value set
+  Reference = valueset-encounter-special-arrangements
+  Definition = Special arrangements
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = PatientDiet
+  Binding = value set
+  Reference = valueset-encounter-diet
+  Definition = Medical, cultural or ethical food preferences to help with catering requirements
+  Conformance = example
+
+ -- Row 8 -----------------------------------
+  Binding Name = Priority
+  Binding = value set
+  Reference = valueset-encounter-priority
+  Definition = Indicates the urgency of the encounter
+  Conformance = example
+
+ -- Row 9 -----------------------------------
+  Binding Name = AdmitSource
+  Binding = value set
+  Reference = valueset-encounter-admit-source
+  Definition = From where the patient was admitted
+  Conformance = preferred
+
+ -- Row 10 -----------------------------------
+  Binding Name = DischargeDisp
+  Binding = value set
+  Reference = valueset-encounter-discharge-disposition
+  Definition = Discharge Disposition
+  Conformance = preferred
+
+ -- Row 11 -----------------------------------
+  Binding Name = EncounterReason
+  Binding = value set
+  Reference = valueset-encounter-reason
+  Definition = Reason why the encounter takes place
+  Conformance = example
+
+ -- Row 12 -----------------------------------
+  Binding Name = EncounterLocationStatus
+  Binding = code list
+  Reference = #encounter-location-status
+  Definition = The status of the location
+  Conformance = required
+
+=== Sheet encounter-state =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = planned
+  Display = Planned
+  Definition = The Encounter has not yet started
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = arrived
+  Display = Arrived
+  Definition = The Patient is present for the encounter, however is not currently meeting with a practitioner
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = in-progress
+  Display = in Progress
+  Definition = The Encounter has begun and the patient is present / the practitioner and the patient are meeting
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = onleave
+  Display = On Leave
+  Definition = The Encounter has begun, but the patient is temporarily on leave
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = finished
+  Display = Finished
+  Definition = The Encounter has ended
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = cancelled
+  Display = Cancelled
+  Definition = The Encounter has ended before it has begun
+
+=== Sheet encounter-class =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = inpatient
+  Display = Inpatient
+  Definition = An encounter during which the patient is hospitalized and stays overnight
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = outpatient
+  Display = Outpatient
+  Definition = An encounter during which the patient is not hospitalized overnight
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = ambulatory
+  Display = Ambulatory
+  Definition = An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = emergency
+  Display = Emergency
+  Definition = An encounter where the patient needs urgent care
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = home
+  Display = Home
+  Definition = An encounter where the practitioner visits the patient at his/her home
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = field
+  Display = Field
+  Definition = An encounter taking place outside the regular environment for giving care
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = daytime
+  Display = Daytime
+  Definition = An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = virtual
+  Display = Virtual
+  Definition = An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = other
+  Display = Other
+  Definition = Any other encounter type that is not described by one of the other values. Where this is used it is expected that an implementer will include an extension value to define what the actual other type is
+
+=== Sheet encounter-location-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = planned
+  Display = Planned
+  Definition = The patient is planned to be moved to this location at some point in the future
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = present
+  Display = Present
+  Definition = The patient is currently at this location, or was between the period specified
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = reserved
+  Display = Reserved
+  Definition = This location is held empty for this patient
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Encounter
+  Aliases = Visit
+  UML = 200;0
+  Type = DomainResource
+  Short Label = An interaction during which services are provided to the patient
+  Definition = An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
+  RIM Mapping = Encounter[moodCode=EVN]
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = Encounter.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = Identifier(s) by which this encounter is known
+  v2 Mapping = PV1-19-visit number
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Encounter.status
+  Card. = 1..1
+  Is Modifier = y
+  Summary = y
+  UML = 0;0
+  Type = code
+  Binding = EncounterState
+  Short Label = planned | arrived | in-progress | onleave | finished | cancelled
+  v2 Mapping = No clear equivalent in V2.x; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16
+  RIM Mapping = .statusCode
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = Encounter.statusHistory
+  Card. = 0..*
+  Type = event
+  Short Label = List of Encounter statuses
+  Definition = The current status is always found in the current version of the resource. This status history permits the encounter resource to contain the status history without the needing to read through the historical versions of the resource, or even have the server store them.
+
+ -- Row 5 -----------------------------------
+  Element = Encounter.statusHistory.status
+  Card. = 1..1
+  Type = code
+  Binding = EncounterState
+  Short Label = planned | arrived | in-progress | onleave | finished | cancelled
+
+ -- Row 6 -----------------------------------
+  Element = Encounter.statusHistory.period
+  Card. = 1..1
+  Type = Period
+  Short Label = The time that the episode was in the specified status
+
+ -- Row 7 -----------------------------------
+  Element = Encounter.class
+  Card. = 0..1
+  Summary = y
+  Type = code
+  Binding = EncounterClass
+  Short Label = inpatient | outpatient | ambulatory | emergency +
+  v2 Mapping = PV1-2-patient class
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=LIST].code
+  w5 = class
+
+ -- Row 8 -----------------------------------
+  Element = Encounter.type
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = EncounterType
+  Short Label = Specific type of encounter
+  Definition = Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)
+  Comments = Since there are many ways to further classify encounters, this element is 0..*
+  v2 Mapping = PV1-4-admission type
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 9 -----------------------------------
+  Element = Encounter.patient
+  Card. = 0..1
+  Aliases = patient
+  Summary = y
+  Type = Reference(Patient)
+  Short Label = The patient present at the encounter
+  Comments = While the encounter is always about the patient, the patient may not actually be known in all contexts of use
+  v2 Mapping = PID-3-patient ID list
+  RIM Mapping = .participation[typeCode=SBJ]/role[classCode=PAT]
+  w5 = who.focus
+
+ -- Row 10 -----------------------------------
+  Element = Encounter.episodeOfCare
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(EpisodeOfCare)
+  Short Label = Episode(s) of care that this encounter should be recorded against
+  Definition = Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as govt reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)
+  v2 Mapping = PV1-54, PV1-53
+  w5 = context
+
+ -- Row 11 -----------------------------------
+  Element = Encounter.incomingReferralRequest
+  Card. = 0..*
+  Type = Reference(ReferralRequest)
+  Short Label = Incoming Referral Request
+  Definition = The referral request that this encounter satisfies (incoming referral)
+
+ -- Row 12 -----------------------------------
+  Element = Encounter.participant
+  Card. = 0..*
+  Summary = y
+  UML = 500;0
+  Short Label = List of participants involved in the encounter
+  Definition = The main practitioner responsible for providing the service
+  v2 Mapping = ROL
+  RIM Mapping = .participation[typeCode=PFM]
+
+ -- Row 13 -----------------------------------
+  Element = Encounter.participant.type
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ParticipantType
+  Short Label = Role of participant in encounter
+  Comments = The Participant Type indicates how an individual parcitipates in an encounter. It includes non practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the Practitioner Roles which are functional roles, derived from terms of employment, education, licensing, etc
+  v2 Mapping = ROL-3
+  RIM Mapping = .functionCode
+
+ -- Row 14 -----------------------------------
+  Element = Encounter.participant.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Period of time during the encounter participant was present
+  Definition = The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period
+  v2 Mapping = ROL-5, ROL-6
+
+ -- Row 15 -----------------------------------
+  Element = Encounter.participant.individual
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner|RelatedPerson)
+  Short Label = Persons involved in the encounter other than the patient
+  v2 Mapping = ROL-4
+  RIM Mapping = .role
+  w5 = who
+
+ -- Row 16 -----------------------------------
+  Element = Encounter.fulfills
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Appointment)
+  Short Label = The appointment that scheduled this encounter
+  v2 Mapping = SCH-1-placer appointment ID / SCH-2-filler appointment ID
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]
+
+ -- Row 17 -----------------------------------
+  Element = Encounter.period
+  Card. = 0..1
+  Type = Period
+  Short Label = The start and end time of the encounter
+  Definition = The start and end time of the encounter
+  Comments = If not (yet) known, the end of the Period may be omitted
+  v2 Mapping = PV1-44, PV1-45
+  RIM Mapping = .effectiveTime (low & high)
+  w5 = when.done
+
+ -- Row 18 -----------------------------------
+  Element = Encounter.length
+  Card. = 0..1
+  Type = Duration
+  Short Label = Quantity of time the encounter lasted (less time absent)
+  Definition = Quantity of time the encounter lasted. This excludes the time during leaves of absence.
+  Comments = May differ from the time the Encounter.period lasted because of leave of absence.
+  v2 Mapping = (PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes
+  RIM Mapping = .lengthOfStayQuantity
+
+ -- Row 19 -----------------------------------
+  Element = Encounter.reason
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = EncounterReason
+  Short Label = Reason the encounter takes place (code)
+  Definition = Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.
+  v2 Mapping = EVN-4-event reason code / PV2-3-admit reason (note: PV2-3 is nominally constrained to inpatient admissions; V2.x makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )
+  RIM Mapping = .reasonCode
+  w5 = why
+
+ -- Row 20 -----------------------------------
+  Element = Encounter.indication
+  Card. = 0..*
+  Aliases = Admission diagnosis
+  Type = Reference(Any)
+  Short Label = Reason the encounter takes place (resource)
+  Definition = Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure
+  v2 Mapping = Resources that would commonly referenced at Encounter.indication would be Condition and/or Procedure. These most closely align with DG1/PRB and PR1 respectively.
+  RIM Mapping = .outboundRelationship[typeCode=RSON].target
+  w5 = why
+
+ -- Row 21 -----------------------------------
+  Element = Encounter.priority
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = Priority
+  Short Label = Indicates the urgency of the encounter
+  v2 Mapping = PV2-25-visit priority code
+  RIM Mapping = .priorityCode
+  w5 = grade
+
+ -- Row 22 -----------------------------------
+  Element = Encounter.hospitalization
+  Card. = 0..1
+  UML = 500;100
+  Short Label = Details about an admission to a clinic
+  Definition = Details about an admission to a clinic
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]
+
+ -- Row 23 -----------------------------------
+  Element = Encounter.hospitalization.preAdmissionIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Pre-admission identifier
+  v2 Mapping = PV1-5-preadmit number
+  RIM Mapping = .id
+
+ -- Row 24 -----------------------------------
+  Element = !Encounter.hospitalization.preAdmissionTest
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = PreAdminTest
+  Short Label = Tests to be done before admission
+  v2 Mapping = PV1-12-preadmit test indicator
+  RIM Mapping = .outboundRelationship[typeCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterion=true]
+
+ -- Row 25 -----------------------------------
+  Element = Encounter.hospitalization.origin
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Label = The location from which the patient came before admission
+  RIM Mapping = .participation[typeCode=ORG].role
+
+ -- Row 26 -----------------------------------
+  Element = Encounter.hospitalization.admitSource
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = AdmitSource
+  Short Label = From where patient was admitted (physician referral, transfer)
+  v2 Mapping = PV1-14-admit source
+  RIM Mapping = .admissionReferralSourceCode
+
+ -- Row 27 -----------------------------------
+  Element = Encounter.hospitalization.admittingDiagnosis
+  Card. = 0..*
+  Type = Reference(Condition)
+  Short Label = The admitting Diagnosis as reported by admitting practitioner
+  Definition = The admitting Diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter
+
+ -- Row 28 -----------------------------------
+  Element = Encounter.hospitalization.reAdmission
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission
+  Definition = Whether this hospitalization is a readmission and why if known
+  v2 Mapping = PV1-13-re-admission indicator
+  RIM Mapping = Propose at harmonization
+  To Do = Need a harmonization proposal for this
+
+ -- Row 29 -----------------------------------
+  Element = !Encounter.hospitalization.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Period during which the patient was admitted
+  Definition = Period during which the patient was admitted
+  Comments = May differ from start + length, since length excludes leaves of absence.
+  v2 Mapping = PV2-11-actual length of inpatient stay / PV1-44-admit date/time / PV1-45-discharge date/time
+  RIM Mapping = .effectiveTime
+
+ -- Row 30 -----------------------------------
+  Element = !Encounter.hospitalization.accomodation
+  Card. = 0..*
+  UML = down
+  Short Label = Where the patient stays during this encounter
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ACCOM, moodCode=EVN]
+
+ -- Row 31 -----------------------------------
+  Element = !Encounter.hospitalization.accomodation.bed
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Label = The bed that is assigned to the patient
+  v2 Mapping = PV1-3-assigned patient location
+  RIM Mapping = .participation[typeCode=LOC].role.player[classCode=PLC, code=BED]
+
+ -- Row 32 -----------------------------------
+  Element = !Encounter.hospitalization.accomodation.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Period during which the patient was assigned the bed
+  RIM Mapping = .effectiveTime
+
+ -- Row 33 -----------------------------------
+  Element = Encounter.hospitalization.dietPreference
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = PatientDiet
+  Short Label = Diet preferences reported by the patient
+  Requirements = Used to track patient\'s diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter
+  Comments = For example a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)
+  v2 Mapping = PV1-38-diet type
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=\"diet\"]
+
+ -- Row 34 -----------------------------------
+  Element = Encounter.hospitalization.specialCourtesy
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = Courtesies
+  Short Label = Special courtesies (VIP, board member)
+  v2 Mapping = PV1-16-VIP indicator
+  RIM Mapping = .specialCourtesiesCode
+
+ -- Row 35 -----------------------------------
+  Element = Encounter.hospitalization.specialArrangement
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = Arrangements
+  Short Label = Wheelchair, translator, stretcher, etc
+  v2 Mapping = PV1-15-ambulatory status / OBR-30-transportation mode / OBR-43-planned patient transport comment
+  RIM Mapping = .specialArrangementCode
+
+ -- Row 36 -----------------------------------
+  Element = Encounter.hospitalization.destination
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Label = Location to which the patient is discharged
+  v2 Mapping = PV1-37
+  RIM Mapping = .participation[typeCode=DST]
+
+ -- Row 37 -----------------------------------
+  Element = Encounter.hospitalization.dischargeDisposition
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = DischargeDisp
+  Short Label = Category or kind of location after discharge
+  v2 Mapping = PV1-36-discharge disposition
+  RIM Mapping = .dischargeDispositionCode
+
+ -- Row 38 -----------------------------------
+  Element = Encounter.hospitalization.dischargeDiagnosis
+  Card. = 0..*
+  Type = Reference(Condition)
+  Short Label = The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete
+  RIM Mapping = .outboundRelationship[typeCode=OUT].target[classCode=OBS, moodCode=EVN, code=ASSERTION].value
+
+ -- Row 39 -----------------------------------
+  Element = Encounter.location
+  Card. = 0..*
+  UML = 0;150
+  Short Label = List of locations the patient has been at
+  Definition = List of locations at which the patient has been
+  RIM Mapping = .participation[typeCode=LOC]
+
+ -- Row 40 -----------------------------------
+  Element = Encounter.location.location
+  Card. = 1..1
+  Type = Reference(Location)
+  Short Label = Location the encounter takes place
+  Definition = The location where the encounter takes place
+  v2 Mapping = PV1-3-assigned patient location / PV1-6-prior patient location / PV1-11-temporary location / PV1-42-pending location / PV1-43-prior temporary location
+  RIM Mapping = .role
+  w5 = where
+
+ -- Row 41 -----------------------------------
+  Element = Encounter.location.status
+  Card. = 0..1
+  Type = code
+  Binding = EncounterLocationStatus
+  Short Label = planned | present | reserved
+  Definition = The status of the participants presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time
+
+ -- Row 42 -----------------------------------
+  Element = Encounter.location.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Time period during which the patient was present at the location
+  RIM Mapping = .time
+
+ -- Row 43 -----------------------------------
+  Element = Encounter.serviceProvider
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = The custodian organization of this Encounter record
+  Definition = An organization that is in charge of maintaining the information of this Encounter (e.g., who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location\'s Organization.
+  v2 Mapping = PV1-10-hospital service / PL.6 Person Location Type & PL.1 Point of Care (note: V2.x definition is \"the treatment or type of surgery that the patient is scheduled to receive\"; seems slightly out of alignment with the concept name \'hospital service\'. Would not trust that implementations apply this semantic by default)
+  RIM Mapping = .particiaption[typeCode=PFM].role
+
+ -- Row 44 -----------------------------------
+  Element = Encounter.partOf
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Another Encounter this encounter is part of
+  Definition = Another Encounter of which this encounter is a part of (administratively or in time).
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Encounter.identifier
+
+ -- Row 2 -----------------------------------
+  Name = status
+  Type = token
+  Path = Encounter.status
+
+ -- Row 3 -----------------------------------
+  Name = date
+  Type = date
+  Description = A date within the period the Encounter lasted
+  Path = Encounter.period
+
+ -- Row 4 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Encounter.patient
+  Target Types = Patient
+
+ -- Row 5 -----------------------------------
+  Name = fulfills
+  Type = reference
+  Path = Encounter.fulfills
+  Target Types = Appointment
+
+ -- Row 6 -----------------------------------
+  Name = length
+  Type = number
+  Description = Length of encounter in days
+  Path = Encounter.length
+
+ -- Row 7 -----------------------------------
+  Name = reason
+  Type = token
+  Path = Encounter.reason
+
+ -- Row 8 -----------------------------------
+  Name = indication
+  Type = reference
+  Path = Encounter.indication
+
+ -- Row 9 -----------------------------------
+  Name = location
+  Type = reference
+  Path = Encounter.location.location
+  Target Types = Location
+
+ -- Row 10 -----------------------------------
+  Name = location-period
+  Type = date
+  Path = Encounter.location.period
+
+ -- Row 11 -----------------------------------
+  Name = type
+  Type = token
+  Path = Encounter.type
+
+ -- Row 12 -----------------------------------
+  Name = special-arrangement
+  Type = token
+  Path = Encounter.hospitalization.specialArrangement
+
+ -- Row 13 -----------------------------------
+  Name = part-of
+  Type = reference
+  Path = Encounter.partOf
+  Target Types = Encounter
+
+ -- Row 14 -----------------------------------
+  Name = participant
+  Type = reference
+  Path = Encounter.participant.individual
+
+ -- Row 15 -----------------------------------
+  Name = participant-type
+  Type = token
+  Path = Encounter.participant.type
+
+ -- Row 16 -----------------------------------
+  Name = episodeofcare
+  Type = reference
+  Path = Encounter.episodeOfCare
+  Target Types = EpisodeOfCare
+
+ -- Row 17 -----------------------------------
+  Name = incomingreferral
+  Type = reference
+  Path = Encounter.incomingReferralRequest
+  Target Types = ReferralRequest
+
+ -- Row 18 -----------------------------------
+  Name = practitioner
+  Type = reference
+  Path = Encounter.participant.individual
+  Target Types = Practitioner
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = encounter-extensions
+  IG Name = core
+  Filename = encounter-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = example
+  Identity = example
+  Description = Encounter example
+  Filename = encounter-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = April 4th 2013
+  Identity = f201
+  Description = Real-world encounter example
+  Filename = encounter-example-f201-20130404.xml
+
+ -- Row 3 -----------------------------------
+  Name = January 28th 2013
+  Identity = f202
+  Description = Real-world encounter example
+  Filename = encounter-example-f202-20130128.xml
+
+ -- Row 4 -----------------------------------
+  Name = March 11th 2013
+  Identity = f203
+  Description = Real-world encounter example
+  Filename = encounter-example-f203-20130311.xml
+
+ -- Row 5 -----------------------------------
+  Name = Heart
+  Identity = f001
+  Description = Real-world encounter example
+  Filename = encounter-example-f001-heart.xml
+
+ -- Row 6 -----------------------------------
+  Name = Lung
+  Identity = f002
+  Description = Real-world encounter example
+  Filename = encounter-example-f002-lung.xml
+
+ -- Row 7 -----------------------------------
+  Name = Abscess
+  Identity = f003
+  Description = Real-world encounter example
+  Filename = encounter-example-f003-abscess.xml
+
+ -- Row 8 -----------------------------------
+  Name = XCDA
+  Identity = xcda
+  Description = for Clinical Document example patient
+  Filename = encounter-example-xcda.xml
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = everything
+  Use = Instance
+  Documentation = This operation is used to return all the information related to an encounter described in the resource on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the encounter resource itself is returned, along with any other resources that the server has available for the given encounter for the user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, locations, organizations etc. The principle intended use for rhis operation is to provide a patient with access to their record, or to allow a client to retrieve everything for an encounter for efficient display).  The server SHOULD return all resources that it has that are in the encounter compartment for the identified encounter, and any resource referenced from those, including binaries and attachments. In the US Realm, At a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements (ref to be provided). Other applicable implementation guides may make additional rules about the information that is returned.   Note that for many resources, the exact nature of the link to encounter can be ambiguous (e.g. for a DiagnosticReport, is it the encounter when it was initiated, or when it was reported?)
+  Type = operation
+  Example.Request = $everything-request.txt
+  Example.Response = $everything-response.txt
+  Title = Fetch Encounter Record
+  Footer = The key differences between this operation and simply searching the encounter compartment are:  * unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) * the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones)
+
+ -- Row 2 -----------------------------------
+  Name = everything.return
+  Use = out
+  Documentation = The bundle type is \"searchset\"
+  Type = Bundle
+  Title = Returned resources for encounter
+  Min = 1
+  Max = 1

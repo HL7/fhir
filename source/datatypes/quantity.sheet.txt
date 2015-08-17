@@ -1,0 +1,111 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QuantityComparator
+  Binding = code list
+  Reference = #quantity-comparator
+  Definition = How the Quantity should be understood and represented
+
+=== Sheet quantity-comparator =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = <
+  Display = Less than
+  Definition = The actual value is less than the given value
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = <=
+  Display = Less or Equal to
+  Definition = The actual value is less than or equal to the given value
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = >=
+  Display = Greater or Equal to
+  Definition = The actual value is greater than or equal to the given value
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = >
+  Display = Greater than
+  Definition = The actual value is greater than the given value
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 3
+  Context = Quantity
+  English = If a code for the units is present, the system SHALL also be present
+  XPath = not(exists(f:code)) or exists(f:system)
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Quantity
+  Type = Type
+  Short Label = A measured or measurable amount
+  Definition = A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies
+  Requirements = Need to able to capture all sorts of measured values, even if the measured value are not precisely quantified. Values include exact measures such as 3.51g, customary units such as 3 tablets, and currencies such as $100.32USD
+  Comments = The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator
+  v2 Mapping = SN (see also Range) or CQ
+  RIM Mapping = PQ, IVL<PQ>, MO, CO, depending on the values
+
+ -- Row 2 -----------------------------------
+  Element = Quantity.value
+  Card. = 0..1
+  Type = decimal
+  Short Label = Numerical value (with implicit precision)
+  Definition = The value of the measured amount. The value includes an implicit precision in the presentation of the value
+  Requirements = Precision is handled implicitly in almost all cases of measurement
+  Comments = The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books)
+  v2 Mapping = SN.2  / CQ - N/A
+  RIM Mapping = PQ.value, CO.value, MO.value, IVL.high or IVL.low depending on the value
+
+ -- Row 3 -----------------------------------
+  Element = Quantity.comparator
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = QuantityComparator
+  Short Label = < | <= | >= | > - how to understand the value
+  Definition = How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is \"<\" , then the real value is < stated value
+  Requirements = Need a framework for handling measures where the value is <5ug/L or >400mg/L due to the limitations of measuring methodology.
+  Comments = This is labeled as \"Is Modifier\" because the comparator modifies the interpretation of the value significantly. If there is no comparator, then there is no modification of the value
+  v2 Mapping = SN.1  / CQ.1
+  RIM Mapping = IVL properties
+  Missing Meaning = If there is no comparator, then there is no modification of the value
+
+ -- Row 4 -----------------------------------
+  Element = Quantity.unit
+  Card. = 0..1
+  Type = string
+  Short Label = Unit representation
+  Definition = A human-readable form of the units
+  Requirements = There are many representations for units and in many contexts, particular representations are fixed and required. I.e. mcg for micrograms
+  v2 Mapping = (see OBX.6 etc) / CQ.2
+  RIM Mapping = PQ.unit
+
+ -- Row 5 -----------------------------------
+  Element = Quantity.system
+  Card. = 0..1
+  Inv. = 3
+  Type = uri
+  Short Label = System that defines coded unit form
+  Definition = The identification of the system that provides the coded form of the unit
+  Requirements = Need to know the system that defines the coded form of the unit
+  v2 Mapping = (see OBX.6 etc) / CQ.2
+  RIM Mapping = CO.codeSystem, PQ.translation.codeSystem
+
+ -- Row 6 -----------------------------------
+  Element = Quantity.code
+  Card. = 0..1
+  Type = code
+  Short Label = Coded form of the unit
+  Definition = A computer processable form of the units in some unit representation system
+  Requirements = Need a computable form of the units that is fixed across all forms. UCUM provides this for quantities, but SNOMED CT provides many units of interest
+  Comments = The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system
+  v2 Mapping = (see OBX.6 etc) / CQ.2
+  RIM Mapping = PQ.code, MO.currency, PQ.translation.code

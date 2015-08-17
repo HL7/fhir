@@ -1,0 +1,408 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !HGNC-geneIdentfiers
+  Binding = reference
+  Reference = http://www.genenames.org
+  Definition = International curated set of gene identifiers
+  Description = Gene Identifiers Reference
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.6.281
+
+ -- Row 2 -----------------------------------
+  Binding Name = !HGVS-variantNomenclature
+  Binding = reference
+  Reference = http://www.hgvs.org/mutnomen/
+  Definition = International nomenclature for variant naming
+  Description = Sequence Variation Nomenclature
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.6.282
+
+ -- Row 3 -----------------------------------
+  Binding Name = RefSeq-ReferenceSequences
+  Binding = reference
+  Reference = http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore
+  Definition = NCBI central repository of reference sequences
+  Description = NCBI (the USA\'s National Center for Biotechnology Communication) Referene Sequence Identifiers
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.6.280
+
+ -- Row 4 -----------------------------------
+  Binding Name = !LOINC-AnswerLists
+  Binding = reference
+  Reference = http://hl7.org/fhir/ValueSet/observation-genomicpanel
+  Definition = Laboratory LOINC codes for genetics
+  Description = Laboratory LOINC
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = !ENSEMBL-ReferenceSequences
+  Binding = reference
+  Reference = http://www.ensembl.org/
+  Definition = ENSEMBL central repository of reference sequences
+  Description = ENSEMBL reference sequence identifiers maintained jointly by the European Bioinformatics Institute and Welcome Trust Sanger Institute.
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = !ClinVar-variant-database
+  Binding = reference
+  Reference = http://www.ncbi.nlm.nih.gov/clinvar/variation
+  Definition = NCBI central respository of potentially clinically relevant variants
+  Description = NCBI central respository for curating pathogenicity of potentially clinically relevant variants
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = !COSMIC-cancer-mutation-database
+  Binding = reference
+  Reference = http://cancer.sanger.ac.uk/cancergenome/projects/cosmic/
+  Definition = Catalog of Somatic Mutations in Cancer
+  Description = Catalog of Somatic Mutations in Cancer maintained by the Welcome Trust Sanger Institute
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.3.912
+
+ -- Row 8 -----------------------------------
+  Binding Name = !BbSNP-variant-database
+  Binding = reference
+  Reference = http://www.ncbi.nlm.nih.gov/projects/SNP/
+  Definition = NCBI database of variants
+  Description = NCBI  central repository of variants, including germline and somatic variants
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.6.284
+
+ -- Row 9 -----------------------------------
+  Binding Name = !SO-SequenceOntology
+  Binding = reference
+  Reference = http://www.sequenceontology.org/
+  Definition = Sequence Ontology maintains terminologies for characterizing sequencing data
+  Description = SO-Sequence Ontology  is a collaborative ontology project for the definition of sequence features used in biological sequence annotation.
+  Conformance = preferred
+
+ -- Row 10 -----------------------------------
+  Binding Name = GenomicPanel
+  Binding = value set
+  Reference = valueset-observation-genomicpanel
+  Definition = LOINcs for genomic panels
+  Conformance = required
+
+=== Sheet GeneticsMockup =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = Genetics
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Aliases = Genomic Observation Panel
+  Must Support = Y
+  Binding = GenomicPanel
+  Short Label = Genomic Observation Panel
+  Definition = Genomic Observation Panel
+
+ -- Row 3 -----------------------------------
+  Element = Observation.value[x]
+  Card. = 0..0
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Observation.specimen
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Observation.performer
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Observation.component
+  Profile Name = Genomic Build
+  Discriminator = code|true|openAtEnd
+  Card. = 0..1
+  Must Support = Y
+  Short Label = GenomeBuild - fix code slice using pattern
+  Definition = The Genome Build used for reference, following GRCh build versions e.g. \'GRCh 37\'.  Version number must be included if a versioned release of a primary build was used.
+  Committee Notes = slice each component by code
+
+ -- Row 8 -----------------------------------
+  Element = Observation.component.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Short Label = fix code slice using value
+  Committee Notes = fix code slice using pattern
+  Value = <valueCodeableConcept><coding><system value=\"http://sham-loinc.org\"/><code value=\"1234-5\"/><display value=\"GenomeBuild\"/></coding></valueCodeableConcept>
+
+ -- Row 9 -----------------------------------
+  Element = Observation.component.valueString
+  Card. = 0..1
+  Must Support = Y
+  Short Label = valuetype base upon the component code
+  Committee Notes = valuetype base upon the component code
+
+ -- Row 10 -----------------------------------
+  Element = Observation.component.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Short Label = this is optional
+  Committee Notes = this is optional
+
+ -- Row 11 -----------------------------------
+  Element = Observation.component
+  Profile Name = Chromosome
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Chr
+  Definition = The chromosome containing the genetic finding - values should be 1-23, X, Y, mitochondrial, viral, bacterial.
+  Committee Notes = fix code slice using pattern
+
+ -- Row 12 -----------------------------------
+  Element = Observation.component.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Committee Notes = fix code slice using pattern
+  Value = <valueCodeableConcept><coding><system value=\"http://sham-loinc.org\"/><code value=\"2354-6\"/><display value=\"Chromosome\"/></coding></valueCodeableConcept>
+
+ -- Row 13 -----------------------------------
+  Element = Observation.component.valueString
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = valuetype base upon the component code
+
+ -- Row 14 -----------------------------------
+  Element = Observation.component.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = this is optional
+
+ -- Row 15 -----------------------------------
+  Element = Observation.component
+  Profile Name = GenomicReferenceSequenceId
+  Card. = 0..1
+  Must Support = Y
+  Short Label = GenomicRefSeqID
+  Definition = The genomic reference sequence identifier is included, to support testing using alternative reference sequences.
+  Committee Notes = fix code slice using pattern
+
+ -- Row 16 -----------------------------------
+  Element = Observation.component.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Committee Notes = fix code slice using pattern
+  Value = <valueCodeableConcept><coding><system value=\"http://sham-loinc.org\"/><code value=\"5678-9\"/><display value=\"GenomicReferenceSequenceId\"/></coding></valueCodeableConcept>
+
+ -- Row 17 -----------------------------------
+  Element = Observation.component.valueCode
+  Card. = 0..1
+  Must Support = Y
+  Binding = RefSeq-ReferenceSequences
+  Committee Notes = valuetype base upon the component code
+
+ -- Row 18 -----------------------------------
+  Element = Observation.component.referenceRange
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = this is optional
+
+ -- Row 19 -----------------------------------
+  Element = Observation.component
+  Profile Name = GenomicStart
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Genomic Start
+  Definition = Nucleotide location for start of genomic finding on the positive (+) genomics strand.
+  Committee Notes = fix code slice using pattern
+
+ -- Row 20 -----------------------------------
+  Element = Observation.component.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Committee Notes = fix code slice using pattern
+  Value = <valueCodeableConcept><coding><system value=\"http://sham-loinc.org\"/><code value=\"3456-7\"/><display value=\"GenomicStart\"/></coding></valueCodeableConcept>
+
+ -- Row 21 -----------------------------------
+  Element = Observation.component.valueInteger
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = valuetype base upon the component code
+
+ -- Row 22 -----------------------------------
+  Element = Observation.component.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = this is optional
+
+ -- Row 23 -----------------------------------
+  Element = Observation.component
+  Profile Name = GenomicStop
+  Card. = 0..1
+  Must Support = Y
+  Short Label = GenomicEnd
+  Definition = Nucleotide location for end of genomic finding on the positive (+) genomic strand.
+  Committee Notes = fix code slice using pattern
+
+ -- Row 24 -----------------------------------
+  Element = Observation.component.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Committee Notes = fix code slice using pattern
+  Value = <valueCodeableConcept><coding><system value=\"http://sham-loinc.org\"/><code value=\"1234-5\"/><display value=\"GenomicStop\"/></coding></valueCodeableConcept>
+
+ -- Row 25 -----------------------------------
+  Element = Observation.component.valueInteger
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = valuetype base upon the component code
+
+ -- Row 26 -----------------------------------
+  Element = Observation.component.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = this is optional
+
+ -- Row 27 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = ReferenceAllele
+  Card. = 0..1
+  Type = Extension{#ReferenceAllele}
+  Short Label = RefAllele
+  Definition = Nucleotide(s) from genomic start to genomic stop on the positive (+) strand of the genomic reference sequence. Use \'-\' for insertions.
+
+ -- Row 28 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = ObservedAllele
+  Card. = 0..1
+  Type = Extension{#ObservedAllele}
+  Short Label = ObsAllele
+  Definition = Oserved nucleotides from genomic start to genomic stop on the positive (+) genomic strand. Use \'-\' for delections.
+
+ -- Row 29 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = GeneId
+  Card. = 0..1
+  Type = Extension{#GeneId}
+  Short Label = HGNCgene
+  Definition = HGNC gene symbol and identifier from HUGO Gene Nomenclature Committee at: http://www.genenames.org/
+
+ -- Row 30 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = TranscriptReferenceSequenseId
+  Card. = 0..1
+  Type = Extension{#TranscriptReferenceSequenseId}
+  Short Label = TransReferenceSeqID
+  Definition = Reference identifier for cDNA transcript, with version, from NCBI\'s RefSeq or ENSEMBL
+
+ -- Row 31 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = DNASequenceVariation
+  Card. = 0..1
+  Type = Extension{#DNASequenceVariation}
+  Short Label = HGVSdnaVariant
+  Definition = cDNA variant following HGVS nomenclature on the given TranscriptReferenceSequenceId.
+
+ -- Row 32 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = VariationId
+  Card. = 0..1
+  Type = Extension{#VariationId}
+  Short Label = VariantId
+  Definition = Identifier for variant.  If a germline variant, ClinVar or dbSNP identifier should be used. If ClinVar is used, the identifier should be prefixed with \'ClinVar:\' (e.g. ClinVar:17661).  dbSNP ids are start with \'rs\' (rs28897672) and COSMIC id\'s start with \'COSM\' (e.g. COSM12979). Note, dbSNP id\'s are not unique to a variant but a location, so nucleotide change and germline/somatic classification are needed to resolve.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used.
+
+ -- Row 33 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = DNARegionName
+  Card. = 0..1
+  Type = Extension{#DNARegionName}
+  Short Label = RegionName
+  Definition = Details of exonic location of variant (e.g. Exon 1).
+
+ -- Row 34 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = DNASequenceVariationType
+  Card. = 0..1
+  Type = Extension{#DNASequenceVariationType}
+  Short Label = DNAvariantType
+  Definition = Codified type for associated DNA Sequence Variation.  DNA Sequence Variations use the HGVS notation which implies the DNA Sequence Variation Type, but the concurrent use of this code will allow a standard and explicit type for technical and display convenience. LOINC Answer List values 48019-4 or Sequence Ontology vaues.
+  To Do = Need OID for SO
+
+ -- Row 35 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = ProteinReferenceSequenceId
+  Card. = 0..1
+  Type = Extension{#ProteinReferenceSequenceId}
+  Short Label = ProteinReferenceSeq
+  Definition = Reference identifier for protein transcript, with version, from NCBI\'s RefSeq or ENSEMBL.
+
+ -- Row 36 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = AminoAcidChange
+  Card. = 0..1
+  Type = Extension{#AminoAcidChange}
+  Short Label = HGVSproteinChange
+  Definition = Protein variant following HGVS nomenclature on the given ProteinReferenceSequenceId.
+
+ -- Row 37 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = AminoAcidChangeType
+  Card. = 0..1
+  Type = Extension{#AminoAcidChangeType}
+  Short Label = ProteinChangeType
+  Definition = Type of variation expressed using Sequence Ontology or LOINC answer list 48006-1.
+  To Do = Need OID for SO
+
+ -- Row 38 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = AlleleName
+  Card. = 0..1
+  Type = Extension{#AlleleName}
+  Short Label = AlleleName
+  Definition = Common name for variant or gene allele
+
+ -- Row 39 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = GenomicSourceClass
+  Card. = 0..1
+  Type = Extension{#GenomicSourceClass}
+  Short Label = GenomicSource
+  Definition = The genomic class of the variant: Germline for inherited genome, somatic for cancer genome (e.g. DNA from tumor cells), and prenatal for fetal genome. Associated with LOINC answer list: 48002-0
+
+ -- Row 40 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = AllelicState
+  Card. = 0..1
+  Type = Extension{#AllelicState}
+  Short Label = AllelicState
+  Definition = The level of occurrence of a DNA Sequence Variation.  Heterozygous: present in one of the two genes of homologous chromosomes, while Homozygous means it\'s present in both genes.  Hemizygous: Variation in the only single copy of a gene in a non-homologous chromosome (i.e. male X and Y chromosome).  Homoplasmic: Variation is present in all of the copies of mitochondrial DNA while Hemiplasmic is present in only some copies. LOINC Answer List values 53034-5
+
+ -- Row 41 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = Species
+  Card. = 0..1
+  Type = Extension{#Species}
+  Short Label = Species
+  Definition = supports testing of human, viruses, and bacteria
+
+ -- Row 42 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = CIGAR
+  Card. = 0..1
+  Type = Extension{#CIGAR}
+  Short Label = CIGAR
+  Definition = A sequence of of base lengths and the associated operation, used to indicate which bases align (either a match/mismatch) with the reference, are deleted from the reference, and are insertions that are not in the reference. string of observed nucleotides.  Observed nucleotides matching the reference are in capital letters. Observed nucleotides not matching the reference are in lower case letters. Use \'-\' a dash for deleted/missing nucleotides in the observed sequence. Allowable characters are A,T,C,G, a,t,c,g and -
+
+ -- Row 43 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = AssessedCondition
+  Card. = 0..1
+  Type = Extension{#AssessedCondition}
+  Short Label = AssessedCondition
+  Definition = Used to denote condition context for genetic testing, which may influence reported variants and interpretation for large genomic testing panels e.g. lung cancer or familial breast cancer.

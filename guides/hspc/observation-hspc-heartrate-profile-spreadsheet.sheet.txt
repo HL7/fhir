@@ -1,0 +1,132 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = InterpretationNumNom
+  Binding = value set
+  Reference = valueset-abnInt-NumericNom
+  Definition = A set of codes that describe interpretations for numeric-nominal values
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = ObservationStatusBasic
+  Binding = value set
+  Reference = valueset-observationstatusbasic
+  Definition = A set of codes that describe the state of the observation
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = HeartRateMeasMethodDevice
+  Binding = value set
+  Reference = valueset-heartratemeasmethoddevice
+  Definition = A set of codes that describe the method or device used to measure an individual\'s heart rate
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = BodyLocationPrecoord
+  Binding = value set
+  Reference = valueset-heartratemeasbodylocationprecoord
+  Definition = A set of codes that describe where on/in the body an observation or procedure took place
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = HeartRateBodyPosition
+  Binding = value set
+  Reference = valueset-heartratebodyposition
+  Definition = The position that a patient is in when a heart rate measurement is taken.
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = VitalSignAssociatedPrecondition
+  Binding = value set
+  Reference = valueset-vitalsignassociatedprecond
+  Definition = The conditions during which an individual\'s vital signs were measured
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = FocalSubject
+  Binding = value set
+  Reference = valueset-focalSubject
+  Definition = The set of codes that describe the subject of an observation when not the patient of record
+  Conformance = preferred
+
+=== Sheet hspc-heartrate =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Heart Rate
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8867-4\"/><display value=\"Heart rate\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+  Card. = 1..1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 5 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Type = code
+  Value = <code value=\"{Beats}/min\"/>
+
+ -- Row 6 -----------------------------------
+  Element = Observation.interpretation
+  Binding = InterpretationNumNom
+
+ -- Row 7 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..0
+
+ -- Row 8 -----------------------------------
+  Element = Observation.status
+  Binding = ObservationStatusBasic
+
+ -- Row 9 -----------------------------------
+  Element = !Observation.reliability
+  Card. = 0..0
+
+ -- Row 10 -----------------------------------
+  Element = Observation.bodySite
+  Type = CodeableConcept
+  Binding = BodyLocationPrecoord
+
+ -- Row 11 -----------------------------------
+  Element = Observation.extension
+  Profile Name = HeartRateBodyPosition
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-bodyPosition}
+  Binding = HeartRateBodyPosition
+
+ -- Row 12 -----------------------------------
+  Element = Observation.method
+  Binding = HeartRateMeasMethodDevice
+
+ -- Row 13 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+ -- Row 15 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AssociatedPrecondition
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Binding = VitalSignAssociatedPrecondition
+
+ -- Row 16 -----------------------------------
+  Element = Observation.extension
+  Profile Name = FocalSubject
+  Card. = 0..1
+  Type = Extension{#hspc-focalSubject}
+  Binding = FocalSubject
+
+=== Sheet Search =====================================

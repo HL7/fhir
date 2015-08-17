@@ -1,0 +1,376 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = USLABDOEvent
+  Binding = value set
+  Reference = valueset-do-event
+  Definition = Information about an event that occurred to a diagnostic order that corresponds to the USLabOrder Use Cases
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = USLabObservationName
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-obs-codes
+  Definition = LOINC codes
+  Conformance = extensible
+
+=== Sheet USLab-DO-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = !1
+  Context = DiagnosticOrder.item.code
+  English = Must have a LOINC or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = DiagnosticOrder.event.dateTime
+  English = Datetime must be at least to day.
+  XPath = f:matches(dateTime,/\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+=== Sheet USLab-DO =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticOrder
+  Profile Name = USLabDO
+  Aliases = DO
+  Type = Resource
+  To Do = Things Missing: ,  Way to refer to previous order id for add-ons
+  Committee Notes = 11/17/2014 EH: PH prof ( ord fac)  linked to orderer.
+
+ -- Row 2 -----------------------------------
+  Element = DiagnosticOrder.extension
+  Profile Name = USLabCC
+  Card. = 0..*
+  Aliases = CC, Copy to, Result Copies To
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-cc-practitioner}
+  Short Label = Copy to provider,organization, or patient
+  Committee Notes = 11/17/2014 EH:need extension for cc just pract for now, in future patient and orgs.
+
+ -- Row 3 -----------------------------------
+  Element = DiagnosticOrder.extension.valueReference
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/uslab-pract}
+  Committee Notes = profile type to specific uslab profiles
+
+ -- Row 4 -----------------------------------
+  Element = !DiagnosticOrder.extension
+  Profile Name = USLabBCC
+  Card. = 0..*
+  Aliases = BCC, Blind Copy to, Result Blind Copies To
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-cctarget}|Reference(Patient){USLabPHPatient}
+  Short Label = Blind Copy to provider,organization, or patient
+  Definition = Other non-ordering providers and/or organizations or the patient, to whom the orderer instructs the laboratory to send the results and to conceal these providers and/or organizations from the other recipients.
+  Committee Notes = 11/17/2014 EH:need extension for cc/bcc
+
+ -- Row 5 -----------------------------------
+  Element = !DiagnosticOrder.text
+  Card. = 1..1
+  Must Support = Y
+  To Do = determine (psuedo)code for generation.
+  Committee Notes = 11/17/2014 EH: shall have generated text narrative  3/10/2015EH: DAF197
+
+ -- Row 6 -----------------------------------
+  Element = !DiagnosticOrder.text.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Committee Notes = 11/17/2014 EH: shall have generated text narrative3/10/2015EH: DAF197
+  Value = generated
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticOrder.subject
+  Card. = 1..1
+  Aliases = Patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Requirements = Limited to single patient per Diagnostic Order (Requisition)
+  Committee Notes = 11/17/2014 EH: Limit to single patient per resource,  discuss if needs to specify aggregation
+
+ -- Row 8 -----------------------------------
+  Element = DiagnosticOrder.orderer
+  Card. = 1..1
+  Aliases = Ordering Provider, OP, Submitter, Placer
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/uslab-phpract}|Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/uslab-pract}
+  Requirements = Limited to single orderer per Diagnostic Order (Requisition)
+  Committee Notes = 11/17/2014 EH: Limit to single orderer per resource,  discuss if needs to specify aggregation, Should this be repeated in Order Resource too?
+
+ -- Row 9 -----------------------------------
+  Element = DiagnosticOrder.identifier
+  Profile Name = USLabDOPlacerID
+  Card. = 1..1
+  Aliases = Placer ID
+  Must Support = Y
+  Requirements = Limit to Globally unique IDs using a URI ( could be a URL)
+  To Do = Need to be able to identify the placer and order Id, using type extensions would be preferred.  Pending gforge comment
+  Committee Notes = 11/17/2014 EH:Slice into Placer and Filler order numbers 3/10/2015EH: waiting for identifier type in standard
+
+ -- Row 10 -----------------------------------
+  Element = DiagnosticOrder.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  To Do = <<<map
+  Value = official
+
+ -- Row 11 -----------------------------------
+  Element = !DiagnosticOrder.identifier.type
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  To Do = <<<map
+  Committee Notes = 3/10/2015EH: DAF197
+  Value = Placer Order Number
+
+ -- Row 12 -----------------------------------
+  Element = DiagnosticOrder.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Placer URI
+  To Do = <<<map
+
+ -- Row 13 -----------------------------------
+  Element = DiagnosticOrder.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Placer Identifier
+  To Do = <<<map
+
+ -- Row 14 -----------------------------------
+  Element = !DiagnosticOrder.identifier
+  Profile Name = USLabDOFillerID
+  Card. = 0..1
+  Aliases = Filler ID
+  Must Support = Y
+  Type = Identifier
+  Requirements = Limit to Globally unique IDs using a URI ( could be a URL)
+  Committee Notes = 11/17/2014 EH:Slice into Placer and Filler order numbers
+
+ -- Row 15 -----------------------------------
+  Element = !DiagnosticOrder.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  To Do = <<<map
+  Value = official
+
+ -- Row 16 -----------------------------------
+  Element = !DiagnosticOrder.identifier.type
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  To Do = <<<map
+  Value = Filler Order Number
+
+ -- Row 17 -----------------------------------
+  Element = !DiagnosticOrder.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Filler URI
+  To Do = <<<map
+
+ -- Row 18 -----------------------------------
+  Element = !DiagnosticOrder.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Filler Identifier
+  To Do = <<<map
+  Committee Notes = require id value
+
+ -- Row 19 -----------------------------------
+  Element = DiagnosticOrder.reason
+  Card. = 0..*
+  Must Support = Y
+  Committee Notes = 11/17/2014 EH:  prefer to use the observations for this? But practically may need this
+
+ -- Row 20 -----------------------------------
+  Element = DiagnosticOrder.supportingInformation
+  Profile Name = USLabSupportingInformation
+  Discriminator = @Profile,@type
+  Card. = 0..*
+  Aliases = AOE, Reason for Study
+  Must Support = Y
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obscode}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsquantity}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsother}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsratio}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obspanel} |Reference(Condition){http://hl7.org/fhir/StructureDefinition/uslab-cond}|Reference(DocumentReference)
+  Requirements = AOES are captured in the USLabObservation resource and Reasons for the testing in USLabCondition
+  Comments = AOES are captured in the USLabObservation resource and Reasons for the testing in USLabCondition
+  Committee Notes = 11/17/2014 EH:AOES 3/10/2015EH: DAF196
+
+ -- Row 21 -----------------------------------
+  Element = !DiagnosticOrder.supportingInformation
+  Profile Name = OtherSupportingInformation
+  Card. = 0..*
+  Type = Reference(Any)
+  Committee Notes = 2015EH: DAF196
+
+ -- Row 22 -----------------------------------
+  Element = DiagnosticOrder.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  To Do = create conformance rule in conformance resource
+  Committee Notes = 11/17/2014 EH:  Must support if specimen collection date is known.
+
+ -- Row 23 -----------------------------------
+  Element = DiagnosticOrder.status
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/17/2014 EH: placer will set status to requested
+
+ -- Row 24 -----------------------------------
+  Element = DiagnosticOrder.priority
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/17/2014 EH:
+
+ -- Row 25 -----------------------------------
+  Element = DiagnosticOrder.event
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/17/2014 EH:for use cases need at least have event requested
+
+ -- Row 26 -----------------------------------
+  Element = DiagnosticOrder.event.description
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLABDOEvent
+  Comments = These codes capture the Use cases for LOI.
+  To Do = create value set for use cases.- extensible,bound start with existing.
+  Committee Notes = 11/17/2014 EH maps to  see use cases  New, addon ( New) ,  cancel by provider, cancel by lab, oral request
+
+ -- Row 27 -----------------------------------
+  Element = DiagnosticOrder.event.description.coding
+  Card. = 1..*
+  Must Support = Y
+
+ -- Row 28 -----------------------------------
+  Element = DiagnosticOrder.event.description.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = Make code only required here since define valueset for use cases.
+
+ -- Row 29 -----------------------------------
+  Element = DiagnosticOrder.event.description.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = Make code only required here since define valueset for use cases.
+
+ -- Row 30 -----------------------------------
+  Element = DiagnosticOrder.event.dateTime
+  Card. = 1..1
+  Must Support = Y
+  Inv. = 2
+  Requirements = Minimum Precision to Day
+  To Do = Have Lloyd check xpath
+  Committee Notes = 11/17/2014 EH:need to incoorporate oral request in here somehow too  OBR.15
+
+ -- Row 31 -----------------------------------
+  Element = DiagnosticOrder.item
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/17/2014 EH:
+
+ -- Row 32 -----------------------------------
+  Element = DiagnosticOrder.item.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabObservationName
+  Short Label = US Realm Laboratory Report Order Code
+  Definition = The laboratory test, panel or battery that was ordered.
+  Requirements = Requires at least a code, code system an d display text.
+  Comments = Use the appropriate LOINC or local code as provided by laboratory.   FHIR Value set resources binding to each laboratory\'s compendium of service is done at implementation usign the FHIR Value set resources or some other mechanism.  Systems SHALL be capable of sending/consuming the local code if one exists.
+  To Do = create conformance rule in conformance resource
+  Committee Notes = 11/17/2014 EH: Value sets should be bound to each laboratory\'s compendium of service.  This is done during implementation
+
+ -- Row 33 -----------------------------------
+  Element = DiagnosticOrder.item.code.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:LOINC Slice
+
+ -- Row 34 -----------------------------------
+  Element = DiagnosticOrder.item.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:CWE-CR.3
+
+ -- Row 35 -----------------------------------
+  Element = DiagnosticOrder.item.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations
+  To Do = regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex
+  Committee Notes = 11/24/2014 EH:CWE-CR.1
+
+ -- Row 36 -----------------------------------
+  Element = DiagnosticOrder.item.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = The LOINC  \'long common name\' is preferred although the LOINC \'short name\' or the LOINC \'fully-specified name can also be used.  ( http://lionc.org.terms-of-use)
+  Committee Notes = 11/24/2014 EH:CWE-CR.2
+
+ -- Row 37 -----------------------------------
+  Element = !DiagnosticOrder.item.code.coding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Inv. = 1
+  Committee Notes = 11/24/2014 EH:Local Slice
+
+ -- Row 38 -----------------------------------
+  Element = !DiagnosticOrder.item.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.6
+
+ -- Row 39 -----------------------------------
+  Element = !DiagnosticOrder.item.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = 11/24/2014 EH:CWE-CR.4
+
+ -- Row 40 -----------------------------------
+  Element = !DiagnosticOrder.item.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.7
+
+ -- Row 41 -----------------------------------
+  Element = DiagnosticOrder.item.code.text
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = original or display text OBR-4.9 RE 1..1
+
+ -- Row 42 -----------------------------------
+  Element = DiagnosticOrder.item.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  Comments = New specimen(s) related to the item event go here and not in DO.specimen
+  Committee Notes = 11/17/2014 EH:  Must support if specimen collection date is known.  New specimens go here
+
+ -- Row 43 -----------------------------------
+  Element = DiagnosticOrder.item.bodySite
+  Card. = 0..0
+  Committee Notes = 11/17/2014 EH:OOS for lab
+
+ -- Row 44 -----------------------------------
+  Element = DiagnosticOrder.item.status
+  Card. = 1..1
+  Must Support = Y
+  Comments = Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is handled
+  Committee Notes = 11/17/2014 EH: two statuses gets confusing need to discuss.
+
+=== Sheet Search =====================================

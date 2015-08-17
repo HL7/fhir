@@ -1,0 +1,162 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = NameUse
+  Binding = code list
+  Reference = #name-use
+  Definition = The use of a human name
+  v2 = http://hl7.org/fhir/ValueSet/v2-0200
+  v3 = http://hl7.org/fhir/ValueSet/v3-EntityNameUseR2
+
+=== Sheet name-use =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = usual
+  Display = Usual
+  Definition = Known as/conventional/the one you normally use
+  v2 = ~0200.D
+  v3 = =EntityNameUseR2.C
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = official
+  Display = Official
+  Definition = The formal name as registered in an official (government) registry, but which name might not be commonly used. May be called \"legal name\".
+  v2 = ~0200.L
+  v3 = =EntityNameUseR2.OR
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = temp
+  Display = Temp
+  Definition = A temporary name. Name.period can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations.
+  v2 = ~0200.TEMP
+  v3 = =EntityNameUseR2.T
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = nickname
+  Display = Nickname
+  Definition = A name that is used to address the person in an informal manner, but is not part of their formal or usual name
+  v2 = ~0200.N
+  v3 = ~EntityNameUseR2.P
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = anonymous
+  Display = Anonymous
+  Definition = Anonymous assigned name, alias, or pseudonym (used to protect a person\'s identity for privacy reasons)
+  v2 = ~0200.S
+  v3 = ~EntityNameUseR2.ANON
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = old
+  Display = Old
+  Definition = This name is no longer in use (or was never correct, but retained for records)
+  v2 = >0200.NOUSE,>0200.BAD
+  v3 = ~EntityNameUseR2.OLD
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = maiden
+  Display = Maiden
+  Definition = A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store \"maiden\" names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person\'s name, nor should the maiden name be determined algorithmically.
+  v2 = ~0200.M
+  v3 = =EntityNameUseR2.M
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = HumanName
+  Type = Structure
+  Short Label = Name of a human - parts and usage
+  Definition = A human\'s name with the ability to identify parts and usage
+  Requirements = Need to be able to record names, along with notes about their use
+  Comments = Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts may or may not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely.
+  v2 Mapping = XPN
+  RIM Mapping = EN (actually, PN)
+  ServD Mapping = ProviderName
+
+ -- Row 2 -----------------------------------
+  Element = HumanName.use
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = NameUse
+  Short Label = usual | official | temp | nickname | anonymous | old | maiden
+  Definition = Identifies the purpose for this name
+  Requirements = Allows the appropriate name for a particular context of use to be selected from among a set of names
+  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old name etc for a current/permanent one. Applications can assume that a name is current unless it explicitly says that it is temporary or old
+  v2 Mapping = XPN.7, but often indicated by which field contains the name
+  RIM Mapping = unique(./use)
+  ServD Mapping = ./NamePurpose
+
+ -- Row 3 -----------------------------------
+  Element = HumanName.text
+  Card. = 0..1
+  Type = string
+  Short Label = Text representation of the full name
+  Definition = A full text representation of the name
+  Requirements = A renderable, unencoded form
+  Comments = Can provide both a text representation and structured parts.
+  v2 Mapping = implied by XPN.11
+  RIM Mapping = ./formatted
+
+ -- Row 4 -----------------------------------
+  Element = HumanName.family
+  Card. = 0..*
+  Aliases = surname
+  Type = string
+  Short Label = Family name (often called \'Surname\')
+  Definition = The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
+  Comments = For family name, hyphenated names such as \"Smith-Jones\" are a single name, but names with spaces such as \"Smith Jones\" are broken into multiple parts
+  v2 Mapping = XPN.1
+  RIM Mapping = ./part[partType = FAM]
+  ServD Mapping = ./FamilyName
+
+ -- Row 5 -----------------------------------
+  Element = HumanName.given
+  Card. = 0..*
+  Aliases = first name; middle name
+  Type = string
+  Short Label = Given names (not always \'first\'). Includes middle names
+  Definition = Given name
+  Comments = If only initials are recorded, they may be used in place of the full name.  Not called \"first name\" since given names do not always come first.
+  v2 Mapping = XPN.2 + XPN.3
+  RIM Mapping = ./part[partType = GIV]
+  ServD Mapping = ./GivenNames
+
+ -- Row 6 -----------------------------------
+  Element = HumanName.prefix
+  Card. = 0..*
+  Type = string
+  Short Label = Parts that come before the name
+  Definition = Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name
+  v2 Mapping = XPN.5
+  RIM Mapping = ./part[partType = PFX]
+  ServD Mapping = ./TitleCode
+
+ -- Row 7 -----------------------------------
+  Element = HumanName.suffix
+  Card. = 0..*
+  Type = string
+  Short Label = Parts that come after the name
+  Definition = Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name
+  v2 Mapping = XPN/4
+  RIM Mapping = ./part[partType = SFX]
+
+ -- Row 8 -----------------------------------
+  Element = HumanName.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Time period when name was/is in use
+  Definition = Indicates the period of time when this name was valid for the named person.
+  Requirements = Allows names to be placed in historical context
+  v2 Mapping = XPN.13 + XPN.14
+  RIM Mapping = ./usablePeriod[type=\"IVL<TS>\"]
+  ServD Mapping = ./StartDate and ./EndDate

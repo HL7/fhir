@@ -1,0 +1,233 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = GoalStatus
+  Binding = code list
+  Reference = #goal-status
+  Definition = Indicates whether the goal has been met and is still being targeted
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = GoalPriority
+  Binding = value set
+  Reference = valueset-goal-priority
+  Definition = The level of importance associated with a goal
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = GoalOutcome
+  Binding = unbound
+  Definition = The result of the goal.  E.g. \"25% increase in shoulder mobility\", \"Anxiety reduced to moderate levels\".  \"15 kg weight loss sustained over 6 months\"
+
+=== Sheet goal-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = proposed
+  Display = Proposed
+  Definition = A goal is proposed for this patient
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = planned
+  Display = Planned
+  Definition = A goal is planned for this patient
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = in-progress
+  Display = In Progress
+  Definition = The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = achieved
+  Display = Achieved
+  Definition = The goal has been met and no further action is needed
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = sustaining
+  Display = Sustaining
+  Definition = The goal has been met, but ongoing activity is needed to sustain the goal objective
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = cancelled
+  Display = Cancelled
+  Definition = The goal is no longer being sought
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = accepted
+  Display = Accepted
+  Definition = A proposed goal was accepted
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = rejected
+  Display = Rejected
+  Definition = A proposed goal was rejected
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Goal
+  Type = DomainResource
+  Short Label = Describes the intended objective(s) of patient care
+  Definition = Describes the intended objective(s) of patient care, for example, weight loss, restoring an activity of daily living, etc.
+  Comments = Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
+  v2 Mapping = GOL.1
+  RIM Mapping = .outboundRelationship[typeCode<=OBJ].
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = Goal.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = External Ids for this goal
+  Definition = This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Requirements = Need to allow connection to a wider workflow
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Goal.patient
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient)
+  Short Label = The patient for whom this goal is intended for
+  Definition = Identifies the patient/subject whose intended care is described by the plan.
+  Requirements = Goals are associated with a patient.
+  v2 Mapping = PID-3-patient ID list
+  RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
+  w5 = who.focus
+
+ -- Row 4 -----------------------------------
+  Element = Goal.targetDate
+  Card. = 0..1
+  Summary = Y
+  Type = date
+  Short Label = Reach goal on or before
+  Definition = Indicates when the goal is intended to be reached.
+  Requirements = Identifies when the goal should be evaluated.
+  w5 = context
+
+ -- Row 5 -----------------------------------
+  Element = Goal.description
+  Card. = 1..1
+  Summary = Y
+  Type = string
+  Short Label = What\'s the desired outcome?
+  Definition = Human-readable description of a specific desired objective of care.
+  Requirements = Without a description of what\'s trying to be achieved, element has no purpose
+  v2 Mapping = GOL-3.2-goal ID.text
+  RIM Mapping = .text
+
+ -- Row 6 -----------------------------------
+  Element = Goal.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = GoalStatus
+  Short Label = proposed | planned | in-progress | achieved | sustaining | cancelled | accepted | rejected
+  Definition = Indicates whether the goal has been reached and is still considered relevant
+  Requirements = Allows measuring outcome and whether goal needs to be further tracked.
+  v2 Mapping = GOL-18-goal life cycle status
+  RIM Mapping = .statusCode\nin-progress = active (classCode = OBJ)\nachieved = complete\nsustaining = active (classCode=OBJC)\ncancelled = aborted
+  w5 = status
+
+ -- Row 7 -----------------------------------
+  Element = Goal.statusDate
+  Card. = 0..1
+  Summary = Y
+  Type = date
+  Short Label = When goal status took effect
+  Definition = Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
+  Comments = To see the date for past statuses, query history
+  w5 = when.recorded
+
+ -- Row 8 -----------------------------------
+  Element = Goal.author
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+  Short Label = Who\'s responsible for creating Goal?
+  Definition = Indicates whose goal this is - patient goal, practitioner goal, etc.
+  w5 = who.actor
+
+ -- Row 9 -----------------------------------
+  Element = Goal.priority
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = GoalPriority
+  Short Label = high | medium |low
+  Definition = Identifies the level of importance associated with reaching/sustaining the goal
+  RIM Mapping = .priorityCode
+
+ -- Row 10 -----------------------------------
+  Element = Goal.concern
+  Card. = 0..*
+  Type = Reference(Condition | Observation | MedicationStatement | NutritionOrder | ProcedureRequest | RiskAssessment)
+  Short Label = Health issues this goal addresses
+  Definition = The identified conditions and other health record elements that are intended to be addressed by the goal
+  Requirements = Allows specific goals to explicitly linked to the concerns they\'re dealing with - makes the goal more understandable
+  RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=CONC]
+
+ -- Row 11 -----------------------------------
+  Element = Goal.notes
+  Card. = 0..1
+  Type = string
+  Short Label = Comments about the goal
+  Definition = Any comments related to the goal
+  Requirements = There\'s a need to capture information about the goal that doesn\'t actually describe the goal.
+  Comments = May be used for progress notes, concerns or other related information that doesn\'t actually describe the goal itself.
+  v2 Mapping = GOL-16-goal evaluation + NTE?
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
+
+ -- Row 12 -----------------------------------
+  Element = Goal.outcome
+  Card. = 0..*
+  Short Label = What was end result of goal?
+  Definition = Identifies the change (or lack of change) at the point where the goal was deepmed to be cancelled or achieved.
+  Requirements = Outcome tracking is a key aspect of care planning
+  Comments = Note that this should not duplicate the goal status.
+  To Do = Define a proper value set for this
+
+ -- Row 13 -----------------------------------
+  Element = Goal.outcome.result[x]
+  Card. = 0..1
+  Type = CodeableConcept | Reference(Observation)
+  Binding = GoalOutcome
+  Short Label = Code or observation that resulted from gual
+  Definition = Details of what\'s changed (or not changed)
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Goal.patient
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = goal-extensions
+  IG Name = core
+  Filename = goal-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Weight Loss
+  Identity = example
+  Description = General Person Example
+  Filename = goal-example.xml
+
+=== Sheet Examples =====================================

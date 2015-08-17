@@ -1,0 +1,431 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ListPurpose
+  Binding = value set
+  Reference = valueset-list-example-codes
+  Definition = What the purpose of a list is
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = ListMode
+  Binding = code list
+  Reference = #list-mode
+  Definition = The processing mode that applies to this list
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = ListItemFlag
+  Binding = value set
+  Reference = valueset-list-item-flag
+  Definition = Codes that provide further information about the reason and meaning of the item in the list
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = ListEmptyReason
+  Binding = value set
+  Reference = valueset-list-empty-reason
+  Definition = If a list is empty, why it is empty
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = ListOrder
+  Binding = value set
+  Reference = valueset-list-order
+  Definition = What order applies to the items in a list
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = ListStatus
+  Binding = code list
+  Reference = #list-status
+  Definition = The current state of the list
+  Conformance = required
+
+=== Sheet list-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = working
+  Display = Working List
+  Definition = This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = snapshot
+  Display = Snapshot List
+  Definition = This list was prepared as a snapshot. It should not be assumed to be current
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = changes
+  Display = Change List
+  Definition = A list that indicates where changes have been made or recommended
+
+=== Sheet list-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = current
+  Definition = The list is considered to be an active part of the patient\'s record.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = retired
+  Definition = The list is \"old\" and should no longer be considered accurate or relevant.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Definition = The list was never accurate.  It is retained for medico-legal purposes only.
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = List
+  English = A list can only have an emptyReason if it is empty
+  XPath = not(exists(f:emptyReason) and exists(f:entry))
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = List
+  English = The deleted flag can only be used if the mode of the list is \"changes\"
+  XPath = (f:mode/@value = \'changes\') or not(exists(f:entry/f:item/f:deleted))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = List
+  Aliases = Collection; WorkingList; Organizer
+  Type = DomainResource
+  Short Label = Information summarized from a list of other resources
+  Definition = A set of information summarized from a list of other resources
+  RIM Mapping = Act[classCode<ORG,moodCode=EVN]
+  To Do = RIM harmonization proposal to move LIST under GROUPER  RIM harmonization proposal to allow organizers to group roles as well as acts.
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = List.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Business identifier
+  Definition = Identifier for the List assigned for business purposes outside the context of FHIR.
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = List.title
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Descriptive name for the list
+  Definition = A label for the list assigned by the author
+  Requirements = Allows customization beyond just the code identifying the kind of list
+  Example = Dr. Jane\'s Patients
+
+ -- Row 4 -----------------------------------
+  Element = List.code
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ListPurpose
+  Short Label = What the purpose of this list is
+  Definition = This code defines the purpose of the list - why it was created
+  Requirements = Lists often contain subsets of resources rather than an exhaustive list.  The code identifies what type of subset is included
+  Comments = If there is no code, the purpose of the list is implied where it is used, such as in a document section using Document.section.code
+  RIM Mapping = .code
+  w5 = what
+
+ -- Row 5 -----------------------------------
+  Element = List.subject
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient|Group|Device|Location)
+  Short Label = If all resources have the same subject
+  Definition = The common subject (or patient) of the resources that are in the list, if there is one
+  Requirements = The primary purpose of listing the subject explicitly is to help with finding the right list
+  Comments = Some purely aribitrary lists do not have a common subject, so this is optional
+  RIM Mapping = .participation[typeCode<SUB].role (and sometimes .player)
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = List.source
+  Card. = 0..1
+  Aliases = Author
+  Summary = Y
+  Type = Reference(Practitioner|Patient|Device)
+  Short Label = Who and/or what defined the list contents (aka Author)
+  Definition = The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list
+  Requirements = Allows follow-up as well as context
+  Comments = The primary source is the entity that made the decisions what items are in the list. This may be software or user
+  RIM Mapping = .participation[typeCode<AUT].role[classCode=REL].player[classCode=PSN,determinerCode=INST] or .participation[typeCode<AUT].role[classCode=REL].player[classCode=DEV,determinerCode=INST]
+  w5 = who.author
+
+ -- Row 7 -----------------------------------
+  Element = List.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Context in which list created
+  Definition = The encounter that is the context in which this list was created
+  RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 8 -----------------------------------
+  Element = List.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ListStatus
+  Short Label = current | retired | entered-in-error
+  Definition = Indicates the current state of this list
+  w5 = status
+
+ -- Row 9 -----------------------------------
+  Element = List.date
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Label = When the list was prepared
+  Definition = The date that the list was prepared
+  Requirements = Identifies how current the list is which affects relevance
+  Comments = The actual important date is the date of currency of the resources that were summarized, but it is usually assumed that these are current when the preparation occurs
+  RIM Mapping = .participation[typeCode<AUT].time[type=TS]
+  w5 = when.recorded
+
+ -- Row 10 -----------------------------------
+  Element = List.orderedBy
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ListOrder
+  Short Label = What order the list has
+  Definition = What order applies to the items in the list
+  Requirements = Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries.
+  Comments = Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order
+  RIM Mapping = .outboundRelationship[typeCode=COMP].sequenceNumber > 1
+
+ -- Row 11 -----------------------------------
+  Element = List.mode
+  Card. = 1..1
+  Is Modifier = y
+  Summary = Y
+  Type = code
+  Binding = ListMode
+  Short Label = working | snapshot | changes
+  Definition = How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
+  Requirements = Lists are used in various ways, and it must be known in what way it is safe to use them
+  RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
+  w5 = class
+
+ -- Row 12 -----------------------------------
+  Element = List.note
+  Card. = 0..1
+  Type = string
+  Short Label = Comments about the list
+  Definition = Comments that apply to the overall list
+
+ -- Row 13 -----------------------------------
+  Element = List.entry
+  Card. = 0..*
+  UML = right
+  Inv. = 1
+  Short Label = Entries in the list
+  Definition = Entries in this list
+  Comments = If there are no entries in the list, an emptyReason SHOULD be provided
+  RIM Mapping = .outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]
+
+ -- Row 14 -----------------------------------
+  Element = List.entry.flag
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ListItemFlag
+  Short Label = Workflow information about this item
+  Definition = The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list
+  Requirements = This field is present to support various clinical uses of lists, such as a discharge summary medication list, where flags specify whether the medication was added, modified, or deleted from the list
+  Comments = The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Deleted can only be used if the List.mode is \"changes\"
+  RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
+
+ -- Row 15 -----------------------------------
+  Element = List.entry.deleted
+  Card. = 0..1
+  Is Modifier = Y
+  Inv. = 2
+  Type = boolean
+  Short Label = If this item is actually marked as deleted
+  Definition = True if this item is marked as deleted in the list.
+  Requirements = The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as \"deleted\"
+  Comments = If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is \"changes\". A deleted entry should be displayed in narrative as deleted
+  RIM Mapping = added: .updateMode=(\"A\",\"AR\")  retained: .updateMode=\"NC\"  updated: .updateMode=\"R\"  deleted: .updateMode=\"D\"
+  Default Value = False
+
+ -- Row 16 -----------------------------------
+  Element = List.entry.date
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When item added to list
+  Definition = When this item was added to the list
+  Requirements = The date may be significant for understanding the meaning of items in a working list
+  Comments = This is only useful and meaningful when the mode is \"working\"
+  RIM Mapping = .availabilityTime
+
+ -- Row 17 -----------------------------------
+  Element = List.entry.item
+  Card. = 1..1
+  Type = Reference(Any)
+  Short Label = Actual entry
+  Definition = A reference to the actual resource from which data was derived
+  RIM Mapping = .target or .role or .role.entity
+
+ -- Row 18 -----------------------------------
+  Element = List.emptyReason
+  Card. = 0..1
+  Inv. = 1
+  Type = CodeableConcept
+  Binding = ListEmptyReason
+  Short Label = Why list is empty
+  Definition = If the list is empty, why the list is empty
+  Requirements = Allows capturing things like \"none exist\" or \"not asked\" which can be important for most lists
+  Comments = The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ,code<{ListEmptyReason}].value[type=CD]
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = source
+  Type = reference
+  Path = List.source
+
+ -- Row 2 -----------------------------------
+  Name = item
+  Type = reference
+  Path = List.entry.item
+
+ -- Row 3 -----------------------------------
+  Name = empty-reason
+  Type = token
+  Path = List.emptyReason
+
+ -- Row 4 -----------------------------------
+  Name = date
+  Type = date
+  Path = List.date
+
+ -- Row 5 -----------------------------------
+  Name = code
+  Type = token
+  Path = List.code
+
+ -- Row 6 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = List.subject
+
+ -- Row 7 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = List.subject
+  Target Types = Patient
+
+ -- Row 8 -----------------------------------
+  Name = status
+  Type = token
+  Path = List.status
+
+ -- Row 9 -----------------------------------
+  Name = title
+  Type = string
+  Path = List.title
+
+ -- Row 10 -----------------------------------
+  Name = notes
+  Type = string
+  Path = List.note
+
+ -- Row 11 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = List.encounter
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !CCDA Cognitive Statuses
+  IG Name = ccda
+  Filename = list-ccda-cognitivestatuses.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General List Example
+  Filename = list-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Empty List
+  Identity = example-empty
+  Description = Empty List Example
+  Filename = list-example-empty.xml
+
+ -- Row 3 -----------------------------------
+  Name = Med List
+  Identity = med-list
+  Description = Example Medication Change List
+  Filename = list-example-medlist.xml
+
+ -- Row 4 -----------------------------------
+  Name = Familyhistory
+  Identity = f201
+  Description = Real-world patient example
+  Filename = list-example-familyhistory-f201-roel.xml
+
+ -- Row 5 -----------------------------------
+  Name = Family History - genetic
+  Identity = genetic
+  Description = Simple genetic family member history
+  Filename = list-example-familyhistory-genetics-profile.xml
+
+ -- Row 6 -----------------------------------
+  Name = Family History - genetic annie
+  Identity = prognosis
+  Description = Example for risk assessment
+  Filename = list-example-familyhistory-genetics-profile-annie.xml
+
+ -- Row 7 -----------------------------------
+  Name = Allergies List
+  Identity = current-allergies
+  Description = Example of current allergies list
+  Filename = list-example-allergies.xml
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = find
+  Use = Resource
+  Documentation = This operation allows a client to find an identified list for a particular function by it\'s function. The operation takes two parameters, the identity of a patient, and the name of a functional list.   The list of defined functional lists can be found at [Current Resource Lists](lifecycle.html#lists). Applications are not required to support all the lists, and may define additional lists of their own.   If the system is able to locate a list that serves the identified purpose, it returns it as the body of the response with a 200 OK status. If the resource cannot be located, the server returns a 404 not found (optionally with an OperationOutcome resource)
+  Type = operation
+  Example.Request = $find-request.txt
+  Example.Response = $find-response.txt
+  Title = Find a functional list
+  Footer = Note that servers may support searching by a functional list, and not support this operation that allows clients to find the list directly
+
+ -- Row 2 -----------------------------------
+  Name = find.patient
+  Use = in
+  Documentation = The id of a patient resource located on the server on which this operation is executed
+  Type = id
+  Title = Patient Identity
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = find.name
+  Use = in
+  Documentation = The code for the functional list that is being found
+  Type = code
+  Title = Code for list function
+  Min = 1
+  Max = 1

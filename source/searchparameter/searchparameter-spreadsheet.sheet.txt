@@ -1,0 +1,275 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = XPathUsageType
+  Binding = code list
+  Reference = #search-xpath-usage
+  Definition = How a search parameter relates to the set of elements returned by evaluating the it\'s xpath query
+  Conformance = required
+
+=== Sheet search-xpath-usage =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = normal
+  Display = Normal
+  Definition = The search parameter is derived directly from the selected nodes based on the type definitions
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = phonetic
+  Display = Phonetic
+  Definition = The search parameter is derived by a phonetic transform from the selected nodes
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = nearby
+  Display = Nearby
+  Definition = The search parameter is based on a spatial transform of the selected nodes
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = distance
+  Display = Distance
+  Definition = The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = other
+  Display = Other
+  Definition = The interpretation of the xpath statement is unknown (and can\'t be automated)
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = SearchParameter
+  English = If an xpath is present, there SHALL be be an xpathUsage
+  XPath = not(exists(f:xpath)) or exists(f:xpathUsage)
+  Severity = error
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = SearchParameter
+  Card. = 1..1
+  Type = DomainResource
+  Short Label = Search Parameter for a resource
+  Definition = A Search Parameter that defines a named search item that can be used to search/filter on a resource
+  Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
+  v2 Mapping = n/a
+  RIM Mapping = n/a
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = SearchParameter.url
+  Card. = 1..1
+  Summary = y
+  Type = uri
+  Short Label = Literal URL used to reference this search parameter
+  Definition = An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published
+  Requirements = To allow referencing and reusing search parameter definitions under other names on operational systems (in case of name clash)
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = SearchParameter.name
+  Card. = 1..1
+  Summary = y
+  Type = string
+  Short Label = Informal name for this search parameter
+  Definition = A free text natural language name identifying the search parameter
+  Comments = This is often the same as the code for the parameter, but does not need to be
+
+ -- Row 4 -----------------------------------
+  Element = SearchParameter.status
+  Card. = 0..1
+  Is Modifier = yes
+  Summary = y
+  Type = code
+  Binding = ConformanceResourceStatus
+  Short Label = draft | active | retired
+  Definition = The status of this search parameter definition
+  Comments = This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems
+  w5 = status
+
+ -- Row 5 -----------------------------------
+  Element = SearchParameter.experimental
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = If for testing purposes, not real usage
+  Definition = A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Comments = Allows filtering of search parameter definitions that are appropriate for use vs. not
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = SearchParameter.publisher
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the search parameter
+  Requirements = Helps establish the \"authority/credibility\" of the search parameter.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
+  w5 = who.witness
+
+ -- Row 7 -----------------------------------
+  Element = SearchParameter.contact
+  Card. = 0..*
+  Summary = y
+  Short Label = Contact details of the publisher
+  Definition = Contacts to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number (tel:), etc.
+
+ -- Row 8 -----------------------------------
+  Element = SearchParameter.contact.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of a individual to contact
+  Definition = The name of an individual to contact regarding the search parameter
+  Comments = If there is no named individual, the telecom is for the organization as a whole
+
+ -- Row 9 -----------------------------------
+  Element = SearchParameter.contact.telecom
+  Card. = 0..*
+  Summary = Y
+  Type = ContactPoint
+  Short Label = Contact details for individual or publisher
+  Definition = Contact details for individual (if a name was provided) or the publisher
+
+ -- Row 10 -----------------------------------
+  Element = SearchParameter.date
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Publication Date(/time)
+  Definition = The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the search parameter changes
+  Comments = Additional specific dates may be added as extensions
+  w5 = when.recorded
+
+ -- Row 11 -----------------------------------
+  Element = SearchParameter.requirements
+  Card. = 0..1
+  Type = string
+  Short Label = Why this search parameter is defined
+  Definition = The Scope and Usage that this search parameter was created to meet
+  w5 = why
+
+ -- Row 12 -----------------------------------
+  Element = SearchParameter.code
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = !
+  Short Label = Code used in URL
+  Definition = The code used in the URL or the parameter name in a parameters resource for this search parameter
+  Comments = For maximum compatibility, use only lowercase ASCII characters
+
+ -- Row 13 -----------------------------------
+  Element = SearchParameter.base
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = ResourceType
+  Short Label = The resource type this search parameter applies to
+  Definition = The base resource type that this search parameter refers to
+
+ -- Row 14 -----------------------------------
+  Element = SearchParameter.type
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = SearchParamType
+  Short Label = number | date | string | token | reference | composite | quantity | uri
+  Definition = The type of value a search parameter refers to, and how the content is interpreted
+
+ -- Row 15 -----------------------------------
+  Element = SearchParameter.description
+  Card. = 1..1
+  Summary = y
+  Type = string
+  Short Label = Documentation for  search parameter
+  Definition = A description of the search parameters and how it used
+
+ -- Row 16 -----------------------------------
+  Element = SearchParameter.xpath
+  Card. = 0..1
+  Inv. = 1
+  Type = string
+  Short Label = XPath that extracts the values
+  Definition = An XPath expression that returns a set of elements for the search parameter
+  Comments = Note that the elements returned by the XPath are sometimes complex elements where logic is required to determine quite how to handle them. E.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
+
+ -- Row 17 -----------------------------------
+  Element = SearchParameter.xpathUsage
+  Card. = 0..1
+  Inv. = 1
+  Type = code
+  Binding = XPathUsageType
+  Short Label = normal | phonetic | nearby | distance | other
+  Definition = How the search parameter relates to the set of elements returned by evaluating the xpath query
+
+ -- Row 18 -----------------------------------
+  Element = SearchParameter.target
+  Card. = 0..*
+  Type = code
+  Binding = ResourceType
+  Short Label = Types of resource (if a resource reference)
+  Definition = Types of resource (if a resource is referenced)
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = url
+  Type = uri
+  Path = SearchParameter.url
+
+ -- Row 2 -----------------------------------
+  Name = name
+  Type = string
+  Path = SearchParameter.name
+
+ -- Row 3 -----------------------------------
+  Name = base
+  Type = token
+  Path = SearchParameter.base
+
+ -- Row 4 -----------------------------------
+  Name = type
+  Type = token
+  Path = SearchParameter.type
+
+ -- Row 5 -----------------------------------
+  Name = description
+  Type = string
+  Path = SearchParameter.description
+
+ -- Row 6 -----------------------------------
+  Name = target
+  Type = token
+  Path = SearchParameter.target
+
+ -- Row 7 -----------------------------------
+  Name = code
+  Type = token
+  Path = SearchParameter.code
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General example for searching on an extension
+  Filename = searchparameter-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Extension
+  Identity = example-extension
+  Description = Search parameter for an extension example
+  Filename = searchparameter-example-extension.xml
+
+=== Sheet Examples =====================================

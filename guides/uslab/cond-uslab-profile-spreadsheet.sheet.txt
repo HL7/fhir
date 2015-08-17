@@ -1,0 +1,180 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = USlabReasonForStudy
+  Binding = value set
+  Reference = valueset-cond-reasonforstudy
+  Definition = This value set includes all ICD-9CM and  ICD-10CM concept codes
+  Conformance = required
+
+=== Sheet USlab-Cond =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = USlabCond
+  Aliases = Reason for Study
+  Type = Resource
+  Definition = Reason for Study or Additional Clinical Information for Laboratorian or Pathologist.
+  Comments = For supplying ICD9 -CM and ICD_10 CM codes to demonstrate medical necessity for ordering lab tests use  USLabReasonForStudy.
+  Committee Notes = OBR-13- Relevant Clinical information,  OBR-31 Reason for Study ( for medical necesity use  USLabReasonForStudy)
+
+ -- Row 2 -----------------------------------
+  Element = Condition.patient
+  Card. = 1..1
+  Aliases = Patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Short Label = Patient
+  Committee Notes = new - subject required in core
+
+ -- Row 3 -----------------------------------
+  Element = Condition.code
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = OBR-13- Relevant Clinical information OBR-31 Reason for Study
+
+ -- Row 4 -----------------------------------
+  Element = Condition.code.coding
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Condition.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Condition.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Condition.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Condition.code.text
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Condition.category
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = required in core
+
+ -- Row 10 -----------------------------------
+  Element = Condition.category.coding
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 11 -----------------------------------
+  Element = Condition.category.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 12 -----------------------------------
+  Element = Condition.category.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = Condition.category.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = Condition.clinicalStatus
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = required in core
+
+ -- Row 15 -----------------------------------
+  Element = Condition.notes
+  Card. = 0..1
+  Must Support = Y
+
+=== Sheet USlab-ReasonForStudy =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = USlabReasonForStudy
+  Aliases = Reason for Study
+  Type = Resource
+  Definition = Reason for Study or Additional Clinical Information for Laboratorian or Pathologist
+  Committee Notes = DG1
+
+ -- Row 2 -----------------------------------
+  Element = Condition.patient
+  Card. = 1..1
+  Aliases = Patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Short Label = Patient
+  Committee Notes = new - subject required in core
+
+ -- Row 3 -----------------------------------
+  Element = Condition.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = USlabReasonForStudy
+  To Do = EH todo is whether legally able to and how can represent ICD in FHIR
+  Committee Notes = DG1-3  Diagnosis Code (LOI) R:1..1:ICD-9CM,ICD-10CM : EH todo is whether legally able to and how can represent these in FHIR
+
+ -- Row 4 -----------------------------------
+  Element = Condition.code.coding
+  Card. = 1..1
+  Aliases = ICD-9CM code
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Condition.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Condition.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Condition.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Condition.category
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = required in core
+
+ -- Row 9 -----------------------------------
+  Element = Condition.category.coding
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = Condition.category.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 11 -----------------------------------
+  Element = Condition.category.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 12 -----------------------------------
+  Element = Condition.category.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = Condition.clinicalStatus
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = required in core
+
+=== Sheet Search =====================================

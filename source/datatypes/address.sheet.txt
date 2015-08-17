@@ -1,0 +1,218 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AddressUse
+  Binding = code list
+  Reference = #address-use
+  Definition = The use of an address
+  v2 = http://hl7.org/fhir/ValueSet/v2-0190
+  v3 = AddressUse
+
+ -- Row 2 -----------------------------------
+  Binding Name = AddressType
+  Binding = code list
+  Reference = #address-type
+  Definition = The type of an address (physical / postal)
+  v3 = AddressUse
+
+=== Sheet address-use =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = home
+  Display = Home
+  Definition = A communication address at a home
+  v2 = ~0190.H
+  v3 = =AddressUse.H
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = work
+  Display = Work
+  Definition = An office address. First choice for business related contacts during business hours
+  v2 = ~0190.O
+  v3 = =AddressUse.WP
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = temp
+  Display = Temporary
+  Definition = A temporary address. The period can provide more detailed information
+  v2 = ~0190.C
+  v3 = =AddressUse.TMP
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = old
+  Display = Old / Incorrect
+  Definition = This address is no longer in use (or was never correct, but retained for records)
+  v2 = >0190.BA (unclear about old addresses)
+  v3 = >AddressUse.OLD(Bad or Old),>AddressUse.BAD(Bad or Old)
+
+=== Sheet address-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = postal
+  Display = Postal
+  Definition = Mailing addresses - PO Boxes and care-of addresses
+  v2 = =0617.M
+  v3 = =AddressUse.PHYS
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = physical
+  Display = Physical
+  Definition = A physical address that can be visited
+  v2 = =0617.V
+  v3 = =AddressUse.PST
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = both
+  Display = Postal & Physical
+  Definition = An address that is both physical and postal
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Address
+  Type = Structure
+  Short Label = A postal address
+  Definition = There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world
+  Requirements = Need to be able to record postal addresses, along with notes about their use
+  Comments = Note: address is for postal addresses, not physical locations
+  v2 Mapping = XAD
+  RIM Mapping = AD
+  ServD Mapping = Address
+
+ -- Row 2 -----------------------------------
+  Element = Address.use
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = AddressUse
+  Short Label = home | work | temp | old - purpose of this address
+  Definition = The purpose of this address
+  Requirements = Allows an appropriate address to be chosen from a list of many
+  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is current unless it explicitly says that it is temporary or old
+  v2 Mapping = XAD.7
+  RIM Mapping = unique(./use)
+  ServD Mapping = ./AddressPurpose
+  Example = home
+  Committee Notes = Is it outside the 80% for this to repeat?
+
+ -- Row 3 -----------------------------------
+  Element = Address.type
+  Card. = 0..1
+  Type = code
+  Binding = AddressType
+  Short Label = postal | physical | both
+  Definition = Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both
+  vCard Mapping = address type parameter
+  v2 Mapping = XAD.18
+  RIM Mapping = unique(./use)
+  Example = both
+
+ -- Row 4 -----------------------------------
+  Element = Address.text
+  Card. = 0..1
+  Type = string
+  Short Label = Text representation of the address
+  Definition = A full text representation of the address
+  Requirements = A renderable, unencoded form
+  Comments = Can provide both a text representation and parts
+  vCard Mapping = address label parameter
+  v2 Mapping = XAD.1 + XAD.2 + XAD.3 + XAD.4 + XAD.5 + XAD.6
+  RIM Mapping = ./formatted
+  Example = 137 Nowhere Street, Erewhon 9132
+
+ -- Row 5 -----------------------------------
+  Element = Address.line
+  Card. = 0..*
+  Type = string
+  Short Label = Street name, number, direction & P.O. Box etc
+  Definition = This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information
+  Requirements = home | work | temp | old - purpose of this address
+  vCard Mapping = street
+  v2 Mapping = XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)
+  RIM Mapping = AD.part[parttype = AL]
+  ServD Mapping = ./StreetAddress (newline delimitted)
+  Example = 137 Nowhere Street
+
+ -- Row 6 -----------------------------------
+  Element = Address.city
+  Card. = 0..1
+  Aliases = Muncipality
+  Type = string
+  Short Label = Name of city, town etc.
+  Definition = The name of the city, town, village or other community or delivery center
+  vCard Mapping = locality
+  v2 Mapping = XAD.3
+  RIM Mapping = AD.part[parttype = CTY]
+  ServD Mapping = ./Jurisdiction
+  Example = Erewhon
+
+ -- Row 7 -----------------------------------
+  Element = Address.district
+  Card. = 0..1
+  Aliases = County
+  Type = string
+  Short Label = District name (aka county)
+  Definition = The name of the administrative area (county)
+  Comments = District is sometimes known as county, but in some regions \'county\' in used in place of city (municipality), so county name should be conveyed in city instead
+  v2 Mapping = XAD.9
+  RIM Mapping = AD.part[parttype = CNT | CPA]
+  Example = Madison
+
+ -- Row 8 -----------------------------------
+  Element = Address.state
+  Card. = 0..1
+  Aliases = Province, Territory
+  Type = string
+  Short Label = Sub-unit of country (abreviations ok)
+  Definition = Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes)
+  vCard Mapping = region
+  v2 Mapping = XAD.4
+  RIM Mapping = AD.part[parttype = STA]
+  ServD Mapping = ./Region
+
+ -- Row 9 -----------------------------------
+  Element = Address.postalCode
+  Card. = 0..1
+  Aliases = Zip
+  Type = string
+  Short Label = Postal code for area
+  Definition = A postal code designating a region defined by the postal service
+  vCard Mapping = code
+  v2 Mapping = XAD.5
+  RIM Mapping = AD.part[parttype = ZIP]
+  ServD Mapping = ./PostalIdentificationCode
+  Example = 9132
+
+ -- Row 10 -----------------------------------
+  Element = Address.country
+  Card. = 0..1
+  Type = string
+  Short Label = Country (can be ISO 3166 3 letter code)
+  Definition = Country - a nation as commonly understood or generally accepted
+  Comments = ISO 3166 3 letter codes can be used in place of a full country name.
+  vCard Mapping = country
+  v2 Mapping = XAD.6
+  RIM Mapping = AD.part[parttype = CNT]
+  ServD Mapping = ./Country
+
+ -- Row 11 -----------------------------------
+  Element = Address.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Time period when address was/is in use
+  Definition = Time period when address was/is in use
+  Requirements = Allows addresses to be placed in historical context
+  v2 Mapping = XAD.12 / XAD.13 + XAD.14
+  RIM Mapping = ./usablePeriod[type=\"IVL<TS>\"]
+  ServD Mapping = ./StartDate and ./EndDate
+  Example = { \"start\" : \"2010-03-23\", \"end\" : \"2010-07-01\" }

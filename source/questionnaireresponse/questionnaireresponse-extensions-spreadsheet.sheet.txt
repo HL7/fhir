@@ -1,0 +1,23 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QuestionnaireCategory
+  Binding = unbound
+  Definition = Classifications for questionnaires.  Can include such concepts as \"intake form\", \"opinion survey\", \"clinical research questionnaire\", \"pediatric\", etc.
+
+ -- Row 2 -----------------------------------
+  Binding Name = MaxOccurs
+  Binding = code list
+  Reference = #question-max-occurs
+  Definition = Flags an element as having unlimited repetitions
+
+=== Sheet question-max-occurs =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = *
+  Display = Repeating
+  Definition = Element can repeat an unlimited number of times
+
+=== Sheet Search =====================================

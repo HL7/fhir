@@ -1,0 +1,325 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ProvenanceAgentRole
+  Binding = value set
+  Reference = valueset-provenance-agent-role
+  Definition = The role that a provenance agent played with respect to the activity
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = ProvenanceAgentType
+  Binding = value set
+  Reference = valueset-provenance-agent-type
+  Definition = The type of a provenance agent
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = ProvenanceEntityRole
+  Binding = code list
+  Reference = #provenance-entity-role
+  Definition = How an entity was used in an activity
+
+ -- Row 4 -----------------------------------
+  Binding Name = ProvenanceEntityType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/resource-types
+  Definition = The type of an entity used in an activity
+  Conformance = extensible
+
+ -- Row 5 -----------------------------------
+  Binding Name = ProvenanceReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
+  Definition = The reason the activity took place.
+  Conformance = extensible
+
+ -- Row 6 -----------------------------------
+  Binding Name = ProvenanceActivity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ProvenanceEventCurrentState
+  Definition = The activity took place.
+  Conformance = extensible
+
+=== Sheet provenance-entity-role =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = derivation
+  Display = Derivation
+  Definition = A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = revision
+  Display = Revision
+  Definition = A derivation for which the resulting entity is a revised version of some original.
+  Parent = derivation
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = quotation
+  Display = Quotation
+  Definition = The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author
+  Parent = derivation
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = source
+  Display = Source
+  Definition = A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic\'s study, without benefit from hindsight.
+  Parent = derivation
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Provenance
+  Aliases = History; Event; Activity
+  Type = DomainResource
+  Short Label = Who, What, When for a set of resources
+  Definition = Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g., Document Completion - has the artifact been legally authenticated), all of which may impact Security, Privacy, and Trust policies.
+  Comments = Some parties may be duplicated between the target resource and its provenance.  For instance, the prescriber is usually (but not always) the author of the prescription resource. This resource is defined with close consideration for W3C Provenance
+  RIM Mapping = ControlAct[isNormalAct() and subsumes(CACT, classCode) and moodCode=EVN]
+  Committee Notes = Sources of requirements: v2 EVN, Control Act, CDA, W3C provenance, ATNA
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = Provenance.target
+  Card. = 1..*
+  Type = Reference(Any)
+  Short Label = Target Reference(s) (usually version specific)
+  Definition = The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity
+  Comments = Target references are usually version specific, but may not be, if a version has not been assigned or if the provenance information is part of the set of resources being maintained (i.e. a document). When using the RESTful API, the identity of the resource may not be known (especially not the version specific one); the client may either submit the resource first, and then the provenance, or it may submit both using a single transaction. See the notes on transaction for further discussion
+  RIM Mapping = ./outboundRelationship[isNormalActRelationship() and typeCode=SUBJ]/target  OR  ./participation[isNormalParticipation() and typeCode=SBJ]/role  OR  ./participation[isNormalParticipation() and typeCode=SBJ]/role[isNormalRole()]/player
+
+ -- Row 3 -----------------------------------
+  Element = Provenance.period
+  Card. = 0..1
+  Type = Period
+  Short Label = When the activity occurred
+  Definition = The period during which the activity occurred
+  Comments = The period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time
+  RIM Mapping = ./effectiveTime[type=IVL_TS]
+  w5 = when.done
+
+ -- Row 4 -----------------------------------
+  Element = Provenance.recorded
+  Card. = 1..1
+  Type = instant
+  Short Label = When the activity was recorded / updated
+  Definition = The instant of time at which the activity was recorded
+  Comments = This can be a little different from the time stamp on the resource if there is a delay between recording the event and updating the provenance and target resource
+  RIM Mapping = unique(./participation[isNormalParticipation() and typeCode=AUT]/time[type=TS])
+  w5 = when.recorded
+
+ -- Row 5 -----------------------------------
+  Element = Provenance.reason
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ProvenanceReason
+  Short Label = Reason the activity is occurring
+  Definition = The reason that the activity was taking place
+  RIM Mapping = unique(./reasonCode)
+  w5 = why
+
+ -- Row 6 -----------------------------------
+  Element = Provenance.activity
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ProvenanceActivity
+  Short Label = Activity that occurred
+  Definition = An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities
+  w5 = why
+
+ -- Row 7 -----------------------------------
+  Element = Provenance.location
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Label = Where the activity occurred, if relevant
+  Definition = Where the activity occurred, if relevant
+  RIM Mapping = unique(./participation[isNormalParticipation() and typeCode=LOC]/role[isNormalRole() and subsumes(SDLOC, classCode)]/player[isNormalEntity and classCode=\"LOC\" and determinerCode=\"INST\"]
+  w5 = where
+
+ -- Row 8 -----------------------------------
+  Element = Provenance.policy
+  Card. = 0..*
+  Type = uri
+  Short Label = Policy or plan the activity was defined by
+  Definition = Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.
+  Comments = For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element.
+  RIM Mapping = ./inboundRelationship[isNormalActRelationship() and typeCode=\"SUBJ\"]/source[isNormalAct and subsumes(POLICY, classCode) and moodCode=EVN]/text[typeCode=\'ED\'/tel
+
+ -- Row 9 -----------------------------------
+  Element = Provenance.agent
+  Card. = 0..*
+  UML = down
+  Short Label = Agents involved in creating resource
+  Definition = An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility
+  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa
+  RIM Mapping = ./participation[isNormalParticipation()]  OR  ./outboundRelationship[isNormalActRelationship() and typeCode=\'DRIV\']
+
+ -- Row 10 -----------------------------------
+  Element = Provenance.agent.role
+  Card. = 1..1
+  Type = Coding
+  Binding = ProvenanceAgentRole
+  Short Label = Agents Role
+  Definition = The function of the agent with respect to the activity.
+  Comments = e.g. author | performer | enterer | attester: +
+  RIM Mapping = attester: .[self::participation]/typeCode=\'RESP\' author: .[self::participation]/typeCode=\'AUT\' cc: .[self::participation]/typeCode=\'IRCP\' enterer:  .[self::participation]/typeCode=\'ENT\' informant: .[self::participation]/typeCode=\'INF\' performer: .[self::participation]/typeCode=\'PRF\' verifier: .[self::participation]/typeCode=\'VRF\' source: .[self::outboundRelationship]/typeCode=\'\'
+
+ -- Row 11 -----------------------------------
+  Element = !Provenance.agent.type
+  Card. = 1..1
+  Type = Coding
+  Binding = ProvenanceAgentType
+  Short Label = Agent Type
+  Definition = The type of participation of the agent
+  Requirements = If the type is \"Resource\" then the resource itself was the participant. If the type is a type of resource, then the entity identified by the resource is the participant
+  Comments = e.g.  Person | Application | Patient | Device +
+  RIM Mapping = person: ./role[isNormalRole() and classCode=\'REL\']/player[isNormalEntity and classCode=\'PER\' and determinerCode=\'INST\'] agent: ./role[isNormalRole() and classCode=\'ASSIGNED\' and player[isNormalEntity and classCode=\'PSN\' and determinerCode=\'INST\']] organization: ./role[isNormalRole() and classCode=\'ASSIGNED\' and not(player)]/scoper[isNormalEntity and classCode=\'ORG\' and determinerCode=\'INST\']  software: ./role[isNormalRole() and classCode=\'ASSIGNED\']/scoper[isNormalEntity and classCode=\'DEV\' and determinerCode=\'INST\' and hasDomain(code, \'Software\')] document: ./target[isNormalAct and subsumes(\'DOC\', classCode) and moodCode=\'EVN\']
+
+ -- Row 12 -----------------------------------
+  Element = Provenance.agent.actor
+  Card. = 0..1
+  Type = Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
+  Short Label = Individual, device or organization playing role
+  Definition = The individual, device or organization that participated in the event
+  w5 = who.actor
+
+ -- Row 13 -----------------------------------
+  Element = Provenance.agent.userId
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Authorization-system identifier for the agent
+  Definition = The identify of the agent as known by the authorization system
+
+ -- Row 14 -----------------------------------
+  Element = Provenance.entity
+  Card. = 0..*
+  UML = right
+  Short Label = An entity used in this activity
+  Definition = An entity used in this activity
+  Comments = Multiple userIds may be associated with the same Practitioner or other individual across various appearances, each with distinct privileges
+  RIM Mapping = ./subjectOf
+
+ -- Row 15 -----------------------------------
+  Element = Provenance.entity.role
+  Card. = 1..1
+  Type = code
+  Binding = ProvenanceEntityRole
+  Short Label = derivation | revision | quotation | source
+  Definition = How the entity was used during the activity
+  RIM Mapping = ./typeCode
+  Committee Notes = No uses cases have been identified for extensibility for this role
+
+ -- Row 16 -----------------------------------
+  Element = Provenance.entity.type
+  Card. = 1..1
+  Type = Coding
+  Binding = ProvenanceEntityType
+  Short Label = Entity Type
+  Definition = The type of the entity. If the entity is a resource, then this is a resource type
+  Requirements = If the type is \"resource\" then the resource itself was the participant. If the type is a type of resource, then the entity identified by the resource is the participant
+  RIM Mapping = ./target
+
+ -- Row 17 -----------------------------------
+  Element = Provenance.entity.reference
+  Card. = 1..1
+  Type = uri
+  Short Label = Identity of entity
+  Definition = Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative
+  Comments = identity may be a reference to a resource or to something else, depending on the type
+  RIM Mapping = ./text/reference
+
+ -- Row 18 -----------------------------------
+  Element = Provenance.entity.display
+  Card. = 0..1
+  Type = string
+  Short Label = Human description of entity
+  Definition = Human-readable description of the entity
+  RIM Mapping = ./title
+
+ -- Row 19 -----------------------------------
+  Element = Provenance.entity.agent
+  Card. = 0..1
+  Type = @Provenance.agent
+  Short Label = Entity is attributed to this agent
+  Definition = The entity is attributed to an agent to express the agent\'s responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity
+  RIM Mapping = ./author/role
+
+ -- Row 20 -----------------------------------
+  Element = Provenance.signature
+  Card. = 0..*
+  Type = Signature
+  Short Label = Signature on target
+  Definition = A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.
+  RIM Mapping = ./signatureText
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = target
+  Type = reference
+  Path = Provenance.target
+
+ -- Row 2 -----------------------------------
+  Name = start
+  Type = date
+  Path = Provenance.period.start
+
+ -- Row 3 -----------------------------------
+  Name = end
+  Type = date
+  Path = Provenance.period.end
+
+ -- Row 4 -----------------------------------
+  Name = location
+  Type = reference
+  Path = Provenance.location
+
+ -- Row 5 -----------------------------------
+  Name = agent
+  Type = reference
+  Path = Provenance.agent.actor
+
+ -- Row 6 -----------------------------------
+  Name = userid
+  Type = token
+  Path = Provenance.agent.userId
+
+ -- Row 7 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Provenance.target
+  Target Types = Patient
+
+ -- Row 8 -----------------------------------
+  Name = sigtype
+  Type = token
+  Path = Provenance.signature.type
+
+ -- Row 9 -----------------------------------
+  Name = entitytype
+  Type = token
+  Path = Provenance.entity.type
+
+ -- Row 10 -----------------------------------
+  Name = entity
+  Type = uri
+  Path = Provenance.entity.reference
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Provenance HL7 Extensions
+  IG Name = core
+  Filename = provenance-extensions-spreadsheet.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

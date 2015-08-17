@@ -1,0 +1,139 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = RespiratoryUOM
+  Binding = value set
+  Reference = valueset-respiratoryUOM
+  Definition = The list of codes that the units of measure used for respiratory rate.
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = InterpretationNumNom
+  Binding = value set
+  Reference = valueset-abnInt-NumericNom
+  Definition = A set of codes that describe interpretations for numeric-nominal values
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = ObservationStatusBasic
+  Binding = value set
+  Reference = valueset-observationstatusbasic
+  Definition = A set of codes that describe the state of the observation
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = RespiratoryRateMethodDevice
+  Binding = value set
+  Reference = valueset-respratemethoddevice
+  Definition = A set of codes that describe the method or device used to measure an individual\'s breath rate
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = VitalSignAssociatedPrecondition
+  Binding = value set
+  Reference = valueset-vitalsignassociatedprecond
+  Definition = The conditions during which an individual\'s vital signs were measured
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = FocalSubject
+  Binding = value set
+  Reference = valueset-focalSubject
+  Definition = The set of codes that describe the subject of an observation when not the patient of record
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = DeltaFlagNumNom
+  Binding = value set
+  Reference = valueset-deltaFlag-numericNom
+  Definition = The set of codes that describe the degree of difference in numeric values
+  Conformance = preferred
+
+=== Sheet hspc-respiratoryrate =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Respiratory Rate
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"9279-1\"/><display value=\"Respiratory rate\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+  Card. = 1..1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 5 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Binding = RespiratoryUOM
+
+ -- Row 6 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..0
+
+ -- Row 7 -----------------------------------
+  Element = Observation.interpretation
+  Binding = InterpretationNumNom
+
+ -- Row 8 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..0
+
+ -- Row 9 -----------------------------------
+  Element = Observation.status
+  Binding = ObservationStatusBasic
+
+ -- Row 10 -----------------------------------
+  Element = !Observation.reliability
+  Card. = 0..0
+
+ -- Row 11 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+
+ -- Row 12 -----------------------------------
+  Element = Observation.method
+  Binding = RespiratoryRateMethodDevice
+
+ -- Row 13 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+ -- Row 15 -----------------------------------
+  Element = Observation.device
+  Card. = 0..0
+
+ -- Row 16 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AssociatedPrecondition
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Binding = VitalSignAssociatedPrecondition
+
+ -- Row 17 -----------------------------------
+  Element = Observation.extension
+  Profile Name = FocalSubject
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}
+  Binding = FocalSubject
+
+ -- Row 18 -----------------------------------
+  Element = Observation.extension
+  Profile Name = DeltaFlag
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-delta}
+  Binding = DeltaFlagNumNom
+
+=== Sheet Search =====================================

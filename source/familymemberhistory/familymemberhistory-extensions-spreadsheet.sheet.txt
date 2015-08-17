@@ -1,0 +1,11 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ConditionSeverity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-severity
+  Definition = A subjective assessment of the severity of the condition as evaluated by the clinician.
+  Conformance = example
+
+=== Sheet Search =====================================

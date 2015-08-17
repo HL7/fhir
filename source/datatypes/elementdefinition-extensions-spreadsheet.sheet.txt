@@ -1,0 +1,11 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = Units
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-units
+  Definition = Units of measure allowed for an element
+  Conformance = required
+
+=== Sheet Search =====================================

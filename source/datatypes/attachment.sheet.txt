@@ -1,0 +1,118 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Attachment
+  English = It the Attachment has data, it SHALL have a contentType
+  XPath = not(exists(f:data)) or exists(f:contentType)
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Attachment
+  Type = Type
+  Short Label = Content in a format defined elsewhere
+  Definition = For referring to data content defined in other formats.
+  Requirements = Many models need to include data defined in other specifications that is complex and opaque to the healthcare model. This includes documents, media recordings, structured data, etc.
+  Comments = When providing a summary view (for example with Observation.value[x]) Attachment should be represented with a brief display text such as \"Attachment\".
+  v2 Mapping = ED/RP
+  RIM Mapping = ED
+
+ -- Row 2 -----------------------------------
+  Element = Attachment.contentType
+  Card. = 0..1
+  Type = code
+  Binding = MimeType
+  Short Label = Mime type of the content, with charset etc.
+  Definition = Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate
+  Requirements = Processors of the data need to be able to know how to interpret the data
+  v2 Mapping = ED.2+ED.3/RP.2+RP.3. Note conversion may be needed if old style values are being used
+  RIM Mapping = ./mediaType, ./charset
+  Example = text/plain; charset=UTF-8, image/png
+
+ -- Row 3 -----------------------------------
+  Element = Attachment.language
+  Card. = 0..1
+  Type = code
+  Binding = Language
+  Short Label = Human language of the content (BCP-47)
+  Definition = The human language of the content. The value can be any valid value according to BCP 47
+  Requirements = Users need to be able to choose between the languages in a set of attachments
+  RIM Mapping = ./language
+  Example = en-AU
+
+ -- Row 4 -----------------------------------
+  Element = Attachment.data
+  Card. = 0..1
+  Type = base64Binary
+  Short Label = Data inline, base64ed
+  Definition = The actual data of the attachment - a sequence of bytes. In XML, represented using base64
+  Requirements = The data needs to able to be transmitted inline
+  Comments = The base64-encoded data SHALL be expressed in the same character set as the base resource XML or JSON
+  v2 Mapping = ED.5
+  RIM Mapping = ./data
+
+ -- Row 5 -----------------------------------
+  Element = Attachment.url
+  Card. = 0..1
+  Type = uri
+  Short Label = Uri where the data can be found
+  Definition = An alternative location where the data can be accessed
+  Requirements = The data needs to be transmitted by reference
+  Comments = If both data and url are provided, the url SHALL point to the same content as the data contains. Urls may be relative references or may reference transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it SHALL resolve to actual data.
+  v2 Mapping = RP.1+RP.2 - if they refer to a URL (see v2.6)
+  RIM Mapping = ./reference/literal
+  Example = http://www.acme.com/logo-small.png
+
+ -- Row 6 -----------------------------------
+  Element = Attachment.size
+  Card. = 0..1
+  Type = unsignedInt
+  Short Label = Number of bytes of content (if url provided)
+  Definition = The number of bytes of data that make up this attachment.
+  Requirements = Representing the size allows applications to determine whether they should fetch the content automatically in advance, or refuse to fetch it at all
+  Comments = The number of bytes is redundant if the data is provided as a base64binary, but is useful if the data is provided as a url reference
+  RIM Mapping = N/A (needs data type R3 proposal)
+
+ -- Row 7 -----------------------------------
+  Element = Attachment.hash
+  Card. = 0..1
+  Type = base64Binary
+  Short Label = Hash of the data (sha-1, base64ed )
+  Definition = The calculated hash of the data using SHA-1. Represented using base64
+  Requirements = Included so that applications can verify that the contents of a location have not changed and so that a signature of the content can implicitly sign the content of an image without having to include the data in the instance or reference the url in the signature
+  RIM Mapping = .integrityCheck[parent::ED/integrityCheckAlgorithm=\"SHA-1\"]
+
+ -- Row 8 -----------------------------------
+  Element = !Attachment.lang
+  Card. = 0..1
+  Type = code
+  Binding = Language
+  Short Label = ISO 639-3 language code
+  Definition = The language that the attachment is in
+  Requirements = May need to be able to pick the right language to render for a particular person from a list of attachments in different languages
+  Comments = note that the v3 lang is ISO 639-2 and this is ISO 639-3
+  RIM Mapping = ./language
+  Example = eng (English), esp (Spanish)
+
+ -- Row 9 -----------------------------------
+  Element = Attachment.title
+  Card. = 0..1
+  Type = string
+  Short Label = Label to display in place of the data
+  Definition = A label or set of text to display in place of the data
+  Requirements = Applications need a label to display to a human user in place of the actual data if the data cannot be rendered or perceived by the viewer.
+  RIM Mapping = ./title/data
+  Example = \"Official Corporate Logo\"
+
+ -- Row 10 -----------------------------------
+  Element = Attachment.creation
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Date attachment was first created
+  Definition = The date that the attachment was first created
+  Requirements = This is often tracked as an integrity issue for use of the attachment
+  RIM Mapping = N/A (needs data type R3 proposal)

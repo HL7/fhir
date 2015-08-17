@@ -1,0 +1,831 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AnimalGenderStatus
+  Binding = value set
+  Reference = valueset-animal-genderstatus
+  Definition = The state of the animal\'s reproductive organs
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = AnimalSpecies
+  Binding = value set
+  Reference = valueset-animal-species
+  Definition = The species of an animal
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = AnimalBreed
+  Binding = value set
+  Reference = valueset-animal-breeds
+  Definition = The breed of an animal
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = ContactRelationship
+  Binding = value set
+  Reference = valueset-patient-contact-relationship
+  Definition = The nature of the relationship between a patient and a contact person for that patient
+  Conformance = extensible
+
+ -- Row 5 -----------------------------------
+  Binding Name = LinkType
+  Binding = code list
+  Reference = #link-type
+  Definition = The type of link between this patient resource and another patient resource.
+  Conformance = required
+
+=== Sheet link-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = replace
+  Display = Replace
+  Definition = The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.
+  Display:nl = vervangen
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = refer
+  Display = Refer
+  Definition = The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information
+  Display:nl = verwijzing
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = seealso
+  Display = See also
+  Definition = The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
+  Display:nl = zie ook
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Patient.contact
+  English = SHALL at least contain a contact\'s details or a reference to an organization
+  XPath = f:name or f:telecom or f:address or f:organization
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Patient
+  Aliases = SubjectOfCare Client Resident
+  Type = DomainResource
+  Short Label = Information about an individual or animal receiving health care services
+  Definition = Demographics and other administrative information about an individual or animal receiving care or other health-related services
+  Requirements = Tracking patient is the center of the healthcare process
+  CDA Mapping = ClinicalDocument.recordTarget.patientRole
+  RIM Mapping = Patient[classCode=PAT]
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Patient.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = An identifier for this patient
+  Definition = An identifier for this patient
+  Requirements = Patients are almost always assigned specific numerical identifiers
+  CDA Mapping = .id
+  v2 Mapping = PID-3
+  RIM Mapping = id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Patient.active
+  Card. = 0..1
+  Is Modifier = y
+  Summary = y
+  Type = boolean
+  Short Label = Whether this patient\'s record is in active use
+  Definition = Whether this patient record is in active use
+  Requirements = Need to be able to mark a patient record as not to be used because it was created in error
+  Comments = Default is true. If a record is inactive, and linked to an active record, then future patient/record updates should occur on the other patient
+  CDA Mapping = n/a
+  RIM Mapping = statusCode
+  Default Value = True
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = Patient.name
+  Card. = 0..*
+  Summary = y
+  Type = HumanName
+  Short Label = A name associated with the patient
+  Definition = A name associated with the individual.
+  Requirements = Need to be able to track the patient by multiple names. Examples are your official name and a partner name.
+  Comments = A Patient may have multiple names with different uses or applicable periods. For animals, the name is a \"HumanName\" in the sense that is assigned and used by humans and has the same patterns
+  CDA Mapping = .patient.name
+  v2 Mapping = PID-5, PID-9
+  RIM Mapping = name
+
+ -- Row 5 -----------------------------------
+  Element = Patient.telecom
+  Card. = 0..*
+  Summary = y
+  Type = ContactPoint
+  Short Label = A contact detail for the individual
+  Definition = A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
+  Requirements = People have (primary) ways to contact them in some way such as phone, email.
+  Comments = A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address may not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner\'s phone)
+  CDA Mapping = .telecom
+  v2 Mapping = PID-13, PID-14, PID-40
+  RIM Mapping = telecom
+
+ -- Row 6 -----------------------------------
+  Element = Patient.gender
+  Card. = 0..1
+  Summary = y
+  Type = code
+  Binding = AdministrativeGender
+  Short Label = male | female | other | unknown
+  Definition = Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
+  Requirements = Needed for identification of the individual, in combination with (at least) name and birth date. Gender of individual drives many clinical processes.
+  Comments = The gender may not match the biological sex as determined by genetics, or the individual\'s preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific gender aspect of interest (anatomical, chromosonal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosonal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overrideable error, not a \"hard\" error.
+  CDA Mapping = .patient.administrativeGenderCode
+  v2 Mapping = PID-8
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender
+  Committee Notes = \'gender\' is still the administrative gender, but this is reflected in its description rather than its name.
+
+ -- Row 7 -----------------------------------
+  Element = Patient.birthDate
+  Card. = 0..1
+  Summary = y
+  Type = date
+  Short Label = The date of birth for the individual
+  Definition = The date of birth for the individual
+  Requirements = Age of the individual drives many clinical processes.
+  Comments = At least an estimated year should be provided as a guess if the real dob is unknown  There is a standard extension \"patient-birthTime\" available that should be used where Time is required (such as in maternaty/infant care systems)
+  LOINC Code = 21112-8
+  CDA Mapping = .patient.birthTime
+  v2 Mapping = PID-7
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime
+  Committee Notes = renamed from dob, because the abbreviation is not obvious to non-English speakers
+
+ -- Row 8 -----------------------------------
+  Element = !Patient.birthTime
+  Card. = 0..1
+  Type = time
+  Short Label = The time of birth for the individual
+  Definition = The  time of birth for the individual
+  Requirements = In some cases birth time is important (e.g. multiple births). Hospitals will capture the time of birth in most cases.
+  LOINC Code = 21112-8
+  CDA Mapping = .patient.birthTime
+  v2 Mapping = PID-7
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime
+  Committee Notes = The time field is not used in 80% of systems, and is available as a standard extension
+
+ -- Row 9 -----------------------------------
+  Element = Patient.deceased[x]
+  Card. = 0..1
+  Is Modifier = y
+  Summary = y
+  Type = boolean|dateTime
+  Short Label = Indicates if the individual is deceased or not
+  Definition = Indicates if the individual is deceased or not
+  Requirements = The fact that a patient is deceased influences the clinical process. Also, in human communication and relation management it is necessary to know whether the person is alive.
+  Comments = If there\'s no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.
+  CDA Mapping = n/a
+  v2 Mapping = PID-30  (bool) and PID-29 (datetime)
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime
+
+ -- Row 10 -----------------------------------
+  Element = Patient.address
+  Card. = 0..*
+  Summary = y
+  Type = Address
+  Short Label = Addresses for the individual
+  Definition = Addresses for the individual
+  Requirements = May need to keep track of patient addresses for contacting, billing or reporting requirements and also to help with identification
+  Comments = Patient may have multiple addresses with different uses or applicable periods
+  CDA Mapping = .addr
+  v2 Mapping = PID-11
+  RIM Mapping = addr
+
+ -- Row 11 -----------------------------------
+  Element = Patient.maritalStatus
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MaritalStatus
+  Short Label = Marital (civil) status of a patient
+  Definition = This field contains a patient\'s most recent marital (civil) status.
+  Requirements = Most, if not all systems capture it.
+  CDA Mapping = .patient.maritalStatusCode
+  v2 Mapping = PID-16
+  RIM Mapping = player[classCode=PSN]/maritalStatusCode
+
+ -- Row 12 -----------------------------------
+  Element = Patient.multipleBirth[x]
+  Card. = 0..1
+  Type = boolean|integer
+  Short Label = Whether patient is part of a multiple birth
+  Definition = Indicates whether the patient is part of a multiple or indicates the actual birth order.
+  Requirements = For disambiguation of multiple-birth children, especially relevant where the care provider doesn\'t meet the patient, such as labs.
+  CDA Mapping = n/a
+  v2 Mapping = PID-24 (bool), PID-25 (integer)
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthInd,  player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthOrderNumber
+
+ -- Row 13 -----------------------------------
+  Element = Patient.photo
+  Card. = 0..*
+  Type = Attachment
+  Short Label = Image of the patient
+  Definition = Image of the patient
+  Requirements = Many EHR systems have the capability to capture an image of the patient. Fits with newer social media usage too.
+  CDA Mapping = n/a
+  v2 Mapping = OBX-5 - needs a profile
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/desc
+
+ -- Row 14 -----------------------------------
+  Element = Patient.contact
+  Card. = 0..*
+  UML = 300;180
+  Type = =Contact
+  Short Label = A contact party (e.g. guardian, partner, friend) for the patient
+  Definition = A contact party (e.g. guardian, partner, friend) for the patient
+  Requirements = Need to track people you can contact about the patient
+  Comments = Contact covers all kinds of contact parties: family members, business contacts, guardians, caregivers. Not applicable to register pedigree and family ties beyond use of having contact.
+  CDA Mapping = n/a
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/scopedRole[classCode=CON]
+
+ -- Row 15 -----------------------------------
+  Element = Patient.contact.relationship
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ContactRelationship
+  Short Label = The kind of relationship
+  Definition = The nature of the relationship between the patient and the contact person
+  Requirements = Used to determine which contact person is the most relevant to approach, depending on circumstances
+  CDA Mapping = n/a
+  v2 Mapping = NK1-7, NK1-3
+  RIM Mapping = code
+
+ -- Row 16 -----------------------------------
+  Element = Patient.contact.name
+  Card. = 0..1
+  Type = HumanName
+  Short Label = A name associated with the contact person
+  Definition = A name associated with the contact person
+  Requirements = Contact persons need to be identified by name, but it is uncommon to need details about multiple other names for that contact person
+  CDA Mapping = n/a
+  v2 Mapping = NK1-2
+  RIM Mapping = name
+
+ -- Row 17 -----------------------------------
+  Element = Patient.contact.telecom
+  Card. = 0..*
+  Type = ContactPoint
+  Short Label = A contact detail for the person
+  Definition = A contact detail for the person, e.g. a telephone number or an email address.
+  Requirements = People have (primary) ways to contact them in some way such as phone, email.
+  Comments = Contact may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification
+  CDA Mapping = n/a
+  v2 Mapping = NK1-5, NK1-6, NK1-40
+  RIM Mapping = telecom
+
+ -- Row 18 -----------------------------------
+  Element = Patient.contact.address
+  Card. = 0..1
+  Type = Address
+  Short Label = Address for the contact person
+  Definition = Address for the contact person
+  Requirements = Need to keep track where the contact person can be contacted per postal mail or visited
+  CDA Mapping = n/a
+  v2 Mapping = NK1-4
+  RIM Mapping = addr
+
+ -- Row 19 -----------------------------------
+  Element = Patient.contact.gender
+  Card. = 0..1
+  Type = code
+  Binding = AdministrativeGender
+  Short Label = male | female | other | unknown
+  Definition = Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
+  Requirements = Needed to address the person correctly
+  CDA Mapping = n/a
+  v2 Mapping = NK1-15
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender
+
+ -- Row 20 -----------------------------------
+  Element = Patient.contact.organization
+  Card. = 0..1
+  Inv. = 1
+  Type = Reference(Organization)
+  Short Label = Organization that is associated with the contact
+  Definition = Organization on behalf of which the contact is acting or for which the contact is working.
+  Requirements = For guardians or business related contacts, the organization is relevant
+  CDA Mapping = n/a
+  v2 Mapping = NK1-13, NK1-30, NK1-31, NK1-32, NK1-41
+  RIM Mapping = scoper
+
+ -- Row 21 -----------------------------------
+  Element = Patient.contact.period
+  Card. = 0..1
+  Type = Period
+  Short Label = The period during which this contact person or organization is valid to be contacted relating to this patient
+  Definition = The period during which this contact person or organization is valid to be contacted relating to this patient
+  CDA Mapping = n/a
+  RIM Mapping = effectiveTime
+
+ -- Row 22 -----------------------------------
+  Element = Patient.animal
+  Card. = 0..1
+  Is Modifier = y
+  Summary = y
+  UML = 300;0
+  Type = =Animal
+  Short Label = This patient is known to be an animal (non-human)
+  Definition = This patient is known to be an animal
+  Requirements = Many clinical systems are extended to care for animal patients as well as human
+  Comments = The animal element is labeled \"Is Modifier\" since patients may be non-human. Systems SHALL either handle patient details appropriately (e.g. inform users patient is not human) or reject declared animal records.   The absense of the animal element does not imply that the patient is a human. If a system requires such a positive assertion that the patient is human, an extension will be required.  (Do not use a species of homo-sapiens in animal species, as this would incorrectly infer that the patient is an animal)
+  CDA Mapping = n/a
+  RIM Mapping = player[classCode=ANM]
+
+ -- Row 23 -----------------------------------
+  Element = Patient.animal.species
+  Card. = 1..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = AnimalSpecies
+  Short Label = E.g. Dog, Cow
+  Definition = Identifies the high level taxonomic categorization of the kind of animal
+  Requirements = Need to know what kind of animal
+  Comments = If the patient is non-human, at least a species SHALL be specified. Species SHALL be a widely recognised taxonomic classification.  It may or may not be Linnaean taxonomy and may or may not be at the level of species. If the level is finer than species--such as a breed code--the code system used SHALL allow inference of the species.  (The common example is that the word \"Hereford\" does not allow inference of the species Bos taurus, because there is a Hereford pig breed, but the SNOMED code for \"Hereford Cattle Breed\" does.)
+  CDA Mapping = n/a
+  v2 Mapping = PID-35
+  RIM Mapping = code
+
+ -- Row 24 -----------------------------------
+  Element = Patient.animal.breed
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = AnimalBreed
+  Short Label = E.g. Poodle, Angus
+  Definition = Identifies the detailed categorization of the kind of animal.
+  Requirements = May need to know the specific kind within the species
+  Comments = Breed MAY be used to provide further taxonomic or non-taxonomic classification.  It may involve local or proprietary designation--such as commercial strain--and/or additional information such as production type.
+  CDA Mapping = n/a
+  v2 Mapping = PID-37
+  RIM Mapping = playedRole[classCode=GEN]/scoper[classCode=ANM, determinerCode=KIND]/code
+
+ -- Row 25 -----------------------------------
+  Element = Patient.animal.genderStatus
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = AnimalGenderStatus
+  Short Label = E.g. Neutered, Intact
+  Definition = Indicates the current state of the animal\'s reproductive organs
+  Requirements = Gender status can affect housing and animal behavior
+  CDA Mapping = n/a
+  v2 Mapping = N/A
+  RIM Mapping = genderStatusCode
+
+ -- Row 26 -----------------------------------
+  Element = !Patient.communication
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = Language
+  Short Label = Languages which may be used to communicate with the patient about his or her health
+  Definition = Languages which may be used to communicate with the patient about his or her health
+  Requirements = If a patient does not speak the local language, interpreters may be required, so languages spoken is an important things to keep track of both for patient and other persons of interest
+  Comments = If no language is specified, this *implies* that the default local language is spoken. For animals, language is not a relevant field, and should be absent from the instance
+  CDA Mapping = patient.languageCommunication
+  v2 Mapping = LAN-2
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/languageCommunication/code
+  Committee Notes = Define proficiency and mode as extensions
+
+ -- Row 27 -----------------------------------
+  Element = Patient.communication
+  Card. = 0..*
+  UML = down
+  Short Label = A list of Languages which may be used to communicate with the patient about his or her health
+  Definition = Languages which may be used to communicate with the patient about his or her health
+  Requirements = If a patient does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest
+  Comments = If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes then you need multiple Patient.Communication associations.   For animals, language is not a relevant field, and should be absent from the instance. If the Patient does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required.
+  CDA Mapping = patient.languageCommunication
+  RIM Mapping = LanguageCommunication
+  Committee Notes = Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is \"no\" on modeCode and preferenceInd.
+
+ -- Row 28 -----------------------------------
+  Element = Patient.communication.language
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = Language
+  Short Label = The language which can be used to communicate with the patient about his or her health
+  Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
+  Requirements = Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect.
+  Comments = The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type
+  CDA Mapping = .languageCode
+  v2 Mapping = PID-15, LAN-2
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/languageCommunication/code
+
+ -- Row 29 -----------------------------------
+  Element = !Patient.communication.mode
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = LanguageAbilityMode
+  Short Label = Method of expression (e.g.,expressed written, received spoken)
+  Definition = A value representing the person\'s method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed
+  Requirements = A Person that can write English fairly well, but is not capable to understand
+  Comments = It\'s expected that modeCode and proficiencyLevelCode work in conjunction. It makes less sense to convey modeCode unless you want to distinctly denote someone proficiency for a particular mode. It\'s however perfectly acceptable to have a proficiencyLevelCode without a modeCode
+  CDA Mapping = .modeCode
+  v2 Mapping = LAN-3
+  RIM Mapping = modeCode
+
+ -- Row 30 -----------------------------------
+  Element = !Patient.communication.proficiencyLevel
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = LanguageAbilityProficiency
+  Short Label = How well understood/expressed
+  Definition = A code that describes how well the language is expressed or understood
+  Requirements = Depending on proficiency level, a common language that is useable to both the patient and the care provider can be chosen.
+  Comments = See comments for Person.language.modeCode
+  CDA Mapping = .proficiencyLevelCode
+  v2 Mapping = LAN-4
+  RIM Mapping = proficiencyLanguageCode
+
+ -- Row 31 -----------------------------------
+  Element = Patient.communication.preferred
+  Card. = 0..1
+  Type = boolean
+  Short Label = Language preference indicator
+  Definition = Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level)
+  Requirements = People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fall back method
+  Comments = This language is specifically identified for communicating healthcare information.
+  CDA Mapping = .preferenceInd
+  v2 Mapping = PID-15
+  RIM Mapping = preferenceInd
+
+ -- Row 32 -----------------------------------
+  Element = Patient.careProvider
+  Card. = 0..*
+  Type = Reference(Organization|Practitioner)
+  Short Label = Patient\'s nominated care provider
+  Definition = Patient\'s nominated care provider
+  Comments = This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disablity setting, or even organization that will provide people to perform the care provider roles.
+  CDA Mapping = n/a
+  v2 Mapping = PD1-4
+  RIM Mapping = subjectOf.CareEvent.performer.AssignedEntity
+  To Do = Need to rationalize this with circleOfCare from CarePlan
+
+ -- Row 33 -----------------------------------
+  Element = Patient.managingOrganization
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Organization)
+  Short Label = Organization that is the custodian of the patient record
+  Definition = Organization that is the custodian of the patient record
+  Requirements = Need to know who recognizes this patient record, manages and updates it
+  Comments = There is only one managing organization for a specific patient record. Other organizations will have their own Patient record, and may use the Link property to join the records together (or a Person resource which can include confidence ratings for the association)
+  CDA Mapping = .providerOrganization
+  RIM Mapping = scoper
+
+ -- Row 34 -----------------------------------
+  Element = Patient.link
+  Card. = 0..*
+  Is Modifier = y
+  UML = 300;90
+  Short Label = Link to another patient resource that concerns the same actual person
+  Definition = Link to another patient resource that concerns the same actual patient
+  Requirements = There are multiple usecases: * Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and * Distribution of patient information across multiple servers
+  Comments = There is no assumption that linked patient records have mutual links.
+  CDA Mapping = n/a
+  RIM Mapping = outboundLink
+
+ -- Row 35 -----------------------------------
+  Element = Patient.link.other
+  Card. = 1..1
+  Is Modifier = y
+  Type = Reference(Patient)
+  Short Label = The other patient resource that the link refers to
+  Definition = The other patient resource that the link refers to
+  CDA Mapping = n/a
+  v2 Mapping = PID-3, MRG-1
+  RIM Mapping = id
+
+ -- Row 36 -----------------------------------
+  Element = Patient.link.type
+  Card. = 1..1
+  Is Modifier = y
+  Type = code
+  Binding = LinkType
+  Short Label = replace | refer | seealso - type of link
+  Definition = The type of link between this patient resource and another patient resource.
+  CDA Mapping = n/a
+  RIM Mapping = typeCode
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A patient identifier
+  Path = Patient.identifier
+
+ -- Row 2 -----------------------------------
+  Name = name
+  Type = string
+  Description = A portion of either family or given name of the patient
+  Path = Patient.name
+
+ -- Row 3 -----------------------------------
+  Name = family
+  Type = string
+  Description = A portion of the family name of the patient
+  Path = Patient.name.family
+
+ -- Row 4 -----------------------------------
+  Name = given
+  Type = string
+  Description = A portion of the given name of the patient
+  Path = Patient.name.given
+
+ -- Row 5 -----------------------------------
+  Name = phonetic
+  Type = string
+  Description = A portion of either family or given name using some kind of phonetic matching algorithm
+  Path = Patient.name
+  Path Usage = phonetic
+
+ -- Row 6 -----------------------------------
+  Name = telecom
+  Type = token
+  Description = The value in any kind of telecom details of the patient
+  Path = Patient.telecom
+
+ -- Row 7 -----------------------------------
+  Name = phone
+  Type = token
+  Description = A value in a phone contact
+  Path = Patient.telecom(system=phone)
+
+ -- Row 8 -----------------------------------
+  Name = email
+  Type = token
+  Description = A value in an email contact
+  Path = Patient.telecom(system=email)
+
+ -- Row 9 -----------------------------------
+  Name = address
+  Type = string
+  Description = An address in any kind of address/part of the patient
+  Path = Patient.address
+
+ -- Row 10 -----------------------------------
+  Name = address-city
+  Type = string
+  Description = A city specified in an address
+  Path = Patient.address.city
+
+ -- Row 11 -----------------------------------
+  Name = address-state
+  Type = string
+  Description = A state specified in an address
+  Path = Patient.address.state
+
+ -- Row 12 -----------------------------------
+  Name = address-postalcode
+  Type = string
+  Description = A postalCode specified in an address
+  Path = Patient.address.postalCode
+
+ -- Row 13 -----------------------------------
+  Name = address-country
+  Type = string
+  Description = A country specified in an address
+  Path = Patient.address.country
+
+ -- Row 14 -----------------------------------
+  Name = address-use
+  Type = token
+  Description = A use code specified in an address
+  Path = Patient.address.use
+
+ -- Row 15 -----------------------------------
+  Name = gender
+  Type = token
+  Description = Gender of the patient
+  Path = Patient.gender
+
+ -- Row 16 -----------------------------------
+  Name = language
+  Type = token
+  Description = Language code (irrespective of use value)
+  Path = Patient.communication.language
+
+ -- Row 17 -----------------------------------
+  Name = birthdate
+  Type = date
+  Description = The patient\'s date of birth
+  Path = Patient.birthDate
+
+ -- Row 18 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The organization at which this person is a patient
+  Path = Patient.managingOrganization
+
+ -- Row 19 -----------------------------------
+  Name = careprovider
+  Type = reference
+  Description = Patient\'s nominated care provider, could be a care manager, not the organization that manages the record
+  Path = Patient.careProvider
+
+ -- Row 20 -----------------------------------
+  Name = active
+  Type = token
+  Description = Whether the patient record is active
+  Path = Patient.active
+
+ -- Row 21 -----------------------------------
+  Name = animal-species
+  Type = token
+  Description = The species for animal patients
+  Path = Patient.animal.species
+
+ -- Row 22 -----------------------------------
+  Name = animal-breed
+  Type = token
+  Description = The breed for animal patients
+  Path = Patient.animal.breed
+
+ -- Row 23 -----------------------------------
+  Name = link
+  Type = reference
+  Description = All patients linked to the given patient
+  Path = Patient.link.other
+
+ -- Row 24 -----------------------------------
+  Name = deceased
+  Type = token
+  Description = This patient has been marked as deceased, or as a death date entered
+  Path = Patient.deceased[x]
+
+ -- Row 25 -----------------------------------
+  Name = deathdate
+  Type = date
+  Description = The date of death has been provided and satisfies this search value
+  Path = Patient.deceased[x]
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Patient Extensions
+  IG Name = core
+  Filename = patient-extensions.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = !example1-patient-profile
+  IG Name = core
+  Filename = patient-example-profile1.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Person Example
+  Filename = patient-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Patient1
+  Identity = pat1
+  Description = Patient 1 for linking
+  Filename = patient-example-a.xml
+
+ -- Row 3 -----------------------------------
+  Name = Patient2
+  Identity = pat2
+  Description = Patient 2 for linking
+  Filename = patient-example-b.xml
+
+ -- Row 4 -----------------------------------
+  Name = Patient3
+  Identity = pat3
+  Description = Deceased patient (using time)
+  Filename = patient-example-c.xml
+
+ -- Row 5 -----------------------------------
+  Name = Patient4
+  Identity = pat4
+  Description = Deceased patient (using boolean)
+  Filename = patient-example-d.xml
+
+ -- Row 6 -----------------------------------
+  Name = Publishing
+  Identity = b248b1b2-1686-4b94-9936-37d7a5f94b51
+  Description = Stock people (defined by HL7 publishing)
+  Filename = patient-examples-general.xml
+
+ -- Row 7 -----------------------------------
+  Name = Cypress
+  Identity = b0a5e4277-83c4-4adb-87e2-e3efe3369b6f
+  Description = Example People from cypress project
+  Filename = patient-examples-cypress-template.xml
+  Type = csv
+
+ -- Row 8 -----------------------------------
+  Name = x-cda
+  Identity = xcda
+  Description = 2nd person example
+  Filename = patient-example-xcda.xml
+
+ -- Row 9 -----------------------------------
+  Name = xds
+  Identity = xds
+  Description = XDS Patient
+  Filename = patient-example-xds.xml
+
+ -- Row 10 -----------------------------------
+  Name = Animal
+  Identity = animal
+  Description = An example of an animal
+  Filename = patient-example-animal.xml
+
+ -- Row 11 -----------------------------------
+  Name = DICOM
+  Identity = dicom
+  Description = Taken from a DICOM sample
+  Filename = patient-example-dicom.xml
+
+ -- Row 12 -----------------------------------
+  Name = ihd-pcd
+  Identity = ihe-pcd
+  Description = Example from IHE-PCD example
+  Filename = patient-example-ihe-pcd.xml
+
+ -- Row 13 -----------------------------------
+  Name = PieterVdH
+  Identity = f001
+  Description = Real-world patient example (anonymized)
+  Filename = patient-example-f001-pieter.xml
+
+ -- Row 14 -----------------------------------
+  Name = RoelB
+  Identity = f201
+  Description = Real-world patient example (anonymized)
+  Filename = patient-example-f201-roel.xml
+
+ -- Row 15 -----------------------------------
+  Name = UsExtensions
+  Identity = us01
+  Description = Patient example showing US extensions
+  Filename = patient-example-us-extensions.xml
+
+ -- Row 16 -----------------------------------
+  Name = Glossy
+  Identity = glossy
+  Description = Example for glossy
+  Filename = patient-glossy-example.xml
+
+ -- Row 17 -----------------------------------
+  Name = Proband
+  Identity = proband
+  Description = Genetic Risk Assessment Person
+  Filename = patient-example-proband.xml
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = everything
+  Use = Resource | Instance
+  Documentation = This operation is used to return all the information related to patient described in the resource on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the patient resource itself is returned, along with any other resources that the server has available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, locations, organizations etc. The principle intended use for rhis operation is to provide a patient with access to their records (e.g. \"Blue Button\").  The server SHOULD return all resources that it has that are in the patient compartment for the identified patient, and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements (ref to be provided). Other applicable implementation guides may make additional rules about the information that is returned. Note: the expectations here will be refined after experience with this at connectathon.
+  Type = operation
+  Example.Request = $everything-request.txt
+  Example.Response = $everything-response.txt
+  Title = Fetch Patient Record
+  Footer = The key differences between this operation and simply searching the patient compartment are:  * unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) * the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones)  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Speciying the relationship between the context, a user and patient records is outside the scope of this specification.
+
+ -- Row 2 -----------------------------------
+  Name = everything.start
+  Use = in
+  Documentation = The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no date is provided, all records are in scope.
+  Type = date
+  Title = Start of date range
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = everything.end
+  Use = in
+  Documentation = The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no date is provided, all records are in scope.
+  Type = date
+  Title = End of date range
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = everything.return
+  Use = out
+  Documentation = The bundle type is \"searchset\"
+  Type = Bundle
+  Title = Returned resources
+  Min = 1
+  Max = 1

@@ -1,0 +1,220 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = FamilialRelationship
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-FamilyMember
+  Definition = The nature of the relationship between the patient and the related person being described in the family member history
+
+ -- Row 2 -----------------------------------
+  Binding Name = ConditionOutcome
+  Binding = unbound
+  Definition = The result of the condition for the patient.  E.g. death, permanent disability, temporary disability, etc.
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = FamilyMemberHistory
+  English = Can have age[x] or birth[x], but not both
+  XPath = not (*[starts-with(local-name(.), \'age\')] and *[starts-with(local-name(.), \'birth\')])
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = FamilyMemberHistory
+  Type = DomainResource
+  Short Label = Information about patient\'s relatives, relevant for patient
+  Definition = Significant health events and conditions for a person related to the patient relevant in the context of care for the patient
+  v2 Mapping = Not in scope for v2
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = FamilyMemberHistory.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = External Id(s) for this record
+  Definition = This records identifiers associated with this family member history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Requirements = Need to allow connection to a wider workflow
+  RIM Mapping = id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = FamilyMemberHistory.patient
+  Card. = 1..1
+  Aliases = Proband
+  Summary = y
+  Type = Reference(Patient)
+  Short Label = Patient history is about
+  Definition = The person who this history concerns
+  RIM Mapping = participation[typeCode=SBJ].role
+  Committee Notes = [#3703]
+  w5 = who.focus
+
+ -- Row 4 -----------------------------------
+  Element = FamilyMemberHistory.date
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = When history was captured/updated
+  Definition = The date (and possibly time) when the family member history was taken
+  Requirements = Allows determination of how current the summary is
+  Comments = This should be captured even if the same as the date on the List aggregating the full family history
+  RIM Mapping = participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 5 -----------------------------------
+  Element = FamilyMemberHistory.name
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = The family member described
+  Definition = This will either be a name or a description.  E.g. \"Aunt Susan\", \"my cousin with the red hair\"
+  Requirements = Allows greater ease in ensuring the same person is being talked about
+  RIM Mapping = name
+
+ -- Row 6 -----------------------------------
+  Element = FamilyMemberHistory.relationship
+  Card. = 1..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = FamilialRelationship
+  Short Label = Relationship to the subject
+  Definition = The type of relationship this person has to the patient (father, mother, brother etc.)
+  RIM Mapping = code
+
+ -- Row 7 -----------------------------------
+  Element = FamilyMemberHistory.gender
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = AdministrativeGender
+  Short Label = male | female | other | unknown
+  Definition = Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
+  Requirements = Not all relationship codes imply gender and the relative\'s gender can be relevant for risk assessments
+
+ -- Row 8 -----------------------------------
+  Element = FamilyMemberHistory.born[x]
+  Card. = 0..1
+  Inv. = 1
+  Type = Period | date | string
+  Short Label = (approximate) date of birth
+  Definition = The actual or approximate date of birth of the relative
+  Requirements = Allows calculation of the relative\'s age
+  RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE]. birthDate (could be URG)
+
+ -- Row 9 -----------------------------------
+  Element = FamilyMemberHistory.age[x]
+  Card. = 0..1
+  Inv. = 1
+  Type = Age | Range | string
+  Short Label = (approximate) age
+  Definition = The actual or approximate age of the relative at the time the family member history is recorded
+  Requirements = While age can be calculated from date of birth, sometimes recording age directly is more natureal for clinicians.
+  RIM Mapping = participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=\"age\"].value
+
+ -- Row 10 -----------------------------------
+  Element = FamilyMemberHistory.deceased[x]
+  Card. = 0..1
+  Type = boolean | Age | Range | date | string
+  Short Label = Dead? How old/when?
+  Definition = The actual or approximate age of the relative at the time the family member history is recorded
+  RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)\n\nFor age, you\'d hang an observation off the role
+
+ -- Row 11 -----------------------------------
+  Element = FamilyMemberHistory.note
+  Card. = 0..1
+  Type = string
+  Short Label = General note about related person
+  Definition = This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
+  RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value
+
+ -- Row 12 -----------------------------------
+  Element = FamilyMemberHistory.condition
+  Card. = 0..*
+  UML = right
+  Short Label = Condition that the related person had
+  Definition = The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
+  Comments = If none of the conditions listed have an outcome of \"death\" specified, that indicates that none of the specified conditions are known to have been the primary cause of death
+  RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION, value<Diagnosis]
+
+ -- Row 13 -----------------------------------
+  Element = FamilyMemberHistory.condition.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Label = Condition suffered by relation
+  Definition = The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like \'cancer\' depending on how much is known about the condition and the capabilities of the creating system
+  RIM Mapping = .value
+
+ -- Row 14 -----------------------------------
+  Element = FamilyMemberHistory.condition.outcome
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ConditionOutcome
+  Short Label = deceased | permanent disability | etc.
+  Definition = Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.
+  RIM Mapping = outboundRelationship[typeCode=OUTC)].target[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION].value
+
+ -- Row 15 -----------------------------------
+  Element = FamilyMemberHistory.condition.onset[x]
+  Card. = 0..1
+  Type = Age | Range | string
+  Short Label = When condition first manifested
+  Definition = Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.
+  Requirements = Age of onset of a condition in relatives is predictive of risk for the patient
+  RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"Subject Age at measurement\", value<Diagnosis].value[@xsi:typeCode=\'TS\' or \'IVL_TS\']\n\nUse originalText for string
+  To Do = Define/find appropriate observation code
+
+ -- Row 16 -----------------------------------
+  Element = FamilyMemberHistory.condition.note
+  Card. = 0..1
+  Type = string
+  Short Label = Extra information about condition
+  Definition = An area where general notes can be placed about this specific condition.
+  RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = date
+  Type = date
+  Path = FamilyMemberHistory.date
+
+ -- Row 2 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a subject to list family member history items for
+  Path = FamilyMemberHistory.patient
+  Target Types = Patient
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = GeneticPedigree
+  IG Name = core
+  Filename = familymemberhistory-genetics-pedigree.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = familymemberhistory-extensions
+  IG Name = core
+  Filename = familymemberhistory-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Father
+  Identity = father
+  Description = Basic Example. Describes the fathers death at age 74 from a heart attack
+  Filename = familymemberhistory-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Mother
+  Identity = mother
+  Description = Mother died from a stroke aged 56. Brother with diabetes.
+  Filename = familymemberhistory-example-mother.xml
+
+=== Sheet Examples =====================================

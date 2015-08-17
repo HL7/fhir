@@ -1,0 +1,42 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Annotation
+  Type = Type
+  Short Label = Text node with attribution
+  Definition = A  text note which also  contains information about who made the statement and when
+  Comments = For systems that do not have structured annotations, they can simply communicate a single annotation with no author or time. \nThis element may need to be included in narrative because of the potential for modifying information. \n*Annotations SHOULD NOT* be used to communicate \"modifying\" information that could be computable. (This is a SHOULD because enforcing user behavior is nearly impossible)
+  v2 Mapping = N/A
+  RIM Mapping = Act
+
+ -- Row 2 -----------------------------------
+  Element = Annotation.author[x]
+  Card. = 0..1
+  Type = Reference(Practitioner|Patient|RelatedPerson)|string
+  Short Label = Individual responsible for the annotation
+  Definition = The individual responsible for making the annotation.
+  v2 Mapping = N/A
+  RIM Mapping = Act.participant[typeCode=AUT].role
+
+ -- Row 3 -----------------------------------
+  Element = Annotation.time
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When the annotation was made
+  Definition = Indicates when this particular annotation was made
+  v2 Mapping = N/A
+  RIM Mapping = Act.effectiveTime
+
+ -- Row 4 -----------------------------------
+  Element = Annotation.text
+  Card. = 1..1
+  Type = string
+  Short Label = The annotation  - text content
+  Definition = The text of the annotation
+  v2 Mapping = N/A
+  RIM Mapping = Act.text

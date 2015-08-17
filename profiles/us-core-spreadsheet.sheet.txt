@@ -1,0 +1,37 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = Race
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-Race
+  Definition = A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = Ethnicity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-Ethnicity
+  Definition = A code classifying the person into a named category of humans sharing a common real or presumed heritage.
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = Religion
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation
+  Definition = A code classifying a person\'s professed religion
+  Conformance = required
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = race
+  Type = token
+  Description = Returns patients with a race extension matching the specified code.
+  Path = Patient.extension{http://hl7.org/fhir/StructureDefinition/us-core-race}
+
+ -- Row 2 -----------------------------------
+  Name = ethnicity
+  Type = token
+  Description = Returns patients with an ethnicity extension matching the specified code.
+  Path = Patient.extension{http://hl7.org/fhir/StructureDefinition/us-core-ethnicity}

@@ -1,0 +1,31 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ParentRelationshipType
+  Binding = Value Set
+  Reference = valueset-parent-relationship-codes
+  Definition = Parental relationship types
+  Conformance = required
+
+=== Sheet FamilyMemberHistory-Genetic =====================================
+
+ -- Row 1 -----------------------------------
+  Element = FamilyMemberHistory
+  Profile Name = GeneticPedigreeFamilyMemberHistory
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = FamilyMemberHistory.extension
+  Profile Name = Parent
+  Card. = 0..*
+  Must Support = Y
+  Type = Extension{#parent}
+
+ -- Row 3 -----------------------------------
+  Element = FamilyMemberHistory.extension
+  Profile Name = Observation
+  Card. = 0..*
+  Type = Extension{#observation}
+
+=== Sheet Search =====================================

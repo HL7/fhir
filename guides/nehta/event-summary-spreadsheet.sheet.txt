@@ -1,0 +1,1546 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = SubstanceAgentValues
+  Binding = value set
+  Reference = valueset-nehta-SubstanceAgentValues
+  Definition = The set of values for the agent or substance causing the adverse reaction experienced by the subject of care.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.15521
+
+ -- Row 2 -----------------------------------
+  Binding Name = ClinicalManifestationValues
+  Binding = value set
+  Reference = valueset-nehta-ClinicalManifestationValues
+  Definition = The set of values for recording clinical manifestation of an adverse reaction.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.15564
+
+ -- Row 3 -----------------------------------
+  Binding Name = AdverseReactionTypeValues
+  Definition = The set of values for the type of adverse reaction.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.15554
+
+ -- Row 4 -----------------------------------
+  Binding Name = MedicinesTerminology
+  Binding = value set
+  Reference = valueset-nehta-MedicinesTerminology
+  Definition = A set of values used to refer to medicines and other therapeutic goods.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16115
+
+ -- Row 5 -----------------------------------
+  Binding Name = ChangeTypeValues
+  Definition = The set of values for Change Type .
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16592
+
+ -- Row 6 -----------------------------------
+  Binding Name = ChangeStatusValues
+  Definition = The set of values for Change Status .
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16626
+
+ -- Row 7 -----------------------------------
+  Binding Name = ProblemDiagnosisReferenceSet
+  Definition = The Problem/Diagnosis reference set provides terminology to support the recording of a subject of care problem or diagnosis for medical records within Australia.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16617
+
+ -- Row 8 -----------------------------------
+  Binding Name = ProcedureFoundationReferenceSet
+  Definition = The Procedure foundation reference set provides the broadest possible terminology to support the recording of clinical interventions in Australian eHealth implementations.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16580
+
+ -- Row 9 -----------------------------------
+  Binding Name = PathologyTestResultNameValues
+  Definition = Set of values for the names of pathology tests requested or performed.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.11017
+
+ -- Row 10 -----------------------------------
+  Binding Name = DiagnosticServiceValues
+  Definition = Set of values for the type of diagnostic service.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16148
+
+ -- Row 11 -----------------------------------
+  Binding Name = SpecimenTypeValues
+  Definition = The set of values for the categorisation of the sample taken from an individual and submitted for pathology investigation.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.11008
+
+ -- Row 12 -----------------------------------
+  Binding Name = CollectionProcedureValues
+  Definition = The set of values for the method of collection to be used, e.g. venepuncture, biopsy, resection.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16110
+
+ -- Row 13 -----------------------------------
+  Binding Name = BodyStructureFoundationReferenceSet
+  Definition = The set of values for named anatomical locations.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16152
+
+ -- Row 14 -----------------------------------
+  Binding Name = LateralityReferenceSet
+  Definition = The set of values for identifying the laterality of an anatomical location.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16312
+
+ -- Row 15 -----------------------------------
+  Binding Name = SamplingPreconditionsValues
+  Definition = The set of values for any conditions to be met before the sample should be taken e.g. fasting, \'full bladder\', \'sterile field\' or any special instructions on the handling or immediate processing of the sample e.g. centrifuge on receipt.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16170
+
+ -- Row 16 -----------------------------------
+  Binding Name = PathologyTestResultStatusValues
+  Binding = code list
+  Reference = #pathology-test-result-status-va
+  Definition = Set of values for the pathology test result status.
+  Conformance = Required
+  Oid = 1.2.36.1.2001.1001.101.104.16488
+
+ -- Row 17 -----------------------------------
+  Binding Name = IndividualPathologyTestResultNameValues
+  Definition = Set of values for the names of individual pathology tests performed.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16571
+
+ -- Row 18 -----------------------------------
+  Binding Name = ResultValueValues
+  Definition = Set of values for Pathology Test Result Value .
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.11023
+
+ -- Row 19 -----------------------------------
+  Binding Name = NormalStatusValues
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.11028
+
+ -- Row 20 -----------------------------------
+  Binding Name = ReferenceRangeMeaningValues
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16574
+
+ -- Row 21 -----------------------------------
+  Binding Name = PathologicalDiagnosisValues
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16401
+
+ -- Row 22 -----------------------------------
+  Binding Name = ImagingExaminationResultNameValues
+  Definition = A terminology for Examination Result name, potientially pre-coordinated terms specifying both modality and anatomical location. Possible candidate terminologies: LOINC, SNOMED CT or RadLex.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16497
+
+ -- Row 23 -----------------------------------
+  Binding Name = ImagingModalityValues
+  Definition = Values of imaging method, e.g. Ultrasound, CT, X-ray.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16499
+
+ -- Row 24 -----------------------------------
+  Binding Name = ImagingExaminationResultStatusValues
+  Binding = code list
+  Reference = #imaging-examination-result-stat
+  Definition = Set of values for the imaging examination result status.
+  Conformance = Required
+  Oid = 1.2.36.1.2001.1001.101.104.16501
+
+ -- Row 25 -----------------------------------
+  Binding Name = ImagingExamResultGroupNameValues
+  Definition = Results may be grouped by anatomical location or by some other name or code to describe what binds all the results together. If a name or code is used, it is provided by run-time re-naming of the \'Result group\' element or may be fixed in a specialised archetype or template. Should be coded with LOINC or SNOMED CT.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16563
+
+ -- Row 26 -----------------------------------
+  Binding Name = ImageViewNameValues
+  Definition = The set of values for the description of the view taken.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.16518
+
+ -- Row 27 -----------------------------------
+  Binding Name = RequestedServiceDescriptionValues
+  Definition = The set of values for the service arranged for, or provided to, the patient.
+  Conformance = Preferred
+  Oid = 1.2.36.1.2001.1001.101.104.20117
+
+ -- Row 28 -----------------------------------
+  Binding Name = ServiceBookingStatusValues
+  Binding = code list
+  Reference = #service-booking-status-values
+  Definition = The set of values that indicate the booking status of the arranged service.
+  Conformance = Required
+  Oid = 1.2.36.1.2001.1001.101.104.16055
+
+=== Sheet pathology-test-result-status-va =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = 1
+  Display = Registered
+  Definition = No result yet available.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = 2
+  Display = Interim
+  Definition = This is an initial or interim result: data may be missing or verification has not been performed.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = 3
+  Display = Final
+  Definition = The result is complete and verified by the responsible pathologist.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = 4
+  Display = Amended
+  Definition = The result has been modified subsequent to being Final, and is complete and verified by the responsible pathologist.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = 5
+  Display = Cancelled/Aborted
+  Definition = The result is unavailable because the test was not started or not completed.
+
+=== Sheet imaging-examination-result-stat =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = 1
+  Display = Registered
+  Definition = No result yet available.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = 2
+  Display = Interim
+  Definition = This is an initial or interim result: data may be missing or verification has not been performed.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = 3
+  Display = Final
+  Definition = The result is complete and verified by the responsible radiologist.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = 4
+  Display = Amended
+  Definition = The result has been modified subsequent to being Final, and is complete and verified by the radiologist.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = 5
+  Display = Cancelled/Aborted
+  Definition = The result is not available because the examination was not started or completed.
+
+=== Sheet service-booking-status-values =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = APT
+  Display = Appointment
+  Definition = Planned act for specific time and place
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = ARQ
+  Display = Appointment Request
+  Definition = Request for Booking of an Appointment
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = EVN
+  Display = Event
+  Definition = Service actually happens or happened or is ongoing
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = INT
+  Display = Intent
+  Definition = Plan to perform a service
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = PRMS
+  Display = Promise
+  Definition = An intent to perform a service
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = PRP
+  Display = Proposal
+  Definition = Non-mandated intent to perform an act
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = RQO
+  Display = Request
+  Definition = Request or Order for a service
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = EventSummary
+  Type = Logical
+  Short Label = Event Summary
+  Definition = A record, reported by a clinician, of one significant health care event involving the subject of care.
+
+ -- Row 2 -----------------------------------
+  Element = EventSummary.subjectofCare
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Subject of Care
+  Definition = Person who receives healthcare services.
+
+ -- Row 3 -----------------------------------
+  Element = EventSummary.documentAuthor
+  Card. = 1..1
+  Type = Reference(Patient|Practitioner|RelatedPerson|Device)
+  Short Label = Document Author
+  Definition = Composer of the document.
+
+ -- Row 4 -----------------------------------
+  Element = EventSummary.encounter
+  Card. = 1..1
+  Type = *
+  Short Label = Encounter
+  Definition = Encounter between a subject of care and a health system.
+
+ -- Row 5 -----------------------------------
+  Element = EventSummary.encounter.dateTimeHealthEventStarted
+  Card. = 0..1
+  Type = dateTime
+  Short Label = DateTime Health Event Started
+  Definition = The date or date and time that the health event to which the Event Summary document relates was started.
+
+ -- Row 6 -----------------------------------
+  Element = EventSummary.encounter.dateTimeHealthEventEnded
+  Card. = 1..1
+  Type = dateTime
+  Short Label = DateTime Health Event Ended
+  Definition = The date or date and time that the health event to which the Event Summary document relates was completed.
+
+ -- Row 7 -----------------------------------
+  Element = EventSummary.documentType
+  Card. = 1..1
+  Type = Identifier
+  Short Label = Document Type
+  Definition = Type of document.
+
+ -- Row 8 -----------------------------------
+  Element = EventSummary.dateTimeAttested
+  Card. = 1..1
+  Type = dateTime
+  Short Label = DateTime Attested
+  Definition = The date and time that the document author or document authoriser or approver confirms that a document is complete and genuine.
+
+ -- Row 9 -----------------------------------
+  Element = EventSummary.eventOverview
+  Card. = 0..1
+  Type = *
+  Short Label = Event Overview
+  Definition = Summary information concerning the event.
+
+ -- Row 10 -----------------------------------
+  Element = EventSummary.eventOverview.clinicalSynopsis
+  Card. = 1..1
+  Type = *
+  Short Label = Clinical Synopsis
+  Definition = Summary information or comments about the clinical management of the patient, and the prognosis of diagnoses or problems identified during the healthcare encounter. It may also include health-related information pertinent to the patient, and a clinical interpretation of relevant investigations and observations performed on the patient (including pathology and diagnostic imaging).
+
+ -- Row 11 -----------------------------------
+  Element = EventSummary.eventOverview.clinicalSynopsis.description
+  Card. = 1..1
+  Type = string
+  Short Label = Clinical Synopsis Description
+  Definition = Short description, overview or summary of a clinical event and its reasons.
+
+ -- Row 12 -----------------------------------
+  Element = EventSummary.adverseReactions
+  Card. = 0..1
+  Type = *
+  Short Label = Adverse Reactions
+  Definition = Information about adverse reactions of the patient (including allergies and intolerances), and any relevant reaction details. This includes statements about adverse reactions that need to be positively recorded as absent or excluded.
+
+ -- Row 13 -----------------------------------
+  Element = EventSummary.adverseReactions.adverseReaction
+  Card. = 1..*
+  Type = *
+  Short Label = Adverse Reaction
+  Definition = A harmful or undesirable effect associated with exposure to any substance or agent.
+
+ -- Row 14 -----------------------------------
+  Element = EventSummary.adverseReactions.adverseReaction.substanceAgent
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = SubstanceAgentValues
+  Short Label = Substance/Agent
+  Definition = Identification of a substance, agent, or a class of substance, that is considered to be responsible for the adverse reaction.
+
+ -- Row 15 -----------------------------------
+  Element = EventSummary.adverseReactions.adverseReaction.event
+  Card. = 0..1
+  Type = *
+  Short Label = Reaction Event
+  Definition = Details about each adverse reaction event.
+
+ -- Row 16 -----------------------------------
+  Element = EventSummary.adverseReactions.adverseReaction.event.manifestation
+  Card. = 1..*
+  Type = CodeableConcept
+  Binding = ClinicalManifestationValues
+  Short Label = Manifestation
+  Definition = Presentation or exhibition of signs and symptoms of the adverse reaction expressed as a single word, phrase or brief description.
+
+ -- Row 17 -----------------------------------
+  Element = EventSummary.adverseReactions.adverseReaction.event.reactionType
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = AdverseReactionTypeValues
+  Short Label = Reaction Type
+  Definition = The type of reaction, as determined by the clinician.
+
+ -- Row 18 -----------------------------------
+  Element = EventSummary.medicationOrders
+  Card. = 0..1
+  Type = *
+  Short Label = Medication Orders
+  Definition = Medicines that the subject of care is using.
+
+ -- Row 19 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction
+  Card. = 1..*
+  Type = *
+  Short Label = Medication Instruction
+  Definition = Information pertaining to one or more therapeutic goods that is represented to achieve, or is likely to achieve, its principal intended action by pharmacological, chemical, immunological or metabolic means in or on the body of a human.
+
+ -- Row 20 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction.therapeuticGoodIdentification
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = MedicinesTerminology
+  Short Label = Therapeutic Good Identification
+  Definition = The medicine, vaccine or other therapeutic good being ordered for, administered to or used by the subject of care.
+
+ -- Row 21 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction.directions
+  Card. = 1..1
+  Type = string
+  Short Label = Directions
+  Definition = A complete narrative description of how much, when and how to use the medicine, vaccine or other therapeutic good.
+
+ -- Row 22 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction.clinicalIndication
+  Card. = 0..1
+  Type = string
+  Short Label = Clinical Indication
+  Definition = Reason for ordering the medicine, vaccine or other therapeutic good.
+
+ -- Row 23 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Medication Instruction Comment
+  Definition = Any additional information that may be needed to ensure the continuity of supply, rationale for current dose and timing, or safe and appropriate use.
+
+ -- Row 24 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction.changeType
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ChangeTypeValues
+  Short Label = Change Type
+  Definition = The way in which this instruction differs from the previous instruction.
+
+ -- Row 25 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction.changeStatus
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ChangeStatusValues
+  Short Label = Change Status
+  Definition = Identifies whether the change has already been made or is a recommendation that has not been made.
+
+ -- Row 26 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction.changeDescription
+  Card. = 0..1
+  Type = string
+  Short Label = Change Description
+  Definition = Description of the change in the subject of care\'s medication item information.
+
+ -- Row 27 -----------------------------------
+  Element = EventSummary.medicationOrders.medicationInstruction.changeorRecommendationReason
+  Card. = 0..1
+  Type = string
+  Short Label = Change or Recommendation Reason
+  Definition = The justification for the stated change in medication.
+
+ -- Row 28 -----------------------------------
+  Element = EventSummary.medicalHistory
+  Card. = 0..1
+  Type = *
+  Short Label = Medical History
+  Definition = Information about the subject of care\'s problems, diagnoses and medical or surgical procedures.
+
+ -- Row 29 -----------------------------------
+  Element = EventSummary.medicalHistory.problemDiagnosis
+  Card. = 0..*
+  Type = *
+  Short Label = Problem/Diagnosis
+  Definition = A health condition that, as determined by a clinician, may have impact on the physical, mental or social well-being of a person. A diagnosis is determined by scientific evaluation of pathological and pathophysiological findings identified from the patient\'s clinical history, family history, physical examination and diagnostic investigations.
+
+ -- Row 30 -----------------------------------
+  Element = EventSummary.medicalHistory.problemDiagnosis.identification
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ProblemDiagnosisReferenceSet
+  Short Label = Problem/Diagnosis Identification
+  Definition = Identification of the problem or diagnosis.
+
+ -- Row 31 -----------------------------------
+  Element = EventSummary.medicalHistory.problemDiagnosis.dateofOnset
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Date of Onset
+  Definition = Estimated or actual date the problem or diagnosis began, as indicated or identified by the clinician.
+
+ -- Row 32 -----------------------------------
+  Element = EventSummary.medicalHistory.problemDiagnosis.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Problem/Diagnosis Comment
+  Definition = Additional narrative about the problem or diagnosis not captured in other fields.
+
+ -- Row 33 -----------------------------------
+  Element = EventSummary.medicalHistory.procedure
+  Card. = 0..*
+  Type = *
+  Short Label = Procedure
+  Definition = A clinical activity carried out for therapeutic, evaluative, investigative, screening or diagnostic purposes.
+
+ -- Row 34 -----------------------------------
+  Element = EventSummary.medicalHistory.procedure.name
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ProcedureFoundationReferenceSet
+  Short Label = Procedure Name
+  Definition = The name of the procedure (to be) performed.
+
+ -- Row 35 -----------------------------------
+  Element = EventSummary.medicalHistory.procedure.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Procedure Comment
+  Definition = Additional narrative about the procedure not captured in other fields.
+
+ -- Row 36 -----------------------------------
+  Element = EventSummary.medicalHistory.procedure.dateTime
+  Card. = 1..1
+  Type = Period
+  Short Label = Procedure DateTime
+  Definition = Date, and optionally time, of the Procedure action.
+
+ -- Row 37 -----------------------------------
+  Element = EventSummary.medicalHistory.uncategorisedMedicalHistoryItem
+  Card. = 0..*
+  Type = *
+  Short Label = Uncategorised Medical History Item
+  Definition = A medical history entry that has not been categorised as either Procedure or Problem/Diagnosis .
+
+ -- Row 38 -----------------------------------
+  Element = EventSummary.medicalHistory.uncategorisedMedicalHistoryItem.description
+  Card. = 1..1
+  Type = string
+  Short Label = Medical History Item Description
+  Definition = A description of the problem, diagnosis or procedure as a medical history item.
+
+ -- Row 39 -----------------------------------
+  Element = EventSummary.medicalHistory.uncategorisedMedicalHistoryItem.timeInterval
+  Card. = 0..1
+  Type = Period
+  Short Label = Medical History Item TimeInterval
+  Definition = The date range during which the problem or diagnosis applied or the procedure occurred.
+
+ -- Row 40 -----------------------------------
+  Element = EventSummary.medicalHistory.uncategorisedMedicalHistoryItem.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Medical History Item Comment
+  Definition = Additional narrative about the problem, diagnosis or procedure.
+
+ -- Row 41 -----------------------------------
+  Element = EventSummary.immunisations
+  Card. = 0..1
+  Type = *
+  Short Label = Immunisations
+  Definition = Information about vaccines given to the subject of care.
+
+ -- Row 42 -----------------------------------
+  Element = EventSummary.immunisations.medicationAction
+  Card. = 1..*
+  Type = *
+  Short Label = Medication Action
+  Definition = The act of administering a dose of a vaccine to a person for the purpose of preventing or minimising the effects of a disease by producing immunity or to counter the effects of an infectious organism.
+
+ -- Row 43 -----------------------------------
+  Element = EventSummary.immunisations.medicationAction.therapeuticGoodIdentification
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = MedicinesTerminology
+  Short Label = Therapeutic Good Identification
+  Definition = The medicine, vaccine or other therapeutic good being ordered for, administered to or used by the subject of care.
+
+ -- Row 44 -----------------------------------
+  Element = EventSummary.immunisations.medicationAction.dateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Medication Action DateTime
+  Definition = Date, and optionally time, that the medication action is completed.
+
+ -- Row 45 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations
+  Card. = 0..1
+  Type = *
+  Short Label = Diagnostic Investigations
+  Definition = Describes the diagnostic tests or procedures performed on or requested for the subject of care during the healthcare event, that are considered to be relevant to the subject of care’s ongoing care.
+
+ -- Row 46 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult
+  Card. = 0..*
+  Type = *
+  Short Label = Pathology Test Result
+  Definition = The result of a laboratory test which may be used to record a single valued test but will often be specialised or templated to represent multiple value or \'panel\' tests.
+
+ -- Row 47 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.name
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = PathologyTestResultNameValues
+  Short Label = Pathology Test Result Name
+  Definition = Identification of the pathology test performed, sometimes including specimen type.
+
+ -- Row 48 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.diagnosticService
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = DiagnosticServiceValues
+  Short Label = Diagnostic Service
+  Definition = The diagnostic service that performs the examination.
+
+ -- Row 49 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen
+  Card. = 1..*
+  Type = *
+  Short Label = Specimen
+  Definition = Details about specimens to which this test result refers.
+
+ -- Row 50 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.tissueType
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = SpecimenTypeValues
+  Short Label = Specimen Tissue Type
+  Definition = The type of specimen to be collected.
+
+ -- Row 51 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.collectionProcedure
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CollectionProcedureValues
+  Short Label = Collection Procedure
+  Definition = The method of collection to be used.
+
+ -- Row 52 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.anatomicalLocation
+  Card. = 0..*
+  Type = *
+  Short Label = Anatomical Location
+  Definition = The anatomical site from where the specimen was taken.
+
+ -- Row 53 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.anatomicalLocation.specificLocation
+  Card. = 0..1
+  Type = *
+  Short Label = Specific Location
+  Definition = Specific and identified anatomical location.
+
+ -- Row 54 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.anatomicalLocation.specificLocation.anatomicalLocationName
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = BodyStructureFoundationReferenceSet
+  Short Label = Anatomical Location Name
+  Definition = The name of the anatomical location.
+
+ -- Row 55 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.anatomicalLocation.specificLocation.side
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = LateralityReferenceSet
+  Short Label = Side
+  Definition = The laterality of the anatomical location.
+
+ -- Row 56 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.anatomicalLocation.description
+  Card. = 0..1
+  Type = string
+  Short Label = Anatomical Location Description
+  Definition = Description of the anatomical location.
+
+ -- Row 57 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.anatomicalLocation.image
+  Card. = 0..*
+  Type = base64Binary
+  Short Label = Anatomical Location Image
+  Definition = An image or images used to identify a location.
+
+ -- Row 58 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.physicalPropertiesofanObject
+  Card. = 0..*
+  Type = *
+  Short Label = Physical Properties of an Object
+  Definition = Record of physical details, such as weight and dimensions, of a body part, device, lesion or specimen.
+
+ -- Row 59 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.physicalPropertiesofanObject.weight
+  Card. = 0..1
+  Type = Quantity
+  Short Label = Weight
+  Definition = Property of a body – commonly, but inadequately, defined as the quantity of matter in it – to which its inertia is ascribed, and expressed as the weight of the body divided by the acceleration due to gravity.
+
+ -- Row 60 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.physicalPropertiesofanObject.dimensions
+  Card. = 0..1
+  Type = *
+  Short Label = Dimensions
+  Definition = The dimensions of the object.
+
+ -- Row 61 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.physicalPropertiesofanObject.dimensions.volume
+  Card. = 0..1
+  Type = Quantity
+  Short Label = Volume
+  Definition = Size, measure or amount of anything in three dimensions; space occupied by a body or substance measured in cubic units.
+
+ -- Row 62 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.physicalPropertiesofanObject.objectDescription
+  Card. = 0..1
+  Type = string
+  Short Label = Object Description
+  Definition = A description of other physical characteristics of the object.
+
+ -- Row 63 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.physicalPropertiesofanObject.image
+  Card. = 0..1
+  Type = base64Binary
+  Short Label = Image
+  Definition = A picture of the object.
+
+ -- Row 64 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.collectionandHandling
+  Card. = 0..1
+  Type = *
+  Short Label = Collection and Handling
+  Definition = Collection and handling requirements.
+
+ -- Row 65 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.collectionandHandling.samplingPreconditions
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = SamplingPreconditionsValues
+  Short Label = Sampling Preconditions
+  Definition = Any conditions to be met before the sample should be taken.
+
+ -- Row 66 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.handlingandProcessing
+  Card. = 1..1
+  Type = *
+  Short Label = Handling and Processing
+  Definition = Workflow of specimen processing or handling.
+
+ -- Row 67 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.handlingandProcessing.collectionDateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Collection DateTime
+  Definition = The date and time that the collection has been ordered to take place or has taken place.
+
+ -- Row 68 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.handlingandProcessing.collectionSetting
+  Card. = 0..1
+  Type = string
+  Short Label = Collection Setting
+  Definition = Identification of the setting at which the specimen was collected from a subject of care.
+
+ -- Row 69 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.handlingandProcessing.dateTimeReceived
+  Card. = 0..1
+  Type = dateTime
+  Short Label = DateTime Received
+  Definition = The date and time that the sample was received at the laboratory.
+
+ -- Row 70 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.identifiers
+  Card. = 0..1
+  Type = *
+  Short Label = Identifiers
+  Definition = Sample identifications.
+
+ -- Row 71 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.identifiers.specimenIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Specimen Identifier
+  Definition = Unique identifier of the specimen, normally assigned by the laboratory.
+
+ -- Row 72 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.identifiers.parentSpecimenIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Parent Specimen Identifier
+  Definition = Unique identifier of the parent specimen where the specimen is split into sub-samples.
+
+ -- Row 73 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.specimen.identifiers.containerIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Container Identifier
+  Definition = Unique identifier given to the container in which the specimen is transported or processed.
+
+ -- Row 74 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.overallPathologyTestResultStatus
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = PathologyTestResultStatusValues
+  Short Label = Overall Pathology Test Result Status
+  Definition = The status of the pathology test result as a whole.
+
+ -- Row 75 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.clinicalInformationProvided
+  Card. = 0..1
+  Type = string
+  Short Label = Clinical Information Provided
+  Definition = Description or summary of relevant, prior clinical information that may help in determining the test(s) to be performed, or interpreting the result when compiling or reading the report.
+
+ -- Row 76 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group
+  Card. = 0..*
+  Type = *
+  Short Label = Pathology Test Result Group
+  Definition = A group of results that form all or part of a recognisable pathology test.
+
+ -- Row 77 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.name
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = PathologyTestResultNameValues
+  Short Label = Pathology Test Result Group Name
+  Definition = The name of a group of pathology test results.
+
+ -- Row 78 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult
+  Card. = 1..*
+  Type = *
+  Short Label = Individual Pathology Test Result
+  Definition = Specific detailed result of a pathology test, including both the value of the result item, and additional information that may be useful for clinical interpretation.
+
+ -- Row 79 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.name
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = IndividualPathologyTestResultNameValues
+  Short Label = Individual Pathology Test Result Name
+  Definition = The name of an individual pathology test result.
+
+ -- Row 80 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.value
+  Card. = 0..1
+  Type = *
+  Short Label = Individual Pathology Test Result Value
+  Definition = Value of the result, with reference range information.
+
+ -- Row 81 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.value.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ResultValueValues
+  Short Label = Individual Pathology Test Result Value
+  Definition = The actual value of the result.
+
+ -- Row 82 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.value.referenceRangeDetails
+  Card. = 0..1
+  Type = *
+  Short Label = Reference Range Details
+  Definition = One or more reference ranges applicable to the Individual Pathology Test Result Value .
+
+ -- Row 83 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.value.referenceRangeDetails.normalStatus
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = NormalStatusValues
+  Short Label = Normal Status
+  Definition = An indication of the degree of diagnostically significant abnormality of the value, based on available clinical information (including but not limited to the reference range).
+
+ -- Row 84 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.value.referenceRangeDetails.referenceRange
+  Card. = 0..*
+  Type = *
+  Short Label = Reference Range
+  Definition = A named range to be associated with any quantity datum.
+
+ -- Row 85 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.value.referenceRangeDetails.referenceRange.meaning
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ReferenceRangeMeaningValues
+  Short Label = Reference Range Meaning
+  Definition = Term whose value indicates the meaning of this range.
+
+ -- Row 86 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.value.referenceRangeDetails.referenceRange.referenceRange
+  Card. = 1..1
+  Type = Range
+  Short Label = Reference Range
+  Definition = The data range for the associated Reference Range Meaning data element .
+
+ -- Row 87 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.comment
+  Card. = 0..*
+  Type = string
+  Short Label = Individual Pathology Test Result Comment
+  Definition = Comments that may include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
+
+ -- Row 88 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.referenceRangeGuidance
+  Card. = 0..1
+  Type = string
+  Short Label = Individual Pathology Test Result Reference Range Guidance
+  Definition = Additional advice on the applicability of the reference range.
+
+ -- Row 89 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.individualPathologyTestResult.status
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = PathologyTestResultStatusValues
+  Short Label = Individual Pathology Test Result Status
+  Definition = The status of the result value.
+
+ -- Row 90 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen
+  Card. = 0..1
+  Type = *
+  Short Label = Specimen
+  Definition = Details about the individual specimen to which these result group test results refer, where testing of multiple specimens is required.
+
+ -- Row 91 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.tissueType
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = SpecimenTypeValues
+  Short Label = Specimen Tissue Type
+  Definition = The type of specimen to be collected.
+
+ -- Row 92 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.collectionProcedure
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CollectionProcedureValues
+  Short Label = Collection Procedure
+  Definition = The method of collection to be used.
+
+ -- Row 93 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.anatomicalLocation
+  Card. = 0..*
+  Type = *
+  Short Label = Anatomical Location
+  Definition = The anatomical site from where the specimen was taken.
+
+ -- Row 94 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.anatomicalLocation.specificLocation
+  Card. = 0..1
+  Type = *
+  Short Label = Specific Location
+  Definition = Specific and identified anatomical location.
+
+ -- Row 95 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.anatomicalLocation.specificLocation.anatomicalLocationName
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = BodyStructureFoundationReferenceSet
+  Short Label = Anatomical Location Name
+  Definition = The name of the anatomical location.
+
+ -- Row 96 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.anatomicalLocation.specificLocation.side
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = LateralityReferenceSet
+  Short Label = Side
+  Definition = The laterality of the anatomical location.
+
+ -- Row 97 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.anatomicalLocation.description
+  Card. = 0..1
+  Type = string
+  Short Label = Anatomical Location Description
+  Definition = Description of the anatomical location.
+
+ -- Row 98 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.anatomicalLocation.image
+  Card. = 0..*
+  Type = base64Binary
+  Short Label = Anatomical Location Image
+  Definition = An image or images used to identify a location.
+
+ -- Row 99 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.physicalPropertiesofanObject
+  Card. = 0..*
+  Type = *
+  Short Label = Physical Properties of an Object
+  Definition = Record of physical details, such as weight and dimensions, of a body part, device, lesion or specimen.
+
+ -- Row 100 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.physicalPropertiesofanObject.weight
+  Card. = 0..1
+  Type = Quantity
+  Short Label = Weight
+  Definition = Property of a body – commonly, but inadequately, defined as the quantity of matter in it – to which its inertia is ascribed, and expressed as the weight of the body divided by the acceleration due to gravity.
+
+ -- Row 101 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.physicalPropertiesofanObject.dimensions
+  Card. = 0..1
+  Type = *
+  Short Label = Dimensions
+  Definition = The dimensions of the object.
+
+ -- Row 102 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.physicalPropertiesofanObject.dimensions.volume
+  Card. = 0..1
+  Type = Quantity
+  Short Label = Volume
+  Definition = Size, measure or amount of anything in three dimensions; space occupied by a body or substance measured in cubic units.
+
+ -- Row 103 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.physicalPropertiesofanObject.objectDescription
+  Card. = 0..1
+  Type = string
+  Short Label = Object Description
+  Definition = A description of other physical characteristics of the object.
+
+ -- Row 104 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.physicalPropertiesofanObject.image
+  Card. = 0..1
+  Type = base64Binary
+  Short Label = Image
+  Definition = A picture of the object.
+
+ -- Row 105 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.collectionandHandling
+  Card. = 0..1
+  Type = *
+  Short Label = Collection and Handling
+  Definition = Collection and handling requirements.
+
+ -- Row 106 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.collectionandHandling.samplingPreconditions
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = SamplingPreconditionsValues
+  Short Label = Sampling Preconditions
+  Definition = Any conditions to be met before the sample should be taken.
+
+ -- Row 107 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.handlingandProcessing
+  Card. = 1..1
+  Type = *
+  Short Label = Handling and Processing
+  Definition = Workflow of specimen processing or handling.
+
+ -- Row 108 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.handlingandProcessing.collectionDateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Collection DateTime
+  Definition = The date and time that the collection has been ordered to take place or has taken place.
+
+ -- Row 109 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.handlingandProcessing.collectionSetting
+  Card. = 0..1
+  Type = string
+  Short Label = Collection Setting
+  Definition = Identification of the setting at which the specimen was collected from a subject of care.
+
+ -- Row 110 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.handlingandProcessing.dateTimeReceived
+  Card. = 0..1
+  Type = dateTime
+  Short Label = DateTime Received
+  Definition = The date and time that the sample was received at the laboratory.
+
+ -- Row 111 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.identifiers
+  Card. = 0..1
+  Type = *
+  Short Label = Identifiers
+  Definition = Sample identifications.
+
+ -- Row 112 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.identifiers.specimenIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Specimen Identifier
+  Definition = Unique identifier of the specimen, normally assigned by the laboratory.
+
+ -- Row 113 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.identifiers.parentSpecimenIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Parent Specimen Identifier
+  Definition = Unique identifier of the parent specimen where the specimen is split into sub-samples.
+
+ -- Row 114 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.group.specimen.identifiers.containerIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Container Identifier
+  Definition = Unique identifier given to the container in which the specimen is transported or processed.
+
+ -- Row 115 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.pathologicalDiagnosis
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = PathologicalDiagnosisValues
+  Short Label = Pathological Diagnosis
+  Definition = Single word, phrase or brief description representing the diagnostic statement as asserted by the reporting pathologist.
+
+ -- Row 116 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.pathologyTestConclusion
+  Card. = 0..1
+  Type = string
+  Short Label = Pathology Test Conclusion
+  Definition = Concise and clinically contextualised narrative interpretation of the pathology test results.
+
+ -- Row 117 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.representation
+  Card. = 0..1
+  Type = base64Binary
+  Short Label = Test Result Representation
+  Definition = Rich text representation of the entire result as issued by the diagnostic service.
+
+ -- Row 118 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.testComment
+  Card. = 0..1
+  Type = string
+  Short Label = Test Comment
+  Definition = Additional narrative about the test that is not captured in other fields.
+
+ -- Row 119 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.testRequestDetails
+  Card. = 0..*
+  Type = *
+  Short Label = Test Request Details
+  Definition = Details concerning a single requested pathology test.
+
+ -- Row 120 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.testRequestDetails.testRequestedName
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = PathologyTestResultNameValues
+  Short Label = Test Requested Name
+  Definition = Identification of the pathology test which was requested.
+
+ -- Row 121 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.testRequestDetails.laboratoryTestResultIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Laboratory Test Result Identifier
+  Definition = The identifier given to the laboratory test result of a pathology investigation.
+
+ -- Row 122 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.pathologyTestResult.observationDateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Observation DateTime
+  Definition = Date, and optionally time, when an observation is clinically significant to the condition of the subject of the observation.
+
+ -- Row 123 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult
+  Card. = 0..*
+  Type = *
+  Short Label = Imaging Examination Result
+  Definition = The result of an imaging examination which may be used to record a single valued test but will often be specialised or templated to represent multiple value or \'panel\' tests.
+
+ -- Row 124 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.name
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ImagingExaminationResultNameValues
+  Short Label = Imaging Examination Result Name
+  Definition = Identification of the imaging examination or procedure performed, typically including modality and anatomical location (including laterality).
+
+ -- Row 125 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.imagingModality
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ImagingModalityValues
+  Short Label = Imaging Modality
+  Definition = The imaging method used to perform the examination.
+
+ -- Row 126 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.anatomicalLocation
+  Card. = 0..*
+  Type = *
+  Short Label = Anatomical Location
+  Definition = Details about the anatomical locations to which this examination result refers.
+
+ -- Row 127 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.anatomicalLocation.specificLocation
+  Card. = 0..1
+  Type = *
+  Short Label = Specific Location
+  Definition = Specific and identified anatomical location.
+
+ -- Row 128 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.anatomicalLocation.specificLocation.anatomicalLocationName
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = BodyStructureFoundationReferenceSet
+  Short Label = Anatomical Location Name
+  Definition = The name of the anatomical location.
+
+ -- Row 129 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.anatomicalLocation.specificLocation.side
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = LateralityReferenceSet
+  Short Label = Side
+  Definition = The laterality of the anatomical location.
+
+ -- Row 130 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.anatomicalLocation.description
+  Card. = 0..1
+  Type = string
+  Short Label = Anatomical Location Description
+  Definition = Description of the anatomical location.
+
+ -- Row 131 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.anatomicalLocation.image
+  Card. = 0..*
+  Type = base64Binary
+  Short Label = Anatomical Location Image
+  Definition = An image or images used to identify a location.
+
+ -- Row 132 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.status
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ImagingExaminationResultStatusValues
+  Short Label = Imaging Examination Result Status
+  Definition = The status of the examination result as a whole.
+
+ -- Row 133 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.clinicalInformationProvided
+  Card. = 0..1
+  Type = string
+  Short Label = Clinical Information Provided
+  Definition = Description of clinical information available at the time of interpretation of results, or a link to the original clinical information provided in the examination request.
+
+ -- Row 134 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.findings
+  Card. = 0..1
+  Type = string
+  Short Label = Findings
+  Definition = Clinical assessment and opinion based on one or more observations and examinations.
+
+ -- Row 135 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group
+  Card. = 0..*
+  Type = *
+  Short Label = Imaging Examination Result Group
+  Definition = A group of structured results.
+
+ -- Row 136 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.name
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ImagingExamResultGroupNameValues
+  Short Label = Imaging Examination Result Group Name
+  Definition = The name of a group of structured results.
+
+ -- Row 137 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult
+  Card. = 1..*
+  Type = *
+  Short Label = Individual Imaging Examination Result
+  Definition = Specific detailed result of an imaging examination, including both the value of the result item and additional information that may be useful for clinical interpretation.
+
+ -- Row 138 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.name
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ImagingExaminationResultNameValues
+  Short Label = Individual Imaging Examination Result Name
+  Definition = The name of a specific detailed result.
+
+ -- Row 139 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.value
+  Card. = 0..1
+  Type = *
+  Short Label = Imaging Examination Result Value
+  Definition = Value of the result, with reference range information.
+
+ -- Row 140 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.value.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ResultValueValues
+  Short Label = Imaging Examination Result Value
+  Definition = The actual value of the result.
+
+ -- Row 141 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.value.referenceRangeDetails
+  Card. = 0..1
+  Type = *
+  Short Label = Reference Range Details
+  Definition = One or more reference ranges applicable to the Imaging Examination Result Value .
+
+ -- Row 142 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.value.referenceRangeDetails.normalStatus
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = NormalStatusValues
+  Short Label = Normal Status
+  Definition = An indication of the degree of diagnostically significant abnormality of the value, based on available clinical information (including but not limited to the reference range).
+
+ -- Row 143 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.value.referenceRangeDetails.referenceRange
+  Card. = 0..*
+  Type = *
+  Short Label = Reference Range
+  Definition = A named range to be associated with any quantity datum.
+
+ -- Row 144 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.value.referenceRangeDetails.referenceRange.meaning
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ReferenceRangeMeaningValues
+  Short Label = Reference Range Meaning
+  Definition = Term whose value indicates the meaning of this range.
+
+ -- Row 145 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.value.referenceRangeDetails.referenceRange.referenceRange
+  Card. = 1..1
+  Type = Range
+  Short Label = Reference Range
+  Definition = The data range for the associated Reference Range Meaning data element .
+
+ -- Row 146 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.individualImagingExaminationResult.resultComment
+  Card. = 0..*
+  Type = string
+  Short Label = Result Comment
+  Definition = May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
+
+ -- Row 147 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.anatomicalLocation
+  Card. = 0..1
+  Type = *
+  Short Label = Anatomical Location
+  Definition = Details about the individual anatomical location to which these result group examination results refer, where finer-grained representation of Anatomical Location is required.
+
+ -- Row 148 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.anatomicalLocation.specificLocation
+  Card. = 0..1
+  Type = *
+  Short Label = Specific Location
+  Definition = Specific and identified anatomical location.
+
+ -- Row 149 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.anatomicalLocation.specificLocation.anatomicalLocationName
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = BodyStructureFoundationReferenceSet
+  Short Label = Anatomical Location Name
+  Definition = The name of the anatomical location.
+
+ -- Row 150 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.anatomicalLocation.specificLocation.side
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = LateralityReferenceSet
+  Short Label = Side
+  Definition = The laterality of the anatomical location.
+
+ -- Row 151 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.anatomicalLocation.description
+  Card. = 0..1
+  Type = string
+  Short Label = Anatomical Location Description
+  Definition = Description of the anatomical location.
+
+ -- Row 152 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.group.anatomicalLocation.image
+  Card. = 0..*
+  Type = base64Binary
+  Short Label = Anatomical Location Image
+  Definition = An image or images used to identify a location.
+
+ -- Row 153 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.representation
+  Card. = 0..1
+  Type = base64Binary
+  Short Label = Examination Result Representation
+  Definition = Rich text representation of the entire result as issued by the diagnostic service.
+
+ -- Row 154 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails
+  Card. = 0..*
+  Type = *
+  Short Label = Examination Request Details
+  Definition = Details concerning a single requested examination.
+
+ -- Row 155 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.examinationRequestedName
+  Card. = 0..*
+  Type = string
+  Short Label = Examination Requested Name
+  Definition = Identification of the imaging examination which was requested.
+
+ -- Row 156 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.dICOMStudyIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = DICOM Study Identifier
+  Definition = Unique identifier of this study allocated by the imaging service.
+
+ -- Row 157 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.reportIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Report Identifier
+  Definition = The local identifier given to the imaging examination report.
+
+ -- Row 158 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.imageDetails
+  Card. = 0..*
+  Type = *
+  Short Label = Image Details
+  Definition = Images referenced or provided to assist clinical understanding of the examination.
+
+ -- Row 159 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.imageDetails.imageIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Image Identifier
+  Definition = Unique identifier of this image allocated by the imaging service.
+
+ -- Row 160 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.imageDetails.dICOMSeriesIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = DICOM Series Identifier
+  Definition = Unique identifier of this series allocated by the imaging service.
+
+ -- Row 161 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.imageDetails.imageViewName
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ImageViewNameValues
+  Short Label = Image View Name
+  Definition = The name of the imaging view.
+
+ -- Row 162 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.imageDetails.subjectPosition
+  Card. = 0..1
+  Type = string
+  Short Label = Subject Position
+  Definition = Description of the subject of care\'s position when the imaging examination was performed.
+
+ -- Row 163 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.imageDetails.imageDateTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Image DateTime
+  Definition = Date, and optionally time, the imaging examination was performed.
+
+ -- Row 164 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.examinationRequestDetails.imageDetails.image
+  Card. = 0..1
+  Type = base64Binary
+  Short Label = Image
+  Definition = An attached or referenced image of a current view.
+
+ -- Row 165 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.imagingExaminationResult.observationDateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Observation DateTime
+  Definition = Date, and optionally time, when an observation is clinically significant to the condition of the subject of the observation.
+
+ -- Row 166 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.requestedService
+  Card. = 0..*
+  Type = *
+  Short Label = Requested Service
+  Definition = A request for a diagnostic investigation of the subject of care.
+
+ -- Row 167 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.requestedService.description
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = RequestedServiceDescriptionValues
+  Short Label = Requested Service Description
+  Definition = Describes the service arranged for, or provided to, the subject of care.
+
+ -- Row 168 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.requestedService.dateTimeServiceScheduled
+  Card. = 0..1
+  Type = dateTime
+  Short Label = DateTime Service Scheduled
+  Definition = The date and, optionally, time at which the arranged service is scheduled to be provided to the subject of care.
+
+ -- Row 169 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.requestedService.commencementWindow
+  Card. = 0..1
+  Type = Period
+  Short Label = Service Commencement Window
+  Definition = The datetime or date range at or during which the arranged service is scheduled to be provided to the subject of care.
+
+ -- Row 170 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.requestedService.bookingStatus
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ServiceBookingStatusValues
+  Short Label = Service Booking Status
+  Definition = An indication of the booking status of the arranged service.
+
+ -- Row 171 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.requestedService.subjectofCareInstructionDescription
+  Card. = 0..1
+  Type = string
+  Short Label = Subject of Care Instruction Description
+  Definition = Describes the instructions, advice or information that has been given to the subject of care from a healthcare provider in relation to the requested service.
+
+ -- Row 172 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.requestedService.provider
+  Card. = 0..1
+  Type = Reference(Patient|Practitioner|Device|Organization|RelatedPerson)
+  Short Label = Service Provider
+  Definition = The provider (individual or organisation) that has been arranged to provide the service.
+
+ -- Row 173 -----------------------------------
+  Element = EventSummary.diagnosticInvestigations.requestedService.dateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Requested Service DateTime
+  Definition = The point in time at which the Requested Service action is completed.

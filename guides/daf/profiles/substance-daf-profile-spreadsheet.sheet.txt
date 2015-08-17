@@ -1,0 +1,36 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !USPSState
+  Binding = value set
+  Reference = valueset-usps-state
+  Definition = Two letter USPS alphabetic codes.
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = !USFIPSCounty
+  Binding = value set
+  Reference = valueset-fips-county
+  Definition = FIPS codes for US counties and county equivalent entities
+  Conformance = required
+
+=== Sheet DAF-Substance =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Substance
+  Profile Name = DAFSubstance
+  ServD Mapping = Organization
+
+ -- Row 2 -----------------------------------
+  Element = Substance.type
+  Must Support = Y
+  Type = CodeableConcept
+  ServD Mapping = n/a
+
+ -- Row 3 -----------------------------------
+  Element = Substance.description
+  Must Support = Y
+  Type = string
+
+=== Sheet Search =====================================

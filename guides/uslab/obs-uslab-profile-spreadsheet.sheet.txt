@@ -1,0 +1,2363 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = USLabObsInterpretation
+  Binding = value set
+  Reference = valueset-obs-interpretation
+  Definition = Codes identifying interpretations of observations
+  Conformance = required
+  v2 = http://hl7.org/fhir/v2/0078/index.html
+
+ -- Row 2 -----------------------------------
+  Binding Name = USLabUCUM
+  Binding = value set
+  Reference = valueset-units
+  Definition = UCUM Codes for units of measure
+  Conformance = required
+  Copyright = The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
+
+ -- Row 3 -----------------------------------
+  Binding Name = USLabSpecimenRejection
+  Binding = value set
+  Reference = valueset-obs-spec-reject
+  Definition = Specimen Rejection Reasons codes for identifying why a test was not performed.
+  Conformance = extensible
+  v2 = http://hl7.org/fhir/v2/0490/index.html
+
+ -- Row 4 -----------------------------------
+  Binding Name = uslab-observationkind
+  Binding = code list
+  Reference = #obs-kind
+  Definition = Code to classify the kind of observation in Observation.value[x]
+  Conformance = extensible
+
+ -- Row 5 -----------------------------------
+  Binding Name = USLabObservationName
+  Binding = value set
+  Reference = valueset-obs-codes
+  Definition = LOINC codes
+  Conformance = extensible
+  Copyright = The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at http://loinc.org/terms-of-use.
+
+ -- Row 6 -----------------------------------
+  Binding Name = USLabObsCodedResult
+  Binding = value set
+  Reference = valueset-obs-codedresults
+  Definition = SNOMED CT for coded results
+  Conformance = extensible
+  Copyright = This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement
+
+=== Sheet obs-kind =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = result
+  Display = result
+  Definition = The value is Observation.value[x] is an actual result from a laboratory test
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = response
+  Display = response
+  Definition = The value is Observation.value[x] is a response to laboratory Ask at order (AOE) questions
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = information
+  Display = information
+  Definition = The value is Observation.value[x] is some other unsolicited clnically relevant information.
+
+=== Sheet USLab-ObsCode-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation.effective[x]
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = Observation.code
+  English = Must have a LOINC or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = !3
+  Context = Observation.valueCodeableConcept
+  English = Must have a SNOMED CT code or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Context = Observation.issued
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+=== Sheet USLab-ObsCode =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = USLabObsCode
+  Aliases = Obs
+  Type = Resource
+  Short Label = US Realm laboratory result using CodeableConcept Data Type for non-numeric results
+  Definition = US Realm laboratory result using CodeableConcept Data Type for non-numeric results.  Laboratory results to ordering providers in the ambulatory care setting and \"reportable\" laboratory test results to local public health agencies.
+  To Do = edit definition to scope of profile
+  Committee Notes = OBX.1Set ID - OBXSIR[1..1]1..4
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-specimenrejectreason
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason}
+  Short Label = Specimen Rejection Reason
+  Requirements = CLIA require a reason when the test is not performed due to an unsatisfactory specimen
+  To Do = Map to igs, review value set
+  Committee Notes = 11/29/2014  EH : added extension for - specimen reject reason type = CodeableConcept  - text OK valueSet v2 0490 for now.  ( use when dataabsentreason equals - error  - or code equals inconclusive etc ).  Needs to be in context of obs since specimen may be suitable for some tests but not others.
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.text
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-observationkind
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
+  Short Label = Kind of observation
+  Committee Notes = 11/29/2014  EH :  OBX.29Observation TypeIDR[1..1]1..6=HL70936 , added extension for - Kind of observation = Code -  valueSet result = actual result,  response =  Responses to laboratory Ask at order (AOE) questions,  information = other unsolicited clnically relevant information.    ( taken from v 282).  Required since drives operational functionality  - question does it really.
+
+ -- Row 10 -----------------------------------
+  Element = Observation.code
+  Card. = 1..1
+  Aliases = Test Name, Observation Identifer
+  Must Support = Y
+  Binding = USLabObservationName
+  Short Label = US Realm Laboratory Test Name
+  Definition = The laboratory test that was performed.  This is element is bound to LOINC.
+  Requirements = The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.
+  Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
+  Committee Notes = 11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.  See DAF comment 222,223
+
+ -- Row 11 -----------------------------------
+  Element = Observation.code.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:LOINC Slice
+
+ -- Row 12 -----------------------------------
+  Element = Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:CWE-CR.3
+
+ -- Row 13 -----------------------------------
+  Element = Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations
+  To Do = regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex
+  Committee Notes = 11/24/2014 EH:CWE-CR.1
+
+ -- Row 14 -----------------------------------
+  Element = Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = When using LOINC  \'long common name\' is preferred although the LOINC \'short name\' or the LOINC \'fully-specified name can also be used.  ( http://lionc.org.terms-of-use)
+  Committee Notes = 11/24/2014 EH:CWE-CR.2
+
+ -- Row 15 -----------------------------------
+  Element = !Observation.code.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:Local Slice
+
+ -- Row 16 -----------------------------------
+  Element = !Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.6
+
+ -- Row 17 -----------------------------------
+  Element = !Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = 11/24/2014 EH:CWE-CR.4
+
+ -- Row 18 -----------------------------------
+  Element = !Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.7
+
+ -- Row 19 -----------------------------------
+  Element = Observation.code.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the lab test if different from the code display text(s)
+  Requirements = Used when the laboratory define how the dsplay text if different from the code display text.
+  Comments = If this exists, this is the text to be used for display.
+  Committee Notes = 11/24/2014 EH:CWE-CR.9  display text - originated by lab
+
+ -- Row 20 -----------------------------------
+  Element = Observation.valueCodeableConcept
+  Card. = 0..1
+  Aliases = coded result
+  Must Support = Y
+  Binding = USLabObsCodedResult
+  Short Label = US Realm Coded Test Result
+  Definition = This is the actual coded result.
+  Requirements = The use of the SNOMED-CT code system is required where a SNOMED-CT concept code is available for Observation.valueCodeableConcept, i.e. the actual coded result.
+  Committee Notes = 11/19/2014 EH: OBX.5-CWEObservation ValueCWE_CRORE[0..1] coded results
+
+ -- Row 21 -----------------------------------
+  Element = Observation.valueCodeableConcept.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 22 -----------------------------------
+  Element = Observation.valueCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = OBX.5-CWE.3Name of Coding SystemIDR1..12HL70396
+
+ -- Row 23 -----------------------------------
+  Element = Observation.valueCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = SNOMED Clinical Terms is a systematically organized computer processable collection of medical terms providing codes, terms, synonyms and definitions used in clinical documentation and reporting.
+  Committee Notes = OBX.5-CWE.1IdentifierSTR1..20=
+
+ -- Row 24 -----------------------------------
+  Element = Observation.valueCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = When using SNOMED-CT  the \'preferred name\' is preferred although any  SNOMED-CT  \'synonym\'  can also be used.  ( ihtsdo.org/snomed-ct/)
+  Committee Notes = OBX.5-CWE.2TextSTRE1..199#
+
+ -- Row 25 -----------------------------------
+  Element = !Observation.valueCodeableConcept.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Comments = local slice
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 26 -----------------------------------
+  Element = !Observation.valueCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = OBX.5-CWE.6Name of Alternate Coding SystemIDC(R/X)1..12HL70396
+
+ -- Row 27 -----------------------------------
+  Element = !Observation.valueCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = OBX.5-CWE.4Alternate IdentifierSTRE1..20=
+
+ -- Row 28 -----------------------------------
+  Element = !Observation.valueCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = OBX.5-CWE.5Alternate TextSTRE1..199#
+
+ -- Row 29 -----------------------------------
+  Element = Observation.valueCodeableConcept.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the actual test result, if different from the code display names
+  Requirements = Used when the laboratory define how the dsplay text if different from the code display text.
+  Comments = If this exists, this is the text to be used for display.
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 30 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: this is new element for USLAB but a good idea for exceptional values discuss
+
+ -- Row 31 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..1
+  Must Support = Y
+  Binding = USLabObsInterpretation
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 32 -----------------------------------
+  Element = Observation.interpretation.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 33 -----------------------------------
+  Element = Observation.interpretation.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = need system
+
+ -- Row 34 -----------------------------------
+  Element = Observation.interpretation.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 35 -----------------------------------
+  Element = Observation.effective[x]
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Definition = For lab tests this is the specimen collection date.  For Ask at Order Entry Questions (AOE)\'s this is the date the question was asked.
+  Requirements = Minimum Precision to Day
+  To Do = Have Lloyd check xpath
+  Committee Notes = 11/19/2014 EH:OBX.14Date/Time of the ObservationTS_4RE[0..1]
+
+ -- Row 36 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 4
+  Requirements = Minimum Precision to Day
+  Committee Notes = 11/19/2014 EH:OBX.19Date/Time of the AnalysisTS_5RE[0..1]  note this dateTime is more precise to instant
+
+ -- Row 37 -----------------------------------
+  Element = Observation.status
+  Card. = 1..1
+  Must Support = Y
+  To Do = concept map
+  Committee Notes = 11/19/2014 EH:OBX.11Observation Result StatusIDR[1..1]1..1HL70085
+
+ -- Row 38 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+  Committee Notes = 11/19/2014 EH: this is found in Specimen resource to which the DR points
+
+ -- Row 39 -----------------------------------
+  Element = Observation.identifier
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: new identifier instance recommend using and discuss
+
+ -- Row 40 -----------------------------------
+  Element = Observation.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  EI
+
+ -- Row 41 -----------------------------------
+  Element = !Observation.identifier.label
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  Committee Notes = 11/19/2014 EH:
+  Value = Lab test result ID
+
+ -- Row 42 -----------------------------------
+  Element = Observation.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 43 -----------------------------------
+  Element = Observation.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 44 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Committee Notes = 11/19/2014 EH: PID
+
+ -- Row 45 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
+
+ -- Row 46 -----------------------------------
+  Element = Observation.performer
+  Profile Name = USLabPerformingLabSlice
+  Discriminator = type@profile|true|openAtEnd
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-performinglab}
+  Requirements = If lab generated results need organization
+  Committee Notes = 11/19/2014 EH: OBX.23-25 should this b sliced allow for practitioner or other performer, if lab generated results only
+
+ -- Row 47 -----------------------------------
+  Element = Observation.related
+  Card. = 0..0
+  Committee Notes = perr gg comment on 3/4/2015 remove .related when have a value
+
+=== Sheet USLab-ObsQuantity-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation.effective[x]
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = Observation.code
+  English = Must have a LOINC or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Observation.issued
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+=== Sheet USLab-ObsQuantity =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = USLabObsQuantity
+  Aliases = Obs
+  Type = Resource
+  Short Label = US Realm laboratory result using Quantity Data Type for numeric results
+  Definition = US Realm laboratory result using Quantity Data Type for numeric results.  Laboratory results to ordering providers in the ambulatory care setting and \"reportable\" laboratory test results to local public health agencies.
+  To Do = edit definition to scope of profile
+  Committee Notes = OBX.1Set ID - OBXSIR[1..1]1..4
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-specimenrejectreason
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason}
+  Short Label = Specimen Rejection Reason
+  Requirements = CLIA require a reason when the test is not performed due to an unsatisfactory specimen
+  To Do = Map to igs, review value set
+  Committee Notes = 11/29/2014  EH : added extension for - specimen reject reason type = CodeableConcept  - text OK valueSet v2 0490 for now.  ( use when dataabsentreason equals - error  - or code equals inconclusive etc ).  Needs to be in context of obs since specimen may be suitable for some tests but not others.
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.text
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-observationkind
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
+  Short Label = Kind of observation
+  Committee Notes = 11/29/2014  EH :  OBX.29Observation TypeIDR[1..1]1..6=HL70936 , added extension for - Kind of observation = Code -  valueSet result = actual result,  response =  Responses to laboratory Ask at order (AOE) questions,  information = other unsolicited clnically relevant information.    ( taken from v 282).  Required since drives operational functionality  - question does it really.
+
+ -- Row 10 -----------------------------------
+  Element = Observation.code
+  Card. = 1..1
+  Aliases = Test Name, Observation Identifer
+  Must Support = Y
+  Binding = USLabObservationName
+  Short Label = US Realm Laboratory Test Name
+  Definition = The laboratory test that was performed.  This is element is bound to LOINC.
+  Requirements = The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.
+  Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
+  Committee Notes = 11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.  See DAF comment 222,223
+
+ -- Row 11 -----------------------------------
+  Element = Observation.code.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:LOINC Slice
+
+ -- Row 12 -----------------------------------
+  Element = Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:CWE-CR.3
+
+ -- Row 13 -----------------------------------
+  Element = Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations
+  To Do = regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex
+  Committee Notes = 11/24/2014 EH:CWE-CR.1
+
+ -- Row 14 -----------------------------------
+  Element = Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = When using LOINC  \'long common name\' is preferred although the LOINC \'short name\' or the LOINC \'fully-specified name can also be used.  ( http://lionc.org.terms-of-use)
+  Committee Notes = 11/24/2014 EH:CWE-CR.2
+
+ -- Row 15 -----------------------------------
+  Element = !Observation.code.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:Local Slice
+
+ -- Row 16 -----------------------------------
+  Element = !Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.6
+
+ -- Row 17 -----------------------------------
+  Element = !Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = 11/24/2014 EH:CWE-CR.4
+
+ -- Row 18 -----------------------------------
+  Element = !Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.7
+
+ -- Row 19 -----------------------------------
+  Element = Observation.code.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the lab test if different from the code display text(s)
+  Requirements = Used when the laboratory define how the dsplay text if different from the code display text.
+  Comments = If this exists, this is the text to be used for display.
+  Committee Notes = 11/24/2014 EH:CWE-CR.9  display text - originated by lab
+
+ -- Row 20 -----------------------------------
+  Element = Observation.valueQuantity
+  Card. = 0..1
+  Aliases = numeric result, quantitative result
+  Must Support = Y
+  Short Label = Quantitative test result
+  Definition = This is the actual quantitative (numeric) result.
+  Committee Notes = 11/19/2014 EH:OBX.5-SNObservation valueSNRE[0..1]  - Quantity
+
+ -- Row 21 -----------------------------------
+  Element = Observation.valueQuantity.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Actual numeric result
+  Committee Notes = 11/19/2014 EH:OBX.5-SN.2Num1NMRE
+
+ -- Row 22 -----------------------------------
+  Element = Observation.valueQuantity.comparator
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = OBX.5-SN.1ComparatorSTRE1..2
+
+ -- Row 23 -----------------------------------
+  Element = Observation.valueQuantity.unit
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = OBX.6.9Original TextSTC(R/RE)1..199#
+
+ -- Row 24 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = UCUM Code System
+  Definition = The Unified Code for Units of Measure (the UCUM) is a system of codes for unambiguously representing measurement units to both humans and machines.
+  Requirements = The units are coded in UCUM
+  Committee Notes = OBX.6.3Name of Coding SystemIDC(R/X)1..12HL70396
+  Value = http://unitsofmeasure.org
+
+ -- Row 25 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Short Label = UCUM code
+  Committee Notes = OBX.6.1IdentifierSTRE1..20=UCUM
+
+ -- Row 26 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: this is new element for USLAB but a good idea for exceptional values discuss
+
+ -- Row 27 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..1
+  Must Support = Y
+  Binding = USLabObsInterpretation
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 28 -----------------------------------
+  Element = Observation.interpretation.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 29 -----------------------------------
+  Element = Observation.interpretation.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = need system
+
+ -- Row 30 -----------------------------------
+  Element = Observation.interpretation.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 31 -----------------------------------
+  Element = Observation.effective[x]
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Definition = For lab tests this is the specimen collection date.  For Ask at Order Entry Questions (AOE)\'s this is the date the question was asked.
+  Requirements = Minimum Precision to Day
+  To Do = Have Lloyd check xpath
+  Committee Notes = 11/19/2014 EH:OBX.14Date/Time of the ObservationTS_4RE[0..1]
+
+ -- Row 32 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 3
+  Requirements = Minimum Precision to Day
+  Committee Notes = 11/19/2014 EH:OBX.19Date/Time of the AnalysisTS_5RE[0..1]  note this dateTime is more precise to instant
+
+ -- Row 33 -----------------------------------
+  Element = Observation.status
+  Card. = 1..1
+  Must Support = Y
+  To Do = mapping
+  Committee Notes = 11/19/2014 EH:OBX.11Observation Result StatusIDR[1..1]1..1HL70085
+
+ -- Row 34 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+  Committee Notes = 11/19/2014 EH: this is found in Specimen resource to which the DR points
+
+ -- Row 35 -----------------------------------
+  Element = Observation.identifier
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: new identifier instance recommend using and discuss
+
+ -- Row 36 -----------------------------------
+  Element = Observation.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  EI
+
+ -- Row 37 -----------------------------------
+  Element = !Observation.identifier.label
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  Committee Notes = 11/19/2014 EH:
+  Value = Lab test result ID
+
+ -- Row 38 -----------------------------------
+  Element = Observation.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 39 -----------------------------------
+  Element = Observation.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 40 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Committee Notes = 11/19/2014 EH: PID
+
+ -- Row 41 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
+
+ -- Row 42 -----------------------------------
+  Element = Observation.performer
+  Profile Name = USLabPerformingLabSlice
+  Discriminator = type@profile|true|openAtEnd
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-performinglab}
+  Requirements = If lab gernerated results need organization
+  Committee Notes = 11/19/2014 EH: OBX.23-25 should this b sliced allow for practitioner or other performer, if lab generated results only
+
+ -- Row 43 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  OBX.6UnitsCWE_CREC(R/RE)[0..1]UCUM  Bind to UCUM here.
+
+ -- Row 44 -----------------------------------
+  Element = Observation.referenceRange.low
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 45 -----------------------------------
+  Element = Observation.referenceRange.low.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 46 -----------------------------------
+  Element = Observation.referenceRange.low.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 47 -----------------------------------
+  Element = Observation.referenceRange.high
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 48 -----------------------------------
+  Element = Observation.referenceRange.high.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 49 -----------------------------------
+  Element = Observation.referenceRange.high.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 50 -----------------------------------
+  Element = Observation.referenceRange.age
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 51 -----------------------------------
+  Element = Observation.referenceRange.age.low
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 52 -----------------------------------
+  Element = Observation.referenceRange.age.low.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 53 -----------------------------------
+  Element = Observation.referenceRange.age.low.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = AgeUnits
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 54 -----------------------------------
+  Element = Observation.referenceRange.age.high
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 55 -----------------------------------
+  Element = Observation.referenceRange.age.high.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 56 -----------------------------------
+  Element = Observation.referenceRange.age.high.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = AgeUnits
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 57 -----------------------------------
+  Element = Observation.related
+  Card. = 0..0
+  Committee Notes = perr gg comment on 3/4/2015 remove .related when have a value
+
+=== Sheet USLab-ObsOther-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation.effective[x]
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = Observation.code
+  English = Must have a LOINC or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Observation.issued
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+=== Sheet USLab-ObsOther =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = USLabObsOther
+  Aliases = Obs
+  Type = Resource
+  Short Label = US Realm laboratory result using one of Attachment|dateTime|Period|SampledData|string|timeData Type for results.
+  Definition = US Realm laboratory result using one of Attachment|dateTime|Period|SampledData|string|timeData Type for results.  Laboratory results to ordering providers in the ambulatory care setting and \"reportable\" laboratory test results to local public health agencies.
+  To Do = edit definition to scope of profile
+  Committee Notes = OBX.1Set ID - OBXSIR[1..1]1..4
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-specimenrejectreason
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason}
+  Short Label = Specimen Rejection Reason
+  Requirements = CLIA require a reason when the test is not performed due to an unsatisfactory specimen
+  To Do = Map to igs, review value set
+  Committee Notes = 11/29/2014  EH : added extension for - specimen reject reason type = CodeableConcept  - text OK valueSet v2 0490 for now.  ( use when dataabsentreason equals - error  - or code equals inconclusive etc ).  Needs to be in context of obs since specimen may be suitable for some tests but not others.
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.text
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-observationkind
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
+  Short Label = Kind of observation
+  Committee Notes = 11/29/2014  EH :  OBX.29Observation TypeIDR[1..1]1..6=HL70936 , added extension for - Kind of observation = Code -  valueSet result = actual result,  response =  Responses to laboratory Ask at order (AOE) questions,  information = other unsolicited clnically relevant information.    ( taken from v 282).  Required since drives operational functionality  - question does it really.
+
+ -- Row 10 -----------------------------------
+  Element = Observation.code
+  Card. = 1..1
+  Aliases = Test Name, Observation Identifer
+  Must Support = Y
+  Binding = USLabObservationName
+  Short Label = US Realm Laboratory Test Name
+  Definition = The laboratory test that was performed.  This is element is bound to LOINC.
+  Requirements = The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.
+  Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
+  Committee Notes = 11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.  See DAF comment 222,223
+
+ -- Row 11 -----------------------------------
+  Element = Observation.code.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:LOINC Slice
+
+ -- Row 12 -----------------------------------
+  Element = Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:CWE-CR.3
+
+ -- Row 13 -----------------------------------
+  Element = Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations
+  To Do = regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex
+  Committee Notes = 11/24/2014 EH:CWE-CR.1
+
+ -- Row 14 -----------------------------------
+  Element = Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = When using LOINC  \'long common name\' is preferred although the LOINC \'short name\' or the LOINC \'fully-specified name can also be used.  ( http://lionc.org.terms-of-use)
+  Committee Notes = 11/24/2014 EH:CWE-CR.2
+
+ -- Row 15 -----------------------------------
+  Element = !Observation.code.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  To Do = 11/24/2014 EH:Local Slice
+  Committee Notes = 11/24/2014 EH:Local Slice
+
+ -- Row 16 -----------------------------------
+  Element = !Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.6
+
+ -- Row 17 -----------------------------------
+  Element = !Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = 11/24/2014 EH:CWE-CR.4
+
+ -- Row 18 -----------------------------------
+  Element = !Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.7
+
+ -- Row 19 -----------------------------------
+  Element = Observation.code.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the lab test if different from the code display text(s)
+  Requirements = Used when the laboratory define how the dsplay text if different from the code display text.
+  Comments = If this exists, this is the text to be used for display.
+  Committee Notes = 11/24/2014 EH:CWE-CR.9  display text - originated by lab
+
+ -- Row 20 -----------------------------------
+  Element = Observation.value[x]
+  Card. = 0..1
+  Must Support = Y
+  Type = Attachment|dateTime|Period|SampledData|string|time
+  Short Label = Test Results other than coded or numeric
+  Definition = This is the actiual result with a variable datatype.  Coded results and quantitative results are addressed in other profiles.
+  To Do = reference other profiles in definition
+  Committee Notes = 11/19/2014 EH: OBX.5Observation ValueVarRE[0..1]  Note that Ratio requires a  reference range and should be handled separately.
+
+ -- Row 21 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: this is new element for USLAB but a good idea for exceptional values discuss
+
+ -- Row 22 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..1
+  Must Support = Y
+  Binding = USLabObsInterpretation
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 23 -----------------------------------
+  Element = Observation.interpretation.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 24 -----------------------------------
+  Element = Observation.interpretation.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = need system
+
+ -- Row 25 -----------------------------------
+  Element = Observation.interpretation.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 26 -----------------------------------
+  Element = Observation.effective[x]
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Definition = For lab tests this is the specimen collection date.  For Ask at Order Entry Questions (AOE)\'s this is the date the question was asked.
+  Requirements = Minimum Precision to Day
+  To Do = Have Lloyd check xpath
+  Committee Notes = 11/19/2014 EH:OBX.14Date/Time of the ObservationTS_4RE[0..1]
+
+ -- Row 27 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 3
+  Requirements = Minimum Precision to Day
+  Committee Notes = 11/19/2014 EH:OBX.19Date/Time of the AnalysisTS_5RE[0..1]  note this dateTime is more precise to instant
+
+ -- Row 28 -----------------------------------
+  Element = Observation.status
+  Card. = 1..1
+  Must Support = Y
+  To Do = mapping
+  Committee Notes = 11/19/2014 EH:OBX.11Observation Result StatusIDR[1..1]1..1HL70085
+
+ -- Row 29 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+  Committee Notes = 11/19/2014 EH: this is found in Specimen resource to which the DR points
+
+ -- Row 30 -----------------------------------
+  Element = Observation.identifier
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: new identifier instance recommend using and discuss
+
+ -- Row 31 -----------------------------------
+  Element = Observation.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  EI
+
+ -- Row 32 -----------------------------------
+  Element = !Observation.identifier.label
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  Committee Notes = 11/19/2014 EH:
+  Value = Lab test result ID
+
+ -- Row 33 -----------------------------------
+  Element = Observation.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 34 -----------------------------------
+  Element = Observation.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 35 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Committee Notes = 11/19/2014 EH: PID
+
+ -- Row 36 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
+
+ -- Row 37 -----------------------------------
+  Element = Observation.performer
+  Profile Name = USLabPerformingLabSlice
+  Discriminator = type@profile|true|openAtEnd
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-performinglab}
+  Requirements = If lab generated results need organization
+  Committee Notes = 11/19/2014 EH: OBX.23-25 should this b sliced allow for practitioner or other performer, if lab generated results only
+
+ -- Row 38 -----------------------------------
+  Element = Observation.related
+  Card. = 0..0
+  Committee Notes = perr gg comment on 3/4/2015 remove .related when have a value
+
+=== Sheet USLab-ObsRange-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation.effective[x]
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = Observation.code
+  English = Must have a LOINC or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Observation.issued
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+=== Sheet USLab-ObsRange =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = USLabObsQuantity
+  Aliases = Obs
+  Type = Resource
+  Short Label = US Realm laboratory result using Range Data Type for numeric results
+  Definition = US Realm laboratory result using Range Data Type for numeric results.  Laboratory results to ordering providers in the ambulatory care setting and \"reportable\" laboratory test results to local public health agencies.
+  To Do = edit definition to scope of profile
+  Committee Notes = OBX.1Set ID - OBXSIR[1..1]1..4
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-specimenrejectreason
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason}
+  Short Label = Specimen Rejection Reason
+  Requirements = CLIA require a reason when the test is not performed due to an unsatisfactory specimen
+  To Do = Map to igs, review value set
+  Committee Notes = 11/29/2014  EH : added extension for - specimen reject reason type = CodeableConcept  - text OK valueSet v2 0490 for now.  ( use when dataabsentreason equals - error  - or code equals inconclusive etc ).  Needs to be in context of obs since specimen may be suitable for some tests but not others.
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.text
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-observationkind
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
+  Short Label = Kind of observation
+  Committee Notes = 11/29/2014  EH :  OBX.29Observation TypeIDR[1..1]1..6=HL70936 , added extension for - Kind of observation = Code -  valueSet result = actual result,  response =  Responses to laboratory Ask at order (AOE) questions,  information = other unsolicited clnically relevant information.    ( taken from v 282).  Required since drives operational functionality  - question does it really.
+
+ -- Row 10 -----------------------------------
+  Element = Observation.code
+  Card. = 1..1
+  Aliases = Test Name, Observation Identifer
+  Must Support = Y
+  Binding = USLabObservationName
+  Short Label = US Realm Laboratory Test Name
+  Definition = The laboratory test that was performed.  This is element is bound to LOINC.
+  Requirements = The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.
+  Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
+  Committee Notes = 11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.  See DAF comment 222,223
+
+ -- Row 11 -----------------------------------
+  Element = Observation.code.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:LOINC Slice
+
+ -- Row 12 -----------------------------------
+  Element = Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:CWE-CR.3
+
+ -- Row 13 -----------------------------------
+  Element = Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations
+  To Do = regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex
+  Committee Notes = 11/24/2014 EH:CWE-CR.1
+
+ -- Row 14 -----------------------------------
+  Element = Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = When using LOINC  \'long common name\' is preferred although the LOINC \'short name\' or the LOINC \'fully-specified name can also be used.  ( http://lionc.org.terms-of-use)
+  Committee Notes = 11/24/2014 EH:CWE-CR.2
+
+ -- Row 15 -----------------------------------
+  Element = !Observation.code.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:Local Slice
+
+ -- Row 16 -----------------------------------
+  Element = !Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.6
+
+ -- Row 17 -----------------------------------
+  Element = !Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = 11/24/2014 EH:CWE-CR.4
+
+ -- Row 18 -----------------------------------
+  Element = !Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.7
+
+ -- Row 19 -----------------------------------
+  Element = Observation.code.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the lab test if different from the code display text(s)
+  Requirements = Used when the laboratory define how the dsplay text if different from the code display text.
+  Comments = If this exists, this is the text to be used for display.
+  Committee Notes = 11/24/2014 EH:CWE-CR.9  display text - originated by lab
+
+ -- Row 20 -----------------------------------
+  Element = Observation.valueRange
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Quantitative Range test result
+  Definition = This is the actual quantitative (range) result.
+  Comments = Note: this profile is not to be used to represent out of range measurements  - use USLabObsQuantity Profile.
+  Committee Notes = 11/19/2014 EH:OBX.5-SNObservation valueSNRE[0..1]  - Quantity -range - not to be used to represent out of range measurements use quantity with comparator instead
+
+ -- Row 21 -----------------------------------
+  Element = Observation.valueRange.low
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.5-SNObservation valueSNRE[0..1]  - Quantity
+
+ -- Row 22 -----------------------------------
+  Element = Observation.valueRange.low.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Actual numeric low range result
+  Committee Notes = 11/19/2014 EH:OBX.5-SN.2Num1NMRE
+
+ -- Row 23 -----------------------------------
+  Element = Observation.valueRange.low.unit
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = OBX.6.9Original TextSTC(R/RE)1..199#
+
+ -- Row 24 -----------------------------------
+  Element = Observation.valueRange.low.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = UCUM Code System
+  Definition = The Unified Code for Units of Measure (the UCUM) is a system of codes for unambiguously representing measurement units to both humans and machines.
+  Requirements = The units are coded in UCUM
+  Committee Notes = OBX.6.3Name of Coding SystemIDC(R/X)1..12HL70396
+  Value = http://unitsofmeasure.org
+
+ -- Row 25 -----------------------------------
+  Element = Observation.valueRange.low.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Short Label = UCUM code
+  Committee Notes = OBX.6.1IdentifierSTRE1..20=UCUM
+
+ -- Row 26 -----------------------------------
+  Element = Observation.valueRange.high
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.5-SNObservation valueSNRE[0..1]  - Quantity
+
+ -- Row 27 -----------------------------------
+  Element = Observation.valueRange.high.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Actual numeric high range result
+  Committee Notes = 11/19/2014 EH:OBX.5-SN.2Num1NMRE
+
+ -- Row 28 -----------------------------------
+  Element = Observation.valueRange.high.unit
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = OBX.6.9Original TextSTC(R/RE)1..199#
+
+ -- Row 29 -----------------------------------
+  Element = Observation.valueRange.high.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = UCUM Code System
+  Definition = The Unified Code for Units of Measure (the UCUM) is a system of codes for unambiguously representing measurement units to both humans and machines.
+  Requirements = The units are coded in UCUM
+  Committee Notes = OBX.6.3Name of Coding SystemIDC(R/X)1..12HL70396
+  Value = http://unitsofmeasure.org
+
+ -- Row 30 -----------------------------------
+  Element = Observation.valueRange.high.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Short Label = UCUM code
+  Committee Notes = OBX.6.1IdentifierSTRE1..20=UCUM
+
+ -- Row 31 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: this is new element for USLAB but a good idea for exceptional values discuss
+
+ -- Row 32 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..1
+  Must Support = Y
+  Binding = USLabObsInterpretation
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 33 -----------------------------------
+  Element = Observation.interpretation.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 34 -----------------------------------
+  Element = Observation.interpretation.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = need system
+
+ -- Row 35 -----------------------------------
+  Element = Observation.interpretation.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 36 -----------------------------------
+  Element = Observation.effective[x]
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Definition = For lab tests this is the specimen collection date.  For Ask at Order Entry Questions (AOE)\'s this is the date the question was asked.
+  Requirements = Minimum Precision to Day
+  To Do = Have Lloyd check xpath
+  Committee Notes = 11/19/2014 EH:OBX.14Date/Time of the ObservationTS_4RE[0..1]
+
+ -- Row 37 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 3
+  Requirements = Minimum Precision to Day
+  Committee Notes = 11/19/2014 EH:OBX.19Date/Time of the AnalysisTS_5RE[0..1]  note this dateTime is more precise to instant
+
+ -- Row 38 -----------------------------------
+  Element = Observation.status
+  Card. = 1..1
+  Must Support = Y
+  To Do = mapping
+  Committee Notes = 11/19/2014 EH:OBX.11Observation Result StatusIDR[1..1]1..1HL70085
+
+ -- Row 39 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+  Committee Notes = 11/19/2014 EH: this is found in Specimen resource to which the DR points
+
+ -- Row 40 -----------------------------------
+  Element = Observation.identifier
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: new identifier instance recommend using and discuss
+
+ -- Row 41 -----------------------------------
+  Element = Observation.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  EI
+
+ -- Row 42 -----------------------------------
+  Element = !Observation.identifier.label
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  Committee Notes = 11/19/2014 EH:
+  Value = Lab test result ID
+
+ -- Row 43 -----------------------------------
+  Element = Observation.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 44 -----------------------------------
+  Element = Observation.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 45 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Committee Notes = 11/19/2014 EH: PID
+
+ -- Row 46 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
+
+ -- Row 47 -----------------------------------
+  Element = Observation.performer
+  Profile Name = USLabPerformingLabSlice
+  Discriminator = type@profile|true|openAtEnd
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-performinglab}
+  Requirements = If lab gernerated results need organization
+  Committee Notes = 11/19/2014 EH: OBX.23-25 should this b sliced allow for practitioner or other performer, if lab generated results only
+
+ -- Row 48 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  OBX.6UnitsCWE_CREC(R/RE)[0..1]UCUM  Bind to UCUM here.
+
+ -- Row 49 -----------------------------------
+  Element = Observation.referenceRange.low
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 50 -----------------------------------
+  Element = Observation.referenceRange.low.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 51 -----------------------------------
+  Element = Observation.referenceRange.low.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 52 -----------------------------------
+  Element = Observation.referenceRange.high
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 53 -----------------------------------
+  Element = Observation.referenceRange.high.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 54 -----------------------------------
+  Element = Observation.referenceRange.high.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 55 -----------------------------------
+  Element = Observation.referenceRange.age
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 56 -----------------------------------
+  Element = Observation.referenceRange.age.low
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 57 -----------------------------------
+  Element = Observation.referenceRange.age.low.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 58 -----------------------------------
+  Element = Observation.referenceRange.age.low.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = AgeUnits
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 59 -----------------------------------
+  Element = Observation.referenceRange.age.high
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 60 -----------------------------------
+  Element = Observation.referenceRange.age.high.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 61 -----------------------------------
+  Element = Observation.referenceRange.age.high.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = AgeUnits
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 62 -----------------------------------
+  Element = Observation.related
+  Card. = 0..0
+  Committee Notes = perr gg comment on 3/4/2015 remove .related when have a value
+
+=== Sheet USLab-ObsRatio-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation.effective[x]
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = Observation.code
+  English = Must have a LOINC or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Observation.issued
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+=== Sheet USLab-ObsRatio =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = USLabObsRatio
+  Aliases = Obs
+  Type = Resource
+  Short Label = US Realm laboratory result using Ratio Data Type for numeric results
+  Definition = US Realm laboratory result using Ratio Data Type for numeric results.  Laboratory results to ordering providers in the ambulatory care setting and \"reportable\" laboratory test results to local public health agencies.
+  To Do = edit definition to scope of profile
+  Committee Notes = OBX.1Set ID - OBXSIR[1..1]1..4
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-specimenrejectreason
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason}
+  Short Label = Specimen Rejection Reason
+  Requirements = CLIA require a reason when the test is not performed due to an unsatisfactory specimen
+  To Do = Map to igs, review value set
+  Committee Notes = 11/29/2014  EH : added extension for - specimen reject reason type = CodeableConcept  - text OK valueSet v2 0490 for now.  ( use when dataabsentreason equals - error  - or code equals inconclusive etc ).  Needs to be in context of obs since specimen may be suitable for some tests but not others.
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.text
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-observationkind
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
+  Short Label = Kind of observation
+  Committee Notes = 11/29/2014  EH :  OBX.29Observation TypeIDR[1..1]1..6=HL70936 , added extension for - Kind of observation = Code -  valueSet result = actual result,  response =  Responses to laboratory Ask at order (AOE) questions,  information = other unsolicited clnically relevant information.    ( taken from v 282).  Required since drives operational functionality  - question does it really.
+
+ -- Row 10 -----------------------------------
+  Element = Observation.code
+  Card. = 1..1
+  Aliases = Test Name, Observation Identifer
+  Must Support = Y
+  Binding = USLabObservationName
+  Short Label = US Realm Laboratory Test Name
+  Definition = The laboratory test that was performed.  This is element is bound to LOINC.
+  Requirements = The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.
+  Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
+  Committee Notes = 11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.  See DAF comment 222,223
+
+ -- Row 11 -----------------------------------
+  Element = Observation.code.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:LOINC Slice
+
+ -- Row 12 -----------------------------------
+  Element = Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:CWE-CR.3
+
+ -- Row 13 -----------------------------------
+  Element = Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations
+  To Do = regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex
+  Committee Notes = 11/24/2014 EH:CWE-CR.1
+
+ -- Row 14 -----------------------------------
+  Element = Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = When using LOINC  \'long common name\' is preferred although the LOINC \'short name\' or the LOINC \'fully-specified name can also be used.  ( http://lionc.org.terms-of-use)
+  Committee Notes = 11/24/2014 EH:CWE-CR.2
+
+ -- Row 15 -----------------------------------
+  Element = !Observation.code.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:Local Slice
+
+ -- Row 16 -----------------------------------
+  Element = !Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.6
+
+ -- Row 17 -----------------------------------
+  Element = !Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = 11/24/2014 EH:CWE-CR.4
+
+ -- Row 18 -----------------------------------
+  Element = !Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.7
+
+ -- Row 19 -----------------------------------
+  Element = Observation.code.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the lab test if different from the code display text(s)
+  Requirements = Used when the laboratory define how the dsplay text if different from the code display text.
+  Comments = If this exists, this is the text to be used for display.
+  Committee Notes = 11/24/2014 EH:CWE-CR.9  display text - originated by lab
+
+ -- Row 20 -----------------------------------
+  Element = Observation.valueRatio
+  Card. = 0..1
+  Aliases = titers
+  Must Support = Y
+  Short Label = Titre value
+  Definition = This is the actual titer result.  The Ratio data type is used for titers (e.g., \"1:128\") and other quantities produced by laboratories that truly represent ratios.
+  Committee Notes = 11/19/2014 EH:OBX.5-SNObservation valueSNRE[0..1]  - Ratio for titres
+
+ -- Row 21 -----------------------------------
+  Element = Observation.valueRatio.numerator
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = OBX.5-SN.1ComparatorSTRE1..2
+
+ -- Row 22 -----------------------------------
+  Element = Observation.valueRatio.denominator
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = OBX.6.9Original TextSTC(R/RE)1..199#
+
+ -- Row 23 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: this is new element for USLAB but a good idea for exceptional values discuss
+
+ -- Row 24 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..1
+  Must Support = Y
+  Binding = USLabObsInterpretation
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 25 -----------------------------------
+  Element = Observation.interpretation.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 26 -----------------------------------
+  Element = Observation.interpretation.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = need system
+
+ -- Row 27 -----------------------------------
+  Element = Observation.interpretation.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078
+
+ -- Row 28 -----------------------------------
+  Element = Observation.effective[x]
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Definition = For lab tests this is the specimen collection date.  For Ask at Order Entry Questions (AOE)\'s this is the date the question was asked.
+  Requirements = Minimum Precision to Day
+  To Do = Have Lloyd check xpath
+  Committee Notes = 11/19/2014 EH:OBX.14Date/Time of the ObservationTS_4RE[0..1]
+
+ -- Row 29 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 3
+  Requirements = Minimum Precision to Day
+  Committee Notes = 11/19/2014 EH:OBX.19Date/Time of the AnalysisTS_5RE[0..1]  note this dateTime is more precise to instant
+
+ -- Row 30 -----------------------------------
+  Element = Observation.status
+  Card. = 1..1
+  Must Support = Y
+  To Do = mapping
+  Committee Notes = 11/19/2014 EH:OBX.11Observation Result StatusIDR[1..1]1..1HL70085
+
+ -- Row 31 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+  Committee Notes = 11/19/2014 EH: this is found in Specimen resource to which the DR points
+
+ -- Row 32 -----------------------------------
+  Element = Observation.identifier
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: new identifier instance recommend using and discuss
+
+ -- Row 33 -----------------------------------
+  Element = Observation.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  EI
+
+ -- Row 34 -----------------------------------
+  Element = !Observation.identifier.label
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 35 -----------------------------------
+  Element = Observation.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 36 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Committee Notes = 11/19/2014 EH: PID
+
+ -- Row 37 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
+
+ -- Row 38 -----------------------------------
+  Element = Observation.performer
+  Profile Name = USLabPerformingLabSlice
+  Discriminator = type@profile|true|openAtEnd
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-performinglab}
+  Requirements = If lab generated results need organization
+  Committee Notes = 11/19/2014 EH: OBX.23-25 should this b sliced allow for practitioner or other performer, if lab generated results only
+
+ -- Row 39 -----------------------------------
+  Element = Observation.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 40 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  OBX.6UnitsCWE_CREC(R/RE)[0..1]UCUM  Bind to UCUM here.
+
+ -- Row 41 -----------------------------------
+  Element = Observation.referenceRange.text
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  OBX.6UnitsCWE_CREC(R/RE)[0..1]  for ratios need to support text.  FHIR Reference range only can handle Quantity datatypes.
+
+ -- Row 42 -----------------------------------
+  Element = !Observation.referenceRange.low
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 43 -----------------------------------
+  Element = !Observation.referenceRange.low.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 44 -----------------------------------
+  Element = !Observation.referenceRange.low.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 45 -----------------------------------
+  Element = !Observation.referenceRange.high
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 46 -----------------------------------
+  Element = !Observation.referenceRange.high.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 47 -----------------------------------
+  Element = !Observation.referenceRange.high.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabUCUM
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 48 -----------------------------------
+  Element = !Observation.referenceRange.age
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 49 -----------------------------------
+  Element = !Observation.referenceRange.age.low
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 50 -----------------------------------
+  Element = !Observation.referenceRange.age.low.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 51 -----------------------------------
+  Element = !Observation.referenceRange.age.low.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = AgeUnits
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 52 -----------------------------------
+  Element = !Observation.referenceRange.age.high
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 53 -----------------------------------
+  Element = !Observation.referenceRange.age.high.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Committee Notes = 11/19/2014 EH:
+  Value = http://unitsofmeasure.org
+
+ -- Row 54 -----------------------------------
+  Element = !Observation.referenceRange.age.high.code
+  Card. = 1..1
+  Must Support = Y
+  Binding = AgeUnits
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 55 -----------------------------------
+  Element = Observation.related
+  Card. = 0..0
+  Committee Notes = perr gg comment on 3/4/2015 remove .related when have a value
+
+=== Sheet USLab-ObsPanel-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation.effective[x]
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = Observation.code
+  English = Must have a LOINC or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Observation.issued
+  English = Datetime must be at least to day.
+  XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+=== Sheet USLab-ObsPanel =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = USLabObsPanel
+  Aliases = Obs
+  Type = Resource
+  Short Label = US Realm panel observation
+  Definition = US Realm observation panel aggregates component results in the Observation.related element.  Laboratory results to ordering providers in the ambulatory care setting and \"reportable\" laboratory test results to local public health agencies.
+  To Do = edit definition to scope of profile
+  Committee Notes = Add for profiling panels in Obs,  value will be empty and .related populated.
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-specimenrejectreason
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason}
+  Short Label = Specimen Rejection Reason
+  Requirements = CLIA require a reason when the test is not performed due to an unsatisfactory specimen
+  To Do = Map to igs, review value set
+  Committee Notes = 11/29/2014  EH : added extension for - specimen reject reason type = CodeableConcept  - text OK valueSet v2 0490 for now.  ( use when dataabsentreason equals - error  - or code equals inconclusive etc ).  Needs to be in context of obs since specimen may be suitable for some tests but not others.
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension.valueCodeableConcept.text
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Observation.extension
+  Profile Name = uslab-observationkind
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
+  Short Label = Kind of observation
+  Committee Notes = 11/29/2014  EH :  OBX.29Observation TypeIDR[1..1]1..6=HL70936 , added extension for - Kind of observation = Code -  valueSet result = actual result,  response =  Responses to laboratory Ask at order (AOE) questions,  information = other unsolicited clnically relevant information.    ( taken from v 282).  Required since drives operational functionality  - question does it really.
+
+ -- Row 10 -----------------------------------
+  Element = Observation.code
+  Card. = 1..1
+  Aliases = Test Name, Observation Identifer
+  Must Support = Y
+  Binding = USLabObservationName
+  Short Label = US Realm Laboratory Test Name
+  Definition = The laboratory test that was performed.  This is element is bound to LOINC.
+  Requirements = The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.
+  Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
+  To Do = 3/4/2015 EH: Limit to Panel codes?
+  Committee Notes = 11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.  See DAF comment 222,223
+
+ -- Row 11 -----------------------------------
+  Element = Observation.code.coding
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:LOINC Slice
+
+ -- Row 12 -----------------------------------
+  Element = Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:CWE-CR.3
+
+ -- Row 13 -----------------------------------
+  Element = Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations
+  To Do = regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex
+  Committee Notes = 11/24/2014 EH:CWE-CR.1
+
+ -- Row 14 -----------------------------------
+  Element = Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = When using LOINC  \'long common name\' is preferred although the LOINC \'short name\' or the LOINC \'fully-specified name can also be used.  ( http://lionc.org.terms-of-use)
+  Committee Notes = 11/24/2014 EH:CWE-CR.2
+
+ -- Row 15 -----------------------------------
+  Element = !Observation.code.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:Local Slice
+
+ -- Row 16 -----------------------------------
+  Element = !Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.6
+
+ -- Row 17 -----------------------------------
+  Element = !Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = 11/24/2014 EH:CWE-CR.4
+
+ -- Row 18 -----------------------------------
+  Element = !Observation.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.7
+
+ -- Row 19 -----------------------------------
+  Element = Observation.code.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the lab test if different from the code display text(s)
+  Requirements = Used when the laboratory define how the dsplay text if different from the code display text.
+  Comments = If this exists, this is the text to be used for display.
+  Committee Notes = 11/24/2014 EH:CWE-CR.9  display text - originated by lab
+
+ -- Row 20 -----------------------------------
+  Element = Observation.value[x]
+  Card. = 0..0
+  Aliases = numeric result, quantitative result
+  Must Support = Y
+  Definition = This is the actual quantitative (numeric) result.
+  To Do = 3/4/2015EH prohibit value for panel
+  Committee Notes = 11/19/2014 EH:OBX.5-SNObservation valueSNRE[0..1]  - Quantity
+
+ -- Row 21 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Must Support = Y
+  Comments = Although the value is prohibited in the USLab Panel Profile. If all the panel components have no value for some reason then the panel level data absent reason may be used.
+  To Do = 3/4/2015EH but what about dataabsetnt- preserve for use case when whole panel is  sh*t.
+  Committee Notes = 11/19/2014 EH: this is new element for USLAB but a good idea for exceptional values discuss
+
+ -- Row 22 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..0
+  Must Support = Y
+  Binding = USLabObsInterpretation
+  To Do = 3/4/2015EH prohibit interpretation for panel
+  Committee Notes = 11/19/2014 EH:OBX.8Interpetation CodesCWE_CRERE[0..*]HL70078,  bind to 0078  all really need is  code here
+
+ -- Row 23 -----------------------------------
+  Element = Observation.effective[x]
+  Card. = 0..1
+  Aliases = 1
+  Must Support = Y
+  Definition = For lab tests this is the specimen collection date.  For Ask at Order Entry Questions (AOE)\'s this is the date the question was asked.
+  Requirements = Minimum Precision to Day
+  To Do = Have Lloyd check xpath
+  Committee Notes = 11/19/2014 EH:OBX.14Date/Time of the ObservationTS_4RE[0..1]
+
+ -- Row 24 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..1
+  Aliases = 3
+  Must Support = Y
+  Requirements = Minimum Precision to Day
+  Committee Notes = 11/19/2014 EH:OBX.19Date/Time of the AnalysisTS_5RE[0..1]  note this dateTime is more precise to instant
+
+ -- Row 25 -----------------------------------
+  Element = Observation.status
+  Card. = 1..1
+  Must Support = Y
+  To Do = mapping
+  Committee Notes = 11/19/2014 EH:OBX.11Observation Result StatusIDR[1..1]1..1HL70085
+
+ -- Row 26 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+  Committee Notes = 11/19/2014 EH: this is found in Specimen resource to which the DR points
+
+ -- Row 27 -----------------------------------
+  Element = Observation.identifier
+  Card. = 1..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: new identifier instance recommend using and discuss
+
+ -- Row 28 -----------------------------------
+  Element = Observation.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  EI
+
+ -- Row 29 -----------------------------------
+  Element = !Observation.identifier.type
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  Committee Notes = 11/19/2014 EH:
+  Value = Lab test result ID
+
+ -- Row 30 -----------------------------------
+  Element = Observation.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 31 -----------------------------------
+  Element = Observation.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 32 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Committee Notes = 11/19/2014 EH: PID
+
+ -- Row 33 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
+
+ -- Row 34 -----------------------------------
+  Element = Observation.performer
+  Profile Name = USLabPerformingLabSlice
+  Discriminator = type@profile|true|openAtEnd
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-performinglab}
+  Requirements = If lab gernerated results need organization
+  Committee Notes = 11/19/2014 EH: OBX.23-25 should this b sliced allow for practitioner or other performer, if lab generated results only
+
+ -- Row 35 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..0
+  Must Support = Y
+  To Do = 3/4/2015EH prohibit RR for panel
+  Committee Notes = 11/19/2014 EH:  OBX.6UnitsCWE_CREC(R/RE)[0..1]UCUM  Bind to UCUM here.
+
+ -- Row 36 -----------------------------------
+  Element = Observation.related
+  Card. = 1..*
+  Must Support = Y
+  Short Label = Components of Panel/Battery
+  Definition = A set of related observations that together form the panel or battery of this observation.
+  To Do = 3/4/2015  EH here  is where it gets interesting.
+  Committee Notes = perr gg comment on 3/4/2015 remove .related when have a value
+
+ -- Row 37 -----------------------------------
+  Element = Observation.related.type
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Value = has-member
+
+ -- Row 38 -----------------------------------
+  Element = Observation.related.target
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obscode}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsquantity}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsother}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsratio}
+  Short Label = USLab component observations
+
+=== Sheet Search =====================================

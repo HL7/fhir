@@ -1,0 +1,12 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = PriorityExample
+  Binding = value set
+  Reference = valueset-specimen-collection-priority
+  Definition = Type representing the priority for specimen collection
+  Description = Examples of collection priorities
+  Conformance = example
+
+=== Sheet Search =====================================

@@ -1,0 +1,41 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = CodeableConcept
+  Type = Type
+  Short Label = Concept - reference to a terminology or just  text
+  Definition = A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text
+  Requirements = This is a common pattern in healthcare - a concept that may be defined by one or more codes from formal definitions including LOINC and SNOMED CT, and/or defined by the provision of text that captures a human sense of the concept
+  Comments = Not all terminology uses fit this general pattern. In some cases, models should not use CodeableConcept and use Coding directly and provide their own structure for managing text, codings, translations and the relationship between elements and pre- and post-coordination
+  ORIM Mapping = fhir:CodeableConcept rdfs:subClassOf dt:CD
+  v2 Mapping = CE/CNE/CWE
+  RIM Mapping = CD
+
+ -- Row 2 -----------------------------------
+  Element = CodeableConcept.coding
+  Card. = 0..*
+  Type = Coding
+  Short Label = Code defined by a terminology system
+  Definition = A reference to a code defined by a terminology system
+  Requirements = Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.
+  Comments = Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the V3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true
+  ORIM Mapping = fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding
+  v2 Mapping = C*E.1-8, C*E.10-22
+  RIM Mapping = union(., ./translation)
+
+ -- Row 3 -----------------------------------
+  Element = CodeableConcept.text
+  Card. = 0..1
+  Type = string
+  Short Label = Plain text representation of the concept
+  Definition = A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user
+  Requirements = The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source
+  Comments = Very often the text is the same as a displayName of one of the codings
+  ORIM Mapping = fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText
+  v2 Mapping = C*E.9. But note many systems use C*E.2 for this
+  RIM Mapping = ./originalText[mediaType/code=\"text/plain\"]/data

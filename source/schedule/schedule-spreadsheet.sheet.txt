@@ -1,0 +1,113 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ActType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ActCode
+  Definition = The schedule type can be used for the categorization of healthcare services or other appointment types\n(This is an example set, not an incomplete - TO BE UDPATED)
+
+ -- Row 2 -----------------------------------
+  Binding Name = DocumentC80PracticeSetting
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
+  Definition = Additional details about where the content was created (e.g. clinical specialty)
+  Conformance = Preferred
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Schedule
+  Aliases = Availability
+  Type = DomainResource
+  Short Label = A container for slot(s) of time that may be available for booking appointments
+  iCal Mapping = BEGIN:VFREEBUSY  ???  END:VFREEBUSY\n(If your fhir server provides this information via calDAV, then you may want to include addressing information in a URL section, and with the search, a DTSTART and DTEND component can be included to indicate the range of time that has been covered in the collection of slots, where these overlap the resources period values. For all slots that reference this resource, include a FREEBUSY row for each slot)
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Schedule.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = External Ids for this item
+  iCal Mapping = UID
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Schedule.type
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = DocumentC80PracticeSetting
+  Short Label = The schedule type can be used for the categorization of healthcare services or other appointment types
+  iCal Mapping = n/a
+  w5 = class
+
+ -- Row 4 -----------------------------------
+  Element = Schedule.actor
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
+  Short Label = The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson
+  iCal Mapping = ATTENDEE:MAILTO:john_public@host2.com\nThis can be populated with a value from the referenced resource
+  Committee Notes = Many discussions were had at 2 WGMs over the name of this field, and considered individual, subject and several others, but landed on this property name as it doesn\'t have other meanings and is applicable for people, services, locations and devices
+  w5 = who.focus
+
+ -- Row 5 -----------------------------------
+  Element = Schedule.planningHorizon
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Label = The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization\'s planning horizon; the interval for which they are currently accepting appointments. This does not define a \"template\" for planning outside these dates
+  iCal Mapping = DTSTART:20131201T003000Z\nDTEND:2014030101T003000Z
+  w5 = when.planned
+
+ -- Row 6 -----------------------------------
+  Element = Schedule.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated
+  iCal Mapping = COMMENT:(comment)\nIf there is no comment, then the line can be excluded from the iCalendar entry
+
+ -- Row 7 -----------------------------------
+  Element = !Schedule.lastModified
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When this Schedule was created, or last revised
+  iCal Mapping = DTSTAMP:19970901T083000Z\n(Server may consider updating this date to the latest date on the slots)
+  Committee Notes = This was removed as is covered by the Meta.lastUpdate property
+  w5 = when.recorded
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = actor
+  Type = reference
+  Description = The individual(HealthcareService, Practitioner, Location, ...) to find a Schedule for
+  Path = Schedule.actor
+
+ -- Row 2 -----------------------------------
+  Name = type
+  Type = token
+  Description = The type of appointments that can be booked into associated slot(s)
+  Path = Schedule.type
+
+ -- Row 3 -----------------------------------
+  Name = date
+  Type = date
+  Description = Search for Schedule resources that have a period that contains this date specified
+  Path = Schedule.planningHorizon
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Physio Example
+  Identity = example
+  Description = Example of an Schedule resource
+  Filename = schedule-example.xml
+
+=== Sheet Examples =====================================

@@ -1,0 +1,103 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = HSPC-Quantitative-Observations
+  Binding = value set
+  Reference = valueset-QuantitativeLabCodes
+  Definition = Standard LOINC codes
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = hspc-abnInt-NumericNom
+  Binding = value set
+  Reference = valueset-abnInt-NumericNom
+  Definition = The set of codes that describe in what way a lab value is abnormal
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = hspc-deltaFlag-numericNom
+  Binding = value set
+  Reference = valueset-deltaFlag-numericNom
+  Definition = The set of codes that describe the significant changes in test values
+  Conformance = preferred
+
+=== Sheet hspc-stdqty-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation
+  English = Must have either a value or a dataAbsentReason but not both
+  XPath = (f:value or f:dataAbsentReason) and (not(f:value and f:dataAbsentReason))
+  Severity = error
+
+=== Sheet hspc-stdqty =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = StandardLabObsQuantitative
+  Type = {http://hl7.org/fhir/StructureDefinition/hspc-std}
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Binding = HSPC-Quantitative-Observations
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+  Card. = 0..1
+  Inv. = 1
+  Type = Quantity
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity.value
+  Card. = 1..1
+
+ -- Row 5 -----------------------------------
+  Element = Observation.valueQuantity.unit
+  Card. = 1..1
+
+ -- Row 6 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Card. = 1..1
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 7 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Card. = 1..1
+  Comments = The UCUM code must be comparable to the LOINC example UCUM code (e.g. the UCUM definitions allow for it to be converted)
+
+ -- Row 8 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Inv. = 1
+  Binding = !LabNullFlavor_VALUESET_ECID
+
+ -- Row 9 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..1
+  Binding = hspc-abnInt-NumericNom
+
+ -- Row 10 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 1..1
+
+ -- Row 11 -----------------------------------
+  Element = Observation.referenceRange.low
+  Card. = 0..0
+
+ -- Row 12 -----------------------------------
+  Element = Observation.referenceRange.high
+  Card. = 0..0
+
+ -- Row 13 -----------------------------------
+  Element = Observation.referenceRange.meaning
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = Observation.referenceRange.age
+  Card. = 0..0
+
+ -- Row 15 -----------------------------------
+  Element = Observation.referenceRange.text
+  Card. = 1..1

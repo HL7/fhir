@@ -1,0 +1,139 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = InterpretationNumNom
+  Binding = value set
+  Reference = valueset-abnInt-NumericNom
+  Definition = A set of codes that describe interpretations for numeric-nominal values
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = BodyLocationPrecoord
+  Binding = value set
+  Reference = valueset-bpmeasbodylocationprecoord
+  Definition = A set of codes that describe where on/in the body an observation or procedure took place
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = BloodPressureBodyPosition
+  Binding = value set
+  Reference = valueset-bpbodyposition
+  Definition = The position that a patient is in when a heart rate measurement is taken.
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = BloodPressureMeasMethodDevice
+  Binding = value set
+  Reference = valueset-bpmeasmethoddevice
+  Definition = A set of codes that describe the method used to measure a systolic blood pressure
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = VitalSignAssociatedPrecondition
+  Binding = value set
+  Reference = valueset-vitalsignassociatedprecond
+  Definition = The conditions during which an individual\'s vital signs were measured
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = FocalSubject
+  Binding = value set
+  Reference = valueset-focalSubject
+  Definition = The set of codes that describe the subject of an observation when not the patient of record
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = DeltaFlagNumNom
+  Binding = value set
+  Reference = valueset-deltaFlag-numericNom
+  Definition = The codes that describe in what way a numeric result is significantly different from its predecesor
+  Conformance = preferred
+
+=== Sheet hspc-systolicbp =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Systolic Blood Pressure
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8480-6\"/><display value=\"Systolic blood pressure\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+  Card. = 1..1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 5 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Type = code
+  Value = <code value=\"mm[Hg]\"/>
+
+ -- Row 6 -----------------------------------
+  Element = Observation.interpretation
+  Binding = InterpretationNumNom
+
+ -- Row 7 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..0
+
+ -- Row 8 -----------------------------------
+  Element = Observation.status
+  Card. = 0..0
+
+ -- Row 9 -----------------------------------
+  Element = Observation.reliability
+  Card. = 0..0
+
+ -- Row 10 -----------------------------------
+  Element = Observation.bodySiteCodeableConcept
+  Type = CodeableConcept
+  Binding = BodyLocationPrecoord
+
+ -- Row 11 -----------------------------------
+  Element = Observation.extension
+  Profile Name = BodyPosition
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-bodyPosition}
+  Binding = BloodPressureBodyPosition
+
+ -- Row 12 -----------------------------------
+  Element = Observation.method
+  Binding = BloodPressureMeasMethodDevice
+
+ -- Row 13 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+ -- Row 15 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AssociatedPrecondition
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Binding = VitalSignAssociatedPrecondition
+
+ -- Row 16 -----------------------------------
+  Element = Observation.extension
+  Profile Name = FocalSubject
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}
+  Binding = FocalSubject
+
+ -- Row 17 -----------------------------------
+  Element = Observation.extension
+  Profile Name = DeltaFlag
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-delta}
+  Binding = DeltaFlagNumNom
+
+=== Sheet Search =====================================

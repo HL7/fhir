@@ -1,0 +1,44 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 2
+  Context = Range
+  English = If present, low SHALL have a lower value than high
+  XPath = not(exists(f:low/f:value/@value)) or not(exists(f:high/f:value/@value)) or (number(f:low/f:value/@value) <= number(f:high/f:value/@value))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Range
+  Type = Type
+  Short Label = Set of values bounded by low and high
+  Definition = A set of ordered Quantities defined by a low and high limit.
+  Requirements = Need to be able to specify ranges of values
+  Comments = The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -> 3
+  v2 Mapping = NR and also possibly SN (but see also quantity)
+  RIM Mapping = IVL<QTY[not(type=\"TS\")]> [lowClosed=\"true\" and highClosed=\"true\"]or URG<QTY[not(type=\"TS\")]>
+
+ -- Row 2 -----------------------------------
+  Element = Range.low
+  Card. = 0..1
+  Inv. = 2
+  Type = SimpleQuantity
+  Short Label = Low limit
+  Definition = The low limit. The boundary is inclusive.
+  Comments = If the low element is missing, the low boundary is not known.
+  v2 Mapping = NR.1
+  RIM Mapping = ./low
+
+ -- Row 3 -----------------------------------
+  Element = Range.high
+  Card. = 0..1
+  Inv. = 2
+  Type = SimpleQuantity
+  Short Label = High limit
+  Definition = The high limit. The boundary is inclusive.
+  Comments = If the high element is missing, the high boundary is not known.
+  v2 Mapping = NR.2
+  RIM Mapping = ./high

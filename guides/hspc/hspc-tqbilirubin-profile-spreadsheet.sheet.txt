@@ -1,0 +1,29 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet hspc-tqbili =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Clincal Observation
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"58941-6\"/><display value=\"Bilirubin [Mass/volume] in Skin\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 5 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Type = code
+  Value = <code value=\"mg/dL\"/>
+
+=== Sheet Search =====================================

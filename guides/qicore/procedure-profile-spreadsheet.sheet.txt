@@ -1,0 +1,151 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreProcedureType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-procedure-type
+  Definition = Codes describing the Procedure Type
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreProcedureNotPerformedReason
+  Binding = value set
+  Reference = valueset-procedure-not-performed-reason
+  Definition = Situation codes describing the reason that a procedure which might otherwise be expected, or was started, was either not performed or not completed
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICoreBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Precoordinated body sites such as \'left ear\'
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = QICorePractitionerRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/practitioner-role
+  Conformance = example
+
+=== Sheet QICore-Procedure =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Procedure
+  Profile Name = procedure-qicore
+  Type = Resource
+  QDM Mapping = Intervention, performed or Procedure, performed
+
+ -- Row 2 -----------------------------------
+  Element = Procedure.extension
+  Profile Name = Procedure.approachBodySite
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-approachBodySite}
+  QDM Mapping = anatomical approach site
+
+ -- Row 3 -----------------------------------
+  Element = !Procedure.extension
+  Profile Name = !Procedure.method
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-method}
+  QDM Mapping = method
+
+ -- Row 4 -----------------------------------
+  Element = !Procedure.extension
+  Profile Name = !Procedure.status
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-status}
+  QDM Mapping = status
+
+ -- Row 5 -----------------------------------
+  Element = Procedure.extension
+  Profile Name = Procedure.incisionDateTime
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-incisionDateTime}
+  QDM Mapping = incision datetime
+
+ -- Row 6 -----------------------------------
+  Element = Procedure.extension
+  Profile Name = Procedure.reasonNotPerformed
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-reasonNotPerformed}
+  Binding = QICoreProcedureNotPerformedReason
+  QDM Mapping = negation rationale
+
+ -- Row 7 -----------------------------------
+  Element = Procedure.type
+  Must Support = Y
+  Binding = QICoreProcedureType
+  QDM Mapping = primary code
+
+ -- Row 8 -----------------------------------
+  Element = Procedure.bodySite
+  Must Support = Y
+  QDM Mapping = anatomical location site
+
+ -- Row 9 -----------------------------------
+  Element = Procedure.bodySite.site[x]
+  Type = CodeableConcept|Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
+  Binding = QICoreBodySite
+
+ -- Row 10 -----------------------------------
+  Element = Procedure.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 11 -----------------------------------
+  Element = Procedure.status
+  Must Support = Y
+
+ -- Row 12 -----------------------------------
+  Element = Procedure.indication
+  Must Support = Y
+  QDM Mapping = reason
+
+ -- Row 13 -----------------------------------
+  Element = Procedure.performer
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = Procedure.performer.person
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+
+ -- Row 15 -----------------------------------
+  Element = Procedure.performer.role
+  Binding = QICorePractitionerRole
+
+ -- Row 16 -----------------------------------
+  Element = Procedure.performed[x]
+  Must Support = Y
+  QDM Mapping = start, stop datetime
+
+ -- Row 17 -----------------------------------
+  Element = Procedure.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 18 -----------------------------------
+  Element = Procedure.location
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 19 -----------------------------------
+  Element = Procedure.report
+  Must Support = Y
+  Type = Reference(DiagnosticReport){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticreport}
+  QDM Mapping = result
+
+ -- Row 20 -----------------------------------
+  Element = Procedure.relatedItem
+
+ -- Row 21 -----------------------------------
+  Element = Procedure.relatedItem.target
+  Type = Reference(CarePlan) | Reference(AllergyIntolerance){http://hl7.org/fhir/StructureDefinition/qicore-allergyintolerance}  | Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition} | Reference(DiagnosticReport){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticreport}  | Reference(FamilyMemberHistory){http://hl7.org/fhir/StructureDefinition/qicore-familymemberhistory} |Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/qicore-imagingstudy} | Reference(Immunization){http://hl7.org/fhir/StructureDefinition/qicore-immunization}  | Reference(ImmunizationRecommendation){http://hl7.org/fhir/StructureDefinition/qicore-immunizationrec}  | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/qicore-medicationadministration} | Reference(MedicationDispense){http://hl7.org/fhir/StructureDefinition/qicore-medicationdispense} | Reference(MedicationOrder){http://hl7.org/fhir/StructureDefinition/qicore-medicationorder} | Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement} | Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/qicore-procedure}
+
+ -- Row 22 -----------------------------------
+  Element = Procedure.device
+
+ -- Row 23 -----------------------------------
+  Element = Procedure.device.manipulated
+  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
+
+=== Sheet Search =====================================

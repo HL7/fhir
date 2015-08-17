@@ -1,0 +1,168 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = KnowledgeModuleResourceType
+  Binding = code list
+  Reference = #knowledge-module-resource-type
+  Definition = The type of related resource for the module
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = KnowledgeModuleStatus
+  Binding = code list
+  Reference = #knowledge-module-status
+  Definition = The status of the knowledge module
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = KnowledgeModuleContributorType
+  Binding = code list
+  Reference = #knowledge-module-contributor
+  Definition = The type of contributor
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = KnowledgeModuleParameterType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/operation-parameter-type
+  Definition = The type of the parameter
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = KnowledgeModuleParameterUse
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/operation-parameter-use
+  Definition = Whether the parameter is input or output
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = KnowledgeResponseStatus
+  Binding = code list
+  Reference = #knowledge-response-status
+  Definition = The status of a knowledge response
+  Conformance = required
+
+=== Sheet knowledge-module-resource-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = documentation
+  Display = Documentation
+  Definition = Additional documentation for the module
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = evidence
+  Display = Evidence
+  Definition = Supporting evidence for the module
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = citation
+  Display = Citation
+  Definition = Bibliographic citation for the module
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = predecessor
+  Display = Predecessor
+  Definition = The previous version of the module
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = successor
+  Display = Successor
+  Definition = The next version of the module
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = derived-from
+  Display = Derived From
+  Definition = The module is derived from the resource
+
+=== Sheet knowledge-module-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = draft
+  Display = Draft
+  Definition = The module is in draft state
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = test
+  Display = Test
+  Definition = The module is in test state
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = active
+  Display = Active
+  Definition = The module is active
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = inactive
+  Display = Inactive
+  Definition = The module is inactive, either rejected before publication, or retired after publication
+
+=== Sheet knowledge-module-contributor =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = author
+  Display = Author
+  Definition = An author of the content of the module
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = editor
+  Display = Editor
+  Definition = An editor of the content of the module
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = reviewer
+  Display = Reviewer
+  Definition = A reviewer of the content of the module
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = endorser
+  Display = Endorser
+  Definition = An endorser of the content of the module
+
+=== Sheet knowledge-response-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = success
+  Display = Success
+  Definition = The request was processed successfully
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = data-requested
+  Display = Data Requested
+  Definition = The request was processed successfully, but more data may result in a more complete evaluation
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = data-required
+  Display = Data Required
+  Definition = The request was processed, but more data is required to complete the evaluation
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = in-progress
+  Display = In Progress
+  Definition = The request is currently being processed
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = failure
+  Display = Failure
+  Definition = The request was not processed successfully
+
+=== Sheet Search =====================================

@@ -1,0 +1,71 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ObservationStatusBasic
+  Binding = value set
+  Reference = valueset-observationstatusbasic
+  Definition = A set of codes that describe the state of the observation
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = FetalEstimationMethod
+  Binding = value set
+  Reference = valueset-fetalestimationmethod
+  Definition = A set of codes that describe how a due date was arrived at
+  Conformance = example
+
+=== Sheet hspc-estimatedduedate =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Estimated Due Date
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"11778-8\"/><display value=\"Delivery date Estimated\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueDateTime
+  Card. = 1..1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..0
+
+ -- Row 5 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..0
+
+ -- Row 6 -----------------------------------
+  Element = Observation.status
+  Binding = ObservationStatusBasic
+
+ -- Row 7 -----------------------------------
+  Element = !Observation.reliability
+  Card. = 0..0
+
+ -- Row 8 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+
+ -- Row 9 -----------------------------------
+  Element = Observation.method
+  Card. = 0..1
+  Binding = FetalEstimationMethod
+
+ -- Row 10 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..0
+
+ -- Row 11 -----------------------------------
+  Element = Observation.device
+  Card. = 0..0
+
+ -- Row 12 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+=== Sheet Search =====================================

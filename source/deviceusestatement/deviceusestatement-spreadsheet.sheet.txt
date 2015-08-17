@@ -1,0 +1,123 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DeviceUseStatement
+  Type = DomainResource
+  Definition = A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
+  QUICK mapping = DeviceUsePerformanceOccurrence
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = DeviceUseStatement.bodySite[x]
+  Card. = 0..1
+  Type = CodeableConcept|Reference(BodySite)
+  Short Label = Target body site
+  Definition = Indicates the site on the subject\'s body where the device was used ( i.e. the target site).
+  Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible.
+  RIM Mapping = targetSiteCode
+
+ -- Row 3 -----------------------------------
+  Element = DeviceUseStatement.whenUsed
+  Card. = 0..1
+  Type = Period
+  Definition = The time period over which the device was used.
+  QUICK mapping = Performance.performanceTime
+  w5 = when.done
+
+ -- Row 4 -----------------------------------
+  Element = DeviceUseStatement.device
+  Card. = 1..1
+  Type = Reference(Device)
+  Definition = The details of the device used.
+  QUICK mapping = DeviceUse.device
+  w5 = who.actor
+
+ -- Row 5 -----------------------------------
+  Element = DeviceUseStatement.identifier
+  Card. = 0..*
+  Type = Identifier
+  Definition = An external identifier for this statement such as an IRI.
+  QUICK mapping = ClinicalStatement.identifier
+  w5 = id
+
+ -- Row 6 -----------------------------------
+  Element = DeviceUseStatement.indication
+  Card. = 0..*
+  Type = CodeableConcept
+  Definition = Reason or justification for the use of the device.
+  QUICK mapping = Action.indication.reason
+  w5 = why
+
+ -- Row 7 -----------------------------------
+  Element = DeviceUseStatement.notes
+  Card. = 0..*
+  Type = string
+  Definition = Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
+  QUICK mapping = ClinicalStatement.additionalText
+
+ -- Row 8 -----------------------------------
+  Element = DeviceUseStatement.recordedOn
+  Card. = 0..1
+  Type = dateTime
+  Definition = The time at which the statement was made/recorded.
+  QUICK mapping = ClinicalStatement.statementDateTime
+  w5 = when.recorded
+
+ -- Row 9 -----------------------------------
+  Element = DeviceUseStatement.subject
+  Card. = 1..1
+  Type = Reference(Patient)
+  Definition = The patient who used the device.
+  QUICK mapping = ClinicalStatement.subject
+  w5 = who.focus
+
+ -- Row 10 -----------------------------------
+  Element = DeviceUseStatement.timing[x]
+  Card. = 0..1
+  Type = Timing|Period|dateTime
+  Definition = How often the device was used.
+  QUICK mapping = DeviceUse.applicationSchedule
+  w5 = when.done
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Search by subject
+  Path = DeviceUseStatement.subject
+
+ -- Row 2 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Search by subject - a patient
+  Path = DeviceUseStatement.subject
+
+ -- Row 3 -----------------------------------
+  Name = device
+  Type = reference
+  Description = Search by device
+  Path = DeviceUseStatement.device
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Device Use Statement Extensions
+  IG Name = core
+  Filename = deviceusestatement-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Wheelchair
+  Identity = example
+  Description = The provision of a wheelchair to a patient
+  Filename = deviceusestatement-example.xml
+
+=== Sheet Examples =====================================

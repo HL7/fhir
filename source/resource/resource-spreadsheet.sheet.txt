@@ -1,0 +1,246 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ResourceValidationMode
+  Binding = code list
+  Reference = #resource-validation-mode
+  Definition = Codes indicating the type of validation to perform
+  Conformance = required
+
+=== Sheet resource-validation-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = create
+  Display = Validate for Create
+  Definition = The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not validate any uniqueness constraints)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = update
+  Display = Validate for Update
+  Definition = The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change, and checking version integrity if appropriate)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = delete
+  Display = Validate for Delete
+  Definition = The server ignores the content, and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules)
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Resource
+  Short Label = Base Resource
+  Definition = Base Resource for everything
+  RIM Mapping = Entity. Role, or Act
+
+ -- Row 2 -----------------------------------
+  Element = Resource.id
+  Card. = 0..1
+  Summary = Y
+  Type = id
+  Short Label = Logical id of this artifact
+  Definition = The logical id of the resource, as used in the url for the resource. Once assigned, this value never changes
+  Comments = The only time that a resource does not have an id is when it is being submitted to the server using a create operation. Bundles always have an id, though it is usually a generated UUID
+
+ -- Row 3 -----------------------------------
+  Element = Resource.meta
+  Card. = 0..1
+  Summary = Y
+  UML = 200;0
+  Type = Meta
+  Short Label = Metadata about the resource
+  Definition = The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource
+
+ -- Row 4 -----------------------------------
+  Element = Resource.implicitRules
+  Card. = 0..1
+  Is Modifier = y
+  Summary = Y
+  Type = uri
+  Short Label = A set of rules under which this content was created
+  Definition = A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.
+  Comments = Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible
+
+ -- Row 5 -----------------------------------
+  Element = Resource.language
+  Card. = 0..1
+  Type = code
+  Binding = Language
+  Short Label = Language of the resource content
+  Definition = The base language in which the resource is written
+  Comments = Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = _id
+  Type = token
+  Path = Resource.id
+
+ -- Row 2 -----------------------------------
+  Name = _lastUpdated
+  Type = date
+  Path = Resource.meta.lastUpdated
+
+ -- Row 3 -----------------------------------
+  Name = _tag
+  Type = token
+  Path = Resource.meta.tag
+
+ -- Row 4 -----------------------------------
+  Name = _profile
+  Type = uri
+  Path = Resource.meta.profile
+
+ -- Row 5 -----------------------------------
+  Name = _security
+  Type = token
+  Path = Resource.meta.security
+
+ -- Row 6 -----------------------------------
+  Name = _text
+  Type = string
+  Description = Search on the narrative of the resource
+
+ -- Row 7 -----------------------------------
+  Name = _content
+  Type = string
+  Description = Search on the entire content of the resource
+
+ -- Row 8 -----------------------------------
+  Name = _query
+  Type = token
+  Description = A custom search profile that describes a specific defined query operation
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = validate
+  Use = Resource | Instance
+  Documentation = The validate interaction checks whether the attached content would be acceptable either generally, or as a create, or an update or delete to an existing resource.  The action the server takes depends on the mode parameter:  * [missing]: The server checks the content of the resource against any schema, constraint rules, and other general terminology rules * create: The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not validate any uniqueness constraints) * update: The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change, and checking version integrity if appropriate) * delete: The server ignores the content, and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules)  Modes update and delete can only be used when the operation is invoked at the resource level.   The return from this operation is an OperationOutcome
+  Type = operation
+  Example.Request = $validate-request.txt
+  Example.Response = $validate-response.txt
+  Title = Validate a resource
+  Footer = This operation may be used during design and development to validate application design. It can also be used at run-time. One possible use might be that a client asks the server whether a proposed update is valid as the user is editing a dialog, and displays an updated error to the user. The operation can be used as part of a light-weight two phase commit protocol but there is no expectation that the server will hold the content of the resource after this operation is used, or that the server guarantees to succesfully perform an actual create, update or delete after the validation operation completes.
+
+ -- Row 2 -----------------------------------
+  Name = validate.resource
+  Use = in
+  Documentation = Must be present unless the mode is \"delete\"
+  Type = Resource
+  Title = The resource to validate
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = validate.mode
+  Use = in
+  Documentation = Default is \'no action; (e.g. general validation)
+  Type = code
+  Title = What kind of validation to perform
+  Min = 0
+  Max = 1
+  Binding = ResourceValidationMode
+
+ -- Row 4 -----------------------------------
+  Name = validate.profile
+  Use = in
+  Documentation = If this is nominated, then the resource is validated against this specific profile. If a profile is nominated, and the server cannot validate against the nominated profile, it SHALL return an error
+  Type = uri
+  Title = Literal or logical uri of a profile
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = validate.return
+  Use = out
+  Documentation = If the operation outcome does not list any errors, and a mode was specified, then this is an indication that the operation would be expected to succeed (excepting for transactional integrity issues, see below)
+  Type = OperationOutcome
+  Title = The outcome of the validation operation
+  Min = 1
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = meta
+  Use = System | Resource | Instance
+  Documentation = This operation retrieves a summary of the profiles, tags, and security labels for the given scope. E.g. for each scope:  * system-wide: a list of all profiles, tags and security labels in use by the system * resource-type level: A list of all profiles, tags, and security labels for the resource type * individual resource level: A list of all profiles, tags, and security labels for the current version of the resource.  Also, as a special case, this operation (and other meta operations) can be performed on a historical version of a resource)
+  Type = operation
+  Example.Request = $meta-request.txt
+  Example.Response = $meta-response.txt
+  Title = Access a list of profiles, tags, and security labels
+  Footer = At the system and type levels, the $meta operation is used to get a summary of all the labels that are in use across the system. The principle use for this operation is to support search e.g. what tags can be searched for. At these levels, the meta will not contain versionId, lastUpdated etc. Systems are not obligated to implement the operation at this level (and should return a 4xx error if they don\'t)  At the resource and historical entry level, the $meta operation returns the same meta as would be returned by accessing the resource directly. This can be used to allow a system to get access to the meta-information for the resource without accessing the resource itself, e.g. for security reasons
+
+ -- Row 7 -----------------------------------
+  Name = meta.return
+  Use = out
+  Documentation = The meta returned by the operation
+  Type = Meta
+  Title = The meta returned by the operation
+  Min = 1
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = meta-add
+  Use = Instance
+  Documentation = This operation takes a meta, and either adds the profiles, tags, and security labels found in it to the nominated resource.   This operation can also be used on historical entries - to update them without creating a different historical version
+  Type = operation
+  Example.Request = $meta-add-request.txt
+  Example.Response = $meta-add-response.txt
+  Title = Add profiles, tags, and security labels to a resource
+  Footer = This operation is special in that executing this operation does not cause a new version of the resource to be created. The meta is updated directly. This is because the content in meta does not affect the meaning of the resource, and the security labels (in particular) are used to apply access rules to existing versions of resources
+
+ -- Row 9 -----------------------------------
+  Name = meta-add.meta
+  Use = in
+  Documentation = Profiles, tags, and security labels to add to the existing resource. Note that profiles, tags, and security labels are sets, and duplicates are not created.  The identity of a tag or security label is the system+code. When matching existing tags during adding, version and display are ignored. For profiles matching is based on the full URL
+  Type = Meta
+  Title = Profiles, tags, and security labels to add
+  Min = 1
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = meta-add.return
+  Use = out
+  Documentation = Resulting meta for the resource
+  Type = Meta
+  Title = Resulting meta for the resource
+  Min = 1
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = meta-delete
+  Use = Instance
+  Documentation = This operation takes a meta, and either deletes the profiles, tags, and security labels found in it from the nominated resource.   This operation can also be used on historical entries
+  Type = operation
+  Example.Request = $meta-delete-request.txt
+  Example.Response = $meta-delete-response.txt
+  Title = Delete profiles, tags, and security labels for a resource
+  Footer = This operation is special in that executing this operation does not cause a new version of the resource to be created. The meta is updated directly. This is because the content in meta does not affect the meaning of the resource, and the security labels (in particular) are used to apply access rules to existing versions of resources
+
+ -- Row 12 -----------------------------------
+  Name = meta-delete.meta
+  Use = in
+  Documentation = Profiles, tags, and security labels to add delete from the existing resource. It is not an error if these tags, profiles, and labels do not exist.  The identity of a tag or security label is the system+code. When matching existing tags during deletion, version and display are ignored. For profiles matching is based on the full URL
+  Type = Meta
+  Title = Profiles, tags, and security labels to delete
+  Min = 1
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = meta-delete.return
+  Use = out
+  Documentation = Resulting meta for the resource
+  Type = Meta
+  Title = Resulting meta for the resource
+  Min = 1
+  Max = 1

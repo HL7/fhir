@@ -1,0 +1,499 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DiagnosticOrderStatus
+  Binding = code list
+  Reference = #diagnostic-order-status
+  Definition = The status of a diagnostic order
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = DiagnosticOrderPriority
+  Binding = code list
+  Reference = #diagnostic-order-priority
+  Definition = The clinical priority of a diagnostic order
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = DiagnosticRequests
+  Binding = value set
+  Reference = valueset-diagnostic-requests
+  Definition = Codes for tests/services that can be performed by diagnostic services
+  Description = LOINC Order Codes
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = DiagnosticOrderEventDescription
+  Binding = value set
+  Reference = valueset-diagnostic-order-event
+  Definition = Additional information about an event that occurred to a diagnostic order - e.g. if the status remained unchanged
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality
+  Description = SNOMED CT Body site concepts
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = DiagnosticOrderReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-code
+  Definition = Diagnosis or problem codes justifying the reason for requesting the diagnostic investigation
+  Description = SNOMED CT Condition/Problem/Diagnosis Codes
+  Conformance = example
+
+=== Sheet diagnostic-order-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = proposed
+  Display = Proposed
+  Definition = The request has been proposed
+
+ -- Row 2 -----------------------------------
+  Id = 13
+  Code = draft
+  Display = Draft
+  Definition = the request is in preliminary form prior to being sent
+
+ -- Row 3 -----------------------------------
+  Id = 2
+  Code = planned
+  Display = Planned
+  Definition = The request has been planned
+
+ -- Row 4 -----------------------------------
+  Id = 3
+  Code = requested
+  Display = Requested
+  Definition = The request has been placed
+
+ -- Row 5 -----------------------------------
+  Id = 4
+  Code = received
+  Display = Received
+  Definition = The receiving system has received the order, but not yet decided whether it will be performed
+
+ -- Row 6 -----------------------------------
+  Id = 5
+  Code = accepted
+  Display = Accepted
+  Definition = The receiving system has accepted the order, but work has not yet commenced
+
+ -- Row 7 -----------------------------------
+  Id = 6
+  Code = in-progress
+  Display = In-Progress
+  Definition = The work to fulfill the order is happening
+
+ -- Row 8 -----------------------------------
+  Id = 7
+  Code = review
+  Display = Review
+  Definition = The work is complete, and the outcomes are being reviewed for approval
+
+ -- Row 9 -----------------------------------
+  Id = 8
+  Code = completed
+  Display = Completed
+  Definition = The work has been complete, the report(s) released, and no further work is planned
+
+ -- Row 10 -----------------------------------
+  Id = 12
+  Code = cancelled
+  Display = Cancelled
+  Definition = the request has been withdrawn
+
+ -- Row 11 -----------------------------------
+  Id = 9
+  Code = suspended
+  Display = Suspended
+  Definition = The request has been held by originating system/user request
+
+ -- Row 12 -----------------------------------
+  Id = 10
+  Code = rejected
+  Display = Rejected
+  Definition = The receiving system has declined to fulfill the request
+
+ -- Row 13 -----------------------------------
+  Id = 11
+  Code = failed
+  Display = Failed
+  Definition = The diagnostic investigation was attempted, but due to some procedural error, it could not be completed
+
+=== Sheet diagnostic-order-priority =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = routine
+  Display = Routine
+  Definition = The order has a normal priority
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = urgent
+  Display = Urgent
+  Definition = The order should be urgently
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = stat
+  Display = Stat
+  Definition = The order is time-critical
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = asap
+  Display = ASAP
+  Definition = The order should be acted on as soon as possible
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticOrder
+  Type = DomainResource
+  Short Label = A request for a diagnostic service
+  Definition = A record of a request for a diagnostic investigation service to be performed.
+  RIM Mapping = Observation[classCode=OBS, moodCode=RQO, code<\"diagnostic order\"]
+  Committee Notes = [#5279]
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = DiagnosticOrder.subject
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Patient|Group|Location|Device)
+  Short Label = Who and/or what test is about
+  Definition = Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)
+  RIM Mapping = .participation[typeCode=SBJ].role
+  w5 = who.focus
+
+ -- Row 3 -----------------------------------
+  Element = DiagnosticOrder.orderer
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner)
+  Short Label = Who ordered the test
+  Definition = The practitioner that holds legal responsibility for ordering the investigation
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.actor
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticOrder.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Identifiers assigned to this order
+  Definition = Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.
+  Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2 ) and the producer of the observations in response to the order ( known the \'Filler\' in HL7 v2) .    For further discussion and examples see the [notes section](diagnosticorder.html#4.22.4) below.
+  RIM Mapping = .id
+  To Do = finalize type codes
+  Committee Notes = 7331
+  w5 = id
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticOrder.encounter
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Encounter)
+  Short Label = The encounter that this diagnostic order is associated with
+  Definition = An encounter that provides additional information about the healthcare context in which this request is made
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticOrder.reason
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = DiagnosticOrderReason
+  Short Label = Explanation/Justification for test
+  Definition = An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticorder-example-di.html).
+  RIM Mapping = .reasonCode
+  Committee Notes = 7134
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticOrder.supportingInformation
+  Card. = 0..*
+  Aliases = Ask at order entry question, AOE
+  Type = Reference(Observation|Condition|DocumentReference)
+  Short Label = Additional clinical information
+  Definition = Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.
+  Comments = This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\". Examples include reporting the amount of inspired oxygen for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations.
+  v2 Mapping = OBR-13
+  RIM Mapping = outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]
+  Committee Notes = [#3113][#3739]
+
+ -- Row 8 -----------------------------------
+  Element = DiagnosticOrder.specimen
+  Card. = 0..*
+  Type = Reference(Specimen)
+  Short Label = If the whole order relates to specific specimens
+  Definition = One or more specimens that the diagnostic investigation is about
+  Comments = Many investigation requests will create a need for specimens, but the request itself is not actually about the specimens. This is provided for when the diagnostic investigation is requested on already existing specimens
+  RIM Mapping = .participation[typeCode=SPC].role
+
+ -- Row 9 -----------------------------------
+  Element = DiagnosticOrder.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = DiagnosticOrderStatus
+  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
+  Definition = The status of the order
+  Comments = Typically the system placing the order sets the status to requested. Thereafter, the order is maintained by the receiver that updates the status as the request is handled
+  RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
+  Committee Notes = [#3720]
+  w5 = status
+
+ -- Row 10 -----------------------------------
+  Element = DiagnosticOrder.priority
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = DiagnosticOrderPriority
+  Short Label = routine | urgent | stat | asap
+  Definition = The clinical priority associated with this order
+  Comments = The Order resource also has a priority. Generally, these should be the same, but they can be different, for instance in the case where the clinician indicates that the order is urgent, but the subsequent workflow process overrule this priority for some reason. The effective default value is \"normal\"
+  RIM Mapping = .priorityCode
+  w5 = grade
+
+ -- Row 11 -----------------------------------
+  Element = DiagnosticOrder.event
+  Card. = 0..*
+  UML = down
+  Short Label = A list of events of interest in the lifecycle
+  Definition = A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed
+  Comments = This is not the same as an audit trail - it is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
+  RIM Mapping = .inboundRelationship[typeCode=FLFS].source
+
+ -- Row 12 -----------------------------------
+  Element = DiagnosticOrder.event.status
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = DiagnosticOrderStatus
+  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
+  Definition = The status for the event
+  RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
+  Committee Notes = [#3720]
+
+ -- Row 13 -----------------------------------
+  Element = DiagnosticOrder.event.description
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = DiagnosticOrderEventDescription
+  Short Label = More information about the event and its context
+  Definition = Additional information about the event that occurred - e.g. if the status remained unchanged
+  RIM Mapping = .text
+
+ -- Row 14 -----------------------------------
+  Element = DiagnosticOrder.event.dateTime
+  Card. = 1..1
+  Summary = Y
+  Type = dateTime
+  Short Label = The date at which the event happened
+  Definition = The date/time at which the event occurred
+  RIM Mapping = .effectiveTime
+
+ -- Row 15 -----------------------------------
+  Element = DiagnosticOrder.event.actor
+  Card. = 0..1
+  Type = Reference(Practitioner|Device)
+  Short Label = Who recorded or did this
+  Definition = The person who was responsible for performing or recording the action
+  RIM Mapping = .participation[AUT or PFM]
+
+ -- Row 16 -----------------------------------
+  Element = DiagnosticOrder.item
+  Card. = 0..*
+  UML = right
+  Short Label = The items the orderer requested
+  Definition = The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested
+  Comments = There would always be at least one item in normal usage, but this is optional so that a workflow can quote order details without having to list the items
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=OBS]
+
+ -- Row 17 -----------------------------------
+  Element = DiagnosticOrder.item.code
+  Card. = 1..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = DiagnosticRequests
+  Short Label = Code to indicate the item (test or panel) being ordered
+  Definition = A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested
+  Comments = Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.
+  v2 Mapping = OBX-4
+  RIM Mapping = .code
+
+ -- Row 18 -----------------------------------
+  Element = DiagnosticOrder.item.specimen
+  Card. = 0..*
+  Type = Reference(Specimen)
+  Short Label = If this item relates to specific specimens
+  Definition = If the item is related to a specific specimen
+  Comments = A single specimen should not appear in both DiagnosticOrder.specimen and DiagnosticOrder.item.specimen
+  RIM Mapping = .participation[typeCode=SPC].role
+
+ -- Row 19 -----------------------------------
+  Element = DiagnosticOrder.item.bodySite
+  Card. = 0..1
+  Aliases = location
+  Type = CodeableConcept
+  Binding = BodySite
+  Short Label = Location of requested test (if applicable)
+  Definition = Anatomical location where the request test should be performed.  This is the target site.
+  Comments = If the use case requires BodySite to be be handled as a separate resource instead of an inline coded element ( e.g. to identify and track separately)  then use the standard extension [body-site-instance](extension-body-site-instance.html).
+  RIM Mapping = targetSiteCode
+
+ -- Row 20 -----------------------------------
+  Element = DiagnosticOrder.item.status
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = DiagnosticOrderStatus
+  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
+  Definition = The status of this individual item within the order
+  Comments = If the request has multiple items that have their own life cycles, then the items will have their own status while the overall diagnostic order is (usually) \"in-progress\"
+  RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
+  Committee Notes = [#3720]
+
+ -- Row 21 -----------------------------------
+  Element = DiagnosticOrder.item.event
+  Card. = 0..*
+  Summary = Y
+  Type = @DiagnosticOrder.event
+  Short Label = Events specific to this item
+  Definition = A summary of the events of interest that have occurred as this item of the request is processed
+  RIM Mapping = .inboundRelationship[typeCode=FLFS].source
+
+ -- Row 22 -----------------------------------
+  Element = DiagnosticOrder.note
+  Card. = 0..*
+  Type = Annotation
+  Short Label = Other notes and comments
+  Definition = Any other notes associated with this patient or specimen or order (e.g. \"patient hates needles\")
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
+  Committee Notes = 7134,8147
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = actor
+  Type = reference
+  Path = DiagnosticOrder.event.actor | DiagnosticOrder.item.event.actor
+
+ -- Row 2 -----------------------------------
+  Name = bodysite
+  Type = token
+  Path = DiagnosticOrder.item.bodySite
+
+ -- Row 3 -----------------------------------
+  Name = code
+  Type = token
+  Path = DiagnosticOrder.item.code
+
+ -- Row 4 -----------------------------------
+  Name = event-date
+  Type = date
+  Path = DiagnosticOrder.event.dateTime
+
+ -- Row 5 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = DiagnosticOrder.encounter
+
+ -- Row 6 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = DiagnosticOrder.identifier
+
+ -- Row 7 -----------------------------------
+  Name = item-date
+  Type = date
+  Path = DiagnosticOrder.item.event.dateTime
+
+ -- Row 8 -----------------------------------
+  Name = item-past-status
+  Type = token
+  Path = DiagnosticOrder.item.event.status
+
+ -- Row 9 -----------------------------------
+  Name = item-status
+  Type = token
+  Path = DiagnosticOrder.item.status
+
+ -- Row 10 -----------------------------------
+  Name = item-status-date
+  Type = composite
+  Description = A combination of item-past-status and item-date
+  Path = item-past-status & item-date
+
+ -- Row 11 -----------------------------------
+  Name = orderer
+  Type = reference
+  Path = DiagnosticOrder.orderer
+
+ -- Row 12 -----------------------------------
+  Name = event-status
+  Type = token
+  Path = DiagnosticOrder.event.status
+
+ -- Row 13 -----------------------------------
+  Name = specimen
+  Type = reference
+  Path = DiagnosticOrder.specimen | DiagnosticOrder.item.specimen
+
+ -- Row 14 -----------------------------------
+  Name = status
+  Type = token
+  Path = DiagnosticOrder.status
+
+ -- Row 15 -----------------------------------
+  Name = event-status-date
+  Type = composite
+  Description = A combination of past-status and date
+  Path = event-status & event-date
+
+ -- Row 16 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = DiagnosticOrder.subject
+
+ -- Row 17 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = DiagnosticOrder.subject
+  Target Types = Patient
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = diagnosticorder-extensions
+  IG Name = core
+  Filename = diagnosticorder-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Lipids
+  Identity = example
+  Description = Lipid Panel Order
+  Filename = diagnosticorder-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = DI Order
+  Identity = di
+  Description = CT Scan order
+  Filename = diagnosticorder-example-di.xml
+
+=== Sheet Examples =====================================

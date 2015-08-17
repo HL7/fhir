@@ -1,0 +1,362 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = PhysicalType
+  Binding = value set
+  Reference = valueset-location-physical-type
+  Definition = Physical form of the location
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = LocationType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType
+  Definition = Indicates the type of function performed at the location
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = LocationMode
+  Binding = code list
+  Reference = #location-mode
+  Definition = Indicates whether a resource instance represents a specific location or a class of locations
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = LocationStatus
+  Binding = code list
+  Reference = #location-status
+  Definition = Indicates whether the location is still in use
+  Conformance = required
+
+=== Sheet location-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = instance
+  Display = Instance
+  Definition = The Location resource represents a specific instance of a Location (e.g. Operating Theatre 1A)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = kind
+  Display = Kind
+  Definition = The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc)
+
+=== Sheet location-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Display = Active
+  Definition = The location is operational
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = suspended
+  Display = Suspended
+  Definition = The location is temporarily closed
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = inactive
+  Display = Inactive
+  Definition = The location is no longer used
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Location
+  Type = DomainResource
+  Short Label = Details and position information for a physical place
+  Definition = Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated
+  RIM Mapping = .Role[classCode=SDLC]
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Location.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Unique code or number identifying the location to its users
+  Definition = Unique code or number identifying the location to its users
+  Requirements = Organization label locations in registries, need to keep track of those
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Location.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of the location as used by humans
+  Definition = Name of the location as used by humans. Does not need to be unique.
+  RIM Mapping = .name
+
+ -- Row 4 -----------------------------------
+  Element = Location.description
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Description of the Location, which helps in finding or referencing the place
+  Definition = Description of the Location, which helps in finding or referencing the place
+  Requirements = Humans need additional information to verify a correct location has been identified
+  RIM Mapping = .playingEntity[classCode=PLC determinerCode=INSTANCE].desc
+
+ -- Row 5 -----------------------------------
+  Element = Location.mode
+  Card. = 0..1
+  Is Modifier = y
+  Summary = Y
+  Type = code
+  Binding = LocationMode
+  Short Label = instance | kind
+  Definition = Indicates whether a resource instance represents a specific location or a class of locations
+  Requirements = When using a Location resource for scheduling or orders, we need to be able to refer to a class of Locations instead of a specific Location
+  RIM Mapping = .playingEntity[classCode=PLC].determinerCode
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = Location.type
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = LocationType
+  Short Label = Indicates the type of function performed at the location
+  Definition = Indicates the type of function performed at the location
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = Location.telecom
+  Card. = 0..*
+  Type = ContactPoint
+  Short Label = Contact details of the location
+  Definition = The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites
+  RIM Mapping = .telecom
+
+ -- Row 8 -----------------------------------
+  Element = Location.address
+  Card. = 0..1
+  Type = Address
+  Short Label = Physical location
+  Requirements = If locations can be visited, we need to keep track of their address
+  Comments = This was kept as 0..1 as there is no use property on the address, so wouldn\'t be able to identify different address types
+  RIM Mapping = .addr
+
+ -- Row 9 -----------------------------------
+  Element = Location.physicalType
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = PhysicalType
+  Short Label = Physical form of the location
+  Definition = Physical form of the location, e.g. building, room, vehicle, road
+  Requirements = For purposes of showing relevant locations in queries, we need to categorize locations
+  RIM Mapping = .playingEntity [classCode=PLC].code
+  w5 = class
+
+ -- Row 10 -----------------------------------
+  Element = Location.position
+  Card. = 0..1
+  UML = right
+  Short Label = The absolute geographic location
+  Definition = The absolute geographic location of the Location, expressed in with the WGS84 datum (This is the same co-ordinate system used in KML)
+  Requirements = For mobile applications and automated route-finding knowing the exact location of the Location is required
+  RIM Mapping = .playingEntity [classCode=PLC determinerCode=INSTANCE].positionText
+
+ -- Row 11 -----------------------------------
+  Element = Location.position.longitude
+  Card. = 1..1
+  Type = decimal
+  Short Label = Longitude with WGS84 datum
+  Definition = Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)
+  RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
+
+ -- Row 12 -----------------------------------
+  Element = Location.position.latitude
+  Card. = 1..1
+  Type = decimal
+  Short Label = Latitude with WGS84 datum
+  Definition = Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)
+  RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
+
+ -- Row 13 -----------------------------------
+  Element = Location.position.altitude
+  Card. = 0..1
+  Type = decimal
+  Short Label = Altitude with WGS84 datum
+  Definition = Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)
+  RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
+
+ -- Row 14 -----------------------------------
+  Element = Location.managingOrganization
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Label = The organization that is responsible for the provisioning and upkeep of the location
+  Requirements = Need to know who manages the location
+  Comments = This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource.
+  RIM Mapping = .scopingEntity[classCode=ORG determinerKind=INSTANCE]
+
+ -- Row 15 -----------------------------------
+  Element = Location.partOf
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Label = Another Location which this Location is physically part of
+  Requirements = For purposes of location, display and identification, knowing which locations are located within other locations is important
+  RIM Mapping = .inboundLink[typeCode=PART].source[classCode=SDLC]
+
+ -- Row 16 -----------------------------------
+  Element = Location.status
+  Card. = 0..1
+  Is Modifier = y
+  Summary = Y
+  Type = code
+  Binding = LocationStatus
+  Short Label = active | suspended | inactive
+  RIM Mapping = .statusCode
+  w5 = status
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Location.identifier
+
+ -- Row 2 -----------------------------------
+  Name = name
+  Type = string
+  Description = A (portion of the) name of the location
+  Path = Location.name
+
+ -- Row 3 -----------------------------------
+  Name = type
+  Type = token
+  Description = A code for the type of location
+  Path = Location.type
+
+ -- Row 4 -----------------------------------
+  Name = address
+  Type = string
+  Description = A (part of the) address of the location
+  Path = Location.address
+
+ -- Row 5 -----------------------------------
+  Name = address-city
+  Type = string
+  Description = A city specified in an address
+  Path = Location.address.city
+
+ -- Row 6 -----------------------------------
+  Name = address-state
+  Type = string
+  Description = A state specified in an address
+  Path = Location.address.state
+
+ -- Row 7 -----------------------------------
+  Name = address-postalcode
+  Type = string
+  Description = A postalCode specified in an address
+  Path = Location.address.postalCode
+
+ -- Row 8 -----------------------------------
+  Name = address-country
+  Type = string
+  Description = A country specified in an address
+  Path = Location.address.country
+
+ -- Row 9 -----------------------------------
+  Name = address-use
+  Type = token
+  Description = A use code specified in an address
+  Path = Location.address.use
+
+ -- Row 10 -----------------------------------
+  Name = status
+  Type = token
+  Description = Searches for locations with a specific kind of status
+  Path = Location.status
+
+ -- Row 11 -----------------------------------
+  Name = partof
+  Type = reference
+  Description = The location of which this location is a part
+  Path = Location.partOf
+
+ -- Row 12 -----------------------------------
+  Name = near
+  Type = token
+  Description = The coordinates expressed as [lat],[long] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)
+  Path = Location.position
+  Path Usage = nearby
+
+ -- Row 13 -----------------------------------
+  Name = near-distance
+  Type = token
+  Description = A distance quantity to limit the near search to locations within a specific distance
+  Path = Location.position
+  Path Usage = distance
+
+ -- Row 14 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = Searches for locations that are managed by the provided organization
+  Path = Location.managingOrganization
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Location Extensions
+  IG Name = core
+  Filename = location-extensions.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = !CCDA Service Delivery Location Profile
+  IG Name = ccda
+  Filename = location-ccda-servicedelivery-profile.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Wing
+  Identity = 1
+  Description = Wing within a hospital
+  Filename = location-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Room
+  Identity = 2
+  Description = Operation room within hospital
+  Filename = location-example-room.xml
+
+ -- Row 3 -----------------------------------
+  Name = Ambulance
+  Identity = amb
+  Description = Ambulance provided by Burgers Healthcare
+  Filename = location-example-ambulance.xml
+
+ -- Row 4 -----------------------------------
+  Name = Patient\'s Home
+  Identity = ph
+  Description = Patient\'s Home which can be used for remote encounters
+  Filename = location-example-patients-home.xml
+
+ -- Row 5 -----------------------------------
+  Name = UK Pharmacy
+  Identity = ukp
+  Description = UK Pharmacy Jurisdiction
+  Filename = location-example-ukpharmacy.xml
+
+ -- Row 6 -----------------------------------
+  Name = HL7 HQ
+  Identity = hl7
+  Description = HL7 HQ Location
+  Filename = location-example-hl7hq.xml
+
+=== Sheet Examples =====================================

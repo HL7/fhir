@@ -1,0 +1,260 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = USLabAdjunctDiagnosis
+  Binding = value set
+  Reference = valueset-clinical-findings
+  Definition = SNOMED CT findings codes provided as adjunct diagnosis to the report
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = USLabObservationName
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-obs-codes
+  Definition = LOINC codes
+  Conformance = required
+
+=== Sheet USLab-DR-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = !1
+  Context = DiagnosticReport.issued
+  English = Datetime must be at least to second.
+  XPath = f:matches(issued,/\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = DiagnosticReport.code
+  English = Must have a LOINC or a Local code or both.
+  XPath = exists(f:coding)
+  Severity = error
+
+=== Sheet USLab-DR =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticReport
+  Profile Name = USlabDR
+  Aliases = Lab Result, Lab Report
+  Type = Resource
+  Short Label = US Realm Laboratory Report
+  Definition = The scope is the sending of lab results from a laboratory to an ambulatory provider.
+  To Do = update definition
+  Committee Notes = 11/19/2014 EH: ORC.1:Order Control:ID:R::[1..1]:2..2::HL70119/OBR.1:Set ID - OBR:SI:R::[1..1]:1..4::
+
+ -- Row 2 -----------------------------------
+  Element = !DiagnosticReport.text
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH: proposal to require generated human readable text with report.
+
+ -- Row 3 -----------------------------------
+  Element = !DiagnosticReport.text.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  To Do = need code for this
+  Committee Notes = 11/19/2014 EH:
+  Value = generated
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticReport.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = US Realm Laboratory Report Order Code
+  Definition = The laboratory test, panel or battery that was ordered.
+  Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
+  To Do = move to datatype profilw when tooling updated
+  Committee Notes = 11/19/2014 EH:OBR.4: Universal Service Identifier: CWE_CR: R: [1..1]: : :  Use same inline data type profile for Obs too.  CWE-CR  , unordered Slice for local and LOINC , support original text for display.
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticReport.code.coding
+  Profile Name = USLabLOINCCoding
+  Card. = 1..*
+  Must Support = Y
+  Binding = USLabObservationName
+  Committee Notes = 11/24/2014 EH:LOINC Slice
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticReport.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/24/2014 EH:CWE-CR.3
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticReport.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations
+  To Do = regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex
+  Committee Notes = 11/24/2014 EH:CWE-CR.1
+
+ -- Row 8 -----------------------------------
+  Element = DiagnosticReport.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = When using LOINC  \'long common name\' is preferred although the LOINC \'short name\' or the LOINC \'fully-specified name can also be used.  ( http://lionc.org.terms-of-use)
+  Committee Notes = 11/24/2014 EH:CWE-CR.2
+
+ -- Row 9 -----------------------------------
+  Element = !DiagnosticReport.code.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Inv. = 2
+  Committee Notes = 11/24/2014 EH:Local Slice
+
+ -- Row 10 -----------------------------------
+  Element = !DiagnosticReport.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.6
+
+ -- Row 11 -----------------------------------
+  Element = !DiagnosticReport.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = 11/24/2014 EH:CWE-CR.4
+
+ -- Row 12 -----------------------------------
+  Element = !DiagnosticReport.code.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = 11/24/2014 EH:CWE-CR.7
+
+ -- Row 13 -----------------------------------
+  Element = DiagnosticReport.code.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the report if different from the code display text(s)
+  Requirements = Used when the laboratory define how the dsplay text if different from the code display text.
+  Comments = If this exists, this is the text to be used for display.
+  Committee Notes = 11/24/2014 EH:CWE-CR.9  display text - originated by lab
+
+ -- Row 14 -----------------------------------
+  Element = DiagnosticReport.status
+  Card. = 1..1
+  Must Support = Y
+  To Do = mapping needed
+  Committee Notes = 11/19/2014 EH:OBR.25: Result Status: ID: R: [1..1]: 1..1: : HL70123
+
+ -- Row 15 -----------------------------------
+  Element = DiagnosticReport.issued
+  Card. = 1..1
+  Must Support = Y
+  To Do = regex to second.in invarient have lloyd check the regex
+  Committee Notes = 11/19/2014 EH:OBR.22: Results Rpt/Status Chng - Date/Time: TS_6: R: [1..1]: : :
+
+ -- Row 16 -----------------------------------
+  Element = DiagnosticReport.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Committee Notes = 11/19/2014 EH: PID
+
+ -- Row 17 -----------------------------------
+  Element = DiagnosticReport.performer
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/uslab-pract}
+  Committee Notes = 11/19/2014 EH:OBR.32:Principal Result Interpreter:NDL:RE::[0..1]::::(ORC.12/ OBR.16:Ordering Provider is in the order)
+
+ -- Row 18 -----------------------------------
+  Element = DiagnosticReport.identifier
+  Card. = 1..*
+  Must Support = Y
+  To Do = cocpy this pattern to other identifier instances
+  Committee Notes = 11/19/2014 EH:  New Element: This is not the same as  the filler order number,   cocpy this pattern to other identifier instances  Is RE in ELR -only delta for ELR
+
+ -- Row 19 -----------------------------------
+  Element = DiagnosticReport.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  EI
+
+ -- Row 20 -----------------------------------
+  Element = !DiagnosticReport.identifier.type
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Committee Notes = 11/19/2014 EH:
+  Value = Laboratory Report ID
+
+ -- Row 21 -----------------------------------
+  Element = DiagnosticReport.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Lab URI
+  Definition = The URI for the laboratory Issuing the report.  This establishes the namespace in which set of possible id values is unique.
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 22 -----------------------------------
+  Element = DiagnosticReport.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 23 -----------------------------------
+  Element = DiagnosticReport.request
+  Card. = 1..*
+  Must Support = Y
+  Type = Reference(DiagnosticOrder){http://hl7.org/fhir/StructureDefinition/uslab-do}
+  Committee Notes = 11/19/2014 EH:  ORC/OBR.2: Placer Order Number: EI_GU: RE: [0..1]: : : and  ORC/OBR.3: Filler Order Number: EI_GU: R: [1..1]: : :   Needed for reflex
+
+ -- Row 24 -----------------------------------
+  Element = DiagnosticReport.effective[x]
+  Card. = 1..1
+  Must Support = Y
+  Type = dateTime|Period
+  Short Label = Specimen Collection Datetime or Period
+  Definition = This is the Specimen Collection Datetime or Period which is the physically relevent dateTime for laboratory tests.
+  Committee Notes = 11/19/2014 EH:OBR.7: Observation Date/Time: TS_4: R: [1..1]: : : /OBR.8: Observation End Date/Time: TS_5: RE: [0..1]: : :  Should same as Specimen Resource see notes with Lloyd - separately maintained is BR
+
+ -- Row 25 -----------------------------------
+  Element = DiagnosticReport.specimen
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
+  Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
+
+ -- Row 26 -----------------------------------
+  Element = DiagnosticReport.result
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obscode}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsquantity}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsother}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsratio}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obspanel}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/uslab-obsrange}
+  Committee Notes = 11/19/2014 EH: OBX\'s
+
+ -- Row 27 -----------------------------------
+  Element = DiagnosticReport.imagingStudy
+  Card. = 0..0
+  Committee Notes = 11/19/2014 EH:
+
+ -- Row 28 -----------------------------------
+  Element = DiagnosticReport.conclusion
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:  needed for AP
+
+ -- Row 29 -----------------------------------
+  Element = DiagnosticReport.codedDiagnosis
+  Card. = 0..*
+  Must Support = Y
+  Binding = USLabAdjunctDiagnosis
+  Committee Notes = 11/19/2014 EH: these come from OBX? Needed for AP
+
+ -- Row 30 -----------------------------------
+  Element = DiagnosticReport.presentedForm
+  Card. = 0..*
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:OBX ED type? Needed for AP
+
+=== Sheet Search =====================================

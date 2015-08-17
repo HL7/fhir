@@ -1,0 +1,122 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet DAF-Pract-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Practitioner
+  English = Shall have Organization.name and/or Organization.identifier.
+  XPath = exists(f:name) or exists(f:identifier)
+  Severity = error
+
+=== Sheet DAF-Pract =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Practitioner
+  Profile Name = DAFPract
+  Aliases = Provider
+  Type = Resource
+  Short Label = DAF Practitioner
+  Definition = This is basic constraint on provider for use in DAF resources.
+
+ -- Row 2 -----------------------------------
+  Element = Practitioner.text
+  Card. = 1..1
+  Must Support = Y
+  Type = Narrative
+
+ -- Row 3 -----------------------------------
+  Element = Practitioner.text.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Value = generated
+
+ -- Row 4 -----------------------------------
+  Element = Practitioner.identifier
+  Card. = 0..*
+  Must Support = Y
+  Inv. = 1
+  Type = Identifier
+  Requirements = Either id or name is needed
+
+ -- Row 5 -----------------------------------
+  Element = Practitioner.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+
+ -- Row 6 -----------------------------------
+  Element = Practitioner.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+
+ -- Row 7 -----------------------------------
+  Element = Practitioner.name
+  Card. = 0..1
+  Must Support = Y
+  Type = HumanName
+
+ -- Row 8 -----------------------------------
+  Element = !Practitioner.name.use
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+
+ -- Row 9 -----------------------------------
+  Element = Practitioner.name.family
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+
+ -- Row 10 -----------------------------------
+  Element = Practitioner.name.given
+  Card. = 0..2
+  Must Support = Y
+  Type = string
+  Comments = Can be first and middle name or initial
+
+ -- Row 11 -----------------------------------
+  Element = Practitioner.name.prefix
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+
+ -- Row 12 -----------------------------------
+  Element = Practitioner.name.suffix
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+
+ -- Row 13 -----------------------------------
+  Element = Practitioner.telecom
+  Card. = 0..2
+  Must Support = Y
+  Type = ContactPoint
+
+ -- Row 14 -----------------------------------
+  Element = Practitioner.telecom.system
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+
+ -- Row 15 -----------------------------------
+  Element = Practitioner.telecom.value
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+
+ -- Row 16 -----------------------------------
+  Element = Practitioner.practitionerRole
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 17 -----------------------------------
+  Element = Practitioner.practitionerRole.managingOrganization
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}
+
+=== Sheet Search =====================================

@@ -1,0 +1,321 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = InvestigationGroupType
+  Binding = value set
+  Reference = valueset-investigation-sets
+  Definition = A name/code for a set of investigations
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = ClinicalFindings
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
+  Definition = Clinical Findings that may cause an clinical evaluation
+  Description = SNOMED CT Clinical Findings
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = ClinicalImpressionStatus
+  Binding = code list
+  Reference = #clinical-impression-status
+  Definition = The workflow state of a clinical impression
+
+ -- Row 4 -----------------------------------
+  Binding Name = ConditionKind
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-code
+  Definition = Identification of the Condition or diagnosis.
+  Conformance = example
+
+=== Sheet clinical-impression-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = in-progress
+  Display = In progress
+  Definition = The assessment is still on-going and results are not yet final.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = completed
+  Display = Completed
+  Definition = The assessment is done and the results are final
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = This assessment was never actually done and the record is erroneous (e.g. Wrong patient)
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ClinicalImpression
+  Type = DomainResource
+  Short Label = A clinical assessment performed when planning treatments and management strategies for a patient
+  Definition = A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient\'s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = ClinicalImpression.patient
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Patient)
+  Short Label = The patient being assessed
+  Definition = The patient being assessed
+  w5 = who.focus
+
+ -- Row 3 -----------------------------------
+  Element = ClinicalImpression.assessor
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner)
+  Short Label = The clinician performing the assessment
+  Definition = The clinician performing the assessment
+  w5 = who.author
+
+ -- Row 4 -----------------------------------
+  Element = ClinicalImpression.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ClinicalImpressionStatus
+  Short Label = in-progress | completed | entered-in-error
+  Definition = Identifies the workflow status of the assessment
+  w5 = status
+
+ -- Row 5 -----------------------------------
+  Element = ClinicalImpression.date
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Label = When the assessment occurred
+  Definition = The point in time at which the assessment was concluded (not when it was recorded)
+  Comments = This SHOULD be accurate to at least the minute, though some assessments only have a known date
+  w5 = when.done
+
+ -- Row 6 -----------------------------------
+  Element = ClinicalImpression.description
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Why/how the assessment was performed
+  Definition = A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it
+
+ -- Row 7 -----------------------------------
+  Element = ClinicalImpression.previous
+  Card. = 0..1
+  Type = Reference(ClinicalImpression)
+  Short Label = Reference to last assessment
+  Definition = A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient\'s conditions changes
+  Comments = It is always likely that multiple previous assessments exist for a patient. The point of quoting a previous assessment is that this assessment is relative to it (see resolved)
+
+ -- Row 8 -----------------------------------
+  Element = ClinicalImpression.problem
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Condition | AllergyIntolerance)
+  Short Label = General assessment of patient state
+  Definition = This a list of the general problems/conditions for a patient
+  Comments = e.g. The patient is a pregnant, and cardiac congestive failure, ‎Adenocarcinoma, and is allergic to penicillin
+
+ -- Row 9 -----------------------------------
+  Element = ClinicalImpression.trigger[x]
+  Card. = 0..1
+  Type = CodeableConcept | Reference(Any)
+  Binding = ClinicalFindings
+  Short Label = Request or event that necessitated this assessment
+  Definition = The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource
+
+ -- Row 10 -----------------------------------
+  Element = ClinicalImpression.investigations
+  Card. = 0..*
+  UML = right
+  Short Label = One or more sets of investigations (signs, symptions, etc)
+  Definition = One or more sets of investigations (signs, symptions, etc). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes
+
+ -- Row 11 -----------------------------------
+  Element = ClinicalImpression.investigations.code
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = InvestigationGroupType
+  Short Label = A name/code for the set
+  Definition = A name/code for the group (\"set\") of investigations. Typically, this will be something like \"signs\", \"symptoms\", \"clinical\", \"diagnostic\", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used
+
+ -- Row 12 -----------------------------------
+  Element = ClinicalImpression.investigations.item
+  Card. = 0..*
+  Type = Reference(Observation| QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport)
+  Short Label = Record of a specific investigation
+  Definition = A record of a specific investigation that was undertaken
+  Comments = Most investigations are observations of one kind of or another but some other specific types of data collection resources can also be used
+
+ -- Row 13 -----------------------------------
+  Element = ClinicalImpression.protocol
+  Card. = 0..1
+  Type = uri
+  Short Label = Clinical Protocol followed
+  Definition = Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis
+
+ -- Row 14 -----------------------------------
+  Element = ClinicalImpression.summary
+  Card. = 0..1
+  Type = string
+  Short Label = Summary of the assessment
+  Definition = A text summary of the investigations and the diagnosis
+
+ -- Row 15 -----------------------------------
+  Element = ClinicalImpression.finding
+  Card. = 0..*
+  UML = right
+  Short Label = Possible or likely findings and diagnoses
+  Definition = Specific findings or diagnoses that was considered likely or relevant to ongoing treatment
+
+ -- Row 16 -----------------------------------
+  Element = ClinicalImpression.finding.item
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ConditionKind
+  Short Label = Specific text or code for finding
+  Definition = Specific text of code for finding or diagnosis
+
+ -- Row 17 -----------------------------------
+  Element = ClinicalImpression.finding.cause
+  Card. = 0..1
+  Type = string
+  Short Label = Which investigations support finding
+  Definition = Which investigations support finding or diagnosis
+
+ -- Row 18 -----------------------------------
+  Element = ClinicalImpression.resolved
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ConditionKind
+  Short Label = Diagnosies/conditions resolved since previous assessment
+  Definition = Diagnoses/conditions resolved since the last assessment
+
+ -- Row 19 -----------------------------------
+  Element = ClinicalImpression.ruledOut
+  Card. = 0..*
+  UML = right
+  Short Label = Diagnosis considered not possible
+  Definition = Diagnosis considered not possible
+
+ -- Row 20 -----------------------------------
+  Element = ClinicalImpression.ruledOut.item
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ConditionKind
+  Short Label = Specific text of code for diagnosis
+  Definition = Specific text of code for diagnosis
+
+ -- Row 21 -----------------------------------
+  Element = ClinicalImpression.ruledOut.reason
+  Card. = 0..1
+  Type = string
+  Short Label = Grounds for elimination
+  Definition = Grounds for elimination
+
+ -- Row 22 -----------------------------------
+  Element = ClinicalImpression.prognosis
+  Card. = 0..1
+  Type = string
+  Short Label = Estimate of likely outcome
+  Definition = Estimate of likely outcome
+
+ -- Row 23 -----------------------------------
+  Element = ClinicalImpression.plan
+  Card. = 0..*
+  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)
+  Short Label = Plan of action after assessment
+  Definition = Plan of action after assessment
+
+ -- Row 24 -----------------------------------
+  Element = ClinicalImpression.action
+  Card. = 0..*
+  Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationOrder | DiagnosticOrder | NutritionOrder | SupplyRequest | Appointment)
+  Short Label = Actions taken during assessment
+  Definition = Actions taken during assessment
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = previous
+  Type = reference
+  Path = ClinicalImpression.previous
+
+ -- Row 2 -----------------------------------
+  Name = problem
+  Type = reference
+  Path = ClinicalImpression.problem
+
+ -- Row 3 -----------------------------------
+  Name = trigger
+  Type = reference
+  Path = ClinicalImpression.triggerReference
+
+ -- Row 4 -----------------------------------
+  Name = trigger-code
+  Type = token
+  Path = ClinicalImpression.triggerCodeableConcept
+
+ -- Row 5 -----------------------------------
+  Name = investigation
+  Type = reference
+  Path = ClinicalImpression.investigations.item
+
+ -- Row 6 -----------------------------------
+  Name = finding
+  Type = token
+  Path = ClinicalImpression.finding.item
+
+ -- Row 7 -----------------------------------
+  Name = resolved
+  Type = token
+  Path = ClinicalImpression.resolved
+
+ -- Row 8 -----------------------------------
+  Name = ruledout
+  Type = token
+  Path = ClinicalImpression.ruledOut.item
+
+ -- Row 9 -----------------------------------
+  Name = plan
+  Type = reference
+  Path = ClinicalImpression.plan
+
+ -- Row 10 -----------------------------------
+  Name = action
+  Type = reference
+  Path = ClinicalImpression.action
+
+ -- Row 11 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = ClinicalImpression.patient
+
+ -- Row 12 -----------------------------------
+  Name = assessor
+  Type = reference
+  Path = ClinicalImpression.assessor
+
+ -- Row 13 -----------------------------------
+  Name = date
+  Type = date
+  Path = ClinicalImpression.date
+
+ -- Row 14 -----------------------------------
+  Name = status
+  Type = token
+  Path = ClinicalImpression.status
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

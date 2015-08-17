@@ -1,0 +1,128 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet SDC-Response =====================================
+
+ -- Row 1 -----------------------------------
+  Element = QuestionnaireResponse
+  Profile Name = SDCData
+  Aliases = Form Data
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = QuestionnaireResponse.identifier
+  Card. = 0..1
+  Must Support = y
+  Type = Identifier
+
+ -- Row 3 -----------------------------------
+  Element = QuestionnaireResponse.questionnaire
+  Card. = 1..1
+  Must Support = y
+  Type = Reference(Questionnaire)
+
+ -- Row 4 -----------------------------------
+  Element = QuestionnaireResponse.status
+  Card. = 1..1
+  Must Support = y
+  Type = code
+
+ -- Row 5 -----------------------------------
+  Element = QuestionnaireResponse.subject
+  Card. = 1..1
+  Must Support = y
+  Type = Reference(Patient)
+  Committee Notes = No standard for how to capture this in IHE spec.
+
+ -- Row 6 -----------------------------------
+  Element = QuestionnaireResponse.author
+  Card. = 0..1
+  Must Support = y
+  Type = Reference(Practitioner|Patient|RelatedPerson)
+  Committee Notes = No standard for how to capture this in IHE spec.
+
+ -- Row 7 -----------------------------------
+  Element = QuestionnaireResponse.authored
+  Card. = 1..1
+  Must Support = y
+  Type = dateTime
+  Definition = Identifies when this version of the answer set was created.  Changes whenever the answers are updated
+  Committee Notes = This is in the SOAP header, so would need to extract from there
+
+ -- Row 8 -----------------------------------
+  Element = QuestionnaireResponse.source
+  Card. = 0..1
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+
+ -- Row 9 -----------------------------------
+  Element = QuestionnaireResponse.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+
+ -- Row 10 -----------------------------------
+  Element = QuestionnaireResponse.group
+  Card. = 1..1
+  Must Support = y
+
+ -- Row 11 -----------------------------------
+  Element = QuestionnaireResponse.group.linkId
+  Card. = 1..1
+  Must Support = y
+
+ -- Row 12 -----------------------------------
+  Element = QuestionnaireResponse.group.title
+  Card. = 0..1
+  Must Support = y
+  Type = string
+
+ -- Row 13 -----------------------------------
+  Element = QuestionnaireResponse.group.text
+  Card. = 0..1
+  Must Support = y
+  Type = string
+
+ -- Row 14 -----------------------------------
+  Element = QuestionnaireResponse.group.subject
+  Card. = 0..1
+  Type = Reference(Any)
+
+ -- Row 15 -----------------------------------
+  Element = QuestionnaireResponse.group.group
+  Card. = 0..*
+  Must Support = y
+  Type = @QuestionnaireResponse.group
+
+ -- Row 16 -----------------------------------
+  Element = QuestionnaireResponse.group.question
+  Card. = 0..*
+  Must Support = y
+
+ -- Row 17 -----------------------------------
+  Element = QuestionnaireResponse.group.question.linkId
+  Card. = 1..1
+  Must Support = y
+  Type = string
+
+ -- Row 18 -----------------------------------
+  Element = QuestionnaireResponse.group.question.text
+  Card. = 1..1
+  Must Support = y
+  Type = string
+
+ -- Row 19 -----------------------------------
+  Element = QuestionnaireResponse.group.question.answer
+  Card. = 0..*
+  Must Support = y
+
+ -- Row 20 -----------------------------------
+  Element = QuestionnaireResponse.group.question.answer.value[x]
+  Card. = 0..*
+  Must Support = y
+  Type = boolean|date|dateTime|time|instant|decimal|integer|string|Coding|Attachment|Reference(Any)
+
+ -- Row 21 -----------------------------------
+  Element = QuestionnaireResponse.group.question.answer.group
+  Card. = 0..*
+  Type = @QuestionnaireResponse.group
+
+=== Sheet Search =====================================

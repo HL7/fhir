@@ -1,0 +1,492 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = PractitionerRole
+  Binding = value set
+  Reference = valueset-practitioner-role
+  Definition = The role a person plays representing an organization
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = PractitionerSpecialty
+  Binding = value set
+  Reference = valueset-practitioner-specialty
+  Definition = Specific specialty associated with the agency
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = Qualification
+  Binding = value set
+  Reference = valueset-anzsco-occupations
+  Definition = Specific qualification the practitioner has to provide a service
+  Conformance = example
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Practitioner
+  Type = DomainResource
+  Short Label = A person with a  formal responsibility in the provisioning of healthcare or related services
+  Definition = A person who is directly or indirectly involved in the provisioning of healthcare
+  Requirements = Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.
+  Comments = Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?
+  v2 Mapping = PRD (as one example)
+  RIM Mapping = Role
+  ServD Mapping = Provider
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Practitioner.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = A identifier for the person as this agent
+  Definition = An identifier that applies to this person in this role
+  Requirements = Often, specific identities are assigned for the agent
+  v2 Mapping = PRD-7 (or XCN.1 Person Identifier)
+  RIM Mapping = ./id
+  ServD Mapping = ./Identifiers
+  Committee Notes = Under \"Comments\" it said: \"The identifier changes when a new/different person steps into the same role\". This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case.
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Practitioner.name
+  Card. = 0..1
+  Summary = y
+  Type = HumanName
+  Short Label = A name associated with the person
+  Definition = A name associated with the person
+  Requirements = Contact persons need to be identified by name, but it is uncommon to need details about multiple other names for that person
+  v2 Mapping = XCN Components
+  RIM Mapping = ./name
+  ServD Mapping = ./PreferredName (GivenNames, FamilyName, TitleCode)
+
+ -- Row 4 -----------------------------------
+  Element = Practitioner.telecom
+  Card. = 0..*
+  Summary = y
+  Type = ContactPoint
+  Short Label = A contact detail for the practitioner
+  Definition = A contact detail for the practitioner, e.g. a telephone number or an email address.
+  Requirements = Need to know how to reach a practitioner
+  Comments = Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification
+  v2 Mapping = PRT-15, STF-10, ROL-12
+  RIM Mapping = ./telecom
+  ServD Mapping = ./ContactPoints
+
+ -- Row 5 -----------------------------------
+  Element = Practitioner.address
+  Card. = 0..*
+  Summary = y
+  Type = Address
+  Short Label = Where practitioner can be found/visited
+  Definition = The postal address where the practitioner can be found or visited or to which mail can be delivered
+  Requirements = Need to keep track where the practitioner can found during work or for directing mail
+  v2 Mapping = ORC-24, STF-11, ROL-11, PRT-14
+  RIM Mapping = ./addr
+  ServD Mapping = ./Addresses
+
+ -- Row 6 -----------------------------------
+  Element = Practitioner.gender
+  Card. = 0..1
+  Summary = y
+  Type = code
+  Binding = AdministrativeGender
+  Short Label = male | female | other | unknown
+  Definition = Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+  Requirements = Needed to address the person correctly
+  v2 Mapping = STF-5
+  RIM Mapping = ./administrativeGender
+  ServD Mapping = ./GenderCode
+
+ -- Row 7 -----------------------------------
+  Element = Practitioner.birthDate
+  Card. = 0..1
+  Summary = y
+  Type = date
+  Short Label = The date  on which the practitioner was born
+  Definition = The date of birth for the practitioner
+  Requirements = Needed for identification
+  v2 Mapping = STF-6
+  RIM Mapping = ./birthTime
+  ServD Mapping = (not represented in ServD)
+
+ -- Row 8 -----------------------------------
+  Element = Practitioner.photo
+  Card. = 0..*
+  Type = Attachment
+  Short Label = Image of the person
+  Definition = Image of the person
+  Requirements = Many EHR systems have the capability to capture an image of patients and personnel. Fits with newer social media usage too.
+  RIM Mapping = ./subjectOf/ObservationEvent[code=\"photo\"]/value
+  ServD Mapping = ./ImageURI (only supports the URI reference)
+
+ -- Row 9 -----------------------------------
+  Element = !Practitioner.organization
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Organization)
+  Short Label = The represented organization
+  Definition = The organization that the practitioner represents
+  Requirements = Need to be able to track the represented organization separately, if any.
+  v2 Mapping = PRD-10 (-> 14) / PRA-9-Institution / PRT-8-Participation Organization for person participation
+  RIM Mapping = ./scoper
+  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
+
+ -- Row 10 -----------------------------------
+  Element = Practitioner.practitionerRole
+  Card. = 0..*
+  UML = right
+  Short Label = The list of Roles/Organizations that the Practitioner is associated with
+  RIM Mapping = .(Role)
+
+ -- Row 11 -----------------------------------
+  Element = Practitioner.practitionerRole.managingOrganization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = The Organization where the Practitioner performs the roles associated
+  RIM Mapping = scopingOrganization
+
+ -- Row 12 -----------------------------------
+  Element = Practitioner.practitionerRole.role
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = PractitionerRole
+  Short Label = Roles which this practitioner may perform
+  Definition = Roles which this practitioner is authorized to perform for the organization
+  Requirements = Need to know what authority the practitioner has - what can they do?
+  Comments = A person may have more than one role. At least one role is required.
+  v2 Mapping = PRD-1 / STF-18-job title / PRA-3-practitioner category  / PRT-4-Participation / ROL-3-role-ROL / ORC-12-ordering provider / OBR-16-ordering provider / PV1-7-attending doctor / PV1-8-referring doctor / PV1-9-consulting doctor / PV1-17-admitting doctor
+  RIM Mapping = ./code
+  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
+
+ -- Row 13 -----------------------------------
+  Element = Practitioner.practitionerRole.specialty
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = PractitionerSpecialty
+  Short Label = Specific specialty of the practitioner
+  Definition = Specific specialty of the practitioner
+  v2 Mapping = PRA-5-specialty
+  RIM Mapping = indirectAuthority/QualifiedEntity[code < Speciality]/code
+  ServD Mapping = ./Specialty
+
+ -- Row 14 -----------------------------------
+  Element = Practitioner.practitionerRole.period
+  Card. = 0..1
+  Summary = y
+  Type = Period
+  Short Label = The period during which the practitioner is authorized to perform in these role(s)
+  Definition = The period during which the person is authorized to act as a practitioner in these role(s) for the organization
+  Requirements = Even after the agencies is revoked, the fact that it existed must still be recorded
+  v2 Mapping = PRD-8/9 / PRA-5.4-date of certification
+  RIM Mapping = ./effectiveTime
+  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
+  Committee Notes = Is this separate from the period of validity of the qualification?
+  w5 = when.done
+
+ -- Row 15 -----------------------------------
+  Element = Practitioner.practitionerRole.location
+  Card. = 0..*
+  Type = Reference(Location)
+  Short Label = The location(s) at which this practitioner provides care
+  Definition = The location(s) at which this practitioner provides care
+  RIM Mapping = ./target[classCode=\"indirectAuthority].source[classCode=SDLOC]
+  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)<br/> However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)
+  w5 = where
+
+ -- Row 16 -----------------------------------
+  Element = Practitioner.practitionerRole.healthcareService
+  Card. = 0..*
+  Type = Reference(HealthcareService)
+  Short Label = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
+  RIM Mapping = ./target[classCode=\"indirectAuthority].id?
+
+ -- Row 17 -----------------------------------
+  Element = Practitioner.qualification
+  Card. = 0..*
+  UML = right
+  Short Label = Qualifications obtained by training and certification
+  v2 Mapping = CER?
+  RIM Mapping = ./indirectAuthority/QualifiedEntity[code < qualifiedEntity]
+  ServD Mapping = ./Qualifications
+
+ -- Row 18 -----------------------------------
+  Element = Practitioner.qualification.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = An identifier for this qualification for the practitioner
+  Definition = An identifier that applies to this person\'s qualification in this role
+  Requirements = Often, specific identities are assigned for the qualification
+  RIM Mapping = ./id
+
+ -- Row 19 -----------------------------------
+  Element = Practitioner.qualification.code
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = Qualification
+  Short Label = Coded representation of the qualification
+  RIM Mapping = ./code
+  ServD Mapping = ./Qualifications.Value
+
+ -- Row 20 -----------------------------------
+  Element = Practitioner.qualification.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Period during which the qualification is valid
+  Definition = Period during which the qualification is valid
+  Requirements = Qualifications are often for a limited period of time, and can be revoked.
+  RIM Mapping = ./effectiveTime
+  ServD Mapping = ./Qualifications.StartDate and ./Qualifications.EndDate
+
+ -- Row 21 -----------------------------------
+  Element = Practitioner.qualification.issuer
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Organization that regulates and issues the qualification
+  Definition = Organization that regulates and issues the qualification
+  RIM Mapping = ./scoper
+
+ -- Row 22 -----------------------------------
+  Element = Practitioner.communication
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = Language
+  Short Label = A language the practitioner is able to use in patient communication
+  Definition = A language the practitioner is able to use in patient communication
+  Requirements = Knowing which language a practitioner speaks can help in facilitating communication with patients
+  Comments = The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type
+  v2 Mapping = PID-15, NK1-20, LAN-2
+  RIM Mapping = ./languageCode
+  ServD Mapping = ./Languages.LanguageSpokenCode
+  Committee Notes = Note: cannot be named \"language\" because of technical reasons
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A practitioner\'s Identifier
+  Path = Practitioner.identifier
+
+ -- Row 2 -----------------------------------
+  Name = name
+  Type = string
+  Description = A portion of either family or given name
+  Path = Practitioner.name
+
+ -- Row 3 -----------------------------------
+  Name = family
+  Type = string
+  Description = A portion of the family name
+  Path = Practitioner.name.family
+
+ -- Row 4 -----------------------------------
+  Name = given
+  Type = string
+  Description = A portion of the given name
+  Path = Practitioner.name.given
+
+ -- Row 5 -----------------------------------
+  Name = phonetic
+  Type = string
+  Description = A portion of either family or given name using some kind of phonetic matching algorithm
+  Path = Practitioner.name
+  Path Usage = phonetic
+
+ -- Row 6 -----------------------------------
+  Name = telecom
+  Type = token
+  Description = The value in any kind of contact
+  Path = Practitioner.telecom
+
+ -- Row 7 -----------------------------------
+  Name = phone
+  Type = token
+  Description = A value in a phone contact
+  Path = Practitioner.telecom(system=phone)
+
+ -- Row 8 -----------------------------------
+  Name = email
+  Type = token
+  Description = A value in an email contact
+  Path = Practitioner.telecom(system=email)
+
+ -- Row 9 -----------------------------------
+  Name = address
+  Type = string
+  Description = An address in any kind of address/part
+  Path = Practitioner.address
+
+ -- Row 10 -----------------------------------
+  Name = address-city
+  Type = string
+  Description = A city specified in an address
+  Path = Practitioner.address.city
+
+ -- Row 11 -----------------------------------
+  Name = address-state
+  Type = string
+  Description = A state specified in an address
+  Path = Practitioner.address.state
+
+ -- Row 12 -----------------------------------
+  Name = address-postalcode
+  Type = string
+  Description = A postalCode specified in an address
+  Path = Practitioner.address.postalCode
+
+ -- Row 13 -----------------------------------
+  Name = address-country
+  Type = string
+  Description = A country specified in an address
+  Path = Practitioner.address.country
+
+ -- Row 14 -----------------------------------
+  Name = address-use
+  Type = token
+  Description = A use code specified in an address
+  Path = Practitioner.address.use
+
+ -- Row 15 -----------------------------------
+  Name = gender
+  Type = token
+  Description = Gender of the practitioner
+  Path = Practitioner.gender
+
+ -- Row 16 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The identity of the organization the practitioner represents / acts on behalf of
+  Path = Practitioner.practitionerRole.managingOrganization
+
+ -- Row 17 -----------------------------------
+  Name = communication
+  Type = token
+  Description = One of the languages that the practitioner can communicate with
+  Path = Practitioner.communication
+
+ -- Row 18 -----------------------------------
+  Name = location
+  Type = reference
+  Description = One of the locations at which this practitioner provides care
+  Path = Practitioner.practitionerRole.location
+
+ -- Row 19 -----------------------------------
+  Name = specialty
+  Type = token
+  Description = The practitioner has this specailty at an organization
+  Path = Practitioner.practitionerRole.specialty
+
+ -- Row 20 -----------------------------------
+  Name = role
+  Type = token
+  Description = The practitioner can perform this role at for the organization
+  Path = Practitioner.practitionerRole.role
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Practitioner Extensions
+  IG Name = core
+  Filename = practitioner-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Person Example
+  Filename = practitioner-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = cda author
+  Identity = xcda-author
+  Description = CDA Example Author
+  Filename = practitioner-example-xcda-author.xml
+
+ -- Row 3 -----------------------------------
+  Name = HL7
+  Identity = 3ad0687e-f477-468c-afd5-fcc2bf897809
+  Description = HL7 Defined Practitioner Examples
+  Filename = practitioner-examples-general.xml
+
+ -- Row 4 -----------------------------------
+  Name = Dr. van den Broek
+  Identity = f001
+  Description = Fictive KNO-physician
+  Filename = practitioner-example-f001-evdb.xml
+
+ -- Row 5 -----------------------------------
+  Name = Dr. Voight
+  Identity = f002
+  Description = Fictive Cardiothoracal surgeon
+  Filename = practitioner-example-f002-pv.xml
+
+ -- Row 6 -----------------------------------
+  Name = Dr. Versteegh
+  Identity = f003
+  Description = Fictive Cardiothoracal surgeon
+  Filename = practitioner-example-f003-mv.xml
+
+ -- Row 7 -----------------------------------
+  Name = Dr. Briet
+  Identity = f004
+  Description = Fictive KNO-physician
+  Filename = practitioner-example-f004-rb.xml
+
+ -- Row 8 -----------------------------------
+  Name = Dr. Langeveld
+  Identity = f005
+  Description = Fictive KNO-physician
+  Filename = practitioner-example-f005-al.xml
+
+ -- Row 9 -----------------------------------
+  Name = Dr. Bronsig
+  Identity = f201
+  Description = Fictive Oncologist/Pulmonologist
+  Filename = practitioner-example-f201-ab.xml
+
+ -- Row 10 -----------------------------------
+  Name = Luigi Maas
+  Identity = f202
+  Description = Fictive Lab worker
+  Filename = practitioner-example-f202-lm.xml
+
+ -- Row 11 -----------------------------------
+  Name = Juri van Gelder
+  Identity = f203
+  Description = Fictive Physiotherapist
+  Filename = practitioner-example-f203-jvg.xml
+
+ -- Row 12 -----------------------------------
+  Name = Carla Espinosa
+  Identity = f204
+  Description = Fictive Nurse
+  Filename = practitioner-example-f204-ce.xml
+
+ -- Row 13 -----------------------------------
+  Name = Dr. van den Berk
+  Identity = f006
+  Description = Fictive Pharmacist
+  Filename = practitioner-example-f006-rvdb.xml
+
+ -- Row 14 -----------------------------------
+  Name = Dr. Heps
+  Identity = f007
+  Description = Fictive physician
+  Filename = practitioner-example-f007-sh.xml
+
+ -- Row 15 -----------------------------------
+  Name = cdaauthor #2
+  Identity = xcda1
+  Description = 2nd CDA Example Author
+  Filename = practitioner-example-xcda1.xml
+
+=== Sheet Examples =====================================

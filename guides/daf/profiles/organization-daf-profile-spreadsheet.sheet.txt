@@ -1,0 +1,113 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !USPSState
+  Binding = value set
+  Reference = valueset-usps-state
+  Definition = Two letter USPS alphabetic codes.
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = !USFIPSCounty
+  Binding = value set
+  Reference = valueset-fips-county
+  Definition = FIPS codes for US counties and county equivalent entities
+  Conformance = required
+
+=== Sheet DAF-Organization-Inv =====================================
+
+=== Sheet DAF-Organization =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Organization
+  Type = Resource
+  ServD Mapping = Organization
+
+ -- Row 2 -----------------------------------
+  Element = Organization.identifier
+  Card. = 0..*
+  Must Support = Y
+  Type = Identifier
+  ServD Mapping = n/a
+
+ -- Row 3 -----------------------------------
+  Element = Organization.name
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  ServD Mapping = ./PrimaryAddress and ./OtherAddresses
+
+ -- Row 4 -----------------------------------
+  Element = Organization.telecom
+  Card. = 0..1
+  Must Support = Y
+  Type = ContactPoint
+
+ -- Row 5 -----------------------------------
+  Element = Organization.address
+  Card. = 1..1
+  Must Support = Y
+  Type = Address
+  ServD Mapping = n/a
+
+ -- Row 6 -----------------------------------
+  Element = Organization.address.extension
+  Profile Name = DAFCountry
+  Card. = 0..1
+  Must Support = Y
+  UML = right
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
+  Short Label = County/Parish FIPS codes
+
+ -- Row 7 -----------------------------------
+  Element = !Organization.address.extension.extension
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding}
+  Binding = USFIPSCounty
+
+ -- Row 8 -----------------------------------
+  Element = !Organization.address.extension.extension.system
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = !Organization.address.extension.extension.code
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = Organization.address.line
+  Card. = 0..2
+  Must Support = Y
+  Type = string
+
+ -- Row 11 -----------------------------------
+  Element = Organization.address.city
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+
+ -- Row 12 -----------------------------------
+  Element = Organization.address.state
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+  Binding = USPSState
+  ServD Mapping = ./Sites
+
+ -- Row 13 -----------------------------------
+  Element = Organization.address.postalCode
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+  Short Label = US Zip Codes
+
+ -- Row 14 -----------------------------------
+  Element = Organization.active
+  Card. = 0..1
+  Must Support = Y
+  Type = boolean
+
+=== Sheet Search =====================================

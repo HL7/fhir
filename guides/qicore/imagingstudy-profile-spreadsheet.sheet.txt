@@ -1,0 +1,68 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !QICorePrecoordinatedBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/qicore-bodysite-precoordinated
+  Definition = Precoordinated body sites such as \'left ear\'
+  Conformance = preferred
+
+=== Sheet QICore-ImagingStudy =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ImagingStudy
+  Profile Name = QICore-ImagingStudy
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = ImagingStudy.extension
+  Profile Name = ImagingStudy.radiationDose
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDose}
+  QDM Mapping = radiation dosage from \"Diagnostic Study, Adverse Event\" and \"Diagnostic Study, Performed\"
+
+ -- Row 3 -----------------------------------
+  Element = ImagingStudy.extension
+  Profile Name = ImagingStudy.radiationDuration
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDuration}
+  QDM Mapping = radiation duration from \"Diagnostic Study, Adverse Event\" and \"Diagnostic Study, Performed\"
+
+ -- Row 4 -----------------------------------
+  Element = ImagingStudy.started
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = ImagingStudy.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 6 -----------------------------------
+  Element = ImagingStudy.order
+  Must Support = Y
+  Type = Reference(DiagnosticOrder){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticorder}
+
+ -- Row 7 -----------------------------------
+  Element = ImagingStudy.modalityList
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = ImagingStudy.referrer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 9 -----------------------------------
+  Element = ImagingStudy.procedure
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = ImagingStudy.interpreter
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 11 -----------------------------------
+  Element = !ImagingStudy.series
+
+ -- Row 12 -----------------------------------
+  Element = !ImagingStudy.series.bodySite
+
+=== Sheet Search =====================================

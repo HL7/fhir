@@ -1,0 +1,110 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet DAF-MedicationStatement =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationStatement
+  Profile Name = DAFMedicationStatement
+  Type = DomainResource
+  Definition = Statement that a medication is/was actively taken by a patient.
+
+ -- Row 2 -----------------------------------
+  Element = MedicationStatement.identifier
+  Card. = 0..*
+  Must Support = Y
+  Type = Identifier
+
+ -- Row 3 -----------------------------------
+  Element = MedicationStatement.patient
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
+
+ -- Row 4 -----------------------------------
+  Element = MedicationStatement.informationSource
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/daf-relatedperson}
+
+ -- Row 5 -----------------------------------
+  Element = MedicationStatement.wasNotGiven
+  Card. = 0..0
+  Type = boolean
+
+ -- Row 6 -----------------------------------
+  Element = MedicationStatement.reasonNotGiven
+  Card. = 0..0
+  Type = CodeableConcept
+
+ -- Row 7 -----------------------------------
+  Element = MedicationStatement.effectivePeriod
+  Card. = 0..1
+  Must Support = Y
+  Type = Period
+
+ -- Row 8 -----------------------------------
+  Element = MedicationStatement.medication
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
+
+ -- Row 9 -----------------------------------
+  Element = !MedicationStatement.device
+  Card. = 0..*
+  Type = Reference(Device)
+
+ -- Row 10 -----------------------------------
+  Element = MedicationStatement.dosage
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 11 -----------------------------------
+  Element = MedicationStatement.dosage.schedule
+  Card. = 0..1
+  Must Support = Y
+  Type = Timing
+
+ -- Row 12 -----------------------------------
+  Element = MedicationStatement.dosage.asNeeded[x]
+  Card. = 0..1
+  Must Support = Y
+  Type = boolean | CodeableConcept
+
+ -- Row 13 -----------------------------------
+  Element = MedicationStatement.dosage.site
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 14 -----------------------------------
+  Element = MedicationStatement.dosage.route
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 15 -----------------------------------
+  Element = MedicationStatement.dosage.method
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 16 -----------------------------------
+  Element = MedicationStatement.dosage.quantity
+  Card. = 0..1
+  Must Support = Y
+  Type = SimpleQuantity
+
+ -- Row 17 -----------------------------------
+  Element = MedicationStatement.dosage.rate
+  Card. = 0..1
+  Must Support = Y
+  Type = Ratio
+
+ -- Row 18 -----------------------------------
+  Element = MedicationStatement.dosage.maxDosePerPeriod
+  Card. = 0..1
+  Must Support = Y
+  Type = Ratio
+
+=== Sheet Search =====================================

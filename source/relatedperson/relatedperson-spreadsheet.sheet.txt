@@ -1,0 +1,255 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = PatientRelationshipType
+  Binding = value set
+  Reference = valueset-relatedperson-relationshiptype
+  Definition = The nature of the relationship between a patient and the related person
+  Conformance = required
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = RelatedPerson
+  Type = DomainResource
+  Short Label = An person that is related to a patient, but who is not a direct target of care
+  Definition = Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process
+  Requirements = Need to track persons related to the patient or the healthcare process.
+  RIM Mapping = role
+  Committee Notes = Patient contact is defined as a person in role. Hence RelatedPerson should also be a person in role. Struggling with V3 mappings here.
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = RelatedPerson.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = A Human identifier for this person
+  Definition = Identifier for a person within a particular scope.
+  Requirements = People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier
+  v2 Mapping = NK1-33
+  RIM Mapping = id
+  Committee Notes = Keeping RelatedPerson.id cardinality as a matter of safety in the same manner as Person Activate
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = RelatedPerson.patient
+  Card. = 1..1
+  Summary = y
+  Type = Reference(Patient)
+  Short Label = The patient this person is related to
+  Definition = The patient this person is related to
+  Requirements = We need to know which Patient this RelatedPerson is related to.
+  v2 Mapping = PID-3
+  RIM Mapping = scoper[classCode=PSN|ANM and determinerCode=\'INSTANCE\']/playedRole[classCode=\'PAT\']/id
+  Committee Notes = This rather complicated V3 mapping traverses the same path that the Patient resource has for contact but in opposite direction
+
+ -- Row 4 -----------------------------------
+  Element = RelatedPerson.relationship
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = PatientRelationshipType
+  Short Label = The nature of the relationship
+  Definition = The nature of the relationship between a patient and the related person
+  Requirements = We need to know the relationship with the patient since it influences the interpretation of the information attributed to this person.
+  v2 Mapping = NK1-3
+  RIM Mapping = code
+  w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = RelatedPerson.name
+  Card. = 0..1
+  Summary = y
+  Type = HumanName
+  Short Label = A name associated with the person
+  Definition = A name associated with the person
+  Requirements = Related persons need to be identified by name, but it is uncommon to need details about multiple other names for that person
+  v2 Mapping = NK1-2
+  RIM Mapping = name
+
+ -- Row 6 -----------------------------------
+  Element = RelatedPerson.telecom
+  Card. = 0..*
+  Summary = y
+  Type = ContactPoint
+  Short Label = A contact detail for the person
+  Definition = A contact detail for the person, e.g. a telephone number or an email address.
+  Requirements = People have (primary) ways to contact them in some way such as phone, email.
+  Comments = Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification
+  v2 Mapping = NK1-5 / NK1-6 / NK1-40
+  RIM Mapping = telecom
+
+ -- Row 7 -----------------------------------
+  Element = RelatedPerson.gender
+  Card. = 0..1
+  Summary = y
+  Type = code
+  Binding = AdministrativeGender
+  Short Label = male | female | other | unknown
+  Definition = Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+  Requirements = Needed for identification of the person, in combination with (at least) name and birth date.
+  v2 Mapping = NK1-15
+  RIM Mapping = administrativeGender
+
+ -- Row 8 -----------------------------------
+  Element = RelatedPerson.birthDate
+  Card. = 0..1
+  Summary = Y
+  Type = date
+  Short Label = The date on which the related person was born
+
+ -- Row 9 -----------------------------------
+  Element = RelatedPerson.address
+  Card. = 0..*
+  Summary = y
+  Type = Address
+  Short Label = Address where the related person can be contacted or visited
+  Definition = Address where the related person can be contacted or visited
+  Requirements = Need to keep track where the related person can be contacted per postal mail or visited
+  v2 Mapping = NK1-4
+  RIM Mapping = addr
+
+ -- Row 10 -----------------------------------
+  Element = RelatedPerson.photo
+  Card. = 0..*
+  Type = Attachment
+  Short Label = Image of the person
+  Definition = Image of the person
+  Requirements = Many EHR systems have the capability to capture an image of persons. Fits with newer social media usage too.
+  v2 Mapping = OBX-5 - needs a profile
+  RIM Mapping = player[classCode=\'PSN\' and determinerCode=\'INSTANCE\']/desc
+
+ -- Row 11 -----------------------------------
+  Element = RelatedPerson.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Period of time that this relationship is considered valid
+  Definition = The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.
+  w5 = when.done
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A patient Identifier
+  Path = RelatedPerson.identifier
+
+ -- Row 2 -----------------------------------
+  Name = name
+  Type = string
+  Description = A portion of name in any name part
+  Path = RelatedPerson.name
+
+ -- Row 3 -----------------------------------
+  Name = phonetic
+  Type = string
+  Description = A portion of name using some kind of phonetic matching algorithm
+  Path = RelatedPerson.name
+  Path Usage = phonetic
+
+ -- Row 4 -----------------------------------
+  Name = telecom
+  Type = token
+  Description = The value in any kind of contact
+  Path = RelatedPerson.telecom
+
+ -- Row 5 -----------------------------------
+  Name = phone
+  Type = token
+  Description = A value in a phone contact
+  Path = RelatedPerson.telecom(system=phone)
+
+ -- Row 6 -----------------------------------
+  Name = email
+  Type = token
+  Description = A value in an email contact
+  Path = RelatedPerson.telecom(system=email)
+
+ -- Row 7 -----------------------------------
+  Name = address
+  Type = string
+  Description = An address in any kind of address/part
+  Path = RelatedPerson.address
+
+ -- Row 8 -----------------------------------
+  Name = address-city
+  Type = string
+  Description = A city specified in an address
+  Path = RelatedPerson.address.city
+
+ -- Row 9 -----------------------------------
+  Name = address-state
+  Type = string
+  Description = A state specified in an address
+  Path = RelatedPerson.address.state
+
+ -- Row 10 -----------------------------------
+  Name = address-postalcode
+  Type = string
+  Description = A postalCode specified in an address
+  Path = RelatedPerson.address.postalCode
+
+ -- Row 11 -----------------------------------
+  Name = address-country
+  Type = string
+  Description = A country specified in an address
+  Path = RelatedPerson.address.country
+
+ -- Row 12 -----------------------------------
+  Name = address-use
+  Type = token
+  Description = A use code specified in an address
+  Path = RelatedPerson.address.use
+
+ -- Row 13 -----------------------------------
+  Name = birthdate
+  Type = date
+  Description = The Related Person\'s date of birth
+  Path = RelatedPerson.birthDate
+
+ -- Row 14 -----------------------------------
+  Name = gender
+  Type = token
+  Description = Gender of the person
+  Path = RelatedPerson.gender
+
+ -- Row 15 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The patient this person is related to
+  Path = RelatedPerson.patient
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Benedicte
+  Identity = benedicte
+  Description = RelatedPerson Benedicte du Marche
+  Filename = relatedperson-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Peter
+  Identity = peter
+  Description = RelatedPerson Peter Chalmers
+  Filename = relatedperson-example-peter.xml
+
+ -- Row 3 -----------------------------------
+  Name = SarahAbels
+  Identity = f001
+  Description = Sarah Abels
+  Filename = relatedperson-example-f001-sarah.xml
+
+ -- Row 4 -----------------------------------
+  Name = AriadneBor
+  Identity = f002
+  Description = Ariadne Bor-Jansma
+  Filename = relatedperson-example-f002-ariadne.xml
+
+=== Sheet Examples =====================================

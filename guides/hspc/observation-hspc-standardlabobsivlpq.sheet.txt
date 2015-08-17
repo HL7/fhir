@@ -1,0 +1,63 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = HSPC-IVLPQ-Observations
+  Binding = value set
+  Reference = valueset-IVLPQLabCodes
+  Definition = The list of LOINC codes that are used for interval physical quantities
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = hspc-abnInt-NumericNom
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/hspc-abnInt-NumericNom
+  Definition = The set of codes that describe in what way a lab value is abnormal
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = hspc-deltaFlag-numericNom
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/hspc-deltaFlag-numericNom
+  Definition = The set of codes that describe the significant changes in test values
+  Conformance = preferred
+
+=== Sheet hspc-stdivlpq-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Observation
+  English = Must have either a value or a dataAbsentReason but not both
+  XPath = (f:value or f:dataAbsentReason) and (not(f:value and f:dataAbsentReason))
+  Severity = error
+
+=== Sheet hspc-stdivlpq =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = StandardLabObsIVLPQ
+  Type = {http://hl7.org/fhir/StructureDefinition/hspc-std}
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Binding = !HSPC-IVLPQ-Observations
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueRange
+  Card. = 0..1
+  Inv. = 1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..1
+  Inv. = 1
+
+ -- Row 5 -----------------------------------
+  Element = Observation.interpretation
+  Binding = hspc-abnInt-NumericNom
+
+ -- Row 6 -----------------------------------
+  Element = Observation.deltaFlag
+  Binding = hspc-deltaFlag-numericNom
+
+=== Sheet Search =====================================

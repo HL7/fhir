@@ -1,0 +1,55 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = TriggerType
+  Binding = code list
+  Reference = #trigger-type
+  Definition = The type of trigger
+  Conformance = required
+
+=== Sheet trigger-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = named-event
+  Display = Named Event
+  Definition = The trigger occurs in response to a specific named event
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = periodic
+  Display = Periodic
+  Definition = The trigger occurs at a specific time or periodically as described by a timing or schedule
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = data-added
+  Display = Data Added
+  Definition = The trigger occurs whenever data of a particular type is added
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = data-modified
+  Display = Data Modified
+  Definition = The trigger occurs whenever data of a particular type is modified
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = data-removed
+  Display = Data Removed
+  Definition = The trigger occurs whenever data of a particular type is removed
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = data-accessed
+  Display = Data Accessed
+  Definition = The trigger occurs whenever data of a particular type is accessed
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = data-access-ended
+  Display = Data Access Ended
+  Definition = The trigger occurs whenever access to data of a particular type is completed
+
+=== Sheet Search =====================================

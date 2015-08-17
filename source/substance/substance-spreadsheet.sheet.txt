@@ -1,0 +1,231 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = SubstanceCode
+  Binding = value set
+  Reference = valueset-substance-code
+  Definition = Substance codes
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = !SubstanceStatus
+  Binding = value set
+  Reference = valueset-substance-status
+  Definition = Substance status
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = SubstanceCategory
+  Binding = value set
+  Reference = valueset-substance-category
+  Definition = Category or classification of substance
+  Conformance = extensible
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Substance
+  Type = DomainResource
+  Short Label = A homogeneous material with a definite composition
+  ORIM Mapping = fhir:Substance rdfs:subClassOf   rim:Entity, [      a owl:Restriction;     owl:onProperty  rim:Act.classCode;     owl:allValuesFrom  cs:EntityClass\\#MAT   ].
+  RIM Mapping = Material
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Substance.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Unique identifier
+  Definition = Unique identifier for the substance
+  Comments = This identifier is associated with the kind of substance in contrast to the  Substance.instance.identifier which is associated with the package/container.
+  RIM Mapping = .id
+  Committee Notes = 6/17/2015 in Reponse to Build warning QA task
+
+ -- Row 3 -----------------------------------
+  Element = Substance.category
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = SubstanceCategory
+  Short Label = What class/type of substance this is
+  Definition = A code that classifies the the general type of substance.  This is used  for searching, sorting and display purposes.
+  Comments = The level of granularity is defined by the category concepts in the value set.   More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in Substance.code.
+  To Do = rim mapping
+  Committee Notes = #7962
+  w5 = class
+
+ -- Row 4 -----------------------------------
+  Element = Substance.code
+  Card. = 1..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = SubstanceCode
+  Short Label = What substance this is
+  Definition = A code (or set of codes) that identify this substance
+  Comments = This could be a reference to an externally defined code.  It could also be a locally assigned code (e.g. a formulary),  optionally with translations to the standard drug codes
+  ORIM Mapping = fhir:Substance.code rdfs:subPropertyOf rim:Entity.code
+  RIM Mapping = .code
+  Committee Notes = #7961
+  w5 = what
+
+ -- Row 5 -----------------------------------
+  Element = Substance.description
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Textual description of the substance, comments
+  Definition = A description of the substance - its appearance, handling requirements, and other usage notes
+  RIM Mapping = .player.desc
+
+ -- Row 6 -----------------------------------
+  Element = Substance.instance
+  Card. = 0..*
+  Summary = Y
+  UML = left
+  Short Label = If this describes a specific package/container of the substance
+  Definition = Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance
+  RIM Mapping = .player.determinerCode
+  Committee Notes = #5666
+  Missing Meaning = If this element is not present, then the substance resource describes a kind of substance
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = Substance.instance.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Label = Identifier of the package/container
+  Definition = Identifier associated with the package/container (usually a label affixed directly)
+  RIM Mapping = .id
+
+ -- Row 8 -----------------------------------
+  Element = Substance.instance.expiry
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Label = When no longer valid to use
+  Definition = When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
+  RIM Mapping = .expiryTime
+
+ -- Row 9 -----------------------------------
+  Element = Substance.instance.quantity
+  Card. = 0..1
+  Summary = Y
+  Type = SimpleQuantity
+  Short Label = Amount of substance in the package
+  Definition = The amount of the substance
+  RIM Mapping = .player.quantity
+
+ -- Row 10 -----------------------------------
+  Element = Substance.ingredient
+  Card. = 0..*
+  Summary = Y
+  UML = right
+  Short Label = Composition information about the substance
+  Definition = A substance can be composed of other substances
+  RIM Mapping = .player.scopesRole[classCode=INGR]
+
+ -- Row 11 -----------------------------------
+  Element = Substance.ingredient.quantity
+  Card. = 0..1
+  Summary = Y
+  Type = Ratio
+  Short Label = Optional amount (concentration)
+  Definition = The amount of the ingredient in the substance - a concentration ratio
+  RIM Mapping = .quantity
+
+ -- Row 12 -----------------------------------
+  Element = Substance.ingredient.substance
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Substance)
+  Short Label = A component of the substance
+  Definition = Another substance that is a component of this substance
+  RIM Mapping = .player
+
+ -- Row 13 -----------------------------------
+  Element = !Substance.quantityMode
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = SubstanceQuantityMode
+  Short Label = Absolute | Relative
+  Definition = Indicates whether the substance quantity (used for ingredients) are absolute values or values relative to each other (percentages)
+  RIM Mapping = .quantity.unit = %
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = code
+  Type = token
+  Description = The code of the substance
+  Path = Substance.code
+
+ -- Row 2 -----------------------------------
+  Name = category
+  Type = token
+  Description = The category of the substance
+  Path = Substance.category
+
+ -- Row 3 -----------------------------------
+  Name = container-identifier
+  Type = token
+  Description = Identifier of the package/container
+  Path = Substance.instance.identifier
+
+ -- Row 4 -----------------------------------
+  Name = expiry
+  Type = date
+  Description = Expiry date of package or container of substance
+  Path = Substance.instance.expiry
+
+ -- Row 5 -----------------------------------
+  Name = quantity
+  Type = number
+  Description = Amount of substance in the package
+  Path = Substance.instance.quantity
+
+ -- Row 6 -----------------------------------
+  Name = substance
+  Type = reference
+  Description = A component of the substance
+  Path = Substance.ingredient.substance
+
+ -- Row 7 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Unique identifier for the substance
+  Path = Substance.identifier
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Apitoxin
+  Identity = example
+  Description = General Person Example
+  Filename = substance-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Dust
+  Identity = f201
+  Description = Dust Mite Example
+  Filename = substance-example-f201-dust.xml
+
+ -- Row 3 -----------------------------------
+  Name = Staphylococcus
+  Identity = f202
+  Description = Staphylococcus Example
+  Filename = substance-example-f202-staphylococcus.xml
+
+ -- Row 4 -----------------------------------
+  Name = Potassium
+  Identity = f203
+  Description = Potassium Example
+  Filename = substance-example-f203-potassium.xml
+
+=== Sheet Examples =====================================

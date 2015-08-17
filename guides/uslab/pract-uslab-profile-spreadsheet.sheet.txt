@@ -1,0 +1,470 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet USLab-Pract-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Practitioner
+  English = Shall have Organization.name and/or Organization.identifier.
+  XPath = exists(f:name) or exists(f:identifier)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = Practitioner.address.postalCode
+  English = (Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.
+  XPath = f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )
+  Severity = error
+
+=== Sheet USLab-Pract =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Practitioner
+  Profile Name = USLabPract
+  Aliases = Provider, Orderer, Submitting  Physician
+  Type = Resource
+  Short Label = USLab Practitioner
+  Definition = This is the provider who either ordered a lab test or to whom the results have been sent.
+  Committee Notes = 11/19/2014 EH:ORC.12:Ordering Provider:XCN_GU/XCN_NG:R:R::[1..1]
+
+ -- Row 2 -----------------------------------
+  Element = !Practitioner.text
+  Card. = 1..1
+  Must Support = Y
+  To Do = determine (psuedo)code for generation.
+  Committee Notes = 11/19/2014 EH:shall have generated text narrative
+
+ -- Row 3 -----------------------------------
+  Element = !Practitioner.text.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Committee Notes = 11/19/2014 EH: shall have generated text narrative
+  Value = generated
+
+ -- Row 4 -----------------------------------
+  Element = Practitioner.identifier
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Type = Identifier
+  Requirements = Either id or name is needed
+  Comments = The identifier shall be a provider NPI
+  Committee Notes = 11/19/2014 EH:ORC.12.1:ID Number:ST:RE:RE::  either id or name, NPI for practitioner is used
+
+ -- Row 5 -----------------------------------
+  Element = Practitioner.identifier.use
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Practitioner.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = OID for National Provider Identifier (NPI)
+  Definition = See https://nppes.cms.hhs.gov/NPPES/
+  Requirements = NPI for practitioner is used
+  Committee Notes = could also use \'https://nppes.cms.hhs.gov/NPPES/\'
+  Value = urn:oid:2.16.840.1.113883.4.6
+
+ -- Row 7 -----------------------------------
+  Element = Practitioner.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = NPI Provider Number
+  Committee Notes = 11/19/2014 EH:ORC.12.1:ID Number:ST:RE:RE::  either id or name, NPI for practitioner is used
+
+ -- Row 8 -----------------------------------
+  Element = Practitioner.name
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Type = HumanName
+  To Do = name pattern to strict - need to profile data elements
+  Committee Notes = 11/19/2014 EH:ORC.12.2:Family Name:FN:C(R/RE):RE::  etc   Namepattern follows LOI need to see if LRI follows  otherwise need profile datatypes
+
+ -- Row 9 -----------------------------------
+  Element = !Practitioner.name.use
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Binding = USLabNameUse
+
+ -- Row 10 -----------------------------------
+  Element = Practitioner.name.family
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = ORC.12.2.1:Surname:ST:R:::1..50:#: OBR.16.2.1:Surname:ST:R:::1..50:#:
+
+ -- Row 11 -----------------------------------
+  Element = Practitioner.name.given
+  Card. = 0..2
+  Must Support = Y
+  Comments = Can be first and middle name or initial
+  Committee Notes = ORC.12.3:Given Name:ST:RE:::1..30:#: ORC.12.4:Second and Further Given Names or Initials Thereof:ST:RE:::1..30:#: OBR.16.3:Given Name:ST:RE:::1..30:#: OBR.16.4:Second and Further Given Names or Initials Thereof:ST:RE:::1..30:#:
+
+ -- Row 12 -----------------------------------
+  Element = Practitioner.name.prefix
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = ORC.12.6:Prefix (e.g., DR):ST:RE:::1..20:#: OBR.16.6:Prefix (e.g., DR):ST:RE:::1..20:#:
+
+ -- Row 13 -----------------------------------
+  Element = Practitioner.name.suffix
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = ORC.12.5:Suffix (e.g., JR or III):ST:RE:::1..20:#: OBR.16.5:Suffix (e.g., JR or III):ST:RE:::1..20:#:
+
+ -- Row 14 -----------------------------------
+  Element = Practitioner.telecom
+  Card. = 0..2
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:ORC.14[1]:Call Back Phone Number:XTN:RE:RE::[0..2]  card is 0..2 in LOI
+
+ -- Row 15 -----------------------------------
+  Element = Practitioner.telecom.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = XTN -3
+
+ -- Row 16 -----------------------------------
+  Element = Practitioner.telecom.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = XTN -[4-9]
+
+ -- Row 17 -----------------------------------
+  Element = !Practitioner.telecom.use
+  Committee Notes = XTN -2  (deprecated)
+
+ -- Row 18 -----------------------------------
+  Element = !Practitioner.address
+  Card. = 0..1
+  Must Support = Y
+  Type = Address
+  Committee Notes = 11/19/2014 EH:ORC.24:Ordering Provider Address:XAD:O:O::[0..1]  for ELR? How useful is a physical address in PH? For pattern only thing that is required is single address line.
+
+ -- Row 19 -----------------------------------
+  Element = !Practitioner.address.extension
+  Profile Name = USLabCounty
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
+  Short Label = County/Parish FIPS codes
+  Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
+  Committee Notes = 11/18/2014 EH:
+
+ -- Row 20 -----------------------------------
+  Element = !Practitioner.address.extension.extension
+  Profile Name = USLabCountycodes
+  Card. = 1..1
+  Must Support = Y
+  Type = Coding
+  Binding = USFIPSCounty
+  Committee Notes = limit to coding
+
+ -- Row 21 -----------------------------------
+  Element = !Practitioner.address.extension.extension.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 22 -----------------------------------
+  Element = !Practitioner.address.extension.extension.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 23 -----------------------------------
+  Element = !Practitioner.address.use
+  Card. = 0..1
+  Must Support = Y
+  To Do = map codes
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 24 -----------------------------------
+  Element = !Practitioner.address.line
+  Card. = 0..2
+  Must Support = Y
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 25 -----------------------------------
+  Element = !Practitioner.address.city
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 26 -----------------------------------
+  Element = !Practitioner.address.state
+  Card. = 0..1
+  Must Support = Y
+  Binding = USPSState
+  Requirements = State SHALL be the two letter USPS alphabetic codes.
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 27 -----------------------------------
+  Element = !Practitioner.address.postalCode
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 2
+  Short Label = US Zip Codes
+  Requirements = Zip or Postal Code SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes.
+  To Do = Lloyd to check regex
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 28 -----------------------------------
+  Element = !Practitioner.address.country
+  Card. = 0..1
+  Must Support = Y
+  Binding = USCountry
+  Short Label = ISO 3166 3 letter Country Code
+  Requirements = Country SHALL be ISO 3166 3 letter codes
+  To Do = created a stub table -issue with ISO copyright?
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 29 -----------------------------------
+  Element = !Practitioner.organization
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-orderfacility}
+  Short Label = Orderer\'s Organization
+  Definition = A reference to the organization that placed the lab order.  It could be a doctor\'s office, hospital or clinic.
+  Committee Notes = 11/19/2014 EH:ORC.21:Ordering Facility Name:XON_GU/XON_NG:O:O:R:[1..1] - for PH and 3rd parties
+
+=== Sheet USLab-PHPract-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Practitioner
+  English = Shall have Organization.name and/or Organization.identifier.
+  XPath = exists(f:name) or exists(f:identifier)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Practitioner.address.postalCode
+  English = (Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.
+  XPath = f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )
+  Severity = error
+
+=== Sheet USLab-PHPract =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Practitioner
+  Profile Name = USLabPHPract
+  Aliases = Provider, Orderer, Submitting  Physician
+  Type = Resource
+  Short Label = USLab Practitioner
+  Definition = This is the provider who either ordered a lab test or to whom the results have been sent.
+  Committee Notes = 11/19/2014 EH:ORC.12:Ordering Provider:XCN_GU/XCN_NG:R:R::[1..1]
+
+ -- Row 2 -----------------------------------
+  Element = !Practitioner.text
+  Card. = 1..1
+  Must Support = Y
+  To Do = determine (psuedo)code for generation.
+  Committee Notes = 11/19/2014 EH:shall have generated text narrative
+
+ -- Row 3 -----------------------------------
+  Element = !Practitioner.text.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Committee Notes = 11/19/2014 EH: shall have generated text narrative
+  Value = generated
+
+ -- Row 4 -----------------------------------
+  Element = Practitioner.identifier
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Type = Identifier
+  Requirements = Either id or name is needed
+  Comments = The identifier shall be a provider NPI
+  Committee Notes = 11/19/2014 EH:ORC.12.1:ID Number:ST:RE:RE::  either id or name, NPI for practitioner is used
+
+ -- Row 5 -----------------------------------
+  Element = Practitioner.identifier.use
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = Practitioner.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = OID for National Provider Identifier (NPI)
+  Definition = See https://nppes.cms.hhs.gov/NPPES/
+  Requirements = NPI for practitioner is used
+  Committee Notes = could also use \'https://nppes.cms.hhs.gov/NPPES/\'
+  Value = urn:oid:2.16.840.1.113883.4.6
+
+ -- Row 7 -----------------------------------
+  Element = Practitioner.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = NPI Provider Number
+  Committee Notes = 11/19/2014 EH:ORC.12.1:ID Number:ST:RE:RE::  either id or name, NPI for practitioner is used
+
+ -- Row 8 -----------------------------------
+  Element = Practitioner.name
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Type = HumanName
+  To Do = name pattern to strict - need to profile data elements
+  Committee Notes = 11/19/2014 EH:ORC.12.2:Family Name:FN:C(R/RE):RE::  etc   Namepattern follows LOI need to see if LRI follows  otherwise need profile datatypes
+
+ -- Row 9 -----------------------------------
+  Element = !Practitioner.name.use
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Binding = USLabNameUse
+
+ -- Row 10 -----------------------------------
+  Element = Practitioner.name.family
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = ORC.12.2.1:Surname:ST:R:::1..50:#: OBR.16.2.1:Surname:ST:R:::1..50:#:
+
+ -- Row 11 -----------------------------------
+  Element = Practitioner.name.given
+  Card. = 0..2
+  Must Support = Y
+  Comments = Can be first and middle name or initial
+  Committee Notes = ORC.12.3:Given Name:ST:RE:::1..30:#: ORC.12.4:Second and Further Given Names or Initials Thereof:ST:RE:::1..30:#: OBR.16.3:Given Name:ST:RE:::1..30:#: OBR.16.4:Second and Further Given Names or Initials Thereof:ST:RE:::1..30:#:
+
+ -- Row 12 -----------------------------------
+  Element = Practitioner.name.prefix
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = ORC.12.6:Prefix (e.g., DR):ST:RE:::1..20:#: OBR.16.6:Prefix (e.g., DR):ST:RE:::1..20:#:
+
+ -- Row 13 -----------------------------------
+  Element = Practitioner.name.suffix
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = ORC.12.5:Suffix (e.g., JR or III):ST:RE:::1..20:#: OBR.16.5:Suffix (e.g., JR or III):ST:RE:::1..20:#:
+
+ -- Row 14 -----------------------------------
+  Element = Practitioner.telecom
+  Card. = 0..2
+  Must Support = Y
+  Committee Notes = 11/19/2014 EH:ORC.14[1]:Call Back Phone Number:XTN:RE:RE::[0..2]  card is 0..2 in LOI
+
+ -- Row 15 -----------------------------------
+  Element = Practitioner.telecom.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = XTN -3
+
+ -- Row 16 -----------------------------------
+  Element = Practitioner.telecom.value
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = XTN -[4-9]
+
+ -- Row 17 -----------------------------------
+  Element = !Practitioner.telecom.use
+  Committee Notes = XTN -2  (deprecated)
+
+ -- Row 18 -----------------------------------
+  Element = Practitioner.address
+  Card. = 0..1
+  Must Support = Y
+  Type = Address
+  Committee Notes = 11/19/2014 EH:ORC.24:Ordering Provider Address:XAD:O:O::[0..1]  for ELR? How useful is a physical address in PH? For pattern only thing that is required is single address line.
+
+ -- Row 19 -----------------------------------
+  Element = Practitioner.address.extension
+  Profile Name = USLabCounty
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
+  Binding = USFIPSCounty
+  Short Label = County/Parish FIPS codes
+  Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 20 -----------------------------------
+  Element = !Practitioner.address.extension.extension
+  Profile Name = USLabCountycodes
+  Card. = 1..1
+  Must Support = Y
+  Type = Coding
+  Binding = USFIPSCounty
+  Committee Notes = limit to coding
+
+ -- Row 21 -----------------------------------
+  Element = !Practitioner.address.extension.system
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 22 -----------------------------------
+  Element = !Practitioner.address.extension.code
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 23 -----------------------------------
+  Element = Practitioner.address.use
+  Card. = 0..1
+  Must Support = Y
+  To Do = map codes
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 24 -----------------------------------
+  Element = Practitioner.address.line
+  Card. = 0..2
+  Must Support = Y
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 25 -----------------------------------
+  Element = Practitioner.address.city
+  Card. = 0..1
+  Must Support = Y
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 26 -----------------------------------
+  Element = Practitioner.address.state
+  Card. = 0..1
+  Must Support = Y
+  Binding = USPSState
+  Requirements = State SHALL be the two letter USPS alphabetic codes.
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 27 -----------------------------------
+  Element = Practitioner.address.postalCode
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 2
+  Short Label = US Zip Codes
+  Requirements = Zip or Postal Code SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes.
+  To Do = Lloyd to check regex
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 28 -----------------------------------
+  Element = Practitioner.address.country
+  Card. = 0..1
+  Must Support = Y
+  Binding = USCountry
+  Short Label = ISO 3166 3 letter Country Code
+  Requirements = Country SHALL be ISO 3166 3 letter codes
+  To Do = created a stub table -issue with ISO copyright?
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 29 -----------------------------------
+  Element = Practitioner.practitionerRole
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 30 -----------------------------------
+  Element = Practitioner.practitionerRole.managingOrganization
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-orderfacility}
+  Short Label = Orderer\'s Organization
+  Definition = A reference to the organization that placed the lab order.  It could be a doctor\'s office, hospital or clinic.
+  Committee Notes = 11/19/2014 EH:ORC.21:Ordering Facility Name:XON_GU/XON_NG:O:O:R:[1..1] - for PH and 3rd parties no longer part of base need to find alternative way to link
+
+=== Sheet Search =====================================

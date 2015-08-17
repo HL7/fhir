@@ -1,0 +1,37 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Ratio
+  English = numerator and denominator SHALL both be present, or both be absent. If both are absent, there SHALL be some extension present
+  XPath = (count(f:numerator) = count(f:denominator)) and ((count(f:numerator) > 0) or (count(f:extension) > 0))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Ratio
+  Type = Type
+  Short Label = A ratio of two Quantity values - a numerator and a denominator
+  Definition = A relationship of two Quantity values - expressed as a numerator and a denominator.
+  Requirements = Need to able to capture ratios for some measurements (titers) and some rates (costs)
+  v2 Mapping = N/A
+  RIM Mapping = RTO
+
+ -- Row 2 -----------------------------------
+  Element = Ratio.numerator
+  Card. = 0..1
+  Type = Quantity
+  Short Label = Numerator value
+  Definition = The value of the numerator
+  RIM Mapping = .numerator
+
+ -- Row 3 -----------------------------------
+  Element = Ratio.denominator
+  Card. = 0..1
+  Type = Quantity
+  Short Label = Denominator value
+  Definition = The value of the denominator
+  RIM Mapping = .denominator

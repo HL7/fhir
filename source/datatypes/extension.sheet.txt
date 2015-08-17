@@ -1,0 +1,30 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Extension
+  Type = Type
+  Definition = Optional Extensions Element - found in all resources
+  Requirements = The ability to add extensions in a structured way is what keeps FHIR resources simple
+  RIM Mapping = N/A
+
+ -- Row 2 -----------------------------------
+  Element = Extension.@url
+  Card. = 1..1
+  Type = uri
+  Short Label = identifies the meaning of the extension
+  Definition = Source of the definition for the extension code - a logical name or a URL
+  Comments = The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #
+  RIM Mapping = N/A
+
+ -- Row 3 -----------------------------------
+  Element = Extension.value[x]
+  Card. = 0..1
+  Type = *
+  Short Label = Value of extension
+  Definition = Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)
+  RIM Mapping = N/A

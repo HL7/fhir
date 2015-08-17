@@ -1,0 +1,509 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = VaccineType
+  Binding = value set
+  Reference = valueset-vaccinetype
+  Definition = The type of vaccine administered
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = ImmunizationSite
+  Binding = value set
+  Reference = valueset-immunization-site
+  Definition = The site at which the vaccine was administered
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = ImmunizationRoute
+  Binding = value set
+  Reference = valueset-immunization-route
+  Definition = The route by which the vaccine was administered
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = ImmunizationReason
+  Binding = value set
+  Reference = valueset-immunization-reason
+  Definition = The reason why a vaccine was administered
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = NoImmunizationReason
+  Binding = value set
+  Reference = valueset-no-immunization-reason
+  Definition = The reason why a vaccine was not administered
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = VaccinationProtocolDoseTarget
+  Binding = value set
+  Reference = valueset-vaccination-protocol-dose-target
+  Definition = The disease target of the vaccination protocol
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = VaccinationProtocolDoseStatus
+  Binding = value set
+  Reference = valueset-vaccination-protocol-dose-status
+  Definition = The status of the vaccination protocol (i.e. should this count)
+  Conformance = example
+
+ -- Row 8 -----------------------------------
+  Binding Name = VaccinationProtocolDoseStatusReason
+  Binding = value set
+  Reference = valueset-vaccination-protocol-dose-status-reason
+  Definition = The reason for the determining if a vaccination should count or why vaccination should not count.
+  Conformance = example
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Immunization.wasNotGiven
+  English = If immunization was not administred (wasNotGiven=true) then there SHALL be no reaction nor explanation.reason present
+  XPath = not(f:wasNotGiven/@value=\'true\' and (count(f:reaction) > 0 or exists(f:explanation/reason)))
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Immunization.wasNotGiven
+  English = If immunization was administered (wasNotGiven=false) then explanation.reasonNotGiven SHALL be absent.
+  XPath = not(f:wasNotGiven/@value=\'false\' and exists(f:explanation/f:reasonNotGiven))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Immunization
+  Type = DomainResource
+  Short Label = Immunization event information
+  Definition = Immunization event information
+  v2 Mapping = VXU_V04
+  RIM Mapping = SubstanceAdministration
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = Immunization.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Business identifier
+  Definition = A unique identifier assigned to this immunization record.
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/id
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Immunization.date
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Vaccination administration date
+  Definition = Date vaccine administered or was to be administered
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value
+  v2 Mapping = RXA-3-date/time start of administration
+  RIM Mapping = .effectiveTime
+  w5 = when.init
+
+ -- Row 4 -----------------------------------
+  Element = Immunization.vaccineType
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = VaccineType
+  Short Label = Vaccine product administered
+  Definition = Vaccine that was administered or was to be administered
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code
+  v2 Mapping = RXA-5-administered code
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = Immunization.patient
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Who was immunized?
+  Definition = The patient who either received or did not receive the immunization.
+  v2 Mapping = PID-3-patient ID list
+  RIM Mapping = .partipication[ttypeCode=].role
+  Committee Notes = PID, PD1, NK1 | #3705
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = Immunization.wasNotGiven
+  Card. = 1..1
+  Is Modifier = Y
+  Type = boolean
+  Short Label = Flag for whether immunization was given
+  Definition = Indicates if the vaccination was or was not given
+  RIM Mapping = [actionNegationInd=true].reasonCode
+  Committee Notes = #5169, #3762, #5351
+  w5 = status
+
+ -- Row 7 -----------------------------------
+  Element = Immunization.reported
+  Card. = 1..1
+  Type = boolean
+  Short Label = Is this a self-reported record?
+  Definition = True if this administration was reported rather than directly administered.
+  Comments = May need source of reported info (e.g. parent), but leave out for now.
+  v2 Mapping = RXA-9
+  RIM Mapping = .participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported=true)
+  w5 = who.source
+
+ -- Row 8 -----------------------------------
+  Element = Immunization.performer
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Who administered vaccine?
+  Definition = Clinician who administered the vaccine
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name
+  v2 Mapping = RXA-10-administering provider
+  RIM Mapping = .participation[typeCode=PRF].COCT_MT090102UV
+  w5 = who.actor
+
+ -- Row 9 -----------------------------------
+  Element = Immunization.requester
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Who ordered vaccination?
+  Definition = Clinician who ordered the vaccination
+  Comments = Other participants - delegate to Provenance resource
+  v2 Mapping = ORC-12-ordering provider
+  RIM Mapping = outboundRelationship.target[classCode=SBADM].participation[typeCode=AUT].COCT_MT090102UV
+  w5 = who.cause
+
+ -- Row 10 -----------------------------------
+  Element = Immunization.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Encounter administered as part of
+  Definition = The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
+  v2 Mapping = PV1-19-Visit Number
+  RIM Mapping = component->EncounterEvent
+  Committee Notes = #3840
+  w5 = context
+
+ -- Row 11 -----------------------------------
+  Element = Immunization.manufacturer
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Vaccine manufacturer
+  Definition = Name of vaccine manufacturer
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name
+  v2 Mapping = RXA-17-substance manufacturer name
+  RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=ORG]
+
+ -- Row 12 -----------------------------------
+  Element = Immunization.location
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Label = Where did vaccination occur?
+  Definition = The service delivery location where the vaccine administration occurred.
+  v2 Mapping = RXA-27-administered-at (or RXA-11-administered-at location, deprecated as of v2.7)
+  RIM Mapping = .participation[typeCode=LOC].COCT_MT240000UV
+  w5 = where
+
+ -- Row 13 -----------------------------------
+  Element = Immunization.lotNumber
+  Card. = 0..1
+  Type = string
+  Short Label = Vaccine lot number
+  Definition = Lot number of the  vaccine product
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText
+  v2 Mapping = RXA-15-substance lot number
+  RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
+
+ -- Row 14 -----------------------------------
+  Element = Immunization.expirationDate
+  Card. = 0..1
+  Type = date
+  Short Label = Vaccine expiration date
+  Definition = Date vaccine batch expires
+  v2 Mapping = RXA-16-substance expiration date
+  RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
+
+ -- Row 15 -----------------------------------
+  Element = Immunization.site
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ImmunizationSite
+  Short Label = Body site vaccine  was administered
+  Definition = Body site where vaccine was administered
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code
+  v2 Mapping = RXR-2-administration site
+  RIM Mapping = observation.targetSiteCode
+
+ -- Row 16 -----------------------------------
+  Element = Immunization.route
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ImmunizationRoute
+  Short Label = How vaccine entered body
+  Definition = The path by which the vaccine product is taken into the body.
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code
+  v2 Mapping = RXR-1-route
+  RIM Mapping = .routeCode
+
+ -- Row 17 -----------------------------------
+  Element = Immunization.doseQuantity
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Amount of vaccine administered
+  Definition = The quantity of vaccine product that was administered
+  v2 Mapping = RXA-6-administered amount / RXA-7.1-administered units.code
+  RIM Mapping = .doseQuantity
+
+ -- Row 18 -----------------------------------
+  Element = Immunization.explanation
+  Card. = 0..1
+  UML = down
+  Short Label = Administration / non-administration reasons
+  Definition = Reasons why a vaccine was or was not administered
+  RIM Mapping = n/a
+
+ -- Row 19 -----------------------------------
+  Element = Immunization.explanation.reason
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ImmunizationReason
+  Short Label = Why immunization occurred
+  Definition = Reasons why a vaccine was administered
+  RIM Mapping = [actionNegationInd=false].reasonCode
+
+ -- Row 20 -----------------------------------
+  Element = Immunization.explanation.reasonNotGiven
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = NoImmunizationReason
+  Short Label = Why immunization did not occur
+  Definition = Reason why a vaccine was not administered
+  v2 Mapping = RXA-18
+  RIM Mapping = [actionNegationInd=true].reasonCode
+
+ -- Row 21 -----------------------------------
+  Element = Immunization.reaction
+  Card. = 0..*
+  UML = 380;240
+  Short Label = Details of a reaction that follows immunization
+  Definition = Categorical data indicating that an adverse event is associated in time to an immunization
+  v2 Mapping = OBX-3
+  RIM Mapping = Observation[classCode=obs].code
+
+ -- Row 22 -----------------------------------
+  Element = Immunization.reaction.date
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When did reaction start?
+  Definition = Date of reaction to the immunization
+  v2 Mapping = OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the V2.x VXU message - most likely would appear in OBX segments if at all )
+  RIM Mapping = .effectiveTime
+
+ -- Row 23 -----------------------------------
+  Element = Immunization.reaction.detail
+  Card. = 0..1
+  Type = Reference(Observation)
+  Short Label = Additional information on reaction
+  Definition = Details of the reaction
+  v2 Mapping = OBX-5
+  RIM Mapping = .value
+
+ -- Row 24 -----------------------------------
+  Element = Immunization.reaction.reported
+  Card. = 0..1
+  Type = boolean
+  Short Label = Was reaction self-reported?
+  Definition = Self-reported indicator
+  v2 Mapping = (no such concept seems to exist for allergy/adverse reaction in V2.x)
+  RIM Mapping = .participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported=true)
+
+ -- Row 25 -----------------------------------
+  Element = Immunization.vaccinationProtocol
+  Card. = 0..*
+  UML = right
+  Short Label = What protocol was followed
+  Definition = Contains information about the protocol(s) under which the vaccine was administered
+  v2 Mapping = (V2.x doesn\'t seem to provide for this)
+  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM]
+
+ -- Row 26 -----------------------------------
+  Element = Immunization.vaccinationProtocol.doseSequence
+  Card. = 1..1
+  Type = positiveInt
+  Short Label = What dose number within series?
+  Definition = Nominal position in a series
+  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].sequenceNumber
+
+ -- Row 27 -----------------------------------
+  Element = Immunization.vaccinationProtocol.description
+  Card. = 0..1
+  Type = string
+  Short Label = Details of vaccine protocol
+  Definition = Contains the description about the protocol under which the vaccine was administered
+  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].text
+
+ -- Row 28 -----------------------------------
+  Element = Immunization.vaccinationProtocol.authority
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Who is responsible for protocol
+  Definition = Indicates the authority who published the protocol?  E.g. ACIP
+  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].participation[typeCode=AUT].COCT_MT090200UV
+
+ -- Row 29 -----------------------------------
+  Element = Immunization.vaccinationProtocol.series
+  Card. = 0..1
+  Type = string
+  Short Label = Name of vaccine series
+  Definition = One possible path to achieve presumed immunity against a disease - within the context of an authority
+  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM]
+
+ -- Row 30 -----------------------------------
+  Element = Immunization.vaccinationProtocol.seriesDoses
+  Card. = 0..1
+  Type = positiveInt
+  Short Label = Recommended number of doses for immunity
+  Definition = The recommended number of doses to achieve immunity.
+  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].text
+
+ -- Row 31 -----------------------------------
+  Element = Immunization.vaccinationProtocol.doseTarget
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = VaccinationProtocolDoseTarget
+  Short Label = Disease immunized against
+  Definition = The targeted disease
+  RIM Mapping = outboundRelationship.target[classCode=OBS].code
+
+ -- Row 32 -----------------------------------
+  Element = Immunization.vaccinationProtocol.doseStatus
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = VaccinationProtocolDoseStatus
+  Short Label = Does dose count towards immunity?
+  Definition = Indicates if the immunization event should \"count\" against  the protocol.
+  Comments = May need to differentiate between status declarations by a provider vs. a CDS engine
+  RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].playedRole[classCode=INGR].scopedRole.scoper[classCode=MMAT].playedRole[classCode=HLTHCHRT].participation[typeCode=SBJ].observation[classCode=OBS].value
+
+ -- Row 33 -----------------------------------
+  Element = Immunization.vaccinationProtocol.doseStatusReason
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = VaccinationProtocolDoseStatusReason
+  Short Label = Why does does count/not count?
+  Definition = Provides an explanation as to why a immunization event should or should not count against the protocol.
+  RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].playedRole[classCode=INGR].scopedRole.scoper[classCode=MMAT].playedRole[classCode=HLTHCHRT].participation[typeCode=SBJ].observation[classCode=OBS].reasonCode
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = date
+  Type = date
+  Description = Vaccination  (non)-Administration Date
+  Path = Immunization.date
+
+ -- Row 2 -----------------------------------
+  Name = dose-sequence
+  Type = number
+  Path = Immunization.vaccinationProtocol.doseSequence
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Immunization.identifier
+
+ -- Row 4 -----------------------------------
+  Name = location
+  Type = reference
+  Description = The service delivery location or facility in which the vaccine was / was to be administered
+  Path = Immunization.location
+
+ -- Row 5 -----------------------------------
+  Name = lot-number
+  Type = string
+  Description = Vaccine Lot Number
+  Path = Immunization.lotNumber
+
+ -- Row 6 -----------------------------------
+  Name = manufacturer
+  Type = reference
+  Description = Vaccine Manufacturer
+  Path = Immunization.manufacturer
+
+ -- Row 7 -----------------------------------
+  Name = performer
+  Type = reference
+  Description = The practitioner who administered the vaccination
+  Path = Immunization.performer
+
+ -- Row 8 -----------------------------------
+  Name = reaction
+  Type = reference
+  Path = Immunization.reaction.detail
+
+ -- Row 9 -----------------------------------
+  Name = reaction-date
+  Type = date
+  Path = Immunization.reaction.date
+
+ -- Row 10 -----------------------------------
+  Name = reason
+  Type = token
+  Path = Immunization.explanation.reason
+
+ -- Row 11 -----------------------------------
+  Name = reason-not-given
+  Type = token
+  Description = Explanation of reason vaccination was not administered
+  Path = Immunization.explanation.reasonNotGiven
+
+ -- Row 12 -----------------------------------
+  Name = notgiven
+  Type = token
+  Description = Administrations which were not given
+  Path = Immunization.wasNotGiven
+
+ -- Row 13 -----------------------------------
+  Name = requester
+  Type = reference
+  Description = The practitioner who ordered the vaccination
+  Path = Immunization.requester
+
+ -- Row 14 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The patient for the vaccination record
+  Path = Immunization.patient
+
+ -- Row 15 -----------------------------------
+  Name = vaccine-type
+  Type = token
+  Description = Vaccine Product Type Administered
+  Path = Immunization.vaccineType
+
+ -- Row 16 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The patient for the vaccination record
+  Path = Immunization.patient
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Immunization Extensions
+  IG Name = core
+  Filename = immunization-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = Example of Immunization
+  Filename = immunization-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Not Given
+  Identity = notGiven
+  Description = Not Given Immunization Example
+  Filename = immunization-example-refused.xml
+
+=== Sheet Examples =====================================

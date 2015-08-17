@@ -1,0 +1,350 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = USLabSpecimenType
+  Binding = value set
+  Reference = valueset-spec-type
+  Definition = Codes to describe the Specimen
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = USLabSpecimenbodySite
+  Binding = value set
+  Reference = valueset-spec-bodysite
+  Definition = Codes to describe the Specimen Collection Body site
+  Conformance = extensible
+
+=== Sheet USLab-Spec-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = !1
+  Context = Specimen.receivedTime
+  English = Datetime must be at least to the day.
+  XPath = f:matches(.,/\\d{4}-[01]\\d-[0-3])/)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Specimen.collection.collected[x]
+  English = Datetime must be at least to the day.
+  XPath = f:matches(.,/\\d{4}-[01]\\d-[0-3])/)
+  Severity = error
+
+=== Sheet USLab-Spec =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Specimen
+  Profile Name = USLabSpec
+  Aliases = Sample
+  Type = Resource
+  Short Label = USLab Specimen Resource
+  Definition = Specimen resource defined for the USLab Implementation Guides
+  Committee Notes = SPM.1:Set ID – SPM:SI:R::[1..1]:1..4:: || assume the resource persists from order to report.
+
+ -- Row 2 -----------------------------------
+  Element = !Specimen.extension
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/uslabspecimencondition}
+  Committee Notes = Do we need a specimen condition extension?
+
+ -- Row 3 -----------------------------------
+  Element = Specimen.identifier
+  Profile Name = USLabPlacerSID
+  Card. = 0..*
+  Must Support = Y
+  Comments = In the test ordering workflow this would be the orderer\'s specimen identifer(Placer Specimen ID).  In the context of the lab test reporting workflow, this could be both the orderer\'s specimen identifer and the laboratory assigned specimen identifier (Filler Specimen ID).
+  Committee Notes = SPM.2.1:Placer Assigned Identifier:EI_GU:RE:::::  ||This would be placer  sid for DO and DR   filler will use Accessoin IDs
+
+ -- Row 4 -----------------------------------
+  Element = Specimen.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Committee Notes = none
+  Value = official
+
+ -- Row 5 -----------------------------------
+  Element = !Specimen.identifier.type
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  Committee Notes = none
+  Value = Placer Specimen ID
+
+ -- Row 6 -----------------------------------
+  Element = Specimen.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Placer URI
+  Committee Notes = SPM.2.1.2:Namespace ID:IS:RE:::1..20:=:Local
+
+ -- Row 7 -----------------------------------
+  Element = Specimen.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Placer Identifier
+  Committee Notes = SPM.2.1.1:Entity Identifier:ST:R:::1..199:=:
+
+ -- Row 8 -----------------------------------
+  Element = !Specimen.identifier
+  Profile Name = USLabFillerSID
+  Card. = 0..1
+  Aliases = Filler ID
+  Must Support = Y
+  Type = Identifier
+  Requirements = For Laboratory reporting this element is required.
+  Committee Notes = SPM.2.2:Filler Assigned Identifier:EI_GU:C(R/RE):::::
+
+ -- Row 9 -----------------------------------
+  Element = !Specimen.identifier.use
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Committee Notes = none
+  Value = official
+
+ -- Row 10 -----------------------------------
+  Element = !Specimen.identifier.type
+  Card. = 1..1
+  Must Support = Y
+  Type = string
+  Committee Notes = none
+  Value = Filler Specimen ID
+
+ -- Row 11 -----------------------------------
+  Element = !Specimen.identifier.system
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Filler URI
+  Committee Notes = SPM.2.2.2:Namespace ID:IS:RE:::1..20:=:Local
+
+ -- Row 12 -----------------------------------
+  Element = !Specimen.identifier.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Filler Identifier
+  Committee Notes = SPM.2.2.1:Entity Identifier:ST:R:::1..199:=:
+
+ -- Row 13 -----------------------------------
+  Element = Specimen.type
+  Card. = 1..1
+  Must Support = Y
+  Binding = USLabSpecimenType
+  Comments = Systems SHALL be capable of sending/consuming the local code if one exists.
+  Committee Notes = SPM.4:Specimen Type:CWE_CRE:R::[1..1]:::Specimen Type Value Set  limit to Snomed Ct specimen heirarchy for draft
+
+ -- Row 14 -----------------------------------
+  Element = Specimen.type.coding
+  Card. = 1..*
+  Aliases = Snomed Code
+  Must Support = Y
+
+ -- Row 15 -----------------------------------
+  Element = Specimen.type.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = SPM.4.3:Name of Coding System:ID:C(R/X):::1..12::HL70396
+
+ -- Row 16 -----------------------------------
+  Element = Specimen.type.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = SNOMED Clinical Terms is a systematically organized computer processable collection of medical terms providing codes, terms, synonyms and definitions used in clinical documentation and reporting.
+  Committee Notes = SPM.4.1:Identifier:ST:RE:::1..20:=:
+
+ -- Row 17 -----------------------------------
+  Element = Specimen.type.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = The SNOMED-CT  \'preferred name\' is preferred although any  SNOMED-CT  \'synonym\'  can also be used.  ( ihtsdo.org/snomed-ct/)
+  Committee Notes = SPM.4.2:Text:ST:C(RE/X):::1..199:#:
+
+ -- Row 18 -----------------------------------
+  Element = !Specimen.type.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = !Specimen.type.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = SPM.4.6:Name of Alternate Coding System:ID:C(R/X):::1..12::HL70396
+
+ -- Row 20 -----------------------------------
+  Element = !Specimen.type.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = SPM.4.4:Alternate Identifier:ST:C(RE/X):::1..20:=:
+
+ -- Row 21 -----------------------------------
+  Element = !Specimen.type.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = SPM.4.5:Alternate Text:ST:C(RE/X):::1..199:#:
+
+ -- Row 22 -----------------------------------
+  Element = Specimen.type.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the actual test result, if different from the code display names
+  Requirements = Used when the laboratory define how the display text if different from the code display text.
+  Committee Notes = SPM.4.9:Original Text:ST:C(R/RE):::1..199:#:  ||If this exists, this is the text to be used for display.
+
+ -- Row 23 -----------------------------------
+  Element = Specimen.subject
+  Card. = 1..1
+  Aliases = Patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}
+  Short Label = Patient
+  Committee Notes = new - subject required in core
+
+ -- Row 24 -----------------------------------
+  Element = !Specimen.receivedTime
+  Card. = 0..1
+  Must Support = Y
+  Inv. = 1
+  Requirements = Minimum precision is to the day
+  To Do = lloyd to  check xpath
+  Committee Notes = SPM.18:Specimen Received Date/Time:TS_5:R::[1..1]::: ||this is not known in DO so can\'t be 1..1 but is always known for DR invarinet for datetime to at least the day
+
+ -- Row 25 -----------------------------------
+  Element = Specimen.accessionIdentifier
+  Card. = 1..1
+  Aliases = Filler ID
+  Must Support = Y
+  Requirements = For Laboratory reporting this element is required.
+  Committee Notes = SPM.2.2:Filler Assigned Identifier:EI_GU:C(R/RE):::::
+
+ -- Row 26 -----------------------------------
+  Element = Specimen.accessionIdentifier.use
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Committee Notes = none
+  Value = official
+
+ -- Row 27 -----------------------------------
+  Element = Specimen.accessionIdentifier.system
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Filler URI
+  Committee Notes = SPM.2.2.2:Namespace ID:IS:RE:::1..20:=:Local
+
+ -- Row 28 -----------------------------------
+  Element = Specimen.accessionIdentifier.value
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Filler Identifier
+  Committee Notes = SPM.2.2.1:Entity Identifier:ST:R:::1..199:=:
+
+ -- Row 29 -----------------------------------
+  Element = Specimen.collection
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = Complex element for collection information
+
+ -- Row 30 -----------------------------------
+  Element = Specimen.collection.collected[x]
+  Card. = 1..1
+  Must Support = Y
+  Inv. = 2
+  Requirements = Minimum precision is to the day
+  To Do = lloyd to  check xpath
+  Committee Notes = SPM.17:Specimen Collection Date/Time:DR:R::[1..1]:::
+
+ -- Row 31 -----------------------------------
+  Element = Specimen.collection.bodySite
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = USLabSpecimenbodySite
+  Comments = Systems SHALL be capable of sending/consuming the local code if one exists
+  Committee Notes = SPM.8:Specimen Source Site:CWE_CRE:RE::[0..1]:::Body Site Value Set ||This will likely change in future to choice of  codeable|resource slice on SNOMED/local
+
+ -- Row 32 -----------------------------------
+  Element = Specimen.collection.bodySite.coding
+  Card. = 1..*
+  Must Support = Y
+  Display Hint = Specimen.type.coding
+
+ -- Row 33 -----------------------------------
+  Element = Specimen.collection.bodySite.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Committee Notes = SPM.8.3:Name of Coding System:ID:C(R/X):::1..12::HL70396
+  Display Hint = Specimen.type.coding.system
+
+ -- Row 34 -----------------------------------
+  Element = Specimen.collection.bodySite.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Comments = SNOMED Clinical Terms is a systematically organized computer processable collection of medical terms providing codes, terms, synonyms and definitions used in clinical documentation and reporting.
+  Committee Notes = SPM.8.1:Identifier:ST:RE:::1..20:=:
+  Display Hint = Specimen.type.coding.code
+
+ -- Row 35 -----------------------------------
+  Element = Specimen.collection.bodySite.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Comments = The SNOMED-CT  \'preferred name\' is preferred although any  SNOMED-CT  \'synonym\'  can also be used.  ( ihtsdo.org/snomed-ct/)
+  Committee Notes = SPM.8.2:Text:ST:C(RE/X):::1..199:#:
+  Display Hint = Specimen.type.coding.display
+
+ -- Row 36 -----------------------------------
+  Element = !Specimen.collection.body!SiteCodeableConcept.coding
+  Profile Name = USLabLocalCoding
+  Card. = 0..1
+  Aliases = Local
+  Must Support = Y
+  Display Hint = Specimen.type.coding
+
+ -- Row 37 -----------------------------------
+  Element = !Specimen.collection.body!SiteCodeableConcept.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Short Label = Local Coding System
+  Definition = This is defined locally
+  Committee Notes = SPM.8.6:Name of Alternate Coding System:ID:C(R/X):::1..12::HL70396
+  Display Hint = Specimen.type.coding.system
+
+ -- Row 38 -----------------------------------
+  Element = !Specimen.collection.body!SiteCodeableConcept.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Local Code
+  Committee Notes = SPM.8.4:Alternate Identifier:ST:C(RE/X):::1..20:=:
+  Display Hint = Specimen.type.coding.code
+
+ -- Row 39 -----------------------------------
+  Element = !Specimen.collection.body!SiteCodeableConcept.coding.display
+  Card. = 0..1
+  Must Support = Y
+  Short Label = local Code Display name
+  Definition = This is defined locally
+  Committee Notes = SPM.8.5:Alternate Text:ST:C(RE/X):::1..199:#:
+  Display Hint = Specimen.type.coding.display
+
+ -- Row 40 -----------------------------------
+  Element = Specimen.collection.bodySite.text
+  Card. = 0..1
+  Must Support = Y
+  Short Label = Display text
+  Definition = This is the laboratory defined display text for the actual test result, if different from the code display names
+  Requirements = Used when the laboratory define how the display text if different from the code display text.
+  Committee Notes = SPM.8.9:Original Text:ST:C(R/RE):::1..199:#:
+  Display Hint = Specimen.type.text
+
+=== Sheet Search =====================================

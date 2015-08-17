@@ -1,0 +1,28 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !ProcedureStatus
+  Binding = code list
+  Reference = #procedure-status
+  Definition = The status of the procedure
+  Description = Codes representing the possible status for a procedure
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = Procedure-bodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations
+  Description = This value set identifies the codings for body sites
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = Procedure-approach-bodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/approach-site-codes
+  Definition = Codes describing anatomical locations
+  Description = This value set identifies the codings for approach body sites
+  Conformance = preferred
+
+=== Sheet Search =====================================

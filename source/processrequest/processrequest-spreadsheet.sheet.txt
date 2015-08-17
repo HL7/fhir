@@ -1,0 +1,258 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ActionList
+  Binding = code list
+  Reference = #actionlist
+  Definition = List of allowable action which this resource can request
+
+=== Sheet actionlist =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = cancel
+  Display = Cancel, Reverse or Nullify
+  Definition = Cancel, Reverse or nullify the target resource.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = poll
+  Display = Poll
+  Definition = Check for previously un-read/ not-retrieved resources
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = reprocess
+  Display = Re-Process
+  Definition = Re-process the target resource.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = status
+  Display = Status Check
+  Definition = Retrieve the processing status of the target resource.
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ProcessRequest
+  Type = DomainResource
+  Short Label = Process request
+  Definition = This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
+
+ -- Row 2 -----------------------------------
+  Element = !Identification
+
+ -- Row 3 -----------------------------------
+  Element = ProcessRequest.action
+  Card. = 1..1
+  Type = code
+  Binding = ActionList
+  Short Label = cancel | poll | reprocess | status
+  Definition = The type of procesing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest
+
+ -- Row 4 -----------------------------------
+  Element = ProcessRequest.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Business Identifier
+  Definition = The ProcessRequest Business Identifier
+
+ -- Row 5 -----------------------------------
+  Element = ProcessRequest.ruleset
+  Card. = 0..1
+  Type = Coding
+  Binding = Ruleset
+  Short Label = Resource version
+  Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+
+ -- Row 6 -----------------------------------
+  Element = ProcessRequest.originalRuleset
+  Card. = 0..1
+  Type = Coding
+  Binding = Ruleset
+  Short Label = Original version
+  Definition = The style (standard) and version of the original material which was converted into this resource.
+  Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
+
+ -- Row 7 -----------------------------------
+  Element = ProcessRequest.created
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Creation date
+  Definition = The date when this resource was created.
+
+ -- Row 8 -----------------------------------
+  Element = ProcessRequest.target
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Target of the request
+  Definition = The organization which is target  of the request.
+
+ -- Row 9 -----------------------------------
+  Element = ProcessRequest.provider
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Responsible practitioner
+  Definition = The practitioner who is responsible for the action specified in thise request.
+  CDAnet v4 Mapping = B01
+
+ -- Row 10 -----------------------------------
+  Element = ProcessRequest.organization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Responsible organization
+  Definition = The organization which is responsible for the action speccified in thise request.
+
+ -- Row 11 -----------------------------------
+  Element = ProcessRequest.request
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = Request reference
+  Definition = Reference of resource which is the target or subject of this action.
+
+ -- Row 12 -----------------------------------
+  Element = ProcessRequest.response
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = Response reference
+  Definition = Reference of a prior response to resource which is the target or subject of this action.
+
+ -- Row 13 -----------------------------------
+  Element = ProcessRequest.nullify
+  Card. = 0..1
+  Type = boolean
+  Short Label = Nullify
+  Definition = If true remove all history excluding audit.
+  Requirements = Some resources must not simply be reversed in a processing or accounting sense but rather must have all history removed, such as the accidental submission of sensitive and/or wrong information. If the receiver cannot comply with a Nullify request then they must reject the request.
+
+ -- Row 14 -----------------------------------
+  Element = ProcessRequest.reference
+  Card. = 0..1
+  Type = string
+  Short Label = Reference number/string
+  Definition = A reference to supply which authenticates the process.
+
+ -- Row 15 -----------------------------------
+  Element = ProcessRequest.item
+  Card. = 0..*
+  Type = =Items
+  Short Label = Items to re-adjudicate
+  Definition = List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.
+
+ -- Row 16 -----------------------------------
+  Element = ProcessRequest.item.sequenceLinkId
+  Card. = 1..1
+  Type = integer
+  Short Label = Service instance
+  Definition = A service line number.
+
+ -- Row 17 -----------------------------------
+  Element = ProcessRequest.include
+  Card. = 0..*
+  Type = string
+  Short Label = Resource type(s) to include
+  Definition = Names of resource types to include
+
+ -- Row 18 -----------------------------------
+  Element = ProcessRequest.exclude
+  Card. = 0..*
+  Type = string
+  Short Label = Resource type(s) to exclude
+  Definition = Names of resource types to exclude
+
+ -- Row 19 -----------------------------------
+  Element = ProcessRequest.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Period
+  Definition = A period of time during which the fulfilling resources would have been created.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The business identifier of the ProcessRequest
+  Path = ProcessRequest.identifier
+
+ -- Row 2 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The organization who generated this request
+  Path = ProcessRequest.organization
+
+ -- Row 3 -----------------------------------
+  Name = provider
+  Type = reference
+  Description = The provider who renerated this request
+  Path = ProcessRequest.provider
+
+ -- Row 4 -----------------------------------
+  Name = action
+  Type = token
+  Description = The action requested by this resource
+  Path = ProcessRequest.action
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General-Poll
+  Identity = 1110
+  Description = All Pended Checking Example
+  Filename = processrequest-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Specific - Poll
+  Identity = 1111
+  Description = Check for responses for a specific Request
+  Filename = processrequest-example-poll-specific.xml
+
+ -- Row 3 -----------------------------------
+  Name = Inclusive - Poll
+  Identity = 1112
+  Description = Check for responses for types of resources
+  Filename = processrequest-example-poll-inclusive.xml
+
+ -- Row 4 -----------------------------------
+  Name = Exclusive - Poll
+  Identity = 1113
+  Description = Check for responses for excluding types of resources
+  Filename = processrequest-example-poll-exclusive.xml
+
+ -- Row 5 -----------------------------------
+  Name = Specific-Inclusive
+  Identity = 1114
+  Description = Check for Payment Reconciliation
+  Filename = processrequest-example-poll-payrec.xml
+
+ -- Row 6 -----------------------------------
+  Name = Specific-Inclusive
+  Identity = 1115
+  Description = Check for Explanation of Benefit
+  Filename = processrequest-example-poll-eob.xml
+
+ -- Row 7 -----------------------------------
+  Name = Claim Reprocess
+  Identity = 44654
+  Description = Claim Readjudicate Example
+  Filename = processrequest-example-reprocess.xml
+
+ -- Row 8 -----------------------------------
+  Name = Claim Reversal
+  Identity = 87654
+  Description = Claim Reversal Example
+  Filename = processrequest-example-reverse.xml
+
+ -- Row 9 -----------------------------------
+  Name = Status Request
+  Identity = 87655
+  Description = Claim Status Checking Example
+  Filename = processrequest-example-status.xml
+
+=== Sheet Examples =====================================

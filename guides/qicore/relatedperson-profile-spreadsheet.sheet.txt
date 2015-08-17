@@ -1,0 +1,28 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet QICore-RelatedPerson =====================================
+
+ -- Row 1 -----------------------------------
+  Element = RelatedPerson
+  Profile Name = QICoreRelatedPerson
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = RelatedPerson.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 3 -----------------------------------
+  Element = RelatedPerson.relationship
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = RelatedPerson.gender
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = RelatedPerson.period
+  Must Support = Y
+
+=== Sheet Search =====================================

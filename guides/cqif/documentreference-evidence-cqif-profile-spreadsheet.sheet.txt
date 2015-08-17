@@ -1,0 +1,23 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet CQIF-Evidence =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DocumentReference
+  Profile Name = CQIF-Evidence
+  Type = DomainResource
+  Short Label = Evidence supporting a specific assessment, evaluation result, or recommendation
+  Definition = An evidence profile describes evidence to support a particular evaluation result or care recommendation.
+
+ -- Row 2 -----------------------------------
+  Element = DocumentReference.extension
+  Profile Name = qualityOfEvidence
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-qualityOfEvidence}
+
+ -- Row 3 -----------------------------------
+  Element = DocumentReference.extension
+  Profile Name = strengthOfRecommendation
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-strengthOfRecommendation}
+
+=== Sheet Search =====================================

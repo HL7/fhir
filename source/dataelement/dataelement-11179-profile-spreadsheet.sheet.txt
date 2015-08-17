@@ -1,0 +1,28 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ClassificationOrContext
+  Binding = code list
+  Reference = #classification-or-context
+  Definition = Identifies whether a useContext represents a context or classification for the element
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = DEAdministrativeStatus
+  Binding = unbound
+  Definition = Codes identifying the position of the data element within its administrative life-cycle.  Examples include awaiting review, conditionally approved, scheduled for release, etc.
+
+=== Sheet classification-or-context =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = classification
+  Definition = Indicates the useContext is a classification - e.g. Administrative, financial, etc.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = context
+  Definition = Indicates the useContext is a context - a domain of use - e.g. Particular country, organization or system
+
+=== Sheet Search =====================================

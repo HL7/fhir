@@ -1,0 +1,24 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = BackboneElement
+  Type = Element
+  Short Label = Base for elements defined inside a resource
+  Definition = Base definition for all elements that are defined inside a resource - but not those in a data type
+  RIM Mapping = n/a
+
+ -- Row 2 -----------------------------------
+  Element = BackboneElement.modifierExtension
+  Card. = 0..*
+  Aliases = extensions, user content, modifiers
+  Is Modifier = Y
+  Type = Extension
+  Short Label = Extensions that cannot be ignored
+  Definition = May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions
+  Comments = There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone
+  RIM Mapping = N/A

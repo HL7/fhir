@@ -1,0 +1,87 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DAFMedications
+  Binding = value set
+  Reference = valueset-medication-codes
+  Definition = Prescribable medications
+  Description = 2.16.840.1.113762.1.4.1010.4
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = DAFMedicationForm
+  Binding = value set
+  Reference = valueset-product-form
+  Definition = Medication form
+  Description = 2.16.840.1.113883.3.88.12.3221.8.11
+  Conformance = extensible
+
+=== Sheet DAF-Medication =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Medication
+  Profile Name = DAFMedication
+  Type = DomainResource
+  Definition = Used for identification and definition of a medication.
+
+ -- Row 2 -----------------------------------
+  Element = Medication.name
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+
+ -- Row 3 -----------------------------------
+  Element = Medication.code
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFMedications
+
+ -- Row 4 -----------------------------------
+  Element = Medication.isBrand
+  Card. = 0..1
+  Must Support = Y
+  Type = boolean
+
+ -- Row 5 -----------------------------------
+  Element = Medication.manufacturer
+  Card. = 0..1
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}
+
+ -- Row 6 -----------------------------------
+  Element = Medication.kind
+  Card. = 0..1
+  Must Support = Y
+  Type = code
+
+ -- Row 7 -----------------------------------
+  Element = Medication.product
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Medication.product.form
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFMedicationForm
+
+ -- Row 9 -----------------------------------
+  Element = Medication.product.ingredient
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = Medication.product.ingredient.item
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Substance){http://hl7.org/fhir/StructureDefinition/daf-substance}|Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
+
+ -- Row 11 -----------------------------------
+  Element = Medication.product.ingredient.amount
+  Card. = 0..1
+  Must Support = Y
+  Type = Ratio
+
+=== Sheet Search =====================================

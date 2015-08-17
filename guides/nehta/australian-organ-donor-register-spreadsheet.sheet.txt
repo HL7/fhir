@@ -1,0 +1,131 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = AustralianOrganDonorRegister
+  Type = Logical
+  Short Label = Australian Organ Donor Register
+  Definition = Information about an individual\'s organ and tissue donation decisions held on the Australian Organ Donor Register.
+
+ -- Row 2 -----------------------------------
+  Element = AustralianOrganDonorRegister.subjectofCare
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Subject of Care
+  Definition = Person about whom the information contained in this document was captured.
+
+ -- Row 3 -----------------------------------
+  Element = AustralianOrganDonorRegister.documentAuthor
+  Card. = 1..1
+  Type = Reference(Patient|Practitioner|RelatedPerson|Device)
+  Short Label = Document Author
+  Definition = Composer of the document.
+
+ -- Row 4 -----------------------------------
+  Element = AustralianOrganDonorRegister.documentType
+  Card. = 1..1
+  Type = Identifier
+  Short Label = Document Type
+  Definition = Type of document.
+
+ -- Row 5 -----------------------------------
+  Element = AustralianOrganDonorRegister.details
+  Card. = 1..1
+  Type = *
+  Short Label = Australian Organ Donor Register Details
+  Definition = Information about an individual\'s organ and tissue donation decisions held on the Australian Organ Donor Register.
+
+ -- Row 6 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry
+  Card. = 1..1
+  Type = *
+  Short Label = Australian Organ Donor Register Entry
+  Definition = Information about an individual\'s organ and tissue donation decisions, for use within the Australian Organ Donor Register.
+
+ -- Row 7 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.dateofInitialRegistration
+  Card. = 1..1
+  Type = dateTime
+  Short Label = Date of Initial Registration
+  Definition = The date that the individual first registered their organ or tissue donation decision in the Australian Organ Donation Register.
+
+ -- Row 8 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.donationDecision
+  Card. = 1..1
+  Type = boolean
+  Short Label = Donation Decision
+  Definition = The individual\'s decision about donation.
+
+ -- Row 9 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails
+  Card. = 0..1
+  Type = *
+  Short Label = Organ and Tissue Donation Details
+  Definition = A list of organs and/or tissues for transplantation that the individual has consented to donate.
+
+ -- Row 10 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.boneTissueIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Bone Tissue Indicator
+  Definition = Whether or not the individual has decided to be a bone tissue donor.
+
+ -- Row 11 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.eyeTissueIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Eye Tissue Indicator
+  Definition = Whether or not the individual has decided to be an eye tissue (cornea) donor.
+
+ -- Row 12 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.heartIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Heart Indicator
+  Definition = Whether or not the individual has decided to be a heart organ donor.
+
+ -- Row 13 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.heartValveIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Heart Valve Indicator
+  Definition = Whether or not the individual has decided to be a heart valve donor.
+
+ -- Row 14 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.kidneyIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Kidney Indicator
+  Definition = Whether or not the individual has decided to be a kidney organ donor.
+
+ -- Row 15 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.liverIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Liver Indicator
+  Definition = Whether or not the individual has decided to be a liver organ donor.
+
+ -- Row 16 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.lungsIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Lungs Indicator
+  Definition = Whether or not the individual has decided to be a lung organ donor.
+
+ -- Row 17 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.pancreasIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Pancreas Indicator
+  Definition = Whether or not the individual has decided to be a pancreas organ donor.
+
+ -- Row 18 -----------------------------------
+  Element = AustralianOrganDonorRegister.details.australianOrganDonorRegisterEntry.organandTissueDonationDetails.skinTissueIndicator
+  Card. = 1..1
+  Type = boolean
+  Short Label = Skin Tissue Indicator
+  Definition = Whether or not the individual has decided to be a skin tissue donor.

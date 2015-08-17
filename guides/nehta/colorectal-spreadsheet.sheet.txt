@@ -1,0 +1,1166 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = PerforationStatus
+  Binding = value set
+  Reference = valueset-nehta-present-absent-na
+  Definition = A code that indicates whether perforation is present
+
+ -- Row 2 -----------------------------------
+  Binding Name = NatureOfPerforation
+  Binding = value set
+  Reference = valueset-nehta-perforation-type
+  Definition = A code that indicates the type of perforation
+
+ -- Row 3 -----------------------------------
+  Binding Name = ClinicalObstructionStatus
+  Binding = value set
+  Reference = valueset-nehta-present-absent-na
+  Definition = A code that indicates whether a clinical obstruction is present
+
+ -- Row 4 -----------------------------------
+  Binding Name = TumourLocation
+  Binding = value set
+  Reference = valueset-nehta-crc-tumour-location
+  Definition = A code that indicates the antomical location of the tumour from a given list
+
+ -- Row 5 -----------------------------------
+  Binding Name = TypeOfOperation
+  Binding = value set
+  Reference = valueset-nehta-crc-operation-type
+  Definition = A code that indicates the type of operation
+
+ -- Row 6 -----------------------------------
+  Binding Name = AnteriorResectionType
+  Binding = value set
+  Reference = valueset-nehta-hi-lo-ultralo
+  Definition = A code that idicates the type of anterior resection
+
+ -- Row 7 -----------------------------------
+  Binding Name = PreoperativeRadiotherapy
+  Binding = value set
+  Reference = valueset-nehta-yes-no
+  Definition = A code that indicates whether pre-operative radiotherapy was used
+
+ -- Row 8 -----------------------------------
+  Binding Name = TypeOfCourse
+  Binding = value set
+  Reference = valueset-nehta-course-type
+  Definition = A code that indicates the type of course of pre-operative radiotherapy
+
+ -- Row 9 -----------------------------------
+  Binding Name = NewPrimaryCancerOrRecurrence
+  Binding = value set
+  Reference = valueset-nehta-cancer-primary-or-recurrence
+  Definition = A code that indicates whether a new primary cancer or an recurrence
+
+ -- Row 10 -----------------------------------
+  Binding Name = TumourSite
+  Binding = value set
+  Reference = valueset-nehta-crc-tumour-location
+  Definition = A code that indicates the site of the tumour
+
+ -- Row 11 -----------------------------------
+  Binding Name = TumourPerforation
+  Binding = value set
+  Reference = valueset-nehta-present-absent-na
+  Definition = A code that indicates the presence or absence of a tumour perforation
+
+ -- Row 12 -----------------------------------
+  Binding Name = RelationshipToAnteriorPeritonealReflection
+  Binding = value set
+  Reference = valueset-nehta-crc-rel-anterior-peritoneal-reflection
+  Definition = A code that indicates the site of tumour in relation to the anterior level of the peritoneal reflection
+
+ -- Row 13 -----------------------------------
+  Binding Name = IntactnessOfMesorectum
+  Binding = value set
+  Reference = valueset-nehta-crc-intactness-of-mesorectum
+  Definition = A code that indicates the intactness of the mesorectum
+
+ -- Row 14 -----------------------------------
+  Binding Name = Peritoneum
+  Binding = value set
+  Reference = valueset-nehta-crc-peritoneum-invasion
+  Definition = A code that indicates the tumour invovlement in the peritoneum
+
+ -- Row 15 -----------------------------------
+  Binding Name = LymphNodes
+  Binding = value set
+  Reference = valueset-nehta-received-notreceived
+  Definition = A code that indicates if lymph nodes were received
+
+ -- Row 16 -----------------------------------
+  Binding Name = Polyps
+  Binding = value set
+  Reference = valueset-nehta-present-absent-na
+  Definition = A code that indicates the presence or absence of polyp(s)
+
+ -- Row 17 -----------------------------------
+  Binding Name = TumourType
+  Binding = code list
+  Reference = #tumour-type
+  Definition = A code from the WHO Calssification that indicates the tumour type
+
+ -- Row 18 -----------------------------------
+  Binding Name = HistologicalGrade
+  Binding = value set
+  Reference = valueset-nehta-histological-grade
+  Definition = A code that indicates the histological grade of the tumour
+
+ -- Row 19 -----------------------------------
+  Binding Name = MaxDegreeInvasionBowelWall
+  Binding = value set
+  Reference = valueset-nehta-crc-deg-inv-bowel-wall
+  Definition = A code that indicates the maximum degree of local invasion into or through the bowel wall
+
+ -- Row 20 -----------------------------------
+  Binding Name = InvolvementOfTheProximalOrDistalResectionCut-endMargins
+  Binding = value set
+  Reference = valueset-nehta-involved-notinvolved
+  Definition = A code that indicates involvement of the proximal or distal resection (cut-end) margins
+
+ -- Row 21 -----------------------------------
+  Binding Name = InvolvedMargin-s
+  Binding = value set
+  Reference = valueset-nehta-distal-proximal
+  Definition = A code that indicates the involvement at the margins
+
+ -- Row 22 -----------------------------------
+  Binding Name = NonperitonealisedCircumferentialMargin
+  Binding = value set
+  Reference = valueset-nehta-involved-notinvolved
+  Definition = A code that indicates the status of the nonperitonealised circumferential margin in rectal tumours
+
+ -- Row 23 -----------------------------------
+  Binding Name = LymphNodeInvolvement
+  Binding = value set
+  Reference = valueset-nehta-present-absent-na
+  Definition = A code that indicates lymph node involvement
+
+ -- Row 24 -----------------------------------
+  Binding Name = IsolatedExtramuralTumourDeposits
+  Binding = value set
+  Reference = valueset-nehta-present-absent-na
+  Definition = A code that indicates the presence or absence of isolated extra-mural tumour deposits.
+
+ -- Row 25 -----------------------------------
+  Binding Name = ApicalNodeInvolvement
+  Binding = value set
+  Reference = valueset-nehta-present-absent-na
+  Definition = A code that indicates apical node involvement
+
+ -- Row 26 -----------------------------------
+  Binding Name = IntramuralVeinInvasion
+  Binding = value set
+  Reference = valueset-nehta-notidentified-present
+  Definition = A code that indicates intramural vein invasion
+
+ -- Row 27 -----------------------------------
+  Binding Name = ExtramuralVeinInvasion
+  Binding = value set
+  Reference = valueset-nehta-notidentified-present
+  Definition = A code that indicates extramural vein invasion
+
+ -- Row 28 -----------------------------------
+  Binding Name = SmallVesselInvasion
+  Binding = value set
+  Reference = valueset-nehta-notidentified-present-presentextensive
+  Definition = A code that indicates small vessel invasion
+
+ -- Row 29 -----------------------------------
+  Binding Name = PerineuralInvasion
+  Binding = value set
+  Reference = valueset-nehta-notidentified-present-presentextensive
+  Definition = A code that indicates perineural invasion
+
+ -- Row 30 -----------------------------------
+  Binding Name = HistologicallyConfirmedDistantMetastases
+  Binding = value set
+  Reference = valueset-nehta-present-absent-na
+  Definition = A code that indicates the presence or absence of histologically confirmed distant metastases
+
+ -- Row 31 -----------------------------------
+  Binding Name = RelevantCoexistentPathologicalAbnormalities
+  Binding = value set
+  Reference = valueset-nehta-crc-coexist-path-abnormalities
+  Definition = A code that indicates the relevant coexistent pathological abnormalities
+
+ -- Row 32 -----------------------------------
+  Binding Name = Dysplasia
+  Binding = value set
+  Reference = valueset-nehta-dysplasia
+  Definition = A code that indicates dysplasia if Ulcerative colitis or Crohn\'s disease is selected for relevant coexistent pathological abnormalities
+
+ -- Row 33 -----------------------------------
+  Binding Name = ResponseToNeoadjuvantTherapy
+  Binding = value set
+  Reference = valueset-nehta-response-to-neoadjuvant-therapy
+  Definition = A code that indicates the response to neoadjuvant therapy
+
+ -- Row 34 -----------------------------------
+  Binding Name = Mlh1
+  Binding = value set
+  Reference = valueset-nehta-stain-type
+  Definition = A code that indicates MLH-1 testing
+
+ -- Row 35 -----------------------------------
+  Binding Name = Pms2
+  Binding = value set
+  Reference = valueset-nehta-stain-type
+  Definition = A code that indicates PMS-2 testing
+
+ -- Row 36 -----------------------------------
+  Binding Name = Msh2
+  Binding = value set
+  Reference = valueset-nehta-stain-type
+  Definition = A code that indicates MSH-2 testing
+
+ -- Row 37 -----------------------------------
+  Binding Name = Msh6
+  Binding = value set
+  Reference = valueset-nehta-stain-type
+  Definition = A code that indicates MSH-6 testing
+
+ -- Row 38 -----------------------------------
+  Binding Name = Msi
+  Binding = value set
+  Reference = valueset-nehta-unstable-stable
+  Definition = A code that indicates Microsatellite instability (MSI)
+
+ -- Row 39 -----------------------------------
+  Binding Name = Braf
+  Binding = value set
+  Reference = valueset-nehta-mutated-wildtype
+  Definition = A code that indicates the BRAF (V600E mutation)
+
+ -- Row 40 -----------------------------------
+  Binding Name = Kras
+  Binding = value set
+  Reference = valueset-nehta-mutated-wildtype
+  Definition = A code that indicates the KRAS gene mutation (codons 12 and 13)
+
+ -- Row 41 -----------------------------------
+  Binding Name = TumourStageT
+  Binding = value set
+  Reference = valueset-nehta-crc-tumour-stage-t
+  Definition = A code that records tumour stage T
+
+ -- Row 42 -----------------------------------
+  Binding Name = TumourStageN
+  Binding = value set
+  Reference = valueset-nehta-crc-tumour-stage-n
+  Definition = A code that records tumour stage N
+
+ -- Row 43 -----------------------------------
+  Binding Name = TumourStageM
+  Binding = value set
+  Reference = valueset-nehta-crc-tumour-stage-m
+  Definition = A code that records tumour stage M
+
+ -- Row 44 -----------------------------------
+  Binding Name = TumourStageGrouping
+  Binding = code list
+  Reference = #tumour-stage-grouping
+  Definition = A code that records tumour stage grouping
+
+ -- Row 45 -----------------------------------
+  Binding Name = ResidualTumourStatus
+  Binding = value set
+  Reference = valueset-nehta-residual-tumour-status
+  Definition = An R code that records the residual tumour status
+
+ -- Row 46 -----------------------------------
+  Binding Name = NewPrimaryOrRecurrence
+  Binding = value set
+  Reference = valueset-nehta-new-cancer-or-recurrence
+  Definition = A code that records whether a new primary cancer or a recurrence
+
+=== Sheet tumour-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = epithelial-tumours
+  Display = Epithelial tumours |+
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = mesenchymal-tumours
+  Display = Mesenchymal tumours |+
+
+=== Sheet tumour-stage-grouping =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = 0
+  Display = 0 Tis N0 M0
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = i
+  Display = I T1 N0 M0\n  T2 N0 M0
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = iia
+  Display = IIA T3 N0 M0
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = iib
+  Display = IIB T4a N0 M0
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = iic
+  Display = IIC T4b N0 M0
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = iiia
+  Display = IIIA T1-T2 N1/N1c M0\n       T1       N2a        M0
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = iiib
+  Display = IIIB T3-T4a N1/N1c M0\n       T2-T3   N2a        M0\n       T1-T2   N2b        M0
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = iiic
+  Display = IIIC T4a       N2a      M0\n       T3-T4a N2b      M0\n       T4b       N1-N2 M0
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = iva
+  Display = IVA Any T Any N M1a
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = ivb
+  Display = IVB Any T Any N M1b
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Colorectal.preAnalytic
+  English = If there is a perforation, the perforation type must be indicated
+  XPath = not(f:perforation/@value = \'present\') or exists(f:NatureOfPerforation)
+  Severity = error
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Colorectal
+  Type = DomainResource
+  Short Label = Colorectal
+  Definition = Colorectal cancer
+
+ -- Row 2 -----------------------------------
+  Element = Colorectal.subject
+  Card. = 1..1
+  Aliases = Patient
+  Summary = Y
+  Type = Reference(Patient|Group)
+  Short Label = The subject of the report, usually, but not always, the patient
+  Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
+  v2 Mapping = PID-3-Patient ID List (no V2 mapping for Group or Device)
+  RIM Mapping = participation[typeCode=SBJ]
+  To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
+
+ -- Row 3 -----------------------------------
+  Element = Colorectal.requester
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner)
+  Short Label = Who ordered the test
+  Definition = The practitioner that holds legal responsibility for ordering the investigation
+  RIM Mapping = participation[typeCode=AUT].role
+  To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
+
+ -- Row 4 -----------------------------------
+  Element = Colorectal.performer
+  Card. = 0..1
+  Aliases = Laboratory, Service, Practitioner, Department, Company
+  Summary = Y
+  Type = Reference(Practitioner|Organization)
+  Short Label = Responsible Diagnostic Service
+  Definition = The diagnostic service that is responsible for issuing the report
+  Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
+  Comments = This is not necessarily the source of the atomic data items - it is the entity that takes responsibility for the clinical report.
+  v2 Mapping = PRT-8-Participation Organization (where this PRT-4-Participation = \"PO\")
+  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
+
+ -- Row 5 -----------------------------------
+  Element = Colorectal.preAnalytic
+  Card. = 0..1
+  Type = string
+  Short Label = Pre Analytic
+  Definition = Pre Analytic component - information collection prior to specimen receipt at laboratory.
+  Comments = This is just a group/section header and is not a result field
+
+ -- Row 6 -----------------------------------
+  Element = Colorectal.preAnalytic.clinicalInformation
+  Card. = 0..1
+  Type = string
+  Short Label = Clinical information
+  Definition = Clinical information provided on request form
+
+ -- Row 7 -----------------------------------
+  Element = Colorectal.operatingSurgeonDetails
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner)
+  Short Label = Operating surgeon details
+  Definition = The operating surgeon name and contact details
+  To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.  Query if relevant for operating surgeon.
+
+ -- Row 8 -----------------------------------
+  Element = Colorectal.preAnalytic.perforation
+  Card. = 0..1
+  Inv. = 1
+  Type = code
+  Binding = PerforationStatus
+  Short Label = Perforation
+  Definition = Presence or absence of a perforation
+  Requirements = If present, record the nature of perforation
+
+ -- Row 9 -----------------------------------
+  Element = Colorectal.preAnalytic.natureOfPerforation
+  Card. = 0..*
+  Type = code
+  Binding = NatureOfPerforation
+  Short Label = Nature of perforation
+  Definition = The type of perforation
+  To Do = Query if need to:\nadd invariant =1 & add the xpath expression to the invariant tab
+
+ -- Row 10 -----------------------------------
+  Element = Colorectal.preAnalytic.clinicalObstruction
+  Card. = 0..1
+  Type = code
+  Binding = ClinicalObstructionStatus
+  Short Label = Clinical obstruction
+  Definition = Whether a clinical obstruction is present or absent.
+
+ -- Row 11 -----------------------------------
+  Element = Colorectal.preAnalytic.tumourLocation
+  Card. = 0..*
+  Summary = Y
+  Type = code
+  Binding = TumourLocation
+  Short Label = Tumour location
+  Definition = Anatomical location of the tumour from a given list.
+  To Do = ? - add UNK to codeset
+
+ -- Row 12 -----------------------------------
+  Element = Colorectal.preAnalytic.synchronousTumours
+  Card. = 0..1
+  Type = string
+  Short Label = Synchronous tumours - other site
+  Definition = For synchronous tumours indicate each other site
+  Requirements = Conditional on rectum being selected.\nMeasured in cm for RCPA requirements.
+  Comments = Note\n: Synchronous tumours should be reported separately – this serves only to identify the presence of other synchronous tumours for which separate reports will be submitted.
+  To Do = ? If there needs to be an invariant due to this being conditional on Rectum being selected as site.
+
+ -- Row 13 -----------------------------------
+  Element = Colorectal.preAnalytic.distanceAnalVerge
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Distance from anal verge
+  Definition = Quantitative measurement of distance from anal verge
+  Requirements = Conditional on rectum being selected.\nMeasured in cm for RCPA requirements.
+  Comments = Conditional on rectum being selected\nNote : Measured in cm by longstanding surgical convention
+
+ -- Row 14 -----------------------------------
+  Element = Colorectal.preAnalytic.typeOfOperation
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = TypeOfOperation
+  Short Label = *
+  Definition = The type of operation selected from a list
+  Requirements = Single selection value list.\nIf other procedure(s) is selected, record type of procedure.\nIf anterior resection is selected, record anterior resection type.
+  To Do = ? - add UNK to codeset
+
+ -- Row 15 -----------------------------------
+  Element = Colorectal.preAnalytic.typeOfProcedure
+  Card. = 0..1
+  Type = string
+  Short Label = Procedure type
+  Definition = Type of procedure
+
+ -- Row 16 -----------------------------------
+  Element = Colorectal.preAnalytic.anteriorResectionType
+  Card. = 0..1
+  Type = code
+  Binding = AnteriorResectionType
+  Short Label = Anterior resection type
+  Definition = The type of anterior resection
+  Requirements = Single selection value list.
+  To Do = Check with RCPA about Definition\n? - add UNK to codeset
+
+ -- Row 17 -----------------------------------
+  Element = Colorectal.preAnalytic.preoperativeRadiotherapy
+  Card. = 0..1
+  Type = code
+  Binding = PreoperativeRadiotherapy
+  Short Label = Pre-operative radiotherapy
+  Definition = An indication of pre-operative radiotherapy
+  Requirements = Single selection value list.\nIf yes, record type of course
+  To Do = ? add an invariant to accommodate the conditional statement \"if Yes …\"
+
+ -- Row 18 -----------------------------------
+  Element = Colorectal.preAnalytic.typeOfCourse
+  Card. = 0..1
+  Type = code
+  Binding = TypeOfCourse
+  Short Label = Type of course
+  Definition = The type of course of pre-operative radiotherapy
+
+ -- Row 19 -----------------------------------
+  Element = Colorectal.preAnalytic.surgeonsOpinion
+  Card. = 0..1
+  Type = string
+  Short Label = Surgeons opinion of residual cancer
+  Definition = Surgeons opinion on the existence of local residual cancer postsurgery
+  To Do = FYI - short label & definition did not like apostrophe s ie surgeon\'s
+
+ -- Row 20 -----------------------------------
+  Element = Colorectal.preAnalytic.adjacentOrgans
+  Card. = 0..1
+  Type = string
+  Short Label = Adjacent organ involvement
+  Definition = Involvement of adjacent organs
+
+ -- Row 21 -----------------------------------
+  Element = Colorectal.preAnalytic.newPrimaryOrRecurrence
+  Card. = 0..1
+  Type = code
+  Binding = NewPrimaryCancerOrRecurrence
+  Short Label = New primary cancer or recurrence
+  Definition = An indication of whether a new primary cancer or a recurrence
+  Requirements = Single selection value list.\nIf regional (local) recurrence or distant metastasis describe.
+  Comments = ? If need to make an invariant due to the conditional statement
+
+ -- Row 22 -----------------------------------
+  Element = Colorectal.preAnalytic.describe
+  Card. = 0..1
+  Type = string
+  Short Label = Describe
+  Definition = Description of regional (local) recurrence or distant metastases
+
+ -- Row 23 -----------------------------------
+  Element = Colorectal.preAnalytic.pathologyAccessionNumber
+  Card. = 0..1
+  Type = string
+  Short Label = Pathology number
+  Definition = Pathology accession number
+
+ -- Row 24 -----------------------------------
+  Element = Colorectal.preAnalytic.otherRelevantDetails
+  Card. = 0..1
+  Type = string
+  Short Label = Other details
+  Definition = Other relevant details
+
+ -- Row 25 -----------------------------------
+  Element = Colorectal.macro
+  Card. = 0..1
+  Type = string
+  Short Label = Macroscopy
+  Definition = Macroscopic findings
+  Comments = This is just a group/section header and is not a result field
+
+ -- Row 26 -----------------------------------
+  Element = Colorectal.macro.specimenLength
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Specimen length
+  Definition = The length of the specimen
+  Requirements = measurement in mm.
+  Comments = Query if measurements are in mm is international ie USA and query if this comment needs to be refined to AUS?\nDitto for subsequent metric measurements.
+
+ -- Row 27 -----------------------------------
+  Element = Colorectal.macro.tumourSite
+  Card. = 0..1
+  Type = code
+  Binding = TumourSite
+  Short Label = Tumour site
+  Definition = The site of the tumour
+
+ -- Row 28 -----------------------------------
+  Element = Colorectal.macro.maxTumourDiameter
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Max. tumour diameter
+  Definition = Maximum tumour diameter
+  Requirements = measurement in mm.
+
+ -- Row 29 -----------------------------------
+  Element = Colorectal.macro.distanceNearerProxOrDistal
+  Card. = 0..*
+  Type = SimpleQuantity
+  Short Label = Dist. of tumour to the nearer proximal or distal \"cut end\"
+  Definition = Distance of tumour to the nearer proximal or distal \"cut end\"
+  Requirements = measurement in mm.
+
+ -- Row 30 -----------------------------------
+  Element = Colorectal.macro.distNonperitonCircumMargin
+  Card. = 1..1
+  Type = SimpleQuantity
+  Short Label = Dist. of tumour to the nonperitonealised circumferential margin
+  Definition = Distance of tumour to the nonperitonealised circumferential margin
+  Requirements = measurement in mm.
+
+ -- Row 31 -----------------------------------
+  Element = Colorectal.macro.tumourPerforation
+  Card. = 0..1
+  Type = code
+  Binding = TumourPerforation
+  Short Label = Tumour perforation
+  Definition = The presence or absence of tumour perforation
+  Requirements = Single selection value list.
+
+ -- Row 32 -----------------------------------
+  Element = Colorectal.macro.relToAntPeritonealReflection
+  Card. = 0..1
+  Type = code
+  Binding = RelationshipToAnteriorPeritonealReflection
+  Short Label = Relationship to anterior peritoneal reflection
+  Definition = Site of tumour in relation to the anterior level of the peritoneal reflection
+  Requirements = Single selection value list.\nConditional on rectum being selected in Tumour Site
+  To Do = ? Make an invariant on rectum in tumour site
+
+ -- Row 33 -----------------------------------
+  Element = Colorectal.macro.intactnessOfMesorectum
+  Card. = 0..1
+  Type = code
+  Binding = IntactnessOfMesorectum
+  Short Label = Intactness of mesorectum
+  Definition = For rectal resections the intactness of the mesorectum must be recorded.
+  Requirements = Single selection value list.\nConditional on rectum being selected in Tumour Site
+  To Do = ? Make an invariant on rectum in tumour site
+
+ -- Row 34 -----------------------------------
+  Element = Colorectal.macro.peritoneum
+  Card. = 0..1
+  Type = code
+  Binding = Peritoneum
+  Short Label = Peritoneum
+  Definition = Any involvement of the peritoneum should be recorded.
+  Requirements = Single selection value list.
+
+ -- Row 35 -----------------------------------
+  Element = Colorectal.macro.lymphNodes
+  Card. = 0..1
+  Type = code
+  Binding = LymphNodes
+  Short Label = Lymph nodes
+  Definition = If lymph nodes are received, then they should be recorded.
+  Requirements = Conditional:\nIf received, record the number of nodes
+
+ -- Row 36 -----------------------------------
+  Element = Colorectal.macro.noLymphNodesPerCassette
+  Card. = 0..*
+  Type = SimpleQuantity
+  Short Label = Number of lymph nodes in each cassette
+  Definition = The number of lymph nodes placed in each cassette should be recorded.
+  Comments = The RCPA require the following be recorded:\n\"Numeric: ___ in cassette: ___\"\nQuery how to record this?
+
+ -- Row 37 -----------------------------------
+  Element = Colorectal.macro.polyps
+  Card. = 0..1
+  Type = code
+  Binding = Polyps
+  Short Label = Polyps
+  Definition = The presence or absence of polyps should be recorded
+  Requirements = Conditional:\nIf present, provide a polyp summary.
+
+ -- Row 38 -----------------------------------
+  Element = Colorectal.macro.polypSummary
+  Card. = 0..1
+  Type = string
+  Short Label = The number, diameter and gross configuration of polyps should be summarised
+  Definition = The polyp summary should include the numbers, diameter range and gross appearance
+
+ -- Row 39 -----------------------------------
+  Element = Colorectal.macro.otherMacroComments
+  Card. = 0..1
+  Type = string
+  Short Label = Other macroscopic comments
+  Definition = A descriptive or narrative field should be provided to record any macroscopic information that is not recorded in the above standards and guidelines, and that would normally form part of the macroscopic description.
+
+ -- Row 40 -----------------------------------
+  Element = Colorectal.macro.natureAndSiteOfBlocks
+  Card. = 0..1
+  Type = string
+  Short Label = Nature and site of blocks
+  Definition = The nature and sites of all blocks must be recorded.
+
+ -- Row 41 -----------------------------------
+  Element = Colorectal.micro
+  Card. = 0..1
+  Type = string
+  Short Label = Microscopy
+  Definition = Microscopy of the sample
+  Comments = This is just a group/section header and is not a result field
+
+ -- Row 42 -----------------------------------
+  Element = Colorectal.micro.tumourType
+  Card. = 0..1
+  Type = code
+  Binding = TumourType
+  Short Label = Tumour type
+  Definition = A single selection value list from WHO Classification of Tumours.
+  Requirements = Single selection value list from WHO Classification of Tumours. Pathology and Genetics of Tumours of the Digestive System (2010).
+  Comments = How to represent this result group which has heading and components cf the bindings file is a flat file??
+
+ -- Row 43 -----------------------------------
+  Element = Colorectal.micro.histologicalGrade
+  Card. = 0..1
+  Type = code
+  Binding = HistologicalGrade
+  Short Label = Histological grade
+  Definition = The histological grading of the tumour must be recorded.
+  Requirements = Single selection value list.
+
+ -- Row 44 -----------------------------------
+  Element = Colorectal.micro.maxDegreeLocalInvasion
+  Card. = 0..1
+  Type = code
+  Binding = MaxDegreeInvasionBowelWall
+  Short Label = Maximum degree of local invasion into or through the bowel wall
+  Definition = The maximum degree of local invasion into or through the bowel wall must be recorded.
+  Requirements = Single selection value list.
+
+ -- Row 45 -----------------------------------
+  Element = Colorectal.micro.proximalOrDistalResectionMargins
+  Card. = 0..1
+  Type = code
+  Binding = InvolvementOfTheProximalOrDistalResectionCut-endMargins
+  Short Label = Involvement of the proximal or distal resection (cut-end) margins
+  Definition = Involvement of the proximal or distal resection margins (cut-end margins) by tumour must be recorded. If the margin is less than 10 mm, the clearance must be recorded.
+  Requirements = Single selection value list.\nIf involved is selected, record involved margin(s)\nIf not involved is selected, record microscopic clearance.
+
+ -- Row 46 -----------------------------------
+  Element = Colorectal.micro.involvedMargins
+  Card. = 0..*
+  Type = code
+  Binding = InvolvedMargin-s
+  Short Label = Involved margin(s)
+  Definition = Involvement of the proximal or distal resection margins (cut-end margins) by tumour must be recorded. If the margin is less than 10 mm, the clearance must be recorded.
+  Requirements = Multi select value list (select all that apply).\nThis is a conditional field.
+
+ -- Row 47 -----------------------------------
+  Element = Colorectal.micro.microClearance
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Microscopic Clearance
+  Definition = If the margin is less than 10 mm, the clearance must be recorded.
+  Requirements = Numeric: ___mm (if the margin is less than 10 mm)\nOR Clearance is ≥10mm
+  Comments = Query how to achieve this??
+
+ -- Row 48 -----------------------------------
+  Element = Colorectal.micro.nonperitonealisedCircumMargin
+  Card. = 0..1
+  Type = code
+  Binding = NonperitonealisedCircumferentialMargin
+  Short Label = Status of the nonperitonealised circumferential margin (rectal tumours)
+  Definition = The status of the nonperitonealised circumferential margin in rectal tumours must be recorded.
+  Requirements = Single selection value list.\nConditional on rectum being selected in S2.02\nIf not involved is selected, record microscopic clearance.
+
+ -- Row 49 -----------------------------------
+  Element = Colorectal.micro.microClearanceRectum
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Microscopic Clearance
+  Definition = In rectal tumours, the minimum distance in millimetres between the tumour and the nonperitonealised (circumferential, radial) margin must be recorded from the histological slides.
+  Requirements = Is conditional
+
+ -- Row 50 -----------------------------------
+  Element = Colorectal.micro.lymphNodeInvolvement
+  Card. = 0..1
+  Type = code
+  Binding = LymphNodeInvolvement
+  Short Label = Lymph node involvement
+  Definition = Results of lymph node histopathology must be recorded.
+  Requirements = Single selection value list.\nConditional on nodes being received in G2.02. If G2.02 has been recorded as “not received” this standard is not required.\nIf present, record site(s) and number of lymph nodes
+
+ -- Row 51 -----------------------------------
+  Element = Colorectal.micro.lymphNodesDetails
+  Card. = 0..*
+  Type = string
+  Short Label = Site(s) and numbers of lymph nodes
+  Definition = If lymph node(s) received then the site(s) and numbers of lymph nodes must be recorded.
+  Requirements = Text: Site of lymph node\nAND\nNumeric: ____/_____\n(Number of positive nodes/ Total number of nodes from this site)\nSite is the LN drainage relevant to the site of tumour being reported.
+  Comments = Query if this field needs to be broken in to a number of fields??
+
+ -- Row 52 -----------------------------------
+  Element = Colorectal.micro.extramuralTumourDeposits
+  Card. = 0..1
+  Type = code
+  Binding = IsolatedExtramuralTumourDeposits
+  Short Label = Isolated extra-mural tumour deposits
+  Definition = The presence or absence of isolated extra-mural tumour deposits is to be recorded.
+  Requirements = Single selection value list.
+
+ -- Row 53 -----------------------------------
+  Element = Colorectal.micro.apicalNodeInvolvement
+  Card. = 0..1
+  Type = code
+  Binding = ApicalNodeInvolvement
+  Short Label = Apical node involvement
+  Definition = Involvement of the apical lymph node should be recorded.
+  Requirements = Single selection value list.
+
+ -- Row 54 -----------------------------------
+  Element = Colorectal.micro.venousSmallVesselInvasion
+  Card. = 0..1
+  Type = string
+  Short Label = Venous and small vessel invasion
+  Definition = For all tumours, venous and small vessel invasion must be reported and its anatomic location specified as intramural or extramural.
+  Comments = This is just a header and is not a data field\n?? How to be entered in the resource
+
+ -- Row 55 -----------------------------------
+  Element = Colorectal.micro.intramuralVeinInvasion
+  Card. = 0..1
+  Type = code
+  Binding = IntramuralVeinInvasion
+  Short Label = Intramural vein invasion
+  Definition = Intramural invasion must be reported on
+  Requirements = Single selection value list.
+
+ -- Row 56 -----------------------------------
+  Element = Colorectal.micro.extramuralVeinInvasion
+  Card. = 0..1
+  Type = code
+  Binding = ExtramuralVeinInvasion
+  Short Label = Extramural vein invasion
+  Definition = Extramural invasion must be reported on
+  Requirements = Single selection value list.
+
+ -- Row 57 -----------------------------------
+  Element = Colorectal.micro.smallVesselInvasion
+  Card. = 0..1
+  Type = code
+  Binding = SmallVesselInvasion
+  Short Label = Small vessel invasion
+  Definition = Small vessel invasion must be reported on
+  Requirements = Single selection value list.
+
+ -- Row 58 -----------------------------------
+  Element = Colorectal.micro.perineuralInvasion
+  Card. = 0..1
+  Type = code
+  Binding = PerineuralInvasion
+  Short Label = Perineural invasion
+  Definition = Perineural invasion must be reported on
+  Requirements = Single selection value list.
+
+ -- Row 59 -----------------------------------
+  Element = Colorectal.micro.histoConfDistMetastases
+  Card. = 0..1
+  Type = code
+  Binding = HistologicallyConfirmedDistantMetastases
+  Short Label = Histologically confirmed distant metastases
+  Definition = The presence or absence of histologically confirmed distant metastases must be recorded
+  Requirements = Single selection value list.\nIf present, record sites
+
+ -- Row 60 -----------------------------------
+  Element = Colorectal.micro.histoConfDistMetastasesSite
+  Card. = 0..1
+  Type = string
+  Short Label = Histologically confirmed distant metastases - site
+  Definition = The site of histologically confirmed distant metastases must be recorded
+  Requirements = Is conditional
+
+ -- Row 61 -----------------------------------
+  Element = Colorectal.micro.relCoexistPathabnorm
+  Card. = 0..*
+  Type = code
+  Binding = RelevantCoexistentPathologicalAbnormalities
+  Short Label = Relevant coexistent pathological abnormalities
+  Definition = The relevant coexistent pathological abnormalities must be recorded
+  Requirements = Multi select value list (select all that apply).\n?? How is this indicated??\nIf Polyps is selected provide details\nIf Ulcerative colitis or Crohn’s disease is selected record dysplasia\nIf other is selected, provide details in “other abnormality”
+
+ -- Row 62 -----------------------------------
+  Element = Colorectal.micro.polypDetails
+  Card. = 0..1
+  Type = string
+  Short Label = Polyp details (type, number, polyposis syndrome criteria met etc)
+  Definition = The polyp details (type, number, polyposis syndrome criteria met etc) is to be recorded
+  Requirements = Is conditional
+
+ -- Row 63 -----------------------------------
+  Element = Colorectal.micro.dysplasia
+  Card. = 0..1
+  Type = code
+  Binding = Dysplasia
+  Short Label = Dysplasia
+  Definition = If Ulcerative colitis or Crohns disease is selected for relevant coexistent pathological abnormalities record dysplasia
+  Requirements = Single selection value list.\nIs conditional
+  Comments = Cannot have an apostrophe in a spreadsheet eg Crohn apostrophe s
+
+ -- Row 64 -----------------------------------
+  Element = Colorectal.micro.otherAbnormality
+  Card. = 0..1
+  Type = string
+  Short Label = Other abnormality
+  Definition = Record any other abnormality
+
+ -- Row 65 -----------------------------------
+  Element = Colorectal.micro.microResidualTumourStatus
+  Card. = 0..1
+  Type = string
+  Short Label = Microscopic residual tumour status (completeness of resection)
+  Definition = The microscopic residual tumour status (completeness of resection) is to be recorded
+
+ -- Row 66 -----------------------------------
+  Element = Colorectal.micro.neoadjuvantTherapy
+  Card. = 0..1
+  Type = code
+  Binding = ResponseToNeoadjuvantTherapy
+  Short Label = Response to neoadjuvant therapy
+  Definition = The response to neoadjuvant therapy should be recorded
+
+ -- Row 67 -----------------------------------
+  Element = Colorectal.micro.microComments
+  Card. = 0..1
+  Type = string
+  Short Label = Microscopic comments
+  Definition = Other Microscopic comments should be recorded
+
+ -- Row 68 -----------------------------------
+  Element = Colorectal.ancillaryTests
+  Card. = 0..1
+  Type = string
+  Short Label = Ancillary test findings
+  Definition = Ancillary test findings are to be recorded
+  Comments = This is just a group/section header and is not a result field, but some example reports this field was used as a comment field.
+
+ -- Row 69 -----------------------------------
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz
+  Card. = 0..1
+  Type = string
+  Short Label = Mismatch repair enzymes
+  Definition = Mismatch repair enzymes are to be recorded
+  Comments = This is just a sub-group/sub-section header and is not a result field
+
+ -- Row 70 -----------------------------------
+  Element = Colorectal.ancillaryTests.mlh1
+  Card. = 0..1
+  Type = code
+  Binding = Mlh1
+  Short Label = MLH-1
+  Definition = MLH-1 testing
+  Requirements = Single selection value list.
+
+ -- Row 71 -----------------------------------
+  Element = Colorectal.ancillaryTests.pms2
+  Card. = 0..1
+  Type = code
+  Binding = Pms2
+  Short Label = PMS-2
+  Definition = PMS-2 testing
+  Requirements = Single selection value list.
+
+ -- Row 72 -----------------------------------
+  Element = Colorectal.ancillaryTests.msh2
+  Card. = 0..1
+  Type = code
+  Binding = Msh2
+  Short Label = MSH-2
+  Definition = MSH-2 testing
+  Requirements = Single selection value list.
+
+ -- Row 73 -----------------------------------
+  Element = Colorectal.ancillaryTests.msh6
+  Card. = 0..1
+  Type = code
+  Binding = Msh6
+  Short Label = MSH-6
+  Definition = MSH-6 testing
+  Requirements = Single selection value list.
+
+ -- Row 74 -----------------------------------
+  Element = Colorectal.ancillaryTests.mismatchRepairEnzComments
+  Card. = 0..1
+  Type = string
+  Short Label = Mismatch repair enzyme comments
+  Definition = Mismatch repair enzyme comments can be recorded
+
+ -- Row 75 -----------------------------------
+  Element = Colorectal.ancillaryTests.microsatelliteInstability
+  Card. = 0..1
+  Type = code
+  Binding = Msi
+  Short Label = Microsatellite instability (MSI)
+  Definition = Microsatellite instability (MSI) to be recorded
+  Requirements = Single selection value list.\nIf unstable or stable, record laboratory performing test and report number
+
+ -- Row 76 -----------------------------------
+  Element = Colorectal.ancillaryTests.microsatelliteInstabilityComments
+  Card. = 0..1
+  Type = string
+  Short Label = Microsatellite instability (MSI) comments
+  Definition = Microsatellite instability (MSI) comments can be recorded
+  Requirements = Conditional
+
+ -- Row 77 -----------------------------------
+  Element = Colorectal.ancillaryTests.msiLabDetails
+  Card. = 0..1
+  Type = string
+  Short Label = MSI laboratory performing test and report number
+  Definition = Microsatellite instability (MSI) laboratory performing test and report number can be recorded
+  Requirements = Conditional
+
+ -- Row 78 -----------------------------------
+  Element = Colorectal.ancillaryTests.braf
+  Card. = 0..1
+  Type = code
+  Binding = Braf
+  Short Label = BRAF (V600E mutation)
+  Definition = BRAF (V600E mutation) testing
+  Requirements = Single selection value list.\nIf mutated or wild type, record laboratory performing test and report number
+
+ -- Row 79 -----------------------------------
+  Element = Colorectal.ancillaryTests.brafComments
+  Card. = 0..1
+  Type = string
+  Short Label = BRAF (V600E mutation) comments
+  Definition = BRAF (V600E mutation) comments can be recorded
+
+ -- Row 80 -----------------------------------
+  Element = Colorectal.ancillaryTests.brafLabDetails
+  Card. = 0..1
+  Type = string
+  Short Label = BRAF (V600E mutation) laboratory performing test and report number
+  Definition = BRAF (V600E mutation) laboratory performing test and report number can be recorded
+
+ -- Row 81 -----------------------------------
+  Element = Colorectal.ancillaryTests.kras
+  Card. = 0..1
+  Type = code
+  Binding = Kras
+  Short Label = KRAS gene mutation (codons 12 and 13)
+  Definition = KRAS gene mutation (codons 12 and 13) testing
+
+ -- Row 82 -----------------------------------
+  Element = Colorectal.ancillaryTests.krasComments
+  Card. = 0..1
+  Type = string
+  Short Label = KRAS gene mutation (codons 12 and 13) comments
+  Definition = KRAS gene mutation (codons 12 and 13) comments can be recorded
+
+ -- Row 83 -----------------------------------
+  Element = Colorectal.ancillaryTests.krasLabDetails
+  Card. = 0..1
+  Type = string
+  Short Label = KRAS gene mutation (codons 12 and 13) laboratory performing test and report number
+  Definition = KRAS gene mutation (codons 12 and 13) laboratory performing test and report number can be recorded
+
+ -- Row 84 -----------------------------------
+  Element = Colorectal.synthesisOverview
+  Card. = 0..1
+  Type = string
+  Short Label = Synthesis and Overview
+  Definition = Synthesis and Overview are to be recorded
+  Comments = This is just a group/section header and is not a result field
+
+ -- Row 85 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStage
+  Card. = 0..1
+  Type = string
+  Short Label = Tumour stage
+  Definition = Tumour stage is to be recorded
+  Comments = This is just a sub-group/sub-section header and is not a result field
+
+ -- Row 86 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStageT
+  Card. = 0..1
+  Type = code
+  Binding = TumourStageT
+  Short Label = T
+  Definition = Tumour stage T is to be recorded
+  Requirements = Single selection value list.
+
+ -- Row 87 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStageN
+  Card. = 0..1
+  Type = code
+  Binding = TumourStageN
+  Short Label = N
+  Definition = Tumour stage N is to be recorded
+  Requirements = Single selection value list.
+
+ -- Row 88 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStageM
+  Card. = 0..1
+  Type = code
+  Binding = TumourStageM
+  Short Label = M
+  Definition = Tumour stage M is to be recorded
+  Requirements = Single selection value list.
+
+ -- Row 89 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStageGrouping
+  Card. = 0..1
+  Type = code
+  Binding = TumourStageGrouping
+  Short Label = Stage grouping
+  Definition = Tumour stage grouping is to be recorded
+  Requirements = Single selection value list.
+  Comments = Check the formatting of the result group
+  Example = 0 Tis N0 M0   |\nI T1 N0 M0   |\nT2 N0 M0   |\nIIA T3 N0 M0   |\nIIB T4a N0 M0   |\nIIC T4b N0 M0   |\nIIIA T1-T2 N1/N1c M0   |\nT1 N2a M0   |\nIIIB T3-T4a N1/N1c M0   |\nT2-T3 N2a M0   |\nT1-T2 N2b M0   |\nIIIC T4a N2a M0   |\nT3-T4a N2b M0   |\nT4b N1-N2 M0   |\nIVA Any T Any N M1a   |\nIVB Any T Any N M1b
+
+ -- Row 90 -----------------------------------
+  Element = Colorectal.synthesisOverview.stagingSystemDetails
+  Card. = 0..1
+  Type = string
+  Short Label = Year and/or edition of staging system
+  Definition = Year and/or edition of staging system is to be recorded
+  Requirements = Numeric: year\nAND/OR\nText: Edition eg 1st, 2nd etc
+
+ -- Row 91 -----------------------------------
+  Element = Colorectal.synthesisOverview.residualTumourStatus
+  Card. = 0..1
+  Type = string
+  Binding = ResidualTumourStatus
+  Short Label = Residual tumour status
+  Definition = The residual tumour status must be recorded according to the AJCC Cancer Staging Manual (7th Edition)
+
+ -- Row 92 -----------------------------------
+  Element = Colorectal.synthesisOverview.diagnosticSummary
+  Card. = 0..1
+  Type = string
+  Short Label = Diagnostic summary
+  Definition = Diagnostic summary is to be recorded
+  Requirements = Include:\na. specimen type\nb. tumour site\nc. tumour type\nd. tumour stage\ne. completeness of excision
+
+ -- Row 93 -----------------------------------
+  Element = Colorectal.synthesisOverview.newPrimaryOrRecurrence
+  Card. = 0..1
+  Type = code
+  Binding = NewPrimaryOrRecurrence
+  Short Label = New primary cancer or recurrence
+  Definition = New primary cancer or recurrence is to be recorded
+  Requirements = Single selection value list.\nIf regional (local) recurrence or distant metastasis describe.
+
+ -- Row 94 -----------------------------------
+  Element = Colorectal.synthesisOverview.describe
+  Card. = 0..1
+  Type = string
+  Short Label = Describe
+  Definition = Description of regional (local) recurrence or distant metastases
+  Requirements = Conditional
+
+ -- Row 95 -----------------------------------
+  Element = Colorectal.synthesisOverview.overarchingComment
+  Card. = 0..1
+  Type = string
+  Short Label = Overarching comment
+  Definition = Synthesis and overview overarching comment
+  Requirements = Conditional

@@ -1,0 +1,195 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DAFEncounterType
+  Binding = value set
+  Reference = valueset-encounter-type
+  Definition = Encounter type Value set to describe the type of encounter.
+  Description = Concept allowed for encounter type
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = DAFEncounterReasonValueset
+  Binding = value set
+  Reference = valueset-encounter-reason
+  Definition = Encounter Diagnoses Value set to describe the specific encounter code.
+  Description = Concept for encounter reason
+  Conformance = extensible
+  Oid = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = DAFDischargeDispo
+  Binding = value set
+  Reference = valueset-encounter-dischargedisposition
+  Definition = Value set to describe kind of location or category of discharge.
+  Conformance = extensible
+
+=== Sheet DAF-Encounter =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Encounter
+  Profile Name = DAFEncounter
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Encounter.identifier
+  Card. = 1..*
+  Must Support = Y
+  Type = Identifier
+
+ -- Row 3 -----------------------------------
+  Element = Encounter.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Short Label = planned | in-progress | onleave | finished | cancelled
+
+ -- Row 4 -----------------------------------
+  Element = Encounter.class
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Short Label = inpatient | outpatient | ambulatory | emergency +
+
+ -- Row 5 -----------------------------------
+  Element = Encounter.type
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFEncounterType
+
+ -- Row 6 -----------------------------------
+  Element = Encounter.patient
+  Card. = 1..1
+  Aliases = patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
+  Short Label = Patient present at encounter
+
+ -- Row 7 -----------------------------------
+  Element = Encounter.participant
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Encounter.participant.type
+  Card. = 0..*
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 9 -----------------------------------
+  Element = Encounter.participant.individual
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/daf-relatedperson}
+
+ -- Row 10 -----------------------------------
+  Element = !Encounter.fulfills
+
+ -- Row 11 -----------------------------------
+  Element = Encounter.period
+  Card. = 0..1
+  Must Support = Y
+  Type = Period
+
+ -- Row 12 -----------------------------------
+  Element = !Encounter.length
+
+ -- Row 13 -----------------------------------
+  Element = Encounter.reason
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFEncounterReasonValueset
+
+ -- Row 14 -----------------------------------
+  Element = !Encounter.indication
+
+ -- Row 15 -----------------------------------
+  Element = !Encounter.priority
+
+ -- Row 16 -----------------------------------
+  Element = Encounter.hospitalization
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 17 -----------------------------------
+  Element = !Encounter.hospitalization.preAdmissionIdentifier
+
+ -- Row 18 -----------------------------------
+  Element = !Encounter.hospitalization.preAdmissionTest
+
+ -- Row 19 -----------------------------------
+  Element = !Encounter.hospitalization.origin
+
+ -- Row 20 -----------------------------------
+  Element = !Encounter.hospitalization.admitSource
+
+ -- Row 21 -----------------------------------
+  Element = !Encounter.hospitalization.period
+  Card. = 0..1
+  Must Support = Y
+  Type = Period
+
+ -- Row 22 -----------------------------------
+  Element = !Encounter.hospitalization.accomodation
+
+ -- Row 23 -----------------------------------
+  Element = !Encounter.hospitalization.accomodation.bed
+
+ -- Row 24 -----------------------------------
+  Element = !Encounter.hospitalization.accomodation.period
+
+ -- Row 25 -----------------------------------
+  Element = !Encounter.hospitalization.diet
+
+ -- Row 26 -----------------------------------
+  Element = !Encounter.hospitalization.specialCourtesy
+
+ -- Row 27 -----------------------------------
+  Element = !Encounter.hospitalization.specialArrangement
+
+ -- Row 28 -----------------------------------
+  Element = !Encounter.hospitalization.destination
+
+ -- Row 29 -----------------------------------
+  Element = Encounter.hospitalization.dischargeDisposition
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFDischargeDispo
+
+ -- Row 30 -----------------------------------
+  Element = !Encounter.hospitalization.dischargeDiagnosis
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Any)
+  Committee Notes = Type Changed GDG - was CodeableConcept, but this is illegal
+
+ -- Row 31 -----------------------------------
+  Element = !Encounter.hospitalization.reAdmission
+
+ -- Row 32 -----------------------------------
+  Element = Encounter.location
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 33 -----------------------------------
+  Element = Encounter.location.location
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/daf-location}
+
+ -- Row 34 -----------------------------------
+  Element = !Encounter.location.period
+  Card. = 0..1
+  Type = Period
+
+ -- Row 35 -----------------------------------
+  Element = !Encounter.serviceProvider
+
+ -- Row 36 -----------------------------------
+  Element = !Encounter.partOf
+
+=== Sheet Search =====================================

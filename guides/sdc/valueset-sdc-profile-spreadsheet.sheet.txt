@@ -1,0 +1,419 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet SDC-ValueSet =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ValueSet
+  Profile Name = SDCValueSet
+  Type = Resource
+  IHE SDC mapping = Form_Package//list_field
+
+ -- Row 2 -----------------------------------
+  Element = ValueSet.extension
+  Profile Name = styleSensitive
+  Card. = 0..1
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/styleSensitive}
+  IHE SDC mapping = N/A (new requirement)
+
+ -- Row 3 -----------------------------------
+  Element = ValueSet.extension
+  Profile Name = category
+  Card. = 0..*
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-category}
+  IHE SDC mapping = N/A (new requirement)
+
+ -- Row 4 -----------------------------------
+  Element = ValueSet.url
+  Card. = 0..1
+  Type = uri
+
+ -- Row 5 -----------------------------------
+  Element = ValueSet.version
+  Card. = 0..1
+  Type = string
+
+ -- Row 6 -----------------------------------
+  Element = ValueSet.name
+  Card. = 1..1
+  Must Support = Yes
+  Type = string
+
+ -- Row 7 -----------------------------------
+  Element = ValueSet.immutable
+  Card. = 1..1
+  Must Support = Yes
+  Type = boolean
+
+ -- Row 8 -----------------------------------
+  Element = ValueSet.publisher
+  Card. = 0..1
+  Type = string
+
+ -- Row 9 -----------------------------------
+  Element = ValueSet.description
+  Card. = 1..1
+  Type = string
+
+ -- Row 10 -----------------------------------
+  Element = ValueSet.copyright
+  Card. = 0..1
+  Type = string
+
+ -- Row 11 -----------------------------------
+  Element = ValueSet.status
+  Card. = 1..1
+  Must Support = Yes
+  Type = code
+
+ -- Row 12 -----------------------------------
+  Element = ValueSet.experimental
+  Card. = 0..1
+  Type = boolean
+
+ -- Row 13 -----------------------------------
+  Element = ValueSet.extensible
+  Card. = 1..1
+  Must Support = Yes
+  Type = boolean
+
+ -- Row 14 -----------------------------------
+  Element = ValueSet.date
+  Card. = 0..1
+  Must Support = Yes
+  Type = dateTime
+
+ -- Row 15 -----------------------------------
+  Element = ValueSet.lockedDate
+  Card. = 0..1
+  Type = date
+
+ -- Row 16 -----------------------------------
+  Element = ValueSet.codeSystem
+  Card. = 0..1
+  Must Support = Yes
+
+ -- Row 17 -----------------------------------
+  Element = ValueSet.codeSystem.system
+  Card. = 1..1
+  Must Support = Yes
+  Type = uri
+
+ -- Row 18 -----------------------------------
+  Element = ValueSet.codeSystem.version
+  Card. = 0..1
+  Must Support = Yes
+  Type = string
+
+ -- Row 19 -----------------------------------
+  Element = ValueSet.codeSystem.caseSensitive
+  Card. = 0..1
+  Must Support = Yes
+  Type = boolean
+
+ -- Row 20 -----------------------------------
+  Element = ValueSet.codeSystem.concept
+  Card. = 0..*
+  Must Support = Yes
+  IHE SDC mapping = list_item
+
+ -- Row 21 -----------------------------------
+  Element = ValueSet.codeSystem.concept.extension
+  Profile Name = conceptLabel
+  Card. = 0..1
+  Must Support = Yes
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-label}
+  IHE SDC mapping = item_number/label
+
+ -- Row 22 -----------------------------------
+  Element = ValueSet.codeSystem.concept.extension.extension
+  Profile Name = conceptLabel.renderingStyle
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  IHE SDC mapping = item_number/style
+
+ -- Row 23 -----------------------------------
+  Element = ValueSet.codeSystem.concept.extension.extension
+  Profile Name = conceptLabel.markup
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = N/A
+
+ -- Row 24 -----------------------------------
+  Element = ValueSet.codeSystem.concept.extension
+  Profile Name = conceptConceptOrder
+  Card. = 0..1
+  Must Support = Yes
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder}
+  Comments = The presence of a sort order implies that sort order is important
+  IHE SDC mapping = list_item_order
+
+ -- Row 25 -----------------------------------
+  Element = ValueSet.codeSystem.concept.code
+  Card. = 1..1
+  Must Support = Yes
+  Type = code
+  IHE SDC mapping = value
+
+ -- Row 26 -----------------------------------
+  Element = ValueSet.codeSystem.concept.abstract
+  Card. = 0..1
+  Must Support = Yes
+  Type = boolean
+
+ -- Row 27 -----------------------------------
+  Element = ValueSet.codeSystem.concept.display
+  Card. = 0..1
+  Must Support = Yes
+  Type = string
+  IHE SDC mapping = item_prompt
+
+ -- Row 28 -----------------------------------
+  Element = ValueSet.codeSystem.concept.display.extension
+  Profile Name = conceptDisplayLabel.renderingStyle
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+
+ -- Row 29 -----------------------------------
+  Element = ValueSet.codeSystem.concept.display.extension
+  Profile Name = conceptDisplayLabel.markup
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = item_prompt_html
+
+ -- Row 30 -----------------------------------
+  Element = ValueSet.codeSystem.concept.definition
+  Card. = 0..1
+  Must Support = Yes
+  Type = string
+  IHE SDC mapping = value_meaning/label
+
+ -- Row 31 -----------------------------------
+  Element = ValueSet.codeSystem.concept.concept
+  Card. = 0..*
+  Must Support = Yes
+  Type = @ValueSet.codeSystem.concept
+
+ -- Row 32 -----------------------------------
+  Element = ValueSet.compose
+  Card. = 0..1
+  Must Support = Yes
+
+ -- Row 33 -----------------------------------
+  Element = ValueSet.compose.import
+  Card. = 0..*
+  Must Support = Yes
+  Type = uri
+
+ -- Row 34 -----------------------------------
+  Element = ValueSet.compose.include
+  Card. = 0..*
+  Must Support = Yes
+
+ -- Row 35 -----------------------------------
+  Element = ValueSet.compose.include.system
+  Card. = 1..1
+  Must Support = Yes
+  Type = uri
+
+ -- Row 36 -----------------------------------
+  Element = ValueSet.compose.include.version
+  Card. = 0..1
+  Must Support = Yes
+  Type = string
+
+ -- Row 37 -----------------------------------
+  Element = ValueSet.compose.include.concept
+  Card. = 0..*
+  Must Support = Yes
+  IHE SDC mapping = list_item/value
+
+ -- Row 38 -----------------------------------
+  Element = ValueSet.compose.include.concept.extension
+  Profile Name = conceptLabel
+  Card. = 0..1
+  Must Support = Yes
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-label}
+  IHE SDC mapping = list_item/item_number/label
+
+ -- Row 39 -----------------------------------
+  Element = ValueSet.compose.include.concept.extension.extension
+  Profile Name = code.renderingStyle
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  IHE SDC mapping = list_item/item_number/style
+
+ -- Row 40 -----------------------------------
+  Element = ValueSet.compose.include.concept.extension.extension
+  Profile Name = code.markup
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = N/A
+
+ -- Row 41 -----------------------------------
+  Element = ValueSet.compose.include.concept.extension
+  Profile Name = conceptConceptOrder
+  Card. = 0..1
+  Must Support = Yes
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder}
+  Comments = The presence of a sort order implies that sort order is important
+  IHE SDC mapping = list_item/list_item_order
+
+ -- Row 42 -----------------------------------
+  Element = ValueSet.compose.include.concept.extension
+  Profile Name = display
+  Card. = 0..1
+  Must Support = Yes
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-display}
+  IHE SDC mapping = list_item/item_prompt
+
+ -- Row 43 -----------------------------------
+  Element = ValueSet.compose.include.concept.extension.extension
+  Profile Name = codeDisplay.renderingStyle
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+
+ -- Row 44 -----------------------------------
+  Element = ValueSet.compose.include.concept.extension.extension
+  Profile Name = codeDisplay.markup
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = list_item/item_prompt_html
+
+ -- Row 45 -----------------------------------
+  Element = ValueSet.compose.include.filter
+  Card. = 0..*
+  Must Support = Yes
+
+ -- Row 46 -----------------------------------
+  Element = ValueSet.compose.include.filter.property
+  Card. = 1..1
+  Must Support = Yes
+  Type = code
+
+ -- Row 47 -----------------------------------
+  Element = ValueSet.compose.include.filter.op
+  Card. = 1..1
+  Must Support = Yes
+  Type = code
+
+ -- Row 48 -----------------------------------
+  Element = ValueSet.compose.include.filter.value
+  Card. = 1..1
+  Must Support = Yes
+  Type = code
+
+ -- Row 49 -----------------------------------
+  Element = ValueSet.compose.exclude
+  Card. = 0..*
+  Must Support = Yes
+  Type = @ValueSet.compose.include
+
+ -- Row 50 -----------------------------------
+  Element = ValueSet.expansion
+  Card. = 0..1
+  Must Support = Yes
+
+ -- Row 51 -----------------------------------
+  Element = ValueSet.expansion.identifier
+  Card. = 0..1
+  Must Support = Yes
+  Type = uri
+
+ -- Row 52 -----------------------------------
+  Element = ValueSet.expansion.timestamp
+  Card. = 1..1
+  Must Support = Yes
+  Type = dateTime
+
+ -- Row 53 -----------------------------------
+  Element = ValueSet.expansion.contains
+  Card. = 0..*
+  Must Support = Yes
+  IHE SDC mapping = list_item
+
+ -- Row 54 -----------------------------------
+  Element = ValueSet.expansion.contains.extension
+  Profile Name = expansionLabel
+  Card. = 0..1
+  Must Support = Yes
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-label}
+  IHE SDC mapping = item_number/label
+
+ -- Row 55 -----------------------------------
+  Element = ValueSet.expansion.contains.extension.extension
+  Profile Name = expansion.renderingStyle
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  IHE SDC mapping = item_number/style
+
+ -- Row 56 -----------------------------------
+  Element = ValueSet.expansion.contains.extension.extension
+  Profile Name = expansion.markup
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = N/A
+
+ -- Row 57 -----------------------------------
+  Element = ValueSet.expansion.contains.extension
+  Profile Name = conceptConceptOrder
+  Card. = 0..1
+  Must Support = Yes
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder}
+  Comments = The presence of a sort order implies that sort order is important
+  IHE SDC mapping = list_item_order
+
+ -- Row 58 -----------------------------------
+  Element = ValueSet.expansion.contains.system
+  Card. = 0..1
+  Must Support = Yes
+  Type = uri
+
+ -- Row 59 -----------------------------------
+  Element = ValueSet.expansion.contains.code
+  Card. = 0..1
+  Must Support = Yes
+  Type = code
+  IHE SDC mapping = value
+
+ -- Row 60 -----------------------------------
+  Element = ValueSet.expansion.contains.display
+  Card. = 0..1
+  Must Support = Yes
+  Type = string
+  IHE SDC mapping = item_prompt
+
+ -- Row 61 -----------------------------------
+  Element = ValueSet.expansion.contains.display.extension
+  Profile Name = expansionDisplay.renderingStyle
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+
+ -- Row 62 -----------------------------------
+  Element = ValueSet.expansion.contains.display.extension
+  Profile Name = expansionDisplay.markup
+  Card. = 0..1
+  Must Support = No
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = item_prompt_html
+
+ -- Row 63 -----------------------------------
+  Element = ValueSet.expansion.contains.contains
+  Card. = 0..*
+  Must Support = Yes
+  Type = @ValueSet.expansion.contains
+
+=== Sheet Search =====================================

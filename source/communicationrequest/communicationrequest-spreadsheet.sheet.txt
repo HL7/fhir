@@ -1,0 +1,282 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = CommunicationRequestStatus
+  Binding = code list
+  Reference = #communication-request-status
+  Definition = The status of the communication
+
+=== Sheet communication-request-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = proposed
+  Display = Proposed
+  Definition = The request has been proposed
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = planned
+  Display = Planned
+  Definition = The request has been planned
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = requested
+  Display = Requested
+  Definition = The request has been placed
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = received
+  Display = Received
+  Definition = The receiving system has received the request but not yet decided whether it will be performed
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = accepted
+  Display = Accepted
+  Definition = The receiving system has accepted the order, but work has not yet commenced
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = in-progress
+  Display = In Progress
+  Definition = The work to fulfill the order is happening
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = completed
+  Display = Completed
+  Definition = The work has been complete, the report(s) released, and no further work is planned
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = suspended
+  Display = Suspended
+  Definition = The request has been held by originating system/user request
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = rejected
+  Display = Rejected
+  Definition = The receiving system has declined to fulfill the request
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = failed
+  Display = Failed
+  Definition = The communication was attempted, but due to some procedural error, it could not be completed
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = CommunicationRequest
+  Type = DomainResource
+  Short Label = A request for information to be sent to a receiver
+  Definition = A request to convey information. E.g., the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = CommunicationRequest.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Unique identifier
+  Definition = A unique ID of this request for reference purposes. It must be provided if user wants it returned as part of any output, otherwise it will be auto-generated, if needed, by CDS system. Does not need to be the actual ID of the source system.
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = CommunicationRequest.category
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = Message category
+  Definition = The type of message to be sent such as alert, notification, reminder, instruction, etc.
+  w5 = class
+
+ -- Row 4 -----------------------------------
+  Element = CommunicationRequest.sender
+  Card. = 0..1
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Message sender
+  Definition = The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication
+  w5 = who.actor
+
+ -- Row 5 -----------------------------------
+  Element = CommunicationRequest.recipient
+  Card. = 0..*
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Message recipient
+  Definition = The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = CommunicationRequest.payload
+  Card. = 0..*
+  Short Label = Message payload
+  Definition = Text, attachment(s), or resource(s) to be communicated to the recipient
+
+ -- Row 7 -----------------------------------
+  Element = CommunicationRequest.payload.content[x]
+  Card. = 1..1
+  Type = string|Attachment|Reference(Any)
+  Short Label = Message part content
+  Definition = An individual message part for multi-part messages
+
+ -- Row 8 -----------------------------------
+  Element = CommunicationRequest.medium
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Communication medium
+  Definition = The communication medium to be used, e.g., email, fax
+
+ -- Row 9 -----------------------------------
+  Element = CommunicationRequest.requester
+  Card. = 0..1
+  Type = Reference(Practitioner|Patient|RelatedPerson)
+  Short Label = Requester of communication
+  Definition = The responsible person who authorizes this order, e.g., physician. This may be different than the author of the order statement, e.g., clerk, who may have entered the statement into the order entry application.
+  w5 = who.cause
+
+ -- Row 10 -----------------------------------
+  Element = CommunicationRequest.status
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = CommunicationRequestStatus
+  Short Label = proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed
+  Definition = The status of the proposal or order.
+  w5 = status
+
+ -- Row 11 -----------------------------------
+  Element = CommunicationRequest.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Encounter leading to message
+  Definition = The encounter within which the communication request was created.
+  w5 = context
+
+ -- Row 12 -----------------------------------
+  Element = CommunicationRequest.scheduledTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When scheduled
+  Definition = The time when this communication is to occur.
+  w5 = when.planned
+
+ -- Row 13 -----------------------------------
+  Element = CommunicationRequest.reason
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Indication for message
+  Definition = The reason or justification for the communication request.
+
+ -- Row 14 -----------------------------------
+  Element = CommunicationRequest.orderedOn
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When ordered or proposed
+  Definition = The time when the request was made.
+  w5 = when.init
+
+ -- Row 15 -----------------------------------
+  Element = CommunicationRequest.subject
+  Card. = 0..1
+  Type = Reference(Patient)
+  Short Label = Focus of message
+  Definition = The patient who is the focus of this communication request.
+  w5 = who.focus
+
+ -- Row 16 -----------------------------------
+  Element = CommunicationRequest.priority
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = Message urgency
+  Definition = Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = CommunicationRequest.identifier
+
+ -- Row 2 -----------------------------------
+  Name = category
+  Type = token
+  Path = CommunicationRequest.category
+
+ -- Row 3 -----------------------------------
+  Name = sender
+  Type = reference
+  Path = CommunicationRequest.sender
+
+ -- Row 4 -----------------------------------
+  Name = recipient
+  Type = reference
+  Path = CommunicationRequest.recipient
+
+ -- Row 5 -----------------------------------
+  Name = medium
+  Type = token
+  Path = CommunicationRequest.medium
+
+ -- Row 6 -----------------------------------
+  Name = requester
+  Type = reference
+  Path = CommunicationRequest.requester
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Path = CommunicationRequest.status
+
+ -- Row 8 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = CommunicationRequest.encounter
+
+ -- Row 9 -----------------------------------
+  Name = time
+  Type = date
+  Path = CommunicationRequest.scheduledTime
+
+ -- Row 10 -----------------------------------
+  Name = ordered
+  Type = date
+  Path = CommunicationRequest.orderedOn
+
+ -- Row 11 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = CommunicationRequest.subject
+
+ -- Row 12 -----------------------------------
+  Name = priority
+  Type = token
+  Path = CommunicationRequest.priority
+
+ -- Row 13 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = CommunicationRequest.subject
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = communicationrequest-extensions
+  IG Name = core
+  Filename = communicationrequest-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Alert Message
+  Identity = example
+  Description = An example of an alert message
+  Filename = communicationrequest-example.xml
+
+=== Sheet Examples =====================================

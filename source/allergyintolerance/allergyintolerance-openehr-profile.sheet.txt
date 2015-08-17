@@ -1,0 +1,12 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality
+  Description = SNOMED CT Body site concepts
+  Conformance = extensible
+
+=== Sheet Search =====================================

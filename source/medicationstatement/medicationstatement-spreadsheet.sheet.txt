@@ -1,0 +1,376 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = MedicationStatementStatus
+  Binding = code list
+  Reference = #medication-statement-status
+  Definition = A set of codes indicating the current status of a MedicationStatement
+  Conformance = required
+  v3 = ActStatus
+
+ -- Row 2 -----------------------------------
+  Binding Name = MedicationAdministrationSite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/approach-site-codes
+  Definition = A coded concept describing the site location the medicine enters into or onto the body
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = RouteOfAdministration
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/route-codes
+  Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = MedicationAdministrationMethod
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/administration-method-codes
+  Definition = A coded concept describing the technique by which the medicine is administered
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = MedicationAsNeededReason
+  Binding = unbound
+  Definition = A coded concept identifying the pre-condition that should hold prior to consuming a medication dose.  For example \"pain\", \"30 minutes prior to sexual intercourse\", \"on flare-up\", etc
+
+ -- Row 6 -----------------------------------
+  Binding Name = MedicationAdministrationNegationReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes
+  Definition = A set of codes indicating the reason why the MedicationAdministration is negated
+  Conformance = example
+
+=== Sheet medication-statement-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = in-progress
+  Display = In Progress
+  Definition = The medication is still being taken.
+  v3 = ActStatus.active
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = completed
+  Display = Completed
+  Definition = All actions that are implied by the statement have occurred.
+  v3 = ActStatus.completed
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The statement was entered in error and therefore nullified.
+  v3 = ActStatus.nullified
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = MedicationStatement.reasonNotTaken
+  English = Reason not taken is only permitted if wasNotTaken is true
+  XPath = not(exists(f:reasonNotTaken) and f:wasNotTaken/@value=\'false\')
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = MedicationStatement.reasonForUse[x]
+  English = Reason for use is only permitted if wasNotTaken is false
+  XPath = not(exists(f:reasonForUse[x]) and f:wasNotTaken/@value=\'true\')
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationStatement
+  Type = DomainResource
+  Short Label = Record of medication being taken by a patient
+  Definition = A record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient or another clinician
+  RIM Mapping = SubstanceAdministration
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = MedicationStatement.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = External Identifier
+  Definition = External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
+  v2 Mapping = RXA-25-Administered Barcode Identifier?
+  RIM Mapping = SubstanceAdministration.id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = MedicationStatement.patient
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Who was/is taking medication
+  Definition = The person or animal who is /was taking the medication.
+  v2 Mapping = PID-3-Patient ID List
+  RIM Mapping = SubstanceAdministration->subject->Patient
+  w5 = who.focus
+
+ -- Row 4 -----------------------------------
+  Element = MedicationStatement.informationSource
+  Card. = 0..1
+  Type = Reference(Patient | Practitioner | RelatedPerson)
+  Definition = The person who provided the information about the taking of this medication.
+  w5 = who.source
+
+ -- Row 5 -----------------------------------
+  Element = MedicationStatement.dateAsserted
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When the statement was asserted?
+  Definition = The date when the medication statement was asserted by the information source.
+
+ -- Row 6 -----------------------------------
+  Element = MedicationStatement.status
+  Card. = 1..1
+  Is Modifier = Y
+  Type = code
+  Binding = MedicationStatementStatus
+  Short Label = in-progress | completed | entered-in-error
+  Definition = A code specifying the state of the statement.  Generally this will be in-progress or completed state
+
+ -- Row 7 -----------------------------------
+  Element = MedicationStatement.wasNotTaken
+  Card. = 0..1
+  Is Modifier = Y
+  Type = boolean
+  Short Label = True if medication is/was not being taken
+  Definition = Set this to true if the record is saying that the medication was NOT taken.
+  v2 Mapping = RXA-20-Completion Status=\'NA\'
+  RIM Mapping = SubstanceAdministration.actionNegationInd
+  Missing Meaning = If this is missing, then the medication was taken
+  w5 = status
+
+ -- Row 8 -----------------------------------
+  Element = MedicationStatement.reasonNotTaken
+  Card. = 0..*
+  Inv. = 1
+  Type = CodeableConcept
+  Binding = MedicationAdministrationNegationReason
+  Short Label = True if asserting medication was not given
+  Definition = A code indicating why the medication was not taken.
+  v2 Mapping = RXA-9-Administration Notes:RXA-20-Completion Status=\'NA\'
+  RIM Mapping = SubstanceAdministration->Reason->Observation->Value
+  To Do = Is this in the 80% for medication statement?
+
+ -- Row 9 -----------------------------------
+  Element = MedicationStatement.reasonForUse[x]
+  Card. = 0..1
+  Type = CodeableConcept | Reference(Condition)
+  Definition = A reason for why the medication is being/was taken.
+
+ -- Row 10 -----------------------------------
+  Element = MedicationStatement.effective[x]
+  Card. = 0..1
+  Type = dateTime | Period
+  Short Label = Over what period was medication consumed?
+  Definition = The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the \'wasNotGiven\' attribute is true).
+  Comments = If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
+  v2 Mapping = RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration
+  RIM Mapping = SubstanceAdministration.effectiveTime
+  w5 = when.done
+
+ -- Row 11 -----------------------------------
+  Element = MedicationStatement.note
+  Card. = 0..1
+  Type = string
+  Short Label = Further information about the statement
+  Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
+
+ -- Row 12 -----------------------------------
+  Element = MedicationStatement.medication[x]
+  Card. = 1..1
+  Type = CodeableConcept|Reference(Medication)
+  Short Label = What medication was taken?
+  Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
+  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the medication this statement concerns. When the only available information is a text description of the medication, Medication.code.text should be used
+  v2 Mapping = RXA-5-Administered Code
+  RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest.consumable
+  w5 = what
+
+ -- Row 13 -----------------------------------
+  Element = MedicationStatement.dosage
+  Card. = 0..*
+  UML = right
+  Short Label = Details of how medication was taken
+  Definition = Indicates how the medication is/was used by the patient
+  RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest
+  Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
+
+ -- Row 14 -----------------------------------
+  Element = MedicationStatement.dosage.text
+  Card. = 0..1
+  Type = string
+  Short Label = Dosage Instructions
+  Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+
+ -- Row 15 -----------------------------------
+  Element = MedicationStatement.dosage.timing
+  Card. = 0..1
+  Type = Timing
+  Short Label = When/how often was medication taken?
+  Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
+  v2 Mapping = RAS:TQ1
+  RIM Mapping = .effectiveTime
+
+ -- Row 16 -----------------------------------
+  Element = MedicationStatement.dosage.asNeeded[x]
+  Card. = 0..1
+  Type = boolean | CodeableConcept
+  Binding = MedicationAsNeededReason
+  Short Label = Take \"as needed\" f(or x)
+  Definition = If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the precondition for taking the Medication
+  RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
+
+ -- Row 17 -----------------------------------
+  Element = MedicationStatement.dosage.site
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationAdministrationSite
+  Short Label = Where on body was medication administered?
+  Definition = A coded specification of the anatomic site where the medication first enters the body
+  v2 Mapping = RXR-2-Administration Site
+  RIM Mapping = .approachSiteCode
+
+ -- Row 18 -----------------------------------
+  Element = MedicationStatement.dosage.route
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = RouteOfAdministration
+  Short Label = How did the medication enter the body?
+  Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
+  v2 Mapping = RXR-1-Route
+  RIM Mapping = .routeCode
+
+ -- Row 19 -----------------------------------
+  Element = MedicationStatement.dosage.method
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationAdministrationMethod
+  Short Label = Technique used to administer medication
+  Definition = A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration.
+  v2 Mapping = RXR-4-Administration Method
+  RIM Mapping = .methodCode
+
+ -- Row 20 -----------------------------------
+  Element = MedicationStatement.dosage.quantity
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Amount administered in one dose
+  Definition = The amount of therapeutic or other substance given at one administration event.
+  v2 Mapping = RXA-6-Administered Amount / RXA-7.1-Administered Units.code / RXA-7.3-Administered Units.name of coding system
+  RIM Mapping = .doseQuantity
+
+ -- Row 21 -----------------------------------
+  Element = MedicationStatement.dosage.rate[x]
+  Card. = 0..1
+  Type = Ratio|Range
+  Short Label = Dose quantity per unit of time
+  Definition = Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
+  v2 Mapping = RXA-12-Administered Per (Time Unit)
+  RIM Mapping = .rateQuantity
+
+ -- Row 22 -----------------------------------
+  Element = MedicationStatement.dosage.maxDosePerPeriod
+  Card. = 0..1
+  Type = Ratio
+  Short Label = Maximum dose that was consumed per unit of time
+  Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
+  v2 Mapping = RXE-4-Give Amount - Maximum / RXE-5-Give Units
+  RIM Mapping = .maxDoseQuantity
+  To Do = Is this in the 80% for medication statement?
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Return statements with this external identity
+  Path = MedicationStatement.identifier
+
+ -- Row 2 -----------------------------------
+  Name = medication
+  Type = reference
+  Description = Return administrations of this medication reference
+  Path = MedicationStatement.medicationReference
+
+ -- Row 3 -----------------------------------
+  Name = code
+  Type = token
+  Description = Return administrations of this medication code
+  Path = MedicationStatement.medicationCodeableConcept
+
+ -- Row 4 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a patient to list statements  for
+  Path = MedicationStatement.patient
+
+ -- Row 5 -----------------------------------
+  Name = effectivedate
+  Type = date
+  Description = Date when patient was taking (or not taking) the medication
+  Path = MedicationStatement.effective[x]
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = Return statements that match the given status
+  Path = MedicationStatement.status
+
+ -- Row 7 -----------------------------------
+  Name = source
+  Type = reference
+  Description = Who the information in the statement came from
+  Path = MedicationStatement.informationSource
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Medication Statement Extensions
+  IG Name = core
+  Filename = medicationstatement-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Fully Populated
+  Identity = example001
+  Description = Example of a medication statement where the Patient reported - I\'m taking med x at this dose (from bottle) - most complete example
+  Filename = medicationstatementexample1.xml
+
+ -- Row 2 -----------------------------------
+  Name = Not Taking
+  Identity = example002
+  Description = Example of a medication statement where the patient reported \"I am not taking Med x\"
+  Filename = medicationstatementexample2.xml
+
+ -- Row 3 -----------------------------------
+  Name = Past
+  Identity = example004
+  Description = Example of a medication statement where the patient reported \"I took this in the past but am not taking it now\"
+  Filename = medicationstatementexample4.xml
+
+ -- Row 4 -----------------------------------
+  Name = Nullified
+  Identity = example005
+  Description = Example of a medication statement where the patient reported that \"I said I took this but I really didn\'t\" - nullified
+  Filename = medicationstatementexample5.xml
+
+ -- Row 5 -----------------------------------
+  Name = Care Giver
+  Identity = example006
+  Description = Example of a medication statement that is reported by someone other than the patient (for example a care giver).
+  Filename = medicationstatementexample6.xml
+
+ -- Row 6 -----------------------------------
+  Name = Intend
+  Identity = example007
+  Description = Example of a medication statement where the patient reported that \"I intend to take this in the future\"
+  Filename = medicationstatementexample7.xml
+
+=== Sheet Examples =====================================

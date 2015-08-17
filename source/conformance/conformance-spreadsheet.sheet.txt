@@ -1,0 +1,1353 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = RestfulConformanceMode
+  Binding = code list
+  Reference = #restful-conformance-mode
+  Definition = The mode of a RESTful conformance statement
+
+ -- Row 2 -----------------------------------
+  Binding Name = RestfulSecurityService
+  Binding = code list
+  Reference = #restful-security-service
+  Definition = Types of security services used with FHIR
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = TypeRestfulInteraction
+  Binding = code list
+  Reference = #type-restful-interaction
+  Definition = Operations supported by REST at the type or instance level
+
+ -- Row 4 -----------------------------------
+  Binding Name = SystemRestfulInteraction
+  Binding = code list
+  Reference = #system-restful-interaction
+  Definition = Operations supported by REST at the system level
+
+ -- Row 5 -----------------------------------
+  Binding Name = ConformanceEventMode
+  Binding = code list
+  Reference = #message-conformance-event-mode
+  Definition = The mode of a message conformance statement
+
+ -- Row 6 -----------------------------------
+  Binding Name = MessageTransport
+  Binding = code list
+  Reference = #message-transport
+  Definition = The protocol used for message transport
+  Conformance = extensible
+
+ -- Row 7 -----------------------------------
+  Binding Name = DocumentMode
+  Binding = code list
+  Reference = #document-mode
+  Definition = Whether the application produces or consumes documents
+
+ -- Row 8 -----------------------------------
+  Binding Name = MessageSignificanceCategory
+  Binding = code list
+  Reference = #message-significance-category
+  Definition = The impact of the content of a message
+
+ -- Row 9 -----------------------------------
+  Binding Name = ResourceVersionPolicy
+  Binding = code list
+  Reference = #versioning-policy
+  Definition = How the system supports versioning for a resource
+
+ -- Row 10 -----------------------------------
+  Binding Name = TransactionMode
+  Binding = code list
+  Reference = #transaction-mode
+  Definition = A code that indicates how transactions are supported
+
+ -- Row 11 -----------------------------------
+  Binding Name = ConditionalDeleteStatus
+  Binding = code list
+  Reference = #conditional-delete-status
+  Definition = A code that indicates how the server supports conditional delete
+
+ -- Row 12 -----------------------------------
+  Binding Name = SearchModifierCode
+  Binding = code list
+  Reference = #search-modifier-code
+  Definition = A supported modifier for a search parameter
+
+ -- Row 13 -----------------------------------
+  Binding Name = UnknownContentCode
+  Binding = code list
+  Reference = #unknown-content-code
+  Definition = A code that indicates whether an application accepts unknown elements or extensions when reading resources
+
+ -- Row 14 -----------------------------------
+  Binding Name = ConformanceStatementKind
+  Binding = code list
+  Reference = #conformance-statement-kind
+  Definition = How a conformance statement is intended to be used
+
+=== Sheet restful-conformance-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = client
+  Display = Client
+  Definition = The application acts as a client for this resource
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = server
+  Display = Server
+  Definition = The application acts as a server for this resource
+
+=== Sheet restful-security-service =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = OAuth
+  Display = OAuth
+  Definition = Oauth (unspecified version see oauth.net)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = SMART-on-FHIR
+  Display = SMART-on-FHIR
+  Definition = OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = NTLM
+  Display = NTLM
+  Definition = Microsoft NTLM Authentication
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = Basic
+  Display = Basic
+  Definition = Basic authentication defined in HTTP specification
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = Kerberos
+  Display = Kerberos
+  Definition = see http://www.ietf.org/rfc/rfc4120.txt
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = Certificates
+  Display = Certificates
+  Definition = SSL where client must have a certificate registered with the server
+
+=== Sheet type-restful-interaction =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = read
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = vread
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = update
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = delete
+
+ -- Row 5 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = history-instance
+
+ -- Row 6 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = validate
+
+ -- Row 7 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = history-type
+
+ -- Row 8 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = create
+
+ -- Row 9 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = search-type
+
+=== Sheet system-restful-interaction =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = transaction
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = search-system
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = history-system
+
+=== Sheet message-conformance-event-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = sender
+  Display = Sender
+  Definition = The application sends requests and receives responses
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = receiver
+  Display = Receiver
+  Definition = The application receives requests and sends responses
+
+=== Sheet message-transport =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = http
+  Display = HTTP
+  Definition = The application sends or receives messages using HTTP POST (may be over http or https)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = ftp
+  Display = FTP
+  Definition = The application sends or receives messages using File Transfer Protocol
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = mllp
+  Display = MLLP
+  Definition = The application sends or receivers messages using HL7\'s Minimal Lower Level Protocol
+
+=== Sheet document-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = producer
+  Display = Producer
+  Definition = The application produces documents of the specified type
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = consumer
+  Display = Consumer
+  Definition = The application consumes documents of the specified type
+
+=== Sheet message-significance-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = Consequence
+  Display = Consequence
+  Definition = The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = Currency
+  Display = Currency
+  Definition = The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = Notification
+  Display = Notification
+  Definition = The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications
+
+=== Sheet versioning-policy =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = no-version
+  Display = No VersionId Support
+  Definition = VersionId meta-property is not suppoerted (server) or used (client)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = versioned
+  Display = Versioned
+  Definition = VersionId meta-property is suppoerted (server) or used (client)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = versioned-update
+  Display = VersionId tracked fully
+  Definition = VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client)
+
+=== Sheet transaction-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = not-supported
+  Display = None
+  Definition = Neither Batch or Transaction supported
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = batch
+  Display = Batches supported
+  Definition = Batches supported
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = transaction
+  Display = Transactions Supported
+  Definition = Transactions Supported
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = both
+  Display = Batches & Transactions
+  Definition = Both Batches and Transactions Supported
+
+=== Sheet conditional-delete-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = not-supported
+  Display = Not Supported
+  Definition = No support for conditional deletes
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = single
+  Display = Single Deletes Supported
+  Definition = Conditional deletes are supported, but only single resources at a time
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = multiple
+  Display = Multiple Deletes Supported
+  Definition = Conditional deletes are supported, and multiple resources can be deleted in a single interaction
+
+=== Sheet search-modifier-code =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = missing
+  Display = Missing
+  Definition = The search parameter returns resources that have a value or not
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = exact
+  Display = Exact
+  Definition = The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = contains
+  Display = Contains
+  Definition = The search parameter returns resources that include the supplied parameter value anywhere within the field being searched
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = not
+  Display = Not
+  Definition = The search parameter returns resources that do not contain a match
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = text
+  Display = Text
+  Definition = The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = in
+  Display = In
+  Definition = The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set.
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = not-in
+  Display = Not In
+  Definition = The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = below
+  Display = Below
+  Definition = The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or heirarchical relationships)
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = above
+  Display = Above
+  Definition = The search parameter tests whether the value in a resource subsumes the specified value (is-a, or heirarchical relationships)
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = type
+  Display = Type
+  Definition = The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc)
+
+=== Sheet unknown-content-code =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = no
+  Display = Neither Elements or Extensions
+  Definition = The application does not accept either unknown elements or extensions
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = extensions
+  Display = Unknown Extensions
+  Definition = The application accepts unknown extensions, but not unknown elements
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = elements
+  Display = Unknown Elements
+  Definition = The application accepts unknown elements, but not unknown extensions
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = both
+  Display = Unknown Elements and Extensions
+  Definition = The application accepts unknown elements and extensions
+
+=== Sheet conformance-statement-kind =====================================
+
+ -- Row 1 -----------------------------------
+  Code = instance
+  Display = Instance
+  Definition = The Conformance instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point
+
+ -- Row 2 -----------------------------------
+  Code = capability
+  Display = Capability
+  Definition = The Conformance instance represents the capabilities of a system or piece of software, independent of a particular installation.
+  Comment = Elements marked as \'optional\' represent configurable capabilities
+
+ -- Row 3 -----------------------------------
+  Code = requirements
+  Display = Requirements
+  Definition = The Conformance instance represents a set of requirements for other systems to meet.  E.g. as part of an implementation guide or \'request for proposal\'
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Conformance
+  English = A Conformance statement SHALL have at least one of rest, messaging or document
+  XPath = exists(f:rest) or exists(f:messaging) or exists(f:document)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Conformance
+  English = A Conformance statement SHALL have at least one of description, software, or implementation
+  XPath = count(f:software | f:implementation | f:description) > 0
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Conformance.messaging
+  English = Messaging end point is required (and is only permitted) when statement is for an implementation
+  XPath = exists(f:endpoint) = (f:kind/@value = \'implementation\')
+
+ -- Row 4 -----------------------------------
+  Id = 7
+  Context = Conformance
+  English = The set of documents must be unique by the combination of profile & mode
+  XPath = count(f:document[f:mode=\'producer\'])=count(distinct-values(f:document[f:mode=\'producer\']/f:profile/@value)) and count(f:document[f:mode=\'consumer\'])=count(distinct-values(f:document[f:mode=\'consumer\']/f:profile/@value))
+
+ -- Row 5 -----------------------------------
+  Id = 8
+  Context = Conformance
+  English = There can only be one REST declaration per mode
+  XPath = count(f:rest)=count(distinct-values(f:rest/f:mode/@value))
+
+ -- Row 6 -----------------------------------
+  Id = 9
+  Context = Conformance.rest
+  English = A given resource can only be described once per RESTful mode
+  XPath = count(f:resource)=count(distinct-values(f:resource/f:type/@value))
+
+ -- Row 7 -----------------------------------
+  Id = 10
+  Context = Conformance.rest
+  English = A given query can only be described once per RESTful mode
+  XPath = count(f:query)=count(distinct-values(f:query/f:name/@value))
+
+ -- Row 8 -----------------------------------
+  Id = 11
+  Context = Conformance.rest.resource
+  English = Operation codes must be unique in the context of a resource
+  XPath = count(f:operation)=count(distinct-values(f:operation/f:code/@value))
+
+ -- Row 9 -----------------------------------
+  Id = 12
+  Context = Conformance.rest.resource
+  English = Search parameter names must be unique in the context of a resource
+  XPath = count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))
+
+ -- Row 10 -----------------------------------
+  Id = 13
+  Context = Conformance.rest.resource.searchParam
+  English = Search parameters can only have chain names when the search parameter type is \'reference\'
+  XPath = not(exists(f:chain)) or (f:type/@value = \'reference\')
+
+ -- Row 11 -----------------------------------
+  Id = 14
+  Context = Conformance
+  English = Conformance statements of kind \'requirements\' do not have software or implementation elements
+  XPath = not(exists(f:software) or exists(f:implementation)) or (f:kind/@value != \'requirements\')
+
+ -- Row 12 -----------------------------------
+  Id = 15
+  Context = Conformance
+  English = Conformance statements of kind \'software\' do not have implementation elements
+  XPath = not(exists(f:implementation)) or (f:kind/@value != \'capability\')
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Conformance
+  Card. = 1..1
+  UML = 230;160
+  Type = DomainResource
+  Short Label = A conformance statement
+  Definition = A conformance statement is a set of requirements for a desired implementation or a description of how a target application fulfills those requirements in a particular implementation
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = Conformance.url
+  Card. = 0..1
+  Summary = y
+  Type = uri
+  Short Label = Logical uri to reference this statement
+  Definition = An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Conformance.version
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Logical id for this version of the statement
+  Definition = The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
+  Comments = There may be multiple different instances of a conformance statement that have the same identifier but different versions
+  w5 = id.version
+
+ -- Row 4 -----------------------------------
+  Element = Conformance.name
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Informal name for this conformance statement
+  Definition = A free text natural language name identifying the conformance statement
+  Comments = The name is not expected to be globally unique
+
+ -- Row 5 -----------------------------------
+  Element = Conformance.status
+  Card. = 0..1
+  Is Modifier = yes
+  Summary = y
+  Type = code
+  Binding = ConformanceResourceStatus
+  Short Label = draft | active | retired
+  Definition = The status of this conformance statement
+  Comments = This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems
+  w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = Conformance.experimental
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = If for testing purposes, not real usage
+  Definition = A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Comments = Allows filtering of conformance statements that are appropriate for use vs. not
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = Conformance.publisher
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the conformance
+  Requirements = Helps establish the \"authority/credibility\" of the conformance.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
+  w5 = who.witness
+
+ -- Row 8 -----------------------------------
+  Element = Conformance.contact
+  Card. = 0..*
+  Summary = y
+  Short Label = Contact details of the publisher
+  Definition = Contacts to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number (tel:), etc.
+
+ -- Row 9 -----------------------------------
+  Element = Conformance.contact.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of a individual to contact
+  Definition = The name of an individual to contact regarding the conformance
+  Comments = If there is no named individual, the telecom is for the organization as a whole
+
+ -- Row 10 -----------------------------------
+  Element = Conformance.contact.telecom
+  Card. = 0..*
+  Summary = Y
+  Type = ContactPoint
+  Short Label = Contact details for individual or publisher
+  Definition = Contact details for individual (if a name was provided) or the publisher
+
+ -- Row 11 -----------------------------------
+  Element = Conformance.date
+  Card. = 1..1
+  Summary = y
+  Type = dateTime
+  Short Label = Publication Date(/time)
+  Definition = The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the conformance statement changes
+  Comments = Additional specific dates may be added as extensions
+  w5 = when.recorded
+
+ -- Row 12 -----------------------------------
+  Element = Conformance.description
+  Card. = 0..1
+  Summary = y
+  Inv. = 2
+  Type = string
+  Short Label = Human description of the conformance statement
+  Definition = A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP
+  Comments = This field cmay include the purpose of this conformance statement, comments about its context etc. This does not need to be populated if the description is adequately implied by the software or implementation details
+
+ -- Row 13 -----------------------------------
+  Element = Conformance.requirements
+  Card. = 0..1
+  Type = string
+  Short Label = Why is this needed?
+  Definition = Explains why this conformance statement is needed and why it\'s been constrained as it has
+  Comments = This element does not describe the usage of the conformance statement (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+
+ -- Row 14 -----------------------------------
+  Element = Conformance.copyright
+  Card. = 0..1
+  Aliases = License,Restrictions
+  Type = string
+  Short Label = Use and/or Publishing restrictions
+  Definition = A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement
+
+ -- Row 15 -----------------------------------
+  Element = Conformance.kind
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = ConformanceStatementKind
+  Short Label = instance | capability | requirements
+  Definition = The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase)
+  Requirements = Allow searching the 3 modes
+
+ -- Row 16 -----------------------------------
+  Element = Conformance.software
+  Card. = 0..1
+  Summary = y
+  UML = 230;0
+  Inv. = 2
+  Short Label = Software that is covered by this conformance statement
+  Definition = Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.
+
+ -- Row 17 -----------------------------------
+  Element = Conformance.software.name
+  Card. = 1..1
+  Summary = y
+  Type = string
+  Short Label = A name the software is known by
+  Definition = Name software is known by
+
+ -- Row 18 -----------------------------------
+  Element = Conformance.software.version
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Version covered by this statement
+  Definition = The version identifier for the software covered by this statement
+  Comments = If possible, version should be specified, as statements are likely to be different for different versions of software
+
+ -- Row 19 -----------------------------------
+  Element = Conformance.software.releaseDate
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Date this version released
+  Definition = Date this version of the software released
+
+ -- Row 20 -----------------------------------
+  Element = Conformance.implementation
+  Card. = 0..1
+  Summary = y
+  UML = 370;0
+  Inv. = 2
+  Short Label = If this describes a specific instance
+  Definition = Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program
+
+ -- Row 21 -----------------------------------
+  Element = Conformance.implementation.description
+  Card. = 1..1
+  Summary = y
+  Type = string
+  Short Label = Describes this specific instance
+  Definition = Information about the specific installation that this conformance statement relates to
+
+ -- Row 22 -----------------------------------
+  Element = Conformance.implementation.url
+  Card. = 0..1
+  Summary = y
+  Type = uri
+  Short Label = Base URL for the installation
+  Definition = An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
+
+ -- Row 23 -----------------------------------
+  Element = Conformance.fhirVersion
+  Card. = 1..1
+  Summary = y
+  Type = id
+  Short Label = FHIR Version
+  Definition = The version of the FHIR specification on which this conformance statement is based
+
+ -- Row 24 -----------------------------------
+  Element = Conformance.acceptUnknown
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = UnknownContentCode
+  Short Label = no | extensions | elements | both
+  Definition = A code that indicates whether the application accepts unknown elements or extensions when reading resources
+  Comments = Unknown elements in a resource can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence accepting unknown elements is about inter-version compatibility.\n\nApplications are recommended to accept unknown extensions and elements (\'both\'), but this is not always possible
+
+ -- Row 25 -----------------------------------
+  Element = Conformance.format
+  Card. = 1..*
+  Summary = y
+  Type = code
+  Binding = MimeType
+  Short Label = formats supported (xml | json | mime type)
+  Definition = A list of the formats supported by this implementation using their content types
+  Comments = \"xml\" or \"json\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here
+
+ -- Row 26 -----------------------------------
+  Element = Conformance.profile
+  Card. = 0..*
+  Type = Reference(StructureDefinition)
+  Short Label = Profiles for use cases supported
+  Definition = A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}
+  Comments = Supported profiles are different to the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports- this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typical supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However they do not need to describe more than one resource
+
+ -- Row 27 -----------------------------------
+  Element = Conformance.rest
+  Card. = 0..*
+  Summary = Y
+  UML = 230;430
+  Inv. = 1
+  Short Label = If the endpoint is a RESTful one
+  Definition = A definition of the restful capabilities of the solution, if any
+  Comments = Multiple repetitions allow definition of both client and / or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements)
+
+ -- Row 28 -----------------------------------
+  Element = Conformance.rest.mode
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = RestfulConformanceMode
+  Short Label = client | server
+  Definition = Identifies whether this portion of the statement is describing ability to initiate or receive restful operations
+
+ -- Row 29 -----------------------------------
+  Element = Conformance.rest.documentation
+  Card. = 0..1
+  Type = string
+  Short Label = General description of implementation
+  Definition = Information about the system\'s restful capabilities that apply across all applications, such as security
+
+ -- Row 30 -----------------------------------
+  Element = Conformance.rest.security
+  Card. = 0..1
+  UML = 500;330
+  Short Label = Information about security of implementation
+  Definition = Information about security implementation from an interface perspective - what a client needs to know
+
+ -- Row 31 -----------------------------------
+  Element = Conformance.rest.security.cors
+  Card. = 0..1
+  Type = boolean
+  Short Label = Adds CORS Headers (http://enable-cors.org/)
+  Definition = Server adds CORS headers when responding to requests - this enables javascript applications to use the server
+  Comments = The easiest CORS headers to add are Access-Control-Allow-Origin: * & Access-Control-Request-Method: GET, POST, PUT, DELETE. All servers SHOULD support CORS
+
+ -- Row 32 -----------------------------------
+  Element = Conformance.rest.security.service
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = RestfulSecurityService
+  Short Label = OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates
+  Definition = Types of security services are supported/required by the system
+
+ -- Row 33 -----------------------------------
+  Element = Conformance.rest.security.description
+  Card. = 0..1
+  Type = string
+  Short Label = General description of how security works
+  Definition = General description of how security works
+
+ -- Row 34 -----------------------------------
+  Element = Conformance.rest.security.certificate
+  Card. = 0..*
+  UML = up
+  Short Label = Certificates associated with security profiles
+  Definition = Certificates associated with security profiles
+
+ -- Row 35 -----------------------------------
+  Element = Conformance.rest.security.certificate.type
+  Card. = 0..1
+  Type = code
+  Binding = MimeType
+  Short Label = Mime type for certificate
+  Definition = Mime type for certificate
+
+ -- Row 36 -----------------------------------
+  Element = Conformance.rest.security.certificate.blob
+  Card. = 0..1
+  Type = base64Binary
+  Short Label = Actual certificate
+  Definition = Actual certificate
+
+ -- Row 37 -----------------------------------
+  Element = Conformance.rest.resource
+  Card. = 1..*
+  Summary = Y
+  UML = 230;560
+  Short Label = Resource served on the REST interface
+  Definition = A specification of the restful capabilities of the solution for a specific resource type
+  Comments = Max of one repetition per resource type
+
+ -- Row 38 -----------------------------------
+  Element = Conformance.rest.resource.type
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = ResourceType
+  Short Label = A resource type that is supported
+  Definition = A type of resource exposed via the restful interface
+
+ -- Row 39 -----------------------------------
+  Element = Conformance.rest.resource.profile
+  Card. = 0..1
+  Type = Reference(StructureDefinition)
+  Short Label = Base System profile for all uses of resource
+  Definition = A specification of the profile that describes the solution\'s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}
+  Comments = The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system
+
+ -- Row 40 -----------------------------------
+  Element = Conformance.rest.resource.interaction
+  Card. = 1..*
+  UML = -20;560
+  Type = =ResourceInteraction
+  Short Label = What operations are supported?
+  Definition = Identifies a restful operation supported by the solution
+
+ -- Row 41 -----------------------------------
+  Element = Conformance.rest.resource.interaction.code
+  Card. = 1..1
+  Type = code
+  Binding = TypeRestfulInteraction
+  Short Label = read | vread | update | delete | history-instance | validate | history-type | create | search-type
+  Definition = Coded identifier of the operation, supported by the system resource
+
+ -- Row 42 -----------------------------------
+  Element = Conformance.rest.resource.interaction.documentation
+  Card. = 0..1
+  Type = string
+  Short Label = Anything special about operation behavior
+  Definition = Guidance specific to the implementation of this operation, such as \'delete is a logical delete\' or \'updates are only allowed with version id\' or \'creates permitted from pre-authorized certificates only\'
+  Requirements = REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of.
+
+ -- Row 43 -----------------------------------
+  Element = Conformance.rest.resource.versioning
+  Card. = 0..1
+  Type = code
+  Binding = ResourceVersionPolicy
+  Short Label = no-version | versioned | versioned-update
+  Definition = Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources
+  Comments = If a server supports versionIds correctly, it should support vread too, but is not required to do so
+
+ -- Row 44 -----------------------------------
+  Element = Conformance.rest.resource.readHistory
+  Card. = 0..1
+  Type = boolean
+  Short Label = Whether vRead can return past versions
+  Definition = A flag for whether the server is able to return past versions as part of the vRead operation
+  Comments = It is useful to support the vRead operation for current operations, even if past versions aren\'t available
+
+ -- Row 45 -----------------------------------
+  Element = Conformance.rest.resource.updateCreate
+  Card. = 0..1
+  Type = boolean
+  Short Label = If update can commit to a new identity
+  Definition = A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server
+  Comments = Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won\'t happen. While creating identities on the client means that the clients need to be managed, it\'s much more convenient for many scenarios if such management can be put in place
+
+ -- Row 46 -----------------------------------
+  Element = Conformance.rest.resource.conditionalCreate
+  Card. = 0..1
+  Type = boolean
+  Short Label = If allows/uses conditional create
+  Definition = A flag that indicates that the server supports conditional create
+  Comments = Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2
+
+ -- Row 47 -----------------------------------
+  Element = Conformance.rest.resource.conditionalUpdate
+  Card. = 0..1
+  Type = boolean
+  Short Label = If allows/uses conditional update
+  Definition = A flag that indicates that the server supports conditional update
+  Comments = Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2
+
+ -- Row 48 -----------------------------------
+  Element = Conformance.rest.resource.conditionalDelete
+  Card. = 0..1
+  Type = code
+  Binding = ConditionalDeleteStatus
+  Short Label = not-supported | single | multiple - how conditional delete is supported
+  Definition = A code that indicates how the server supports conditional delete
+  Comments = Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2
+
+ -- Row 49 -----------------------------------
+  Element = Conformance.rest.resource.searchInclude
+  Card. = 0..*
+  Type = string
+  Short Label = _include values supported by the server
+  Definition = A list of _include values supported by the server
+  Comments = If this list is empty, the server does not support includes
+
+ -- Row 50 -----------------------------------
+  Element = Conformance.rest.resource.searchRevInclude
+  Card. = 0..*
+  Type = string
+  Short Label = _revinclude values supported by the server
+  Definition = A list of _revinclude (reverse include) values supported by the server
+  Comments = If this list is empty, the server does not support includes
+
+ -- Row 51 -----------------------------------
+  Element = Conformance.rest.resource.searchParam
+  Card. = 0..*
+  UML = right
+  Short Label = Search params supported by implementation
+  Definition = Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation
+
+ -- Row 52 -----------------------------------
+  Element = Conformance.rest.resource.searchParam.name
+  Card. = 1..1
+  Type = string
+  Short Label = Name of search parameter
+  Definition = The name of the search parameter used in the interface
+  Comments = Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined
+
+ -- Row 53 -----------------------------------
+  Element = Conformance.rest.resource.searchParam.definition
+  Card. = 0..1
+  Type = uri
+  Short Label = Source of definition for parameter
+  Definition = An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]])
+  Comments = This SHOULD be present, and matches SearchParameter.url
+
+ -- Row 54 -----------------------------------
+  Element = Conformance.rest.resource.searchParam.type
+  Card. = 1..1
+  Type = code
+  Binding = SearchParamType
+  Short Label = number | date | string | token | reference | composite | quantity | uri
+  Definition = The type of value a search parameter refers to, and how the content is interpreted
+  Comments = While this can be looked up from the definition, it is included here as a convenience for systems that auto-generate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition
+
+ -- Row 55 -----------------------------------
+  Element = Conformance.rest.resource.searchParam.documentation
+  Card. = 0..1
+  Type = string
+  Short Label = Server-specific usage
+  Definition = This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
+
+ -- Row 56 -----------------------------------
+  Element = Conformance.rest.resource.searchParam.target
+  Card. = 0..*
+  Type = code
+  Binding = ResourceType
+  Short Label = Types of resource (if a resource reference)
+  Definition = Types of resource (if a resource is referenced)
+  Comments = This SHALL be the same as or a proper subset of the resources listed in the search parameter definition.
+
+ -- Row 57 -----------------------------------
+  Element = Conformance.rest.resource.searchParam.modifier
+  Card. = 0..*
+  Type = code
+  Binding = SearchModifierCode
+  Short Label = missing | exact | contains | not | text | in | not-in | below | above | type
+  Definition = A modifier supported for the search parameter
+
+ -- Row 58 -----------------------------------
+  Element = Conformance.rest.resource.searchParam.chain
+  Card. = 0..*
+  Type = string
+  Short Label = Chained names supported
+  Definition = Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type
+  Comments = Sstesm are not required to list all the chain names they support, but if they don\'t list them, clients may not know to use them
+
+ -- Row 59 -----------------------------------
+  Element = Conformance.rest.interaction
+  Card. = 0..*
+  UML = -20;430
+  Type = =SystemInteraction
+  Short Label = What operations are supported?
+  Definition = A specification of restful operations supported by the system
+
+ -- Row 60 -----------------------------------
+  Element = Conformance.rest.interaction.code
+  Card. = 1..1
+  Type = code
+  Binding = SystemRestfulInteraction
+  Short Label = transaction | search-system | history-system
+  Definition = A coded identifier of the operation, supported by the system
+
+ -- Row 61 -----------------------------------
+  Element = Conformance.rest.interaction.documentation
+  Card. = 0..1
+  Type = string
+  Short Label = Anything special about operation behavior
+  Definition = Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented
+
+ -- Row 62 -----------------------------------
+  Element = Conformance.rest.transactionMode
+  Card. = 0..1
+  Type = code
+  Binding = TransactionMode
+  Short Label = not-supported | batch | transaction | both
+  Definition = A code that indicates how transactions are supported
+  Default Value = not-supported
+
+ -- Row 63 -----------------------------------
+  Element = Conformance.rest.operation
+  Card. = 0..*
+  UML = right
+  Short Label = Definition of an operation or a custom query
+  Definition = Definition of an operation or a named query and with its parameters and their meaning and type
+
+ -- Row 64 -----------------------------------
+  Element = Conformance.rest.operation.name
+  Card. = 1..1
+  Type = string
+  Short Label = Name by which the operation/query is invoked
+  Definition = The name of a query, which is used in the _query parameter when the query is called
+  Comments = The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used
+
+ -- Row 65 -----------------------------------
+  Element = Conformance.rest.operation.definition
+  Card. = 1..1
+  Type = Reference(OperationDefinition)
+  Short Label = The defined operation/query
+  Definition = Where the formal definition can be found
+  Comments = This can be used to build ah HTML form to invoke the operation, for instance
+
+ -- Row 66 -----------------------------------
+  Element = Conformance.rest.documentMailbox
+  Card. = 0..*
+  Type = uri
+  Short Label = How documents are accepted in /Mailbox
+  Definition = A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier \"http://hl7.org/fhir/documents/mailbox\". Other specifications can declare their own identifier for this purpose
+  Comments = If a server accepts messages on the /Mailbox end-point, it declares this in the messaging elements
+
+ -- Row 67 -----------------------------------
+  Element = Conformance.rest.compartment
+  Card. = 0..*
+  Type = uri
+  Short Label = Compartments served/used by system
+  Definition = An absolute URI which is a reference to the definition of a compartment hosted by the system
+  Comments = At present, the only defined compartments are at [[compartments.html]]
+
+ -- Row 68 -----------------------------------
+  Element = Conformance.messaging
+  Card. = 0..*
+  UML = 0;190
+  Inv. = 1
+  Short Label = If messaging is supported
+  Definition = A description of the messaging capabilities of the solution
+  Comments = Multiple repetitions allow the documentation of multiple endpoints per solution
+
+ -- Row 69 -----------------------------------
+  Element = Conformance.messaging.endpoint
+  Card. = 0..*
+  Aliases = 3
+  Short Label = A messaging service end point
+  Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
+
+ -- Row 70 -----------------------------------
+  Element = Conformance.messaging.endpoint.protocol
+  Card. = 1..1
+  Type = Coding
+  Binding = MessageTransport
+  Short Label = http | ftp | mllp +
+  Definition = A list of the messaging transport protocol(s) identifiers, supported by this endpoint
+
+ -- Row 71 -----------------------------------
+  Element = Conformance.messaging.endpoint.address
+  Card. = 1..1
+  Type = uri
+  Short Label = Address of end point
+  Definition = The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier
+
+ -- Row 72 -----------------------------------
+  Element = Conformance.messaging.reliableCache
+  Card. = 0..1
+  Type = unsignedInt
+  Short Label = Reliable Message Cache Length (min)
+  Definition = Length if the receiver\'s reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)
+  Comments = If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging
+
+ -- Row 73 -----------------------------------
+  Element = Conformance.messaging.documentation
+  Card. = 0..1
+  Type = string
+  Short Label = Messaging interface behavior details
+  Definition = Documentation about the system\'s messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
+
+ -- Row 74 -----------------------------------
+  Element = Conformance.messaging.event
+  Card. = 1..*
+  UML = 0;0
+  Short Label = Declare support for this event
+  Definition = A description of the solution\'s support for an event at this end point.
+  Comments = The same event may be listed up to two times - once as sender and once as receiver.
+  To Do = Need to add follow-ups and need to do more to flesh out messaging dynamic model
+
+ -- Row 75 -----------------------------------
+  Element = Conformance.messaging.event.code
+  Card. = 1..1
+  Type = Coding
+  Binding = MessageEvent
+  Short Label = Event type
+  Definition = A coded identifier of a supported messaging event
+  To Do = May need a profile id as well if profiles can define message events
+
+ -- Row 76 -----------------------------------
+  Element = Conformance.messaging.event.category
+  Card. = 0..1
+  Type = code
+  Binding = MessageSignificanceCategory
+  Short Label = Consequence | Currency | Notification
+  Definition = The impact of the content of the message
+
+ -- Row 77 -----------------------------------
+  Element = Conformance.messaging.event.mode
+  Card. = 1..1
+  Type = code
+  Binding = ConformanceEventMode
+  Short Label = sender | receiver
+  Definition = The mode of this event declaration - whether application is sender or receiver
+
+ -- Row 78 -----------------------------------
+  Element = Conformance.messaging.event.focus
+  Card. = 1..1
+  Type = code
+  Binding = ResourceType
+  Short Label = Resource that\'s focus of message
+  Definition = A resource associated with the event.  This is the resource that defines the event.
+  Comments = This SHALL be provided if the event type supports multiple different resource types
+
+ -- Row 79 -----------------------------------
+  Element = Conformance.messaging.event.request
+  Card. = 1..1
+  Type = Reference(StructureDefinition)
+  Short Label = Profile that describes the request
+  Definition = Information about the request for this event
+
+ -- Row 80 -----------------------------------
+  Element = Conformance.messaging.event.response
+  Card. = 1..1
+  Type = Reference(StructureDefinition)
+  Short Label = Profile that describes the response
+  Definition = Information about the response for this event
+
+ -- Row 81 -----------------------------------
+  Element = Conformance.messaging.event.documentation
+  Card. = 0..1
+  Type = string
+  Short Label = Endpoint-specific event documentation
+  Definition = Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
+
+ -- Row 82 -----------------------------------
+  Element = Conformance.document
+  Card. = 0..*
+  UML = 550;50
+  Inv. = 1
+  Short Label = Document definition
+  Definition = A document definition
+
+ -- Row 83 -----------------------------------
+  Element = Conformance.document.mode
+  Card. = 1..1
+  Type = code
+  Binding = DocumentMode
+  Short Label = producer | consumer
+  Definition = Mode of this document declaration - whether application is producer or consumer
+
+ -- Row 84 -----------------------------------
+  Element = Conformance.document.documentation
+  Card. = 0..1
+  Type = string
+  Short Label = Description of document support
+  Definition = A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
+
+ -- Row 85 -----------------------------------
+  Element = Conformance.document.profile
+  Card. = 1..1
+  Type = Reference(StructureDefinition)
+  Short Label = Constraint on a resource used in the document
+  Definition = A constraint on a resource used in the document
+  Comments = The first resource is the document resource
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = url
+  Type = uri
+  Description = The uri that identifies the conformance statement
+  Path = Conformance.url
+
+ -- Row 2 -----------------------------------
+  Name = version
+  Type = token
+  Description = The version identifier of the conformance statement
+  Path = Conformance.version
+
+ -- Row 3 -----------------------------------
+  Name = name
+  Type = string
+  Description = Name of the conformance statement
+  Path = Conformance.name
+
+ -- Row 4 -----------------------------------
+  Name = publisher
+  Type = string
+  Description = Name of the publisher of the conformance statement
+  Path = Conformance.publisher
+
+ -- Row 5 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search in the description of the conformance statement
+  Path = Conformance.description
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = The current status of the conformance statement
+  Path = Conformance.status
+
+ -- Row 7 -----------------------------------
+  Name = date
+  Type = date
+  Description = The conformance statement publication date
+  Path = Conformance.date
+
+ -- Row 8 -----------------------------------
+  Name = software
+  Type = string
+  Description = Part of a the name of a software application
+  Path = Conformance.software.name
+
+ -- Row 9 -----------------------------------
+  Name = fhirversion
+  Type = token
+  Description = The version of FHIR
+  Path = Conformance.version
+
+ -- Row 10 -----------------------------------
+  Name = resource
+  Type = token
+  Description = Name of a resource mentioned in a conformance statement
+  Path = Conformance.rest.resource.type
+
+ -- Row 11 -----------------------------------
+  Name = event
+  Type = token
+  Description = Event code in a conformance statement
+  Path = Conformance.messaging.event.code
+
+ -- Row 12 -----------------------------------
+  Name = mode
+  Type = token
+  Description = Mode - restful (server/client) or messaging (sender/receiver)
+  Path = Conformance.rest.mode
+
+ -- Row 13 -----------------------------------
+  Name = profile
+  Type = reference
+  Description = A profile id invoked in a conformance statement
+  Path = Conformance.rest.resource.profile
+
+ -- Row 14 -----------------------------------
+  Name = format
+  Type = token
+  Path = Conformance.format
+
+ -- Row 15 -----------------------------------
+  Name = security
+  Type = token
+  Path = Conformance.rest.security.service
+
+ -- Row 16 -----------------------------------
+  Name = supported-profile
+  Type = reference
+  Path = Conformance.profile
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Conformance Extensions
+  IG Name = core
+  Filename = conformance-extensions-spreadsheet.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Condition Example
+  Filename = conformance-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = PHR
+  Identity = phr
+  Description = PHR Example
+  Filename = conformance-phr-example.xml
+
+ -- Row 3 -----------------------------------
+  Name = Base
+  Identity = conformance-base
+  Description = Complete Conformance Statement
+  Filename = conformance-base.xml
+  Type = tool
+
+ -- Row 4 -----------------------------------
+  Name = Base2
+  Identity = conformance-base2
+  Description = EmptyConformanceStatement
+  Filename = conformance-base2.xml
+  Type = tool
+
+ -- Row 5 -----------------------------------
+  Name = TerminologyServer
+  Identity = conformance-terminology-server
+  Description = Terminology Server Base Conformance Statement
+  Filename = conformance-terminology-server.xml
+
+=== Sheet Examples =====================================

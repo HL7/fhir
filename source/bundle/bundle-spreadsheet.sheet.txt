@@ -1,0 +1,465 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = BundleType
+  Binding = code list
+  Reference = #bundle-type
+  Definition = Indicates the purpose of a bundle- how it was intended to be used
+
+ -- Row 2 -----------------------------------
+  Binding Name = SearchEntryMode
+  Binding = code list
+  Reference = #search-entry-mode
+  Definition = Why an entry is in the result set - whether it\'s included as a match or because of an _include requirement
+
+ -- Row 3 -----------------------------------
+  Binding Name = HTTPVerb
+  Binding = code list
+  Reference = #http-verb
+  Definition = HTTP verbs (in the HTTP command line)
+
+=== Sheet bundle-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = document
+  Display = Document
+  Definition = The bundle is a document. The first resource is a Composition
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = message
+  Display = Message
+  Definition = The bundle is a message. The first resource is a MessageHeader
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = transaction
+  Display = Transaction
+  Definition = The bundle is a transaction - intended to be processed by a server as an atomic commit
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = transaction-response
+  Display = Transaction Response
+  Definition = The bundle is a transaction response. Because the response is a transaction response, the transactionhas succeeded, and all responses are error free
+
+ -- Row 5 -----------------------------------
+  Id = 8
+  Code = batch
+  Display = Batch
+  Definition = The bundle is a transaction - intended to be processed by a server as a group of actions
+
+ -- Row 6 -----------------------------------
+  Id = 9
+  Code = batch-response
+  Display = Batch Response
+  Definition = The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success
+
+ -- Row 7 -----------------------------------
+  Id = 5
+  Code = history
+  Display = History List
+  Definition = The bundle is a list of resources from a _history interaction on a server
+
+ -- Row 8 -----------------------------------
+  Id = 6
+  Code = searchset
+  Display = Search Results
+  Definition = The bundle is a list of resources returned as a result of a search/query interaction, operation, or message
+
+ -- Row 9 -----------------------------------
+  Id = 7
+  Code = collection
+  Display = Collection
+  Definition = The bundle is a set of resources collected into a single document for ease of distribution
+
+=== Sheet search-entry-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = match
+  Display = Match
+  Definition = This resource matched the search specification
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = include
+  Display = Include
+  Definition = This resource is returned because it is referred to from another resource in the search set
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = outcome
+  Display = Outcome
+  Definition = An OperationOutcome that provides additional information about the processing of a search
+
+=== Sheet http-verb =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = GET
+  Display = GET
+  Definition = HTTP GET
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = POST
+  Display = POST
+  Definition = HTTP POST
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = PUT
+  Display = PUT
+  Definition = HTTP PUT
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = DELETE
+  Display = DELETE
+  Definition = HTTP DELETE
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = !1
+  Context = Bundle
+  English = Status only when transaction or search
+  XPath = not(f:entry/f:status) or (f:type/@value = \'transaction\') or (f:type/@value = \'search\')
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = !2
+  Context = Bundle
+  English = Search only when transaction
+  XPath = not(f:entry/f:search) or (f:type/@value = \'transaction\')
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = !3
+  Context = Bundle.entry
+  English = status only when resource
+  XPath = not(f:status) or f:resource
+  Severity = error
+
+ -- Row 4 -----------------------------------
+  Id = !4
+  Context = Bundle.entry
+  English = deleted or resource (but not both)
+  XPath = not(f:deleted) or not(f:resource)
+  Severity = error
+
+ -- Row 5 -----------------------------------
+  Id = !5
+  Context = Bundle
+  English = Status only when transaction or history
+  XPath = not(f:entry/f:status) or (f:type/@value = \'transaction\') or (f:type/@value = \'history\')
+  Severity = error
+
+ -- Row 6 -----------------------------------
+  Id = 1
+  Context = Bundle
+  English = total only when a search or history
+  XPath = not(f:total) or (f:type/@value = \'searchset\') or (f:type/@value = \'history\')
+  Severity = error
+
+ -- Row 7 -----------------------------------
+  Id = 2
+  Context = Bundle
+  English = entry.search only when a search
+  XPath = not(f:entry/f:search) or (f:type/@value = \'searchset\')
+  Severity = error
+
+ -- Row 8 -----------------------------------
+  Id = 3
+  Context = Bundle
+  English = entry.transaction when (and only when) a transaction
+  XPath = not(f:entry/f:request) or (f:type/@value = \'batch\') or (f:type/@value = \'transaction\') or (f:type/@value = \'history\')
+  Severity = error
+
+ -- Row 9 -----------------------------------
+  Id = 4
+  Context = Bundle
+  English = entry.transactionResponse when (and only when) a transaction-response
+  XPath = not(f:entry/f:response) or (f:type/@value = \'batch-response\') or (f:type/@value = \'transaction-response\')
+  Severity = error
+
+ -- Row 10 -----------------------------------
+  Id = 5
+  Context = Bundle.entry
+  English = must be a resource unless there\'s a transaction or transaction response
+  XPath = f:resource or f:request or f:response
+  Severity = error
+
+ -- Row 11 -----------------------------------
+  Id = 6
+  Context = Bundle.entry
+  English = The fullUrl element must be present when a resource is present, and not present otherwise
+  XPath = (not(exists(f:fullUrl)) and not(exists(f:resource))) or (exists(f:fullUrl) and exists(f:resource))
+  Severity = error
+
+ -- Row 12 -----------------------------------
+  Id = 7
+  Context = Bundle
+  English = FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId
+  XPath = count(for $entry in entry[resource] return $entry[count(parent::Bundle/entry[fullUrl/@value=$entry/fullUrl/@value and resource/*/meta/versionId/@value=$entry/resource/*/meta/versionId/@value])!=1])=0
+  Severity = error
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Bundle
+  Type = Resource
+  Short Label = Contains a collection of resources
+  Definition = A container for a collection of resources
+  v2 Mapping = N/A
+  RIM Mapping = N/A
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = Bundle.type
+  Card. = 1..1
+  Type = code
+  Binding = BundleType
+  Short Label = document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection
+  Definition = Indicates the purpose of this bundle- how it was intended to be used
+  Comments = It\'s possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types
+  w5 = class
+
+ -- Row 3 -----------------------------------
+  Element = Bundle.total
+  Card. = 0..1
+  Inv. = 1
+  Type = unsignedInt
+  Short Label = If search, the total number of matches
+  Definition = If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle)
+  Comments = Only used if the bundle is a search result set
+
+ -- Row 4 -----------------------------------
+  Element = Bundle.link
+  Card. = 0..*
+  UML = right
+  Short Label = Links related to this Bundle
+  Definition = A series of links that provide context to this bundle
+
+ -- Row 5 -----------------------------------
+  Element = Bundle.link.relation
+  Card. = 1..1
+  Type = string
+  Short Label = http://www.iana.org/assignments/link-relations/link-relations.xhtml
+  Definition = A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]]
+
+ -- Row 6 -----------------------------------
+  Element = Bundle.link.url
+  Card. = 1..1
+  Type = uri
+  Short Label = Reference details for the link
+  Definition = The reference details for the link
+
+ -- Row 7 -----------------------------------
+  Element = Bundle.entry
+  Card. = 0..*
+  UML = down
+  Short Label = Entry in the bundle - will have a resource, or information
+  Definition = An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only)
+
+ -- Row 8 -----------------------------------
+  Element = Bundle.entry.link
+  Card. = 0..*
+  Type = @Bundle.link
+  Short Label = Links related to this entry
+  Definition = A series of links that provide context to this entry
+
+ -- Row 9 -----------------------------------
+  Element = Bundle.entry.fullUrl
+  Card. = 0..1
+  Type = uri
+  Short Label = Absolute URL for resource (server address, or UUID/OID)
+  Definition = The Absolute URL for the resource. This must be provided for all resources. The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource
+  Comments = fullUrl may not be (unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the absolute URL may not end with the logical id of the resource (Resource.id), but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then it SHALL end with the Resource.id
+
+ -- Row 10 -----------------------------------
+  Element = Bundle.entry.resource
+  Card. = 0..1
+  Type = Resource
+  Short Label = A resource in the bundle
+  Definition = The Resources for the entry
+
+ -- Row 11 -----------------------------------
+  Element = Bundle.entry.search
+  Card. = 0..1
+  UML = right
+  Inv. = 2
+  Short Label = Search related information
+  Definition = Information about the search process that lead to the creation of this entry
+
+ -- Row 12 -----------------------------------
+  Element = Bundle.entry.search.mode
+  Card. = 0..1
+  Type = code
+  Binding = SearchEntryMode
+  Short Label = match | include | outcome - why this is in the result set
+  Definition = Why this entry is in the result set - whether it\'s included as a match or because of an _include requirement
+
+ -- Row 13 -----------------------------------
+  Element = Bundle.entry.search.score
+  Card. = 0..1
+  Type = decimal
+  Short Label = Search ranking (between 0 and 1)
+  Definition = When searching, the server\'s search ranking score for the entry
+  Comments = Servers are not required to return a ranking score. 1 is most relevant, and 0 is least relevant. Often, search results are sorted by score, but the client may specify a different sort order
+
+ -- Row 14 -----------------------------------
+  Element = Bundle.entry.request
+  Card. = 0..1
+  UML = left
+  Inv. = 3
+  Short Label = Transaction Related Information
+  Definition = Additional information about how this entry should be processed as part of a transaction
+
+ -- Row 15 -----------------------------------
+  Element = Bundle.entry.request.method
+  Card. = 1..1
+  Type = code
+  Binding = HTTPVerb
+  Short Label = GET | POST | PUT | DELETE
+  Definition = The HTTP verb for this entry in either a update history, or a transaction/ transaction response
+
+ -- Row 16 -----------------------------------
+  Element = Bundle.entry.request.url
+  Card. = 1..1
+  Type = uri
+  Short Label = URL for HTTP equivalent of this entry
+  Definition = The URL for this entry, relative to the root (the address to which the request is posted)
+  Comments = E.g. for a Patient Create, the method would be \"POST\" and the url would be \"Patient\". For a Patient Update, the method would be PUT, and the url would be \"Patient/[id]\"
+
+ -- Row 17 -----------------------------------
+  Element = Bundle.entry.request.ifNoneMatch
+  Card. = 0..1
+  Type = string
+  Short Label = For managing cache currency
+  Definition = If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation
+
+ -- Row 18 -----------------------------------
+  Element = Bundle.entry.request.ifMatch
+  Card. = 0..1
+  Type = string
+  Short Label = For managing update contention
+  Definition = Only perform the operation if the Etag value matches. For more information, see the API section \"Managing Resource Contention\"
+
+ -- Row 19 -----------------------------------
+  Element = Bundle.entry.request.ifModifiedSince
+  Card. = 0..1
+  Type = instant
+  Short Label = For managing update contention
+  Definition = Only perform the operation if the last updated date matches. For more information, see the API section \"Managing Resource Contention\"
+
+ -- Row 20 -----------------------------------
+  Element = Bundle.entry.request.ifNoneExist
+  Card. = 0..1
+  Type = string
+  Short Label = For conditional creates
+  Definition = Instruct the server not to perform the create if a specified resource already exists. For further information, see \"Conditional Create\". This is just the query portion of the URL - what follows the \"?\" (not including the \"?\")
+
+ -- Row 21 -----------------------------------
+  Element = Bundle.entry.response
+  Card. = 0..1
+  UML = left
+  Inv. = 4
+  Short Label = Transaction Related Information
+  Definition = Additional information about how this entry should be processed as part of a transaction
+
+ -- Row 22 -----------------------------------
+  Element = Bundle.entry.response.status
+  Card. = 1..1
+  Type = string
+  Short Label = Status return code for entry
+  Definition = The status code returned by processing this entry
+
+ -- Row 23 -----------------------------------
+  Element = Bundle.entry.response.location
+  Card. = 0..1
+  Type = uri
+  Short Label = The location, if the operation returns a location
+  Definition = The location header created by processing this operation
+
+ -- Row 24 -----------------------------------
+  Element = Bundle.entry.response.etag
+  Card. = 0..1
+  Type = string
+  Short Label = The etag for the resource (if relevant)
+  Definition = The etag for the resource, it the operation for the entry produced a versioned resource
+  Comments = This has to match the version id in the header if a resource is included
+
+ -- Row 25 -----------------------------------
+  Element = Bundle.entry.response.lastModified
+  Card. = 0..1
+  Type = instant
+  Short Label = Server\'s date time modified
+  Definition = The date/time that the resource was modified on the server
+  Comments = This has to match the same time in the meta header if a resource is included
+
+ -- Row 26 -----------------------------------
+  Element = Bundle.signature
+  Card. = 0..1
+  Type = Signature
+  Short Label = Digital Signature
+  Definition = Digital Signature - base64 encoded. XML DigSIg or a JWT
+  Requirements = This element allows capturing signatures on documents. It also allows signatures on messages, transactions or even query responses. It may support content-authentication, non-repudiation or other business cases. This is primarily relevant where the bundle may travel through multiple hops or via other mechanisms where HTTPS non-repudiation is insufficient
+  Comments = The signature could be created by the \"author\" of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = type
+  Type = token
+  Path = Bundle.type
+
+ -- Row 2 -----------------------------------
+  Name = message
+  Type = reference
+  Description = The first resource in the bundle, if the bundle type is \"message\" - this is a message header, and this parameter provides access to search its contents
+  Path = Bundle.entry.resource(0)
+  Target Types = MessageHeader
+
+ -- Row 3 -----------------------------------
+  Name = composition
+  Type = reference
+  Description = The first resource in the bundle, if the bundle type is \"document\" - this is a composition, and this parameter provides access to searches its contents
+  Path = Bundle.entry.resource(0)
+  Target Types = Composition
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Bundle core extensions
+  IG Name = core
+  Filename = bundle-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = search
+  Identity = bundle-example
+  Description = An example of a search response
+  Filename = bundle-example.xml
+  Type = xml
+
+ -- Row 2 -----------------------------------
+  Name = transaction
+  Identity = bundle-transaction
+  Description = An example transaction
+  Filename = bundle-transaction.xml
+  Type = xml
+
+ -- Row 3 -----------------------------------
+  Name = response
+  Identity = bundle-response
+  Description = Response for the example transaction
+  Filename = bundle-response.xml
+  Type = xml
+
+=== Sheet Examples =====================================

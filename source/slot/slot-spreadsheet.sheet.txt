@@ -1,0 +1,180 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = SlotStatus
+  Binding = code list
+  Reference = #slotstatus
+  Definition = The free/busy status of a slot
+
+ -- Row 2 -----------------------------------
+  Binding Name = DocumentC80PracticeSetting
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
+  Definition = Additional details about where the content was created (e.g. clinical specialty)
+  Conformance = Preferred
+
+=== Sheet slotstatus =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = busy
+  Display = Busy
+  Definition = Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = free
+  Display = Free
+  Definition = Indicates that the time interval is free for scheduling.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = busy-unavailable
+  Display = Busy (Unavailable)
+  Definition = Indicates that the time interval is busy and that the interval can not be scheduled.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = busy-tentative
+  Display = Busy (Tentative)
+  Definition = Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Slot
+  Type = DomainResource
+  Short Label = A slot of time on a schedule that may be available for booking appointments
+  iCal Mapping = (refer to the Availability resource for the header mapping details)
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Slot.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = External Ids for this item
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Slot.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = DocumentC80PracticeSetting
+  Short Label = The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource
+  w5 = class
+
+ -- Row 4 -----------------------------------
+  Element = Slot.schedule
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Schedule)
+  Short Label = The schedule resource that this slot defines an interval of status information
+
+ -- Row 5 -----------------------------------
+  Element = Slot.freeBusyType
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = SlotStatus
+  Short Label = busy | free | busy-unavailable | busy-tentative
+  iCal Mapping = FREEBUSY;FBTYPE=(freeBusyType):19980314T233000Z/19980315T003000Z\nIf the freeBusyType is BUSY, then this value can be excluded
+  Committee Notes = This is not a modifier element as the status of the slot being busy is not a change in the interpretation of the slot.
+
+ -- Row 6 -----------------------------------
+  Element = Slot.start
+  Card. = 1..1
+  Summary = Y
+  Type = instant
+  Short Label = Date/Time that the slot is to begin
+  iCal Mapping = FREEBUSY;FBTYPE=FREE:(start)/19980315T003000Z\nIf the freeBusyType is BUSY, then this value can be excluded
+  w5 = when.planned
+
+ -- Row 7 -----------------------------------
+  Element = Slot.end
+  Card. = 1..1
+  Summary = Y
+  Type = instant
+  Short Label = Date/Time that the slot is to conclude
+  iCal Mapping = FREEBUSY:19980314T233000Z/(end)\nIf the freeBusyType is BUSY, then this value can be excluded (as shown)
+  w5 = when.planned
+
+ -- Row 8 -----------------------------------
+  Element = Slot.overbooked
+  Card. = 0..1
+  Type = boolean
+  Short Label = This slot has already been overbooked, appointments are unlikely to be accepted for this time
+  Missing Meaning = If overbooked is missing, systems may assume that there are still appointments available
+
+ -- Row 9 -----------------------------------
+  Element = Slot.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Comments on the slot to describe any extended information. Such as custom constraints on the slot
+
+ -- Row 10 -----------------------------------
+  Element = !Slot.lastModified
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When this slot was created, or last revised
+  w5 = when.recorded
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = slottype
+  Type = token
+  Description = The type of appointments that can be booked into the slot
+  Path = Slot.type
+
+ -- Row 2 -----------------------------------
+  Name = schedule
+  Type = reference
+  Description = The Schedule Resource that we are seeking a slot within
+  Path = Slot.schedule
+
+ -- Row 3 -----------------------------------
+  Name = start
+  Type = date
+  Description = Appointment date/time.
+  Path = Slot.start
+
+ -- Row 4 -----------------------------------
+  Name = fbtype
+  Type = token
+  Description = The free/busy status of the appointment
+  Path = Slot.freeBusyType
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Free Example
+  Identity = example
+  Description = Example of an available slot (no appointments allocated)
+  Filename = slot-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Busy Example
+  Identity = 1
+  Description = Example for a slot that has an appointment allocated to it
+  Filename = slot-example-busy.xml
+
+ -- Row 3 -----------------------------------
+  Name = Tentative Example
+  Identity = 2
+  Description = Example for tentatively occupied slot
+  Filename = slot-example-tentative.xml
+
+ -- Row 4 -----------------------------------
+  Name = Unavailable Example
+  Identity = 3
+  Description = Example of a slot that has been marked as unavailable
+  Filename = slot-example-unavailable.xml
+
+=== Sheet Examples =====================================

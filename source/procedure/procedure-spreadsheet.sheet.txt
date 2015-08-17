@@ -1,0 +1,438 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ProcedureRelationshipType
+  Binding = code list
+  Reference = #procedure-relationship-type
+  Definition = The nature of the relationship with this procedure
+
+ -- Row 2 -----------------------------------
+  Binding Name = DeviceActionKind
+  Binding = value set
+  Reference = valueset-device-action
+  Definition = The kind of change that happened to the device during the procedure
+
+ -- Row 3 -----------------------------------
+  Binding Name = ProcedureStatus
+  Binding = code list
+  Reference = #procedure-status
+  Definition = A code specifying the state of the procedure record
+  v3 = ActStatus
+
+ -- Row 4 -----------------------------------
+  Binding Name = ProcedureType
+  Binding = value set
+  Reference = valueset-procedure-type
+  Definition = A code for a type of procedure
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = ProcedureOutcome
+  Binding = value set
+  Reference = valueset-procedure-outcome
+  Definition = The outcome of a procedure - whether it resolveed the reasons why the procedure was performed
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = ProcedureFollowUp
+  Binding = value set
+  Reference = valueset-procedure-followup
+  Definition = Specific follow up required for a procedure e.g. removal of sutures
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = ProcedureCategory
+  Binding = value set
+  Reference = valueset-procedure-category
+  Definition = A code that classifies a procedure for searching, sorting and display purposes
+  Conformance = example
+
+=== Sheet procedure-relationship-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = caused-by
+  Display = Caused By
+  Definition = This procedure had to be performed because of the related one
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = because-of
+  Display = Because Of
+  Definition = This procedure caused the related one to be performed
+
+=== Sheet procedure-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = in-progress
+  Display = In Progress
+  Definition = The procedure is still occurring
+  v3 = ActStatus.active
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = aborted
+  Display = Aboted
+  Definition = The procedure was terminated without completing successfully
+  v3 = ActStatus.aborted
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = completed
+  Display = Completed
+  Definition = All actions involved in the procedure have taken place
+  v3 = ActStatus.completed
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The statement was entered in error and Is not valid
+  v3 = ActStatus.nullified
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Procedure
+  Type = DomainResource
+  Short Label = An action that was or is currently being performed on a patient
+  Definition = An action that is or was performed on a patient. This can be a physical \'thing\' like an operation, or less invasive like counseling or hypnotherapy
+  RIM Mapping = Procedure[moodCode=EVN]
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = Procedure.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = External Ids for this procedure
+  Definition = This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Requirements = Need to allow connection to a wider workflow
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Procedure.patient
+  Card. = 1..1
+  Summary = y
+  Type = Reference(Patient)
+  Short Label = Who procedure was performed on
+  Definition = The person on whom the procedure was performed
+  RIM Mapping = .participation[typeCode=SBJ].role
+  Committee Notes = [#3709]
+  w5 = who.focus
+
+ -- Row 4 -----------------------------------
+  Element = Procedure.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ProcedureStatus
+  Short Label = in-progress | aborted | completed | entered-in-error
+  Definition = A code specifying the state of the procedure record. Generally this will be in-progress or completed state.
+
+ -- Row 5 -----------------------------------
+  Element = Procedure.category
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ProcedureCategory
+  Short Label = Classification of the procedure
+  Definition = A code that classifies the procedure for searching, sorting and display purposes
+  RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
+
+ -- Row 6 -----------------------------------
+  Element = Procedure.type
+  Card. = 1..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = ProcedureType
+  Short Label = Identification of the procedure
+  Definition = The specific procedure that is performed. Use text if the exact nature of the procedure can\'t be coded
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = Procedure.bodySite
+  Card. = 0..*
+  Summary = y
+  UML = right
+  Short Label = Precise location details
+  Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
+  RIM Mapping = .approachSiteCode
+  To Do = Is this approach or target site? RIM mapping inconsistent with ProcedureRequest which lists target site. Recommend calling field targetBodySite or targetSite.
+
+ -- Row 8 -----------------------------------
+  Element = Procedure.bodySite.site[x]
+  Card. = 1..1
+  Summary = Y
+  Type = CodeableConcept|Reference(BodySite)
+  Short Label = Precise location details
+  Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
+
+ -- Row 9 -----------------------------------
+  Element = Procedure.indication
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Short Label = Reason procedure performed
+  Definition = The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text
+  Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapuetic
+  RIM Mapping = .reasonCode
+
+ -- Row 10 -----------------------------------
+  Element = Procedure.performer
+  Card. = 0..*
+  Summary = y
+  UML = left
+  Short Label = The people who performed the procedure
+  Definition = Limited to \'real\' people rather than equipment
+  RIM Mapping = .participation[typeCode=PFM]
+
+ -- Row 11 -----------------------------------
+  Element = Procedure.performer.person
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner|Patient|RelatedPerson)
+  Short Label = The reference to the practitioner
+  Definition = The practitioner who was involved in the procedure
+  RIM Mapping = .role
+  w5 = who.actor
+
+ -- Row 12 -----------------------------------
+  Element = Procedure.performer.role
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Short Label = The role the person was in
+  Definition = E.g. surgeon, anaethetist, endoscopist
+  RIM Mapping = .functionCode
+
+ -- Row 13 -----------------------------------
+  Element = Procedure.performed[x]
+  Card. = 0..1
+  Summary = y
+  Type = dateTime | Period
+  Short Label = Date/Period the procedure was performed
+  Definition = The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
+  RIM Mapping = .effectiveTime
+  w5 = when.done
+
+ -- Row 14 -----------------------------------
+  Element = Procedure.encounter
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Encounter)
+  Short Label = The encounter when procedure performed
+  Definition = The encounter during which the procedure was performed
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 15 -----------------------------------
+  Element = Procedure.location
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Location)
+  Short Label = Where the procedure happened
+  Definition = The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant
+  Comments = Ties a procedure to where the records are kept
+  w5 = where
+
+ -- Row 16 -----------------------------------
+  Element = Procedure.outcome
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = ProcedureOutcome
+  Short Label = What was result of procedure?
+  Definition = What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
+  RIM Mapping = .outboundRelationship[typeCode=OUT].target.text
+
+ -- Row 17 -----------------------------------
+  Element = Procedure.report
+  Card. = 0..*
+  Type = Reference(DiagnosticReport)
+  Short Label = Any report that results from the procedure
+  Definition = This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN]
+
+ -- Row 18 -----------------------------------
+  Element = Procedure.complication
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Complication following the procedure
+  Definition = Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any \'post procedure\' issues
+  RIM Mapping = Need specialization of OUT for this.
+  To Do = Need harmonization proposal for new ActRelationshipType code
+
+ -- Row 19 -----------------------------------
+  Element = Procedure.followUp
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ProcedureFollowUp
+  Short Label = Instructions for follow up
+  Definition = If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ACT, moodCode=INT].code
+
+ -- Row 20 -----------------------------------
+  Element = Procedure.relatedItem
+  Card. = 0..*
+  UML = right
+  Short Label = A procedure that is related to this one
+  Definition = Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure
+  RIM Mapping = .outboundRelationship[typeCode=TRIG and target[classCode=PROC, moodCode=EVN]]
+
+ -- Row 21 -----------------------------------
+  Element = Procedure.relatedItem.type
+  Card. = 0..1
+  Type = code
+  Binding = ProcedureRelationshipType
+  Short Label = caused-by | because-of
+  Definition = The nature of the relationship
+  RIM Mapping = .inversionInd
+  To Do = Existing codes sound like synonyms.  Suggest caused-by and caused
+
+ -- Row 22 -----------------------------------
+  Element = Procedure.relatedItem.target
+  Card. = 0..1
+  Type = Reference(AllergyIntolerance | CarePlan | Condition | DiagnosticReport | FamilyMemberHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationOrder | MedicationStatement | Observation | Procedure)
+  Short Label = The related item - e.g. a procedure
+  RIM Mapping = .target
+
+ -- Row 23 -----------------------------------
+  Element = Procedure.notes
+  Card. = 0..1
+  Type = string
+  Short Label = Additional information about procedure
+  Definition = Any other notes about the procedure - e.g. the operative notes
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
+
+ -- Row 24 -----------------------------------
+  Element = Procedure.device
+  Card. = 0..*
+  UML = left
+  Short Label = Device changed in procedure
+  Definition = A device change during the procedure
+
+ -- Row 25 -----------------------------------
+  Element = Procedure.device.action
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = DeviceActionKind
+  Short Label = Kind of change to device
+  Definition = The kind of change that happened to the device during the procedure
+
+ -- Row 26 -----------------------------------
+  Element = Procedure.device.manipulated
+  Card. = 1..1
+  Type = Reference(Device)
+  Short Label = Device that was changed
+  Definition = The device that was manipulated (changed) during the procedure
+
+ -- Row 27 -----------------------------------
+  Element = Procedure.used
+  Card. = 0..*
+  Type = Reference(Device|Medication|Substance)
+  Short Label = Items used during procedure
+  Definition = Identifies medications, devices and other substance used as part of the procedure
+  Requirements = Used for tracking contamination, etc.
+  Comments = For devices actually implanted or removed, use Procedure.device
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = type
+  Type = token
+  Description = Type of procedure
+  Path = Procedure.type
+
+ -- Row 2 -----------------------------------
+  Name = date
+  Type = date
+  Path = Procedure.performed[x]
+
+ -- Row 3 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a patient to list procedures  for
+  Path = Procedure.patient
+
+ -- Row 4 -----------------------------------
+  Name = performer
+  Type = reference
+  Path = Procedure.performer.person
+
+ -- Row 5 -----------------------------------
+  Name = location
+  Type = reference
+  Path = Procedure.location
+
+ -- Row 6 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = Procedure.encounter
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = procedure-extensions
+  IG Name = core
+  Filename = procedure-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Procedure Example
+  Filename = procedure-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Biopsy
+  Identity = biopsy
+  Description = Example of a Biopsy
+  Filename = procedure-example-biopsy.xml
+
+ -- Row 3 -----------------------------------
+  Name = TPF chemotherapy
+  Identity = f201
+  Description = Real-world procedure example
+  Filename = procedure-example-f201-tpf.xml
+
+ -- Row 4 -----------------------------------
+  Name = Heart
+  Identity = f001
+  Description = Real-world procedure example
+  Filename = procedure-example-f001-heart.xml
+
+ -- Row 5 -----------------------------------
+  Name = Lung
+  Identity = f002
+  Description = Real-world procedure example
+  Filename = procedure-example-f002-lung.xml
+
+ -- Row 6 -----------------------------------
+  Name = AbXXXscess
+  Identity = f003
+  Description = Real-world procedure example
+  Filename = procedure-example-f003-abscess.xml
+
+ -- Row 7 -----------------------------------
+  Name = Tracheotomy
+  Identity = f004
+  Description = Real-world procedure example
+  Filename = procedure-example-f004-tracheotomy.xml
+
+ -- Row 8 -----------------------------------
+  Name = Device Example
+  Identity = example-implant
+  Description = Example of a device manipulation
+  Filename = procedure-example-implant.xml
+
+=== Sheet Examples =====================================

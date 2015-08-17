@@ -1,0 +1,138 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = EnrollmentRequest
+  Type = DomainResource
+  Short Label = Enrollment request
+  Definition = This resource provides the insurance Enrollment details to the insurer regarding a specified coverage.
+
+ -- Row 2 -----------------------------------
+  Element = !Identification
+
+ -- Row 3 -----------------------------------
+  Element = EnrollmentRequest.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Business Identifier
+  Definition = The Response Business Identifier
+
+ -- Row 4 -----------------------------------
+  Element = EnrollmentRequest.ruleset
+  Card. = 0..1
+  Type = Coding
+  Binding = Ruleset
+  Short Label = Resource version
+  Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+
+ -- Row 5 -----------------------------------
+  Element = EnrollmentRequest.originalRuleset
+  Card. = 0..1
+  Type = Coding
+  Binding = Ruleset
+  Short Label = Original version
+  Definition = The style (standard) and version of the original material which was converted into this resource.
+  Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
+
+ -- Row 6 -----------------------------------
+  Element = EnrollmentRequest.created
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Creation date
+  Definition = The date when this resource was created.
+
+ -- Row 7 -----------------------------------
+  Element = EnrollmentRequest.target
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Insurer
+  Definition = The Insurer who is target  of the request.
+
+ -- Row 8 -----------------------------------
+  Element = EnrollmentRequest.provider
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Responsible practitioner
+  Definition = The practitioner who is responsible for the services rendered to the patient.
+  CDAnet v4 Mapping = B01
+
+ -- Row 9 -----------------------------------
+  Element = EnrollmentRequest.organization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Responsible organization
+  Definition = The organization which is responsible for the services rendered to the patient.
+
+ -- Row 10 -----------------------------------
+  Element = !Patient Information
+
+ -- Row 11 -----------------------------------
+  Element = EnrollmentRequest.subject
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = The subject of the Products and Services
+  Definition = Patient Resource
+  CDAnet v4 Mapping = C06,C07,C08, C05, C04
+
+ -- Row 12 -----------------------------------
+  Element = !Insurance Information
+
+ -- Row 13 -----------------------------------
+  Element = EnrollmentRequest.coverage
+  Card. = 1..1
+  Type = Reference(Coverage)
+  Short Label = Insurance information
+  Definition = Reference to the program or plan identification, underwriter or payor.
+  Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
+
+ -- Row 14 -----------------------------------
+  Element = EnrollmentRequest.relationship
+  Card. = 1..1
+  Type = Coding
+  Binding = Relationship
+  Short Label = Patient relationship to subscriber
+  Definition = The relationship of the patient to the subscriber
+  Requirements = To determine relationship between the patient and the subscriber
+  CDAnet v4 Mapping = C03
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The business identifier of the Enrollment
+  Path = EnrollmentRequest.identifier
+
+ -- Row 2 -----------------------------------
+  Name = !organization
+  Type = reference
+  Description = The organization who generated this resource
+  Path = EnrollmentRequest.organization
+
+ -- Row 3 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The party to be enrolled
+  Path = EnrollmentRequest.subject
+
+ -- Row 4 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The party to be enrolled
+  Path = EnrollmentRequest.subject
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General-Primary
+  Identity = 22345
+  Description = General Simple Enrollment Example
+  Filename = enrollmentrequest-example.xml
+
+=== Sheet Examples =====================================

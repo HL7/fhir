@@ -1,0 +1,79 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = HeadCircumferenceUOM
+  Binding = value set
+  Reference = valueset-headcircumferenceUOM
+  Definition = The list of codes used for the units of measure for head circumference
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = ObservationStatusBasic
+  Binding = value set
+  Reference = valueset-observationstatusbasic
+  Definition = A set of codes that describe the state of the observation
+  Conformance = preferred
+
+=== Sheet hspc-headcirc =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Head Occipital Frontal Circumference by Tape measure
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8287-5\"/><display value=\"Head Occipital-frontal circumference by Tape measure\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+  Card. = 1..1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 5 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Binding = HeadCircumferenceUOM
+
+ -- Row 6 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..0
+
+ -- Row 7 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..0
+
+ -- Row 8 -----------------------------------
+  Element = Observation.status
+  Binding = ObservationStatusBasic
+
+ -- Row 9 -----------------------------------
+  Element = !Observation.reliability
+  Card. = 0..0
+
+ -- Row 10 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+
+ -- Row 11 -----------------------------------
+  Element = Observation.method
+  Card. = 0..0
+
+ -- Row 12 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..0
+
+ -- Row 13 -----------------------------------
+  Element = Observation.device
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+=== Sheet Search =====================================

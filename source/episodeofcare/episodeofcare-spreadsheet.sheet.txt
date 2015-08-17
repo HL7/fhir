@@ -1,0 +1,248 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = EpisodeOfCareStatus
+  Binding = code list
+  Reference = #episode-of-care-status
+  Definition = The status of the encounter
+  Conformance = required
+
+=== Sheet episode-of-care-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = planned
+  Display = Planned
+  Definition = This episode of care is planned to start at the date specified in the period.start. During this status an organization may perform assessments to determine if they are eligible to receive services, or be organizing to make resources available to provide care services
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = waitlist
+  Display = Waitlist
+  Definition = This episode has been placed on a waitlist, pending the episode being made active (or cancelled)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = active
+  Display = Active
+  Definition = This episode of care is current
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = onhold
+  Display = On Hold
+  Definition = This episode of care is on hold, the organization has limited responsibility for the patient (such as while on respite)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = finished
+  Display = Finished
+  Definition = This episode of care is finished at the organization is not expecting to be providing care to the patient. Can also be known as \"closed\", \"completed\" or other similar terms
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = cancelled
+  Display = Cancelled
+  Definition = The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = EpisodeOfCare
+  Aliases = Case Program Problem
+  Type = DomainResource
+  Short Label = An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility
+  Definition = An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = EpisodeOfCare.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Identifier(s) by which this EpisodeOfCare is known
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = EpisodeOfCare.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = EpisodeOfCareStatus
+  Short Label = planned | waitlist | active | onhold | finished | cancelled
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = EpisodeOfCare.statusHistory
+  Card. = 0..*
+  UML = left
+  Short Label = The status history for the EpisodeOfCare
+
+ -- Row 5 -----------------------------------
+  Element = EpisodeOfCare.statusHistory.status
+  Card. = 1..1
+  Type = code
+  Binding = EpisodeOfCareStatus
+  Short Label = planned | waitlist | active | onhold | finished | cancelled
+
+ -- Row 6 -----------------------------------
+  Element = EpisodeOfCare.statusHistory.period
+  Card. = 1..1
+  Type = Period
+  Short Label = The period during this EpisodeOfCare that the specific status applied
+
+ -- Row 7 -----------------------------------
+  Element = EpisodeOfCare.type
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Short Label = Specific type of EpisodeOfCare
+  Definition = The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications
+  w5 = class
+
+ -- Row 8 -----------------------------------
+  Element = EpisodeOfCare.patient
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Patient)
+  Short Label = The patient that this EpisodeOfCare applies to
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = EpisodeOfCare.managingOrganization
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Label = The organization that has assumed the specific responsibilities for the specified duration
+  Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
+
+ -- Row 10 -----------------------------------
+  Element = EpisodeOfCare.period
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Label = The interval during which the managing organization assumes the defined responsibility
+  w5 = when.init
+
+ -- Row 11 -----------------------------------
+  Element = EpisodeOfCare.condition
+  Card. = 0..*
+  Type = Reference(Condition)
+  Short Label = A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for
+  w5 = what
+
+ -- Row 12 -----------------------------------
+  Element = EpisodeOfCare.referralRequest
+  Card. = 0..*
+  Type = Reference(ReferralRequest)
+  Short Label = Referral Request(s) that this EpisodeOfCare manages activities within
+  Definition = Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals
+
+ -- Row 13 -----------------------------------
+  Element = EpisodeOfCare.careManager
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = The practitioner that is the care manager/care co-ordinator for this patient
+
+ -- Row 14 -----------------------------------
+  Element = EpisodeOfCare.careTeam
+  Card. = 0..*
+  UML = right
+  Short Label = The list of practitioners that may be facilitating this episode of care for specific purposes
+
+ -- Row 15 -----------------------------------
+  Element = EpisodeOfCare.careTeam.member
+  Card. = 0..1
+  Type = Reference(Practitioner|Organization)
+  Short Label = The practitioner (or Organization) within the team
+  Comments = Where an Organization is included in the CareTeam, it is really providing some form of services to the EpisodeOfCare (e.g. Jim\'s Mowing Services) the details of the services would be included on a CarePlan
+  w5 = who
+
+ -- Row 16 -----------------------------------
+  Element = EpisodeOfCare.careTeam.role
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = The role that this team member is taking within this episode of care
+
+ -- Row 17 -----------------------------------
+  Element = EpisodeOfCare.careTeam.period
+  Card. = 0..1
+  Type = Period
+  Short Label = The period of time that this practitioner is performing some role within the episode of care
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = EpisodeOfCare.patient
+  Target Types = Patient
+
+ -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = EpisodeOfCare.identifier
+
+ -- Row 3 -----------------------------------
+  Name = status
+  Type = token
+  Description = The current status of the Episode of Care as provided (does not check the status history collection)
+  Path = EpisodeOfCare.status
+
+ -- Row 4 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The organization that has assumed the specific responsibilities of this EpisodeOfCare
+  Path = EpisodeOfCare.managingOrganization
+  Target Types = Organization
+
+ -- Row 5 -----------------------------------
+  Name = date
+  Type = date
+  Description = The provided date search value falls within the episode of care\'s period
+  Path = EpisodeOfCare.period
+
+ -- Row 6 -----------------------------------
+  Name = type
+  Type = token
+  Path = EpisodeOfCare.type
+
+ -- Row 7 -----------------------------------
+  Name = condition
+  Type = reference
+  Path = EpisodeOfCare.condition
+  Target Types = Condition
+
+ -- Row 8 -----------------------------------
+  Name = incomingreferral
+  Type = reference
+  Description = Incoming Referral Request
+  Path = EpisodeOfCare.referralRequest
+  Target Types = ReferralRequest
+
+ -- Row 9 -----------------------------------
+  Name = care-manager
+  Type = reference
+  Path = EpisodeOfCare.careManager
+  Target Types = Practitioner
+
+ -- Row 10 -----------------------------------
+  Name = team-member
+  Type = reference
+  Description = A Practitioner or Organization allocated to the care team for this EpisodeOfCare
+  Path = EpisodeOfCare.careTeam.member
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = example
+  Identity = example
+  Description = Episode of Care example
+  Filename = episodeofcare-example.xml
+
+=== Sheet Examples =====================================

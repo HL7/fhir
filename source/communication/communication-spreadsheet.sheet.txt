@@ -1,0 +1,227 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = CommunicationStatus
+  Binding = code list
+  Reference = #communication-status
+  Definition = The status of the communication
+
+=== Sheet communication-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 4
+  Code = in-progress
+  Display = In Progress
+  Definition = The communication transmission is ongoing.
+
+ -- Row 2 -----------------------------------
+  Id = 6
+  Code = completed
+  Display = Completed
+  Definition = The message transmission is complete, i.e., delivered to the recipient\'s destination.
+
+ -- Row 3 -----------------------------------
+  Id = 7
+  Code = suspended
+  Display = Suspended
+  Definition = The communication transmission has been held by originating system/user request.
+
+ -- Row 4 -----------------------------------
+  Id = 8
+  Code = rejected
+  Display = Rejected
+  Definition = The receiving system has declined to accept the message.
+
+ -- Row 5 -----------------------------------
+  Id = 9
+  Code = failed
+  Display = Failed
+  Definition = There was a failure in transmitting the message out.
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Communication
+  Type = DomainResource
+  Short Label = A record of information transmitted from a sender to a receiver
+  Definition = An occurrence of information being transmitted. E.g., an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Communication.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Unique identifier
+  Definition = Identifiers associated with this Communication that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Communication.category
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = Message category
+  Definition = The type of message conveyed such as alert, notification, reminder, instruction, etc.
+  w5 = class
+
+ -- Row 4 -----------------------------------
+  Element = Communication.sender
+  Card. = 0..1
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Message sender
+  Definition = The entity (e.g., person, organization, clinical information system, or device) which was the source of the communication.
+  w5 = who.actor
+
+ -- Row 5 -----------------------------------
+  Element = Communication.recipient
+  Card. = 0..*
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Message recipient
+  Definition = The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication.
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = Communication.payload
+  Card. = 0..*
+  Short Label = Message payload
+  Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
+
+ -- Row 7 -----------------------------------
+  Element = Communication.payload.content[x]
+  Card. = 1..1
+  Type = string|Attachment|Reference(Any)
+  Short Label = Message part content
+  Definition = An individual message part for multi-part messages.
+
+ -- Row 8 -----------------------------------
+  Element = Communication.medium
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Communication medium
+  Definition = The communication medium, e.g., email, fax.
+
+ -- Row 9 -----------------------------------
+  Element = Communication.status
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = CommunicationStatus
+  Short Label = in-progress | completed | suspended | rejected | failed
+  Definition = The status of the transmission.
+  w5 = status
+
+ -- Row 10 -----------------------------------
+  Element = Communication.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Encounter leading to message
+  Definition = The encounter within which the communication was sent.
+  w5 = context
+
+ -- Row 11 -----------------------------------
+  Element = Communication.sent
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When sent
+  Definition = The time when this communication was sent.
+  w5 = when.init
+
+ -- Row 12 -----------------------------------
+  Element = Communication.received
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When received
+  Definition = The time when this communication arrived at the destination.
+  w5 = when.done
+
+ -- Row 13 -----------------------------------
+  Element = Communication.reason
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Indication for message
+  Definition = The reason or justification for the communication.
+
+ -- Row 14 -----------------------------------
+  Element = Communication.subject
+  Card. = 0..1
+  Type = Reference(Patient)
+  Short Label = Focus of message
+  Definition = The patient who was the focus of this communication.
+  w5 = who.focus
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Communication.identifier
+
+ -- Row 2 -----------------------------------
+  Name = category
+  Type = token
+  Path = Communication.category
+
+ -- Row 3 -----------------------------------
+  Name = sender
+  Type = reference
+  Path = Communication.sender
+
+ -- Row 4 -----------------------------------
+  Name = recipient
+  Type = reference
+  Path = Communication.recipient
+
+ -- Row 5 -----------------------------------
+  Name = medium
+  Type = token
+  Path = Communication.medium
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Path = Communication.status
+
+ -- Row 7 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = Communication.encounter
+
+ -- Row 8 -----------------------------------
+  Name = sent
+  Type = date
+  Path = Communication.sent
+
+ -- Row 9 -----------------------------------
+  Name = received
+  Type = date
+  Path = Communication.received
+
+ -- Row 10 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = Communication.subject
+
+ -- Row 11 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Communication.subject
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = communication-extensions
+  IG Name = core
+  Filename = communication-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Alert Message
+  Identity = example
+  Description = An example of an alert message
+  Filename = communication-example.xml
+
+=== Sheet Examples =====================================

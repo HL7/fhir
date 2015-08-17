@@ -1,0 +1,543 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QuestionnaireGroupConcept
+  Binding = Unbound
+  Definition = Codes for questionnaires and groupings of questionnaire questions
+
+ -- Row 2 -----------------------------------
+  Binding Name = QuestionConcept
+  Binding = Unbound
+  Definition = Codes corresponding to individual questions
+
+ -- Row 3 -----------------------------------
+  Binding Name = QuestionnaireStatus
+  Binding = code list
+  Reference = #questionnaire-status
+  Definition = Lifecycle status of the questionnaire
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = AnswerFormat
+  Binding = code list
+  Reference = #answer-format
+  Definition = The expected format of an answer
+  Conformance = required
+
+=== Sheet questionnaire-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = draft
+  Display = Draft
+  Definition = This Questionnaire is not ready for official use.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = published
+  Display = Published
+  Definition = This Questionnaire is ready for use.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = retired
+  Display = Retired
+  Definition = This Questionnaire should no longer be used to gather data.
+
+=== Sheet answer-format =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = boolean
+  Definition = Answer is a yes/no answer
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = decimal
+  Definition = Answer is a floating point number
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = integer
+  Definition = Answer is an integer
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = date
+  Definition = Answer is a date
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = dateTime
+  Definition = Answer is a date and time
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = instant
+  Definition = Answer is a system timestamp
+
+ -- Row 7 -----------------------------------
+  Id = 8
+  Code = time
+  Definition = Answer is a time (hour/minute/second) independent of date
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = string
+  Definition = Answer is a short (few words to short sentence) free-text entry
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = text
+  Definition = Answer is a long (potentially multi-paragram) free-text entry (still captured as a string)
+
+ -- Row 10 -----------------------------------
+  Id = 16
+  Code = url
+  Definition = Answer is a url (website, FTP site, etc.)
+
+ -- Row 11 -----------------------------------
+  Id = 10
+  Code = choice
+  Definition = Answer is a Coding drawn from a list of options
+
+ -- Row 12 -----------------------------------
+  Id = 11
+  Code = open-choice
+  Definition = Answer is a Coding drawn from a list of options or a free-text entry.
+
+ -- Row 13 -----------------------------------
+  Id = 12
+  Code = attachment
+  Definition = Answer is binary content such as a image, PDF, etc.
+
+ -- Row 14 -----------------------------------
+  Id = 13
+  Code = reference
+  Definition = Answer is a reference to another resource (practitioner, organization, etc.)
+
+ -- Row 15 -----------------------------------
+  Id = 14
+  Code = quantity
+  Definition = Answer is a combination of a numeric value and unit, potentially with a comparator (<, >, etc)
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Questionnaire.group
+  English = Groups may either contain questions or groups but not both
+  XPath = not(exists(f:group) and exists(f:question))
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Questionnaire
+  English = The link ids for groups and questions must be unique within the questionnaire
+  XPath = count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Questionnaire
+  English = If root, group must be \'required\'
+  XPath = not(exists(lloyd-fix-me)) or (f:group/f:required/@value=\'true\')
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Questionnaire
+  Aliases = Form, CRF, Survey
+  Type = DomainResource
+  Short Label = A structured set of questions
+  Definition = A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions
+  Requirements = To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.
+  RIM Mapping = Observation[moodCode=DEF]
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = Questionnaire.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = External Ids for this questionnaire
+  Definition = This records identifiers associated with this question set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Requirements = Need to allow connection to a wider workflow
+  RIM Mapping = .id[use=BUS]
+  Committee Notes = Is this 80%?
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Questionnaire.version
+  Card. = 0..1
+  Aliases = N/A - MIF rather than RIM level
+  Summary = y
+  Type = string
+  Short Label = Logical id for this version of Questionnaire
+  Definition = The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated
+  Requirements = In some cases, separate resource instances might be created for each version (if an older version can be maintained once a new version exists)
+  RIM Mapping = .id[use=VER]
+  w5 = id.version
+
+ -- Row 4 -----------------------------------
+  Element = Questionnaire.status
+  Card. = 1..1
+  Is Modifier = y
+  Summary = y
+  Type = code
+  Binding = QuestionnaireStatus
+  Short Label = draft | published | retired
+  Definition = The lifecycle status of the questionnaire as a whole.
+  RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)
+  w5 = status
+
+ -- Row 5 -----------------------------------
+  Element = Questionnaire.date
+  Card. = 0..1
+  Aliases = Date Created, Date published, Date Issued, Date updated
+  Summary = y
+  Type = dateTime
+  Short Label = Date this version was authored
+  Definition = The date that this questionnaire was last changed
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 6 -----------------------------------
+  Element = Questionnaire.publisher
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Organization/individual who designed the questionnaire
+  Definition = Organization or person responsible for developing and maintaining the questionnaire
+  Requirements = Conveys responsibility for the questions and their organization and also helps evaluate the questionnaire\'s \"authority\"
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.witness
+
+ -- Row 7 -----------------------------------
+  Element = Questionnaire.telecom
+  Card. = 0..*
+  Summary = Y
+  Type = ContactPoint
+  Short Label = Contact information of the publisher
+  Definition = Contact details to assist a user in finding and communicating with the publisher
+  RIM Mapping = .participation[typeCode=AUT].role.telecom
+
+ -- Row 8 -----------------------------------
+  Element = Questionnaire.subjectType
+  Card. = 0..*
+  Summary = y
+  Type = code
+  Binding = ResourceType
+  Short Label = Resource that can be subject of QuestionnaireResponse
+  Definition = Identifies the types of subjects that can be the subject of the questionnaire.
+  Comments = If none are specified, then the subject is unlimited
+  RIM Mapping = .outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode
+
+ -- Row 9 -----------------------------------
+  Element = Questionnaire.group
+  Card. = 1..1
+  Aliases = Section
+  UML = right
+  Inv. = 3
+  Type = =Group
+  Short Label = Grouped questions
+  Definition = A collection of related questions (or further groupings of questions)
+  Requirements = Need to be able to logically group answers to grouped questions
+  Comments = The Questionnaire itself has one \"root\" group with the actual contents of the Questionnaire.  Information on this root group applies to the questionnaire as a whole
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
+
+ -- Row 10 -----------------------------------
+  Element = Questionnaire.group.linkId
+  Card. = 0..1
+  Type = string
+  Short Label = To link questionnaire with questionnaire response
+  Definition = An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.
+  Requirements = [[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.
+  Comments = May be omitted if there is no expectation to link answers back to a questionnaire.  This *can* be a meaningful id (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
+  RIM Mapping = .id
+
+ -- Row 11 -----------------------------------
+  Element = Questionnaire.group.title
+  Card. = 0..1
+  Type = string
+  Short Label = Name to be displayed for group
+  Definition = The human-readable name for this section of the questionnaire
+  Requirements = When including text for the questionnaire with the answers, sections may have a section header
+  Comments = The title of the \"root\" group is the title for the questionnaire
+  RIM Mapping = .title
+
+ -- Row 12 -----------------------------------
+  Element = Questionnaire.group.concept
+  Card. = 0..*
+  Type = Coding
+  Binding = QuestionnaireGroupConcept
+  Short Label = Concept that represents this section on a questionnaire
+  Definition = Identifies a how this group of questions is known in a particular terminology such as LOINC.
+  Requirements = Allows linking of groups of questions (and complete questionnaires) to formal terminologies
+  Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole.
+  RIM Mapping = .code
+
+ -- Row 13 -----------------------------------
+  Element = Questionnaire.group.text
+  Card. = 0..1
+  Type = string
+  Short Label = Additional text for the group
+  Definition = Additional text for the group, used for display purposes
+  Requirements = When including text for the questionnaire, each section may contain additional explanations are background text
+  Comments = Common extensions are defined for more specialized types of display text
+  RIM Mapping = .text
+
+ -- Row 14 -----------------------------------
+  Element = Questionnaire.group.required
+  Card. = 0..1
+  Type = boolean
+  Short Label = Must group be included in data results?
+  Definition = If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
+  RIM Mapping = Not supported - MIF/templating layer
+  Default Value = False
+
+ -- Row 15 -----------------------------------
+  Element = Questionnaire.group.repeats
+  Card. = 0..1
+  Type = boolean
+  Short Label = Whether the group may repeat
+  Definition = Whether the group may occur multiple times in the instance, containing multiple sets of answers
+  Requirements = Groups may be used to create set of (related) questions that can be repeated to give multiple answers to such a set
+  RIM Mapping = Not supported - MIF/templating layer
+  Default Value = False
+
+ -- Row 16 -----------------------------------
+  Element = Questionnaire.group.group
+  Card. = 0..*
+  Inv. = 1
+  Type = @Questionnaire.group
+  Short Label = Nested questionnaire group
+  Definition = A sub-group within a group. The ordering of groups within this group is relevant
+  Requirements = Reports can consist of complex nested groups
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
+
+ -- Row 17 -----------------------------------
+  Element = Questionnaire.group.question
+  Card. = 0..*
+  Aliases = Responses, Contents
+  UML = down
+  Inv. = 1
+  Type = =Question
+  Short Label = Questions in this group
+  Definition = Set of questions within this group. The order of questions within the group is relevant
+  Requirements = Must register answers to questions
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN or DEF]
+
+ -- Row 18 -----------------------------------
+  Element = Questionnaire.group.question.linkId
+  Card. = 0..1
+  Type = string
+  Short Label = To link questionnaire with questionnaire response
+  Definition = An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.
+  Requirements = [[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.
+  Comments = May be omitted if there is no expectation to link answers back to a questionnaire.  This *can* be a meaningful id (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
+  RIM Mapping = .id
+
+ -- Row 19 -----------------------------------
+  Element = Questionnaire.group.question.concept
+  Card. = 0..*
+  Type = Coding
+  Short Label = Concept that represents this question on a questionnaire
+  Definition = Identifies a how this question is known in a particular terminology such as LOINC.
+  Requirements = Allows linking of questions (and their answers) to formal terminologies
+  RIM Mapping = .code
+
+ -- Row 20 -----------------------------------
+  Element = Questionnaire.group.question.text
+  Card. = 0..1
+  Aliases = Question
+  Type = string
+  Short Label = Text of the question as it is shown to the user
+  Definition = The actual question as shown to the user to prompt them for an answer.
+  Requirements = When including text for the questionnaire, each question may contain its actual question display text
+  Comments = Common extensions are defined for more specialized types of display text
+  RIM Mapping = .code.display
+
+ -- Row 21 -----------------------------------
+  Element = Questionnaire.group.question.type
+  Card. = 0..1
+  Type = code
+  Binding = AnswerFormat
+  Short Label = boolean | decimal | integer | date | dateTime +
+  Definition = The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected
+  Requirements = Defines the format in which the user is to be prompted for the answer
+  Comments = Additional constraints on the type of answer can be conveyed by extensions
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 22 -----------------------------------
+  Element = Questionnaire.group.question.required
+  Card. = 0..1
+  Type = boolean
+  Short Label = Must question be answered in data results?
+  Definition = If true, indicates that the question must be answered and have required groups within it also present.  If false, the question and any contained groups may be skipped when answering the questionnaire.
+  RIM Mapping = Not supported - MIF/templating layer
+  Default Value = False
+
+ -- Row 23 -----------------------------------
+  Element = Questionnaire.group.question.repeats
+  Card. = 0..1
+  Type = boolean
+  Short Label = Can question  have multiple answers?
+  Definition = If true, the question may have more than one answer.
+  Requirements = Used for \"check all that apply\" types of questions or \"list your top 3\", etc.
+  Comments = Whether the question itself will be displayed for each answer is a rendering choice typically based on whether there are nested groups.
+  RIM Mapping = Not supported - MIF/templating layer
+  Default Value = False
+
+ -- Row 24 -----------------------------------
+  Element = Questionnaire.group.question.options
+  Card. = 0..1
+  Type = Reference(ValueSet)
+  Short Label = Valueset containing permitted answers
+  Definition = Reference to a valueset containing the a list of codes representing permitted answers for the question
+  Comments = LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist)
+  RIM Mapping = Not supported - MIF/templating layer to capture value set
+
+ -- Row 25 -----------------------------------
+  Element = Questionnaire.group.question.group
+  Card. = 0..*
+  Type = @Questionnaire.group
+  Short Label = Nested questionnaire group
+  Definition = Nested group, containing nested question for this question. The order of groups within the question is relevant
+  Requirements = It is useful to have \"sub-questions\", questions which normally appear when certain answers are given and which collect additional details.
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the questionnaire
+  Path = Questionnaire.status
+
+ -- Row 2 -----------------------------------
+  Name = date
+  Type = date
+  Description = When the questionnaire was last changed
+  Path = Questionnaire.date
+
+ -- Row 3 -----------------------------------
+  Name = publisher
+  Type = string
+  Description = The author of the questionnaire
+  Path = Questionnaire.publisher
+
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = An identifier for the questionnaire
+  Path = Questionnaire.identifier
+
+ -- Row 5 -----------------------------------
+  Name = version
+  Type = string
+  Description = The business version of the questionnaire
+  Path = Questionnaire.version
+
+ -- Row 6 -----------------------------------
+  Name = code
+  Type = token
+  Description = A code that corresponds to the questionnaire or one of its groups
+  Path = Questionnaire.group.concept
+
+ -- Row 7 -----------------------------------
+  Name = title
+  Type = string
+  Description = All or part of the name of the questionnaire (title for the root group of the questionnaire)
+  Path = Questionnaire.group.title
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = core-extensions
+  IG Name = core
+  Filename = questionnaire-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = 3141
+  Description = General questionnaire example
+  Filename = questionnaire-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Lifelines
+  Identity = f201
+  Description = Real-world lifelines questionnaire (fictively taken from the patient)
+  Filename = questionnaire-example-f201-lifelines.xml
+
+ -- Row 3 -----------------------------------
+  Name = BlueBook
+  Identity = bb
+  Description = Neonate record from New South Wales, Australia \"My Personal Health Record\" example
+  Filename = questionnaire-example-bluebook.xml
+
+ -- Row 4 -----------------------------------
+  Name = Glasgow Coma Score
+  Identity = gcs
+  Description = Glasgow Coma Score example form
+  Filename = questionnaire-example-gcs.xml
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = populate
+  Use = Resource | Instance
+  Documentation = Generates a [[[QuestionnaireResponse]]] instance  based on a specified [[[Questionnaire]]], filling in answers to questions where possible based on information provided as part of the operation or already known by the server about the subject of the [[[Questionnaire]]].  If the operation is not called at the instance level, one of the identifier or questionnaire \'in\' parameters must be provided.  (If called at the instance level, these parameters will be ignored.)  The response will contain a [[[QuestionnaireResponse]]] instance based on the specified [[[Questionnaire]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.  The [[[QuestionnaireResponse]]] instance will be populated with an unanswered set of questions following the group and question structure of the specified [[[Questionnaire]]].  If  *content* parameters were specified or the *local* parameter was set to true, some of the questions may have answers filled in as well.  In the case of repeating questions or groups, typically only one repetition will be provided unless answer values exist that would support populating multiple repetitions.  Population of the [[[QuestionnaireResponse]]] with appropriate data is dependent on the questions and/or groups in the [[[Questionnaire]]] having metadata that allows the server to recognize the questions.  This might be through *Questionnaire.group.question.code*, through extensions such as the [[[http://hl7.org/fhir/StructureDefinition/questionnaire-deReference]]] extension or through us of the [[[ConceptMap]]] resource.  Regardless of the mechanism used to link the questions in a questionnaire to a \"known\" mapable concept, solutions using this operation should ensure that the details of the question and associated linkage element are sufficiently similar as to safely allow auto-population.  I.e. the question text and context must be sufficiently the same, the value set for the question must fall within the value set for the mapped element, the data types must be the same or convertable, etc.
+  Type = operation
+  Title = Populate Questionnaire
+  Footer = While it is theoretically possible for a [[[QuestionnaireResponse]]] instance to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  A client **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.  Complex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondant, answering only those questions that are enabled based on previously answered questions.  However doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  It will be up to the client to appropriately prune the final populated questionnaire once human review has taken place.  Invoking this operation with the \'\'content\'\' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a \"trusted\" system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.
+
+ -- Row 2 -----------------------------------
+  Name = populate.identifier
+  Use = in
+  Documentation = A logical questionnaire identifier (i.e. \'\'Questionnaire.identifier\'\'). The server must know the questionnaire or be able to retrieve it from other known repositories.
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = populate.questionnaire
+  Use = in
+  Documentation = The [[[Questionnaire]]] is provided directly as part of the request. Servers may choose not to accept questionnaires in this fashion
+  Type = Questionnaire
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = populate.subject
+  Use = in
+  Documentation = The resource that is to be the *QuestionnaireResponse.subject*. The [[[QuestionnaireResponse]]] instance will reference the provided subject.  In addition, if the *local* parameter is set to true, server information about the specified subject will be used to populate the instance.
+  Type = Reference
+  Min = 1
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = populate.content
+  Use = in
+  Documentation = Resources containing information to be used to help populate the [[[QuestionnaireResponse]]].  These may be FHIR resources or may be Binaries containing FHIR documents, CDA documents or other source materials.  Servers may not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
+  Type = Any
+  Min = 0
+  Max = *
+
+ -- Row 6 -----------------------------------
+  Name = populate.local
+  Use = in
+  Documentation = If specified and set to \'true\' (and the server is capable), the server should use what resources and other knowledge it has about the referenced subject when pre-populating answers to questions.
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = populate.return
+  Use = out
+  Documentation = The partially (or fully)-populated set of answers for the specified Questionnaire
+  Type = QuestionnaireResponse
+  Min = 1
+  Max = 1

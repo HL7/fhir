@@ -1,0 +1,55 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet CQIF-Questionnaire =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Questionnaire
+  Profile Name = CQIF-Questionnaire
+  Type = DomainResource
+  Short Label = A questionnaire with the ability to specify behavior associated with questions or groups of questions
+  Definition = A CQIF questionnaire is a questionnaire with the added ability to describe behavior associated with questions. For example, whether or not to display a particular question or group of questions, or automatically calculating the value of an answer based on the answers to previous questions
+
+ -- Row 2 -----------------------------------
+  Element = Questionnaire.extension
+  Profile Name = content
+  Aliases = content
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-content}
+  Short Label = An attachment containing any logic referenced by the questionnaire
+  Definition = A CQL or ELM attachment containing any logic referenced by the questionnaire
+
+ -- Row 3 -----------------------------------
+  Element = Questionnaire.group
+
+ -- Row 4 -----------------------------------
+  Element = Questionnaire.group.extension
+  Profile Name = condition
+  Card. = 0..1
+  Aliases = condition
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-expression}
+  Short Label = A condition that determines whether or not the group is applicable
+  Definition = The name of an expression that determines whether the group on which it appears is applicable. The expression is evaluated within the current context. If the result of evaluating the expression is true, the group is applicable. The expression has access to the current value of answered questions by the linkId of the question
+  Comments = Note that per Lloyd this extension may not be necessary, it may be able to specified structurally using the elements already available within Questionnaire
+
+ -- Row 5 -----------------------------------
+  Element = Questionnaire.group.question
+
+ -- Row 6 -----------------------------------
+  Element = Questionnaire.group.question.extension
+  Profile Name = initialValue
+  Card. = 0..1
+  Aliases = initialValue
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-expression}
+  Short Label = An expression that provides the initial value for the answer to the question
+  Definition = The name of an expression that determines the initial value for the answer to the question. This expression is evaluated once as part of displaying the form, and does not have access to the answers to other questions
+
+ -- Row 7 -----------------------------------
+  Element = Questionnaire.group.question.extension
+  Profile Name = calculatedValue
+  Card. = 0..1
+  Aliases = calculatedValue
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-expression}
+  Short Label = An expression that provides a calculated value for the answer to the question
+  Definition = The name of an expression that determines a calculated value for the answer to the question. The expression is evaluated as necessary and has access to the answers to other questions by the linkId of the question
+
+=== Sheet Search =====================================

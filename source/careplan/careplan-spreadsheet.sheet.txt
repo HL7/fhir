@@ -1,0 +1,686 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = CarePlanStatus
+  Binding = code list
+  Reference = #care-plan-status
+  Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.
+
+ -- Row 2 -----------------------------------
+  Binding Name = CarePlanParticipantRole
+  Binding = unbound
+  Definition = Indicates specific responsibility of an individual within the care plan.  E.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+
+ -- Row 3 -----------------------------------
+  Binding Name = CarePlanGoalStatus
+  Binding = code list
+  Reference = #care-plan-goal-status
+  Definition = Indicates whether the goal has been met and is still being targeted
+
+ -- Row 4 -----------------------------------
+  Binding Name = CarePlanActivityCategory
+  Binding = code list
+  Reference = #care-plan-activity-category
+  Definition = High-level categorization of the type of activity in a care plan.
+
+ -- Row 5 -----------------------------------
+  Binding Name = CarePlanActivityType
+  Binding = unbound
+  Definition = Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.
+
+ -- Row 6 -----------------------------------
+  Binding Name = CarePlanActivityStatus
+  Binding = code list
+  Reference = #care-plan-activity-status
+  Definition = Indicates where the activity is at in its overall life cycle
+
+ -- Row 7 -----------------------------------
+  Binding Name = CarePlanActivityStatusReason
+  Binding = unbound
+  Definition = Describes why the current activity has the status it does.  E.g. \"Recovering from injury\" as a reason for non-started or on-hold, \"Patient does not enjoy activity\" as a reason for cancelling a planned activity
+
+ -- Row 8 -----------------------------------
+  Binding Name = CarePlanCategory
+  Binding = unbound
+  Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans.  E.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", etc.
+
+ -- Row 9 -----------------------------------
+  Binding Name = CarePlanActivityReason
+  Binding = unbound
+  Definition = Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as \"general wellness\", prohylaxis, surgical preparation, etc.
+
+=== Sheet care-plan-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = planned
+  Display = Planned
+  Definition = The plan is in development or awaiting use but is not yet intended to be acted upon.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = active
+  Display = Active
+  Definition = The plan is intended to be followed and used as part of patient care
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = completed
+  Display = Completed
+  Definition = The plan is no longer in use and is not expected to be followed or used in patient care
+
+=== Sheet care-plan-goal-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = in-progress
+  Display = In Progress
+  Definition = The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = achieved
+  Display = Achieved
+  Definition = The goal has been met and no further action is needed
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = sustaining
+  Display = Sustaining
+  Definition = The goal has been met, but ongoing activity is needed to sustain the goal objective
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = cancelled
+  Display = Cancelled
+  Definition = The goal is no longer being sought
+
+=== Sheet care-plan-activity-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = diet
+  Display = Diet
+  Definition = Plan for the patient to consume food of a specified nature
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = drug
+  Display = Drug
+  Definition = Plan for the patient to consume/receive a drug, vaccine or other product
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = encounter
+  Display = Encounter
+  Definition = Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = observation
+  Display = Observation
+  Definition = Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = procedure
+  Display = Procedure
+  Definition = Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = supply
+  Display = Supply
+  Definition = Plan to provide something to the patient (medication, medical supply, etc.)
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = other
+  Display = Other
+  Definition = Some other form of action
+
+=== Sheet care-plan-activity-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = not-started
+  Display = Not Started
+  Definition = Activity is planned but no action has yet been taken
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = scheduled
+  Display = Scheduled
+  Definition = Appointment or other booking has occurred but activity has not yet begun
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = in-progress
+  Display = In Progress
+  Definition = Activity has been started but is not yet complete
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = on-hold
+  Display = On Hold
+  Definition = Activity was started but has temporarily ceased with an expectation of resumption at a future time.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = completed
+  Display = Completed
+  Definition = The activities have been completed (more or less) as planned
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = cancelled
+  Display = Cancelled
+  Definition = The activities have been ended prior to completion (perhaps even before they were started)
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = CarePlan.activity.detail
+  English = DailyDose can only be specified if activity category is drug or food
+  XPath = (f:category/@value=(\'drug\',\'diet\')) = exists(f:dailyAmount)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = CarePlan.activity.detail
+  English = Quantity can only be specified if activity category is supply
+  XPath = (f:category/@value=(\'supply\')) = exists(f:quantity)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = CarePlan.activity.detail
+  English = Only provide a detail reference, or a simple detail summary
+  XPath = not(exists(f:detail)) or not(exists(f:simple))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = CarePlan
+  Aliases = Care Team
+  UML = 0,0
+  Type = DomainResource
+  Short Label = Healthcare plan for patient
+  Definition = Describes the intention of how one or more practitioners intend to deliver care for a particular patient for a period of time, possibly limited to care for a specific condition or set of conditions.
+  RIM Mapping = Act[classCode=PCPR, moodCode=INT]
+  Committee Notes = At present, this resource combines the concepts of CarePlan and CareTeam.  Should they be split?
+
+ -- Row 2 -----------------------------------
+  Element = CarePlan.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = External Ids for this plan
+  Definition = This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Requirements = Need to allow connection to a wider workflow
+  RIM Mapping = .id
+
+ -- Row 3 -----------------------------------
+  Element = CarePlan.patient
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient)
+  Short Label = Who care plan is for
+  Definition = Identifies the patient/subject whose intended care is described by the plan.
+  Requirements = Care plans are associated with the patient the plan is for.
+  v2 Mapping = PID-3-patient ID list
+  RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
+
+ -- Row 4 -----------------------------------
+  Element = CarePlan.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = CarePlanStatus
+  Short Label = planned | active | completed
+  Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.
+  Requirements = Allows clinicians to determine whether the plan is actionable or not
+  v2 Mapping = PTH-5-pathway life cycle status
+  RIM Mapping = .statusCode planned = new active = active completed = completed
+
+ -- Row 5 -----------------------------------
+  Element = CarePlan.period
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Label = Time period plan covers
+  Definition = Indicates when the plan did (or is intended to) come into effect and end.
+  Requirements = Allows tracking what plan(s) are in effect at a particular time.
+  Comments = Any activities scheduled as part of the plan should be constrained to the specified period.
+  v2 Mapping = GOL-7-goal established date/time / GOL-8-expected goal achieve date/time
+  RIM Mapping = .effectiveTime
+
+ -- Row 6 -----------------------------------
+  Element = CarePlan.author
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Short Label = Who is responsible for plan
+  Definition = Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
+  Comments = Collaborative care plans may have multiple authors.
+
+ -- Row 7 -----------------------------------
+  Element = CarePlan.modified
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Label = When last updated
+  Definition = Identifies the most recent date on which the plan has been revised.
+  Requirements = Indicates how current the plan is.
+  v2 Mapping = PTH-6-change pathway life cycle status date/time
+  RIM Mapping = .participation[typeCode=AUT].time
+  Committee Notes = Do we need this in addition to the resource metadata which tracks last changed?
+
+ -- Row 8 -----------------------------------
+  Element = CarePlan.category
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = CarePlanCategory
+  Short Label = Type of plan
+  Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans.  E.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", etc.
+  Requirements = Used for filtering what plan(s) are retrieved and displayed to different types of users
+  Comments = There may be multiple axis of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.
+  To Do = Need a value set for this
+
+ -- Row 9 -----------------------------------
+  Element = CarePlan.concern
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Condition)
+  Short Label = Health issues this plan addresses
+  Definition = Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
+  Requirements = Links plan to the conditions it manages.  Also scopes plans - multiple plans may exist addressing different concerns.
+  v2 Mapping = PRB-4-Problem instance ID
+  RIM Mapping = .actRelationship[typeCode=SUBJ].target[classCode=CONC, moodCode=EVN]
+
+ -- Row 10 -----------------------------------
+  Element = CarePlan.support
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Information considered as part of plan
+  Definition = Identifies portions of the patient\'s record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.
+  Requirements = Identifies barriers and other considerations associated with the care plan.
+  Comments = Use \"concern\" to identify specific conditions addressed by the care plan.
+
+ -- Row 11 -----------------------------------
+  Element = CarePlan.participant
+  Card. = 0..*
+  Aliases = Care Team
+  UML = 0;260
+  Short Label = Who\'s involved in plan?
+  Definition = Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
+  Requirements = Allows representation of care teams, helps scope care plan.  In some cases may be a determiner of access permissions.
+  v2 Mapping = REL (REL.4 is always the Patient) ( or PRT?)
+  RIM Mapping = .participation[typeCode=PFM]
+
+ -- Row 12 -----------------------------------
+  Element = CarePlan.participant.role
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CarePlanParticipantRole
+  Short Label = Type of involvement
+  Definition = Indicates specific responsibility of an individual within the care plan.  E.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Comments = Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care plan.  General relationships should be handled as properties of the Patient resource directly.
+  v2 Mapping = REL.2 (or PRT-4-participation?)
+  RIM Mapping = .functionCode
+
+ -- Row 13 -----------------------------------
+  Element = CarePlan.participant.member
+  Card. = 1..1
+  Type = Reference(Practitioner|RelatedPerson|Patient|Organization)
+  Short Label = Who is involved
+  Definition = The specific person or organization who is participating/expected to participate in the care plan.
+  Comments = Patient only needs to be listed if they have a role other than \"subject of care\"
+  v2 Mapping = REL.5 (or PRT-5-participation person : ( PRV-4 e {provider participations} ) / PRT-5-participation person : ( PRV-4 e {non-provider person participations} ) / PRT-5-participation person : ( PRV-4 = (patient non-subject of care) ) / PRT-8-participation organization?)
+  RIM Mapping = .role
+
+ -- Row 14 -----------------------------------
+  Element = CarePlan.goal
+  Card. = 0..*
+  Type = Reference(Goal)
+  Short Label = Desired outcome of plan
+  Definition = Describes the intended objective(s) of carrying out the Care Plan.
+  Requirements = Provides context for plan.  Allows plan effectiveness to be evaluated by clinicians.
+  Comments = Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
+  v2 Mapping = GOL.1
+  RIM Mapping = .outboundRelationship[typeCode<=OBJ].
+  Committee Notes = Should this be expanded into code + value + timeframe?
+
+ -- Row 15 -----------------------------------
+  Element = CarePlan.activity
+  Card. = 0..*
+  UML = 250;0
+  Short Label = Action to occur as part of plan
+  Definition = Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
+  Requirements = Allows systems to prompt for performance of planned activities, validate plans against best practice.
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target
+
+ -- Row 16 -----------------------------------
+  Element = CarePlan.activity.actionResulting
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Appointments, orders, etc.
+  Definition = Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.
+  Requirements = Links plan to resulting actions
+  RIM Mapping = .inboundRelationship[typeCode=FLFS].source
+
+ -- Row 17 -----------------------------------
+  Element = CarePlan.activity.notes
+  Card. = 0..1
+  Type = string
+  Short Label = Comments about the activity
+  Definition = Notes about the execution of the activity
+  Requirements = Can be used to capture information about adherence, progress, concerns, etc.
+  Comments = Doesn\'t describe the activity - that goes in details.
+  v2 Mapping = NTE?
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
+
+ -- Row 18 -----------------------------------
+  Element = CarePlan.activity.reference
+  Card. = 0..1
+  Inv. = 3
+  Type = Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)
+  Short Label = Activity details defined in specific resource
+  Definition = The details of the proposed activity represented in a specific resource
+  Requirements = Details in a form consistent with other applications and contexts of use
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target
+
+ -- Row 19 -----------------------------------
+  Element = CarePlan.activity.detail
+  Card. = 0..1
+  UML = 250;250
+  Inv. = 3
+  Short Label = In-line definition of activity
+  Definition = A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn\'t know about specific resources such as procedure etc
+  Requirements = Details in a simple form for generic care plan systems
+  RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target
+
+ -- Row 20 -----------------------------------
+  Element = CarePlan.activity.detail.category
+  Card. = 1..1
+  Type = code
+  Binding = CarePlanActivityCategory
+  Short Label = diet | drug | encounter | observation | procedure | supply | other
+  Definition = High-level categorization of the type of activity in a care plan.
+  Requirements = May determine what types of extensions are permitted
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=LIST].code
+  Committee Notes = Should this be an HL7-defined code?  Do we need more (e.g. accommodation)
+
+ -- Row 21 -----------------------------------
+  Element = CarePlan.activity.detail.code
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CarePlanActivityType
+  Short Label = Detail type of activity
+  Definition = Detailed description of the type of planned activity.  E.g. What lab test, what procedure, what kind of encounter.
+  Requirements = Allows matching performed to planned as well as validation against protocols
+  Comments = Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use \"prohibited\" instead.
+  v2 Mapping = OBR-4-universal service ID / RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code
+  RIM Mapping = .code
+
+ -- Row 22 -----------------------------------
+  Element = CarePlan.activity.detail.reason[x]
+  Card. = 0..1
+  Type = CodeableConcept | Reference(Condition)
+  Binding = CarePlanActivityReason
+  Short Label = Why activity should be done
+  Definition = Provides the health condition(s) or other rationale that drove the inclusion of this particular activity as part of the plan.
+  Comments = Conditions can be identified at the activity level that are not identified as reasons for the overall plan
+
+ -- Row 23 -----------------------------------
+  Element = CarePlan.activity.detail.goal
+  Card. = 0..*
+  Type = Reference(Goal)
+  Short Label = Goals this activity relates to
+  Definition = Internal reference that identifies the goals that this activity is intended to contribute towards meeting
+  Requirements = So that participants know the link explicitly
+  RIM Mapping = .outboundRelationship[typeCode<=OBJ].
+
+ -- Row 24 -----------------------------------
+  Element = CarePlan.activity.detail.status
+  Card. = 0..1
+  Is Modifier = Y
+  Type = code
+  Binding = CarePlanActivityStatus
+  Short Label = not-started | scheduled | in-progress | on-hold | completed | cancelled
+  Definition = Identifies what progress is being made for the specific activity.
+  Requirements = Indicates progress against the plan, whether the activity is still relevant for the plan
+  Comments = Some aspects of Status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.
+  v2 Mapping = ORC-5-order status?
+  RIM Mapping = .statusCode not-started = new scheduled = not-started (and fulfillment relationship to appointent) in-progress = active on-hold = suspended completed = completed cancelled = aborted
+
+ -- Row 25 -----------------------------------
+  Element = CarePlan.activity.detail.statusReason
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CarePlanActivityStatusReason
+  Short Label = Reason for current status
+  Definition = Provides reason why the activity isn\'t yet started, is on hold, was cancelled, etc.
+  Comments = Will generally not be present it status is \"complete\".  Be sure to prompt to update this (or at least remove the existing value) if the status is changed.
+  To Do = Need a proper value set
+
+ -- Row 26 -----------------------------------
+  Element = CarePlan.activity.detail.prohibited
+  Card. = 1..1
+  Is Modifier = Y
+  Type = boolean
+  Short Label = Do NOT do
+  Definition = If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
+  Requirements = Captures intention to not do something that may have been previously typical.
+  RIM Mapping = actionNegationInd
+
+ -- Row 27 -----------------------------------
+  Element = CarePlan.activity.detail.scheduled[x]
+  Card. = 0..1
+  Type = Timing|Period | string
+  Short Label = When activity is to occur
+  Definition = The period, timing or frequency upon which the described activity is to occur.
+  Requirements = Allows prompting for activities and detection of missed planned activities.
+  v2 Mapping = TQ1
+  RIM Mapping = .effectiveTime
+
+ -- Row 28 -----------------------------------
+  Element = CarePlan.activity.detail.location
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Label = Where it should happen
+  Definition = Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.
+  Requirements = Helps in planning of activity
+  Comments = May reference a specific clinical location or may just identify a type of location.
+  v2 Mapping = OBR-24-diagnostic service section ID (???!!)
+  RIM Mapping = .participation[typeCode=LOC].role
+
+ -- Row 29 -----------------------------------
+  Element = CarePlan.activity.detail.performer
+  Card. = 0..*
+  Type = Reference(Practitioner|Organization|RelatedPerson|Patient)
+  Short Label = Who will be responsible?
+  Definition = Identifies who\'s expected to be involved in the activity.
+  Requirements = Helps in planning of activity
+  Comments = A performer MAY also be a participant in the care plan
+  v2 Mapping = PRT-5-participation person : ( PRV-4 e {provider participations} ) / PRT-5-participation person : ( PRV-4 e {non-provider person participations} ) / PRT-5-participation person : ( PRV-4 = (patient non-subject of care) ) / PRT-8-participation organization
+  RIM Mapping = .participation[typeCode=PFM]
+
+ -- Row 30 -----------------------------------
+  Element = CarePlan.activity.detail.product
+  Card. = 0..1
+  Type = Reference(Medication|Substance)
+  Short Label = What is to be administered/supplied
+  Definition = Identifies the food, drug or other product to be consumed or supplied in the activity.
+  v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code
+  RIM Mapping = .participation[typeCode=PRD].role
+
+ -- Row 31 -----------------------------------
+  Element = CarePlan.activity.detail.dailyAmount
+  Card. = 0..1
+  Aliases = daily dose
+  Inv. = 1
+  Type = SimpleQuantity
+  Short Label = How to consume/day?
+  Definition = Identifies the quantity expected to be consumed in a given day.
+  Requirements = Allows rough dose checking
+  v2 Mapping = RXO-23-total daily dose / RXE-19-total daily dose / RXD-12-total daily dose
+  RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SBADM].doseQuantity
+
+ -- Row 32 -----------------------------------
+  Element = CarePlan.activity.detail.quantity
+  Card. = 0..1
+  Inv. = 2
+  Type = SimpleQuantity
+  Short Label = How much to administer/supply/consume
+  Definition = Identifies the quantity expected to be supplied, addministered or consumed by the subject
+  v2 Mapping = RXO-11-requested dispense amount / RXE-10-dispense amount / RXD-4-actual dispense amount / RXG-5-give amount-minumum / RXA-6-administered amount /  TQ1-2.1-quantity.quantity  *and*  RXO-12-requested dispense units /  RXE-11-dispense units / RXD-5-actual dispense units / RXG-7-give units / RXA-7-administered units / TQ1-2.2-quantity.units
+  RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SPLY].quantity
+
+ -- Row 33 -----------------------------------
+  Element = CarePlan.activity.detail.note
+  Card. = 0..1
+  Type = string
+  Short Label = Extra info on activity occurrence
+  Definition = This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
+  v2 Mapping = NTE?
+  RIM Mapping = .text
+
+ -- Row 34 -----------------------------------
+  Element = CarePlan.notes
+  Card. = 0..1
+  Type = string
+  Short Label = Comments about the plan
+  Definition = General notes about the care plan not covered elsewhere
+  Requirements = Used to capture information that applies to the plan as a whole that doesn\'t fit into discrete elements.
+  v2 Mapping = NTE?
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = CarePlan.patient
+
+ -- Row 2 -----------------------------------
+  Name = condition
+  Type = reference
+  Path = CarePlan.concern
+
+ -- Row 3 -----------------------------------
+  Name = date
+  Type = date
+  Path = CarePlan.period
+
+ -- Row 4 -----------------------------------
+  Name = participant
+  Type = reference
+  Path = CarePlan.participant.member
+
+ -- Row 5 -----------------------------------
+  Name = activitycode
+  Type = token
+  Path = CarePlan.activity.detail.code
+
+ -- Row 6 -----------------------------------
+  Name = activitydate
+  Type = date
+  Description = Specified date occurs within period specified by CarePlan.activity.timingSchedule
+  Path = CarePlan.activity.detail.scheduled[x]
+
+ -- Row 7 -----------------------------------
+  Name = activityreference
+  Type = reference
+  Path = CarePlan.activity.reference
+
+ -- Row 8 -----------------------------------
+  Name = performer
+  Type = reference
+  Description = Matches if the practitioner is listed as a performer in any of the \"simple\" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)
+  Path = CarePlan.activity.detail.performer
+
+ -- Row 9 -----------------------------------
+  Name = goal
+  Type = reference
+  Path = CarePlan.goal
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !cqf-careplan
+  IG Name = cqf
+  Filename = cqf-careplan.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = Common Extensions
+  IG Name = core
+  Filename = careplan-extensions-spreadsheet.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Weight Loss
+  Identity = example
+  Description = General Person Example
+  Filename = careplan-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Pregnancy
+  Identity = preg
+  Description = Patient 1 for linking
+  Filename = careplan-example-pregnancy.xml
+
+ -- Row 3 -----------------------------------
+  Name = Integrated
+  Identity = integrate
+  Description = Simple integrated care plan with multiple goals & conditions (from Mayo)
+  Filename = careplan-example-integrated.xml
+
+ -- Row 4 -----------------------------------
+  Name = GPVisit
+  Identity = gpvisit
+  Description = Encounter to GP (Primary care Practitioner)
+  Filename = careplan-example-GPVisit.xml
+
+ -- Row 5 -----------------------------------
+  Name = Operative procedure on heart
+  Identity = f001
+  Description = Real-world patient example
+  Filename = careplan-example-f001-heart.xml
+
+ -- Row 6 -----------------------------------
+  Name = Partial lobectomy of lung
+  Identity = f002
+  Description = Real-world patient example
+  Filename = careplan-example-f002-lung.xml
+
+ -- Row 7 -----------------------------------
+  Name = Incision of retropharyngeal abscess
+  Identity = f003
+  Description = Real-world patient example
+  Filename = careplan-example-f003-pharynx.xml
+
+ -- Row 8 -----------------------------------
+  Name = Cure of renal insufficiency
+  Identity = f201
+  Description = Real-world patient example
+  Filename = careplan-example-f201-renal.xml
+
+ -- Row 9 -----------------------------------
+  Name = Sphenoid bone tumor demission
+  Identity = f202
+  Description = Real-world patient example
+  Filename = careplan-example-f202-malignancy.xml
+
+ -- Row 10 -----------------------------------
+  Name = Sepsis treatment
+  Identity = f203
+  Description = Real-world patient example
+  Filename = careplan-example-f203-sepsis.xml
+
+=== Sheet Examples =====================================

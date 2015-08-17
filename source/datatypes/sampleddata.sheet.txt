@@ -1,0 +1,76 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = SampledData
+  Type = Type
+  Short Label = A series of measurements taken by a device
+  Definition = A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data
+  Requirements = There is a need for a concise way to handle the data produced by devices that sample a physical state at a high frequency
+  Comments = The data is not interpretable without at least origin, period, and dimensions, but these are optional to allow a separation between the template of measurement and the actual measurement, such as between DeviceCapabilities and DeviceLog.  When providing a summary view (for example with Observation.value[x]) SampledData should be represented with a brief display text such as \"Sampled Data\".
+  v2 Mapping = N/A (but see section 7.14 in v2.7)
+  RIM Mapping = SLIST + GLIST
+
+ -- Row 2 -----------------------------------
+  Element = SampledData.origin
+  Card. = 1..1
+  Type = SimpleQuantity
+  Short Label = Zero value and units
+  Definition = The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series
+  RIM Mapping = SLIST.origin
+
+ -- Row 3 -----------------------------------
+  Element = SampledData.period
+  Card. = 1..1
+  Type = decimal
+  Short Label = Number of milliseconds between samples
+  Definition = The length of time between sampling times, measured in milliseconds
+  Comments = This is usually a whole number
+  RIM Mapping = GLIST.increment
+
+ -- Row 4 -----------------------------------
+  Element = SampledData.factor
+  Card. = 0..1
+  Type = decimal
+  Short Label = Multiply data by this before adding to origin
+  Definition = A correction factor that is applied to the sampled data points before they are added to the origin
+  RIM Mapping = SLIST.factor
+  Default Value = 1
+
+ -- Row 5 -----------------------------------
+  Element = SampledData.lowerLimit
+  Card. = 0..1
+  Type = decimal
+  Short Label = Lower limit of detection
+  Definition = The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit)
+  RIM Mapping = N/A (use SLIST.digits.nullFlavor)
+
+ -- Row 6 -----------------------------------
+  Element = SampledData.upperLimit
+  Card. = 0..1
+  Type = decimal
+  Short Label = Upper limit of detection
+  Definition = The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit)
+  RIM Mapping = N/A (use SLIST.digits.nullFlavor)
+
+ -- Row 7 -----------------------------------
+  Element = SampledData.dimensions
+  Card. = 1..1
+  Type = positiveInt
+  Short Label = Number of sample points at each time point
+  Definition = The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once
+  Comments = If there is more than one dimension, the code for the type of data will define the meaning of the dimensions (typically ECG data)
+  RIM Mapping = N/A (fixed to 1)
+
+ -- Row 8 -----------------------------------
+  Element = SampledData.data
+  Card. = 1..1
+  Regex = ((-{0,1}\\d*\\.{0,1}\\d+)|[EUL])( ((-{0,1}\\d*\\.{0,1}\\d+)|[EUL]))*
+  Type = string
+  Short Label = Decimal values with spaces, or \"E\" | \"U\" | \"L\"
+  Definition = A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value
+  RIM Mapping = SLIST.digits

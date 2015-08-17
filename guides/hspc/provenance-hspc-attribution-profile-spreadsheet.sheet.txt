@@ -1,0 +1,67 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = HSPCAttribution
+  Binding = value set
+  Reference = valueset-provenance-hspc-attribution-type
+  Definition = Code representing the type of attribution
+  Description = Code representing the type of attribution
+  Conformance = preferred
+  Uri = http://cimi.org/valueset/attribution
+  Oid = 0.00.000.0.000000.0.00.003
+
+ -- Row 2 -----------------------------------
+  Binding Name = HSPCActionMethod
+  Binding = value set
+  Reference = valueset-provenance-hspc-action-method
+  Definition = Code representing the method of performing the action
+  Description = Code representing the method of performing the action
+  Conformance = preferred
+  Uri = http://cimi.org/valueset/attribution/action-method
+  Oid = 0.00.000.0.000000.0.00.004
+
+=== Sheet HSPC-Attribution =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Provenance
+  Profile Name = HSPCAttribution
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Provenance.extension
+  Profile Name = attributionCode
+  Card. = 0..*
+  Type = Extension{#attributionCode}
+  Binding = HSPCAttribution
+
+ -- Row 3 -----------------------------------
+  Element = Provenance.agent
+  Card. = 0..*
+
+ -- Row 4 -----------------------------------
+  Element = Provenance.agent.extension
+  Profile Name = IndividualPerson
+  Card. = 0..1
+  Type = Extension{#individualPerson}
+
+ -- Row 5 -----------------------------------
+  Element = Provenance.extension
+  Profile Name = patientLocation
+  Card. = 0..1
+  Type = Extension{#patientLocation}
+
+ -- Row 6 -----------------------------------
+  Element = Provenance.extension
+  Profile Name = providerLocation
+  Card. = 0..1
+  Type = Extension{#providerLocation}
+
+ -- Row 7 -----------------------------------
+  Element = Provenance.extension
+  Profile Name = actionMethod
+  Card. = 0..1
+  Type = Extension{#actionMethod}
+  Binding = HSPCActionMethod
+
+=== Sheet Search =====================================

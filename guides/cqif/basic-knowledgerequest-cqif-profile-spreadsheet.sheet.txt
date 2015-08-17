@@ -1,0 +1,61 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = KnowledgeRequestCode
+  Binding = code list
+  Reference = #knowledge-request-code
+  Definition = The code for knowledge requests
+  Conformance = required
+
+=== Sheet knowledge-request-code =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = request
+  Display = Request
+  Definition = The resource is a knowledge request
+
+=== Sheet CQIF-KnowledgeRequest =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Basic
+  Profile Name = CQIF-KnowledgeRequest
+  Type = DomainResource
+  Short Label = A request to evaluate an artifact or group of artifacts.
+  Definition = A knowledge request is a formal request for the evaluation of some artifact or group of artifacts as part of a clinical quality workflow. This may be part of a direct, point-of-care, workflow, such as a decision support request, or it may be part of a clinical quality assessment such as a request to calculate a particular quality measure.
+
+ -- Row 2 -----------------------------------
+  Element = Basic.modifierExtension
+  Profile Name = module
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-module}
+
+ -- Row 3 -----------------------------------
+  Element = Basic.extension
+  Profile Name = requestDateTime
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-requestDateTime}
+
+ -- Row 4 -----------------------------------
+  Element = Basic.extension
+  Profile Name = evaluateAtDateTime
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-evaluateAtDateTime}
+
+ -- Row 5 -----------------------------------
+  Element = Basic.extension
+  Profile Name = inputParameters
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-inputParameters}
+
+ -- Row 6 -----------------------------------
+  Element = Basic.id
+  Short Label = The id of the request
+  Definition = The id of the request. If this id if provided by the client, the server must provide this value back to the client as part of the response.
+
+ -- Row 7 -----------------------------------
+  Element = Basic.code
+  Binding = KnowledgeRequestCode
+
+=== Sheet Search =====================================

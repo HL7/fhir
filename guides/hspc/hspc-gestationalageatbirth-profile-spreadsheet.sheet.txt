@@ -1,0 +1,103 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ObservationStatusBasic
+  Binding = value set
+  Reference = valueset-observationstatusbasic
+  Definition = A set of codes that describe the state of the observation
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = gestationalAgeUOM
+  Binding = value set
+  Reference = valueset-gestationalAgeUOM
+  Definition = The list of codes that describe the units of measure used for the period of time from conception to the current time.
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = MeasMethodDevice
+  Binding = value set
+  Reference = valueset-gestagemeasmethdev
+  Definition = A set of codes that describe how the gestational age was arrived at
+  Conformance = example
+
+=== Sheet hspc-gestationalageatbirth =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Gestational Age at Birth
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"11884-4\"/><display value=\"Gestational age Estimated\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+  Card. = 1..1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 5 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Binding = gestationalAgeUOM
+
+ -- Row 6 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..0
+
+ -- Row 7 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..0
+
+ -- Row 8 -----------------------------------
+  Element = Observation.comments
+  Card. = 0..0
+
+ -- Row 9 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..0
+
+ -- Row 10 -----------------------------------
+  Element = Observation.status
+  Binding = ObservationStatusBasic
+
+ -- Row 11 -----------------------------------
+  Element = !Observation.reliability
+  Card. = 0..0
+
+ -- Row 12 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+
+ -- Row 13 -----------------------------------
+  Element = Observation.method
+  Card. = 0..1
+  Binding = MeasMethodDevice
+
+ -- Row 14 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..0
+
+ -- Row 15 -----------------------------------
+  Element = Observation.device
+  Card. = 0..0
+
+ -- Row 16 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..0
+
+ -- Row 17 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+ -- Row 18 -----------------------------------
+  Element = Observation.related
+  Card. = 0..0
+
+=== Sheet Search =====================================

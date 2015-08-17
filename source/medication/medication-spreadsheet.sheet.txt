@@ -1,0 +1,390 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = MedicationForm
+  Binding = value set
+  Reference = valueset-medication-form-codes
+  Definition = The form of a medication
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = MedicationFormalRepresentation
+  Binding = value set
+  Reference = valueset-medication-codes
+  Definition = A code that defines the type of a medication
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = MedicationKind
+  Binding = code list
+  Reference = #medication-kind
+  Definition = Whether the medication is a product or a package
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = MedicationContainer
+  Binding = value set
+  Reference = valueset-medication-package-form-codes
+  Definition = Kind of container a medication package is packaged in
+  Conformance = example
+
+=== Sheet medication-kind =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = product
+  Display = Product
+  Definition = The medication is a product
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = package
+  Display = Package
+  Definition = The medication is a package - a contained group of one of more products
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Medication
+  UML = 300;0
+  Type = DomainResource
+  Short Label = Definition of a Medication
+  Definition = Primarily used for identification and definition of Medication, but also covers ingredients and packaging
+  RIM Mapping = ManufacturedProduct[classCode=ADMM]
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = Medication.code
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = MedicationFormalRepresentation
+  Short Label = Codes that identify this medication
+  Definition = A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.
+  Comments = Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) should be marked as “primary”. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one).
+  v2 Mapping = RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 3 -----------------------------------
+  Element = Medication.isBrand
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = True if a brand
+  Definition = Set to true if the item is attributable to a specific manufacturer.
+  RIM Mapping = true if .player.scopingRole[typeCode=MANU] exists
+  w5 = class
+
+ -- Row 4 -----------------------------------
+  Element = Medication.manufacturer
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Organization)
+  Short Label = Manufacturer of the item
+  Definition = Describes the details of the manufacturer
+  v2 Mapping = RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name
+  RIM Mapping = .player.scopingRole[typeCode=MANU].scoper
+  w5 = who.actor
+
+ -- Row 5 -----------------------------------
+  Element = Medication.kind
+  Card. = 0..1
+  Summary = y
+  Type = code
+  Binding = MedicationKind
+  Short Label = product | package
+  Definition = Medications are either a single administrable product or a package that contains one or more products.
+  RIM Mapping = .player.classCode  (CONT or not)
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = Medication.product
+  Card. = 0..1
+  UML = 630;20
+  Short Label = Administrable medication details
+  Definition = Information that only applies to products (not packages)
+  RIM Mapping = .player [classCode != CONT]
+
+ -- Row 7 -----------------------------------
+  Element = Medication.product.form
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationForm
+  Short Label = powder | tablets | carton +
+  Definition = Describes the form of the item.  Powder; tablets; carton
+  v2 Mapping = RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form
+  RIM Mapping = .formCode
+
+ -- Row 8 -----------------------------------
+  Element = Medication.product.ingredient
+  Card. = 0..*
+  UML = 650;120
+  Short Label = Active or inactive ingredient
+  Definition = Identifies a particular constituent of interest in the product
+  Comments = The ingredients need not be a complete list; usually only active ingredients are listed
+  RIM Mapping = .scopesRole[typeCode=INGR]
+  To Do = Should have an indicator distinguishing active & inactive
+
+ -- Row 9 -----------------------------------
+  Element = Medication.product.ingredient.item
+  Card. = 1..1
+  Type = Reference(Substance|Medication)
+  Short Label = The product contained
+  Definition = The actual ingredient - either a substance (simple ingredient) or another medication
+  v2 Mapping = if substance: RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
+  RIM Mapping = .player
+
+ -- Row 10 -----------------------------------
+  Element = Medication.product.ingredient.amount
+  Card. = 0..1
+  Type = Ratio
+  Short Label = How much ingredient in product
+  Definition = Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet
+  v2 Mapping = if substance: RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
+  RIM Mapping = .quantity
+
+ -- Row 11 -----------------------------------
+  Element = Medication.product.batch
+  Card. = 0..*
+  UML = 450;120
+  Definition = Information about a group of medication produced or packaged from one production run.
+
+ -- Row 12 -----------------------------------
+  Element = Medication.product.batch.lotNumber
+  Card. = 0..1
+  Type = string
+  Definition = The assigned lot number of a batch of the specified product.
+
+ -- Row 13 -----------------------------------
+  Element = Medication.product.batch.expirationDate
+  Card. = 0..1
+  Type = dateTime
+  Definition = When this specific batch of product will expire.
+
+ -- Row 14 -----------------------------------
+  Element = Medication.package
+  Card. = 0..1
+  UML = 0;20
+  Type = code
+  Short Label = Details about packaged medications
+  Definition = Information that only applies to packages (not products)
+  RIM Mapping = .player[classCode=CONT]
+
+ -- Row 15 -----------------------------------
+  Element = Medication.package.container
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationContainer
+  Short Label = E.g. box, vial, blister-pack
+  Definition = The kind of container that this package comes as
+  RIM Mapping = .code
+
+ -- Row 16 -----------------------------------
+  Element = Medication.package.content
+  Card. = 0..*
+  UML = 40;120
+  Short Label = What is  in the package?
+  Definition = A set of components that go to make up the described item.
+  RIM Mapping = .scopesRole[typeCode=CONT]
+
+ -- Row 17 -----------------------------------
+  Element = Medication.package.content.item
+  Card. = 1..1
+  Type = Reference(Medication)
+  Short Label = A product in the package
+  Definition = Identifies one of the items in the package
+  RIM Mapping = .player
+
+ -- Row 18 -----------------------------------
+  Element = Medication.package.content.amount
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = How many are in the package?
+  Definition = The amount of the product that is in the package
+  RIM Mapping = .quantity
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = code
+  Type = token
+  Path = Medication.code
+
+ -- Row 2 -----------------------------------
+  Name = manufacturer
+  Type = reference
+  Path = Medication.manufacturer
+
+ -- Row 3 -----------------------------------
+  Name = form
+  Type = token
+  Path = Medication.product.form
+
+ -- Row 4 -----------------------------------
+  Name = ingredient
+  Type = reference
+  Path = Medication.product.ingredient.item
+
+ -- Row 5 -----------------------------------
+  Name = container
+  Type = token
+  Path = Medication.package.container
+
+ -- Row 6 -----------------------------------
+  Name = content
+  Type = reference
+  Path = Medication.package.content.item
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = medication-extensions
+  IG Name = core
+  Filename = medication-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Name Only
+  Identity = medexample001
+  Description = Medication with <name> element only
+  Filename = medicationexample1.xml
+
+ -- Row 2 -----------------------------------
+  Name = Code Generic
+  Identity = medexample002
+  Description = Medication with coded generic medication
+  Filename = medicationexample2.xml
+
+ -- Row 3 -----------------------------------
+  Name = Coded Manufactured
+  Identity = medexample003
+  Description = Medication with coded Manufactured medication
+  Filename = medicationexample3.xml
+
+ -- Row 4 -----------------------------------
+  Name = Full Populated
+  Identity = medexample004
+  Description = Fully populated Medication resource
+  Filename = medicationexample4.xml
+
+ -- Row 5 -----------------------------------
+  Name = Kind
+  Identity = medexample005
+  Description = Medication with <kind> element = package
+  Filename = medicationexample5.xml
+
+ -- Row 6 -----------------------------------
+  Name = Compound
+  Identity = medexample008
+  Description = Compound medication - includes chemicals that are combined
+  Filename = medicationexample8.xml
+
+ -- Row 7 -----------------------------------
+  Name = Over the Counter
+  Identity = medexample007
+  Description = Over the Counter Product
+  Filename = medicationexample7.xml
+
+ -- Row 8 -----------------------------------
+  Name = Coded 2
+  Identity = medexample006
+  Description = Medication with coded Manufactured medication
+  Filename = medicationexample6.xml
+
+ -- Row 9 -----------------------------------
+  Name = Coded 3
+  Identity = medexample011
+  Description = Medication with coded Manufactured medication
+  Filename = medicationexample11.xml
+
+ -- Row 10 -----------------------------------
+  Name = Coded 4
+  Identity = medexample012
+  Description = Medication with coded Manufactured medication
+  Filename = medicationexample12.xml
+
+ -- Row 11 -----------------------------------
+  Name = Coded 5
+  Identity = medexample013
+  Description = Medication with coded Manufactured medication
+  Filename = medicationexample13.xml
+
+ -- Row 12 -----------------------------------
+  Name = Code Generic 2
+  Identity = medexample014
+  Description = Medication with coded generic medication
+  Filename = medicationexample14.xml
+
+ -- Row 13 -----------------------------------
+  Name = Oncology
+  Identity = medexample015
+  Description = Oncology Medication - Oral
+  Filename = medicationexample15.xml
+
+ -- Row 14 -----------------------------------
+  Name = Injectable
+  Identity = medexample016
+  Description = Oncology Medication - Injectable
+  Filename = medicationexample16.xml
+
+ -- Row 15 -----------------------------------
+  Name = Intravenous
+  Identity = medexample017
+  Description = Intravenous medication
+  Filename = medicationexample17.xml
+
+ -- Row 16 -----------------------------------
+  Name = Combivent
+  Identity = f001
+  Description = Real-world medication example
+  Filename = medication-example-f001-combivent.xml
+
+ -- Row 17 -----------------------------------
+  Name = Salmeterol
+  Identity = f201
+  Description = Real-world medication example
+  Filename = medication-example-f201-salmeterol.xml
+
+ -- Row 18 -----------------------------------
+  Name = Flucloxacilline
+  Identity = f202
+  Description = Real-world medication example
+  Filename = medication-example-f202-flucloxacilline.xml
+
+ -- Row 19 -----------------------------------
+  Name = Paracetamol
+  Identity = f203
+  Description = Real-world medication example
+  Filename = medication-example-f203-paracetamol.xml
+
+ -- Row 20 -----------------------------------
+  Name = Crestor
+  Identity = f002
+  Description = Real-world medication example
+  Filename = medication-example-f002-crestor.xml
+
+ -- Row 21 -----------------------------------
+  Name = Tolbutamide
+  Identity = f003
+  Description = Real-world medication example
+  Filename = medication-example-f003-tolbutamide.xml
+
+ -- Row 22 -----------------------------------
+  Name = Metoprolol
+  Identity = f004
+  Description = Real-world medication example
+  Filename = medication-example-f004-metoprolol.xml
+
+ -- Row 23 -----------------------------------
+  Name = Enalapril
+  Identity = f005
+  Description = Real-world medication example
+  Filename = medication-example-f005-enalapril.xml
+
+=== Sheet Examples =====================================

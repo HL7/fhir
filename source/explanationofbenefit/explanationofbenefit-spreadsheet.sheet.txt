@@ -1,0 +1,124 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ExplanationOfBenefit
+  Aliases = EOB
+  Type = DomainResource
+  Short Label = Remittance resource
+  Definition = This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
+
+ -- Row 2 -----------------------------------
+  Element = !Identification
+
+ -- Row 3 -----------------------------------
+  Element = ExplanationOfBenefit.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Business Identifier
+  Definition = The Response Business Identifier
+
+ -- Row 4 -----------------------------------
+  Element = ExplanationOfBenefit.request
+  Card. = 0..1
+  Type = Reference(Claim)
+  Short Label = Claim reference
+  Definition = Original request resource reference
+  CDAnet v4 Mapping = A02|G01
+
+ -- Row 5 -----------------------------------
+  Element = ExplanationOfBenefit.outcome
+  Card. = 0..1
+  Type = code
+  Binding = RemittanceOutcome
+  Short Label = complete | error
+  Definition = Transaction status: error, complete
+
+ -- Row 6 -----------------------------------
+  Element = ExplanationOfBenefit.disposition
+  Card. = 0..1
+  Type = string
+  Short Label = Disposition Message
+  Definition = A description of the status of the adjudication.
+
+ -- Row 7 -----------------------------------
+  Element = ExplanationOfBenefit.ruleset
+  Card. = 0..1
+  Type = Coding
+  Binding = Ruleset
+  Short Label = Resource version
+  Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+
+ -- Row 8 -----------------------------------
+  Element = ExplanationOfBenefit.originalRuleset
+  Card. = 0..1
+  Type = Coding
+  Binding = Ruleset
+  Short Label = Original version
+  Definition = The style (standard) and version of the original material which was converted into this resource.
+  Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
+
+ -- Row 9 -----------------------------------
+  Element = ExplanationOfBenefit.created
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Creation date
+  Definition = The date when the enclosed suite of services were performed or completed
+
+ -- Row 10 -----------------------------------
+  Element = ExplanationOfBenefit.organization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Insurer
+  Definition = The Insurer who produced this adjudicated response.
+
+ -- Row 11 -----------------------------------
+  Element = ExplanationOfBenefit.requestProvider
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Responsible practitioner
+  Definition = The practitioner who is responsible for the services rendered to the patient.
+  CDAnet v4 Mapping = B01
+
+ -- Row 12 -----------------------------------
+  Element = ExplanationOfBenefit.requestOrganization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Responsible organization
+  Definition = The organization which is responsible for the services rendered to the patient.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The business identifier of the Explanation of Benefit
+  Path = ExplanationOfBenefit.identifier
+
+ -- Row 2 -----------------------------------
+  Name = !request
+  Type = reference
+  Description = The reference to the claim
+  Path = ExplanationOfBenefit.request
+
+ -- Row 3 -----------------------------------
+  Name = !organization
+  Type = reference
+  Description = The organization who generated this resource
+  Path = ExplanationOfBenefit.organization
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General-Primary
+  Identity = R3500
+  Description = General Person Primary Coverage Example
+  Filename = explanationofbenefit-example.xml
+
+=== Sheet Examples =====================================

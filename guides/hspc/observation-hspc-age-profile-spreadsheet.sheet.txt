@@ -1,0 +1,86 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AgeUOM
+  Binding = value set
+  Reference = valueset-ageUOM
+  Definition = The list of codes used as units of measure for an individual\'s age
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = dataOriginationModeVS
+  Binding = value set
+  Reference = valueset-observation-dataOriginationMode
+  Definition = The description of how the data came into being
+  Conformance = preferred
+
+=== Sheet hspc-Age =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Age
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"30525-0\"/><display value=\"Age\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+  Card. = 1..1
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 5 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Binding = AgeUOM
+
+ -- Row 6 -----------------------------------
+  Element = Observation.interpretation
+  Card. = 0..0
+
+ -- Row 7 -----------------------------------
+  Element = Observation.issued
+  Card. = 0..0
+
+ -- Row 8 -----------------------------------
+  Element = Observation.status
+  Card. = 0..0
+
+ -- Row 9 -----------------------------------
+  Element = !Observation.reliability
+  Card. = 0..0
+
+ -- Row 10 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+
+ -- Row 11 -----------------------------------
+  Element = Observation.method
+  Card. = 0..0
+
+ -- Row 12 -----------------------------------
+  Element = Observation.specimen
+  Card. = 0..0
+
+ -- Row 13 -----------------------------------
+  Element = Observation.performer
+  Card. = 0..*
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+ -- Row 14 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..0
+
+ -- Row 15 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Data Origination Mode
+  Type = Extension{#hspc-dataOriginationMode}
+  Binding = dataOriginationModeVS
+
+=== Sheet Search =====================================

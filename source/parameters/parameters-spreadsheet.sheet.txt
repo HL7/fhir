@@ -1,0 +1,102 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Parameters.parameter
+  English = A parameter must have a value or a resource, but not both
+  XPath = exists(f:value) or exists(f:resource) and not(exists(f:value) and exists(f:resource))
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Parameters.parameter.part
+  English = A part must have a value or a resource, but not both
+  XPath = exists(f:value) or exists(f:resource) and not(exists(f:value) and exists(f:resource))
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Parameters
+  Type = Resource
+  Short Label = Operation Request or Response
+  Definition = This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.
+  Comments = The parameters that may be used are defined by the OperationDefinition resource
+  v2 Mapping = n/a
+  RIM Mapping = n/a
+
+ -- Row 2 -----------------------------------
+  Element = Parameters.parameter
+  Card. = 0..*
+  Short Label = Operation Parameter
+  Definition = A parameter passed to or received from the operation
+
+ -- Row 3 -----------------------------------
+  Element = Parameters.parameter.name
+  Card. = 1..1
+  Type = string
+  Short Label = Name from the definition
+  Definition = The name of the parameter (reference to the operation definition)
+
+ -- Row 4 -----------------------------------
+  Element = Parameters.parameter.value[x]
+  Card. = 0..1
+  Inv. = 1
+  Type = *
+  Short Label = If parameter is a data type
+  Definition = If the parameter is a data type
+
+ -- Row 5 -----------------------------------
+  Element = Parameters.parameter.resource
+  Card. = 0..1
+  Inv. = 1
+  Type = Resource
+  Short Label = If parameter is a whole resource
+  Definition = If the parameter is a whole resource
+
+ -- Row 6 -----------------------------------
+  Element = Parameters.parameter.part
+  Card. = 0..*
+  Type = @Parameters.parameter
+  Short Label = Named part of a parameter (e.g. Tuple)
+  Definition = A named part of a parameter. In many implementation context, a set of named parts is known as a \"Tuple\"
+  Comments = Only one level of tuples is allowed
+
+ -- Row 7 -----------------------------------
+  Element = !Parameters.parameter.part.name
+  Card. = 1..1
+  Type = string
+  Short Label = Name from the definition
+  Definition = The name of the parameter (reference to the operation definition)
+
+ -- Row 8 -----------------------------------
+  Element = !Parameters.parameter.part.value[x]
+  Card. = 0..1
+  Inv. = 2
+  Type = *
+  Short Label = Value of the part
+  Definition = The value of the parameter
+  Comments = If there is no value, simply omit the parameter
+
+ -- Row 9 -----------------------------------
+  Element = !Parameters.parameter.part.resource
+  Card. = 0..1
+  Inv. = 2
+  Type = Resource
+  Short Label = If part is a whole resource
+  Definition = If the parameter is a whole resource
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = example
+  Identity = example
+  Description = Parameters Example
+  Filename = parameters-example.xml
+
+=== Sheet Examples =====================================

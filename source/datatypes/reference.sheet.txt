@@ -1,0 +1,49 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Reference
+  English = SHALL have a local reference if the resource is provided inline
+  XPath = not(starts-with(f:reference/@value, \'#\')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, \'#\')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, \'#\')])
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Reference
+  Type = Type
+  Short Label = A reference from one resource to another
+  Definition = A reference from one resource to another
+  RIM Mapping = The target of a resource reference is a RIM entry point (Act, Role, or Entity)
+
+ -- Row 2 -----------------------------------
+  Element = !Reference.type
+  Card. = 0..1
+  Inv. = 1
+  Type = code
+  Binding = ResourceType
+  Short Label = Resource Type
+  Definition = The name of one of the resource types defined in this specification to identify the type of the resource being referenced
+  Comments = Whether or not the type of the resource reference is fixed for a particular element, the reference includes the resource type
+  RIM Mapping = N/A
+
+ -- Row 3 -----------------------------------
+  Element = Reference.reference
+  Card. = 0..1
+  Inv. = 1
+  Type = string
+  Short Label = Relative, internal or absolute URL reference
+  Definition = A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with \'#\') refer to contained resources
+  Comments = Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the url conforms to the structure \"/[type]/[id]\" then it should be assumed that the reference is to a FHIR RESTful server
+  RIM Mapping = N/A
+
+ -- Row 4 -----------------------------------
+  Element = Reference.display
+  Card. = 0..1
+  Type = string
+  Short Label = Text alternative for the resource
+  Definition = Plain text narrative that identifies the resource in addition to the resource reference
+  Comments = This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what\'s being referenced, not to fully describe it.
+  RIM Mapping = N/A

@@ -1,0 +1,79 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet CQIF-GuidanceRequest =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Basic
+  Profile Name = CQIF-GuidanceRequest
+  Type = DomainResource
+  Short Label = A request for decision support guidance
+  Definition = A guidance request is a derivative of a knowledge request specifically focused on the decision support use case, providing information relevant to decision support such as workflow and user context.
+
+ -- Row 2 -----------------------------------
+  Element = Basic.extension
+  Profile Name = initiatingOrganization
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-initiatingOrganization}
+
+ -- Row 3 -----------------------------------
+  Element = Basic.extension
+  Profile Name = initiatingPerson
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-initiatingPerson}
+
+ -- Row 4 -----------------------------------
+  Element = Basic.extension
+  Profile Name = systemUserType
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserType}
+
+ -- Row 5 -----------------------------------
+  Element = Basic.extension
+  Profile Name = systemUserLanguage
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserLanguage}
+
+ -- Row 6 -----------------------------------
+  Element = Basic.extension
+  Profile Name = systemUserTaskContext
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserTaskContext}
+
+ -- Row 7 -----------------------------------
+  Element = Basic.extension
+  Profile Name = receivingOrganization
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-receivingOrganization}
+
+ -- Row 8 -----------------------------------
+  Element = Basic.extension
+  Profile Name = receivingPerson
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-receivingPerson}
+
+ -- Row 9 -----------------------------------
+  Element = Basic.extension
+  Profile Name = recipientType
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-recipientType}
+
+ -- Row 10 -----------------------------------
+  Element = Basic.extension
+  Profile Name = recipientLanguage
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-recipientLanguage}
+
+ -- Row 11 -----------------------------------
+  Element = Basic.extension
+  Profile Name = encounterClass
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-encounterClass}
+
+ -- Row 12 -----------------------------------
+  Element = Basic.extension
+  Profile Name = encounterType
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-encounterType}
+
+=== Sheet Search =====================================

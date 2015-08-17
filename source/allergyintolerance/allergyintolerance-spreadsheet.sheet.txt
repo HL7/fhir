@@ -1,0 +1,543 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AllergyIntoleranceStatus
+  Binding = code list
+  Reference = #allergy-intolerance-status
+  Definition = Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified Substance
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = AllergyIntoleranceCriticality
+  Binding = code list
+  Reference = #allergy-intolerance-criticality
+  Definition = Estimate of the potential clinical harm, or seriousness, of a reaction to an identified Substance
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = AllergyIntoleranceType
+  Binding = code list
+  Reference = #allergy-intolerance-type
+  Definition = Identification of the underlying physiological mechanism for a Reaction Risk
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = AllergyIntoleranceCategory
+  Binding = code list
+  Reference = #allergy-intolerance-category
+  Definition = Category of an identified Substance
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = AllergyIntoleranceCertainty
+  Binding = code list
+  Reference = #reaction-event-certainty
+  Definition = Statement about the degree of clinical certainty that a Specific Substance was the cause of the Manifestation in an reaction event
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = Manifestation
+  Binding = value set
+  Reference = valueset-manifestation-codes
+  Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = AllergyIntoleranceSeverity
+  Binding = code list
+  Reference = #reaction-event-severity
+  Definition = Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations
+  Conformance = required
+
+ -- Row 8 -----------------------------------
+  Binding Name = SubstanceCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/substance-code
+  Definition = Type of the substance
+  Conformance = example
+
+ -- Row 9 -----------------------------------
+  Binding Name = RouteOfAdministration
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/route-codes
+  Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
+  Conformance = example
+
+=== Sheet allergy-intolerance-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = unconfirmed
+  Display = Unconfirmed
+  Definition = A low level of certainty about the propensity for a reaction to the identified Substance.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = confirmed
+  Display = Confirmed
+  Definition = A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = resolved
+  Display = Resolved
+  Definition = A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = refuted
+  Display = Refuted
+  Definition = A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The statement was entered in error and is not valid
+  v3 = ActStatus.nullified
+
+=== Sheet allergy-intolerance-criticality =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = low
+  Display = Low Risk
+  Definition = The potential clinical impact of a future reaction is estimated as low risk: exposure to substance is unlikely to result in a life threatening or organ system threatening outcome. Future exposure to the Substance is considered a relative contra-indication.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = high
+  Display = High Risk
+  Definition = The potential clinical impact of a future reaction is estimated as high risk: exposure to substance may result in a life threatening or organ system threatening outcome. Future exposure to the Substance may be considered an absolute contra-indication.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = unassessible
+  Display = Unable to determine
+  Definition = Unable to assess the potential clinical impact with the information available
+
+=== Sheet allergy-intolerance-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = immune
+  Display = Immune Mediated
+  Definition = Immune mediated reaction, including allergic reactions and hypersensitivities.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = non-immune
+  Display = Non-immune mediated
+  Definition = A non-immune mediated reaction, which can include pseudoallergic reactions, side effects, intolerances, drug toxicities (eg to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.
+
+=== Sheet allergy-intolerance-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = food
+  Display = Food
+  Definition = Any substance consumed to provide nutritional support for the body
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = medication
+  Display = Medication
+  Definition = Substances administered to achieve a physiological effect
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = environment
+  Display = Environment
+  Definition = Substances that are encountered in the environment
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = other
+  Display = Other
+  Definition = Other substances that are not covered by any other category
+
+=== Sheet reaction-event-certainty =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = unlikely
+  Display = Unlikely
+  Definition = There is a low level of clinical certainty that the reaction was caused by the identified Substance.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = likely
+  Display = Likely
+  Definition = There is a high level of clinical certainty that the reaction was caused by the identified Substance.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = confirmed
+  Display = Confirmed
+  Definition = There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.
+
+=== Sheet reaction-event-severity =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = mild
+  Display = Mild
+  Definition = Causes mild physiological effects
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = moderate
+  Display = Moderate
+  Definition = Causes moderate physiological effects
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = severe
+  Display = Severe
+  Definition = Causes severe physiological effects
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = AllergyIntolerance
+  Aliases = Allergy; Intolerance; Adverse Reaction
+  Type = DomainResource
+  Short Label = Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance)
+  Definition = Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance
+  Requirements = To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance.
+  Comments = Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = AllergyIntolerance.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = External Ids for this item
+  Definition = This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = AllergyIntolerance.recordedDate
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = When recorded
+  Definition = Date when the sensitivity was recorded
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 4 -----------------------------------
+  Element = AllergyIntolerance.recorder
+  Card. = 0..1
+  Aliases = Author
+  Summary = y
+  Type = Reference(Practitioner|Patient)
+  Short Label = Who recorded the sensitivity
+  Definition = Individual who recorded the record and takes responsibility for its conten
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
+
+ -- Row 5 -----------------------------------
+  Element = AllergyIntolerance.patient
+  Card. = 1..1
+  Aliases = Patient
+  Summary = y
+  Type = Reference(Patient)
+  Short Label = Who the sensitivity is for
+  Definition = The patient who has the allergy or intolerance
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = AllergyIntolerance.reporter
+  Card. = 0..1
+  Aliases = Source; Informant
+  Summary = Y
+  Type = Reference(Patient | RelatedPerson | Practitioner)
+  Short Label = Source of the information about the allergy
+  Definition = The source of the information about the allergy that is recorded
+  Comments = The recorder takes repsonsibility for the content, but can reference the source from where they got it
+  w5 = who.source
+
+ -- Row 7 -----------------------------------
+  Element = AllergyIntolerance.substance
+  Card. = 1..1
+  Aliases = Agent
+  Summary = Y
+  Type = CodeableConcept
+  Binding = SubstanceCode
+  Short Label = Substance, (or class) considered to be responsible for risk
+  Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk
+  Comments = It is strongly recommended that Substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, Snomed CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available.
+  w5 = what
+
+ -- Row 8 -----------------------------------
+  Element = AllergyIntolerance.status
+  Card. = 0..1
+  Aliases = State
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceStatus
+  Short Label = unconfirmed | confirmed | resolved | refuted | entered-in-error
+  Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance
+  Comments = Decision support would typically raise alerts for \'Unconfirmed\', \'Confirmed\', and \'Resolved\' and ignore a \'Refuted\' reaction. In particular, \'Refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
+  w5 = status
+
+ -- Row 9 -----------------------------------
+  Element = AllergyIntolerance.criticality
+  Card. = 0..1
+  Aliases = Severity; Seriousness; Contra-indication; Risk
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceCriticality
+  Short Label = low | high | unassessible - Estimated potential clinical harm
+  Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
+  Comments = The default criticality value for any propensity to an Adverse Reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
+  w5 = grade
+
+ -- Row 10 -----------------------------------
+  Element = AllergyIntolerance.type
+  Card. = 0..1
+  Aliases = Category; Class
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceType
+  Short Label = immune | non-immune - Underlying mechanism (if known)
+  Definition = Identification of the underlying physiological mechanism for the Reaction Risk
+  Comments = Immune-mediated responses have been traditionally regarded as an indicator for escalation of significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune and non-immune and still carry life threatening risk.   It is acknowledged that many clinicians may not be in a position to distinguish the mechanism of a particular reaction.  This data element is included nevertheless because many legacy systems have captured this attribute.  Immunological testing may provide supporting evidence for the basis and causative substance , but no tests are 100% sensitive or specific for a sensitivity.
+  w5 = class
+
+ -- Row 11 -----------------------------------
+  Element = AllergyIntolerance.category
+  Card. = 0..1
+  Aliases = Category; Type; Reaction Type; Class
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceCategory
+  Short Label = food | medication | environment | other - Category of Substance
+  Definition = Category of the identified Substance
+  Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.
+  w5 = class
+
+ -- Row 12 -----------------------------------
+  Element = AllergyIntolerance.lastOccurence
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Label = Date(/time) of last known occurence of a reaction
+  Definition = Represents the date and/or time of the last known occurence of a reaction event
+  Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurence is required e.g \'In Childhood, \'10 years ago\' the Comment element should be used.
+
+ -- Row 13 -----------------------------------
+  Element = AllergyIntolerance.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Additional text not captured in other fields
+  Definition = Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
+  Comments = For example: including reason for flagging a Seriousness of \'High Risk\'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover.
+
+ -- Row 14 -----------------------------------
+  Element = AllergyIntolerance.event
+  Card. = 0..*
+  UML = right
+  Short Label = Adverse Reaction Events linked to exposure to substance
+  Definition = Details about each Adverse Reaction Event linked to exposure to the identified Substance
+
+ -- Row 15 -----------------------------------
+  Element = AllergyIntolerance.event.substance
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = SubstanceCode
+  Short Label = Specific substance considered to be responsible for event
+  Definition = Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance
+  Comments = Coding of the Specific Substance with a terminology capable of triggering decision support should be used wherever possible.  The Substance field allows for the use of a specific substance or a group or class of substances, for example \"Penicillins\". The specific Substance field could be used for Amoxycillin. Duplication is acceptable when a specific substance has been recorded in the \'Substance\' field.
+
+ -- Row 16 -----------------------------------
+  Element = AllergyIntolerance.event.certainty
+  Card. = 0..1
+  Aliases = Cause;
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceCertainty
+  Short Label = unlikely | likely | confirmed - clinical certainty about the specific substance
+  Definition = Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event
+
+ -- Row 17 -----------------------------------
+  Element = AllergyIntolerance.event.manifestation
+  Card. = 1..*
+  Aliases = Symptoms; Signs
+  Summary = Y
+  Type = CodeableConcept
+  Binding = Manifestation
+  Short Label = Clinical symptoms/signs associated with the Event
+  Definition = Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event
+  Comments = Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that Manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED-CT or ICD10.
+
+ -- Row 18 -----------------------------------
+  Element = AllergyIntolerance.event.description
+  Card. = 0..1
+  Aliases = Narrative; Text
+  Type = string
+  Short Label = Description of the event as a whole
+  Definition = Text description about the Reaction as a whole, including details of the manifestation if required
+
+ -- Row 19 -----------------------------------
+  Element = AllergyIntolerance.event.onset
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Label = Date(/time) when manifestations showed
+  Definition = Record of the date and/or time of the onset of the Reaction
+
+ -- Row 20 -----------------------------------
+  Element = AllergyIntolerance.event.duration
+  Card. = 0..1
+  Type = Duration
+  Short Label = How long Manifestations persisted
+  Definition = The amount of time that the Adverse Reaction persisted
+
+ -- Row 21 -----------------------------------
+  Element = AllergyIntolerance.event.severity
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceSeverity
+  Short Label = mild | moderate | severe (of event as a whole)
+  Definition = Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations
+  Comments = It is acknowledged that this assessment is very subjective. There may be some some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions
+
+ -- Row 22 -----------------------------------
+  Element = AllergyIntolerance.event.exposureRoute
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = RouteOfAdministration
+  Short Label = How the subject was exposed to the substance
+  Definition = Identification of the route by which the subject was exposed to the substance.
+  Comments = Coding of the Route of Exposure with a terminology should be used wherever possible.
+
+ -- Row 23 -----------------------------------
+  Element = AllergyIntolerance.event.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Text about event not captured in other fields
+  Definition = Additional text about the Adverse Reaction event not captured in other fields
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = substance
+  Type = token
+  Path = AllergyIntolerance.substance | AllergyIntolerance.event.substance
+
+ -- Row 2 -----------------------------------
+  Name = status
+  Type = token
+  Path = AllergyIntolerance.status
+
+ -- Row 3 -----------------------------------
+  Name = criticality
+  Type = token
+  Path = AllergyIntolerance.criticality
+
+ -- Row 4 -----------------------------------
+  Name = type
+  Type = token
+  Path = AllergyIntolerance.type
+
+ -- Row 5 -----------------------------------
+  Name = category
+  Type = token
+  Path = AllergyIntolerance.category
+
+ -- Row 6 -----------------------------------
+  Name = last-date
+  Type = date
+  Path = AllergyIntolerance.lastOccurence
+
+ -- Row 7 -----------------------------------
+  Name = manifestation
+  Type = token
+  Path = AllergyIntolerance.event.manifestation
+
+ -- Row 8 -----------------------------------
+  Name = onset
+  Type = date
+  Path = AllergyIntolerance.event.onset
+
+ -- Row 9 -----------------------------------
+  Name = duration
+  Type = quantity
+  Path = AllergyIntolerance.event.duration
+
+ -- Row 10 -----------------------------------
+  Name = severity
+  Type = token
+  Path = AllergyIntolerance.event.severity
+
+ -- Row 11 -----------------------------------
+  Name = route
+  Type = token
+  Path = AllergyIntolerance.event.exposureRoute
+
+ -- Row 12 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = AllergyIntolerance.identifier
+
+ -- Row 13 -----------------------------------
+  Name = date
+  Type = date
+  Path = AllergyIntolerance.recordedDate
+
+ -- Row 14 -----------------------------------
+  Name = recorder
+  Type = reference
+  Path = AllergyIntolerance.recorder
+
+ -- Row 15 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = AllergyIntolerance.patient
+
+ -- Row 16 -----------------------------------
+  Name = reporter
+  Type = reference
+  Path = AllergyIntolerance.reporter
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = openEHR Archetype Profile
+  IG Name = openehr
+  Filename = allergyintolerance-openehr-profile.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = allergyintolerance-extensions
+  IG Name = core
+  Filename = allergyintolerance-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Food Allergy
+  Identity = example
+  Description = A typical Food Allergy
+  Filename = allergyintolerance-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Medication Allergy
+  Identity = medication
+  Description = A typical Medication allergy from a clinical system
+  Filename = allergyintolerance-medication.xml
+
+=== Sheet Examples =====================================

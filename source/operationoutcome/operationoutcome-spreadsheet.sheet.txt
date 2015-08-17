@@ -1,0 +1,371 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = IssueSeverity
+  Binding = code list
+  Reference = #issue-severity
+  Definition = How the issue affects the success of the action
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = IssueType
+  Binding = code list
+  Reference = #issue-type
+  Definition = A code that describes the type of issue
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = IssueDetails
+  Binding = special
+  Reference = #operation-outcome
+  Definition = A code that provides details as the exact issue
+  Conformance = example
+
+=== Sheet issue-severity =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 4
+  Code = fatal
+  Display = Fatal
+  Definition = The issue caused the action to fail, and no further checking could be performed
+
+ -- Row 2 -----------------------------------
+  Id = 1
+  Code = error
+  Display = Error
+  Definition = The issue is sufficiently important to cause the action to fail
+
+ -- Row 3 -----------------------------------
+  Id = 2
+  Code = warning
+  Display = Warning
+  Definition = The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired
+
+ -- Row 4 -----------------------------------
+  Id = 3
+  Code = information
+  Display = Information
+  Definition = The issue has no relation to the degree of success of the action
+
+=== Sheet issue-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = invalid
+  Display = Invalid Content
+  Definition = Content invalid against the Specification or a Profile
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = structure
+  Display = Structural Issue
+  Definition = A structural issue in the content such as wrong namespace, or unable to parse the content completely, or invalid json syntax
+  Parent = #1
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = required
+  Display = Required element missing
+  Definition = A required element is missing
+  Parent = #1
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = value
+  Display = Element value invalid
+  Definition = element value invalid
+  Parent = #1
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = invariant
+  Display = Validation rule failed
+  Definition = A content validation rule failed - e.g. a schematron rule
+  Parent = #1
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = security
+  Display = Security Problem
+  Definition = An authentication/authorization/permissions issueof some kind
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = login
+  Display = Login Required
+  Definition = the client needs to initiate an authentication process
+  Parent = #6
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = unknown
+  Display = Unknown User
+  Definition = The user or system was not able to be authenticated (either there is no process, or the proferred token is unacceptable)
+  Parent = #6
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = expired
+  Display = Session Expired
+  Definition = User session expired; a login may be required
+  Parent = #6
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = forbidden
+  Display = Forbidden
+  Definition = The user does not have the rights to perform this action
+  Parent = #6
+
+ -- Row 11 -----------------------------------
+  Id = 27
+  Code = suppressed
+  Display = Information  Suppressed
+  Definition = Some information was not or may not have been returned due to business rules, consent or privacy rules, or access permission constraints.  This information may be accessible through alternate processes
+  Parent = #6
+
+ -- Row 12 -----------------------------------
+  Id = 11
+  Code = processing
+  Display = Processing Failure
+  Definition = Processing issues. These are expected to be final e.g. there is no point resubmitting the same content unchanged
+
+ -- Row 13 -----------------------------------
+  Id = 12
+  Code = not-supported
+  Display = Content not supported
+  Definition = The resource or profile is not supported
+  Parent = #11
+
+ -- Row 14 -----------------------------------
+  Id = 13
+  Code = duplicate
+  Display = Duplicate
+  Definition = An attempt was made to create a duplicate record
+  Parent = #11
+
+ -- Row 15 -----------------------------------
+  Id = 14
+  Code = not-found
+  Display = Not Found
+  Definition = The reference provided was not found. In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the content is not found further into the application architecture
+  Parent = #11
+
+ -- Row 16 -----------------------------------
+  Id = 15
+  Code = too-long
+  Display = Content Too Long
+  Definition = Provided content is too long (typically, this is a denial of service protection type of error)
+  Parent = #11
+
+ -- Row 17 -----------------------------------
+  Id = 16
+  Code = code-invalid
+  Display = Invalid Code
+  Definition = The code or system could not be understood, or it was not valid in the context of a particular ValueSet
+  Parent = #11
+
+ -- Row 18 -----------------------------------
+  Id = 17
+  Code = extension
+  Display = Unacceptable Extension
+  Definition = An extension was found that was not acceptable, or that could not be resolved, or a modifierExtension that was not recognised
+  Parent = #11
+
+ -- Row 19 -----------------------------------
+  Id = 18
+  Code = too-costly
+  Display = Operation Too Costly
+  Definition = The operation was stopped to protect server resources. E.g. a request for a value set expansion on all of SNOMED CT
+  Parent = #11
+
+ -- Row 20 -----------------------------------
+  Id = 19
+  Code = business-rule
+  Display = Business Rule Violation
+  Definition = The content/operation failed to pass some business rule, and so could not proceed
+  Parent = #11
+
+ -- Row 21 -----------------------------------
+  Id = 26
+  Code = conflict
+  Display = Edit Version Conflict
+  Definition = content could not be accepted because of an edit conflict (i.e. version aware updates) (In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the conflict is discovered further into the application architecture)
+  Parent = #11
+
+ -- Row 22 -----------------------------------
+  Id = 27
+  Code = incomplete
+  Display = Incomplete Results
+  Definition = Not all data sources typically accessed could be reached, or responded in time, so the returned information may not be complete
+  Parent = #11
+
+ -- Row 23 -----------------------------------
+  Id = 20
+  Code = transient
+  Display = Transient Issue
+  Definition = Transient processing issues. The system receiving the error may be able to resubmit the same content once an underlying issue is resolved
+
+ -- Row 24 -----------------------------------
+  Id = 21
+  Code = lock-error
+  Display = Lock Error
+  Definition = A resource/record locking failure (usually in an underlying database)
+  Parent = #20
+
+ -- Row 25 -----------------------------------
+  Id = 22
+  Code = no-store
+  Display = No Store Available
+  Definition = The persistent store unavailable. E.g. the database is down for maintenance or similar
+  Parent = #20
+
+ -- Row 26 -----------------------------------
+  Id = 23
+  Code = exception
+  Display = Exception
+  Definition = An unexpected internal error
+  Parent = #20
+
+ -- Row 27 -----------------------------------
+  Id = 24
+  Code = timeout
+  Display = Timeout
+  Definition = An internal timeout occurred
+  Parent = #20
+
+ -- Row 28 -----------------------------------
+  Id = 25
+  Code = throttled
+  Display = Throttled
+  Definition = The system is not prepared to handle this request due to load management
+  Parent = #20
+
+ -- Row 29 -----------------------------------
+  Id = 28
+  Code = informational
+  Display = Informational Note
+  Definition = A message unrelated to the processing success of the completed operation (Examples of the latter include things like reminders of password expiry, system maintenance times, etc.)
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = OperationOutcome
+  Type = DomainResource
+  Short Label = Information about the success/failure of an action
+  Definition = A collection of error, warning or information messages that result from a system action
+  Comments = Can result from the failure of a REST call or be part of the response message returned from a request message.  If sent with extensions overriding particular issues, might even appear as part of a request message.
+  RIM Mapping = Grouping is handled through multiple repetitions from whatever context references the outcomes (no specific grouper required)
+  w5 = infrastructure
+
+ -- Row 2 -----------------------------------
+  Element = OperationOutcome.issue
+  Card. = 1..*
+  UML = right
+  Short Label = A single issue associated with the action
+  Definition = An error, warning or information message that results from a system action
+  v2 Mapping = ERR
+  RIM Mapping = AcknowledgementDetail or Observation[classCode=\"ALRT\" and moodCode=\"EVN\"]
+
+ -- Row 3 -----------------------------------
+  Element = OperationOutcome.issue.severity
+  Card. = 1..1
+  Is Modifier = y
+  Type = code
+  Binding = IssueSeverity
+  Short Label = fatal | error | warning | information
+  Definition = Indicates whether the issue indicates a variation from successful processing
+  Requirements = Indicates how relevant the issue is to the overall success of the action.
+  Comments = This is labeled as \"Is Modifier\" because applications should not confuse hints and warnings with errors
+  v2 Mapping = ERR-4
+  RIM Mapping = ./typeCode[parent::AcknowledgmentDetail] or unique(./inboundRelationship[parent::Observation and typeCode=\'SUBJ\' and isNormalActRelationship()]/source[classCode=\"OBS\" and moodCode=\"EVN\" and implies(code, ActCode#SEV and isNormalAct())/value[xsi:type=\"CD\"]
+
+ -- Row 4 -----------------------------------
+  Element = OperationOutcome.issue.code
+  Card. = 1..1
+  Type = code
+  Binding = IssueType
+  Short Label = Error or warning code
+  Definition = Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide it\'s own code for the error in the details element
+  Requirements = Expresses the issue in a human and computer-friendly way, allowing the requesting system to behave differently based on the type of issue
+  v2 Mapping = ERR-3
+  RIM Mapping = ./code
+
+ -- Row 5 -----------------------------------
+  Element = OperationOutcome.issue.details
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = IssueDetails
+  Short Label = Additional details about the error
+  Definition = Additional details about the error. This may be a text description of the error, or a system code that identifies the error
+  Comments = A human readable description of the error issue SHOULD be placed in details.text
+  v2 Mapping = ERR-5
+  RIM Mapping = ./code
+
+ -- Row 6 -----------------------------------
+  Element = OperationOutcome.issue.diagnostics
+  Card. = 0..1
+  Type = string
+  Short Label = Additional diagnostic information about the issue
+  Definition = Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.
+  Comments = typically this field is used to provide troubleshooting information about the error
+  v2 Mapping = ERR-8
+  RIM Mapping = ./text[parent::AcknowledgmentDetail]
+
+ -- Row 7 -----------------------------------
+  Element = OperationOutcome.issue.location
+  Card. = 0..*
+  Type = string
+  Short Label = XPath of element(s) related to issue
+  Definition = A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
+  Requirements = Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily.
+  Comments = The root of the XPath is the resource or bundle that generated OperationOutcome.  Each XPath SHALL resolve to a single node.  The XPath syntax is used whether the referenced instance is expressed in XML or JSON.
+  v2 Mapping = ERR-2
+  RIM Mapping = ./location[parent::AcknowledgmentDetail]
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = OperationOutcome.extensions
+  IG Name = core
+  Filename = operationoutcome-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = 101
+  Description = General Outcome Example
+  Filename = operationoutcome-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = internal Exception
+  Identity = exception
+  Description = An error that might be returned when an unexpected exception happens on a server
+  Filename = operationoutcome-example-exception.xml
+
+ -- Row 3 -----------------------------------
+  Name = All OK
+  Identity = allok
+  Description = An operation outcome that would be returned after a successful operation
+  Filename = operationoutcome-example-allok.xml
+
+ -- Row 4 -----------------------------------
+  Name = Validation Failed
+  Identity = validationfail
+  Description = A validator has found problems with a resource
+  Filename = operationoutcome-example-validationfail.xml
+
+ -- Row 5 -----------------------------------
+  Name = Search Error
+  Identity = searchfail
+  Description = A search error (illegal modifier)
+  Filename = operationoutcome-example-searchfail.xml
+
+=== Sheet Examples =====================================

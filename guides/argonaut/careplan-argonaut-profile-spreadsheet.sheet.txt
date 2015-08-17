@@ -1,0 +1,60 @@
+﻿
+=== Sheet argonaut-careplan =====================================
+
+ -- Row 1 -----------------------------------
+  Element = CarePlan
+  Type = DomainResource
+
+ -- Row 2 -----------------------------------
+  Element = CarePlan.identifier
+  Card. = 0..0
+
+ -- Row 3 -----------------------------------
+  Element = CarePlan.patient
+  Card. = 1..1
+
+ -- Row 4 -----------------------------------
+  Element = CarePlan.status
+  Card. = 1..1
+  Type = code
+  Value = active
+
+ -- Row 5 -----------------------------------
+  Element = CarePlan.period
+  Card. = 0..0
+
+ -- Row 6 -----------------------------------
+  Element = CarePlan.author
+  Card. = 0..0
+
+ -- Row 7 -----------------------------------
+  Element = CarePlan.modified
+  Card. = 0..0
+
+ -- Row 8 -----------------------------------
+  Element = CarePlan.category
+  Card. = 0..0
+
+ -- Row 9 -----------------------------------
+  Element = CarePlan.concern
+  Card. = 0..0
+
+ -- Row 10 -----------------------------------
+  Element = CarePlan.support
+  Card. = 0..0
+
+ -- Row 11 -----------------------------------
+  Element = CarePlan.participant
+  Card. = 0..0
+
+ -- Row 12 -----------------------------------
+  Element = CarePlan.goal
+  Card. = 0..0
+
+ -- Row 13 -----------------------------------
+  Element = CarePlan.activity
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = CarePlan.notes
+  Card. = 0..0

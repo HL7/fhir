@@ -1,0 +1,101 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = EventPurposeOfUse
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
+  Definition = Indicates the why the event occurred
+  Conformance = extensible
+
+=== Sheet EHRSRLE-Provenance =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Provenance
+  Type = DomainResource
+
+ -- Row 2 -----------------------------------
+  Element = Provenance.target
+  Card. = 1..*
+  Must Support = Y
+
+ -- Row 3 -----------------------------------
+  Element = Provenance.period
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Provenance.recorded
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Provenance.reason
+  Card. = 0..1
+  Must Support = Y
+  Binding = EventPurposeOfUse
+
+ -- Row 6 -----------------------------------
+  Element = Provenance.location
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Provenance.policy
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = Provenance.agent
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Provenance.agent.role
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = Provenance.agent.type
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 11 -----------------------------------
+  Element = Provenance.agent.reference
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 12 -----------------------------------
+  Element = Provenance.agent.display
+  Card. = 0..1
+
+ -- Row 13 -----------------------------------
+  Element = Provenance.entity
+  Card. = 0..*
+
+ -- Row 14 -----------------------------------
+  Element = Provenance.entity.role
+  Card. = 1..1
+
+ -- Row 15 -----------------------------------
+  Element = Provenance.entity.type
+  Card. = 1..1
+
+ -- Row 16 -----------------------------------
+  Element = Provenance.entity.reference
+  Card. = 1..1
+
+ -- Row 17 -----------------------------------
+  Element = Provenance.entity.display
+  Card. = 0..1
+
+ -- Row 18 -----------------------------------
+  Element = Provenance.entity.agent
+  Card. = 0..1
+
+ -- Row 19 -----------------------------------
+  Element = Provenance.signature
+  Card. = 0..1
+  Must Support = Y
+
+=== Sheet Search =====================================

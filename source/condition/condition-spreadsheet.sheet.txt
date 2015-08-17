@@ -1,0 +1,497 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ConditionKind
+  Binding = value set
+  Reference = valueset-condition-code
+  Definition = Identification of the Condition or diagnosis.
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = ConditionCategory
+  Binding = value set
+  Reference = valueset-condition-category
+  Definition = A category assigned to the condition.
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = ConditionClinicalStatus
+  Binding = value set
+  Reference = valueset-condition-clinical
+  Definition = The clinical status of the Condition or diagnosis
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = ConditionVerificationStatus
+  Binding = code list
+  Reference = #condition-ver-status
+  Definition = The verification status to support or decline the clinical status of the Condition or diagnosis.
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = !ConditionCertainty
+  Binding = value set
+  Reference = valueset-condition-certainty
+  Definition = The degree of confidence that this condition is correct
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = ConditionSeverity
+  Binding = value set
+  Reference = valueset-condition-severity
+  Definition = A subjective assessment of the severity of the condition as evaluated by the clinician.
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = ManifestationOrSymptom
+  Binding = value set
+  Reference = valueset-manifestation-or-symptom
+  Definition = Codes that describe the manifestation or symptoms of a condition.
+  Conformance = example
+
+ -- Row 8 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality
+  Description = SNOMED CT Body site concepts
+  Conformance = example
+
+=== Sheet condition-ver-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = provisional
+  Display = Provisional
+  Definition = This is a tentative diagnosis - still a candidate that is under consideration
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = differential
+  Display = Differential
+  Definition = One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = confirmed
+  Display = Confirmed
+  Definition = There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = refuted
+  Display = Refuted
+  Definition = This condition has been ruled out by diagnostic and clinical evidence
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The statement was entered in error and Is not valid
+  v3 = ActStatus.nullified
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = unknown
+  Display = Unknown
+  Definition = The condition status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\"
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Condition.stage
+  English = Stage SHALL have summary or assessment
+  XPath = exists(f:summary) or exists(f:assessment)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Condition.evidence
+  English = evidence SHALL have code or details
+  XPath = exists(f:code) or exists(f:detail)
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  UML = 200;0
+  Type = DomainResource
+  Short Label = Detailed information about conditions, problems or diagnoses
+  Definition = Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary
+  v2 Mapping = PPR message
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=ASSERTION, value<Diagnosis]
+  To Do = * Age is questionable, you might well need a range of Age or even (in practice)  a text like \"in their teens\". => new ballot comment.  * Todo: discuss the applicability of assessing stages  * Change the description: it is circular
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = Condition.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = External Ids for this condition
+  Definition = This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Requirements = Need to allow connection to a wider workflow
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Condition.patient
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Who has the condition?
+  Definition = Indicates the patient who the condition record is associated with
+  v2 Mapping = PID-3
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
+  Committee Notes = [#3701]
+  w5 = who.focus
+
+ -- Row 4 -----------------------------------
+  Element = Condition.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Encounter when condition first asserted
+  Definition = Encounter during which the condition was first asserted
+  v2 Mapping = PV1-19 (+PV1-54)
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 5 -----------------------------------
+  Element = Condition.asserter
+  Card. = 0..1
+  Type = Reference(Practitioner|Patient)
+  Short Label = Person who asserts this condition
+  Definition = Individual who is making the condition statement
+  v2 Mapping = REL-7.1 identifier + REL-7.12 type code
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
+
+ -- Row 6 -----------------------------------
+  Element = Condition.dateRecorded
+  Card. = 0..1
+  Type = date
+  Short Label = When first entered
+  Definition = A date, when  the Condition statement was documented
+  Comments = The Date Recorded represents the date when this particular Condition record was created in the EHR, not the date of the most recent update in terms of when severity, abatement, etc. were specified.  The date of the last record modification can be retrieved from the resource metadata.
+  v2 Mapping = REL-11
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 7 -----------------------------------
+  Element = Condition.code
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ConditionKind
+  Short Label = Identification of the condition, problem or diagnosis
+  Definition = Identification of the condition, problem or diagnosis.
+  v2 Mapping = PRB-3
+  RIM Mapping = .value
+  w5 = what
+
+ -- Row 8 -----------------------------------
+  Element = Condition.category
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ConditionCategory
+  Short Label = complaint | symptom | finding | diagnosis
+  Definition = A category assigned to the condition.
+  Comments = The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts
+  v2 Mapping = \'problem\' if from PRB-3. \'diagnosis\' if from DG1 segment in PV1 message
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 9 -----------------------------------
+  Element = Condition.clinicalStatus
+  Card. = 0..1
+  Is Modifier = y
+  Type = code
+  Binding = ConditionClinicalStatus
+  Short Label = active | relapse | remission | resolved
+  Definition = The clinical status of the condition.
+  w5 = status
+
+ -- Row 10 -----------------------------------
+  Element = Condition.verificationStatus
+  Card. = 1..1
+  Is Modifier = y
+  Type = code
+  Binding = ConditionVerificationStatus
+  Short Label = provisional | differential | confirmed | refuted | entered-in-error | unknown
+  Definition = The verification status to support the clinical status of the condition.
+  v2 Mapping = PRB-14 / DG1-6
+  RIM Mapping = .code (pre or post-coordinated in)  Can use valueNegationInd for refuted
+  w5 = status
+
+ -- Row 11 -----------------------------------
+  Element = !Condition.certainty
+  Card. = 0..1
+  Is Modifier = y
+  Type = CodeableConcept
+  Binding = ConditionCertainty
+  Short Label = Degree of confidence
+  Definition = The degree of confidence that this condition is correct
+  Comments = May be a percentage
+  v2 Mapping = PRB-19
+  RIM Mapping = .uncertaintyCode
+  w5 = grade
+
+ -- Row 12 -----------------------------------
+  Element = Condition.severity
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ConditionSeverity
+  Short Label = Subjective severity of condition
+  Definition = A subjective assessment of the severity of the condition as evaluated by the clinician.
+  Comments = Coding of the severity with a terminology is preferred, where possible
+  v2 Mapping = PRB-26 / ABS-3
+  RIM Mapping = Can be pre/post-coordinated into value.  Or ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"severity\"].value
+  w5 = grade
+
+ -- Row 13 -----------------------------------
+  Element = Condition.onset[x]
+  Card. = 0..1
+  Type = dateTime | Age | Period | Range | string
+  Short Label = Estimated or actual date,  date-time, or age
+  Definition = Estimated or actual date or date-time  the condition began, in the opinion of the clinician
+  Comments = Age is generally used when the patient reports an age at which the Condition began to occur
+  v2 Mapping = PRB-16
+  RIM Mapping = .effectiveTime.low or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age at onset\"].value
+  Committee Notes = [#2952]
+  w5 = when.init
+
+ -- Row 14 -----------------------------------
+  Element = Condition.abatement[x]
+  Card. = 0..1
+  Type = dateTime | Age | boolean | Period | Range | string
+  Short Label = If/when in resolution/remission
+  Definition = The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.
+  Comments = There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid
+  RIM Mapping = .effectiveTime.high or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age at remission\"].value or .inboundRelationship[typeCode=SUBJ]source[classCode=CONC, moodCode=EVN].status=completed
+  w5 = when.done
+
+ -- Row 15 -----------------------------------
+  Element = Condition.stage
+  Card. = 0..1
+  UML = -20;0
+  Short Label = Stage/grade, usually assessed formally
+  Definition = Clinical stage or grade of a condition. May include formal severity assessments
+  RIM Mapping = ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"stage/grade\"]
+
+ -- Row 16 -----------------------------------
+  Element = Condition.stage.summary
+  Card. = 0..1
+  Inv. = 1
+  Type = CodeableConcept
+  Short Label = Simple summary (disease specific)
+  Definition = A simple summary of the stage such as \"Stage 3\". The determination of the stage is disease-specific
+  RIM Mapping = .value
+
+ -- Row 17 -----------------------------------
+  Element = Condition.stage.assessment
+  Card. = 0..*
+  Inv. = 1
+  Type = Reference(ClinicalImpression|DiagnosticReport|Observation)
+  Short Label = Formal record of assessment
+  Definition = Reference to a formal record of the evidence on which the staging assessment is based
+  RIM Mapping = .self
+  To Do = When an assessment resource / framework is developed, this will be changed from Any to something narrower
+
+ -- Row 18 -----------------------------------
+  Element = Condition.evidence
+  Card. = 0..*
+  UML = -70;150
+  Short Label = Supporting evidence
+  Definition = Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed
+  Comments = The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both
+  RIM Mapping = .outboundRelationship[typeCode=SPRT].target[classCode=OBS, moodCode=EVN]
+
+ -- Row 19 -----------------------------------
+  Element = Condition.evidence.code
+  Card. = 0..1
+  Inv. = 2
+  Type = CodeableConcept
+  Binding = ManifestationOrSymptom
+  Short Label = Manifestation/symptom
+  Definition = A manifestation or symptom that led to the recording of this condition
+  RIM Mapping = [code=\"diagnosis\"].value
+
+ -- Row 20 -----------------------------------
+  Element = Condition.evidence.detail
+  Card. = 0..*
+  Inv. = 2
+  Type = Reference(Any)
+  Short Label = Supporting information found elsewhere
+  Definition = Links to other relevant information, including pathology reports
+  RIM Mapping = .self
+
+ -- Row 21 -----------------------------------
+  Element = Condition.bodySite
+  Card. = 0..*
+  UML = 500;0
+  Type = CodeableConcept
+  Binding = BodySite
+  Short Label = Anatomical location, if relevant
+  Definition = The anatomical location where this condition manifests itself
+  Comments = May be a summary code, or a reference to a very precise definition of the location, or both
+  RIM Mapping = .targetBodySiteCode
+
+ -- Row 22 -----------------------------------
+  Element = Condition.notes
+  Card. = 0..1
+  Type = string
+  Short Label = Additional information about the Condition
+  Definition = Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis
+  v2 Mapping = NTE child of PRB
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = code
+  Type = token
+  Description = Code for the condition
+  Path = Condition.code
+
+ -- Row 2 -----------------------------------
+  Name = clinicalstatus
+  Type = token
+  Description = The clinical status of the condition
+  Path = Condition.clinicalStatus
+
+ -- Row 3 -----------------------------------
+  Name = severity
+  Type = token
+  Description = The severity of the condition
+  Path = Condition.severity
+
+ -- Row 4 -----------------------------------
+  Name = category
+  Type = token
+  Description = The category of the condition
+  Path = Condition.category
+
+ -- Row 5 -----------------------------------
+  Name = onset
+  Type = date
+  Description = Date related onsets (dateTime and Period)
+  Path = Condition.onset[x]
+
+ -- Row 6 -----------------------------------
+  Name = onset-info
+  Type = string
+  Description = Other onsets (boolean, age, range, string)
+  Path = Condition.onset[x]
+
+ -- Row 7 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = Condition.encounter
+
+ -- Row 8 -----------------------------------
+  Name = asserter
+  Type = reference
+  Path = Condition.asserter
+
+ -- Row 9 -----------------------------------
+  Name = date-recorded
+  Type = date
+  Description = A date, when the Condition statement was documented
+  Path = Condition.dateRecorded
+
+ -- Row 10 -----------------------------------
+  Name = evidence
+  Type = token
+  Path = Condition.evidence.code
+
+ -- Row 11 -----------------------------------
+  Name = body-site
+  Type = token
+  Path = Condition.bodySite
+
+ -- Row 12 -----------------------------------
+  Name = stage
+  Type = token
+  Path = Condition.stage.summary
+
+ -- Row 13 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Condition.patient
+  Target Types = Patient
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = condition-extensions
+  IG Name = core
+  Filename = condition-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Condition Example
+  Filename = condition-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = 2nd Case
+  Identity = example2
+  Description = 2nd Example
+  Filename = condition-example2.xml
+
+ -- Row 3 -----------------------------------
+  Name = Fever
+  Identity = f201
+  Description = Real-word condition example (fever)
+  Filename = condition-example-f201-fever.xml
+
+ -- Row 4 -----------------------------------
+  Name = Malignancy
+  Identity = f202
+  Description = Real-word condition example (malignancy)
+  Filename = condition-example-f202-malignancy.xml
+
+ -- Row 5 -----------------------------------
+  Name = Sepsis
+  Identity = f203
+  Description = Real-word condition example (sepsis)
+  Filename = condition-example-f203-sepsis.xml
+
+ -- Row 6 -----------------------------------
+  Name = Renal insufficiency
+  Identity = f204
+  Description = Real-word condition example (renal insufficiency)
+  Filename = condition-example-f204-renal.xml
+
+ -- Row 7 -----------------------------------
+  Name = Bacterial Infection
+  Identity = f205
+  Description = Real-word condition example (Bacterial Infection)
+  Filename = condition-example-f205-infection.xml
+
+ -- Row 8 -----------------------------------
+  Name = Heart
+  Identity = f001
+  Description = Real-word condition example (heart)
+  Filename = condition-example-f001-heart.xml
+
+ -- Row 9 -----------------------------------
+  Name = Lung
+  Identity = f002
+  Description = Real-word condition example (lung)
+  Filename = condition-example-f002-lung.xml
+
+ -- Row 10 -----------------------------------
+  Name = Abscess
+  Identity = f003
+  Description = Real-word condition example (abscess)
+  Filename = condition-example-f003-abscess.xml
+
+ -- Row 11 -----------------------------------
+  Name = Stroke
+  Identity = stroke
+  Description = Stroke example (for prognosis)
+  Filename = condition-example-stroke.xml
+
+=== Sheet Examples =====================================

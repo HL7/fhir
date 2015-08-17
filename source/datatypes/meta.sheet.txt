@@ -1,0 +1,53 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Meta
+  Type = Element
+  Short Label = Metadata about a resource
+  Definition = The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource
+
+ -- Row 2 -----------------------------------
+  Element = Meta.versionId
+  Card. = 0..1
+  Type = id
+  Short Label = Version specific identifier
+  Definition = The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted
+  Comments = The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes
+
+ -- Row 3 -----------------------------------
+  Element = Meta.lastUpdated
+  Card. = 0..1
+  Type = instant
+  Short Label = When the resource version last changed
+  Definition = When the resource last changed - e.g. when the version changed
+  Comments = This value is always populated except when the resource is first being created. The server / resource manager sets this value; what a client provides is irrelevant
+
+ -- Row 4 -----------------------------------
+  Element = Meta.profile
+  Card. = 0..*
+  Type = uri
+  Short Label = Profiles this resource claims to conform to
+  Definition = A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]
+  Comments = It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.  The list of profile URLs is a set
+
+ -- Row 5 -----------------------------------
+  Element = Meta.security
+  Card. = 0..*
+  Type = Coding
+  Binding = SecurityLabels
+  Short Label = Security Labels applied to this resource
+  Definition = Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure
+  Comments = The security labels can be updated without changing the stated version of the resource  The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored
+
+ -- Row 6 -----------------------------------
+  Element = Meta.tag
+  Card. = 0..*
+  Type = Coding
+  Short Label = Tags applied
+  Definition = Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource
+  Comments = The tags can be updated without changing the stated version of the resource.  The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored

@@ -1,0 +1,423 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = OrganizationType
+  Binding = value set
+  Reference = valueset-organization-type
+  Definition = Used to categorize the organization
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = !OrganizationAccreditation
+  Binding = unbound
+  Definition = Types of accreditations an organization may be granted
+
+ -- Row 3 -----------------------------------
+  Binding Name = ContactPartyType
+  Binding = value set
+  Reference = valueset-contactentity-type
+  Definition = The purpose for which you would contact a contact party
+  Conformance = extensible
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Organization
+  English = The organization SHALL at least have a name or an id, and possibly more than one
+  XPath = count(f:identifier | f:name) > 0
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Organization.address
+  English = An address of an organization can never be of use \'home\'
+  XPath = count(f:use[@value=\'home\']) = 0
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Organization.telecom
+  English = The telecom of an organization can never be of use \'home\'
+  XPath = count(f:use[@value=\'home\']) = 0
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Organization
+  Type = DomainResource
+  Short Label = A grouping of people or organizations with a common purpose
+  Definition = A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc
+  v2 Mapping = (also see master files messages)
+  RIM Mapping = Organization(classCode=ORG, determinerCode=INST)
+  ServD Mapping = Organization
+  w5 = administration
+
+ -- Row 2 -----------------------------------
+  Element = Organization.identifier
+  Card. = 0..*
+  Summary = Y
+  Inv. = 1
+  Type = Identifier
+  Short Label = Identifies this organization  across multiple systems
+  Definition = Identifier for the organization that is used to identify the organization across multiple disparate systems
+  Requirements = Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.
+  v2 Mapping = XON.10 Organization Identifier / XON.3 ID Number
+  RIM Mapping = .scopes[Role](classCode=IDENT)
+  ServD Mapping = ./Identifiers
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Organization.active
+  Card. = 0..1
+  Is Modifier = y
+  Summary = Y
+  Type = boolean
+  Short Label = Whether the organization\'s record is still in active use
+  Definition = Whether the organization\'s record is still in active use
+  Requirements = Need a flag to indicate a record is no longer to be used and should generally be hidden for the user in the UI.
+  Comments = Default is true.
+  v2 Mapping = No equivalent in V2.x
+  RIM Mapping = .status
+  ServD Mapping = ./Status (however this concept in ServD more covers why the organization is active or not, could be delisted, deregistered, not operational yet) this could alternatively be derived from ./StartDate and ./EndDate and given a context date.
+  Committee Notes = Lloyd(?): This isn\'t data we record about an organization but is data about this organization\'s record. I would argue about including this metadata here. It also implies effects on functionality, like not showing up in queries anymore, which cannot be guaranteed. All in all, this belongs to record infrastructure, not data. Status of Organization is different type to Location as the status of a Location is not always binary, as it can be on hold, whereas for the Organizations either they are active or not.
+  Default Value = True
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = Organization.type
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = OrganizationType
+  Short Label = Kind of organization
+  Definition = The kind of organization that this is
+  Requirements = Need to be able to track the kind of organization that this is - different organization types have different uses
+  Comments = Organizations can be corporations, wards, sections, clinical teams, government departments, etc. Note that code is generally a classifier of the type of organization; in many applications, codes are used to identity a particular organization (say, ward) as opposed to another of the same type - these are identifiers, not codes
+  v2 Mapping = No equivalent in v2
+  RIM Mapping = .code
+  ServD Mapping = n/a
+  w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = Organization.name
+  Card. = 0..1
+  Summary = Y
+  Inv. = 1
+  Type = string
+  Short Label = Name used for the organization
+  Definition = A name associated with the organization
+  Requirements = Need to use the name as the label of the organization.
+  v2 Mapping = XON.1 Organization Name
+  RIM Mapping = .name
+  ServD Mapping = .PreferredName/Name
+  Committee Notes = If you need multiple names to cater for acronyms and \"trading under\" names, use an extension \"alias\" instead
+
+ -- Row 6 -----------------------------------
+  Element = Organization.telecom
+  Card. = 0..*
+  Inv. = 3
+  Type = ContactPoint
+  Short Label = A contact detail for the organization
+  Definition = A contact detail for the organization
+  Requirements = Human contact for the organization
+  Comments = The use code home is not to be used. Note that these contacts are not the contact details of people who are employed by or represent the organization, but official contacts for the organization itself
+  v2 Mapping = No authoritative equivalent in V2.x
+  RIM Mapping = .telecom
+  ServD Mapping = ./ContactPoints
+
+ -- Row 7 -----------------------------------
+  Element = Organization.address
+  Card. = 0..*
+  Inv. = 2
+  Type = Address
+  Short Label = An address for the organization
+  Definition = An address for the organization
+  Requirements = May need to keep track of the organization\'s addresses for contacting, billing or reporting requirements
+  Comments = Organization may have multiple addresses with different uses or applicable periods. The use code home is not to be used
+  v2 Mapping = No authoritative equivalent in V2.x; some V2.x segments such as OBX might provide a serialized instance value
+  RIM Mapping = .address
+  ServD Mapping = ./PrimaryAddress and ./OtherAddresses
+
+ -- Row 8 -----------------------------------
+  Element = !Organization.accreditation
+  Card. = 0..*
+  UML = right
+  Short Label = Formal certifications that convey authority
+  Definition = The qualifications/certifications an organization has, including format educational achievements, accreditations and current certifications. All these qualifications may be used to determine what roles the organization may play in a healthcare environment
+  Requirements = For many organizations in healthcare, it is necessary to track the qualifications an organization has
+  v2 Mapping = Roughly analogous to person-specific CER segment in V2.x
+  RIM Mapping = .plays[Role](classCode=\'QUAL\')
+  ServD Mapping = Could be mapped via ./Attrbutes or ./Affiliations
+  To Do = 1) Not sure if qualified & accredited are the same.  2) Could potentially propose a new classCode. We wonder if Accreditation is in the 80%. Accreditation is not part of the current PA domain, it was in Personnel Management but this has been retracted. The PM version also had many more attributes, so is this Accreditation good enough? We (current participants) do not use it. We decide to keep it, to see what happens in ballot
+
+ -- Row 9 -----------------------------------
+  Element = !Organization.accreditation.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Label = Identifier for the accreditation
+  Definition = The identifier of the accreditation
+  Requirements = Allows a link back to a accreditation registry, if one exists
+  RIM Mapping = .identifier
+
+ -- Row 10 -----------------------------------
+  Element = !Organization.accreditation.code
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = OrganizationAccreditation
+  Short Label = What kind of accreditation
+  Definition = The type of the accreditation
+  Requirements = commonly used to determine the roles an organization may perform
+  RIM Mapping = .code
+
+ -- Row 11 -----------------------------------
+  Element = !Organization.accreditation.issuer
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Who conferred accreditation
+  Definition = The organization that conferred/confers the accreditation
+  Requirements = May determine the significance of the qualification, and allows a link back to a qualification registry, if one exists
+  RIM Mapping = .scopedBy[Organization]
+  To Do = Lloyd(?): Do we need jurisdiction as well?  (The jurisdiction is often more relevant than the accrediting org.)  EK: Isn\'t a jurisdiction an organization?
+
+ -- Row 12 -----------------------------------
+  Element = !Organization.accreditation.period
+  Card. = 0..1
+  Type = Period
+  Short Label = When the accreditation is valid (date only)
+  Definition = The period for which the accreditation is held
+  Requirements = Most accreditations are only conferred for a limited time period and SHALL be re-acquired or forfeited
+  RIM Mapping = .effectiveTime[IVL<TS>]
+
+ -- Row 13 -----------------------------------
+  Element = Organization.partOf
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Label = The organization of which this organization forms a part
+  Definition = The organization of which this organization forms a part
+  Requirements = Need to be able to track the hierarchy of organizations within an organization
+  v2 Mapping = No equivalent in V2.x
+  RIM Mapping = .playedBy[classCode=Part].scoper
+  ServD Mapping = n/a
+
+ -- Row 14 -----------------------------------
+  Element = Organization.contact
+  Card. = 0..*
+  UML = right
+  Short Label = Contact for the organization for a certain purpose
+  Requirements = Need to keep track of assigned contact points within bigger organization
+  RIM Mapping = .contactParty
+
+ -- Row 15 -----------------------------------
+  Element = Organization.contact.purpose
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ContactPartyType
+  Short Label = The type of contact
+  Definition = Indicates a purpose for which the contact can be reached
+  Requirements = Need to distinguish between multiple contact persons.
+  RIM Mapping = ./type
+
+ -- Row 16 -----------------------------------
+  Element = Organization.contact.name
+  Card. = 0..1
+  Type = HumanName
+  Short Label = A name associated with the contact
+  Definition = A name associated with the contact
+  Requirements = Need to be able to track the person by name.
+  v2 Mapping = PID-5, PID-9
+  RIM Mapping = ./name
+
+ -- Row 17 -----------------------------------
+  Element = Organization.contact.telecom
+  Card. = 0..*
+  Type = ContactPoint
+  Short Label = Contact details (telephone, email, etc)  for a contact
+  Definition = A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.
+  Requirements = People have (primary) ways to contact them in some way such as phone, email.
+  v2 Mapping = PID-13, PID-14
+  RIM Mapping = ./telecom
+
+ -- Row 18 -----------------------------------
+  Element = Organization.contact.address
+  Card. = 0..1
+  Type = Address
+  Short Label = Visiting or postal addresses for the contact
+  Definition = Visiting or postal addresses for the contact
+  Requirements = May need to keep track of a contact party\'s address for contacting, billing or reporting requirements
+  v2 Mapping = PID-11
+  RIM Mapping = ./addr
+
+ -- Row 19 -----------------------------------
+  Element = !Organization.contact.gender
+  Card. = 0..1
+  Type = code
+  Binding = AdministrativeGender
+  Short Label = male | female | other | unknown
+  Definition = Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+  Requirements = Needed to address the person correctly
+  v2 Mapping = PID-8
+  RIM Mapping = ./administrativeGender
+
+ -- Row 20 -----------------------------------
+  Element = !Organization.location
+  Card. = 0..*
+  Type = Reference(Location)
+  Short Label = Location(s) the organization uses to provide services
+  Definition = Location(s) the organization uses to provide services
+  RIM Mapping = .scopedBy[classCode=LocatedEntity].scoper
+  ServD Mapping = ./Sites
+  w5 = where
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = name
+  Type = string
+  Description = A portion of the organization\'s name
+  Path = Organization.name
+
+ -- Row 2 -----------------------------------
+  Name = phonetic
+  Type = string
+  Description = A portion of the organization\'s name using some kind of phonetic matching algorithm
+  Path = Organization.name
+  Path Usage = phonetic
+
+ -- Row 3 -----------------------------------
+  Name = type
+  Type = token
+  Description = A code for the type of organization
+  Path = Organization.type
+
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Any identifier for the organization (not the accreditation issuer\'s identifier)
+  Path = Organization.identifier
+
+ -- Row 5 -----------------------------------
+  Name = !accreditation
+  Type = token
+  Description = Any accreditation code
+  Path = Organization.accreditation.code
+
+ -- Row 6 -----------------------------------
+  Name = partof
+  Type = reference
+  Description = Search all organizations that are part of the given organization
+  Path = Organization.partOf
+
+ -- Row 7 -----------------------------------
+  Name = active
+  Type = token
+  Description = Whether the organization\'s record is active
+  Path = Organization.active
+
+ -- Row 8 -----------------------------------
+  Name = address
+  Type = string
+  Description = A (part of the) address of the Organization
+  Path = Organization.address
+
+ -- Row 9 -----------------------------------
+  Name = address-city
+  Type = string
+  Description = A city specified in an address
+  Path = Organization.address.city
+
+ -- Row 10 -----------------------------------
+  Name = address-state
+  Type = string
+  Description = A state specified in an address
+  Path = Organization.address.state
+
+ -- Row 11 -----------------------------------
+  Name = address-postalcode
+  Type = string
+  Description = A postalCode specified in an address
+  Path = Organization.address.postalCode
+
+ -- Row 12 -----------------------------------
+  Name = address-country
+  Type = string
+  Description = A country specified in an address
+  Path = Organization.address.country
+
+ -- Row 13 -----------------------------------
+  Name = address-use
+  Type = token
+  Description = A use code specified in an address
+  Path = Organization.address.use
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Organization Extensions
+  IG Name = core
+  Filename = organization-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = HL7
+  Identity = hl7
+  Description = HL7 itself
+  Filename = organization-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Gastro
+  Identity = 1
+  Description = Gastroenterology team at ACME Healthcare
+  Filename = organization-example-gastro.xml
+
+ -- Row 3 -----------------------------------
+  Name = Laboratory
+  Identity = 1832473e-2fe0-452d-abe9-3cdb9879522f
+  Description = Clinical Laboratory at ACME Healthcare
+  Filename = organization-example-lab.xml
+
+ -- Row 4 -----------------------------------
+  Name = Insurer
+  Identity = 2
+  Description = XYZ Insurance
+  Filename = organization-example-insurer.xml
+
+ -- Row 5 -----------------------------------
+  Name = x-CDA
+  Identity = 2.16.840.1.113883.19.5
+  Description = Good Health Clinic
+  Filename = organization-example-good-health-care.xml
+
+ -- Row 6 -----------------------------------
+  Name = Burgers Amsterdam
+  Identity = f001
+  Description = Real-world organization example (Burgers MC)
+  Filename = organization-example-f001-burgers.xml
+
+ -- Row 7 -----------------------------------
+  Name = Burgers Cardio
+  Identity = f002
+  Description = Real-world organization example (Burgers MC Cardiology)
+  Filename = organization-example-f002-burgers-card.xml
+
+ -- Row 8 -----------------------------------
+  Name = Artis UMC
+  Identity = f201
+  Description = Real-world organization example (Artis UMC)
+  Filename = organization-example-f201-aumc.xml
+
+ -- Row 9 -----------------------------------
+  Name = Blijdorp
+  Identity = f203
+  Description = Real-world organization example (Blijdorp MC)
+  Filename = organization-example-f203-bumc.xml
+
+ -- Row 10 -----------------------------------
+  Name = ENT
+  Identity = f003
+  Description = Real-world organization example (ENT)
+  Filename = organization-example-f003-burgers-ENT.xml
+
+=== Sheet Examples =====================================

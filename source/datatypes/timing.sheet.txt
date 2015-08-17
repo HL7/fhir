@@ -1,0 +1,370 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = EventTiming
+  Binding = code list
+  Reference = #event-timing
+  Definition = Real world event that the schedule relates to
+
+ -- Row 2 -----------------------------------
+  Binding Name = UnitsOfTime
+  Binding = code list
+  Reference = #units-of-time
+  Definition = A unit of time (units from UCUM)
+  Copyright = UCUM is Copyright ?? 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details
+
+ -- Row 3 -----------------------------------
+  Binding Name = TimingAbbreviation
+  Binding = code list
+  Reference = #timing-abbreviation
+  Definition = Code for a known / defined timing pattern
+  Conformance = preferred
+
+=== Sheet event-timing =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = HS
+  Definition = event occurs [duration] before the hour of sleep (or trying to)
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = WAKE
+  Definition = event occurs [duration] after waking
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = C
+  Definition = event occurs at a meal (from the Latin cibus)
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = CM
+  Definition = event occurs at breakfast (from the Latin cibus matutinus)
+
+ -- Row 5 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = CD
+  Definition = event occurs at lunch (from the Latin cibus diurnus)
+
+ -- Row 6 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = CV
+  Definition = event occurs at dinner (from the Latin ante cibus vespertinus)
+
+ -- Row 7 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = AC
+  Definition = event occurs [duration] before a meal (from the Latin ante cibus)
+
+ -- Row 8 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = ACM
+  Definition = event occurs [duration] before breakfast (from the Latin ante cibus matutinus)
+
+ -- Row 9 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = ACD
+  Definition = event occurs [duration] before lunch (from the Latin ante cibus diurnus)
+
+ -- Row 10 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = ACV
+  Definition = event occurs [duration] before dinner (from the Latin ante cibus vespertinus)
+
+ -- Row 11 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = PC
+  Definition = event occurs [duration] after a meal (from the Latin post cibus)
+
+ -- Row 12 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = PCM
+  Definition = event occurs [duration] after breakfast (from the Latin post cibus matutinus)
+
+ -- Row 13 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = PCD
+  Definition = event occurs [duration] after lunch (from the Latin post cibus diurnus)
+
+ -- Row 14 -----------------------------------
+  System = http://hl7.org/fhir/v3/TimingEvent
+  Code = PCV
+  Definition = event occurs [duration] after dinner (from the Latin post cibus vespertinus)
+
+=== Sheet units-of-time =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://unitsofmeasure.org
+  Code = s
+  Definition = second
+
+ -- Row 2 -----------------------------------
+  System = http://unitsofmeasure.org
+  Code = min
+  Definition = minute
+
+ -- Row 3 -----------------------------------
+  System = http://unitsofmeasure.org
+  Code = h
+  Definition = hour
+
+ -- Row 4 -----------------------------------
+  System = http://unitsofmeasure.org
+  Code = d
+  Definition = day
+
+ -- Row 5 -----------------------------------
+  System = http://unitsofmeasure.org
+  Code = wk
+  Definition = week
+
+ -- Row 6 -----------------------------------
+  System = http://unitsofmeasure.org
+  Code = mo
+  Definition = month
+
+ -- Row 7 -----------------------------------
+  System = http://unitsofmeasure.org
+  Code = a
+  Definition = year
+
+=== Sheet timing-abbreviation =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/v3/GTSAbbreviation
+  Code = BID
+  Display = BID
+  Definition = Two times a day at institution specified time
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/v3/GTSAbbreviation
+  Code = TID
+  Display = TID
+  Definition = Three times a day at institution specified time
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/v3/GTSAbbreviation
+  Code = QID
+  Display = QID
+  Definition = Four times a day at institution specified time
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/v3/GTSAbbreviation
+  Code = AM
+  Display = AM
+  Definition = Every morning at institution specified times
+
+ -- Row 5 -----------------------------------
+  System = http://hl7.org/fhir/v3/GTSAbbreviation
+  Code = PM
+  Display = PM
+  Definition = Every afternoon at institution specified times
+
+ -- Row 6 -----------------------------------
+  Id = 1
+  Code = QD
+  Display = QD
+  Definition = Every Day at institution specified times
+
+ -- Row 7 -----------------------------------
+  Id = 2
+  Code = QOD
+  Display = QOD
+  Definition = Every Other Day at institution specified times
+
+ -- Row 8 -----------------------------------
+  Id = 3
+  Code = Q4H
+  Display = Q4H
+  Definition = Every 4 hours at institution specified times
+
+ -- Row 9 -----------------------------------
+  Id = 4
+  Code = Q6H
+  Display = Q6H
+  Definition = Every 6 Hours  at institution specified times
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Timing.repeat
+  English = if there\'s a duration, there needs to be duration units
+  XPath = not(exists(f:duration)) or exists(f:durationUnits)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Timing.repeat
+  English = if there\'s a period, there needs to be duration units
+  XPath = not(exists(f:period)) or exists(f:periodUnits)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Timing.repeat
+  English = Either frequency or when can exist, not both
+  XPath = not(exists(f:frequency)) or not(exists(f:when))
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Context = Timing.repeat.duration
+  English = duration SHALL be a non-negative value
+  XPath = @value >= 0 or not(@value)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Context = Timing.repeat.period
+  English = period SHALL be a non-negative value
+  XPath = @value >= 0 or not(@value)
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Context = Timing.repeat
+  English = If there\'s a periodMax, there must be a period
+  XPath = not(exists(f:periodMax)) or exists(period)
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Context = Timing.repeat
+  English = If there\'s a durationMax, there must be a duration
+  XPath = not(exists(f:durationMax)) or exists(duration)
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Timing
+  Type = Structure
+  Short Label = A timing schedule that specifies an event that may occur multiple times
+  Definition = Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds
+  Requirements = Need to able to track proposed timing schedules. There are several different ways to do this: one or more specified times, a simple rules like three times a day, or  before/after meals
+  Comments = A timing schedule can be either a list of events - intervals on which the event occurs, or a single event with repeating criteria or just repeating criteria with no actual event.  When both event and a repeating specification are provided, the list of events should be understood as an interpretation of the information in the repeat structure
+  v2 Mapping = N/A
+  RIM Mapping = QSET<TS> (GTS)
+
+ -- Row 2 -----------------------------------
+  Element = Timing.event
+  Card. = 0..*
+  Type = dateTime
+  Short Label = When the event occurs
+  Definition = Identifies specific times when the event occurs
+  Requirements = In an MAR, for instance, you need to take a general specification, and turn it into a precise specification
+  RIM Mapping = QLIST<TS>
+
+ -- Row 3 -----------------------------------
+  Element = Timing.repeat
+  Card. = 0..1
+  UML = 120;200
+  Short Label = When the event is to occur
+  Definition = A set of rules that describe when the event should occur
+  Requirements = Many timing schedules are determined by regular repetitions
+  RIM Mapping = Implies PIVL or EIVL
+
+ -- Row 4 -----------------------------------
+  Element = Timing.repeat.bounds[x]
+  Card. = 0..1
+  Type = Duration | Range | Period
+  Short Label = Length/Range of lengths, or (Start and/or end) limits
+  Definition = Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule
+  RIM Mapping = IVL(TS) used in a QSI
+
+ -- Row 5 -----------------------------------
+  Element = Timing.repeat.count
+  Card. = 0..1
+  Type = integer
+  Short Label = Number of times to repeat
+  Definition = A total count of the desired number of repetitions
+  Requirements = Repetitions may be limited by end time or total occurrences
+  Comments = If you have both bounds and count, then this should be understand as within the bounds period, until count times happens
+  RIM Mapping = PIVL.count
+
+ -- Row 6 -----------------------------------
+  Element = Timing.repeat.duration
+  Card. = 0..1
+  Type = decimal
+  Short Label = How long when it happens
+  Definition = How long this thing happens for when it happens
+  Requirements = Some activities are not instantaneous and need to be maintained for a period of time
+  Comments = For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it\'s part of the timing specification (e.g. exercise)
+  RIM Mapping = PIVL.phase / EIVL.offset
+
+ -- Row 7 -----------------------------------
+  Element = Timing.repeat.durationMax
+  Card. = 0..1
+  Type = decimal
+  Short Label = How long when it happens (Max)
+  Definition = The upper limit of how long this thing happens for when it happens
+  Requirements = Some activities are not instantaneous and need to be maintained for a period of time
+  Comments = For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it\'s part of the timing specification (e.g. exercise)
+  RIM Mapping = PIVL.phase / EIVL.offset
+
+ -- Row 8 -----------------------------------
+  Element = Timing.repeat.durationUnits
+  Card. = 0..1
+  Type = code
+  Binding = UnitsOfTime
+  Short Label = s | min | h | d | wk | mo | a - unit of time (UCUM)
+  Definition = The units of time for the duration, in UCUM units
+  RIM Mapping = PIVL.phase.unit
+
+ -- Row 9 -----------------------------------
+  Element = Timing.repeat.frequency
+  Card. = 0..1
+  Type = integer
+  Short Label = Event occurs frequency times per period
+  Definition = The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided)
+  RIM Mapping = PIVL.phase / EIVL.offset
+  Default Value = 1
+
+ -- Row 10 -----------------------------------
+  Element = Timing.repeat.frequencyMax
+  Card. = 0..1
+  Type = integer
+  Short Label = Event occurs frequency times per period
+  Definition = If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range
+  RIM Mapping = PIVL.phase
+
+ -- Row 11 -----------------------------------
+  Element = Timing.repeat.period
+  Card. = 0..1
+  Type = decimal
+  Short Label = Event occurs frequency times per period
+  Definition = Indicates the duration of time over which repetitions are to occur.  E.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period
+  RIM Mapping = PIVL.phase
+
+ -- Row 12 -----------------------------------
+  Element = Timing.repeat.periodMax
+  Card. = 0..1
+  Type = decimal
+  Short Label = Upper limit of period (3-4 hours)
+  Definition = If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as \"do this once every 3-5 days
+  RIM Mapping = PIVL.phase
+
+ -- Row 13 -----------------------------------
+  Element = Timing.repeat.periodUnits
+  Card. = 0..1
+  Type = code
+  Binding = UnitsOfTime
+  Short Label = s | min | h | d | wk | mo | a - unit of time (UCUM)
+  Definition = The units of time for the period in UCUM units
+  RIM Mapping = PIVL.phase.unit
+
+ -- Row 14 -----------------------------------
+  Element = Timing.repeat.when
+  Card. = 0..1
+  Type = code
+  Binding = EventTiming
+  Short Label = Regular life events the event is tied to
+  Definition = A real world event that the occurrence of the event should be tied to.
+  Requirements = Timings are frequently determined by occurrences such as waking, eating and sleep
+  RIM Mapping = EIVL.event
+
+ -- Row 15 -----------------------------------
+  Element = Timing.code
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = TimingAbbreviation
+  Short Label = QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +
+  Definition = A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes
+  Comments = A repeat should always be defined except for the common codes BID, TID, QID, AM and PM, which all systems are required to understand
+  RIM Mapping = QSC.code

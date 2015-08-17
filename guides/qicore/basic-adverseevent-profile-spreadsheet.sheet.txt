@@ -1,0 +1,112 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ConditionSeverity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-severity
+  Definition = A subjective assessment of the severity of the condition as evaluated by the clinician.
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = ConditionCertainty
+  Binding = value set
+  Reference = valueset-condition-certainty
+  Definition = The degree of confidence that this condition is correct
+  Conformance = example
+
+=== Sheet QICore-AdverseEvent =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Basic
+  Profile Name = QICore-AdverseEvent
+  Type = DomainResource
+  Short Label = Any untoward occurrence during treatment that must be reported.
+  Definition = An adverse event is any untoward occurrence during treatment that must be reported, for example, to a clinical study sponsor.  AEs also include reportable serious medical errors such as those defined by National Quality Forum (see http://www.qualityforum.org/Topics/ SREs/List_of_SREs.aspx). Some AEs can involve conditions such as \"recurring headaches\" but others do not, such as accidental falls, surgical errors, sexual abuse of patient, and sudden death. An adverse event can be caused by exposure to some agent (e.g., a medication, immunization, food, or environmental agent). An adverse reaction can range from a mild reaction, such as a harmless rash to a severe and life-threatening condition. They can occur immediately or develop over time. For example, a patient may develop a rash after taking a particular medication.
+  QDM Mapping = Diagnostic Study, Adverse Event or Device, Adverse Event or Laboratory Test, Adverse Event or Medication, Adverse Effects or Procedure, Adverse Event or Substance, Adverse Event
+
+ -- Row 2 -----------------------------------
+  Element = Basic.extension
+  Profile Name = cause
+  Card. = 0..*
+  Type = Extension{#cause}
+
+ -- Row 3 -----------------------------------
+  Element = Basic.extension.extension
+  Profile Name = cause.item
+  Card. = 1..1
+  Must Support = Y
+  Type = Extension{#cause#item}
+  QDM Mapping = primary code
+  To Do = Make URL correct once tooling supports it
+
+ -- Row 4 -----------------------------------
+  Element = Basic.extension.extension
+  Profile Name = cause.certainty
+  Card. = 1..1
+  Type = Extension{#cause#certainty}
+  Binding = ConditionCertainty
+  Short Label = unlikely | likely | confirmed
+  To Do = Make URL correct once tooling supports it
+
+ -- Row 5 -----------------------------------
+  Element = Basic.extension
+  Profile Name = clinicalStudy
+  Card. = 0..*
+  Type = Extension{#clinicalStudy}
+
+ -- Row 6 -----------------------------------
+  Element = Basic.extension
+  Profile Name = type
+  Card. = 1..1
+  Must Support = Y
+  Type = Extension{#type}
+  QDM Mapping = reaction
+
+ -- Row 7 -----------------------------------
+  Element = !Basic.extension
+  Profile Name = status
+  Card. = 0..1
+  Type = Extension{#status}
+
+ -- Row 8 -----------------------------------
+  Element = Basic.extension
+  Profile Name = period
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{#period}
+  QDM Mapping = start and stop datetime
+
+ -- Row 9 -----------------------------------
+  Element = Basic.extension
+  Profile Name = severity
+  Card. = 0..1
+  Type = Extension{#severity}
+
+ -- Row 10 -----------------------------------
+  Element = Basic.extension
+  Profile Name = related
+  Card. = 0..*
+  Type = Extension{#related}
+
+ -- Row 11 -----------------------------------
+  Element = Basic.modifierExtension
+  Profile Name = didNotOccur
+  Card. = 1..1
+  Must Support = Y
+  Type = Extension{#didNotOccur}
+  QDM Mapping = negation rationale
+
+ -- Row 12 -----------------------------------
+  Element = Basic.subject
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Short Label = The person experiencing the adverse event
+  Definition = The person who has the adverse event
+
+ -- Row 13 -----------------------------------
+  Element = Basic.author
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} |Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+=== Sheet Search =====================================

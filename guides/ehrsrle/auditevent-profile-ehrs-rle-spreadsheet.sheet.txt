@@ -1,0 +1,203 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = EventPurposeOfUse
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
+  Definition = Indicates the why the event occurred
+  Description = extensible
+  Conformance = extensible
+
+=== Sheet EHRSRLE-AuditEvent =====================================
+
+ -- Row 1 -----------------------------------
+  Element = AuditEvent
+  Type = DomainResource
+
+ -- Row 2 -----------------------------------
+  Element = AuditEvent.event
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 3 -----------------------------------
+  Element = AuditEvent.event.extension
+  Profile Name = location
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{#location}
+
+ -- Row 4 -----------------------------------
+  Element = AuditEvent.event.extension
+  Profile Name = reason
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{#reason}
+
+ -- Row 5 -----------------------------------
+  Element = AuditEvent.event.extension
+  Profile Name = policy
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{#policy}
+
+ -- Row 6 -----------------------------------
+  Element = AuditEvent.event.type
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = AuditEvent.event.subtype
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = AuditEvent.event.action
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = AuditEvent.event.dateTime
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = !AuditEvent.event.outcome
+  Card. = 0..1
+
+ -- Row 11 -----------------------------------
+  Element = !AuditEvent.event.outcomeDesc
+  Card. = 0..1
+
+ -- Row 12 -----------------------------------
+  Element = AuditEvent.participant
+  Card. = 1..*
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = AuditEvent.participant.role
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = AuditEvent.participant.reference
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 15 -----------------------------------
+  Element = AuditEvent.participant.userId
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 16 -----------------------------------
+  Element = !AuditEvent.participant.altId
+  Card. = 0..1
+
+ -- Row 17 -----------------------------------
+  Element = !AuditEvent.participant.name
+  Card. = 0..1
+
+ -- Row 18 -----------------------------------
+  Element = AuditEvent.participant.requestor
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = !AuditEvent.participant.media
+  Card. = 0..1
+
+ -- Row 20 -----------------------------------
+  Element = AuditEvent.participant.network
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 21 -----------------------------------
+  Element = AuditEvent.participant.network.identifier
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 22 -----------------------------------
+  Element = AuditEvent.participant.network.type
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 23 -----------------------------------
+  Element = AuditEvent.source
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 24 -----------------------------------
+  Element = AuditEvent.source.site
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 25 -----------------------------------
+  Element = AuditEvent.source.identifier
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 26 -----------------------------------
+  Element = AuditEvent.source.type
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 27 -----------------------------------
+  Element = AuditEvent.object
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 28 -----------------------------------
+  Element = AuditEvent.object.identifier
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 29 -----------------------------------
+  Element = AuditEvent.object.reference
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 30 -----------------------------------
+  Element = AuditEvent.object.type
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 31 -----------------------------------
+  Element = AuditEvent.object.role
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 32 -----------------------------------
+  Element = AuditEvent.object.lifecycle
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 33 -----------------------------------
+  Element = AuditEvent.object.sensitivity
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 34 -----------------------------------
+  Element = !AuditEvent.object.name
+  Card. = 0..1
+
+ -- Row 35 -----------------------------------
+  Element = !AuditEvent.object.description
+  Card. = 0..1
+
+ -- Row 36 -----------------------------------
+  Element = !AuditEvent.object.query
+  Card. = 0..1
+
+ -- Row 37 -----------------------------------
+  Element = !AuditEvent.object.detail
+  Card. = 0..*
+
+ -- Row 38 -----------------------------------
+  Element = !AuditEvent.object.detail.type
+  Card. = 1..1
+
+ -- Row 39 -----------------------------------
+  Element = !AuditEvent.object.detail.value
+  Card. = 1..1
+
+=== Sheet Search =====================================

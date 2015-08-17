@@ -1,0 +1,36 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet DAF-RelatedPerson-Inv =====================================
+
+=== Sheet DAF-RelatedPerson =====================================
+
+ -- Row 1 -----------------------------------
+  Element = RelatedPerson
+  Profile Name = DAFRelatedPerson
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = RelatedPerson.patient
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}}
+
+ -- Row 3 -----------------------------------
+  Element = RelatedPerson.relationship
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 4 -----------------------------------
+  Element = RelatedPerson.name
+  Card. = 0..1
+  Type = HumanName
+
+ -- Row 5 -----------------------------------
+  Element = RelatedPerson.period
+  Card. = 0..1
+  Must Support = Y
+  Type = Period
+
+=== Sheet Search =====================================

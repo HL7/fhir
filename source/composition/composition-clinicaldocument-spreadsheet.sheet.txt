@@ -1,0 +1,13 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet ClinicalDocument =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Composition
+
+ -- Row 2 -----------------------------------
+  Element = Composition.subject
+  Type = Reference(Patient|Practitioner|Group|Device|Location)
+
+=== Sheet Search =====================================

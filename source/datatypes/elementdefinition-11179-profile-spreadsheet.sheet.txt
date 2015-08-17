@@ -1,0 +1,30 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = 11179ObjectClass
+  Binding = value set
+  Reference = valueset-dataelement-sdcobjectclass
+  Definition = A concept that represents a set of ideas, abstractions, or things in the real world that can be identified with explicit boundaries and meaning and whose properties and behavior follow the same rules.  E.g. Person, Prescription, Encounter, etc.
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = 11179ObjectClassProperty
+  Binding = value set
+  Reference = valueset-dataelement-sdcobjectclassproperty
+  Definition = A quality common to all members of an object class. A property may be any feature that humans naturally use to distinguish one individual object from another. It is the human perception of a single quality of an object class in the real world.  E.g. name, identifier, gender, creationDate
+  Conformance = example
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = objectClass
+  Type = token
+  Description = Matches on the 11179-objectClass extension value
+  Path = DataElement.element.mapping.extension{http://hl7.org/fhir/StructureDefinition/11179-objectClass}
+
+ -- Row 2 -----------------------------------
+  Name = objectClassProperty
+  Type = token
+  Description = Matches on the 11179-objectClassProperty extension value
+  Path = DataElement.element.mapping.extension{http://hl7.org/fhir/StructureDefinition/11179-objectClassProperty}

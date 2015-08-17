@@ -1,0 +1,606 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = InstanceAvailability
+  Binding = code list
+  Reference = #instance-availability
+  Definition = Availability of the resource
+  Conformance = required
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association
+
+ -- Row 2 -----------------------------------
+  Binding Name = ImagingModality
+  Binding = value set
+  Reference = valueset-dicom-cid29
+  Definition = Type of acquired data in the instance
+  Conformance = extensible
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association
+
+ -- Row 3 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality
+  Description = SNOMED CT Body site concepts
+  Conformance = example
+
+=== Sheet instance-availability =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://nema.org/dicom/dicm
+  Code = ONLINE
+  Definition = Resources are immediately available,
+
+ -- Row 2 -----------------------------------
+  System = http://nema.org/dicom/dicm
+  Code = OFFLINE
+  Definition = Resources need to be retrieved by manual intervention
+
+ -- Row 3 -----------------------------------
+  System = http://nema.org/dicom/dicm
+  Code = NEARLINE
+  Definition = Resources need to be retrieved from relatively slow media
+
+ -- Row 4 -----------------------------------
+  System = http://nema.org/dicom/dicm
+  Code = UNAVAILABLE
+  Definition = Resources cannot be retrieved.
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ImagingStudy
+  Type = DomainResource
+  Short Label = A set of images produced in single study (one or more series of references images)
+  Definition = Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
+  DICOM Mapping = Reference IHE radiology TF vol 2 table 4.14-1
+  RIM Mapping = Act[classCode=COMPOSITION, moodCode=EVN]
+  w5 = clinical
+
+ -- Row 2 -----------------------------------
+  Element = ImagingStudy.started
+  Card. = 0..1
+  Aliases = StudyDate, StudyTime
+  Type = dateTime
+  Short Label = When the study was started
+  Definition = Date and Time the study started. Timezone Offset From UTC
+  DICOM Mapping = (0008,0020)+(0008,0030)
+  RIM Mapping = .effectiveTime
+  Example = 2011-01-01T11:01:20+03:00
+  Display Hint = dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html#sect_C.7.2.1
+  w5 = when.init
+
+ -- Row 3 -----------------------------------
+  Element = ImagingStudy.patient
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Label = Who the images are of
+  Definition = The patient imaged in the study.
+  DICOM Mapping = (0010/*)
+  RIM Mapping = .participation[typeCode=SBJ].role
+  Display Hint = dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html
+  w5 = who.focus
+
+ -- Row 4 -----------------------------------
+  Element = ImagingStudy.uid
+  Card. = 1..1
+  Aliases = StudyInstanceUID
+  Type = oid
+  Short Label = Formal identifier for the study
+  Definition = Formal identifier for the study
+  DICOM Mapping = (0020,000D)
+  RIM Mapping = .id
+  Example = urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045
+  Display Hint = dicom=
+  w5 = id
+
+ -- Row 5 -----------------------------------
+  Element = ImagingStudy.accession
+  Card. = 0..1
+  Aliases = AccessionNumber
+  Type = Identifier
+  Short Label = Related workflow identifier (\"Accession Number\")
+  Definition = Accession Number is an identifier related to some aspect of imaging workflow and data management, and usage may vary across different institutions.  See for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf)
+  DICOM Mapping = (0008,0050)
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ACSN, moodCode=EVN].id
+  Committee Notes = future consideration may address adding reference to encounter to ImagingStudy resource.
+  w5 = id
+
+ -- Row 6 -----------------------------------
+  Element = ImagingStudy.identifier
+  Card. = 0..*
+  Aliases = StudyID
+  Type = Identifier
+  Short Label = Other identifiers for the study
+  Definition = Other identifiers for the study
+  DICOM Mapping = (0020,0010)
+  RIM Mapping = .id (no means to distinguish from uid)
+  w5 = id
+
+ -- Row 7 -----------------------------------
+  Element = ImagingStudy.order
+  Card. = 0..*
+  Type = Reference(DiagnosticOrder)
+  Short Label = Order(s) that caused this study to be performed
+  Definition = A list of the diagnostic orders that resulted in this imaging study being performed
+  Requirements = To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g., chest/abdomen/pelvis CT)
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=DGIMG, moodCode=RQO]
+
+ -- Row 8 -----------------------------------
+  Element = ImagingStudy.modalityList
+  Card. = 0..*
+  Aliases = ModalitiesInStudy
+  Type = Coding
+  Binding = ImagingModality
+  Short Label = All series.modality if actual acquisition modalities
+  Definition = A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)
+  DICOM Mapping = (0008,0061)
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 9 -----------------------------------
+  Element = ImagingStudy.referrer
+  Card. = 0..1
+  Aliases = ReferringPhysiciansName
+  Type = Reference(Practitioner)
+  Short Label = Referring physician (0008,0090)
+  Definition = The requesting/referring physician
+  DICOM Mapping = (0008,0090)
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=DGIMG, moodCode=RQO].participation[typeCode=AUT].role
+  w5 = who.cause
+
+ -- Row 10 -----------------------------------
+  Element = ImagingStudy.availability
+  Card. = 0..1
+  Aliases = InstanceAvailability
+  Type = code
+  Binding = InstanceAvailability
+  Short Label = ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)
+  Definition = Availability of study (online, offline or nearline)
+  DICOM Mapping = (0008,0056)
+  RIM Mapping = Not supported
+  w5 = status
+
+ -- Row 11 -----------------------------------
+  Element = ImagingStudy.url
+  Card. = 0..1
+  Aliases = RetrieveURI
+  Type = uri
+  Short Label = Retrieve URI
+  Definition = WADO-RS resource where Study is available.
+  DICOM Mapping = (0008,1190)
+  RIM Mapping = .text.reference
+
+ -- Row 12 -----------------------------------
+  Element = ImagingStudy.numberOfSeries
+  Card. = 1..1
+  Aliases = NumberOfStudyRelatedSeries
+  Type = unsignedInt
+  Short Label = Number of Study Related Series
+  Definition = Number of Series in Study
+  DICOM Mapping = (0020,1206)
+  RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=OBSSER, moodCode=EVN].repeatNumber
+
+ -- Row 13 -----------------------------------
+  Element = ImagingStudy.numberOfInstances
+  Card. = 1..1
+  Aliases = NumberOfStudyRelatedInstances
+  Type = unsignedInt
+  Short Label = Number of Study Related Instances
+  Definition = Number of SOP Instances in Study
+  DICOM Mapping = (0020,1208)
+  RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber
+
+ -- Row 14 -----------------------------------
+  Element = !ImagingStudy.clinicalInformation
+  Card. = 0..1
+  Aliases = AdmittingDiagnosesDescription; AdditionalPatientHistory
+  Type = string
+  Short Label = Diagnoses etc with request
+  Definition = History and Diagnoses provided with request
+  Comments = For more detailed information check the ImagingStudy.order.
+  DICOM Mapping = (0040,1002) | (0008,1080)
+  RIM Mapping = .outboundRelationship[typeCode=PERT].target
+
+ -- Row 15 -----------------------------------
+  Element = ImagingStudy.procedure
+  Card. = 0..*
+  Aliases = ProcedureCodeSequence
+  Type = Reference(Procedure)
+  Short Label = Type of procedure performed
+  Definition = Type of procedure performed
+  Comments = For the Procedure.code, LOINC radiology orderables would be a good value set to use
+  DICOM Mapping = (0008,1032)
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=PROC, moodCode=EVN]
+
+ -- Row 16 -----------------------------------
+  Element = ImagingStudy.interpreter
+  Card. = 0..1
+  Aliases = Name of Physician(s) Reading Study
+  Type = Reference(Practitioner)
+  Short Label = Who interpreted images
+  Definition = Who read the study and interpreted the images or other content
+  DICOM Mapping = (0008,1060)
+  RIM Mapping = .participation[typeCode=PRF].role
+  w5 = who.witness
+
+ -- Row 17 -----------------------------------
+  Element = ImagingStudy.description
+  Card. = 0..1
+  Aliases = StudyDescription
+  Type = string
+  Short Label = Institution-generated description
+  Definition = Institution-generated description or classification of the Study performed
+  DICOM Mapping = (0008,1030)
+  RIM Mapping = .text
+
+ -- Row 18 -----------------------------------
+  Element = ImagingStudy.series
+  Card. = 0..*
+  UML = right
+  Short Label = Each study has one or more series of instances
+  Definition = Each study has one or more series of images or other content
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBSSER, moodCode=EVN]
+
+ -- Row 19 -----------------------------------
+  Element = ImagingStudy.series.number
+  Card. = 0..1
+  Aliases = SeriesNumber
+  Type = unsignedInt
+  Short Label = Numeric identifier of this series
+  Definition = The Numeric identifier of this series in the study.
+  DICOM Mapping = (0020,0011)
+  RIM Mapping = .inboundRelationship[type=COMP, source[classCode=COMPOSITION, moodCode=EVN]].sequenceNumber
+  Example = 3
+
+ -- Row 20 -----------------------------------
+  Element = ImagingStudy.series.modality
+  Card. = 1..1
+  Aliases = Modality
+  Type = Coding
+  Binding = ImagingModality
+  Short Label = The modality of the instances in the series
+  Definition = The modality of this series sequence
+  DICOM Mapping = (0008,0060)
+  RIM Mapping = .code
+
+ -- Row 21 -----------------------------------
+  Element = ImagingStudy.series.uid
+  Card. = 1..1
+  Aliases = SeriesInstanceUID
+  Type = oid
+  Short Label = Formal identifier for this series
+  Definition = Formal identifier for this series
+  DICOM Mapping = (0020,000E)
+  RIM Mapping = .id
+  Example = urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630
+
+ -- Row 22 -----------------------------------
+  Element = ImagingStudy.series.description
+  Card. = 0..1
+  Aliases = SeriesDescription
+  Type = string
+  Short Label = A description of the series
+  Definition = A description of the series
+  DICOM Mapping = (0008,103E)
+  RIM Mapping = .text
+  Example = CT Surview 180
+
+ -- Row 23 -----------------------------------
+  Element = ImagingStudy.series.numberOfInstances
+  Card. = 1..1
+  Aliases = NumberOfSeriesRelatedInstances
+  Type = unsignedInt
+  Short Label = Number of Series Related Instances
+  Definition = Number of SOP Instances in Series.
+  DICOM Mapping = (0020,1209)
+  RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber
+
+ -- Row 24 -----------------------------------
+  Element = !ImagingStudy.series.requestSequence
+  Card. = 0..*
+  Aliases = RequestAttributesSequence
+  Short Label = Request Attributes Sequence
+  DICOM Mapping = (0040,0275)
+
+ -- Row 25 -----------------------------------
+  Element = !ImagingStudy.series.requestSequence.requestedProcedureStepId
+  Card. = 1..1
+  Aliases = RequestedProcedureID
+  Type = string
+  Short Label = Requested Procedure Step ID
+  DICOM Mapping = (0040,1001)
+
+ -- Row 26 -----------------------------------
+  Element = !ImagingStudy.series.requestSequence.scheduledProcedureStepId
+  Card. = 1..1
+  Aliases = ScheduledProcedureID
+  Type = string
+  Short Label = Scheduled Procedure Step ID
+  DICOM Mapping = (0040,0009)
+
+ -- Row 27 -----------------------------------
+  Element = !ImagingStudy.series.ppsdateTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Performed Procedure Step Start Date and Time
+  DICOM Mapping = (0040,0244) + (0040,0245)
+
+ -- Row 28 -----------------------------------
+  Element = ImagingStudy.series.availability
+  Card. = 0..1
+  Aliases = InstanceAvailability
+  Type = code
+  Binding = InstanceAvailability
+  Short Label = ONLINE | OFFLINE | NEARLINE | UNAVAILABLE
+  Definition = Availability of series (online, offline or nearline)
+  DICOM Mapping = (0008,0056)
+  RIM Mapping = .inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=\"availability\"].value
+
+ -- Row 29 -----------------------------------
+  Element = ImagingStudy.series.url
+  Card. = 0..1
+  Aliases = RetrieveURI
+  Type = uri
+  Short Label = Location of the referenced instance(s)
+  Definition = URI/URL specifying the location of the referenced series using WADO-RS
+  DICOM Mapping = (0008,1115) > (0008,1190)
+  RIM Mapping = .text.reference
+
+ -- Row 30 -----------------------------------
+  Element = !ImagingStudy.series.retrieveAE
+  Card. = 0..1
+  Aliases = RetrieveAETitle
+  Type = string
+  Short Label = Retrieve AE Title
+  DICOM Mapping = (0008,0054)
+
+ -- Row 31 -----------------------------------
+  Element = !ImagingStudy.series.locationUID
+  Card. = 0..1
+  Aliases = RetrieveLocationUID
+  Type = oid
+  Short Label = Retrieve Location UID
+  DICOM Mapping = (0040,E011)
+
+ -- Row 32 -----------------------------------
+  Element = ImagingStudy.series.bodySite
+  Card. = 0..1
+  Aliases = BodyPartExamined
+  Type = Coding
+  Binding = BodySite
+  Short Label = Body part examined
+  Definition = Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed
+  DICOM Mapping = (0018,0015)
+  RIM Mapping = .targetSiteCode
+
+ -- Row 33 -----------------------------------
+  Element = ImagingStudy.series.laterality
+  Card. = 0..1
+  Type = Coding
+  Short Label = Body part laterality
+  Definition = Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code.
+  DICOM Mapping = (0020,0060)
+
+ -- Row 34 -----------------------------------
+  Element = ImagingStudy.series.started
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When the series started
+  Definition = The date and time when the series was started.
+  RIM Mapping = .effectiveTime
+
+ -- Row 35 -----------------------------------
+  Element = ImagingStudy.series.instance
+  Card. = 0..*
+  UML = right
+  Short Label = A single SOP instance from the series
+  Definition = A single SOP Instance within the series, e.g., an image, or presentation state.
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DGIMG, moodCode=EVN]
+
+ -- Row 36 -----------------------------------
+  Element = ImagingStudy.series.instance.number
+  Card. = 0..1
+  Aliases = InstanceNumber
+  Type = unsignedInt
+  Short Label = The number of this instance in the series
+  Definition = The number of instance in the series
+  DICOM Mapping = (0020,0013)
+  RIM Mapping = .inboundRelationship[typeCode=COMP, source[classCode=OBSSER, moodCode=EVN]].sequenceNumber
+  Example = 1
+
+ -- Row 37 -----------------------------------
+  Element = ImagingStudy.series.instance.uid
+  Card. = 1..1
+  Aliases = SOPInstanceUID
+  Type = oid
+  Short Label = Formal identifier for this instance
+  Definition = Formal identifier for this image or other content
+  DICOM Mapping = (0008,0018)
+  RIM Mapping = .id
+  Example = urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903
+
+ -- Row 38 -----------------------------------
+  Element = ImagingStudy.series.instance.sopClass
+  Card. = 1..1
+  Aliases = SOPClassUID
+  Type = oid
+  Short Label = DICOM class type
+  Definition = DICOM instance  type
+  DICOM Mapping = (0008,0016)
+  RIM Mapping = .inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=\"sop class\"].value
+  Example = urn:oid:1.2.840.10008.5.1.4.1.1.2
+
+ -- Row 39 -----------------------------------
+  Element = ImagingStudy.series.instance.type
+  Card. = 0..1
+  Type = string
+  Short Label = Type of instance (image etc)
+  Definition = A human-friendly SOP Class name
+  Comments = E.g., \'CT image\', \'MR multi-frame\', \'blending presentation\'.
+  DICOM Mapping = (0004,1430)
+  RIM Mapping = .code
+
+ -- Row 40 -----------------------------------
+  Element = ImagingStudy.series.instance.title
+  Card. = 0..1
+  Type = string
+  Short Label = Description of instance
+  Definition = The description of the instance
+  Comments = Particularly for post-acquisition analytic objects, such as SR, presentation states, value mapping, etc.
+  DICOM Mapping = (0070,0080) | (0040,A043) > (0008,0104) | (0042,0010) | (0008,0008)
+  RIM Mapping = .title
+
+ -- Row 41 -----------------------------------
+  Element = !ImagingStudy.series.instance.availability
+  Card. = 0..1
+  Aliases = InstanceAvailability
+  Type = code
+  Binding = InstanceAvailability
+  Short Label = ONLINE | OFFLINE | NEARLINE | UNAVAILABLE
+  Definition = Availability of instance (online, offline or nearline)
+  DICOM Mapping = (0008,0056)
+
+ -- Row 42 -----------------------------------
+  Element = !ImagingStudy.series.instance.dateTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When this image was taken
+  RIM Mapping = .effectiveTime
+
+ -- Row 43 -----------------------------------
+  Element = !ImagingStudy.series.instance.image
+  Card. = 0..1
+  UML = left
+  Short Label = When instance is an image
+  Committee Notes = This is deletd until a use case is found
+
+ -- Row 44 -----------------------------------
+  Element = !ImagingStudy.series.instance.image.rows
+  Card. = 1..1
+  Type = integer
+  Short Label = Rows
+  DICOM Mapping = (0028,0010)
+
+ -- Row 45 -----------------------------------
+  Element = !ImagingStudy.series.instance.image.columns
+  Card. = 1..1
+  Type = integer
+  Short Label = Columns
+  DICOM Mapping = (0028,0011)
+
+ -- Row 46 -----------------------------------
+  Element = !ImagingStudy.series.instance.image.bitsAllocated
+  Card. = 1..1
+  Type = integer
+  Short Label = Bits Allocated
+  DICOM Mapping = (0028,0100)
+
+ -- Row 47 -----------------------------------
+  Element = !ImagingStudy.series.instance.image.numberOfFrames
+  Card. = 1..1
+  Type = integer
+  Short Label = Number of Frames
+  DICOM Mapping = (0028,0008)
+
+ -- Row 48 -----------------------------------
+  Element = !ImagingStudy.series.instance.url
+  Card. = 0..1
+  Type = uri
+  Short Label = WADO-RS service where instance is available
+  Definition = WADO-RS url where image is available
+  Comments = Each instance may have a url and an attachment. Both represent the same information, but using different approaches. The URL is a reference to a WADO-RS service that makes the instance available
+  DICOM Mapping = (0008,1199) > (0008,1190)
+  RIM Mapping = .text.reference
+
+ -- Row 49 -----------------------------------
+  Element = ImagingStudy.series.instance.content
+  Card. = 0..*
+  Type = Attachment
+  Short Label = Content of the instance
+  Definition = Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented for example by inline encoding; by a URL reference to a WADO-RS service that makes the instance available; or to a FHIR Resource (e.g., Media, Document, etc.). Multiple content attachments may be used for alternate representations of the instance.
+  Comments = Use of Attachment.data is discouraged.
+  RIM Mapping = .text.binary
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Who the study is about
+  Path = ImagingStudy.patient
+
+ -- Row 2 -----------------------------------
+  Name = started
+  Type = date
+  Description = When the study was started
+  Path = ImagingStudy.started
+
+ -- Row 3 -----------------------------------
+  Name = accession
+  Type = token
+  Description = The accession identifier for the study
+  Path = ImagingStudy.accession
+
+ -- Row 4 -----------------------------------
+  Name = study
+  Type = token
+  Description = The study identifier for the image
+  Path = ImagingStudy.uid
+
+ -- Row 5 -----------------------------------
+  Name = series
+  Type = token
+  Description = The identifier of the series of images
+  Path = ImagingStudy.series.uid
+
+ -- Row 6 -----------------------------------
+  Name = modality
+  Type = token
+  Description = The modality of the series
+  Path = ImagingStudy.series.modality
+
+ -- Row 7 -----------------------------------
+  Name = bodysite
+  Type = token
+  Description = The body site studied
+  Path = ImagingStudy.series.bodySite
+
+ -- Row 8 -----------------------------------
+  Name = uid
+  Type = token
+  Description = The instance unique identifier
+  Path = ImagingStudy.series.instance.uid
+
+ -- Row 9 -----------------------------------
+  Name = dicom-class
+  Type = token
+  Description = The type of the instance
+  Path = ImagingStudy.series.instance.sopClass
+
+ -- Row 10 -----------------------------------
+  Name = order
+  Type = reference
+  Description = The order for the image
+  Path = ImagingStudy.order
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = imagingstudy-extensions
+  IG Name = core
+  Filename = imagingstudy-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = Example of imagingstudy
+  Filename = imagingstudy-example.xml
+
+=== Sheet Examples =====================================
