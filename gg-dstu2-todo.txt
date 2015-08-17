@@ -3,6 +3,7 @@ To do task list for DSTU2
 282 open tasks
 http://fhir.org
 remove disqus
+update validation to refer to authority source
 check all redirects / publishing QA
 expansion - revisit handling of value sets that are too large
 search - value set / profile / IG / core / v3 / v2
@@ -13,12 +14,11 @@ xml / profile format (EK)
 finish IG building/rendering
 Resource guide
 More RDF work
-fix pascal compiler
-add external link icon
-fix up UML diagrams
-EMF page - update to XCore
-epub
+fix up UML diagrams (per Dave's work)
 don't repeat invariants on an element if they are defined on the element (Observation.referenceRange.low)
+clarify the usage of profile to close off unused things
+pcd-001 message example
+
 
 Examples
 * Clem's vital signs observations

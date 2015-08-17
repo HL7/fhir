@@ -26,7 +26,7 @@ Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
 	
-	<p><b>Representing No Known Medications:</b> No Known Medications will be represented using the <a href="list-daf-dafmedicationlist.html">DAFMedicationList</a> profile with no entries.</p>
+	<p><b>Representing No Known Medications:</b> No Known Medications will be represented using the <a href="daf-medicationlist.html">DAFMedicationList</a> profile with no entries.</p>
 	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 	
 </ul>

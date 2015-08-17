@@ -10,17 +10,17 @@
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-27T16:51:52Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2520</WindowHeight>
-  <WindowWidth>4080</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>60</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -992,7 +992,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">hspcdiastolicbp</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">hspc-diastolicbp</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">version</Data></Cell>
@@ -1001,7 +1001,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/StructureDefinition/observation-hspc-diastolicbloodpressure"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/observation-hspc-diastolicbloodpressure</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/hspc-observation-diastolicbloodpressure</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">introduction</Data></Cell>
@@ -1025,6 +1025,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1044,18 +1045,17 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <RangeSelection>R20C2:R21C2</RangeSelection>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="hspcdiastolicbp">
+ <Worksheet ss:Name="hspc-diastolicbp">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=hspcdiastolicbp!R1C1:R95C24"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='hspc-diastolicbp'!R1C1:R95C24" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="96" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s86" ss:DefaultRowHeight="15">
@@ -3652,7 +3652,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6306,14 +6305,14 @@
     <Cell><Data ss:Type="String">A set of codes that describe interpretations for numeric-nominal values</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-hspc-abnInt-NumericNom</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-abnInt-NumericNom</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">BodyLocationPrecoord</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">A set of codes that describe where on/in the body an observation or procedure took place</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-bpmeasbodylocationprecoord</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-bpmeasbodylocationprecoord</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6328,7 +6327,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">The position that a patient is in when a heart rate measurement is taken.</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-bpbodyposition</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-bpbodyposition</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6343,7 +6342,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">A set of codes that describe the method used to measure a systolic blood pressure</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-bpmeasmethoddevice</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-bpmeasmethoddevice</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6358,7 +6357,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">The conditions during which an individual's vital signs were measured</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-vitalsignassociatedprecond</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-vitalsignassociatedprecond</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6373,7 +6372,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">The set of codes that describe the subject of an observation when not the patient of record</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-focalSubject</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-focalSubject</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6388,7 +6387,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">The codes that describe in what way a numeric result is significantly different from its predecesor</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-deltaFlag-numericNom</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-deltaFlag-numericNom</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -7345,7 +7344,7 @@
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/observation-qicore-qicore-observation}</Data></Cell>
+    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/qicore-observation}</Data></Cell>
    </Row>
    <Row ss:Index="4" ss:AutoFitHeight="0" ss:StyleID="s86">
     <Cell ss:StyleID="s106"><Data ss:Type="String">DataOriginationMode</Data></Cell>

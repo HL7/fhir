@@ -41,6 +41,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -165,8 +166,9 @@ public class SpreadsheetParser {
   private IniFile ini;
   private String committee;
   private MarkDownResourceDefinition md;
+  private Map<String, ConstraintStructure> profileIds;
   
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, name);	
@@ -193,9 +195,10 @@ public class SpreadsheetParser {
 		this.committee = committee;
 		md = new MarkDownResourceDefinition();
 		md.setFileName(Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".rmd"));
+		this.profileIds = profileIds;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     xls = new XLSXmlParser(in, name); 
@@ -222,6 +225,7 @@ public class SpreadsheetParser {
     this.committee = committee;
     this.md = new MarkDownResourceDefinition(); 
     md.setFileName(Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".rmd"));
+    this.profileIds = profileIds;
   }
 
 
@@ -977,9 +981,11 @@ public class SpreadsheetParser {
       if (!cd.getBinding().equals(BindingMethod.Unbound) && Utilities.noString(ref)) 
         throw new Exception("binding "+cd.getName()+" is missing a reference");
       if (cd.getBinding() == BindingMethod.CodeList) {
+        if (ref.startsWith("#valueset-"))
+          throw new Exception("don't start code list references with #valueset-");
         cd.setValueSet(new ValueSet());
-        cd.getValueSet().setId(ref.substring(1));
-        cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(1));
+        cd.getValueSet().setId(igSuffix(ig)+ref.substring(1));
+        cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(1));
         if (!ref.startsWith("#"))
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' must started with '#'");
         Sheet cs = xls.getSheets().get(ref.substring(1));
@@ -1092,11 +1098,11 @@ public class SpreadsheetParser {
 	    } catch (Exception e) {
 	      throw new Exception("Error loading value set '"+filename+"': "+e.getMessage(), e);
 	    }
- 	    result.setId(ref.substring(9));
+      result.setId(igSuffix(ig)+ref.substring(9));
+      result.setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(9));
 	    result.setExperimental(true);
 	    if (!result.hasVersion())
 	      result.setVersion(version);
-	    result.setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(9));
       result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
       result.setUserData("committee", committee);
 	    return result;
@@ -1179,6 +1185,13 @@ public class SpreadsheetParser {
         throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" 'id' must be all lowercase");
       
 	    this.profileExtensionBase = ap.metadata("extension.uri");
+	    if (ig == null || ig.isCore()) {
+	      if (!profileExtensionBase.startsWith("http://hl7.org/fhir/StructureDefinition/"))
+	        throw new Exception("Core extensions must have a url starting with http://hl7.org/fhir/StructureDefinition/ for "+ap.getId());
+	    } else {
+        if (!profileExtensionBase.startsWith("http://hl7.org/fhir/StructureDefinition/"+ig.getCode()+"-"))
+          throw new Exception("Core extensions must have a url starting with http://hl7.org/fhir/StructureDefinition/"+ig.getCode()+"- for "+ap.getId());
+	    }
 
       Map<String,Invariant> invariants = null;
       sheet = loadSheet("Extensions-Inv");
@@ -1200,8 +1213,11 @@ public class SpreadsheetParser {
 
 	    if (ap.getMetadata().containsKey("published.structure")) {
 	      for (String n : ap.getMetadata().get("published.structure")) {
-	        if (!Utilities.noString(n))
+	        if (!Utilities.noString(n)) {
+	          if (ig != null && !ig.isCore() && !n.toLowerCase().startsWith(ig.getCode()+"-"))
+	            throw new Exception("Error: published structure names must start with the implementation guide code ("+ig.getCode()+"-)");
 	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage, issues));
+	        }
 	      }
 	    }
 
@@ -1301,11 +1317,26 @@ public class SpreadsheetParser {
 		}
 
     resource.getRoot().setProfileName(n);
-		ConstraintStructure p = new ConstraintStructure(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getRoot().getProfileName(), resource, ig != null ? ig : definitions.getUsageIG(usage, "Parsing "+name));
+    if (n.toLowerCase().equals(ap.getId()))
+      throw new Exception("Duplicate Profile Name: Package id "+ap.getId()+" and profile id "+n.toLowerCase()+" are the same");
+      
+    if (profileIds.containsKey(n.toLowerCase()))
+      throw new Exception("Duplicate Profile Name: "+n.toLowerCase()+" in "+ap.getId()+", already registered in "+profileIds.get(n.toLowerCase()).getOwner());
+		ConstraintStructure p = new ConstraintStructure(n.toLowerCase(), resource.getRoot().getProfileName(), resource, ig != null ? ig : definitions.getUsageIG(usage, "Parsing "+name));
+		p.setOwner(ap.getId());
+    profileIds.put(n.toLowerCase(), p);
     return p;
   }
 
-	private void readExamples(ResourceDefn defn, Sheet sheet) throws Exception {
+  private String igPrefix(ImplementationGuideDefn ig2) {
+    return ig == null ? "" : ig.getPrefix();
+  }
+
+  private String igSuffix(ImplementationGuideDefn ig2) {
+    return ig == null ? "" : ig.getCode()+"-";
+  }
+
+  private void readExamples(ResourceDefn defn, Sheet sheet) throws Exception {
 		if (sheet != null) {
 			for (int row = 0; row < sheet.rows.size(); row++) {
 				String name = sheet.getColumn(row, "Name");
@@ -1773,9 +1804,13 @@ public class SpreadsheetParser {
       ex.setStatus(ConformanceResourceStatus.fromCode(ap.metadata("status")));
    
     row++;
-    if (!ex.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/"))
-      throw new Exception("extension "+ex.getUrl()+" is not valid in the publication tooling");
-    
+    if (ig == null || ig.isCore()) {
+      if (!ex.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/"))
+        throw new Exception("extension "+ex.getUrl()+" is not valid in the publication tooling");
+    } else {
+      if (!ex.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/"+ig.getCode()+"-"))
+        throw new Exception("extension "+ex.getUrl()+" is not valid for the IG "+ig.getCode()+" in the publication tooling");
+    }
     while (row < sheet.getRows().size() && sheet.getColumn(row, "Code").startsWith(name+".")) {
       String n = sheet.getColumn(row, "Code");
       ElementDefn p = findContext(exe, n.substring(0, n.lastIndexOf(".")), "Extension Definition "+name);

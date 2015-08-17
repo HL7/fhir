@@ -25,7 +25,7 @@ The following are example usage scenarios for the DAFImmunization profile:
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>Representing No Known Immunizations:</b> No Known Immunizations will be represented using the <a href="list-daf-dafimmunizationlist.html">DAFImmunizationList</a> profile with no entries.</p>
+	<p><b>Representing No Known Immunizations:</b> No Known Immunizations will be represented using the <a href="daf-immunizationlist.html">DAFImmunizationList</a> profile with no entries.</p>
 	
 	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 </ul>

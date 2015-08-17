@@ -18,6 +18,7 @@ import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;
 import org.hl7.fhir.utilities.FileNotifier;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -40,15 +41,17 @@ public class EPubManager implements FileNotifier {
     private String filename;
     private String title;
     private String type;
+    private boolean include;
     private List<String> anchors = new ArrayList<String>();
     private boolean checked = false;
     public byte[] bytes;
 
-    public Entry(String filename, String title, String type) {
+    public Entry(String filename, String title, String type, boolean include) {
       super();
       this.filename = filename;
       this.title = title;
       this.type = type;
+      this.include = include;
     }
   }
 
@@ -57,25 +60,39 @@ public class EPubManager implements FileNotifier {
   private List<String> externals = new ArrayList<String>();
   private String uuid;
   private List<ValidationMessage> issues;
+  private String webPath;
 
   
-  public EPubManager(PageProcessor page, List<ValidationMessage> issues) {
+  public EPubManager(PageProcessor page, List<ValidationMessage> issues, String webPath) {
     super();
     this.page = page;
     this.issues = issues;
+    this.webPath = webPath;
   }
 
   public void registerExternal(String filename) {
+//    if (filename.startsWith(page.getFolders().dstDir))
+//      filename = filename.substring(page.getFolders().dstDir.length());
+//    externals.add(filename);
     if (filename.startsWith(page.getFolders().dstDir))
       filename = filename.substring(page.getFolders().dstDir.length());
-    externals.add(filename);
+//    if (type == null)
+//      type = BIN_TYPE;
+    if (getEntryForFile(filename) != null)
+      throw new Error("File "+filename+" already registered");
+    else
+      entries.add(new Entry(filename, "--title--", BIN_TYPE, false));
   }
   
-  public void registerFile(String filename, String title, String type) {
+  public void registerFile(String filename, String title, String type, boolean include) {
     if (filename.startsWith(page.getFolders().dstDir))
       filename = filename.substring(page.getFolders().dstDir.length());
-    if (type != null && getEntryForFile(filename) == null)
-      entries.add(new Entry(filename, title, type));
+    if (type == null)
+      type = BIN_TYPE;
+    if (getEntryForFile(filename) != null)
+      throw new Error("File "+filename+" already registered");
+    else
+      entries.add(new Entry(filename, title, type, include));
   }
 
   public void produce() throws FileNotFoundException, Exception {
@@ -125,12 +142,16 @@ public class EPubManager implements FileNotifier {
     xml.attribute("href", "toc.ncx");
     xml.attribute("media-type", "application/x-dtbncx+xml");   
     xml.element("item", null);
+    int c = 0;
     for (int i = 0; i < entries.size(); i++) {
       Entry e = entries.get(i);
-      xml.attribute("id", "n"+Integer.toString(i));
-      xml.attribute("href", e.filename);
-      xml.attribute("media-type", e.type);
-      xml.element("item", null);
+      if (e.include) {
+        c++;
+        xml.attribute("id", "n"+Integer.toString(i));
+        xml.attribute("href", e.filename);
+        xml.attribute("media-type", e.type);
+        xml.element("item", null);
+      }
     }
     xml.exit("manifest");
     
@@ -141,7 +162,7 @@ public class EPubManager implements FileNotifier {
       addToSpine(xml, n);
     List<String> others = new ArrayList<String>();
     for (Entry e : entries) 
-      if (!spineOrder.contains(e.filename))
+      if (e.include && !spineOrder.contains(e.filename))
         others.add(e.filename);
     Collections.sort(others);
     for (String n : others) 
@@ -149,6 +170,11 @@ public class EPubManager implements FileNotifier {
     xml.exit("spine");
     xml.exit("package");
     xml.end();
+    
+    page.log("Total Pages: "+Integer.toString(entries.size()+externals.size()), LogMessageType.Process);
+    page.log("External Pages: "+Integer.toString(externals.size()), LogMessageType.Process);
+    page.log("Included Pages: "+Integer.toString(c), LogMessageType.Process);
+        
     return stream.toByteArray();
   }
 
@@ -229,9 +255,10 @@ public class EPubManager implements FileNotifier {
           check(e);
         if (e.bytes == null)
           throw new Exception("no content in "+e.filename);
-        zip.addBytes("OEBPS/"+e.filename, e.bytes, false);
+        if (e.include) 
+          zip.addBytes("OEBPS/"+e.filename, e.bytes, false);
         e.bytes = null;        
-      } else {
+      } else if (e.include) {
         zip.addFileName("OEBPS/"+e.filename, Utilities.path(page.getFolders().dstDir, e.filename), true);
       }
     }
@@ -308,18 +335,18 @@ public class EPubManager implements FileNotifier {
   }
 
   private boolean ok(String msg) {
-    if (msg.contains("hspc"))
-      return true;
-    if (msg.contains("cda"))
-      return true;
-    if (msg.contains("daf-cqi"))
-      return true;
+//    if (msg.contains("hspc"))
+//      return true;
+//    if (msg.contains("cda"))
+//      return true;
+//    if (msg.contains("daf-cqi"))
+//      return true;
 //    if (msg.contains("quick\\"))
 //      return true;
 //    if (msg.contains("-examples.html"))
 //      return true;
-    if (msg.contains("'??"))
-      return true;
+//    if (msg.contains("'??"))
+//      return true;
     return false;
   }
 
@@ -357,10 +384,10 @@ public class EPubManager implements FileNotifier {
       if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".xsd") || target.endsWith(".txt") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
         if (!(new File(Utilities.path(page.getFolders().dstDir, target)).exists()))
           reportError(base, "Broken Link (1) in "+base+": '"+href+"' not found at \""+Utilities.path(page.getFolders().dstDir, target)+"\" ("+node.allText()+")");
-        node.setAttribute("href", "http://hl7.org/fhir/"+target.replace(File.separatorChar, '/'));
+        node.setAttribute("href", webPath+"/"+target.replace(File.separatorChar, '/'));
         e = null;
       } else if (externals.contains(target)) {
-        node.setAttribute("href", "http://hl7.org/fhir/"+target.replace(File.separatorChar, '/'));
+        node.setAttribute("href", webPath+"/"+target.replace(File.separatorChar, '/'));
         e = null;
       } else {
         e = getEntryForFile(target);
@@ -371,6 +398,8 @@ public class EPubManager implements FileNotifier {
             return;
           reportError(base, "Broken Link (2) in "+base+": '"+href+"' not found at \""+target+"\"("+node.allText()+")");
           return;
+        } else if (!e.include) {
+          node.setAttribute("href", webPath+"/"+node.getAttribute("href"));          
         }
       }
     } else 
@@ -458,7 +487,7 @@ public class EPubManager implements FileNotifier {
   @Override
   public void copyFile(String src, String dst) {
     if (dst.startsWith(page.getFolders().dstDir))
-    registerFile(dst.substring(page.getFolders().dstDir.length()+1), "Support File", determineType(dst));
+      registerFile(dst.substring(page.getFolders().dstDir.length()+1), "Support File", determineType(dst), true);
     
   }
 

@@ -95,19 +95,19 @@
   <!--  value sets that are imported by directly referenced value sets in the profiles  -->
     <resource>
       <purpose value="terminology"/>
-      <sourceUri value="profiles\valueset-daf-substance-ndfrt.xml"/>
+      <sourceUri value="profiles\valueset-substance-ndfrt.xml"/>
     </resource>
     <resource>
       <purpose value="terminology"/>
-      <sourceUri value="profiles\valueset-daf-substance-rxnorm.xml"/>
+      <sourceUri value="profiles\valueset-substance-rxnorm.xml"/>
     </resource>
     <resource>
       <purpose value="terminology"/>
-      <sourceUri value="profiles\valueset-daf-substance-sct.xml"/>
+      <sourceUri value="profiles\valueset-substance-sct.xml"/>
     </resource>
     <resource>
       <purpose value="terminology"/>
-      <sourceUri value="profiles\valueset-daf-substance-unii.xml"/>
+      <sourceUri value="profiles\valueset-substance-unii.xml"/>
     </resource>
     <resource>
       <purpose value="example"/>
@@ -121,12 +121,12 @@
     </resource>
   </package>
 <!-- 
-  <acronym target="observation-daf-results-dafresultobsquantity" id="daf-qty"/>
-  <acronym target="observation-daf-results-dafresultobsratio" id="daf-rto"/>
-  <acronym target="observation-daf-results-dafresultobsother" id="daf-oth"/>
-  <acronym target="diagnosticreport-daf-dafdiagnosticreport" id="daf-dir"/>
-  <acronym target="diagnosticorder-daf-dafdiagnosticorder" id="daf-dio"/>
-  <acronym target="observation-daf-results-dafresultobservationcode" id="daf-cod"/>
+  <acronym target="daf-resultobsquantity" id="daf-qty"/>
+  <acronym target="daf-resultobsratio" id="daf-rto"/>
+  <acronym target="daf-resultobsother" id="daf-oth"/>
+  <acronym target="daf-diagnosticreport" id="daf-dir"/>
+  <acronym target="daf-diagnosticorder" id="daf-dio"/>
+  <acronym target="daf-resultobservationcode" id="daf-cod"/>
  -->
   <binary value="daf-actors-and-interactions.png"/>
   <binary value="daf-fhir-query-stack.png"/>

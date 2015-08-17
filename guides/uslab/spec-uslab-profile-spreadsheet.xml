@@ -10,18 +10,17 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-05T06:46:11Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6405</WindowHeight>
-  <WindowWidth>19260</WindowWidth>
-  <WindowTopX>1755</WindowTopX>
-  <WindowTopY>540</WindowTopY>
-  <ActiveSheet>9</ActiveSheet>
-  <FirstVisibleSheet>4</FirstVisibleSheet>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1006,7 +1005,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">USLabSpec</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">USLab-Spec</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">version</Data></Cell>
@@ -1014,7 +1013,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/StructureDefinition/</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/StructureDefinition/uslab-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -1038,10 +1037,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1054,20 +1054,19 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="USLabSpec">
+ <Worksheet ss:Name="USLab-Spec">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=USLabSpec!R1C2:R124C25"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='USLab-Spec'!R1C2:R124C25"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="125" x:FullColumns="1"
@@ -1865,7 +1864,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabphpatient}</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-patient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/uslab-phpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7367,9 +7366,9 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="USLabSpec-Inv">
+ <Worksheet ss:Name="USLab-Spec-Inv">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='USLabSpec-Inv'!R1C1:R2C7"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='USLab-Spec-Inv'!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="51" x:FullColumns="1"
@@ -10023,7 +10022,7 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">Codes to describe the Specimen</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-spec-uslab-type</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-spec-type</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -10038,7 +10037,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Codes to describe the Specimen Collection Body site</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-spec-uslab-bodysite</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-spec-bodysite</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
@@ -11098,7 +11097,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

@@ -3,13 +3,13 @@
 	<!-- This example demonstrates the CQIF-Questionnaire profile of Questionnaire to represent dynamic logic in a Questionnaire -->
 	<id value="cqif-questionnaire-example"/>
 	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/questionnaire-cqif-cqif-questionnaire"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/cqif-questionnaire"/>
 	</meta>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">PHQ-9 Questionnaire with dynamic logic</div>
 	</text>
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-content">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
 		<valueAttachment>
 			<contentType value="application/elm+xml"/>
 			<url value="http://elmrepository.org/PHQ-9Logic.elm"/>
@@ -149,7 +149,7 @@
 			</options>
 		</question>
 		<question>
-			<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-expression">
+			<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-expression">
 				<valueString value="CalculateTotalScore"/>
 			</extension>
 			<linkId value="TotalScore"/>

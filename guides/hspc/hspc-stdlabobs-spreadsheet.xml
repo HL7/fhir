@@ -10,17 +10,17 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-02-19T23:48:16Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2580</WindowHeight>
-  <WindowWidth>9870</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -785,7 +785,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">std</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">hspc-std</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">version</Data></Cell>
@@ -794,7 +794,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/hspc-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -840,17 +840,16 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="std">
+ <Worksheet ss:Name="hspc-std">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=std!R1C1:R100C26"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='hspc-std'!R1C1:R100C26"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="101" x:FullColumns="1"
@@ -1495,7 +1494,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-ReportingPriority}</Data><NamedCell
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-reporting-priority}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1527,7 +1526,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-DeltaFlag}</Data><NamedCell
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-delta-flag}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1559,7 +1558,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-Verified}</Data><NamedCell
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-verified}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1591,7 +1590,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-Updated}</Data><NamedCell
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-updated}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3842,7 +3841,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3864,8 +3862,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4001,7 +3999,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s113"><Data ss:Type="String">hspc-ReportingPriority</Data><NamedCell
+    <Cell ss:StyleID="s113"><Data ss:Type="String">reporting-priority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4038,7 +4036,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s114"><Data ss:Type="String">hspc-DeltaFlag</Data><NamedCell
+    <Cell ss:StyleID="s114"><Data ss:Type="String">delta-flag</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4076,7 +4074,7 @@
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s114"><Data ss:Type="String">hspc-Verified</Data><NamedCell
+    <Cell ss:StyleID="s114"><Data ss:Type="String">verified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4112,7 +4110,7 @@
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s114"><Data ss:Type="String">hspc-Updated</Data><NamedCell
+    <Cell ss:StyleID="s114"><Data ss:Type="String">updated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5091,7 +5089,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5179,7 +5178,7 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">See CEM (todo)</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">valueset-hspc-Ordinal-Abnormal-Union</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">valueset-Ordinal-Abnormal-Union</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
@@ -5194,7 +5193,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Status of a result</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueset-hspc-ResultStatus</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">valueset-ResultStatus</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
@@ -5209,7 +5208,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">The urgency level for which results must be reported to a provider or responsible individual</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueset-hspc-ReportingPriority</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">valueset-reporting-priority</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
@@ -5224,7 +5223,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Indicates that the data value in the containing model is a change from a previous instance of the same model</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueset-hspc-DeltaFlag</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">valueset-DeltaFlag</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
@@ -5623,6 +5622,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5642,9 +5642,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>4</ActiveCol>
-     <RangeSelection>C5</RangeSelection>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

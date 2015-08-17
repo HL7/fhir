@@ -637,7 +637,7 @@
           <linkId value="root"/>
           <title value="Medication or Other Substance"/>
           <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup">
+            <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
               <valueCode value="header"/>
             </extension>
             <linkId value="Medication/header"/>
@@ -1065,7 +1065,7 @@
             </group>
           </group>
           <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup">
+            <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
               <valueCode value="footer"/>
             </extension>
             <linkId value="Medication/footer"/>
@@ -1251,7 +1251,7 @@
           <linkId value="root"/>
           <title value="Healthcare Event Reporting Form (HERF) Hospital Version 1.2"/>
           <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup">
+            <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
               <valueCode value="header"/>
             </extension>
             <linkId value="HERF/header"/>
@@ -1496,7 +1496,7 @@
             <text value="OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850."/>
           </group>
           <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup">
+            <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
               <valueCode value="footer"/>
             </extension>
             <linkId value="HERF/footer"/>

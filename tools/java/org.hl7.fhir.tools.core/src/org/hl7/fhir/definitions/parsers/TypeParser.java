@@ -85,10 +85,17 @@ public class TypeParser {
 					throw new Exception("Missing '}' in data type definition: " + typeList[i]);
 				}
 				String pt = typeString.substring(startPos + 1, endPos).trim();
-				if (pt.startsWith("#"))
-				  pt = profileExtensionBase + pt.substring(1);
+        typeString = typeString.substring(0, startPos);
+				if (pt.startsWith("#")) {
+				  // what to do here depends on what it refers to 
+				  if (typeString.equals("Extension"))
+				    pt = profileExtensionBase + pt.substring(1);
+				  else if (typeString.startsWith("Reference"))
+            pt = pt.substring(1).toLowerCase();
+				  else
+				    throw new Exception("Unhandled case");				    
+				}
 				t.setProfile(pt);
-				typeString = typeString.substring(0, startPos);
 			}
 			
 			if (typeString.contains("(")) {

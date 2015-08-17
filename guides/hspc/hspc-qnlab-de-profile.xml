@@ -18,7 +18,7 @@
   <kind value="resource"/>
   <constrainedType value="Observation"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/observation-hspc-standardlabobs-quantitative-stdqty"/>
+  <base value="http://hl7.org/fhir/StructureDefinition/hspc-stdqty"/>
   <differential>
     <element>
       <path value="Observation.code"/>

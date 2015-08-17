@@ -5,7 +5,7 @@ HTTP/1.1 200 OK
 
 <Parameters>
   <return>
-    <profile value="http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/daf-patient"/>
     <tag>
       <system value="http://example.org/codes/tags"/>
       <code value="record-lost"/>

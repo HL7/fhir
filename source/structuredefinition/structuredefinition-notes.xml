@@ -71,11 +71,11 @@ This list shows a number of examples, with links to real examples for each:
 </pre>
  </li>
 
- <li>Constraint on a resource (example: <a href="daf/patient-daf-dafpatient.html">DAF Patient</a> - <a href="daf/patient-daf-dafpatient.profile.xml.html">XML</a>, <a href="daf/patient-daf-dafpatient.profile.json.html">JSON</a>): <br/>
+ <li>Constraint on a resource (example: <a href="daf/daf-patient.html">DAF Patient</a> - <a href="daf/daf-patient.profile.xml.html">XML</a>, <a href="daf/daf-patient.profile.json.html">JSON</a>): <br/>
 <pre class="json">
 {
   "resourceType": "StructureDefinition",
-  "url": "http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient",
+  "url": "http://hl7.org/fhir/StructureDefinition/daf-patient",
   "name": "U.S. Data Access Framework (DAF) Patient Profile",
   "kind": "resource",
   "constrainedType": "Patient"

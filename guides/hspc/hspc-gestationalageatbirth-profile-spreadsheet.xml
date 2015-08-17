@@ -10,17 +10,17 @@
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-06T20:52:52Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2580</WindowHeight>
-  <WindowWidth>4080</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -992,7 +992,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">gestationalageatbirth</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">hspc-gestationalageatbirth</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">version</Data></Cell>
@@ -1001,7 +1001,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s82" ss:HRef="http://hl7.org/fhir/StructureDefinition/observation-hspc-gestationalageatbirth"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/observation-hspc-gestationalageatbirth</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/hspc-observation-gestationalageatbirth</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s83"><Data ss:Type="String">introduction</Data></Cell>
@@ -1025,6 +1025,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1044,18 +1045,17 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="gestationalageatbirth">
+ <Worksheet ss:Name="hspc-gestationalageatbirth">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=gestationalageatbirth!R1C1:R97C24" ss:Hidden="1"/>
+    ss:RefersTo="='hspc-gestationalageatbirth'!R1C1:R97C24" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="98" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s87" ss:DefaultRowHeight="15">
@@ -3730,7 +3730,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6384,7 +6383,7 @@
     <Cell><Data ss:Type="String">A set of codes that describe the state of the observation</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-hspc-observationstatusbasic</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-observationstatusbasic</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -6399,7 +6398,7 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">The list of codes that describe the units of measure used for the period of time from conception to the current time.</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">valueset-hspc-gestationalAgeUOM</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">valueset-gestationalAgeUOM</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -6414,7 +6413,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">A set of codes that describe how the gestational age was arrived at</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">valueset-hspc-gestagemeasmethdev</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">valueset-gestagemeasmethdev</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -7430,7 +7429,7 @@
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/observation-qicore-qicore-observation}</Data></Cell>
+    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/qicore-observation}</Data></Cell>
    </Row>
    <Row ss:Index="4" ss:AutoFitHeight="0" ss:StyleID="s87">
     <Cell ss:StyleID="s107"><Data ss:Type="String">DataOriginationMode</Data></Cell>

@@ -5781,7 +5781,7 @@ Note that this is for alternate phrasings of the question.  Language translation
 					<Data ss:Type="String">required</Data>
 				</Cell>
 				<Cell ss:StyleID="s144" ss:HRef="http://hl7.org/fhir/ValueSet/units">
-					<Data ss:Type="String">http://hl7.org/fhir/ValueSet/units</Data>
+					<Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-units</Data>
 				</Cell>
 				<Cell ss:StyleID="s122"/>
 				<Cell ss:StyleID="s122"/>

@@ -51,7 +51,7 @@
 		<Patient>
 		  <id value="example"/>
 		  <meta>
-			  <profile value="http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient"/>
+			  <profile value="http://hl7.org/fhir/StructureDefinition/qicore-patient"/>
 			  <profile value="http://hl7.org/fhir/StructureDefinition/patient-aucrad-aucrad-patient"/>
 		  </meta>
 		  <text>
@@ -155,7 +155,7 @@
 		<ProcedureRequest>
 		  <id value="procedureRequest1"/>
 		  <meta>
-			  <profile value="http://hl7.org/fhir/StructureDefinition/procedurerequest-qicore-qicore-procedurerequest"/>
+			  <profile value="http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest"/>
 			  <profile value="http://hl7.org/fhir/StructureDefinition/procedurerequest-aucrad-aucrad-procedurerequest"/>
 		  </meta>
 		  <text>

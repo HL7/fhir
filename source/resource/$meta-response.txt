@@ -5,8 +5,8 @@ HTTP/1.1 200 OK
 
 <Parameters>
   <return>
-    <profile value="http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabpatient"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/daf-patient"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/uslab-patient"/>
     <security>
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="EMP"/>

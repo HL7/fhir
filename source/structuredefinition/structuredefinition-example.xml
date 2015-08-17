@@ -283,7 +283,7 @@
       </base>
       <type>
         <code value="Reference(Observation)"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Cholesterol"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -301,7 +301,7 @@
       </base>
       <type>
         <code value="Reference(Observation)"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Triglyceride"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/triglyceride"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -319,7 +319,7 @@
       </base>
       <type>
         <code value="Reference(Observation)"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/HDLCholesterol"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/hdlcholesterol"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -337,7 +337,7 @@
       </base>
       <type>
         <code value="Reference(Observation)"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/LDLCholesterol"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/ldlcholesterol"/>
       </type>
       <isModifier value="false"/>
     </element>

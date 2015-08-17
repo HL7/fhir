@@ -1,4 +1,4 @@
 HTTP/1.1 200 OK
 [other headers]
 
-$link daf/patient-daf-dafpatient-questionnaire.xml.html DAF Patient Questionnaire
+$link daf/daf-patient-questionnaire.xml.html DAF Patient Questionnaire

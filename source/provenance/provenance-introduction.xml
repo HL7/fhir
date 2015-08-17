@@ -15,9 +15,8 @@ Audit Event resources are often (though not exclusively) created by the applicat
 </div>
 
 <div>
-<a name="overlap"> </a>
-
 <h2>Boundaries and Relationships</h2>
+<a name="overlap"> </a>
 <p>
 Many other FHIR resources contain some elements that represent information
 about how the resource was obtained, and therefore they overlap with the 

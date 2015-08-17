@@ -10,17 +10,17 @@
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-22T07:23:29Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2520</WindowHeight>
-  <WindowWidth>4080</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>60</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -984,7 +984,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">bodytemp</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">hspc-bodytemp</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">version</Data></Cell>
@@ -993,7 +993,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/StructureDefinition/observation-hspc-bodytemperature"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/observation-hspc-bodytemperature</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/hspc-observation-bodytemperature</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">introduction</Data></Cell>
@@ -1017,6 +1017,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1036,16 +1037,16 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="bodytemp">
+ <Worksheet ss:Name="hspc-bodytemp">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=bodytemp!R1C1:R94C24"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='hspc-bodytemp'!R1C1:R94C24"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="95" x:FullColumns="1"
@@ -1637,7 +1638,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#hspc-associatedPrecondition}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">VitalSignAssociatedPrecondition</Data><NamedCell
@@ -1668,7 +1669,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/observation-hspc-heartrate-hspcheartrate#hspc-focalSubject}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">FocalSubject</Data><NamedCell
@@ -3653,7 +3654,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6307,21 +6307,21 @@
     <Cell><Data ss:Type="String">The codes that describe the units of measure used for temperature</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-hspc-temperatureUOM</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-temperatureUOM</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s114"><Data ss:Type="String">AbnormalInterpretation</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">The codes that describe in what way a result is abnormal</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-abnInt-NumericNom</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-abnInt-NumericNom</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><Data ss:Type="String">ObservationStatusBasic</Data></Cell>
     <Cell><Data ss:Type="String">A set of codes that describe the state of the observation</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-hspc-observationstatusbasic</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-observationstatusbasic</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6336,7 +6336,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">A set of codes that describe the location on the body at which a body temperature was taken</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-bodytempbodylocation</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-bodytempbodylocation</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6351,7 +6351,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">A set of codes that describe the method or device used to measure a body temperature</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">valueset-hspc-bodytempmethoddevice</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">valueset-bodytempmethoddevice</Data></Cell>
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
@@ -22737,7 +22737,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">The codes that describe in what way a numeric result is significantly different from its predecesor</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-deltaFlag-numericNom</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-deltaFlag-numericNom</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -22752,7 +22752,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">The conditions during which an individual's vital signs were measured</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-vitalsignassociatedprecond</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-vitalsignassociatedprecond</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -22767,7 +22767,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">The set of codes that describe the subject of an observation when not the patient of record</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-hspc-focalSubject</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">valueset-focalSubject</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -23650,7 +23650,7 @@
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/observation-qicore-qicore-observation}</Data></Cell>
+    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/qicore-observation}</Data></Cell>
    </Row>
    <Row ss:Index="4" ss:AutoFitHeight="0" ss:StyleID="s86">
     <Cell ss:StyleID="s106"><Data ss:Type="String">DataOriginationMode</Data></Cell>

@@ -10,17 +10,17 @@
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-06T16:35:48Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2580</WindowHeight>
-  <WindowWidth>4080</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1010,7 +1010,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">allergyintolerance</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">hspc-allergyintolerance</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">version</Data></Cell>
@@ -1019,7 +1019,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/allergyintolerance-hspc"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/allergyintolerance-hspc</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/hspc-allergyintolerance-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
@@ -1043,6 +1043,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1062,17 +1063,17 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="allergyintolerance">
+ <Worksheet ss:Name="hspc-allergyintolerance">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=allergyintolerance!R1C1:R100C24" ss:Hidden="1"/>
+    ss:RefersTo="='hspc-allergyintolerance'!R1C1:R100C24" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="101" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultRowHeight="15">
@@ -3814,7 +3815,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6512,7 +6512,7 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">A set of codes that describe materials or matter</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s140"><Data ss:Type="String">valueset-hspc-substance</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">valueset-substance</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
@@ -6527,7 +6527,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The set of codes that describe the state of an allergy or intolerance</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-hspc-allergyIntoleranceStatus</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-allergyIntoleranceStatus</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6542,7 +6542,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">A set of codes that describe categorical classifications of materials or matter.</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-hspc-substanceCategory</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-substanceCategory</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6557,7 +6557,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The set of codes that describe if a reaction is a allergy or intolerance.</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-hspc-allergyIntoleranceType</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-allergyIntoleranceType</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6572,7 +6572,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The set of codes that descibe the findings of a reaction</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-hspc-clinicalFinding</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-clinicalFinding</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6587,7 +6587,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The set of codes that describe the seriousness of a reaction</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-hspc-severity</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-severity</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>

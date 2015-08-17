@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <name value="HSPC Provider Practice Affiliation Value Set Definition"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="TBD"/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://need.a.uri.org/practitioner/practiceAffiliation"/>
+      <concept>
+        <code value="1"/>
+        <display value="TBD"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

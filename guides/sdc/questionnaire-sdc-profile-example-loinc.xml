@@ -717,7 +717,7 @@
       </extension>
     </title>
     <group>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup">
+      <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
         <valueCode value="header"/>
       </extension>
       <linkId value="Medication/header"/>
@@ -1407,7 +1407,7 @@
       </question>
     </group>
     <group>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup">
+      <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
         <valueCode value="footer"/>
       </extension>
       <linkId value="Medication/footer"/>

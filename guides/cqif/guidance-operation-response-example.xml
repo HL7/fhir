@@ -9,10 +9,10 @@
 		<ProcedureRequest>
 		  <id value="procedureRequest1"/>
 		  <meta>
-			  <profile value="http://hl7.org/fhir/StructureDefinition/procedurerequest-qicore-qicore-procedurerequest"/>
+			  <profile value="http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest"/>
 			  <profile value="http://hl7.org/fhir/StructureDefinition/procedurerequest-aucrad-aucrad-procedurerequest"/>
 		  </meta>
-		  <extension url="http://hl7.org/fhir/StructureDefinition/procedurerequest-appropriatenessScore">
+		  <extension url="http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest-appropriatenessScore">
 			  <valueCoding>
 				  <system value="http://rand.org/auc-scoring"/> <!-- TBD, made up for now... -->
 				  <code id="7" value="probably-appropriate"/>

@@ -20,12 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7305</WindowHeight>
-  <WindowWidth>20250</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
-  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -997,8 +996,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/basic-cqif-"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/basic-cqif-</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/cqif-basic-"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/cqif-basic-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -1041,7 +1040,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>12</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4459,7 +4458,7 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Reference(Basic){http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule}</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Reference(Basic){http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5645,7 +5644,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Attachment|Reference(Basic){http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule}</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Attachment|Reference(Basic){http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule}</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
@@ -6399,7 +6398,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6412,12 +6411,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>41</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

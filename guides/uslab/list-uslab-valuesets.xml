@@ -7,7 +7,7 @@
 				<h3>List of Value Sets created for the USLabOrder and USLabResult Implementation</h3>
 		<ul>
 			<li>
-				<a href="valueset-do-uslab-event.html">USLABDOEvent - Information about an event that occurred to a diagnostic order that corresponds to the USLabOrder Use Cases</a>
+				<a href="valueset-do-event.html">USLABDOEvent - Information about an event that occurred to a diagnostic order that corresponds to the USLabOrder Use Cases</a>
 			</li>
 		</ul>
 		<ul>
@@ -37,7 +37,7 @@
 		</ul>
 		<ul>
 			<li>
-				<a href="valueset-obs-uslab-interpretation.html">USLabObsInterpretation - Codes identifying interpretations of observations</a>
+				<a href="valueset-obs-interpretation.html">USLabObsInterpretation - Codes identifying interpretations of observations</a>
 			</li>
 		</ul>
 		<ul>
@@ -47,17 +47,17 @@
 		</ul>
 		<ul>
 			<li>
-				<a href="valueset-obs-uslab-spec-reject.html">USLabSpecimenRejection - Specimen Rejection Reasons codes for identifying why a test was not performed</a>
+				<a href="valueset-obs-spec-reject.html">USLabSpecimenRejection - Specimen Rejection Reasons codes for identifying why a test was not performed</a>
 			</li>
 		</ul>
 		<ul>
 			<li>
-				<a href="valueset-obs-uslab-kind.html">USLabObservationKind - Code to classify the kind of observation in Observation.value[x]</a>
+				<a href="valueset-obs-uslab-kind.html">uslab-observationkind - Code to classify the kind of observation in Observation.value[x]</a>
 			</li>
 		</ul>
 		<ul>
 			<li>
-				<a href="valueset-spec-uslab-type.html">USLabSpecimenType - Codes to describe the Specimen</a>
+				<a href="valueset-spec-type.html">USLabSpecimenType - Codes to describe the Specimen</a>
 			</li>
 		</ul>
 		<ul>
@@ -80,7 +80,7 @@
 		<deleted value="false"/>
 		<date value="2014-11-29"/>
 		<item>
-			<reference value="valueset-do-uslab-event.html"/>
+			<reference value="valueset-do-event.html"/>
 			<display value="USLABDOEvent	-	Information about an event that occurred to a diagnostic order that corresponds to the USLabOrder Use Cases"/>
 		</item>
 	</entry>
@@ -128,7 +128,7 @@
 		<deleted value="false"/>
 		<date value="2014-11-29"/>
 		<item>
-			<reference value="valueset-obs-uslab-interpretation.html"/>
+			<reference value="valueset-obs-interpretation.html"/>
 			<display value="USLabObsInterpretation	-	Codes identifying interpretations of observations"/>
 		</item>
 	</entry>
@@ -144,7 +144,7 @@
 		<deleted value="false"/>
 		<date value="2014-11-29"/>
 		<item>
-			<reference value="valueset-obs-uslab-spec-reject.html"/>
+			<reference value="valueset-obs-spec-reject.html"/>
 			<display value="USLabSpecimenRejection	-	Specimen Rejection Reasons codes for identifying why a test was not performed"/>
 		</item>
 	</entry>
@@ -153,14 +153,14 @@
 		<date value="2014-11-29"/>
 		<item>
 			<reference value="valueset-obs-uslab-kind.html"/>
-			<display value="USLabObservationKind	-	Code to classify the kind of observation in Observation.value[x]"/>
+			<display value="uslab-observationkind	-	Code to classify the kind of observation in Observation.value[x]"/>
 		</item>
 	</entry>
 	<entry>
 		<deleted value="false"/>
 		<date value="2014-11-29"/>
 		<item>
-			<reference value="valueset-spec-uslab-type.html"/>
+			<reference value="valueset-spec-type.html"/>
 			<display value="USLabSpecimenType	-	Codes to describe the Specimen"/>
 		</item>
 	</entry>

@@ -10,61 +10,61 @@
         <id value="guidanceRequest1"/>
         <meta>
         <!--  TODO: Should only need to declare GuidanceRequest, but don't have derivative profile functionality tested yet  -->
-          <profile value="http://hl7.org/fhir/StructureDefinition/knowledgerequest-cqif-cqif-knowledgerequest"/>
-          <profile value="http://hl7.org/fhir/StructureDefinition/guidancerequest-cqif-cqif-guidancerequest"/>
+          <profile value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgerequest"/>
+          <profile value="http://hl7.org/fhir/StructureDefinition/cqif-guidancerequest"/>
         </meta>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-initiatingOrganization">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-initiatingOrganization">
           <valueReference>
             <reference value="Organization/1"/>
           </valueReference>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-initiatingPerson">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-initiatingPerson">
           <valueReference>
             <reference value="Practitioner/1"/>
           </valueReference>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-systemUserType">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserType">
           <valueCoding>
             <system value="TBD"/>
             <code value="provider"/>
           </valueCoding>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-systemUserLanguage">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserLanguage">
           <valueCoding>
             <system value="TBD"/>
             <code value="en-US"/>
           </valueCoding>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-receivingOrganization">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-receivingOrganization">
           <valueReference>
             <reference value="Organization/1"/>
           </valueReference>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-receivingPerson">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-receivingPerson">
           <valueReference>
             <reference value="Practitioner/1"/>
           </valueReference>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-recipientType">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-recipientType">
           <valueCoding>
             <system value="TBD"/>
             <code value="provider"/>
           </valueCoding>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-recipientLanguage">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-recipientLanguage">
           <valueCoding>
             <system value="TBD"/>
             <code value="en-US"/>
           </valueCoding>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-encounterClass">
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-encounterClass">
           <valueCoding>
             <system value="http://hl7.org/fhir/encounter-class"/>
             <code value="inpatient"/>
           </valueCoding>
         </extension>
       <!--  Server-provided module id for IHE Guideline Appropriate Ordering decision support  -->
-        <modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-module">
+        <modifierExtension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-module">
           <valueReference>
             <reference value="Basic/guideline-appropriate-ordering"/>
           </valueReference>
@@ -83,7 +83,7 @@
       <Patient>
         <id value="example"/>
         <meta>
-          <profile value="http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient"/>
+          <profile value="http://hl7.org/fhir/StructureDefinition/qicore-patient"/>
         <!--  TODO: Profile URL for the IHE GAO patient profile  -->
         <!-- profile value="http://hl7.org/fhir/StructureDefinition/patient-gao-gao-patient"/ -->
         </meta>

@@ -34,19 +34,19 @@
 	</thead>
 	<tbody>
         <tr>
-			<td><a href="guidancerequest-cqif-cqif-guidancerequest.html">CQIF-GuidanceRequest</a></td>
+			<td><a href="cqif-guidancerequest.html">CQIF-GuidanceRequest</a></td>
 			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
 		</tr>
 		<tr>
-			<td><a href="guidanceresponse-cqif-cqif-guidanceresponse.html">CQIF-GuidanceResponse</a></td>
+			<td><a href="cqif-guidanceresponse.html">CQIF-GuidanceResponse</a></td>
 			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
 		</tr>
 		<tr>
-			<td><a href="guidanceartifact-cqif-cqif-guidanceartifact.html">CQIF-GuidanceArtifact</a></td>
+			<td><a href="cqif-guidanceartifact.html">CQIF-GuidanceArtifact</a></td>
 			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
 		</tr>
 		<tr>
-			<td><a href="questionnaire-cqif-cqif-questionnaire.html">CQIF-Questionnaire</a></td>
+			<td><a href="cqif-questionnaire.html">CQIF-Questionnaire</a></td>
 			<td><a href="[%fhir-path%]questionnaire.html">Questionnaire</a></td>
 		</tr>
 	</tbody>
@@ -64,7 +64,7 @@
 	<li>Libraries</li>
 </ul>
 
-<p>To represent these artifact types, this guide introduces the <a href="guidanceartifact-cqif-cqif-guidanceartifact.html">GuidanceArtifact</a> structure. This structure derives from the <a href="knowledgemodule-cqif-cqif-knowledgemodule.html">KnowledgeModule</a> structure defined in the common section, and introduces elements to enable representation of the structures involved in each of these artifact types.</p>
+<p>To represent these artifact types, this guide introduces the <a href="cqif-guidanceartifact.html">GuidanceArtifact</a> structure. This structure derives from the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure defined in the common section, and introduces elements to enable representation of the structures involved in each of these artifact types.</p>
 
 <p>In addition, the use of artifact definitions that are based on the existing Clinical Decision Support Knowledge Artifact Specification is supported by allowing the content element to contain a DocumentReference that points to the actual artifact.</p>
 
@@ -116,7 +116,7 @@
 
 <p>Within FHIR, the <a href="../questionnaire.html">Questionnaire</a> resource is available for modeling the structure of questionnaires. As such, a Documentation Template artifact is represented by using the content element of the GuidanceArtifact structure to refer to a particular <a href="../questionnaire.html">Questionnaire</a>.</p>
 
-<p>However, Documentation Templates as described by the Clinical Decision Support Knowledge Artifact Specification allow not only questions to be defined, but the behavior of the questionnaire as well. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="questionnaire-cqif-cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
+<p>However, Documentation Templates as described by the Clinical Decision Support Knowledge Artifact Specification allow not only questions to be defined, but the behavior of the questionnaire as well. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
 
 <p>The content of a documentation template artifact is then specified by referencing either a Questionnaire directly, or a CQIF-Questionnaire if behavioral functionality is required.</p>
 
@@ -137,16 +137,16 @@
 <a name="cds-kas-artifacts"/>
 <h4>CDS KAS Artifacts</h4>
 
-<p>In order to allow existing artifacts defined according to the current Clinical Decision Support Knowledge Artifact Specification, this implementation guide defines a <a href="guidanceartifact-cqif-cqif-guidanceartifact.html">GuidanceArtifact</a> structure derived from <a href="knowledgemodule-cqif-cqif-knowledgemodule.html">KnowledgeModule</a>, but whose content is determined by a <a href="../documentreference.html">DocumentReference</a> to a CDS KAS artifact.</p>
+<p>In order to allow existing artifacts defined according to the current Clinical Decision Support Knowledge Artifact Specification, this implementation guide defines a <a href="cqif-guidanceartifact.html">GuidanceArtifact</a> structure derived from <a href="cqif-knowledgemodule.html">KnowledgeModule</a>, but whose content is determined by a <a href="../documentreference.html">DocumentReference</a> to a CDS KAS artifact.</p>
 
 <p>In this case, the information represented in the KnowledgeModule can be inferred from the referenced artifact, and potentially generated by a simple transform.</p>
 
 <a name="evaluation"/>
 <h3>Evaluation</h3>
 
-<p>For the evaluation use case, this implementation guide defines the <a href="guidancerequest-cqif-cqif-guidancerequest.html">GuidanceRequest</a> and <a href="guidanceresponse-cqif-cqif-guidanceresponse.html">GuidanceResponse</a> structures, derived from <a href="knowledgerequest-cqif-cqif-knowledgerequest.html">KnowledgeRequest</a>, and <a href="knowledgeresponse-cqif-cqif-knowledgeresponse.html">KnowledgeResponse</a>, respectively. These guidance-level structures introduce clinical decision support-specific information such as the requesting and recipient organizations and/or persons, as well as the workflow context.</p>
+<p>For the evaluation use case, this implementation guide defines the <a href="cqif-guidancerequest.html">GuidanceRequest</a> and <a href="cqif-guidanceresponse.html">GuidanceResponse</a> structures, derived from <a href="cqif-knowledgerequest.html">KnowledgeRequest</a>, and <a href="cqif-knowledgeresponse.html">KnowledgeResponse</a>, respectively. These guidance-level structures introduce clinical decision support-specific information such as the requesting and recipient organizations and/or persons, as well as the workflow context.</p>
 
-<p>In addition, the <a href="guidanceresponse-cqif-cqif-guidanceresponse.html">GuidanceResponse</a> structure introduces elements for representing the actions to be performed in response to a guidance evaluation request.</p>
+<p>In addition, the <a href="cqif-guidanceresponse.html">GuidanceResponse</a> structure introduces elements for representing the actions to be performed in response to a guidance evaluation request.</p>
 
 <a name="distribution"/>
 <h3>Distribution</h3>

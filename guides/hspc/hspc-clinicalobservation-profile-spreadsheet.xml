@@ -10,17 +10,17 @@
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-07T19:41:52Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2580</WindowHeight>
-  <WindowWidth>9870</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1040,7 +1040,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">clinicalobservation</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">hspc-clinicalobservation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">version</Data></Cell>
@@ -1049,7 +1049,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s82" ss:HRef="http://hl7.org/fhir/StructureDefinition/observation-hspc-clinicalobservation"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/observation-hspc-clinicalobservation</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/hspc-observation-clinicalobservation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s83"><Data ss:Type="String">introduction</Data></Cell>
@@ -1073,6 +1073,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1092,17 +1093,17 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="clinicalobservation">
+ <Worksheet ss:Name="hspc-clinicalobservation">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=clinicalobservation!R1C1:R116C24" ss:Hidden="1"/>
+    ss:RefersTo="='hspc-clinicalobservation'!R1C1:R116C24" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="117" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s87" ss:DefaultRowHeight="15">
@@ -1413,7 +1414,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#hspc-associatedPrecondition}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">AssociatedPrecondition</Data><NamedCell
@@ -1443,7 +1444,7 @@
     <Cell ss:Index="6" ss:StyleID="s111"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/observation-hspc-heartrate-hspcheartrate#hspc-focalSubject}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">FocalSubjectRelationship</Data><NamedCell
@@ -1472,7 +1473,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/observation-hspc-logicalassert#Likelihood}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-logicalassert#Likelihood}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">Likelihood</Data><NamedCell
@@ -4281,7 +4282,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6986,7 +6986,7 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">The set of codes that describe the thing being asserted as existing in or for the individual</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s147"><Data ss:Type="String">valueset-hspc-clinicalFinding</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">valueset-clinicalFinding</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
@@ -7016,7 +7016,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">A set of codes that describe pre-coordinated body locations</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-observation-hspc-bodysite-precoordinated</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-observation-bodysite-precoordinated</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
@@ -7031,7 +7031,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">The pre-existing condtions that affect the assertion of the condition</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-hspc-associatedprecondition</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-associatedprecondition</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
@@ -7046,7 +7046,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">The set of codes that describe the subject of an observation when not the patient of record</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-hspc-focalSubject</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-focalSubject</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
@@ -7061,7 +7061,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">A set of codes that describe the level of certainty, if any, that the observation exists or procedure was done</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-hspc-likelihood</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-likelihood</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
@@ -7076,7 +7076,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">The set of codes that describe the state of the assertion</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-hspc-clinicalAssertStatus</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">valueset-clinicalAssertStatus</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="valueset-observation-dataOriginationMode"/>
+  <version value="0.01"/>
+  <name value="HSPC Data Origination Mode"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <date value="2015-05-19"/>
+  <description value="The description of how the data came into being."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/observation-hspc-dataOriginationMode"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="14610118"/>
+      <display value="Stated"/>
+      <definition value="Information that is given directly, either verbally or written, that is not the result of a measurement or estimate."/>
+    </concept>
+  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="414135002"/>
+        <display value="Estimated"/>
+      </concept>
+      <concept>
+        <code value="258104002"/>
+        <display value="Measured"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -654,6 +654,11 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(FormatUtilities.makeId(id));
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ id);
+    if (usage != null && !usage.isCore()) {
+      if (!id.startsWith(usage.getCode()+"-"))
+        throw new Exception("Error: "+id+" must start with "+usage.getCode()+"-");
+    }
+    
     if (!resource.getRoot().getTypes().isEmpty() && (resource.getRoot().getTypes().get(0).getProfile() != null))
       p.setBase(resource.getRoot().getTypes().get(0).getProfile());
     else
@@ -830,7 +835,9 @@ public class ProfileGenerator {
     switch (src.getBinding()) {
     case Unbound: return null;
     case CodeList:
-      if (src.getReference().startsWith("#"))
+      if (src.getValueSet()!= null)
+        return Factory.makeReference(src.getValueSet().getUrl());
+      else if (src.getReference().startsWith("#"))
         return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
       else
         throw new Exception("not done yet");
@@ -838,6 +845,8 @@ public class ProfileGenerator {
       if (!Utilities.noString(src.getReference()))
         if (src.getReference().startsWith("http"))
           return Factory.makeReference(src.getReference());
+        else if (src.getValueSet()!= null)
+          return Factory.makeReference(src.getValueSet().getUrl());
         else if (src.getReference().startsWith("valueset-"))
           return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(9));
         else
@@ -977,7 +986,7 @@ public class ProfileGenerator {
               // check that the extension is being used correctly:
 							StructureDefinition ext = context.getExtensionStructure(null, profile);
 							if (ext == null) {
-							  throw new Exception("Unable to resolve extension profile: " + profile);
+							  throw new Exception("Unable to resolve extension definition: " + profile);
 							}
               boolean srcMod = ext.getSnapshot().getElement().get(0).getIsModifier();
               boolean tgtMod = e.isModifier();

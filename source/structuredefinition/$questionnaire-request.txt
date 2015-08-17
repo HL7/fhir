@@ -1,1 +1,1 @@
-GET /fhir/StructureDefinition/patient-daf-dafpatient/$questionnaire
+GET /fhir/StructureDefinition/daf-patient/$questionnaire

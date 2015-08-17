@@ -172,7 +172,7 @@ signatures.html
 				</page> -->
 			</page>
 		  <page title="Profile List" filename="profilelist.html"/>
-			<page title="Using Resources" filename="use.html"/>
+<!--			<page title="Using Resources" filename="use.html"/> -->
 		</page>
 		<page title="Resources" filename="resourcelist.html">
   		<page title="Resource Guide" filename="resourceguide.html"/>
@@ -254,7 +254,6 @@ signatures.html
 			<page type="resource" resource="List"/>
 			<page type="resource" resource="Media"/>
 			<page type="resource" resource="Basic"/>
-			<page type="resource" resource="Other"/>
 			<page type="resource" resource="Provenance"/>
 			<page type="resource" resource="AuditEvent"/>
 			<page type="resource" resource="Binary"/>
@@ -296,7 +295,7 @@ signatures.html
 			<page type="resource" resource="PaymentReconciliation"/>
 <!--			<page type="resource" resource="PharmacyClaim"/>
 			<page type="resource" resource="ProfessionalClaim"/> -->
-			<page type="resource" resource="SupportingDocumentation"/>
+<!--			<page type="resource" resource="SupportingDocumentation"/> -->
 <!--			<page type="resource" resource="VisionClaim"/> -->
 		</page>
 	</page>

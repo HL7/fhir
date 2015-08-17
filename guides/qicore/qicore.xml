@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="qi-core"/>
+  <url value="http://hl7.org/fhir/qi-core"/>
+  <name value="QI-Core Implementation Guide"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="ONC"/>
+  <dependency>
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/daf"/>
+  </dependency>
+  <package>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="allergyintolerance-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="basic-adverseevent-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="bodysite-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="communication-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="communicationrequest-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="condition-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="device-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="deviceuserequest-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="deviceusestatement-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="diagnosticorder-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="diagnosticreport-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="encounter-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="familymemberhistory-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="flag-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="goal-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="imagingstudy-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="immunization-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="immunizationrecommendation-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="location-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="medication-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="medicationadministration-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="medicationdispense-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="medicationorder-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="medicationstatement-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="observation-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="organization-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="patient-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="practitioner-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="procedure-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="procedurerequest-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="referralrequest-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="relatedperson-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="specimen-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="substance-profile-spreadsheet.xml"/>
+    </extension>
+    <name value="base"/>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core AdverseEvent"/>
+      <description value="Example of QI-Core AdverseEvent"/>
+      <sourceUri value="basic-adverseevent-example.xml"/>
+      <exampleFor>
+        <reference value="basic-adverseevent-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core AllergyIntolerance"/>
+      <description value="Example of QI-Core AllergyIntolerance"/>
+      <sourceUri value="allergyintolerance-example.xml"/>
+      <exampleFor>
+        <reference value="allergyintolerance-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core AllergyIntolerance Refuted"/>
+      <description value="Example of QI-Core AllergyIntolerance Refuted"/>
+      <sourceUri value="allergyintolerance-example-refuted.xml"/>
+      <exampleFor>
+        <reference value="allergyintolerance-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Communication"/>
+      <description value="Example of QI-Core Communication"/>
+      <sourceUri value="communication-example.xml"/>
+      <exampleFor>
+        <reference value="communication-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core CommunicationRequest"/>
+      <description value="Example of QI-Core CommunicationRequest"/>
+      <sourceUri value="communicationrequest-example.xml"/>
+      <exampleFor>
+        <reference value="communicationrequest-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Condition"/>
+      <description value="Example of QI-Core Condition"/>
+      <sourceUri value="condition-example.xml"/>
+      <exampleFor>
+        <reference value="condition-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core DeviceUseRequest"/>
+      <description value="Example of QI-Core DeviceUseRequest"/>
+      <sourceUri value="deviceuserequest-example.xml"/>
+      <exampleFor>
+        <reference value="deviceuserequest-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core DiagnosticOrder"/>
+      <description value="Example of QI-Core DiagnosticOrder"/>
+      <sourceUri value="diagnosticorder-example.xml"/>
+      <exampleFor>
+        <reference value="diagnosticorder-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core DiagnosticReport"/>
+      <description value="Example of QI-Core DiagnosticReport"/>
+      <sourceUri value="diagnosticreport-example.xml"/>
+      <exampleFor>
+        <reference value="diagnosticreport-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Encounter"/>
+      <description value="Example of QI-Core Encounter"/>
+      <sourceUri value="encounter-example.xml"/>
+      <exampleFor>
+        <reference value="encounter-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core FamilyMemberHistory"/>
+      <description value="Example of QI-Core FamilyMemberHistory with condition did-not-have"/>
+      <sourceUri value="familymemberhistory-example.xml"/>
+      <exampleFor>
+        <reference value="familymemberhistory-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Flag"/>
+      <description value="Example of QI-Core Flag"/>
+      <sourceUri value="flag-example.xml"/>
+      <exampleFor>
+        <reference value="flag-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Goal"/>
+      <description value="Example of QICoreGoal"/>
+      <sourceUri value="goal-example.xml"/>
+      <exampleFor>
+        <reference value="goal-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core ImagingStudy"/>
+      <description value="Example of QI-Core ImagingStudy"/>
+      <sourceUri value="imagingstudy-example.xml"/>
+      <exampleFor>
+        <reference value="imagingstudy-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core MedicationDispense"/>
+      <description value="Example of QI-Core MedicationDispense"/>
+      <sourceUri value="medicationdispense-example.xml"/>
+      <exampleFor>
+        <reference value="medicationdispense-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core MedicationOrder"/>
+      <description value="Example of QI-Core MedicationOrder"/>
+      <sourceUri value="medicationorder-example.xml"/>
+      <exampleFor>
+        <reference value="medicationorder-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core MedicationStatement"/>
+      <description value="Example of QI-Core MedicationStatement"/>
+      <sourceUri value="medicationstatement-example.xml"/>
+      <exampleFor>
+        <reference value="medicationstatement-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Observation"/>
+      <description value="Example of QI-Core Observation"/>
+      <sourceUri value="observation-example.xml"/>
+      <exampleFor>
+        <reference value="observation-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Organization"/>
+      <description value="Example of QI-Core Organization"/>
+      <sourceUri value="organization-example.xml"/>
+      <exampleFor>
+        <reference value="organization-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Patient"/>
+      <description value="Example of QI-Core Patient"/>
+      <sourceUri value="patient-example.xml"/>
+      <exampleFor>
+        <reference value="patient-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Practitioner"/>
+      <description value="Example of QI-Core Practitioner"/>
+      <sourceUri value="practitioner-example.xml"/>
+      <exampleFor>
+        <reference value="practitioner-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Procedure"/>
+      <description value="Example of QI-Core Procedure"/>
+      <sourceUri value="procedure-example.xml"/>
+      <exampleFor>
+        <reference value="procedure-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core ProcedureRequest"/>
+      <description value="Example of QI-Core ProcedureRequest"/>
+      <sourceUri value="procedurerequest-example.xml"/>
+      <exampleFor>
+        <reference value="procedurerequest-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core ReferralRequest"/>
+      <description value="Example of QI-Core ReferralRequest"/>
+      <sourceUri value="referralrequest-example.xml"/>
+      <exampleFor>
+        <reference value="referralrequest-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="QI-Core Specimen"/>
+      <description value="Example of QI-Core Specimen"/>
+      <sourceUri value="specimen-example.xml"/>
+      <exampleFor>
+        <reference value="specimen-profile-spreadsheet.xml"/>
+      </exampleFor>
+    </resource>
+  </package>
+  <page>
+    <source value="qicore.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
+    <page>
+      <source value="registry.html"/>
+      <name value="Registry"/>
+      <kind value="list"/>
+      <type value="Conformance"/>
+      <type value="StructureDefinition"/>
+      <type value="ValueSet"/>
+      <type value="ConceptMap"/>
+    </page>
+  </page>
+</ImplementationGuide>

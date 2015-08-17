@@ -991,11 +991,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">DocumentReference</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">XDSDocumentReference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">DocumentManifest</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">XDSDocumentManifest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">version</Data></Cell>
@@ -1298,7 +1298,7 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="DocumentReference">
+ <Worksheet ss:Name="XDSDocumentReference">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="=DocumentReference!R1C1:R102C24" ss:Hidden="1"/>
@@ -4259,7 +4259,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="DocumentManifest">
+ <Worksheet ss:Name="XDSDocumentManifest">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="=DocumentManifest!R1C1:R100C24" ss:Hidden="1"/>

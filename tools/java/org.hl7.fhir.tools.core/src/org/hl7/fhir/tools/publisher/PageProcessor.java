@@ -248,7 +248,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private BindingNameRegistry registry;
   private String oid; // technical identifier associated with the page being built
   private EPubManager epub;
-  private String baseURL = "http://hl7.org/fhir/DSTU1/";
+  private String baseURL = "http://hl7.org/fhir/DSTU2/";
   private SpecificationTerminologyServices terminologyServices;
   private final String tsServer; // terminology to use
   private final WorkerContext workerContext;
@@ -590,7 +590,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("dtusage")) {
         src = s1 + genDataTypeUsage(com[1]) + s3;
       }  else if (com[0].equals("v3xref")) {
-        src = s1 + xreferencesForV3(name, com[1].equals("true")) + s3;      
+        src = s1 + xreferencesForV3(name) + s3;      
       }  else if (com[0].equals("reflink")) {
         src = s1 + reflink(com[1]) + s3;      
       } else if (com[0].equals("setlevel")) {
@@ -775,7 +775,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, "", crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;      
+        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -1562,11 +1562,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString()+". ";
   }
 
-  private String xreferencesForV3(String name, boolean vs) {
+  private String xreferencesForV3(String name) {
     String n = name.replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
     StringBuilder b = new StringBuilder();
     ValueSet ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/ValueSet/v2-");
-    String path = vs ? "../../../" : "../../";
+    String path = "../../";
     if (ae != null)
       b.append(". Related v2 content: <a href=\"").append(path).append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
     ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/ValueSet/");
@@ -2108,7 +2108,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private int rootInd(String s) {
     if (s.contains("."))
       s = s.substring(0, s.indexOf("."));
-    return s.contains("?") ? 100 : Integer.parseInt(s);
+    return !Utilities.isInteger(s) || s.contains("?") ? 100 : Integer.parseInt(s);
   }
 
   private String generateBSUsage(ValueSet vs) throws Exception {        
@@ -5783,7 +5783,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     this.folders = folders;
     terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.rootDir, "vscache"), tsServer, codeSystems);
     workerContext.setTerminologyServices(terminologyServices);
-    epub = new EPubManager(this, validationErrors);
+    epub = new EPubManager(this, validationErrors, baseURL);
   }
 
   public void setIni(IniFile ini) {
@@ -6122,8 +6122,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             br.url = "valueset-"+ref.substring(23)+".html";
             br.display = "Context of Use ValueSet";
           } else { 
-            br.display = ref.substring(23);
-            br.url = ref.substring(23)+".html";
+            br.display = ref.substring(29);
+            br.url = ref.substring(29)+".html";
           }
         }  else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
           br.url = "v3/"+ref.substring(26)+"/index.html"; 

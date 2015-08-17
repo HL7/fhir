@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11400</WindowHeight>
-  <WindowWidth>22575</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -813,7 +813,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">stdqty</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">hspc-stdqty</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">version</Data></Cell>
@@ -822,7 +822,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/hspc-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
@@ -850,6 +850,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -869,16 +870,16 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="stdqty">
+ <Worksheet ss:Name="hspc-stdqty">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=stdqty!R1C1:R103C26"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='hspc-stdqty'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="104" x:FullColumns="1"
@@ -1017,7 +1018,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/observation-hspc-standardlabobs-std}</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/hspc-std}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3907,7 +3908,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3939,7 +3939,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="stdqty-Inv">
+ <Worksheet ss:Name="hspc-stdqty-Inv">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="106.5"/>
@@ -5245,7 +5245,7 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">Standard LOINC codes</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-hspc-QuantitativeLabCodes</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-QuantitativeLabCodes</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -5260,7 +5260,7 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">The set of codes that describe in what way a lab value is abnormal</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">valueset-hspc-abnInt-NumericNom</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">valueset-abnInt-NumericNom</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -5275,7 +5275,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">The set of codes that describe the significant changes in test values</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">valueset-hspc-deltaFlag-numericNom</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">valueset-deltaFlag-numericNom</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>

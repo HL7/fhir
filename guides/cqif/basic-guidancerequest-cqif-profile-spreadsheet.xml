@@ -997,7 +997,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/guidancerequest-cqif-"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/guidancerequest-cqif-</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/cqif-/guidancerequest-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -1216,7 +1216,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-initiatingOrganization}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-initiatingOrganization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1246,7 +1246,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-initiatingPerson}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-initiatingPerson}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1276,7 +1276,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-systemUserType}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserType}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1306,7 +1306,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-systemUserLanguage}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserLanguage}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1336,7 +1336,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-systemUserTaskContext}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserTaskContext}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1366,7 +1366,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-receivingOrganization}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-receivingOrganization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1396,7 +1396,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-receivingPerson}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-receivingPerson}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1426,7 +1426,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-recipientType}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-recipientType}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1456,7 +1456,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-recipientLanguage}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-recipientLanguage}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1486,7 +1486,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-encounterClass}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-encounterClass}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1516,7 +1516,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/basic-cqif-guidance-encounterType}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-encounterType}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5853,8 +5853,8 @@
     <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/guidancerequest-cqif-cqif-guidancerequest"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/guidancerequest-cqif-cqif-guidancerequest</Data></Cell>
+    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/cqif-guidancerequest"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/cqif-guidancerequest</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">The input guidance request information</Data></Cell>
     <Cell ss:StyleID="s149"/>
@@ -5876,8 +5876,8 @@
     <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/guidanceresponse-cqif-cqif-guidanceresponse"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/guidanceresponse-cqif-cqif-guidanceresponse</Data></Cell>
+    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/cqif-guidanceresponse"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/cqif-guidanceresponse</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">The results of the request(s)</Data></Cell>
     <Cell ss:StyleID="s149"/>
@@ -5921,8 +5921,8 @@
     <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule</Data></Cell>
+    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">The aggregated data requirements for the requested modules</Data></Cell>
     <Cell ss:StyleID="s149"/>

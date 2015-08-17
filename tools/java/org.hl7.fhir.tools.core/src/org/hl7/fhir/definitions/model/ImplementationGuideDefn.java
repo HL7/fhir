@@ -50,6 +50,7 @@ public class ImplementationGuideDefn {
   private String source;
   private String ballot;
   private String fmm;
+  private String sectionId;
   private List<String> pageList = new ArrayList<String>();
   private List<String> imageList = new ArrayList<String>();
   private List<Example> examples = new ArrayList<Example>();
@@ -63,7 +64,7 @@ public class ImplementationGuideDefn {
   private ImplementationGuide ig;
   private List<ValidationMessage> issues;
   
-  public ImplementationGuideDefn(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, boolean core, List<ValidationMessage> issues) {
+  public ImplementationGuideDefn(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, String sectionId, boolean core, List<ValidationMessage> issues) {
     super();
     this.code = code;
     this.name = name;
@@ -75,6 +76,7 @@ public class ImplementationGuideDefn {
     this.ballot = ballot;
     this.core = core;
     this.issues = issues;
+    this.sectionId = sectionId;
   }
   
   public String getCode() {
@@ -271,5 +273,16 @@ public class ImplementationGuideDefn {
         return true;
     }
     return false;
+  }
+
+  public String getIndexPrefixForFile(String string) {
+    return sectionId+".??";
+  }
+
+  public String getPrefix() {
+    if (isCore())
+      return "";
+    else
+      return code+"/";
   }
 }

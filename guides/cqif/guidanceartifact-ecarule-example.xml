@@ -4,59 +4,59 @@
 	<id value="guidanceartifact-ecarule-example"/>
 	<meta>
 		<!-- TODO: Should be able to claim conformance with only the guidance artifact, need derived profiles to work first -->
-		<profile value="http://hl7.org/fhir/StructureDefinition/knowledgemodule-cqif-cqif-knowledgemodule"/>
-		<profile value="http://hl7.org/fhir/StructureDefinition/guidanceartifact-cqif-cqif-guidanceartifact"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
 	</meta>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">Chalmydia Screening CDS Example Using Common</div>
 	</text>
 	<!-- Version -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleVersion">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleVersion">
 		<valueString value="1.0.0"/>
 	</extension>
 	<!-- Title -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-title">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-title">
 		<valueCode value="Chlamydia Screening CDS Example Using Common"/>
 	</extension>
 	<!-- Description -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-description">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-description">
 		<valueString value="Chlamydia Screening CDS Example Using Common"/>
 	</extension>
 	<!-- PublicationDate -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-publicationDate">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-publicationDate">
 		<valueDate value="2015-07-22"/>
 	</extension>
 	<!-- Topic -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-topic">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-topic">
 		<valueCodeableConcept>
 			<text value="Chlamydia Screeening"/>
 		</valueCodeableConcept>
 	</extension>
 	<!-- Keyword -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-keyword">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-keyword">
 		<valueString value="Chlamydia Screening"/>
 	</extension>
 	<!-- Model -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-model">
-		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-model#name">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-model">
+		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-model#name">
 			<valueString value="QUICK"/>
 		</extension>
 	</extension>
 	<!-- Library -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-library">
-		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-library#name">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-library">
+		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-library#name">
 			<valueString value="Common"/>
 		</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-library#id">
+		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-library#id">
 			<valueString value="ChlamydiaScreening_CDS_Common"/>
 		</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-library#version">
+		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-library#version">
 			<valueString value="2.0.0"/>
 		</extension>
 	</extension>
 	<!-- Content -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-content">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
 		<valueAttachment>
 			<contentType value="application/cql+text"/>
 			<url value="http://cqlrepository.org/ChlamydiaScreening_CDS_UsingCommon.cql"/>
@@ -64,29 +64,29 @@
 		</valueAttachment>
 	</extension>
 	<!-- Rule -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-rule">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-rule">
 		<valueString value="No Screening"/>
 	</extension>
 	<!-- Action -->
-	<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action">
-		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action#title">
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
+		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#title">
 			<valueString value="Patient has not had chlamydia screening within the recommended timeframe..."/>
 		</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action#customization">
-			<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action#customization.path">
+		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#customization">
+			<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#customization.path">
 				<valueString value="~"/>
 			</extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-action#customization.expression">
+			<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#customization.expression">
 				<valueString value="ChlamydiaScreeningRequest"/>
 			</extension>
 		</extension>
 	</extension>
 	<!-- Status -->
-	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-moduleStatus">
+	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleStatus">
 		<valueCode value="draft"/>
 	</modifierExtension>
 	<!-- Evaluation Supported -->
-	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/basic-cqif-evaluationSupported">
+	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-evaluationSupported">
 		<valueBoolean value="true"/>
 	</modifierExtension>
 	<!-- Identifier -->

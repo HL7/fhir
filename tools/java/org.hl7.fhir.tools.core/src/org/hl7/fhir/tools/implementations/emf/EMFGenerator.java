@@ -17,6 +17,8 @@ import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
+// this is disabled; users wanting a formal UML model should consuult Dave Carlson's work 
+
 
 public class EMFGenerator extends EMFBase implements PlatformGenerator {
 

@@ -685,9 +685,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
               throw new Exception("Unknown modifier extension "+url);
             PropertyWrapper pe = map.get(p.getName()+"["+url+"]");
             if (pe == null) {
-              if (ed == null)
+              if (ed == null) {
+                if (url.startsWith("http://hl7.org/fhir"))
+                  throw new Exception("unknown extension "+url);
+                System.out.println("unknown extension "+url);
                 pe = new PropertyWrapperDirect(new Property(p.getName()+"["+url+"]", p.getTypeCode(), p.getDefinition(), p.getMinCardinality(), p.getMaxCardinality(), ex));
-              else {
+              } else {
                 ElementDefinition def = ed.getSnapshot().getElement().get(0);
                 pe = new PropertyWrapperDirect(new Property(p.getName()+"["+url+"]", "Extension", def.getDefinition(), def.getMin(), def.getMax().equals("*") ? Integer.MAX_VALUE : Integer.parseInt(def.getMax()), ex));
                 ((PropertyWrapperDirect) pe).wrapped.setStructure(ed);

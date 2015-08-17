@@ -73,6 +73,121 @@ the future, etc. This table summarises the known resource types:
 Todo: an explanation of the w5 ontology, along with a table summarising it's principal properties
 </p>
 
+Clinical workflow process life cycle
+
+Appointment.status: pending | booked | arrived | fulfilled | cancelled | noshow
+AppointmentResponse.participantStatus: accepted | declined | tentative | in-process | completed | needs-action
+Communication.status: in-progress | completed | suspended | rejected | failed
+Encounter.status: planned | arrived | in-progress | onleave | finished | cancelled
+EpisodeOfCare: planned | waitlist | active | onhold | finished | cancelled
+Goal.status: proposed | planned | in-progress | achieved | sustaining | cancelled | accepted | rejected
+MedicationAdministration.status: in-progress | on-hold | completed | entered-in-error | stopped
+MedicationDispense.status: in-progress | on-hold | completed | entered-in-error | stopped
+Procedure.status: in-progress | aborted | completed | entered-in-error
+
+Request/Order life cycle
+
+CommunicationRequest.status: proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed
+DeviceUseRequest.status: proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
+DiagnosticOrder.status: proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
+Goal: proposed | planned | in-progress | achieved | sustaining | cancelled | accepted | rejected
+MedicationOrder.status: active | on-hold | completed | entered-in-error | stopped | superseded | draft
+NutritionOrder: proposed | draft | planned | requested | active | on-hold | completed | cancelled
+OrderResponse.orderStatus: pending | review | rejected | error | accepted | cancelled | replaced | aborted | completed
+ProcedureRequest.status: proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
+ReferralRequest.status: draft | requested | active | cancelled | accepted | rejected | completed
+VisionPrescription: 
+
+Entity status life cycle
+
+BodySite.?: 
+CarePlan: planned | active | completed
+ClinicalImpression: in-progress | completed | entered-in-error
+Contraindication: 
+Conformance.status: draft | active | retired
+DataElement: draft | active | retired
+Device.?:
+DeviceComponent.?:
+DeviceMetric.?:
+DiagnosticReport.status: registered | partial | final | corrected | appended | cancelled | entered-in-error
+DocumentManifest.status: current | superseded | entered-in-error
+DocumentReference.status: current | superseded | entered-in-error
+FamilyMemberHistory:
+Flag.status: active | inactive | entered-in-error
+Group.?
+HealthcareService.?:
+ImagingObjectSelection.?
+ImagingStudy.?:
+Immunization: 
+ImmunizationRecommendation: 
+Location.status: active | suspended | inactive
+Medication: 
+MedicationStatement.status: in-progress | completed | entered-in-error. (note: in-progress and completed are states reflecting the administration of the medication)
+Observation.status: registered | preliminary	| final	| amended	| cancelled	| entered-in-error | unknown	
+Order.?:
+Organization.active: true | false
+Patient.active: true | false
+Person.active: true | false
+Practitioner.?
+Questionnaire.status: draft | published | retired
+QuestionnaireResponse.status: in-progress | completed | amended
+RelatedPerson.?:
+RiskAssessment.?:
+Schedule.?: 
+Slot.?:
+Specimen.?:
+StructureDefinition.status: draft | active | retired
+Substance.?
+
+Clinical status life cycle
+
+AllergyIntolerance.status: unconfirmed | confirmed | resolved | refuted | entered-in-error
+Condition.clinicalStatus: active | relapse | remission | resolved
+
+
+DeviceUseStatement
+CommunicationRequest
+ProcessRequest
+ProcessResponse
+SupplyRequest
+SupplyDelivery
+Questionnaire
+QuestionnaireResponse
+Provenance
+AuditEvent
+Composition
+DocumentReference
+DocumentManifest
+List
+Media
+Basic
+Binary
+Bundle
+OperationOutcome
+MessageHeader
+Subscription
+Parameters
+ValueSet
+ConceptMap
+NamingSystem
+StructureDefinition
+DataElement
+Conformance
+OperationDefinition
+SearchParameter
+ImplementationGuide
+TestScript
+Coverage
+EligibilityRequest
+EligibilityResponse
+EnrollmentRequest
+EnrollmentResponse
+Claim
+ClaimResponse
+PaymentNotice
+PaymentReconciliation
+ExplanationOfBenefit
+
 </div>
 
 <a name="clinical"> </a>

@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>27136</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -960,7 +960,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">DAFVitalSigns</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">DAF-VitalSigns</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">version</Data></Cell>
@@ -969,7 +969,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/observation-daf-vitalsigns"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/observation-daf-vitalsigns</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/daf-observation-vitalsigns</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -1012,17 +1012,17 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="DAFVitalSigns">
+ <Worksheet ss:Name="DAF-VitalSigns">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=DAFVitalSigns!R1C1:R101C24"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='DAF-VitalSigns'!R1C1:R101C24" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="102" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="28.5">
@@ -1699,7 +1699,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient}</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2237,7 +2237,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/pract-daf-dafpract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/relatedperson-daf-dafrelatedperson}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/org-daf-daforganization}</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/daf-relatedperson}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2267,7 +2267,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/StructureDefinition/encounter-daf-dafencounter}</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2359,7 +2359,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Observation){http://hl7.org/fhir/StructureDefinition/observation-daf-vitalsigns-dafvitalsigns}</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-vitalsigns}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

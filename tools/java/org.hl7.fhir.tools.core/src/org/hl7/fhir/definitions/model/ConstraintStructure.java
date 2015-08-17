@@ -37,6 +37,7 @@ public class ConstraintStructure {
   private StructureDefinition resource;
   private ResourceDefn defn; // temporary, until we get around to building the resource 
   private ImplementationGuideDefn usage;
+  private String owner; // id of the AP that owns this
     
   public ConstraintStructure(StructureDefinition resource, ImplementationGuideDefn usage) {
     this.id = resource.getId();
@@ -94,6 +95,14 @@ public class ConstraintStructure {
 
   public void setUsage(ImplementationGuideDefn usage) {
     this.usage = usage;
+  }
+
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
   }
 
   

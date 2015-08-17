@@ -1,5 +1,5 @@
 // validate a Patient against the DAF patient profile using POST directly.
-POST /open/Patient/$validate?profile=http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient
+POST /open/Patient/$validate?profile=http://hl7.org/fhir/StructureDefinition/daf-patient
 [other headers]
 
 $include ../patient/patient-example-us-extensions.xml

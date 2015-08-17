@@ -356,6 +356,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private List<NamingSystem> namingSystems = new ArrayList<NamingSystem>();
   private Set<String> structuralPages = new HashSet<String>();
   private Map<String, PageInformation> pageInfo = new HashMap<String, Definitions.PageInformation>();
+  private Map<String, ConstraintStructure> profileIds = new HashMap<String, ConstraintStructure>();
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -653,6 +654,10 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   public List<W5Entry> getW5list() {
     return w5list;
+  }
+
+  public Map<String, ConstraintStructure> getProfileIds() {
+    return profileIds;
   }
 
   
