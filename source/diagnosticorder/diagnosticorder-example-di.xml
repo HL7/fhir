@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Diagnostic image example - CT scan -->
 <!-- This example is used with contraindication-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
-<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticorder.xsd">
+<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticorder.xsd">
 	<id value="di"/>
 	<text>
 		<status value="generated"/>
@@ -32,5 +32,12 @@
 			</coding>
 			<text value="Chest CT"/>
 		</code>
+		<bodySite>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="51185008"/>
+				<display value="Thoracic structure"/>
+			</coding>
+		</bodySite>
 	</item>
 </DiagnosticOrder>

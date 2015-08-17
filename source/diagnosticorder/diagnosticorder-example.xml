@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--  lab report example: a CBC  -->
-<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/diagnosticorder.xsd">
+<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticorder.xsd">
 	<id value="example"/>
 	<contained>
 		<!--  remove text element and let build render it..
@@ -51,6 +51,9 @@
 		<system value="urn:oid:1.3.4.5.6.7"/>
 		<value value="2345234234234"/>
 	</identifier>
+	<encounter>
+		<reference value="Encounter/example"/>
+	</encounter>
 	<reason>
 		<coding>
 			<system value="http://hl7.org/fhir/sid/icd-9"/>
@@ -65,6 +68,9 @@
 	<event>
 		<status value="requested"/>
 		<dateTime value="2013-05-02T16:16:00-07:00"/>
+		<actor>
+			<reference value="Practitioner/example"/>
+		</actor>
 	</event>
 	<item>
 		<code>
@@ -74,6 +80,9 @@
 			</coding>
 			<text value="Lipid Panel"/>
 		</code>
+		<specimen>
+			<reference value="Specimen/101"/>
+		</specimen>
 	</item>
 	<note>
 		<text value="patient is afraid of needles"/>
