@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
+  <id value="hspc-qnlab-de"/>
   <type value="collection"/>
   <entry>
     <resource>

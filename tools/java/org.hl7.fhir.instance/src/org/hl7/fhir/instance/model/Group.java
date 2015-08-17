@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -116,8 +116,8 @@ public class Group extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case PERSON: return "Group contains 'person' Patient resources";
-            case ANIMAL: return "Group contains 'animal' Patient resources";
+            case PERSON: return "Group contains \"person\" Patient resources";
+            case ANIMAL: return "Group contains \"animal\" Patient resources";
             case PRACTITIONER: return "Group contains healthcare practitioner resources";
             case DEVICE: return "Group contains Device resources";
             case MEDICATION: return "Group contains Medication resources";
@@ -655,7 +655,7 @@ public class Group extends DomainResource {
      * Provides a specific type of resource the group includes.  E.g. "cow", "syringe", etc.
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=3, min=0, max=1)
-    @Description(shortDefinition="Kind of Group members", formalDefinition="Provides a specific type of resource the group includes.  E.g. 'cow', 'syringe', etc." )
+    @Description(shortDefinition="Kind of Group members", formalDefinition="Provides a specific type of resource the group includes.  E.g. \"cow\", \"syringe\", etc." )
     protected CodeableConcept code;
 
     /**
@@ -1037,7 +1037,7 @@ public class Group extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "A unique business identifier for this group.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("type", "code", "Identifies the broad classification of the kind of resources the group includes.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("actual", "boolean", "If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.", 0, java.lang.Integer.MAX_VALUE, actual));
-        childrenList.add(new Property("code", "CodeableConcept", "Provides a specific type of resource the group includes.  E.g. 'cow', 'syringe', etc.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("code", "CodeableConcept", "Provides a specific type of resource the group includes.  E.g. \"cow\", \"syringe\", etc.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("name", "string", "A label assigned to the group for human identification and communication.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("quantity", "unsignedInt", "A count of the number of resource instances that are part of the group.", 0, java.lang.Integer.MAX_VALUE, quantity));
         childrenList.add(new Property("characteristic", "", "Identifies the traits shared by members of the group.", 0, java.lang.Integer.MAX_VALUE, characteristic));

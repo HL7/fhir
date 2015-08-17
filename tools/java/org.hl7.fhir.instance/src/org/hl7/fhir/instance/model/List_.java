@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -93,7 +93,7 @@ public class List_ extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case CURRENT: return "The list is considered to be an active part of the patient's record.";
-            case RETIRED: return "The list is 'old' and should no longer be considered accurate or relevant.";
+            case RETIRED: return "The list is \"old\" and should no longer be considered accurate or relevant.";
             case ENTEREDINERROR: return "The list was never accurate.  It is retained for medico-legal purposes only.";
             default: return "?";
           }

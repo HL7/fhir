@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1044,7 +1044,7 @@ public class DiagnosticOrder extends DomainResource {
      * Any other notes associated with this patient or specimen or order (e.g. "patient hates needles").
      */
     @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Other notes and comments", formalDefinition="Any other notes associated with this patient or specimen or order (e.g. 'patient hates needles')." )
+    @Description(shortDefinition="Other notes and comments", formalDefinition="Any other notes associated with this patient or specimen or order (e.g. \"patient hates needles\")." )
     protected List<Annotation> note;
 
     private static final long serialVersionUID = 700891227L;
@@ -1612,7 +1612,7 @@ public class DiagnosticOrder extends DomainResource {
         childrenList.add(new Property("priority", "code", "The clinical priority associated with this order.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("event", "", "A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("item", "", "The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.", 0, java.lang.Integer.MAX_VALUE, item));
-        childrenList.add(new Property("note", "Annotation", "Any other notes associated with this patient or specimen or order (e.g. 'patient hates needles').", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("note", "Annotation", "Any other notes associated with this patient or specimen or order (e.g. \"patient hates needles\").", 0, java.lang.Integer.MAX_VALUE, note));
       }
 
       public DiagnosticOrder copy() {

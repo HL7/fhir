@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -3040,14 +3040,14 @@ public class TestScript extends DomainResource {
          * The HTTP header field e.g. "Accept".
          */
         @Child(name = "field", type = {StringType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="Header field name", formalDefinition="The HTTP header field e.g. 'Accept'." )
+        @Description(shortDefinition="Header field name", formalDefinition="The HTTP header field e.g. \"Accept\"." )
         protected StringType field;
 
         /**
          * The value of the header e.g. "application/xml".
          */
         @Child(name = "value", type = {StringType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="Header value", formalDefinition="The value of the header e.g. 'application/xml'." )
+        @Description(shortDefinition="Header value", formalDefinition="The value of the header e.g. \"application/xml\"." )
         protected StringType value;
 
         private static final long serialVersionUID = 274395337L;
@@ -3160,8 +3160,8 @@ public class TestScript extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("field", "string", "The HTTP header field e.g. 'Accept'.", 0, java.lang.Integer.MAX_VALUE, field));
-          childrenList.add(new Property("value", "string", "The value of the header e.g. 'application/xml'.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("field", "string", "The HTTP header field e.g. \"Accept\".", 0, java.lang.Integer.MAX_VALUE, field));
+          childrenList.add(new Property("value", "string", "The value of the header e.g. \"application/xml\".", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public TestScriptSetupActionOperationRequestHeaderComponent copy() {
@@ -3226,14 +3226,14 @@ public class TestScript extends DomainResource {
          * Id of fixture used to compare the "sourceId/path" evaluations to.
          */
         @Child(name = "compareToSourceId", type = {StringType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Id of fixture used to compare the 'sourceId/path' evaluations to", formalDefinition="Id of fixture used to compare the 'sourceId/path' evaluations to." )
+        @Description(shortDefinition="Id of fixture used to compare the \"sourceId/path\" evaluations to", formalDefinition="Id of fixture used to compare the \"sourceId/path\" evaluations to." )
         protected StringType compareToSourceId;
 
         /**
          * XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.
          */
         @Child(name = "compareToSourcePath", type = {StringType.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="XPath or JSONPath expression against fixture used to compare the 'sourceId/path' evaluations to", formalDefinition="XPath or JSONPath expression against fixture used to compare the 'sourceId/path' evaluations to." )
+        @Description(shortDefinition="XPath or JSONPath expression against fixture used to compare the \"sourceId/path\" evaluations to", formalDefinition="XPath or JSONPath expression against fixture used to compare the \"sourceId/path\" evaluations to." )
         protected StringType compareToSourcePath;
 
         /**
@@ -4215,8 +4215,8 @@ public class TestScript extends DomainResource {
           childrenList.add(new Property("label", "string", "The label would be used for tracking/logging purposes by test engines.", 0, java.lang.Integer.MAX_VALUE, label));
           childrenList.add(new Property("description", "string", "The description would be used by test engines for tracking and reporting purposes.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("direction", "code", "The direction to use for the assertion.", 0, java.lang.Integer.MAX_VALUE, direction));
-          childrenList.add(new Property("compareToSourceId", "string", "Id of fixture used to compare the 'sourceId/path' evaluations to.", 0, java.lang.Integer.MAX_VALUE, compareToSourceId));
-          childrenList.add(new Property("compareToSourcePath", "string", "XPath or JSONPath expression against fixture used to compare the 'sourceId/path' evaluations to.", 0, java.lang.Integer.MAX_VALUE, compareToSourcePath));
+          childrenList.add(new Property("compareToSourceId", "string", "Id of fixture used to compare the \"sourceId/path\" evaluations to.", 0, java.lang.Integer.MAX_VALUE, compareToSourceId));
+          childrenList.add(new Property("compareToSourcePath", "string", "XPath or JSONPath expression against fixture used to compare the \"sourceId/path\" evaluations to.", 0, java.lang.Integer.MAX_VALUE, compareToSourcePath));
           childrenList.add(new Property("contentType", "code", "The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.", 0, java.lang.Integer.MAX_VALUE, contentType));
           childrenList.add(new Property("headerField", "string", "The header field e.g. 'Content-Location'.", 0, java.lang.Integer.MAX_VALUE, headerField));
           childrenList.add(new Property("minimumId", "string", "The ID of a fixture.  Asserts that the response contains at a minimumId the fixture specified by minimumId.", 0, java.lang.Integer.MAX_VALUE, minimumId));

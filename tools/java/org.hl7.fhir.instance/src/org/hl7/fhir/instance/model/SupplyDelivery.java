@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -93,7 +93,7 @@ public class SupplyDelivery extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case INPROGRESS: return "Supply has been requested, but not delivered";
-            case COMPLETED: return "Supply has been delivered. ( 'completed')";
+            case COMPLETED: return "Supply has been delivered. ( \"completed\")";
             case ABANDONED: return "Dispensing was not completed";
             default: return "?";
           }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -103,7 +103,7 @@ public class Narrative extends BaseNarrative implements INarrative {
             case GENERATED: return "The contents of the narrative are entirely generated from the structured data in the content.";
             case EXTENSIONS: return "The contents of the narrative are entirely generated from the structured data in the content and some of the content is generated from extensions";
             case ADDITIONAL: return "The contents of the narrative contain additional information not found in the structured data";
-            case EMPTY: return "The contents of the narrative are some equivalent of 'No human-readable text provided in this case'";
+            case EMPTY: return "The contents of the narrative are some equivalent of \"No human-readable text provided in this case\"";
             default: return "?";
           }
         }

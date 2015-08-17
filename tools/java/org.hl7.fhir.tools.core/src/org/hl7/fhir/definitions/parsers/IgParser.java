@@ -321,9 +321,13 @@ public class IgParser {
   private void processPage(ImplementationGuidePageComponent page, ImplementationGuideDefn igd) throws Exception {
     if (!page.hasName())
       throw new Exception("Page "+page.getSource()+" has no name");
-    if (page.getKind() == GuidePageKind.PAGE || page.getKind() == GuidePageKind.DIRECTORY || page.getKind() == GuidePageKind.LIST) {
-      checkExists(igd, page.getSource());
-      igd.getPageList().add(page.getSource());
+    if (page.getKind() == GuidePageKind.PAGE || page.getKind() == GuidePageKind.DIRECTORY || page.getKind() == GuidePageKind.LIST || page.getKind() == GuidePageKind.RESOURCE) {
+      if ("generated".equals(page.getFormat())) {
+        page.setFormat(null); 
+      } else {
+        checkExists(igd, page.getSource());
+        igd.getPageList().add(page.getSource());
+      }
     }
     for (ImplementationGuidePageComponent pp : page.getPage()) {
       processPage(pp, igd);

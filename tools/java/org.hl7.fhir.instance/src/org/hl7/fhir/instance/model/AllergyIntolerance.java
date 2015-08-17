@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -64,7 +64,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         REFUTED, 
         /**
-         * The statement was entered in error and Is not valid
+         * The statement was entered in error and is not valid
          */
         ENTEREDINERROR, 
         /**
@@ -112,7 +112,7 @@ public class AllergyIntolerance extends DomainResource {
             case CONFIRMED: return "A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.";
             case RESOLVED: return "A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.";
             case REFUTED: return "A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.";
-            case ENTEREDINERROR: return "The statement was entered in error and Is not valid";
+            case ENTEREDINERROR: return "The statement was entered in error and is not valid";
             default: return "?";
           }
         }
@@ -332,6 +332,10 @@ public class AllergyIntolerance extends DomainResource {
          */
         ENVIRONMENT, 
         /**
+         * Other substances that are not covered by any other category
+         */
+        OTHER, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -344,6 +348,8 @@ public class AllergyIntolerance extends DomainResource {
           return MEDICATION;
         if ("environment".equals(codeString))
           return ENVIRONMENT;
+        if ("other".equals(codeString))
+          return OTHER;
         throw new Exception("Unknown AllergyIntoleranceCategory code '"+codeString+"'");
         }
         public String toCode() {
@@ -351,6 +357,7 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "food";
             case MEDICATION: return "medication";
             case ENVIRONMENT: return "environment";
+            case OTHER: return "other";
             default: return "?";
           }
         }
@@ -359,6 +366,7 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "http://hl7.org/fhir/allergy-intolerance-category";
             case MEDICATION: return "http://hl7.org/fhir/allergy-intolerance-category";
             case ENVIRONMENT: return "http://hl7.org/fhir/allergy-intolerance-category";
+            case OTHER: return "http://hl7.org/fhir/allergy-intolerance-category";
             default: return "?";
           }
         }
@@ -367,6 +375,7 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "Any substance consumed to provide nutritional support for the body";
             case MEDICATION: return "Substances administered to achieve a physiological effect";
             case ENVIRONMENT: return "Substances that are encountered in the environment";
+            case OTHER: return "Other substances that are not covered by any other category";
             default: return "?";
           }
         }
@@ -375,6 +384,7 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "Food";
             case MEDICATION: return "Medication";
             case ENVIRONMENT: return "Environment";
+            case OTHER: return "Other";
             default: return "?";
           }
         }
@@ -391,6 +401,8 @@ public class AllergyIntolerance extends DomainResource {
           return AllergyIntoleranceCategory.MEDICATION;
         if ("environment".equals(codeString))
           return AllergyIntoleranceCategory.ENVIRONMENT;
+        if ("other".equals(codeString))
+          return AllergyIntoleranceCategory.OTHER;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceCategory code '"+codeString+"'");
         }
     public String toCode(AllergyIntoleranceCategory code) {
@@ -400,6 +412,8 @@ public class AllergyIntolerance extends DomainResource {
         return "medication";
       if (code == AllergyIntoleranceCategory.ENVIRONMENT)
         return "environment";
+      if (code == AllergyIntoleranceCategory.OTHER)
+        return "other";
       return "?";
       }
     }
@@ -1156,7 +1170,7 @@ public class AllergyIntolerance extends DomainResource {
      * Category of the identified Substance.
      */
     @Child(name = "category", type = {CodeType.class}, order=9, min=0, max=1)
-    @Description(shortDefinition="food | medication | environment - Category of Substance", formalDefinition="Category of the identified Substance." )
+    @Description(shortDefinition="food | medication | environment | other - Category of Substance", formalDefinition="Category of the identified Substance." )
     protected Enumeration<AllergyIntoleranceCategory> category;
 
     /**
@@ -1872,7 +1886,7 @@ public class AllergyIntolerance extends DomainResource {
   public static final String SP_SUBSTANCE = "substance";
   @SearchParamDefinition(name="criticality", path="AllergyIntolerance.criticality", description="low | high | unassessible - Estimated potential clinical harm", type="token" )
   public static final String SP_CRITICALITY = "criticality";
-  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment - Category of Substance", type="token" )
+  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment | other - Category of Substance", type="token" )
   public static final String SP_CATEGORY = "category";
   @SearchParamDefinition(name="duration", path="AllergyIntolerance.event.duration", description="How long Manifestations persisted", type="quantity" )
   public static final String SP_DURATION = "duration";

@@ -15,7 +15,7 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg sd%]">[%wgt sd%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
       <h3>What is CDA on FHIR?</h3>
       <p>
-        CDA on FHIR specifies how to implement <a href="cda.html">CDA R2</a> with the FHIR <a href="composition.html">Composition</a> resource.<br/>        
+        CDA on FHIR specifies how to implement CDA R2 with the FHIR <a href="composition.html">Composition</a> resource.<br/>        
         The original HL7 Clinical Document Architecture (CDA) defined the structure and semantics of &quot;clinical documents&quot; for the purpose of exchange. 
         A clinical document is a documentation of clinical observations and services, with the following characteristics:
         <ul>
@@ -110,21 +110,12 @@
       <ul>
         <li><b>SDC profiles</b> - Profiles on the four FHIR resources used to support the IG requirements:
           <ul>
-            <li><a href="sdc/dataelement-sdc.html">SDC Data Element (DE) Profile</a> - Constraints and extensions for capturing data elements</li>
-            <li><a href="sdc/questionnaire-sdc.html">SDC Questionnaire Profile</a> - Constraints and extensions for capturing form designs</li>
-            <li><a href="sdc/questionnaireresponse-sdc.html">SDC Questionnaire Response Profile</a> - Constraints and extensions for capturing form data instances</li>
-            <li><a href="sdc/valueset-sdc.html">SDC Value Set Profile</a> - Constraints and extensions for defining lists of allowed codes</li>
           </ul>
         </li>
         <li><a href="#population">Pre-population Operation</a> - The definition of the custom service that allows pre-population of forms based on 
           CDA and other data sources</li>
         <li><b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting SDC functionality:
           <ul>
-            <li><a href="sdc-de/conformance-sdc-de-registry.html">SDC Data Element Registry</a> - Repository for data elements</li>
-            <li><a href="sdc/conformance-sdc-form-designer.html">SDC Form Designer</a> - System responsible for creating and editing forms</li>
-            <li><a href="sdc/conformance-sdc-form-filler.html">SDC Form Filler</a> - System responsible for capturing user form input</li>
-            <li><a href="sdc/conformance-sdc-form-manager.html">SDC Form Manager</a> - Repository for form definitions.  Also performs pre-population</li>
-            <li><a href="sdc/conformance-sdc-form-receiver.html">SDC Form Receiver</a> - Repository for completed forms</li>
           </ul>
         </li>
       </ul>
@@ -136,20 +127,12 @@
         <a href="questionnaire.html">Questionnaire</a>.  It also allows for the returned questionnaire to be partially or even fully completed based
         on data passed in to the operation or data already available to the server on which the operation is invoked.
       </p>
-      <p>
-        For SDC purposes, server systems claiming to support roles that require support for the <code>populate</code> operation 
-        (<a href="conformance-sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
-      </p>
       <ul>
         <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
         <li>Support <code>content</code> parameters consisting of a <a href="http.html#binary">Binary</a> resource containing a C-CDA document</li>
         <li>Populate the returned <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance for all questions referencing
           <a href="dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
       </ul>
-      <p>
-        Similarly, client systems claiming to support the <code>populate</code> operation (<a href="conformance-sdc-form-filler.html">SDC Form Filler</a>)
-        SHALL, at a minimum:
-      </p>
       <ul>
         <li>Be capable of invoking the operation on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
           as well as indirectly either by <code>identifier</code> or <code>questionnaire</code></li>

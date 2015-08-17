@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1048,21 +1048,21 @@ public class Bundle extends Resource implements IBaseBundle {
          * Only perform the operation if the Etag value matches. For more information, see the API section "Managing Resource Contention".
          */
         @Child(name = "ifMatch", type = {StringType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="For managing update contention", formalDefinition="Only perform the operation if the Etag value matches. For more information, see the API section 'Managing Resource Contention'." )
+        @Description(shortDefinition="For managing update contention", formalDefinition="Only perform the operation if the Etag value matches. For more information, see the API section \"Managing Resource Contention\"." )
         protected StringType ifMatch;
 
         /**
          * Only perform the operation if the last updated date matches. For more information, see the API section "Managing Resource Contention".
          */
         @Child(name = "ifModifiedSince", type = {InstantType.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="For managing update contention", formalDefinition="Only perform the operation if the last updated date matches. For more information, see the API section 'Managing Resource Contention'." )
+        @Description(shortDefinition="For managing update contention", formalDefinition="Only perform the operation if the last updated date matches. For more information, see the API section \"Managing Resource Contention\"." )
         protected InstantType ifModifiedSince;
 
         /**
          * Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create". This is just the query portion of the URL - what follows the "?" (not including the "?").
          */
         @Child(name = "ifNoneExist", type = {StringType.class}, order=6, min=0, max=1)
-        @Description(shortDefinition="For conditional creates", formalDefinition="Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'. This is just the query portion of the URL - what follows the '?' (not including the '?')." )
+        @Description(shortDefinition="For conditional creates", formalDefinition="Instruct the server not to perform the create if a specified resource already exists. For further information, see \"Conditional Create\". This is just the query portion of the URL - what follows the \"?\" (not including the \"?\")." )
         protected StringType ifNoneExist;
 
         private static final long serialVersionUID = 1355750298L;
@@ -1374,9 +1374,9 @@ public class Bundle extends Resource implements IBaseBundle {
           childrenList.add(new Property("method", "code", "The HTTP verb for this entry in either a update history, or a transaction/ transaction response.", 0, java.lang.Integer.MAX_VALUE, method));
           childrenList.add(new Property("url", "uri", "The URL for this entry, relative to the root (the address to which the request is posted).", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("ifNoneMatch", "string", "If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.", 0, java.lang.Integer.MAX_VALUE, ifNoneMatch));
-          childrenList.add(new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifMatch));
-          childrenList.add(new Property("ifModifiedSince", "instant", "Only perform the operation if the last updated date matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifModifiedSince));
-          childrenList.add(new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'. This is just the query portion of the URL - what follows the '?' (not including the '?').", 0, java.lang.Integer.MAX_VALUE, ifNoneExist));
+          childrenList.add(new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section \"Managing Resource Contention\".", 0, java.lang.Integer.MAX_VALUE, ifMatch));
+          childrenList.add(new Property("ifModifiedSince", "instant", "Only perform the operation if the last updated date matches. For more information, see the API section \"Managing Resource Contention\".", 0, java.lang.Integer.MAX_VALUE, ifModifiedSince));
+          childrenList.add(new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see \"Conditional Create\". This is just the query portion of the URL - what follows the \"?\" (not including the \"?\").", 0, java.lang.Integer.MAX_VALUE, ifNoneExist));
         }
 
       public BundleEntryRequestComponent copy() {
@@ -2067,9 +2067,9 @@ public class Bundle extends Resource implements IBaseBundle {
     return ResourceType.Bundle;
    }
 
-  @SearchParamDefinition(name="message", path="Bundle.entry.resource(0)", description="The first resource in the bundle, if the bundle type is 'message' - this is a message header, and this parameter provides access to search its contents", type="reference" )
+  @SearchParamDefinition(name="message", path="Bundle.entry.resource(0)", description="The first resource in the bundle, if the bundle type is \"message\" - this is a message header, and this parameter provides access to search its contents", type="reference" )
   public static final String SP_MESSAGE = "message";
-  @SearchParamDefinition(name="composition", path="Bundle.entry.resource(0)", description="The first resource in the bundle, if the bundle type is 'document' - this is a composition, and this parameter provides access to searches its contents", type="reference" )
+  @SearchParamDefinition(name="composition", path="Bundle.entry.resource(0)", description="The first resource in the bundle, if the bundle type is \"document\" - this is a composition, and this parameter provides access to searches its contents", type="reference" )
   public static final String SP_COMPOSITION = "composition";
   @SearchParamDefinition(name="type", path="Bundle.type", description="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection", type="token" )
   public static final String SP_TYPE = "type";

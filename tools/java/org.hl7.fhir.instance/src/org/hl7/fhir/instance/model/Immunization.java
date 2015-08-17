@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -473,7 +473,7 @@ public class Immunization extends DomainResource {
          * Indicates if the immunization event should "count" against  the protocol.
          */
         @Child(name = "doseStatus", type = {CodeableConcept.class}, order=7, min=1, max=1)
-        @Description(shortDefinition="Does dose count towards immunity?", formalDefinition="Indicates if the immunization event should 'count' against  the protocol." )
+        @Description(shortDefinition="Does dose count towards immunity?", formalDefinition="Indicates if the immunization event should \"count\" against  the protocol." )
         protected CodeableConcept doseStatus;
 
         /**
@@ -814,7 +814,7 @@ public class Immunization extends DomainResource {
           childrenList.add(new Property("series", "string", "One possible path to achieve presumed immunity against a disease - within the context of an authority.", 0, java.lang.Integer.MAX_VALUE, series));
           childrenList.add(new Property("seriesDoses", "positiveInt", "The recommended number of doses to achieve immunity.", 0, java.lang.Integer.MAX_VALUE, seriesDoses));
           childrenList.add(new Property("doseTarget", "CodeableConcept", "The targeted disease.", 0, java.lang.Integer.MAX_VALUE, doseTarget));
-          childrenList.add(new Property("doseStatus", "CodeableConcept", "Indicates if the immunization event should 'count' against  the protocol.", 0, java.lang.Integer.MAX_VALUE, doseStatus));
+          childrenList.add(new Property("doseStatus", "CodeableConcept", "Indicates if the immunization event should \"count\" against  the protocol.", 0, java.lang.Integer.MAX_VALUE, doseStatus));
           childrenList.add(new Property("doseStatusReason", "CodeableConcept", "Provides an explanation as to why a immunization event should or should not count against the protocol.", 0, java.lang.Integer.MAX_VALUE, doseStatusReason));
         }
 

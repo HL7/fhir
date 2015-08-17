@@ -150,9 +150,16 @@
       <kind value="page"/>
     </page>
     <page>
-      <source value="daf-outstandingissues.html"/>
-      <name value="Outstanding Issues"/>
+      <source value="allergyintolerance-daf.html"/>
+      <name value="Allergy/Intolerance"/>
       <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-allergyintolerance.html"/>
+        <name value="Allergy/Intolerance Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
     </page>
     <page>
       <source value="daf-security.html"/>

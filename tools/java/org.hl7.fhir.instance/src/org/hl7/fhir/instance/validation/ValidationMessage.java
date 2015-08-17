@@ -50,7 +50,8 @@ public class ValidationMessage
     Schematron, 
     Publisher, 
     Ontology, 
-    ProfileComparer
+    ProfileComparer, 
+    QuestionnaireResponseValidator
   }
 
   private Source source;
@@ -62,6 +63,13 @@ public class ValidationMessage
   private IssueSeverity level;
   private String html;
 
+  
+  /**
+   * Constructor
+   */
+  public ValidationMessage() {
+    // nothing
+  }
   
   public ValidationMessage(Source source, OperationOutcome.IssueType type, String path, String message, IssueSeverity level) {
     super();
@@ -127,6 +135,18 @@ public class ValidationMessage
       throw new Error("A type must be provided");
   }
 
+  public ValidationMessage(Source source, OperationOutcome.IssueType type, String message, IssueSeverity level) {
+    super();
+    this.line = -1;
+    this.col = -1;
+    this.message = message;
+    this.level = level;
+    this.source = source;
+    this.type = type;
+    if (type == null)
+      throw new Error("A type must be provided");
+  }
+
   private IssueSeverity determineLevel(String path) {
     if (isGrandfathered(path))
       return IssueSeverity.WARNING;
@@ -168,37 +188,58 @@ public class ValidationMessage
   public String getMessage() {
     return message;
   }
-  public void setMessage(String message) {
+  public ValidationMessage setMessage(String message) {
     this.message = message;
+    return this;
   }
 
   public IssueSeverity getLevel() {
     return level;
   }
-  public void setLevel(IssueSeverity level) {
+  public ValidationMessage setLevel(IssueSeverity level) {
     this.level = level;
+    return this;
   }
 
   public Source getSource() {
     return source;
   }
-  public void setSource(Source source) {
+  public ValidationMessage setSource(Source source) {
     this.source = source;
+    return this;
+  }
+
+  public int getLine() {
+    return line;
+  }
+
+  public void setLine(int theLine) {
+    line = theLine;
+  }
+
+  public int getCol() {
+    return col;
+  }
+
+  public void setCol(int theCol) {
+    col = theCol;
   }
 
   public String getLocation() {
     return location;
   }
-  public void setLocation(String location) {
+  public ValidationMessage setLocation(String location) {
     this.location = location;
+    return this;
   }
 
   public OperationOutcome.IssueType getType() {
     return type;
   }
 
-  public void setType(OperationOutcome.IssueType type) {
+  public ValidationMessage setType(OperationOutcome.IssueType type) {
     this.type = type;
+    return this;
   }
 
   public String summary() {

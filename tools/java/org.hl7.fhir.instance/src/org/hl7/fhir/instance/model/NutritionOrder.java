@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -137,7 +137,7 @@ public class NutritionOrder extends DomainResource {
             case PLANNED: return "The request has been planned";
             case REQUESTED: return "The request has been placed";
             case ACTIVE: return "The request is 'actionable', but not all actions that are implied by it have occurred yet.";
-            case ONHOLD: return "Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called 'suspended'.";
+            case ONHOLD: return "Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called \"suspended\".";
             case COMPLETED: return "All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit).";
             case CANCELLED: return "The request has been withdrawn and is no longer actionable.";
             default: return "?";
@@ -817,7 +817,7 @@ public class NutritionOrder extends DomainResource {
          * The product or brand name of the nutritional supplement such as "Acme Protein Shake".
          */
         @Child(name = "productName", type = {StringType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Product or brand name of the nutritional supplement", formalDefinition="The product or brand name of the nutritional supplement such as 'Acme Protein Shake'." )
+        @Description(shortDefinition="Product or brand name of the nutritional supplement", formalDefinition="The product or brand name of the nutritional supplement such as \"Acme Protein Shake\"." )
         protected StringType productName;
 
         /**
@@ -1039,7 +1039,7 @@ public class NutritionOrder extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("productName", "string", "The product or brand name of the nutritional supplement such as 'Acme Protein Shake'.", 0, java.lang.Integer.MAX_VALUE, productName));
+          childrenList.add(new Property("productName", "string", "The product or brand name of the nutritional supplement such as \"Acme Protein Shake\".", 0, java.lang.Integer.MAX_VALUE, productName));
           childrenList.add(new Property("schedule", "Timing", "The time period and frequency at which the supplement(s) should be given.", 0, java.lang.Integer.MAX_VALUE, schedule));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The amount of the nutritional supplement to be given.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("instruction", "string", "Free text or additional instructions or information pertaining to the oral supplement.", 0, java.lang.Integer.MAX_VALUE, instruction));
@@ -1103,7 +1103,7 @@ public class NutritionOrder extends DomainResource {
          * The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".
          */
         @Child(name = "baseFormulaProductName", type = {StringType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Product or brand name of the enteral or infant formula", formalDefinition="The product or brand name of the enteral or infant formula product such as 'ACME Adult Standard Formula'." )
+        @Description(shortDefinition="Product or brand name of the enteral or infant formula", formalDefinition="The product or brand name of the enteral or infant formula product such as \"ACME Adult Standard Formula\"." )
         protected StringType baseFormulaProductName;
 
         /**
@@ -1474,7 +1474,7 @@ public class NutritionOrder extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("baseFormulaType", "CodeableConcept", "The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.", 0, java.lang.Integer.MAX_VALUE, baseFormulaType));
-          childrenList.add(new Property("baseFormulaProductName", "string", "The product or brand name of the enteral or infant formula product such as 'ACME Adult Standard Formula'.", 0, java.lang.Integer.MAX_VALUE, baseFormulaProductName));
+          childrenList.add(new Property("baseFormulaProductName", "string", "The product or brand name of the enteral or infant formula product such as \"ACME Adult Standard Formula\".", 0, java.lang.Integer.MAX_VALUE, baseFormulaProductName));
           childrenList.add(new Property("additiveType", "CodeableConcept", "Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.", 0, java.lang.Integer.MAX_VALUE, additiveType));
           childrenList.add(new Property("additiveProductName", "string", "The product or brand name of the type of modular component to be added to the formula.", 0, java.lang.Integer.MAX_VALUE, additiveProductName));
           childrenList.add(new Property("caloricDensity", "SimpleQuantity", "The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula the provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.", 0, java.lang.Integer.MAX_VALUE, caloricDensity));

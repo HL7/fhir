@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 13, 2015 06:30+1000 for FHIR v0.5.0
+// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -120,7 +120,7 @@ public class EpisodeOfCare extends DomainResource {
             case WAITLIST: return "This episode has been placed on a waitlist, pending the episode being made active (or cancelled)";
             case ACTIVE: return "This episode of care is current";
             case ONHOLD: return "This episode of care is on hold, the organization has limited responsibility for the patient (such as while on respite)";
-            case FINISHED: return "This episode of care is finished at the organization is not expecting to be providing care to the patient. Can also be known as 'closed', 'completed' or other similar terms";
+            case FINISHED: return "This episode of care is finished at the organization is not expecting to be providing care to the patient. Can also be known as \"closed\", \"completed\" or other similar terms";
             case CANCELLED: return "The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow";
             default: return "?";
           }
