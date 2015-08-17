@@ -16,6 +16,10 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Title;
 
 public class ImplementationGuideDefn {
 
@@ -300,4 +304,37 @@ public class ImplementationGuideDefn {
     else
       return code+"/";
   }
+
+  public List<ImplementationGuidePageComponent> getSpecialPages() {
+    List<ImplementationGuidePageComponent> res = new ArrayList<ImplementationGuide.ImplementationGuidePageComponent>();
+    if (ig != null)
+      listSpecialPages(res, ig.getPage().getPage());
+    return res;
+  }
+
+  private void listSpecialPages(List<ImplementationGuidePageComponent> res, List<ImplementationGuidePageComponent> pages) {
+    for (ImplementationGuidePageComponent page : pages) {
+      if (page.getKind() == GuidePageKind.TOC)
+        res.add(page);
+    }
+  }
+  
+  public TableModel genToc(HeirarchicalTableGenerator gen) {
+    TableModel model = gen.new TableModel();
+    
+    model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table Of Contents", null, null, 0));
+    addPage(gen, model.getRows(), ig.getPage());    
+    return model;
+
+   }
+
+  private void addPage(HeirarchicalTableGenerator gen, List<Row> rows, ImplementationGuidePageComponent page) {
+    Row row = gen.new Row();
+    rows.add(row);
+    row.getCells().add(gen.new Cell("", page.getSource(), page.getName(), null, null));
+    for (ImplementationGuidePageComponent p : page.getPage()) {
+      addPage(gen, row.getSubRows(), p);
+    }
+  }
+  
 }

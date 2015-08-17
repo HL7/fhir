@@ -894,6 +894,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genOperationsSummary(((Profile) object).getOperations()) + s3;  
       else if (com[0].equals("ig.opcount"))
         src = s1 + genOpCount(((Profile) object).getOperations()) + s3;  
+      else if (com[0].equals("ig-toc"))
+        src = s1 + genIgToc(ig) + s3;  
       else if (com[0].equals("fhir-path"))
         src = s1 + "../" + s3;  
       else
@@ -2048,6 +2050,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
+  private String genIgToc(ImplementationGuideDefn ig) throws Exception {
+    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(folders.dstDir, false);
+    return new XhtmlComposer().compose(gen.generate(ig.genToc(gen), "../"));
+  }
+  
   private String generateToc(String title, int part) throws Exception {
     // return breadCrumbManager.makeToc();
     StringBuilder b = new StringBuilder();

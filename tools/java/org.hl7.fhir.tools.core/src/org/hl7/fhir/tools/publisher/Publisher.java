@@ -153,6 +153,8 @@ import org.hl7.fhir.instance.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.Factory;
+import org.hl7.fhir.instance.model.ImplementationGuide.GuidePageKind;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.NamingSystem;
@@ -1757,6 +1759,9 @@ public class Publisher implements URIResolver {
       for (String n : ig.getPageList()) {
         page.log(" ...ig page " + n, LogMessageType.Process);
         produceIgPage(n, ig);        
+      }
+      for (ImplementationGuidePageComponent page : ig.getSpecialPages()) {
+        produceIgPage(ig, page);
       }
       for (Profile p : ig.getProfiles()) {
         if (!p.getOperations().isEmpty()) {
@@ -4134,6 +4139,32 @@ public class Publisher implements URIResolver {
     return t.substring(t.indexOf(":")+1).trim();
   }
 
+  
+  private void produceIgPage(ImplementationGuideDefn ig, ImplementationGuidePageComponent p) throws Exception {
+    String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), p.getSource());
+    String logicalName = Utilities.fileTitle(actualName);
+    String src;
+    if (p.getKind() == GuidePageKind.TOC)
+      src = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "template-ig-toc.html"));
+    else
+      throw new Exception("Unsupported special page kind "+p.getKind().toCode());
+    
+    String file = ig.getCode()+File.separator+logicalName +".html";
+    
+    src = page.processPageIncludes(file, src, "page", null, null, null, logicalName, ig);
+    // before we save this page out, we're going to figure out what it's index
+    // is, and number the headers if we can
+
+    TextFile.stringToFile(src, actualName);
+    src = addSectionNumbers(file, logicalName, src, null, 1, null, ig);
+
+    TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, file));
+
+    src = TextFile.fileToString(Utilities.path(page.getFolders().dstDir, file)).replace("<body>", "<body style=\"margin: 10px\">");
+    src = page.processPageIncludesForBook(file, src, "page", null, ig);
+    cachePage(file, src, logicalName, true);
+  }
+  
   private void produceIgPage(String file, ImplementationGuideDefn ig) throws Exception {
     String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), file);
     String logicalName = Utilities.fileTitle(actualName);
