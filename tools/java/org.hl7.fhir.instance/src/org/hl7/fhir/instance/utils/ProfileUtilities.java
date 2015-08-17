@@ -989,8 +989,13 @@ public class ProfileUtilities {
       tl = t;
       if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.hasProfile())) {
         if (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          String rn = t.getProfile().get(0).getValue().substring(40);
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
+          StructureDefinition sd = context.getProfiles().get(t.getProfile().get(0).getValue());
+          if (sd != null) {
+            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+sd.getUserString("path"), sd.getName(), null)));
+          } else {
+            String rn = t.getProfile().get(0).getValue().substring(40);
+            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
+          }
         } else if (t.getProfile().get(0).getValue().startsWith("#"))
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().get(0).getValue().substring(1).toLowerCase()+".html", t.getProfile().get(0).getValue(), null)));
         else

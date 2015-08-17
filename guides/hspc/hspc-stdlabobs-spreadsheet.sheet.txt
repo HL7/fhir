@@ -88,21 +88,21 @@
  -- Row 13 -----------------------------------
   Element = Observation.specimen
   Card. = 0..1
-  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-Specimen}<contained>
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-specimen}<contained>
 
  -- Row 14 -----------------------------------
   Element = Observation.performer
   Profile Name = person
   Discriminator = performer.type|true|closed
   Card. = 0..*
-  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-ResponsibleObserver}
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-responsibleobserver}
   Short Label = the individual with the primary responsibility for the procedure or action being taken
 
  -- Row 15 -----------------------------------
   Element = Observation.performer
   Profile Name = lab
   Card. = 0..1
-  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-PerformingLaboratory}
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-performinglaboratory}
   Short Label = name and address of the laboratory that performs the test
   Definition = documents the name and address of the laboratory that performs the test. This is a CLIA required item to be printed on the report, CLIA requires the name of the laboratory, city and state of the laboratory
 

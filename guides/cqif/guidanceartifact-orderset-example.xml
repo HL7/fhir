@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Basic xmlns="http://hl7.org/fhir">
-<!--    This example demonstrates the GuidanceArtifact structure used to represent an Order Set    -->
+<!--     This example demonstrates the GuidanceArtifact structure used to represent an Order Set     -->
   <id value="guidanceartifact-orderset-example"/>
   <meta>
-  <!--    TODO: Should be able to claim conformance with only the guidance artifact, need derived profiles to work first    -->
+  <!--     TODO: Should be able to claim conformance with only the guidance artifact, need derived profiles to work first     -->
     <profile value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
   </meta>
@@ -53,23 +53,23 @@
       </type>
     </ProcedureRequest>
   </contained>
-<!--    Version    -->
+<!--     Version     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleVersion">
     <valueString value="2.7.0"/>
   </extension>
-<!--    Title    -->
+<!--     Title     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-title">
     <valueCode value="Respiratory Protocol"/>
   </extension>
-<!--    Description    -->
+<!--     Description     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-description">
     <valueString value="Respiratory Protocol"/>
   </extension>
-<!--    PublicationDate    -->
+<!--     PublicationDate     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-publicationDate">
     <valueDate value="2015-07-22"/>
   </extension>
-<!--    Topic    -->
+<!--     Topic     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-topic">
     <valueCodeableConcept>
       <coding>
@@ -133,7 +133,7 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-<!--    Contributor    -->
+<!--     Contributor     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-contributor">
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-contributor#type">
       <valueCode value="author"/>
@@ -145,13 +145,13 @@
       </valueReference>
     </extension>
   </extension>
-<!--    Publisher    -->
+<!--     Publisher     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-publisher">
     <valueReference>
       <reference value="#organization1"/>
     </valueReference>
   </extension>
-<!--    Content    -->
+<!--     Content     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
     <valueAttachment>
       <contentType value="application/elm+text"/>
@@ -159,8 +159,8 @@
       <title value="Respiratory Protocol Logic"/>
     </valueAttachment>
   </extension>
-<!--    Actions    -->
-<!--    Respiratory Order    -->
+<!--     Actions     -->
+<!--     Respiratory Order     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#title">
       <valueString value="Respiratory Order"/>
@@ -174,10 +174,10 @@
         </coding>
       </valueCodeableConcept>
     </extension>
-  <!--    Ventilator Group    -->
+  <!--     Ventilator Group     -->
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
       <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
-      <!--    Ventilator Settings    -->
+      <!--     Ventilator Settings     -->
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
           <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#textEquivalent">
@@ -198,10 +198,10 @@
             </extension>
           </extension>
         </extension>
-      <!--    Oxygenation assessment    -->
+      <!--     Oxygenation assessment     -->
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
           <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
-          <!--    Pulse oximetry    -->
+          <!--     Pulse oximetry     -->
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#textEquivalent">
@@ -214,7 +214,7 @@
                 </extension>
               </extension>
             </extension>
-          <!--    Blood gas, arterial    -->
+          <!--     Blood gas, arterial     -->
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#textEquivalent">
@@ -231,13 +231,13 @@
         </extension>
       </extension>
     </extension>
-  <!--    Supplemental oxygen group    -->
+  <!--     Supplemental oxygen group     -->
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
       <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
-      <!--    Supplemental oxygen    -->
+      <!--     Supplemental oxygen     -->
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
           <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
-          <!--    Oxygen via nasal cannula    -->
+          <!--     Oxygen via nasal cannula     -->
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#textEquivalent">
@@ -250,15 +250,15 @@
                 </extension>
               </extension>
             </extension>
-          <!--    Oxygen via nonrebreather    -->
+          <!--     Oxygen via nonrebreather     -->
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action"/>
             </extension>
-          <!--    Oxygen via simple face mask    -->
+          <!--     Oxygen via simple face mask     -->
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action"/>
             </extension>
-          <!--    Oxygen via venturi mask    -->
+          <!--     Oxygen via venturi mask     -->
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action"/>
             </extension>
@@ -267,20 +267,20 @@
       </extension>
     </extension>
   </extension>
-<!--    Status    -->
+<!--     Status     -->
   <modifierExtension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleStatus">
     <valueCode value="draft"/>
   </modifierExtension>
-<!--    Evaluation Supported    -->
+<!--     Evaluation Supported     -->
   <modifierExtension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-evaluationSupported">
     <valueBoolean value="true"/>
   </modifierExtension>
-<!--    Identifier    -->
+<!--     Identifier     -->
   <identifier>
     <use value="official"/>
     <value value="respiratory-protocol"/>
   </identifier>
-<!--    Code    -->
+<!--     Code     -->
   <code>
     <coding>
       <code value="order-set"/>

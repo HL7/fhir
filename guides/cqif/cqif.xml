@@ -77,5 +77,14 @@
       <name value="Clinical Decision Support API"/>
       <kind value="page"/>
     </page>
+    <page>
+      <source value="registry.html"/>
+      <name value="Registry"/>
+      <kind value="list"/>
+      <type value="Conformance"/>
+      <type value="StructureDefinition"/>
+      <type value="ValueSet"/>
+      <type value="ConceptMap"/>
+    </page>
   </page>
 </ImplementationGuide>

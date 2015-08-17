@@ -1363,7 +1363,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference{http://hl7.org/fhir/StructureDefinition/hspc-Specimen}&lt;contained&gt;</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference{http://hl7.org/fhir/StructureDefinition/hspc-specimen}&lt;contained&gt;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1396,7 +1396,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference{http://hl7.org/fhir/StructureDefinition/hspc-ResponsibleObserver}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference{http://hl7.org/fhir/StructureDefinition/hspc-responsibleobserver}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1430,7 +1430,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference{http://hl7.org/fhir/StructureDefinition/hspc-PerformingLaboratory}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference{http://hl7.org/fhir/StructureDefinition/hspc-performinglaboratory}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -613,7 +613,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("ig.registry")) {
         src = s1+buildIgRegistry(ig, com[1])+s3;
       } else if (com[0].equals("profileheader")) {
-        src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1])+s3;
+        src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1], false)+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -2527,7 +2527,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    return b.toString();
 //  }
 
-  private String profileHeader(String n, String mode) {
+  private String profileHeader(String n, String mode, boolean isDict) {
     StringBuilder b = new StringBuilder();
 
     if (n.endsWith(".xml"))
@@ -2538,7 +2538,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
+    if (!isDict)
+      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
     b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
 
@@ -4992,7 +4993,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource, tabs, ig);
   }
 
-  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path, String intro, String notes, ImplementationGuideDefn ig) throws Exception {
+  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path, String intro, String notes, ImplementationGuideDefn ig, boolean isDict) throws Exception {
     String workingTitle = null;
 
     int level = (ig == null || ig.isCore()) ? 0 : 1;
@@ -5013,7 +5014,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("profileheader"))
-        src = s1+profileHeader(fileid, com.length > 1 ? com[1] : "")+s3;
+        src = s1+profileHeader(fileid, com.length > 1 ? com[1] : "", isDict)+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("settitle")) {
@@ -5128,6 +5129,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+filename+s3;
       else if (com[0].equals("rellink"))
         src = s1+filename+s3;
+      else if (com[0].equals("schematron"))
+        src = s1+(isDict ? "<i>None</i>" : "<a href=\""+filename+".sch\">Schematron</a>")+s3;
       else if (com[0].equals("summary"))
         src = s1+generateHumanSummary(pack, profile.getResource(), genlevel(level))+s3;
       else if (com[0].equals("profile-examples"))
@@ -5686,7 +5689,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         StructureDefinition p = definitions.getSnapShotForBase(structure.getBase());
         if (p == null)
           return "??"+name;
-        return "<a href=\""+prefix+name+".html\">"+name+"</a>";  
+        else
+          return "<a href=\""+prefix+p.getUserString("path")+"\">"+p.getName()+"</a>";  
       }
     } else {
       String[] parts = structure.getBase().split("#");

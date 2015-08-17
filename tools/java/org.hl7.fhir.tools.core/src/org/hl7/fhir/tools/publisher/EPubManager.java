@@ -335,8 +335,12 @@ public class EPubManager implements FileNotifier {
   }
 
   private boolean ok(String msg) {
-//    if (msg.contains("hspc"))
-//      return true;
+    if (msg.contains("hspc-specimen"))
+      return true;
+    if (msg.contains("hspc-performinglaboratory"))
+      return true;
+    if (msg.contains("hspc-responsibleobserver"))
+      return true;
 //    if (msg.contains("cda"))
 //      return true;
 //    if (msg.contains("daf-cqi"))
@@ -345,8 +349,8 @@ public class EPubManager implements FileNotifier {
 //      return true;
 //    if (msg.contains("-examples.html"))
 //      return true;
-//    if (msg.contains("'??"))
-//      return true;
+    if (msg.contains("'??"))
+      return true;
     return false;
   }
 
