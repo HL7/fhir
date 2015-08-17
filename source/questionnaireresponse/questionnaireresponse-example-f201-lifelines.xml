@@ -15,9 +15,12 @@
     <reference value="Practitioner/f201"/>
   </source>
   <group>
+    <linkId value="root"/>
     <group>
+      <linkId value="1"/>
       <question>
         <!--Seperate answer-->
+	<linkId value="1.1"/>
         <text value="Do you have allergies?"/>
         <answer>
           <valueString value="I am allergic to house dust"/>
@@ -26,26 +29,31 @@
     </group>
     <group>
       <!--Answers to general questions-->
+      <linkId value="2"/>
       <title value="General questions"/>
       <question>
+        <linkId value="2.1"/>
         <text value="What is your gender?"/>
         <answer>
           <valueString value="Male"/>
         </answer>
       </question>
       <question>
+        <linkId value="2.2"/>
         <text value="What is your date of birth?"/>
         <answer>
           <valueDate value="1960-03-13"/>
         </answer>
       </question>
       <question>
+        <linkId value="2.3"/>
         <text value="What is your country of birth?"/>
         <answer>
           <valueString value="The Netherlands"/>
         </answer>
       </question>
       <question>
+        <linkId value="2.4"/>
         <text value="What is your marital status?"/>
         <answer>
           <valueString value="married"/>
@@ -54,14 +62,17 @@
     </group>
     <group>
       <!--Answers to intoxications-->
+      <linkId value="3"/>
       <title value="Intoxications"/>
       <question>
+        <linkId value="3.1"/>
         <text value="Do you smoke?"/>
         <answer>
           <valueString value="No"/>
         </answer>
       </question>
       <question>
+        <linkId value="3.2"/>
         <text value="Do you drink alchohol?"/>
         <answer>
           <valueString value="No, but I used to drink"/>

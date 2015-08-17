@@ -50,16 +50,19 @@
   <date value="2012-01"/>
   <subjectType value="Patient"/>
   <group>
+    <linkId value="1"/>
     <title value="Cancer Quality Forum Questionnaire 2012"/>
     <group>
     <!--   COMORBIDITY   -->
     <!--   First main section of the form, questions about comorbidity   -->
+      <linkId value="1.1"/>
       <concept>
         <system value="http://example.org/system/code/sections"/>
         <code value="COMORBIDITY"/>
       </concept>
     <!--   section contains one question: whether there is comorbidity   -->
       <question>
+        <linkId value="1.1.1"/>
         <concept>
           <system value="http://example.org/system/code/questions"/>
           <code value="COMORB"/>
@@ -70,12 +73,14 @@
         </options>
         <group>
         <!--   COMORBIDITY/CARDIAL   -->
-        <!--   Subsection about specific comorbidity: cardial   -->
+	<!--   Subsection about specific comorbidity: cardial   -->
+	  <linkId value="1.1.1.1"/>
           <concept>
             <system value="http://example.org/system/code/sections"/>
             <code value="CARDIAL"/>
           </concept>
-          <question>
+	  <question>
+            <linkId value="1.1.1.1.1"/>
             <concept>
               <system value="http://example.org/system/code/questions"/>
               <code value="COMORBCAR"/>
@@ -87,6 +92,7 @@
           </question>
           <question>
           <!--   This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code   -->
+            <linkId value="1.1.1.1.2"/>
             <concept>
               <system value="http://example.org/system/code/questions"/>
               <code value="COMCAR00"/>
@@ -103,6 +109,7 @@
             </options>
           </question>
           <question>
+            <linkId value="1.1.1.1.3"/>
             <concept>
               <system value="http://snomed.info/sct"/>
               <code value="22298006"/>
@@ -116,6 +123,7 @@
         </group>
         <group>
         <!--   COMORBIDITY/VASCULAR   -->
+          <linkId value="1.1.1.2"/>
           <concept>
             <system value="http://example.org/system/code/sections"/>
             <code value="VASCULAR"/>
@@ -126,16 +134,19 @@
   <!--   Todo: What's supposed to go here?   -->
     <group>
     <!--   HISTOPATHOLOGY   -->
+      <linkId value="1.2"/>
       <concept>
         <system value="http://example.org/system/code/sections"/>
         <code value="HISTOPATHOLOGY"/>
       </concept>
       <group>
+        <linkId value="1.2.1"/>
         <concept>
           <system value="http://example.org/system/code/sections"/>
           <code value="ABDOMINAL"/>
         </concept>
         <question>
+          <linkId value="1.2.1.2"/>
           <concept>
             <system value="http://example.org/system/code/questions"/>
             <code value="STADPT"/>

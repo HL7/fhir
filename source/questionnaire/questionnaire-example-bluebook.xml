@@ -29,50 +29,64 @@
   <publisher value="New South Wales Department of Health"/>
   <subjectType value="Patient"/>
   <group>
+    <linkId value="PHR"/>
     <title value="NSW Government My Personal Health Record"/>
     <!-- Many groups left out of this example -->
     <group>
+      <linkId value="birthDetails"/>
       <title value="Birth details - To be completed by health professional"/>
       <group>
         <question>
+          <linkId value="nameOfChild"/>
           <text value="Name of child" />
         </question>
         <question>
+          <linkId value="sex"/>
           <text value="Sex" />
         </question>
       </group>        
       <group>
+        <linkId value="neonatalInformation"/>
         <title value="Neonatal Information"/>
         <question>
+          <linkId value="birthWeight"/>
           <text value="Birth weight (kg)"/>
         </question>
         <question>
+          <linkId value="birthLength"/>
           <text value="Birth length (cm)"/>
         </question>
         <question>
+          <linkId value="vitaminKgiven"/>
           <text value="Vitamin K given"/>
           <group>
             <extension url="http://example.org/Profile/questionnaire#visibilityCondition">
               <!-- note: this syntax is for demonstration purposes only, will need to be finalized during DSTU --> 
               <valueString value="HAS_VALUE(../choice/code) AND NEQ(../choice/code,'NO')"/>
             </extension>
+            <linkId value="vitaminKgivenDoses"/>
             <question>
+              <linkId value="vitaminiKDose1"/>
               <text value="1st dose"/>
             </question>
             <question>
+              <linkId value="vitaminiKDose2"/>
               <text value="2nd dose"/>
             </question>
           </group>
         </question>
         <question>
+          <linkId value="hepBgiven"/>
           <text value="Hep B given y / n"/>
           <group>
             <question>
+              <linkId value="hepBgivenDate"/>
               <text value="Date given"/>
             </question>
           </group>
         </question>
         <question>
+          <linkId value="abnormalitiesAtBirth"/>
           <text value="Abnormalities noted at birth"/>
         </question>
       </group>

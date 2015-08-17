@@ -20,40 +20,51 @@
   <date value="2010"/>
   <subjectType value="Patient"/>
   <group>
+    <linkId value="root"/>
     <concept>
       <system value="http://example.org/system/code/lifelines/nl"/>
       <code value="VL 1-1, 18-65_1.2.2"/>
       <display value="Lifelines Questionnaire 1 part 1"/>
     </concept>
     <group>
+      <linkId value="1"/>
       <question>
         <!--Separate answer-->
+        <linkId value="1.1"/>
         <text value="Do you have allergies?"/>
       </question>
     </group>
     <group>
       <!--Answers to general questions-->
+      <linkId value="2"/>
       <text value="General questions"/>
       <question>
+        <linkId value="2.1"/>
         <text value="What is your gender?"/>
       </question>
       <question>
+        <linkId value="2.2"/>
         <text value="What is your date of birth?"/>
       </question>
       <question>
+        <linkId value="2.3"/>
         <text value="What is your country of birth?"/>
       </question>
       <question>
+        <linkId value="2.4"/>
         <text value="What is your marital status?"/>
       </question>
     </group>
     <group>
+      <linkId value="3"/>
       <!--Answers to intoxications-->
       <title value="Intoxications"/>
       <question>
+        <linkId value="3.1"/>
         <text value="Do you smoke?"/>
       </question>
       <question>
+        <linkId value="3.2"/>
         <text value="Do you drink alchohol?"/>
       </question>
     </group>
