@@ -62,6 +62,8 @@ Using this format:
  <li>The MIME-type for this format is application/json+fhir.</li>
 </ul>
 
+<a name="xml"> </a>
+
 <h3>Comparison with XML</h3>
 <p>
 The JSON format is similar to the XML format:
@@ -93,6 +95,7 @@ provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHI
 </p>
 
 
+<a name="repeat"> </a>
 <h3>JSON Representation for repeating elements</h3>
 
 <p>
@@ -128,6 +131,7 @@ done by using an array type. Note that:
  ]
 </pre>
 
+<a name="primitive"> </a>
 <h3>JSON representation of primitive elements</h3>
 <p>
 FHIR elements with primitive values are represented in two parts:
@@ -225,6 +229,8 @@ rarely used with primitive data types.
 </p>
 </blockquote>
 
+<a name="complex"> </a>
+
 <h3>JSON representation of Elements, and Complex Data types</h3>
 
 <p>
@@ -267,6 +273,8 @@ converted to JSON member values, in the same manner as described for primitives.
 <li>The XHTML content in the 'div' element which is in the Narrative element 'text' is represented  
   as an escaped string in the value property in JSON. The xhtml's root element needs to be a &lt;div&gt; in the xhtml namespace</li>
 </ul>
+
+<a name="resources"> </a>
 
 <h3>JSON representation of Resources</h3>
 <p>
