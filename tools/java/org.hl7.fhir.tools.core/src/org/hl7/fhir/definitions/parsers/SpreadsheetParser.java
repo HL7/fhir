@@ -162,6 +162,7 @@ public class SpreadsheetParser {
   private String committee;
   private TabDelimitedSpreadSheet tabfmt;
   private Map<String, ConstraintStructure> profileIds;
+  private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   
 	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds) throws Exception {
 	  this.usageContext = usageContext;
@@ -1074,6 +1075,7 @@ public class SpreadsheetParser {
         if (ref.startsWith("#valueset-"))
           throw new Exception("don't start code list references with #valueset-");
         cd.setValueSet(new ValueSet());
+        valuesets.add(cd.getValueSet());
         cd.getValueSet().setId(igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(1));
         if (!ref.startsWith("#"))
@@ -1193,6 +1195,7 @@ public class SpreadsheetParser {
 	      result.setVersion(version);
       result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
       result.setUserData("committee", committee);
+      valuesets.add(result);
 	    return result;
 	}
 
@@ -2236,6 +2239,10 @@ public class SpreadsheetParser {
     tabfmt.close();
 
     return lm;
+  }
+
+  public List<ValueSet> getValuesets() {
+    return valuesets;
   }
 
 

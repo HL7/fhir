@@ -1,4 +1,5 @@
 package org.hl7.fhir.definitions.model;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -38,6 +39,7 @@ public class ConstraintStructure {
   private ResourceDefn defn; // temporary, until we get around to building the resource 
   private ImplementationGuideDefn usage;
   private String owner; // id of the AP that owns this
+  private ImplementationGuidePackageResourceComponent resourceInfo;
     
   public ConstraintStructure(StructureDefinition resource, ImplementationGuideDefn usage) {
     this.id = resource.getId();
@@ -103,6 +105,15 @@ public class ConstraintStructure {
 
   public void setOwner(String owner) {
     this.owner = owner;
+  }
+
+  public void setResourceInfo(ImplementationGuidePackageResourceComponent resourceInfo) {
+    this.resourceInfo = resourceInfo;
+    
+  }
+
+  public ImplementationGuidePackageResourceComponent getResourceInfo() {
+    return resourceInfo;
   }
 
   

@@ -124,6 +124,7 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingCom
 import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
+import org.hl7.fhir.instance.model.ImplementationGuide.GuideResourcePurpose;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
@@ -585,6 +586,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
+      } else if (com[0].equals("igregistries")) {
+        src = s1+igRegistryList(com[1], com[2])+s3;
       } else if (com[0].equals("dtmappings")) {
         src = s1 + genDataTypeMappings(com[1]) + s3;
       } else if (com[0].equals("dtusage")) {
@@ -885,8 +888,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+ig.getFmm()+s3;
       else if (com[0].equals("ig.ballot"))
         src = s1+ig.getBallot()+s3;
-      else if (com[0].equals("igvsregistries"))
-        src = s1+igVsRegistryList()+s3;
       else if (com[0].equals("operations")) {
         Profile p = (Profile) object;
         src = s1 + genOperations(p.getOperations(), p.getTitle(), p.getId(), "../") + s3;  
@@ -908,25 +909,32 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"codes\">\r\n");
     b.append("<tr><td><b>Id</b></td><td><b>Name</b></td><td><b>Description</b></td></tr>\r\n");
-    for (String type : types.split("\\,")) {
-      List<String> ids = new ArrayList<String>();
-      Map<String, ImplementationGuidePackageResourceComponent> map = new HashMap<String, ImplementationGuidePackageResourceComponent>();
-      for (ImplementationGuidePackageComponent p : ig.getIg().getPackage()) {
-        for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
-          Resource ar = (Resource) r.getUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE);
-          if (ar != null && ar.getResourceType().toString().equals(type)) {
-            String id = ar.getId();
-            ids.add(id);
-            map.put(id, r);
+    for (GuideResourcePurpose purpose : GuideResourcePurpose.values()) {
+      boolean usedPurpose = false;
+      for (String type : types.split("\\,")) {
+        List<String> ids = new ArrayList<String>();
+        Map<String, ImplementationGuidePackageResourceComponent> map = new HashMap<String, ImplementationGuidePackageResourceComponent>();
+        for (ImplementationGuidePackageComponent p : ig.getIg().getPackage()) {
+          for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
+            Resource ar = (Resource) r.getUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE);
+            if (ar != null && ar.getResourceType().toString().equals(type) && r.getPurpose() == purpose) {
+              String id = ar.getId();
+              ids.add(id);
+              map.put(id, r);
+            }
           }
         }
-      }
-      if (ids.size() > 0) {
-        Collections.sort(ids);
-        b.append("<tr><td colspan=\"3\" style=\"background: #DFDFDF\"><b>"+Utilities.pluralizeMe(type)+"</b></td></tr>\r\n");
-        for (String id : ids) {
-          ImplementationGuidePackageResourceComponent r = map.get(id);
-          b.append("<tr><td><a href=\""+Utilities.changeFileExt(r.getSourceUriType().asStringValue(), ".html")+"\">"+id+"</a></td><td>"+Utilities.escapeXml(r.getName())+"</td><td>"+Utilities.escapeXml(r.getDescription())+"</td></tr>\r\n");
+        if (ids.size() > 0) {
+          if (!usedPurpose) {
+            b.append("<tr><td colspan=\"3\" style=\"background: #DFDFDF\"><b>"+purpose.getDisplay()+"</b><a name=\""+purpose.toCode()+"\"> </a></td></tr>\r\n");
+            usedPurpose = true;
+          }
+          Collections.sort(ids);
+          b.append("<tr><td colspan=\"3\" style=\"background: #EFEFEF\">"+Utilities.pluralizeMe(type)+"</td></tr>\r\n");
+          for (String id : ids) {
+            ImplementationGuidePackageResourceComponent r = map.get(id);
+            b.append("<tr><td><a href=\""+Utilities.changeFileExt(r.getSourceUriType().asStringValue(), ".html")+"\">"+id+"</a></td><td>"+Utilities.escapeXml(r.getName())+"</td><td>"+Utilities.escapeXml(r.getDescription())+"</td></tr>\r\n");
+          }
         }
       }
     }
@@ -1129,10 +1137,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (sd.hasUserData("pack")) {
       Profile p = (Profile) sd.getUserData("pack");
       ImplementationGuideDefn ig = definitions.getIgs().get(p.getCategory());
-      if (Utilities.noString(ig.getPage()))  
+      if (Utilities.noString(ig.getHomePage()))  
         pack = " ("+ig.getName()+"))";
       else
-        pack = " (<a href=\""+ig.getPage()+"\">"+ig.getName()+"</a>)";
+        pack = " (<a href=\""+ig.getHomePage()+"\">"+ig.getName()+"</a>)";
       if (!p.getTitle().equals(sd.getName()))
         pack = " in <a href=\""+p.getId()+".html\">"+p.getTitle()+"</a> "+pack;
     }
@@ -1164,15 +1172,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     names.addAll(workerContext.getExtensionDefinitions().keySet());
     Collections.sort(names);
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
-      boolean started = false;
-      for (String n : names) {
-        StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
-        if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
-          if (!started) {
-            started = true;
-            genStructureExampleCategory(s, ig.getName());            
+      if (ig.isCore()) {
+        boolean started = false;
+        for (String n : names) {
+          StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
+          if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
+            if (!started) {
+              started = true;
+              genStructureExampleCategory(s, ig.getName());            
+            }
+            genExtensionRow(ig, s, ed);
           }
-          genExtensionRow(ig, s, ed);
         }
       }
     }
@@ -1428,7 +1438,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<table class=\"grid\">\r\n");
     b.append("  <tr>\r\n");
     b.append("    <td><b>Name</b></td>\r\n");
-    b.append("    <td><b>Usage</b></td>\r\n");
+    b.append("    <td><b>Description</b></td>\r\n");
     b.append("  </tr>\r\n");
     
     b.append("  <tr>\r\n");
@@ -1440,10 +1450,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String s : names) {
       Profile ap = definitions.getPackMap().get(s);
       ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
-      b.append("  <tr>\r\n");
-      b.append("    <td><a href=\"").append(((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
-      b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
-      b.append(" </tr>\r\n");
+      if (ig == null || ig.isCore()) {
+        b.append("  <tr>\r\n");
+        b.append("    <td><a href=\"").append(ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+        b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
+        b.append(" </tr>\r\n");
+      }
     }
 // todo-profiles - do we want to list these here?    
 //    for (String n : definitions.sortedResourceNames()) {
@@ -2891,7 +2903,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genValueSetsTable(ImplementationGuideDefn ig) throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
-    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td><td><b>Usage</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
     List<String> namespaces = new ArrayList<String>();
     for (String sn : valueSets.keySet()) {
       String n = getNamespace(sn);
@@ -2929,11 +2941,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           s.append(" <tr><td><a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
           if (hasId)
             s.append("<td>"+Utilities.oidTail(ToolingExtensions.getOID(ae))+"</td>");
-          if (ig == null) { // just suppressing errors for now. bring them back later
-            String usage = usageSummary(vs);
-            s.append("<td>"+usage+"</td>");
-          } else 
-            s.append("<td>todo</td>");
           s.append("</tr>\r\n");
         }
       }
@@ -2959,8 +2966,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (String p : ps) {
         if (!definitions.getIgs().containsKey(p))
           b.append(p);
-        else if (!Utilities.noString(definitions.getIgs().get(p).getPage()))
-          b.append("<a href=\""+definitions.getIgs().get(p).getCode()+"/"+definitions.getIgs().get(p).getPage()+"\" title=\""+definitions.getIgs().get(p).getName()+"\">"+p+"</a>");
+        else if (!Utilities.noString(definitions.getIgs().get(p).getHomePage()))
+          b.append("<a href=\""+definitions.getIgs().get(p).getCode()+"/"+definitions.getIgs().get(p).getHomePage()+"\" title=\""+definitions.getIgs().get(p).getName()+"\">"+p+"</a>");
         else
           b.append("<span title=\""+definitions.getIgs().get(p).getCode()+"/"+definitions.getIgs().get(p).getName()+"\">"+p+"</span>");
       }
@@ -3733,6 +3740,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateToc(com[1], 1) + s3;
       } else if (com[0].equals("toc2")) {
         src = s1 + generateToc(com[1], 2) + s3;
+      } else if (com[0].equals("igregistries")) {
+          src = s1+igRegistryList(com[1], com[2])+s3;        
       } else if (com[0].equals("ig.registry")) {
         src = s1+buildIgRegistry(ig, com[1])+s3;
       } else if (com[0].equals("setlevel")) {
@@ -3931,8 +3940,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+ig.getFmm()+s3;
       else if (com[0].equals("ig.ballot"))
         src = s1+ig.getBallot()+s3;
-      else if (com[0].equals("igvsregistries"))
-        src = s1+igVsRegistryList()+s3;        
       else if (com[0].equals("fhir-path"))
         src = s1 + "../" + s3;  
       else 
@@ -3941,22 +3948,46 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   } 
 
-  private String igVsRegistryList() {
+  private String igRegistryList(String purpose, String type) throws Exception {
     StringBuilder b = new StringBuilder();
+    boolean first = true;
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (!ig.isCore()) {
         boolean found = false;
-        for (ValueSet vs : valueSets.values()) {
-          if (vs.getUserData(ToolResourceUtilities.NAME_RES_IG) == ig)
-            found = true;
-        }
-        ImplementationGuidePageComponent p = ig.getVSRegistry();
+        if ("terminology".equals(purpose)) {
+          for (ValueSet vs : valueSets.values()) {
+            if (vs.getUserData(ToolResourceUtilities.NAME_RES_IG) == ig)
+              found = true;
+          }
+          for (ConceptMap cm : conceptMaps.values()) {
+            if (cm.getUserData(ToolResourceUtilities.NAME_RES_IG) == ig)
+              found = true;
+          }
+        } else if ("extension".equals(purpose)) {
+          for (StructureDefinition ex : workerContext.getExtensionDefinitions().values()) {
+            if (ig.getCode().equals(ToolResourceUtilities.getUsage(ex))) {
+              found = true;
+            }
+          }
+        } else if ("profile".equals(purpose)) {
+          for (StructureDefinition ex : workerContext.getProfiles().values()) {
+            if (ig.getCode().equals(ToolResourceUtilities.getUsage(ex))) {
+              found = true;
+            }
+          }
+        } else
+          throw new Exception("Purpose "+purpose+" not supported yet");
+        ImplementationGuidePageComponent p = ig.getRegistryPage(type);
         if (found && p != null) {
-          b.append(" <li><a href=\"");
+          if (first)
+            first = false;
+          else
+            b.append(" | ");
+          b.append("<a href=\"");
           b.append(ig.getCode());
-          b.append("/"+p.getSource()+"\">");
-          b.append(ig.getName()+" "+p.getName());
-          b.append("</a></li>\r\n");
+          b.append("/"+p.getSource()+"#"+purpose+"\">");
+          b.append(ig.getBrief());
+          b.append("</a>");
         }
       }
     }
@@ -4687,9 +4718,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             produceExampleListEntry(s, e, p, ig);
         }        
       }
+      for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
+        if (ig.getIg() != null) {
+          for (ImplementationGuidePackageComponent pp : ig.getIg().getPackage()) {
+            for (ImplementationGuidePackageResourceComponent res : pp.getResource()) {
+              Example e = (Example) res.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
+              if (res.getPurpose() == GuideResourcePurpose.EXAMPLE && e != null && e.getResourceName().equals(resource.getName()))
+                produceExampleListEntry(s, res, pp, ig);
+            }
+          }
+        }
+      }
       s.append("<tr><td colspan=\"4\">&nbsp;</td></tr></table>\r\n");
       return s.toString();
     }
+  }
+
+  private void produceExampleListEntry(StringBuilder s, ImplementationGuidePackageResourceComponent res, ImplementationGuidePackageComponent pp, ImplementationGuideDefn ig) throws Exception {
+    String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
+    String n = res.getSourceUriType().getValue();
+    s.append("<tr><td><a href=\""+prefix+Utilities.changeFileExt(n, ".html")+"\">"+Utilities.escapeXml(res.getDescription())+"</a></td>");
+    s.append("<td><a href=\""+prefix+Utilities.changeFileExt(n, ".xml.html")+"\">XML</a></td>");
+    s.append("<td><a href=\""+prefix+Utilities.changeFileExt(n, ".json.html")+"\">JSON</a></td>");
+    s.append("<td>from <a href=\""+ig.getHomePage()+"\">"+Utilities.escapeXml(ig.getName())+"</a> IG</td>");
+    s.append("</tr>");
   }
 
   private void produceExampleListEntry(StringBuilder s, Example e, Profile pack, ImplementationGuideDefn ig) {

@@ -49,6 +49,7 @@ import org.hl7.fhir.instance.model.TestScript;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -117,7 +118,6 @@ public class IgParser {
       igd.getImageList().add(bin.getValue());
     }
     processPage(ig.getPage(), igd);
-    igd.setPage(ig.getPage().getSource());
 
     for (ImplementationGuidePackageComponent p : ig.getPackage()) {
       if (!p.hasName())
@@ -139,6 +139,7 @@ public class IgParser {
           Example example = new Example(r.getName(), id, r.getDescription(), fn, false, ExampleType.XmlFile, false);
           example.setIg(igd.getCode());
           igd.getExamples().add(example);
+          r.setUserData(ToolResourceUtilities.NAME_RES_EXAMPLE, example);
         } else if (r.getPurpose() == GuideResourcePurpose.TERMINOLOGY) {
           ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(fn));
 //          if (id.contains(File.separator))
@@ -198,6 +199,15 @@ public class IgParser {
               ig.getPackage().get(0).addResource().setName(vs.getName()).setDescription(vs.getDescription()).setSource(new UriType(path)).setUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE, vs);
             }
           }
+          // now, register resources for all the things in the spreadsheet
+          for (ValueSet vs : sparser.getValuesets()) 
+            p.addResource().setPurpose(GuideResourcePurpose.TERMINOLOGY).setName(vs.getName()).setDescription(vs.getDescription()).setSource(new UriType("valueset-"+vs.getId()+".html")).setUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE, vs);
+          for (StructureDefinition exd : pr.getExtensions()) 
+            p.addResource().setPurpose(GuideResourcePurpose.EXTENSION).setName(exd.getName()).setDescription(exd.getDescription()).setSource(new UriType("extension-"+exd.getId().toLowerCase()+".html")).setUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE, exd);
+          for (ConstraintStructure cs : pr.getProfiles()) {
+            cs.setResourceInfo(p.addResource());
+            cs.getResourceInfo().setPurpose(GuideResourcePurpose.PROFILE).setName(cs.getDefn().getName()).setDescription(cs.getDefn().getDefinition()).setSource(new UriType(cs.getId().toLowerCase()+".html"));
+          }
         }
         if (ex.getUrl().equals(ToolResourceUtilities.EXT_LOGICAL_SPREADSHEET)) {
           File fn = new CSFile(Utilities.path(myRoot, ((UriType) ex.getValue()).getValue()));
@@ -216,6 +226,8 @@ public class IgParser {
           igd.getLogicalModels().add(lm);
         }
       }
+      ToolingExtensions.removeExtension(p, ToolResourceUtilities.EXT_PROFILE_SPREADSHEET);
+      ToolingExtensions.removeExtension(p, ToolResourceUtilities.EXT_LOGICAL_SPREADSHEET);
     }
     igd.numberPages();
     

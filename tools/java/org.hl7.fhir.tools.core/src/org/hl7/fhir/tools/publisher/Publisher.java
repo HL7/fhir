@@ -819,6 +819,9 @@ public class Publisher implements URIResolver {
       StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
       p.setUserData("pack", ap);
       profile.setResource(p);
+      if (profile.getResourceInfo() != null) {
+        profile.getResourceInfo().setUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE, p);
+      }
       if (page.getProfiles().containsKey(p.getUrl()))
         throw new Exception("Duplicate Profile URL "+p.getUrl());
       page.getProfiles().put(p.getUrl(), p);
@@ -3872,6 +3875,9 @@ public class Publisher implements URIResolver {
       src = page.processConformancePackageIncludes(pack, src, intro, notes, resourceName, ig);
       if (st != null)
         src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html",  1, null);
+      else if (ig != null && !ig.isCore())
+        src = addSectionNumbers(pack.getId() + ".html", pack.getId(), src, null, 1, null, ig);
+       
       page.getEpub().registerFile(prefix+pack.getId().toLowerCase() + ".html", "Profile " + pack.getId(), EPubManager.XHTML_TYPE, true);
       TextFile.stringToFile(src, page.getFolders().dstDir + prefix+pack.getId() + ".html");
     }
@@ -3975,8 +3981,10 @@ public class Publisher implements URIResolver {
     src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes, ig, false);
     if (st != null)
       src = insertSectionNumbers(src, st, title + ".html", level, null);
-    else if (ig != null && !ig.isCore())
+    else if (ig != null && !ig.isCore()) {
       src = addSectionNumbers(title + ".html", title, src, null, 1, null, ig);
+      st = page.getSectionTrackerCache().get(ig.getCode()+"::"+title);
+    }
 
     page.getEpub().registerFile(prefix +title + ".html", "StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE, false);
     TextFile.stringToFile(src, page.getFolders().dstDir + prefix +title + ".html");
@@ -4444,7 +4452,7 @@ public class Publisher implements URIResolver {
     src = insertSectionNumbers(src, st, file, level, doch);
     return src;
   }
-
+  
   private void produceCompartment(Compartment c) throws Exception {
 
     String logicalName = "compartment-" + c.getName();

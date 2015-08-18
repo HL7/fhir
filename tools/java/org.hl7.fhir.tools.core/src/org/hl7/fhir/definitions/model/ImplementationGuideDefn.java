@@ -50,7 +50,7 @@ public class ImplementationGuideDefn {
   private String code;
   private boolean core; 
   private String name;
-  private String pagename;
+  private String brief;
   private boolean review;
   private String source;
   private String ballot;
@@ -69,12 +69,12 @@ public class ImplementationGuideDefn {
   private ImplementationGuide ig;
   private List<ValidationMessage> issues;
   
-  public ImplementationGuideDefn(String committee, String code, String name, String page, String source, boolean review, String ballot, String fmm, String sectionId, boolean core, List<ValidationMessage> issues) {
+  public ImplementationGuideDefn(String committee, String code, String name, String brief, String source, boolean review, String ballot, String fmm, String sectionId, boolean core, List<ValidationMessage> issues) {
     super();
     this.code = code;
     this.name = name;
     this.source = source;
-    this.pagename = pagename;
+    this.brief = brief;
     this.review = review;
     this.committee = committee;
     this.fmm = fmm;
@@ -95,9 +95,6 @@ public class ImplementationGuideDefn {
     this.name = name;
   }
 
-  public String getPage() {
-    return pagename;
-  }
   public boolean isReview() {
     return review;
   }
@@ -107,10 +104,6 @@ public class ImplementationGuideDefn {
 
   public String getSource() {
     return source;
-  }
-
-  public void setPage(String pagename) {
-    this.pagename = pagename;
   }
 
   public List<String> getPageList() {
@@ -388,6 +381,14 @@ public class ImplementationGuideDefn {
       page.setUserData(ToolResourceUtilities.NAME_PAGE_INDEX, prefix+Integer.toString(i+1)+(page.hasPage() ? ".0" : ""));
       numberPages(page.getPage(), prefix+Integer.toString(i+1)+".");
     }
+  }
+
+  public String getBrief() {
+    return brief;
+  }
+
+  public String getHomePage() {
+    return ig == null ? null : code+"/"+ig.getPage().getSource();
   }
 
 }

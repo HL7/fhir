@@ -10,10 +10,11 @@ public class ToolResourceUtilities {
   public static final String NAME_RES_PROFILE = "spec.res.profile";
   public static final String NAME_RES_RESOURCE = "spec.res.resoruce";
   
-  public static final Object EXT_PROFILE_SPREADSHEET = "http://hl7.org/fhir/tools-profile-spreadsheet";
-  public static final Object EXT_LOGICAL_SPREADSHEET = "http://hl7.org/fhir/tools-logical-spreadsheet";
+  public static final String EXT_PROFILE_SPREADSHEET = "http://hl7.org/fhir/tools-profile-spreadsheet";
+  public static final String EXT_LOGICAL_SPREADSHEET = "http://hl7.org/fhir/tools-logical-spreadsheet";
   public static final String RES_ACTUAL_RESOURCE = "spec.ig.res";
   public static final String NAME_PAGE_INDEX = "spec.page.ndx";
+  public static final String NAME_RES_EXAMPLE = "spec.ig.example";
 
   public static void updateUsage(Resource res, String usage) {
     if (Utilities.noString(usage))

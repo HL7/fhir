@@ -15,7 +15,6 @@
 <%txheader valuesets%>
 
 <h2>Value Sets Defined in FHIR</h2>
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
 This table contains a list of all the value sets defined as part of the FHIR specification. Some of these 
@@ -24,12 +23,8 @@ Any implicit code systems are case sensitive, though FHIR will never define code
 </p>
 
 <p>
-Several of the implementation guides published as part of FHIR define their own value sets:
+Implementation Guides that define value sets: <%igregistries terminology ValueSet%>
 </p>
-<ul>
-<%igvsregistries%>
-</ul>
-
 
 <%valuesetslist%> 
 
