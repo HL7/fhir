@@ -18,6 +18,7 @@ don't repeat invariants on an element if they are defined on the element (Observ
 clarify the usage of profile to close off unused things
 pcd-001 message example
 
+update implementers safety checklist 
 
 Examples
 * Clem's vital signs observations

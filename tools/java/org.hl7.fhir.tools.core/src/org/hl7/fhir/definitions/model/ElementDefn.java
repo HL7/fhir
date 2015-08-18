@@ -254,14 +254,22 @@ public class ElementDefn {
     this.maxLength = maxLength;
   }
 
-  public ElementDefn getElementByName(String name, boolean throughChoice, Definitions definitions) {
+  public ElementDefn getElementByName(String name, boolean throughChoice, Definitions definitions, String purpose) throws Exception {
     String n = name.contains(".") ? name.substring(0, name.indexOf(".")) : name;
     String t = name.contains(".") ? name.substring(name.indexOf(".") + 1) : null;
     if (n.equals(this.name) && t != null)
       return getElementByName(t);
     
-    for (int i = elements.size() - 1; i >= 0; i--) {
-      ElementDefn e = elements.get(i);
+    ElementDefn focus = this;
+    
+    if (typeCode().startsWith("@")) {
+      String s = typeCode().substring(1);
+      focus = definitions.getElementDefn(s.substring(0, s.indexOf(".")));
+      focus = focus.getElementForPath(s, definitions, purpose, throughChoice);
+    }
+      
+    for (int i = focus.elements.size() - 1; i >= 0; i--) {
+      ElementDefn e = focus.elements.get(i);
       if (nameMatches(n, e, throughChoice, definitions))
         return t == null ? e : e.getElementByName(t);
     }
@@ -575,7 +583,7 @@ public class ElementDefn {
 			} else if (definitions.hasType(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			}
-			t = res.getElementByName(en, throughChoice, definitions);
+			t = res.getElementByName(en, throughChoice, definitions, purpose);
 			if (t == null) {
 				throw new Exception("unable to resolve " + pathname+" for purpose "+purpose);
 			}

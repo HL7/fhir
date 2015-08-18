@@ -146,12 +146,12 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
       ExampleAdornerState s = (ExampleAdornerState) state;
       if (s.getState() == State.Element) {
         String p = s.path+"."+node.getNodeName();
-        ElementDefn e = s.getDefinition().getElementByName(node.getLocalName(), true, definitions);
+        ElementDefn e = s.getDefinition().getElementByName(node.getLocalName(), true, definitions, "adorn example");
         if (e == null && definitions.hasElementDefn(s.getDefinition().typeCode())) {
           // well, we see if it's inherited...
           ElementDefn t = definitions.getElementDefn(s.getDefinition().typeCode());
           while (t != null && e == null) {
-            e = t.getElementByName(node.getLocalName(), true, definitions);
+            e = t.getElementByName(node.getLocalName(), true, definitions, "adorn example");
             if (e != null)
               p = t.getName()+"."+e.getName();
             else if (definitions.hasElementDefn(t.typeCode()))
@@ -236,11 +236,11 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         else 
           return null;
       ElementDefn t = s.definition;
-      ElementDefn child = t.getElementByName(node.getNodeName(), true, definitions);
+      ElementDefn child = t.getElementByName(node.getNodeName(), true, definitions, "adorn example");
       String p = child == null ? null : s.path+"."+child.getName();
       while (child == null && t != null && definitions.hasElementDefn(t.typeCode())) {
         t = definitions.getElementDefn(t.typeCode());
-        child = t.getElementByName(node.getNodeName(), true, definitions);
+        child = t.getElementByName(node.getNodeName(), true, definitions, "adorn example");
         if (child != null) {
           p = t.getName()+"."+child.getName();
         }

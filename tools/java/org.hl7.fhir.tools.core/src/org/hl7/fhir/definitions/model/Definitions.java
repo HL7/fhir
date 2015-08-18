@@ -517,7 +517,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
       if (primitives.containsKey(value))
         return;
       String[] parts = value.split("\\.");
-      if (hasType(parts[0]) && getElementByPath(parts) != null)
+      if (hasType(parts[0]) && getElementByPath(parts, "check extension context") != null)
         return;
       
       throw new Error("The data type context '"+value+"' is not valid @ "+context);
@@ -530,7 +530,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
       String[] parts = value.split("\\.");
       if (sortedResourceNames().contains(value))
         return;
-      if (getElementByPath(parts) != null)
+      if (getElementByPath(parts, "check extension context") != null)
         return;
       
       throw new Error("The resource context '"+value+"' is not valid @ "+context);
@@ -539,7 +539,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
     
   }
 
-  private Object getElementByPath(String[] parts) throws Exception {
+  private Object getElementByPath(String[] parts, String purpose) throws Exception {
     ElementDefn e;
     try {
       e = getElementDefn(parts[0]);
@@ -550,7 +550,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
     while (e != null && i < parts.length) {
       if (e.getAcceptableGenericTypes().isEmpty() && hasType(e.typeCode()))
         e = getElementDefn(e.typeCode());
-      e = e.getElementByName(parts[i], true, this);
+      e = e.getElementByName(parts[i], true, this, purpose);
       i++;
     }
     return e;

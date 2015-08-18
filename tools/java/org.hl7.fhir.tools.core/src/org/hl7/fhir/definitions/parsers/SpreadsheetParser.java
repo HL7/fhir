@@ -2067,7 +2067,7 @@ public class SpreadsheetParser {
 	      if (en.charAt(en.length() - 1) == '*') 
 	        throw new Exception("no-list wrapper found at " + source);
 
-	      ElementDefn t = res.getElementByName(en, true, definitions);
+	      ElementDefn t = res.getElementByName(en, true, definitions, "find context");
 
 	      if (t == null) {
           throw new Exception("Reference to undefined Element "+ pathname+ " found at " + source);
