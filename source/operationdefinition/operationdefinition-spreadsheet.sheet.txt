@@ -291,7 +291,7 @@
   Inv. = 1
   Type = code
   Binding = OperationParameterType
-  Short Label = What type this parameter hs
+  Short Label = What type this parameter has
   Definition = The type for this parameter
   Comments = if there is no stated parameter, then the parameter is a \"Tuple\" type and must have at least one part defined
 
@@ -371,7 +371,7 @@
   Card. = 1..1
   Type = code
   Binding = OperationParameterType
-  Short Label = What type this parameter hs
+  Short Label = What type this parameter has
   Definition = The type for this parameter
 
  -- Row 39 -----------------------------------

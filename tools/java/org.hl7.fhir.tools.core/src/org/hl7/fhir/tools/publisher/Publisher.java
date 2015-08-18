@@ -4166,7 +4166,6 @@ public class Publisher implements URIResolver {
     // before we save this page out, we're going to figure out what it's index
     // is, and number the headers if we can
 
-    TextFile.stringToFile(src, actualName);
     src = addSectionNumbers(file, logicalName, src, null, 1, null, ig);
 
     TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, file));

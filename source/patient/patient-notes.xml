@@ -53,6 +53,7 @@ being more complete or more authorative than another. In such cases, links of ty
 other patient records. It is not a requirement that such links are bilateral. 
 </p>
 
+<a name="linking"> </a>
 <h2>Patient vs Person vs Patient.Link</h2>
 <p>
 The Person resource on the surface appears to be very similar to the Patient resource, and the usage for it is very similar
@@ -72,6 +73,7 @@ the person record if they want their details updated, or if they no longer need 
 as they've moved from the area.
 </p>
   
+<a name="contact"> </a>
 <h2>Patient.Contact vs RelatedPerson</h2>
 <p>
 The contact component on the Patient Resource should be used for storing people to contact information.
@@ -83,6 +85,7 @@ This includes cases where these related people are actually contributing to the 
 <p>It is not expected that these records will be used for primary care provider, this information should be stored in
 the Patient.careProvider field.</p>
 
+<a name="merge"> </a>
 <h2>Merging records</h2>
 <p>
 This specification does not specify merge functionality: if multiple patient records are found to be 
@@ -106,4 +109,64 @@ These suggested updated behaviours could be the subject of a future connectathon
 Please provide your feedback through tracker item <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=7345" target="_blank">7345</a>
 </p>
 </blockquote>
+
+<a name="match"> </a>
+<h2>Patient Matching using an MPI</h2>
+<p>
+A Master Patient Index (<a href="http://en.wikipedia.org/wiki/Enterprise_master_patient_index">MPI</a>) is a service used to manage patient identification in a context
+where multiple patient databases exist. Healthcare applications and middleware use the 
+MPI to match patients between the databases, and as new patient details are encountered.
+MPIs are highly specialised applications, often tailored extensively to the institution's 
+particular mix of patients. MPIs can also be run on a regional and national basis. 
+</p>
+<p>
+To ask an MPI to match a patient, clients use the "mpi" <a href="search.html#query">query</a>,
+which means that the normal search parameters defined for patient may 
+be used. However, ather than their normal use, they are interpreted 
+as MPI inputs - e.g. instead of requiring that the resources literally contain 
+the search parameters, they are passed to an MPI algorithm of some kind that uses 
+them to determine the most appropriate matches in the patient set. 
+</p>
+<pre>
+  GET [base]/Patient?_query=mpi&amp;parameters...
+</pre>
+<p>
+The response from an "mpi" query is a set of patient records, ordered from most
+likely to least likely. If thare are not patient matches, the MPI SHALL return 
+an empty search set with no error, but may include an <a href="operationoutcome.html">operation outcome</a> with 
+further advice. All patient records SHALL have a score from 0 to 1, where
+1 is the most certain match, along with an <a href="extensibility.html">extension</a>
+<a href="extension-patient-mpi-match.html">"patient-mpi-match"</a> that indicates the MPI's position on the match:
+</p>
+<pre>
+  &lt;entry&gt; 
+    &lt;resource&gt;
+      &lt;Patient&gt;
+        &lt;!-- patient details --&gt;
+      &lt;/Patient&gt;
+    &lt;/resource&gt;
+    &lt;search&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-mpi-match&quot;&gt;
+        &lt;valueCode value=&quot;probable&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;score value=&quot;0.80&quot;/&gt;
+    &lt;/search&gt;
+  &lt;/entry&gt; 
+</pre>
+<p>
+The patient-mpi-match extension has one of the <a href="valueset-patient-mpi-match.html">following codes</a>:
+</p>
+[%codelist-nh http://hl7.org/fhir/ValueSet/patient-mpi-match%]
+<p>
+One optional parameter to the mpi match operation is "userid", which is
+used to pass the user details from a trusted client to the MPI. This may 
+be used by the MPI to restrict the possible matches that are returned based 
+on user's rights. For example, a staff member covered by policies etc 
+may well get a different result than a patient trying to find their own 
+record. Note that this parameter is used where the the user would not be 
+expected to log in to the MPI directly; whether this is appropriate is 
+a deployment choice.
+</p>
+
+
 </div>

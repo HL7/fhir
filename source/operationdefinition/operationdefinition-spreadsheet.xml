@@ -1878,7 +1878,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">What type this parameter hs</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">What type this parameter has</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The type for this parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2199,7 +2199,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">What type this parameter hs</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">What type this parameter has</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The type for this parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
