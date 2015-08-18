@@ -304,10 +304,10 @@
   w5 = context
 
  -- Row 11 -----------------------------------
-  Element = Encounter.incomingReferralRequest
+  Element = Encounter.incomingReferral
   Card. = 0..*
   Type = Reference(ReferralRequest)
-  Short Label = Incoming Referral Request
+  Short Label = The Referral that initiated this encounter
   Definition = The referral request that this encounter satisfies (incoming referral)
 
  -- Row 12 -----------------------------------
@@ -350,7 +350,7 @@
   w5 = who
 
  -- Row 16 -----------------------------------
-  Element = Encounter.fulfills
+  Element = Encounter.appointment
   Card. = 0..1
   Summary = y
   Type = Reference(Appointment)
@@ -630,9 +630,9 @@
   Target Types = Patient
 
  -- Row 5 -----------------------------------
-  Name = fulfills
+  Name = appointment
   Type = reference
-  Path = Encounter.fulfills
+  Path = Encounter.appointment
   Target Types = Appointment
 
  -- Row 6 -----------------------------------
@@ -697,7 +697,7 @@
  -- Row 17 -----------------------------------
   Name = incomingreferral
   Type = reference
-  Path = Encounter.incomingReferralRequest
+  Path = Encounter.incomingReferral
   Target Types = ReferralRequest
 
  -- Row 18 -----------------------------------
