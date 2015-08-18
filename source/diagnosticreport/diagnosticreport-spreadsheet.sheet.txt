@@ -491,4 +491,16 @@
   Filename = diagnosticreport-example-lipids.xml
   Profile = Example Lipid Profile
 
+ -- Row 10 -----------------------------------
+  Name = Ultrasound
+  Identity = ultrasound
+  Description = Abdominal Ultrasound  example
+  Filename = diagnosticreport-example-ultrasound.xml
+
+ -- Row 11 -----------------------------------
+  Name = GHP
+  Identity = ghp
+  Description = An Example of a report with multiple specimen and panels
+  Filename = diagnosticreport-example-ghp.xml
+
 === Sheet Examples =====================================

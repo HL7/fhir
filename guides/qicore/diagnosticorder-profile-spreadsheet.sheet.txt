@@ -9,7 +9,7 @@
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = QICoreDiagnosticOrderEventDescription
+  Binding Name = !QICoreDiagnosticOrderEventDescription
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/uslab-do-event
   Definition = Information about an event that occurred to a diagnostic order
@@ -147,7 +147,6 @@
 
  -- Row 19 -----------------------------------
   Element = DiagnosticOrder.event.description
-  Binding = QICoreDiagnosticOrderEventDescription
 
  -- Row 20 -----------------------------------
   Element = DiagnosticOrder.event.dateTime
