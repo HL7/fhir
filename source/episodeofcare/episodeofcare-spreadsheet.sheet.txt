@@ -154,24 +154,24 @@
   Short Label = The list of practitioners that may be facilitating this episode of care for specific purposes
 
  -- Row 15 -----------------------------------
+  Element = EpisodeOfCare.careTeam.role
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = The role that this team member is taking within this episode of care
+
+ -- Row 16 -----------------------------------
+  Element = EpisodeOfCare.careTeam.period
+  Card. = 0..1
+  Type = Period
+  Short Label = The period of time that this practitioner is performing some role within the episode of care
+
+ -- Row 17 -----------------------------------
   Element = EpisodeOfCare.careTeam.member
   Card. = 0..1
   Type = Reference(Practitioner|Organization)
   Short Label = The practitioner (or Organization) within the team
   Comments = Where an Organization is included in the CareTeam, it is really providing some form of services to the EpisodeOfCare (e.g. Jim\'s Mowing Services) the details of the services would be included on a CarePlan
   w5 = who
-
- -- Row 16 -----------------------------------
-  Element = EpisodeOfCare.careTeam.role
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Label = The role that this team member is taking within this episode of care
-
- -- Row 17 -----------------------------------
-  Element = EpisodeOfCare.careTeam.period
-  Card. = 0..1
-  Type = Period
-  Short Label = The period of time that this practitioner is performing some role within the episode of care
 
 === Sheet Search =====================================
 
