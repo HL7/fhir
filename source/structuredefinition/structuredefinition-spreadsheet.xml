@@ -92,7 +92,7 @@
     <SheetIndex>10</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>12975</WindowHeight>
+  <WindowHeight>13260</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -4355,7 +4355,7 @@
    <Column ss:Index="2" ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="246.75"/>
    <Column ss:StyleID="s102" ss:Width="55.5"/>
    <Column ss:StyleID="s102" ss:Width="165"/>
-   <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s102" ss:Width="629.25"/>
    <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="987.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s70">
@@ -4437,7 +4437,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If the type is 'extension' then the structure must have context information</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure defines an extension then the structure must have context information</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:constrainedType/@value = 'extension') or (exists(f:context) and exists(f:contextType))</Data></Cell>
    </Row>
@@ -4457,7 +4457,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If the type is Resource or Type, the url has to start with &quot;http://hl7.org/fhir/StructureDefinition/&quot; and the tail must match the name</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure describes a core Resource or Type, the url has to start with &quot;http://hl7.org/fhir/StructureDefinition/&quot; and the tail must match the name</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(constrainedType)) or f:url/@value=concat('http://hl7.org/fhir/StructureDefinition/', f:name/@value)</Data></Cell>
    </Row>
@@ -4856,7 +4856,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4871,7 +4871,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

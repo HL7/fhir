@@ -97,7 +97,7 @@
  -- Row 5 -----------------------------------
   Id = 5
   Context = StructureDefinition
-  English = If the type is \'extension\' then the structure must have context information
+  English = If the structure defines an extension then the structure must have context information
   XPath = not(f:constrainedType/@value = \'extension\') or (exists(f:context) and exists(f:contextType))
 
  -- Row 6 -----------------------------------
@@ -109,7 +109,7 @@
  -- Row 7 -----------------------------------
   Id = 7
   Context = StructureDefinition
-  English = If the type is Resource or Type, the url has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the name
+  English = If the structure describes a core Resource or Type, the url has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the name
   XPath = not(exists(constrainedType)) or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:name/@value)
 
  -- Row 8 -----------------------------------

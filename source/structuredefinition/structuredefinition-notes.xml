@@ -63,7 +63,7 @@ This list shows a number of examples, with links to real examples for each:
 <pre class="json">
 {
   "resourceType": "StructureDefinition",
-  "url": "http://hl7.org/fhir/StructureDefinition/Quantity",
+  "url": "http://hl7.org/fhir/StructureDefinition/Patient",
   "name": "Patient",
   "kind": "resource",
   "base":"http://hl7.org/fhir/StructureDefinition/DomainResource"
@@ -131,7 +131,7 @@ are (or may be) created by the specification, but can also be defined by other i
 
 <h3>Rules for Constrained Types</h3>
 <p>
-When the type of a structure definition is either a "constraint" or an "extension", then the following rules apply:
+When the structure is a constraint (constrainedType is not null), then the following rules apply:
 </p>
 <ul>
  <li>The structure must nominate a base resource from which it is derived</li>
