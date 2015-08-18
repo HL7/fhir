@@ -206,6 +206,19 @@ the important elements to make use of the resource), nor is it automatically mus
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
 
+<a name="summary"> </a>
+<a name="default"> </a>
+<a name="meaning-when-missing"> </a>
+<h3>Other Metadata</h3>
+<p>
+In addition to the conformance, metadata, each element has other metadata properties:
+</p>
+<ul>
+ <li><b>isSummary</b> - How the element behaves in <a href="search.html#summary">Summary Searches</a></li>
+ <li><b>defaultValue / meaningWhenMissing</b> - What it <a href="elementdefinition.html#missing">means when an element is missing</a></li>
+ <li><b>maxLength</b> - How long the representation of the primitive value is allowed to be (not including XML or JSON escaping)</li>
+</ul>
+
 <a name="invariants"> </a>
 <h3>Invariants</h3>
 <p>

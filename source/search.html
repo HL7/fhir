@@ -1195,12 +1195,16 @@ resource. It can have one of the following values:
 The intent of the _summary parameter is to reduce the total processing load on
 server, client, and resources between them such as the network. It is most useful for
 resources that can be large, particularly ones that include images or elements that
-may repeat many times.
+may repeat many times. The purpose of the summary from is to allow a client to quickly
+retrieve a large set of resources, and let a user pick the appropriate one. The
+summary for an element is defined to allow a user to quickly sort and filter the 
+resources, and typically omit important content, on the basis that the entire 
+resource will be retrieved when the user selects a resource.
 </p>
 <p>
 Servers are not obliged to return just a summary as requested. There is only 
-alimited number of summary forms defined for resources in order to allow servers 
-to store the summarized form in advance. Servers SHOULD mark the resources with the 
+a limited number of summary forms defined for resources in order to allow servers 
+to store the summarized form(s) in advance. Servers SHOULD mark the resources with the 
 tag <a href="v3/SecurityIntegrityObservationValue/index.html#SUBSETTED">SUBSETTED</a> 
 to ensure that the incomplete resource is not acidentally used to overwrite 
 a complete resource.

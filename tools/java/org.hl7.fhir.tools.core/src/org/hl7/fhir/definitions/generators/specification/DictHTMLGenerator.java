@@ -496,6 +496,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private String invariants(Map<String, Invariant> invariants, List<Invariant> stated) {
+    
+    List<String> done = new ArrayList<String>();
 	  StringBuilder s = new StringBuilder();
 	  if (invariants.size() > 0) {
 	    s.append("<b>Defined on this element</b><br/>\r\n");
@@ -506,6 +508,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	    boolean b = false;
 	    for (String i : ids) {
 	      Invariant inv = invariants.get(i);
+	      done.add(inv.getId());
 	      if (b)
 	        s.append("<br/>");
 	      s.append("<b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
@@ -518,10 +521,12 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       s.append("<b>Affect this element</b><br/>\r\n");
       boolean b = false;
       for (Invariant id : stated) {
-        if (b)
-          s.append("<br/>");
-        s.append("<b>"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (xpath: "+Utilities.escapeXml(id.getXpath())+")");
-        b = true;
+        if (!done.contains(id.getId())) {
+          if (b)
+            s.append("<br/>");
+          s.append("<b>"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (xpath: "+Utilities.escapeXml(id.getXpath())+")");
+          b = true;
+        }
       }
     }
 	  

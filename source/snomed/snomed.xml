@@ -3557,6 +3557,10 @@
     <display value="Computed tomography of head and neck"/>
     <display value="CT of head and neck"/>
   </concept>
+  <concept id="429951000124103" display="Bacterial isolate specimen (specimen)">
+    <display value="Bacterial isolate specimen (specimen)"/>
+    <display value="Bacterial isolate specimen"/>
+  </concept>
   <concept id="430268003" display="Specimen from bone (specimen)">
     <display value="Specimen from bone (specimen)"/>
     <display value="Specimen from bone"/>
@@ -3921,6 +3925,12 @@
     <display value="Tunneled central venous catheter (physical object)"/>
     <display value="Tunneled central venous catheter"/>
   </concept>
+  <concept id="445295009" display="Blood specimen with edetic acid (specimen)">
+    <display value="Blood specimen with edetic acid (specimen)"/>
+    <display value="Blood specimen with EDTA"/>
+    <display value="Blood specimen with edetic acid"/>
+    <display value="Blood specimen with ethylenediamine tetraacetic acid"/>
+  </concept>
   <concept id="445541000" display="Dry body weight (observable entity)">
     <display value="Dry body weight (observable entity)"/>
     <display value="Dry body weight"/>
@@ -3966,6 +3976,12 @@
     <display value="Smokes tobacco daily (finding)"/>
     <display value="Daily tobacco smoker"/>
     <display value="Current every day smoker"/>
+  </concept>
+  <concept id="45036003" display="Ultrasonography of abdomen (procedure)">
+    <display value="US abdominal scan"/>
+    <display value="Ultrasonography of abdomen"/>
+    <display value="Ultrasonography of abdomen, NOS"/>
+    <display value="Ultrasonography of abdomen (procedure)"/>
   </concept>
   <concept id="4558008" display="Anterior resection of rectum (procedure)">
     <display value="Anterior resection of rectum (procedure)"/>
