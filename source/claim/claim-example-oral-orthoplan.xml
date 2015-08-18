@@ -63,7 +63,7 @@
    <sequence value="1"/>
    <type>
      <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
-     <code value="group"/>
+     <code value="FRAMEING"/> <!-- was group changed by GG to be valid -->
    </type>
    <provider>
      <reference value="Practitioner/1"/>
@@ -88,7 +88,7 @@
      <sequence value="1"/> <!-- Exam Fee -->
      <type>
        <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
-       <code value="service"/>
+       <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
@@ -109,7 +109,7 @@
      <sequence value="2"/> <!-- Diagnostic Fee -->
      <type>
        <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
-       <code value="service"/>
+       <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
@@ -130,7 +130,7 @@
      <sequence value="3"/> <!-- Initial Payment -->
      <type>
        <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
-       <code value="service"/>
+       <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
@@ -151,7 +151,7 @@
      <sequence value="4"/> <!-- Duration in Months -->
      <type>
        <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
-       <code value="service"/>
+       <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
@@ -165,7 +165,7 @@
      <sequence value="5"/> <!-- Periodic Payments -->
      <type>
        <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
-       <code value="service"/>
+       <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
