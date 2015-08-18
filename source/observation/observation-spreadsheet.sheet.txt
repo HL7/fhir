@@ -432,9 +432,10 @@
   Short Label = Provides guide for interpretation
   Definition = Guidance on how to interpret the value by comparison to a normal or recommended range
   Requirements = Knowing what values are considered \"normal\" can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts
-  Comments = Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient\'s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.\n\nThe reference range bounds are open (< >).  To indicate if the reference range bounds are closed  (=< =>) use the extension [inclusive-flag](extension-observation-inclusive-flag.htm).
+  Comments = Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient\'s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.\n\nThe reference range bounds are open (< >).  To indicate if the reference range bounds are closed  (=< =>) use the extension [inclusive-flag](extension-observation-inclusive-flag.html).
   v2 Mapping = OBX.7
   RIM Mapping = outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]
+  Committee Notes = #8551
 
  -- Row 22 -----------------------------------
   Element = Observation.referenceRange.low
@@ -445,7 +446,7 @@
   Definition = The value of the low bound of the reference range. If this element is omitted, the low bound of the reference range is assumed to be meaningless. (e.g. reference range is <2.3) .
   v2 Mapping = OBX-7-references range
   RIM Mapping = value:IVL_PQ.low
-  Committee Notes = [#3882]
+  Committee Notes = [#3882],#8551
 
  -- Row 23 -----------------------------------
   Element = Observation.referenceRange.high
@@ -456,6 +457,7 @@
   Definition = The value of the high bound of the reference range. If this element is omitted, the high bound of the reference range is assumed to be meaningless. (e.g. reference range is > 5) .
   v2 Mapping = OBX-7-references range
   RIM Mapping = value:IVL_PQ.high
+  Committee Notes = #8551
 
  -- Row 24 -----------------------------------
   Element = Observation.referenceRange.meaning
