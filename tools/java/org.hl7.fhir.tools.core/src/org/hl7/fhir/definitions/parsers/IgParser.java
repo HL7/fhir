@@ -140,6 +140,7 @@ public class IgParser {
           example.setIg(igd.getCode());
           igd.getExamples().add(example);
           r.setUserData(ToolResourceUtilities.NAME_RES_EXAMPLE, example);
+          r.setSource(new UriType(example.getId()+".html"));
         } else if (r.getPurpose() == GuideResourcePurpose.TERMINOLOGY) {
           ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(fn));
 //          if (id.contains(File.separator))

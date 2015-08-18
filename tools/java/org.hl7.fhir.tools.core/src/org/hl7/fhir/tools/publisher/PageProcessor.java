@@ -4759,8 +4759,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("</tr>");
   }
 
-  
-    
   private String produceStructureDefinitionExamples() throws Exception {
     StringBuilder s = new StringBuilder();
     
