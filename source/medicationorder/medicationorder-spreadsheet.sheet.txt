@@ -90,13 +90,6 @@
 
  -- Row 6 -----------------------------------
   Id = 6
-  Code = superseded
-  Display = Superseded
-  Definition = The prescription was replaced by a newer one, which encompasses all the information in the previous one.
-  v3 = ActStatus.obsolete
-
- -- Row 7 -----------------------------------
-  Id = 7
   Code = draft
   Display = Draft
   Definition = The prescription is not yet \'actionable\', i.e. it is a work in progress, required sign-off, need to be run through decision support.
@@ -111,7 +104,7 @@
   Aliases = Prescription
   Type = DomainResource
   Short Label = Prescription of medication to for patient
-  Definition = An order for both supply of the medication and the instructions for administration of the medication to a patient.
+  Definition = An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationOrder\" rather than \"MedicationPrescription\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.
   RIM Mapping = CombinedMedicationRequest
   w5 = clinical
 
@@ -142,7 +135,7 @@
   Is Modifier = Y
   Type = code
   Binding = MedicationOrderStatus
-  Short Label = active | on-hold | completed | entered-in-error | stopped | superseded | draft
+  Short Label = active | on-hold | completed | entered-in-error | stopped | draft
   Definition = A code specifying the state of the order.  Generally this will be active or completed state
   RIM Mapping = statusCode
   w5 = status
