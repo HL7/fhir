@@ -316,7 +316,7 @@
   Summary = y
   UML = 500;0
   Short Label = List of participants involved in the encounter
-  Definition = The main practitioner responsible for providing the service
+  Definition = The list of people responsible for providing the service
   v2 Mapping = ROL
   RIM Mapping = .participation[typeCode=PFM]
 
