@@ -26,7 +26,7 @@
   Type = CodeableConcept
   Short Label = Smoking Status: LOINC 72166-2  = Tobacco smoking status NHIS
   Definition = Smoking Status: Limited to fixed LOINC  value 72166-2  = Tobacco smoking status NHIS.
-  Pattern = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><version value=\"2.48\"/><code value=\"72166-2\"/></coding></valueCodeableConcept>
+  Pattern = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"72166-2\"/></coding></valueCodeableConcept>
 
  -- Row 3 -----------------------------------
   Element = Observation.valueCodeableConcept

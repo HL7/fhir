@@ -248,7 +248,7 @@
   Element = DiagnosticReport.result
   Card. = 0..*
   Must Support = Y
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobscode}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobsquantity}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobsratio}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobsother}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobspanel}
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobs}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobspanel}
   Committee Notes = 11/19/2014 EH: OBX\'s
 
  -- Row 28 -----------------------------------

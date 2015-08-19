@@ -173,7 +173,7 @@
   Discriminator = @Profile,@type
   Card. = 0..*
   Must Support = Y
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobscode}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobsquantity}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobsratio}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobsother}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobspanel}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-condition}
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobs}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobspanel}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-condition}
   Requirements = AOES are captured in the USLabObservation resource and Reasons for the testing in USLabCondition
   Comments = AOES are captured in the USLabObservation resource and Reasons for the testing in USLabCondition
   Committee Notes = 11/17/2014 EH:AOES
