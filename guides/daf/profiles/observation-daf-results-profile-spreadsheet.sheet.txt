@@ -92,7 +92,7 @@
   Aliases = Obs
   Type = Resource
   Short Label = US Realm DAF result observation
-  Definition = US Realm clinical coded laboratoyresults to ordering providers in the ambulatory care setting and \"reportable\" laboratory test results to local public health agencies.
+  Definition = US Realm clinical coded results.
   To Do = edit definition to scope of profile
   Committee Notes = OBX.1Set ID - OBXSIR[1..1]1..4
 
@@ -104,7 +104,7 @@
   Type = CodeableConcept
   Binding = USLabObservationName
   Short Label = US Realm Laboratory Test Name
-  Definition = The laboratory test that was performed.  This is element is bound to LOINC.
+  Definition = The test that was performed.  This is element is bound to LOINC.
   Requirements = The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.
   Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
   Committee Notes = 11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.  See DAF comment 222,223
@@ -307,7 +307,7 @@
   Card. = 1..1
   Must Support = Y
   Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobs}
-  Short Label = USLab component observations
+  Short Label = US DAF Component observations
 
  -- Row 30 -----------------------------------
   Element = Observation.component

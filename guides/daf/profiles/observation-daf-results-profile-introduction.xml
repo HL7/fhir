@@ -88,7 +88,7 @@ The DAFResults profile mapping to Meaningful Use data elements and FHIR Resource
 		  <tr>
 		    <td/>
 			<td>Body Site used to collect specimen</td>
-			<td>Observation.bodySite</td>
+		  	<td>Observation.Specimen.collection.bodySite</td>
 		  </tr>
 		</tbody>
 	</table>

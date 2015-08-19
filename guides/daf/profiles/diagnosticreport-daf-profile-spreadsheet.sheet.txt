@@ -252,7 +252,7 @@
   Committee Notes = 11/19/2014 EH: OBX\'s
 
  -- Row 28 -----------------------------------
-  Element = DiagnosticReport.imagingStudy
+  Element = !DiagnosticReport.imagingStudy
   Card. = 0..0
   Committee Notes = 11/19/2014 EH:
 
