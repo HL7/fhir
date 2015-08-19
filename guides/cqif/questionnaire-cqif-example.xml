@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<!-- This example demonstrates the CQIF-Questionnaire profile of Questionnaire to represent dynamic logic in a Questionnaire -->
-	<id value="cqif-questionnaire-example"/>
+	<id value="questionnaire-cqif-example"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/cqif-questionnaire"/>
 	</meta>
@@ -11,7 +11,7 @@
 	</text>
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
 		<valueAttachment>
-			<contentType value="application/elm+xml"/>
+			<contentType value="application/x-elm+xml"/>
 			<url value="http://elmrepository.org/PHQ-9Logic.elm"/>
 		</valueAttachment>
 	</extension>

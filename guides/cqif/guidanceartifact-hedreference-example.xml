@@ -122,7 +122,7 @@
 <!--     Content     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
     <valueAttachment>
-      <contentType value="application/hed+xml"/>
+      <contentType value="application/x-hed+xml"/>
       <url value="http://hedrepository.gov/phq-9"/>
       <title value="PHQ-9 Patient Health Questionnaire"/>
     </valueAttachment>

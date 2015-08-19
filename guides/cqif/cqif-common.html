@@ -15,9 +15,9 @@
 <p>This implementation guide focuses on three main use cases within the clinical quality domain:</p>
 
 <ol>
-	<li>Sharing – The representation of computable knowledge artifacts</li>
-	<li>Evaluation – The evaluation of knowledge artifacts</li>
-	<li>Distribution – The exposure of a searchable repository of knowledge artifacts</li>
+	<li>Sharing - The representation of computable knowledge artifacts</li>
+	<li>Evaluation - The evaluation of knowledge artifacts</li>
+	<li>Distribution - The exposure of a searchable repository of knowledge artifacts</li>
 </ol>
 
 <p>The specific domains of quality measurement and decision support each make use of the functionality defined by these use cases. As such, the objective of this section of the guide is to establish the common aspects by defining base structures that can then be extended and utilized by each specific domain.</p>
@@ -148,6 +148,16 @@ The <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.status">
 <h4>Content</h4>
 
 <p>In addition to being a description of the behavior of a quality service, the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure can be used to represent a knowledge artifact, which is defined as a shareable, computable definition of the behavior of a quality service. Most of the content actually contained within an artifact is defined by derived structures such as MeasureArtifact and GuidanceArtifact that define the content specific to the domain. However, some of the content definitions are common between both measurement and decision support, and are therefore modeled in the KnowledgeModule structure itself. Specifically, the <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.model">model</a> and <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.library">library</a> elements define the data models and libraries used within the content.</p>
+
+<a name="examples"/>
+<h4>Examples</h4>
+
+<p>The following examples illustrate the use of the knowledge module to define stand alone modules and libraries:</p>
+
+<ul>
+	<li><a href="knowledgemodule-example.html">Stand Alone Knowledge Module - Guideline Appropriate Ordering</a></li>
+	<li><a href="knowledgemodule-library-example.html">Library Knowledge Module - Chlamydia Screening Common</a></li>
+</ul>
 
 <a name="evaluation"/>
 <h3>Evaluation</h3>

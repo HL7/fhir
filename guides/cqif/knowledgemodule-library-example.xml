@@ -69,7 +69,7 @@
 	<!-- Content -->
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
 		<valueAttachment>
-			<contentType value="application/cql+text"/>
+			<contentType value="application/x-cql+text"/>
 			<url value="http://cqlrepository.org/ChlamydiaScreening_Common.cql"/>
 		</valueAttachment>
 	</extension>
