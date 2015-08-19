@@ -10,11 +10,14 @@
 
 <div class="col-9">
 
-<a name="CQIF"> </a> 
-
+<a name="cqif"/> 
 <h2>Clinical Quality Improvement Framework (CQIF) Implementation Guide</h2>
 
 <p><i>In September 2015, this FHIR Implementation Guide will undergo a comment-only ballot. The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets, and conformance statements it defines. This implementation Guide will be balloted separately from the FHIR specification itself.</i></p>
+
+<a name="toc"/>
+<h3>Table of Contents</h3>
+<a href="cqif-toc.html">Table of Contents</a>
 
 <h3>Summary</h3>
 
@@ -22,6 +25,7 @@
 
 <p>The CQIF Implementation Guide provides profiles and operation definitions to enable multiple quality-related use cases, including decision support request/response, quality measurement evaluation, as well as knowledge artifact representation and sharing.</p>
 
+<a name="background"/>
 <h3>Background</h3>
 
 <p>The CQIF Implementation Guide is built by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure, Implementable Technology Specifications, Service Oriented Architecture, and Healthcare Standards Integration (pending approval) HL7 Work Groups.</p>
@@ -34,15 +38,17 @@
 	<li>Logic - The representation used to convey the logic involved in the artifact</li>
 </ul>
 
+<img alt="Clinical Quality Framework Conceptual Components" src="cqframework-components-diagram.jpg"/>
+
 <p>The first component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=391">Clinical Quality Common Metadata Conceptual Model</a>, an informative document harmonizing metadata requirements between Quality Measurement and Decision Support artifacts.</p>
 
 <p>The second component has resulted in the QUICK <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378">Conceptual</a> and Logical Models, a harmonization of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=338">Virtual Medical Record (vMR)</a> used in Decision Support and the <a href="https://ecqi.healthit.gov/qdm">Quality Data Model (QDM)</a> used in Quality Measurement, and realized in FHIR as the QI-Core profiles.</p>
 
 <p>And finally, the third component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">Clinical Quality Language Specification</a>, a harmonization of the expressive capabilities of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=337">Clinical Decision Support Knowledge Artifact Specification (CDS KAS)</a> (produced by the Health eDecisions (HeD) S&amp;I Framework Initiative), and the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Health Quality Measures Format (HQMF)</a>.</p>
 
-<p>As part of the Phase II Pilot efforts, these developing specifications are being used to support knowledge artifact sharing, as well as evaluation of knowledge artifacts as part of decision support request/response and measure evaluation.</p>
+<p>As part of the CQF initiative Phase II Pilot efforts, these developing specifications are being used to support knowledge artifact sharing, as well as evaluation of knowledge artifacts as part of decision support request/response and measure evaluation.</p>
 
-<p>This implementation guide continues this harmonization by defining an approach to using a FHIR server as a component of a knowledge system in one of two roles:</p>
+<p>This implementation guide continues the harmonization of quality domain specifications by defining an approach to using a FHIR server as a component of a knowledge system in one of two roles:</p>
 
 <ol>
 	<li>Knowledge Repository - As a knowledge artifact repository for sharing and distributing knowledge artifact definitions</li>
@@ -57,11 +63,10 @@
 
 <p>And finally, from the perspective of a Knowledge Service Consumer, this IG defines the expected available operations and behavior of a knowledge service.</p>
 
+<a name="scope"/>
 <h3>Scope</h3>
 
-<p>The CQIF Implementation Guide currently focuses on the Decision Support aspects of the Clinical Quality domain. However, note that the CQIF Implementation Guide has been developed in coordination with the Clinical Quality Information Work Group sponsored project to build FHIR representations for Clinical Quality Measures. As a result of that coordination, many of the profiles defined in this implementation guide are shared by that effort. For this comment-only ballot, the shared material is reproduced in both ballots to facilitate review during the balloting process. Prior to DSTU balloting, the CQIF and CQMF Implementation Guides will be merged into a single Clinical Quality Framework Implementation Guide.</p>
-
-<p>The scope of this implementation guide therefore broadly falls into two categories:</p>
+<p>The CQIF Implementation Guide currently focuses on the Decision Support aspects of the Clinical Quality domain. However, this IG has been developed in coordination with the Clinical Quality Information Work Group sponsored project to build FHIR representations for Clinical Quality Measures. As a result of that coordination, many of the profiles defined in this implementation guide are shared by that effort. The scope of this implementation guide therefore broadly falls into two categories:</p>
 
 <ul>
 	<li><a href="cqif-common.html">Common aspects of clinical quality</a></li>
@@ -83,9 +88,9 @@
 
 <p>This material includes SNOMED Clinical Terms &reg; (SNOMED CT&reg;), which are used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT was originally created by The College of American Pathologists. "SNOMED &reg;" and "SNOMED CT &reg;" are registered trademarks of the IHTSDO.</p>
 
-<p>This material contains content from LOINC&reg; (http://loinc.org). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright (c) 1995-2011, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at http://loinc.org/terms-of-use.</p>
+<p>This material contains content from LOINC&reg; (<a href="http://loinc.org">http://loinc.org</a>). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright (c) 1995-2011, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at <a href="http://loinc.org/terms-of-use">http://loinc.org/terms-of-use</a>.</p>
 
-<p>This material contains content from the Unified Code for Units of Measure (UCUM) (http://unitsofmeasure.org). The UCUM specification is copyright (c) 1999-2013, Regenstrief Institute, Inc. and available at no cost under the license at http://unitsofmeasure.org/trac/wiki/TermsOfUse.</p>
+<p>This material contains content from the Unified Code for Units of Measure (UCUM) (<a href="http://unitsofmeasure.org">http://unitsofmeasure.org</a>). The UCUM specification is copyright (c) 1999-2013, Regenstrief Institute, Inc. and available at no cost under the license at <a href="http://unitsofmeasure.org/trac/wiki/TermsOfUse">http://unitsofmeasure.org/trac/wiki/TermsOfUse</a>.</p>
 
 <p>This material contains quality measure content developed by the National Committee for Quality Assurance (NCQA). The measure content is copyright (c) 2008-2013 National Committee for Quality Assurance and used in accordance with the NCQA license terms for non-commercial use.</p>
 

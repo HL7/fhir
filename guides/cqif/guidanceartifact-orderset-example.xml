@@ -154,7 +154,7 @@
 <!--     Content     -->
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
     <valueAttachment>
-      <contentType value="application/elm+text"/>
+      <contentType value="application/elm+xml"/>
       <url value="http://elmrepository.org/respiratory-protocol-logic.elm"/>
       <title value="Respiratory Protocol Logic"/>
     </valueAttachment>

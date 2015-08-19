@@ -45,6 +45,12 @@
 				<reference value="http://hl7.org/fhir/StructureDefinition/patient-gao-gao-patient"/>
 			</valueReference>
 		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-data#mustSupport">
+			<valueString value="gender"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-data#mustSupport">
+			<valueString value="birthDate"/>
+		</extension>
 	</extension>
 	<!-- Order Data Requirement -->
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-data">
