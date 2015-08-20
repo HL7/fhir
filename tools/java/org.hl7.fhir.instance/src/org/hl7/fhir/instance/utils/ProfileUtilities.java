@@ -581,7 +581,7 @@ public class ProfileUtilities {
     if (diff.size() != base.size())
     	return false;
     for (int i = 0; i < diff.size(); i++)
-    	if (diff.get(i).getValue().equals(base.get(i).getValue()))
+    	if (!diff.get(i).getValue().equals(base.get(i).getValue()))
     		return false;
     return true;
   }
