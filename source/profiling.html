@@ -251,7 +251,8 @@ see <a href="resource.html#ruleset">Restricted Understanding of Resources</a>.
 <p>
 A "constraint" Structure Definition specifies a set of restrictions on the content of a FHIR resource or data type.
 A given structure definition is identified by its canonical URL, which SHOULD be the URL at which it
-is published. The following kinds of statements can be made about how an element is used:
+is published. The following kinds of statements can be made about how an element is used, using a 
+series of <a href="elementdefinition.html">Element Definitions</a>:
 </p>
 <ul>
  <li>Restricting the cardinality of the element. e.g. the base might allow 0..*, and a particular application might support 1..2</li>
@@ -276,7 +277,7 @@ Note that structure definitions cannot 'remove' mappings and constraints that ar
 but for purposes of clarity, they can refrain from repeating them.
 </p>
 <p>
-A structure definition contains a linear list of element declarations. The inherent
+A structure definition contains a linear list of <a href="elementdefinition.html">element definitions</a>. The inherent
 nested structure of the elements is derived from the <i>path</i> value of each element.
 For instance, a sequence of the element paths like this:
 </p>
