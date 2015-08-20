@@ -92,97 +92,103 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-effectivePeriod}
 
  -- Row 12 -----------------------------------
+  Element = !Basic.extension
+  Profile Name = coverage
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-coverage}
+
+ -- Row 13 -----------------------------------
   Element = Basic.extension
   Profile Name = topic
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-topic}
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Basic.extension
   Profile Name = keyword
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-keyword}
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Basic.extension
   Profile Name = contributor
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-contributor}
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Basic.extension
   Profile Name = publisher
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-publisher}
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Basic.extension
   Profile Name = steward
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-steward}
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Basic.extension
   Profile Name = rightsDeclaration
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-rightsDeclaration}
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Basic.extension
   Profile Name = relatedResource
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource}
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Basic.extension
   Profile Name = model
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-model}
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Basic.extension
   Profile Name = library
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-library}
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Basic.extension
   Profile Name = codeSystem
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-codeSystem}
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Basic.extension
   Profile Name = valueSet
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-valueSet}
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Basic.extension
   Profile Name = parameter
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-parameter}
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Basic.extension
   Profile Name = data
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-data}
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Basic.extension
   Profile Name = content
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-content}
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Basic.id
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Basic.code
   Binding = KnowledgeModuleCode
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Basic.identifier
   Card. = 0..*
   Definition = A logical identifier for the knowledge module

@@ -65,7 +65,7 @@
 		<description value="GuidanceArtifact used to expose an existing HeD artifact as a knowledge module"/>
 		<sourceUri value="guidanceartifact-hedreference-example.xml"/>
 		<exampleFor>
-			<reference value="basic-guidanceartifact-cqif-profile-spreadsheet.xml"/>
+			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -74,7 +74,7 @@
 		<description value="GuidanceArtifact used to define an ECA Rule"/>
 		<sourceUri value="guidanceartifact-ecarule-example.xml"/>
 		<exampleFor>
-			<reference value="basic-guidanceartifact-cqif-profile-spreadsheet.xml"/>
+			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -83,7 +83,7 @@
 		<description value="GuidanceArtifact used to define an Order Set"/>
 		<sourceUri value="guidanceartifact-orderset-example.xml"/>
 		<exampleFor>
-			<reference value="basic-guidanceartifact-cqif-profile-spreadsheet.xml"/>
+			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -92,7 +92,7 @@
 		<description value="GuidanceArtifact used to define a Documentation Template"/>
 		<sourceUri value="guidanceartifact-documentationtemplate-example.xml"/>
 		<exampleFor>
-			<reference value="basic-guidanceartifact-cqif-profile-spreadsheet.xml"/>
+			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -101,7 +101,7 @@
 		<description value="Questionnaire used to define the questions involved in the PHQ-9 health questionnaire"/>
 		<sourceUri value="questionnaire-cqif-example.xml"/>
 		<exampleFor>
-			<reference value="questionnaire-cqif-profile-spreadsheet.xml"/>
+			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-questionnaire"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -110,7 +110,7 @@
       <description value="GuidanceRequest for a Guideline Appropriate Ordering module evaluation"/>
       <sourceUri value="guidance-operation-request-example-v2.xml"/>
       <exampleFor>
-        <reference value="basic-guidancerequest-cqif-profile-spreadsheet.xml"/>
+        <reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidancerequest"/>
       </exampleFor>
     </resource>
     <resource>
@@ -119,7 +119,7 @@
       <description value="GuidanceResponse for a Guideline Appropriate Ordering module evaluation"/>
       <sourceUri value="guidance-operation-response-example-v2.xml"/>
       <exampleFor>
-        <reference value="basic-guidanceresponse-cqif-profile-spreadsheet.xml"/>
+        <reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceresponse"/>
       </exampleFor>
     </resource> 
 	-->
@@ -202,6 +202,32 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
+		  <!--
+		  <page>
+			  <source value="guidanceartifact-hedreference-example.html"/>
+			  <name value="Guidance Artifact - HeD Reference Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  <page>
+			  <source value="guidanceartifact-ecarule-example.html"/>
+			  <name value="Guidance Artifact - ECA Rule Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  <page>
+			  <source value="guidanceartifact-documentationtemplate-example.html"/>
+			  <name value="Guidance Artifact - Documentation Template Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  <page>
+			  <source value="guidanceartifact-orderset-example.html"/>
+			  <name value="Guidance Artifact - Order Set Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  -->
       </page>
       <page>
 		  <source value="questionnaire-cqif.html"/>
@@ -226,6 +252,14 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
+		  <!--
+		  <page>
+			  <source value="guidance-operation-request-example-v2.html"/>
+			  <name value="Guidance Request Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  -->
       </page>
       <page>
 		  <source value="guidanceresponse-cqif.html"/>
@@ -238,12 +272,34 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
+		  <!--
+		  <page>
+			  <source value="guidance-operation-response-example-v2.html"/>
+			  <name value="Guidance Response Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  -->
       </page>
       <page>
 		  <source value="operation-guidancerequest-cqif-guidance.html"/>
 		  <name value="Guidance Operation"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
+		  <!--
+		  <page>
+			  <source value="guidance-operation-request-example-v2.html"/>
+			  <name value="Guidance Operation - Request Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  <page>
+			  <source value="guidance-operation-response-example-v2.html"/>
+			  <name value="Guidance Operation - Response Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  -->
       </page>
     </page>
     <page>

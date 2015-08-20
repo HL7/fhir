@@ -176,7 +176,7 @@
     </resource>
   </parameter>
   <parameter>
-    <name value="resource"/>
+    <name value="inputResource"/>
     <resource>
       <Order>
         <id value="order1"/>
