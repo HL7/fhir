@@ -10,46 +10,66 @@
 <body>
 [%file newnavbar%]
 
+
 <div class="col-9">
 <h2>Infrastructure Resources</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
  
 <table class="bare">
 
-[%res-category Support|Generally useful resources wherever resources are used%]
+[%res-category Information Tracking|Collecting information, and tracking change to the information %]
 <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-[%res-item Media%]
-[%res-item Other%]
+[%res-item Questionnaire%]
+[%res-item QuestionnaireResponse%]
 [%res-item Provenance%]
 [%res-item AuditEvent%]
-<tr><td><a href="http.html#binary">Binary</a></td><td></td><td>Pure Binary Content - opaque to FHIR</td></tr>
 
-[%res-category Documents &amp; Structure Handling|Supporting management of documents and other organizing structures %]
+[%res-category Documents &amp; Lists|Management of documents and other organizing structures %]
 <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-[%res-item List%]
 [%res-item Composition%]
 [%res-item DocumentReference%]
 [%res-item DocumentManifest%]
+[%res-item List%]
+
+[%res-category Structure |Resources that provide basic structural support for other usages %]
+<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+
+
+<tr><td><a href="http.html#binary">Binary</a></td><td></td><td>Pure Binary Content - opaque to FHIR</td></tr>
+[%res-item Basic%]
+[%res-item Binary%]
+[%res-item Bundle%]
+[%res-item Media%]
 
 [%res-category Exchange|Used to support the process of exchanging data%]
 <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
 [%res-item MessageHeader%]
 [%res-item OperationOutcome%]
+[%res-item Parameters%]
 [%res-item Subscription%]
-[%res-item Bundle%]
-[%res-item Binary%]
 
-[%res-category Conformance|Make statements about how resources are used%]
+[%res-category Terminology|The terminology sub-system%]
 <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-[%res-item ImplementationGuide%]
-[%res-item Conformance%]
+[%res-item ValueSet%]
+[%res-item ConceptMap%]
+[%res-item NamingSystem%]
+
+[%res-category Content|Specifying allowable content%]
+<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
 [%res-item StructureDefinition%]
 [%res-item DataElement%]
-[%res-item SearchParameter%]
+
+[%res-category Operations Control|Specifying the behaviour of operational systems%]
+<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+[%res-item Conformance%]
 [%res-item OperationDefinition%]
-[%res-item ValueSet%]
-[%res-item NamingSystem%]
-[%res-item ConceptMap%]
+[%res-item SearchParameter%]
+
+[%res-category Miscellaineous|Managing specification and testing%]
+<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+[%res-item ImplementationGuide%]
+[%res-item TestScript%]
+
 </table>
 
 <p>

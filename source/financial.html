@@ -10,6 +10,7 @@
 <body>
 [%file newnavbar%]
 
+
 <div class="col-9">
 <h2>Financial Resources</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
@@ -32,20 +33,20 @@
  
 <table class="grid">
  <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
- <tr><td>Eligibility Check</td><td>EligibilityRequest</td><td>EligibilityResponse</td></tr>
- <tr><td>Enrollment Update</td><td>EnrollmentRequest</td><td>EnrollmentResponse</td></tr>
- <tr><td>Claim</td><td>Claim (type={discipline}, use=complete)</td><td>ClaimResponse</td></tr>
- <tr><td>Pre-determination</td><td>Claim (type={discipline}, use=exploratory)</td><td>ClaimResponse</td></tr>
- <tr><td>Pre-Authorization</td><td>Claim (type={discipline}, use=proposed)</td><td>ClaimResponse</td></tr>
- <tr><td>Reversal</td><td>ProcessRequest (action=cancel, nullify=false)</td><td>ClaimResponse</td></tr>
- <tr><td>Nullify</td><td>ProcessRequest (action=cancel, nullify=true)</td><td>ClaimResponse</td></tr>
- <tr><td>Re-adjudication</td><td>ProcessRequest (action=reprocess)</td><td>ClaimResponse</td></tr>
- <tr><td>Status Check</td><td>ProcessRequest (action=status)</td><td>ProcessResponse</td></tr>
- <tr><td>Pended Check (Polling)</td><td>ProcessRequest (action=poll)</td><td>{Resource} or ProcessResponse</td></tr>
- <tr><td>Payment Notice</td><td>PaymentNotice</td><td>ProcessResponse</td></tr>
- <tr><td>Payment Reconciliation</td><td>ProcessRequest (action=poll, include=PaymentReconciliation)</td><td>PaymentReconciliation</td></tr>
- <tr><td>Send Attachments</td><td>DocumentManifest</td><td>ProcessResponse</td></tr>
- <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td>ProcessRequest (action=poll, include=ExplanationOfBenefit)</td><td>ExplanationOfBenefit</td></tr>
+ <tr><td>Eligibility Check</td><td><a href="eligibilityrequest.html">EligibilityRequest</a></td><td><a href="eligibilityresponse.html">EligibilityResponse</a></td></tr>
+ <tr><td>Enrollment Update</td><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td></tr>
+ <tr><td>Claim</td><td><a href="claim.html">Claim</a> (type={discipline}, use=complete)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Pre-determination</td><td><a href="claim.html">Claim</a> (type={discipline}, use=exploratory)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Pre-Authorization</td><td><a href="claim.html">Claim</a> (type={discipline}, use=proposed)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Reversal</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=false)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Nullify</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=true)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Re-adjudication</td><td><a href="processrequest.html">ProcessRequest</a> (action=reprocess)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Status Check</td><td><a href="processrequest.html">ProcessRequest</a> (action=status)</td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Pended Check (Polling)</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll)</td><td><a href="resourcelist.html">{Resource</a>} or <a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Payment Notice</td><td><a href="paymentnotice.html">PaymentNotice</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Payment Reconciliation</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="paymentreconciliation.html">PaymentReconciliation</a>)</td><td><a href="paymentreconciliation.html">PaymentReconciliation</a></td></tr>
+ <tr><td>Send Attachments</td><td><a href="documentmanifest.html">DocumentManifest</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="explanationofbenefit.html">ExplanationOfBenefit</a>)</td><td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td></tr>
 </table>
  <p>
  <b>{disipline}</b> means the type of claim: OralHealth, Vision, Pharmacy, Professional or Institutional.
@@ -57,15 +58,11 @@
 
 [%res-category Support|Administrative%]
 <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-[%res-item Contract%]
 [%res-item Coverage%]
 [%res-item EligibilityRequest%]
 [%res-item EligibilityResponse%]
 [%res-item EnrollmentRequest%]
 [%res-item EnrollmentResponse%]
-[%res-item ProcessRequest%]
-[%res-item ProcessResponse%]
-[%res-item DocumentManifest%]
 
 [%res-category Billing|Claims, processing and responses %]
 <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
