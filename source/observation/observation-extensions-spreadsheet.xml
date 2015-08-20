@@ -17,7 +17,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>2985</WindowHeight>
-  <WindowWidth>25260</WindowWidth>
+  <WindowWidth>20610</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>2970</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
@@ -4277,7 +4277,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Observation.referenceRange.high;Observation.referenceRange.low</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Observation.referenceRange</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Inclusive Flag</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4292,9 +4292,9 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Indicate if Reference range is closed (=&lt; =&gt;)</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Indicate if Reference range is closed (&lt;=, &gt;=)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If true then meaning for the referenceRange low bound is changed from greater than to greater than or equal to ( &gt;  to  =&gt;) and the meaning for the referenceRange high bound is changed from less than to less than or equal to ( &lt;  to  =&lt;) .</Data><NamedCell
+    <Cell><Data ss:Type="String">If true then meaning for the referenceRange low bound is changed from greater than to greater than or equal to (&gt;  to  &gt;=) and the meaning for the referenceRange high bound is changed from less than to less than or equal to  (&lt;  to  &lt;=) .</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4652,7 +4652,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4660,7 +4660,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4669,7 +4668,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>12</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
