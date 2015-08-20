@@ -83,6 +83,11 @@ public class XSDGenerator  {
 		  write(Config.FULL_LICENSE_CODE);
 		  write("\r\n");
 		  write("  Generated on "+genDate+" for FHIR v"+version+" \r\n");
+      write("\r\n");
+      write("  Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources\r\n");
+      write("  valid. Implementers will still need to be familiar with the content of the specification and with\r\n");
+      write("  any profiles that apply to the resources in order to make a conformant implementation.\r\n");
+      write("\r\n");
 		  write("-->\r\n");
 		  write("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://hl7.org/fhir\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" "+
 		      "targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\"1.0\">\r\n");
