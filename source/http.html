@@ -380,9 +380,13 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
   PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-The request body SHALL be a <a href="resource.html">Resource</a> with an id element that has an identical value to the [id] in the URL.
+The request body SHALL be a <a href="resource.html">Resource</a> with an id element 
+that has an identical value to the [id] in the URL. If no ID element is provided, or 
+the value is wrong, the server SHALL respond with a HTTP 400 error code, and SHOULD
+provide an operation outcome identifying the issue.
 If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
 ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
+
 If the server supports versions, it SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
 with the new correct values. Servers are allowed to review and alter the other metadata values, but SHOULD refrain
 from doing so (see <a href="resource.html#meta">metadata description</a>  for further information).
@@ -579,7 +583,9 @@ interaction instead. The <code>create</code> interaction is performed by an HTTP
 </pre>
 <p>
 The request body SHALL be a FHIR Resource without an id element (this is the
-only case where a resource exists without an id element).
+only case where a resource exists without an id element). If an ID element is provided, the 
+server SHALL respond with a HTTP 400 error code, and SHOULD provide an operation outcome 
+identifying the issue.
 If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
 ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
 The server SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
