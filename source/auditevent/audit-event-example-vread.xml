@@ -21,14 +21,18 @@
     <outcome value="0"/>
   </event>
   <participant>
-    <userId value="95"/>
+	<userId>
+		<value value="95"/>
+	</userId>
     <altId value="601847123"/>
     <name value="Grahame Grieve"/>
     <requestor value="true"/>
   </participant>
   <source>
     <site value="Cloud"/>
-    <identifier value="hl7connect.healthintersections.com.au"/>
+    <identifier>
+		<value value="hl7connect.healthintersections.com.au"/>
+	</identifier>
     <type>
       <system value="http://hl7.org/fhir/security-source-type"/>
       <code value="3"/>
@@ -39,7 +43,15 @@
     <reference>
       <reference value="Patient/example/_history/1"/>
     </reference>
-    <type value="2"/>
-    <lifecycle value="6"/>
+    <type>
+		<system value="http://hl7.org/fhir/object-type"/>
+		<code value="2"/>
+		<display value="System Object"/>
+	</type>
+    <lifecycle>
+		<system value="http://hl7.org/fhir/object-lifecycle"/>
+		<code value="6"/>
+		<display value="Access / Use"/>
+	</lifecycle>
   </object>
 </AuditEvent>

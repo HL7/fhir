@@ -21,18 +21,22 @@
     <outcome value="0"/>
   </event>
   <participant>
-    <userId value="95"/>
+   	<userId>
+		<value value="95"/>
+	</userId>
     <altId value="601847123"/>
     <name value="Grahame Grieve"/>
     <requestor value="true"/>
     <network>
-      <identifier value="127.0.0.1"/>
+      <address value="127.0.0.1"/>
       <type value="2"/>
     </network>
   </participant>
   <source>
     <site value="Cloud"/>
-    <identifier value="hl7connect.healthintersections.com.au"/>
+    <identifier>
+		<value value="hl7connect.healthintersections.com.au"/>
+	</identifier>
     <type>
       <system value="http://hl7.org/fhir/security-source-type"/>
       <code value="3"/>

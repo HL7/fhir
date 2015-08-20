@@ -35,21 +35,21 @@
   Binding = code list
   Reference = #object-type
   Definition = Code for the object type involved audited
-  Conformance = required
+  Conformance = extensible
 
  -- Row 6 -----------------------------------
   Binding Name = AuditEventObjectRole
   Binding = code list
   Reference = #object-role
   Definition = Code representing the role the Object played in the event
-  Conformance = required
+  Conformance = extensible
 
  -- Row 7 -----------------------------------
   Binding Name = AuditEventObjectLifecycle
   Binding = code list
   Reference = #object-lifecycle
   Definition = Identifier for the data life-cycle stage for the object
-  Conformance = required
+  Conformance = extensible
 
  -- Row 8 -----------------------------------
   Binding Name = AuditEventType
@@ -98,7 +98,7 @@
   Definition = Describes the identifier
 
  -- Row 15 -----------------------------------
-  Binding Name = AuditEventObjectSensitivity
+  Binding Name = !AuditEventObjectSensitivity
   Binding = value set
   Reference = valueset-audit-event-sensitivity
   Definition = The sensitivity of an object. May also encompass confidentiality and rudimentary access control (e.g. HCS)
@@ -469,14 +469,14 @@
  -- Row 2 -----------------------------------
   Id = 2
   Context = AuditEvent.object
-  English = Either an identifier or a reference, but not both
-  XPath = exists(f:identifier) != exists(f:reference)
+  English = Either an identifier or a reference, (or both)
+  XPath = not(exists(f:identifier)) or not(exists(f:reference))
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = AuditEvent.participant
-  English = Either a userId or a reference, but not both
-  XPath = exists(f:userId) != exists(f:reference)
+  English = Either a userId or a reference, (or both)
+  XPath = not(exists(f:userId)) or not(exists(f:reference))
 
 === Sheet Data Elements =====================================
 
@@ -502,6 +502,7 @@
  -- Row 3 -----------------------------------
   Element = AuditEvent.event.type
   Card. = 1..1
+  Summary = Y
   Type = CodeableConcept
   Binding = AuditEventType
   Short Label = Type/identifier of event
@@ -514,6 +515,7 @@
  -- Row 4 -----------------------------------
   Element = AuditEvent.event.subtype
   Card. = 0..*
+  Summary = Y
   Type = CodeableConcept
   Binding = AuditEventSubType
   Short Label = More specific type/id for the event
@@ -525,6 +527,7 @@
  -- Row 5 -----------------------------------
   Element = AuditEvent.event.action
   Card. = 0..1
+  Summary = Y
   Type = code
   Binding = AuditEventAction
   Short Label = Type of action performed during the event
@@ -536,6 +539,7 @@
  -- Row 6 -----------------------------------
   Element = AuditEvent.event.dateTime
   Card. = 1..1
+  Summary = Y
   Type = instant
   Short Label = Time when the event occurred on source
   Definition = The time when the event occurred on the source
@@ -547,6 +551,7 @@
  -- Row 7 -----------------------------------
   Element = AuditEvent.event.outcome
   Card. = 0..1
+  Summary = Y
   Type = code
   Binding = AuditEventOutcome
   Short Label = Whether the event succeeded or failed
@@ -558,6 +563,7 @@
  -- Row 8 -----------------------------------
   Element = AuditEvent.event.outcomeDesc
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Label = Description of the event outcome
   Definition = A free text description of the outcome of the event
@@ -567,6 +573,7 @@
  -- Row 9 -----------------------------------
   Element = AuditEvent.event.purposeOfEvent
   Card. = 0..*
+  Summary = Y
   Type = Coding
   Short Label = The purposeOfUse of the event
   Definition = The purposeOfUse (reason) that was used during the event being recorded.
@@ -596,6 +603,7 @@
  -- Row 12 -----------------------------------
   Element = AuditEvent.participant.reference
   Card. = 0..1
+  Summary = Y
   Inv. = 3
   Type = Reference(Practitioner|Organization|Device|Patient|RelatedPerson)
   Short Label = Direct reference to resource
@@ -606,8 +614,9 @@
  -- Row 13 -----------------------------------
   Element = AuditEvent.participant.userId
   Card. = 0..1
+  Summary = Y
   Inv. = 3
-  Type = string
+  Type = Identifier
   Short Label = Unique identifier for the user
   Definition = Unique identifier for the user actively participating in the event
   Requirements = This field ties an audit event to a specific user
@@ -682,7 +691,7 @@
   RIM Mapping = .player.description.reference
 
  -- Row 21 -----------------------------------
-  Element = AuditEvent.participant.network.identifier
+  Element = AuditEvent.participant.network.address
   Card. = 0..1
   Type = string
   Short Label = Identifier for the network access point of the user device
@@ -743,10 +752,11 @@
  -- Row 27 -----------------------------------
   Element = AuditEvent.source.identifier
   Card. = 1..1
-  Type = string
-  Short Label = The id of source where event originated
-  Definition = Identifier of the source where the event originated
-  Requirements = This field ties the event to a specific source system. It may be used to group events for analysis according to where the event occurred
+  Summary = Y
+  Type = Identifier
+  Short Label = The identity of source detecting the event
+  Definition = Identifier of the source where the event was detected
+  Requirements = This field ties the event to a specific source system. It may be used to group events for analysis according to where the event was detected
   DICOM Mapping = @AuditSourceId
   RIM Mapping = .id
 
@@ -775,6 +785,7 @@
  -- Row 30 -----------------------------------
   Element = AuditEvent.object.identifier
   Card. = 0..1
+  Summary = Y
   Inv. = 2
   Type = Identifier
   Short Label = Specific instance of object (e.g. versioned)
@@ -786,6 +797,7 @@
  -- Row 31 -----------------------------------
   Element = AuditEvent.object.reference
   Card. = 0..1
+  Summary = Y
   Inv. = 2
   Type = Reference(Any)
   Short Label = Specific instance of resource (e.g. versioned)
@@ -806,7 +818,7 @@
  -- Row 33 -----------------------------------
   Element = AuditEvent.object.type
   Card. = 0..1
-  Type = code
+  Type = Coding
   Binding = AuditEventObjectType
   Short Label = Type of object involved
   Definition = The type of the object that was involved in this audit event.
@@ -818,7 +830,7 @@
  -- Row 34 -----------------------------------
   Element = AuditEvent.object.role
   Card. = 0..1
-  Type = code
+  Type = Coding
   Binding = AuditEventObjectRole
   Short Label = What role the Object played
   Definition = Code representing the functional application role of Participant Object being audited
@@ -830,7 +842,7 @@
  -- Row 35 -----------------------------------
   Element = AuditEvent.object.lifecycle
   Card. = 0..1
-  Type = code
+  Type = Coding
   Binding = AuditEventObjectLifecycle
   Short Label = Life-cycle stage for the object
   Definition = Identifier for the data life-cycle stage for the participant object
@@ -840,20 +852,20 @@
   RIM Mapping = target of ObservationEvent[code=\"lifecycle\"].value
 
  -- Row 36 -----------------------------------
-  Element = AuditEvent.object.sensitivity
+  Element = AuditEvent.object.securityLabel
   Card. = 0..1
   Type = CodeableConcept
-  Binding = AuditEventObjectSensitivity
-  Short Label = Policy-defined sensitivity for the object
-  Definition = Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics
-  Requirements = This field identifies a specific instance of an object, such as a patient, to detect/track privacy and security issues
-  Comments = Values from ATNA are institution- and implementation-defined text strings (in sensitivity.text). HL7 defines confidentiality codes for records, documents etc. that can also be used here
+  Binding = SecurityLabels
+  Short Label = Security labels applied to the object
+  Definition = Denotes security labels for the identified object.
+  Requirements = This field identifies the security lables for a specific instance of an object, such as a patient, to detect/track privacy and security issues
   DICOM Mapping = @ParticipantObjectSensitivity
   RIM Mapping = .confidentialityCode
 
  -- Row 37 -----------------------------------
   Element = AuditEvent.object.name
   Card. = 0..1
+  Summary = Y
   Inv. = 1
   Type = string
   Short Label = Instance-specific descriptor for Object
@@ -874,6 +886,7 @@
  -- Row 39 -----------------------------------
   Element = AuditEvent.object.query
   Card. = 0..1
+  Summary = Y
   Inv. = 1
   Type = base64Binary
   Short Label = Actual query for object
@@ -941,7 +954,7 @@
  -- Row 7 -----------------------------------
   Name = address
   Type = token
-  Path = AuditEvent.participant.network.identifier
+  Path = AuditEvent.participant.network.address
 
  -- Row 8 -----------------------------------
   Name = source
