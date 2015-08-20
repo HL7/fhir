@@ -372,7 +372,7 @@ public class ProfileUtilities {
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing(); 
             if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()) || !discriiminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()) ||
                  !ruleMatches(dSlice.getRules(), bSlice.getRules()))
-              throw new Exception("Slicing rules on differential do not match those on base");
+              throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+")");
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
@@ -435,6 +435,32 @@ public class ProfileUtilities {
   }
 
   
+  private String summariseSlicing(ElementDefinitionSlicingComponent slice) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (StringType d : slice.getDiscriminator()) {
+      if (first)
+        first = false;
+      else
+        b.append(", ");
+      b.append(d);
+    }
+    b.append("(");
+    if (slice.hasOrdered())
+      b.append(slice.getOrderedElement().asStringValue());
+    b.append("/");
+    if (slice.hasRules())
+      b.append(slice.getRules().toCode());    
+    b.append(")");
+    if (slice.hasDescription()) {
+      b.append(" \"");
+      b.append(slice.getDescription());
+      b.append("\"");
+    }
+    return null;
+  }
+
+
   private void updateFromBase(ElementDefinition derived, ElementDefinition base) {
     if (base.hasBase()) {
       derived.getBase().setPath(base.getBase().getPath());  
