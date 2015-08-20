@@ -11,7 +11,7 @@ func (r *Reference) UnmarshalJSON(data []byte) (err error) {
 	ref := reference{}
 	if err = json.Unmarshal(data, &ref); err == nil {
 		splitURL := strings.Split(ref.Reference, "/")
-		if len(splitURL) >= 3 {
+		if len(splitURL) >= 2 {
 			ref.ReferencedID = splitURL[len(splitURL)-1]
 			ref.Type = splitURL[len(splitURL)-2]
 		}
