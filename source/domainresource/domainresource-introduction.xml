@@ -13,7 +13,7 @@ A domain resource is an resource that:
 </ul>
 
 <p>
-As an abstract resource, this resource never exists directly, only one of its descendent resources (<a href="resourcelist.html">list</a>).
+As an abstract resource, this resource never exists directly, only one of its descendent resources (<a href="resourcelist.html">see List of Resources</a>).
 </p>
 
 </div>
