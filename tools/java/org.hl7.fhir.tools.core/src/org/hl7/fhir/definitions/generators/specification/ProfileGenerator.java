@@ -578,7 +578,8 @@ public class ProfileGenerator {
     p.setBase("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", r.getName().toLowerCase()+".html");
-
+    p.setDisplay(pack.metadata("display"));
+    
     if (r.getFmmLevel() != null)
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
     if (r.getFmmLevelNoWarnings() != null)
@@ -670,6 +671,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", id);
     p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
+    p.setDisplay(pack.metadata("display"));
 
 
     ToolResourceUtilities.updateUsage(p, usage.getCode());

@@ -303,7 +303,7 @@
   Card. = 0..1
   Type = string
   Short Label = Concise definition for xml presentation
-  Definition = A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification)
+  Definition = A concise description of what this element means (e.g. for use in auto-generated summaries)
   Comments = May change the term to provide language more appropriate to the context of the profile or to reflect slicing
   RIM Mapping = N/A
 
@@ -466,7 +466,7 @@
   Inv. = 15
   Type = *
   Short Label = Specified value it missing from instance
-  Definition = The value that should be used if there is no value stated in the instance
+  Definition = The value that should be used if there is no value stated in the instance (e.g. \'if not otherwise specified, the abstract is false\')
   Comments = Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly
   RIM Mapping = N/A (MIF territory)
 
@@ -476,7 +476,7 @@
   Inv. = 15
   Type = markdown
   Short Label = Implicit meaning when this element is missing
-  Definition = The Implicit meaning that is to be understood when this element is missing
+  Definition = The Implicit meaning that is to be understood when this element is missing (e.g. \'when this element is missing, the period is ongoing\'
   Comments = Implicit meanings for missing values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. An implicit meaning for a missing value can never be changed, and specifying one has the consequence that constraining its use in profiles eliminates use cases as possibilities, not merely moving them out of scope
   RIM Mapping = N/A (MIF territory)
 

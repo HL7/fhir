@@ -61,6 +61,7 @@ public class ResourceDefn  {
   private String fmmLevel;
   private String fmmLevelNoWarnings;
   private String proposedOrder;
+  private String display;
 
   private List<InheritedMapping> inheritedMappings = new ArrayList<InheritedMapping>();
 
@@ -271,6 +272,14 @@ public class ResourceDefn  {
 
   public void setProposedOrder(String proposedOrder) {
     this.proposedOrder = proposedOrder;
+  }
+
+  public String getDisplay() {
+    return display;
+  }
+
+  public void setDisplay(String display) {
+    this.display = display;
   }
   
   

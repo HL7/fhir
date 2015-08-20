@@ -14,6 +14,8 @@ import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 
 public class TableGenerator extends BaseGenerator {
+  private final boolean ADD_REFERENCE_TO_TABLE = true;
+  
   protected String dest; 
   protected String pageName;
   protected boolean inlineGraphics;
@@ -71,6 +73,10 @@ public class TableGenerator extends BaseGenerator {
         } else if (t.equals("Reference")) {
           row.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
           c = gen.new Cell();
+          if (ADD_REFERENCE_TO_TABLE) {
+          c.getPieces().add(gen.new Piece(prefix+"references.html", "Reference", null));
+          c.getPieces().add(gen.new Piece(null, "(", null));
+          }
           boolean first = true;
           for (String rt : e.getTypes().get(0).getParams()) {
             if (!first)
@@ -81,6 +87,8 @@ public class TableGenerator extends BaseGenerator {
               c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
             first = false;
           }
+          if (ADD_REFERENCE_TO_TABLE) 
+            c.getPieces().add(gen.new Piece(null, ")", null));
         } else if (definitions.getPrimitives().containsKey(t)) {
           row.setIcon("icon_primitive.png", HeirarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
           c = gen.new Cell(null, prefix+"datatypes.html#"+t, t, null, null);
@@ -144,6 +152,10 @@ public class TableGenerator extends BaseGenerator {
           choicerow.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
           Cell c = gen.new Cell();
           choicerow.getCells().add(c);
+          if (ADD_REFERENCE_TO_TABLE) {
+            c.getPieces().add(gen.new Piece(prefix+"references.html", "Reference", null));
+            c.getPieces().add(gen.new Piece(null, "(", null));
+          }
           boolean first = true;
           for (String rt : tr.getParams()) {
             if (!first)
@@ -151,6 +163,9 @@ public class TableGenerator extends BaseGenerator {
             c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
             first = false;
           }
+          if (ADD_REFERENCE_TO_TABLE) 
+            c.getPieces().add(gen.new Piece(null, ")", null));
+          
         } else if (definitions.getPrimitives().containsKey(t)) {
           choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]",  Utilities.capitalize(t)), definitions.getPrimitives().get(t).getDefinition(), null));
           choicerow.getCells().add(gen.new Cell());

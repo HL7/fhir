@@ -67,6 +67,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  *
  */
 public class ProfileUtilities {
+  private final boolean ADD_REFERENCE_TO_TABLE = true;
 
 
   private static final String ROW_COLOR_ERROR = "#ffcccc";
@@ -980,18 +981,34 @@ public class ProfileUtilities {
     boolean first = true;
     Element source = e.getType().get(0); // either all types are the same, or we don't consider any of them the same
     
+    boolean allReference = ADD_REFERENCE_TO_TABLE && !e.getType().isEmpty();
+    for (TypeRefComponent t : e.getType()) {
+      if (!(t.getCode().equals("Reference") && t.hasProfile()))
+        allReference = false;
+    }
+    if (allReference) {
+      c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
+      c.getPieces().add(gen.new Piece(null, "(", null));
+    }
     TypeRefComponent tl = null;
     for (TypeRefComponent t : e.getType()) {
       if (first) 
         first = false; 
-      else 
+      else if (allReference)
+        c.addPiece(checkForNoChange(tl, gen.new Piece(null," | ", null)));
+      else
         c.addPiece(checkForNoChange(tl, gen.new Piece(null,", ", null)));
       tl = t;
       if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.hasProfile())) {
+        if (ADD_REFERENCE_TO_TABLE && !allReference) {
+          c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
+          c.getPieces().add(gen.new Piece(null, "(", null));
+        }
         if (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           StructureDefinition sd = context.getProfiles().get(t.getProfile().get(0).getValue());
           if (sd != null) {
-            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+sd.getUserString("path"), sd.getName(), null)));
+            String disp = sd.hasDisplay() ? sd.getDisplay() : sd.getName();
+            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+sd.getUserString("path"), disp, null)));
           } else {
             String rn = t.getProfile().get(0).getValue().substring(40);
             c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
@@ -1002,6 +1019,9 @@ public class ProfileUtilities {
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().get(0).getValue().substring(1).toLowerCase()+".html", t.getProfile().get(0).getValue(), null)));
         else
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getProfile().get(0).getValue(), t.getProfile().get(0).getValue(), null)));
+        if (ADD_REFERENCE_TO_TABLE && !allReference) {
+          c.getPieces().add(gen.new Piece(null, ")", null));
+        }
       } else if (t.hasProfile()) { // a profiled type
         String ref;
         ref = pkp.getLinkForProfile(profile, t.getProfile().get(0).getValue());
@@ -1014,6 +1034,9 @@ public class ProfileUtilities {
         c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(t.getCode()), t.getCode(), null)));
       } else
         c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
+    }
+    if (allReference) {
+      c.getPieces().add(gen.new Piece(null, ")", null));
     }
     return c;
   }
