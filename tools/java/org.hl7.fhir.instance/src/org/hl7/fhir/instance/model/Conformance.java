@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 20, 2015 17:24+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1847,27 +1847,34 @@ public class Conformance extends DomainResource implements IBaseConformance {
         protected Enumeration<TransactionMode> transactionMode;
 
         /**
+         * Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
+         */
+        @Child(name = "searchParam", type = {ConformanceRestResourceSearchParamComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Search params for searching all resources", formalDefinition="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation." )
+        protected List<ConformanceRestResourceSearchParamComponent> searchParam;
+
+        /**
          * Definition of an operation or a named query and with its parameters and their meaning and type.
          */
-        @Child(name = "operation", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "operation", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Definition of an operation or a custom query", formalDefinition="Definition of an operation or a named query and with its parameters and their meaning and type." )
         protected List<ConformanceRestOperationComponent> operation;
 
         /**
          * A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.
          */
-        @Child(name = "documentMailbox", type = {UriType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "documentMailbox", type = {UriType.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="How documents are accepted in /Mailbox", formalDefinition="A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier \"http://hl7.org/fhir/documents/mailbox\". Other specifications can declare their own identifier for this purpose." )
         protected List<UriType> documentMailbox;
 
         /**
          * An absolute URI which is a reference to the definition of a compartment hosted by the system.
          */
-        @Child(name = "compartment", type = {UriType.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "compartment", type = {UriType.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Compartments served/used by system", formalDefinition="An absolute URI which is a reference to the definition of a compartment hosted by the system." )
         protected List<UriType> compartment;
 
-        private static final long serialVersionUID = 471286912L;
+        private static final long serialVersionUID = -881838536L;
 
     /*
      * Constructor
@@ -2132,6 +2139,46 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
+         * @return {@link #searchParam} (Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
+         */
+        public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
+          if (this.searchParam == null)
+            this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+          return this.searchParam;
+        }
+
+        public boolean hasSearchParam() { 
+          if (this.searchParam == null)
+            return false;
+          for (ConformanceRestResourceSearchParamComponent item : this.searchParam)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #searchParam} (Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
+         */
+    // syntactic sugar
+        public ConformanceRestResourceSearchParamComponent addSearchParam() { //3
+          ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
+          if (this.searchParam == null)
+            this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+          this.searchParam.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public ConformanceRestComponent addSearchParam(ConformanceRestResourceSearchParamComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.searchParam == null)
+            this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+          this.searchParam.add(t);
+          return this;
+        }
+
+        /**
          * @return {@link #operation} (Definition of an operation or a named query and with its parameters and their meaning and type.)
          */
         public List<ConformanceRestOperationComponent> getOperation() { 
@@ -2287,6 +2334,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
           childrenList.add(new Property("transactionMode", "code", "A code that indicates how transactions are supported.", 0, java.lang.Integer.MAX_VALUE, transactionMode));
+          childrenList.add(new Property("searchParam", "@Conformance.rest.resource.searchParam", "Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
           childrenList.add(new Property("operation", "", "Definition of an operation or a named query and with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
           childrenList.add(new Property("documentMailbox", "uri", "A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier \"http://hl7.org/fhir/documents/mailbox\". Other specifications can declare their own identifier for this purpose.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
           childrenList.add(new Property("compartment", "uri", "An absolute URI which is a reference to the definition of a compartment hosted by the system.", 0, java.lang.Integer.MAX_VALUE, compartment));
@@ -2309,6 +2357,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
             dst.interaction.add(i.copy());
         };
         dst.transactionMode = transactionMode == null ? null : transactionMode.copy();
+        if (searchParam != null) {
+          dst.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+          for (ConformanceRestResourceSearchParamComponent i : searchParam)
+            dst.searchParam.add(i.copy());
+        };
         if (operation != null) {
           dst.operation = new ArrayList<ConformanceRestOperationComponent>();
           for (ConformanceRestOperationComponent i : operation)
@@ -2336,7 +2389,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         ConformanceRestComponent o = (ConformanceRestComponent) other;
         return compareDeep(mode, o.mode, true) && compareDeep(documentation, o.documentation, true) && compareDeep(security, o.security, true)
            && compareDeep(resource, o.resource, true) && compareDeep(interaction, o.interaction, true) && compareDeep(transactionMode, o.transactionMode, true)
-           && compareDeep(operation, o.operation, true) && compareDeep(documentMailbox, o.documentMailbox, true)
+           && compareDeep(searchParam, o.searchParam, true) && compareDeep(operation, o.operation, true) && compareDeep(documentMailbox, o.documentMailbox, true)
            && compareDeep(compartment, o.compartment, true);
       }
 
@@ -2355,9 +2408,9 @@ public class Conformance extends DomainResource implements IBaseConformance {
       public boolean isEmpty() {
         return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
            && (security == null || security.isEmpty()) && (resource == null || resource.isEmpty()) && (interaction == null || interaction.isEmpty())
-           && (transactionMode == null || transactionMode.isEmpty()) && (operation == null || operation.isEmpty())
-           && (documentMailbox == null || documentMailbox.isEmpty()) && (compartment == null || compartment.isEmpty())
-          ;
+           && (transactionMode == null || transactionMode.isEmpty()) && (searchParam == null || searchParam.isEmpty())
+           && (operation == null || operation.isEmpty()) && (documentMailbox == null || documentMailbox.isEmpty())
+           && (compartment == null || compartment.isEmpty());
       }
 
   }

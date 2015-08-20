@@ -1081,9 +1081,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     for (ElementInfo ei : children) 
       if (ei.path.endsWith(".extension")) 
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\""+ei.element.getAttribute("url")+"\")");
-      else
-        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice");
-    
+      else 
+        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition != null) || (!ei.element.isXml() && ei.element.getName().equals("fhir_comments")), "Element is unknown or does not match any slice");
+     
     // 3. report any definitions that have a cardinality problem
     for (ElementDefinition ed : childDefinitions) {
     	if (ed.getRepresentation().isEmpty()) { // ignore xml attributes

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 20, 2015 17:24+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -3613,6 +3613,12 @@ public class JsonParser extends JsonParserBase {
       res.setTransactionModeElement(parseEnumeration(json.get("transactionMode").getAsString(), Conformance.TransactionMode.NULL, new Conformance.TransactionModeEnumFactory()));
     if (json.has("_transactionMode"))
       parseElementProperties(json.getAsJsonObject("_transactionMode"), res.getTransactionModeElement());
+    if (json.has("searchParam")) {
+      JsonArray array = json.getAsJsonArray("searchParam");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSearchParam().add(parseConformanceConformanceRestResourceSearchParamComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
     if (json.has("operation")) {
       JsonArray array = json.getAsJsonArray("operation");
       for (int i = 0; i < array.size(); i++) {
@@ -16269,6 +16275,12 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("transactionMode", element.getTransactionModeElement(), new Conformance.TransactionModeEnumFactory(), false);
         composeEnumerationExtras("transactionMode", element.getTransactionModeElement(), new Conformance.TransactionModeEnumFactory(), false);
       }
+      if (element.hasSearchParam()) {
+        openArray("searchParam");
+        for (Conformance.ConformanceRestResourceSearchParamComponent e : element.getSearchParam()) 
+          composeConformanceConformanceRestResourceSearchParamComponent(null, e);
+        closeArray();
+      };
       if (element.hasOperation()) {
         openArray("operation");
         for (Conformance.ConformanceRestOperationComponent e : element.getOperation()) 

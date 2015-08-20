@@ -263,7 +263,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
   }
 
 	protected boolean makeComments(Element element) {
-		return !handleComments && (style != OutputStyle.CANONICAL) && !element.getFormatCommentsPre().isEmpty() && !element.getFormatCommentsPost().isEmpty();
+		return handleComments && (style != OutputStyle.CANONICAL) && !(element.getFormatCommentsPre().isEmpty() && element.getFormatCommentsPost().isEmpty());
 	}
 	
   protected void composeDomainResource(String name, DomainResource e) throws Exception {

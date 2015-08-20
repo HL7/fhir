@@ -302,6 +302,7 @@
   Binding = SearchEntryMode
   Short Label = match | include | outcome - why this is in the result set
   Definition = Why this entry is in the result set - whether it\'s included as a match or because of an _include requirement
+  Comments = There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, \'match\' takes precedence
 
  -- Row 13 -----------------------------------
   Element = Bundle.entry.search.score

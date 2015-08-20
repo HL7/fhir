@@ -29,14 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 20, 2015 17:24+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Title;
 import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;

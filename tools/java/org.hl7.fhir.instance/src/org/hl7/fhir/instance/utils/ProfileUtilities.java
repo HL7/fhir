@@ -819,7 +819,6 @@ public class ProfileUtilities {
                 b.append(td.getCode());
                 if (td.getCode().equals(ts.getCode()) || td.getCode().equals("Extension") ||
                     td.getCode().equals("Element") || td.getCode().equals("*") ||
-                    // ts.getCode().equals("Element") || // <-- this one is a special case for extensions. review in the future
                     ((td.getCode().equals("Resource") || (td.getCode().equals("DomainResource")) && pkp.isResource(ts.getCode()))))
                   ok = true;
               }

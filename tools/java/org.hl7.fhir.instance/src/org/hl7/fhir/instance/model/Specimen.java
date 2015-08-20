@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 17, 2015 16:15+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 20, 2015 17:24+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1426,6 +1426,8 @@ public class Specimen extends DomainResource {
 
   @SearchParamDefinition(name="collector", path="Specimen.collection.collector", description="Who collected the specimen", type="reference" )
   public static final String SP_COLLECTOR = "collector";
+  @SearchParamDefinition(name="container-id", path="Specimen.container.identifier", description="The unique identifier associated with the specimen container", type="token" )
+  public static final String SP_CONTAINERID = "container-id";
   @SearchParamDefinition(name="patient", path="Specimen.subject", description="The patient the specimen comes from", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="bodysite", path="Specimen.collection.bodySite", description="The code for the body site from where the specimen originated", type="token" )
@@ -1436,8 +1438,6 @@ public class Specimen extends DomainResource {
   public static final String SP_COLLECTED = "collected";
   @SearchParamDefinition(name="subject", path="Specimen.subject", description="The subject of the specimen", type="reference" )
   public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="containerid", path="Specimen.container.identifier", description="The unique identifier associated with the specimen container", type="token" )
-  public static final String SP_CONTAINERID = "containerid";
   @SearchParamDefinition(name="accession", path="Specimen.accessionIdentifier", description="The accession number associated with the specimen", type="token" )
   public static final String SP_ACCESSION = "accession";
   @SearchParamDefinition(name="parent", path="Specimen.parent", description="The parent of the specimen", type="reference" )
