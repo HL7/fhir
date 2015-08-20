@@ -338,7 +338,10 @@ in it because of the existence of the modifier extension.
 <p><b>#2</b>: 
 This means that implementations are not inherently required to "support" 
 a modifier extension in any meaningful way - they may achieve this 
-understanding by rejecting instances that contain this extension.
+understanding by rejecting instances that contain this extension
+(a server, for instance, could return a HTTP 422 status code with
+an <a href="operationoutcome.html">OperationOutcome</a> if a client
+PUTs or POSTs a modifier extension it does not know.
 Applications may also be able to ignore a modifier extension if they 
 can know that this is safe to do in its own context, though this would not usually be the case.
 </p>
