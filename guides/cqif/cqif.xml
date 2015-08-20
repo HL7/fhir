@@ -58,7 +58,6 @@
 			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"/>
 		</exampleFor>
     </resource>
-	<!--    
 	<resource>
 		<purpose value="example"/>
 		<name value="Guidance Artifact - HeD Reference"/>
@@ -79,18 +78,18 @@
     </resource>
     <resource>
 		<purpose value="example"/>
-		<name value="Guidance Artifact - Order Set"/>
-		<description value="GuidanceArtifact used to define an Order Set"/>
-		<sourceUri value="guidanceartifact-orderset-example.xml"/>
+		<name value="Guidance Artifact - Documentation Template"/>
+		<description value="GuidanceArtifact used to define a Documentation Template"/>
+		<sourceUri value="guidanceartifact-documentationtemplate-example.xml"/>
 		<exampleFor>
 			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
 		<purpose value="example"/>
-		<name value="Guidance Artifact - Documentation Template"/>
-		<description value="GuidanceArtifact used to define a Documentation Template"/>
-		<sourceUri value="guidanceartifact-documentationtemplate-example.xml"/>
+		<name value="Guidance Artifact - Order Set"/>
+		<description value="GuidanceArtifact used to define an Order Set"/>
+		<sourceUri value="guidanceartifact-orderset-example.xml"/>
 		<exampleFor>
 			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
@@ -104,6 +103,7 @@
 			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-questionnaire"/>
 		</exampleFor>
     </resource>
+	<!--    
     <resource>
       <purpose value="example"/>
       <name value="Guidance Request"/>
@@ -202,7 +202,6 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-		  <!--
 		  <page>
 			  <source value="guidanceartifact-hedreference-example.html"/>
 			  <name value="Guidance Artifact - HeD Reference Example"/>
@@ -227,7 +226,6 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-		  -->
       </page>
       <page>
 		  <source value="questionnaire-cqif.html"/>
@@ -237,6 +235,12 @@
 		  <page>
 			  <source value="cqif-questionnaire.html"/>
 			  <name value="Questionnaire - Details"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  <page>
+			  <source value="questionnaire-cqif-example.html"/>
+			  <name value="Questionnaire - Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
@@ -255,7 +259,7 @@
 		  <!--
 		  <page>
 			  <source value="guidance-operation-request-example-v2.html"/>
-			  <name value="Guidance Request Example"/>
+			  <name value="Guidance Request - Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
@@ -275,7 +279,7 @@
 		  <!--
 		  <page>
 			  <source value="guidance-operation-response-example-v2.html"/>
-			  <name value="Guidance Response Example"/>
+			  <name value="Guidance Response - Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>

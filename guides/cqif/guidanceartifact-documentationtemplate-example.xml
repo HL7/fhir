@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<Basic xmlns="http://hl7.org/fhir">
 	<!-- This example demonstrates the GuidanceArtifact structure used to represent a Document Template artifact  -->
 	<id value="guidanceartifact-documentationtemplate-example"/>
 	<meta>
-		<!-- TODO: Should be able to claim conformance with only the guidance artifact, need derived profiles to work first -->
-		<profile value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"/>
+	<!-- TODO: Derived profile is being built, but attempting to validate with it now results in validation errors about matching multiple slices  -->
 		<profile value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
 	</meta>
 	<text>
@@ -12,22 +11,31 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Patient Health Questionnaire (PHQ-9)</div>
 	</text>
 	<!-- Version -->
+	<!-- ValidationFailure: DerivedProfileElement
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleVersion">
 		<valueString value="1.0.0"/>
 	</extension>
+	-->
 	<!-- Title -->
+	<!-- ValidationFailure: DerivedProfileElement
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-title">
 		<valueCode value="Patient Health Questionnaire (PHQ-9)"/>
 	</extension>
+	-->
 	<!-- Description -->
+	<!-- ValidationFailure: DerivedProfileElement
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-description">
 		<valueString value="Patient Depression Assessment (PHQ-9)"/>
 	</extension>
+	-->
 	<!-- PublicationDate -->
+	<!-- ValidationFailure: DerivedProfileElement
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-publicationDate">
 		<valueDate value="2015-07-22"/>
 	</extension>
+	-->
 	<!-- Topic -->
+	<!-- ValidationFailure: DerivedProfileElement
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-topic">
 		<valueCodeableConcept>
 			<coding>
@@ -46,14 +54,18 @@
 			</coding>
 		</valueCodeableConcept>
 	</extension>
+	-->
 	<!-- Keyword -->
+	<!-- ValidationFailure: DerivedProfileElement
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-keyword">
 		<valueString value="Patient Health Questionnaire"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-keyword">
 		<valueString value="Depression Assessment"/>
 	</extension>
+	-->
 	<!-- RelatedResource -->
+	<!-- ValidationFailure: DerivedProfileElement
 	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource">
 		<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource#type">
 			<valueCode value="derived-from"/>
@@ -89,6 +101,7 @@
 			<reference value="Questionnaire/phq-9"/>
 		</valueReference>
 	</extension>
+	-->
 	<!-- Status -->
 	<modifierExtension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleStatus">
 		<valueCode value="draft"/>

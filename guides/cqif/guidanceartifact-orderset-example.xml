@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<Basic xmlns="http://hl7.org/fhir">
+<Basic xmlns="http://hl7.org/fhir"> <!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">-->
 <!--     This example demonstrates the GuidanceArtifact structure used to represent an Order Set     -->
   <id value="guidanceartifact-orderset-example"/>
   <meta>
   <!--     TODO: Should be able to claim conformance with only the guidance artifact, need derived profiles to work first     -->
-    <profile value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
   </meta>
   <text>
@@ -32,44 +30,65 @@
   <contained>
     <ProcedureRequest>
       <id value="ventilatorSettings"/>
+      <subject>
+		  <display value="placeholder"/>
+      </subject>
       <type>
+	    <!-- Validation Failure: term server connect denied?
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="410210009"/>
           <display value="Ventilator care management (procedure)"/>
         </coding>
+        -->
+        <text value="Ventilator care management (procedure)"/>
       </type>
     </ProcedureRequest>
   </contained>
   <contained>
     <ProcedureRequest>
       <id value="pulseOximetry"/>
+      <subject>
+		  <display value="placeholder"/>
+      </subject>
       <type>
+        <!-- Validation Failure: term server connect denied?
         <coding>
           <system value="http://snomed.info/sct"/>
-          <code value="410210009"/>
-          <display value="Ventilator care management (procedure)"/>
+          <code value="252465000"/>
+          <display value="Pulse oximetry (procedure)"/>
         </coding>
+        -->
+        <text value="Pulse oximetry (procedure)"/>
       </type>
     </ProcedureRequest>
   </contained>
 <!--     Version     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleVersion">
     <valueString value="2.7.0"/>
   </extension>
+  -->
 <!--     Title     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-title">
     <valueCode value="Respiratory Protocol"/>
   </extension>
+  -->
 <!--     Description     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-description">
     <valueString value="Respiratory Protocol"/>
   </extension>
+  -->
 <!--     PublicationDate     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-publicationDate">
     <valueDate value="2015-07-22"/>
   </extension>
+  -->
 <!--     Topic     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-topic">
     <valueCodeableConcept>
       <coding>
@@ -133,7 +152,9 @@
       </coding>
     </valueCodeableConcept>
   </extension>
+  -->
 <!--     Contributor     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-contributor">
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-contributor#type">
       <valueCode value="author"/>
@@ -145,13 +166,17 @@
       </valueReference>
     </extension>
   </extension>
+  -->
 <!--     Publisher     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-publisher">
     <valueReference>
       <reference value="#organization1"/>
     </valueReference>
   </extension>
+  -->
 <!--     Content     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
     <valueAttachment>
       <contentType value="application/x-elm+xml"/>
@@ -159,8 +184,10 @@
       <title value="Respiratory Protocol Logic"/>
     </valueAttachment>
   </extension>
+  -->
 <!--     Actions     -->
 <!--     Respiratory Order     -->
+  <!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#title">
       <valueString value="Respiratory Order"/>
@@ -174,10 +201,14 @@
         </coding>
       </valueCodeableConcept>
     </extension>
+  -->
   <!--     Ventilator Group     -->
+  <!-- ValidationFailure: DerivedProfileElement
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
       <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
+  -->
       <!--     Ventilator Settings     -->
+  <!-- ValidationFailure: DerivedProfileElement
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
           <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#textEquivalent">
@@ -198,10 +229,14 @@
             </extension>
           </extension>
         </extension>
+  -->
       <!--     Oxygenation assessment     -->
+  <!-- ValidationFailure: DerivedProfileElement
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
           <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
+  -->
           <!--     Pulse oximetry     -->
+  <!-- ValidationFailure: DerivedProfileElement
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#textEquivalent">
@@ -214,7 +249,9 @@
                 </extension>
               </extension>
             </extension>
+  -->
           <!--     Blood gas, arterial     -->
+  <!-- ValidationFailure: DerivedProfileElement
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#textEquivalent">
@@ -231,13 +268,19 @@
         </extension>
       </extension>
     </extension>
+  -->
   <!--     Supplemental oxygen group     -->
+  <!-- ValidationFailure: DerivedProfileElement
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
       <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
+  -->
       <!--     Supplemental oxygen     -->
+  <!-- ValidationFailure: DerivedProfileElement
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
           <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
+  -->
           <!--     Oxygen via nasal cannula     -->
+  <!-- ValidationFailure: DerivedProfileElement
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action">
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#textEquivalent">
@@ -250,15 +293,21 @@
                 </extension>
               </extension>
             </extension>
+  -->
           <!--     Oxygen via nonrebreather     -->
+  <!-- ValidationFailure: DerivedProfileElement
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action"/>
             </extension>
+  -->
           <!--     Oxygen via simple face mask     -->
+  <!-- ValidationFailure: DerivedProfileElement
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action"/>
             </extension>
+  -->
           <!--     Oxygen via venturi mask     -->
+  <!-- ValidationFailure: DerivedProfileElement
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action#actions">
               <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-action"/>
             </extension>
@@ -267,6 +316,7 @@
       </extension>
     </extension>
   </extension>
+-->
 <!--     Status     -->
   <modifierExtension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleStatus">
     <valueCode value="draft"/>

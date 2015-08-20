@@ -39,7 +39,7 @@
  -- Row 1 -----------------------------------
   Element = Basic
   Profile Name = CQIF-GuidanceArtifact
-  Type = DomainResource
+  Type = Basic{http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule}
   Short Label = A decision support-specific knowledge module
   Definition = A guidance artifact represents the decision support-specific aspects of a knowledge module through the content element. The content may refer to an existing artifact in another format, or it may refer to other FHIR resources that provide the structure for the content of the knowledge artifact
 

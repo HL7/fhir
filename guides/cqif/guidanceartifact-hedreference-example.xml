@@ -4,8 +4,7 @@
 <!--     This example demonstrates the GuidanceArtifact structure used to reference an existing HeD (CDS KAS) artifact     -->
   <id value="guidanceartifact-hedreference-example"/>
   <meta>
-  <!--     TODO: Should be able to claim conformance with only the guidance artifact, need derived profiles to work first     -->
-    <profile value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"/>
+	<!-- TODO: Derived profile is being built, but attempting to validate with it now results in validation errors about matching multiple slices  -->
     <profile value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
   </meta>
   <text>
@@ -29,22 +28,31 @@
     </Organization>
   </contained>
 <!--     Version     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleVersion">
     <valueString value="1.0.0"/>
   </extension>
+-->
 <!--     Title     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-title">
     <valueCode value="Patient Health Questionnaire (PHQ-9)"/>
   </extension>
+-->
 <!--     Description     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-description">
     <valueString value="Patient Depression Assessment (PHQ-9)"/>
   </extension>
+-->
 <!--     PublicationDate     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-publicationDate">
     <valueDate value="2015-07-22"/>
   </extension>
+-->
 <!--     Topic     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-topic">
     <valueCodeableConcept>
       <coding>
@@ -63,14 +71,18 @@
       </coding>
     </valueCodeableConcept>
   </extension>
+-->
 <!--     Keyword     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-keyword">
     <valueString value="Patient Health Questionnaire"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-keyword">
     <valueString value="Depression Assessment"/>
   </extension>
+-->
 <!--     Contributor     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-contributor">
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-contributor#type">
       <valueCode value="author"/>
@@ -82,13 +94,17 @@
       </valueReference>
     </extension>
   </extension>
+-->
 <!--     Publisher     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-publisher">
     <valueReference>
       <reference value="Organization/publisher"/>
     </valueReference>
   </extension>
+-->
 <!--     RelatedResource     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource">
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource#type">
       <valueCode value="derived-from"/>
@@ -119,7 +135,9 @@
       <valueString value="Kurt Kroenke, Robert L Spitzer, Janet B W Williams. The PHQ-9: Validity of a Brief Depression Severity Measure. J Gen Intern Med. 2001 September; 16(9): 606–613. doi: 10.1046/j.1525-1497.2001.016009606.x. PMCID: PMC1495268"/>
     </extension>
   </extension>
+-->
 <!--     Content     -->
+<!-- ValidationFailure: DerivedProfileElement
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
     <valueAttachment>
       <contentType value="application/x-hed+xml"/>
@@ -127,6 +145,7 @@
       <title value="PHQ-9 Patient Health Questionnaire"/>
     </valueAttachment>
   </extension>
+-->
 <!--     Status     -->
   <modifierExtension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-moduleStatus">
     <valueCode value="draft"/>

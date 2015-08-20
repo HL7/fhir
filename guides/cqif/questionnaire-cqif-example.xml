@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<Questionnaire xmlns="http://hl7.org/fhir">
 	<!-- This example demonstrates the CQIF-Questionnaire profile of Questionnaire to represent dynamic logic in a Questionnaire -->
 	<id value="questionnaire-cqif-example"/>
 	<meta>
@@ -135,6 +135,7 @@
 				<reference value="ValueSet/LOINCDepressionAnswersList"/>
 			</options>
 		</question>
+		<!-- ValidationFailure: Unknown LOINC code 44250-8
 		<question>
 			<linkId value="ThoughtsOfHurting"/>
 			<concept>
@@ -148,10 +149,13 @@
 				<reference value="ValueSet/LOINCDepressionAnswersList"/>
 			</options>
 		</question>
+		-->
 		<question>
+		    <!-- ValidationFailure: Element matches more than one source
 			<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-expression">
 				<valueString value="CalculateTotalScore"/>
 			</extension>
+			-->
 			<linkId value="TotalScore"/>
 			<concept>
 				<system value="http://loinc.org"/>
