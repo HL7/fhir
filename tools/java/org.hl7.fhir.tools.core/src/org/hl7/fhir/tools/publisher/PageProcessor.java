@@ -296,7 +296,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  DictHTMLGenerator gen = new DictHTMLGenerator(new FileOutputStream(tmp), this, "");
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false, null, definitions).get(0);
+	  TypeRef t = tp.parse(dt, false, null, definitions, true).get(0);
 	  
 	  ElementDefn e;
 	  if (t.getName().equals("Resource"))
@@ -321,7 +321,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  tmp.deleteOnExit();
 	  TerminologyNotesGenerator gen = new TerminologyNotesGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false, null, definitions).get(0);
+	  TypeRef t = tp.parse(dt, false, null, definitions, true).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
 		  gen.close();
@@ -345,7 +345,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "");
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false, null, definitions).get(0);
+	  TypeRef t = tp.parse(dt, false, null, definitions, true).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
 		  gen.close();
@@ -364,7 +364,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     JsonSpecGenerator gen = new JsonSpecGenerator(b, pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "");
     TypeParser tp = new TypeParser();
-    TypeRef t = tp.parse(dt, false, null, definitions).get(0);
+    TypeRef t = tp.parse(dt, false, null, definitions, true).get(0);
     ElementDefn e = definitions.getElementDefn(t.getName());
     if (e == null) {
       gen.close();
@@ -2559,7 +2559,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    if (!isDict)
+    if (!isDict && !n.equals("elementdefinition-de")) // todo: do this properly
       b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
     b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
@@ -4468,7 +4468,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           b.append("|");
         b.append("<a href=\"");
         b.append(prefix);
-        b.append(tn.toLowerCase());
+        if (tn.equals("Any"))
+          b.append("resourcelist");
+        else
+          b.append(tn.toLowerCase());
         b.append(".html\">");
         b.append(tn);
         b.append("</a>");

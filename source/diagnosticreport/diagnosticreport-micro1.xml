@@ -284,7 +284,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60532"/>
+          <code value="60532"/>
           <display value="Doxycycline"/>
         </coding>
       </code>
@@ -315,7 +315,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60533"/>
+          <code value="60533"/>
           <display value="Erythromycin"/>
         </coding>
       </code>
@@ -346,7 +346,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60536"/>
+          <code value="60536"/>
           <display value="Gentamicin"/>
         </coding>
       </code>
@@ -377,7 +377,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 61007"/>
+          <code value="61007"/>
           <display value="Levofloxacin"/>
         </coding>
       </code>
@@ -408,7 +408,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60699"/>
+          <code value="60699"/>
           <display value="Linezolid"/>
         </coding>
       </code>
@@ -438,7 +438,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 61204"/>
+          <code value="61204"/>
           <display value="Moxifloxacin"/>
         </coding>
       </code>
@@ -469,7 +469,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60551"/>
+          <code value="60551"/>
           <display value="Oxacillin"/>
         </coding>
       </code>
@@ -499,7 +499,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60552"/>
+          <code value="60552"/>
           <display value="Penicillin"/>
         </coding>
       </code>
@@ -530,7 +530,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60697"/>
+          <code value="60697"/>
           <display value="Quinupristin/Dalfopristin"/>
         </coding>
       </code>
@@ -560,7 +560,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60555"/>
+          <code value="60555"/>
           <display value="Rifampin"/>
         </coding>
       </code>
@@ -591,7 +591,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60558"/>
+          <code value="60558"/>
           <display value="Tetracycline"/>
         </coding>
       </code>
@@ -622,7 +622,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60561"/>
+          <code value="60561"/>
           <display value="Trimethoprim/Sulfamethoxazole"/>
         </coding>
       </code>
@@ -654,7 +654,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
-          <code value=" 60563"/>
+          <code value="60563"/>
           <display value="Vancomycin"/>
         </coding>
       </code>

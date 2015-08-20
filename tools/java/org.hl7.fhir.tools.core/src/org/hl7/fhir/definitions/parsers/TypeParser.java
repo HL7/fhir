@@ -37,7 +37,7 @@ import org.hl7.fhir.instance.utils.NameResolver;
 public class TypeParser {
 
 
-	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, NameResolver resolver) throws Exception {
+	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, NameResolver resolver, boolean allowElement) throws Exception {
 		ArrayList<TypeRef> a = new ArrayList<TypeRef>();
 
 		if (n == null || n.equals("") || n.startsWith("!"))
@@ -115,6 +115,8 @@ public class TypeParser {
 			}
 			
 			t.setName(typeString.trim());
+			if (t.getName().equals("Element") && !allowElement)
+			  throw new Exception("The type 'Element' is illegal in this context");
 			a.add(t);
 		}
 

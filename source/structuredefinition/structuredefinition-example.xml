@@ -153,7 +153,16 @@
         <max value="1"/>
       </base>
       <type>
-        <code value="Reference(Patient|Group|Device)"/>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -170,7 +179,8 @@
         <max value="1"/>
       </base>
       <type>
-        <code value="Reference(Organization)"/>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -282,7 +292,7 @@
         <max value="*"/>
       </base>
       <type>
-        <code value="Reference(Observation)"/>
+        <code value="Reference"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
       </type>
       <isModifier value="false"/>
@@ -300,7 +310,7 @@
         <max value="*"/>
       </base>
       <type>
-        <code value="Reference(Observation)"/>
+        <code value="Reference"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/triglyceride"/>
       </type>
       <isModifier value="false"/>
@@ -318,7 +328,7 @@
         <max value="*"/>
       </base>
       <type>
-        <code value="Reference(Observation)"/>
+        <code value="Reference"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/hdlcholesterol"/>
       </type>
       <isModifier value="false"/>
@@ -336,7 +346,7 @@
         <max value="*"/>
       </base>
       <type>
-        <code value="Reference(Observation)"/>
+        <code value="Reference"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/ldlcholesterol"/>
       </type>
       <isModifier value="false"/>

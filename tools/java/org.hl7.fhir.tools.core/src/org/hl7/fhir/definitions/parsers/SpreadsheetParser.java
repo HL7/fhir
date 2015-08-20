@@ -752,12 +752,16 @@ public class SpreadsheetParser {
         if (!path.startsWith("#")) {
           path = path.substring(0, path.indexOf('.'));
           sp.setBase(path);
+          if (!pkp.isResource(sp.getBase()))
+            throw new Exception("Ilegal Search Parameter path "+sheet.getColumn(row, "Path"));
           sp.setId(pack.getId()+"-"+path+"-"+sp.getName());
           if (definitions != null) { // igtodo (and below)
             root2 = definitions.getResourceByName(path);
             if (root2 == null)
               throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has an invalid path (resource not found)");
             sp.setBase(root2.getName());
+            if (!pkp.isResource(sp.getBase()))
+              throw new Exception("Ilegal Search Parameter path "+sheet.getColumn(row, "Path"));
             sp.setId(pack.getId()+"-"+(root2 == null ? "all" : root2.getName())+"-"+sp.getName());
           }
         }
@@ -1731,7 +1735,7 @@ public class SpreadsheetParser {
 		}
 
 		TypeParser tp = new TypeParser();
-		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile, profileExtensionBase, definitions == null ? context : definitions));
+		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile, profileExtensionBase, definitions == null ? context : definitions, !path.contains(".")));
 
 		if (isProfile && ((path.endsWith(".extension") || path.endsWith(".modifierExtension")) && (e.getTypes().size() == 1) && e.getTypes().get(0).hasProfile()) && Utilities.noString(profileName))
 		    throw new Exception("need to have a profile name if a profiled extension is referenced for "+ e.getTypes().get(0).getProfile());
@@ -2032,7 +2036,7 @@ public class SpreadsheetParser {
       }
       // exv.setBinding();
       exv.setMaxLength(sheet.getColumn(row, "Max Length"));
-      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, definitions == null ? context : definitions));
+      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, definitions == null ? context : definitions, false));
       exv.setExample(processValue(sheet, row, "Example", exv));
     }
   }

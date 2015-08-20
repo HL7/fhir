@@ -2260,9 +2260,9 @@
       </searchParam>
     </resource>
     <resource>
-      <type value="FamilyHistory"/>
+      <type value="FamilyMemberHistory"/>
       <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/daf-familyhistory"/>
+        <reference value="http://hl7.org/fhir/StructureDefinition/daf-familymemberhistory"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2292,7 +2292,7 @@
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a DAFFamilyHistory instance"/>
       </interaction>
-      <searchInclude value="FamilyHistory.patient"/>
+      <searchInclude value="FamilyMemberHistory.patient"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
@@ -2322,7 +2322,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
-        <name value="familyhistorycondition"/>
+        <name value="familymemberhistorycondition"/>
         <type value="token"/>
       </searchParam>
     </resource>
@@ -2911,6 +2911,7 @@
         <chain value="encounter.type"/>
       </searchParam>
     </resource>
+<!--
     <resource>
       <type value="SmokingStatus"/>
       <profile>
@@ -3061,6 +3062,7 @@
         <chain value="patient.family"/>
       </searchParam>
     </resource>
+    -->
     <resource>
       <type value="List"/>
       <profile>

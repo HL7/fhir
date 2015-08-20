@@ -278,7 +278,7 @@
   Definition = The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
-  v2 Mapping = ORC-12-ordering provider / \nPRT-5-Participation Person:PRT-4-Participation=\'OP\' / \nPRT-8-Participation Organization:PRT-4-Participation=\'OP\'\n/ ROL where ROL.3 is RO or ORC.11
+  v2 Mapping = ORC-12-ordering provider /  PRT-5-Participation Person:PRT-4-Participation=\'OP\' /  PRT-8-Participation Organization:PRT-4-Participation=\'OP\' / ROL where ROL.3 is RO or ORC.11
   RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=\"PSN\" and determinerCode=\"INST\"] or ./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/scoper[isNormalEntity() and classCode=\"ORG\" and determinerCode=\"INST\"])
   w5 = who.witness
 
@@ -408,7 +408,7 @@
  -- Row 1 -----------------------------------
   Name = process-message
   Use = System
-  Documentation = This operation that accept a messages, processes it according to the definition of the event in the message header, and returns a one or more response messages.\n\nThis  operation is described in detail [on the messaging page](messaging.html#process)
+  Documentation = This operation that accept a messages, processes it according to the definition of the event in the message header, and returns a one or more response messages.  This  operation is described in detail [on the messaging page](messaging.html#process)
   Type = operation
   Example.Request = $process-message-request.txt
   Example.Response = $process-message-response.txt
@@ -435,7 +435,7 @@
   Name = process-message.response-url
   Use = in
   Documentation = A URL to submit response messages to, if asynchronous messaging is being used, and if the MessageHeader.source.endpoint is not the appropriate place to submit responses
-  Type = url
+  Type = uri
   Min = 0
   Max = 1
 

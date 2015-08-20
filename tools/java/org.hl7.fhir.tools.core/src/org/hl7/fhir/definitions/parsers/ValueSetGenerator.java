@@ -27,6 +27,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -78,13 +79,14 @@ public class ValueSetGenerator {
         if (definitions.getPrimitives().containsKey(s))
           c.setDefinition(definitions.getPrimitives().get(s).getDefinition());
         else if (definitions.getConstraints().containsKey(s))
-          c.setDefinition(definitions.getConstraints().get(s).getDefinition());
+          ; // don't add these: c.setDefinition(definitions.getConstraints().get(s).getDefinition());
         else if (definitions.hasElementDefn(s))
           c.setDefinition(definitions.getElementDefn(s).getDefinition());
         else 
           c.setDefinition("...to do...");
       }
     }
+    ToolingExtensions.addComment(vs.getCodeSystem().addConcept().setCode("xhtml").setDisplay("XHTML").setDefinition("XHTML format, as defined by W3C, but restricted usage (mainly, no active content)"), "Special case: xhtml can only be used in the narrative Data Type");
   }
 
   private void genResourceTypes(ValueSet vs) {
@@ -94,13 +96,20 @@ public class ValueSetGenerator {
     vs.getCodeSystem().setCaseSensitive(true);    
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getKnownResources().keySet());
+    codes.addAll(definitions.getBaseResources().keySet());
     Collections.sort(codes);
     for (String s : codes) {
       DefinedCode rd = definitions.getKnownResources().get(s);
       ConceptDefinitionComponent c = vs.getCodeSystem().addConcept();
-      c.setCode(rd.getCode());
-      c.setDisplay(rd.getCode());
-      c.setDefinition(rd.getDefinition());
+      if (rd == null) {
+        c.setCode(s);
+        c.setDisplay(definitions.getBaseResources().get(s).getName());
+        c.setDefinition((definitions.getBaseResources().get(s).isAbstract() ? "--- Abstract Type! ---" : "")+ definitions.getBaseResources().get(s).getDefinition());
+      }  else {
+        c.setCode(rd.getCode());
+        c.setDisplay(rd.getCode());
+        c.setDefinition(rd.getDefinition());
+      }
     }
 
   }

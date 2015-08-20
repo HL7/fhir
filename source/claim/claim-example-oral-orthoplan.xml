@@ -62,7 +62,7 @@
  <item>
    <sequence value="1"/>
    <type>
-     <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
+     <system value="http://hl7.org/fhir/v3/ActCode"/>
      <code value="FRAMEING"/> <!-- was group changed by GG to be valid -->
    </type>
    <provider>
@@ -87,7 +87,7 @@
    <detail>
      <sequence value="1"/> <!-- Exam Fee -->
      <type>
-       <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
+       <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
@@ -108,7 +108,7 @@
    <detail>
      <sequence value="2"/> <!-- Diagnostic Fee -->
      <type>
-       <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
+       <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
@@ -129,7 +129,7 @@
    <detail>
      <sequence value="3"/> <!-- Initial Payment -->
      <type>
-       <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
+       <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
@@ -150,7 +150,7 @@
    <detail>
      <sequence value="4"/> <!-- Duration in Months -->
      <type>
-       <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
+       <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>
@@ -164,7 +164,7 @@
    <detail>
      <sequence value="5"/> <!-- Periodic Payments -->
      <type>
-       <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
+       <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
      <service>

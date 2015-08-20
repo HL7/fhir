@@ -206,6 +206,7 @@ import org.hl7.fhir.tools.implementations.emf.EMFGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
 import org.hl7.fhir.tools.publisher.Publisher.DocumentHolder;
+import org.hl7.fhir.tools.publisher.Publisher.EValidationFailed;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
@@ -254,6 +255,14 @@ import com.google.gson.JsonObject;
  *
  */
 public class Publisher implements URIResolver {
+
+  public class EValidationFailed extends Exception {
+    private static final long serialVersionUID = 1L;
+    public EValidationFailed(String string) {
+      super(string);
+    }
+
+  }
 
   public class DocumentHolder {
 
@@ -550,7 +559,7 @@ public class Publisher implements URIResolver {
         processRDF();
 
       validationProcess();
-      processWarnings();
+      processWarnings(false);
       if (isGenerate && buildFlags.get("all"))
         produceQA();
         
@@ -571,9 +580,9 @@ public class Publisher implements URIResolver {
       page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
     } catch (Exception e) {
 
-      if (!(e instanceof NullPointerException)) { // because this is unexpected...
+      if (!(e instanceof NullPointerException)) { // because NullPointerException is unexpected...
         try {
-          processWarnings();
+          processWarnings(e instanceof EValidationFailed);
         } catch (Exception e2) {
           page.log("  ERROR: Unable to process warnings: " + e.getMessage(), LogMessageType.Error);
           e.printStackTrace();
@@ -1328,7 +1337,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void processWarnings() throws Exception {
+  private void processWarnings(boolean showOnlyErrors) throws Exception {
     String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "OwnerResources.xslt");
     OutputStreamWriter s = new OutputStreamWriter(new FileOutputStream(page.getFolders().dstDir + "warnings.xml"), "UTF-8");
     s.write("<warnings>");
@@ -1357,7 +1366,9 @@ public class Publisher implements URIResolver {
     s2.close();
 
     String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
-    page.log(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3), LogMessageType.Process);
+    String hw = Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
+    if (!showOnlyErrors)
+      page.log(hw, LogMessageType.Process);
 
     int i = 0;
     int w = 0;
@@ -4794,7 +4805,7 @@ public class Publisher implements URIResolver {
 
     logError("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Hints="+Integer.toString(informationCount), LogMessageType.Error);
     if (errorCount > 0)
-      throw new Exception("Resource Examples failed instance validation");
+      throw new EValidationFailed("Resource Examples failed instance validation");
   }
   
   private void roundTrip() throws Exception {

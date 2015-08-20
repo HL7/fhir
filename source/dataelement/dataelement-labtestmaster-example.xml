@@ -45,7 +45,7 @@
     <requirements value="This test is orderable. A plasma specimen in a 3.2% sodium citrate blue top tube is required."/>
     <alias value="Protime, PT"/>
     <type>
-      <code value="Decimal"/>
+      <code value="decimal"/>
     </type>
   <!--  Is this the FHIR datatype for the observation? ( ie the datatype when ordering the test) or the Result? ( ie. numeric, codeable concept or text for lab tests ) -->
     <exampleDecimal value="10.0"/>

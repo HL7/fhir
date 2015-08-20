@@ -10,13 +10,12 @@ search - value set / profile / IG / core / v3 / v2
 fix links in narrative embedded in html pages
 json / profile format (EK)
 xml / profile format (EK)
-finish IG building/rendering
 Resource guide
 More RDF work
 fix up UML diagrams (per Dave's work)
-don't repeat invariants on an element if they are defined on the element (Observation.referenceRange.low)
 clarify the usage of profile to close off unused things
 pcd-001 message example
+change generated self links to use semantic links if one is avilablae
 
 update implementers safety checklist 
 

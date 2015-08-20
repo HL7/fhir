@@ -522,7 +522,7 @@
   Name = populate.content
   Use = in
   Documentation = Resources containing information to be used to help populate the [[[QuestionnaireResponse]]].  These may be FHIR resources or may be Binaries containing FHIR documents, CDA documents or other source materials.  Servers may not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
-  Type = Any
+  Type = Reference(Any)
   Min = 0
   Max = *
 

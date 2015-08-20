@@ -818,7 +818,8 @@ public class ProfileUtilities {
               for (TypeRefComponent td : base.getType()) {
                 b.append(td.getCode());
                 if (td.getCode().equals(ts.getCode()) || td.getCode().equals("Extension") ||
-                    td.getCode().equals("Element") || td.getCode().equals("*") || 
+                    td.getCode().equals("Element") || td.getCode().equals("*") ||
+                    // ts.getCode().equals("Element") || // <-- this one is a special case for extensions. review in the future
                     ((td.getCode().equals("Resource") || (td.getCode().equals("DomainResource")) && pkp.isResource(ts.getCode()))))
                   ok = true;
               }
@@ -996,6 +997,8 @@ public class ProfileUtilities {
             String rn = t.getProfile().get(0).getValue().substring(40);
             c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
           }
+        } else if (t.getProfile().size() == 0) {
+          c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
         } else if (t.getProfile().get(0).getValue().startsWith("#"))
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().get(0).getValue().substring(1).toLowerCase()+".html", t.getProfile().get(0).getValue(), null)));
         else
