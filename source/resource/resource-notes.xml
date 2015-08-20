@@ -257,7 +257,7 @@ such as workflow management. A typical use of tagging would be to maintain an in
 of resources that need review.
 </p>
 <p>
-In a general tag, the <a href="datatypes.html#coding">concept</a> may be a reference to a 
+In a general tag, the <a href="datatypes.html#coding">coded concept</a> may be a reference to a 
 healthcare vocabulary, including ones defined in this specification, or vocabularies such 
 as those defined by HL7 for other purposes (e.g. v2 and v3/CDA), LOINC, or SNOMED CT. 
 Alternatively, the concept may be one defined by the implementation in the local context. 
