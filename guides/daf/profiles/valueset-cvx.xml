@@ -18,7 +18,7 @@
   <description value="This identifies the vaccine substance administered - CVX codes"/>
   <compose>
     <include>
-      <system value="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx"/>
+      <system value="http://hl7.org/fhir/sid/cvx"/>
     </include>
   </compose>
 </ValueSet>

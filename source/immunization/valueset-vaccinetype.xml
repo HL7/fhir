@@ -15,7 +15,7 @@
         
         <li>USA: CVX (
           
-          <a href="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx">http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx</a>)
+          <a href="http://hl7.org/fhir/sid/cvx">http://hl7.org/fhir/sid/cvx</a>)
         
         </li>
         
@@ -49,7 +49,7 @@
   <compose>
   <!--   USA   -->
     <include>
-      <system value="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx"/>
+      <system value="http://hl7.org/fhir/sid/cvx"/>
     </include>
   <!--   Australian ACIR codes   -->
     <include>

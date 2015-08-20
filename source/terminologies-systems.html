@@ -40,6 +40,7 @@ Additional identifier systems may be registered on the HL7 FHIR registry at <a h
 <li>Note that some of the URNs in this list follow the URN specification in <a href="http://tools.ietf.org/html/rfc5141">RFC 5141</a> for referring to 
 standards published by ISO, such as urn:iso:std:iso:11073:10101. Where ISO standards define codes with meanings, and there is no entry in the list above,
 and they are not registered in the HL7 OID registry, the default URN for the code system is that defined by the RFC 5141.</li>
+<li>For several of the code systems in this list, multiple systems are given. This means that the variants identified are different code systems, not just variants of the the same code system</li>
 </ul>
 
 <table class="grid">
@@ -108,8 +109,8 @@ and they are not registered in the HL7 OID registry, the default URN for the cod
    <td>2.16.840.1.113883.6.69</td>
  </tr>
  <tr>
-   <td>http://www2a.cdc.gov/vaccines/<br/>iis/iisstandards/vaccines.asp?rpt=cvx <a name="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx"> </a></td>
-   <td><a href="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx">CVX (Vaccine Admnistered)</a></td>
+   <td>http://hl7.org/fhir/sid/cvx <a name="http://hl7.org/fhir/sid/cvx"> </a></td>
+   <td><a href="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx">CVX (Vaccine Administered)</a></td>
    <td>See <a href="cvx.html">Using CVX with FHIR</a></td>
    <td>2.16.840.1.113883.12.292</td>
  </tr>
@@ -132,16 +133,20 @@ and they are not registered in the HL7 OID registry, the default URN for the cod
    <td>2.16.840.1.113883.6.256 </td>
  </tr> 
  <tr>
-   <td>http://hl7.org/fhir/sid/icd-10 <a name="http://hl7.org/fhir/sid/icd-10"> </a></td>
-   <td>ICD-10 International (<a href="http://www.who.int/classifications/icd/en/">WHO</a>)</td>
+   <td>
+     http://hl7.org/fhir/sid/icd-10 <a name="http://hl7.org/fhir/sid/icd-10"> </a><br/>
+     http://hl7.org/fhir/sid/icd-10-de <a name="http://hl7.org/fhir/sid/icd-10-de"> </a><br/>
+     http://hl7.org/fhir/sid/icd-10-nl <a name="http://hl7.org/fhir/sid/icd-10-nl"> </a><br/>
+     http://hl7.org/fhir/sid/icd-10-us <a name="http://hl7.org/fhir/sid/icd-10-us"> </a>
+   </td>
+   <td>ICD-10 International (<a href="http://www.who.int/classifications/icd/en/">WHO</a>) &amp; Local Variants</td>
    <td></td>
-   <td>2.16.840.1.113883.6.3 </td>
- </tr>
- <tr>
-   <td>http://hl7.org/fhir/sid/icpc2 <a name="http://hl7.org/fhir/sid/icpc2"> </a></td>
-   <td>ICPC2 (International Classification of Primary Care) (<a href="http://www.ph3c.org/">PH3C</a>)</td>
-   <td></td>
-   <td>2.16.840.1.113883.6.139</td>
+   <td>
+     2.16.840.1.113883.6.3 <br/>
+     1.2.276.0.76.5.409 <br/>
+     2.16.840.1.113883.6.3.2 <br/>
+     ?? <br/>
+   </td>
  </tr>
   <tr>
    <td>http://www.icd10data.com/icd10pcs <a name="http://www.icd10data.com/icd10pcs"> </a></td>
@@ -150,10 +155,34 @@ and they are not registered in the HL7 OID registry, the default URN for the cod
    <td>2.16.840.1.113883.6.4 </td>
  </tr>
  <tr>
-   <td>http://hl7.org/fhir/sid/icd-9 <a name="http://hl7.org/fhir/sid/icd-9"> </a></td>
+   <td>
+     http://hl7.org/fhir/sid/icd-9-cm <a name="http://hl7.org/fhir/sid/icd-9-cm"> </a><br/>
+     http://hl7.org/fhir/sid/icd-9-cm/diagosis <a name="http://hl7.org/fhir/sid/icd-9-cm/diagosis"> </a><br/>
+     http://hl7.org/fhir/sid/icd-9-cm/procedure <a name="http://hl7.org/fhir/sid/icd-9-cm/procedure"> </a>
+   </td>
    <td>ICD-9 USA (<a href="http://www.cdc.gov/nchs/icd/icd9.htm">CDC</a>)</td>
    <td></td>
-   <td>2.16.840.1.113883.6.42 </td>
+   <td>2.16.840.1.113883.6.42 <br/> ? <br/> ? </td>
+ </tr>
+ <tr>
+   <td>
+     http://hl7.org/fhir/sid/icpc-1 <a name="http://hl7.org/fhir/sid/icpc-1"> </a> <br/>
+     http://hl7.org/fhir/sid/icpc-1-nl <a name="http://hl7.org/fhir/sid/icpc-1-nl"> </a> <br/>
+     http://hl7.org/fhir/sid/icpc-2 <a name="http://hl7.org/fhir/sid/icpc-2"> </a>
+   </td>
+   <td>ICPC (International Classification of Primary Care) (<a href="http://www.ph3c.org/">PH3C</a>)</td>
+   <td></td>
+   <td>
+      <br/>
+     2.16.840.1.113883.2.4.4.31.1 <br/>
+     2.16.840.1.113883.6.139
+   </td>
+ </tr>
+ <tr>
+   <td>http://hl7.org/fhir/sid/icf-nl <a name="http://hl7.org/fhir/sid/icf-nl"> </a></td>
+   <td>ICF  (International Classification of Functioning, Disability and Health) (<a href="http://www.who.int/classifications/icf/en/">WHO</a>)</td>
+   <td></td>
+   <td>2.16.840.1.113883.6.254</td>
  </tr>
  <tr>
    <td>http://hl7.org/fhir/v2/[X](/v) <a name="http://hl7.org/fhir/v2/[X](/v"> </a></td>

@@ -284,7 +284,7 @@ public class ValueSetValidator extends BaseValidator {
         system.equals("http://www.pharmgkb.org") ||
         system.equals("http://www.radlex.org") ||
         system.equals("http://www.whocc.no/atc") ||
-        system.equals("http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx") ||
+        system.equals("http://hl7.org/fhir/sid/cvx") ||
         system.equals("urn:ietf:bcp:47") ||
         system.equals("urn:iso:std:iso:11073:10101") ||
         system.equals("urn:iso:std:iso:3166") ||

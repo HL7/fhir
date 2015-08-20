@@ -178,9 +178,9 @@ public class Convert {
 			return "http://hl7.org/fhir/v3/Race";
 	
 		if (r.equals("2.16.840.1.113883.6.59"))
-			return "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx";
+			return "http://hl7.org/fhir/sid/cvx";
 		if (r.equals("2.16.840.1.113883.12.292"))
-			return "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx";
+			return "http://hl7.org/fhir/sid/cvx";
 		
 		if (r.equals("2.16.840.1.113883.6.12"))
 			return "http://www.ama-assn.org/go/cpt";
