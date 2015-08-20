@@ -43,5 +43,14 @@ Code System(s)  SNOMED CT 2.16.840.1.113883.6.96  Note the base resource does no
         <code value="428061000124105"/>
       </concept>
     </include>
+   <include>
+    <system value="http://hl7.org/fhir/data-absent-reason"/>
+     <concept>
+      <code value="unknown"/>
+    </concept>
+    <concept>
+      <code value="not-asked"/>
+    </concept>
+  </include>
   </compose>
 </ValueSet>

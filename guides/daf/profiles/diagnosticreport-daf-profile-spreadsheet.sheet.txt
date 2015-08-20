@@ -65,7 +65,7 @@
   Type = CodeableConcept
   Binding = USLabObservationName
   Short Label = US Realm Laboratory Report Order Code
-  Definition = The laboratory test, panel or battery that was ordered.
+  Definition = The test, panel or battery that was ordered.
   Comments = UsageNote= The typical patterns for codes are:  1)  a LOINC code either as a  translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists
   To Do = move to datatype profilw when tooling updated
   Committee Notes = 11/19/2014 EH:OBR.4: Universal Service Identifier: CWE_CR: R: [1..1]: : :  Use same inline data type profile for Obs too.  CWE-CR  , unordered Slice for local and LOINC , support original text for display.
@@ -248,7 +248,7 @@
   Element = DiagnosticReport.result
   Card. = 0..*
   Must Support = Y
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobs}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobspanel}
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobs}
   Committee Notes = 11/19/2014 EH: OBX\'s
 
  -- Row 28 -----------------------------------

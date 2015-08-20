@@ -149,7 +149,7 @@
 
  -- Row 16 -----------------------------------
   Element = DiagnosticOrder.encounter
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
 
@@ -173,7 +173,7 @@
   Discriminator = @Profile,@type
   Card. = 0..*
   Must Support = Y
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobs}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobspanel}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-condition}
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-resultobs}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/daf-condition}
   Requirements = AOES are captured in the USLabObservation resource and Reasons for the testing in USLabCondition
   Comments = AOES are captured in the USLabObservation resource and Reasons for the testing in USLabCondition
   Committee Notes = 11/17/2014 EH:AOES
@@ -257,7 +257,7 @@
   Type = CodeableConcept
   Binding = USLabObservationName
   Short Label = US Realm Laboratory Report Order Code
-  Definition = The laboratory test, panel or battery that was ordered.
+  Definition = The test, panel or battery that was ordered.
   Requirements = Requires at least a code, code system an d display text.
   Comments = Use the appropriate LOINC or local code as provided by laboratory.   FHIR Value set resources binding to each laboratory\'s compendium of service is done at implementation usign the FHIR Value set resources or some other mechanism.  Systems SHALL be capable of sending/consuming the local code if one exists.
   To Do = create conformance rule in conformance resource
@@ -341,7 +341,7 @@
 
  -- Row 41 -----------------------------------
   Element = DiagnosticOrder.item.bodySite
-  Card. = 0..0
+  Card. = 0..1
   Committee Notes = 11/17/2014 EH:OOS for lab
 
  -- Row 42 -----------------------------------

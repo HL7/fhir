@@ -24,7 +24,7 @@ For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FH
 				<li>valueTime</li>
 			</ul>
 			For example, the other result value types would be used to record a free text entry of a cytology observation, or to record the date of last menstrual period for an ask at order entry question for a pap smear report. </li>
-		<li>DAFObsPanel is available for a panel/battery. This observation lists the set component observations from a panel or battery in the Observation.related element and does not have its own Observation.value.  For example a Chyamydia trachomatis + Neisseria gonorrhoeae RNA PCR (GC/CT) panel would have two references to related observations for the Chlamydia trachomatis RNA PCR result and the Neisseria gonorrhoeae RNA PCR result. </li>
+		<li>This profile may also be used for a panel/battery. A panle observation lists the set component observations from a panel or battery in the Observation.related element and does not have its own Observation.value.  For example a Chyamydia trachomatis + Neisseria gonorrhoeae RNA PCR (GC/CT) panel would have two references to related observations for the Chlamydia trachomatis RNA PCR result and the Neisseria gonorrhoeae RNA PCR result. </li>
 	</ul>
 	<p>
 		This profile is referenced in the DAF DiagnosticReport profile for one or more test results.  They are also referenced for ask at order ("AOE") questions, other clinically relevant questions and for reporting prior results when requesting a test order using the DAF DiagnosticOrder.  Although not specified in this implementation, it may be used in other resources as well.</p>

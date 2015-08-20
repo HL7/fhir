@@ -139,7 +139,7 @@
 
  -- Row 21 -----------------------------------
   Element = Observation.device
-  Card. = 0..0
+  Card. = 0..1
 
  -- Row 22 -----------------------------------
   Element = Observation.referenceRange

@@ -66,7 +66,6 @@
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <DoNotCalculateBeforeSave/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1691,7 +1690,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">Observation.device</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">0..0</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4028,7 +4027,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4042,11 +4041,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>18</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
