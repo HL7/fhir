@@ -471,7 +471,7 @@
           <text value="Doxycycline"/>
         </substance>
         <status value="confirmed"/>
-        <criticality value="high"/>
+        <criticality value="CRITH"/>
         <type value="immune"/>
         <event>
           <manifestation>

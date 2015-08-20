@@ -36,7 +36,7 @@
   <!-- this individual has had several reactions, and there is no 
     question that the allergy is real and serious --> 
   <status value="confirmed"/>
-  <criticality value="high"/>
+  <criticality value="CRITH"/>
   
   <!-- note: it's often unknown whether an allergy is mediated by an immune response, and not as significant as once thought -->
   <type value="immune"/>
