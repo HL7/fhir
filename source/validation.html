@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle Validating Resources%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<h2>Validating Resources</h2>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
+
+<p>
+This page provides a quick overview of how the FHIR specification supports 
+validation of resources. 
+</p>
+
+<p>
+In principle, resources can be validated:
+</p>
+<ul>
+ <li>Against the original specification</li>
+ <li>Against an implementation guide</li>
+ <li>Against a specific profile</li>
+</ul>
+
+<p>
+Resources can be tested for conformance by:
+</p>
+<ul>
+ <li><a href="#schema">Using the XML Schema</a> - for XML instances only</li>
+ <li><a href="#jar">Using the FHIR Validator</a> - a java jar provided as part of the specification</li>
+ <li><a href="#op">Asking a FHIR Server</a> - using the $validate operation</li>
+ <li><a href="#web">Via a web interface</a> - using a web form on a test server</li>
+</ul>
+
+<p>
+Note that all these validation methods are incomplete; they 
+can only validate the computable aspects of conformance, but there are always 
+additional rules made in narrative that they are not able to check (e.g. a rule 
+such as "All the clinically important content in the data SHALL be in the 
+narrative", which might be made in an implementation guide, but could never be checked 
+by a conformance tool).
+</p>
+<p>
+In case of disagreement between these conformance methods, note that:
+</p>
+<ul>
+ <li>The schema/schematron is the least capable - mainly because it is not connected to a terminology server</li>
+ <li>The java validator is only as good as the underlying definitions, and in particular depends on whether the underlying terminology server supports all the relevant terminologies</li>
+ <li>In general, the server validation operations use or derive from the java validation code, so have the same caveats</li>
+ <li>The final arbiter is human inspection of the content of the resources, and the relevant implementation guides and base specification</li>
+</ul>
+
+<p>
+Also, note that static testing of resource content is not enough to
+prove conformance to the specification. For further information, see
+<a href="http://fhir.org/conformance-testing">FHIR Conformance Testing</a>.
+</p>
+
+<a name="schema"> </a>
+<h3>Using the XML schema</h3>
+
+<p>
+The XML schema can be used to validate XML represenations of the resources. 
+When validating a resource, you can nominate one of the following schema: 
+</p>
+<ul>
+ <li>fhir-all.xsd: links in all the individual modular schemas</li>
+ <li>fhir-single.xsd: a single large file, mainly provided for schema processors that can't support circular references</li>
+</ul>
+<p>
+In addition, the validation schema includes schematron
+that can be initiated with transform "iso_svrl_for_xslt2.xsl" included in the 
+<a href="downloads.html#refimpl">XML Tools</a> download. Note that 
+XSLT2 is required to run the schematrons. 
+</p>
+<p>
+When running the schematron, use the file "fhir-invariants.sch". This
+includes all the schematrons. The individual schematron files for each
+resource are provided to allow implementers to build their own smaller
+combined file that covers the relevant resource types for them.
+</p>
+
+<a name="jar"> </a>
+<h3>Using the FHIR Validator</h3>
+
+<p>
+The FHIR Validator is a Java jar that is provided as part of the specification, and that is used 
+during the publication process to validate that all the published examples. To 
+execute the FHIR validator, follow the following steps:
+</p>
+<ul>
+ <li><a href="downloads.html">Download</a> the FHIR Validator</li>
+ <li><a href="downloads.html">Download</a> One of the FHIR definitions (with or without text)</li>
+ <li>Execute the validator, providing the path to the definitions, and a reference to the resource to validate</li>
+</ul>
+<p>
+Here is an example windows batch file that demonstrates the process (using the common utilities <a href="http://gnuwin32.sourceforge.net/packages/wget.htm">wget</a> and <a href="http://www.7-zip.org/">7z</a>:
+</p>
+<pre>
+ @ECHO OFF
+
+ ECHO get the validator and unzip it 
+ wget.exe http://hl7.org/fhir/validator.zip
+ 7z.exe x validator.zip
+
+ ECHO Get the validation source file (dictionary)
+ wget.exe http://hl7.org/fhir/validation-min.xml.zip
+
+ ECHO get an example to validate
+ wget.exe http://hl7.org/fhir/patient-example.html -O test-obs.xml
+
+ ECHO validate it. The DAF profile will be loaded out of the definitions in validation-min.zip
+ java -jar org.hl7.fhir.validator.jar test-obs.xml -defn validation-min.xml.zip -profile http://hl7.org/fhir/StructureDefinition/daf-patient
+
+ pause
+</pre>
+<p>
+Note that it is not necessary to download the resource first; the http address can be supplied directly:
+</p>
+<pre>
+ java -jar org.hl7.fhir.validator.jar http://hl7.org/fhir/patient-example.html -defn validation-min.xml.zip -profile http://hl7.org/fhir/StructureDefinition/daf-patient
+</pre>
+<p>
+The validator requires an underlying terminology server.
+TODO: document this part. for now, hard coded to http://fhir-dev.healthintersections.com.au.
+</p>
+
+<a name="op"> </a>
+<h3>Asking a FHIR Server</h3>
+
+<p>
+The <a href="operations.html">operation</a> <a href="resource-operations.html#validate">validate</a> can 
+be used to check whether a resource conforms to a profile. The simplest way to execute this operation is
+to post the resource to a server:
+</p>
+<pre>
+ POST [base]/Patient/$validate?profile=http://hl7.org/fhir/StructureDefinition/daf-patient
+ [other HTTP headers]
+ 
+ &lt;Patient&gt;.. resource to check as the body
+</pre>
+<p>
+The server will return an <a href="operationoutcome.html">OperationOutcome</a> resource listing issues found in the resource.
+</p>
+<p>
+There are several things to consider when using this operation:
+</p>
+<ul>
+ <li>Not all servers support the $validate operation, though some of the public test servers do</li>
+ <li>Servers support the $validate operation generally will only validate against profiles already registered with the server</li>
+ <li>Servers may choose to support either XML, JSON, or both</li>
+</ul>
+
+<a name="web"> </a>
+<h3>Via a web interface</h3>
+
+<p>
+Some servers expose the $validate functionality 
+though a web page. for known public implementations,
+see the <a href="http://wiki.hl7.org/index.php?title=Public_FHIR_Validation_Services">FHIR wiki</a>
+</p>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>
