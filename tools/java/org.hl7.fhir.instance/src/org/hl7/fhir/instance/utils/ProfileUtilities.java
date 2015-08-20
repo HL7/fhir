@@ -569,7 +569,7 @@ public class ProfileUtilities {
   }
 
   private boolean orderMatches(BooleanType diff, BooleanType base) {
-    return (diff == null) || (base == null) || (diff == base);
+    return (diff == null) || (base == null) || (diff.getValue() == base.getValue());
   }
 
   private boolean discriiminatorMatches(List<StringType> diff, List<StringType> base) {
