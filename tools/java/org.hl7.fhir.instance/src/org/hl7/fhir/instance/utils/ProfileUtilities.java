@@ -370,9 +370,12 @@ public class ProfileUtilities {
             diffpos++; // if there's a slice on the first, we'll ignore any content it has
             ElementDefinitionSlicingComponent dSlice = diffMatches.get(0).getSlicing();
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing(); 
-            if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()) || !discriiminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()) ||
-                 !ruleMatches(dSlice.getRules(), bSlice.getRules()))
-              throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") @ "+path);
+            if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()))
+              throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - order @ "+path);
+            if (!discriiminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()))
+             throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - disciminator @ "+path);
+            if (!ruleMatches(dSlice.getRules(), bSlice.getRules()))
+             throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - rule @ "+path);
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
