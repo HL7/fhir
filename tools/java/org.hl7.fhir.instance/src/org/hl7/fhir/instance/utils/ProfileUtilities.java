@@ -372,7 +372,7 @@ public class ProfileUtilities {
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing(); 
             if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()) || !discriiminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()) ||
                  !ruleMatches(dSlice.getRules(), bSlice.getRules()))
-              throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+")");
+              throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") @ "+path);
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
@@ -457,7 +457,7 @@ public class ProfileUtilities {
       b.append(slice.getDescription());
       b.append("\"");
     }
-    return null;
+    return b.toString();
   }
 
 
