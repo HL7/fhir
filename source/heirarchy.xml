@@ -134,7 +134,7 @@ signatures.html
 			<page title="Validating Resources" filename="validation.html"/>
 			<page title="Managing Resource Identity" filename="managing.html"/>
 			<page title="Interaction Patterns" filename="pushpull.html"/>
-      <page title="Managing Updates" filename="updates.html"/>
+      <page title="Variations between Submitted data and Retrieved data" filename="updates.html"/>
 			<page title="Support" filename="support.html"/>
 			<page title="Integrated Examples" filename="integrated-examples.html"/>
 			<page title="Security" filename="security.html">

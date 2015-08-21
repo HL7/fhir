@@ -410,7 +410,7 @@ from doing so (see <a href="resource.html#meta">metadata description</a>  for fu
 A server SHOULD accept the resource as submitted when accepts the update, and return the same
 content when it is subsequently read. However systems may not be able to do this; see
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
-Also, see <a href="updates.html">Creates and Updates in FHIR</a> for additional discussion
+Also, see <a href="updates.html">Variations between Submitted data and Retrieved data</a> for additional discussion
 around update behavior.
 </p>
 <blockquote>
@@ -471,7 +471,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 Any of these errors should be SHOULD be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail concerning the issue.
 </p>
 <p>
-For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Create and Update Behavior</a> page.
+For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
 </p>
 
 <h4>Conditional update</h4>
@@ -679,7 +679,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
 </p>
 <p>
-For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Create and Update Behavior</a> page.
+For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
 </p>
 
 <h4>Conditional create</h4>
