@@ -396,6 +396,7 @@ public class ResourceValidator extends BaseValidator {
 
   private boolean resourceIsTechnical(String name) {
     return 
+        name.equals("AuditEvent") || 
         name.equals("Binary") || 
         name.equals("Bundle") || 
         name.equals("ConceptMap") || 

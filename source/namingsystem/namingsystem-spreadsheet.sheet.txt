@@ -357,4 +357,11 @@
   Filename = namingsystem-registry.xml
   Type = xml
 
+ -- Row 3 -----------------------------------
+  Name = namingsystem-terminologies
+  Identity = terminologies
+  Description = Defined Code systems
+  Filename = namingsystem-terminologies.xml
+  Type = tool
+
 === Sheet Examples =====================================

@@ -158,6 +158,10 @@ import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageCo
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.NamingSystem;
+import org.hl7.fhir.instance.model.NamingSystem.NamingSystemContactComponent;
+import org.hl7.fhir.instance.model.NamingSystem.NamingSystemIdentifierType;
+import org.hl7.fhir.instance.model.NamingSystem.NamingSystemType;
+import org.hl7.fhir.instance.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
@@ -1018,8 +1022,82 @@ public class Publisher implements URIResolver {
       generateConformanceStatement(true, "base", true);
       generateConformanceStatement(false, "base2", true);
     }
+    generateCodeSystemRegistry();
 
   }
+  private void generateCodeSystemRegistry() throws FileNotFoundException, IOException, Exception {
+    XmlParser xml = new XmlParser();
+    xml.setOutputStyle(OutputStyle.PRETTY);
+    Bundle bnd = (Bundle) xml.parse(new CSFileInputStream(Utilities.path(page.getFolders().srcDir, "namingsystem", "namingsystem-terminologies.xml")));
+    List<String> names = new ArrayList<String>();
+    names.addAll(page.getCodeSystems().keySet());
+    Collections.sort(names);
+    for (String n : names) {
+      ValueSet vs = page.getCodeSystems().get(n);
+      NamingSystem ns = new NamingSystem();
+      ns.setName(vs.getName());
+      ns.setStatus(vs.getStatus());
+      ns.setKind(NamingSystemType.CODESYSTEM);
+      ns.setPublisher(vs.getPublisher());
+      for (ValueSetContactComponent c : vs.getContact()) {
+        NamingSystemContactComponent nc = ns.addContact();
+        nc.setName(c.getName());
+        for (ContactPoint cc : c.getTelecom()) {
+          nc.getTelecom().add(cc);
+        }
+      }
+      ns.setDate(vs.getDate());
+      ns.setDescription(vs.getDescription());
+      ns.addUniqueId().setType(NamingSystemIdentifierType.URI).setValue(vs.getCodeSystem().getSystem()).setPreferred(true);
+      if (ToolingExtensions.getOID(vs.getCodeSystem()) != null)
+        ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(ToolingExtensions.getOID(vs.getCodeSystem()).substring(8)).setPreferred(false);
+      ns.setUserData("path", vs.getUserData("path"));
+      bnd.addEntry().setResource(ns);
+    }
+    xml.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "namingsystem-terminologies.xml")), bnd);
+    cloneToXhtml("namingsystem-terminologies", "Terminology Registry", false, "resource-instance:NamingSystem", "Terminology Registry");
+    xml.setOutputStyle(OutputStyle.CANONICAL);
+    xml.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "namingsystem-terminologies.canonical.xml")), bnd);
+    JsonParser json = new JsonParser();
+    json.setOutputStyle(OutputStyle.PRETTY);
+    json.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "namingsystem-terminologies.json")), bnd);
+    jsonToXhtml("namingsystem-terminologies", "Terminology Registry", TextFile.fileToString(Utilities.path(page.getFolders().dstDir, "namingsystem-terminologies.json")), "resource-instance:NamingSystem", "Terminology Registry");
+    json.setOutputStyle(OutputStyle.CANONICAL);
+    json.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "namingsystem-terminologies.canonical.json")), bnd);
+    
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    b.append(" <tr>");
+    b.append("<td><b>Name</b></td>");
+    b.append("<td><b>Uri</b></td>");
+    b.append("<td><b>OID</b></td>");
+    b.append("</tr>\r\n");
+    for (BundleEntryComponent entry : bnd.getEntry()) {
+      NamingSystem ns = (NamingSystem) entry.getResource();
+      String uri = "";
+      String oid = "";
+      for (NamingSystemUniqueIdComponent id : ns.getUniqueId()) {
+        if (id.getType() == NamingSystemIdentifierType.URI)
+          uri = id.getValue();
+        if (id.getType() == NamingSystemIdentifierType.OID)
+          oid = id.getValue();
+      }
+      String link = "terminologies-systems.html#"+uri;
+      if (ns.getUserData("path") != null)
+        link = ns.getUserString("path");
+      b.append(" <tr>");
+      b.append("<td><a href=\""+link+"\">"+Utilities.escapeXml(ns.getName())+"</a></td>");
+      b.append("<td>"+Utilities.escapeXml(uri)+"</td>");
+      b.append("<td>"+Utilities.escapeXml(oid)+"</td>");
+      b.append("</tr>\r\n");
+    }
+    b.append("</table>\r\n");
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", b.toString()).replace("<%example-usage%>", "");
+    html = page.processPageIncludes("namingsystem-terminologies.html", html, "resource-instance:NamingSystem", null, bnd, null, "Example", null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + "namingsystem-terminologies.html");
+    cachePage("namingsystem-terminologies.html", html, "Registered Code Systems", false);
+  }
+
   private void buildFeedsAndMaps() {
     profileFeed = new Bundle();
     profileFeed.setId("resources");
@@ -4068,7 +4146,9 @@ public class Publisher implements URIResolver {
     page.getEpub().registerFile(prefix +title + ".profile.xml.html", "StructureDefinition", EPubManager.XHTML_TYPE, false);
     String n = prefix +title + ".profile";
     json = resource2Json(profile.getResource());
-    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("StructureDefinition for " + profile.getResource().getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
+    
+    
+    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("StructureDefinition for " + profile.getResource().getDescription()) + "</p>\r\n<p><a href=\""+title+".profile.json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     html = TextFile.fileToString(page.getFolders().srcDir + "template-profile-example-json.html").replace("<%example%>", json);
     html = page.processProfileIncludes(title + ".profile.json.html", profile.getId(), pack, profile, "", "", "", html, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes, ig, false);
     TextFile.stringToFile(html, page.getFolders().dstDir + prefix +title + ".profile.json.html");
