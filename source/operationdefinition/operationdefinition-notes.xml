@@ -17,6 +17,78 @@ so that they can be represented directly in the URL without tricky encoding issu
 limited to a single return parameter "result" (though this may repeat).
 </p>
  
+<h3>Passing Resources to Operations</h3> 
+
+<p>
+There are two ways to pass resources to an operation - directly, or by reference.
+Since the two forms havevery different behaviors and consequences, the definition of 
+an Operation distinguishes between these two. 
+</p>
+<p>
+As an example, take the <a href="questionnaire-operations.html#populate">Questionnaire.$populate operation</a>.  
+This operation takes a questionnaire as a direct parameter. The type of the parameter is 
+defined as 'Questionnaire'. In a parameters resource, it would be represented like this:
+</p>
+<pre class="xml">
+  &lt;parameter&gt;
+    &lt;name value=&quot;questionnaire&quot;/&gt;
+    &lt;resource&gt;
+      &lt;Questionnaire&gt;
+        &lt;!-- Questionnaire contents --&gt;
+      &lt;/Questionnaire&gt;
+    &lt;/resource&gt;
+  &lt;/parameter&gt; 
+</pre>
+<p>
+or, in JSON:
+</p>
+<pre>
+ "parameter": [
+    {
+      "name": "questionnaire",
+      "resource": {
+        "resourceType": "Questionnaire",
+        // Questionnaire contents 
+      }
+    }
+  ]
+</pre>
+
+<p>
+Other parameters are passed by reference. For example, the populate takes a 
+set of references to other resources that should be used to pre-populate the 
+questionnaire. These are passed by reference, and the type of the 
+parameter is 'Reference(Any)' - a reference to any kind of resource.
+In a parameters resource, it would be represented like this: 
+</p>
+<pre class="xml">
+  &lt;parameter&gt;
+    &lt;name value=&quot;content&quot;/&gt;
+    &lt;valueReference&gt;
+      &lt;reference value="Patient/123"&gt;
+      &lt;/Questionnaire&gt;
+    &lt;/valueReference&gt;
+  &lt;/parameter&gt; 
+</pre>
+<p>
+or, in JSON:
+</p>
+<pre>
+ "parameter": [
+    {
+      "name": "questionnaire",
+      "valueReference" : {
+        "reference" : "Patient/123"
+      }
+    }
+  ]
+</pre>
+
+<p>
+Some operations can take either form; in that case, two different parameters
+must be defined, one for a resource directly, and one for a reference.
+</p>
+
 <h3>Renaming OperationDefinition.name</h3>
 
 <p>

@@ -1029,6 +1029,10 @@ public class Publisher implements URIResolver {
     XmlParser xml = new XmlParser();
     xml.setOutputStyle(OutputStyle.PRETTY);
     Bundle bnd = (Bundle) xml.parse(new CSFileInputStream(Utilities.path(page.getFolders().srcDir, "namingsystem", "namingsystem-terminologies.xml")));
+    for (BundleEntryComponent entry : bnd.getEntry()) {
+      NamingSystem ns = (NamingSystem) entry.getResource();
+      entry.setFullUrl("http://hl7.org/fhir/NamingSystem/"+ns.getId());
+    }
     List<String> names = new ArrayList<String>();
     names.addAll(page.getCodeSystems().keySet());
     Collections.sort(names);
@@ -1052,7 +1056,7 @@ public class Publisher implements URIResolver {
       if (ToolingExtensions.getOID(vs.getCodeSystem()) != null)
         ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(ToolingExtensions.getOID(vs.getCodeSystem()).substring(8)).setPreferred(false);
       ns.setUserData("path", vs.getUserData("path"));
-      bnd.addEntry().setResource(ns);
+      bnd.addEntry().setResource(ns).setFullUrl(vs.getUrl().replace("ValueSet", "NamingSystem"));
     }
     xml.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "namingsystem-terminologies.xml")), bnd);
     cloneToXhtml("namingsystem-terminologies", "Terminology Registry", false, "resource-instance:NamingSystem", "Terminology Registry");
