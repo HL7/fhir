@@ -13,8 +13,9 @@ Named Queries are executed by performing a <a href="search.html">search</a> with
 </p>
 <p>
 If the named query is to be performed over the RESTful API, all the parameters must be simple search parameters,
-so that they can be represented directly in the URL without tricky encoding issues. Named queries are also
-limited to a single return parameter "result" (though this may repeat).
+so that they can be represented directly in the URL without tricky encoding issues. Named queries always 
+return a bundle containing a set of resources, so all the out parameters must be 
+resources, not data types etc.
 </p>
  
 <h3>Passing Resources to Operations</h3> 
