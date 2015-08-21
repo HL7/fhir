@@ -17,13 +17,13 @@ Explains how this resource relates to others. Particularly important is to diffe
 </div>
 -->
 
-<!-- (optional):
 <div>
 <h2>Background and Context</h2>
 <p>
-Provides additional detail on exactly how the resource is to be used
+For discussion of policy for creating well maintained OIDs and URIs for resources,
+see <a href="http://wiki.hl7.org/index.php?title=InM_FHIR_homepage">The HL7 WIKI</a>.
 </p>
+
 </div>
--->
 
 </div>
