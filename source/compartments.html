@@ -76,6 +76,16 @@ It is at the discretion of the server whether to include resources in a compartm
 the reference to the resource that establishes the compartment is in an extension.
 </p>
 
+<p>
+Some resources are not in any compartment, e.g. <a href="medication.html">Medication</a>, 
+<a href="substance.html">Substance</a>, <a href="location.html">Location</a>. These resources are not directly to a patient 
+or authored record, and are some times called 'master files'. Servers will need to make 
+arrangements to make these resources available to the clients that are limited to 
+particular compartments. For example, a Medication resource describes a medication itself 
+and does not link to a patient; however, a resource such as MedicationAdministration 
+connects the Medication (details of what was administered) to the patient (for whom was 
+it administered), and so is required to interpret the administration.
+</p>
 <hr/>
 
 </div>
