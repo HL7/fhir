@@ -4427,7 +4427,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">A structure must have a base unless it’s type is 'abstract'</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">A structure must have a base unless abstract = true</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">(f:abstract/@value = 'true') or exists(f:base)</Data></Cell>
    </Row>
@@ -4457,7 +4457,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure describes a core Resource or Type, the url has to start with &quot;http://hl7.org/fhir/StructureDefinition/&quot; and the tail must match the name</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure describes a base Resource or Type, the url has to start with &quot;http://hl7.org/fhir/StructureDefinition/&quot; and the tail must match the name</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(constrainedType)) or f:url/@value=concat('http://hl7.org/fhir/StructureDefinition/', f:name/@value)</Data></Cell>
    </Row>
@@ -4530,7 +4530,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s109"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0">Roesurce
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
