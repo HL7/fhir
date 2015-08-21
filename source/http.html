@@ -892,7 +892,7 @@ A server may choose to accept bundle types other than <code>batch</code> or <cod
 Bundles of type <code>history</code> inherently have the same structure as a transaction, and
 can be treated as one, so servers SHOULD accept a history bundle - this makes it
 possible to replicate data from one server to another easily using a pub/sub model. Note, however, that
-existing transaction boundaries may not represented in a history list, and
+the original transaction boundaries may not represented in a history list, and
 a resource may occur more than once in a history list, so
 servers processing history bundles must have some strategy to manage this.
 </p>
@@ -926,15 +926,16 @@ specified version history, sorted with oldest versions last, and including delet
 Each entry SHALL minimally contain a either a <code>resource</code> which holds the resource as 
 it is at the conclusion of the interaction, or a <code>request</code> with <code>entry.request.method</code> 
 = DELETE. The <code>request</code> provides information about the interaction that occurred to 
-cause the new version. The principal reason it might not be missing is that the resource was changed 
-by some other channel than via the RESTful interface. If the <code>entry.request.method</code> is 
-a <code>PUT</code> or a <code>POST</code>, the entry SHALL contain a resource.
+cause the new version, and allows, for instance, subscriber system to differentiate between 
+create and update interactions. The principal reason a <code>resource</code> might be missing 
+is that the resource was changed by some other channel than via the RESTful interface. If 
+the <code>entry.request.method</code> is a <code>PUT</code> or a <code>POST</code>, the entry 
+SHALL contain a resource.
 </p>
 <p>
 The interactions <a href="#create">create</a>, <a href="#update">update</a>, and <a href="#delete">delete</a>
 create history entries. Other interactions do not (note that these operations may produce side-effects
 such as new AuditEvent resources; these are represented as create interactions in their own right).
-
 A create interaction is represented in a history interaction in the following way:
 </p>
 <pre class="xml">
