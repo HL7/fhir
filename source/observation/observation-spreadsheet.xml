@@ -15,7 +15,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8600</WindowHeight>
+  <WindowHeight>8720</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>1040</WindowTopX>
   <WindowTopY>2900</WindowTopY>
@@ -6823,7 +6823,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Genetics Observation Example2 Germlin</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Genetics Observation Example2 Germline</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s124"><Data ss:Type="String">Genetics Observation of Germline BRCA1 Variant</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">genetics-example2-germline</Data></Cell>
@@ -6984,7 +6984,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
+     <ActiveRow>29</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

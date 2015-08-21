@@ -5,6 +5,15 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
     <valueString value="GRCh 37"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsChromosome">
+      <valueCodeableConcept>
+          <coding>
+              <system value="http://www.ncbi.nlm.nih.gov/gene"/>
+              <code value="NC_000017"/>
+          </coding>
+          <text value="Homo sapiens chromosome 17"/>
+      </valueCodeableConcept>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStart">
     <valueInteger value="41258504"/>
   </extension>

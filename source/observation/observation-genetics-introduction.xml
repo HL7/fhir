@@ -9,10 +9,11 @@ Observation-genetics-profile (i.e. Standard Profile for Genetics) extends <a hre
 <h4>Genetic Standards and Resources include:</h4>
 			<ul> 
 				<li>Variant Databases: <a href="http://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi">dbSNP</a> , <a href="http://www.ncbi.nlm.nih.gov/clinvar/">ClinVar</a>, and <a href="http://cancer.sanger.ac.uk/cosmic/">COSMIC</a> </li>
-				<li>Reference Sequences: <a href="http://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a>and <a href="http://www.ensembl.org/index.html">ENSEMBL</a> </li>
+				<li>Reference Sequences: <a href="http://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a> and <a href="http://www.ensembl.org/index.html">ENSEMBL</a> </li>
 				<li> Gene Symbols and Identifiers: <a href="http://www.genenames.org">HGNC</a> - Human Genee Nomenclature Committee</li>
 				<li>Variant Nomenclature: <a href="http://www.hgvs.org">HGVS</a> nomenclature from the Human Genome Variantion Society</li>
 				<li>Variant Feature Annotation: <a href="http://www.sequenceontology.org">Sequence Ontology (SO)</a> and <a href="https://loinc.org">LOINC</a> </li>
+                <li>Locus: <a href="http://www.ncbi.nlm.nih.gov/gene">Gene</a></li>
 			</ul>
 </p>
 <h3>Scope and Usage</h3>
@@ -53,4 +54,13 @@ Hl7 Clinical Genomics Work Group emphasizes the importance of transmitting struc
 
 <p>The usage of component is shown in example3-mutationlist-1/2/3/4.</p>
 
+<h3>Category</h3>
+<p>Extensions added in genetics profile can be grouped into 4 categories:</p>
+<ul>
+    <li><strong>Sequence Information:</strong> geneticsGenomeBuild, geneticsChromosome, geneticsGenomicStart, geneticsGenomicStop, geneticsReferenceAllele, geneticsObservedAllele, geneticsTranscriptReferenceSequenceId, geneticsProteinReferenceSequenceId, geneticsCIGAR</li>
+    <li><strong>Variation:</strong> geneticsDNASequenceVariation, geneticsVariationId, geneticsDNASequenceVariationType, geneticsAminoAcidChange, geneticsAminoAcidChangeType</li>
+    <li><strong>Context:</strong> geneticsGene, geneticsDNARegionName, geneticsAlleleName, geneticsGenomicSourceClass, geneticsAminoSpecies, geneticsResult</li>
+    <li><strong>State:</strong> geneticsAllelicState, geneticsAllelicFrequency, geneticsCopyNumberEvent, geneticsReadCoverage</li>
+</ul>
+    
 </div>
