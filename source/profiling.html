@@ -67,7 +67,7 @@ FHIR defines a cascade of artifacts for this purpose:
  </tr>
 </table>
 <p>
-The term "profile" is general one that is used about either a "package" or an "item". 
+The term "profile" is a general one that is used about either a "package" or an "item". 
 "Profiling" is a general term that describes the process of creating an implementation guide,
 or any of the resources found in one. 
 </p>
@@ -249,7 +249,8 @@ see <a href="resource.html#ruleset">Restricted Understanding of Resources</a>.
 
 <h3>Using Structure Definitions</h3>
 <p>
-A "constraint" Structure Definition specifies a set of restrictions on the content of a FHIR resource or data type.
+A "constraint" Structure Definition specifies a set of restrictions on the content of a FHIR resource or data type,
+or an additional set of constraints on an existing profile.
 A given structure definition is identified by its canonical URL, which SHOULD be the URL at which it
 is published. The following kinds of statements can be made about how an element is used, using a 
 series of <a href="elementdefinition.html">Element Definitions</a>:
