@@ -404,6 +404,14 @@ A server SHOULD accept the resource as submitted when accepts the update, and re
 content when it is subsequently read. However systems may not be able to do this; see
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
 </p>
+<blockquote>
+<p>
+DSTU Note: The update operation updates the entire resource. Servers MAY apply some logic
+and preserve some existing content based where this is known to be appropriate behavior. 
+HTTP PATCH functionality is liekely to be defined, and feedback from outcomes of implementer
+experimentation is welcome. 
+</p>
+</blockquote>
 <p>
 If the interaction is successful, the server SHALL return either a 200 OK HTTP status code if the resource was updated, or a 201 Created status code if the resource was created,
 with a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> of the resource. A <code>Content-Location</code> header
