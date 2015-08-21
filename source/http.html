@@ -410,6 +410,27 @@ return a <code>Location</code> header.
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
 </p>
+<p>
+Note that servers MAY choose to allow clients to PUT a resource to a location that 
+does not yet exist on the server - effectively, allowing the client to define the 
+id of the resource. Whether a server allows this is a deployment choice based 
+on the nature of it's relationships with the clients. While many servers will 
+not allow clients to define their ids, there are several reasons why it may
+be necessary in some configurations:
+</p>
+<ul>
+ <li>client is reproducing an existing data model on the server, and needs to keep original ids in order to retain ongoing integrity</li>
+ <li>Client is a server doing push based pub/sub (this is a special case of the first reason)</li>
+ <li>multiple clients doing push in the context of agreed data model shared across multiple servers where ids are shared across servers</li>
+</ul>
+<p>
+Alternatively, clients may be sharing an agreed identification model (e.g. key server, scoped identifiers, or UUIDs)
+where clashes do not arise.
+</p>
+<p>
+Servers can choose whether or not to support client defined ids, and indicate such to the clients 
+using <a href="conformance-definitions.html#Conformance.rest.resource.updateCreate">Conformance.rest.resource.updateCreate</a>.
+</p>
 
 <h4>Rejecting Updates</h4>
 <p>
