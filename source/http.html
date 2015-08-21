@@ -177,6 +177,9 @@ ETag: W/"3141"
 <p>
 Using HTTPS is optional, but all production exchange of healthcare data SHOULD use SSL and 
 additional security as appropriate. See <a href="security.html#http">HTTP Security</a> for further information.
+Most operations will require user authentication, and all operations that do are subject 
+to <a href="https://en.wikipedia.org/wiki/Role-based_access_control">RBAC</a> and/or <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">ABAC</a>,
+and some operations may depend on appropriate consent being granted. 
 </p>
 <p>
 The choice of whether to return 403 or 404 depends upon the specific situation and specific 
