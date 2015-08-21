@@ -985,6 +985,11 @@ SHALL contain a resource.
 The interactions <a href="#create">create</a>, <a href="#update">update</a>, and <a href="#delete">delete</a>
 create history entries. Other interactions do not (note that these operations may produce side-effects
 such as new AuditEvent resources; these are represented as create interactions in their own right).
+New resources or updates to existing resources that are triggered by operations also appear in the 
+history, as to updates to the resources that result from interactions outside the scope of the
+RESTful interface.
+</p>
+<p>
 A create interaction is represented in a history interaction in the following way:
 </p>
 <pre class="xml">
