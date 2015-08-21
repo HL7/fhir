@@ -15,35 +15,34 @@ the same logical identity.
 </p>
 
 <p>
-The full identity of a resource is an absolute URL constructed from the server base address at 
-which it is found, the resource type, and the Logical Id, such as http://test.fhir.org/rest/Patient/123 
-(where 123 is the Logical Id). Note that implementations SHOULD NOT assume that the identity of a resource 
-is always resolvable to a literal server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
-cases, it may not actually exist (e.g. use of resource outside a RESTful environment). Resources reference each other by their identity. 
-These references are allowed to be absolute or relative (see <a href="references.html">Resource References</a> for further discussion).
+The literal identity of a resource - the actual HTTP address it which it can be accessed - is an 
+absolute URL constructed from the server base address at which it is found, the resource type, and the Logical Id, 
+such as http://test.fhir.org/rest/Patient/123 (where 123 is the Logical Id). Note that 
+implementations SHOULD NOT assume that the identity of a resource is always resolvable 
+to a literal server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
+cases, it may not actually exist (e.g. use of resource outside a RESTful environment). 
+Resources reference each other by their identity. These references are allowed to be absolute 
+or relative (see <a href="references.html">Resource References</a> for further discussion).
 Copying or moving resources from one server to another means that resources acquire a new identity. For further details, 
 see <a href="managing.html">Managing Resource Identity</a>.
 </p>
 
 <p>
-Logical ids are case sensitive. Ids are always opaque, and external systems need not and should not 
-attempt to determine their internal structure. An id SHALL always be represented in the same way in 
-resource references and URLs. Ids can be up to 64 characters long, and contain any combination of 
-upper and lowercase ASCII letters, numerals, "-" and ".". 
+Logical ids (and therefore literal identities) are case sensitive. Logical Ids are always 
+opaque, and external systems need not and should not attempt to determine their internal 
+structure. A logical id SHALL always be represented in the same way in resource references 
+and URLs. Ids can be up to 64 characters long, and contain any combination of upper and 
+lowercase ASCII letters, numerals, "-" and ".". 
 </p>
 
 <a name="identifiers"> </a>
 <h4>"Business" Identifiers</h4>
 <p>
-In addition to the Resource identity element "id", many resources contain an
-element named "identifier", which, if populated, contains a different kind of 
-identifier.
-</p>
-<p>
-The resource identity is a direct ("literal") reference that is intended to 
-be accessed via http for a resource to be returned. As a resource is copied
-from server to server, the resource identity will change as the servers 
-assign identities to the resource.
+In addition to the logical id and literal identity discussed above, many 
+resources contain an element named "identifier", which, if populated, 
+contains a different kind of identifier. As resources are copied
+from server to server, their literal identity will change, and their
+logical id may change.
 </p>
 <p>
 However all copies of the resource refer to the same underlying concept,
@@ -52,7 +51,7 @@ CDA, XDS, and many more). Each representation carries the same identifier
 that identifies it consistently across all contexts of use. This is known
 as the business identifier, and is found in the <i>identifier</i> element. 
 In a few resources, there is a <i>url</i> element that serves a similar
-purpose, but is constrained to be a literal URL.
+purpose, but is constrained to be a literal URL for implementation reasons.
 </p>
 <p>
 If a FHIR server is a stable server that is the canonical master source 
