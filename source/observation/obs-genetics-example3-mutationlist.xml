@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="genetics-example3-mutationlist"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
+    <valueString value="GRCh 37"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGene">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://www.genenames.org"/>
+        <code value="5244"/>
+        <display value="ABCB4"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsSpecies">
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="337915000"/> 
+        </coding>
+        <text value="Homo sapiens"/>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsResult">
+      <valueReference>
+          <reference value="genetics-example3-mutationlist-1"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsResult">
+      <valueReference>
+          <reference value="genetics-example3-mutationlist-2"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsResult">
+      <valueReference>
+          <reference value="genetics-example3-mutationlist-3"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsResult">
+      <valueReference>
+          <reference value="genetics-example3-mutationlist-4"/>
+      </valueReference>
+  </extension>
+
+
+  
+  <status value="final"/>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="49874-1"/>
+      <display value="ABCB4 gene mutation analysis"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/genetics-example2"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <performer>
+    <reference value="Practitioner/genetics-example2"/>
+    <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
+  <specimen>
+    <reference value="Specimen/genetics-example2"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+</Observation>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="genetics-example3-mutationlist-1"/>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
+    <valueString value="c.2708T&gt;C"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNARegionName">
+    <valueString value="Exon 23"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAminoAcidChange">
+    <valueString value="p.R969H"/>
+  </extension>
+  
+  <status value="final"/>
+  <code>
+      <coding>
+          <system value="http://loinc.org"/>
+          <code value="49874-1"/>
+          <display value="ABCB4 gene mutation analysis"/>
+      </coding>
+  </code>
+  <subject>
+    <reference value="Patient/genetics-example2"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <performer>
+    <reference value="Practitioner/genetics-example2"/>
+    <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
+  <specimen>
+    <reference value="Specimen/genetics-example2"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+  
+  <component>
+      <code>
+          <coding>
+              <system value="http://loinc.org"/>
+              <code value="53037-8"/>
+              <display value="Genetic disease sequence variation interpretation"/>
+          </coding>
+      </code>
+      <valueCodeableConcept>
+          <coding>
+              <system value="http://www.genenames.org"/>
+              <code value="LA6682-4"/>
+              <display value="Unknown significance"/>
+          </coding>
+      </valueCodeableConcept>
+  </component>
+
+
+</Observation>

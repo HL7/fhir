@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="genetics-example3-mutationlist-3"/>
+    
+    <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNARegionName">
+        <valueString value="intron 16"/>
+    </extension>
+
+    <extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
+                <code value="31668"/>
+                <display value="c.2211+16C&gt;T"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="49874-1"/>
+            <display value="ABCB4 gene mutation analysis"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/genetics-example2"/>
+        <display value="Molecular Lab Patient ID: HOSP-23456"/>
+    </subject>
+    <performer>
+        <reference value="Practitioner/genetics-example2"/>
+        <display value="Molecular Diagnostic Laboratory"/>
+    </performer>
+    <specimen>
+        <reference value="Specimen/genetics-example2"/>
+        <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+    </specimen>
+    
+    <component>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="53037-8"/>
+                <display value="Genetic disease sequence variation interpretation"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://www.genenames.org"/>
+                <code value="LA6675-8"/>
+                <display value="Benign"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    
+    
+</Observation>
