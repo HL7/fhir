@@ -218,12 +218,32 @@ Extending and restricting resources (collectively known as 'constraining a resou
 how the elements in a resource are used, and where extensions are used in a resource.
 </p>
 
+<a name="resources"> </a>
+<h3>Changing Cardinality</h3>
+
+<p>
+One key function of profiles is to change the cardinality of an element. A profile
+can restrict the cardinality of an element within the limits of the base structure
+it is constraining. This table summarises what that means:
+</p>
+<table class="grid">
+ <tr><td></td>       <td>0..0<br/>(Not used)</td>      <td>0..1<br/>(optional)</td>              <td>0..n<br/>(optional, many)</td>      <td>1..1<br/>(required)</td>     <td>1..n<br/>(at least 1)</td>    </tr>
+ <tr><td>0..1</td>   <td>yes</td>                     <td>yes</td>                             <td>no</td>                            <td>yes</td>                    <td>no</td>                      </tr>
+ <tr><td>0..*</td>   <td>yes</td>                     <td>yes</td>                             <td>yes</td>                           <td>yes</td>                    <td>yes</td>                     </tr>
+ <tr><td>1..1</td>   <td>no</td>                      <td>no</td>                              <td>no</td>                            <td>yes</td>                    <td>no</td>                      </tr>
+ <tr><td>1..*</td>   <td>no</td>                      <td>no</td>                              <td>no</td>                            <td>yes</td>                    <td>yes</td>                     </tr>
+</table>
+<p>
+When a profile is constraining another profile where there are more cardinality options (e.g. low is not just 0 or 1, and high is not just 1 or *), the same 
+principles still apply: the constraining profile can only allow what the base profile allows.
+</p>
+
 <h3>Limitations of Use</h3>
 <p>
 What Structure Definitions can do when they are constraining existing resources and datatypes is limited in some respects:
 </p>
 <ul>
- <li>Profiles cannot break the rules established in the base specification (e.g. if the element cardinality is 1..1 in the base specification, a profile cannot say it is 0..1, or 1..*)</li>
+ <li>Profiles cannot break the rules established in the base specification (e.g. cardinality as described above)</li>
  <li>Profiles cannot specify default values or meanings for elements</li>
  <li>Profiles cannot give more specific names to elements</li>
  <li>It must be safe to process a resource without knowing the profile</li>
