@@ -28,6 +28,14 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="User identity for the MPI to consider when creating a return set. This paraemter is defined in the assumption that the MPI ay be a separate module from other FHIR Servers, with a trust relationship to it. Actualy deployment scenarios will determine whether this parameter is used"/>
-    <type value="string"/><!-- ?? 0..1 What type this parameter hs -->
+    <type value="string"/>
+  </parameter>  
+  <parameter> 
+    <name value="result"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Patients that match this MPI query"/>
+    <type value="Patient"/>
   </parameter>  
 </OperationDefinition>
