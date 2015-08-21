@@ -942,9 +942,9 @@ retrievals of related resources.
 A typical case where this is useful is where the client is searching on
 some type of clinical resource, but for every such resource returned,
 the client will also need the subject (patient) resource that the
-clinical resource refers to. The client requests that the subject
-resources be included in the results set by providing one or more
-_include parameters. An alternative scenario is where the client 
+clinical resource refers to. The client can use the _include parameter 
+to indicate that the subject resources be included in the results. 
+An alternative scenario is where the client 
 wishes to fetch a particular resource, and any resources that refer
 to it. For example, the client may wish to fetch a MedicationOrder,
 and any provenance resources that refer to the prescription. This is known
