@@ -20,7 +20,7 @@
   <WindowWidth>19905</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1310,7 +1310,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">active | unconfirmed | confirmed | resolved | refuted | entered-in-error</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">active | inactive | unconfirmed | confirmed | resolved | refuted | entered-in-error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3812,12 +3812,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3833,8 +3834,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4612,7 +4613,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6848,7 +6848,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='allergy-intolerance-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="53" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s137" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s137" ss:Width="80.25"/>
@@ -6902,14 +6902,25 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">A low level of certainty about the propensity for a reaction to the identified Substance.</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">An active record of a reaction to the identified Substance.</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s152">
+    <Cell ss:StyleID="s131"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Inactive</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">An inactive record of a reaction to the identified Substance.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">unconfirmed</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">#1</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Unconfirmed</Data></Cell>
@@ -6920,7 +6931,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s141"><Data ss:Type="String">confirmed</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">#1</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Confirmed</Data></Cell>
@@ -6931,9 +6942,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s141"><Data ss:Type="String">resolved</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">#2</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Resolved</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.</Data></Cell>
     <Cell ss:StyleID="s131"/>
@@ -6942,9 +6953,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s141"><Data ss:Type="String">refuted</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">#2</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Refuted</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.</Data></Cell>
     <Cell ss:StyleID="s131"/>
@@ -6953,9 +6964,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">#2</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Entered In Error</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">The statement was entered in error and is not valid</Data></Cell>
     <Cell ss:StyleID="s131"/>
@@ -7479,7 +7490,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

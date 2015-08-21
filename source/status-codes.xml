@@ -311,7 +311,8 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:Index="17" ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">unconfirmed</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String"> confirmed</Data></Cell>
@@ -1394,7 +1395,7 @@
    <SplitHorizontal>4</SplitHorizontal>
    <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1410,8 +1411,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>19</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

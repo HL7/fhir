@@ -70,40 +70,49 @@
   Id = 1
   Code = active
   Display = Active
-  Definition = A low level of certainty about the propensity for a reaction to the identified Substance.
+  Definition = An active record of a reaction to the identified Substance.
 
  -- Row 2 -----------------------------------
   Id = 2
+  Code = inactive
+  Display = Inactive
+  Definition = An inactive record of a reaction to the identified Substance.
+
+ -- Row 3 -----------------------------------
+  Id = 3
   Code = unconfirmed
   Display = Unconfirmed
   Definition = A low level of certainty about the propensity for a reaction to the identified Substance.
   Parent = #1
 
- -- Row 3 -----------------------------------
-  Id = 3
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = confirmed
   Display = Confirmed
   Definition = A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
   Parent = #1
 
- -- Row 4 -----------------------------------
-  Id = 4
+ -- Row 5 -----------------------------------
+  Id = 5
   Code = resolved
   Display = Resolved
   Definition = A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = refuted
-  Display = Refuted
-  Definition = A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+  Parent = #2
 
  -- Row 6 -----------------------------------
   Id = 6
+  Code = refuted
+  Display = Refuted
+  Definition = A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+  Parent = #2
+
+ -- Row 7 -----------------------------------
+  Id = 7
   Code = entered-in-error
   Display = Entered In Error
   Definition = The statement was entered in error and is not valid
   v3 = ActStatus.nullified
+  Parent = #2
 
 === Sheet allergy-intolerance-criticality =====================================
 
@@ -300,7 +309,7 @@
   Summary = Y
   Type = code
   Binding = AllergyIntoleranceStatus
-  Short Label = active | unconfirmed | confirmed | resolved | refuted | entered-in-error
+  Short Label = active | inactive | unconfirmed | confirmed | resolved | refuted | entered-in-error
   Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance
   Comments = Decision support would typically raise alerts for \'Unconfirmed\', \'Confirmed\', and \'Resolved\' and ignore a \'Refuted\' reaction. In particular, \'Refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
   w5 = status
