@@ -239,6 +239,7 @@ create or update (which may be different to that provided by the
 client). In the case of transactions this means returning a Bundle with just the <code>Bundle.entry.response</code> populated for each entry,
 and not the <code>Bundle.entry.resource</code> values.
 </p>
+<a name="prefer"> </a>
 <p>The client can indicate whether the entire resource is
 returned using the <a href="https://tools.ietf.org/html/rfc7240#section-4.2">HTTP
 return preference</a>:
@@ -928,7 +929,7 @@ request, in the same order, with the outcome of processing the entry.
 Each entry element SHALL contain a <code>response</code> element which
 details the outcome of processing the entry - the HTTP status code, and the location
 and <code>ETag</code> header values, which are used for identifying and versioning the resources.
-In addition, a resource may be included in the entry.
+In addition, a resource may be included in the entry, as specified by the <a href="#prefer">Prefer</a> header.
 </p>
 
 <a name="other-bundles"> </a>
