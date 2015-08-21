@@ -312,9 +312,52 @@ There is <a href="json-edge-cases.json">a sample file</a> with many edge cases t
 </p>
 
 <a name="sig"> </a>
-<h4>Signatures</h4>
+<a name="canonical"> </a>
+
+<h3>Canonical JSON</h3>
 <p>
-<i>todo</i>
+Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html">Provenance</a>). 
+</p>
+<p>
+This specification defines the following method for canonicalizing FHIR resources, when represented as 
+JSON:
+</p>
+<ul>
+ <li>No whitespace other than single spaces in property values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
+ <li>Order properties alphabetically</li>
+ <li>Omit all properties that have a default value, if a default value is defined</li>
+ <li>Omit all comments (fhir_comments property as defined above)</li>
+</ul>
+<p>
+This canonicalization method is identified by the URL <code>http://hl7.org/fhir/canonicalization/json</code>. The 
+following additional canonicalization URLS are also defined:
+</p>
+<table class="grid">
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/json#data</td>
+  <td>The narrative (<code>Resource.text</code>) is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/json#static</td>
+  <td>In addition to narrative (Resource.text), the <code>Resource.meta</code> element is removed. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/json#narrative</td>
+  <td>The method only covers the <code>Resource.id</code> and Narrative is retained</td>
+ </tr>
+</table>
+<p>
+These canonicalization methods allow system the flexiibility to sign the various portions of 
+the resource that matter for the workflow the signature serves.
+</p>
+
+<p>
+Note: One consequence of signing the document is that URLs, identifiers and internal references are frozen and 
+cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed 
+ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is 
+recommended that systems consider carefully the impact of any signature processes. The impact of signatures
+on <a href="documents.html">Document bundles</a> and their related processes is the most well understood
+use of digital signatures.
 </p>
 
 </div>

@@ -152,11 +152,11 @@ Note that most code generation frameworks ignore the pattern restriction.
 Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html">Provenance</a>). 
 </p>
 <p>
-This specification defines the following method for canonicalizing XML representations FHIR resources, when represented as 
+This specification defines the following method for canonicalizing FHIR resources, when represented as 
 xml:
 </p>
 <ul>
- <li>No whitespace other than single spaces attribute values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
+ <li>No whitespace other than single spaces in attribute values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
  <li>Use default namespaces for the FHIR and XHTML namespaces</li>
  <li>Omit all elements that have a default value, if a default value is defined</li>
  <li>Omit all comments</li>
@@ -179,7 +179,7 @@ following additional canonicalization URLS are also defined:
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/xml#narrative</td>
-  <td>The method only covers the <code>Resource.id</code> and Narrative is reatined</td>
+  <td>The method only covers the <code>Resource.id</code> and Narrative is retained</td>
  </tr>
 </table>
 <p>
