@@ -54,6 +54,21 @@ In a few resources, there is a <i>url</i> element that serves a similar
 purpose, but is constrained to be a literal URL for implementation reasons.
 </p>
 <p>
+All resources that have an <code>identifier</code> element support searching
+by the identifier, so that records can located by that method. So if 
+an HL7 v2 message has the following OBR:
+</p>
+<pre>
+OBR|1|845439^GHH OE|1045813^GHH LAB|1554-5^GLUCOSE^LN|||200202150730|...
+</pre>
+<p>
+then the DiagnosticReport it represents can be located using the 
+following query:
+</p>
+<pre>
+ GET [base]/DiagnosticReport?identifier=1045813
+</pre>
+<p>
 If a FHIR server is a stable server that is the canonical master source 
 for the definition of a concept, the business identifier for all 
 systems may be the same as the literal identity of the resource on the 
