@@ -1051,6 +1051,8 @@ public class Publisher implements URIResolver {
         }
       }
       ns.setDate(vs.getDate());
+      if (!ns.hasDate())
+        ns.setDate(page.getGenDate().getTime());
       ns.setDescription(vs.getDescription());
       ns.addUniqueId().setType(NamingSystemIdentifierType.URI).setValue(vs.getCodeSystem().getSystem()).setPreferred(true);
       if (ToolingExtensions.getOID(vs.getCodeSystem()) != null)
