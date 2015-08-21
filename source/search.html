@@ -708,7 +708,8 @@ using the syntax in the second example above).
 <a name="combining" />
 <h4>Composite Search Parameters</h4>
 <p>
-The result of the search operation is the intersection of the resources that match the criteria specified by each
+Composite search parameters supports joining single values with a "$". For example, the result 
+of the search operation is the intersection of the resources that match the criteria specified by each
 individual search parameter. If a parameter repeats, such as /Patient?language=FR&amp;language=NL, then
 this matches a patient who speaks both languages. This is known as an AND search parameter, since the
 server is expected to respond only with results which match both values.
