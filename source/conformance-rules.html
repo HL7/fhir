@@ -206,6 +206,37 @@ the important elements to make use of the resource), nor is it automatically mus
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
 
+<a name="constraints"> </a>
+<h3>Constraints</h3>
+<p>
+All elements may have constraints attached to them (also known as 'invariants'). 
+Constraints defined on an element have the following properties:
+</p>
+<table class="grid">
+ <tr><td><b>Key</b></td><td>Identifies the constraint uniquely amongst all the constraints in the context - typically, this is used to refer to the constraint in an error message</td></tr>
+ <tr><td><b>Requirements</b></td><td>An explanation of why the constraint has been applied - what harmful conditions are being avoided</td></tr>
+ <tr><td><b>Severity</b></td><td>Whether the constraint is an error, or a warning. The exact difference in meaning of these depends on context, but an error is associated with "SHALL" and systems rejecting content, where as a warning might not be</td></tr>
+ <tr><td><b>Human Description</b></td><td>A human description of the rule intended to be show as the explanation for a message when the constraint is not met</td></tr>
+ <tr><td><b>XPath Expression</b></td><td>An XPath expression taht must evaluate to true when run on the element in the XML representation. To use the constraint in JSON, the resource must be converted to XML</td></tr>
+</table>
+<blockquote>
+<p>
+DSTU Note: Alternatives to XPath are being sought. Not only are XPath expressions XML specific, but the expressions defined in the specification require XSLT2, which is not well supported. The ideal solution will apply to either XML or JSON, abd be widely supported in off the shelf tools. 
+</p>
+</blockquote>
+<p>
+Many constraints are defined in the base specification. In addition, additional 
+constraints may be defined in <a href="profiling.html">profiles</a> that apply 
+to resources. Systems are not required to evaluate the constraints, just as they 
+are not required to check for conformance, or schema validatity. However, systems 
+SHOULD alway ensure that all resources are valid against all applicable constraints.
+</p>
+<p>
+Elements can also be explicitly associated with constraints defined elsewhere. This is 
+a notification to implementers that the element is affected by the constraint. It has no meaning when the constraints are evaluated.
+</p>
+
+
 <a name="summary"> </a>
 <a name="default"> </a>
 <a name="meaning-when-missing"> </a>
@@ -219,11 +250,6 @@ In addition to the conformance, metadata, each element has other metadata proper
  <li><b>maxLength</b> - How long the representation of the primitive value is allowed to be (not including XML or JSON escaping)</li>
 </ul>
 
-<a name="invariants"> </a>
-<h3>Invariants</h3>
-<p>
-TODO: write this section
-</p>
 
 
 <h3>Examples and Reference Implementations</h3>
