@@ -63,7 +63,6 @@ Content-Type: text/xml
 Access-Control-Allow-Origin: *
 Last-Modified: Thu, 24 Oct 2013 00:41:55 +0000
 ETag: 1
-Content-Location: http://[server]/[path]/Binary/4/_history/1
 
 &lt;ClinicalDocument xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
   xmlns=&quot;urn:hl7-org:v3&quot;xmlns:cda=&quot;urn:hl7-org:v3&quot;&gt;
