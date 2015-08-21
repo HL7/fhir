@@ -8100,7 +8100,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The context is a particular extension from a particular profile, a uri that identifies the extension definition</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s145"/>
