@@ -26,7 +26,7 @@ code { counter-increment: listing; }
 FHIR (Fast Health Interoperability Resources) is designed to enable the exchange of healthcare-related information.
 This includes clinical data as well as healthcare-related administration, public health and research.  It covers
 both human and veterinary medicine and is intended to be useable world-wide in a wide variety of contexts - in-patient,
-long-term care, community care, allied health, etc.
+ambulatory care, long-term care, community care, allied health, etc.
 </p>
 
 <p>
@@ -61,19 +61,10 @@ of codes, etc.  FHIR repositories might be elecronic health record (EHR) systems
 hospital information systems (HISs), etc.  Some systems, such as clinical decision support engines, may
 expose FHIR interfaces even though they don't actually store any information.
 </p>
-
-<h3>Building useful Clinical Systems out of Molecules</h3>
 <p>
 Each resource contains a small amount of highly-focused data. A single resource doesn't say much, but a lot of very small resources 
 together create a useful clinical record. Information systems map the actions that a user takes (look up patient records, make a
 note in their history, etc) to operations on the relevant resources.
-</p>
-<p>
-The resources link to each other, and the links create a network (or web) of information that represent a health record (or at least, 
-a useful part of it).  For example, a prescription resource instance
-might reference the practitioner who created the prescription, the patient the prescription is for and the medication being
-prescribed.  Each of these are maintained in their own folders in their own cabinets.  However, the FHIR interface allows
-all of these links to be resolved and the relevant pieces of paper to be assembled to present a complete picture to the end user.
 </p>
 
 <h3>Extensibility and Profiling</h3>
@@ -160,18 +151,27 @@ of that real world thing.  Every time someone updates a record, a new piece of p
 file folder.  To see the history of a resource, you just flip through the pieces of paper in the folder.
 </p>
 <p>
+Note that a typical medical record is generally a big folder-of-folders with all the different
+types of 'form' or 'report' gathered together. This is convenient for someone who wants to review
+the whole record, but inconvenient for updating bits of it - there's always contention for access
+to it to update the right parts. In IT, the record will be deconstructed to it's smallest components
+for management purpose, and a computer will (well, should), assemble the right bits as required, by 
+following the references from one piece of information to the next. 
+</p>
+<p>
 Now picture a clerk at the front door of that room.  You can pass the clerk a requisition to have them do something with
 the information in those file cabinets.  The "clerk" and set of requisition forms make up the FHIR restful API.  With that API,
 you can do the following things:
 </p>
 <ul>
 <li><i>search</i>: Search through the folders for ones that meet a set of search criteria</li>
-<li><i>read</i>: Get a copy of one a specific folder in one of the cabinets</li>
+<li><i>read</i>: Get a copy of the top piece of paper (most recent, aka current) of from a specific folder in one of the cabinets</li>
 <li><i>create</i>: Add a new folder to the appropriate cabinet (with a new number)</li>
 <li><i>update</i>: Add a new page (version) to the contents of a specific folder</li>
 <li><i>delete</i>: Remove a folder from the cabinet (or more accurately, put a sticker on it saying "do not open")</li>
 <li><i>history</i>: Look at all the pages in a single folder (or in some cases a particular file cabinet or even the whole room - though that's more for technical purposes than clinical purposes)</li>
 <li><i>transaction</i>: Give the server a bunch of folders all at once to update</li>
+<li><i>operation</i>: Ask the server to carry out some kind of procedure on the set of records it has</li>
 </ul>
 <p>
 EHR and other systems may present a more sophisticated interface to their end users, but behind the scenes, they are all
