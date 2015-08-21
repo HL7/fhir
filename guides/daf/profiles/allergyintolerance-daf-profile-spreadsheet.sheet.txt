@@ -103,59 +103,59 @@
   Type = string
 
  -- Row 14 -----------------------------------
-  Element = AllergyIntolerance.event
+  Element = AllergyIntolerance.reaction
   Card. = 0..*
   Must Support = Y
 
  -- Row 15 -----------------------------------
-  Element = AllergyIntolerance.event.substance
+  Element = AllergyIntolerance.reaction.substance
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFAllergySubstance
 
  -- Row 16 -----------------------------------
-  Element = !AllergyIntolerance.event.certainty
+  Element = !AllergyIntolerance.reaction.certainty
   Card. = 0..1
   Type = code
 
  -- Row 17 -----------------------------------
-  Element = AllergyIntolerance.event.manifestation
+  Element = AllergyIntolerance.reaction.manifestation
   Card. = 1..*
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFManifestation
 
  -- Row 18 -----------------------------------
-  Element = !AllergyIntolerance.event.description
+  Element = !AllergyIntolerance.reaction.description
   Card. = 0..1
   Type = string
 
  -- Row 19 -----------------------------------
-  Element = AllergyIntolerance.event.onset
+  Element = AllergyIntolerance.reaction.onset
   Card. = 0..1
   Must Support = Y
   Type = dateTime
 
  -- Row 20 -----------------------------------
-  Element = AllergyIntolerance.event.duration
-  Card. = 0..1
+  Element = !AllergyIntolerance.reaction.extenstion
+  Profile Name = AllergyIntolerance.reaction.duration
   Must Support = Y
-  Type = Duration
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration}
 
  -- Row 21 -----------------------------------
-  Element = AllergyIntolerance.event.severity
+  Element = AllergyIntolerance.reaction.severity
   Card. = 0..1
   Must Support = Y
   Type = code
 
  -- Row 22 -----------------------------------
-  Element = !AllergyIntolerance.event.exposureRoute
+  Element = !AllergyIntolerance.reaction.exposureRoute
   Card. = 0..1
   Type = CodeableConcept
 
  -- Row 23 -----------------------------------
-  Element = !AllergyIntolerance.event.comment
+  Element = !AllergyIntolerance.reaction.notes
   Card. = 0..1
   Type = string
 

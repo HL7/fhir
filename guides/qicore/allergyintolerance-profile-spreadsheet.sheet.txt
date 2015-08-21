@@ -98,23 +98,26 @@
   Must Support = Y
 
  -- Row 12 -----------------------------------
-  Element = AllergyIntolerance.event
+  Element = AllergyIntolerance.reaction
 
  -- Row 13 -----------------------------------
-  Element = AllergyIntolerance.event.manifestation
+  Element = AllergyIntolerance.reaction.manifestation
   Must Support = Y
   Type = !CodeableConcept
   Binding = DAFManifestation
   QDM Mapping = reaction
 
  -- Row 14 -----------------------------------
-  Element = AllergyIntolerance.event.onset
+  Element = AllergyIntolerance.reaction.onset
   Must Support = Y
   QDM Mapping = start datetime
 
  -- Row 15 -----------------------------------
-  Element = AllergyIntolerance.event.duration
+  Element = !AllergyIntolerance.reaction.extension
+  Profile Name = AllergyIntolerance.reaction.duration
+  Card. = 0..1
   Must Support = Y
+  Type = Extenstion{http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration}
   QDM Mapping = stop datetime
 
 === Sheet Search =====================================

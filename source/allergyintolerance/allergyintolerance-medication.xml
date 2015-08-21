@@ -28,7 +28,7 @@
   <criticality value="CRITH"/> 
   <category value="medication"/>
   
-  <event> 
+  <reaction> 
     <manifestation>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -36,5 +36,5 @@
         <display value="Hives"/>
       </coding>
     </manifestation>
-  </event>
+  </reaction>
 </AllergyIntolerance>

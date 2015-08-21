@@ -230,6 +230,14 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = AllergyIntolerance.onset
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Date(/time) when manifestations showed
+  Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
+
+ -- Row 4 -----------------------------------
   Element = AllergyIntolerance.recordedDate
   Card. = 0..1
   Summary = y
@@ -239,7 +247,7 @@
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = AllergyIntolerance.recorder
   Card. = 0..1
   Aliases = Author
@@ -250,7 +258,7 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = AllergyIntolerance.patient
   Card. = 1..1
   Aliases = Patient
@@ -261,7 +269,7 @@
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = AllergyIntolerance.reporter
   Card. = 0..1
   Aliases = Source; Informant
@@ -272,7 +280,7 @@
   Comments = The recorder takes repsonsibility for the content, but can reference the source from where they got it
   w5 = who.source
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = AllergyIntolerance.substance
   Card. = 1..1
   Aliases = Agent
@@ -284,7 +292,7 @@
   Comments = It is strongly recommended that Substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, Snomed CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available.
   w5 = what
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = AllergyIntolerance.status
   Card. = 0..1
   Aliases = State
@@ -297,7 +305,7 @@
   Comments = Decision support would typically raise alerts for \'Unconfirmed\', \'Confirmed\', and \'Resolved\' and ignore a \'Refuted\' reaction. In particular, \'Refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
   w5 = status
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = AllergyIntolerance.criticality
   Card. = 0..1
   Aliases = Severity; Seriousness; Contra-indication; Risk
@@ -309,7 +317,7 @@
   Comments = The default criticality value for any propensity to an Adverse Reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
   w5 = grade
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = AllergyIntolerance.type
   Card. = 0..1
   Aliases = Category; Class
@@ -321,7 +329,7 @@
   Comments = Immune-mediated responses have been traditionally regarded as an indicator for escalation of significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune and non-immune and still carry life threatening risk.   It is acknowledged that many clinicians may not be in a position to distinguish the mechanism of a particular reaction.  This data element is included nevertheless because many legacy systems have captured this attribute.  Immunological testing may provide supporting evidence for the basis and causative substance , but no tests are 100% sensitive or specific for a sensitivity.
   w5 = class
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = AllergyIntolerance.category
   Card. = 0..1
   Aliases = Category; Type; Reaction Type; Class
@@ -333,7 +341,7 @@
   Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.
   w5 = class
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = AllergyIntolerance.lastOccurence
   Card. = 0..1
   Summary = Y
@@ -342,7 +350,7 @@
   Definition = Represents the date and/or time of the last known occurence of a reaction event
   Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurence is required e.g \'In Childhood, \'10 years ago\' the Comment element should be used.
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = AllergyIntolerance.notes
   Card. = 0..1
   Type = Annotation
@@ -350,15 +358,15 @@
   Definition = Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
   Comments = For example: including reason for flagging a Seriousness of \'High Risk\'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.
 
- -- Row 14 -----------------------------------
-  Element = AllergyIntolerance.event
+ -- Row 15 -----------------------------------
+  Element = AllergyIntolerance.reaction
   Card. = 0..*
   UML = right
   Short Label = Adverse Reaction Events linked to exposure to substance
   Definition = Details about each Adverse Reaction Event linked to exposure to the identified Substance
 
- -- Row 15 -----------------------------------
-  Element = AllergyIntolerance.event.substance
+ -- Row 16 -----------------------------------
+  Element = AllergyIntolerance.reaction.substance
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
@@ -367,8 +375,8 @@
   Definition = Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance
   Comments = Coding of the Specific Substance with a terminology capable of triggering decision support should be used wherever possible.  The Substance field allows for the use of a specific substance or a group or class of substances, for example \"Penicillins\". The specific Substance field could be used for Amoxycillin. Duplication is acceptable when a specific substance has been recorded in the \'Substance\' field.
 
- -- Row 16 -----------------------------------
-  Element = AllergyIntolerance.event.certainty
+ -- Row 17 -----------------------------------
+  Element = AllergyIntolerance.reaction.certainty
   Card. = 0..1
   Aliases = Cause;
   Summary = Y
@@ -377,8 +385,8 @@
   Short Label = unlikely | likely | confirmed - clinical certainty about the specific substance
   Definition = Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event
 
- -- Row 17 -----------------------------------
-  Element = AllergyIntolerance.event.manifestation
+ -- Row 18 -----------------------------------
+  Element = AllergyIntolerance.reaction.manifestation
   Card. = 1..*
   Aliases = Symptoms; Signs
   Summary = Y
@@ -388,8 +396,8 @@
   Definition = Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event
   Comments = Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that Manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED-CT or ICD10.
 
- -- Row 18 -----------------------------------
-  Element = AllergyIntolerance.event.description
+ -- Row 19 -----------------------------------
+  Element = AllergyIntolerance.reaction.description
   Card. = 0..1
   Aliases = Narrative; Text
   Type = string
@@ -397,23 +405,16 @@
   Definition = Text description about the Reaction as a whole, including details of the manifestation if required
   Comments = Use the description to provide any details of a particular event of the occurred reaction such as circumstances, reaction specifics, what happened before/after. Information, related to the event, but not describing a particular care should be captured in the comment field. For example: at the age of four, the patient was given penicillin for strep throat and subsequently developed severe hives.
 
- -- Row 19 -----------------------------------
-  Element = AllergyIntolerance.event.onset
+ -- Row 20 -----------------------------------
+  Element = AllergyIntolerance.reaction.onset
   Card. = 0..1
   Summary = Y
   Type = dateTime
   Short Label = Date(/time) when manifestations showed
   Definition = Record of the date and/or time of the onset of the Reaction
 
- -- Row 20 -----------------------------------
-  Element = AllergyIntolerance.event.duration
-  Card. = 0..1
-  Type = Duration
-  Short Label = How long Manifestations persisted
-  Definition = The amount of time that the Adverse Reaction persisted
-
  -- Row 21 -----------------------------------
-  Element = AllergyIntolerance.event.severity
+  Element = AllergyIntolerance.reaction.severity
   Card. = 0..1
   Summary = Y
   Type = code
@@ -423,7 +424,7 @@
   Comments = It is acknowledged that this assessment is very subjective. There may be some some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions
 
  -- Row 22 -----------------------------------
-  Element = AllergyIntolerance.event.exposureRoute
+  Element = AllergyIntolerance.reaction.exposureRoute
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
@@ -433,7 +434,7 @@
   Comments = Coding of the Route of Exposure with a terminology should be used wherever possible.
 
  -- Row 23 -----------------------------------
-  Element = AllergyIntolerance.event.notes
+  Element = AllergyIntolerance.reaction.notes
   Card. = 0..1
   Type = Annotation
   Short Label = Text about event not captured in other fields
@@ -445,7 +446,7 @@
  -- Row 1 -----------------------------------
   Name = substance
   Type = token
-  Path = AllergyIntolerance.substance | AllergyIntolerance.event.substance
+  Path = AllergyIntolerance.substance | AllergyIntolerance.reaction.substance
 
  -- Row 2 -----------------------------------
   Name = status
@@ -475,49 +476,44 @@
  -- Row 7 -----------------------------------
   Name = manifestation
   Type = token
-  Path = AllergyIntolerance.event.manifestation
+  Path = AllergyIntolerance.reaction.manifestation
 
  -- Row 8 -----------------------------------
   Name = onset
   Type = date
-  Path = AllergyIntolerance.event.onset
+  Path = AllergyIntolerance.reaction.onset
 
  -- Row 9 -----------------------------------
-  Name = duration
-  Type = quantity
-  Path = AllergyIntolerance.event.duration
-
- -- Row 10 -----------------------------------
   Name = severity
   Type = token
-  Path = AllergyIntolerance.event.severity
+  Path = AllergyIntolerance.reaction.severity
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = route
   Type = token
-  Path = AllergyIntolerance.event.exposureRoute
+  Path = AllergyIntolerance.reaction.exposureRoute
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = identifier
   Type = token
   Path = AllergyIntolerance.identifier
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = date
   Type = date
   Path = AllergyIntolerance.recordedDate
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = recorder
   Type = reference
   Path = AllergyIntolerance.recorder
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = patient
   Type = reference
   Path = AllergyIntolerance.patient
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = reporter
   Type = reference
   Path = AllergyIntolerance.reporter

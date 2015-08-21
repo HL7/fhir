@@ -92,19 +92,19 @@
   Binding = AllergyIntoleranceType
 
  -- Row 8 -----------------------------------
-  Element = AllergyIntolerance.event
+  Element = AllergyIntolerance.reaction
 
  -- Row 9 -----------------------------------
-  Element = AllergyIntolerance.event.manifestation
+  Element = AllergyIntolerance.reaction.manifestation
   Profile Name = ReactionToSubstance
   Binding = ReactionToSubstance
 
  -- Row 10 -----------------------------------
-  Element = AllergyIntolerance.event.severity
+  Element = AllergyIntolerance.reaction.severity
   Binding = Severity
 
  -- Row 11 -----------------------------------
-  Element = AllergyIntolerance.event.exposureRoute
+  Element = AllergyIntolerance.reaction.exposureRoute
   Binding = exposureRoute
 
  -- Row 12 -----------------------------------

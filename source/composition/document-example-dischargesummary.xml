@@ -473,7 +473,7 @@
         <status value="confirmed"/>
         <criticality value="CRITH"/>
         <type value="immune"/>
-        <event>
+        <reaction>
           <manifestation>
             <coding>
               <system value="http://example.org/system"/>
@@ -482,7 +482,7 @@
             </coding>
             <text value="Hives"/>
           </manifestation>
-        </event>
+        </reaction>
       </AllergyIntolerance>
     </resource>
   </entry>

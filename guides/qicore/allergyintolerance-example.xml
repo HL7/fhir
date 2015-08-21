@@ -53,7 +53,7 @@
 
   <!-- past events. There's no claim that this is all the events, and
      that should not be assumed -->
-  <event>
+  <reaction>
     <!--
       It's possible to list specific things to which the patient responded,
       e.g. chocolate (that happened to contain cashew nuts). This event has
@@ -82,8 +82,8 @@
     <description value="Challenge Protocol. Severe Reaction to 1/8 cashew. Epinephrine administered"/>
     <onset value="2012-06-12"/>
     <severity value="severe"/>
-  </event>
-  <event>
+  </reaction>
+  <reaction>
     <!-- this was the first occurence -->
     <certainty value="likely"/>
     <manifestation>
@@ -95,5 +95,5 @@
     </manifestation>
     <onset value="2004"/>
     <severity value="moderate"/>
-  </event>
+  </reaction>
 </AllergyIntolerance>
