@@ -49,15 +49,38 @@ Extensions are always defined against some particular context - the type of elem
 that they may be used to extend. The following are possible contexts for an extension:
 </p>
 <table class="codes">
- <tr><th>Context type</th><th>Context format</th><th>Examples</th></tr>
- <tr><td>A particular element (including the root) in a single resource</td><td>The element path for that element<br/>Note: If the context is an element that can have multiple types, then use (e.g.) value[x] if the extension works on all choice types, or otherwise an enumeration of explicitly named elements if not</td><td>Profile.resource.element; Person</td></tr>
- <tr><td>A particular element (including the root) in a particular data type</td><td>The data type name for primitive types or the element path for complex data types</td><td>Address.part.value; string</td></tr>
- <tr><td>A particular context in one of the mapped reference models</td><td>The name of the reference model followed by the mapping path</td><td>RIM: Act[moodCode="EVN"]</td></tr>
- <tr><td>Another extension</td><td>The profile URI of the extension followed by the extension code</td><td>http://myextensions.org#someExtension</td></tr>
- <tr><td>A set of some combination of the above</td><td>specify multiple useContext elements - one for each context</td><td>Address; Contact</td></tr>
+ <tr><th>Code</th><th>Context type</th><th>Context format</th><th>Examples</th></tr>
+ <tr>
+   <td>resource</td>
+   <td>A particular element (including the root) in a single resource</td>
+   <td>The element path for that element, using the standard dotted notation</td>
+   <td>Condition<br/>Condition.code</td>
+  </tr>
+ <tr>
+   <td>datatype</td>
+   <td>A particular element (including the root) in a particular data type</td>
+   <td>The data type name for primitive types or the element path for complex data types. These extensions can be used anywhere the data type is used</td>
+   <td>Address.part.value<br/>string</td></tr>
+ <tr>
+   <td>mapping</td>
+   <td>A particular context in one of the mapped reference models</td>
+   <td>The name of the reference model followed by the mapping path. The details of the path depend on the named mapping</td>
+   <td>RIM: Act[moodCode="EVN"]</td>
+ </tr>
+ <tr>
+   <td>extension</td>
+   <td>Another extension</td>
+   <td>The profile URI of the extension followed by the extension code</td>
+   <td>http://myextensions.org/someExtension</td>
+ </tr>
 </table>
 <p>
-In addition, an extension definition might apply additional constraints with
+Note: For type 'resource' and 'datatype', if the context is an element that can have multiple types, 
+then use (e.g.) Observationn.value[x] if the extension works on all choice types, 
+or otherwise an enumeration of explicitly named elements if not (e.g. Observation.valueQuantity)
+</p>
+<p>
+In addition, the extension definition might apply additional constraints with
 regards to particular element values of the target that make its use appropriate.
 Extensions SHALL only be used on a target for which they are defined.
 </p>
