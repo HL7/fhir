@@ -935,11 +935,11 @@ In addition, a resource may be included in the entry.
 <h4>Accepting Other bundle types</h4>
 
 <p>
-A server may choose to accept bundle types other than <code>batch</code> or <code>transaction</code> when as transactions POSTed to the [base] URL.
+A server may choose to accept bundle types other than <code>batch</code> or <code>transaction</code> when POSTed to the [base] URL.
 </p>
 <p>
 Bundles of type <code>history</code> inherently have the same structure as a transaction, and
-can be treated as one, so servers SHOULD accept a history bundle - this makes it
+can be treated as either a transaction or batch, so servers SHOULD accept a history bundle - this makes it
 possible to replicate data from one server to another easily using a pub/sub model. Note, however, that
 the original transaction boundaries may not represented in a history list, and
 a resource may occur more than once in a history list, so
