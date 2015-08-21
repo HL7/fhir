@@ -9,7 +9,7 @@
   <contact>
     <telecom>
       <system value="other"/>
-      <value value="http://nehta.gov.au"/>
+      <value value="http://www.nehta.gov.au"/>
     </telecom>
   </contact>
   <description value="Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation"/>
