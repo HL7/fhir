@@ -1496,7 +1496,11 @@ public class ProfileUtilities {
   		code = url.substring(1);
   	} else {
   		String[] parts = url.split("\\#");
-  		if (!context.getProfiles().containsKey(parts[0])) {
+  		if (context.getExtensionDefinitions().containsKey(parts[0])) {
+        profile = context.getExtensionDefinitions().get(parts[0]);
+        code = null;
+  		} else {
+  		  if (!context.getProfiles().containsKey(parts[0])) {
   			if (parts[0].startsWith("http:") || parts[0].startsWith("https:")) {
   				String[] ps = parts[0].split("\\/StructureDefinition\\/");
   				if (ps.length != 2)
@@ -1511,10 +1515,10 @@ public class ProfileUtilities {
   				}
   			} else
   				return null;
+        }
+        profile = context.getProfiles().get(parts[0]);
+        code = parts.length < 2 ? null : parts[1];
   		}
-  		profile = context.getProfiles().get(parts[0]);
-  		code = parts.length < 2 ? null : parts[1];
-  	}
 
   	if (profile == null) 
   		return null;
@@ -1524,6 +1528,7 @@ public class ProfileUtilities {
   		if (r instanceof StructureDefinition && r.getId().equals(code))
   			return (StructureDefinition) r;
   	}
+    }
   	return null;	  
   }
 

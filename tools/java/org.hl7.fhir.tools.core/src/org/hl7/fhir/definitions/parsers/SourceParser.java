@@ -314,6 +314,8 @@ public class SourceParser {
       for (Profile p : r.getConformancePackages()) 
         loadConformancePackage(p, r.getWg().getCode(), issues);
     }
+    definitions.setLoaded(true);
+    
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (!Utilities.noString(ig.getSource())) {
         new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee(), definitions.getMapTypes(), definitions.getProfileIds()).load(rootDir, ig, issues, igNames);

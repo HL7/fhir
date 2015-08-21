@@ -357,6 +357,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private Set<String> structuralPages = new HashSet<String>();
   private Map<String, PageInformation> pageInfo = new HashMap<String, Definitions.PageInformation>();
   private Map<String, ConstraintStructure> profileIds = new HashMap<String, ConstraintStructure>();
+  private boolean loaded;
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -658,6 +659,14 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   public Map<String, ConstraintStructure> getProfileIds() {
     return profileIds;
+  }
+
+  public boolean isLoaded() {
+    return loaded;
+  }
+
+  public void setLoaded(boolean loaded) {
+    this.loaded = loaded;
   }
 
   

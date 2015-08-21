@@ -1006,6 +1006,10 @@ public class ProfileGenerator {
             expandedTypes.add(new TypeRef("Reference"));
             expandedTypes.add(new TypeRef("Meta"));
           } else if (!t.getName().startsWith("=")) {
+            if (definitions.isLoaded() && (!definitions.hasResource(t.getName()) && !definitions.hasType(t.getName()) 
+                && !definitions.hasElementDefn(t.getName()) && !definitions.getBaseResources().containsKey(t.getName()) &&!t.getName().equals("xhtml") )) {
+              throw new Exception("Bad Type '"+t.getName()+"' at "+path+" in profile "+p.getUrl());
+            }
             expandedTypes.add(t);
           }
         }
