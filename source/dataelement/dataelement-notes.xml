@@ -177,6 +177,8 @@ this can occur:
 <li><code>DataElement.element.mapping</code> allows a data element to be linked to a particular data structure such as a FHIR resource, a CDA template, an OpenEHR archetype, etc.</li>
 <li>The <a href="questionnaire.html">Questionnaire</a> extension <a href="extension-questionnaire-dereference.html">deReference</a> allows a
 particular question in a questionnaire to be linked to a data element deemed to correspond to that question.  This mechanism supports
-population of questionnaire instances on the basis of known data elements</li>
+population of questionnaire instances on the basis of known data elements. The intent is that a server will populate anything 
+it recognises by data elements. However servers may not know all the data elements, and won't populate ones that they don't know.
+</li>
 </ul>
 </div>

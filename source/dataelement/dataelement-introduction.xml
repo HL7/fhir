@@ -63,7 +63,7 @@ ElementDefinition and <a href="questionnaire.html">Questionnaire</a>'s Question 
 </p>
 <blockquote>
 <p>
-<b><a name="dstu">DSTU Ballot Issue</a></b>: Should a shared structure be used in <a href="profile.html">Profile</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
+<b><a name="dstu">DSTU Issue</a></b>: Should a shared structure be used in <a href="profile.html">Profile</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
 to capture constraints on data elements, or is it acceptable for them to continue to be maintained in a separate, but "similar" manner?
 </p>
 </blockquote>
