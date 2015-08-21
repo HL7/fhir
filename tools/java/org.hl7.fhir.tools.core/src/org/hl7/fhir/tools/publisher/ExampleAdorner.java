@@ -199,9 +199,9 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         else
           return new ExampleAdornerState(State.Reference, s.path, s.getDefinition(), "", "");
       } else // if (s.getState() == State.Unknown) {
-        if (node.getNamespaceURI().equals("http://www.w3.org/1999/xhtml"))
-          return new ExampleAdornerState(State.Unknown, s.path, null, "Snipped for brevity");
-        else
+//        if (node.getNamespaceURI().equals("http://www.w3.org/1999/xhtml"))
+//          return new ExampleAdornerState(State.Unknown, s.path, null, "Snipped for brevity");
+//        else
           return new ExampleAdornerState(State.Unknown, s.path, null, "", "");
     }
   }
