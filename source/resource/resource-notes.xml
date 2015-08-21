@@ -9,8 +9,9 @@ assigned by the server responsible for storing it. Resources always have a known
 except for the special case when a new resources is being sent to a server to assign
 an identity (<a href="http.html#create">create interaction</a>). 
 The logical identity is unique within the space of all resources of the same type on 
-the same server. Once assigned, the identity is never changed, though copies of the 
-same resource made elsewhere may not retain the same identity.
+the same server. Once assigned, the identity is never changed. Note that if the
+resource is copied to another server, the copy might not be able to retain 
+the same logical identity.
 </p>
 
 <p>
