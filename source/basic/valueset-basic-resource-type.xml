@@ -25,11 +25,6 @@
       <definition value="A request that care of a particular type be provided to a patient.  Could involve the transfer of care, a consult, etc."/>
     </concept>
     <concept>
-      <code value="slot"/>
-      <display value="Resource Slot"/>
-      <definition value="A bounded time-period when a particular set of resources (practioners, devices and/or locations) is available for the delivery of healthcare services.  Used for scheduling."/>
-    </concept>
-    <concept>
       <code value="advevent"/>
       <display value="Adverse Event"/>
       <definition value="An undesired reaction caused by exposure to some agent (e.g., a medication, immunization, food, or environmental agent)."/>
@@ -78,11 +73,6 @@
       <code value="adjudicat"/>
       <display value="Invoice Adjudication"/>
       <definition value="The determination of what will be paid against a particular invoice based on coverage, plan rules, etc."/>
-    </concept>
-    <concept>
-      <code value="payment"/>
-      <display value="Payment"/>
-      <definition value="A record of a transfer of funds between accounts and/or individuals"/>
     </concept>
     <concept>
       <code value="predetreq"/>
