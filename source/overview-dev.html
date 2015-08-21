@@ -363,12 +363,17 @@ The response to a search request is a <a href="bundle.html">bundle</a>: list of 
 
 <div class="example">
 <pre class="json linecounter">
+<code>HTTP/1.1 200 OK</code>
+<code>Content-Length: 14523</code>
+<code>Content-Type: application/xml+fhir</code>
+<code>Last-Modified: Sun, 17 Aug 2014 15:49:30 GMT</code>
+<code> </code>
 <code>{</code>
 <code>  "resourceType": "Bundle",</code>
 <code>  "type": "searchset",</code>
 <code>  "id" : "eceb4882-5c7e-4ca4-af62-995dfb8cef01"</code>
 <code>  "meta" : {</code>
-<code>    "lastUpdated" : "2014-08-19T15:43:30Z"</code>
+<code>    "lastUpdated" : "2014-08-19T15:49:30Z"</code>
 <code>  },</code>
 <code>  "total": "3",</code>
 <code>  "link": [</code>
@@ -402,13 +407,13 @@ The response to a search request is a <a href="bundle.html">bundle</a>: list of 
 Notes:
 </p>
 <ul>
-  <li><b>resourceType/type</b> (line 2/3) - the result of a search is always a bundle of type "searchset"</li>
-  <li><b>id</b> (line 4) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used</li>
-  <li><b>meta.lastUpdated</b> (line 6) - This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
-  <li><b>total</b> (line 9) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
-  <li><b>link</b> (line 10) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
-  <li><b>entry</b> (line 19) - An actual resources in this set of results</li>
-	<li><b>entry.resource.id</b> (line 22) - Note that in some bundles, the must be <a href="compartments.html#bundle-unique">unique in the bundle</a></li>
+  <li><b>resourceType/type</b> (line 7/8) - the result of a search is always a bundle of type "searchset"</li>
+  <li><b>id</b> (line 9) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used</li>
+  <li><b>meta.lastUpdated</b> (line 11) - This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
+  <li><b>total</b> (line 14) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
+  <li><b>link</b> (line 15) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
+  <li><b>entry</b> (line 24) - An actual resources in this set of results</li>
+	<li><b>entry.resource.id</b> (line 27) - Note that in some bundles, the must be <a href="compartments.html#bundle-unique">unique in the bundle</a></li>
   <li>In addition, the search operation is also able to <a href="search.html#include">return additional related resources</a> as well</li>
 </ul>
 
