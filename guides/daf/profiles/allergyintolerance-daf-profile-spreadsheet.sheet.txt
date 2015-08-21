@@ -39,122 +39,128 @@
   Type = Identifier
 
  -- Row 3 -----------------------------------
-  Element = AllergyIntolerance.recordedDate
+  Element = AllergyIntolerance.onset
   Card. = 0..1
   Must Support = Y
   Type = dateTime
 
  -- Row 4 -----------------------------------
+  Element = AllergyIntolerance.recordedDate
+  Card. = 0..1
+  Must Support = Y
+  Type = dateTime
+
+ -- Row 5 -----------------------------------
   Element = AllergyIntolerance.recorder
   Card. = 0..1
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = AllergyIntolerance.patient
   Card. = 1..1
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = AllergyIntolerance.reporter
   Card. = 0..1
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/daf-relatedperson}
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = AllergyIntolerance.substance
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = AllergyIntolerance.status
   Card. = 0..1
   Must Support = Y
   Type = code
   Binding = DAFAllergyIntoleranceStatus
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = AllergyIntolerance.criticality
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = !AllergyIntolerance.type
   Card. = 0..1
   Type = code
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = AllergyIntolerance.category
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = !AllergyIntolerance.lastOccurence
   Card. = 0..1
   Type = dateTime
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = !AllergyIntolerance.comment
   Card. = 0..1
   Type = string
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = AllergyIntolerance.reaction
   Card. = 0..*
   Must Support = Y
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = AllergyIntolerance.reaction.substance
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFAllergySubstance
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = !AllergyIntolerance.reaction.certainty
   Card. = 0..1
   Type = code
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = AllergyIntolerance.reaction.manifestation
   Card. = 1..*
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFManifestation
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = !AllergyIntolerance.reaction.description
   Card. = 0..1
   Type = string
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = AllergyIntolerance.reaction.onset
   Card. = 0..1
   Must Support = Y
   Type = dateTime
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = AllergyIntolerance.reaction.extension
   Profile Name = AllergyIntolerance.reaction.duration
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration}
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = AllergyIntolerance.reaction.severity
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = !AllergyIntolerance.reaction.exposureRoute
   Card. = 0..1
   Type = CodeableConcept
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = !AllergyIntolerance.reaction.notes
   Card. = 0..1
   Type = string

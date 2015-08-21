@@ -141,8 +141,10 @@ general risks to a subject, not generally based on a reaction.
 <p>
 <b>Misuse</b></p>
 <ul>
-<li>Not to be used for recording physiological reactions to physical agents, such as heat, cold, sunlight, 
-  vibration, exercise activity, by infectious agents or food contaminants. Use <a href="condition.html">Condition</a> instead</li>
+<li>The Allergy/Intolerance List exists as a patient safety tool to inform decision support around ordering of 
+   medications and nutrition and to guide clinical treatment.  Other reactions triggered by physical 
+   stimuli -- light, heat, cold, pressure, vibration, which may mimic allergic or intolerance reactions,  
+   should be recorded as <a href="condition.html">Condition</a> on the problem list, not using AllergyIntolerance.</li>
 <li>Not to be used to record adverse events, including failures of clinical process, interventions or products. For example: 
    abnormal use or mistakes/errors made in maladministration of an agent or substance; incorrect dosage; mislabelling; 
    harm or injury caused by an intervention or procedure; overdose/poisoning etc</li>

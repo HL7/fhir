@@ -52,22 +52,22 @@ The DAF AllergyIntolerance profile mapping to Meaningful Use data elements and F
 		  <tr>
 		    <td/>
 			<td>Allergy Reaction</td>
-			<td>AllergyIntolerance.event.manifestation</td>
+			<td>AllergyIntolerance.reaction.manifestation</td>
 		  </tr>
 		  <tr>
 		    <td/>
 			<td>Allergy Severity</td>
-			<td>AllergyIntolerance.event.severity</td>
+			<td>AllergyIntolerance.reaction.severity</td>
 		  </tr>
 		  <tr>
 		    <td/>
-			<td>Allergy Intolerance Event Duration</td>
-			<td>AllergyIntolerance.event.duration</td>
+			<td>Allergy Intolerance Reaction Duration</td>
+			<td>AllergyIntolerance.reaction.duration</td>
 		  </tr>
 		  <tr>
 		    <td/>
 			<td>Allergy Intolerance Occurrence Date</td>
-			<td>AllergyIntolerance.event.onset</td>
+			<td>AllergyIntolerance.reaction.onset</td>
 		  </tr>
 		</tbody>
 	</table>

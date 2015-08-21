@@ -35,6 +35,14 @@ Risk assessments may be based on a variety of factors, including:
 <p>
 Because so many resources can potentially be used, no limit is placed on what resources can be sent in <code>RiskAssessment.basis</code>.  However, some resources would be nonsensical for this use (e.g. <a href="messageheader.html">MessageHeader</a>).
 </p>
+
+<p>
+<b>AllergyIntolerance and RiskAssessment</b></p>
+<p>
+AllergyIntolerance describes a specific type of risk - propensity to reaction to a substance while <a href="riskassessment.html">RiskAssessment</a> describes 
+general risks to a subject, not generally based on a reaction.
+</p>
+
 </div>
 
 <div>
