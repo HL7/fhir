@@ -62,6 +62,16 @@ Using this format:
  <li>The MIME-type for this format is application/json+fhir.</li>
 </ul>
 
+<p>
+Given the way <a href="extensibility.html">extensions</a> work, applications reading
+JSON resources will never enocunter unknown properties. However once an application 
+starts trading with other appplications that conform to later versions of this specification,
+unknown properties may be encountered. Applications MAY choose to ignore unknown properties
+in order to foster forwards compatibility in this regard, but may also choose not to. 
+Applications declare their behaviour with regard to unknown elements using 
+<a href="conformance-definitions.html#Conformance.acceptUnknown">Conformance.acceptUnknown</a>.
+</p>
+
 <a name="xml"> </a>
 
 <h3>Comparison with XML</h3>

@@ -89,6 +89,16 @@ Operational systems may choose to use schema tools to check validation, but are 
 required to do so. Exchanged content SHALL NOT specify the schema or even contain the schema 
 instance namespace in the resource itself. 
 </p>
+<p>
+Given the way <a href="extensibility.html">extensions</a> work, applications reading
+XML resources will never enocunter unknown elements. However once an application 
+starts trading with other appplications that conform to later versions of this specification,
+unknown XML elements may be encountered. Applications MAY choose to ignore unknown elements
+in order to foster forwards compatibility in this regard, but may also choose not to - which 
+would be the normal behaviour for schema generated applications. Applications declare 
+their behaviour with regard to unknown elements using <a href="conformance-definitions.html#Conformance.acceptUnknown">Conformance.acceptUnknown</a>.
+</p>
+
 <a name="schema-gen"> </a>
 <h3>Code Generation Schema</h3>
 
