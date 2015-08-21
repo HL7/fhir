@@ -85,71 +85,7 @@
       </p>
       
       
-   
-      
-      <h3>EDITORS CONTINUE FROM HERE (SDC IG COPIED BELOW)</h3>
-      <p>
-        The <i>SDC FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following resources:
-      </p>
-      <ul>
-        <li><a href="dataelement.html">DataElement</a> is used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</li>
-        <li><a href="questionnaire.html">Questionnaire</a> is used to define form definitions that may be downloaded for manual and/or automatic population</li>
-        <li><a href="questionnaireresponse.html">QuestionnaireResponse</a> is used to share instance data captured using questionnaire forms</li>
-        <li><a href="valueset.html">ValueSet</a> is used to define allowed values for data elements and for questions in questionnaires</li>
-      </ul>
-      <p>
-        Additional resources such as <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="provenance.html">Provenance</a>, 
-        <a href="auditevent.html">AuditEvent</a> and others are likely to be used in SDC solutions, though
-        no SDC-specific profiles have been created for them.    As well, basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
-        <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. also apply.
-        <!-- Todo: decide how explicit the list of relevant sections needs to be -->
-      </p>
-      <p>
-        The SDC specification consists of the following components:
-      </p>
-      <ul>
-        <li><b>SDC profiles</b> - Profiles on the four FHIR resources used to support the IG requirements:
-          <ul>
-          </ul>
-        </li>
-        <li><a href="#population">Pre-population Operation</a> - The definition of the custom service that allows pre-population of forms based on 
-          CDA and other data sources</li>
-        <li><b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting SDC functionality:
-          <ul>
-          </ul>
-        </li>
-      </ul>
-      <a name="population"> </a>
-      <h3>Pre-population service</h3>
-      <p>
-        The <a href="questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="questionnaire-operations.html#populate">populate</a>.
-        This operation supports generating a "blank" <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance based on a specified
-        <a href="questionnaire.html">Questionnaire</a>.  It also allows for the returned questionnaire to be partially or even fully completed based
-        on data passed in to the operation or data already available to the server on which the operation is invoked.
-      </p>
-      <ul>
-        <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
-        <li>Support <code>content</code> parameters consisting of a <a href="http.html#binary">Binary</a> resource containing a C-CDA document</li>
-        <li>Populate the returned <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance for all questions referencing
-          <a href="dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
-      </ul>
-      <ul>
-        <li>Be capable of invoking the operation on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
-          as well as indirectly either by <code>identifier</code> or <code>questionnaire</code></li>
-        <li>Support passing a single C-CDA document as a <a href="http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
-      </ul>
-      
-      <p>
-        <b>IMPORTANT:</b>
-      </p>
-      <p>
-        Not all <a href="dataelement.html">DataElements</a> will be appropriate or safe to reference in a Questionnaire.  It is important that the definition
-        associated with the data element fully reflects the context of the question in the questionnaire.  For example, "gender" would not be a safe data element
-        because it would not be clear whether the gender was that of the patient or a fetus of the patient.  It must be clear from the data element definition
-        exactly what piece of information should be extracted from a source system, CCDA document or other data source.  (Inclusion of mappings to specifications
-        such as CCDA is recommended practice whenever possible.)
-      </p>
-      
+
     </div>
     
     [%file newfooter%]
