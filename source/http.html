@@ -433,7 +433,7 @@ Note: Servers MAY choose to preserve XML comments, instructions, and formatting 
 Note that servers MAY choose to allow clients to PUT a resource to a location that 
 does not yet exist on the server - effectively, allowing the client to define the 
 id of the resource. Whether a server allows this is a deployment choice based 
-on the nature of it's relationships with the clients. While many servers will 
+on the nature of its relationships with the clients. While many servers will 
 not allow clients to define their ids, there are several reasons why it may
 be necessary in some configurations:
 </p>
@@ -607,7 +607,7 @@ on how many matches are found:
  <li><b>No matches</b>: The server returns 404 (Not found)</li>
  <li><b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
  <li><b>Multiple matches</b>: Servers may choose to delete all the matching resources, or it may choose to return a 412 Precondition Failed error indicating the the client's criteria were not selective enough.
-   A server indicates whether it can delete multiple resources in it's <a href="conformance-definitions.html#Conformance.rest.resource.conditionalDelete">Conformance Statement (.rest.resource.conditionalDelete)</a>.
+   A server indicates whether it can delete multiple resources in its <a href="conformance-definitions.html#Conformance.rest.resource.conditionalDelete">Conformance Statement (.rest.resource.conditionalDelete)</a>.
    if there are multiple matches, either all must deleted, or the server SHALL return an error</li>
 </ul>
 <p>

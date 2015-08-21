@@ -215,7 +215,7 @@
     <offset value="0"/>
   <!--   
 		  now, parameters that describe how the expansion was generated.
-			These may help with managing caching, or limit it's use 
+			These may help with managing caching, or limit its use 
 			(e.g. this expansion was generated for a text filter)   -->
     <parameter>
     <!--   for now, parameter names and values are server specific.

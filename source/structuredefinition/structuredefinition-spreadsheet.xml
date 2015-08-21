@@ -2394,7 +2394,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Note that the elements are sometimes complex elements where logic is required to determine quite how to handle them. E.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The XPath expression may use parent references, but this technique should be avoided except in the special case of an extension making rules about it's use with other extensions. Parent references SHALL not refer to content outside the resouce that contains the content</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The XPath expression may use parent references, but this technique should be avoided except in the special case of an extension making rules about its use with other extensions. Parent references SHALL not refer to content outside the resouce that contains the content</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4497,7 +4497,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Ensure that the constrainedType is not inconsistent with the other information in the structure</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a constrained type, it's content must match the path name in the first element of a snapshot</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a constrained type, its content must match the path name in the first element of a snapshot</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:constrainedType)) or not(exists(f:snapshot)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value)</Data></Cell>
    </Row>

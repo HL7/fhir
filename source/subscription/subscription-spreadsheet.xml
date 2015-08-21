@@ -13290,7 +13290,7 @@ Comment the row by starting with '!'</Font>
 					<Data ss:Type="String">Delivered</Data>
 				</Cell>
 				<Cell ss:StyleID="s150">
-					<Data ss:Type="String">The message has been delivered to it's intended recipient</Data>
+					<Data ss:Type="String">The message has been delivered to its intended recipient</Data>
 				</Cell>
 				<Cell ss:StyleID="s130"/>
 				<Cell ss:StyleID="s130"/>

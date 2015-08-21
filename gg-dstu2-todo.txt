@@ -18,6 +18,7 @@ pcd-001 message example
 change generated self links to use semantic links if one is avilablae
 update todo.html 
 dstu notes format consistency + where does feedback go?
+update the way self-links are generated to make them more stable
 
 update implementers safety checklist 
 

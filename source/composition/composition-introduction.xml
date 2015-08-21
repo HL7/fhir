@@ -49,7 +49,7 @@ The <a href="composition.html">Composition</a> resource – defines a set of hea
 together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
 that has clinical attestation with regard to who is making the statement. The composition resource provides the basic structure 
 of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle 
-containing the Composition and it's entries. 
+containing the Composition and its entries. 
 </li>
 </ul>
 
