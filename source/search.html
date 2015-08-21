@@ -595,6 +595,7 @@ Here are some example searches:
  <tr><td><pre> GET [base]/Patient?gender=http://hl7.org/fhir/v2/0001|M</pre></td><td>Search for any patient with a gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
  <tr><td><pre> GET [base]/Patient?gender:text=male</pre></td><td>Search for any patient with a gender that has a text "male" associated with it (note: this will include "female")</td></tr>
  <tr><td><pre> GET [base]/Patient?active=true</pre></td><td>Search for any patients that are active</td></tr>
+ <tr><td><pre> GET [base]/Condition?code:in=http://snomed.info/sct?fhir_vs=isa/126851005</pre></td><td>Search for any condition in the SNOMED CT value set that includes all descendents of "Neoplasm of liver"</td></tr>
 </table>
 
 
