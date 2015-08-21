@@ -75,8 +75,10 @@ application/x-www-form-urlencoded submission for a POST:
  POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
 <p>
-The server returns the results in the HTTP response as a <a href="bundle.html">bundle</a>
-which includes the resources that are the results of the search. 
+The server determines which of the set of resources it serves meet
+the specific criteria, and returns the results in the HTTP response 
+as a <a href="bundle.html">bundle</a> which includes the resources 
+that are the results of the search. 
 </p>
 <p>
 <a href="http.html#search">Search operations</a> are executed in one of 3 defined contexts that control which set of resources are being searched:
@@ -88,6 +90,14 @@ which includes the resources that are the results of the search.
 </ul>
 <p>
 Search operations can also be implemented in <a href="messaging.html#search">the messaging framework</a>.
+</p>
+<p>
+The server determination of which resources meet the criteria 
+contained in the search parameters as described below. However
+the server has the prerogative to return additional search results 
+if it believes them to be relevant. Note, though, that there is a 
+special search for the most relevant context in which the 
+search set is indeterminate: <a href="patient.html#mpi">Patient MPI Search</a>.
 </p>
 
 <a name="errors"> </a>
