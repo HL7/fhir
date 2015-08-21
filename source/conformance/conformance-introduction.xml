@@ -3,7 +3,17 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-Conformance statements are used in one of three ways:
+The Conformance Statement is a key part of the cverall conformance framework in FHIR. 
+It is used as a statement of the features of actual software, or of a set of 
+rules for an application to conform to. This statement connects to all the detailed 
+statements of functionality, such as <a href="structuredefinition.html">StructureDefinitions</a> 
+and <a href="valueset.html">ValueSets</a>. This composite statement of application 
+functionality is used as either the source or target of a conformance assessment. 
+For further information about Conformance testing, see <a href="conformance-rules.html">Conformance Rules</a>
+and <a href="profiling.html">Profiling FHIR</a>.
+</p>
+<p>
+Specifically, conformance statements are used in one of three ways:
 </p>
 <h3>Describe an actual implementation</h3>
 <p>

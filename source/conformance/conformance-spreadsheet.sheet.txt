@@ -513,7 +513,7 @@
   UML = 230;160
   Type = DomainResource
   Short Label = A conformance statement
-  Definition = A conformance statement is a set of requirements for a desired implementation or a description of how a target application fulfills those requirements in a particular implementation
+  Definition = A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation
   w5 = infrastructure
 
  -- Row 2 -----------------------------------
