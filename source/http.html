@@ -325,7 +325,11 @@ specific url (see vread below) and a <code>Last-Modified</code> header.
 <p>
 Note: Unknown resources and deleted resources are treated differently on a read: A <code>GET</code> for a deleted
 resource returns a 410 status code, whereas a <code>GET</code> for an unknown resource returns 404. Systems that do
-not track deleted records will treat deleted records as an unknown resource.
+not track deleted records will treat deleted records as an unknown resource. Since deleted resources may be brought 
+back to life, servers MAY include an ETag on the error response when reading a deleted record to allow version 
+contention management when a resource is brought back to life. 
+</p>
+
 </p>
 <p>
 In addition, the search parameter _summary can be used when reading a resource:
@@ -335,7 +339,7 @@ In addition, the search parameter _summary can be used when reading a resource:
 </pre>
 <p>
 This requests that only a subset of the resource content be returned,
-as specified in the _summary parameter, which can haev the values 
+as specified in the _summary parameter, which can have the values 
 <a href="search.html#summary">true, false, text &amp; data</a>.
 Note that a resource that only contains a subset of the data is 
 not suitable for use as a base to update the resource, and may not 
@@ -565,6 +569,10 @@ about the state of the real-world corresponding resource implied.
 For servers that maintain a version history, the <code>delete</code> interaction does not remove a resource's version history. From a version history respect,
 deleting a resource is the equivalent of creating a special kind of history entry that has
 no content and is marked as deleted.
+</p>
+<p>
+Since deleted resources may be brought back to life, servers MAY include an ETag on the delete response
+to allow version contention management when a resource is brought back to life. 
 </p>
 
 <h4>Conditional delete</h4>
