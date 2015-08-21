@@ -159,8 +159,10 @@ protocol is used to listen for notifications:
 
 <h3>Email/SMS</h3>
 
+<p>
 A client can register for its user to receive notifications by
 email:
+</p>
 
 <pre class="json">
   "channel": {
@@ -189,14 +191,34 @@ by the rules of the applicable jurisdictions.
 </pre>
 
 <p>
-Note: SMS messages are extremely limited in size, so payload should be set to false,
-and most servers will refuse to send payloads in SMS. 
+Note: SMS messages are extremely limited in size, so payload should be set to false
+Irrespective of size, most servers will refuse to send payloads in SMS for security 
+reasons. 
 </p>
 
 <h3>Messaging</h3>
 
 <p>
-Todo
+A client can register for its user to receive notifications by <a href="messaging.html">messaging</a>:
 </p>
+
+<pre class="json">
+  "channel": {
+    "type": "message",
+    "url": "http://ehr.example.org/fhir/$process-message"
+  }
+</pre>
+<p>
+For each matching resource, a server will send a message to the 
+nominated end-point. Most servers will require that the end-point
+is white-listed prior to allowing these kinds of subscriptions. 
+</p>
+<blockquote>
+<p>
+DSTU Note: the details of the message - mainly the event code - are still
+be to resolved during the trial use. Feedback is welcome.
+</p>
+</blockquote>
+
 
 </div>
