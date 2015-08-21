@@ -167,6 +167,8 @@ record. Note that this parameter is used where the the user would not be
 expected to log in to the MPI directly; whether this is appropriate is 
 a deployment choice.
 </p>
-
+<p>
+A <a href="patient-mpi-search.html">formal definition</a> for the MPI query is published.
+</p>
 
 </div>

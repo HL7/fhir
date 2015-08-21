@@ -473,4 +473,11 @@
   Filename = operation-conceptmap-translate.xml
   Type = tool
 
+ -- Row 4 -----------------------------------
+  Name = Patient-MPI
+  Identity = patient-mpi
+  Description = Patient MPI Query
+  Filename = patient-mpi-search.xml
+  Type = xml
+
 === Sheet Examples =====================================
