@@ -190,7 +190,7 @@
   Element = OperationDefinition.idempotent
   Card. = 0..1
   Type = boolean
-  Short Label = Whether operation causes changes to content
+  Short Label = Whether content is unchanged by operation
   Definition = Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST
 
  -- Row 16 -----------------------------------

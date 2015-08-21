@@ -405,7 +405,7 @@
  -- Row 1 -----------------------------------
   Name = find
   Use = Resource
-  Documentation = This operation allows a client to find an identified list for a particular function by it\'s function. The operation takes two parameters, the identity of a patient, and the name of a functional list.   The list of defined functional lists can be found at [Current Resource Lists](lifecycle.html#lists). Applications are not required to support all the lists, and may define additional lists of their own.   If the system is able to locate a list that serves the identified purpose, it returns it as the body of the response with a 200 OK status. If the resource cannot be located, the server returns a 404 not found (optionally with an OperationOutcome resource)
+  Documentation = This operation allows a client to find an identified list for a particular function by its function. The operation takes two parameters, the identity of a patient, and the name of a functional list.   The list of defined functional lists can be found at [Current Resource Lists](lifecycle.html#lists). Applications are not required to support all the lists, and may define additional lists of their own.   If the system is able to locate a list that serves the identified purpose, it returns it as the body of the response with a 200 OK status. If the resource cannot be located, the server returns a 404 not found (optionally with an OperationOutcome resource)
   Type = operation
   Example.Request = $find-request.txt
   Example.Response = $find-response.txt

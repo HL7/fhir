@@ -877,8 +877,8 @@
   Type = code
   Binding = ResourceVersionPolicy
   Short Label = no-version | versioned | versioned-update
-  Definition = Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources
-  Comments = If a server supports versionIds correctly, it should support vread too, but is not required to do so
+  Definition = This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources
+  Comments = If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so
 
  -- Row 44 -----------------------------------
   Element = Conformance.rest.resource.readHistory

@@ -5,7 +5,7 @@
   Binding Name = XPathUsageType
   Binding = code list
   Reference = #search-xpath-usage
-  Definition = How a search parameter relates to the set of elements returned by evaluating the it\'s xpath query
+  Definition = How a search parameter relates to the set of elements returned by evaluating the its xpath query
   Conformance = required
 
 === Sheet search-xpath-usage =====================================

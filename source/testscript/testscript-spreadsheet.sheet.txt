@@ -566,7 +566,7 @@
  -- Row 31 -----------------------------------
   Element = TestScript.fixture.resource
   Card. = 0..1
-  Type = Reference
+  Type = Reference(Any)
   Short Label = Reference of the resource
   Definition = Reference to the resource (containing the contents of the resource needed for operations)
   Comments = See http://hl7-fhir.github.io/resourcelist.html for complete list of resource types.
@@ -574,7 +574,7 @@
  -- Row 32 -----------------------------------
   Element = TestScript.profile
   Card. = 0..*
-  Type = Reference
+  Type = Reference(Any)
   Short Label = Reference of the validation profile
   Definition = Reference to the profile to be used for validation.
   Comments = See http://hl7-fhir.github.io/resourcelist.html for complete list of resource types.

@@ -289,7 +289,7 @@
   Type = code
   Binding = IssueType
   Short Label = Error or warning code
-  Definition = Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide it\'s own code for the error in the details element
+  Definition = Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element
   Requirements = Expresses the issue in a human and computer-friendly way, allowing the requesting system to behave differently based on the type of issue
   v2 Mapping = ERR-3
   RIM Mapping = ./code

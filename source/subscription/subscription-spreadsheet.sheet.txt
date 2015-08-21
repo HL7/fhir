@@ -92,7 +92,7 @@
   Id = 2
   Code = delivered
   Display = Delivered
-  Definition = The message has been delivered to it\'s intended recipient
+  Definition = The message has been delivered to its intended recipient
 
 === Sheet Invariants =====================================
 

@@ -68,7 +68,7 @@
   Short Label = If this coding was chosen directly by the user
   Definition = Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays)
   Requirements = This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing
-  Comments = Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly \'directly chosen\' implies, and trading partner agreement may be needed to clarify the use of this element and it\'s consequences more completely
+  Comments = Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly \'directly chosen\' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely
   ORIM Mapping = fhir:Coding.userSelected fhir:mapsTo dt:CDCoding.codingRationale. fhir:Coding.userSelected fhir:hasMap fhir:Coding.userSelected.map. fhir:Coding.userSelected.map a fhir:Map;   fhir:target dt:CDCoding.codingRationale. fhir:Coding.userSelected\\#true a [     fhir:source \"true\";     fhir:target dt:CDCoding.codingRationale\\#O   ]
   v2 Mapping = Sometimes implied by being first
   RIM Mapping = CD.codingRationale

@@ -358,7 +358,8 @@ offer are very similar; their primary difference is architectural in nature.
 </p>
 <p>
 For instance, the messaging framework defines an event for notifying that
-a administration resource has been created or updated, as does the REST API.
+a administration resource has been created or updated; the REST API offers
+similar services (<a href="http.html#history">history</a> and <a href="subscription.html">Subscription</a>).
 On the other hand, there are differences in the capabilities offered - while
 a patient merge can be implemented as a series of RESTful operations performed
 by the client that update all resources linked to the patient, when a message
@@ -381,13 +382,52 @@ make an archive of past messages available. <b>Creating or updating MessageHeade
 in this fashion does not represent the actual occurrence of any event, nor can it trigger
 any logic associated with the actual event.</b> It is just for managing a set of message header resources.
 </p>
+
+<a name="rest"> </a>
+<h3>Asynchronous Messaging using the RESTful API</h3>
+
 <p>
-In, addition, as described above, this specification defines the /Mailbox end-point
-so that RESTful servers can offer both messaging and RESTful services at once.
-Alternatively, messages can be transported between systems using any other method by which
-a stream of bytes (the message bundle) can be moved from one place to
-another. There is no requirement to use HTTP.
+It is possible to exchange messages using the RESTful 
+end-point as a central point of exchange. This is not 
+particularly efficient compared to other methods, but 
+is useful for low-volume axynchronous exchange. 
 </p>
+<p>
+To send a message, a sender posts the message bundle to the 
+/Bundle end point, with a uri that identifies the receiver 
+at <a href="messageheader-definitions.html#MessageHeader.destination.endpoint">MessageHeader.destination.endpoint</a>.
+The RESTful server accepts the bundle,
+stores it as a single bundle, and indexes it on the 
+<a href="messageheader.html">MessageHeader</a>.
+</p>
+<p>
+To receive messages, a receiver searches for all messages
+destined for itself, since it's last check:
+</p>
+<pre>
+ GET [base]/Bundle?message.destination-uri=[rcv]&amp;_lastUpdated=>2015-03-01T02:00:02+01:00
+</pre>
+<p>
+The receiver works through the response, processing each message.
+As each message is processed, the receiver creates a response 
+message, reversing the source and destination, and posts it back
+to the server.
+</p>
+<p>
+To check for responses, the original sender searches for 
+response messages destined for itself, since it's last check:
+</p>
+<pre>
+ GET [base]/Bundle?message.destination-uri=[snd]&amp;message.response-id:missing=false
+      &amp;_lastUpdated=>2015-03-03T06:03:522+01:00
+</pre>
+<p>
+This lightweight protocol needs ongoing administration to 
+ensure that multiple parties do not interfere with each other
+by re-using the same system identifier (and against malicious 
+attack).
+</p>
+
 
 
 
