@@ -299,6 +299,11 @@ that they are supported. Clients may elect to only interact with servers that do
 versioning support. Systems declare their support for versioning
 in their <a href="conformance-definitions.html#Conformance.rest.resource.noVersion">conformance statement</a>.
 </p>
+<p>
+Server should always return the default timezone for <a href="search.html#date">date searches</a> 
+in the HTTP Response headers using the Date header. Note: Servers are not required to have a 
+default timezone.
+</p>
 
 <a name="read"> </a>
 <h3>read</h3>
