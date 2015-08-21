@@ -20,8 +20,25 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
-Introduction
+The definition of an element in a resource or extension. The definition includes:
 </p>
+<ul>
+ <li>Name, Cardinality, and data type</li>
+ <li>Definitions, usage notes, requirements</li>
+ <li>Default or fixed values</li>
+ <li>Constraints, Length limits, and other usage rules</li>
+ <li>Terminology Binding</li>
+ <li>Mappings to other specifications</li>
+ <li>Structural Usage Information such as <a href="profiling.html#slicing">Slicing</a></li>
+</ul>
+<p>
+The ElementDefinition type is the core of the FHIR metadata layer, and is 
+closely (conceptually) aligned to <a href="elementdefinition-mappings.html#iso11179">ISO 11179</a>.
+The <a href="dataelement.html">DataElement</a> resource is a packaging wrapper around the
+ElementDefinition type. All the data elements defined in this specification are published 
+as a collection of data elements (<a href="dataelements.xml">XML</a> or <a href="dataelements.json">JSON</a>).
+</p>
+
 
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
