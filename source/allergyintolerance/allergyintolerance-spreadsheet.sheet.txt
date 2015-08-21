@@ -309,7 +309,7 @@
   Summary = Y
   Type = code
   Binding = AllergyIntoleranceStatus
-  Short Label = active | inactive | unconfirmed | confirmed | resolved | refuted | entered-in-error
+  Short Label = active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error
   Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance
   Comments = Decision support would typically raise alerts for \'Unconfirmed\', \'Confirmed\', and \'Resolved\' and ignore a \'Refuted\' reaction. In particular, \'Refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
   w5 = status
