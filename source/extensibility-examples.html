@@ -29,6 +29,7 @@ In order to use an extension, there is a three step process:
 This page contains examples of how this process executes.
 </p>
 
+<a name="consent"> </a>
 <h3>Patient Consent for Record Sharing</h3>
 
 <p>
@@ -211,6 +212,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
 Note - this step is optional.
 </p>
 
+<a name="name-parts"> </a>
 <h3>Patient Name Parts</h3>
 
 <p>
@@ -350,7 +352,154 @@ This particular example is a Scandinavian mellannamn. See
 <a href="datatypes-examples.html">Datatypes examples for additional examples</a>.
 </p>
 
+<a name="complex"> </a>
+<h3>Complex Extension: Patient Clinical Trial</h3>
+<p>
+Defining complex extensions is a little different. They have the same meta data - context etc,
+but differ in the internal structure. As an example, consider enrolling a patient in a clinical
+trial. There are 3 data items to collect:
+</p>
+<table class="grid">
+ <tr> <td><b>Code</b></td> <td><b>Name</b></td> <td><b>Cardinality</b></td> <td><b>Type</b></td>    <td><b>Content</b></td> </tr>
+ <tr> <td>NCT</td>     <td>Clinical Trial number</td>   <td>1..1</td>           <td>string</td>         <td>The format for the US ClinicalTrials.gov registry number is “NCT” followed by an 8-digit number, e.g.: NCT00000419</td>            </tr>
+ <tr> <td>period</td>      <td>trialPeriod</td>     <td>0..1</td>           <td>Period</td>         <td>The start and end times of the participation of this patient in the clinical trial</td>            </tr>
+ <tr> <td>reason</td>      <td>reason enrolled</td> <td>0..1</td>           <td>CodableConcept</td> <td> indication or reason the patient is part of this trial</td>            </tr>
+</table>
+
+<p>
+Like simple extensions, the first thing to do is to assign a URI to the 
+extension. Since this one is part of the FHIR publication, it is assigned
+a URI where it will be published: http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial.
+</p>
+<p>
+Internally, in the extension, the cardinality of the value[x] element is set to 0, since it 
+will not (and cannot) be used. Then, the Extension.extension element is sliced by url, 
+and 3 slices are defined, each with a fixed relative URI which is the code from the table above.
+Here's the relevant parts of the definition of this extension:
+</p>
+<pre class="xml">
+&lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;!-- metadata - setting up the base definition --&gt;
+  &lt;url value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+  &lt;name value=&quot;The patient's participation in clinical trials&quot;/&gt;
+  &lt;constrainedType value=&quot;Extension&quot;/&gt;
+  &lt;contextType value=&quot;resource&quot;/&gt;
+  &lt;context value=&quot;Patient&quot;/&gt;
+  &lt;base value=&quot;http://hl7.org/fhir/StructureDefinition/Extension&quot;/&gt;
+  &lt;snapshot&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension&quot;/&gt;
+      &lt;!-- etc --&gt;
+    &lt;/element&gt;
+    
+    &lt;!-- set up the slicing --&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension&quot;/&gt;
+      &lt;slicing&gt;
+        &lt;discriminator value=&quot;url&quot;/&gt;
+        &lt;ordered value=&quot;true&quot;/&gt;
+        &lt;rules value=&quot;openAtEnd&quot;/&gt;
+      &lt;/slicing&gt;
+    &lt;/element&gt;
+
+    &lt;!-- first slice, NCT --&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension&quot;/&gt;
+      &lt;name value=&quot;NCT&quot;/&gt;
+      &lt;short value=&quot;National Clinical Trial number&quot;/&gt;
+      &lt;min value=&quot;1&quot;/&gt;
+      &lt;max value=&quot;1&quot;/&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.extension&quot;/&gt;
+      &lt;min value=&quot;0&quot;/&gt;
+      &lt;max value=&quot;0&quot;/&gt; &lt;!-- not allowed to be used --&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.url&quot;/&gt;
+      &lt;min value=&quot;1&quot;/&gt;
+      &lt;max value=&quot;1&quot;/&gt;
+      &lt;fixedUri value=&quot;NCT&quot;/&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.valueString&quot;/&gt;
+      &lt;min value=&quot;1&quot;/&gt;
+      &lt;max value=&quot;1&quot;/&gt;
+      &lt;type&gt;
+        &lt;code value=&quot;string&quot;/&gt;
+      &lt;/type&gt;
+    &lt;/element&gt;
+
+    &lt;!-- second slice, period --&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension&quot;/&gt;
+      &lt;name value=&quot;period&quot;/&gt;
+      &lt;short value=&quot;The period of participation in the clinical trial&quot;/&gt;
+      &lt;min value=&quot;0&quot;/&gt;
+      &lt;max value=&quot;1&quot;/&gt;
+    &lt;/element&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.extension&quot;/&gt;
+      &lt;min value=&quot;0&quot;/&gt;
+      &lt;max value=&quot;0&quot;/&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.url&quot;/&gt;
+      &lt;min value=&quot;1&quot;/&gt;
+      &lt;fixedUri value=&quot;period&quot;/&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.valuePeriod&quot;/&gt;
+      &lt;type&gt;
+        &lt;code value=&quot;Period&quot;/&gt;
+      &lt;/type&gt;
+    &lt;/element&gt;
+
+    &lt;!-- third slice, reason --&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension&quot;/&gt;
+      &lt;name value=&quot;reason&quot;/&gt;
+      &lt;short value=&quot;The reason for participation in the clinical trial&quot;/&gt;
+      &lt;min value=&quot;0&quot;/&gt;
+      &lt;max value=&quot;1&quot;/&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.extension&quot;/&gt;
+      &lt;min value=&quot;0&quot;/&gt;
+      &lt;max value=&quot;0&quot;/&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.url&quot;/&gt;
+      &lt;min value=&quot;1&quot;/&gt;
+      &lt;fixedUri value=&quot;reason&quot;/&gt;
+    &lt;/element&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.extension.valueCodeableConcept&quot;/&gt;
+      &lt;type&gt;
+        &lt;code value=&quot;CodeableConcept&quot;/&gt;
+      &lt;/type&gt;
+    &lt;/element&gt;
+
+    &lt;!-- last (for order reasons): the fixed URI --&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.url&quot;/&gt;
+      &lt;fixedUri value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+    &lt;/element&gt;
+    &lt;!-- and no value in the root --&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;Extension.value[x]&quot;/&gt;
+      &lt;min value=&quot;0&quot;/&gt;
+      &lt;max value=&quot;0&quot;/&gt;
+    &lt;/element&gt;
+  &lt;/snapshot&gt;
+&lt;/StructureDefinition&gt;
+</pre>
+
 </div>
+
+[%onthispage Patient Consent#consent|Name Parts#name-parts|Complex Extension#complex%]
+
 
 [%file newfooter%]
 </body>

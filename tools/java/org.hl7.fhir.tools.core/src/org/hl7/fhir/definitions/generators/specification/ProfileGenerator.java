@@ -1428,12 +1428,17 @@ public class ProfileGenerator {
         value.setMinCardinality(0);
         value.setMaxCardinality(0);
         src.getElements().add(value);
-      }
+      } 
       if (src.getElements().size() == 2 && 
           src.getElements().get(0).getName().equals("url") &&
           src.getElements().get(1).getName().equals("value[x]")) {
         ElementDefn value = src.getElements().get(1);
+        value.setMinCardinality(1);
         convertElements(value, ed, thisPath+".value[x]");
+        ElementDefn ext = new ElementDefn();
+        ext.setName("extension"); // can't have an extension if you have a value
+        ext.setMaxCardinality(0);
+        convertElements(ext, ed, thisPath+".extension");
       } else {
         for (ElementDefn child : src.getElements()) {
           if (child != url) {
