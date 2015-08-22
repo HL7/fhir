@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<OperationOutcome xmlns="http://hl7.org/fhir">
+<!-- :md: 
+This is an example of a operation outcome that would be returned
+as part of a set of search results (e.g. in the bundle with search.mode = outcome)
+to indicate that additional results may be available using the break-the-glass
+protocol. The correct use of this is discussed on the [security labels](security-labels.html#break-the-glass) page
+-->
+  <id value="break-the-glass"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Additional information may be available using the Break-The-Glass Protocol</p>
+    </div>
+  </text>
+  <issue>
+    <severity value="information"/>
+    <code value="suppressed"/>
+    <details>
+      <!-- this is not really the right code; it's being used at cross -purposes to it's definition.
+        todo: get a more correct concept defined -->
+      <coding>
+        <system value="http://hl7.org/fhir/ValueSet/v3-ActReason"/>
+        <code value="ETREAT"/>
+        <display value="Emergency Treatment"/>
+      </coding>
+      <text value="Additional information may be available using the Break-The-Glass Protocol"/>    
+    </details> 
+  </issue>
+</OperationOutcome>

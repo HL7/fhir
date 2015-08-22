@@ -46,6 +46,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.ProcessingInstruction;
 import org.w3c.dom.Text;
 
+import com.github.rjeschke.txtmark.Processor;
+
 public class XhtmlGenerator {
 
 	private static final int LINE_LIMIT = 85;
@@ -196,11 +198,25 @@ public class XhtmlGenerator {
   }
 
   private void writeComment(Writer out, Comment node, int level) throws DOMException, IOException {
-    out.write("<span class=\"xmlcomment\">&lt;!-- "+escapeHtml(Utilities.escapeXml(node.getTextContent()), level)+" --&gt;</span>");
+    String cmt = node.getTextContent();
+    if (cmt.contains(":md:"))
+      cmt = processMarkdown(cmt.replace(":md:", ""));
+    else
+      cmt = escapeHtml(cmt, level);
+    out.write("<span class=\"xmlcomment\">&lt;!-- "+cmt+" --&gt;</span>");
   }
 
   private void writeCommentPlain(Writer out, Comment node, int level) throws DOMException, IOException {
-    out.write("<!-- "+Utilities.escapeXml(node.getTextContent())+" -->");
+    String cmt = node.getTextContent();
+    if (cmt.contains(":md:"))
+      cmt = processMarkdown(cmt.replace(":md:", ""));
+    else
+      cmt = Utilities.escapeXml(cmt);
+    out.write("<!-- "+cmt+" -->");
+  }
+
+  private String processMarkdown(String text) {
+    return Processor.process(text);
   }
 
   private void writeText(Writer out, Text node, int level) throws DOMException, IOException {
