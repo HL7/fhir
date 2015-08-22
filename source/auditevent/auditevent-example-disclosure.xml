@@ -30,7 +30,7 @@
       <coding>
         <system value="http://nema.org/dicom/dicm"/>
         <code value="110153"/>
-        <display value="Destination Role ID"/>
+        <display value="Source Role ID"/>
       </coding>
     </role>
     <userId>
@@ -54,7 +54,7 @@
       <coding>
         <system value="http://nema.org/dicom/dicm"/>
         <code value="110152"/>
-        <display value="Source Role ID"/>
+        <display value="Destination Role ID"/>
       </coding>
     </role>
     <userId >
