@@ -1,5 +1,15 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
+<p>
+In addition to the examples below, there are other examples of
+Bundles through the specification:
+</p>
+<ul>
+ <li><a href="document-example-dischargesummary.html">Document</a></li>
+ <li><a href="message-request-link.html">Message Request</a></li>
+ <li><a href="message-response-link.html">Message Response</a></li>
+ <li><a href="diagnosticreport-examples.html">Collection</a></li> 
+</ul>
+
 
 </div>

@@ -40,7 +40,7 @@ Each entry element SHALL contain a resource. See <a href="messaging.html">Messag
 for further information.
 </p>
 
-<p><!--<a href="query-example-request.html">Example</a>-->Example: todo</p>
+<p>Example <a href="message-request-link.html">Request</a> and <a href="message-response-link.html">Response</a></p>
 
 <a name="searchset"> </a>
 <h4>Search Results</h4>
