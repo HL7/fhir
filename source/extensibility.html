@@ -146,23 +146,27 @@ to the extension definition.
 </p>
 <div class="example">
 <p>
-As an example, consider extending a patient with an 
-opt-in status for a clinical trial, with 3 fields: status, date of recording, and 
-the person who enrolled them (see <a href="??">definition</a>). In XML:
+As an example, consider extending a patient with an opt-in status for a clinical trial, with 3 fields: clinical trial number, period of involvement, and 
+a reason for enrollment. In XML:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/trial-status&quot; &gt;
-    &lt;extension url=&quot;code&quot; &gt;
-      &lt;valueCode value=&quot;unsure&quot; /&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
+    &lt;extension url=&quot;NCT&quot; &gt;
+      &lt;valueString value=&quot;123456789&quot; /&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;date&quot; &gt;	  
-      &lt;valueDate value=&quot;2009-03-14&quot; /&gt;	  
+    &lt;extension url=&quot;period&quot; &gt;	  
+      &lt;valuePeriod&gt;
+        &lt;start value=&quot;2009-03-14&quot; /&gt;	  
+      &lt;/valuePeriod&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;registrar&quot; &gt;	  
-      &lt;valueReference&gt;	  
-        &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
-      &lt;/valueReference&gt;	  
+    &lt;extension url=&quot;reason&quot; &gt;	  
+      &lt;valueCodeableConcept&gt;	  
+        &lt;coding/&gt;	  	    
+          &lt;system value=&quot;http://acme.org/codes/general&quot; /&gt;	  
+          &lt;code value=&quot;tt14j&quot; /&gt;	  
+        &lt;/coding/&gt;	  	    
+      &lt;/valueCodeableConcept&gt;	  
     &lt;/extension&gt;
   &lt;/extension&gt;
   &lt;!-- other data for patient --&gt;
@@ -175,17 +179,22 @@ Or in JSON:
 {
   "resourceType" : "Patient",
   "extension" : [{
-    "url" : "http://acme.org/fhir/StructureDefinition/trial-status",
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial",
     "extension" : [{
-      "url" : "code",
-      "valueCode" : "unsure"
+      "url" : "NCT",
+      "valueString" : "123456789"
     }, {
-      "url" : "date", 
-      "valueDate" : "2009-03-14" 
+      "url" : "period", 
+      "valuePeriod" : {
+         "start" : "2009-03-14" 
+      }   
     },  {
-      "url" : "registrar",
-      "valueReference" : {
-        "reference" : "Practitioner/example"
+      "url" : "reason",
+      "valueCodeableConcept" : {
+          "coding" : {
+             "system" : "http://acme.org/codes/general",
+             "code" : "tt14j",
+          }
        }
     }]
   }]
@@ -193,31 +202,43 @@ Or in JSON:
 }
 </pre>
 </div>
-
 <p>
-In the second case, one of the nested extension, the "registrar" extension, is defined separately:
+As the URL suggests, <a href="extension-patient-clinicaltrial.html">this extension is defined as part of this specification</a>.
+</p>
+<p>
+This can be extended again, by adding a "registrar" extension:
 </p>
 <div class="example">
 <p>
-In this case, the registrar is defined as a separate extension (e.g. to 
-allow wider use), rather than part of the clinical-trial extension. 
+The registrar is defined as a separate extension (e.g. by
+an implementing organization), rather than part of the official clinical-trial extension. 
 The url of the extension is different:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/trial-status&quot; &gt;
-    &lt;extension url=&quot;code&quot; &gt;
-      &lt;valueCode value=&quot;unsure&quot; /&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
+    &lt;extension url=&quot;NCT&quot; &gt;
+      &lt;valueString value=&quot;123456789&quot; /&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;date&quot; &gt;
-      &lt;valueDate value=&quot;2009-03-14&quot; /&gt;
+    &lt;extension url=&quot;period&quot; &gt;	  
+      &lt;valuePeriod&gt;
+        &lt;start value=&quot;2009-03-14&quot; /&gt;	  
+      &lt;/valuePeriod&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/registrar&quot; &gt;
-      &lt;valueReference array="true"&gt;
-        &lt;reference value=&quot;Practitioner/example&quot; /&gt;
-      &lt;/valueReference&gt;
+    &lt;extension url=&quot;reason&quot; &gt;	  
+      &lt;valueCodeableConcept&gt;	  
+        &lt;coding/&gt;	  	    
+          &lt;system value=&quot;http://acme.org/codes/general&quot; /&gt;	  
+          &lt;code value=&quot;tt14j&quot; /&gt;	  
+        &lt;/coding/&gt;	  	    
+      &lt;/valueCodeableConcept&gt;	  
     &lt;/extension&gt;
   &lt;/extension&gt;
+    &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/registrar&quot; &gt;	  
+      &lt;valueReference&gt;
+        &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  
+      &lt;/valueReference&gt;
+    &lt;/extension&gt;
   &lt;!-- other data for patient --&gt;
 &lt;/Patient&gt;
 </pre>
@@ -228,18 +249,28 @@ or in JSON:
 {
   "resourceType" : "Patient",
   "extension" : [{
-    "url" : "http://acme.org/fhir/StructureDefinition/trial-status",
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial",
     "extension" : [{
-      "url" : "code",
-      "valueCode" : "unsure"
+      "url" : "NCT",
+      "valueString" : "123456789"
     }, {
-      "url" : "date",
-      "valueDate" : "2009-03-14"
-    }, {
-      "url" : "http://acme.org/fhir/StructureDefinition/registrar",
+      "url" : "period", 
+      "valuePeriod" : {
+         "start" : "2009-03-14" 
+      }   
+    },  {
+      "url" : "reason",
+      "valueCodeableConcept" : {
+          "coding" : {
+             "system" : "http://acme.org/codes/general",
+             "code" : "tt14j",
+          }
+       }
+    },{
+      "url" : "http://acme.org/fhir/StructureDefinition/registrar", 
       "valueReference" : {
-        "reference" : "Practitioner/example"
-      }
+         "reference" : "Practitioner/example" 
+      }   
     }]
   }]
   ... other data for patient ...

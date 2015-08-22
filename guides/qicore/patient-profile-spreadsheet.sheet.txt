@@ -168,14 +168,14 @@
   Element = Patient.extension.extension
   Profile Name = nationality.code
   Card. = 1..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality-code}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality#code}
   Binding = USCountry
 
  -- Row 11 -----------------------------------
   Element = Patient.extension.extension
   Profile Name = nationality.period
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality-period}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality#period}
 
  -- Row 12 -----------------------------------
   Element = Patient.extension
@@ -187,14 +187,14 @@
   Element = Patient.extension.extension
   Profile Name = citizenship.code
   Card. = 1..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship-code}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship#code}
   Binding = USCountry
 
  -- Row 14 -----------------------------------
   Element = Patient.extension.extension
   Profile Name = citizenship.period
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship-period}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship#period}
 
  -- Row 15 -----------------------------------
   Element = Patient.extension
@@ -240,21 +240,21 @@
   Element = Patient.extension.extension
   Profile Name = clinicalTrial.NCT
   Card. = 1..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial-NCT}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#NCT}
   QDM Mapping = primary code
 
  -- Row 22 -----------------------------------
   Element = Patient.extension.extension
   Profile Name = clinicalTrial.period
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial-period}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#period}
   QDM Mapping = start and stop datetime
 
  -- Row 23 -----------------------------------
   Element = Patient.extension.extension
   Profile Name = clinicalTrial.reason
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial-reason}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#reason}
   Binding = QICoreProblemCode
   QDM Mapping = reason
 

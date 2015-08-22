@@ -1173,17 +1173,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> names = new ArrayList<String>();
     names.addAll(workerContext.getExtensionDefinitions().keySet());
     Collections.sort(names);
+    Set<StructureDefinition> processed = new HashSet<StructureDefinition>();
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (ig.isCore()) {
         boolean started = false;
         for (String n : names) {
           StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
-          if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
-            if (!started) {
-              started = true;
-              genStructureExampleCategory(s, ig.getName());            
+          if (!processed.contains(ed)) {
+            processed.add(ed);
+            if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
+              if (!started) {
+                started = true;
+                genStructureExampleCategory(s, ig.getName());            
+              }
+              genExtensionRow(ig, s, ed);
             }
-            genExtensionRow(ig, s, ed);
           }
         }
       }
@@ -1196,6 +1200,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("<tr>");
     s.append("<td><a href=\""+ed.getUserString("path")+"\">"+ed.getId()+"</a></td>");
     s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
+    s.append("<td>"+Utilities.escapeXml(determineExtensionType(ed))+"</td>");
     s.append("<td>");
     boolean first = true;
     if (ed.getContextType() == ExtensionContext.RESOURCE) {
@@ -1232,6 +1237,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".xml.html\">XML</a></td>");
 //    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".json.html\">JSON</a></td>");
     s.append("</tr>");
+  }
+
+  private String determineExtensionType(StructureDefinition ed) throws Exception {
+    for (ElementDefinition e : ed.getSnapshot().getElement()) {
+      if (e.getPath().startsWith("Extension.value") && !"0".equals(e.getMax())) {
+        if (e.getType().size() == 1) {
+          return "<a href=\""+definitions.getSrcFile(e.getType().get(0).getCode())+".html#"+e.getType().get(0).getCode()+"\">"+e.getType().get(0).getCode()+"</a>";
+        } else if (e.getType().size() == 0) {
+          return "";
+        } else {
+          boolean allRef = e.getType().get(0).getCode().equals("Reference");
+          for (TypeRefComponent t : e.getType())
+            allRef = allRef && t.getCode().equals("Reference");
+          if (allRef)
+            return "<a href=\""+definitions.getSrcFile(e.getType().get(0).getCode())+".html#"+e.getType().get(0).getCode()+"\">"+e.getType().get(0).getCode()+"</a>";
+          else
+            return "(Choice)";
+        }
+      }
+        
+            
+    }
+    return "(complex)";
   }
 
   private String vsSource(ValueSet vs) {
