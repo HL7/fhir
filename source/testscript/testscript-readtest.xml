@@ -60,7 +60,7 @@
 		</action>
 		<action>
 			<assert>
-				<headerField value="Content-Location"/>
+				<headerField value="Last-Modified"/>
 				<operator value="notEmpty"/>
 			</assert>
 		</action>

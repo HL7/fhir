@@ -838,7 +838,7 @@
   Card. = 0..1
   Type = string
   Short Label = The header field
-  Definition = The header field e.g. \'Content-Location\'
+  Definition = The header field e.g. \'Location\'
   Comments = If \"headerField\" is specified then \"value\" must be specified.  If \"sourceId\" is not specified, then \"headerField\" will be evaluated against the last operation\'s response headers.  Test engines are to keep track of the last operation\'s response body and response headers.
 
  -- Row 66 -----------------------------------
@@ -864,7 +864,7 @@
   Binding = AssertionOperatorType
   Short Label = equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains
   Definition = The operator type
-  Comments = Operators come handy especially for negative testing.  If operator is not specified, then the \"equals\" operator is assumed.  e.g. <code>   <assert>  <operator value=\"in\" />  <responseCode value=\"200,201,204\" />    </assert>    <assert>  <operator value=\"notEmpty\" />  <responseHeader>     <field value=\"Content-Location\" />   <responseHeader>   </assert>    <assert>  <operator value=\"notEquals\" />  <response value=\"okay\"/>   </assert>    <assert>  <operator value=\"greaterThan\" />    <responseHeader>     <field value=\"Content-Length\" />     <value value=\"0\" />    <responseHeader>   </assert> </code>
+  Comments = Operators come handy especially for negative testing.  If operator is not specified, then the \"equals\" operator is assumed.  e.g. <code>   <assert>  <operator value=\"in\" />  <responseCode value=\"200,201,204\" />    </assert>    <assert>  <operator value=\"notEquals\" />  <response value=\"okay\"/>   </assert>    <assert>  <operator value=\"greaterThan\" />    <responseHeader>     <field value=\"Content-Length\" />     <value value=\"0\" />    <responseHeader>   </assert> </code>
 
  -- Row 69 -----------------------------------
   Element = TestScript.setup.action.assert.path

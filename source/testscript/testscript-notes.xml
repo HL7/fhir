@@ -197,7 +197,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <p>Test engines will keep track of response headers and body of all operations.</p>
 <p>The delete operation's targetId value is expected to correspond to the responseId of a GET operation (such as search or read) or the sourceId of a POST/PUT operation (such as create).</p>
 <p>For targetId value corresponding to responseId of GET operations (such as search or read), test engines will use the resource type and id returned in the GET response body's resource to set the [type] and [id] in delete operation's URL, respectively.</p>
-<p>For targetId value corresponding to responseId of POST/PUT operations (such as create), test engines will use the resource type and id returned in the POST/PUT response "Content-Location" header to set the [type] and [id] in delete operation's URL, respectively. This is the case in the example above.</p>
+<p>For targetId value corresponding to responseId of POST/PUT operations (such as create), test engines will use the resource type and id returned in the POST/PUT response "Location" header to set the [type] and [id] in delete operation's URL, respectively. This is the case in the example above.</p>
 <p>The targetId value cannot point to a statically defined fixture as the id in the fixture cannot be relied upon.</p>
 </li>
 </ol>
@@ -330,7 +330,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <p>Test engines will keep track of response headers and body of all operations.</p>
 <p>The update operation's targetId value is expected to correspond to the responseId of a GET operation (such as search or read) or the sourceId of a POST/PUT operation (such as create).</p>
 <p>For targetId value corresponding to responseId of GET operations (such as search or read), test engines will use the resource type and id returned in the GET response body's resource to set the [type] and [id] in update operation's URL, respectively.  This is the case in the next example below.</p>
-<p>For targetId value corresponding to responseId of POST/PUT operations (such as create and update), test engines will use the resource type and id returned in the POST/PUT response "Content-Location" header to set the [type] and [id] in update operation's URL, respectively. This is the case in the example above.</p>
+<p>For targetId value corresponding to responseId of POST/PUT operations (such as create and update), test engines will use the resource type and id returned in the POST/PUT response "Location" header to set the [type] and [id] in update operation's URL, respectively. This is the case in the example above.</p>
 <p>The targetId value cannot point to a statically defined fixture as the id in the fixture cannot be relied upon.</p>
 </li>
 <li>
@@ -453,7 +453,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <p>Test engines will keep track of response headers and body of all operations.</p>
 <p>The read operation's targetId value is expected to correspond to the responseId of a GET operation (such as search or read) or the sourceId of a POST/PUT operation (such as create).</p>
 <p>For targetId value corresponding to responseId of GET operations (such as search or read), test engines will use the resource type and id returned in the GET response body's resource to set the [type] and [id] in read operation's URL, respectively.</p>
-<p>For targetId value corresponding to responseId of POST/PUT operations (such as create), test engines will use the resource type and id returned in the POST/PUT response "Content-Location" header to set the [type] and [id] in read operation's URL, respectively.  This is the case in the example above.</p>
+<p>For targetId value corresponding to responseId of POST/PUT operations (such as create), test engines will use the resource type and id returned in the POST/PUT response "Location" header to set the [type] and [id] in read operation's URL, respectively.  This is the case in the example above.</p>
 <p>The targetId value cannot point to a statically defined fixture as the id in the fixture cannot be relied upon.</p>
 <hr/><!-- =========================================================================================================================================================== -->
 <h4 id="howToTestVReadOperation">Test vread operation</h4>
@@ -480,7 +480,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <p>Test engines will keep track of response headers and body of all operations.</p>
 <p>The vread operation's targetId value is expected to correspond to the responseId of a GET operation (such as search or read) or the sourceId of a POST/PUT operation (such as create).</p>
 <p>For targetId value corresponding to responseId of GET operations (such as search or read), test engines will use the resource type, id and version id returned in the GET response body's resource to set the [type], [id] and [vid] in vread operation's URL, respectively.</p>
-<p>For targetId value corresponding to responseId of POST/PUT operations (such as create), test engines will use the resource type, id and version id returned in the POST/PUT response "Content-Location" header to set the [type], [id] and [vid] in vread operation's URL, respectively.  This is the case in the example above.</p>
+<p>For targetId value corresponding to responseId of POST/PUT operations (such as create), test engines will use the resource type, id and version id returned in the POST/PUT response "Location" header to set the [type], [id] and [vid] in vread operation's URL, respectively.  This is the case in the example above.</p>
 <p>The targetId value cannot point to a statically defined fixture as the id in the fixture cannot be relied upon.</p>
 <hr/><!-- =========================================================================================================================================================== -->
 <h4 id="howToTestHistoryOperation">Test history operation</h4>
@@ -641,17 +641,17 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 
 <p>Variables would be defined at the top of the script.</p>
 
-<p>Below is a variable that is defined as the Content-Location header to the response referenced by "R1":</p>
+<p>Below is a variable that is defined as the Location header to the response referenced by "R1":</p>
 <div class="xmlCode"><xmp>
 <variable>
   <name value="V1" />
-  <headerField value="Content-Location" />
+  <headerField value="Location" />
   <sourceId value="R1" />
 </variable>	
 </xmp></div>
 <p>Test engines will not evaluate this at this point.  They will store the expresssion in "V1" and will look for "${}" in "operation.params", "operation.requestHeader.value", and "operation.url" element values during operation calls. </p>
 
-<p>Here is a read operation that will use the V1 variable.  The variable expression was "Content-Location against R1 response" (defined above).  If a prior operation has not set R1 to be the responseId of the operation, then test engine will error out.  Otherwise, V1 will be set to the Content-Location header value of R1 response and that value will be substituted for ${V1} below.  In other words, the read will be performed against the Content-Location header value of R1 response.</p>
+<p>Here is a read operation that will use the V1 variable.  The variable expression was "Location against R1 response" (defined above).  If a prior operation has not set R1 to be the responseId of the operation, then test engine will error out.  Otherwise, V1 will be set to the Location header value of R1 response and that value will be substituted for ${V1} below.  In other words, the read will be performed against the Location header value of R1 response.</p>
 <div class="xmlCode"><xmp>
 <action>
   <operation>
@@ -900,7 +900,7 @@ and TestScript.teardown.action.operation elements. The operation elements should
   </tr>  
   <tr>
     <th>url</th>
-    <td colspan="9">The <a href="testscript-definitions.html#TestScript.setup.action.operation.url">url</a> element will contain the full HTTP URL for the operation. This should rarely be used in test scripts.  One possible application would be to test if the Content-Location header returned in a response is pointing to an expected resource.  See <a href="testscript-search.xml.html">testscript-search example</a>.</td>
+    <td colspan="9">The <a href="testscript-definitions.html#TestScript.setup.action.operation.url">url</a> element will contain the full HTTP URL for the operation. This should rarely be used in test scripts.  One possible application would be to test if the Location header returned in a response is pointing to an expected resource.  See <a href="testscript-search.xml.html">testscript-search example</a>.</td>
   </tr>
 </table>
 
