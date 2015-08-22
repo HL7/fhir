@@ -26,7 +26,7 @@
     <text value="Accepting a referral"/>
   </reason>
   <location>
-    <reference value="Location/example"/>
+    <reference value="Location/1"/>
   </location>
   <!-- reference to a patient consent to share inforamtion -->
   <policy value="http://acme.com/fhir/Consent/25"/>

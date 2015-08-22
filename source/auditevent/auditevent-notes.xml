@@ -21,60 +21,24 @@ This table summarizes common event scenarios, and the codes that should be used 
   <tr><td><b>Scenario</b></td><td><b>type</b></td><td><b>subtype</b></td><td><b>action</b></td><td><b></b>Other</td></tr>
   <tr><td>User Login (<a href="auditevent-examples.html">example</a>)</td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110122">110122</a> User Authentication</td>
      <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged in user</td></tr>
-  <tr><td>OAuth based User Login </td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110122">110122</a> User Authentication</td>
-     <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>todo</td></tr>
   <tr><td>User Logout (<a href="auditevent-examples.html">example</a>)</td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110123">110123</a> User Logout</td>
      <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged out user</td></tr>
   <tr><td>REST operation logged on server (<a href="auditevent-examples.html">example</a>)</td><td><a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td><td><a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
      <td><a href="valueset-audit-event-action.html">*</a> (see below)</td><td>Participant for logged in user, if available, and one object with a reference if at least the type is known as part of the operation. Reference.url should be provided to the granularity known</td></tr>
+  <tr><td>Search operation logged on server (<a href="audit-event-example-search.html">example</a>)</td><td><a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td><td><a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
+     <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>Participant for logged in user, if available, and one object with a query element.</td></tr>
 </table>
-
 <p>
 Audit Event Actions for RESTful operations:
 </p>
 <table class="grid">
  <tr><td><b>Operation</b></td><td><b>Action</b></td></tr>
- <tr><td>create  </td><td>C</td></tr>
- <tr><td>read, vread, tags-get, history-instance, history-type, history-system   </td><td>R</td></tr>
- <tr><td>update, tags-update </td><td>U</td></tr>
- <tr><td>delete, tags-delete  </td><td>D</td></tr>
- <tr><td>search, validate, transaction, conformance, mailbox </td><td>E</td></tr>
+ <tr><td>create</td><td>C</td></tr>
+ <tr><td>read, vread, history-instance, history-type, history-system</td><td>R</td></tr>
+ <tr><td>update</td><td>U</td></tr>
+ <tr><td>delete</td><td>D</td></tr>
+ <tr><td>transaction, operation, conformance, validate, search, search-type, search-system</td><td>E</td></tr>
 </table>
-<!-- 
-<h3>Referring to FHIR Resources in Audit Events</h3>
 
-<p>
-Because the Audit resource is typically used for auditing many things beyond events
-related to FHIR resources, the <i>object</i> doesn't have a simple reference
-to other resources. Instead, if the target object is a FHIR resource, the 
-object is represented like this:
-</p>
-<div class="example">
-<pre class="xml">
-  &lt;object&gt;
-    &lt;idType&gt;
-	  &lt;system&gt;http://hl7.org/fhir/resource-types&lt;/system&gt;
-	  &lt;code&gt;Person&lt;/code&gt;
-	&lt;/idType&gt;
-	&lt;id&gt;http://acme.org/fhir/Patient/34/_history/3&lt;/id&gt;
-  &lt;/x&gt;
-</pre>
-</div>
-<p>
-This is the same pattern as a resource reference, but the type becomes extensible to allow referencing other kinds of resources.
-Note that the id reference should be a version specific reference, but is not required to be so. Note that when using 
-RFC 3881 directly, the code system cannot be a URI, so use the OID 2.16.840.1.113883.6.306 in place of http://hl7.org/fhir/resource-types.
-</p>
-
-
-
-<p>
-Things to note about the current design:
-</p>
-<ul>
-  <li>In this resource, the Participant Object Detail from <a href="http://tools.ietf.org/html/rfc3881">RFC 3881</a> is handled as standard FHIR extensions to the <i>object</i> element</li>
-</ul>
-
--->
 
 </div>

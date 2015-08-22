@@ -40,7 +40,7 @@
 	<name value="That guy everyone wishes would be caught"/>
     <requestor value="true"/>
 	<location>
-		<reference value="Location/example"/>
+		<reference value="Location/1"/>
 	</location>
 	<policy value="http://consent.com/yes"/>
     <network>
@@ -57,6 +57,9 @@
         <display value="Destination Role ID"/>
       </coding>
     </role>
+    <reference>
+	  <reference value="Practitioner/example"/>
+	</reference>
     <userId >
 		<value value="Where"/>
 	</userId>

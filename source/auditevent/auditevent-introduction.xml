@@ -16,28 +16,42 @@ DICOM (see <a href="http://medical.nema.org/medical/dicom/current/output/html/pa
 <li>ISO 27789 – Defined the subset of audit events that an EHR would need </li>
 </ul>
 <p>
-This resource is managed collaboratively between HL7, DICOM,
-and IHE for the MHD/mHealth initiatives. 
+This resource is managed collaboratively between HL7, DICOM, and IHE. 
 </p>
 <p>
-The primary purpose of this resource is the maintenance of audit log information.  However, 
-it can also be used for simple event-based notification or even
-general indexing of resources stored in a variety of repositories.
+The primary purpose of this resource is the maintenance of security audit log information.  However, 
+it can also be used for any audit logging needs and simple event-based notification.
 </p>
 </div>
 
 <div>
 <h2>Background and Context</h2>
 <p>
-Servers that provide support for Audit Event resources should not generally accept update or delete 
-operations on the resources, as this would compromise the integrity of the audit record. 
+Servers that provide support for Audit Event resources would not generally accept update or delete 
+operations on the resources, as this would compromise the integrity of the audit record. Access of the AuditEvent
+would typically be limited to Security office, Privacy office, or other Systems Administration purposes. The AuditEvent 
+is not intended to be used directly by Providers or Patients, although reports generated from the raw data would 
+be useful. An example is a Patient centric Accounting of Disclosures or an Access Report.
 </p>
 <p>
-Audit Events are created as events occur, to track and audit the events. Audit Event resources are often (though not exclusively) 
+All actors involved in an auditable event should record an AuditEvent (See Audit Event Sub-Type vocabulary for guidance on 
+some security relevant events). This would result in duplicate AuditEvent entries which show the properly working system 
+of systems. Thus it is typical to get an auditable event recorded by both the application, and server. I this way duplicate 
+entries are expected, this is helpful because detecting when only one actor records that an auditable event is an indication 
+of a security problem.  There may be non-participaing actors that also detect a security relevant event and thus would record 
+an AuditEvent, such as a trusted intermediary.
+</p>
+<p>
+Security Relevant events are not limited to communications or RESTful events. They include software startup and shutdown; 
+user login and logout; access control decisions; configuration events; software installation; policy rules changes; 
+and manipulation of data that exposes the data to users.
+</p>
+<p>
+Audit Event resources are often (though not exclusively) 
 created by the application responding to the create/read/query/update/delete/execute etc. event. 
 A <a href="provenance.html">Provenance resource</a> contains overlapping information, but is a 
 record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
-Provenance resources are prepared by the application that initiates the create/update etc. of the resource.
+Provenance resources are prepared by the application that initiates the create/update of the resource.
 </p>
 </div>
 
