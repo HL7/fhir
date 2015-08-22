@@ -252,7 +252,7 @@
   Card. = 0..1
   Type = Extension{#AssessedCondition}
   Short Label = AssessedCondition
-  Definition = Used to denote condition context for genetic testing, which may influence reported variants and interpretation for large genomic testing panels e.g. lung cancer or familial breast cancer.
+  Definition = Used to denote a diagnosed condition for genetic testing, which may influence reported variants and interpretation for large genomic testing panels e.g. lung cancer or familial breast cancer.
 
  -- Row 23 -----------------------------------
   Element = Observation.extension
