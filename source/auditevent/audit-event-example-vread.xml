@@ -3,18 +3,14 @@
  <id value="example-rest"/>
   <event>
     <type>
-      <coding>
         <system value="http://hl7.org/fhir/audit-event-type"/>
         <code value="rest"/>
         <display value="Restful Operation"/>
-      </coding>
     </type>
     <subtype>
-      <coding>
         <system value="http://hl7.org/fhir/restful-interaction"/>
         <code value="vread"/>
         <display value="vread"/>
-      </coding>
     </subtype>
     <action value="R"/>
     <dateTime value="2013-06-20T23:42:24Z"/>

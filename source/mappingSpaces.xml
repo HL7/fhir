@@ -75,7 +75,7 @@
       The provenance resource is based on known practices in the
       HL7 implementation space, particularly those found in the 
       v2 EVN segment, the v3 ControlAct Wrapper, the CDA header, and 
-      HE ATNA (<a href="http://www.rfc3881.net">RFC 3881</a>).
+      IHE ATNA.
       The conceptual model underlying the design is the <a href="http://www.w3.org/2011/prov/wiki/Main_Page">W3C
       provenance Specification</a>. Though the content and format
       of the resource is designed to meet specific requirements for FHIR, 
@@ -112,6 +112,7 @@
     </preamble>
     <sort>13</sort>
   </space>
+
   <space>
     <url>http://wiki.ihe.net/index.php?title=Data_Element_Exchange</url>
     <columnName>IHE DEX mapping</columnName>
@@ -196,5 +197,18 @@
     <id>logical</id>
     <sort>24</sort>
   </space>
-  
+  <space>
+    <url>http://hl7.org/fhir/auditevent</url>
+    <columnName>Auditevent Mapping</columnName>
+    <title>FHIR AuditEvent</title>
+    <id>fhirauditevent</id>
+    <sort>25</sort>
+  </space>
+  <space>
+    <url>http://hl7.org/fhir/provenance</url>
+    <columnName>Provenance Mapping</columnName>
+    <title>FHIR Provenance</title>
+    <id>fhirprovenance</id>
+    <sort>26</sort>
+  </space>
 </mappingSpaces>

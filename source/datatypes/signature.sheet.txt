@@ -42,7 +42,7 @@
  -- Row 4 -----------------------------------
   Element = Signature.who[x]
   Card. = 1..1
-  Type = uri|Reference(Practitioner|RelatedPerson|Patient)
+  Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
   Short Label = Who signed the signature
   Definition = A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key)
   Comments = This should agree with the information in the signature

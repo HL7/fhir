@@ -3,18 +3,14 @@
  <id value="example-login"/>
   <event>
     <type>
-      <coding>
         <system value="http://nema.org/dicom/dicm"/>
         <code value="110114"/>
         <display value="User Authentication"/>
-      </coding>
     </type>
     <subtype>
-      <coding>
         <system value="http://nema.org/dicom/dicm"/>
         <code value="110122"/>
         <display value="Login"/>
-      </coding>
     </subtype>
     <action value="E"/>
     <dateTime value="2013-06-20T23:41:23Z"/>
