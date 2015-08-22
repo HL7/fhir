@@ -369,32 +369,30 @@ systems should always have the snapshot view populated.
 One common feature of constraining Structure Definitions is to take an element that may occur more than once (e.g. in a list), <!-- What about slicing type choices? -->
 and split the list into a series of sublists, each with different restrictions on the elements in the sublist with associated
 additional meaning. In FHIR, this operation is known as "Slicing" a list. It is common to
-“slice” a list into sub-lists containing just one element, effectively putting constraints on each element in the list.
+“slice” a list into sub-lists each containing just one element, effectively putting constraints on each element in the list.
 </p>
 <p>
 Here is an example to illustrate the process:
 </p>
 <img alt="Slicing diagram" src="slicing.png" width="461" height="353"/>
 <p>
-In this example, the base structure definition for the resource defines 
-the "related" element which refers to
-another Observation which is related to the main Observation and which may occur
-multiple times. Each "related" element has a "type" element specifying the nature
-of the relationship (component, replacement, derivation etc.), and a "target" element
-which identifies the actual observation. In this diagram, for convenience, the contents
-of the target element are shown in the inner box instead of the showing the target
-reference explicitly. Also, to avoid adding clutter in this simplified example,
-the "name" attribute of Observation is shown as just a code not a full CodeableConcept.
+In this example, the base structure definition for the resource <a href="observation.html">Observation</a>defines 
+the "component" element which contains a nested code and a value for observations have 
+have multiple values. A classic example of this kind of observation is a blood pressure 
+measurement - it contains 2 values, one for systolic, and one for diastolic (<a href="observation-example-bloodpressure.html">example</a>). 
 </p>
 <p>
-The structure definition for Blood Pressure splits the related element list into
+This diagram shows the conceptual process of 'slicing' the component list into 
+systolic and diastolic slices (note: to avoid clutter, the "name" attribute of Observation 
+is shown as just a code not a full CodeableConcept).
+</p>
+<p>
+The structure definition for Blood Pressure splits the component list into
 2 sublists of one element each: a systolic element, and a diastolic element. Each of these
-elements has a fixed value for the type element, and the structure definition also fixes the
-contents of the target observation as well, specifying a fixed LOINC code for
-the name and specifying that both have a value of type Quantity. This process
+elements has a fixed value for the code element (a fixed LOINC code for
+the name), and specifying that both have a value of type Quantity. This process
 is known as "slicing" and the Systolic and Diastolic elements are called "slices".
 </p>
-
 <p>
 Note that when the resource is exchanged, the wire format that is exchanged is not
 altered by the constraining definition. This means that the item profile names defined in the
@@ -404,14 +402,14 @@ instance looks like this:
 <pre>
  &lt;Observation&gt;
    ...
-   &lt;related&gt;
-     &lt;type value=&quot;component&quot;/&gt;
-     &lt;target ...&gt; &lt;!-- has the name "8480-6" -->
-   &lt;/related&gt;
-   &lt;related&gt;
-     &lt;type value=&quot;component&quot;/&gt;
-     &lt;target ...&gt;  &lt;!-- has the name "8462-4" -->
-   &lt;/related&gt;
+   &lt;component&gt;
+     &lt;code {LOINC=&quot;8480-6}&quot;/&gt;
+     &lt;value ...&gt; &lt;!-- has the name "8480-6" -->
+   &lt;/component&gt;
+   &lt;component&gt;
+     &lt;code {LOINC=&quot;8462-4}&quot;/&gt;
+     &lt;value ...&gt;  &lt;!-- has the name "8462-4" -->
+   &lt;/component&gt;
  &lt;/Observation&gt;
 </pre>
 <p>
@@ -528,7 +526,7 @@ There are two special names: @type, and @profile. Here are some example discrimi
 </table>
 
 <p>
-See also <a href="profiling-examples.html">examples of slicing and discriminators</a>.
+The <a href="profiling-examples.html">examples of slicing and discriminators</a> show exactly how this and other typical uses of slicing are represented in profiles.
 </p>
 
 <a name="extensions"> </a>
