@@ -269,7 +269,7 @@ The correct mime type SHALL be used by clients and servers:
 <p>
 Servers SHALL support server-driven content negotiation
 as described in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12">section 12</a>
-of the HTTP specification.
+of the HTTP specification. 
 </p>
 <p>
 However in order to support various implementation limitations, servers SHOULD
@@ -288,6 +288,9 @@ Requests MAY also specify this <code>charset</code> parameter in the <code>Accep
 </p>
 <p>
 Note: the <code>_format</code> parameter does not override the <code>content-type</code> header.
+</p>
+<p>
+The content types application/x-www-form-urlencoded is also accepted for posting SEARCH requests.
 </p>
 
 <a name="versioning"> </a>
@@ -736,10 +739,20 @@ POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
 This has exactly the same semantics as the equivalent <code>GET</code> command. All these search interactions take a series of parameters that
 are a series of name'='value pairs encoded in the URL (or as an <code>application/x-www-form-urlencoded</code> submission for a <code>POST</code>).
 (See <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">W3C HTML forms</a>).
+</p>
+<blockquote>
+<p>
+Note: application/x-www-form-urlencoded is supported for POST so that invoking a search by GET or POST can be 
+done from HTML forms in a browser (though considerable active content might be required in the browser), although
+this is not the main usage. 
+</p>
+</blockquote>
+<p>
 Searches are processed as specified for the <a href="search.html">Search handling mechanism</a>.
 </p>
 <p>
-If the search fails, the return value is a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
+If the search fails (cannot be executed, not that there is no matches), the return value is 
+a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
 If the search succeeds, the return content is a <a href="compartments.html#bundle">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> = <code>searchset</code> containing the results of the search as a list of resources
 in a defined order. The result list can be long, so servers may use paging. If they do, they SHALL use the method <a href="#paging">described below</a>
