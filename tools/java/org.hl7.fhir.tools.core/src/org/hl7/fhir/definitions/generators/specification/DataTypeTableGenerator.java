@@ -15,7 +15,7 @@ public class DataTypeTableGenerator extends TableGenerator {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(dest, inlineGraphics);
     TableModel model = gen.initNormalTable("", false);
     
-    model.getRows().add(genElement(e, gen, false, e.getName(), false, "", false));
+    model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE));
     
     return gen.generate(model, "");
   }

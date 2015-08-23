@@ -1,5 +1,6 @@
 package org.hl7.fhir.definitions.generators.specification;
 
+import org.hl7.fhir.definitions.generators.specification.TableGenerator.RenderMode;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -14,6 +15,12 @@ import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 
 public class TableGenerator extends BaseGenerator {
+  public enum RenderMode {
+    DATATYPE,
+    RESOURCE,
+    LOGICAL
+  }
+
   private final boolean ADD_REFERENCE_TO_TABLE = true;
   
   protected String dest; 
@@ -32,7 +39,7 @@ public class TableGenerator extends BaseGenerator {
   protected boolean dictLinks() {
     return pageName != null;
   }
-  protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, boolean isLogical) throws Exception {
+  protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, RenderMode mode) throws Exception {
     Row row = gen.new Row();
 
     row.setAnchor(path);
@@ -62,8 +69,8 @@ public class TableGenerator extends BaseGenerator {
       if (!e.getElements().isEmpty()) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
-        if (resource)
-          row.getCells().add(gen.new Cell(null, prefix+"bacboneelement.html", "BackboneElement", null, null));
+        if (mode == RenderMode.RESOURCE)
+          row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackboneElement", null, null));
         else
           row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
@@ -135,7 +142,7 @@ public class TableGenerator extends BaseGenerator {
       cc.getPieces().add(gen.new Piece(null, inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
     }
 
-    if (isLogical) {
+    if (mode == RenderMode.LOGICAL) {
       String logical = e.getMappings().get("http://hl7.org/fhir/logical");
       Cell c = gen.new Cell();
       row.getCells().add(c);
@@ -196,7 +203,7 @@ public class TableGenerator extends BaseGenerator {
       }
     } else
       for (ElementDefn c : e.getElements())
-        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, isLogical));
+        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode));
     return row;
   }
 

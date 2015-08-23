@@ -34,13 +34,63 @@ defined by this specification:
 </p>
 <%compartmentlist%>
 <p>
+Compartments are defined and added the list above when implementer 
+communities identify them as common access points for data. As described 
+below, compartments have both syntactical and logical consequences, and
+both these aspects of their functionality are evaluated when deciding
+whether to define compartments. 
+</p>
+
+<a name="use"> </a>
+<h3>Using Compartments</h3>
+
+<p>
 As an example of compartment usage, to retrieve a list of a patient's conditions, use the URL:
 </p>
 <pre>
   GET [base]/Patient/[id]/Condition
 </pre>
 <p>
-The details of this usage are <a href="http.html#vsearch">described under the search operation</a>.
+Additional search parameters can be defined, such as this hypothetical search for 
+acute conditions:
+</p>
+<pre>
+  GET [base]/Patient/[id]/Condition?code:in=http://hspc.org/ValueSet/acute-concerns
+</pre>
+<p>
+Note that as searches, these are syntactic variations on these two search
+URLs respectively:
+</p>
+<pre>
+  GET [base]/Condition?patient=[id]
+  GET [base]/Condition?patient=[id]&amp;code:in=http://hspc.org/ValueSet/acute-concerns
+</pre>
+<p>
+However, there is a key difference in functionality between compartment based searches 
+and direct searches with parameters. Consider this search:
+</p>
+<pre>
+  GET [base]/Patient/[id]/Communication
+</pre>
+<p>
+Because the definition of the <a href="compartment-patient.html">patient compartment</a> for 
+<a href="communication.html">Commnunication</a> says that aCommunication resource is in the 
+patient compartment if the subject, sender, or recipient is the patient, the compartment
+search is actually the same as the union of these 3 searches:
+</p>
+<pre>
+  GET [base]/Condition?subject=[id]
+  GET [base]/Condition?sender=[id]
+  GET [base]/Condition?recipient=[id]
+</pre>
+<p>
+There is no way to do this as a single search, except by using the <a href="search_filter.html">_filter</a>:
+</p>
+<pre>
+  GET [base]/Condition?_filter=subject re [id] or sender re [id] or recipient re [id]
+</pre>
+<p>
+Further details of searching by compartment are <a href="http.html#vsearch">described under the search operation</a>.
 As a search related operation, the assignment of resources to compartments is only based on 
 the current version of any of the resources involved. Note that <a href="references.html#contained">contained</a>
 patient resources cannot create a patient compartment of their own. 
@@ -86,7 +136,8 @@ and does not link to a patient; however, a resource such as MedicationAdministra
 connects the Medication (details of what was administered) to the patient (for whom was 
 it administered), and so is required to interpret the administration.
 </p>
-<hr/>
+
+
 
 </div>
 

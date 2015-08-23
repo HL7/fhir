@@ -73,10 +73,11 @@
   Conformance = extensible
 
  -- Row 11 -----------------------------------
-  Binding Name = !DICOMMediaType
+  Binding Name = DICOMMediaType
   Binding = value set
   Reference = valueset-dicm-405-mediatype
   Definition = Used when the event is about exporting/importing onto media
+  Conformance = extensible
 
  -- Row 12 -----------------------------------
   Binding Name = AuditEventSourceType
@@ -474,13 +475,13 @@
   XPath = not(exists(f:name)) or not(exists(f:query))
 
  -- Row 2 -----------------------------------
-  Id = 2
+  Id = !2
   Context = AuditEvent.object
   English = Either an identifier or a reference, (or both)
   XPath = exists(f:identifier) or exists(f:reference)
 
  -- Row 3 -----------------------------------
-  Id = 3
+  Id = !3
   Context = AuditEvent.participant
   English = Either a userId or a reference, (or both)
   XPath = exists(f:userId) or exists(f:reference)
@@ -631,7 +632,6 @@
   Element = AuditEvent.participant.reference
   Card. = 0..1
   Summary = Y
-  Inv. = 3
   Type = Reference(Practitioner|Organization|Device|Patient|RelatedPerson)
   Short Label = Direct reference to resource
   Definition = Direct reference to a resource that identifies the participant
@@ -645,7 +645,6 @@
   Element = AuditEvent.participant.userId
   Card. = 0..1
   Summary = Y
-  Inv. = 3
   Type = Identifier
   Short Label = Unique identifier for the user
   Definition = Unique identifier for the user actively participating in the event
@@ -718,6 +717,7 @@
   Element = AuditEvent.participant.media
   Card. = 0..1
   Type = Coding
+  Binding = DICOMMediaType
   Short Label = Type of media
   Definition = Type of media involved. Used when the event is about exporting/importing onto media
   Requirements = Usually, this is used instead of specifying a network address. This field is not used for Media Id (i.e. the serial number of a CD)
@@ -765,7 +765,7 @@
   Card. = 0..*
   Type = Coding
   Binding = AuditPurposeOfUse
-  Short Label = Purpose of use for this participant
+  Short Label = Reason given for this user
   Definition = The reason (purpose of use), specific to this participant, that was used during the event being recorded.
   Comments = Use participant.purposeOfUse when you know that is specific to the participant, otherwise use event.purposeOfEvent. (e.g. during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why).
   Prov Mapping = Agent.Activity
@@ -844,7 +844,6 @@
   Element = AuditEvent.object.identifier
   Card. = 0..1
   Summary = Y
-  Inv. = 2
   Type = Identifier
   Short Label = Specific instance of object (e.g. versioned)
   Definition = Identifies a specific instance of the participant object. The reference should always be version specific
@@ -857,7 +856,6 @@
   Element = AuditEvent.object.reference
   Card. = 0..1
   Summary = Y
-  Inv. = 2
   Type = Reference(Any)
   Short Label = Specific instance of resource (e.g. versioned)
   Definition = Identifies a specific instance of the participant object. The reference should always be version specific
@@ -1109,7 +1107,7 @@
  -- Row 4 -----------------------------------
   Name = RESTful Operation
   Identity = example-rest
-  Description = RESTful Operation
+  Description = RESTful vread Operation
   Filename = audit-event-example-vread.xml
 
  -- Row 5 -----------------------------------
@@ -1117,5 +1115,11 @@
   Identity = example-disclosure
   Description = Accounting of a Disclosure
   Filename = auditevent-example-disclosure.xml
+
+ -- Row 6 -----------------------------------
+  Name = Search
+  Identity = example-search
+  Description = RESTful search operation
+  Filename = audit-event-example-search.xml
 
 === Sheet Examples =====================================
