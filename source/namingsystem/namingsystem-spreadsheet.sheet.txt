@@ -241,6 +241,7 @@
   Type = string
   Short Label = The unique identifier
   Definition = The string that should be sent over the wire to identify the code system or identifier system
+  Comments = If the value is a URI intended for use as FHIR system identifier, the URI should not contain \"\\\" or \"?\" or \",\" since this makes escaping very difficult
   w5 = id
 
  -- Row 18 -----------------------------------

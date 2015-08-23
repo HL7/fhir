@@ -84,6 +84,7 @@ signatures.html
 					<page title="UNII" filename="unii.html"/>
 					<page title="CVX" filename="cvx.html"/>
 					<page title="CPT" filename="cpt.html"/>
+					<page title="NDC" filename="ndc.html"/>
 				</page>
 				<page title="Value Sets" filename="terminologies-valuesets.html">
 					<pages type="valueset" filename="template-valueset.html"/>
@@ -139,6 +140,7 @@ signatures.html
 			<page title="Integrated Examples" filename="integrated-examples.html"/>
 			<page title="Security" filename="security.html">
 				<page title="Security Labels" filename="security-labels.html"/>
+				<page title="Signatures" filename="signatures.html"/>
 			</page>
 
 			<page title="Profiling FHIR" filename="profiling.html">

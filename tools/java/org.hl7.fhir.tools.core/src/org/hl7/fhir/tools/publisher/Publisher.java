@@ -369,6 +369,7 @@ public class Publisher implements URIResolver {
   private String svnStated;
   private String singleResource;
   private String singlePage;
+  private List<String> tocs = new ArrayList<String>();
 
   private Map<String, Example> processingList = new HashMap<String, Example>();
   
@@ -569,6 +570,8 @@ public class Publisher implements URIResolver {
       if (isGenerate && buildFlags.get("all"))
         produceQA();
         
+      for (String s : tocs)
+        System.out.println(s);
       if (!buildFlags.get("all")) {
         page.log("This was a Partial Build", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -1214,9 +1217,9 @@ public class Publisher implements URIResolver {
         }
       }
           
-      genConfInteraction(conf, rest, SystemRestfulInteraction.TRANSACTION);
-      genConfInteraction(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM);
-      genConfInteraction(conf, rest, SystemRestfulInteraction.SEARCHSYSTEM);
+      genConfInteraction(conf, rest, SystemRestfulInteraction.TRANSACTION, "Implemented per the specification (or Insert other doco here)");
+      genConfInteraction(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM, "Implemented per the specification (or Insert other doco here)");
+      genConfInteraction(conf, rest, SystemRestfulInteraction.SEARCHSYSTEM, "Implemented per the specification (or Insert other doco here)");
       rest.setTransactionMode(TransactionMode.BOTH);
       
       for (ResourceDefn rd : page.getDefinitions().getBaseResources().values()) { 
@@ -1262,7 +1265,7 @@ public class Publisher implements URIResolver {
   private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameterDefn i) throws Exception {
     ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
     result.setName(i.getCode());
-    result.setDefinition("http://hl7.org/fhir/SearchParameter/"+rn.toLowerCase()+"-"+i.getCode().replace("-[x]", ""));
+    result.setDefinition("http://hl7.org/fhir/SearchParameter/"+rn.toLowerCase()+"-"+i.getCode().replace("-[x]", "").replace("_", ""));
     result.setType(getSearchParamType(i.getType()));
     result.setDocumentation(i.getDescription());
     i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
@@ -1298,9 +1301,10 @@ public class Publisher implements URIResolver {
     res.getInteraction().add(t);
   }
 
-  private void genConfInteraction(Conformance conf, ConformanceRestComponent res, SystemRestfulInteraction op) {
+  private void genConfInteraction(Conformance conf, ConformanceRestComponent res, SystemRestfulInteraction op, String doco) {
     SystemInteractionComponent t = new SystemInteractionComponent();
     t.setCode(op);
+    t.setDocumentation(doco);
     res.getInteraction().add(t);
   }
 
@@ -1935,6 +1939,9 @@ public class Publisher implements URIResolver {
       page.getVsValidator().checkDuplicates(page.getValidationErrors());
 
       if (buildFlags.get("all")) {
+        if (page.getToc().containsKey("1.1"))
+          throw new Exception("Duplicate DOC Entry "+"1.1");
+
         page.getToc().put("1.1", new TocEntry("1.1", "Table Of Contents", "toc.html", false));
         page.log(" ...page toc.html", LogMessageType.Process);
         producePage("toc.html", null);
@@ -4607,7 +4614,7 @@ public class Publisher implements URIResolver {
     try {
       // TextFile.stringToFile(src, "c:\\temp\\text.html");
       XhtmlDocument doc = new XhtmlParser().parse(src, "html");
-      insertSectionNumbersInNode(doc, st, link, level);
+      insertSectionNumbersInNode(doc, st, link, level, new BooleanHolder());
       if (doch != null)
         doch.doc = doc;
       return new XhtmlComposer().compose(doc);
@@ -4631,7 +4638,11 @@ public class Publisher implements URIResolver {
     return null;
   }
 
-  private void insertSectionNumbersInNode(XhtmlNode node, SectionTracker st, String link, int level) throws Exception {
+  private class BooleanHolder {
+    private boolean value;
+  }
+
+  private void insertSectionNumbersInNode(XhtmlNode node, SectionTracker st, String link, int level, BooleanHolder registered) throws Exception {
     // while we're looking, mark external references explicitly
     if (node.getNodeType() == NodeType.Element && node.getName().equals("a") && 
         node.getAttribute("href") != null && node.getAttribute("no-external") == null && (node.getAttribute("href").startsWith("http:") || node.getAttribute("href").startsWith("https:"))) {
@@ -4648,8 +4659,15 @@ public class Publisher implements URIResolver {
         && (node.getName().equals("h1") || node.getName().equals("h2") || node.getName().equals("h3") || node.getName().equals("h4")
             || node.getName().equals("h5") || node.getName().equals("h6"))) {
       String v = st.getIndex(Integer.parseInt(node.getName().substring(1)));
-      TocEntry t = new TocEntry(v, node.allText(), link, st.isIg());
-      page.getToc().put(v, t);
+      if (!st.isIg() && !registered.value) {
+        TocEntry t = new TocEntry(v, node.allText(), link, st.isIg());
+        if (!page.getToc().containsKey(v)) {
+//          throw new Exception("Duplicate TOC Entry "+v);
+          page.getToc().put(v, t);
+          registered.value = true;
+        } else 
+          tocs.add("-- duplicate TOC --> "+v+" = "+t.getLink()+" ("+t.getText()+") in place of "+page.getToc().get(v).getLink()+" ("+page.getToc().get(v).getText()+")");
+      }
       node.addText(0, " ");
       XhtmlNode span = node.addTag(0, "span");
       span.setAttribute("class", "sectioncount");
@@ -4672,7 +4690,7 @@ public class Publisher implements URIResolver {
     if (node.getNodeType() == NodeType.Document
         || (node.getNodeType() == NodeType.Element && !(node.getName().equals("div") && "sidebar".equals(node.getAttribute("class"))))) {
       for (XhtmlNode n : node.getChildNodes()) {
-        insertSectionNumbersInNode(n, st, link, level);
+        insertSectionNumbersInNode(n, st, link, level, registered);
       }
     }
   }
@@ -5426,7 +5444,7 @@ public class Publisher implements URIResolver {
         vs.setUserData("path", n + ".html");
       page.setId(vs.getId());
       String sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, n+".html", vs, null, "Value Set", ig);
-      sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ToolingExtensions.getOID(vs)), ig == null ? 0 : 1, null, null);
+      sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ToolingExtensions.getOID(vs)), ig == null ? 0 : 1, null, ig);
 
       TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
       String src = page.processPageIncludesForBook(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-book.html"), "valueSet", vs, ig);
