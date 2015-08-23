@@ -665,6 +665,26 @@ The interpretation of a <i>reference</i> parameter is either:
 </ul>
 <p>
 Note that if a relative reference resolves to the same value as a specified absolute URL, or vice versa, this is a match too.
+For example, if the search parameter value is Patient/123, then this will find references like this: 
+</p>
+<pre>
+ &lt;patient&gt;
+   &lt;reference value=&quot;Patient/123&quot;/&gt;
+ &lt;/patient&gt;
+</pre>
+<p>
+If the server base address is http://example.org/fhir, then the full URL for that reference is 
+http://example.org/fhir/Patient/123, which means that the search term also matches patient
+references like this:
+</p>
+<pre>
+ &lt;patient&gt;
+   &lt;reference value=&quot;http://example.org/fhir/Patient/123&quot;/&gt;
+ &lt;/patient&gt;
+</pre>
+<p>
+In addition, searching for reference=http://example.org/fhir/Patient/123 will also 
+match both references.
 </p>
 <p>
 Some references are allowed to point to more than one type of resource. e.g. subject : Reference(Patient|Group|Device|..).
