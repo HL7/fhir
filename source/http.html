@@ -498,7 +498,7 @@ might submit the finalized result using <code>PUT /Observation?identifier=http:/
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is 
 not expected that every server will implement them. Servers that don't support the conditional 
-create should return an HTTP 
+update should return an HTTP 400 error and an operation outcome.
 </p>
 
 
@@ -616,7 +616,8 @@ For example, a client deleting a lab atomic result might delete the resource usi
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is 
-not expected that every server will implement them.
+not expected that every server will implement them. Servers that don't support the conditional 
+delete should return an HTTP 400 error and an operation outcome.
 </p>
 
 <a name="create"> </a>
@@ -708,7 +709,8 @@ creating duplicate resources for the same record. For example, a client posting 
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is 
-not expected that every server will implement them.
+not expected that every server will implement them. Servers that don't support the conditional 
+create should return an HTTP 412 error and an operation outcome.
 </p>
 
 
