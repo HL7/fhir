@@ -227,7 +227,7 @@ or the server does not support conditional request).
 Servers can return 304 Not Modified where content is unchanged since the
 <code>If-Modified-Since</code> date-time or the <code>If-None-Match</code> ETag specified or they can
 return the full content as normal. This optimisation is relevant in reducing bandwidth for caching purposes and servers are encouraged but
-not required to support this.
+not required to support this. If servers don't support conditional read, they just return the full content.
 </p>
 <h4>create/update/transaction</h4>
 <p>
@@ -497,7 +497,8 @@ might submit the finalized result using <code>PUT /Observation?identifier=http:/
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is 
-not expected that every server will implement them.
+not expected that every server will implement them. Servers that don't support the conditional 
+create should return an HTTP 
 </p>
 
 

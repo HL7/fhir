@@ -21,7 +21,13 @@
 
 <p>
 The base definition for elements defined as part of a resource definition. <a href="datatypes.html">Data Type</a> elements do not use this type.
-For instance, Patient.contact is an element that is defined as part of the patient resource, so it automatically has the type "BackboneElement".
+For instance, <a href="patient.html#resource">Patient.contact</a> is an element that is defined as part of the patient resource, so it automatically 
+has the type <code>BackboneElement</code>.
+</p>
+
+<p>
+Note that the descendent types of <code>BackboneElement</code> are all declared implicitly as 
+part of the definitions of the resources. 
 </p>
 
 <a name="definition"></a>
@@ -31,6 +37,15 @@ Content
 
 [%dt BackboneElement 1%]
 
+<a name="summary"> </a>
+<h2>Specializations</h2>
+
+<p>
+This table lists all the specializations of <code>BackboneElement</code> that are defined, and the 
+path at which they are defined. 
+</p>
+
+<%backboneelementlist%>
 
 </div>
 

@@ -900,11 +900,60 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("ig-toc"))
         src = s1 + genIgToc(ig) + s3;  
       else if (com[0].equals("fhir-path"))
-        src = s1 + "../" + s3;  
+        src = s1 + "../" + s3;
+      else if (com[0].equals("backboneelementlist"))
+        src = s1 + genBackboneelementList() + s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genBackboneelementList() {
+    List<String> classes = new ArrayList<String>();
+    listAllbackboneClasses(classes);
+
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"none\">\r\n");
+    b.append(" <tr><td><b>Path</b></td><td><b>Type Name</b></td></tr>\r\n");
+    for (String rn : definitions.sortedResourceNames()) {
+      boolean first = true;
+      for (String pn : classes) {
+        if (pn.startsWith(rn+".")) {
+          String path = pn.substring(0, pn.indexOf(":"));
+          String name = pn.substring(pn.indexOf(":")+1);
+          String pl = "<a href=\""+rn.toLowerCase()+"-definitions.html#"+path+"\">"+path+"</a>";
+          if (first) {
+            b.append(" <tr style=\"background-color: #eeeeee\"><td colspan=\"2\"><a href=\""+rn.toLowerCase()+".html\">"+rn+"</a></td></tr>\r\n");
+            first = false;
+          } 
+           b.append(" <tr><td>"+pl+"</td><td><span style=\"opacity: 0.5\">"+rn+".</span>"+name+"</td></tr>\r\n");
+        }
+      }
+    }
+    b.append("</table>\r\n");
+    return b.toString();
+  }
+  
+
+  private void listAllbackboneClasses(List<String> classes) {
+    for (ResourceDefn r : definitions.getBaseResources().values())
+      listAllbackboneClasses(classes, r.getRoot(), r.getName());
+    for (ResourceDefn r : definitions.getResources().values())
+      listAllbackboneClasses(classes, r.getRoot(), r.getName());
+  }
+
+  private void listAllbackboneClasses(List<String> classes, ElementDefn e, String path) {
+    for (ElementDefn c : e.getElements()) {
+      if (c.getElements().size() > 0) {
+        String p = path+"."+c.getName();
+        String n = Utilities.capitalize(c.getName());
+        if (c.hasStatedType())
+          n = c.getStatedType();
+        classes.add(p+":"+n);
+        listAllbackboneClasses(classes, c, p);
+      }
+    }
   }
 
   private String buildIgRegistry(ImplementationGuideDefn ig, String types) throws Exception {
@@ -3978,6 +4027,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+ig.getBallot()+s3;
       else if (com[0].equals("fhir-path"))
         src = s1 + "../" + s3;  
+      else if (com[0].equals("backboneelementlist"))
+        src = s1 + genBackboneelementList() + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }

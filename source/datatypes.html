@@ -192,7 +192,9 @@ The value is represented in XML as an attribute named "value":
 </pre>
 <p>
 For additional details, including how the internal identity and extensions are represented, see the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> formats. 
-When the value is missing, it is not represented in the instance; the XML value attribute or the JSON property are not represented at all. 
+When the value is missing, it is not represented in the instance; the XML value attribute or the JSON property are not represented at all. This means that 
+in xml, attributes are never present with a length of 0 (value=""), and properties are never a 0 length string or null in JSON ("name" : "" it not valid). 
+(note: there is one specific <a href="json.html#null">use of the null</a> in the JSON represesntation).
 </p>
 <p>
 According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
@@ -276,7 +278,7 @@ id: [%dtusage id%]
 -->
 <hr/>
 
-<a name="Types"/>
+<a name="Types"> </a><a name="complex"> </a>
 <h2>Complex Types</h2>
 
 <p>

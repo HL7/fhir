@@ -62,7 +62,10 @@ public class TableGenerator extends BaseGenerator {
       if (!e.getElements().isEmpty()) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
-        row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
+        if (resource)
+          row.getCells().add(gen.new Cell(null, prefix+"bacboneelement.html", "BackboneElement", null, null));
+        else
+          row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         String t = e.getTypes().get(0).getName();
