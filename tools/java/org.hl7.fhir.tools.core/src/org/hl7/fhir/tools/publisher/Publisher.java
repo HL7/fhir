@@ -133,6 +133,7 @@ import org.hl7.fhir.instance.model.ConceptMap.ConceptMapContactComponent;
 import org.hl7.fhir.instance.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.Conformance.ConditionalDeleteStatus;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceSearchParamComponent;
@@ -141,6 +142,7 @@ import org.hl7.fhir.instance.model.Conformance.ResourceInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
 import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
+import org.hl7.fhir.instance.model.Conformance.TransactionMode;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.UnknownContentCode;
 import org.hl7.fhir.instance.model.ContactPoint;
@@ -1154,16 +1156,17 @@ public class Publisher implements URIResolver {
     conf.setUrl("http://hl7.org/fhir/Conformance/" + name);
     conf.setVersion(page.getVersion() + "-" + page.getSvnRevision());
     conf.setName("Base FHIR Conformance Statement " + (full ? "(Full)" : "(Empty)"));
+    conf.setStatus(ConformanceResourceStatus.DRAFT);
+    conf.setExperimental(true);
     conf.setPublisher("FHIR Project Team");
     conf.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
-    conf.setStatus(ConformanceResourceStatus.DRAFT);
     conf.setDate(page.getGenDate().getTime());
+    conf.setKind(ConformanceStatementKind.CAPABILITY);
+    conf.getSoftware().setName("Insert your softwware name here...");
     conf.setFhirVersion(page.getVersion());
     conf.setAcceptUnknown(full ? UnknownContentCode.BOTH : UnknownContentCode.NO);
     conf.getFormat().add(Factory.newCode("xml"));
     conf.getFormat().add(Factory.newCode("json"));
-    conf.setKind(ConformanceStatementKind.CAPABILITY);
-    conf.getSoftware().setName("Insert your softwware name here...");
     ConformanceRestComponent rest = new Conformance.ConformanceRestComponent();
     conf.getRest().add(rest);
     rest.setMode(RestfulConformanceMode.SERVER);
@@ -1174,27 +1177,29 @@ public class Publisher implements URIResolver {
       rest.setDocumentation("An empty conformance statement");
       conf.setDescription("This is the base conformance statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from. A conformance profile has to contain something, so this contains a read of a Conformance Statement");
     }
+    rest.getSecurity().setCors(true);
+    rest.getSecurity().addService().setText("See http://docs.smarthealthit.org/").addCoding().setSystem("http://hl7.org/fhir/restful-security-service").setCode("SMART-on-FHIR").setDisplay("SMART-on-FHIR");
+    rest.getSecurity().setDescription("This is the conformance statement to declare that the server supports SMART-on-FHIR. See the SMART-on-FHIR docs for the extension that would go with such a server");
+        
     if (full) {
-      genConfOp(conf, rest, SystemRestfulInteraction.TRANSACTION);
-      genConfOp(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM);
-      genConfOp(conf, rest, SystemRestfulInteraction.SEARCHSYSTEM);
-
       for (String rn : page.getDefinitions().sortedResourceNames()) {
         ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
         ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
         rest.getResource().add(res);
         res.setType(rn);
         res.setProfile(Factory.makeReference("http://hl7.org/fhir/StructureDefinition/" + rn));
-        genConfOp(conf, res, TypeRestfulInteraction.READ);
-        genConfOp(conf, res, TypeRestfulInteraction.VREAD);
-        genConfOp(conf, res, TypeRestfulInteraction.UPDATE);
-        genConfOp(conf, res, TypeRestfulInteraction.DELETE);
-        genConfOp(conf, res, TypeRestfulInteraction.HISTORYINSTANCE);
-        genConfOp(conf, res, TypeRestfulInteraction.VALIDATE);
-        genConfOp(conf, res, TypeRestfulInteraction.HISTORYTYPE);
-        genConfOp(conf, res, TypeRestfulInteraction.CREATE);
-        genConfOp(conf, res, TypeRestfulInteraction.SEARCHTYPE);
-
+        genConfInteraction(conf, res, TypeRestfulInteraction.READ, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(conf, res, TypeRestfulInteraction.VREAD, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(conf, res, TypeRestfulInteraction.UPDATE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(conf, res, TypeRestfulInteraction.DELETE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(conf, res, TypeRestfulInteraction.HISTORYINSTANCE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(conf, res, TypeRestfulInteraction.VALIDATE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(conf, res, TypeRestfulInteraction.HISTORYTYPE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(conf, res, TypeRestfulInteraction.CREATE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(conf, res, TypeRestfulInteraction.SEARCHTYPE, "Implemented per the specification (or Insert other doco here)");
+        res.setConditionalCreate(true);
+        res.setConditionalUpdate(true);
+        res.setConditionalDelete(ConditionalDeleteStatus.MULTIPLE);        
         for (SearchParameterDefn i : rd.getSearchParams().values()) {
           res.getSearchParam().add(makeSearchParam(conf, rn, i));
           if (i.getType().equals(SearchType.reference)) 
@@ -1208,11 +1213,28 @@ public class Publisher implements URIResolver {
           }
         }
       }
+          
+      genConfInteraction(conf, rest, SystemRestfulInteraction.TRANSACTION);
+      genConfInteraction(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM);
+      genConfInteraction(conf, rest, SystemRestfulInteraction.SEARCHSYSTEM);
+      rest.setTransactionMode(TransactionMode.BOTH);
+      
+      for (ResourceDefn rd : page.getDefinitions().getBaseResources().values()) { 
+        for (SearchParameterDefn i : rd.getSearchParams().values())
+          rest.getSearchParam().add(makeSearchParam(conf, rd.getName(), i));
+        for (Operation op : rd.getOperations()) 
+          rest.addOperation().setName(op.getName()).setDefinition(new Reference().setReference("http://hl7.org/fhir/OperationDefinition/"+rd.getName().toLowerCase()+"-"+op.getName()));
+      }
+      for (String rn : page.getDefinitions().sortedResourceNames()) {
+        ResourceDefn r = page.getDefinitions().getResourceByName(rn);
+        for (Operation op : r.getOperations()) 
+          rest.addOperation().setName(op.getName()).setDefinition(new Reference().setReference("http://hl7.org/fhir/OperationDefinition/"+r.getName().toLowerCase()+"-"+op.getName()));
+      }
     } else {
       ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
       rest.getResource().add(res);
       res.setType("Conformance");
-      genConfOp(conf, res, TypeRestfulInteraction.READ);
+      genConfInteraction(conf, res, TypeRestfulInteraction.READ, "Read Conformance Resource");
     }
 
     if (register) {
@@ -1269,13 +1291,14 @@ public class Publisher implements URIResolver {
     return null;
   }
 
-  private void genConfOp(Conformance conf, ConformanceRestResourceComponent res, TypeRestfulInteraction op) {
+  private void genConfInteraction(Conformance conf, ConformanceRestResourceComponent res, TypeRestfulInteraction op, String doco) {
     ResourceInteractionComponent t = new ResourceInteractionComponent();
     t.setCode(op);
+    t.setDocumentation(doco);
     res.getInteraction().add(t);
   }
 
-  private void genConfOp(Conformance conf, ConformanceRestComponent res, SystemRestfulInteraction op) {
+  private void genConfInteraction(Conformance conf, ConformanceRestComponent res, SystemRestfulInteraction op) {
     SystemInteractionComponent t = new SystemInteractionComponent();
     t.setCode(op);
     res.getInteraction().add(t);
