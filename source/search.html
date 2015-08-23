@@ -821,7 +821,37 @@ So "param=xxx$xxx" means a composite parameter, while "param=xx\$xx" means that
 the parameter has the literal value 'xx$xx'. The parameter value "xx\xx" is illegal,
 and the parameter value "param=xx\\xx" means a literal value of 'xx\xx'.
 </p>
-
+<p>
+This specification defines this extra form of escape
+for a reason. The classic %xx escaping which is part of 
+normal HTTP URLs makes sure the character ends up at the FHIR server 
+correctly, while the "," versus "\" becomes important once it has 
+reached the server and the query is parsed. So:
+</p>
+<pre>
+GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2CValueSet/125
+</pre>
+<p>
+uses url escaping to make sure the FHIR server received:
+<pre>
+GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,125
+</pre>
+<p>
+This means that the server is comparing the url against 3 values (the last one being a relative (and wrong) url, 
+which is probably not the actual intent). However:
+</p>
+<pre>
+GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,125
+</pre>
+<p>
+which is equivalent to:
+</p>
+<pre>
+GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\%2C125
+</pre>
+<p>
+which would mean: url = "http://.....123" OR  "http://....124,125".
+</p>
 
 <a name="text"> </a>
 <a name="content"> </a>
