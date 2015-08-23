@@ -32,8 +32,17 @@ understand the impact of this on the meaning of the list.
 <p>
 There are several different kinds of uses for a List resource:
 </p>
-<%codelist http://hl7.org/fhir/ValueSet/list-mode%>
+[%codelist http://hl7.org/fhir/ValueSet/list-mode%]
 
+<p>
+The most common mode is "snapshot" - a list that is accurate 
+within the context it is used in but not current or maintained
+after that - e.g. medications on discharge in a discharge summary.
+Note that these lists usually have a status of 'current' - they
+were current when they were prepared. Some kinds of lists may 
+be explicitly retired (particularly if mode = working), but most 
+will not be maintained after creation. 
+</p>
 <p>
 A changes list may include deleted items. Some examples of change lists are 
 a reconciled list of allergies and a discharge medication list - a list 
