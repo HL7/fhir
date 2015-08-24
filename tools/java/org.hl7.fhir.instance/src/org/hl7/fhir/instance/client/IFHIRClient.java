@@ -387,14 +387,23 @@ public interface IFHIRClient {
 	public Bundle fetchFeed(String url);
 
 
-	/**
-	 *  invoke the expand operation and pass the value set for expansion
-	 * 
-	 * @param source
-	 * @return
-	 * @throws Exception 
-	 */
+  /**
+   *  invoke the expand operation and pass the value set for expansion
+   * 
+   * @param source
+   * @return
+   * @throws Exception 
+   */
   public ValueSet expandValueset(ValueSet source) throws Exception;
+
+  /**
+   *  invoke the expand operation and pass the value set for expansion
+   * 
+   * @param source
+   * @return
+   * @throws Exception 
+   */
+  public ValueSet expandValueset(ValueSet source, Map<String, String> params) throws Exception;
 
 
   /**

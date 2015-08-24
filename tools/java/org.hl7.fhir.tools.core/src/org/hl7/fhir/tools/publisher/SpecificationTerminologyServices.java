@@ -467,7 +467,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     JsonParser parser = new JsonParser();
     Resource r = parser.parse(new FileInputStream(cacheFn));
     if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDiagnostics());
     else {
       vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
       return new ValueSetExpansionOutcome(vs);
@@ -486,9 +486,10 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
           client.initialize(tsServer);
         }
         Map<String, String> params = new HashMap<String, String>();
-        params.put("limit", "500");
+        params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
+        params.put("_incomplete", "true");
         params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
-        ValueSet result = client.expandValueset(vs);
+        ValueSet result = client.expandValueset(vs, params);
         serverOk = true;
         FileOutputStream s = new FileOutputStream(cacheFn);
         parser.compose(s, result);
@@ -504,7 +505,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
           parser.compose(s, e.getServerErrors().get(0));
         s.close();
 
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails().getText());
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDiagnostics());
       } catch (Exception e) {
         serverOk = false;
         throw e;

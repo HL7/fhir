@@ -348,6 +348,11 @@ public class WorkerContext implements NameResolver {
       throw new Error("call to NullClient");
     }
 
+    @Override
+    public ValueSet expandValueset(ValueSet source, Map<String, String> params) throws Exception {
+      throw new Error("call to NullClient");
+    }
+
   }
 
   public StructureDefinition getExtensionStructure(StructureDefinition context, String url) throws Exception {

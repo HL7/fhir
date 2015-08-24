@@ -512,6 +512,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private WorkerContext context;
   private IWorkerContext ctxt;
   private String basePath;
+  private String tooCostlyNote;
   
   
   public NarrativeGenerator(String prefix, String basePath, WorkerContext context) {
@@ -521,6 +522,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
     this.basePath = basePath;
     ctxt = null;
   }
+
+  
+  public String getTooCostlyNote() {
+    return tooCostlyNote;
+  }
+
+
+  public NarrativeGenerator setTooCostlyNote(String tooCostlyNote) {
+    this.tooCostlyNote = tooCostlyNote;
+    return this;
+  }
+
 
   public void generate(DomainResource r) throws Exception {
     if (r instanceof ConceptMap) {
@@ -1930,14 +1943,23 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (vs.hasCopyright())
         generateCopyright(x, vs);
     }
-    Integer count = countMembership(vs);
-    if (count == null)
-      x.addTag("p").addText("This value set does not contain a fixed number of concepts");
-    else
-      x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
+    if (ToolingExtensions.hasExtension(vs.getExpansion(), "http://hl7.org/fhir/StructureDefinition/valueset-toocostly"))
+      x.addTag("p").setAttribute("style", "border: maroon 1px solid; background-color: #FFCCCC; font-weight: bold; padding: 8px").addText(tooCostlyNote);
+    else {
+      Integer count = countMembership(vs);
+      if (count == null)
+        x.addTag("p").addText("This value set does not contain a fixed number of concepts");
+      else
+        x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
+    }
 
     boolean doSystem = checkDoSystem(vs, src);
-    
+    if (doSystem && allFromOneSystem(vs)) {
+      doSystem = false;
+      XhtmlNode p = x.addTag("p");
+      p.addText("All codes from system ");
+      p.addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
+    }
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     XhtmlNode tr = t.addTag("tr");
     tr.addTag("td").addTag("b").addText("Code");
@@ -1951,6 +1973,29 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }    
     return hasExtensions;
   }
+
+  private boolean allFromOneSystem(ValueSet vs) {
+    if (vs.getExpansion().getContains().isEmpty())
+      return false;
+    String system = vs.getExpansion().getContains().get(0).getSystem();
+    for (ValueSetExpansionContainsComponent cc : vs.getExpansion().getContains()) {
+      if (!checkSystemMatches(system, cc))
+        return false;
+    }
+    return true;
+  }
+
+
+  private boolean checkSystemMatches(String system, ValueSetExpansionContainsComponent cc) {
+    if (!system.equals(cc.getSystem()))
+      return false;
+    for (ValueSetExpansionContainsComponent cc1 : cc.getContains()) {
+      if (!checkSystemMatches(system, cc1))
+        return false;
+    }
+     return true; 
+  }
+
 
   private boolean checkDoSystem(ValueSet vs, ValueSet src) {
     if (src != null)

@@ -272,7 +272,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 //  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
-  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:980/open";
+  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
   public final static String WEB_PUB_NAME = "DSTU2 Ballot Source";
   public final static String CI_PUB_NAME = "Current Build";
@@ -287,7 +287,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
           "</p>\r\n";
 
-  private static final String TOO_MANY_CODES_TEXT = "This value set has >10,000 codes in it. In order to keep the publication size manageable, value sets this large are not expanded here";
+  public static final String CODE_LIMIT_EXPANSION = "1000";
+  public static final String TOO_MANY_CODES_TEXT = "This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection  (1000 codes) of the whole set of codes is shown";
   private static final String NO_CODESYSTEM_TEXT = "This value set refers to code systems that the FHIR Publication Tooling does not support";
       
 //  private boolean notime;
@@ -3606,7 +3607,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       exp.setCodeSystem(null);
       exp.setText(null); 
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator("", "", workerContext).generate(exp);
+      new NarrativeGenerator("", "", workerContext).setTooCostlyNote(TOO_MANY_CODES_TEXT).generate(exp);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--2-->"+processExpansionError(e.getMessage())+"</div>";
@@ -3655,9 +3656,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     vs1.setText(null);
     ImplementationGuideDefn ig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
     if (ig != null && !ig.isCore())
-      new NarrativeGenerator("../", ig.getCode()+"/", workerContext).generate(vs1, null, false);
+      new NarrativeGenerator("../", ig.getCode()+"/", workerContext).setTooCostlyNote(TOO_MANY_CODES_TEXT).generate(vs1, null, false);
     else
-      new NarrativeGenerator("", "", workerContext).generate(vs1, null, false);
+      new NarrativeGenerator("", "", workerContext).setTooCostlyNote(TOO_MANY_CODES_TEXT).generate(vs1, null, false);
     return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(vs1.getText().getDiv())+"</div>";
   }
   
@@ -6660,7 +6661,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       exp.setText(null); 
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
       
-      new NarrativeGenerator(prefix, base, workerContext).generate(exp, vs, false);
+      new NarrativeGenerator(prefix, base, workerContext).setTooCostlyNote(TOO_MANY_CODES_TEXT).generate(exp, vs, false);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       e.printStackTrace();

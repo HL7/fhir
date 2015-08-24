@@ -226,5 +226,10 @@ public class SpecificationInternalClient implements IFHIRClient {
     return "(internal)";
   }
 
+  @Override
+  public ValueSet expandValueset(ValueSet source, Map<String, String> params) throws Exception {
+    throw new Error("call to SpecificationInternalClient.expandValueset(ValueSet, Map<String, String>)");
+  }
+
 
 }

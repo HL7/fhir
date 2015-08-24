@@ -1,1 +1,1 @@
-{"resourceType":"OperationOutcome","text":{"status":"generated","div":"<div><p>unable to provide support for code system http://hl7.org/fhir/sid/cvx</p></div>"},"issue":[{"severity":"error","diagnostics":"unable to provide support for code system http://hl7.org/fhir/sid/cvx"}]}
+{"resourceType":"OperationOutcome","text":{"status":"generated","div":"<div><p>unable to provide support for code system urn:oid:1.2.36.1.2001.1005.17</p></div>"},"issue":[{"severity":"error","diagnostics":"unable to provide support for code system urn:oid:1.2.36.1.2001.1005.17"}]}

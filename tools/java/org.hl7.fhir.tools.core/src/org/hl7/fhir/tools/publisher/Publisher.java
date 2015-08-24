@@ -1238,7 +1238,7 @@ public class Publisher implements URIResolver {
     }
 
     if (register) {
-      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext());
+      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
       gen.generate(conf);
       FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conf);
@@ -2923,7 +2923,7 @@ public class Publisher implements URIResolver {
       }
     }
 
-    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
     gen.generate(vs);
     page.getVsValidator().validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
     return vs;
@@ -3022,7 +3022,7 @@ public class Publisher implements URIResolver {
           }
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
     gen.generate(vs);
     page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
     return vs;
@@ -3630,7 +3630,7 @@ public class Publisher implements URIResolver {
     // n
     String rt = null;
     try {
-      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
+      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext().clone(new SpecificationInternalClient(page, null))).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
       xdoc = loadDom(new FileInputStream(file), true);
       rt = xdoc.getDocumentElement().getNodeName();
       String id = XMLUtil.getNamedChildValue(xdoc.getDocumentElement(), "id");
@@ -5419,7 +5419,7 @@ public class Publisher implements URIResolver {
 
         if (vs.getText() == null || vs.getText().getDiv() == null || vs.getText().getDiv().allChildrenAreText()
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-          new NarrativeGenerator("", "", page.getWorkerContext()).generate(vs);
+          new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT).generate(vs);
 
         page.getVsValidator().validate(page.getValidationErrors(), name, vs, true, false);
 
@@ -5468,9 +5468,9 @@ public class Publisher implements URIResolver {
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*"))) {
       if (ig != null) 
-        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).generate(vs);
+        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT).generate(vs);
       else
-        new NarrativeGenerator("", "", page.getWorkerContext()).generate(vs);
+        new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT).generate(vs);
     }
     page.getVsValidator().validate(page.getValidationErrors(), n, vs, true, false);
 
@@ -5573,7 +5573,7 @@ public class Publisher implements URIResolver {
       b.append(s);
     }
     cm.setDescription("v2 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
     gen.generate(cm);
 
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
@@ -5675,7 +5675,7 @@ public class Publisher implements URIResolver {
       b.append(s);
     }
     cm.setDescription("v3 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext());
+    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
     gen.generate(cm);
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json"));

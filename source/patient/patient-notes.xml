@@ -121,11 +121,11 @@ particular mix of patients. MPIs can also be run on a regional and national basi
 </p>
 <p>
 To ask an MPI to match a patient, clients use the "mpi" <a href="search.html#query">query</a>,
-which means that the normal search parameters defined for patient may 
-be used. However, ather than their normal use, they are interpreted 
-as MPI inputs - e.g. instead of requiring that the resources literally contain 
-the search parameters, they are passed to an MPI algorithm of some kind that uses 
-them to determine the most appropriate matches in the patient set. 
+which uses the normal search parameters defined for patient. However, rather than
+their normal use, they are interpreted as MPI inputs - e.g. instead of requiring 
+that the resources literally contain the search parameters, they are passed to an 
+MPI algorithm of some kind that uses them to determine the most appropriate matches 
+in the patient set. 
 </p>
 <pre>
   GET [base]/Patient?_query=mpi&amp;parameters...
@@ -136,7 +136,7 @@ likely to least likely. If thare are not patient matches, the MPI SHALL return
 an empty search set with no error, but may include an <a href="operationoutcome.html">operation outcome</a> with 
 further advice. All patient records SHALL have a score from 0 to 1, where
 1 is the most certain match, along with an <a href="extensibility.html">extension</a>
-<a href="extension-patient-mpi-match.html">"patient-mpi-match"</a> that indicates the MPI's position on the match:
+<a href="extension-patient-mpi-match.html">"patient-mpi-match"</a> that indicates the MPI's position on the match quality:
 </p>
 <pre>
   &lt;entry&gt; 
@@ -164,7 +164,7 @@ be used by the MPI to restrict the possible matches that are returned based
 on user's rights. For example, a staff member covered by policies etc 
 may well get a different result than a patient trying to find their own 
 record. Note that this parameter is used where the the user would not be 
-expected to log in to the MPI directly; whether this is appropriate is 
+expected to log in to the MPI directly; whether this is appropriate or not is 
 a deployment choice.
 </p>
 <p>

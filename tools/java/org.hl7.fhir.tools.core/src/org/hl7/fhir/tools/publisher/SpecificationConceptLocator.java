@@ -286,51 +286,7 @@ public class SpecificationConceptLocator implements ConceptLocator {
 
   @Override
   public List<ValueSetExpansionContainsComponent> expand(ConceptSetComponent inc) throws Exception {
-//    return null;
-    ValueSet vs = new ValueSet();
-    vs.setCompose(new ValueSetComposeComponent());
-    vs.getCompose().getInclude().add(inc);
-    ByteArrayOutputStream b = new  ByteArrayOutputStream();
-    new JsonParser().compose(b, vs);
-    b.close();
-    String hash = Integer.toString(new String(b.toByteArray()).hashCode());
-    String fn = Utilities.path(cache, hash+".json");
-    if (new File(fn).exists()) {
-      Resource r = new JsonParser().parse(new FileInputStream(fn));
-      if (r instanceof OperationOutcome)
-        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
-      else
-        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion().getContains();
-    }
-    vs.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
-
-    if (!triedServer || serverOk) {
-      try {
-        triedServer = true;
-        serverOk = false;
-        // for this, we use the FHIR client
-        IFHIRClient client = new FHIRSimpleClient();
-        client.initialize(tsServer);
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("_query", "expand");
-        params.put("limit", "500");
-        Bundle result = client.searchPost(ValueSet.class, vs, params);
-        serverOk = true;
-        FileOutputStream s = new FileOutputStream(fn);
-        new JsonParser().compose(s, result);
-        s.close();
-        return ((ValueSet) result.getEntry().get(0).getResource()).getExpansion().getContains();
-      } catch (EFhirClientException e) {
-        serverOk = true;
-        FileOutputStream s = new FileOutputStream(fn);
-        new JsonParser().compose(s, e.getServerErrors().get(0));
-        s.close();
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails().getText());
-      } catch (Exception e) {
-        serverOk = false;
-        throw e;
-      }
-    } else
-      throw new Exception("Server is not available");
+    throw new Exception("not done yet");
   }
+
 }

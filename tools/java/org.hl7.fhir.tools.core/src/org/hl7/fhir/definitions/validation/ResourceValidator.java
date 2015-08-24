@@ -403,8 +403,8 @@ public class ResourceValidator extends BaseValidator {
         name.equals("Conformance") || 
         name.equals("MessageHeader") || 
         name.equals("Subscription") || 
-        name.equals("DataElement") || 
-        name.equals("Profile") || 
+       name.equals("DataElement") || 
+        name.equals("Provenance") || 
         name.equals("Query") || 
         name.equals("ValueSet") ||         
         name.equals("OperationDefinition") ||         

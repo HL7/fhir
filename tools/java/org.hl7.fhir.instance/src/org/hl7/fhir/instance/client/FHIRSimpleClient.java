@@ -740,6 +740,23 @@ public class FHIRSimpleClient implements IFHIRClient {
   }
 
   @Override
+  public ValueSet expandValueset(ValueSet source, Map<String, String> params) throws Exception {
+    List<Header> headers = null;
+    ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand", params), 
+        ClientUtils.getResourceAsByteArray(source, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
+    result.addErrorStatus(410);//gone
+    result.addErrorStatus(404);//unknown
+    result.addErrorStatus(405);
+    result.addErrorStatus(422);//Unprocessable Entity
+    result.addSuccessStatus(200);
+    result.addSuccessStatus(201);
+    if(result.isUnsuccessfulRequest()) {
+      throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
+    }
+    return (ValueSet) result.getPayload();
+  }
+  
+  @Override
   public String getAddress() {
     return base;
   }
