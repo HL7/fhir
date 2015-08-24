@@ -68,7 +68,7 @@
   Element = MedicationStatement.dosage
 
  -- Row 11 -----------------------------------
-  Element = MedicationStatement.dosage.schedule
+  Element = MedicationStatement.dosage.timing
   Must Support = Y
   QDM Mapping = frequency
 

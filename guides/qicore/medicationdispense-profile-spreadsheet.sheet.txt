@@ -141,7 +141,7 @@
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
 
  -- Row 24 -----------------------------------
-  Element = MedicationDispense.dosageInstruction.schedule[x]
+  Element = MedicationDispense.dosageInstruction.timing
   Must Support = Y
   QDM Mapping = frequency
 
