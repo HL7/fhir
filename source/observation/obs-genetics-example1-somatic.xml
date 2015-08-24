@@ -76,7 +76,12 @@
         </valueCodeableConcept>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/geneticsTranscriptReferenceSequenceId">
-        <valueCode value="ENSESTT00000085772.1"/>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://www.ensembl.org"/>
+                <code value="ENSESTT00000085772.1"/>
+            </coding>
+        </valueCodeableConcept>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
         <valueString value="c.2573T&gt;G"/>

@@ -42,7 +42,7 @@ Hl7 Clinical Genomics Work Group emphasizes the importance of transmitting struc
 
 <ul>
     <li>51967­8 Genetic disease assessed [Identifier] in Blood or Tissue by Molecular genetics method</li>
-    <li>51963­7 Medication assessed [Identifier] in Blood or Tissue by Molecular genetics method 48002­0 Genomic source class [Type] in Blood or Tissue by Molecular genetics method 51968­6 Genetic disease analysis overall interpretation [interpretation] in Blood or Tissue by Molecular genetics method</li>
+    <li>51963­7 Medication assessed [Identifier] in Blood or Tissue by Molecular genetics method </li>
     <li>53039­4 Genetic disease analysis overall carrier interpretation [interpretation] in Blood or Tissue by Molecular genetics method</li>
     <li>51964­5 Drug efficacy analysis overall interpretation [interpretation] in Blood or Tissue by Molecular genetics method</li>
     <li>51971­0 Drug metabolism analysis overall interpretation [interpretation] in Blood or Tissue by Molecular genetics method</li>

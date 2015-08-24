@@ -252,7 +252,7 @@
   Card. = 0..1
   Type = Extension{#AssessedCondition}
   Short Label = AssessedCondition
-  Definition = Used to denote a diagnosed condition for genetic testing, which may influence reported variants and interpretation for large genomic testing panels e.g. lung cancer or familial breast cancer.
+  Definition = Used to denote condition context for genetic testing, which may influence reported variants and interpretation for large genomic testing panels e.g. lung cancer or familial breast cancer.
 
  -- Row 23 -----------------------------------
   Element = Observation.extension
@@ -294,7 +294,7 @@
 
  -- Row 1 -----------------------------------
   Name = gene-identifier
-  Type = string
+  Type = token
   Description = HGNC gene symbol and identifier
   Path = Observation.extension(GeneId)
 
@@ -312,7 +312,7 @@
 
  -- Row 4 -----------------------------------
   Name = assessed-condition
-  Type = string
+  Type = reference
   Description = Condition assessed by genetic test
   Path = Observation.extension(AssessedCondition)
 
