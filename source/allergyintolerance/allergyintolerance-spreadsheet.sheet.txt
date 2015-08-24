@@ -298,7 +298,7 @@
   Binding = SubstanceCode
   Short Label = Substance, (or class) considered to be responsible for risk
   Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk
-  Comments = It is strongly recommended that Substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, Snomed CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available.
+  Comments = It is strongly recommended that Substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, Snomed CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
   w5 = what
 
  -- Row 9 -----------------------------------
@@ -554,5 +554,11 @@
   Identity = medication
   Description = A typical Medication allergy from a clinical system
   Filename = allergyintolerance-medication.xml
+
+ -- Row 3 -----------------------------------
+  Name = Fish Allergy with notes
+  Identity = fishallergy
+  Description = An allergy to a substance with additional details in notes
+  Filename = allergyintolerance-fishallergy.xml
 
 === Sheet Examples =====================================

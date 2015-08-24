@@ -151,6 +151,7 @@
   Type = Reference(Encounter)
   Short Label = Encounter when condition first asserted
   Definition = Encounter during which the condition was first asserted
+  Comments = This record indicates the encounter this particular record is associated with.  In the case of a \"new\" diagnosis reflecting ongoing/revised information about the condition, this might be distinct from the first encounter in which the underlying condition was first \"known\".
   v2 Mapping = PV1-19 (+PV1-54)
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
@@ -207,6 +208,7 @@
   Binding = ConditionClinicalStatus
   Short Label = active | relapse | remission | resolved
   Definition = The clinical status of the condition.
+  v2 Mapping = PRB-14 / DG1-6
   w5 = status
 
  -- Row 10 -----------------------------------
@@ -217,7 +219,7 @@
   Binding = ConditionVerificationStatus
   Short Label = provisional | differential | confirmed | refuted | entered-in-error | unknown
   Definition = The verification status to support the clinical status of the condition.
-  v2 Mapping = PRB-14 / DG1-6
+  v2 Mapping = PRB-13
   RIM Mapping = .code (pre or post-coordinated in)  Can use valueNegationInd for refuted
   w5 = status
 

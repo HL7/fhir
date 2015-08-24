@@ -33,11 +33,20 @@
         <op value="is-a"/>
         <value value="_ParticipationAncillary"/>
       </filter>
-      <filter>
-        <property value="concept"/>
-        <op value="in"/>
-        <value value="SPRF,PPRF,PART"/>
-      </filter>
     </include>
   </compose>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <concept>
+        <code value="SPRF"/>
+      </concept>
+      <concept>
+        <code value="PPRF"/>
+      </concept>
+      <concept>
+        <code value="PART"/>
+      </concept>
+    </include>
+  </compose>  
 </ValueSet>
