@@ -1,0 +1,36 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet hspc-pregnanacyassert =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Pregnancy Assertion
+  Type = {http://hl7.org/fhir/StructureDefinition/hspc-clinicalobservation}
+
+ -- Row 2 -----------------------------------
+  Element = Observation.dataCodeableConcept
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://snomed.info/sct\"/><code value=\"77386006\"/><display value=\"Patient currently pregnant (finding)\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.DateOfOnset
+  Card. = 0..0
+
+ -- Row 4 -----------------------------------
+  Element = Observation.HistoryIndicator
+  Card. = 0..0
+
+ -- Row 5 -----------------------------------
+  Element = Observation.bodySite
+  Card. = 0..0
+
+ -- Row 6 -----------------------------------
+  Element = Observation.FocalSubject
+  Card. = 0..0
+
+ -- Row 7 -----------------------------------
+  Element = Observation.RiskForIndicator
+  Card. = 0..0
+
+=== Sheet Search =====================================

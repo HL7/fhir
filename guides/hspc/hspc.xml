@@ -112,6 +112,36 @@
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-tqbilirubin-profile-spreadsheet.xml"/>
     </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-pregnancyassert-profile-spreadsheet.xml"/>
+    </extension>
+<!--    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevatotalscore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevaagescore-profile-spreadsheet.xml"/>
+    </extension>-->
+    <!--<extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevaactivecancerscore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevaheartratescore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevapainedemascore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevahemoptysisscore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevapreviousdvtpescore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevarecentsurgeryorfracturescore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevaunilaterallegpainscore-profile-spreadsheet.xml"/>
+    </extension>-->
     <name value="base"/>
     <resource>
       <purpose value="dictionary"/>
