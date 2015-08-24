@@ -465,9 +465,9 @@
   Element = Patient.careProvider
   Card. = 0..*
   Type = Reference(Organization|Practitioner)
-  Short Label = Patient\'s nominated care provider
+  Short Label = Patient\'s nominated primary care provider
   Definition = Patient\'s nominated care provider
-  Comments = This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disablity setting, or even organization that will provide people to perform the care provider roles.
+  Comments = This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disablity setting, or even organization that will provide people to perform the care provider roles.\n\nThis is not to be used to record Care Teams, these should be recorded on either the CarePlan or EpisodeOfCare resources.
   CDA Mapping = n/a
   v2 Mapping = PD1-4
   RIM Mapping = subjectOf.CareEvent.performer.AssignedEntity
