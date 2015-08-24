@@ -945,8 +945,25 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       elementName = elementName.substring(0, elementName.length() - 1);
     }
     
-    write(indent+"@Child(name = \""+elementName+"\", type = {"+getTypeClassList(e, tn)+
-        "}, order="+Integer.toString(order)+", min="+e.getMinCardinality().toString()+", max="+(e.getMaxCardinality() == Integer.MAX_VALUE ?  "Child.MAX_UNLIMITED" : e.getMaxCardinality().toString())+")\r\n");
+    StringBuilder childB = new StringBuilder();
+    childB.append(indent);
+    childB.append("@Child(name = \"");
+    childB.append(elementName);
+    childB.append("\", type = {");
+    childB.append(getTypeClassList(e, tn));
+    childB.append("}, order=");
+    childB.append(Integer.toString(order));
+    childB.append(", min=");
+    childB.append(e.getMinCardinality().toString());
+    childB.append(", max=");
+    childB.append((e.getMaxCardinality() == Integer.MAX_VALUE ?  "Child.MAX_UNLIMITED" : e.getMaxCardinality().toString()));
+    childB.append(", modifier=");
+    childB.append(e.isModifier());
+    childB.append(", summary=");
+    childB.append(e.isSummary());
+    childB.append(")\r\n");
+    write(childB.toString());
+    
     write(indent+"@Description(shortDefinition=\""+Utilities.escapeJava(e.getShortDefn())+"\", formalDefinition=\""+Utilities.escapeJava(e.getDefinition())+"\" )\r\n");
   }
 

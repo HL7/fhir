@@ -1,6 +1,26 @@
 package org.hl7.fhir.instance.model.annotations;
 
 /*
+ * #%L
+ * HAPI FHIR Structures - HL7.org DSTU2
+ * %%
+ * Copyright (C) 2014 - 2015 University Health Network
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+
+/*
 Copyright (c) 2011+, HL7, Inc.
 All rights reserved.
 
@@ -34,8 +54,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.hl7.fhir.instance.model.Base;
-
+import org.hl7.fhir.instance.model.Enumeration;
+import org.hl7.fhir.instance.model.api.IBase;
+import org.hl7.fhir.instance.model.api.IBaseEnumFactory;
 
 /**
  * Field annotation for fields within resource and datatype definitions, indicating 
@@ -52,9 +73,17 @@ public @interface Child {
 	int ORDER_UNKNOWN = -1;
 	
 	/**
-	 * COnstant value to supply for {@link #max()} to indicate '*' (no maximum)
+	 * Constant value to supply for {@link #max()} to indicate '*' (no maximum)
 	 */
 	int MAX_UNLIMITED = -1;
+
+	/**
+	 * Constant value to supply for {@link #order()} to indicate that this child should replace the
+	 * entry in the superclass with the same name (and take its {@link Child#order() order} value 
+	 * in the process). This is useful if you wish to redefine an existing field in a resource/type
+	 * definition in order to constrain/extend it.
+	 */
+	int REPLACE_PARENT = -2;
 
 	/**
 	 * The name of this field, as it will appear in serialized versions of the message
@@ -87,7 +116,23 @@ public @interface Child {
 	 * those two classes should be supplied here.
 	 * </p>
 	 */
-	Class<? extends Base>[] type() default {};
+	Class<? extends IBase>[] type() default {};
+
+	/**
+	 * For children which accept an {@link Enumeration} as the type, this
+	 * field indicates the type to use for the enum factory
+	 */
+	Class<? extends IBaseEnumFactory<?>> enumFactory() default NoEnumFactory.class;
+
+	/**
+	 * Is this element a modifier?
+	 */
+	boolean modifier() default false;	
+
+	/**
+	 * Should this element be included in the summary view
+	 */
+	boolean summary() default false;	
 
 	// Not implemented
 //	/**
@@ -98,5 +143,23 @@ public @interface Child {
 //	 * HumanNameDt which adds extensions of your choosing) you could do that using a replacement field. 
 //	 */
 //	String replaces() default "";
+
+	public static class NoEnumFactory implements IBaseEnumFactory<Enum<?>> {
+
+		private NoEnumFactory() {
+			// non instantiable
+		}
+
+		@Override
+		public Enum<?> fromCode(String theCodeString) throws IllegalArgumentException {
+			return null;
+		}
+
+		@Override
+		public String toCode(Enum<?> theCode) {
+			return null;
+		}
 		
+	}
+	
 }
