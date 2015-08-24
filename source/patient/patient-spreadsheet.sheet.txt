@@ -158,10 +158,10 @@
   Definition = The date of birth for the individual
   Requirements = Age of the individual drives many clinical processes.
   Comments = At least an estimated year should be provided as a guess if the real dob is unknown  There is a standard extension \"patient-birthTime\" available that should be used where Time is required (such as in maternaty/infant care systems)
+  LOINC Code = 21112-8
   CDA Mapping = .patient.birthTime
   v2 Mapping = PID-7
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime
-  LOINC Code = 21112-8
   Committee Notes = renamed from dob, because the abbreviation is not obvious to non-English speakers
 
  -- Row 8 -----------------------------------
@@ -171,10 +171,10 @@
   Short Label = The time of birth for the individual
   Definition = The  time of birth for the individual
   Requirements = In some cases birth time is important (e.g. multiple births). Hospitals will capture the time of birth in most cases.
+  LOINC Code = 21112-8
   CDA Mapping = .patient.birthTime
   v2 Mapping = PID-7
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime
-  LOINC Code = 21112-8
   Committee Notes = The time field is not used in 80% of systems, and is available as a standard extension
 
  -- Row 9 -----------------------------------

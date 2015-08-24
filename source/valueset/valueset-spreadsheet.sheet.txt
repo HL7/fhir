@@ -462,8 +462,8 @@
   Short Label = The system the codes come from
   Definition = An absolute URI which is the code system from which the selected codes come from
   Comments = See *Coding.system* for further documentation
-  RIM Mapping = N/A
   CDISC Define.xml 2.0 Mapping = ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href
+  RIM Mapping = N/A
 
  -- Row 38 -----------------------------------
   Element = ValueSet.compose.include.version
@@ -473,8 +473,8 @@
   Short Label = Specific version of the code system referred to
   Definition = The version of the code system that the codes are selected from
   Comments = This is used when selecting the descendents of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version
-  RIM Mapping = N/A
   CDISC Define.xml 2.0 Mapping = ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Version
+  RIM Mapping = N/A
 
  -- Row 39 -----------------------------------
   Element = !ValueSet.compose.include.mode
