@@ -34,8 +34,6 @@
         <value value="_ParticipationAncillary"/>
       </filter>
     </include>
-  </compose>
-  <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ParticipationType"/>
       <concept>
@@ -48,5 +46,11 @@
         <code value="PART"/>
       </concept>
     </include>
+    <exclude>
+      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <concept>
+        <code value="_ParticipationAncillary"/>
+      </concept>
+    </exclude>
   </compose>  
 </ValueSet>
