@@ -89,9 +89,8 @@
   Must Support = Y
 
  -- Row 18 -----------------------------------
-  Element = Specimen.collection.bodySite[x]
+  Element = Specimen.collection.bodySite
   Must Support = Y
-  Type = CodeableConcept|Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
 
  -- Row 19 -----------------------------------
   Element = Specimen.treatment.procedure

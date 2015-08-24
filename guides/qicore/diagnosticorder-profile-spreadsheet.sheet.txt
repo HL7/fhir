@@ -164,8 +164,7 @@
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
 
  -- Row 23 -----------------------------------
-  Element = DiagnosticOrder.item.bodySite[x]
+  Element = DiagnosticOrder.item.bodySite
   Must Support = Y
-  Type = CodeableConcept | Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
 
 === Sheet Search =====================================
