@@ -33,6 +33,11 @@
         <op value="is-a"/>
         <value value="_ParticipationAncillary"/>
       </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="in"/>
+        <value value="SPRF,PPRF,PART"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>
