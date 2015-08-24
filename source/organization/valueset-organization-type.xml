@@ -51,7 +51,27 @@
     <concept>
       <code value="reli"/>
       <display value="Religious Institution"/>
-      <definition value="An organization that identified as a part of a religeous institution"/>
+      <definition value="An organization that is identified as a part of a religeous institution"/>
+    </concept>
+    <concept>
+      <code value="crs"/>
+      <display value="Clinical Research Sponsor"/>
+      <definition value="An organization that is identified as a Pharmaceutical/Clinical Research Sponsor"/>
+    </concept>
+    <concept>
+      <code value="cg"/>
+      <display value="Community Group"/>
+      <definition value="An un-incorporated community group"/>
+    </concept>
+    <concept>
+      <code value="bus"/>
+      <display value="Non-Healthcare Business or Corporation"/>
+      <definition value="An organization that is a registered business or corporation but not identified by other types"/>
+    </concept>
+    <concept>
+      <code value="other"/>
+      <display value="Other"/>
+      <definition value="Other type of organization not already specified"/>
     </concept>
   </codeSystem>
 </ValueSet>
