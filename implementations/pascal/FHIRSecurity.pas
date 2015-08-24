@@ -73,6 +73,7 @@ var
   list : TStringList;
   i : integer;
 begin
+  inherited Create;
   init;
   list := TStringList.Create;
   try
@@ -94,6 +95,7 @@ var
   user : TFHIRSecurityRights;
   list : TStringList;
 begin
+  inherited Create;
   init;
   user := TFHIRSecurityRights.create(base, secure);
   try
@@ -113,6 +115,7 @@ constructor TFHIRSecurityRights.create(base: TSCIMUser; choice: TStringList; sec
 var
   user : TFHIRSecurityRights;
 begin
+  inherited Create;
   init;
   user := TFHIRSecurityRights.create(base, secure);
   try

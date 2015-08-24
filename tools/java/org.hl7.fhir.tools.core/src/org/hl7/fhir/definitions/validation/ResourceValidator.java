@@ -232,7 +232,7 @@ public class ResourceValidator extends BaseValidator {
           }
           for (TypeRef t : tlist) {
             if (definitions.getSearchRules().containsKey(t.getName()) && definitions.getSearchRules().get(t.getName()).contains(p.getType().name())) 
-              usagest.get(p.getType()).usage.add((e.getTypes().size() > 1 ? path+":" : "") +t.getName());
+              usagest.get(p.getType()).usage.add(t.getName());
             else 
               rule(errors, IssueType.STRUCTURE, parent.getName(), tlist.size() > 0, "Search Parameter "+p.getCode()+" : "+p.getType().name()+" type illegal for "+path+" : "+t.getName()+"");      
           }

@@ -220,6 +220,10 @@ public class XhtmlNode {
     return this;
   }
 
+  public boolean hasAttribute(String name) {
+    return getAttributes().containsKey(name);
+  }
+
   public String getAttribute(String name) {
     return getAttributes().get(name);
   }

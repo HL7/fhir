@@ -9,7 +9,7 @@
     <reference value="Practitioner/example"/>
   </dispenser>
   <authorizingPrescription>
-    <reference value="MedicationOrder/medicationorderexample5" />
+    <reference value="MedicationOrder/medrx005" />
   </authorizingPrescription>
   <type>
     <coding>

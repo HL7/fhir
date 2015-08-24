@@ -369,7 +369,6 @@ public class Publisher implements URIResolver {
   private String svnStated;
   private String singleResource;
   private String singlePage;
-  private List<String> tocs = new ArrayList<String>();
 
   private Map<String, Example> processingList = new HashMap<String, Example>();
   
@@ -570,8 +569,6 @@ public class Publisher implements URIResolver {
       if (isGenerate && buildFlags.get("all"))
         produceQA();
         
-      for (String s : tocs)
-        System.out.println(s);
       if (!buildFlags.get("all")) {
         page.log("This was a Partial Build", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -3760,6 +3757,7 @@ public class Publisher implements URIResolver {
       Utilities.copyFile(file, new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + ".xml"));
 
     // now, we create an html page from the narrative
+    narrative = fixExampleReferences(e.getTitle(), narrative);
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative).replace("<%example-usage%>", genExampleUsage(e));
     html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example", ig);
     TextFile.stringToFile(html, page.getFolders().dstDir + prefix +n + ".html");
@@ -3772,6 +3770,49 @@ public class Publisher implements URIResolver {
     // ".html");
     page.getEpub().registerExternal(prefix +n + ".html");
     page.getEpub().registerExternal(prefix +n + ".xml.html");
+  }
+
+  private String fixExampleReferences(String path, String narrative) throws Exception {
+    if (narrative == null)
+      return "";
+    XhtmlNode node = new XhtmlParser().parseFragment(narrative);
+    checkExampleLinks(path, node);
+    return new XhtmlComposer().compose(node);
+  }
+
+  private void checkExampleLinks(String path, XhtmlNode node) throws Exception {
+    if (node.getNodeType() == NodeType.Element) {
+      if (node.getName().equals("a") && node.hasAttribute("href")) {
+        String link = node.getAttribute("href");
+        if (!link.startsWith("http:") && !link.startsWith("https:") && !link.startsWith("mailto:") && !link.contains(".html") &&!link.startsWith("#")) {
+          String[] parts = link.split("\\/");
+          if ((parts.length == 2) || (parts.length == 4 && parts[2].equals("_history")) && page.getDefinitions().hasResource(parts[0])) {
+            
+            node.setAttribute("href", determineLink(path, parts[0], parts[1]));
+          } else
+            throw new Exception("Unknown example narrative href pattern: "+link);
+        }
+      } else
+        for (XhtmlNode n : node.getChildNodes()) {
+          checkExampleLinks(path, n);
+      }
+    }  
+  }
+
+  private String determineLink(String path, String rn, String id) throws Exception {
+    ResourceDefn r = page.getDefinitions().getResourceByName(rn);
+    Example e = r.getExampleById(id);
+    if (e == null)
+      for (ImplementationGuideDefn ig : page.getDefinitions().getIgs().values()) {
+        e = ig.getExample(rn, id);
+        if (e != null)
+          break;
+      }
+    if (e == null) {
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, path, "The reference to "+rn+"/"+id+" could not be resolved", IssueSeverity.WARNING));
+      return "#null"; 
+    } else 
+      return e.getTitle()+".html"; 
   }
 
   private boolean updateVersion(XhtmlNode div) {
@@ -4665,8 +4706,8 @@ public class Publisher implements URIResolver {
 //          throw new Exception("Duplicate TOC Entry "+v);
           page.getToc().put(v, t);
           registered.value = true;
-        } else 
-          tocs.add("-- duplicate TOC --> "+v+" = "+t.getLink()+" ("+t.getText()+") in place of "+page.getToc().get(v).getLink()+" ("+page.getToc().get(v).getText()+")");
+        } // else 
+          // System.out.println("-- duplicate TOC --> "+v+" = "+t.getLink()+" ("+t.getText()+") in place of "+page.getToc().get(v).getLink()+" ("+page.getToc().get(v).getText()+")");
       }
       node.addText(0, " ");
       XhtmlNode span = node.addTag(0, "span");

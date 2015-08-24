@@ -34,6 +34,8 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.w3c.dom.Element;
 
 public class ResourceDefn  {
   public class StringPair {
@@ -280,6 +282,23 @@ public class ResourceDefn  {
 
   public void setDisplay(String display) {
     this.display = display;
+  }
+
+  public Example getExampleById(String id) {
+    for (Example e : examples) {
+      if (e.getId().equals(id))
+        return e;
+      if (e.getResourceName().equals("Bundle")) {
+        List<Element> children = new ArrayList<Element>();
+        XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", children);
+        for (Element c : children) {
+          Element res = XMLUtil.getFirstChild(XMLUtil.getNamedChild(c, "resource"));
+          if (id.equals(XMLUtil.getNamedChildValue(res, "id")))
+            return e;
+        }
+      }
+    }
+    return null;
   }
   
   

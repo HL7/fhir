@@ -10,7 +10,7 @@
 			<id value="rtt"/>
 			<type>
 				<coding>
-					<system value="http://snomed.info/sct "/>
+					<system value="http://snomed.info/sct"/>
 					<code value="119364003"/>
 					<display value="Serum sample"/>
 				</coding>
@@ -44,7 +44,7 @@
 			<id value="ltt"/>
 			<type>
 				<coding>
-					<system value="http://snomed.info/sct "/>
+					<system value="http://snomed.info/sct"/>
 					<code value="445295009"/>
 					<display value="Blood specimen with EDTA"/>
 				</coding>
@@ -78,7 +78,7 @@
 			<id value="urine"/>
 			<type>
 				<coding>
-					<system value="http://snomed.info/sct "/>
+					<system value="http://snomed.info/sct"/>
 					<code value="122575003"/>
 					<display value="Urine specimen"/>
 				</coding>

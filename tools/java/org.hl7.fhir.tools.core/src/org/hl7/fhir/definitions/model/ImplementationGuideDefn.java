@@ -391,4 +391,12 @@ public class ImplementationGuideDefn {
     return ig == null ? null : code+"/"+ig.getPage().getSource();
   }
 
+  public Example getExample(String rn, String id) {
+    for (Example e : examples) {
+      if (e.getResourceName().equals(rn) && e.getId().equals(id))
+        return e;
+    }
+    return null;
+  }
+
 }

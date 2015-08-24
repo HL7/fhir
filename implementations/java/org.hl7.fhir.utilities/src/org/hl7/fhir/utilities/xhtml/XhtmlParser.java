@@ -918,6 +918,13 @@ private boolean elementIsOk(String name) throws Exception {
     if (peekChar() != '<')
       throw new Exception("Unable to Parse HTML - does not start with tag. Found "+peekChar()+descLoc());
     readChar();
+    if (peekChar() == '?') {
+      readToTagEnd();
+      skipWhiteSpace();
+      if (peekChar() != '<')
+        throw new Exception("Unable to Parse HTML - does not start with tag after processing instruction. Found "+peekChar()+descLoc());
+      readChar();
+    }
     String n = readName().toLowerCase();
     readToTagEnd();
     XhtmlNode result = new XhtmlNode(NodeType.Element);

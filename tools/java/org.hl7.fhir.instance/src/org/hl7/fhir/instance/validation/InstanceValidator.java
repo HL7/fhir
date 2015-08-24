@@ -1641,6 +1641,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (type.equals("uri")) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.getAttribute("value").startsWith("oid:"), "URI values cannot start with oid:");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.getAttribute("value").startsWith("uuid:"), "URI values cannot start with uuid:");
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.getAttribute("value").equals(e.getAttribute("value").trim()), "URI values cannot have leading or trailing whitespace");
     }
     if (!type.equalsIgnoreCase("string") && e.hasAttribute("value")) {
       if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.getAttribute("value").length() > 0, "@value cannot be empty")) {
