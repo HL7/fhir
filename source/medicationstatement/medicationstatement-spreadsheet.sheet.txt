@@ -48,43 +48,28 @@
   Id = 1
   Code = active
   Display = Active
-  Definition = The statement is \'actionable\', but not all actions that are implied by it have occurred yet.
+  Definition = The medication is still being taken.
   v3 = ActStatus.active
 
  -- Row 2 -----------------------------------
-  Id = 2
-  Code = on-hold
-  Display = On Hold
-  Definition = Actions implied by the statement are to be temporarily halted, but are expected to continue later. May also be called \"suspended\".
-  v3 = ActStatus.suspended
-
- -- Row 3 -----------------------------------
   Id = 3
   Code = completed
   Display = Completed
-  Definition = All actions that are implied by the statement have occurred.
+  Definition = The medication is no longer being taken.
   v3 = ActStatus.completed
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Id = 4
   Code = entered-in-error
   Display = Entered in Error
   Definition = The statement was entered in error.
   v3 = ActStatus.nullified
 
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = stopped
-  Display = Stopped
-  Definition = Actions implied by the statement are to be permanently halted, before all of them occurred.
-  v3 = ActStatus.aborted
-
- -- Row 6 -----------------------------------
+ -- Row 4 -----------------------------------
   Id = 6
-  Code = draft
-  Display = Draft
-  Definition = The statement is not yet \'actionable\', i.e. it is work in progress, requires sign-off or verification, needs to be run through the decision support process.
-  v3 = ActStatus.new
+  Code = intended
+  Display = Intended
+  Definition = The medication may be taken at some time in the future.
 
 === Sheet Invariants =====================================
 
@@ -150,8 +135,8 @@
   Is Modifier = Y
   Type = code
   Binding = MedicationStatementStatus
-  Short Label = active | on-hold | completed | entered-in-error | stopped | draft
-  Definition = A code specifying the state of the statement.  Generally this will be in-progress or completed state
+  Short Label = active | completed | entered-in-error | intended
+  Definition = A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state.
 
  -- Row 7 -----------------------------------
   Element = MedicationStatement.wasNotTaken
