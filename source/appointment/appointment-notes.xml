@@ -8,8 +8,14 @@
 			</p>
 			<p>
 				<i>(An appointment request is created)</i><br/>
-				Appointment.status = pending<br/>
+				Appointment.status = proposed<br/>
 				Appointment.participant.status = needs-action<br/>
+				Slot.freeBusyType = BUSY-TENTATIVE<br/>
+			</p>
+			<p>
+				<i>(The first appointment request is created - as accepted)</i><br/>
+				Appointment.status = pending<br/>
+				Appointment.participant.status = accepted (for the responsed participant)<br/>
 				Slot.freeBusyType = BUSY-TENTATIVE<br/>
 			</p>
 			<p>

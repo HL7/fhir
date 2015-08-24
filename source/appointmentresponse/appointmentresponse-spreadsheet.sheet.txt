@@ -53,6 +53,12 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = AppointmentResponse
+  English = Either the type or actor on the participant should be specified
+  XPath = (exists(f:type) or exists(f:actor))
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -87,6 +93,7 @@
   Type = CodeableConcept
   Binding = ParticipantType
   Short Label = Role of participant in the appointment
+  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
   iCal Mapping = n/a
 
  -- Row 5 -----------------------------------

@@ -48,36 +48,42 @@
 
  -- Row 1 -----------------------------------
   Id = 1
+  Code = proposed
+  Display = Proposed
+  Definition = None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet
+
+ -- Row 2 -----------------------------------
+  Id = 2
   Code = pending
   Display = Pending
   Definition = Some or all of the participant(s) have not finalized their acceptance of the appointment request
 
- -- Row 2 -----------------------------------
-  Id = 2
+ -- Row 3 -----------------------------------
+  Id = 3
   Code = booked
   Display = Booked
   Definition = All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified
 
- -- Row 3 -----------------------------------
-  Id = 3
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = arrived
   Display = Arrived
   Definition = Some of the patients have arrived
 
- -- Row 4 -----------------------------------
-  Id = 4
+ -- Row 5 -----------------------------------
+  Id = 5
   Code = fulfilled
   Display = Fulfilled
   Definition = This appointment has completed and may have resulted in an encounter
 
- -- Row 5 -----------------------------------
-  Id = 5
+ -- Row 6 -----------------------------------
+  Id = 6
   Code = cancelled
   Display = Cancelled
   Definition = The appointment has been cancelled
 
- -- Row 6 -----------------------------------
-  Id = 6
+ -- Row 7 -----------------------------------
+  Id = 7
   Code = noshow
   Display = No Show
   Definition = Some or all of the participant(s) have not/did not appear for the appointment (usually the patient)
@@ -130,6 +136,24 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Appointment.participant
+  English = Either the type or actor on the participant should be specified
+  XPath = (exists(f:type) or exists(f:actor))
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Appointment
+  English = Either start and end are specified, or neither
+  XPath = ((exists(f:start) and exists(f:end)) or (not(exists(f:start)) and not(exists(f:end))))
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Appointment
+  English = Only planned appointments can be missing start/end dates
+  XPath = (not((f:status/@value=\'pending\') or (f:status/@value=\'pending\')) and exists(f:start) and exists(f:end))
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -159,7 +183,7 @@
   Summary = Y
   Type = code
   Binding = AppointmentStatus
-  Short Label = pending | booked | arrived | fulfilled | cancelled | noshow
+  Short Label = proposed | pending | booked | arrived | fulfilled | cancelled | noshow
   Definition = The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status
   Comments = If the Appointment\'s status is \"cancelled\" then all participants are expected to have their calendars released for the appointment period, and as such any Slot\'s that were marked as BUSY can be re-set to FREE
   v2 Mapping = SCH-25
@@ -208,7 +232,7 @@
 
  -- Row 8 -----------------------------------
   Element = Appointment.start
-  Card. = 1..1
+  Card. = 0..1
   Summary = Y
   Type = instant
   Short Label = Date/Time that the appointment is to take place
@@ -218,7 +242,7 @@
 
  -- Row 9 -----------------------------------
   Element = Appointment.end
-  Card. = 1..1
+  Card. = 0..1
   Summary = Y
   Type = instant
   Short Label = Date/Time that the appointment is to conclude
@@ -227,10 +251,10 @@
   w5 = when.done
 
  -- Row 10 -----------------------------------
-  Element = !Appointment.minutesDuration
+  Element = Appointment.minutesDuration
   Card. = 0..1
-  Type = decimal
-  Short Label = Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate)
+  Type = positiveInt
+  Short Label = Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request)
   Committee Notes = Removed when taking out the recurrence fields
 
  -- Row 11 -----------------------------------
@@ -266,7 +290,7 @@
   Card. = 0..1
   Type = string
   Short Label = Additional comments about the appointment
-  Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, “patient should proceed immediately to infusion room upon arrival”
+  Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, “patient should proceed immediately to infusion room upon arrival”\n\nWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
   iCal Mapping = COMMENT
   v2 Mapping = NTE-3
 
@@ -294,6 +318,7 @@
   Type = CodeableConcept
   Binding = ParticipantType
   Short Label = Role of participant in the appointment
+  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
   iCal Mapping = n/a
   v2 Mapping = AIP-4, AIG-4
 
@@ -335,7 +360,7 @@
   Type = Reference(Observation)
   Short Label = Observations that lead to the creation of this appointment. (Is this 80%)
   Comments = PA discussed, concerms that this was part of V2 and v3, but not sure that is should be in 80%
-  v2 Mapping = OBX-21-Observation Instance Identifier\n(Subject to Ch7 caveats)
+  v2 Mapping = OBX-21-Observation Instance Identifier (Subject to Ch7 caveats)
 
  -- Row 23 -----------------------------------
   Element = !Appointment.participant.location

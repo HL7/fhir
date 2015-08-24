@@ -102,18 +102,42 @@
 					Consideration should be given to situations where scheduling needs to be handled
 					in more of a queue-like process.
 				</p>
-				<p>
-					Note: This type of clinical appointment scheduling has not been specifically covered
-					with this definition of the appointment (and the related resources), however if you
-					would like to contribute to the modification of this resource to cover these use cases,
-					please contact the HL7 Patient Administration work-group.
-				</p>
+				<blockquote>
+					<p>
+						Note: This type of clinical appointment scheduling has not been specifically covered
+						with this definition of the appointment (and the related resources), however if you
+						would like to contribute to the modification of this resource to cover these use cases,
+						please contact the HL7 Patient Administration work-group.
+					</p>
+				</blockquote>
 			</li>
 		</ul>
 	</div>
   <div>
     <h2>Boundaries and Relationships</h2>
-
+		<h3>AppointmentResponses</h3>
+		<p>
+			When using a request response style of appointment this is done using Appointment 
+			and AppointmentResponse resources.<br/>
+			The request is made in the form of an Appointment with a proposed or pending status,
+			and the list of actors with a participation status of "needs-action".
+		</p>
+		<p>
+			Participants in the appointment respond their acceptance (or not) to the appointment
+			by creating AppointmentResponse resources.<br/>
+			Once all the participants have replied, then the appointment resource is able to be
+			updated with an overall status which collates the results of all the participants
+			and presents the approved details of the appointment.
+		</p>
+		<p>
+			The participant type property can be used to represent a specfic role that a practitioner 
+			is required to perform for the appointment. This could be specified without an actor when the actual
+			practitioner is not known, and will be filled in closer to the scheduled time.<br/>
+			This property must be the same between the Appointment-participant and the AppointmentResponse
+			so that the appropriate values can be allocated.
+			If you need multiple actors of a specific type, then multiple participants with that type value
+			are included on the appointment.
+		</p>
     <h3>Appointment Statuses and Encounters</h3>
     <p>
       Appointments can be considered as Administrative only, and the Encounter is expected to have
