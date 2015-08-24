@@ -67,6 +67,11 @@ This new encounter may start in an "arrived" status when they are admitted with 
 move to the ward where another part-of encounter may begin.
 </p>
 <p>
+Communication resources are used for a direct simultaneous interaction between a practitioner and a patient where there is no
+direct contact. Such as phone message, or transmission of some correspondence documentation.<br/>
+There is no duration recorded for a communication resource, but could contain sent and received times.
+</p>
+<p>
 Standard Extension: <b>Associated Encounter</b><br/>
 This extension should be used to reference an encounter where there is no property that already defines this association on the resource.
 </p>
