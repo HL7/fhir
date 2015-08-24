@@ -670,7 +670,7 @@
   Name = deathdate
   Type = date
   Description = The date of death has been provided and satisfies this search value
-  Path = Patient.deceased[x]
+  Path = Patient.deceasedDateTime
 
 === Sheet Profiles =====================================
 
