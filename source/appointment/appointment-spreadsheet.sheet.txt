@@ -216,6 +216,7 @@
   Card. = 0..1
   Type = unsignedInt
   Short Label = The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority)
+  Comments = Seeking implementer feedback on this property and how interoperable it is.\n\nUsing an extension to record a codeableconcept for named values may be tested at a future connectathon
   iCal Mapping = PRIORITY
   v2 Mapping = ARQ-12, SCH-11.6 / TQ1-9
   RIM Mapping = .priorityCode
