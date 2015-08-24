@@ -1,8 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h3>Negated Allergies and Intolerances</h3>
+<p>Allergies with the status "entered-in-error" are considered to be inactive allergies and may not be displayed to the user.
+</p>
+<p>Allergies with the status "refuted" must be displayed to indicate that a reaction to a substance has been ruled out
+with the high level of clinical certainty (e.g. additional testing, rechallenging). </p>
+
+<p>It is important to differentiate between affirmatively stating that a patient has no known allergies versus either
+not including allergies in the record (for example an episodic document where the allergies are not considered 
+relevant to the document); or asserting that allergies were not reviewed and are unknown.</p>
+
+<p>Prior to adding a new allergy/intolerance, a list of existing negated and refuted reactions should be reviewed.</p>
 <ul>
-<li><i>No Known Allergies</i> is reported using the <a href="list.html">List</a> resource </li>
+<li><i>No Known Allergies</i> is reported using the <a href="list.html">List</a> resource.</li>
+<li><i>No </i></li>
 </ul>
 
 <h3>Use of AllergyIntolerance.criticality</h3>
