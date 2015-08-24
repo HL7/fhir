@@ -15,11 +15,13 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10960</WindowHeight>
+  <WindowHeight>10400</WindowHeight>
   <WindowWidth>25600</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopX>29100</WindowTopX>
+  <WindowTopY>3900</WindowTopY>
+  <TabRatio>739</TabRatio>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1209,7 +1211,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">in-progress | completed | entered-in-error</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">active | on-hold | completed | entered-in-error | stopped | draft</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A code specifying the state of the statement.  Generally this will be in-progress or completed state  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3910,7 +3912,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3927,8 +3929,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7018,19 +7020,30 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">In Progress</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">The medication is still being taken.</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">The statement is 'actionable', but not all actions that are implied by it have occurred yet.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"><Data ss:Type="String">ActStatus.active</Data></Cell>
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">on-hold</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">On Hold</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Actions implied by the statement are to be temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;.</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">ActStatus.suspended</Data></Cell>
+    <Cell ss:StyleID="s146"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Completed</Data></Cell>
@@ -7041,46 +7054,35 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Entered in Error</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">The statement was entered in error and therefore nullified.</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The statement was entered in error.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">ActStatus.nullified</Data></Cell>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Stopped</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Actions implied by the statement are to be permanently halted, before all of them occurred.</Data></Cell>
     <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">ActStatus.aborted</Data></Cell>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Draft</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The statement is not yet 'actionable', i.e. it is work in progress, requires sign-off or verification, needs to be run through the decision support process.</Data></Cell>
     <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">ActStatus.new</Data></Cell>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -7548,8 +7550,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>150</Zoom>
-   <PageLayoutZoom>0</PageLayoutZoom>
+   <PageLayoutZoom>100</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7569,8 +7570,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

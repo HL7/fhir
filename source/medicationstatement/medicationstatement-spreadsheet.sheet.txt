@@ -46,24 +46,45 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = in-progress
-  Display = In Progress
-  Definition = The medication is still being taken.
+  Code = active
+  Display = Active
+  Definition = The statement is \'actionable\', but not all actions that are implied by it have occurred yet.
   v3 = ActStatus.active
 
  -- Row 2 -----------------------------------
   Id = 2
+  Code = on-hold
+  Display = On Hold
+  Definition = Actions implied by the statement are to be temporarily halted, but are expected to continue later. May also be called \"suspended\".
+  v3 = ActStatus.suspended
+
+ -- Row 3 -----------------------------------
+  Id = 3
   Code = completed
   Display = Completed
   Definition = All actions that are implied by the statement have occurred.
   v3 = ActStatus.completed
 
- -- Row 3 -----------------------------------
-  Id = 3
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = entered-in-error
   Display = Entered in Error
-  Definition = The statement was entered in error and therefore nullified.
+  Definition = The statement was entered in error.
   v3 = ActStatus.nullified
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = stopped
+  Display = Stopped
+  Definition = Actions implied by the statement are to be permanently halted, before all of them occurred.
+  v3 = ActStatus.aborted
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = draft
+  Display = Draft
+  Definition = The statement is not yet \'actionable\', i.e. it is work in progress, requires sign-off or verification, needs to be run through the decision support process.
+  v3 = ActStatus.new
 
 === Sheet Invariants =====================================
 
@@ -129,7 +150,7 @@
   Is Modifier = Y
   Type = code
   Binding = MedicationStatementStatus
-  Short Label = in-progress | completed | entered-in-error
+  Short Label = active | on-hold | completed | entered-in-error | stopped | draft
   Definition = A code specifying the state of the statement.  Generally this will be in-progress or completed state
 
  -- Row 7 -----------------------------------
@@ -226,12 +247,12 @@
   RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
 
  -- Row 17 -----------------------------------
-  Element = MedicationStatement.dosage.site
+  Element = MedicationStatement.dosage.site[x]
   Card. = 0..1
-  Type = CodeableConcept
+  Type = CodeableConcept | Reference(BodySite)
   Binding = MedicationAdministrationSite
   Short Label = Where on body was medication administered?
-  Definition = A coded specification of the anatomic site where the medication first enters the body
+  Definition = A coded specification of or a reference to the anatomic site where the medication first enters the body
   v2 Mapping = RXR-2-Administration Site
   RIM Mapping = .approachSiteCode
 

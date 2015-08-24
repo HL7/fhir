@@ -17,7 +17,7 @@
     <reference value="Patient/example" />
   </informationSource>
   <dateAsserted value="2015-02-22"/>
-  <status value="in-progress" />
+  <status value="active" />
   <wasNotTaken value="false"/>
 <effectiveDateTime value="2015-05-23"></effectiveDateTime>
   <medicationReference> <!-- Linked to a RESOURCE Medication -->

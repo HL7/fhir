@@ -17,7 +17,7 @@
     <reference value="Patient/pat1" />
   </informationSource>
   <dateAsserted value="2014-02-22"/>
-  <status value="in-progress" />
+  <status value="active" />
   <wasNotTaken value="false"/>
 <effectiveDateTime value="2014-02-01"></effectiveDateTime>
   <note value="Father indicates they miss the occasional dose"/>
