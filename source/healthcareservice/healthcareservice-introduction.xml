@@ -3,8 +3,8 @@
 	<div>
 		<h2>Scope and Usage</h2>
 		<p>
-			The HealthcareService resource is used to describe a single healthcare service that is
-			being provided by an organization at a location.<br/>
+			The HealthcareService resource is used to describe a single healthcare service or
+			category of services that are provided by an organization at a location.<br/>
 			The location of the services could be virtual, as with TeleMedicine Services.<br/>
 		</p>
 		<p>Common examples of HealthcareServices resources are:</p>
