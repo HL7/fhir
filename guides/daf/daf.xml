@@ -86,6 +86,9 @@
       <valueUri value="profiles\relatedperson-daf-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="profiles\spec-daf-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="profiles\substance-daf-profile-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
@@ -402,6 +405,13 @@
     <page>
       <source value="daf-substance.html"/>
       <name value="Substance Details"/>
+      <kind value="resource"/>
+      <format value="generated"/>
+    </page>
+    
+    <page>
+      <source value="daf-spec.html"/>
+      <name value="Specimen Details"/>
       <kind value="resource"/>
       <format value="generated"/>
     </page>

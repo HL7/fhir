@@ -321,30 +321,30 @@
           <tr>
             
             <th>
-              <a href="observation-daf-results.html">DAFLabResults</a>
+              <a href="observation-daf-results.html">DAFResults</a>
             </th>
             
             <td>
               
-              <a title="Allows discovery of DAFResults resources based on different search criteria" href="#DAFLabResultsSearch">SHOULD</a>
+              <a title="Allows discovery of DAFResults resources based on different search criteria" href="#DAFResultsSearch">SHOULD</a>
             
             </td>
             
             <td>
               
-              <a title="Allows retrieval of a specific DAFResults by id" href="#DAFLabResultsSearch">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFResults by id" href="#DAFResultsSearch">SHOULD</a>
             
             </td>
             
             <td>
               
-              <a title="Allows retrieval of a historical version of a DAFResults" href="#DAFLabResultsSearch">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFResults" href="#DAFResultsSearch">SHOULD</a>
             
             </td>
             
             <td>
               
-              <a title="Allows review of changes to DAFResults over time" href="#DAFLabResultsSearch">SHOULD</a>
+              <a title="Allows review of changes to DAFResults over time" href="#DAFResultsSearch">SHOULD</a>
             
             </td>
           
@@ -1188,12 +1188,12 @@
               <ul>
 					
                 <li>
-                  <a href="../observation.html#search">identifier</a> - Search for lab test by identifiers (
+                  <a href="../observation.html#search">identifier</a> - Search for test by identifiers (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">patient</a> - Search for lab test for a patient (
+                  <a href="../observation.html#search">patient</a> - Search for test for a patient (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
@@ -1206,32 +1206,32 @@
                 <li>Chained parameter - patient.family</li>
 					
                 <li>
-                  <a href="../observation.html#search">code</a> - Search based on lab test code (
+                  <a href="../observation.html#search">code</a> - Search based on test code (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">value-concept</a> - Search for a lab test with a specific value which is a code (
+                  <a href="../observation.html#search">value-concept</a> - Search for a test with a specific value which is a code (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">value-quantity</a> - Search for a lab test with a value which is a quantity (
+                  <a href="../observation.html#search">value-quantity</a> - Search for a test with a value which is a quantity (
                   <a href="../search.html#quantity">quantity</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">code-value[x]</a> - Search for a lab test with a test name and value (
+                  <a href="../observation.html#search">code-value[x]</a> - Search for a test with a test name and value (
                   <a href="../search.html#composite">composite</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">date</a> - Search based on lab test obtained date (
+                  <a href="../observation.html#search">date</a> - Search based on test obtained date (
                   <a href="../search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">encounter</a> - Search based on encounter resulting in the lab result (
+                  <a href="../observation.html#search">encounter</a> - Search based on encounter resulting in the result (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
