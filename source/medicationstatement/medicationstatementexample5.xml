@@ -48,9 +48,9 @@
         <display value="Oral"/>
       </coding>
     </route>
-    <quantity>
+    <quantityQuantity>
       <value value="1" />
-    </quantity>
+    </quantityQuantity>
     <maxDosePerPeriod>
       <numerator>
         <value value="3"/>

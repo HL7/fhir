@@ -52,21 +52,21 @@
   v3 = ActStatus.active
 
  -- Row 2 -----------------------------------
-  Id = 3
+  Id = 2
   Code = completed
   Display = Completed
   Definition = The medication is no longer being taken.
   v3 = ActStatus.completed
 
  -- Row 3 -----------------------------------
-  Id = 4
+  Id = 3
   Code = entered-in-error
   Display = Entered in Error
   Definition = The statement was entered in error.
   v3 = ActStatus.nullified
 
  -- Row 4 -----------------------------------
-  Id = 6
+  Id = 4
   Code = intended
   Display = Intended
   Definition = The medication may be taken at some time in the future.
@@ -262,9 +262,9 @@
   RIM Mapping = .methodCode
 
  -- Row 20 -----------------------------------
-  Element = MedicationStatement.dosage.quantity
+  Element = MedicationStatement.dosage.quantity[x]
   Card. = 0..1
-  Type = SimpleQuantity
+  Type = SimpleQuantity | Range
   Short Label = Amount administered in one dose
   Definition = The amount of therapeutic or other substance given at one administration event.
   v2 Mapping = RXA-6-Administered Amount / RXA-7.1-Administered Units.code / RXA-7.3-Administered Units.name of coding system
