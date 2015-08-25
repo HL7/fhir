@@ -567,6 +567,10 @@
     <display value="History/symptoms (navigational concept)"/>
     <display value="History/symptoms (context-dependent category)"/>
   </concept>
+  <concept id="160244002" display="No known allergies (situation)">
+    <display value="No Known Allergies"/>
+    <display value="NKA - No known allergies"/>
+  </concept>
   <concept id="160670007" display="Diabetic diet (finding)">
     <display value="DD - Diabetic diet"/>
     <display value="Diabetic diet"/>
@@ -980,6 +984,10 @@
     <display value="Dietary fats and oils"/>
     <display value="Fats and oils"/>
     <display value="Fats and oils (substance)"/>
+  </concept>
+  <concept id="227037002" display="Fish - dietary (substance)">
+    <display value="Fish"/>
+    <display value="Fish - dietary"/>
   </concept>
   <concept id="227210005" display="Vegetables pulses herbs and spices (substance)">
     <display value="Vegetables pulses herbs and spices"/>
@@ -3152,6 +3160,12 @@
     <display value="Teaching"/>
     <display value="Procedure that is synonymous with those activities such as teaching, demonstration, instruction, explanation, and advice that aim to increase knowledge and skills, change behaviors, assist coping and increase adherence to treatment."/>
   </concept>
+  <concept id="409137002" display="No known history of drug allergy (situation)">
+    <display value="NKDA - No known drug allergies"/>
+    <display value="No Known Drug Allergies"/>
+    <display value="No known history of drug allergy"/>
+    <display value="No known medicine allergy"/>
+  </concept>
   <concept id="409519008" display="Contained casualty setting (environment)">
     <display value="Contained casualty setting (environment)"/>
     <display value="Contained casualty setting"/>
@@ -3527,6 +3541,9 @@
     <display value="Heavy tobacco smoker"/>
     <display value="Current heavy tobacco smoker"/>
   </concept>
+  <concept id="428607008" display="No known environmental allergy (situation)">
+    <display value="No Known Environmental Allergy"/>
+  </concept>
   <concept id="428763004" display="Bacteremia due to Staphylococcus aureus (finding)">
     <display value="Bacteremia due to Staphylococcus aureus (disorder)"/>
     <display value="Bacteremia due to Staphylococcus aureus"/>
@@ -3550,6 +3567,9 @@
     <display value="Iron measurement"/>
     <display value="Iron measurement, NOS"/>
     <display value="Iron measurement (procedure)"/>
+  </concept>
+  <concept id="429625007" display="No known food allergies (situation)">
+    <display value="No Known Food Allergies"/>
   </concept>
   <concept id="429858000" display="Computed tomography of head and neck (procedure)">
     <display value="Computed tomography of head and neck (procedure)"/>

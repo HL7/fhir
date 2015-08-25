@@ -33,7 +33,12 @@
     there's a full description of a complex substance - in these caes, use the
     extension [url] to refer to a Substance resource -->
   <substance>
-    <text value="227037002 - allergy is to fresh fish. Tolerates canned fish"/>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="227037002"/>
+      <display value="Fish - dietary (substance)"/>
+    </coding>
+    <text value="Allergic to fresh fish. Tolerates canned fish"/>
   </substance>
 
   <!-- this categorisation is implied by "cashew nut" and therefore basically 

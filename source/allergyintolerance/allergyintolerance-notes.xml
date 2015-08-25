@@ -1,20 +1,60 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h3>Negated Allergies and Intolerances</h3>
-<p>Allergies with the status "entered-in-error" are considered to be inactive allergies and may not be displayed to the user.
-</p>
-<p>Allergies with the status "refuted" must be displayed to indicate that a reaction to a substance has been ruled out
-with the high level of clinical certainty (e.g. additional testing, rechallenging). </p>
 
 <p>It is important to differentiate between affirmatively stating that a patient has no known allergies versus either
 not including allergies in the record (for example an episodic document where the allergies are not considered 
 relevant to the document); or asserting that allergies were not reviewed and are unknown.</p>
 
-<p>Prior to adding a new allergy/intolerance, a list of existing negated and refuted reactions should be reviewed.</p>
-<ul>
-<li><i>No Known Allergies</i> is reported using the <a href="list.html">List</a> resource.</li>
-<li><i>No </i></li>
-</ul>
+<p>Allergies with the status "entered-in-error" are considered to be inactive allergies.</p>
+<p>Allergies with the status "refuted" must be displayed to indicate that a reaction to a substance has been ruled out
+with the high level of clinical certainty (e.g. additional testing, rechallenging). </p>
+<p>Prior to adding a new allergy/intolerance, a list of existing negated and refuted reactions should be reviewed
+and reconciled.</p>
+
+<p>
+<b>Allergies Not Reviewed</b>
+</p>
+<p>If a sending system does not have any information about allergies being reviewed, then the <a href="list.html">List</a> resource 
+should be used to indicate the List.emptyReason.code="notasked".</p>
+<p>
+<b>Allergies Reviewed, None Identified</b>
+</p>
+<p>If allergies are reviewed and none are identified, then the corresponding negation code should be populated 
+in the AllergyIntolerance.substance.code of a resource. A set of codes to negate all kinds of allergies or a specific group of allergies 
+has been added to the <a href="valueset-allergyintolerance-substance-code.html">AllergyIntolerance Substance</a> value set.</p>
+<div class="example">
+<p>No Known Allergies</p>
+<pre>
+  &lt;substance&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://snomed.info/sct‎&quot;/&gt;
+      &lt;value value=&quot;160244002&quot;/&gt;
+      &lt;display value=&quot;No Known Allergies&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/substance&gt;
+</pre>
+<p>No Known Food Allergies</p>
+<pre>
+  &lt;substance&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://snomed.info/sct‎&quot;/&gt;
+      &lt;value value=&quot;429625007&quot;/&gt;
+      &lt;display value=&quot;No Known Food Allergies&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/substance&gt;
+</pre>
+</div>
+
+
+
+<blockquote>
+<p>DSTU note: There are two ways of reporting "No Known Allergies" in the current specification: using the CodeableConcept,
+as described above, or using the <a href="list.html">List</a> resource. During the trial use period for this DSTU, it is not recommended
+to use the <a href="list.html">List</a> resource for "No Known Allergies" reporting purposes. FHIR group is seeking feedback from 
+implementers in this area to resolve this ambiguity.
+</p>
+</blockquote>
 
 <h3>Use of AllergyIntolerance.criticality</h3>
 <p>
@@ -27,6 +67,8 @@ high criticality while a severe rash would have low criticality. Severity is spe
 For systems that only track generic reaction characteristics rather than a specific reaction will provide guidance to use 
 the "reaction" structure and simply provide no date.
 </p>
+
+
 
 <h3>References</h3>
 
