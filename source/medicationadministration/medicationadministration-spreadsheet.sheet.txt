@@ -146,7 +146,7 @@
  -- Row 5 -----------------------------------
   Element = MedicationAdministration.practitioner
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Reference(Practitioner | Patient | RelatedPerson)
   Short Label = Who administered substance?
   Definition = The individual who was responsible for giving the medication to the patient.
   v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
