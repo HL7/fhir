@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.api.IBaseConformance;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -244,8 +245,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			generateTypeSpecificAccessors(name, clss);
 			
 			generateChildrenRegister(root, "    ", isAbstract);
-		} else
+		} else {
       write("    private static final long serialVersionUID = "+inheritedHash+"L;\r\n\r\n");
+		}
 
 		generateCopy(root, classname, false, isAbstract);
 		generateEquals(root, classname, false, isAbstract);
@@ -309,6 +311,26 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   }
 
   private void generateTypeSpecificAccessors(String name, JavaGenClass clss) throws IOException {
+    if (upFirst(name).equals("Element")) {
+      write("   /**\r\n" + 
+          "    * Returns an unmodifiable list containing all extensions on this element which \r\n" + 
+          "    * match the given URL.\r\n" + 
+          "    * \r\n" + 
+          "    * @param theUrl The URL. Must not be blank or null.\r\n" + 
+          "    * @return an unmodifiable list containing all extensions on this element which \r\n" + 
+          "    * match the given URL\r\n" + 
+          "    */\r\n" + 
+          "   public List<Extension> getExtensionsByUrl(String theUrl) {\r\n" + 
+          "     org.apache.commons.lang3.Validate.notBlank(theUrl, \"theUrl must not be blank or null\");\r\n" + 
+          "     ArrayList<Extension> retVal = new ArrayList<Extension>();\r\n" + 
+          "     for (Extension next : getExtension()) {\r\n" + 
+          "       if (theUrl.equals(next.getUrl())) {\r\n" + 
+          "         retVal.add(next);\r\n" + 
+          "       }\r\n" + 
+          "     }\r\n" + 
+          "     return java.util.Collections.unmodifiableList(retVal);\r\n" + 
+          "   }\r\n");
+    }
     if (clss == JavaGenClass.Resource && upFirst(name).equals("Bundle")) {
       //@formatter:off
 		  write(" /**\r\n" + 
