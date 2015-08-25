@@ -3,51 +3,154 @@
 	<h2>Typical Status Transition Examples:</h2>
 
 	<h3>Typical Flow of statuses for an appointment:</h3>
-			<p>
-				Slot.freeBusyType = FREE
-			</p>
-			<p>
-				<i>(An appointment request is created)</i><br/>
-				Appointment.status = proposed<br/>
-				Appointment.participant.status = needs-action<br/>
-				Slot.freeBusyType = BUSY-TENTATIVE<br/>
-			</p>
-			<p>
-				<i>(The first appointment request is created - as accepted)</i><br/>
-				Appointment.status = pending<br/>
-				Appointment.participant.status = accepted (for the responsed participant)<br/>
-				Slot.freeBusyType = BUSY-TENTATIVE<br/>
-			</p>
-			<p>
-				<i>(The appointment is accepted as described – by all participants)</i><br/>
-				AppointmentResponse.participantStatus = accepted<br/>
-			</p>
-			<p>
-				<i>(The appointment is confirmed as accepted by all participants)</i><br/>
-				Appointment.participant.status = accepted<br/>
-				Appointment.status = booked<br/>
-				Slot.freeBusyType = BUSY<br/>
-			</p>
-			<p>
-				(Optional: Preparation for the appointment begins – could be preparing a room for the appointment etc.)<br/>
-				Encounter.status = planned (optional)<br/>
-				Encounter.location.status = planned
-			</p>
-			<p>
-				<i>(The patient arrives for the appointment, often sitting in a waiting room)</i><br/>
-				Appointment.status = arrived<br/>
-				Encounter.status = arrived<br/>
-				Encounter.location.status = present
-			</p>
-			<p>
-				<i>(The practitioner and the patient meet and the provision of the service begins, appointment is finished with now)</i><br/>
-				Encounter.status = in-progress<br/>
-				Appointment.status = fulfilled
-			</p>
-			<p>
-				<i>(The encounter concludes)</i><br/>
-				Encounter.status = finished
-			</p>
+	<table  class="grid">
+		<tr>
+			<th>Activity Description</th>
+			<th>Slot</th>
+			<th>Appointment</th>
+			<th>Appointment Response</th>
+			<th>Encounter</th>
+		</tr>
+		<tr>
+			<td>
+				The Schedule is created/published <br/>(Role: Scheduler)
+			</td>
+			<!-- Activity Description -->
+			<td>freeBusyType = FREE</td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td></td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				An appointment request is created after locating an available slot <br />(Role: Requester)
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td>
+				status = pending<br />
+				participant.status = needs-action
+			</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td></td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				The appointment request is processed and the slot status updated<br />(Role: Scheduler)
+			</td>
+			<!-- Activity Description -->
+			<td>freeBusyType = BUSY-TENTATIVE</td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td></td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				The appointment is accepted as described – by all participants <br />(Role: Participant(s))
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td>participantStatus = accepted</td>
+			<!-- Appointment Response -->
+			<td></td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				The appointment is confirmed as accepted by all participants<br />(Role: Scheduler)
+			</td>
+			<!-- Activity Description -->
+			<td>freeBusyType = BUSY</td>
+			<!-- Slot -->
+			<td>
+				status = booked<br/>participant.status = accepted
+			</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td></td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				<i>
+					Optional: Preparation for the appointment begins – could be preparing a room for the appointment etc.<br />(Role: Participants/Admin)
+				</i>
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td>
+				status = planned (optional)<br />
+				location.status = planned
+			</td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				The patient arrives for the appointment, often sitting in a waiting room<br />(Role: Admin)
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td>status = arrived</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td>
+				status = arrived<br />
+				location.status = present
+			</td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				The practitioner and the patient meet and the provision of the service begins, appointment is finished with now <br />(Role: Scheduler/Participant(s)/Admin)
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td>status = fulfilled</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td>status = in-progress</td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				The encounter concludes<br />(Role: Scheduler/Participant(s)/Admin)
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td>status = finished</td>
+			<!-- Encounter -->
+		</tr>
+	</table>
 
 	<h3>Flow for the rejection/cancellation of an appointment</h3>
 			<p>
