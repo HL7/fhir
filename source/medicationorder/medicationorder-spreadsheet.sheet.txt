@@ -39,7 +39,7 @@
  -- Row 6 -----------------------------------
   Binding Name = MedicationOrderStatus
   Binding = code list
-  Reference = #medication-prescription-status
+  Reference = #medication-order-status
   Definition = A code specifying the state of the prescribing event. Describes the lifecycle of the prescription.
   Conformance = required
   v3 = ActStatus
@@ -51,7 +51,7 @@
   Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
   Conformance = example
 
-=== Sheet medication-prescription-status =====================================
+=== Sheet medication-order-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -64,35 +64,35 @@
   Id = 2
   Code = on-hold
   Display = On Hold
-  Definition = Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called \"suspended\".
+  Definition = Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called \"suspended\".
   v3 = ActStatus.suspended
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = completed
   Display = Completed
-  Definition = All actions that are implied by the prescription have occurred (this will rarely be made explicit).
+  Definition = All actions that are implied by the prescription have occurred.
   v3 = ActStatus.completed
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = entered-in-error
   Display = Entered In Error
-  Definition = The prescription was entered in error and therefore nullified.
+  Definition = The prescription was entered in error.
   v3 = ActStatus.nullified
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = stopped
   Display = Stopped
-  Definition = Actions implied by the prescription have been permanently halted, before all of them occurred.
+  Definition = Actions implied by the prescription are to be permanently halted, before all of them occurred.
   v3 = ActStatus.aborted
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = draft
   Display = Draft
-  Definition = The prescription is not yet \'actionable\', i.e. it is a work in progress, required sign-off, need to be run through decision support.
+  Definition = The prescription is not yet \'actionable\', i.e. it is a work in progress, requires sign-off or verification, needs to be run through decision support process.
   v3 = ActStatus.new
 
 === Sheet Invariants =====================================
