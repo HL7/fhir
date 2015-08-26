@@ -277,7 +277,7 @@
   Short Label = Specific type of encounter
   Definition = Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)
   Comments = Since there are many ways to further classify encounters, this element is 0..*
-  v2 Mapping = PV1-4-admission type
+  v2 Mapping = PV1-18 Patient Type
   RIM Mapping = .code
   w5 = class
 
