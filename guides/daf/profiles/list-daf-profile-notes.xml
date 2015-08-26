@@ -26,12 +26,15 @@ Implementers need to be mindful of the following during their implementation
 	<p><b>Querying Lists vs Clinical Resources:</b> DAF profiles of the List resource should be used by DAF Requestors to query for data that is curated as a list by the DAF Responder.
 	 The following are the curated lists that will be used in the context of DAF:</p>
 	 <ul>
-	    <li>Active Medications List</li>
+	 	<li>Active Allergies List</li>
+	 	<li>List of Encounters</li>
+	 	<li>List of Immunizations</li>
+	 	<li>Active Medications List</li>
 		<li>Active Problems List</li>
-		<li>Active Allergies List</li>
-		<li>List of relevant Laboratory Result values</li>
-		<li>List of Immunizations</li>
-		<li>List of Encounters</li>
+	 	<li>List of Procedures</li>
+	 	<li>List of relevant Laboratory Result values</li>
+		
+		
 	 </ul>
 	 <p>DAF Requestors are expected to query the actual Clinical Resources such as Condition, Medication, AllergyIntolerance when they would like to get back a set of resources meeting a specific search criteria.(For example, query for all problems documented for a patient). In contrast, queries on List resources are supposed to be used only when the DAF Requestor expects a curated list to be returned by the DAF Responder. In all cases the List returned is packaged as part of a <a href="../bundle.html">Bundle</a> similar to other search results.</p>
 	 

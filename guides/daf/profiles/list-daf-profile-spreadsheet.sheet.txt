@@ -36,7 +36,7 @@
   Must Support = Y
   Type = CodeableConcept
   Definition = Fixed code for Allergies
-  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><version value=\"2.48\"/><code value=\"48765-2\"/></coding></valueCodeableConcept>
+  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"48765-2\"/></coding></valueCodeableConcept>
 
  -- Row 4 -----------------------------------
   Element = List.subject
@@ -119,7 +119,7 @@
   Must Support = Y
   Type = CodeableConcept
   Definition = Fixed code for Encounters
-  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><version value=\"2.48\"/><code value=\"46240-8\"/></coding></valueCodeableConcept>
+  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"46240-8\"/></coding></valueCodeableConcept>
 
  -- Row 4 -----------------------------------
   Element = List.subject
@@ -202,7 +202,7 @@
   Must Support = Y
   Type = CodeableConcept
   Definition = Fixed code for Immunizations
-  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><version value=\"2.48\"/><code value=\"11369-6\"/></coding></valueCodeableConcept>
+  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"11369-6\"/></coding></valueCodeableConcept>
 
  -- Row 4 -----------------------------------
   Element = List.subject
@@ -368,7 +368,7 @@
   Must Support = Y
   Type = CodeableConcept
   Definition = Fixed code for Problems.
-  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><version value=\"2.48\"/><code value=\"72166-2\"/></coding></valueCodeableConcept>
+  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"72166-2\"/></coding></valueCodeableConcept>
 
  -- Row 4 -----------------------------------
   Element = List.subject
@@ -430,6 +430,89 @@
   Type = CodeableConcept
   Binding = DAFListEmptyReason
 
+=== Sheet DAF-ProcedureList =====================================
+
+ -- Row 1 -----------------------------------
+  Element = List
+  Profile Name = DAFList
+  Type = Resource
+  Short Label = US Realm Procedure list
+  Definition = Information summarized from a list of other resources
+
+ -- Row 2 -----------------------------------
+  Element = List.identifier
+  Card. = 0..*
+  Must Support = Y
+  Type = Identifier
+
+ -- Row 3 -----------------------------------
+  Element = List.code
+  Card. = 1..1
+  Must Support = Y
+  Type = CodeableConcept
+  Definition = Fixed code for Results
+  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"47519-4\"/></coding></valueCodeableConcept>
+
+ -- Row 4 -----------------------------------
+  Element = List.subject
+  Card. = 0..1
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
+
+ -- Row 5 -----------------------------------
+  Element = List.source
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}|Reference(Device)
+
+ -- Row 6 -----------------------------------
+  Element = List.date
+  Card. = 1..1
+  Must Support = Y
+  Type = dateTime
+
+ -- Row 7 -----------------------------------
+  Element = List.mode
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Value = snapshot
+
+ -- Row 8 -----------------------------------
+  Element = List.entry
+  Card. = 0..*
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = List.entry.flag
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 10 -----------------------------------
+  Element = List.entry.deleted
+  Card. = 0..0
+  Type = boolean
+
+ -- Row 11 -----------------------------------
+  Element = List.entry.date
+  Card. = 0..1
+  Must Support = Y
+  Type = dateTime
+
+ -- Row 12 -----------------------------------
+  Element = List.entry.item
+  Card. = 1..1
+  Must Support = Y
+  Type = Reference(DiagnosticReport){http://hl7.org/fhir/StructureDefinition/daf-procedure}
+
+ -- Row 13 -----------------------------------
+  Element = List.emptyReason
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFListEmptyReason
+
 === Sheet DAF-ResultList =====================================
 
  -- Row 1 -----------------------------------
@@ -451,7 +534,7 @@
   Must Support = Y
   Type = CodeableConcept
   Definition = Fixed code for Results
-  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><version value=\"2.48\"/><code value=\"30954-2\"/></coding></valueCodeableConcept>
+  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"30954-2\"/></coding></valueCodeableConcept>
 
  -- Row 4 -----------------------------------
   Element = List.subject

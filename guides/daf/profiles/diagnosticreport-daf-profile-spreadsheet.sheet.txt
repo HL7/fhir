@@ -9,7 +9,7 @@
   Conformance = extensible
 
  -- Row 2 -----------------------------------
-  Binding Name = USLabAdjunctDiagnosis
+  Binding Name = USDiagnosis
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/uslab-clinical-findings
   Definition = SNOMED CT findings codes provided as adjunct diagnosis to the report
@@ -268,7 +268,7 @@
   Card. = 0..*
   Must Support = Y
   Type = CodeableConcept
-  Binding = USLabAdjunctDiagnosis
+  Binding = USDiagnosis
   Committee Notes = 11/19/2014 EH: these come from OBX? Needed for AP
 
  -- Row 31 -----------------------------------
