@@ -24,8 +24,8 @@
 			<li>
 				<b>Discovery/Addressing</b>
 				<p>
-					Before an appointment can be made the address of the resource that we want to schedule
-					an appointment with must be determined. This is often based on the healthcare Service Type,
+					Before an appointment can be made the address/endpoint details of the resource that we want 
+					to schedule an appointment with must be determined. This is often based on the healthcare Service Type,
 					any formatting information which indicates how to make the request.
 					This is typically handled via the Schedule resource.
 				</p>
@@ -49,11 +49,11 @@
 			<li>
 				<b>Making the Appointment Request</b>
 				<p>
-					The request is performed by posting an Appointment to the address found during discovery.
-					This will have a needs-action status for each of the participants.
-					(The system that receives the request may modify the status of any posted appointment based
-					on internal business rules, such as certain users do not have permission to request certain
-					appointments)
+					When an appointment is required, a Requester creates new Appointment resource with the Appointment.status=”proposed”.<br/>
+					All included participants (optional or mandatory) should have the status=”needs-action” to allow filtering and displaying
+					appointments to user-participants for accepting or rejecting new and updated requests. Based on internal system business rules,
+					certain statuses may be automatically updated, for example: “reject because the requested participant is on vacation” or 
+					“this type of users is not allowed to request those specific appointments.
 				</p>
 			</li>
 			<li>
@@ -115,7 +115,7 @@
 	</div>
   <div>
     <h2>Boundaries and Relationships</h2>
-		<h3>AppointmentResponses</h3>
+		<h3>Appointment Request/Response Pattern</h3>
 		<p>
 			When using a request response style of appointment this is done using Appointment 
 			and AppointmentResponse resources.<br/>

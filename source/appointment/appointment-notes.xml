@@ -153,75 +153,234 @@
 	</table>
 
 	<h3>Flow for the rejection/cancellation of an appointment</h3>
-			<p>
-				Slot.freeBusyType = FREE
-			</p>
-			<p>
-				Appointment.status = pending<br/>
-				Appointment.participant.status = needs-action<br/>
-				Slot.freeBusyType = BUSY-TENTATIVE
-			</p>
-			<p>
-				AppointmentResponse.participantStatus = declined
-			</p>
-			<p>
-				Appointment.participant.status = declined<br/>
-				Appointment.status = cancelled<br/>
-				Slot.freeBusyType = FREE
-			</p>
+	<table  class="grid">
+		<tr>
+			<th>Activity Description</th>
+			<th>Slot</th>
+			<th>Appointment</th>
+			<th>Appointment Response</th>
+		</tr>
+		<tr>
+			<td>
+				The Schedule is created/published <br/>(Role: Scheduler)
+			</td>
+			<!-- Activity Description -->
+			<td>freeBusyType = FREE</td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				 Appointment Request is created<br/>(Role: Requester)
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td>
+				status = pending<br/>
+				participant.status = needs-action
+			</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				The appointment request is processed and the slot status updated<br/>(Role: Scheduler)
+			</td>
+			<!-- Activity Description -->
+			<td>freeBusyType = BUSY-TENTATIVE</td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				Participant Declines the Appointment<br/>(Role: Participant)
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td>participantStatus = declined</td>
+			<!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				The appointment is cancelled<br/>(Role: Scheduler)
+			</td>
+			<!-- Activity Description -->
+			<td>freeBusyType = FREE</td>
+			<!-- Slot -->
+			<td>
+				status = cancelled<br/>
+				participant.status = declined
+			</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+		</tr>
+	</table>
 
 	<h3>Flow for re-negotiation:</h3>
-			<p>
-				Slot.freeBusyType = FREE
-			</p>
-			<p>
-				Appointment.status = pending<br/>
-				Appointment.participant(Brian).status = needs-action<br/>
-				Appointment.participant(Peter).status = needs-action<br/>
-				Slot.freeBusyType = BUSY-TENTATIVE
-			</p>
-			<p>
-				AppointmentResponse(Brian).participantStatus = accepted
-			</p>
-			<p>
-				Appointment.participant(Brian).status = accepted
-			</p>
-			<p>
-				AppointmentResponse(Peter).participantStatus = tentative (with new time)
-			</p>
-			<p>
-				Appointment (new time details updated)<br/>
-				Appointment.participant(Brian).status = needs-action<br/>
-				Appointment.participant(Peter).status = needs-action
-			</p>
-			<p>
-				AppointmentResponse(Brian).participantStatus = accepted
-			</p>
-			<p>
-				Appointment.participant(Brian).status = accepted
-			</p>
-			<p>
-				AppointmentResponse(Peter).participantStatus = accepted
-			</p>
-			<p>
-				Appointment.participant(Peter).status = accepted<br/>
-				Appointment.participantstatus = accepted<br/>
-				Appointment.status = booked<br/>
-				Slot.freeBusyType = BUSY
-			</p>
-
-	<h3>Flow for a patient no-show:</h3>
-			<p>
-				<i>… (from typical status flow)</i><br/>
-				Appointent.participant.status = accepted<br/>
-				Appointment.status = booked<br/>
-				Slot.freeBusyType = BUSY
-			</p>
-			<p>
-				Appointment.status = noshow<br/>
-				(Note that no encounter is created)
-			</p>
+	<table  class="grid">
+		<tr>
+			<th>Activity Description</th>
+			<th>Slot</th>
+			<th>Appointment</th>
+			<th>Appointment Response</th>
+		</tr>
+		<tr>
+			<td>
+				The Schedule is created/published <br/>(Role: Scheduler)
+			</td> <!-- Activity Description -->
+			<td>freeBusyType = FREE</td> <!-- Slot -->
+			<td></td> <!-- Appointment -->
+			<td></td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				An appointment is requested with Brian and Peter<br/>(Role: Requester)
+			</td> <!-- Activity Description -->
+			<td></td> <!-- Slot -->
+			<td>
+				status = proposed<br/>
+				participant(Brian).status = needs-action<br/>
+				participant(Peter).status = needs-action
+			</td> <!-- Appointment -->
+			<td></td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				The Schedule is updated to inform others of interest in the slot<br/>(Role: Scheduler)
+			</td> <!-- Activity Description -->
+			<td>freeBusyType = BUSY-TENTATIVE</td> <!-- Slot -->
+			<td></td> <!-- Appointment -->
+			<td></td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				Brian accepts the appointment<br/>(Role: Participant-Brian)
+			</td> <!-- Activity Description -->
+			<td></td> <!-- Slot -->
+			<td></td> <!-- Appointment -->
+			<td>(Brian).participantStatus = accepted</td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				Appointment is updated with Brian's status<br/>(Role: Scheduler)
+			</td> <!-- Activity Description -->
+			<td></td> <!-- Slot -->
+			<td>
+				status = pending<br/>
+				participant(Brian).status = accepted
+			</td> <!-- Appointment -->
+			<td></td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				Peter suggests a new time<br/>(Role: Participant-Peter)
+			</td> <!-- Activity Description -->
+			<td></td> <!-- Slot -->
+			<td></td> <!-- Appointment -->
+			<td>(Peter).participantStatus = tentative<br/><i>(with new time)</i></td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				Appointment is updated with new time, and indicates that action is needed by both participants<br/>(Role: Scheduler)
+			</td> <!-- Activity Description -->
+			<td></td> <!-- Slot -->
+			<td>
+				<i>(new time details updated)</i><br/>
+				participant(Brian).status = needs-action<br/>
+				participant(Peter).status = needs-action
+			</td> <!-- Appointment -->
+			<td></td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				Brian accepts the appointment<br/>(Role: Participant-Brian)
+			</td> <!-- Activity Description -->
+			<td></td> <!-- Slot -->
+			<td></td> <!-- Appointment -->
+			<td>(Brian).participantStatus = accepted</td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				Appointment updated<br/>(Role: Scheduler)
+			</td> <!-- Activity Description -->
+			<td></td> <!-- Slot -->
+			<td>participant(Brian).status = accepted</td> <!-- Appointment -->
+			<td></td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				<br/>(Role: Participant-Peter)
+			</td> <!-- Activity Description -->
+			<td></td> <!-- Slot -->
+			<td></td> <!-- Appointment -->
+			<td>(Peter).participantStatus = accepted</td> <!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>
+				Appointment updated<br/>(Role: Scheduler)
+			</td> <!-- Activity Description -->
+			<td>freeBusyType = BUSY</td> <!-- Slot -->
+			<td>
+				status = booked<br/>
+				participant(Peter).status = accepted
+			</td> <!-- Appointment -->
+			<td></td> <!-- Appointment Response -->
+		</tr>
+	</table>
 	
+	<h3>Flow for a patient no-show:</h3>
+	<table  class="grid">
+		<tr>
+			<th>Activity Description</th>
+			<th>Slot</th>
+			<th>Appointment</th>
+			<th>Appointment Response</th>
+			<th>Encounter</th>
+		</tr>
+		<tr>
+			<td>
+				<i>(from typical status flow)</i>
+			</td>
+			<!-- Activity Description -->
+			<td>freeBusyType = BUSY</td>
+			<!-- Slot -->
+			<td>
+				status = booked<br/>
+				participant.status = accepted
+			</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td></td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				Appointment is updated as a noshow<br/>(Role: Scheduler/Admin)
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td>status = noshow</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td><i>(no encounter created)</i></td>
+			<!-- Encounter -->
+		</tr>
+	</table>	
 	
 	<h2>Notes:</h2>
 	<ul>
