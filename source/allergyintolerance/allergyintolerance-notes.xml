@@ -46,7 +46,8 @@ has been added to the <a href="valueset-allergyintolerance-substance-code.html">
 </pre>
 </div>
 
-
+<p>If new allergy is discovered, the negated allergy record, such as "No Known Allergies", must be updated with the "refuted" status - 
+to ensure that systems referring to this record are aware that this is no longer true.</p>
 
 <blockquote>
 <p>DSTU note: There are two ways of reporting "No Known Allergies" in the current specification: using the CodeableConcept,
