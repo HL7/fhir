@@ -20,7 +20,8 @@
   <WindowWidth>22575</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1533,7 +1534,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">derivation | revision | quotation | source | assembler | composer</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">derivation | revision | quotation | source </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">How the entity was used during the activity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4076,7 +4077,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4099,7 +4099,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>15</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7236,23 +7236,23 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">assembler</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">derivation</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Assembler</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">A device that operates independently of an author on custodian's algorithms for data extraction of existing information for purpose of generating a new artifact.</Data></Cell>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">composer</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">derivation</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Composer</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">A device used by an author to record new information, which may also be used by the author to select existing information for aggregation with newly recorded information for the purpose of generating a new artifact.</Data></Cell>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7744,6 +7744,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7763,8 +7764,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R6:R7</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

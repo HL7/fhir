@@ -81,5 +81,15 @@
       <display value="Custodian"/>
       <definition value="The entity that is accountable for maintaining a true an accurate copy of the original record"/>
     </concept>
+    <concept>
+      <code value="assembler"/>
+      <display value="Assembler"/>
+      <definition value="A device that operates independently of an author on custodian's algorithms for data extraction of existing information for purpose of generating a new artifact."/>
+    </concept>
+    <concept>
+      <code value="composer"/>
+      <display value="Composer"/>
+      <definition value="A device used by an author to record new information, which may also be used by the author to select existing information for aggregation with newly recorded information for the purpose of generating a new artifact."/>
+    </concept>
   </codeSystem>
 </ValueSet>
