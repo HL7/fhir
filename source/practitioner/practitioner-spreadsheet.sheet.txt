@@ -53,6 +53,18 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Practitioner.active
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = Whether this practitioner\'s record is in active use
+  Definition = Whether this practitioner\'s record is in active use
+  Requirements = Need to be able to mark a practitioner record as not to be used because it was created in error
+  Comments = Default is true. \n\nIf the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another Role.
+  Default Value = True
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = Practitioner.name
   Card. = 0..1
   Summary = y
@@ -64,7 +76,7 @@
   RIM Mapping = ./name
   ServD Mapping = ./PreferredName (GivenNames, FamilyName, TitleCode)
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Practitioner.telecom
   Card. = 0..*
   Summary = y
@@ -77,7 +89,7 @@
   RIM Mapping = ./telecom
   ServD Mapping = ./ContactPoints
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Practitioner.address
   Card. = 0..*
   Summary = y
@@ -89,7 +101,7 @@
   RIM Mapping = ./addr
   ServD Mapping = ./Addresses
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Practitioner.gender
   Card. = 0..1
   Summary = y
@@ -102,7 +114,7 @@
   RIM Mapping = ./administrativeGender
   ServD Mapping = ./GenderCode
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Practitioner.birthDate
   Card. = 0..1
   Summary = y
@@ -114,7 +126,7 @@
   RIM Mapping = ./birthTime
   ServD Mapping = (not represented in ServD)
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Practitioner.photo
   Card. = 0..*
   Type = Attachment
@@ -124,7 +136,7 @@
   RIM Mapping = ./subjectOf/ObservationEvent[code=\"photo\"]/value
   ServD Mapping = ./ImageURI (only supports the URI reference)
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = !Practitioner.organization
   Card. = 0..1
   Summary = y
@@ -136,21 +148,21 @@
   RIM Mapping = ./scoper
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Practitioner.practitionerRole
   Card. = 0..*
   UML = right
   Short Label = The list of Roles/Organizations that the Practitioner is associated with
   RIM Mapping = .(Role)
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Practitioner.practitionerRole.managingOrganization
   Card. = 0..1
   Type = Reference(Organization)
   Short Label = The Organization where the Practitioner performs the roles associated
   RIM Mapping = scopingOrganization
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Practitioner.practitionerRole.role
   Card. = 0..1
   Summary = y
@@ -164,7 +176,7 @@
   RIM Mapping = ./code
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Practitioner.practitionerRole.specialty
   Card. = 0..*
   Summary = y
@@ -176,7 +188,7 @@
   RIM Mapping = indirectAuthority/QualifiedEntity[code < Speciality]/code
   ServD Mapping = ./Specialty
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Practitioner.practitionerRole.period
   Card. = 0..1
   Summary = y
@@ -190,7 +202,7 @@
   Committee Notes = Is this separate from the period of validity of the qualification?
   w5 = when.done
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Practitioner.practitionerRole.location
   Card. = 0..*
   Type = Reference(Location)
@@ -200,14 +212,14 @@
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)<br/> However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)
   w5 = where
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Practitioner.practitionerRole.healthcareService
   Card. = 0..*
   Type = Reference(HealthcareService)
   Short Label = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
   RIM Mapping = ./target[classCode=\"indirectAuthority].id?
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Practitioner.qualification
   Card. = 0..*
   UML = right
@@ -216,7 +228,7 @@
   RIM Mapping = ./indirectAuthority/QualifiedEntity[code < qualifiedEntity]
   ServD Mapping = ./Qualifications
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Practitioner.qualification.identifier
   Card. = 0..*
   Type = Identifier
@@ -225,7 +237,7 @@
   Requirements = Often, specific identities are assigned for the qualification
   RIM Mapping = ./id
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Practitioner.qualification.code
   Card. = 1..1
   Type = CodeableConcept
@@ -234,7 +246,7 @@
   RIM Mapping = ./code
   ServD Mapping = ./Qualifications.Value
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Practitioner.qualification.period
   Card. = 0..1
   Type = Period
@@ -244,7 +256,7 @@
   RIM Mapping = ./effectiveTime
   ServD Mapping = ./Qualifications.StartDate and ./Qualifications.EndDate
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Practitioner.qualification.issuer
   Card. = 0..1
   Type = Reference(Organization)
@@ -252,7 +264,7 @@
   Definition = Organization that regulates and issues the qualification
   RIM Mapping = ./scoper
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Practitioner.communication
   Card. = 0..*
   Type = CodeableConcept

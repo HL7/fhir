@@ -15,6 +15,7 @@
     <system value="http://www.acme.org/practitioners"/>
     <value value="23"/>
   </identifier>
+  <active value="true"/>
   <name>
     <family value="Careful"/>
     <given value="Adam"/>

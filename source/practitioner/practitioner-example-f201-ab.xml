@@ -9,7 +9,8 @@
         <system value="urn:oid:2.16.528.1.1007.3.1"/>
         <value value="12345678901"/>
     </identifier>
-        <!--Practitioner's personal demographics-->
+	<active value="true"/>
+	<!--Practitioner's personal demographics-->
         <name>
             <!--The name of the practitioner-->
             <use value="official"/>

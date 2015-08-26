@@ -12,8 +12,9 @@
         <type><text value="BIG-nummer"/></type>
         <system value="https://www.bigregister.nl/"/>
         <value value="12345678902"/>
-    </identifier> 
-    <name><!--The name of the practitioner-->
+    </identifier>
+	<active value="true"/>
+	<name><!--The name of the practitioner-->
         <use value="official"/>
         <text value="Luigi Maas"/>
         <family value="Maas"/>
