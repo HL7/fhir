@@ -61,6 +61,7 @@
   Definition = Whether this practitioner\'s record is in active use
   Requirements = Need to be able to mark a practitioner record as not to be used because it was created in error
   Comments = Default is true. \n\nIf the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another Role.
+  RIM Mapping = ./StatusCode
   Default Value = True
   w5 = status
 
