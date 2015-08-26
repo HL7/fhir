@@ -5,14 +5,14 @@
     <reference value="Patient/example"/>
   </patient>
   <status value="completed"/>
-  <type>
+  <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="25267002"/>
       <display value="Insertion of intracardiac pacemaker (procedure)"/>
     </coding>
     <text value="Implant Pacemaker"/>
-  </type>
+  </code>
   <indication>
     <text value="Bradycardia"/>
   </indication> 

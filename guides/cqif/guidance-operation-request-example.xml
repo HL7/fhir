@@ -165,14 +165,14 @@
 		  <subject>
 			<reference value="Patient/example"/>
 		  </subject>
-		  <type>
+		  <code>
 			<coding>
 				<!-- TODO: This will need to use the ACR Commons code -->
 			  <system value="http://www.ama-assn.org/go/cpt"/>
 			  <code value="70450"/>
 			  <display value="CT, head, wo iv contrast"/>
 			</coding>  
-		  </type>
+		  </code>
 		  <indication>
 			  <coding>
 				  <!-- TODO: This will need to use the ACR Commons code -->

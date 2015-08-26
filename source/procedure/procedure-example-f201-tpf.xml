@@ -7,14 +7,14 @@
     <display value="Roel"/>
   </patient>
   <status value="completed"/>
-  <type>
+  <code>
     <!--The procedure is TPF-based chemotherapy-->
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="367336001"/>
       <display value="Chemotherapy"/>
     </coding>
-  </type>
+  </code>
   <bodySite>
     <siteCodeableConcept>
       <coding>

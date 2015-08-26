@@ -13,14 +13,14 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  <type>
+  <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="80146002"/>
       <display value="Appendectomy (Procedure)"/>
     </coding>
     <text value="Appendectomy"/>
-  </type>
+  </code>
   <bodySite>
     <siteCodeableConcept>
       <coding>

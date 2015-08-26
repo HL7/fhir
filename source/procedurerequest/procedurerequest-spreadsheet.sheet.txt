@@ -13,6 +13,13 @@
   Reference = #procedure-request-priority
   Definition = The priority of the request
 
+ -- Row 3 -----------------------------------
+  Binding Name = ProcedureCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/procedure-code
+  Definition = A code to identify a specific procedure
+  Conformance = example
+
 === Sheet procedure-request-status =====================================
 
  -- Row 1 -----------------------------------
@@ -131,10 +138,11 @@
   w5 = who.focus
 
  -- Row 4 -----------------------------------
-  Element = ProcedureRequest.type
+  Element = ProcedureRequest.code
   Card. = 1..1
   Type = CodeableConcept
-  Short Label = Procedure Type
+  Binding = ProcedureCode
+  Short Label = Procedure Code
   Definition = The specific procedure that is ordered. Use text if the exact nature of the procedure can\'t be coded.
   QUICK mapping = Procedure.procedureCode
   w5 = class
@@ -146,8 +154,8 @@
   Definition = Indicates the sites on the subject\'s body where the procedure should be performed ( i.e. the target sites).
   Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in code found in ProcedureRequest.type
-  QUICK mapping = Procedure.targetBodySite
   RIM Mapping = targetSiteCode
+  QUICK mapping = Procedure.targetBodySite
 
  -- Row 6 -----------------------------------
   Element = ProcedureRequest.bodySite.site[x]

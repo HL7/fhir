@@ -9,14 +9,14 @@
     <reference value="Patient/example"/>
   </patient>
   <status value="completed"/>
-  <type>
+  <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="80146002"/>
       <display value="Appendectomy (Procedure)"/>
     </coding>
     <text value="Appendectomy"/>
-  </type>
+  </code>
   <indication>
     <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
   </indication> 

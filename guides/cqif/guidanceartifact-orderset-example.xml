@@ -33,7 +33,7 @@
       <subject>
 		  <display value="placeholder"/>
       </subject>
-      <type>
+      <code>
 	    <!-- Validation Failure: term server connect denied?
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -42,7 +42,7 @@
         </coding>
         -->
         <text value="Ventilator care management (procedure)"/>
-      </type>
+      </code>
     </ProcedureRequest>
   </contained>
   <contained>
@@ -51,7 +51,7 @@
       <subject>
 		  <display value="placeholder"/>
       </subject>
-      <type>
+      <code>
         <!-- Validation Failure: term server connect denied?
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -60,7 +60,7 @@
         </coding>
         -->
         <text value="Pulse oximetry (procedure)"/>
-      </type>
+      </code>
     </ProcedureRequest>
   </contained>
 <!--     Version     -->
