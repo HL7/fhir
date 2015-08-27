@@ -164,7 +164,7 @@
 
  -- Row 9 -----------------------------------
   Element = MedicationStatement.reasonForUse[x]
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept | Reference(Condition)
   Definition = A reason for why the medication is being/was taken.
 
