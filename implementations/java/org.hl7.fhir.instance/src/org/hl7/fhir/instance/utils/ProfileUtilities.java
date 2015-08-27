@@ -9,8 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.hl7.fhir.instance.client.FHIRSimpleClient;
-import org.hl7.fhir.instance.client.IFHIRClient;
+import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
@@ -67,6 +66,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  *
  */
 public class ProfileUtilities {
+  private final boolean ADD_REFERENCE_TO_TABLE = true;
 
 
   private static final String ROW_COLOR_ERROR = "#ffcccc";
@@ -83,10 +83,10 @@ public class ProfileUtilities {
   private static final String DERIVATION_EQUALS = "derivation.equals";
   public static final String UD_ERROR_STATUS = "error-status";
   
-  private final WorkerContext context;
+  private final IWorkerContext context;
   private List<ValidationMessage> messages;
   
-  public ProfileUtilities(WorkerContext context) {
+  public ProfileUtilities(IWorkerContext context) {
     super();
     this.context = context;
   }
@@ -369,9 +369,12 @@ public class ProfileUtilities {
             diffpos++; // if there's a slice on the first, we'll ignore any content it has
             ElementDefinitionSlicingComponent dSlice = diffMatches.get(0).getSlicing();
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing(); 
-            if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()) || !discriiminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()) ||
-                 !ruleMatches(dSlice.getRules(), bSlice.getRules()))
-              throw new Exception("Slicing rules on differential do not match those on base");
+            if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()))
+              throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - order @ "+path);
+            if (!discriiminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()))
+             throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - disciminator @ "+path);
+            if (!ruleMatches(dSlice.getRules(), bSlice.getRules()))
+             throw new Exception("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - rule @ "+path);
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
@@ -434,6 +437,32 @@ public class ProfileUtilities {
   }
 
   
+  private String summariseSlicing(ElementDefinitionSlicingComponent slice) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (StringType d : slice.getDiscriminator()) {
+      if (first)
+        first = false;
+      else
+        b.append(", ");
+      b.append(d);
+    }
+    b.append("(");
+    if (slice.hasOrdered())
+      b.append(slice.getOrderedElement().asStringValue());
+    b.append("/");
+    if (slice.hasRules())
+      b.append(slice.getRules().toCode());    
+    b.append(")");
+    if (slice.hasDescription()) {
+      b.append(" \"");
+      b.append(slice.getDescription());
+      b.append("\"");
+    }
+    return b.toString();
+  }
+
+
   private void updateFromBase(ElementDefinition derived, ElementDefinition base) {
     if (base.hasBase()) {
       derived.getBase().setPath(base.getBase().getPath());  
@@ -463,14 +492,11 @@ public class ProfileUtilities {
   }
 
 
-  private StructureDefinition getProfileForDataType(TypeRefComponent type) {
-    for (StructureDefinition ae : context.getProfiles().values()) {
-      if (ae.getName().equals(type.getCode())) {
-        return ae;
-      }
-    }
-	  System.out.println("XX: failed to find profle for type: " + type.getCode()); // debug GJM
-    return null;
+  private StructureDefinition getProfileForDataType(TypeRefComponent type) throws EOperationOutcome, Exception {
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type.getCode());
+    if (sd == null)
+      System.out.println("XX: failed to find profle for type: " + type.getCode()); // debug GJM
+    return sd;
   }
 
 
@@ -542,7 +568,7 @@ public class ProfileUtilities {
   }
 
   private boolean orderMatches(BooleanType diff, BooleanType base) {
-    return (diff == null) || (base == null) || (diff == base);
+    return (diff == null) || (base == null) || (diff.getValue() == base.getValue());
   }
 
   private boolean discriiminatorMatches(List<StringType> diff, List<StringType> base) {
@@ -551,7 +577,7 @@ public class ProfileUtilities {
     if (diff.size() != base.size())
     	return false;
     for (int i = 0; i < diff.size(); i++)
-    	if (diff.get(i).getValue().equals(base.get(i).getValue()))
+    	if (!diff.get(i).getValue().equals(base.get(i).getValue()))
     		return false;
     return true;
   }
@@ -584,7 +610,7 @@ public class ProfileUtilities {
       if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() - 2 && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
         result.add(context.getElement().get(i));
       } else if (result.isEmpty()) {
-        // System.out.println("ignoring "+statedPath+" in differential of "+profileName);
+//        System.out.println("ignoring "+statedPath+" in differential of "+profileName);
       }
     }
     return result;
@@ -784,8 +810,8 @@ public class ProfileUtilities {
             messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), IssueSeverity.NULL));
 //            throw new Exception("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
           else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED) {
-            ValueSetExpansionOutcome expBase = context.getTerminologyServices().expand(context.getValueSets().get(base.getBinding().getValueSetReference().getReference()));
-            ValueSetExpansionOutcome expDerived = context.getTerminologyServices().expand(context.getValueSets().get(derived.getBinding().getValueSetReference().getReference()));
+            ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetReference().getReference()));
+            ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetReference().getReference()));
             if (expBase.getValueset() == null)
               messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
             else if (expDerived.getValueset() == null)
@@ -818,7 +844,7 @@ public class ProfileUtilities {
               for (TypeRefComponent td : base.getType()) {
                 b.append(td.getCode());
                 if (td.getCode().equals(ts.getCode()) || td.getCode().equals("Extension") ||
-                    td.getCode().equals("Element") || td.getCode().equals("*") || 
+                    td.getCode().equals("Element") || td.getCode().equals("*") ||
                     ((td.getCode().equals("Resource") || (td.getCode().equals("DomainResource")) && pkp.isResource(ts.getCode()))))
                   ok = true;
               }
@@ -933,7 +959,7 @@ public class ProfileUtilities {
   private void genSimpleExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, StructureDefinition ext, ProfileKnowledgeProvider pkp, String corePath) throws Exception {
     Row r = gen.new Row();
     rows.add(r);
-    r.setAnchor("value");
+    r.setAnchor("value"); 
     ElementDefinition e = ext.getSnapshot().getElement().get(0);
     String name;
     if (e.getType().size() == 1)
@@ -980,21 +1006,37 @@ public class ProfileUtilities {
     boolean first = true;
     Element source = e.getType().get(0); // either all types are the same, or we don't consider any of them the same
     
+    boolean allReference = ADD_REFERENCE_TO_TABLE && !e.getType().isEmpty();
+    for (TypeRefComponent t : e.getType()) {
+      if (!(t.getCode().equals("Reference") && t.hasProfile()))
+        allReference = false;
+    }
+    if (allReference) {
+      c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
+      c.getPieces().add(gen.new Piece(null, "(", null));
+    }
     TypeRefComponent tl = null;
     for (TypeRefComponent t : e.getType()) {
       if (first) 
         first = false; 
-      else 
+      else if (allReference)
+        c.addPiece(checkForNoChange(tl, gen.new Piece(null," | ", null)));
+      else
         c.addPiece(checkForNoChange(tl, gen.new Piece(null,", ", null)));
       tl = t;
       if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.hasProfile())) {
+        if (ADD_REFERENCE_TO_TABLE && !allReference) {
+          c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
+          c.getPieces().add(gen.new Piece(null, "(", null));
+        }
         if (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          StructureDefinition sd = context.getProfiles().get(t.getProfile().get(0).getValue());
+          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile().get(0).getValue());
           if (sd != null) {
-            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+sd.getUserString("path"), sd.getName(), null)));
+            String disp = sd.hasDisplay() ? sd.getDisplay() : sd.getName();
+            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+sd.getUserString("path"), disp, null)));
           } else {
-          String rn = t.getProfile().get(0).getValue().substring(40);
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
+            String rn = t.getProfile().get(0).getValue().substring(40);
+            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
           }
         } else if (t.getProfile().size() == 0) {
           c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
@@ -1002,6 +1044,9 @@ public class ProfileUtilities {
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().get(0).getValue().substring(1).toLowerCase()+".html", t.getProfile().get(0).getValue(), null)));
         else
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getProfile().get(0).getValue(), t.getProfile().get(0).getValue(), null)));
+        if (ADD_REFERENCE_TO_TABLE && !allReference) {
+          c.getPieces().add(gen.new Piece(null, ")", null));
+        }
       } else if (t.hasProfile()) { // a profiled type
         String ref;
         ref = pkp.getLinkForProfile(profile, t.getProfile().get(0).getValue());
@@ -1014,6 +1059,9 @@ public class ProfileUtilities {
         c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(t.getCode()), t.getCode(), null)));
       } else
         c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
+    }
+    if (allReference) {
+      c.getPieces().add(gen.new Piece(null, ")", null));
     }
     return c;
   }
@@ -1111,7 +1159,7 @@ public class ProfileUtilities {
         if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(pkp, element.getType().get(0).getProfile().get(0).getValue())) 
           row.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
         else
-        row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
+          row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
         ext = true;
       } else if (!hasDef || element.getType().size() == 0)
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
@@ -1149,7 +1197,7 @@ public class ProfileUtilities {
       StructureDefinition extDefn = null;
       if (ext) {
         if (element != null && element.getType().size() == 1 && element.getType().get(0).hasProfile()) {
-        extDefn = context.getExtensionStructure(null, element.getType().get(0).getProfile().get(0).getValue());
+        extDefn = context.fetchResource(StructureDefinition.class, element.getType().get(0).getProfile().get(0).getValue());
           if (extDefn == null) {
             genCardinality(gen, element, row, hasDef, used, null);
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
@@ -1216,8 +1264,8 @@ public class ProfileUtilities {
 
 
 
-  private boolean extensionIsComplex(ProfileKnowledgeProvider pkp, String value) {
-    StructureDefinition ext = context.getExtensionDefinitions().get(value);
+  private boolean extensionIsComplex(ProfileKnowledgeProvider pkp, String value) throws EOperationOutcome, Exception {
+    StructureDefinition ext = context.fetchResource(StructureDefinition.class, value);
     if (ext == null)
       return false;
     return ext.getSnapshot().getElement().size() > 5;
@@ -1278,59 +1326,59 @@ public class ProfileUtilities {
       if (definition.getPath().endsWith("url") && definition.hasFixed()) {
         c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "\""+buildJson(definition.getFixed())+"\"", null).addStyle("color: darkgreen")));
       } else {
-      if (definition != null && definition.hasShort()) {
-        if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-        c.addPiece(checkForNoChange(definition.getShortElement(), gen.new Piece(null, definition.getShort(), null)));
-      } else if (fallback != null && fallback != null && fallback.hasShort()) {
-        if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-        c.addPiece(checkForNoChange(fallback.getShortElement(), gen.new Piece(null, fallback.getShort(), null)));
-      }
-      if (url != null) {
-        if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-        String fullUrl = url.startsWith("#") ? baseURL+url : url;
-        StructureDefinition ed = context.getExtensionStructure(null, url);
-          String ref = ed == null ? null : (String) corePath+ed.getUserData("path");
-        c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
-        c.getPieces().add(gen.new Piece(ref, fullUrl, null));
-      }
-
-      if (definition.hasSlicing()) {
-        if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-        c.getPieces().add(gen.new Piece(null, "Slice: ", null).addStyle("font-weight:bold"));
-        c.getPieces().add(gen.new Piece(null, describeSlice(definition.getSlicing()), null));
-      }
-      if (definition != null) {
-        if (definition.hasBinding()) {
+        if (definition != null && definition.hasShort()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          BindingResolution br = pkp.resolveBinding(definition.getBinding());
-          c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
+          c.addPiece(checkForNoChange(definition.getShortElement(), gen.new Piece(null, definition.getShort(), null)));
+        } else if (fallback != null && fallback != null && fallback.hasShort()) {
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.addPiece(checkForNoChange(fallback.getShortElement(), gen.new Piece(null, fallback.getShort(), null)));
+        }
+        if (url != null) {
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          String fullUrl = url.startsWith("#") ? baseURL+url : url;
+          StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
+          String ref = ed == null ? null : (String) corePath+ed.getUserData("path");
+          c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(ref, fullUrl, null));
+        }
+
+        if (definition.hasSlicing()) {
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.getPieces().add(gen.new Piece(null, "Slice: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, describeSlice(definition.getSlicing()), null));
+        }
+        if (definition != null) {
+          if (definition.hasBinding()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            BindingResolution br = pkp.resolveBinding(definition.getBinding());
+            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url)? br.url : corePath+br.url, br.display, null)));
-          if (definition.getBinding().hasStrength()) {
-            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, " (", null)));
+            if (definition.getBinding().hasStrength()) {
+              c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, " (", null)));
               c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(corePath+"terminologies.html#"+definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().getDefinition())));
-            c.getPieces().add(gen.new Piece(null, ")", null));
+              c.getPieces().add(gen.new Piece(null, ")", null));
+            }
+          }
+          for (ElementDefinitionConstraintComponent inv : definition.getConstraint()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getKey()+": ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getHuman(), null)));
+          }
+          if (definition.hasFixed()) {        
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, buildJson(definition.getFixed()), null).addStyle("color: darkgreen")));
+          } else if (definition.hasPattern()) {        
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, buildJson(definition.getPattern()), null).addStyle("color: darkgreen")));
+          } else if (definition.hasExample()) {        
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, buildJson(definition.getExample()), null).addStyle("color: darkgreen")));
           }
         }
-        for (ElementDefinitionConstraintComponent inv : definition.getConstraint()) {
-          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getKey()+": ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getHuman(), null)));
-        }
-        if (definition.hasFixed()) {        
-          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, buildJson(definition.getFixed()), null).addStyle("color: darkgreen")));
-        } else if (definition.hasPattern()) {        
-          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, buildJson(definition.getPattern()), null).addStyle("color: darkgreen")));
-        } else if (definition.hasExample()) {        
-          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, buildJson(definition.getExample()), null).addStyle("color: darkgreen")));
-        }
       }
-    }
     }
     return c;
   }
@@ -1339,7 +1387,7 @@ public class ProfileUtilities {
     if (value instanceof PrimitiveType)
       return ((PrimitiveType) value).asStringValue();
     
-    JsonParser json = new JsonParser();
+    IParser json = context.newJsonParser();
     return json.composeString(value, null);
   }
 
@@ -1444,26 +1492,9 @@ public class ProfileUtilities {
   		code = url.substring(1);
   	} else {
   		String[] parts = url.split("\\#");
-  		if (!context.getProfiles().containsKey(parts[0])) {
-  			if (parts[0].startsWith("http:") || parts[0].startsWith("https:")) {
-  				String[] ps = parts[0].split("\\/StructureDefinition\\/");
-  				if (ps.length != 2)
-  					throw new Exception("Unable to understand address of profile: "+parts[0]);
-  				IFHIRClient client = context.getClient();
-  				try {
-  				client.initialize(ps[0]);
-  				StructureDefinition ae = client.read(StructureDefinition.class, ps[1]);
-  				context.getProfiles().put(parts[0], ae);
-  				} catch (Exception e) {
-  				  throw new Exception("Unable to resolve "+ps[1]+" from '"+url+"' on server "+client.getAddress(), e);
-  				}
-  			} else
-  				return null;
-  		}
-  		profile = context.getProfiles().get(parts[0]);
-  		code = parts.length < 2 ? null : parts[1];
-  	}
-
+  		profile = context.fetchResource(StructureDefinition.class, parts[0]);
+      code = parts.length == 1 ? null : parts[1];
+  	} 
   	if (profile == null) 
   		return null;
   	if (code == null)
@@ -1568,7 +1599,7 @@ public class ProfileUtilities {
   }
 
   
-  public void sortDifferential(StructureDefinition base, StructureDefinition diff, String name, ProfileKnowledgeProvider pkp, List<String> errors) {
+  public void sortDifferential(StructureDefinition base, StructureDefinition diff, String name, ProfileKnowledgeProvider pkp, List<String> errors) throws EOperationOutcome, Exception {
 
     final List<ElementDefinition> diffList = diff.getDifferential().getElement();
     // first, we move the differential elements into a tree
@@ -1612,12 +1643,12 @@ public class ProfileUtilities {
     return i;    
   }
 
-  private void sortElements(ElementDefinitionHolder edh, ElementDefinitionComparer cmp, List<String> errors) {
+  private void sortElements(ElementDefinitionHolder edh, ElementDefinitionComparer cmp, List<String> errors) throws EOperationOutcome, Exception {
     if (edh.getChildren().size() == 1)
       // special case - sort needsto allocate base numbers, but there'll be no sort if there's only 1 child. So in that case, we just go ahead and allocated base number directly
       edh.getChildren().get(0).baseIndex = cmp.find(edh.getChildren().get(0).getSelf().getPath());
     else
-    Collections.sort(edh.getChildren(), cmp);
+      Collections.sort(edh.getChildren(), cmp);
     cmp.checkForErrors(errors);
     
     for (ElementDefinitionHolder child : edh.getChildren()) {
@@ -1628,14 +1659,14 @@ public class ProfileUtilities {
         if (ed.getType().isEmpty() || isAbstract(ed.getType().get(0).getCode()) || ed.getType().get(0).getCode().equals(ed.getPath())) { 
           ccmp = new ElementDefinitionComparer(true, cmp.snapshot, cmp.base, cmp.prefixLength, cmp.name, cmp.pkp);
         } else if (ed.getType().get(0).getCode().equals("Extension") && child.getSelf().getType().size() == 1 && child.getSelf().getType().get(0).hasProfile()) {
-          ccmp = new ElementDefinitionComparer(true, context.getExtensionDefinitions().get(child.getSelf().getType().get(0).getProfile().get(0).getValue()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+          ccmp = new ElementDefinitionComparer(true, context.fetchResource(StructureDefinition.class, child.getSelf().getType().get(0).getProfile().get(0).getValue()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (ed.getType().size() == 1 && !ed.getType().get(0).getCode().equals("*")) {
-          ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+          ccmp = new ElementDefinitionComparer(false, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (child.getSelf().getType().size() == 1) { 
-          ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+child.getSelf().getType().get(0).getCode()).getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+          ccmp = new ElementDefinitionComparer(false, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+child.getSelf().getType().get(0).getCode()).getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (ed.getPath().endsWith("[x]") && !child.getSelf().getPath().endsWith("[x]")) {
           String p = child.getSelf().getPath().substring(ed.getPath().length()-3);
-          StructureDefinition sd = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+p);
+          StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+p);
           if (sd == null)
             throw new Error("Unable to find profile "+p);
           ccmp = new ElementDefinitionComparer(false, sd.getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name, cmp.pkp);
@@ -1694,11 +1725,11 @@ public class ProfileUtilities {
   
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws Exception {
     if (!structure.hasConstrainedType())
-    	throw new Exception("not the right kind of structure to generate schematrons for");
-    if (!structure.hasSnapshot())
+      throw new Exception("not the right kind of structure to generate schematrons for");
+      if (!structure.hasSnapshot())
       throw new Exception("needs a snapshot");
     
-  	StructureDefinition base = context.getProfiles().get(structure.getBase());
+  	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBase());
   	
     TextStreamWriter txt = new TextStreamWriter(dest);
     txt.ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");

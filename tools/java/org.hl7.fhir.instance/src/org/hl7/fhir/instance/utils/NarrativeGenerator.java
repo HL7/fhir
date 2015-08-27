@@ -40,6 +40,7 @@ import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Annotation;
 import org.hl7.fhir.instance.model.Attachment;
@@ -111,6 +112,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -137,7 +139,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private interface ResourceWrapper {
-    public List<ResourceWrapper> getContained();
+    public List<ResourceWrapper> getContained() throws EOperationOutcome, Exception;
     public String getId();
     public XhtmlNode getNarrative() throws Exception;
     public String getName();
@@ -171,7 +173,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         return null;
       
       String xml = new XmlGenerator().generate(element);
-      return new XmlParser().parseType(xml, type);
+      return context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).parseType(xml, type);
     }
 
     @Override
@@ -294,14 +296,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
     @Override
-    public List<ResourceWrapper> getContained() {
+    public List<ResourceWrapper> getContained() throws EOperationOutcome, Exception {
       if (list == null) {
         List<Element> children = new ArrayList<Element>();
         XMLUtil.getNamedChildren(wrapped, "contained", children);
         list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
         for (Element e : children) {
           Element c = XMLUtil.getFirstChild(e);
-          list.add(new ResurceWrapperElement(c, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+c.getNodeName())));
+          list.add(new ResurceWrapperElement(c, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+c.getNodeName())));
         }
       }
       return list;
@@ -509,18 +511,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
   
   private String prefix;
-  private WorkerContext context;
-  private IWorkerContext ctxt;
+  private IWorkerContext context;
   private String basePath;
   private String tooCostlyNote;
   
   
-  public NarrativeGenerator(String prefix, String basePath, WorkerContext context) {
+  public NarrativeGenerator(String prefix, String basePath, IWorkerContext context) {
     super();
     this.prefix = prefix;
     this.context = context;
     this.basePath = basePath;
-    ctxt = null;
   }
 
   
@@ -546,24 +546,26 @@ public class NarrativeGenerator implements INarrativeGenerator {
       generate((Conformance) r);   // Maintainer = Grahame
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
-    } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
-      StructureDefinition p = context.getProfiles().get(r.getResourceType().toString());
-      generateByProfile(r, p /* context.getProfiles().get(r.getResourceType().toString()) */, true); // todo: make this manageable externally 
-    } else if (context.getProfiles().containsKey("http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase())) {
-      generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
+    } else {
+      StructureDefinition p = null;
+      if (r.hasMeta()) 
+        for (UriType pu : r.getMeta().getProfile())
+          if (p == null)
+            p = context.fetchResource(StructureDefinition.class, pu.getValue());
+      if (p == null)
+        p = context.fetchResource(StructureDefinition.class, r.getResourceType().toString());
+      if (p == null)
+        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase());
+      if (p != null)
+        generateByProfile(r, p, true);  
     }
   }
 
   // dom based version, for build program
   public String generate(Element doc) throws Exception {
     String rt = "http://hl7.org/fhir/StructureDefinition/"+doc.getNodeName();
-    if (context.getProfiles().containsKey(rt)) {
-      StructureDefinition p = context.getProfiles().get(rt);
-      return generateByProfile(doc, p, true);  
-    } else 
-      throw new Exception("not done yet (profile : "+rt+")");
-    //             narrative = "&lt;-- No Narrative for this resource --&gt;";
-
+    StructureDefinition p = context.fetchResource(StructureDefinition.class, rt);
+    return generateByProfile(doc, p, true);  
   }
 
   private void generateByProfile(DomainResource r, StructureDefinition profile, boolean showCodeDetails) throws Exception {  
@@ -693,7 +695,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           for (BaseWrapper v : p.getValues()) {
             Extension ex  = (Extension) v.getBase();
             String url = ex.getUrl();
-            StructureDefinition ed = context.getExtensionStructure(profile, url);
+            StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
             if (p.getName().equals("modifierExtension") && ed == null)
               throw new Exception("Unknown modifier extension "+url);
             PropertyWrapper pe = map.get(p.getName()+"["+url+"]");
@@ -1056,7 +1058,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addText("Generated Summary: ");
     }
     String path = res.getName();
-    StructureDefinition profile = context.getProfiles().get(path);
+    StructureDefinition profile = context.fetchResource(StructureDefinition.class, path);
     if (profile == null)
       x.addText("unknown resource " +path);
     else {
@@ -1097,7 +1099,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return true;
   }
 
-  private ResourceWithReference resolveReference(ResourceWrapper res, String url) {
+  private ResourceWithReference resolveReference(ResourceWrapper res, String url) throws EOperationOutcome, Exception {
     if (url == null)
       return null;
     if (url.startsWith("#")) {
@@ -1107,17 +1109,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
       return null;
     }
-    if (!context.hasClient())
-      return null;
     
-    Resource ae = context.getClient().read(null, url);
+    Resource ae = context.fetchResource(null, url);
     if (ae == null)
       return null;
     else
       return new ResourceWithReference(url, new ResourceWrapperDirect(ae));
   }
 
-  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x, boolean showCodeDetails) {
+  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x, boolean showCodeDetails) throws Exception {
     String s = cc.getText();
     if (Utilities.noString(s)) {
       for (Coding c : cc.getCoding()) {
@@ -1177,7 +1177,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     
   }
   
-  private void renderCoding(Coding c, XhtmlNode x, boolean showCodeDetails) {
+  private void renderCoding(Coding c, XhtmlNode x, boolean showCodeDetails) throws Exception {
     String s = "";
     if (c.hasDisplayElement()) 
       s = c.getDisplay();
@@ -1208,16 +1208,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return system;
   }
 
-  private String lookupCode(String system, String code) {
-    ConceptDefinitionComponent t;
-    if (context.getCodeSystems() == null && context.getTerminologyServices() == null)
-    	return code;
-    else if (context.getCodeSystems() != null && context.getCodeSystems().containsKey(system)) 
-      t = findCode(code, context.getCodeSystems().get(system).getCodeSystem().getConcept());
-    else 
-      t = context.getTerminologyServices().getCodeDefinition(system, code);
+  private String lookupCode(String system, String code) throws Exception {
+    ValidationResult t = context.validateCode(system, code, null);
       
-    if (t != null && t.hasDisplayElement())
+    if (t != null && t.getDisplay() != null)
         return t.getDisplay();
     else 
       return code;
@@ -1235,7 +1229,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private String displayCodeableConcept(CodeableConcept cc) {
+  private String displayCodeableConcept(CodeableConcept cc) throws Exception {
     String s = cc.getText();
     if (Utilities.noString(s)) {
       for (Coding c : cc.getCoding()) {
@@ -1273,7 +1267,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     x.addText(displayTiming(s));
   }
   
-  private void renderQuantity(Quantity q, XhtmlNode x, boolean showCodeDetails) {
+  private void renderQuantity(Quantity q, XhtmlNode x, boolean showCodeDetails) throws Exception {
     if (q.hasComparator())
       x.addText(q.getComparator().toCode());
     x.addText(q.getValue().toString());
@@ -1779,7 +1773,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     new XhtmlComposer().compose(div, x);
   }
 
-  private String getDisplay(List<OtherElementComponent> list, String s) {
+  private String getDisplay(List<OtherElementComponent> list, String s) throws Exception {
     for (OtherElementComponent c : list) {
       if (s.equals(c.getElement()))
         return getDisplayForConcept(c.getCodeSystem(), c.getCode());
@@ -1787,29 +1781,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private String getDisplayForConcept(String system, String code) {
+  private String getDisplayForConcept(String system, String code) throws Exception {
     if (code == null)
       return null;
-    if (context.getCodeSystems().containsKey(system)) {
-      ValueSet vs = context.getCodeSystems().get(system);
-      return getDisplayForConcept(code, vs.getCodeSystem().getConcept(), vs.getCodeSystem().getCaseSensitive());
-    } else if (context.getTerminologyServices() != null) {
-      ConceptDefinitionComponent cl = context.getTerminologyServices().getCodeDefinition(system, code);
-      return cl == null ? null : cl.getDisplay();
-    } else
-      return null;
+    ValidationResult cl = context.validateCode(system, code, null);
+    return cl == null ? null : cl.getDisplay();
   }
 
-  private String getDisplayForConcept(String code, List<ConceptDefinitionComponent> concept, boolean cs) {
-    for (ConceptDefinitionComponent t : concept) {
-      if ((cs && code.equals(t.getCode()) || (!cs && code.equalsIgnoreCase(t.getCode()))))
-          return t.getDisplay();
-      String disp = getDisplayForConcept(code, t.getConcept(), cs);
-      if (disp != null)
-        return disp;
-    }
-    return null;
-  }
+
 
   private String getDescForConcept(String s) {
     if (s.startsWith("http://hl7.org/fhir/v2/element/"))
@@ -1885,7 +1864,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (vs.hasCompose()) {
         if (vs.getCompose().hasExclude()) {
           try {
-            ValueSetExpansionOutcome vse = context.getTerminologyServices().expand(vs);
+            ValueSetExpansionOutcome vse = context.expandVS(vs);
             count = 0;
             count += conceptCount(vse.getValueset().getExpansion().getContains());
             return count;
@@ -1923,16 +1902,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return count;
   }
 
-  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) {
+  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) throws EOperationOutcome, Exception {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.getMaps().values()) {
-      if (((Reference) a.getSource()).getReference().equals(vs.getUrl())) {
-        String url = "";
-        if (context.getValueSets().containsKey(((Reference) a.getTarget()).getReference()))
-            url = (String) context.getValueSets().get(((Reference) a.getTarget()).getReference()).getUserData("filename");
-        mymaps.put(a, url);
-      }
+    for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
+      String url = "";
+      ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+      if (vsr != null)
+        url = (String) vsr.getUserData("filename");
+      mymaps.put(a, url);
     }
 
     if (header) {
@@ -2021,16 +1999,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
-  private boolean generateDefinition(XhtmlNode x, ValueSet vs, boolean header) {
+  private boolean generateDefinition(XhtmlNode x, ValueSet vs, boolean header) throws EOperationOutcome, Exception {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.getMaps().values()) {
-      if (((Reference) a.getSource()).getReference().equals(vs.getUrl())) {
-        String url = "";
-        if (context.getValueSets().containsKey(((Reference) a.getTarget()).getReference()))
-            url = (String) context.getValueSets().get(((Reference) a.getTarget()).getReference()).getUserData("filename");
-        mymaps.put(a, url);
-      }
+    for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
+      String url = "";
+      ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+      if (vsr != null)
+        url = (String) vsr.getUserData("filename");
+      mymaps.put(a, url);
     }
     // also, look in the contained resources for a concept map
     for (Resource r : vs.getContained()) {
@@ -2038,8 +2015,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
         ConceptMap cm = (ConceptMap) r;
         if (((Reference) cm.getSource()).getReference().equals(vs.getUrl())) {
           String url = "";
-          if (context.getValueSets().containsKey(((Reference) cm.getTarget()).getReference()))
-            url = (String) context.getValueSets().get(((Reference) cm.getTarget()).getReference()).getUserData("filename");
+          ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) cm.getTarget()).getReference());
+          if (vsr != null)
+              url = (String) vsr.getUserData("filename");
         mymaps.put(cm, url);
         }
       }
@@ -2182,7 +2160,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return tr;
   }
 
-  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, Map<ConceptMap, String> mymaps) {
+  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, Map<ConceptMap, String> mymaps) throws Exception {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");    
     
@@ -2192,7 +2170,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     String s = Utilities.padLeft("", '.', i*2);
     
     td.addText(s);
-    Resource e = context.getCodeSystems().get(c.getSystem());
+    Resource e = context.fetchCodeSystem(c.getSystem());
     if (e == null)
       td.addText(c.getCode());
     else {
@@ -2399,11 +2377,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return hasExtensions;
   }
 
-  private void AddVsRef(String value, XhtmlNode li) {
+  private void AddVsRef(String value, XhtmlNode li) throws EOperationOutcome, Exception {
 
-    ValueSet vs = context.getValueSets().get(value);
+    ValueSet vs = context.fetchResource(ValueSet.class, value);
     if (vs == null) 
-      vs = context.getCodeSystems().get(value); 
+      vs = context.fetchCodeSystem(value); 
     if (vs != null) {
       String ref = (String) vs.getUserData("path");
       ref = adjustForPath(ref);
@@ -2430,7 +2408,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");
-    ValueSet e = context.getCodeSystems().get(inc.getSystem());
+    ValueSet e = context.fetchCodeSystem(inc.getSystem());
     
     if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
@@ -2508,12 +2486,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private <T extends Resource> ConceptDefinitionComponent getConceptForCode(T e, String code, String system) {
+  private <T extends Resource> ConceptDefinitionComponent getConceptForCode(T e, String code, String system) throws Exception {
     if (e == null) {
-      if (context.getTerminologyServices() != null)
-        return context.getTerminologyServices().getCodeDefinition(system, code);
-      else
-        return null;
+      return context.validateCode(system, code, null).asConceptDefinition();
     }
     ValueSet vs = (ValueSet) e;
     if (!vs.hasCodeSystem())
@@ -2731,11 +2706,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	      String right = text.substring(text.indexOf("]]]")+3);
 	      String url = link;
 	      String[] parts = link.split("\\#");
-	      StructureDefinition p = context.getProfiles().get(parts[0]);
+	      StructureDefinition p = context.fetchResource(StructureDefinition.class, parts[0]);
 	      if (p == null)
-	        p = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+parts[0]);
+	        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[0]);
 	      if (p == null)
-	        p = context.getExtensionStructure(null, link);
+	        p = context.fetchResource(StructureDefinition.class, link);
 	      if (p != null) {
 	        url = p.getUserString("path");
 	        if (url == null)

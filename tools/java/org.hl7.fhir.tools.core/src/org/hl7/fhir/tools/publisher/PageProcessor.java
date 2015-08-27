@@ -158,7 +158,6 @@ import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.Translations;
-import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CSFile;
@@ -252,7 +251,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String baseURL = "http://hl7.org/fhir/DSTU2/";
   private SpecificationTerminologyServices terminologyServices;
   private final String tsServer; // terminology to use
-  private final WorkerContext workerContext;
+  private final BuildWorkerContext workerContext;
 //  private List<ValidationMessage> collectedValidationErrors = new ArrayList<ValidationMessage>();
   private List<ValidationMessage> validationErrors = new ArrayList<ValidationMessage>();
   private long lastSecs = 0;
@@ -268,7 +267,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
     }
-    workerContext = new WorkerContext(null, client, codeSystems, valueSets, conceptMaps, profiles);
+    workerContext = new BuildWorkerContext(definitions, null, client, codeSystems, valueSets, conceptMaps, profiles);
   }
 
 //  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
@@ -297,7 +296,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  DictHTMLGenerator gen = new DictHTMLGenerator(new FileOutputStream(tmp), this, "");
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false, null, definitions, true).get(0);
+	  TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
 	  
 	  ElementDefn e;
 	  if (t.getName().equals("Resource"))
@@ -322,7 +321,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  tmp.deleteOnExit();
 	  TerminologyNotesGenerator gen = new TerminologyNotesGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false, null, definitions, true).get(0);
+	  TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
 		  gen.close();
@@ -346,7 +345,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "");
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false, null, definitions, true).get(0);
+	  TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
 		  gen.close();
@@ -365,7 +364,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     JsonSpecGenerator gen = new JsonSpecGenerator(b, pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "");
     TypeParser tp = new TypeParser();
-    TypeRef t = tp.parse(dt, false, null, definitions, true).get(0);
+    TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
     ElementDefn e = definitions.getElementDefn(t.getName());
     if (e == null) {
       gen.close();
@@ -3597,7 +3596,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (!hasDynamicContent(vs))
       return "";
     try {
-      ValueSetExpansionOutcome result = workerContext.getTerminologyServices().expand(vs);
+      ValueSetExpansionOutcome result = workerContext.expandVS(vs);
       if (result.getError() != null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--1-->"+processExpansionError(result.getError())+"</div>";
       ValueSet exp = result.getValueset();
@@ -3668,7 +3667,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   public ValueSet expandValueSet(ValueSet vs) throws Exception {
-    ValueSetExpansionOutcome result = workerContext.getTerminologyServices().expand(vs);
+    ValueSetExpansionOutcome result = workerContext.expandVS(vs);
     if (result.getError() != null)
       return null;
     else
@@ -6213,7 +6212,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return s;
   }
 
-  public WorkerContext getWorkerContext() {
+  public BuildWorkerContext getWorkerContext() {
     return workerContext;
   }
 
@@ -6647,7 +6646,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public String expandVS(ValueSet vs, String prefix, String base) {
     try {
-      ValueSetExpansionOutcome result = workerContext.getTerminologyServices().expand(vs);
+      ValueSetExpansionOutcome result = workerContext.expandVS(vs);
       if (result.getError() != null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--3-->"+processExpansionError(result.getError())+"</div>";
 

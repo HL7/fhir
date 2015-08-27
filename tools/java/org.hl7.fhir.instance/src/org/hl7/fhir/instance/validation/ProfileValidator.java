@@ -5,13 +5,14 @@ import java.util.List;
 
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.utils.IWorkerContext;
+import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 
 public class ProfileValidator {
 
-  WorkerContext context;
+  IWorkerContext context;
 
-  public void setContext(WorkerContext context) {
+  public void setContext(IWorkerContext context) {
     this.context = context;    
   }
 
@@ -32,7 +33,7 @@ public class ProfileValidator {
   private void checkExtensions(StructureDefinition profile, List<String> errors, String kind, ElementDefinition ec) throws Exception {
     if (!ec.getType().isEmpty() && ec.getType().get(0).getCode().equals("Extension") && ec.getType().get(0).hasProfile()) {
       String url = ec.getType().get(0).getProfile().get(0).getValue();
-      StructureDefinition defn = context.getExtensionStructure(null, url);
+      StructureDefinition defn = context.fetchResource(StructureDefinition.class, url);
       if (defn == null)
         errors.add("Unable to find Extension '"+url+"' referenced at "+profile.getUrl()+" "+kind+" "+ec.getPath()+" ("+ec.getName()+")");
     }

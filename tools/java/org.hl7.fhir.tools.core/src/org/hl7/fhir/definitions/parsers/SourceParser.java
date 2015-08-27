@@ -93,8 +93,8 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -134,13 +134,13 @@ public class SourceParser {
   private final String rootDir;
   private final BindingNameRegistry registry;
   private final String version;
-  private final WorkerContext context;
+  private final BuildWorkerContext context;
   private final Calendar genDate;
   private final Map<String, StructureDefinition> extensionDefinitions;
   private final PageProcessor page;
   private final Set<String> igNames = new HashSet<String>();
 
-  public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, WorkerContext context, Calendar genDate, Map<String, StructureDefinition> extensionDefinitions, PageProcessor page) {
+  public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, Map<String, StructureDefinition> extensionDefinitions, PageProcessor page) {
     this.logger = logger;
     this.registry = new BindingNameRegistry(root, forPublication);
     this.definitions = definitions;
@@ -730,7 +730,7 @@ public class SourceParser {
 
   private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map) throws Exception {
     TypeParser tp = new TypeParser();
-    List<TypeRef> ts = tp.parse(n, false, null, definitions, true);
+    List<TypeRef> ts = tp.parse(n, false, null, context, true);
     definitions.getKnownTypes().addAll(ts);
 
     try {
@@ -864,7 +864,7 @@ public class SourceParser {
 
     for (String n : ini.getPropertyNames("types"))
       if (ini.getStringProperty("types", n).equals("")) {
-        TypeRef t = new TypeParser().parse(n, false, null, definitions, true).get(0);
+        TypeRef t = new TypeParser().parse(n, false, null, context, true).get(0);
         checkFile("type definition", dtDir, t.getName().toLowerCase() + ".xml", errors, "all");
       }
     for (String n : ini.getPropertyNames("structures"))

@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:362e9334-6187-4503-a9d7-a9f4bc95db06","timestamp":"2015-08-24T23:46:36Z","contains":[{"system":"http://snomed.info/sct","code":"33463005","display":"Fluid"},{"system":"http://snomed.info/sct","code":"39972003","display":"Sodium"},{"system":"http://snomed.info/sct","code":"88480006","display":"Potassium"}]}}

@@ -37,10 +37,10 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
-import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.rdf.TurtleGenerator;
+import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 
 public class FhirTurtleGenerator extends TurtleGenerator {
@@ -72,13 +72,13 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   }
   
   private Definitions definitions;
-  private WorkerContext context;
+  private BuildWorkerContext context;
   private Deque<AnonTypeInfo> anonTypes = new ArrayDeque<AnonTypeInfo>();
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
   private Subject nilInstance;
   private List<ValidationMessage> issues;
 
-  public FhirTurtleGenerator(OutputStream destination, Definitions definitions, WorkerContext context, List<ValidationMessage> issues) {
+  public FhirTurtleGenerator(OutputStream destination, Definitions definitions, BuildWorkerContext context, List<ValidationMessage> issues) {
     super(destination);
     this.definitions = definitions;
     this.context = context;

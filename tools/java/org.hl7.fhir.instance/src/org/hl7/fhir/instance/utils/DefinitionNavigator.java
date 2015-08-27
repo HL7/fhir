@@ -11,7 +11,7 @@ import org.hl7.fhir.instance.model.StructureDefinition;
 
 public class DefinitionNavigator {
 
-  private WorkerContext context;
+  private IWorkerContext context;
   private StructureDefinition structure;
   private int index;
   private List<DefinitionNavigator> children;
@@ -21,7 +21,7 @@ public class DefinitionNavigator {
   private TypeRefComponent typeOfChildren;
   private String path;
   
-  public DefinitionNavigator(WorkerContext context, StructureDefinition structure) throws Exception {
+  public DefinitionNavigator(IWorkerContext context, StructureDefinition structure) throws Exception {
     if (!structure.hasSnapshot())
       throw new Exception("Snapshot required");
     this.context = context;
@@ -31,7 +31,7 @@ public class DefinitionNavigator {
     names.add(nameTail());
   }
   
-  private DefinitionNavigator(WorkerContext context, StructureDefinition structure, int index, String path, List<String> names, String type) throws Exception {
+  private DefinitionNavigator(IWorkerContext context, StructureDefinition structure, int index, String path, List<String> names, String type) throws Exception {
     this.path = path;
     this.context = context;
     this.structure = structure;
@@ -142,7 +142,7 @@ public class DefinitionNavigator {
 
   private void loadTypedChildren(TypeRefComponent type) throws Exception {
     typeOfChildren = null;
-    StructureDefinition sd = context.getTypeStructure(type);
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, type.hasProfile() ? type.getProfile().get(0).getValue() : type.getCode());
     if (sd != null) {
       DefinitionNavigator dn = new DefinitionNavigator(context, sd, 0, path, names, sd.getConstrainedType());
       typeChildren = dn.children();

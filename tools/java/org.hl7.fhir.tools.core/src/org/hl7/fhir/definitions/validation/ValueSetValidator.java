@@ -13,9 +13,9 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
-import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ValueSetValidator extends BaseValidator {
@@ -51,7 +51,7 @@ public class ValueSetValidator extends BaseValidator {
     }
   }
 
-  private WorkerContext context;
+  private BuildWorkerContext context;
   private List<String> fixups;
   private Set<ValueSet> handled = new HashSet<ValueSet>();
   private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
@@ -59,7 +59,7 @@ public class ValueSetValidator extends BaseValidator {
   private Set<String> valueSets = new HashSet<String>();
   private Set<String> codeSystems = new HashSet<String>();
 
-  public ValueSetValidator(WorkerContext context, List<String> fixups, Set<String> styleExemptions) {
+  public ValueSetValidator(BuildWorkerContext context, List<String> fixups, Set<String> styleExemptions) {
     this.context = context;
     this.fixups = fixups;
     this.styleExemptions = styleExemptions;
@@ -317,7 +317,7 @@ public class ValueSetValidator extends BaseValidator {
   private boolean isValidCode(String code, String system) {
     ValueSet cs = context.getCodeSystems().get(system);
     if (cs == null) 
-      return context.getTerminologyServices().validateCode(system, code, null) == null;
+      return context.validateCode(system, code, null).isOk();
     else {
       if (!cs.hasCodeSystem())
         throw new Error("ValueSet "+cs.getName()+"/"+cs.getUrl()+" has no code system!");
@@ -338,7 +338,7 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   private boolean canValidate(String system) {
-    return context.getCodeSystems().containsKey(system) || context.getTerminologyServices().supportsSystem(system);
+    return context.getCodeSystems().containsKey(system) || context.supportsSystem(system);
   }
 
   private void fixup(ValueSet vs) {

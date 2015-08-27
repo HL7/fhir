@@ -49,20 +49,21 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionParameterComponent;
+import org.hl7.fhir.instance.utils.IWorkerContext;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
-import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ValueSetExpanderSimple implements ValueSetExpander {
 
-  private WorkerContext context;
+  private IWorkerContext context;
   private List<ValueSetExpansionContainsComponent> codes = new ArrayList<ValueSet.ValueSetExpansionContainsComponent>();
   private Map<String, ValueSetExpansionContainsComponent> map = new HashMap<String, ValueSet.ValueSetExpansionContainsComponent>();
   private ValueSet focus;
 
 	private ValueSetExpanderFactory factory;
   
-  public ValueSetExpanderSimple(WorkerContext context, ValueSetExpanderFactory factory) {
+  public ValueSetExpanderSimple(IWorkerContext context, ValueSetExpanderFactory factory) {
     super();
     this.context = context;
     this.factory = factory;
@@ -107,7 +108,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	private void importValueSet(String value, List<ValueSetExpansionParameterComponent> params) throws Exception {
 	  if (value == null)
 	  	throw new Exception("unable to find value set with no identity");
-	  ValueSet vs = context.getValueSets().get(value);
+	  ValueSet vs = context.fetchResource(ValueSet.class, value);
 	  if (vs == null)
 			throw new Exception("Unable to find imported value set "+value);
 	  ValueSetExpansionOutcome vso = factory.getExpander().expand(vs);
@@ -135,12 +136,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
   private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params) throws Exception {
-	  if (context.getTerminologyServices() != null && context.getTerminologyServices().supportsSystem(inc.getSystem())) {
-        addCodes(context.getTerminologyServices().expandVS(inc), params);
+	  if (context.supportsSystem(inc.getSystem())) {
+        addCodes(context.expandVS(inc), params);
       return;
 	  }
 	    
-	  ValueSet cs = context.getCodeSystems().get(inc.getSystem());
+	  ValueSet cs = context.fetchCodeSystem(inc.getSystem());
 	  if (cs == null)
 	  	throw new Exception("unable to find code system "+inc.getSystem().toString());
 	  if (cs.hasVersion())
@@ -194,7 +195,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
 	private void excludeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params) throws Exception {
-	  ValueSet cs = context.getCodeSystems().get(inc.getSystem().toString());
+	  ValueSet cs = context.fetchCodeSystem(inc.getSystem().toString());
 	  if (cs == null)
 	  	throw new Exception("unable to find value set "+inc.getSystem().toString());
     if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {

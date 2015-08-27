@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.Coding;
@@ -57,9 +58,9 @@ import org.hl7.fhir.utilities.Utilities;
  */
 public class ProfileComparer {
 
-  private WorkerContext context;
+  private IWorkerContext context;
   
-  public ProfileComparer(WorkerContext context) {
+  public ProfileComparer(IWorkerContext context) {
     super();
     this.context = context;
   }
@@ -191,7 +192,7 @@ public class ProfileComparer {
       if (val instanceof PrimitiveType) 
         return "\"" + ((PrimitiveType) val).getValueAsString()+"\"";
       
-      JsonParser jp = new JsonParser();
+      IParser jp = context.newJsonParser();
       return jp.composeString(val, "value");
     }
     
@@ -601,8 +602,8 @@ public class ProfileComparer {
           ValueSetExpansionOutcome le;
           ValueSetExpansionOutcome re;
           try {
-            le = context.getTerminologyServices().expand(lvs);
-            re = context.getTerminologyServices().expand(rvs);
+            le = context.expandVS(lvs);
+            re = context.expandVS(rvs);
             if (!closed(le.getValueset()) || !closed(re.getValueset())) 
               throw new Exception("unclosed value sets are not handled yet");
             cvs = intersectByExpansion(lvs, rvs);
@@ -624,7 +625,7 @@ public class ProfileComparer {
     return false;
   }
 
-  private ElementDefinitionBindingComponent unionBindings(ElementDefinition ed, ProfileComparison outcome, String path, ElementDefinitionBindingComponent left, ElementDefinitionBindingComponent right) {
+  private ElementDefinitionBindingComponent unionBindings(ElementDefinition ed, ProfileComparison outcome, String path, ElementDefinitionBindingComponent left, ElementDefinitionBindingComponent right) throws EOperationOutcome, Exception {
     ElementDefinitionBindingComponent union = new ElementDefinitionBindingComponent();
     if (left.getStrength().compareTo(right.getStrength()) < 0)
       union.setStrength(left.getStrength());
@@ -707,7 +708,7 @@ public class ProfileComparer {
     return false;
   }
 
-  private ValueSet resolveVS(StructureDefinition ctxtLeft, Type vsRef) {
+  private ValueSet resolveVS(StructureDefinition ctxtLeft, Type vsRef) throws EOperationOutcome, Exception {
     if (vsRef == null)
       return null;
     if (vsRef instanceof UriType)
@@ -716,7 +717,7 @@ public class ProfileComparer {
       Reference ref = (Reference) vsRef;
       if (!ref.hasReference())
         return null;
-      return context.getValueSets().get(ref.getReference());
+      return context.fetchResource(ValueSet.class, ref.getReference());
     }
   }
 
@@ -820,8 +821,8 @@ public class ProfileComparer {
     return result;
   }
 
-  private StructureDefinition resolveProfile(ElementDefinition ed, ProfileComparison outcome, String path, String url, String name) {
-    StructureDefinition res = context.getProfiles().get(url);
+  private StructureDefinition resolveProfile(ElementDefinition ed, ProfileComparison outcome, String path, String url, String name) throws EOperationOutcome, Exception {
+    StructureDefinition res = context.fetchResource(StructureDefinition.class, url);
     if (res == null) {
       outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.INFORMATIONAL, path, "Unable to resolve profile "+url+" in profile "+name, IssueSeverity.INFORMATION));
       status(ed, ProfileUtilities.STATUS_HINT);
@@ -856,8 +857,8 @@ public class ProfileComparer {
           ex.getProfile().clear();
         } else {
           // both have profiles. Is one derived from the other? 
-          StructureDefinition sdex = context.getProfiles().get(ex.getProfile().get(0).getValueAsString());
-          StructureDefinition sdnw = context.getProfiles().get(nw.getProfile().get(0).getValueAsString());
+          StructureDefinition sdex = context.fetchResource(StructureDefinition.class, ex.getProfile().get(0).getValueAsString());
+          StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getProfile().get(0).getValueAsString());
           if (sdex != null && sdnw != null) {
             if (sdex == sdnw) {
               found = true;

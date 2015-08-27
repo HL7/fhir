@@ -32,12 +32,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.instance.utils.NameResolver;
+import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 
 public class TypeParser {
 
 
-	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, NameResolver resolver, boolean allowElement) throws Exception {
+	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, BuildWorkerContext resolver, boolean allowElement) throws Exception {
 		ArrayList<TypeRef> a = new ArrayList<TypeRef>();
 
 		if (n == null || n.equals("") || n.startsWith("!"))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 20, 2015 17:24+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 27, 2015 12:05+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -50,15 +50,19 @@ public class MedicationStatement extends DomainResource {
         /**
          * The medication is still being taken.
          */
-        INPROGRESS, 
+        ACTIVE, 
         /**
-         * All actions that are implied by the statement have occurred.
+         * The medication is no longer being taken.
          */
         COMPLETED, 
         /**
-         * The statement was entered in error and therefore nullified.
+         * The statement was entered in error.
          */
         ENTEREDINERROR, 
+        /**
+         * The medication may be taken at some time in the future.
+         */
+        INTENDED, 
         /**
          * added to help the parsers
          */
@@ -66,43 +70,49 @@ public class MedicationStatement extends DomainResource {
         public static MedicationStatementStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in-progress".equals(codeString))
-          return INPROGRESS;
+        if ("active".equals(codeString))
+          return ACTIVE;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
+        if ("intended".equals(codeString))
+          return INTENDED;
         throw new Exception("Unknown MedicationStatementStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in-progress";
+            case ACTIVE: return "active";
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
+            case INTENDED: return "intended";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case INPROGRESS: return "http://hl7.org/fhir/medication-statement-status";
+            case ACTIVE: return "http://hl7.org/fhir/medication-statement-status";
             case COMPLETED: return "http://hl7.org/fhir/medication-statement-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/medication-statement-status";
+            case INTENDED: return "http://hl7.org/fhir/medication-statement-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case INPROGRESS: return "The medication is still being taken.";
-            case COMPLETED: return "All actions that are implied by the statement have occurred.";
-            case ENTEREDINERROR: return "The statement was entered in error and therefore nullified.";
+            case ACTIVE: return "The medication is still being taken.";
+            case COMPLETED: return "The medication is no longer being taken.";
+            case ENTEREDINERROR: return "The statement was entered in error.";
+            case INTENDED: return "The medication may be taken at some time in the future.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "In Progress";
+            case ACTIVE: return "Active";
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered in Error";
+            case INTENDED: return "Intended";
             default: return "?";
           }
         }
@@ -113,21 +123,25 @@ public class MedicationStatement extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in-progress".equals(codeString))
-          return MedicationStatementStatus.INPROGRESS;
+        if ("active".equals(codeString))
+          return MedicationStatementStatus.ACTIVE;
         if ("completed".equals(codeString))
           return MedicationStatementStatus.COMPLETED;
         if ("entered-in-error".equals(codeString))
           return MedicationStatementStatus.ENTEREDINERROR;
+        if ("intended".equals(codeString))
+          return MedicationStatementStatus.INTENDED;
         throw new IllegalArgumentException("Unknown MedicationStatementStatus code '"+codeString+"'");
         }
     public String toCode(MedicationStatementStatus code) {
-      if (code == MedicationStatementStatus.INPROGRESS)
-        return "in-progress";
+      if (code == MedicationStatementStatus.ACTIVE)
+        return "active";
       if (code == MedicationStatementStatus.COMPLETED)
         return "completed";
       if (code == MedicationStatementStatus.ENTEREDINERROR)
         return "entered-in-error";
+      if (code == MedicationStatementStatus.INTENDED)
+        return "intended";
       return "?";
       }
     }
@@ -137,67 +151,67 @@ public class MedicationStatement extends DomainResource {
         /**
          * Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
          */
-        @Child(name = "text", type = {StringType.class}, order=1, min=0, max=1)
+        @Child(name = "text", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Dosage Instructions", formalDefinition="Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication." )
         protected StringType text;
 
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
-        @Child(name = "timing", type = {Timing.class}, order=2, min=0, max=1)
+        @Child(name = "timing", type = {Timing.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="When/how often was medication taken?", formalDefinition="The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"." )
         protected Timing timing;
 
         /**
          * If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the precondition for taking the Medication.
          */
-        @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=3, min=0, max=1)
+        @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Take \"as needed\" f(or x)", formalDefinition="If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the precondition for taking the Medication." )
         protected Type asNeeded;
 
         /**
-         * A coded specification of the anatomic site where the medication first enters the body.
+         * A coded specification of or a reference to the anatomic site where the medication first enters the body.
          */
-        @Child(name = "site", type = {CodeableConcept.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Where on body was medication administered?", formalDefinition="A coded specification of the anatomic site where the medication first enters the body." )
-        protected CodeableConcept site;
+        @Child(name = "site", type = {CodeableConcept.class, BodySite.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Where on body was medication administered?", formalDefinition="A coded specification of or a reference to the anatomic site where the medication first enters the body." )
+        protected Type site;
 
         /**
          * A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
          */
-        @Child(name = "route", type = {CodeableConcept.class}, order=5, min=0, max=1)
+        @Child(name = "route", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="How did the medication enter the body?", formalDefinition="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject." )
         protected CodeableConcept route;
 
         /**
          * A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration.
          */
-        @Child(name = "method", type = {CodeableConcept.class}, order=6, min=0, max=1)
+        @Child(name = "method", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Technique used to administer medication", formalDefinition="A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration." )
         protected CodeableConcept method;
 
         /**
          * The amount of therapeutic or other substance given at one administration event.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=7, min=0, max=1)
+        @Child(name = "quantity", type = {SimpleQuantity.class, Range.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Amount administered in one dose", formalDefinition="The amount of therapeutic or other substance given at one administration event." )
-        protected SimpleQuantity quantity;
+        protected Type quantity;
 
         /**
          * Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
          */
-        @Child(name = "rate", type = {Ratio.class, Range.class}, order=8, min=0, max=1)
+        @Child(name = "rate", type = {Ratio.class, Range.class}, order=8, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Dose quantity per unit of time", formalDefinition="Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours." )
         protected Type rate;
 
         /**
          * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
          */
-        @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=9, min=0, max=1)
+        @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Maximum dose that was consumed per unit of time", formalDefinition="The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours." )
         protected Ratio maxDosePerPeriod;
 
-        private static final long serialVersionUID = -2038870561L;
+        private static final long serialVersionUID = 246880733L;
 
     /*
      * Constructor
@@ -325,15 +339,36 @@ public class MedicationStatement extends DomainResource {
         }
 
         /**
-         * @return {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
+         * @return {@link #site} (A coded specification of or a reference to the anatomic site where the medication first enters the body.)
          */
-        public CodeableConcept getSite() { 
-          if (this.site == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationStatementDosageComponent.site");
-            else if (Configuration.doAutoCreate())
-              this.site = new CodeableConcept(); // cc
+        public Type getSite() { 
           return this.site;
+        }
+
+        /**
+         * @return {@link #site} (A coded specification of or a reference to the anatomic site where the medication first enters the body.)
+         */
+        public CodeableConcept getSiteCodeableConcept() throws Exception { 
+          if (!(this.site instanceof CodeableConcept))
+            throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.site.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.site;
+        }
+
+        public boolean hasSiteCodeableConcept() throws Exception { 
+          return this.site instanceof CodeableConcept;
+        }
+
+        /**
+         * @return {@link #site} (A coded specification of or a reference to the anatomic site where the medication first enters the body.)
+         */
+        public Reference getSiteReference() throws Exception { 
+          if (!(this.site instanceof Reference))
+            throw new Exception("Type mismatch: the type Reference was expected, but "+this.site.getClass().getName()+" was encountered");
+          return (Reference) this.site;
+        }
+
+        public boolean hasSiteReference() throws Exception { 
+          return this.site instanceof Reference;
         }
 
         public boolean hasSite() { 
@@ -341,9 +376,9 @@ public class MedicationStatement extends DomainResource {
         }
 
         /**
-         * @param value {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
+         * @param value {@link #site} (A coded specification of or a reference to the anatomic site where the medication first enters the body.)
          */
-        public MedicationStatementDosageComponent setSite(CodeableConcept value) { 
+        public MedicationStatementDosageComponent setSite(Type value) { 
           this.site = value;
           return this;
         }
@@ -399,13 +434,34 @@ public class MedicationStatement extends DomainResource {
         /**
          * @return {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
-        public SimpleQuantity getQuantity() { 
-          if (this.quantity == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationStatementDosageComponent.quantity");
-            else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+        public Type getQuantity() { 
           return this.quantity;
+        }
+
+        /**
+         * @return {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
+         */
+        public SimpleQuantity getQuantitySimpleQuantity() throws Exception { 
+          if (!(this.quantity instanceof SimpleQuantity))
+            throw new Exception("Type mismatch: the type SimpleQuantity was expected, but "+this.quantity.getClass().getName()+" was encountered");
+          return (SimpleQuantity) this.quantity;
+        }
+
+        public boolean hasQuantitySimpleQuantity() throws Exception { 
+          return this.quantity instanceof SimpleQuantity;
+        }
+
+        /**
+         * @return {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
+         */
+        public Range getQuantityRange() throws Exception { 
+          if (!(this.quantity instanceof Range))
+            throw new Exception("Type mismatch: the type Range was expected, but "+this.quantity.getClass().getName()+" was encountered");
+          return (Range) this.quantity;
+        }
+
+        public boolean hasQuantityRange() throws Exception { 
+          return this.quantity instanceof Range;
         }
 
         public boolean hasQuantity() { 
@@ -415,7 +471,7 @@ public class MedicationStatement extends DomainResource {
         /**
          * @param value {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
-        public MedicationStatementDosageComponent setQuantity(SimpleQuantity value) { 
+        public MedicationStatementDosageComponent setQuantity(Type value) { 
           this.quantity = value;
           return this;
         }
@@ -494,10 +550,10 @@ public class MedicationStatement extends DomainResource {
           childrenList.add(new Property("text", "string", "Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("timing", "Timing", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the precondition for taking the Medication.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
-          childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
+          childrenList.add(new Property("site[x]", "CodeableConcept|Reference(BodySite)", "A coded specification of or a reference to the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("quantity", "SimpleQuantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("quantity[x]", "SimpleQuantity|Range", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("rate[x]", "Ratio|Range", "Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
@@ -552,14 +608,14 @@ public class MedicationStatement extends DomainResource {
     /**
      * External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="External Identifier", formalDefinition="External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated." )
     protected List<Identifier> identifier;
 
     /**
      * The person or animal who is /was taking the medication.
      */
-    @Child(name = "patient", type = {Patient.class}, order=1, min=1, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=1, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who was/is taking medication", formalDefinition="The person or animal who is /was taking the medication." )
     protected Reference patient;
 
@@ -571,7 +627,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * The person who provided the information about the taking of this medication.
      */
-    @Child(name = "informationSource", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1)
+    @Child(name = "informationSource", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="The person who provided the information about the taking of this medication." )
     protected Reference informationSource;
 
@@ -583,63 +639,63 @@ public class MedicationStatement extends DomainResource {
     /**
      * The date when the medication statement was asserted by the information source.
      */
-    @Child(name = "dateAsserted", type = {DateTimeType.class}, order=3, min=0, max=1)
+    @Child(name = "dateAsserted", type = {DateTimeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When the statement was asserted?", formalDefinition="The date when the medication statement was asserted by the information source." )
     protected DateTimeType dateAsserted;
 
     /**
-     * A code specifying the state of the statement.  Generally this will be in-progress or completed state.
+     * A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state.
      */
-    @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1)
-    @Description(shortDefinition="in-progress | completed | entered-in-error", formalDefinition="A code specifying the state of the statement.  Generally this will be in-progress or completed state." )
+    @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="active | completed | entered-in-error | intended", formalDefinition="A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state." )
     protected Enumeration<MedicationStatementStatus> status;
 
     /**
      * Set this to true if the record is saying that the medication was NOT taken.
      */
-    @Child(name = "wasNotTaken", type = {BooleanType.class}, order=5, min=0, max=1)
+    @Child(name = "wasNotTaken", type = {BooleanType.class}, order=5, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="True if medication is/was not being taken", formalDefinition="Set this to true if the record is saying that the medication was NOT taken." )
     protected BooleanType wasNotTaken;
 
     /**
      * A code indicating why the medication was not taken.
      */
-    @Child(name = "reasonNotTaken", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "reasonNotTaken", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="True if asserting medication was not given", formalDefinition="A code indicating why the medication was not taken." )
     protected List<CodeableConcept> reasonNotTaken;
 
     /**
      * A reason for why the medication is being/was taken.
      */
-    @Child(name = "reasonForUse", type = {CodeableConcept.class, Condition.class}, order=7, min=0, max=1)
+    @Child(name = "reasonForUse", type = {CodeableConcept.class, Condition.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="A reason for why the medication is being/was taken." )
     protected Type reasonForUse;
 
     /**
      * The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the 'wasNotGiven' attribute is true).
      */
-    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=8, min=0, max=1)
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Over what period was medication consumed?", formalDefinition="The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the 'wasNotGiven' attribute is true)." )
     protected Type effective;
 
     /**
      * Provides extra information about the medication statement that is not conveyed by the other attributes.
      */
-    @Child(name = "note", type = {StringType.class}, order=9, min=0, max=1)
+    @Child(name = "note", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Further information about the statement", formalDefinition="Provides extra information about the medication statement that is not conveyed by the other attributes." )
     protected StringType note;
 
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=10, min=1, max=1)
+    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=10, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What medication was taken?", formalDefinition="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications." )
     protected Type medication;
 
     /**
      * Indicates how the medication is/was used by the patient.
      */
-    @Child(name = "dosage", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "dosage", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
     protected List<MedicationStatementDosageComponent> dosage;
 
@@ -835,7 +891,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code specifying the state of the statement.  Generally this will be in-progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<MedicationStatementStatus> getStatusElement() { 
       if (this.status == null)
@@ -855,7 +911,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code specifying the state of the statement.  Generally this will be in-progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public MedicationStatement setStatusElement(Enumeration<MedicationStatementStatus> value) { 
       this.status = value;
@@ -863,14 +919,14 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return A code specifying the state of the statement.  Generally this will be in-progress or completed state.
+     * @return A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state.
      */
     public MedicationStatementStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value A code specifying the state of the statement.  Generally this will be in-progress or completed state.
+     * @param value A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state.
      */
     public MedicationStatement setStatus(MedicationStatementStatus value) { 
         if (this.status == null)
@@ -1194,7 +1250,7 @@ public class MedicationStatement extends DomainResource {
         childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal who is /was taking the medication.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson)", "The person who provided the information about the taking of this medication.", 0, java.lang.Integer.MAX_VALUE, informationSource));
         childrenList.add(new Property("dateAsserted", "dateTime", "The date when the medication statement was asserted by the information source.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
-        childrenList.add(new Property("status", "code", "A code specifying the state of the statement.  Generally this will be in-progress or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("wasNotTaken", "boolean", "Set this to true if the record is saying that the medication was NOT taken.", 0, java.lang.Integer.MAX_VALUE, wasNotTaken));
         childrenList.add(new Property("reasonNotTaken", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotTaken));
         childrenList.add(new Property("reasonForUse[x]", "CodeableConcept|Reference(Condition)", "A reason for why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUse));

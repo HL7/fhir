@@ -6,8 +6,7 @@ import java.io.FileOutputStream;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
-import org.hl7.fhir.instance.utils.WorkerContext;
-import org.hl7.fhir.instance.utils.WorkerContextFactory;
+import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +18,7 @@ public class NarrativeGeneratorTests {
 	@Before
 	public void setUp() throws Exception {
 		if (gen == null)
-  		gen = new NarrativeGenerator("", null, WorkerContextFactory.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip"));
+  		gen = new NarrativeGenerator("", null, SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip"));
 	}
 
 	@After

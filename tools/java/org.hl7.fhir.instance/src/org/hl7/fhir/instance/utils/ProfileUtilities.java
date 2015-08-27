@@ -9,8 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.hl7.fhir.instance.client.FHIRSimpleClient;
-import org.hl7.fhir.instance.client.IFHIRClient;
+import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
@@ -84,10 +83,10 @@ public class ProfileUtilities {
   private static final String DERIVATION_EQUALS = "derivation.equals";
   public static final String UD_ERROR_STATUS = "error-status";
   
-  private final WorkerContext context;
+  private final IWorkerContext context;
   private List<ValidationMessage> messages;
   
-  public ProfileUtilities(WorkerContext context) {
+  public ProfileUtilities(IWorkerContext context) {
     super();
     this.context = context;
   }
@@ -493,14 +492,11 @@ public class ProfileUtilities {
   }
 
 
-  private StructureDefinition getProfileForDataType(TypeRefComponent type) {
-    for (StructureDefinition ae : context.getProfiles().values()) {
-      if (ae.getName().equals(type.getCode())) {
-        return ae;
-      }
-    }
-	  System.out.println("XX: failed to find profle for type: " + type.getCode()); // debug GJM
-    return null;
+  private StructureDefinition getProfileForDataType(TypeRefComponent type) throws EOperationOutcome, Exception {
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type.getCode());
+    if (sd == null)
+      System.out.println("XX: failed to find profle for type: " + type.getCode()); // debug GJM
+    return sd;
   }
 
 
@@ -814,8 +810,8 @@ public class ProfileUtilities {
             messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), IssueSeverity.NULL));
 //            throw new Exception("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
           else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED) {
-            ValueSetExpansionOutcome expBase = context.getTerminologyServices().expand(context.getValueSets().get(base.getBinding().getValueSetReference().getReference()));
-            ValueSetExpansionOutcome expDerived = context.getTerminologyServices().expand(context.getValueSets().get(derived.getBinding().getValueSetReference().getReference()));
+            ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetReference().getReference()));
+            ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetReference().getReference()));
             if (expBase.getValueset() == null)
               messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
             else if (expDerived.getValueset() == null)
@@ -1034,7 +1030,7 @@ public class ProfileUtilities {
           c.getPieces().add(gen.new Piece(null, "(", null));
         }
         if (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          StructureDefinition sd = context.getProfiles().get(t.getProfile().get(0).getValue());
+          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile().get(0).getValue());
           if (sd != null) {
             String disp = sd.hasDisplay() ? sd.getDisplay() : sd.getName();
             c.addPiece(checkForNoChange(t, gen.new Piece(corePath+sd.getUserString("path"), disp, null)));
@@ -1201,7 +1197,7 @@ public class ProfileUtilities {
       StructureDefinition extDefn = null;
       if (ext) {
         if (element != null && element.getType().size() == 1 && element.getType().get(0).hasProfile()) {
-        extDefn = context.getExtensionStructure(null, element.getType().get(0).getProfile().get(0).getValue());
+        extDefn = context.fetchResource(StructureDefinition.class, element.getType().get(0).getProfile().get(0).getValue());
           if (extDefn == null) {
             genCardinality(gen, element, row, hasDef, used, null);
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
@@ -1268,8 +1264,8 @@ public class ProfileUtilities {
 
 
 
-  private boolean extensionIsComplex(ProfileKnowledgeProvider pkp, String value) {
-    StructureDefinition ext = context.getExtensionDefinitions().get(value);
+  private boolean extensionIsComplex(ProfileKnowledgeProvider pkp, String value) throws EOperationOutcome, Exception {
+    StructureDefinition ext = context.fetchResource(StructureDefinition.class, value);
     if (ext == null)
       return false;
     return ext.getSnapshot().getElement().size() > 5;
@@ -1340,7 +1336,7 @@ public class ProfileUtilities {
         if (url != null) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           String fullUrl = url.startsWith("#") ? baseURL+url : url;
-          StructureDefinition ed = context.getExtensionStructure(null, url);
+          StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
           String ref = ed == null ? null : (String) corePath+ed.getUserData("path");
           c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(ref, fullUrl, null));
@@ -1391,7 +1387,7 @@ public class ProfileUtilities {
     if (value instanceof PrimitiveType)
       return ((PrimitiveType) value).asStringValue();
     
-    JsonParser json = new JsonParser();
+    IParser json = context.newJsonParser();
     return json.composeString(value, null);
   }
 
@@ -1496,30 +1492,9 @@ public class ProfileUtilities {
   		code = url.substring(1);
   	} else {
   		String[] parts = url.split("\\#");
-  		if (context.getExtensionDefinitions().containsKey(parts[0])) {
-        profile = context.getExtensionDefinitions().get(parts[0]);
-        code = null;
-  		} else {
-  		  if (!context.getProfiles().containsKey(parts[0])) {
-  			if (parts[0].startsWith("http:") || parts[0].startsWith("https:")) {
-  				String[] ps = parts[0].split("\\/StructureDefinition\\/");
-  				if (ps.length != 2)
-  					throw new Exception("Unable to understand address of profile: "+parts[0]);
-          IFHIRClient client = context.getClient();
-  				try {
-    				client.initialize(ps[0]);
-    				StructureDefinition ae = client.read(StructureDefinition.class, ps[1]);
-    				context.getProfiles().put(parts[0], ae);
-  				} catch (Exception e) {
-  				  throw new Exception("Unable to resolve "+ps[1]+" from '"+url+"' on server "+client.getAddress(), e);
-  				}
-  			} else
-  				return null;
-        }
-        profile = context.getProfiles().get(parts[0]);
-        code = parts.length < 2 ? null : parts[1];
-  		}
-
+  		profile = context.fetchResource(StructureDefinition.class, parts[0]);
+      code = parts.length == 1 ? null : parts[1];
+  	} 
   	if (profile == null) 
   		return null;
   	if (code == null)
@@ -1528,7 +1503,6 @@ public class ProfileUtilities {
   		if (r instanceof StructureDefinition && r.getId().equals(code))
   			return (StructureDefinition) r;
   	}
-    }
   	return null;	  
   }
 
@@ -1625,7 +1599,7 @@ public class ProfileUtilities {
   }
 
   
-  public void sortDifferential(StructureDefinition base, StructureDefinition diff, String name, ProfileKnowledgeProvider pkp, List<String> errors) {
+  public void sortDifferential(StructureDefinition base, StructureDefinition diff, String name, ProfileKnowledgeProvider pkp, List<String> errors) throws EOperationOutcome, Exception {
 
     final List<ElementDefinition> diffList = diff.getDifferential().getElement();
     // first, we move the differential elements into a tree
@@ -1669,7 +1643,7 @@ public class ProfileUtilities {
     return i;    
   }
 
-  private void sortElements(ElementDefinitionHolder edh, ElementDefinitionComparer cmp, List<String> errors) {
+  private void sortElements(ElementDefinitionHolder edh, ElementDefinitionComparer cmp, List<String> errors) throws EOperationOutcome, Exception {
     if (edh.getChildren().size() == 1)
       // special case - sort needsto allocate base numbers, but there'll be no sort if there's only 1 child. So in that case, we just go ahead and allocated base number directly
       edh.getChildren().get(0).baseIndex = cmp.find(edh.getChildren().get(0).getSelf().getPath());
@@ -1685,14 +1659,14 @@ public class ProfileUtilities {
         if (ed.getType().isEmpty() || isAbstract(ed.getType().get(0).getCode()) || ed.getType().get(0).getCode().equals(ed.getPath())) { 
           ccmp = new ElementDefinitionComparer(true, cmp.snapshot, cmp.base, cmp.prefixLength, cmp.name, cmp.pkp);
         } else if (ed.getType().get(0).getCode().equals("Extension") && child.getSelf().getType().size() == 1 && child.getSelf().getType().get(0).hasProfile()) {
-          ccmp = new ElementDefinitionComparer(true, context.getExtensionDefinitions().get(child.getSelf().getType().get(0).getProfile().get(0).getValue()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+          ccmp = new ElementDefinitionComparer(true, context.fetchResource(StructureDefinition.class, child.getSelf().getType().get(0).getProfile().get(0).getValue()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (ed.getType().size() == 1 && !ed.getType().get(0).getCode().equals("*")) {
-          ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+          ccmp = new ElementDefinitionComparer(false, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (child.getSelf().getType().size() == 1) { 
-          ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+child.getSelf().getType().get(0).getCode()).getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+          ccmp = new ElementDefinitionComparer(false, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+child.getSelf().getType().get(0).getCode()).getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (ed.getPath().endsWith("[x]") && !child.getSelf().getPath().endsWith("[x]")) {
           String p = child.getSelf().getPath().substring(ed.getPath().length()-3);
-          StructureDefinition sd = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+p);
+          StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+p);
           if (sd == null)
             throw new Error("Unable to find profile "+p);
           ccmp = new ElementDefinitionComparer(false, sd.getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name, cmp.pkp);
@@ -1755,7 +1729,7 @@ public class ProfileUtilities {
       if (!structure.hasSnapshot())
       throw new Exception("needs a snapshot");
     
-  	StructureDefinition base = context.getProfiles().get(structure.getBase());
+  	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBase());
   	
     TextStreamWriter txt = new TextStreamWriter(dest);
     txt.ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");

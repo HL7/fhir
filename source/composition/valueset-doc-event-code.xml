@@ -57,7 +57,7 @@
     </concept>
   </codeSystem>
   <compose>
-    <import value="http://hl7.org/fhir/ValueSet/imaging-modality"/>
+    <import value="http://hl7.org/fhir/ValueSet/dicom-cid29"/>
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>

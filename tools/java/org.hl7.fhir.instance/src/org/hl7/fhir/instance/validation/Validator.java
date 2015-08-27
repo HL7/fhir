@@ -38,6 +38,7 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.test.ProfileValidatorTests;
 
 /**
  * A service that will validate one or more FHIR resources against 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 20, 2015 17:24+1000 for FHIR v0.5.0
+// Generated on Thu, Aug 27, 2015 12:05+1000 for FHIR v0.5.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -149,14 +149,14 @@ public class Narrative extends BaseNarrative implements INarrative {
     /**
      * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
      */
-    @Child(name = "status", type = {CodeType.class}, order=0, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="generated | extensions | additional | empty", formalDefinition="The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data." )
     protected Enumeration<NarrativeStatus> status;
 
     /**
      * The actual narrative content, a stripped down version of XHTML.
      */
-    @Child(name = "div", type = {}, order=1, min=1, max=1)
+    @Child(name = "div", type = {}, order=1, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Limited xhtml content", formalDefinition="The actual narrative content, a stripped down version of XHTML." )
     protected XhtmlNode div;
 

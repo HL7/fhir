@@ -51,10 +51,10 @@
   Conformance = required
 
  -- Row 8 -----------------------------------
-  Binding Name = SubstanceCode
+  Binding Name = AllergyIntoleranceSubstance
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/substance-code
-  Definition = Type of the substance
+  Reference = valueset-allergyintolerance-substance-code
+  Definition = Type of the substance and Negation codes for reporting No Known Allergies
   Conformance = example
 
  -- Row 9 -----------------------------------
@@ -62,6 +62,13 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/route-codes
   Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
+  Conformance = example
+
+ -- Row 10 -----------------------------------
+  Binding Name = SubstanceCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/substance-code
+  Definition = Type of the substance
   Conformance = example
 
 === Sheet allergy-intolerance-status =====================================
@@ -295,7 +302,7 @@
   Aliases = Agent
   Summary = Y
   Type = CodeableConcept
-  Binding = SubstanceCode
+  Binding = AllergyIntoleranceSubstance
   Short Label = Substance, (or class) considered to be responsible for risk
   Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk
   Comments = It is strongly recommended that Substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, Snomed CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.

@@ -94,7 +94,7 @@ import org.hl7.fhir.utilities.Utilities;
 public class QuestionnaireBuilder {
 
   private static final int MaxListboxCodings = 20;
-  private WorkerContext context;
+  private IWorkerContext context;
   private int lastid = 0;
   private Resource resource;
   private StructureDefinition profile;
@@ -110,7 +110,7 @@ public class QuestionnaireBuilder {
   // we don't do the intensive parts of the work (save time)
   private Questionnaire prebuiltQuestionnaire;
 
-  public QuestionnaireBuilder(WorkerContext context) {
+  public QuestionnaireBuilder(IWorkerContext context) {
     super();
     this.context = context;
   }
@@ -980,7 +980,7 @@ public class QuestionnaireBuilder {
     private void addExtensionQuestions(StructureDefinition profile, GroupComponent group, ElementDefinition element, String path, String url, List<QuestionnaireResponse.GroupComponent> answerGroups) throws Exception { 
       // if this a  profiled extension, then we add it
     	if (!Utilities.noString(url)) {
-    		StructureDefinition ed =  context.getExtensionStructure(null, url);
+    		StructureDefinition ed =  context.fetchResource(StructureDefinition.class, url);
     		if (ed != null) {
           if (answerGroups.size() > 0)
             throw new Exception("Debug this");

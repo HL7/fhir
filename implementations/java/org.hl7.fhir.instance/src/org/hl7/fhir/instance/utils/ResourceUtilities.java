@@ -63,12 +63,12 @@ public class ResourceUtilities {
 		return b.toString();
   }
 
-	public static Resource getById(Bundle feed, ResourceType type, String reference) {
-	  for (BundleEntryComponent item : feed.getEntry()) {
-	    if (item.getResource().getId().equals(reference) && item.getResource().getResourceType() == type)
-	      return item.getResource();
-	  }
-	  return null;
+  public static Resource getById(Bundle feed, ResourceType type, String reference) {
+    for (BundleEntryComponent item : feed.getEntry()) {
+      if (item.getResource().getId().equals(reference) && item.getResource().getResourceType() == type)
+        return item.getResource();
+    }
+    return null;
   }
 
   public static BundleEntryComponent getEntryById(Bundle feed, ResourceType type, String reference) {
@@ -93,7 +93,7 @@ public class ResourceUtilities {
     return resource.getMeta();
   }
 
-  public static String representDataElementCollection(WorkerContext context, Bundle bundle, boolean profileLink, String linkBase) {
+  public static String representDataElementCollection(IWorkerContext context, Bundle bundle, boolean profileLink, String linkBase) {
     StringBuilder b = new StringBuilder();
     DataElement common = showDECHeader(b, bundle);
     b.append("<table class=\"grid\">\r\n"); 
@@ -314,13 +314,13 @@ public class ResourceUtilities {
             b.append("<br/>");
           if (c.hasName())
             b.append(Utilities.escapeXml(c.getName())+": ");
-        boolean first = true;
+          boolean first = true;
           for (ContactPoint cp : c.getTelecom()) {
-          if (first)
-            first = false;
-          else
-            b.append(", ");
-          renderContactPoint(b, cp);
+            if (first)
+              first = false;
+            else
+              b.append(", ");
+            renderContactPoint(b, cp);
           }
         }
         b.append("</td></tr>\r\n");

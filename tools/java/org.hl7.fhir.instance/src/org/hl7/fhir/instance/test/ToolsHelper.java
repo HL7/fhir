@@ -46,8 +46,6 @@ import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.instance.client.FHIRSimpleClient;
-import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
@@ -55,8 +53,7 @@ import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.WorkerContext;
-import org.hl7.fhir.instance.utils.WorkerContextFactory;
+import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.TextFile;
@@ -124,26 +121,23 @@ public class ToolsHelper {
 	  String address = args[1];
 	  String definitions = args[3];
 	  
-    WorkerContext context = WorkerContextFactory.fromDefinitions(getDefinitions(definitions));
+    SimpleWorkerContext context = SimpleWorkerContext.fromDefinitions(getDefinitions(definitions));
 
-    if (address.startsWith("http:") || address.startsWith("http:")) {
-    	// this is on a restful interface
-    	String[] parts = address.split("\\/Profile\\/");
-    	if (parts.length != 2)
-    		throw new Exception("Unable to understand address of profile");
-    	IFHIRClient client = new FHIRSimpleClient();
-    	client.initialize(parts[0]);
-    	StructureDefinition profile = client.read(StructureDefinition.class, parts[1]);
-    	ProfileUtilities utils = new ProfileUtilities(context);
-    	StructureDefinition base = utils.getProfile(profile, profile.getBase());
-    	if (base == null)
-    		throw new Exception("Unable to resolve profile "+profile.getBase());
-    	utils.generateSnapshot(base, profile, address, profile.getName(), null, null);
-    	client.update(StructureDefinition.class, profile, parts[1]);
-    } else {
-    	throw new Exception("not done yet (address = "+address+")");
-    }
-
+//    if (address.startsWith("http:") || address.startsWith("http:")) {
+//    	// this is on a restful interface
+//    	String[] parts = address.split("\\/Profile\\/");
+//    	if (parts.length != 2)
+//    		throw new Exception("Unable to understand address of profile");
+//    	StructureDefinition profile = context.fetchResource(StructureDefinition.class, parts[1]);
+//    	ProfileUtilities utils = new ProfileUtilities(context);
+//    	StructureDefinition base = utils.getProfile(profile, profile.getBase());
+//    	if (base == null)
+//    		throw new Exception("Unable to resolve profile "+profile.getBase());
+//    	utils.generateSnapshot(base, profile, address, profile.getName(), null, null);
+//    	// client.update(StructureDefinition.class, profile, parts[1]);
+//    } else {
+    	throw new Exception("generating snapshots not done yet (address = "+address+")");
+//    }
 	}
 
   private Map<String, byte[]> getDefinitions(String definitions) throws Exception {

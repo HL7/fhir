@@ -42,6 +42,13 @@
   Definition = The activity took place.
   Conformance = extensible
 
+ -- Row 7 -----------------------------------
+  Binding Name = RelatedAgentType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-RoleLinkType
+  Definition = Type of relationship between two provenance agents
+  Conformance = example
+
 === Sheet provenance-entity-role =====================================
 
  -- Row 1 -----------------------------------
@@ -143,6 +150,7 @@
   Definition = An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities
   Auditevent Mapping = AuditEvent.event.purposeOfEvent
   Prov Mapping = Activity.Activity
+  RIM Mapping = Act.code
   w5 = why
 
  -- Row 7 -----------------------------------
@@ -165,7 +173,6 @@
   Comments = For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element.
   Auditevent Mapping = AuditEvent.participant.policy
   RIM Mapping = ./inboundRelationship[isNormalActRelationship() and typeCode=\"SUBJ\"]/source[isNormalAct and subsumes(POLICY, classCode) and moodCode=EVN]/text[typeCode=\'ED\'/tel
-  w5 = why
 
  -- Row 9 -----------------------------------
   Element = Provenance.agent
@@ -190,22 +197,8 @@
   Auditevent Mapping = AuditEvent.participant.role
   Prov Mapping = Agent.Attribution
   RIM Mapping = attester: .[self::participation]/typeCode=\'RESP\' author: .[self::participation]/typeCode=\'AUT\' cc: .[self::participation]/typeCode=\'IRCP\' enterer:  .[self::participation]/typeCode=\'ENT\' informant: .[self::participation]/typeCode=\'INF\' performer: .[self::participation]/typeCode=\'PRF\' verifier: .[self::participation]/typeCode=\'VRF\' source: .[self::outboundRelationship]/typeCode=\'\'
-  w5 = who.actor
 
  -- Row 11 -----------------------------------
-  Element = !Provenance.agent.type
-  Card. = 1..1
-  Type = Coding
-  Binding = ProvenanceAgentType
-  Short Label = Agent Type
-  Definition = The type of participation of the agent
-  Requirements = If the type is \"Resource\" then the resource itself was the participant. If the type is a type of resource, then the entity identified by the resource is the participant
-  Comments = e.g.  Person | Application | Patient | Device +
-  Auditevent Mapping = .
-  Prov Mapping = Agent.Association
-  RIM Mapping = person: ./role[isNormalRole() and classCode=\'REL\']/player[isNormalEntity and classCode=\'PER\' and determinerCode=\'INST\'] agent: ./role[isNormalRole() and classCode=\'ASSIGNED\' and player[isNormalEntity and classCode=\'PSN\' and determinerCode=\'INST\']] organization: ./role[isNormalRole() and classCode=\'ASSIGNED\' and not(player)]/scoper[isNormalEntity and classCode=\'ORG\' and determinerCode=\'INST\']  software: ./role[isNormalRole() and classCode=\'ASSIGNED\']/scoper[isNormalEntity and classCode=\'DEV\' and determinerCode=\'INST\' and hasDomain(code, \'Software\')] document: ./target[isNormalAct and subsumes(\'DOC\', classCode) and moodCode=\'EVN\']
-
- -- Row 12 -----------------------------------
   Element = Provenance.agent.actor
   Card. = 0..1
   Type = Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
@@ -213,9 +206,10 @@
   Definition = The individual, device or organization that participated in the event
   Auditevent Mapping = AuditEvent.participant.reference
   Prov Mapping = Agent.Identity
+  RIM Mapping = Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]
   w5 = who.actor
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Provenance.agent.userId
   Card. = 0..1
   Type = Identifier
@@ -223,9 +217,38 @@
   Definition = The identify of the agent as known by the authorization system
   Auditevent Mapping = AuditEvent.participant.userId
   Prov Mapping = Agent.Identity
+  RIM Mapping = person: .plays:Role(classCode=\'IDENT\').id\npractitioner: ./id
   w5 = who.actor
 
+ -- Row 13 -----------------------------------
+  Element = Provenance.agent.relatedAgent
+  Card. = 0..*
+  Short Label = Track delegation between agents
+  Definition = A relationship between two the agents referenced in this resource. This is defined to allow for explicit description of the delegation between agents - e.g. this human author used this device, or one person acted on another\'s behest
+  Prov Mapping = Agent.actedOnBehalfOf
+  RIM Mapping = .rolelink
+
  -- Row 14 -----------------------------------
+  Element = Provenance.agent.relatedAgent.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = RelatedAgentType
+  Short Label = Type of relationship between agents
+  Definition = The type of relationship between agents
+  Prov Mapping = type
+  RIM Mapping = .typeCode
+
+ -- Row 15 -----------------------------------
+  Element = Provenance.agent.relatedAgent.target
+  Card. = 1..1
+  Type = uri
+  Short Label = Reference to other agent in this resource by id
+  Definition = An internal reference to another agent listed in this provenance by it\'s id
+  Comments = The uri has the form #[id] where id is on another Provenance.agent in this same resource
+  Prov Mapping = responsible
+  RIM Mapping = .target
+
+ -- Row 16 -----------------------------------
   Element = Provenance.entity
   Card. = 0..*
   UML = right
@@ -235,9 +258,8 @@
   Auditevent Mapping = AuditEvent.object
   Prov Mapping = Entity
   RIM Mapping = ./subjectOf
-  w5 = context
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Provenance.entity.role
   Card. = 1..1
   Type = code
@@ -248,9 +270,8 @@
   Prov Mapping = Entity.role
   RIM Mapping = ./typeCode
   Committee Notes = No uses cases have been identified for extensibility for this role
-  w5 = context
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Provenance.entity.type
   Card. = 1..1
   Type = Coding
@@ -261,9 +282,8 @@
   Auditevent Mapping = AuditEvent.object.type
   Prov Mapping = Entity.type
   RIM Mapping = ./target
-  w5 = context
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Provenance.entity.reference
   Card. = 1..1
   Type = uri
@@ -273,9 +293,8 @@
   Auditevent Mapping = AuditEvent.object.reference
   Prov Mapping = Entity.Identity
   RIM Mapping = ./text/reference
-  w5 = context
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Provenance.entity.display
   Card. = 0..1
   Type = string
@@ -284,25 +303,22 @@
   Auditevent Mapping = AuditEvent.object.description
   Prov Mapping = Entity.Label
   RIM Mapping = ./title
-  w5 = context
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Provenance.entity.agent
   Card. = 0..1
   Type = @Provenance.agent
   Short Label = Entity is attributed to this agent
   Definition = The entity is attributed to an agent to express the agent\'s responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity
   RIM Mapping = ./author/role
-  w5 = context
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Provenance.signature
   Card. = 0..*
   Type = Signature
   Short Label = Signature on target
   Definition = A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.
   RIM Mapping = ./signatureText
-  w5 = context
 
 === Sheet Search =====================================
 

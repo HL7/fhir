@@ -93,7 +93,7 @@ public class ResourceUtilities {
     return resource.getMeta();
   }
 
-  public static String representDataElementCollection(WorkerContext context, Bundle bundle, boolean profileLink, String linkBase) {
+  public static String representDataElementCollection(IWorkerContext context, Bundle bundle, boolean profileLink, String linkBase) {
     StringBuilder b = new StringBuilder();
     DataElement common = showDECHeader(b, bundle);
     b.append("<table class=\"grid\">\r\n"); 

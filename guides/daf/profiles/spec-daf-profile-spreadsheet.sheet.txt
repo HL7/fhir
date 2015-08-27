@@ -38,7 +38,7 @@
   Profile Name = DAFSpec
   Aliases = Sample
   Type = Resource
-  Short Label = USLab Specimen Resource
+  Short Label = US Realm DAF Specimen Resource
   Definition = Specimen resource defined for the USLab Implementation Guides
   Committee Notes = SPM.1:Set ID – SPM:SI:R::[1..1]:1..4:: || assume the resource persists from order to report.
 

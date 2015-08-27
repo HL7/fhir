@@ -297,4 +297,10 @@
   Description = Example of a pacemaker device
   Filename = device-example-pacemaker.xml
 
+ -- Row 5 -----------------------------------
+  Name = Software
+  Identity = software
+  Description = Example of an EHR software installation
+  Filename = device-example-software.xml
+
 === Sheet Examples =====================================

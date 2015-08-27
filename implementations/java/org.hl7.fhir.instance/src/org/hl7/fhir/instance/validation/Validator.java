@@ -171,7 +171,7 @@ public class Validator {
       src = source.getBytes();
     return src;
   }
-  
+
   private byte[] loadFromUrl(String src) throws Exception {
   	URL url = new URL(src);
     byte[] str = IOUtils.toByteArray(url.openStream());

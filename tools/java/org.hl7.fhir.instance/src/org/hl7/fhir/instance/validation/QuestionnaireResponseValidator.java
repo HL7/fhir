@@ -37,7 +37,9 @@ import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
-import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.utils.EOperationOutcome;
+import org.hl7.fhir.instance.utils.IWorkerContext;
+import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 
 /**
  * Validates that an instance of {@link QuestionnaireResponse} is valid against the {@link Questionnaire} that it claims to conform to.
@@ -53,9 +55,9 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 	 * ****************************************************************
 	 */
 
-	private WorkerContext myWorkerCtx;
+	private IWorkerContext myWorkerCtx;
 
-	public QuestionnaireResponseValidator(WorkerContext theWorkerCtx) {
+	public QuestionnaireResponseValidator(IWorkerContext theWorkerCtx) {
 		this.myWorkerCtx = theWorkerCtx;
 	}
 
@@ -90,7 +92,7 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 		return retVal;
 	}
 
-	public void validate(List<ValidationMessage> theErrors, QuestionnaireResponse theAnswers) {
+	public void validate(List<ValidationMessage> theErrors, QuestionnaireResponse theAnswers) throws EOperationOutcome, Exception {
 		LinkedList<String> pathStack = new LinkedList<String>();
 		pathStack.add("QuestionnaireResponse");
 		pathStack.add(QuestionnaireResponse.SP_QUESTIONNAIRE);
@@ -116,7 +118,7 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 		validateGroup(theErrors, questionnaire.getGroup(), theAnswers.getGroup(), pathStack, theAnswers, validateRequired);
 	}
 
-	private Questionnaire getQuestionnaire(QuestionnaireResponse theAnswers, Reference theQuestionnaireRef) {
+	private Questionnaire getQuestionnaire(QuestionnaireResponse theAnswers, Reference theQuestionnaireRef) throws EOperationOutcome, Exception {
 		Questionnaire retVal;
 		if (theQuestionnaireRef.getReferenceElement().isLocal()) {
 			retVal = (Questionnaire) theQuestionnaireRef.getResource();
@@ -128,12 +130,12 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 				}
 			}
 		} else {
-			retVal = myWorkerCtx.getQuestionnaires().get(theQuestionnaireRef.getReferenceElement().getValue());
+			retVal = myWorkerCtx.fetchResource(Questionnaire.class, theQuestionnaireRef.getReferenceElement().getValue());
 		}
 		return retVal;
 	}
 
-	private ValueSet getValueSet(QuestionnaireResponse theAnswers, Reference theQuestionnaireRef) {
+	private ValueSet getValueSet(QuestionnaireResponse theAnswers, Reference theQuestionnaireRef) throws EOperationOutcome, Exception {
 		ValueSet retVal;
 		if (theQuestionnaireRef.getReferenceElement().isLocal()) {
 			retVal = (ValueSet) theQuestionnaireRef.getResource();
@@ -145,13 +147,13 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 				}
 			}
 		} else {
-			retVal = myWorkerCtx.getValueSets().get(theQuestionnaireRef.getReferenceElement().getValue());
+			retVal = myWorkerCtx.fetchResource(ValueSet.class, theQuestionnaireRef.getReferenceElement().getValue());
 		}
 		return retVal;
 	}
 
 	private void validateGroup(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent theAnsGroup,
-			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
+			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) throws EOperationOutcome, Exception {
 
 		for (org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent next : theAnsGroup.getQuestion()) {
 			rule(theErrors, IssueType.INVALID, thePathStack, isNotBlank(next.getLinkId()), "Question found with no linkId");
@@ -181,7 +183,7 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 	}
 
 	private void validateQuestion(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent theAnsGroup,
-			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
+			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) throws EOperationOutcome, Exception {
 		String linkId = theQuestion.getLinkId();
 		if (!fail(theErrors, IssueType.INVALID, thePathStack, isNotBlank(linkId), "Questionnaire is invalid, question found with no link ID")) {
 			return;
@@ -219,17 +221,17 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 	}
 
 	private void validateQuestionGroups(List<ValidationMessage> theErrors, QuestionComponent theQuestion, org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionAnswerComponent theAnswer,
-			LinkedList<String> thePathSpec, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
+			LinkedList<String> thePathSpec, QuestionnaireResponse theAnswers, boolean theValidateRequired) throws EOperationOutcome, Exception {
 		validateGroups(theErrors, theQuestion.getGroup(), theAnswer.getGroup(), thePathSpec, theAnswers, theValidateRequired);
 	}
 
 	private void validateGroupGroups(List<ValidationMessage> theErrors, GroupComponent theQuestGroup, org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent theAnsGroup,
-			LinkedList<String> thePathSpec, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
+			LinkedList<String> thePathSpec, QuestionnaireResponse theAnswers, boolean theValidateRequired) throws EOperationOutcome, Exception {
 		validateGroups(theErrors, theQuestGroup.getGroup(), theAnsGroup.getGroup(), thePathSpec, theAnswers, theValidateRequired);
 	}
 
 	private void validateGroups(List<ValidationMessage> theErrors, List<GroupComponent> theQuestionGroups, List<org.hl7.fhir.instance.model.QuestionnaireResponse.GroupComponent> theAnswerGroups,
-			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
+			LinkedList<String> thePathStack, QuestionnaireResponse theAnswers, boolean theValidateRequired) throws EOperationOutcome, Exception {
 		Set<String> allowedGroups = new HashSet<String>();
 		for (GroupComponent nextQuestionGroup : theQuestionGroups) {
 			String linkId = nextQuestionGroup.getLinkId();
@@ -276,7 +278,7 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 	}
 
 	private void validateQuestionAnswers(List<ValidationMessage> theErrors, QuestionComponent theQuestion, LinkedList<String> thePathStack, AnswerFormat type,
-			org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent answerQuestion, QuestionnaireResponse theAnswers, boolean theValidateRequired) {
+			org.hl7.fhir.instance.model.QuestionnaireResponse.QuestionComponent answerQuestion, QuestionnaireResponse theAnswers, boolean theValidateRequired) throws EOperationOutcome, Exception {
 
 		String linkId = theQuestion.getLinkId();
 		Set<Class<? extends Type>> allowedAnswerTypes = determineAllowedAnswerTypes(type);

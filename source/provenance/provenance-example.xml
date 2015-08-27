@@ -46,6 +46,22 @@
       <system value="http://acme.com/fhir/users/sso"/>      
       <value value="hhd"/>
     </userId>
+    <relatedAgent>
+      <type>
+        <text value="used"/>
+      </type>
+      <target value="#a1"/>
+    </relatedAgent>
+  </agent>
+  <!-- device = software Harold used -->
+  <agent id="a1">
+    <role>
+      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <code value="DEV"/>
+    </role>
+    <actor>
+      <reference value="Device/software"/>
+    </actor>
   </agent>
   <!-- information extract from a CCDA referral document -->
   <entity>

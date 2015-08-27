@@ -55,7 +55,7 @@ import org.hl7.fhir.instance.model.ValueSet;
  * @author Grahame
  * 
  */
-public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
+public class Definitions {
 
   public class PageInformation {
 
@@ -573,7 +573,6 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
     return allBindings;
   }
 
-  @Override
   public boolean isResource(String name) {
     return hasResource(name);
   }

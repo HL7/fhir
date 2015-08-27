@@ -1,17 +1,39 @@
 package org.hl7.fhir.instance.utils;
 
-import org.hl7.fhir.instance.client.IFHIRClient;
+import java.util.List;
+
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.ParserType;
+import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.Reference;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.terminologies.ITerminologyServices;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.instance.validation.IResourceValidator;
 
+
 /**
- * Standard interface for work context across reference implementations
+ * This is the standard interface used for access to underlying FHIR
+ * services through the tools and utilities provided by the reference
+ * implementation. 
  * 
- * Provides access to common services that code using FHIR resources needs
- * 
+ * The functionality it provides is 
+ *  - get access to parsers, validators, narrative builders etc
+ *    (you can't create these directly because they need access 
+ *    to the right context for their information)
+ *    
+ *  - find resources that the tools need to carry out their tasks
+ *  
+ *  - provide access to terminology services they need. 
+ *    (typically, these terminology service requests are just
+ *    passed through to the local implementation's terminology
+ *    service)    
+ *  
  * @author Grahame
  */
 public interface IWorkerContext {
@@ -20,7 +42,7 @@ public interface IWorkerContext {
 
   /**
    * Get a parser to read/write instances. Use the defined type (will be extended 
-   * as further types are added, though the only anticipated types is RDF)
+   * as further types are added, though the only currently anticipate type is RDF)
    * 
    * XML/JSON - the standard renderers
    * XHTML - render the narrative only (generate it if necessary)
@@ -56,68 +78,192 @@ public interface IWorkerContext {
    */
   public IParser newXmlParser();
 
-  // -- access to fixed content ---------------------------------------------------
+  /**
+   * Get a generator that can generate narrative for the instance
+   * 
+   * @return a prepared generator
+   */
+  public INarrativeGenerator getNarrativeGenerator(String prefix, String basePath);
 
   /**
-   * Fetch a fixed resource that's pre-known in advance, and loaded as part of the
-   * context. The most common use of this is to access the the standard conformance
-   * resources that are part of the standard - profiles, extension definitions, and 
-   * value sets (etc).
+   * Get a validator that can check whether a resource is valid 
    * 
-   * The context loader may choose to make additional resources available (i.e. 
-   * implementation specific conformance statements, profiles, extension definitions)
+   * @return a prepared generator
+   * @throws Exception 
+   */
+  public IResourceValidator newValidator() throws Exception;
+
+  // -- resource fetchers ---------------------------------------------------
+
+  /**
+   * Find an identified resource. The most common use of this is to access the the 
+   * standard conformance resources that are part of the standard - structure 
+   * definitions, value sets, concept maps, etc.
    * 
-   * Schemas and other similar non resource content can be accessed as Binary resources
-   * using their filename in validation.zip as the id (http:/hl7/.org/fhir/Binary/[name]
+   * Also, the narrative generator uses this, and may access any kind of resource
+   * 
+   * The URI is called speculatively for things that might exist, so not finding 
+   * a matching resouce, return null, not an error
    * 
    * @param resource
    * @param Reference
    * @return
    * @throws Exception
    */
-  public <T extends Resource> T fetchResource(Class<T> class_, String uri) throws Exception;
-
-  // -- Ancilliary services ------------------------------------------------------
+  public <T extends Resource> T fetchResource(Class<T> class_, String uri) throws EOperationOutcome, Exception;
 
   /**
-   * Return a client configured to access the nominated server by it's base URL 
+   * find whether a resource is available. 
    * 
-   * Todo: how does security work?
+   * Implementations of the interface can assume that if hasResource ruturns 
+   * true, the resource will usually be fetched subsequently
    * 
-   * @param base
+   * @param class_
+   * @param uri
    * @return
-   * @throws Exception
    */
-  public IFHIRClient getClient(String base) throws Exception;
+  public <T extends Resource> boolean hasResource(Class<T> class_, String uri);
+
+  // -- Terminology services ------------------------------------------------------
+
+  // these are the terminology services used internally by the tools
+  /**
+   * Find a value set for the nominated system uri. 
+   * return null if there isn't one (then the tool might try 
+   * supportsSystem)
+   * 
+   * @param system
+   * @return
+   */
+  public ValueSet fetchCodeSystem(String system);
 
   /**
+   * True if the underlying terminology service provider will do 
+   * expansion and code validation for the terminology. Corresponds
+   * to the extension 
    * 
-   * @return a handle to the terminology services associated with this worker context
+   * http://hl7.org/fhir/StructureDefinition/conformance-supported-system
    * 
-   * @throws Exception
+   * in the Conformance resource
+   * 
+   * @param system
+   * @return
    */
-  public ITerminologyServices getTerminologyServices() throws Exception;
+  public boolean supportsSystem(String system);
 
   /**
-	 * 
-	 * @return a handle to the terminology services associated with this worker context
-	 * 
-	 * @throws Exception
-	 */
-	public IWorkerContext setTerminologyServices(ITerminologyServices value);
-	
-	/**
-   * Get a generator that can generate narrative for the instance
-   * 
-   * @return a prepared generator
+   * find concept maps for a source
+   * @param url
+   * @return
    */
-  public INarrativeGenerator getNarrativeGenerator();
+  public List<ConceptMap> findMapsForSource(String url);  
 
   /**
-   * Get a validator that can check whether a resource is valid 
-   * 
-   * @return a prepared generator
+   * ValueSet Expansion - see $expand
+   *  
+   * @param source
+   * @return
    */
-  public IResourceValidator newValidator();
+  public ValueSetExpansionOutcome expandVS(ValueSet source);
+  
+  /**
+   * Value set expanion inside the internal expansion engine - used 
+   * for references to supported system (see "supportsSystem") for
+   * which there is no value set. 
+   * 
+   * @param inc
+   * @return
+   */
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc);
+  
+  public class ValidationResult {
+    private ConceptDefinitionComponent definition;
+    private IssueSeverity severity;
+    private String message;
+    
+    public ValidationResult(IssueSeverity severity, String message) {
+      this.severity = severity;
+      this.message = message;
+    }
+    
+    public ValidationResult(ConceptDefinitionComponent definition) {
+      this.definition = definition;
+    }
+
+    public ValidationResult(IssueSeverity severity, String message, ConceptDefinitionComponent definition) {
+      this.severity = severity;
+      this.message = message;
+      this.definition = definition;
+    }
+    
+    public boolean isOk() {
+      return definition != null;
+    }
+
+    public String getDisplay() {
+      return definition == null ? "??" : definition.getDisplay();
+    }
+
+    public ConceptDefinitionComponent asConceptDefinition() {
+      return definition;
+    }
+
+    public IssueSeverity getSeverity() {
+      return severity;
+    }
+
+    public String getMessage() {
+      return message;
+    }
+
+  }
+
+  /**
+   * Validation of a code - consult the terminology service 
+   * to see whether it is known. If known, return a description of it
+   * 
+   *  note: always return a result, with either an error or a code description
+   *  
+   * corresponds to 2 terminology service calls: $validate-code and $lookup
+   * 
+   * @param system
+   * @param code
+   * @param display
+   * @return
+   */
+  public ValidationResult validateCode(String system, String code, String display);
+
+  /**
+   * Validation of a code - consult the terminology service 
+   * to see whether it is known. If known, return a description of it
+   * Also, check whether it's in the provided value set
+   * 
+   * note: always return a result, with either an error or a code description, or both (e.g. known code, but not in the value set)
+   *  
+   * corresponds to 2 terminology service calls: $validate-code and $lookup
+   * 
+   * @param system
+   * @param code
+   * @param display
+   * @return
+   */
+  public ValidationResult validateCode(String system, String code, String display, ValueSet vs);
+  
+  /**
+   * Validation of a code - consult the terminology service 
+   * to see whether it is known. If known, return a description of it
+   * Also, check whether it's in the provided value set fragment (for supported systems with no value set definition)
+   * 
+   * note: always return a result, with either an error or a code description, or both (e.g. known code, but not in the value set)
+   *  
+   * corresponds to 2 terminology service calls: $validate-code and $lookup
+   * 
+   * @param system
+   * @param code
+   * @param display
+   * @return
+   */
+  public ValidationResult validateCode(String system, String code, String display, ConceptSetComponent vsi);
+
 
 }

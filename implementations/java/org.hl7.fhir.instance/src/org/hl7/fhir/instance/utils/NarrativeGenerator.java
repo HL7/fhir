@@ -40,6 +40,7 @@ import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Annotation;
 import org.hl7.fhir.instance.model.Attachment;
@@ -111,6 +112,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -123,30 +125,21 @@ import org.w3c.dom.Element;
 
 import com.github.rjeschke.txtmark.Processor;
 
-
 public class NarrativeGenerator implements INarrativeGenerator {
 
   private interface PropertyWrapper {
     public String getName();
-
     public boolean hasValues();
-
     public List<BaseWrapper> getValues();
-
     public String getTypeCode();
-
     public String getDefinition();
-
     public int getMinCardinality();
-
     public int getMaxCardinality();
-
     public StructureDefinition getStructure();
-
   }
 
   private interface ResourceWrapper {
-    public List<ResourceWrapper> getContained();
+    public List<ResourceWrapper> getContained() throws EOperationOutcome, Exception;
     public String getId();
     public XhtmlNode getNarrative() throws Exception;
     public String getName();
@@ -154,13 +147,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private interface BaseWrapper {
-
     public Base getBase() throws Exception;
-
     public List<PropertyWrapper> children();
-
     public PropertyWrapper getChildByName(String tail);
-
   }
 
   private class BaseWrapperElement implements BaseWrapper {
@@ -184,7 +173,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         return null;
       
       String xml = new XmlGenerator().generate(element);
-      return new XmlParser().parseType(xml, type);
+      return context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).parseType(xml, type);
     }
 
     @Override
@@ -192,11 +181,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (list == null) {
         children = ProfileUtilities.getChildList(structure, definition);
         list = new ArrayList<NarrativeGenerator.PropertyWrapper>();
-      for (ElementDefinition child : children) {
-        List<Element> elements = new ArrayList<Element>();
-        XMLUtil.getNamedChildrenWithWildcard(element, tail(child.getPath()), elements);
-        list.add(new PropertyWrapperElement(structure, child, elements));
-      }
+        for (ElementDefinition child : children) {
+          List<Element> elements = new ArrayList<Element>();
+          XMLUtil.getNamedChildrenWithWildcard(element, tail(child.getPath()), elements);
+          list.add(new PropertyWrapperElement(structure, child, elements));
+        }
       }
       return list;
     }
@@ -238,14 +227,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     public List<BaseWrapper> getValues() {
       if (list == null) {
         list = new ArrayList<NarrativeGenerator.BaseWrapper>();
-      for (Element e : values)
-        list.add(new BaseWrapperElement(e, determineType(e), structure, definition));
+        for (Element e : values)
+          list.add(new BaseWrapperElement(e, determineType(e), structure, definition));
       }
       return list;
     }
     private String determineType(Element e) {
       if (definition.getType().isEmpty())
-      return null;
+        return null;
       if (definition.getType().size() == 1) {
         if (definition.getType().get(0).getCode().equals("Element") || definition.getType().get(0).getCode().equals("BackboneElement"))
           return null;
@@ -307,15 +296,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
     @Override
-    public List<ResourceWrapper> getContained() {
+    public List<ResourceWrapper> getContained() throws EOperationOutcome, Exception {
       if (list == null) {
-      List<Element> children = new ArrayList<Element>();
-      XMLUtil.getNamedChildren(wrapped, "contained", children);
+        List<Element> children = new ArrayList<Element>();
+        XMLUtil.getNamedChildren(wrapped, "contained", children);
         list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
-      for (Element e : children) {
-        Element c = XMLUtil.getFirstChild(e);
-        list.add(new ResurceWrapperElement(c, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+c.getNodeName())));
-      }
+        for (Element e : children) {
+          Element c = XMLUtil.getFirstChild(e);
+          list.add(new ResurceWrapperElement(c, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+c.getNodeName())));
+        }
       }
       return list;
     }
@@ -344,13 +333,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     @Override
     public List<PropertyWrapper> children() {
       if (list2 == null) {
-      List<ElementDefinition> children = ProfileUtilities.getChildList(definition, definition.getSnapshot().getElement().get(0));
+        List<ElementDefinition> children = ProfileUtilities.getChildList(definition, definition.getSnapshot().getElement().get(0));
         list2 = new ArrayList<NarrativeGenerator.PropertyWrapper>();
-      for (ElementDefinition child : children) {
-        List<Element> elements = new ArrayList<Element>();
+        for (ElementDefinition child : children) {
+          List<Element> elements = new ArrayList<Element>();
           XMLUtil.getNamedChildrenWithWildcard(wrapped, tail(child.getPath()), elements);
           list2.add(new PropertyWrapperElement(definition, child, elements));
-      }
+        }
       }
       return list2;
     }
@@ -381,8 +370,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     public List<BaseWrapper> getValues() {
       if (list == null) {
         list = new ArrayList<NarrativeGenerator.BaseWrapper>();
-      for (Base b : wrapped.getValues())
-        list.add(b == null ? null : new BaseWrapperDirect(b));
+        for (Base b : wrapped.getValues())
+          list.add(b == null ? null : new BaseWrapperDirect(b));
       }
       return list;
     }
@@ -433,8 +422,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     public List<PropertyWrapper> children() {
       if (list == null) {
         list = new ArrayList<NarrativeGenerator.PropertyWrapper>();
-      for (Property p : wrapped.children())
-        list.add(new PropertyWrapperDirect(p));
+        for (Property p : wrapped.children())
+          list.add(new PropertyWrapperDirect(p));
       }
       return list;
       
@@ -522,18 +511,29 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
   
   private String prefix;
-  private WorkerContext context;
-  private IWorkerContext ctxt;
+  private IWorkerContext context;
   private String basePath;
+  private String tooCostlyNote;
   
   
-  public NarrativeGenerator(String prefix, String basePath, WorkerContext context) {
+  public NarrativeGenerator(String prefix, String basePath, IWorkerContext context) {
     super();
     this.prefix = prefix;
     this.context = context;
     this.basePath = basePath;
-    ctxt = null;
   }
+
+  
+  public String getTooCostlyNote() {
+    return tooCostlyNote;
+  }
+
+
+  public NarrativeGenerator setTooCostlyNote(String tooCostlyNote) {
+    this.tooCostlyNote = tooCostlyNote;
+    return this;
+  }
+
 
   public void generate(DomainResource r) throws Exception {
     if (r instanceof ConceptMap) {
@@ -546,27 +546,29 @@ public class NarrativeGenerator implements INarrativeGenerator {
       generate((Conformance) r);   // Maintainer = Grahame
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
-    } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
-      StructureDefinition p = context.getProfiles().get(r.getResourceType().toString());
-      generateByProfile(r, p /* context.getProfiles().get(r.getResourceType().toString()) */, true); // todo: make this manageable externally 
-    } else if (context.getProfiles().containsKey("http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase())) {
-      generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
+    } else {
+      StructureDefinition p = null;
+      if (r.hasMeta()) 
+        for (UriType pu : r.getMeta().getProfile())
+          if (p == null)
+            p = context.fetchResource(StructureDefinition.class, pu.getValue());
+      if (p == null)
+        p = context.fetchResource(StructureDefinition.class, r.getResourceType().toString());
+      if (p == null)
+        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase());
+      if (p != null)
+        generateByProfile(r, p, true);  
     }
-    }
+  }
 
   // dom based version, for build program
   public String generate(Element doc) throws Exception {
     String rt = "http://hl7.org/fhir/StructureDefinition/"+doc.getNodeName();
-    if (context.getProfiles().containsKey(rt)) {
-      StructureDefinition p = context.getProfiles().get(rt);
-      return generateByProfile(doc, p, true);  
-    } else 
-      throw new Exception("not done yet (profile : "+rt+")");
-    //             narrative = "&lt;-- No Narrative for this resource --&gt;";
-
+    StructureDefinition p = context.fetchResource(StructureDefinition.class, rt);
+    return generateByProfile(doc, p, true);  
   }
-  
-  private void generateByProfile(DomainResource r, StructureDefinition profile, boolean showCodeDetails) throws Exception {
+
+  private void generateByProfile(DomainResource r, StructureDefinition profile, boolean showCodeDetails) throws Exception {  
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {
@@ -610,56 +612,56 @@ public class NarrativeGenerator implements INarrativeGenerator {
         if (p.hasValues()) {
           ElementDefinition child = getElementDefinition(children, path+"."+p.getName(), p);
           if (child != null) {
-          Map<String, String> displayHints = readDisplayHints(child);
-          if (!exemptFromRendering(child)) {
-            List<ElementDefinition> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
+            Map<String, String> displayHints = readDisplayHints(child);
+            if (!exemptFromRendering(child)) {
+              List<ElementDefinition> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
             filterGrandChildren(grandChildren, path+"."+p.getName(), p);
-            if (p.getValues().size() > 0 && child != null) {
-              if (isPrimitive(child)) {
-                XhtmlNode para = x.addTag("p");
-                String name = p.getName();
-                if (name.endsWith("[x]"))
-                  name = name.substring(0, name.length() - 3);
-                if (showCodeDetails || !isDefaultValue(displayHints, p.getValues())) {
-                  para.addTag("b").addText(name);
-                  para.addText(": ");
-                  if (renderAsList(child) && p.getValues().size() > 1) {
-                    XhtmlNode list = x.addTag("ul");
+              if (p.getValues().size() > 0 && child != null) {
+                if (isPrimitive(child)) {
+                  XhtmlNode para = x.addTag("p");
+                  String name = p.getName();
+                  if (name.endsWith("[x]"))
+                    name = name.substring(0, name.length() - 3);
+                  if (showCodeDetails || !isDefaultValue(displayHints, p.getValues())) {
+                    para.addTag("b").addText(name);
+                    para.addText(": ");
+                    if (renderAsList(child) && p.getValues().size() > 1) {
+                      XhtmlNode list = x.addTag("ul");
                       for (BaseWrapper v : p.getValues()) 
-                      renderLeaf(res, v, child, list.addTag("li"), false, showCodeDetails, displayHints);
-                  } else { 
-                    boolean first = true;
+                        renderLeaf(res, v, child, list.addTag("li"), false, showCodeDetails, displayHints);
+                    } else { 
+                      boolean first = true;
                       for (BaseWrapper v : p.getValues()) {
-                      if (first)
-                        first = false;
-                      else
-                        para.addText(", ");
-                      renderLeaf(res, v, child, para, false, showCodeDetails, displayHints);
+                        if (first)
+                          first = false;
+                        else
+                          para.addText(", ");
+                        renderLeaf(res, v, child, para, false, showCodeDetails, displayHints);
+                      }
                     }
                   }
-                }
-              } else if (canDoTable(path, p, grandChildren)) {
-                x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
-                XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
+                } else if (canDoTable(path, p, grandChildren)) {
+                  x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
+                  XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
                   XhtmlNode tr = tbl.addTag("tr");
                   tr.addTag("td").addText("-"); // work around problem with empty table rows
                   addColumnHeadings(tr, grandChildren);
                   for (BaseWrapper v : p.getValues()) {
-                  if (v != null) {
+                    if (v != null) {
                       tr = tbl.addTag("tr");
                       tr.addTag("td").addText("*"); // work around problem with empty table rows
                       addColumnValues(res, tr, grandChildren, v, showCodeDetails, displayHints);
-                  }
-                }
-              } else {
-                  for (BaseWrapper v : p.getValues()) {
-                  if (v != null) {
-                    XhtmlNode bq = x.addTag("blockquote");
-                    bq.addTag("p").addTag("b").addText(p.getName());
-                      generateByProfile(res, profile, v, allElements, child, grandChildren, bq, path+"."+p.getName(), showCodeDetails);
                     }
                   }
-                } 
+                } else {
+                  for (BaseWrapper v : p.getValues()) {
+                    if (v != null) {
+                      XhtmlNode bq = x.addTag("blockquote");
+                      bq.addTag("p").addTag("b").addText(p.getName());
+                      generateByProfile(res, profile, v, allElements, child, grandChildren, bq, path+"."+p.getName(), showCodeDetails);
+                    }
+                  } 
+                }
               }
             }
           }
@@ -693,7 +695,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           for (BaseWrapper v : p.getValues()) {
             Extension ex  = (Extension) v.getBase();
             String url = ex.getUrl();
-            StructureDefinition ed = context.getExtensionStructure(profile, url);
+            StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
             if (p.getName().equals("modifierExtension") && ed == null)
               throw new Exception("Unknown modifier extension "+url);
             PropertyWrapper pe = map.get(p.getName()+"["+url+"]");
@@ -811,11 +813,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private boolean isBase(String code) {
     return code.equals("Element") || code.equals("BackboneElement");
   }
-  
+
   private ElementDefinition getElementDefinition(List<ElementDefinition> elements, String path, PropertyWrapper p) {
     for (ElementDefinition element : elements)
       if (element.getPath().equals(path))
-        return element;      
+        return element;     
     if (path.endsWith("\"]") && p.getStructure() != null)
       return p.getStructure().getSnapshot().getElement().get(0);
     return null;
@@ -1056,7 +1058,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addText("Generated Summary: ");
     }
     String path = res.getName();
-    StructureDefinition profile = context.getProfiles().get(path);
+    StructureDefinition profile = context.fetchResource(StructureDefinition.class, path);
     if (profile == null)
       x.addText("unknown resource " +path);
     else {
@@ -1097,7 +1099,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return true;
   }
 
-  private ResourceWithReference resolveReference(ResourceWrapper res, String url) {
+  private ResourceWithReference resolveReference(ResourceWrapper res, String url) throws EOperationOutcome, Exception {
     if (url == null)
       return null;
     if (url.startsWith("#")) {
@@ -1107,17 +1109,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
       return null;
     }
-    if (!context.hasClient())
-      return null;
     
-    Resource ae = context.getClient().read(null, url);
+    Resource ae = context.fetchResource(null, url);
     if (ae == null)
       return null;
     else
       return new ResourceWithReference(url, new ResourceWrapperDirect(ae));
   }
 
-  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x, boolean showCodeDetails) {
+  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x, boolean showCodeDetails) throws Exception {
     String s = cc.getText();
     if (Utilities.noString(s)) {
       for (Coding c : cc.getCoding()) {
@@ -1177,7 +1177,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     
   }
   
-  private void renderCoding(Coding c, XhtmlNode x, boolean showCodeDetails) {
+  private void renderCoding(Coding c, XhtmlNode x, boolean showCodeDetails) throws Exception {
     String s = "";
     if (c.hasDisplayElement()) 
       s = c.getDisplay();
@@ -1201,23 +1201,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (system.startsWith("http://snomed.info"))
       return "SNOMED CT";
     if (system.equals("http://www.nlm.nih.gov/research/umls/rxnorm"))
-      return "RxNorm";     
+      return "RxNorm"; 
     if (system.equals("http://hl7.org/fhir/sid/icd-9"))
       return "ICD-9";
     
     return system;
   }
 
-  private String lookupCode(String system, String code) {
-    ConceptDefinitionComponent t;
-    if (context.getCodeSystems() == null && context.getTerminologyServices() == null)
-    	return code;
-    else if (context.getCodeSystems() != null && context.getCodeSystems().containsKey(system)) 
-      t = findCode(code, context.getCodeSystems().get(system).getCodeSystem().getConcept());
-    else 
-      t = context.getTerminologyServices().getCodeDefinition(system, code);
+  private String lookupCode(String system, String code) throws Exception {
+    ValidationResult t = context.validateCode(system, code, null);
       
-    if (t != null && t.hasDisplayElement())
+    if (t != null && t.getDisplay() != null)
         return t.getDisplay();
     else 
       return code;
@@ -1235,7 +1229,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private String displayCodeableConcept(CodeableConcept cc) {
+  private String displayCodeableConcept(CodeableConcept cc) throws Exception {
     String s = cc.getText();
     if (Utilities.noString(s)) {
       for (Coding c : cc.getCoding()) {
@@ -1273,7 +1267,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     x.addText(displayTiming(s));
   }
   
-  private void renderQuantity(Quantity q, XhtmlNode x, boolean showCodeDetails) {
+  private void renderQuantity(Quantity q, XhtmlNode x, boolean showCodeDetails) throws Exception {
     if (q.hasComparator())
       x.addText(q.getComparator().toCode());
     x.addText(q.getValue().toString());
@@ -1364,17 +1358,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
             st = st + "-"+Integer.toString(rep.getFrequency());
         }
         if (rep.hasPeriod()) {
-        	st = st + " per "+rep.getPeriod().toPlainString();
-        	if (rep.hasPeriodMax())
-        		st = st + "-"+rep.getPeriodMax().toPlainString();
+        st = st + " per "+rep.getPeriod().toPlainString();
+        if (rep.hasPeriodMax())
+          st = st + "-"+rep.getPeriodMax().toPlainString();
         	st = st + " "+displayTimeUnits(rep.getPeriodUnits());
         }
         b.append("Do "+st);
       }
       if (rep.hasBoundsPeriod() && rep.getBoundsPeriod().hasEnd()) 
         b.append("Until "+rep.getBoundsPeriod().getEndElement().toHumanDisplay());
-      }
-      return b.toString();
+    } 
+    return b.toString();
   }
   
   private Object displayEventCode(EventTiming when) {
@@ -1498,7 +1492,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     	else if (ii.getType().hasCoding() && ii.getType().getCoding().get(0).hasCode())
     		s = ii.getType().getCoding().get(0).getCode()+" = "+s;
     }
-  
+
     if (ii.hasUse())
       s = s + " ("+ii.getUse().toString()+")";
     return s;
@@ -1594,10 +1588,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
           for (TargetElementComponent ccm : ccl.getTarget()) {
             comments = comments || !Utilities.noString(ccm.getComments());
             for (OtherElementComponent d : ccm.getDependsOn()) {
-              if (!sources.containsKey(d.getElement()))
-                sources.put(d.getElement(), new HashSet<String>());
-              sources.get(d.getElement()).add(d.getCodeSystem());
-            }
+            if (!sources.containsKey(d.getElement()))
+              sources.put(d.getElement(), new HashSet<String>());
+            sources.get(d.getElement()).add(d.getCodeSystem());
+          }
             if (ccm.hasCodeSystem())
               targets.get("code").add(ccm.getCodeSystem());
             for (OtherElementComponent d : ccm.getProduct()) {
@@ -1779,7 +1773,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     new XhtmlComposer().compose(div, x);
   }
 
-  private String getDisplay(List<OtherElementComponent> list, String s) {
+  private String getDisplay(List<OtherElementComponent> list, String s) throws Exception {
     for (OtherElementComponent c : list) {
       if (s.equals(c.getElement()))
         return getDisplayForConcept(c.getCodeSystem(), c.getCode());
@@ -1787,29 +1781,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private String getDisplayForConcept(String system, String code) {
+  private String getDisplayForConcept(String system, String code) throws Exception {
     if (code == null)
       return null;
-    if (context.getCodeSystems().containsKey(system)) {
-      ValueSet vs = context.getCodeSystems().get(system);
-      return getDisplayForConcept(code, vs.getCodeSystem().getConcept(), vs.getCodeSystem().getCaseSensitive());
-    } else if (context.getTerminologyServices() != null) {
-      ConceptDefinitionComponent cl = context.getTerminologyServices().getCodeDefinition(system, code);
-      return cl == null ? null : cl.getDisplay();
-    } else
-      return null;
+    ValidationResult cl = context.validateCode(system, code, null);
+    return cl == null ? null : cl.getDisplay();
   }
 
-  private String getDisplayForConcept(String code, List<ConceptDefinitionComponent> concept, boolean cs) {
-    for (ConceptDefinitionComponent t : concept) {
-      if ((cs && code.equals(t.getCode()) || (!cs && code.equalsIgnoreCase(t.getCode()))))
-          return t.getDisplay();
-      String disp = getDisplayForConcept(code, t.getConcept(), cs);
-      if (disp != null)
-        return disp;
-    }
-    return null;
-  }
+
 
   private String getDescForConcept(String s) {
     if (s.startsWith("http://hl7.org/fhir/v2/element/"))
@@ -1860,7 +1839,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     if (vs.hasExpansion()) {
       // for now, we just accept an expansion if there is one
-        generateExpansion(x, vs, src, header);
+      generateExpansion(x, vs, src, header);
 //      if (!vs.hasCodeSystem() && !vs.hasCompose())
 //        generateExpansion(x, vs, src, header);
 //      else
@@ -1882,25 +1861,25 @@ public class NarrativeGenerator implements INarrativeGenerator {
     else {
       if (vs.hasCodeSystem())
         count = count + countConcepts(vs.getCodeSystem().getConcept());
-    if (vs.hasCompose()) {
-      if (vs.getCompose().hasExclude()) {
-        try {
-            ValueSetExpansionOutcome vse = context.getTerminologyServices().expand(vs);
-          count = 0;
+      if (vs.hasCompose()) {
+        if (vs.getCompose().hasExclude()) {
+          try {
+            ValueSetExpansionOutcome vse = context.expandVS(vs);
+            count = 0;
             count += conceptCount(vse.getValueset().getExpansion().getContains());
-          return count;
-        } catch (Exception e) {
-          return null;
+            return count;
+          } catch (Exception e) {
+            return null;
+          }
+        } 
+        for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+          if (inc.hasFilter())
+            return null;
+          if (!inc.hasConcept())
+            return null;
+          count = count + inc.getConcept().size();
         }
-      } 
-      for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
-        if (inc.hasFilter())
-          return null;
-        if (!inc.hasConcept())
-          return null;
-        count = count + inc.getConcept().size();
       }
-    }
     }
     return count;
   }
@@ -1909,7 +1888,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     int count = 0;
     for (ValueSetExpansionContainsComponent c : list) {
       if (!c.getAbstract())
-      count++;
+        count++;
       count = count + conceptCount(c.getContains());
     }
     return count;
@@ -1923,39 +1902,49 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return count;
   }
 
-  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) {
+  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) throws EOperationOutcome, Exception {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.getMaps().values()) {
+    for (ConceptMap a : context.allMaps()) {
       if (((Reference) a.getSource()).getReference().equals(vs.getUrl())) {
         String url = "";
-        if (context.getValueSets().containsKey(((Reference) a.getTarget()).getReference()))
-            url = (String) context.getValueSets().get(((Reference) a.getTarget()).getReference()).getUserData("filename");
+        ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+        if (vsr != null)
+            url = (String) vsr.getUserData("filename");
         mymaps.put(a, url);
       }
     }
 
     if (header) {
-    XhtmlNode h = x.addTag("h3");
-    h.addText("Value Set Contents");
-    if (IsNotFixedExpansion(vs))
-      x.addTag("p").addText(vs.getDescription());
-    if (vs.hasCopyright())
-      generateCopyright(x, vs);
+      XhtmlNode h = x.addTag("h3");
+      h.addText("Value Set Contents");
+      if (IsNotFixedExpansion(vs))
+        x.addTag("p").addText(vs.getDescription());
+      if (vs.hasCopyright())
+        generateCopyright(x, vs);
     }
-    Integer count = countMembership(vs);
-    if (count == null)
-      x.addTag("p").addText("This value set does not contain a fixed number of concepts");
-    else
-      x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
+    if (ToolingExtensions.hasExtension(vs.getExpansion(), "http://hl7.org/fhir/StructureDefinition/valueset-toocostly"))
+      x.addTag("p").setAttribute("style", "border: maroon 1px solid; background-color: #FFCCCC; font-weight: bold; padding: 8px").addText(tooCostlyNote);
+    else {
+      Integer count = countMembership(vs);
+      if (count == null)
+        x.addTag("p").addText("This value set does not contain a fixed number of concepts");
+      else
+        x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
+    }
 
     boolean doSystem = checkDoSystem(vs, src);
-    
+    if (doSystem && allFromOneSystem(vs)) {
+      doSystem = false;
+      XhtmlNode p = x.addTag("p");
+      p.addText("All codes from system ");
+      p.addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
+    }
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     XhtmlNode tr = t.addTag("tr");
     tr.addTag("td").addTag("b").addText("Code");
     if (doSystem)
-    tr.addTag("td").addTag("b").addText("System");
+      tr.addTag("td").addTag("b").addText("System");
     tr.addTag("td").addTag("b").addText("Display");
 
     addMapHeaders(tr, mymaps);
@@ -1964,6 +1953,29 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }    
     return hasExtensions;
   }
+
+  private boolean allFromOneSystem(ValueSet vs) {
+    if (vs.getExpansion().getContains().isEmpty())
+      return false;
+    String system = vs.getExpansion().getContains().get(0).getSystem();
+    for (ValueSetExpansionContainsComponent cc : vs.getExpansion().getContains()) {
+      if (!checkSystemMatches(system, cc))
+        return false;
+    }
+    return true;
+  }
+
+
+  private boolean checkSystemMatches(String system, ValueSetExpansionContainsComponent cc) {
+    if (!system.equals(cc.getSystem()))
+      return false;
+    for (ValueSetExpansionContainsComponent cc1 : cc.getContains()) {
+      if (!checkSystemMatches(system, cc1))
+        return false;
+    }
+     return true; 
+  }
+
 
   private boolean checkDoSystem(ValueSet vs, ValueSet src) {
     if (src != null)
@@ -1989,14 +2001,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
-  private boolean generateDefinition(XhtmlNode x, ValueSet vs, boolean header) {
+  private boolean generateDefinition(XhtmlNode x, ValueSet vs, boolean header) throws EOperationOutcome, Exception {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.getMaps().values()) {
+    for (ConceptMap a : context.allMaps()) {
       if (((Reference) a.getSource()).getReference().equals(vs.getUrl())) {
         String url = "";
-        if (context.getValueSets().containsKey(((Reference) a.getTarget()).getReference()))
-            url = (String) context.getValueSets().get(((Reference) a.getTarget()).getReference()).getUserData("filename");
+        ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+        if (vsr != null)
+            url = (String) vsr.getUserData("filename");
         mymaps.put(a, url);
       }
     }
@@ -2006,8 +2019,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
         ConceptMap cm = (ConceptMap) r;
         if (((Reference) cm.getSource()).getReference().equals(vs.getUrl())) {
           String url = "";
-          if (context.getValueSets().containsKey(((Reference) cm.getTarget()).getReference()))
-            url = (String) context.getValueSets().get(((Reference) cm.getTarget()).getReference()).getUserData("filename");
+          ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) cm.getTarget()).getReference());
+          if (vsr != null)
+              url = (String) vsr.getUserData("filename");
         mymaps.put(cm, url);
         }
       }
@@ -2015,12 +2029,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     List<String> langs = new ArrayList<String>();
 
     if (header) {
-    XhtmlNode h = x.addTag("h2");
-    h.addText(vs.getName());
-    XhtmlNode p = x.addTag("p");
-    smartAddText(p, vs.getDescription());
-    if (vs.hasCopyright())
-      generateCopyright(x, vs);
+      XhtmlNode h = x.addTag("h2");
+      h.addText(vs.getName());
+      XhtmlNode p = x.addTag("p");
+      smartAddText(p, vs.getDescription());
+      if (vs.hasCopyright())
+        generateCopyright(x, vs);
     }
     XhtmlNode p = x.addTag("p");
     p.addText("This value set has an inline code system "+vs.getCodeSystem().getSystem()+", which defines the following codes:");
@@ -2150,9 +2164,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return tr;
   }
 
-  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, Map<ConceptMap, String> mymaps) {
+  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, Map<ConceptMap, String> mymaps) throws Exception {
     XhtmlNode tr = t.addTag("tr");
-    XhtmlNode td = tr.addTag("td");
+    XhtmlNode td = tr.addTag("td");    
     
     String tgt = makeAnchor(c.getSystem(), c.getCode());
     td.addTag("a").setAttribute("name", tgt).addText(" ");
@@ -2160,7 +2174,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     String s = Utilities.padLeft("", '.', i*2);
     
     td.addText(s);
-    Resource e = context.getCodeSystems().get(c.getSystem());
+    Resource e = context.fetchCodeSystem(c.getSystem());
     if (e == null)
       td.addText(c.getCode());
     else {
@@ -2169,8 +2183,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(c.getCode()));
     }
     if (doSystem) {
-    td = tr.addTag("td");
-    td.addText(c.getSystem());
+      td = tr.addTag("td");
+      td.addText(c.getSystem());
     }
     td = tr.addTag("td");
     if (c.hasDisplayElement())
@@ -2337,12 +2351,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  boolean hasExtensions = false;
     if (!vs.hasCodeSystem()) {
       if (header) {
-      XhtmlNode h = x.addTag("h2");
-      h.addText(vs.getName());
-      XhtmlNode p = x.addTag("p");
-      smartAddText(p, vs.getDescription());
-      if (vs.hasCopyrightElement())
-        generateCopyright(x, vs);
+        XhtmlNode h = x.addTag("h2");
+        h.addText(vs.getName());
+        XhtmlNode p = x.addTag("p");
+        smartAddText(p, vs.getDescription());
+        if (vs.hasCopyrightElement())
+          generateCopyright(x, vs);
       }
       XhtmlNode p = x.addTag("p");
       p.addText("This value set includes codes from the following code systems:");
@@ -2367,13 +2381,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return hasExtensions;
   }
 
-  private void AddVsRef(String value, XhtmlNode li) {
+  private void AddVsRef(String value, XhtmlNode li) throws EOperationOutcome, Exception {
 
-    ValueSet vs = context.getValueSets().get(value);
+    ValueSet vs = context.fetchResource(ValueSet.class, value);
     if (vs == null) 
-      vs = context.getCodeSystems().get(value); 
+      vs = context.fetchCodeSystem(value); 
     if (vs != null) {
-      String ref= (String) vs.getUserData("path");
+      String ref = (String) vs.getUserData("path");
       ref = adjustForPath(ref);
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
@@ -2394,11 +2408,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return prefix+ref;
   }
 
-  private  boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type) throws Exception {
+  private boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type) throws Exception {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");
-    ValueSet e = context.getCodeSystems().get(inc.getSystem());
+    ValueSet e = context.fetchCodeSystem(inc.getSystem());
     
     if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
@@ -2443,7 +2457,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       boolean first = true;
       for (ConceptSetFilterComponent f : inc.getFilter()) {
         if (first) {
-        li.addText(type+" codes from ");
+          li.addText(type+" codes from ");
           first = false;
         } else
           li.addText(" and ");
@@ -2476,12 +2490,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private <T extends Resource> ConceptDefinitionComponent getConceptForCode(T e, String code, String system) {
+  private <T extends Resource> ConceptDefinitionComponent getConceptForCode(T e, String code, String system) throws Exception {
     if (e == null) {
-      if (context.getTerminologyServices() != null)
-        return context.getTerminologyServices().getCodeDefinition(system, code);
-      else
-        return null;
+      return context.validateCode(system, code, null).asConceptDefinition();
     }
     ValueSet vs = (ValueSet) e;
     if (!vs.hasCodeSystem())
@@ -2578,7 +2589,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     		XhtmlNode tr = tbl.addTag("tr");
     		tr.addTag("td").addTag("b").addText("Severity");
     		tr.addTag("td").addTag("b").addText("Location");
-  			tr.addTag("td").addTag("b").addText("Code");
+        tr.addTag("td").addTag("b").addText("Code");
         tr.addTag("td").addTag("b").addText("Details");
         tr.addTag("td").addTag("b").addText("Diagnostics");
     		if (hasSource)
@@ -2619,7 +2630,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
 	private String gen(CodeableConcept code) {
 		if (code == null)
-			return null;
+	  	return null;
 		if (code.hasText())
 			return code.getText();
 		if (code.hasCoding())
@@ -2669,11 +2680,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
 	private void genOpParam(XhtmlNode tbl, String path, OperationDefinitionParameterComponent p) throws Exception {
 		XhtmlNode tr;
-		tr = tbl.addTag("tr");
-		tr.addTag("td").addText(p.getUse().toString());
+      tr = tbl.addTag("tr");
+      tr.addTag("td").addText(p.getUse().toString());
 		tr.addTag("td").addText(path+p.getName());
-		tr.addTag("td").addText(Integer.toString(p.getMin())+".."+p.getMax());
-		tr.addTag("td").addText(p.hasType() ? p.getType() : "");
+      tr.addTag("td").addText(Integer.toString(p.getMin())+".."+p.getMax());
+      tr.addTag("td").addText(p.hasType() ? p.getType() : "");
       XhtmlNode td = tr.addTag("td");
       if (p.hasBinding() && p.getBinding().hasValueSet()) {
         if (p.getBinding().getValueSet() instanceof Reference)
@@ -2682,13 +2693,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
           td.addTag("a").setAttribute("href", p.getBinding().getValueSetUriType().getValue()).addText("External Reference");
         td.addText(" ("+p.getBinding().getStrength().getDisplay()+")");
       }
-		addMarkdown(tr.addTag("td"), p.getDocumentation());
-		if (!p.hasType()) {
+      addMarkdown(tr.addTag("td"), p.getDocumentation());
+      if (!p.hasType()) {
 			for (OperationDefinitionParameterComponent pp : p.getPart()) {
 				genOpParam(tbl, path+p.getName()+".", pp);
-			}
-		}
-	}
+        }
+      }
+    }
 	
 	private void addMarkdown(XhtmlNode x, String text) throws Exception {
 	  if (text != null) {	    
@@ -2699,11 +2710,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	      String right = text.substring(text.indexOf("]]]")+3);
 	      String url = link;
 	      String[] parts = link.split("\\#");
-	      StructureDefinition p = context.getProfiles().get(parts[0]);
+	      StructureDefinition p = context.fetchResource(StructureDefinition.class, parts[0]);
 	      if (p == null)
-	        p = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+parts[0]);
+	        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[0]);
 	      if (p == null)
-	        p = context.getExtensionStructure(null, link);
+	        p = context.fetchResource(StructureDefinition.class, link);
 	      if (p != null) {
 	        url = p.getUserString("path");
 	        if (url == null)
@@ -2828,5 +2839,5 @@ public class NarrativeGenerator implements INarrativeGenerator {
 //      }
     }
   }
-  
+
 }

@@ -60,14 +60,15 @@ import javax.xml.validation.SchemaFactory;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.formats.IParser;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
-import org.hl7.fhir.instance.utils.WorkerContext;
-import org.hl7.fhir.instance.utils.WorkerContextFactory;
+import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.Utilities;
@@ -96,7 +97,7 @@ public class ValidationEngine {
 	private boolean noSchematron;
 	private StructureDefinition profile;
 	private String profileURI;
-	private WorkerContext context;
+	private SimpleWorkerContext context;
 	private Schema schema;
 	private byte[] schCache = null;
 	private ValueSetExpansionCache cache;
@@ -192,7 +193,7 @@ public class ValidationEngine {
       outputs.addAll(validator.validate(doc));
     
 		try {
-    new XmlParser().parse(new ByteArrayInputStream(source));
+		  context.newXmlParser().parse(new ByteArrayInputStream(source));
 		} catch (Exception e) {
 			outputs.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, -1, -1, "??", e.getMessage(), IssueSeverity.ERROR));
 		}
@@ -328,11 +329,11 @@ public class ValidationEngine {
   }
 
   public void init() throws Exception {
-		context = WorkerContextFactory.fromDefinitions(definitions);    
+		context = SimpleWorkerContext.fromDefinitions(definitions);    
 		schema = readSchema();
   }
 
-  public WorkerContext getContext() {
+  public SimpleWorkerContext getContext() {
     return context;
 	}
 
@@ -388,15 +389,15 @@ public class ValidationEngine {
 	public void loadProfile(String profile) throws Exception {
 		if (!Utilities.noString(profile)) { 
 	    System.out.println("  .. load profile "+profile);
-			if (getContext().getProfiles().containsKey(profile))
-				setProfile(getContext().getProfiles().get(profile));
+			if (getContext().hasResource(StructureDefinition.class, profile))
+				setProfile(getContext().fetchResource(StructureDefinition.class, profile));
 			else
 				setProfile(readProfile(loadProfileCnt(profile)));
 		}
 	}
 
 	private StructureDefinition readProfile(byte[] content) throws Exception {
-		XmlParser xml = new XmlParser(true);
+		IParser xml = context.newXmlParser();
 		return (StructureDefinition) xml.parse(new ByteArrayInputStream(content));
 	}
 
