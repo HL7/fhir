@@ -145,15 +145,28 @@ public class ProfileGenerator {
     this.dataElements = dataElements;
   }
 
+  private Map<String, DataElement> des = new HashMap<String, DataElement>();
+  
   private void generateElementDefinition(ElementDefinition ed, ElementDefinition parent) {
-    DataElement de = new DataElement();
-    de.setId(ed.getPath().replace("[x]", "X"));
-    if (de.getId().length() > 64)
-      de.setId(de.getId().substring(0, 64));
+    String id = ed.getPath().replace("[x]", "X");
+    if (id.length() > 64)
+      id = id.substring(0, 64);
+    
+    DataElement de;
+    if (des.containsKey(id)) {
+      de = des.get(id);
+      de.getElement().clear();
+      de.getExtension().clear();
+    } else {
+      de = new DataElement();
+      de.setId(id);
+      des.put(id, de);
+      if (dataElements != null)
+        dataElements.addEntry().setResource(de).setFullUrl(de.getUrl());
+    }
+    
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
     de.setUrl("http://hl7.org/fhir/DataElement/"+de.getId());
-    if (dataElements != null)
-      dataElements.addEntry().setResource(de).setFullUrl(de.getUrl());
     de.setName(ed.getName());
     de.setStatus(ConformanceResourceStatus.DRAFT);
     de.setExperimental(true);
@@ -355,7 +368,7 @@ public class ProfileGenerator {
     ecA.getBase().setPath(type.getBase());
     ecA.getBase().setMin(0);
     ecA.getBase().setMax("*");
-    generateElementDefinition(ecA, null);
+//    generateElementDefinition(ecA, null);
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getBase());
 
