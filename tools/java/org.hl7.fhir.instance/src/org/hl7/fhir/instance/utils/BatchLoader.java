@@ -1,8 +1,7 @@
-package org.hl7.fhir.tools.utils;
+package org.hl7.fhir.instance.utils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
 import java.net.URISyntaxException;
 import java.util.UUID;
 import java.util.zip.ZipEntry;
@@ -14,6 +13,7 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 
 import com.google.gson.JsonParseException;
 
@@ -55,22 +55,21 @@ public class BatchLoader {
 
 	private static void loadBundle(String server, Bundle b, int size) throws URISyntaxException {
 		System.out.println("Post to "+server+". size = "+Integer.toString(size));
-////		IFHIRClient client = new FHIRSimpleClient();
-//		client.initialize(server);
-//	  int c = 0;
-//	  while (c < b.getEntry().size()) {
-//		 	Bundle bt = new Bundle();
-//		 	bt.setType(BundleType.TRANSACTION);
-//		 	bt.setId(UUID.randomUUID().toString().toLowerCase());
-//		 	for (int i = c; i < Math.min(b.getEntry().size(), c+size); i++) {
-//		 		bt.addEntry(b.getEntry().get(i));
-//		 	}
-//			System.out.print(".");
-//		 	client.transaction(bt);
-//		 	c = c + size;
-//	  	
-//	  }
-//		System.out.println(" done");
+		FHIRToolingClient client = new FHIRToolingClient(server);
+	  int c = 0;
+	  while (c < b.getEntry().size()) {
+		 	Bundle bt = new Bundle();
+		 	bt.setType(BundleType.TRANSACTION);
+		 	bt.setId(UUID.randomUUID().toString().toLowerCase());
+		 	for (int i = c; i < Math.min(b.getEntry().size(), c+size); i++) {
+		 		bt.addEntry(b.getEntry().get(i));
+		 	}
+			System.out.print(".");
+		 	client.transaction(bt);
+		 	c = c + size;
+	  	
+	  }
+		System.out.println(" done");
 	
 	}
 

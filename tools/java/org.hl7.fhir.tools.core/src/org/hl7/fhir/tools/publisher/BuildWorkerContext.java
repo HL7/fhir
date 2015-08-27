@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.instance.client.FeedFormat;
-import org.hl7.fhir.instance.client.IFHIRClient;
-import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ParserType;
@@ -37,6 +34,7 @@ import org.hl7.fhir.instance.utils.EOperationOutcome;
 import org.hl7.fhir.instance.utils.INarrativeGenerator;
 import org.hl7.fhir.instance.utils.IWorkerContext;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 import org.hl7.fhir.instance.validation.IResourceValidator;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 
@@ -63,7 +61,7 @@ import org.hl7.fhir.instance.validation.InstanceValidator;
 public class BuildWorkerContext implements IWorkerContext {
 
   private SpecificationTerminologyServices terminologyServices;
-  private IFHIRClient client;
+  private FHIRToolingClient client;
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
   private Map<String, DataElement> dataElements = new HashMap<String, DataElement>();
   private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
@@ -77,7 +75,7 @@ public class BuildWorkerContext implements IWorkerContext {
   private Definitions definitions;
 
 
-  public BuildWorkerContext(Definitions definitions, SpecificationTerminologyServices conceptLocator, IFHIRClient client, Map<String, ValueSet> codeSystems,
+  public BuildWorkerContext(Definitions definitions, SpecificationTerminologyServices conceptLocator, FHIRToolingClient client, Map<String, ValueSet> codeSystems,
       Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles) {
     super();
     this.definitions = definitions;
@@ -97,7 +95,7 @@ public class BuildWorkerContext implements IWorkerContext {
     return client != null;
   }
 
-  public IFHIRClient getClient() {
+  public FHIRToolingClient getClient() {
     return client;
   }
 
@@ -134,7 +132,7 @@ public class BuildWorkerContext implements IWorkerContext {
     return this;
   }
 
-  public BuildWorkerContext clone(IFHIRClient altClient) {
+  public BuildWorkerContext clone(FHIRToolingClient altClient) {
     BuildWorkerContext res = new BuildWorkerContext(definitions, terminologyServices, null, codeSystems, valueSets, maps, profiles);
     res.extensionDefinitions.putAll(extensionDefinitions);
     res.version = version;

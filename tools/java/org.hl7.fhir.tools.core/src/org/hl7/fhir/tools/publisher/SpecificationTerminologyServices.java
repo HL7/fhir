@@ -42,9 +42,8 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.EOperationOutcome;
 import org.hl7.fhir.instance.utils.IWorkerContext.ValidationResult;
-import org.hl7.fhir.tools.utils.EFhirClientException;
-import org.hl7.fhir.tools.utils.FHIRSimpleClient;
-import org.hl7.fhir.tools.utils.IFHIRClient;
+import org.hl7.fhir.instance.utils.client.EFhirClientException;
+import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -87,7 +86,7 @@ public class SpecificationTerminologyServices {
   private boolean serverOk = false;
   private String cache;
   private String tsServer;
-  private IFHIRClient client; 
+  private FHIRToolingClient client; 
   
   public SpecificationTerminologyServices(String cache, String tsServer, Map<String, ValueSet> codeSystems) {
     super();
@@ -361,79 +360,10 @@ public class SpecificationTerminologyServices {
     }
   }
 
-
-  
-  public boolean checkVS(ConceptSetComponent inc, String system, String code) {
-    try {
-      OperationOutcome op = checkVSOperation(inc, system, code);
-      boolean result = true;
-      for (OperationOutcomeIssueComponent issue : op.getIssue())
-        if (issue.getSeverity() == IssueSeverity.FATAL || issue.getSeverity() == IssueSeverity.ERROR)
-          result = false;
-      return result;
-    } catch (Exception e) {
-      return false;
-    }
-  }
-  
-  public OperationOutcome checkVSOperation(ConceptSetComponent inc, String system, String code) throws Exception {
-    ValueSet vs = new ValueSet();
-    vs.setCompose(new ValueSetComposeComponent());
-    vs.getCompose().getInclude().add(inc);
-    ByteArrayOutputStream b = new  ByteArrayOutputStream();
-    JsonParser parser = new JsonParser();
-    parser.setOutputStyle(OutputStyle.NORMAL);
-    parser.compose(b, vs);
-    b.close();
-    String hash = Integer.toString(new String(b.toByteArray()).hashCode())+"-vs-check";
-    String fn = Utilities.path(cache, hash+".json");
-    if (new File(fn).exists()) {
-      Resource r = parser.parse(new FileInputStream(fn));
-      if (r instanceof OperationOutcome)
-        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
-      else
-        return ((OperationOutcome) ((Bundle) r).getEntry().get(0).getResource());
-    }
-    vs.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
-        
-    if (!triedServer || serverOk) {
-      try {
-        triedServer = true;
-        serverOk = false;
-        // for this, we use the FHIR client
-        IFHIRClient client = new FHIRSimpleClient();
-        client.initialize(tsServer);
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("_query", "validate");
-        params.put("system", system);
-        params.put("code", code);
-        Bundle result = client.searchPost(ValueSet.class, vs, params);
-        serverOk = true;
-        FileOutputStream s = new FileOutputStream(fn);
-        parser.compose(s, result);
-        s.close();
-        return ((OperationOutcome) result.getEntry().get(0).getResource());
-      } catch (EFhirClientException e) {
-        serverOk = true;
-        FileOutputStream s = new FileOutputStream(fn);
-        parser.compose(s, e.getServerErrors().get(0));
-        s.close();
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails().getText());
-      } catch (Exception e) {
-        serverOk = false;
-        throw e;
-      }
-    } else
-      throw new Exception("Server is not available");
-  }
-
-  
   public boolean verifiesSystem(String system) {
     return true;
   }
 
-  
-  
   public ValueSetExpansionOutcome expand(ValueSet vs) {
     try {
       if (vs.hasExpansion()) {
@@ -484,8 +414,7 @@ public class SpecificationTerminologyServices {
         serverOk = false;
         // for this, we use the FHIR client
         if (client == null) {
-          client = new FHIRSimpleClient();
-          client.initialize(tsServer);
+          client = new FHIRToolingClient(tsServer);
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);

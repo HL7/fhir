@@ -3630,7 +3630,7 @@ public class Publisher implements URIResolver {
     // n
     String rt = null;
     try {
-      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext().clone(new SpecificationInternalClient(page, null))).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
+      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
       xdoc = loadDom(new FileInputStream(file), true);
       rt = xdoc.getDocumentElement().getNodeName();
       String id = XMLUtil.getNamedChildValue(xdoc.getDocumentElement(), "id");

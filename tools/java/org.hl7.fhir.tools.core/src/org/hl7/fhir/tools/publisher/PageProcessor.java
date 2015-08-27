@@ -103,7 +103,6 @@ import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
-import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
@@ -158,8 +157,10 @@ import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.Translations;
+import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -261,11 +262,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public PageProcessor(String tsServer) throws URISyntaxException {
     super();
     this.tsServer = tsServer;
-    FHIRSimpleClient client = new FHIRSimpleClient();
+    FHIRToolingClient client;
     try {
-      client.initialize(tsServer);
+      client = new FHIRToolingClient(tsServer);
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
+      client = null;
     }
     workerContext = new BuildWorkerContext(definitions, null, client, codeSystems, valueSets, conceptMaps, profiles);
   }
