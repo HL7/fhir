@@ -52,7 +52,7 @@
   UML = 300;0
   Type = DomainResource
   Short Label = Definition of a Medication
-  Definition = Primarily used for identification and definition of Medication, but also covers ingredients and packaging
+  Definition = This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
   RIM Mapping = ManufacturedProduct[classCode=ADMM]
   w5 = clinical
 
