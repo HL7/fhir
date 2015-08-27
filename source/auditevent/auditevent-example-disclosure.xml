@@ -45,7 +45,7 @@
 	<policy value="http://consent.com/yes"/>
     <network>
       <address value="custodian.net"/>
-      <type value="2"/>
+      <type value="1"/>
     </network>
     </participant>
   <participant>
@@ -66,7 +66,7 @@
     <requestor value="false"/>
     <network>
       <address value="marketing.land"/>
-      <type value="2"/>
+      <type value="1"/>
     </network>
 	<purposeOfUse>
 	  	<system value="http://hl7.org/fhir/v3/ActReason"/>
