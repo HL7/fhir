@@ -1,8 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h2>
+<h3>
     Use of Procedure properties
-</h2>
+</h3>
 <p>
     Many of the elements of Procedure have inherent relationships and may actually all be conveyed  by the Procedure.code or in the text element 
     of the Procedure.code property. I.e. You may be able to infer category, bodySite and even indication. 
@@ -11,4 +11,12 @@
 <p>    
     Care should be taken to avoid non-sensical combinations/statements. E.g. "name=amputation, bodySite=heart"
 </p>
+    
+<h3>
+    Use of Procedure.used
+</h3>
+    <p>
+        For devices, these are devices that are incidental to / or used to perform the procedure - scalpels, gauze, endoscopes, etc. 
+        Devices that are the focus of the procedure should appear in Procedure.device instead.
+    </p>
 </div>

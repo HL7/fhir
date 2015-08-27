@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Iryna Roy</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-27T15:34:47Z</LastSaved>
+  <LastSaved>2015-08-27T18:26:10Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1255,8 +1256,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1269,7 +1269,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Is this approach or target site? RIM mapping inconsistent with ProcedureRequest which lists target site. Recommend calling field targetBodySite or targetSite.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">.approachSiteCode</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">.targetSiteCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1291,7 +1291,8 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">BodySite</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1323,7 +1324,8 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ProcedureReason</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1426,7 +1428,8 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ProcedurePerformerRole</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1576,7 +1579,8 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">What was the outcome of the procedure - did it resolve reasons why the procedure was performed? </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If outcome contains the narrative text only, it can be captured using the CodeableConcept.text.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.outboundRelationship[typeCode=OUT].target.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1642,7 +1646,8 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If complications are only expressed by the narrative text, it can be captured using the CodeableConcept.text.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Need harmonization proposal for new ActRelationshipType code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Need specialization of OUT for this.</Data><NamedCell
@@ -1821,7 +1826,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.device</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.focalDevice</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1838,7 +1843,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Device changed in procedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A device change during the procedure</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1852,7 +1857,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.device.action</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.focalDevice.action</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1884,7 +1889,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.device.manipulated</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.focalDevice.manipulated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3940,9 +3945,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3950,7 +3955,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3958,8 +3962,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6435,7 +6438,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s110" ss:Width="114.75"/>
@@ -6614,7 +6617,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code that explains a reason why a procedure was not performed</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-procedure-negation-reason-code</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-procedure-not-performed-reason</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -6625,12 +6628,42 @@
     <Cell ss:StyleID="s117"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s146"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">ProcedureReason</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A code that explains a reason why a procedure is  required.</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-procedure-reason</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s146"><Data ss:Type="String">ProcedurePerformerRole</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A code that identifies a role of a performer in a procedure process</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-performer-role</Data></Cell>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s146"><Data ss:Type="String">BodySite</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes describing anatomical locations. May include laterality</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">SNOMED CT Body site concepts</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -6687,8 +6720,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

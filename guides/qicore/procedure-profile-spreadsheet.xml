@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Iryna Roy</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-27T15:07:27Z</LastSaved>
+  <LastSaved>2015-08-27T17:56:31Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1320,8 +1320,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">QICoreProcedureNotPerformedReason</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3532,7 +3531,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>19</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3547,8 +3546,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>23</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4543,7 +4542,7 @@
     <Cell ss:StyleID="s148"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">QICoreProcedureNotPerformedReason</Data></Cell>
+    <Cell><Data ss:Type="String">!QICoreProcedureNotPerformedReason</Data></Cell>
     <Cell><Data ss:Type="String">Situation codes describing the reason that a procedure which might otherwise be expected, or was started, was either not performed or not completed</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">preferred</Data></Cell>
@@ -4723,8 +4722,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
