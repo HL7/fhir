@@ -366,10 +366,11 @@ systems should always have the snapshot view populated.
 <a name="slicing"> </a>
 <h3>Slicing</h3>
 <p>
-One common feature of constraining Structure Definitions is to take an element that may occur more than once (e.g. in a list), <!-- What about slicing type choices? -->
+One common feature of constraining Structure Definitions is to take an element that may occur more than once (e.g. in a list), 
 and split the list into a series of sublists, each with different restrictions on the elements in the sublist with associated
 additional meaning. In FHIR, this operation is known as "Slicing" a list. It is common to
 “slice” a list into sub-lists each containing just one element, effectively putting constraints on each element in the list.
+This technique can also be used on elements that do not repeat, but that have a choice of data types.
 </p>
 <p>
 Here is an example to illustrate the process:
@@ -442,7 +443,8 @@ the elements nominated in the discriminator is unique and distinct
 for each possible slice and applications can easily determine
 which slice an item in a list is. The intention is that 
 this can be done in generated code, e.g. using a switch/case 
-statement.
+statement. When slicing elements with a choice of types, the 
+discrimnator SHALL be "@type".
 </p>
 <p>
 When a constraining structure nominates one or more discriminators, it SHALL
