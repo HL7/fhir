@@ -17,14 +17,14 @@
     </coding>
     <text value="Appendectomy"/>
   </code>
-  <indication>
-    <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
-  </indication> 
+  <reasonCodeableConcept>
+      <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
+  </reasonCodeableConcept> 
   <performer>
-    <person>
+    <individual>
       <reference value="Practitioner/example"/>
       <display value="Dr Cecil Surgeon"/>
-    </person>
+    </individual>
   </performer>
   <performedDateTime value="2013-04-05"/>
   <followUp>

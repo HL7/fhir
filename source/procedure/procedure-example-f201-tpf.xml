@@ -24,15 +24,15 @@
       </coding>
     </siteCodeableConcept>
   </bodySite>
-  <indication>
+  <reasonCodeableConcept>
     <text value="DiagnosticReport/f201"/>
-  </indication> 
+  </reasonCodeableConcept> 
   <!--TODO Why can't this be Resource (any) AND String?-->
   <performer>
-    <person>
+    <individual>
       <reference value="Practitioner/f201"/>
       <display value="Dokter Bronsig"/>
-    </person>
+    </individual>
     <role>
       <coding>
         <system value="http://snomed.info/sct"/>

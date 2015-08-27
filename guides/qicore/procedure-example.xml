@@ -30,18 +30,18 @@
       </coding>
     </siteCodeableConcept>
   </bodySite>
-  <indication>
+  <reasonCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="163220003"/>
       <display value="On examination - abdominal pain - right iliac"/>
     </coding>
-  </indication>
+  </reasonCodeableConcept>
   <performer>
-    <person>
+    <individual>
       <reference value="Practitioner/example"/>
       <display value="Dr Cecil Surgeon"/>
-    </person>
+    </individual>
   </performer>
   <performedPeriod>
     <start value="2013-04-05T09:20:00-04:00"/>

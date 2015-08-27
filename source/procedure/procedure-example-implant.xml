@@ -13,14 +13,14 @@
     </coding>
     <text value="Implant Pacemaker"/>
   </code>
-  <indication>
+  <reasonCodeableConcept>
     <text value="Bradycardia"/>
-  </indication> 
+  </reasonCodeableConcept> 
   <performer>
-    <person>
+    <individual>
       <reference value="Practitioner/example"/>
       <display value="Dr Cecil Surgeon"/>
-    </person>
+    </individual>
   </performer>
   <performedDateTime value="2015-04-05"/>
   <followUp>

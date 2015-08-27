@@ -30,13 +30,13 @@
       </coding>
     </siteCodeableConcept>
   </bodySite>
-  <indication>
+  <reasonCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="163220003"/>
       <display value="On examination - abdominal pain - right iliac"/>
     </coding>
-  </indication>
+  </reasonCodeableConcept>
   <timingDateTime value="2013-04-05"/>
   <encounter>
     <reference value="Encounter/example"/>

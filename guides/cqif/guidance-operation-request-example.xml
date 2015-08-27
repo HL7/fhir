@@ -173,14 +173,14 @@
 			  <display value="CT, head, wo iv contrast"/>
 			</coding>  
 		  </code>
-		  <indication>
+			<reasonCodeableConcept>
 			  <coding>
 				  <!-- TODO: This will need to use the ACR Commons code -->
 				  <system value="http://hl7.org/fhir/sid/icd-9"/>
 				  <code value="70450"/>
 				  <display value="Headache, Chronic, no new features"/>
 			  </coding>
-		  </indication>
+		  </reasonCodeableConcept>
 		</ProcedureRequest>
     </resource>
   </parameter> 

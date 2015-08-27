@@ -27,14 +27,14 @@
       <text value="Left forearm"/>
     </siteCodeableConcept>
   </bodySite>
-  <indication>
+  <reasonCodeableConcept>
     <text value="Dark lesion l) forearm. getting darker last 3 months."/>
-  </indication>
+  </reasonCodeableConcept>
   <performer>
-    <person>
+    <individual>
       <reference value="Practitioner/example"/>
       <display value="Dr Bert Biopser"/>
-    </person>
+    </individual>
   </performer>
   <performedDateTime value="2014-02-03"/>
   <followUp>

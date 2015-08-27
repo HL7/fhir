@@ -22,14 +22,14 @@
             </coding>
         </siteCodeableConcept>
     </bodySite>
-    <indication>
+    <reasonCodeableConcept>
       <text value="Heart valve disorder"/>
-    </indication> 
+    </reasonCodeableConcept> 
     <performer>
-        <person>
+        <individual>
             <reference value="Practitioner/f002"/>
             <display value="P. Voigt"/>
-        </person>
+        </individual>
         <role>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
