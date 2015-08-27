@@ -35,14 +35,14 @@
         <periodUnits value="d"/>
       </repeat>
     </timing>
-    <site>
+    <siteCodeableConcept>
       <!--Medication enters the oral cavity-->
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="74262004"/>
         <display value="Oral cavity"/>
       </coding>
-    </site>
+    </siteCodeableConcept>
     <route>
       <!--Medication follows the respiratory tract-->
       <coding>

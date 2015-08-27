@@ -53,13 +53,13 @@
                 <periodUnits value="d"/>
             </repeat>
         </timing>
-        <site>
+        <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="181220002"/>
                 <display value="Entire oral cavity"/>
             </coding>
-        </site>
+        </siteCodeableConcept>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -92,13 +92,13 @@
                 <periodUnits value="d"/>
             </repeat>
         </timing>
-        <site>
+        <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="181220002"/>
                 <display value="Entire oral cavity"/>
             </coding>
-        </site>
+        </siteCodeableConcept>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
