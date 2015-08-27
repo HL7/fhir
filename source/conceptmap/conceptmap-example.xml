@@ -2,9 +2,7 @@
 
 <ConceptMap xmlns="http://hl7.org/fhir">
   <id value="101"/>
-<!--  this example, we elected to use a UUID. We could have used 
-     an OID, or a URI - depends on how it will be used.  -->
-  <url value="256a5231-a2bb-49bd-9fea-f349d428b70d"/>
+  <url value="http://hl7.org/fhir/ConceptMap/101"/>
 <!--  for version, we are going to simply use the day of publication. This is also 
     arbitrary - whatever is here is what people use to refer to the version. 
     Could also be a UUID too  -->

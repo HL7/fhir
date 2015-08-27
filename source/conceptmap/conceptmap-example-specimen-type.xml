@@ -2,7 +2,7 @@
 
 <ConceptMap xmlns="http://hl7.org/fhir">
   <id value="102"/>
-  <url value="http://hl7.org/fhir/conceptmap-example-specimen-type.html"/>
+  <url value="http://hl7.org/fhir/ConceptMap/102"/>
 <!--  version: the date of the source  -->
   <version value="20130725"/>
   <name value="Specimen mapping from v2 table 0487 to SNOMED CT"/>
