@@ -1311,11 +1311,17 @@ public class ProfileUtilities {
 
 
   private String makePathLink(ElementDefinition element) {
-    if (element.hasName())
-      return element.getName();
-    if (!element.getPath().contains("."))
+//    if (element.hasName())
+//      return element.getName();
+//    if (!element.getPath().contains("."))
+//      return element.getPath();
+//    return element.getPath(); // .substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
+    if (!element.hasName())
       return element.getPath();
-    return element.getPath(); // .substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
+    if (!element.getPath().contains("."))
+      return element.getName();
+    return element.getPath().substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
+    
   }
 
   private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, StructureDefinition profile, String corePath) throws Exception {
