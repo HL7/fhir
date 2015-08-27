@@ -51,8 +51,30 @@
  -- Row 8 -----------------------------------
   Binding Name = ProcedureNegationReason
   Binding = value set
-  Reference = valueset-procedure-negation-reason-code
+  Reference = valueset-procedure-not-performed-reason
   Definition = A code that explains a reason why a procedure was not performed
+  Conformance = example
+
+ -- Row 9 -----------------------------------
+  Binding Name = ProcedureReason
+  Binding = value set
+  Reference = valueset-procedure-reason
+  Definition = A code that explains a reason why a procedure is  required.
+  Conformance = example
+
+ -- Row 10 -----------------------------------
+  Binding Name = ProcedurePerformerRole
+  Binding = value set
+  Reference = valueset-performer-role
+  Definition = A code that identifies a role of a performer in a procedure process
+  Conformance = example
+
+ -- Row 11 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality
+  Description = SNOMED CT Body site concepts
   Conformance = example
 
 === Sheet procedure-relationship-type =====================================
@@ -103,9 +125,9 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = Procedure.reasonNotDone
-  English = Reason not done is only permitted if notDone indicator is true
-  XPath = not(exists(f:reasonNotDone) and f:notDone/@value=\'false\')
+  Context = Procedure.reasonNotPerformed
+  English = Reason not performed is only permitted if notPerformed indicator is true
+  XPath = not(exists(f:reasonNotPerformed) and f:notPerformed/@value=\'false\')
 
 === Sheet Data Elements =====================================
 
@@ -171,7 +193,7 @@
   w5 = class
 
  -- Row 7 -----------------------------------
-  Element = Procedure.notDone
+  Element = Procedure.notPerformed
   Card. = 0..1
   Is Modifier = Y
   Type = boolean
@@ -181,7 +203,7 @@
   Missing Meaning = If this is missing, then the procedure was performed
 
  -- Row 8 -----------------------------------
-  Element = Procedure.reasonNotDone
+  Element = Procedure.reasonNotPerformed
   Card. = 0..*
   Inv. = 1
   Type = CodeableConcept
@@ -197,7 +219,7 @@
   UML = right
   Short Label = Precise location details
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
-  RIM Mapping = .approachSiteCode
+  RIM Mapping = .targetSiteCode
   To Do = Is this approach or target site? RIM mapping inconsistent with ProcedureRequest which lists target site. Recommend calling field targetBodySite or targetSite.
 
  -- Row 10 -----------------------------------
@@ -205,6 +227,7 @@
   Card. = 1..1
   Summary = Y
   Type = CodeableConcept|Reference(BodySite)
+  Binding = BodySite
   Short Label = Precise location details
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
 
@@ -213,6 +236,7 @@
   Card. = 0..1
   Summary = y
   Type = CodeableConcept|Reference(Condition)
+  Binding = ProcedureReason
   Short Label = Reason procedure performed
   Definition = The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text
   Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapuetic
@@ -242,6 +266,7 @@
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
+  Binding = ProcedurePerformerRole
   Short Label = The role the person was in
   Definition = E.g. surgeon, anaethetist, endoscopist
   RIM Mapping = .functionCode
@@ -284,6 +309,7 @@
   Binding = ProcedureOutcome
   Short Label = What was result of procedure?
   Definition = What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
+  Comments = If outcome contains the narrative text only, it can be captured using the CodeableConcept.text.
   RIM Mapping = .outboundRelationship[typeCode=OUT].target.text
 
  -- Row 19 -----------------------------------
@@ -300,6 +326,7 @@
   Type = CodeableConcept
   Short Label = Complication following the procedure
   Definition = Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any \'post procedure\' issues
+  Comments = If complications are only expressed by the narrative text, it can be captured using the CodeableConcept.text.
   RIM Mapping = Need specialization of OUT for this.
   To Do = Need harmonization proposal for new ActRelationshipType code
 
@@ -313,7 +340,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ACT, moodCode=INT].code
 
  -- Row 22 -----------------------------------
-  Element = Procedure.relatedItem
+  Element = !Procedure.relatedItem
   Card. = 0..*
   UML = right
   Short Label = A procedure that is related to this one
@@ -321,7 +348,7 @@
   RIM Mapping = .outboundRelationship[typeCode=TRIG and target[classCode=PROC, moodCode=EVN]]
 
  -- Row 23 -----------------------------------
-  Element = Procedure.relatedItem.type
+  Element = !Procedure.relatedItem.type
   Card. = 0..1
   Type = code
   Binding = ProcedureRelationshipType
@@ -331,13 +358,20 @@
   To Do = Existing codes sound like synonyms.  Suggest caused-by and caused
 
  -- Row 24 -----------------------------------
-  Element = Procedure.relatedItem.target
+  Element = !Procedure.relatedItem.target
   Card. = 0..1
   Type = Reference(AllergyIntolerance | CarePlan | Condition | DiagnosticReport | FamilyMemberHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationOrder | MedicationStatement | Observation | Procedure)
   Short Label = The related item - e.g. a procedure
   RIM Mapping = .target
 
  -- Row 25 -----------------------------------
+  Element = Procedure.request
+  Card. = 0..1
+  Type = Reference(CarePlan|DiagnosticOrder|ProcedureRequest|ReferralRequest)
+  Short Label = A request for this procedure
+  Definition = A reference to a resource that contains about this procedure\'s request.
+
+ -- Row 26 -----------------------------------
   Element = Procedure.notes
   Card. = 0..1
   Type = string
@@ -345,29 +379,29 @@
   Definition = Any other notes about the procedure - e.g. the operative notes
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 26 -----------------------------------
-  Element = Procedure.device
+ -- Row 27 -----------------------------------
+  Element = Procedure.focalDevice
   Card. = 0..*
   UML = left
   Short Label = Device changed in procedure
-  Definition = A device change during the procedure
+  Definition = A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
 
- -- Row 27 -----------------------------------
-  Element = Procedure.device.action
+ -- Row 28 -----------------------------------
+  Element = Procedure.focalDevice.action
   Card. = 0..1
   Type = CodeableConcept
   Binding = DeviceActionKind
   Short Label = Kind of change to device
   Definition = The kind of change that happened to the device during the procedure
 
- -- Row 28 -----------------------------------
-  Element = Procedure.device.manipulated
+ -- Row 29 -----------------------------------
+  Element = Procedure.focalDevice.manipulated
   Card. = 1..1
   Type = Reference(Device)
   Short Label = Device that was changed
   Definition = The device that was manipulated (changed) during the procedure
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Procedure.used
   Card. = 0..*
   Type = Reference(Device|Medication|Substance)
@@ -385,27 +419,33 @@
   Path = Procedure.code
 
  -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A unique identifier for a procedure
+  Path = Procedure.identifier
+
+ -- Row 3 -----------------------------------
   Name = date
   Type = date
   Path = Procedure.performed[x]
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = patient
   Type = reference
   Description = The identity of a patient to list procedures  for
   Path = Procedure.patient
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = performer
   Type = reference
   Path = Procedure.performer.individual
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = location
   Type = reference
   Path = Procedure.location
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = encounter
   Type = reference
   Path = Procedure.encounter
