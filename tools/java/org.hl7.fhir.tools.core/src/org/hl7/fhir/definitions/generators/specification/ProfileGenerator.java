@@ -932,7 +932,7 @@ public class ProfileGenerator {
     }
     addToPaths(myParents, path, ce, p.getName());
 
-    if (!!Utilities.noString(e.getComments()))
+    if (!Utilities.noString(e.getComments()))
       ce.setComments(e.getComments());
     if (!Utilities.noString(e.getShortDefn()))
       ce.setShort(e.getShortDefn());
