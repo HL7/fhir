@@ -6218,7 +6218,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         StructureDefinition ed = workerContext.getExtensionStructure(null, parts[0]);
         if (ed == null)
           throw new Error("Unable to find extension "+parts[0]);
-        url = prefix+ed.getUserData("filename")+".html";
+        url = ed.getUserData("filename")+".html";
       } 
       if (Utilities.noString(url)) {
         String[] paths = parts[0].split("\\.");
@@ -6226,17 +6226,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (p != null) {
           String suffix = (paths.length > 1) ? "-definitions.html#"+parts[0] : ".html";
           if (p.getUserData("filename") == null)
-            url = prefix+paths[0].toLowerCase()+suffix;
+            url = paths[0].toLowerCase()+suffix;
           else
-            url = prefix+p.getUserData("filename")+suffix;
+            url = p.getUserData("filename")+suffix;
         } else if (definitions.hasResource(linkText)) {
-          url = prefix+linkText.toLowerCase()+".html#";
+          url = linkText.toLowerCase()+".html#";
         } else if (definitions.hasElementDefn(linkText)) {
-          url = prefix+definitions.getSrcFile(linkText)+".html#"+linkText;
+          url = definitions.getSrcFile(linkText)+".html#"+linkText;
         } else if (definitions.hasPrimitiveType(linkText)) {
-          url = prefix+"datatypes.html#"+linkText;
+          url = "datatypes.html#"+linkText;
         } else if (definitions.getPageTitles().containsKey(linkText)) {
-          url = prefix+definitions.getPageTitles().get(linkText);
+          url = definitions.getPageTitles().get(linkText);
         } else {
 		      getValidationErrors().add(
               new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, location, "Unresolved logical URL "+linkText, IssueSeverity.WARNING));
@@ -6245,8 +6245,22 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
       text = left+"["+linkText+"]("+url+")"+right;
     }
+    // 1. if prefix <> "", then check whether we need to insert the prefix
+    if (!Utilities.noString(prefix)) {
+      int i = text.length() - 3;
+      while (i > 0) {
+        if (text.substring(i, i+2).equals("](")) {
+          if (!text.substring(i, i+7).equals("](http:")) { //  && !text.substring(i, i+8).equals("](https:"));
+            System.out.println(text.substring(i, i+7));
+            text = text.substring(0, i)+"]("+prefix+text.substring(i+2);
+          }
+        }
+        i--;
+      }
+    }
     
-    // 2. markdown
+    
+    // 3. markdown
     String s = Processor.process(Utilities.escapeXml(text));
     return s;
   }
