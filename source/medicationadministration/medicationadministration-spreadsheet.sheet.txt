@@ -245,7 +245,7 @@
   Card. = 0..1
   UML = right
   Short Label = Details of how medication was taken
-  Definition = Indicates how the medication is/was used by the patient
+  Definition = Describes the medication dosage information details e.g. dose, rate, site, route, etc.
   RIM Mapping = component->SubstanceAdministrationEvent
   To Do = The RMIM has priority code on the act relationship.  How do we handle this?
 
