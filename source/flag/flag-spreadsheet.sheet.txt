@@ -56,7 +56,7 @@
   Summary = Y
   Type = CodeableConcept
   Short Label = Clinical, administrative, etc.
-  Definition = Allows an flag to be divided into different categories like clinical, administrative etc.
+  Definition = Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
   RIM Mapping = .code
   w5 = class
 
@@ -104,9 +104,9 @@
   Element = Flag.author
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner | Patient| Device)
+  Type = Reference(Device | Organization | Patient | Practitioner)
   Short Label = Flag creator
-  Definition = The person or device that created the flag
+  Definition = The person, organization or device that created the flag
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
