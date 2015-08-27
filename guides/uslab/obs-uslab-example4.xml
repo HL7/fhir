@@ -65,14 +65,14 @@ see narrative
     <text value="Dengue IgM Titer"/>
   </code>
   <subject>
-    <reference value="Patient/uslab-example1"/>
+    <reference value="Patient/patient-uslab-example1"/>
     <display value="Todd Lerr"/>
   </subject>
   <effectiveDateTime value="2014-12-05"/>
 <!--  EH: Showing dateTime to ss with TZO although only needed to Day  -->
   <issued value="2014-12-06T15:42:15-08:00"/>
   <performer>
-    <reference value="Practitioner/uslab-example1"/>
+    <reference value="Practitioner/pract-uslab-example1"/>
     <display value="Dr Leonard T Bloodraw Jr"/>
   </performer>
 <!--  In FHIR, units may be represented twice. Once in the
@@ -101,7 +101,7 @@ see narrative
     </coding>
   </interpretation>
   <specimen>
-    <reference value="Specimen/uslab-example1"/>
+    <reference value="Specimen/spec-uslab-example1"/>
     <display value="Bloo sample"/>
   </specimen>
   <referenceRange>
