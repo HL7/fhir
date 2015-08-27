@@ -37,7 +37,7 @@ see narrative
     <text value="Blood Lead Report"/>
   </code>
   <subject>
-    <reference value="Patient/uslab-example1"/>
+    <reference value="Patient/patient-uslab-example1"/>
     <display value="Todd Lerr"/>
   </subject>
   <effectiveDateTime value="2014-12-05"/>
@@ -45,20 +45,20 @@ see narrative
 <!--  EH: Showing dateTime to ss with TZO although only needed to Day  -->
   <issued value="2014-12-06T15:42:15-08:00"/>
   <performer>
-    <reference value="Practitioner/uslab-example3"/>
+    <reference value="Practitioner/pract-uslab-example3"/>
     <display value="Gregory F House, PhD"/>
   </performer>
   <request>
-    <reference value="DiagnosticOrder/uslab-example1"/>
+    <reference value="DiagnosticOrder/do-uslab-example1"/>
     <display value="USLan Example1"/>
   </request>
   <specimen>
-    <reference value="Specimen/uslab-example1"/>
+    <reference value="Specimen/spec-uslab-example1"/>
     <display value="Blood Sample"/>
   </specimen>
 <!--  now the atomic result  -->
   <result>
-    <reference value="Observation/uslab-example5"/>
+    <reference value="Observation/obs-uslab-example5"/>
     <display value="Blood Lead"/>
   </result>
 <!--  EH here is a summary conclusion adn coded diagnosis which isnt really needed in this example - but may be when there are multiple observations to summarize the report findings  diagnosis is more for AP -->

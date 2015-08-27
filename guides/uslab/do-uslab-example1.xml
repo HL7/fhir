@@ -43,11 +43,11 @@ Authored by: Eric M Haas  Health eData Inc.
 		<text value="Abnormal lead level in blood"/>
 	</reason>
 	<supportingInformation>
-		<reference value="Observation/obs-uslab-example1.html"/>
+		<reference value="Observation/obs-uslab-example1"/>
 		<display value="Prior Results Observation"/>
 	</supportingInformation>
 	<supportingInformation>
-		<reference value="Condition/cond-uslab-example1.html"/>
+		<reference value="Condition/cond-uslab-example1"/>
 		<display value="Lead Exposure"/>
 	</supportingInformation>
 	<!--  EH this specimen is for when lab has existing

@@ -56,7 +56,7 @@ Authored by: Eric M Haas  Health eData Inc.
 	</type>
 	<!--Patient is required from core -->
 	<subject>
-		<reference value="Patient/uslab-example1"/>
+		<reference value="Patient/patient-uslab-example1"/>
 		<display value="Todd Lerr"/>
 	</subject>
 	<!-- accession identifier - e.g. assigned by the labaratory when it is received.
