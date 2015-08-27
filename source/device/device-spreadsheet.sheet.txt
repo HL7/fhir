@@ -124,6 +124,7 @@
   Type = dateTime
   Short Label = Manufacture date
   Definition = The Date and time when the device was manufactured.
+  RIM Mapping = .existenceTime.low
 
  -- Row 10 -----------------------------------
   Element = Device.expiry
