@@ -113,7 +113,7 @@
   Type = string
   Short Label = Rule for server push criteria
   Definition = The rules that the server should use to determine when to generate notifications for this subscription
-  Comments = The rules are a search criteria (without the [base] part
+  Comments = The rules are a search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading \"/\"
 
  -- Row 3 -----------------------------------
   Element = Subscription.contact
