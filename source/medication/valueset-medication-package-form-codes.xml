@@ -6,7 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
-      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains medictation package form concepts.</p>
+      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains medication package form concepts.</p>
       
       
       <p>Possible sources include:</p>
@@ -50,7 +50,7 @@
       <!--   SNOMED CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value"   -->
         <property value="concept"/>
         <op value="is-a"/>
-        <value value="284009009"/>
+        <value value="408102007"/>
       </filter>
     </include>
   </compose>
