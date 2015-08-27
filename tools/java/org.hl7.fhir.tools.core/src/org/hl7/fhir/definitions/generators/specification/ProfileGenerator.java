@@ -161,12 +161,12 @@ public class ProfileGenerator {
       de = new DataElement();
       de.setId(id);
       des.put(id, de);
+      de.setUrl("http://hl7.org/fhir/DataElement/"+de.getId());
       if (dataElements != null)
         dataElements.addEntry().setResource(de).setFullUrl(de.getUrl());
     }
     
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
-    de.setUrl("http://hl7.org/fhir/DataElement/"+de.getId());
     de.setName(ed.getName());
     de.setStatus(ConformanceResourceStatus.DRAFT);
     de.setExperimental(true);
