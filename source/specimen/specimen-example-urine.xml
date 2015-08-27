@@ -15,6 +15,7 @@
    If the type includes other fields, it would be normal not to populate the other fields
 
    Note that this practice is so widespread that it's pointless to try and stop it -->
+	<status value="available"></status>
 	<type>
 		<coding>
 			<system value="http://hl7.org/fhir/v2/0487"/>

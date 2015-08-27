@@ -51,6 +51,37 @@
   Description = SNOMED CT Body site concepts
   Conformance = example
 
+ -- Row 8 -----------------------------------
+  Binding Name = SpecimenStatus
+  Binding = code list
+  Reference = #specimen-status
+  Definition = Codes providing the status/availability of a specimen
+  Conformance = required
+
+=== Sheet specimen-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = available
+  Display = Available
+  Definition = The physical specimen is present and in good condition.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = unavailable
+  Display = Unavailable
+  Definition = There is no physical specimen because it is either lost, destroyed or consumed.
+
+ -- Row 3 -----------------------------------
+  Code = unsatisfactory
+  Display = Unsatisfactory
+  Definition = The specimen cannot be used because of a quality issue such as a broken container, contamination, or too old.
+
+ -- Row 4 -----------------------------------
+  Code = entered-in-error
+  Display = Entered-in-error
+  Definition = The specimen was entered in error and therefore nullified.
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -75,6 +106,20 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Specimen.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = SpecimenStatus
+  Short Label = available | unavailable | unsatisfactory | entered-in-error
+  Definition = The availability of the specimen
+  v2 Mapping = SPM-20
+  RIM Mapping = status
+  Committee Notes = [#5829}
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = Specimen.type
   Card. = 0..1
   Summary = Y
@@ -87,7 +132,7 @@
   RIM Mapping = .code
   w5 = class
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Specimen.parent
   Card. = 0..*
   Type = Reference(Specimen)
@@ -97,7 +142,7 @@
   RIM Mapping = .scoper (if parent) .player.scopesRole[classCode=SPEC].player (if child)
   Committee Notes = [#3862]
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = !Specimen.source.relationship
   Card. = 1..1
   Type = code
@@ -107,7 +152,7 @@
   v2 Mapping = not explicit in v2.x SPM segment, but can be derived as child,if SPM-3 Specimen parent ID is filled in
   RIM Mapping = as above
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = !Specimen.source.target
   Card. = 0..*
   Type = Reference(Specimen)
@@ -115,7 +160,7 @@
   Definition = The specimen resource that is the target of this relationship
   RIM Mapping = [self]
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Specimen.subject
   Card. = 1..1
   Summary = Y
@@ -125,7 +170,7 @@
   RIM Mapping = .scoper  or  .scoper.playsRole
   w5 = who.focus
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Specimen.accessionIdentifier
   Card. = 0..1
   Summary = Y
@@ -136,7 +181,7 @@
   RIM Mapping = .participation[typeCode=SBJ].act[classCode=ACSN, moodCode=EVN].id
   w5 = id
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Specimen.receivedTime
   Card. = 0..1
   Summary = Y
@@ -147,7 +192,7 @@
   RIM Mapping = .participation[typeCode=SBJ].act[code=SPCREC, moodCode=EVN].effectiveTime
   w5 = when.done
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Specimen.collection
   Card. = 0..1
   UML = up
@@ -156,7 +201,7 @@
   v2 Mapping = SPM-14
   RIM Mapping = .participation[typeCode=SBJ].act[classCode=SPECCOLLECT, moodCode=EVN]
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Specimen.collection.collector
   Card. = 0..1
   Summary = Y
@@ -166,7 +211,7 @@
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PFM].role
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Specimen.collection.comment
   Card. = 0..*
   Type = string
@@ -175,7 +220,7 @@
   v2 Mapping = OBX
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Specimen.collection.collected[x]
   Card. = 0..1
   Summary = Y
@@ -186,7 +231,7 @@
   RIM Mapping = .effectiveTime
   w5 = when.init
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Specimen.collection.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -195,7 +240,7 @@
   v2 Mapping = SPM-12
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=SPEC].player.quantity
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Specimen.collection.method
   Card. = 0..1
   Type = CodeableConcept
@@ -205,7 +250,7 @@
   v2 Mapping = SPM-7
   RIM Mapping = .methodCode
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Specimen.collection.bodySite
   Card. = 0..1
   Type = CodeableConcept
@@ -217,7 +262,7 @@
   RIM Mapping = .targetSiteCode
   Committee Notes = #6253
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Specimen.treatment
   Card. = 0..*
   UML = down
@@ -225,14 +270,14 @@
   Definition = Details concerning treatment and processing steps for the specimen
   RIM Mapping = .participation[typeCode=SBJ].act[code=SPCTRT, moodCode=EVN]
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Specimen.treatment.description
   Card. = 0..1
   Type = string
   Short Label = Textual description of procedure
   RIM Mapping = .text
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Specimen.treatment.procedure
   Card. = 0..1
   Type = CodeableConcept
@@ -241,7 +286,7 @@
   Definition = A coded value specifying the procedure used to process the specimen
   RIM Mapping = .code
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Specimen.treatment.additive
   Card. = 0..*
   Type = Reference(Substance)
@@ -249,7 +294,7 @@
   v2 Mapping = SPM-6
   RIM Mapping = .participation[typeCode=CSM].role[classCode=ADTV].code
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Specimen.container
   Card. = 0..*
   UML = right
@@ -257,7 +302,7 @@
   Definition = The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
   RIM Mapping = .player.scopingRole[classCode=CONT].scoper
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Specimen.container.identifier
   Card. = 0..*
   Summary = Y
@@ -267,14 +312,14 @@
   v2 Mapping = SAC-3
   RIM Mapping = .id
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Specimen.container.description
   Card. = 0..1
   Type = string
   Short Label = Textual description of the container
   RIM Mapping = .desc
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Specimen.container.type
   Card. = 0..1
   Type = CodeableConcept
@@ -284,7 +329,7 @@
   v2 Mapping = SPM-27
   RIM Mapping = .code
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Specimen.container.capacity
   Card. = 0..1
   Type = SimpleQuantity
@@ -293,7 +338,7 @@
   v2 Mapping = one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20
   RIM Mapping = .quantity
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Specimen.container.specimenQuantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -302,7 +347,7 @@
   v2 Mapping = SAC-23 (value) SAC-24 (units
   RIM Mapping = .playedRole[classCode=CONT].quantity
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Specimen.container.additive[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Substance)

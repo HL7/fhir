@@ -22,6 +22,8 @@
 		<system value="http://ehr.acme.org/identifiers/collections"/>
 		<value value="23234352356"/>
 	</identifier>
+	<!--status is really about the specimen availability and includes the concepts available - The physical specimen is present and in good condition entered-in-error - The specimen was entered in error and therefore nullified. unavailable - There is no physical specimen because it is either lost, destroyed or consumed. unsatisfactory - The specimen cannot be used because of either a quality issue such as a broken container, contamination, or too old.-->
+	<status value="available"></status>
 	<!--
    Type is a loosely defined field because there is such a lot of variation in how it is used.
    The principal variation is how much information that could be represented elsewhere is also 
