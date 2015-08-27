@@ -81,6 +81,7 @@ public class ProfileUtilities {
   
 
   private static final String DERIVATION_EQUALS = "derivation.equals";
+  public static final String DERIVATION_POINTER = "derived.pointer";
   public static final String UD_ERROR_STATUS = "error-status";
   
   private final IWorkerContext context;
@@ -648,6 +649,7 @@ public class ProfileUtilities {
     // over the top for anything the source has
     ElementDefinition base = dest;
     ElementDefinition derived = source;
+    derived.setUserData(DERIVATION_POINTER, base);
     
     if (derived != null) {
       // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff

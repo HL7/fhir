@@ -140,6 +140,7 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
@@ -5338,14 +5339,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       List<String> slices = new ArrayList<String>(); // Fixed Values 
       // numbers - must support, required, prohibited, fixed
       int supports = 0;
-      int requireds = 0;
+      int requiredOutrights = 0;
+      int requiredNesteds = 0;
       int fixeds = 0;
       int prohibits = 0;
   
       for (ElementDefinition ed : profile.getDifferential().getElement()) {
         if (ed.getPath().contains(".")) {
           if (ed.getMin() == 1)
-            requireds++;
+            if (parentChainHasOptional(ed, profile))
+              requiredNesteds++;
+            else
+              requiredOutrights++;
           if ("0".equals(ed.getMax()))
             prohibits++;
           if (ed.getMustSupport())
@@ -5369,28 +5374,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         }
       }
       StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<p><b>\r\nSummary\r\n</b></p>\r\n");
-      if (supports + requireds + fixeds + prohibits > 0) {
+      if (supports + requiredOutrights + requiredNesteds + fixeds + prohibits > 0) {
         boolean started = false;
         res.append("<p>");
-        if (requireds > 0) {
+        if (requiredOutrights > 0 || requiredNesteds > 0) {
           started = true;
-          res.append("Mandatory: "+Integer.toString(requireds)+" "+(requireds > 1 ? Utilities.pluralizeMe("element") : "element")); 
+          res.append("Mandatory: "+Integer.toString(requiredOutrights)+" "+(requiredOutrights > 1 ? Utilities.pluralizeMe("element") : "element"));
+          if (requiredNesteds > 0)
+            res.append(" (+"+Integer.toString(requiredNesteds)+" nested mandatory "+(requiredNesteds > 1 ? Utilities.pluralizeMe("element") : "element")+")"); 
         }
         if (supports > 0) {
           if (started)
-            res.append(", ");
+            res.append("<br/> ");
           started = true;
           res.append("Must-Support: "+Integer.toString(supports)+" "+(supports > 1 ? Utilities.pluralizeMe("element") : "element")); 
         }
         if (fixeds > 0) {
           if (started)
-            res.append(", ");
+            res.append("<br/> ");
           started = true;
           res.append("Fixed Value: "+Integer.toString(fixeds)+" "+(fixeds > 1 ? Utilities.pluralizeMe("element") : "element")); 
         }
         if (prohibits > 0) {
           if (started)
-            res.append(", ");
+            res.append("<br/> ");
           started = true;
           res.append("Prohibited: "+Integer.toString(prohibits)+" "+(prohibits > 1 ? Utilities.pluralizeMe("element") : "element")); 
         }
@@ -5418,6 +5425,36 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     } catch (Exception e) {
       return "<p><i>"+Utilities.escapeXml(e.getMessage())+"</i></p>";
     }
+  }
+
+  private boolean parentChainHasOptional(ElementDefinition ed, StructureDefinition profile) {
+    if (!ed.getPath().contains("."))
+      return false;
+    
+    ElementDefinition match = (ElementDefinition) ed.getUserData(ProfileUtilities.DERIVATION_POINTER);
+    if (match == null)
+      return true; // really, we shouldn't get here, but this appears to be common in the existing profiles?  
+      // throw new Error("no matches for "+ed.getPath()+"/"+ed.getName()+" in "+profile.getUrl());
+    
+    while (match.getPath().contains(".")) {
+      if (match.getMin() == 0) {
+        return true;
+      }
+      match = getElementParent(profile.getSnapshot().getElement(), match);
+    }
+    
+    return false;
+  }
+
+  private ElementDefinition getElementParent(List<ElementDefinition> list, ElementDefinition element) {
+    String targetPath = element.getPath().substring(0, element.getPath().lastIndexOf("."));
+    int index = list.indexOf(element) - 1;
+    while (index >= 0) {
+      if (list.get(index).getPath().equals(targetPath))
+        return list.get(index);
+      index--;
+    }
+    return null;
   }
 
   private String describeSlice(String path, ElementDefinitionSlicingComponent slicing) {

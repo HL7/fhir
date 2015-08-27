@@ -162,22 +162,15 @@
   Definition = May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result.
 
  -- Row 11 -----------------------------------
-  Element = Observation.reliability
-  Card. = 1..1
-  Type = code
-  Definition = Cholesterol values can only be reported when there is no question about their status
-  Value = ok
-
- -- Row 12 -----------------------------------
   Element = Observation.referenceRange
   Card. = 1..1
   Must Support = Y
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.referenceRange.low
   Card. = 0..0
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.referenceRange.high
   Card. = 1..1
   Type = SimpleQuantity
@@ -185,7 +178,7 @@
   Comments = Per Australian NHF Recommendations
   Value = { \"value\" : \"4.5\", \"units\" : \"mmol/L\" }
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.referenceRange.meaning
   Card. = 0..0
   Type = CodeableConcept
@@ -193,12 +186,12 @@
   Definition = Range is a recommended range
   To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..0
   Type = Range
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Observation.related
   Card. = 0..0
 
@@ -245,28 +238,22 @@
   Short Label = Comments about result
 
  -- Row 6 -----------------------------------
-  Element = Observation.reliability
-  Card. = 1..1
-  Type = code
-  Value = ok
-
- -- Row 7 -----------------------------------
   Element = Observation.referenceRange
   Card. = 1..1
   Must Support = Y
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Observation.referenceRange.low
   Card. = 0..0
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Observation.referenceRange.high
   Card. = 1..1
   Requirements = <2.0 mmol/L
   Comments = Per Australian NHF Recommendations
   Committee Notes = 2.0 mmol/L
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Observation.referenceRange.meaning
   Card. = 0..0
   Type = CodeableConcept
@@ -274,12 +261,12 @@
   Definition = Range is a recommended range
   To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..0
   Type = Range
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.related
   Card. = 0..0
 
@@ -326,29 +313,23 @@
   Short Label = Comments about result
 
  -- Row 6 -----------------------------------
-  Element = Observation.reliability
-  Card. = 1..1
-  Type = code
-  Value = ok
-
- -- Row 7 -----------------------------------
   Element = Observation.referenceRange
   Card. = 1..1
   Must Support = Y
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Observation.referenceRange.low
   Card. = 1..1
   Type = SimpleQuantity
   Definition = >1.5 mmol/L
   Value = { \"value\" : \"1.5\", \"units\" : \"mmol/L\" }
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Observation.referenceRange.high
   Card. = 0..0
   Comments = Per Australian NHF Recommendations
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Observation.referenceRange.meaning
   Card. = 0..0
   Type = CodeableConcept
@@ -356,12 +337,12 @@
   Definition = Range is a recommended range
   To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..0
   Type = Range
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.related
   Card. = 0..0
 
@@ -418,21 +399,15 @@
   Short Label = Comments about result
 
  -- Row 7 -----------------------------------
-  Element = Observation.reliability
-  Card. = 1..1
-  Type = code
-  Value = ok
-
- -- Row 8 -----------------------------------
   Element = Observation.referenceRange
   Card. = 1..1
   Must Support = Y
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Observation.referenceRange.low
   Card. = 0..0
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Observation.referenceRange.high
   Card. = 1..1
   Type = SimpleQuantity
@@ -440,7 +415,7 @@
   Comments = Per Australian NHF Recommendations
   Value = { \"value\" : \"3.0\", \"units\" : \"mmol/L\" }
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.referenceRange.meaning
   Card. = 0..0
   Type = CodeableConcept
@@ -448,12 +423,12 @@
   Definition = Range is a recommended range
   To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..0
   Type = Range
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.related
   Card. = 0..0
 

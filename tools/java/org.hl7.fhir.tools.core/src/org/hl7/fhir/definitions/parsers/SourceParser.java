@@ -844,9 +844,9 @@ public class SourceParser {
     if (!f.exists()) {
       errors.add("Unable to find "+purpose+" file "+file+" in "+dir);
       return false;
-    } else {
+    } else  {
       long d = f.lastModified();
-      if (!dates.containsKey(category) || d > dates.get(category))
+      if (!file.endsWith(".sheet.txt") && (!dates.containsKey(category) || d > dates.get(category)))
         dates.put(category, d);
       return true;
     }

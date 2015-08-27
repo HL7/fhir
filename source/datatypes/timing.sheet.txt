@@ -320,7 +320,7 @@
   Element = Timing.repeat.frequencyMax
   Card. = 0..1
   Type = integer
-  Short Label = Event occurs frequency times per period
+  Short Label = Event occurs up to frequencyMax times per period
   Definition = If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range
   RIM Mapping = PIVL.phase
 

@@ -311,7 +311,7 @@
   Definition = A nested sub-section within this section
 
  -- Row 44 -----------------------------------
-  Element = Composition.section.content
+  Element = Composition.section.entry
   Card. = 1..1
   Type = Reference(Observation)
   Short Label = The Content of the section
