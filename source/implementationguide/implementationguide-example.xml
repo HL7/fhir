@@ -36,7 +36,7 @@
     <name value="test"/>
     <resource>
       <purpose value="example"/>
-      <sourceUri value="test.xml"/>
+      <sourceUri value="test.html"/>
     </resource>
   </package>
   <page>
