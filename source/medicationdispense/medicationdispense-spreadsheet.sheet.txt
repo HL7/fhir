@@ -295,9 +295,9 @@
   RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
 
  -- Row 21 -----------------------------------
-  Element = MedicationDispense.dosageInstruction.site
+  Element = MedicationDispense.dosageInstruction.site[x]
   Card. = 0..1
-  Type = CodeableConcept
+  Type = CodeableConcept | Reference(BodySite)
   Binding = MedicationAdministrationSite
   Short Label = Body site to administer to
   Definition = A coded specification of the anatomic site where the medication first enters the body
