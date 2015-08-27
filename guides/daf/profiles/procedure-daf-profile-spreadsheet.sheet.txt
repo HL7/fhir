@@ -36,7 +36,7 @@
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
 
  -- Row 4 -----------------------------------
-  Element = Procedure.type
+  Element = Procedure.code
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
@@ -52,9 +52,9 @@
   Short Label = Coded Responses fromBody Site Value Set
 
  -- Row 6 -----------------------------------
-  Element = !1Procedure.indication
+  Element = !1Procedure.reason[x]
   Card. = 0..*
-  Type = CodeableConcept
+  Type = CodeableConcept|Reference(Condition)
 
  -- Row 7 -----------------------------------
   Element = Procedure.performer
@@ -62,7 +62,7 @@
   Must Support = Y
 
  -- Row 8 -----------------------------------
-  Element = Procedure.performer.person
+  Element = Procedure.performer.individual
   Card. = 0..1
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}

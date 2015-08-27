@@ -11,7 +11,7 @@
   Binding Name = DeviceActionKind
   Binding = value set
   Reference = valueset-device-action
-  Definition = The kind of change that happened to the device during the procedure
+  Definition = A kind of change that happened to the device during the procedure
 
  -- Row 3 -----------------------------------
   Binding Name = ProcedureStatus
@@ -21,17 +21,17 @@
   v3 = ActStatus
 
  -- Row 4 -----------------------------------
-  Binding Name = ProcedureType
+  Binding Name = ProcedureCode
   Binding = value set
-  Reference = valueset-procedure-type
-  Definition = A code for a type of procedure
+  Reference = valueset-procedure-code
+  Definition = A code to identify a specific procedure
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = ProcedureOutcome
   Binding = value set
   Reference = valueset-procedure-outcome
-  Definition = The outcome of a procedure - whether it resolveed the reasons why the procedure was performed
+  Definition = An outcome of a procedure - whether it resolveed the reasons why the procedure was performed
   Conformance = example
 
  -- Row 6 -----------------------------------
@@ -156,17 +156,17 @@
   Type = CodeableConcept
   Binding = ProcedureCategory
   Short Label = Classification of the procedure
-  Definition = A code that classifies the procedure for searching, sorting and display purposes
+  Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\")
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
 
  -- Row 6 -----------------------------------
-  Element = Procedure.type
+  Element = Procedure.code
   Card. = 1..1
   Summary = y
   Type = CodeableConcept
-  Binding = ProcedureType
+  Binding = ProcedureCode
   Short Label = Identification of the procedure
-  Definition = The specific procedure that is performed. Use text if the exact nature of the procedure can\'t be coded
+  Definition = The specific procedure that is performed. Use text if the exact nature of the procedure can\'t be coded (e.g. \"Laparoscopic Appendectomy\")
   RIM Mapping = .code
   w5 = class
 
@@ -209,10 +209,10 @@
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
 
  -- Row 11 -----------------------------------
-  Element = Procedure.indication
-  Card. = 0..*
+  Element = Procedure.reason[x]
+  Card. = 0..1
   Summary = y
-  Type = CodeableConcept
+  Type = CodeableConcept|Reference(Condition)
   Short Label = Reason procedure performed
   Definition = The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text
   Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapuetic
@@ -228,7 +228,7 @@
   RIM Mapping = .participation[typeCode=PFM]
 
  -- Row 13 -----------------------------------
-  Element = Procedure.performer.person
+  Element = Procedure.performer.individual
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner|Patient|RelatedPerson)
@@ -379,10 +379,10 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = type
+  Name = code
   Type = token
-  Description = Type of procedure
-  Path = Procedure.type
+  Description = A code to identify a  procedure
+  Path = Procedure.code
 
  -- Row 2 -----------------------------------
   Name = date
@@ -398,7 +398,7 @@
  -- Row 4 -----------------------------------
   Name = performer
   Type = reference
-  Path = Procedure.performer.person
+  Path = Procedure.performer.individual
 
  -- Row 5 -----------------------------------
   Name = location

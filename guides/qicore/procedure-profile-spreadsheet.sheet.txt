@@ -73,7 +73,7 @@
   QDM Mapping = negation rationale
 
  -- Row 7 -----------------------------------
-  Element = Procedure.type
+  Element = Procedure.code
   Must Support = Y
   Binding = QICoreProcedureType
   QDM Mapping = primary code
@@ -98,7 +98,7 @@
   Must Support = Y
 
  -- Row 12 -----------------------------------
-  Element = Procedure.indication
+  Element = Procedure.reason[x]
   Must Support = Y
   QDM Mapping = reason
 
@@ -107,7 +107,7 @@
   Must Support = Y
 
  -- Row 14 -----------------------------------
-  Element = Procedure.performer.person
+  Element = Procedure.performer.individual
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
 
  -- Row 15 -----------------------------------

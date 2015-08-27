@@ -135,7 +135,7 @@
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
 
  -- Row 10 -----------------------------------
-  Element = ProcedureRequest.type
+  Element = ProcedureRequest.code
   Must Support = Y
   Binding = QICoreProcedureType
   QDM Mapping = primary code
@@ -151,7 +151,7 @@
   Binding = QICoreBodySite
 
  -- Row 13 -----------------------------------
-  Element = ProcedureRequest.indication
+  Element = ProcedureRequest.reason[x]
   Must Support = Y
   QDM Mapping = reason
 

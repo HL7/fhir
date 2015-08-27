@@ -1126,4 +1126,10 @@
   Description = RESTful search operation
   Filename = audit-event-example-search.xml
 
+ -- Row 7 -----------------------------------
+  Name = PIX Query
+  Identity = example-pixQuery
+  Description = Converted ATNA message from a PIX query
+  Filename = audit-event-example-pixQuery.xml
+
 === Sheet Examples =====================================

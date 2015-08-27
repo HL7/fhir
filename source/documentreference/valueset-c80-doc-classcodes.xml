@@ -184,6 +184,22 @@
         <code value="53576-5"/>
         <display value="Personal health monitoring report Document"/>
       </concept>
+      <concept>
+        <code value="56447-6"/>
+        <display value="Plan of care note"/>
+      </concept>
+      <concept>
+        <code value="18748-4"/>
+        <display value="Diagnostic imaging study"/>
+      </concept>
+      <concept>
+        <code value="11504-8"/>
+        <display value="Surgical operation note "/>
+      </concept>
+      <concept>
+        <code value="57133-1"/>
+        <display value="Referral note"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
