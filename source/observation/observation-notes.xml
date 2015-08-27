@@ -23,6 +23,7 @@ Conversely, if the panel members share the same attributes and are not separable
 	<p>
 Another use case for grouping a set of observations is for assessment tools such as an Apgar Score.  These kinds of observations have both a value and related observations or answers from which a final score or value is derived. For example, the or <a href="observation-example-glasgow.html">Glasgow coma score example</a> is structured like a panel with 3 related observations (related type ='derived-from') that measure the status of a given aspect of the patients neuorologic status. These are added together to get Glasgow Coma Score value. 
 </p>
+<a name="valuex"> </a>
 	<h3>Value[x] and Datatypes</h3>
 	<ul>
 		<li>
