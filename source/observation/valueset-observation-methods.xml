@@ -6,12 +6,11 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>This value sets refers to 3 different sources of observation method codes, each with issues:</p>
 			<ul>
+				<li>SNOMED CT Techniques (descendents of 272394005): As for August 2015, this is relatively complete (e.g. includes all LOINC methods ). However this includes more than just observation methods, and is subject to the normal SNOMED CT licensing rules</li>
 				<li>v3 Code System &quot;ObservationMethod&quot;: this is very incomplete and not currently maintained</li>
-				<li>SNOMED CT Techniques (descendents of 272394005): this is very incomplete, more than just observation methods, and has SNOMED CT licensing issues</li>
-				<li>LOINC Method List: this is less incomplete, but not designed to be used as a formal code system</li>
 			</ul>
 			<p>
-        This value set includes content from LOINC®, which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.
+        This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.
       </p>
 		</div>
 	</text>
@@ -25,15 +24,8 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="This value sets refers to 3 different sources of observation method codes 1) Method Codes defined as part of v3, 2) all the 'Technique' SNOMED CT concepts (i.e. codes with an is-a relationship with 272284005: Technique) , and 3) LOINC method Part codes from LOINC.
-	
-Note that the LOINC include has the filter 'Type = METHOD_TYP'. which is equivalent to the following query using the LOINC RELMA database not the actual LOINC database
- 'SELECT PART.PART_NUM, PART.TYPE, PART.PART
-FROM PART
-WHERE (((PART.TYPE)=6));'."/>
-	<copyright value="This value set includes content from LOINC®, which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-	<!--   LOINC doesn't formally expose the methods as set of codes, but we want to use them here?
-     so we define this as a set of new codes. TODO: discuss this with LOINC   -->
+	<description value="Observation Method codes from SNOMED CT (codes subsumed by 272394005 &quot;Technique&quot;, and the v3 Code System &quot;ObservationMethod&quot; (which is no loner actively maintained)"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/v3/ObservationMethod"/>
@@ -41,23 +33,9 @@ WHERE (((PART.TYPE)=6));'."/>
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<filter>
-				<!--   todo: work this over. what this means is any concepts where they have is-a with 404684003 how should this be done?   -->
 				<property value="concept"/>
 				<op value="is-a"/>
 				<value value="272394005"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-		
-			<filter>
-				<!--   
-          LOINC method Part codes from LOINC
-          These will all have codes starting with "^LP" see comments in extension...
-          -->
-				<property value="Type"/>
-				<op value="="/>
-				<value value="METHOD_TYP"/>
 			</filter>
 		</include>
 	</compose>
