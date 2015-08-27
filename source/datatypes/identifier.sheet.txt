@@ -82,7 +82,7 @@
   v2 Mapping = CX.4 / EI-2-4
   RIM Mapping = II.root or Role.id.root
   ServD Mapping = ./IdentifierType
-  Example = http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the id itself is a full uri
+  Example = http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the Identifier.value itself is a full uri
 
  -- Row 5 -----------------------------------
   Element = Identifier.value

@@ -105,6 +105,14 @@ public interface IWorkerContext {
    * The URI is called speculatively for things that might exist, so not finding 
    * a matching resouce, return null, not an error
    * 
+   * The URI can have one of 3 formats:
+   *  - a full URL e.g. http://acme.org/fhir/ValueSet/[id]
+   *  - a relative URL e.g. ValueSet/[id]
+   *  - a logical id e.g. [id]
+   *  
+   * It's an error if the second form doesn't agree with class_. It's an 
+   * error if class_ is null for the last form
+   * 
    * @param resource
    * @param Reference
    * @return

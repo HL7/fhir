@@ -1251,7 +1251,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("<tr>");
     s.append("<td><a href=\""+ed.getUserString("path")+"\">"+ed.getId()+"</a></td>");
     s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
-    s.append("<td>"+Utilities.escapeXml(determineExtensionType(ed))+"</td>");
+    s.append("<td>"+determineExtensionType(ed)+"</td>");
     s.append("<td>");
     boolean first = true;
     if (ed.getContextType() == ExtensionContext.RESOURCE) {

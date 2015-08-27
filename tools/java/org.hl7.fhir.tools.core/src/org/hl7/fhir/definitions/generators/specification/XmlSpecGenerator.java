@@ -563,6 +563,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           if (elem.hasMax() && elem.getMax().equals("0")) 
             write("</span>");
         }
+        if (children.isEmpty())
+          write("<span style=\"color: Gray\"> --&gt;</span>");
       } else {
         if ("*".equals(elem.getMax()) && !listed) { // isNolist()) {
           if (elem.hasShort()) {
