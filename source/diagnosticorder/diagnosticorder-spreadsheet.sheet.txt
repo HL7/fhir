@@ -495,4 +495,10 @@
   Description = CT Scan order
   Filename = diagnosticorder-example-di.xml
 
+ -- Row 3 -----------------------------------
+  Name = Free T4
+  Identity = ft4
+  Description = Free T4 Add on Order
+  Filename = diagnosticorder-example-ft4.xml
+
 === Sheet Examples =====================================

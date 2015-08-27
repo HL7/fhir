@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Diagnostic order example - Free T4 add-on to existing serum sample-->
+<!-- This example idemonstrate use of the DO.specimen element-->
+<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticorder.xsd">
+	<id value="ft4"/>
+	<contained>
+		<Specimen>
+			<id value="rtt"/>
+			<type>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="119364003"/>
+					<display value="Serum sample"/>
+				</coding>
+			</type>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<accessionIdentifier>
+				<system value="http://acme.com/labs/accession-ids"/>
+				<value value="20150816-00124"/>
+			</accessionIdentifier>
+			<collection>
+				<collector>
+					<reference value="Practitioner/f202"/>
+				</collector>
+				<collectedDateTime value="2015-08-16T06:40:17Z"/>
+			</collection>
+			<container>
+				<type>
+					<coding>
+						<system value="http://acme.com/labs"/>
+						<code value="SST"/>
+						<display value="Serum Separator Tube"/>
+					</coding>
+				</type>
+			</container>
+		</Specimen>
+	</contained>
+	<subject>
+		<reference value="Patient/pat2"/>
+	</subject>
+	<orderer>
+		<reference value="Practitioner/example"/>
+	</orderer>
+	<specimen>
+		<reference value="#rtt"/>
+		<display value="Red Top Tube"/>
+	</specimen>
+	<status value="requested"/>
+	<event>
+		<status value="requested"/>
+		<dateTime value="2015-08-27T09:33:27+07:00"/>
+	</event>
+	<item>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="3024-7"/>
+			</coding>
+			<text value="Free T4"/>
+		</code>
+	</item>
+</DiagnosticOrder>
