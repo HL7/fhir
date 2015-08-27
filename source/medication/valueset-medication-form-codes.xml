@@ -50,7 +50,7 @@
       <!--   SNOMED CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value"   -->
         <property value="concept"/>
         <op value="is-a"/>
-        <value value="284009009"/>
+        <value value="421967003"/>
       </filter>
     </include>
   </compose>
