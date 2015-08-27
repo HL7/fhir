@@ -91,7 +91,7 @@
   Element = MedicationStatement
   Type = DomainResource
   Short Label = Record of medication being taken by a patient
-  Definition = A record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient or another clinician
+  Definition = A record of medication use as reported by a patient, a clinician or another party.
   RIM Mapping = SubstanceAdministration
   w5 = clinical
 
