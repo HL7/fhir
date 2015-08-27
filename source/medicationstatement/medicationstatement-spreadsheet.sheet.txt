@@ -187,6 +187,14 @@
   Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
 
  -- Row 12 -----------------------------------
+  Element = MedicationStatement.supportingInformation
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Additional supporting information
+  Definition = Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports the MedicationStatement.
+  Comments = Likely references would be to MedicationOrder, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
+
+ -- Row 13 -----------------------------------
   Element = MedicationStatement.medication[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Medication)
@@ -197,7 +205,7 @@
   RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest.consumable
   w5 = what
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationStatement.dosage
   Card. = 0..*
   UML = right
@@ -206,14 +214,14 @@
   RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationStatement.dosage.text
   Card. = 0..1
   Type = string
   Short Label = Dosage Instructions
   Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationStatement.dosage.timing
   Card. = 0..1
   Type = Timing
@@ -222,7 +230,7 @@
   v2 Mapping = RAS:TQ1
   RIM Mapping = .effectiveTime
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationStatement.dosage.asNeeded[x]
   Card. = 0..1
   Type = boolean | CodeableConcept
@@ -231,7 +239,7 @@
   Definition = If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the precondition for taking the Medication
   RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationStatement.dosage.site[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(BodySite)
@@ -241,7 +249,7 @@
   v2 Mapping = RXR-2-Administration Site
   RIM Mapping = .approachSiteCode
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationStatement.dosage.route
   Card. = 0..1
   Type = CodeableConcept
@@ -251,7 +259,7 @@
   v2 Mapping = RXR-1-Route
   RIM Mapping = .routeCode
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationStatement.dosage.method
   Card. = 0..1
   Type = CodeableConcept
@@ -261,7 +269,7 @@
   v2 Mapping = RXR-4-Administration Method
   RIM Mapping = .methodCode
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationStatement.dosage.quantity[x]
   Card. = 0..1
   Type = SimpleQuantity | Range
@@ -270,7 +278,7 @@
   v2 Mapping = RXA-6-Administered Amount / RXA-7.1-Administered Units.code / RXA-7.3-Administered Units.name of coding system
   RIM Mapping = .doseQuantity
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationStatement.dosage.rate[x]
   Card. = 0..1
   Type = Ratio|Range
@@ -279,7 +287,7 @@
   v2 Mapping = RXA-12-Administered Per (Time Unit)
   RIM Mapping = .rateQuantity
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationStatement.dosage.maxDosePerPeriod
   Card. = 0..1
   Type = Ratio
