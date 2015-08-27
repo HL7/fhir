@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Iryna Roy</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-26T22:13:10Z</LastSaved>
+  <LastSaved>2015-08-27T15:34:47Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1177,7 +1177,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.notDone</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.notPerformed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1211,7 +1211,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.reasonNotDone</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.reasonNotPerformed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1689,7 +1689,7 @@
     <Cell><Data ss:Type="String">Reference(Careplan) | string </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.relatedItem</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Procedure.relatedItem</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1721,7 +1721,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.relatedItem.type</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Procedure.relatedItem.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1756,7 +1756,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="255">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.relatedItem.target</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Procedure.relatedItem.target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3940,9 +3940,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3950,6 +3950,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3957,8 +3958,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4019,12 +4020,12 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Not done reason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Procedure.reasonNotDone</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Procedure.reasonNotPerformed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason not done is only permitted if notDone indicator is true</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason not performed is only permitted if notPerformed indicator is true</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:reasonNotDone) and f:notDone/@value='false')</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:reasonNotPerformed) and f:notPerformed/@value='false')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4492,7 +4493,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
