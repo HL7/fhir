@@ -12,11 +12,16 @@
       <code value="BT"/>
       <display value="Body temperature"/>
     </coding>
-  <!-- LOINC translation here -->
+  <!-- LOINC and SNOMED translations here - Note in the US the primary code will be LOINC per meaningful use.  Further SNOMED  has acceeded to LOINC being the primary coding system for vitals and anthropromorphic measures.  SNOMED is required in some countries such as the UK.-->
     <coding>
       <system value="http://loinc.org"/>
       <code value="8310-5"/>
       <display value="Body temperature"/>
+    </coding>
+      <coding>
+       <system value="http://snomed.info/sct"/>
+      <code value="56342008"/>
+      <display value="Temperature taking"/>
     </coding>
     <text value="Body temperature"/>
   </code>

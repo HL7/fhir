@@ -12,8 +12,8 @@
   <code>
     <coding>
       <system value="http://loinc.org"/>
-      <code value="30350-3"/>
-      <display value="Hemoglobin [Mass/volume] in Venous blood"/>
+      <code value="718-7"/>
+      <display value="Hemoglobin [Mass/volume] in Blood"/>
     </coding>
   </code>
   <subject>

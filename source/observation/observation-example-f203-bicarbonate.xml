@@ -10,7 +10,7 @@
 <!-- Bicarbonate was measured on April fourth -->
   <status value="final"/>
   <code>
-  <!-- Kind of observation = Bicarbonate -->
+  <!-- Kind of observation = Bicarbonate LOINC and SNOMED translations here - Note in the US the primary code will be LOINC per meaningful use.  Further SNOMED  has acceeded to LOINC being the primary coding system for vitals and anthropromorphic measures.  SNOMED is required in some countries such as the UK.-->
     <coding>
       <system value="http://loinc.org"/>
       <code value="1963-8"/>

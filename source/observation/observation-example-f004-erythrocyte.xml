@@ -32,7 +32,7 @@
   <valueQuantity>
     <value value="4.12"/>
   <!--  Actually, 4.12E+12  -->
-    <unit value="10^12/L"/>
+    <unit value="10 trillion/L"/>
     <system value="http://unitsofmeasure.org"/>
     <code value="10*12/L"/>
   </valueQuantity>

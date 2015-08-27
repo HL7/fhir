@@ -22,6 +22,7 @@
  component observations for the actual values
 
 
+
 -->
 <Observation xmlns="http://hl7.org/fhir">
   <id value="blood-pressure"/>
@@ -65,8 +66,6 @@
     </coding>
     <text value="low"/>
   </interpretation>
-  <!-- for an observation with components, these cannot disagree with the flags on the components -->
-
   <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -77,18 +76,18 @@
   <component>
     <!--
            Observations are often coded in multiple code systems.
-           - Loinc provides a very specific code (though not usefully more specific in this particular case)
+           - Loinc provides a very specific code (though not more specific in this particular case)
            - snomed provides a clinically relevant code that is usually less granular than LOINC
            - the source system provides its own code, which may be less or more granular than LOINC
          -->
     <code>
-      <!-- LOINC - always recommended to have a LOINC code -->
+      <!-- LOINC -code -->
       <coding>
         <system value="http://loinc.org"/>
         <code value="8480-6"/>
         <display value="Systolic blood pressure"/>
       </coding>
-      <!-- SNOMED CT Codes - becoming more common -->
+      <!-- SNOMED CT Codes -->
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="271649006"/>
@@ -100,9 +99,9 @@
         <code value="bp-s"/>
         <display value="Systolic Blood pressure"/>
       </coding>
-      <!-- that shows the concept. The next two names only have a LOINC code -->
+      <!-- that shows the concept. The next two codes only have a LOINC code -->
     </code>
-    <!-- no formal units in this example -->
+    <!-- no standard units used in this example -->
     <valueQuantity>
       <value value="107"/>
       <unit value="mm[Hg]"/>
