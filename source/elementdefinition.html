@@ -124,7 +124,7 @@ The use of Path and type depends more deeply on the context where the ElementDef
       <li><code>min</code> and <code>max</code> govern the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice. </li>
     </ul>
  </li> 
- <li>An element with a cardinality of 0..1, but with multiple types, can be sliced by type, in order to specify different constraints for different types</li>
+ <li>An element with a cardinality of 0..1 and a choice of multiple types can be sliced by type. This is in order to specify different constraints for different types. In this case, the discriminator SHALL be "@type"</li>
  <li></li>
 </ul>
  

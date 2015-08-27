@@ -4,7 +4,7 @@
   <url value="http://hl7.org/fhir/ValueSet/condition-certainty-absent"/>
   <name value="Condition/Diagnosis Certainty"/>
   <status value="draft"/>
-  <publisher value="CQF Project team"/>
+  <publisher value="QICore Project team"/>
   <contact>
     <telecom>
       <system value="other"/>

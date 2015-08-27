@@ -9,7 +9,7 @@
   <publisher value="Health Services Platform Consortium"/>
   <dependency>
     <type value="reference"/>
-    <uri value="http://hl7.org/fhir/qi-core"/>
+    <uri value="http://hl7.org/fhir/qicore"/>
   </dependency>
   <dependency>
     <type value="reference"/>
