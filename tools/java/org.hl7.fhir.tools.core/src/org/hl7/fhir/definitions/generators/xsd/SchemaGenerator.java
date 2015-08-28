@@ -71,9 +71,10 @@ public class SchemaGenerator {
 
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getResources().keySet());
+    names.add("Parameters");
     Collections.sort(names);
     for (String name : names) {
-      ResourceDefn root = definitions.getResources().get(name);
+      ResourceDefn root = definitions.getResourceByName(name);
 		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd")), "UTF-8"), definitions, forCodeGeneration);
 		  sgen.setDataTypes(definitions.getKnownTypes());
 		  sgen.generate(root.getRoot(), version, genDate, true);
@@ -116,7 +117,7 @@ public class SchemaGenerator {
 //    single.write("  <xs:element name=\"Binary\" type=\"Binary\"/>\r\n");
 //  
     for (String name : names) {
-      ResourceDefn root = definitions.getResources().get(name);
+      ResourceDefn root = definitions.getResourceByName(name);
       XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration);
       sgen.setDataTypes(definitions.getKnownTypes());
       sgen.generate(root.getRoot(), version, genDate, false);
@@ -152,6 +153,7 @@ public class SchemaGenerator {
   private String processSchemaIncludes(Definitions definitions, String filename, String src, boolean singleMode) throws Exception {
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getResources().keySet());
+    names.add("Parameters");
     Collections.sort(names);
     while (src.contains("<!--%") || src.contains("<%"))
     {
