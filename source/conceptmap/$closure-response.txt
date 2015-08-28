@@ -16,7 +16,7 @@ HTTP/1.1 200 OK
         {
           "codeSystem": "http://snomed.info/sct",
           "code": "128599005",
-          "equivalence": "narrower"
+          "equivalence": "wider"
         }
       ]
     },
