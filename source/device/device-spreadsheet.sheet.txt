@@ -258,6 +258,12 @@
   Description = FDA Mandated Unique Device Identifier
   Path = Device.udi
 
+ -- Row 9 -----------------------------------
+  Name = url
+  Type = uri
+  Description = Network address to contact device
+  Path = Device.url
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

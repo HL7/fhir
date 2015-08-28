@@ -246,7 +246,7 @@
   Comments = Information on a patient\'s food preferences inform healthcare personnel about the food that the patient should receive or consume.
   v2 Mapping = ODS-1 Value = \"P\",ODS-3
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=NutritionModificationType]
-  Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier\n--how to convey the patient No Soy, No Red Meat? (without a negation indicator)\nDo what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
+  Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
  -- Row 10 -----------------------------------
   Element = NutritionOrder.excludeFoodModifier
@@ -254,10 +254,10 @@
   Type = CodeableConcept
   Binding = FoodType
   Short Label = Order-specific modifier about the type of food that should not be given
-  Definition = This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
+  Definition = This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced allergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
   Comments = Information on a patient\'s food allergies and intolerances, and preferences inform healthcare personnel about the type  of foods that the patient should receive or consume.
   RIM Mapping = N/A
-  Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier\n--how to convey the patient No Soy, No Red Meat? (without a negation indicator)\nDo what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
+  Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
  -- Row 11 -----------------------------------
   Element = !NutritionOrder.item
@@ -265,7 +265,7 @@
   UML = down
   Short Label = Set of nutrition items or components that comprise the nutrition order
   Definition = Different items that combine to make a complete description of the nutrition to be provided via oral diet, nutritional supplement and/or formula order.
-  Committee Notes = use either HL7 Supply code that represents Nutrition Order Item or SNOMED/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings).  reasons we may need a type - query for specific part of the order\nPer WGM Mon Q3 - remove this and move attributes to each instance\n2/4/2015 EH: [#3996] deprecate
+  Committee Notes = use either HL7 Supply code that represents Nutrition Order Item or SNOMED/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings).  reasons we may need a type - query for specific part of the order Per WGM Mon Q3 - remove this and move attributes to each instance 2/4/2015 EH: [#3996] deprecate
 
  -- Row 12 -----------------------------------
   Element = !NutritionOrder.item.scheduled[x]
@@ -275,7 +275,7 @@
   Short Label = Frequency to offer nutrition item
   Definition = The frequency at which the diet, oral supplement or enteral formula should be given
   v2 Mapping = ODS-2
-  Committee Notes = (not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)\nPer WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule\n2/4/2015 EH: [#3996] deprecate
+  Committee Notes = (not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval) Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule 2/4/2015 EH: [#3996] deprecate
 
  -- Row 13 -----------------------------------
   Element = !NutritionOrder.item.isInEffect
@@ -283,7 +283,7 @@
   Type = boolean
   Short Label = Indicates whether the nutrition item is  currently in effect
   Definition = Indicates whether the nutrition item is  currently in effect for the patient.
-  Committee Notes = Per WGM Mon Q3 - may not need if status provides same info\n2/4/2015 EH: [#3996] deprecate
+  Committee Notes = Per WGM Mon Q3 - may not need if status provides same info 2/4/2015 EH: [#3996] deprecate
 
  -- Row 14 -----------------------------------
   Element = NutritionOrder.oralDiet
