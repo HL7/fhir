@@ -825,12 +825,6 @@
   Filename = observation-core.xml
   Type = spreadsheet
 
- -- Row 12 -----------------------------------
-  Name = Mock up of Genomics using Composed
-  IG Name = core
-  Filename = observation-ehgenetics-mockup-spreadsheet.xml
-  Type = spreadsheet
-
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
