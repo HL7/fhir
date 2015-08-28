@@ -12,7 +12,30 @@
 </ul>
 
 <h3>Use Case</h3>
+<p>
+Joe Angina complains of shortness of breath and occasional chest pain to his primary care physician, Dr. Pat Down at Local MultiClinic, who orders a stress echocardiogram; the order is created as a FHIR Order resource to manage the workflow, with a link to a DiagnosticOrder resource with the details of the request.   The order is scheduled and assigned to cardiologist Dr. Art Skann, also at Local MultiClinic.   
+</p>
+<p>
+On the scheduled day of the exam, Joe arrives at the echo lab to meet with Dr. Skann and have the study done.  Dr. Skann’s workstation shows the daily list of Orders, and he follows the link to retrieve the DiagnosticOrder. (He may follow the links through the referenced Patient resource to access Joe’s electronic medical record, but that is not the concern of this storyboard.)  
+</p>
+<p>
+The Order/DiagnosticOrder has been transcoded to a DICOM Modality Worklist Scheduled Procedure Step, and in the echo lab the equipment has downloaded the Modality Worklist.  The study is performed, and the acquired images and sonographer’s preliminary measurements are stored in the Local MultiClinic Picture Archiving and Communication System (PACS).  The PACS creates an ImagingStudy resource for each study it manages.
+</p>
+<p>
+Dr. Skann interprets the study on a PACS workstation, and he selects two key image frames to be included in the diagnostic report; this selection is stored back to the PACS as a DICOM Key Object Selection with the title “For Report Attachment”, and the PACS makes it available (transcodes it) as a FHIR ImagingObjectSelection resource.  Dr. Skann dictates the report using a structured data entry report writing program, including a recommendation for a cardiac catheterization procedure, and signs it.  The report writing program formats the report as a CDA document, retrieves the ImagingObjectSelection resource, and inserts the referenced key images into the report.
+</p>
+<p>
+Dr. Down meets again with Joe, and they review the results of the stress test.  Joe has a question about the findings that the key images in the report do not show, so Dr. Down uses the Local MultiClinic EMR to query the PACS for the full ImagingStudy resource, and uses the references there to open an image display for the full study.  Joe agrees to proceed to catheterization, and Dr. Down sends a referral to the Ginormous University Hospital cath department, and triggers the PACS to share the echo study through the Metropolitan Health Information Exchange.  
+</p>
+<p>
+The PACS creates a manifest of the study as an ImagingObjectSelection resource, which includes all the images but excludes the sonographer’s preliminary measurements (which as a matter of policy are not shared outside the Local MultiClinic). The manifest is published to the Metro HIE. (In accordance with IHE XDS-I, the images themselves are not directly published to the HIE, but available for on-demand retrieval from the PACS.)
+</p>
+<p>
+At Ginormous Hospital, Dr. Cora Plummer receives the cath referral, and looks up the study in the Metro HIE registry.  She retrieves the study manifest ImagingObjectSelection, and uses it to access the shared images, which she uses to prepare for the cath procedure.
+</p>
 
+
+<!-- old use-case replaced August 2015, CP #7679
 <p>
 The following storyboard illustrates the primary use case for 
 this resource:
@@ -41,5 +64,5 @@ artifacts Karen would like to review can be downloaded and viewed using
 capable DICOM viewing software.
 </p>
 </blockquote>
-
+-->
 </div>
