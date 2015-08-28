@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 28, 2015 10:50+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1435,30 +1435,32 @@ public class Condition extends DomainResource {
 
   @SearchParamDefinition(name="date-recorded", path="Condition.dateRecorded", description="A date, when the Condition statement was documented", type="date" )
   public static final String SP_DATERECORDED = "date-recorded";
-  @SearchParamDefinition(name="category", path="Condition.category", description="The category of the condition", type="token" )
-  public static final String SP_CATEGORY = "category";
-  @SearchParamDefinition(name="patient", path="Condition.patient", description="Who has the condition?", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="asserter", path="Condition.asserter", description="Person who asserts this condition", type="reference" )
   public static final String SP_ASSERTER = "asserter";
-  @SearchParamDefinition(name="body-site", path="Condition.bodySite", description="Anatomical location, if relevant", type="token" )
-  public static final String SP_BODYSITE = "body-site";
-  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
-  public static final String SP_EVIDENCE = "evidence";
   @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
   public static final String SP_ONSET = "onset";
+  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
+  public static final String SP_EVIDENCE = "evidence";
+  @SearchParamDefinition(name="body-site", path="Condition.bodySite", description="Anatomical location, if relevant", type="token" )
+  public static final String SP_BODYSITE = "body-site";
   @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
   public static final String SP_ONSETINFO = "onset-info";
   @SearchParamDefinition(name="severity", path="Condition.severity", description="The severity of the condition", type="token" )
   public static final String SP_SEVERITY = "severity";
-  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter when condition first asserted", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
-  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
-  public static final String SP_CLINICALSTATUS = "clinicalstatus";
   @SearchParamDefinition(name="code", path="Condition.code", description="Code for the condition", type="token" )
   public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter when condition first asserted", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="stage", path="Condition.stage.summary", description="Simple summary (disease specific)", type="token" )
   public static final String SP_STAGE = "stage";
+  @SearchParamDefinition(name="category", path="Condition.category", description="The category of the condition", type="token" )
+  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="patient", path="Condition.patient", description="Who has the condition?", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
+  public static final String SP_CLINICALSTATUS = "clinicalstatus";
+  @SearchParamDefinition(name="identifier", path="Condition.identifier", description="A unique identifier of the condition record", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

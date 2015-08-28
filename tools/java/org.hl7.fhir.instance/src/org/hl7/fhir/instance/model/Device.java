@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 28, 2015 10:50+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1109,6 +1109,8 @@ public class Device extends DomainResource {
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="identifier", path="Device.identifier", description="Instance id from manufacturer, owner, and others", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="url", path="Device.url", description="Network address to contact device", type="uri" )
+  public static final String SP_URL = "url";
 
 }
 

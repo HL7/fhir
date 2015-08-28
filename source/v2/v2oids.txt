@@ -1,5 +1,5 @@
 id	Name	OID	id	ver
-// 1	SEX	2.16.840.1.133883.18.1	sex 2.1
+// 1	SEX	2.16.840.1.133883.18.1	sex 2.1 - 2.4
 1	Administrative Sex	2.16.840.1.133883.18.2	administrativeSex
 2	Marital Status	2.16.840.1.133883.18.179	maritalStatus	
 3	Event type	2.16.840.1.133883.18.4	eventType	
@@ -56,8 +56,8 @@ id	Name	OID	id	ver
 127	Allergen Type	2.16.840.1.133883.18.54	allergenType	
 128	Allergy Severity	2.16.840.1.133883.18.55	allergySeverity	
 130	Visit User Code	2.16.840.1.133883.18.56	visitUserCode	
-131	Contact Role	2.16.840.1.133883.18.57	contactRole	
-131	Contact Role	2.16.840.1.133883.18.58	contactRole2	
+131	Contact Role	2.16.840.1.133883.18.57	contactRole 2.3
+131	Contact Role	2.16.840.1.133883.18.58	contactRole2  2.5
 133	Procedure Practitioner Identifier Code Type	2.16.840.1.133883.18.59	procedurePractitionerIdentifierCodeType	
 135	Assignment of Benefits	2.16.840.1.133883.18.60	assignmentOfBenefits	
 137	Mail Claim Party	2.16.840.1.133883.18.61	mailClaimParty	
@@ -81,7 +81,6 @@ id	Name	OID	id	ver
 161	Allow Substitution	2.16.840.1.133883.18.79	allowSubstitution	
 162	Route of Administration	2.16.840.1.133883.18.80	routeOfAdministration	
 163	Body Site	2.16.840.1.133883.18.81	bodySite	
-164	Administration Device	2.16.840.1.133883.18.82	administrationDevice	
 164	Adminstration Device	2.16.840.1.133883.18.82	adminstrationDevice	
 165	Administration Method	2.16.840.1.133883.18.83	administrationMethod	
 166	RX Component Type	2.16.840.1.133883.18.84	rxComponentType	
@@ -105,7 +104,7 @@ id	Name	OID	id	ver
 191	Type of Referenced Data	2.16.840.1.133883.18.102	typeOfReferencedData	
 193	Amount class	2.16.840.1.133883.18.103	amountClass	
 200	Name Type	2.16.840.1.133883.18.104	nameType	
-// 200	Name Type	2.16.840.1.133883.18.105	nameType2	
+// 200	Name Type	2.16.840.1.133883.18.105	nameType2	2.7+
 201	Telecommunication use code	2.16.840.1.133883.18.106	telecommunicationUseCode	
 202	Telecommunication equipment type	2.16.840.1.133883.18.107	telecommunicationEquipmentType	
 203	Identifier type	2.16.840.1.133883.18.108	identifierType	
@@ -123,8 +122,8 @@ id	Name	OID	id	ver
 216	Patient Status Code	2.16.840.1.133883.18.120	patientStatusCode	
 217	Visit priority code	2.16.840.1.133883.18.121	visitPriorityCode	
 220	Living Arrangement	2.16.840.1.133883.18.122	livingArrangement	
-223	Living dependency	2.16.840.1.133883.18.123	livingDependency	
-223	Living dependency	2.16.840.1.133883.18.124	livingDependency2	
+223	Living dependency	2.16.840.1.133883.18.123	livingDependency  2.3	
+223	Living dependency	2.16.840.1.133883.18.124	livingDependency2 2.4
 224	Transport Arranged	2.16.840.1.133883.18.125	transportArranged	
 225	Escort Required	2.16.840.1.133883.18.126	escortRequired	
 227	Manufacturers of Vaccines	2.16.840.1.133883.18.127	manufacturersOfVaccinesHL7	
@@ -164,9 +163,9 @@ id	Name	OID	id	ver
 268	Override	2.16.840.1.133883.18.161	override	
 269	Charge on indicator	2.16.840.1.133883.18.162	chargeOnIndicator	
 270	Document Type	2.16.840.1.133883.18.163	documentType	
-271	Document Completion Status	2.16.840.1.133883.18.164	documentCompletionStatus	
-272	Document Confidentiality Status	2.16.840.1.133883.18.165	documentConfidentialityStatus	
-272	Document Confidentiality Status	2.16.840.1.133883.18.166	documentConfidentialityStatus2	
+271	Document Completion Status	2.16.840.1.133883.18.164	documentCompletionStatus
+272	Document Confidentiality Status	2.16.840.1.133883.18.165	documentConfidentialityStatus 2.3
+272	Document Confidentiality Status	2.16.840.1.133883.18.166	documentConfidentialityStatus2  2.3.1
 273	Document Availability Status	2.16.840.1.133883.18.167	documentAvailabilityStatus	
 275	Document storage status	2.16.840.1.133883.18.168	documentStorageStatus	
 276	Appointment reason codes	2.16.840.1.133883.18.169	appointmentReasonCodes	
@@ -218,8 +217,8 @@ id	Name	OID	id	ver
 356	Alternate character set handling scheme	2.16.840.1.133883.18.216	alternateCharacterSetHandlingScheme	
 357	Message Error Condition Codes	2.16.840.1.133883.18.217	messageErrorConditionCodes	
 359	Diagnosis Priority	2.16.840.1.133883.18.218	diagnosisPriority	
-360	Degree	2.16.840.1.133883.18.219	degree	
-360	Degree/License/Certificate	2.16.840.1.133883.18.220	degree/license/certificate	
+360	Degree	2.16.840.1.133883.18.219	degree	2.3.1
+360	Degree/License/Certificate	2.16.840.1.133883.18.220	degree/license/certificate	2.7
 363	Assigning authority	2.16.840.1.133883.18.221	assigningAuthority	
 364	Comment Type	2.16.840.1.133883.18.222	commentType	
 365	Equipment State	2.16.840.1.133883.18.223	equipmentState	
@@ -240,8 +239,8 @@ id	Name	OID	id	ver
 387	Command response	2.16.840.1.133883.18.238	commandResponse	
 388	Processing Type	2.16.840.1.133883.18.239	processingType	
 389	Analyte Repeat Status	2.16.840.1.133883.18.240	analyteRepeatStatus	
-391	Segment group	2.16.840.1.133883.18.241	segmentGroup	
-391	Segment group	2.16.840.1.133883.18.242	segmentGroup2	
+391	Segment group	2.16.840.1.133883.18.241	segmentGroup	2.4
+391	Segment group	2.16.840.1.133883.18.242	segmentGroup2	2.6
 392	Match Reason	2.16.840.1.133883.18.243	matchReason	
 393	Match algorithms	2.16.840.1.133883.18.244	matchAlgorithms	
 394	Response modality	2.16.840.1.133883.18.245	responseModality	
@@ -260,7 +259,7 @@ id	Name	OID	id	ver
 416	Procedure DRG type	2.16.840.1.133883.18.258	procedureDrgType	
 417	Tissue Type Code	2.16.840.1.133883.18.259	tissueTypeCode	
 418	Procedure Priority	2.16.840.1.133883.18.260	procedurePriority	
-418	Procedure Priority	2.16.840.1.133883.18.261	procedurePriority2	
+// 418	Procedure Priority	2.16.840.1.133883.18.261	procedurePriority2	
 421	Severity of Illness Code	2.16.840.1.133883.18.262	severityOfIllnessCode	
 422	Triage Code	2.16.840.1.133883.18.263	triageCode	
 423	Case Category Code	2.16.840.1.133883.18.264	caseCategoryCode	
@@ -423,7 +422,7 @@ id	Name	OID	id	ver
 912	Participation	2.16.840.1.133883.18.420	participation	
 914	Root Cause	2.16.840.1.133883.18.421	rootCause	
 916	Relevant Clincial Information	2.16.840.1.133883.18.421	relevantClinicalInformation	
-916	Relevant Clincial Information	2.16.840.1.133883.18.422	relevantClinicalInformation2	
+// 916	Relevant Clincial Information	2.16.840.1.133883.18.422	relevantClinicalInformation2	
 917	Bolus Type	2.16.840.1.133883.18.423	bolusType	
 918	PCA Type	2.16.840.1.133883.18.424	pcaType	
 919	Exclusive Test	2.16.840.1.133883.18.425	exclusiveTest	

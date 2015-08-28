@@ -852,8 +852,11 @@ public class ProfileUtilities {
             }
           }
           base.getType().clear();
-          for (TypeRefComponent t : derived.getType())
-            base.getType().add(t.copy());
+          for (TypeRefComponent t : derived.getType()) {
+            TypeRefComponent tt = t.copy();
+//            tt.setUserData(DERIVATION_EQUALS, true);
+            base.getType().add(tt);
+          }
         }
         else if (trimDifferential)
           derived.getType().clear();
@@ -1019,14 +1022,25 @@ public class ProfileUtilities {
   private Cell genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile, String corePath) throws Exception {
     Cell c = gen.new Cell();
     r.getCells().add(c);
-    if (!e.hasType())
-      return c;
+    List<TypeRefComponent> types = e.getType();
+    if (!e.hasType()) {
+      ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
+      if (d != null && d.hasType()) {
+        types = new ArrayList<ElementDefinition.TypeRefComponent>();
+        for (TypeRefComponent tr : d.getType()) {
+          TypeRefComponent tt = tr.copy();
+          tt.setUserData(DERIVATION_EQUALS, true);
+          types.add(tt);
+        }
+      } else
+        return c;
+    }
 
     boolean first = true;
-    Element source = e.getType().get(0); // either all types are the same, or we don't consider any of them the same
+    Element source = types.get(0); // either all types are the same, or we don't consider any of them the same
 
-    boolean allReference = ADD_REFERENCE_TO_TABLE && !e.getType().isEmpty();
-    for (TypeRefComponent t : e.getType()) {
+    boolean allReference = ADD_REFERENCE_TO_TABLE && !types.isEmpty();
+    for (TypeRefComponent t : types) {
       if (!(t.getCode().equals("Reference") && t.hasProfile()))
         allReference = false;
     }
@@ -1035,7 +1049,7 @@ public class ProfileUtilities {
       c.getPieces().add(gen.new Piece(null, "(", null));
     }
     TypeRefComponent tl = null;
-    for (TypeRefComponent t : e.getType()) {
+    for (TypeRefComponent t : types) {
       if (first)
         first = false;
       else if (allReference)
@@ -1118,6 +1132,16 @@ public class ProfileUtilities {
   private void genCardinality(HeirarchicalTableGenerator gen, ElementDefinition definition, Row row, boolean hasDef, UnusedTracker tracker, ElementDefinition fallback) {
     IntegerType min = !hasDef ? new IntegerType() : definition.hasMinElement() ? definition.getMinElement() : new IntegerType();
     StringType max = !hasDef ? new StringType() : definition.hasMaxElement() ? definition.getMaxElement() : new StringType();
+    if (min.isEmpty() && definition.getUserData(DERIVATION_POINTER) != null) {
+      ElementDefinition base = (ElementDefinition) definition.getUserData(DERIVATION_POINTER);
+      min = base.getMinElement().copy();
+      min.setUserData(DERIVATION_EQUALS, true);
+    }
+    if (max.isEmpty() && definition.getUserData(DERIVATION_POINTER) != null) {
+      ElementDefinition base = (ElementDefinition) definition.getUserData(DERIVATION_POINTER);
+      max = base.getMaxElement().copy();
+      max.setUserData(DERIVATION_EQUALS, true);
+    }
     if (min.isEmpty() && fallback != null)
       min = fallback.getMinElement();
     if (max.isEmpty() && fallback != null)

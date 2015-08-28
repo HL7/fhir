@@ -1,9 +1,7 @@
 ﻿
 === Sheet Bindings =====================================
 
-=== Sheet Definition-Inv =====================================
-
-=== Sheet Definition =====================================
+=== Sheet ShareableValueSet =====================================
 
  -- Row 1 -----------------------------------
   Element = ValueSet
@@ -71,7 +69,7 @@
 
  -- Row 13 -----------------------------------
   Element = ValueSet.codeSystem.caseSensitive
-  Card. = 0..1
+  Card. = 1..1
   Type = boolean
 
  -- Row 14 -----------------------------------
@@ -90,12 +88,12 @@
 
  -- Row 17 -----------------------------------
   Element = ValueSet.codeSystem.concept.display
-  Card. = 0..1
+  Card. = 1..1
   Type = string
 
  -- Row 18 -----------------------------------
   Element = ValueSet.codeSystem.concept.definition
-  Card. = 0..1
+  Card. = 1..1
   Type = string
 
  -- Row 19 -----------------------------------

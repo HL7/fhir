@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 28, 2015 10:50+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -676,23 +676,35 @@ public class Procedure extends DomainResource {
     protected List<CodeableConcept> followUp;
 
     /**
+     * A reference to a resource that contains about this procedure's request.
+     */
+    @Child(name = "request", type = {CarePlan.class, DiagnosticOrder.class, ProcedureRequest.class, ReferralRequest.class}, order=17, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="A request for this procedure", formalDefinition="A reference to a resource that contains about this procedure's request." )
+    protected Reference request;
+
+    /**
+     * The actual object that is the target of the reference (A reference to a resource that contains about this procedure's request.)
+     */
+    protected Resource requestTarget;
+
+    /**
      * Any other notes about the procedure - e.g. the operative notes.
      */
-    @Child(name = "notes", type = {StringType.class}, order=17, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "notes", type = {Annotation.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional information about procedure", formalDefinition="Any other notes about the procedure - e.g. the operative notes." )
-    protected StringType notes;
+    protected List<Annotation> notes;
 
     /**
      * A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
      */
-    @Child(name = "focalDevice", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "focalDevice", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Device changed in procedure", formalDefinition="A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure." )
     protected List<ProcedureFocalDeviceComponent> focalDevice;
 
     /**
      * Identifies medications, devices and other substance used as part of the procedure.
      */
-    @Child(name = "used", type = {Device.class, Medication.class, Substance.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "used", type = {Device.class, Medication.class, Substance.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Items used during procedure", formalDefinition="Identifies medications, devices and other substance used as part of the procedure." )
     protected List<Reference> used;
     /**
@@ -701,7 +713,7 @@ public class Procedure extends DomainResource {
     protected List<Resource> usedTarget;
 
 
-    private static final long serialVersionUID = -33728299L;
+    private static final long serialVersionUID = -1406143995L;
 
   /*
    * Constructor
@@ -1406,51 +1418,81 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #notes} (Any other notes about the procedure - e.g. the operative notes.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
+     * @return {@link #request} (A reference to a resource that contains about this procedure's request.)
      */
-    public StringType getNotesElement() { 
-      if (this.notes == null)
+    public Reference getRequest() { 
+      if (this.request == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Procedure.notes");
+          throw new Error("Attempt to auto-create Procedure.request");
         else if (Configuration.doAutoCreate())
-          this.notes = new StringType(); // bb
-      return this.notes;
+          this.request = new Reference(); // cc
+      return this.request;
     }
 
-    public boolean hasNotesElement() { 
-      return this.notes != null && !this.notes.isEmpty();
-    }
-
-    public boolean hasNotes() { 
-      return this.notes != null && !this.notes.isEmpty();
+    public boolean hasRequest() { 
+      return this.request != null && !this.request.isEmpty();
     }
 
     /**
-     * @param value {@link #notes} (Any other notes about the procedure - e.g. the operative notes.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
+     * @param value {@link #request} (A reference to a resource that contains about this procedure's request.)
      */
-    public Procedure setNotesElement(StringType value) { 
-      this.notes = value;
+    public Procedure setRequest(Reference value) { 
+      this.request = value;
       return this;
     }
 
     /**
-     * @return Any other notes about the procedure - e.g. the operative notes.
+     * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a resource that contains about this procedure's request.)
      */
-    public String getNotes() { 
-      return this.notes == null ? null : this.notes.getValue();
+    public Resource getRequestTarget() { 
+      return this.requestTarget;
     }
 
     /**
-     * @param value Any other notes about the procedure - e.g. the operative notes.
+     * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a resource that contains about this procedure's request.)
      */
-    public Procedure setNotes(String value) { 
-      if (Utilities.noString(value))
-        this.notes = null;
-      else {
-        if (this.notes == null)
-          this.notes = new StringType();
-        this.notes.setValue(value);
-      }
+    public Procedure setRequestTarget(Resource value) { 
+      this.requestTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #notes} (Any other notes about the procedure - e.g. the operative notes.)
+     */
+    public List<Annotation> getNotes() { 
+      if (this.notes == null)
+        this.notes = new ArrayList<Annotation>();
+      return this.notes;
+    }
+
+    public boolean hasNotes() { 
+      if (this.notes == null)
+        return false;
+      for (Annotation item : this.notes)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #notes} (Any other notes about the procedure - e.g. the operative notes.)
+     */
+    // syntactic sugar
+    public Annotation addNotes() { //3
+      Annotation t = new Annotation();
+      if (this.notes == null)
+        this.notes = new ArrayList<Annotation>();
+      this.notes.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Procedure addNotes(Annotation t) { //3
+      if (t == null)
+        return this;
+      if (this.notes == null)
+        this.notes = new ArrayList<Annotation>();
+      this.notes.add(t);
       return this;
     }
 
@@ -1562,7 +1604,8 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("report", "Reference(DiagnosticReport)", "This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.", 0, java.lang.Integer.MAX_VALUE, report));
         childrenList.add(new Property("complication", "CodeableConcept", "Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.", 0, java.lang.Integer.MAX_VALUE, complication));
         childrenList.add(new Property("followUp", "CodeableConcept", "If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.", 0, java.lang.Integer.MAX_VALUE, followUp));
-        childrenList.add(new Property("notes", "string", "Any other notes about the procedure - e.g. the operative notes.", 0, java.lang.Integer.MAX_VALUE, notes));
+        childrenList.add(new Property("request", "Reference(CarePlan|DiagnosticOrder|ProcedureRequest|ReferralRequest)", "A reference to a resource that contains about this procedure's request.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("notes", "Annotation", "Any other notes about the procedure - e.g. the operative notes.", 0, java.lang.Integer.MAX_VALUE, notes));
         childrenList.add(new Property("focalDevice", "", "A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.", 0, java.lang.Integer.MAX_VALUE, focalDevice));
         childrenList.add(new Property("used", "Reference(Device|Medication|Substance)", "Identifies medications, devices and other substance used as part of the procedure.", 0, java.lang.Integer.MAX_VALUE, used));
       }
@@ -1615,7 +1658,12 @@ public class Procedure extends DomainResource {
           for (CodeableConcept i : followUp)
             dst.followUp.add(i.copy());
         };
-        dst.notes = notes == null ? null : notes.copy();
+        dst.request = request == null ? null : request.copy();
+        if (notes != null) {
+          dst.notes = new ArrayList<Annotation>();
+          for (Annotation i : notes)
+            dst.notes.add(i.copy());
+        };
         if (focalDevice != null) {
           dst.focalDevice = new ArrayList<ProcedureFocalDeviceComponent>();
           for (ProcedureFocalDeviceComponent i : focalDevice)
@@ -1646,8 +1694,8 @@ public class Procedure extends DomainResource {
            && compareDeep(reason, o.reason, true) && compareDeep(performer, o.performer, true) && compareDeep(performed, o.performed, true)
            && compareDeep(encounter, o.encounter, true) && compareDeep(location, o.location, true) && compareDeep(outcome, o.outcome, true)
            && compareDeep(report, o.report, true) && compareDeep(complication, o.complication, true) && compareDeep(followUp, o.followUp, true)
-           && compareDeep(notes, o.notes, true) && compareDeep(focalDevice, o.focalDevice, true) && compareDeep(used, o.used, true)
-          ;
+           && compareDeep(request, o.request, true) && compareDeep(notes, o.notes, true) && compareDeep(focalDevice, o.focalDevice, true)
+           && compareDeep(used, o.used, true);
       }
 
       @Override
@@ -1657,8 +1705,7 @@ public class Procedure extends DomainResource {
         if (!(other instanceof Procedure))
           return false;
         Procedure o = (Procedure) other;
-        return compareValues(status, o.status, true) && compareValues(notPerformed, o.notPerformed, true) && compareValues(notes, o.notes, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(notPerformed, o.notPerformed, true);
       }
 
       public boolean isEmpty() {
@@ -1669,8 +1716,8 @@ public class Procedure extends DomainResource {
            && (performed == null || performed.isEmpty()) && (encounter == null || encounter.isEmpty())
            && (location == null || location.isEmpty()) && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty())
            && (complication == null || complication.isEmpty()) && (followUp == null || followUp.isEmpty())
-           && (notes == null || notes.isEmpty()) && (focalDevice == null || focalDevice.isEmpty()) && (used == null || used.isEmpty())
-          ;
+           && (request == null || request.isEmpty()) && (notes == null || notes.isEmpty()) && (focalDevice == null || focalDevice.isEmpty())
+           && (used == null || used.isEmpty());
       }
 
   @Override
@@ -1690,6 +1737,8 @@ public class Procedure extends DomainResource {
   public static final String SP_CODE = "code";
   @SearchParamDefinition(name="date", path="Procedure.performed[x]", description="Date/Period the procedure was performed", type="date" )
   public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="identifier", path="Procedure.identifier", description="A unique identifier for a procedure", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

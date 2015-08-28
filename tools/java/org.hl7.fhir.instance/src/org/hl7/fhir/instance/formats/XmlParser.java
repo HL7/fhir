@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Aug 28, 2015 10:50+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -7923,8 +7923,10 @@ public class XmlParser extends XmlParserBase {
         res.getComplication().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("followUp")) {
         res.getFollowUp().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
+        res.setRequest(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("notes")) {
-        res.setNotesElement(parseString(xpp));
+        res.getNotes().add(parseAnnotation(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("focalDevice")) {
         res.getFocalDevice().add(parseProcedureProcedureFocalDeviceComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("used")) {
@@ -8009,8 +8011,8 @@ public class XmlParser extends XmlParserBase {
         res.getBodySite().add(parseProcedureRequestProcedureRequestBodySiteComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "reason")) {
         res.setReason(parseType("reason", xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "timing")) {
-        res.setTiming(parseType("timing", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "scheduled")) {
+        res.setScheduled(parseType("scheduled", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
         res.setEncounter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performer")) {
@@ -8018,7 +8020,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, ProcedureRequest.ProcedureRequestStatus.NULL, new ProcedureRequest.ProcedureRequestStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("notes")) {
-        res.getNotes().add(parseString(xpp));
+        res.getNotes().add(parseAnnotation(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "asNeeded")) {
         res.setAsNeeded(parseType("asNeeded", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("orderedOn")) {
@@ -8361,6 +8363,8 @@ public class XmlParser extends XmlParserBase {
         res.setRepeatsElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("options")) {
         res.setOptions(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("option")) {
+        res.getOption().add(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("group")) {
         res.getGroup().add(parseQuestionnaireGroupComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -8738,6 +8742,8 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
+        res.setStatusElement(parseEnumeration(xpp, Specimen.SpecimenStatus.NULL, new Specimen.SpecimenStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.setType(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("parent")) {
@@ -19375,8 +19381,12 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getFollowUp()) 
           composeCodeableConcept("followUp", e);
       }
-      if (element.hasNotesElement()) {
-        composeString("notes", element.getNotesElement());
+      if (element.hasRequest()) {
+        composeReference("request", element.getRequest());
+      }
+      if (element.hasNotes()) { 
+        for (Annotation e : element.getNotes()) 
+          composeAnnotation("notes", e);
       }
       if (element.hasFocalDevice()) { 
         for (Procedure.ProcedureFocalDeviceComponent e : element.getFocalDevice()) 
@@ -19456,8 +19466,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasReason()) {
         composeType("reason", element.getReason());
-      }      if (element.hasTiming()) {
-        composeType("timing", element.getTiming());
+      }      if (element.hasScheduled()) {
+        composeType("scheduled", element.getScheduled());
       }      if (element.hasEncounter()) {
         composeReference("encounter", element.getEncounter());
       }
@@ -19467,8 +19477,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new ProcedureRequest.ProcedureRequestStatusEnumFactory());
       if (element.hasNotes()) { 
-        for (StringType e : element.getNotes()) 
-          composeString("notes", e);
+        for (Annotation e : element.getNotes()) 
+          composeAnnotation("notes", e);
       }
       if (element.hasAsNeeded()) {
         composeType("asNeeded", element.getAsNeeded());
@@ -19846,6 +19856,10 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasOptions()) {
         composeReference("options", element.getOptions());
+      }
+      if (element.hasOption()) { 
+        for (Coding e : element.getOption()) 
+          composeCoding("option", e);
       }
       if (element.hasGroup()) { 
         for (Questionnaire.GroupComponent e : element.getGroup()) 
@@ -20262,6 +20276,8 @@ public class XmlParser extends XmlParserBase {
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
       }
+      if (element.hasStatusElement())
+        composeEnumeration("status", element.getStatusElement(), new Specimen.SpecimenStatusEnumFactory());
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }

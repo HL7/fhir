@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Aug 28, 2015 10:50+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -8711,10 +8711,14 @@ public class JsonParser extends JsonParserBase {
         res.getFollowUp().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("notes"))
-      res.setNotesElement(parseString(json.get("notes").getAsString()));
-    if (json.has("_notes"))
-      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesElement());
+    if (json.has("request"))
+      res.setRequest(parseReference(json.getAsJsonObject("request")));
+    if (json.has("notes")) {
+      JsonArray array = json.getAsJsonArray("notes");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNotes().add(parseAnnotation(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("focalDevice")) {
       JsonArray array = json.getAsJsonArray("focalDevice");
       for (int i = 0; i < array.size(); i++) {
@@ -8781,9 +8785,9 @@ public class JsonParser extends JsonParserBase {
     Type reason = parseType("reason", json);
     if (reason != null)
       res.setReason(reason);
-    Type timing = parseType("timing", json);
-    if (timing != null)
-      res.setTiming(timing);
+    Type scheduled = parseType("scheduled", json);
+    if (scheduled != null)
+      res.setScheduled(scheduled);
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("performer"))
@@ -8795,16 +8799,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("notes")) {
       JsonArray array = json.getAsJsonArray("notes");
       for (int i = 0; i < array.size(); i++) {
-        res.getNotes().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_notes")) {
-      JsonArray array = json.getAsJsonArray("_notes");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getNotes().size())
-          res.getNotes().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getNotes().get(i));
+        res.getNotes().add(parseAnnotation(array.get(i).getAsJsonObject()));
       }
     };
     Type asNeeded = parseType("asNeeded", json);
@@ -9221,6 +9216,12 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_repeats"), res.getRepeatsElement());
     if (json.has("options"))
       res.setOptions(parseReference(json.getAsJsonObject("options")));
+    if (json.has("option")) {
+      JsonArray array = json.getAsJsonArray("option");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOption().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("group")) {
       JsonArray array = json.getAsJsonArray("group");
       for (int i = 0; i < array.size(); i++) {
@@ -9653,6 +9654,10 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Specimen.SpecimenStatus.NULL, new Specimen.SpecimenStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("parent")) {
@@ -22644,10 +22649,15 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasNotesElement()) {
-        composeStringCore("notes", element.getNotesElement(), false);
-        composeStringExtras("notes", element.getNotesElement(), false);
+      if (element.hasRequest()) {
+        composeReference("request", element.getRequest());
       }
+      if (element.hasNotes()) {
+        openArray("notes");
+        for (Annotation e : element.getNotes()) 
+          composeAnnotation(null, e);
+        closeArray();
+      };
       if (element.hasFocalDevice()) {
         openArray("focalDevice");
         for (Procedure.ProcedureFocalDeviceComponent e : element.getFocalDevice()) 
@@ -22743,8 +22753,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasReason()) {
         composeType("reason", element.getReason());
       }
-      if (element.hasTiming()) {
-        composeType("timing", element.getTiming());
+      if (element.hasScheduled()) {
+        composeType("scheduled", element.getScheduled());
       }
       if (element.hasEncounter()) {
         composeReference("encounter", element.getEncounter());
@@ -22758,15 +22768,9 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasNotes()) {
         openArray("notes");
-        for (StringType e : element.getNotes()) 
-          composeStringCore(null, e, true);
+        for (Annotation e : element.getNotes()) 
+          composeAnnotation(null, e);
         closeArray();
-        if (anyHasExtras(element.getNotes())) {
-          openArray("_notes");
-          for (StringType e : element.getNotes()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
       };
       if (element.hasAsNeeded()) {
         composeType("asNeeded", element.getAsNeeded());
@@ -23267,6 +23271,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasOptions()) {
         composeReference("options", element.getOptions());
       }
+      if (element.hasOption()) {
+        openArray("option");
+        for (Coding e : element.getOption()) 
+          composeCoding(null, e);
+        closeArray();
+      };
       if (element.hasGroup()) {
         openArray("group");
         for (Questionnaire.GroupComponent e : element.getGroup()) 
@@ -23796,6 +23806,10 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new Specimen.SpecimenStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new Specimen.SpecimenStatusEnumFactory(), false);
+      }
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }

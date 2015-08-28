@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 28, 2015 10:50+1000 for FHIR v0.5.0
+// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -482,9 +482,9 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
      */
-    @Child(name = "timing", type = {DateTimeType.class, Period.class, Timing.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "scheduled", type = {DateTimeType.class, Period.class, Timing.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Procedure timing schedule", formalDefinition="The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"." )
-    protected Type timing;
+    protected Type scheduled;
 
     /**
      * The encounter within which the procedure proposal or request was created.
@@ -520,9 +520,9 @@ public class ProcedureRequest extends DomainResource {
     /**
      * Any other notes associated with this proposal or order - e.g., provider instructions.
      */
-    @Child(name = "notes", type = {StringType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "notes", type = {Annotation.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Notes", formalDefinition="Any other notes associated with this proposal or order - e.g., provider instructions." )
-    protected List<StringType> notes;
+    protected List<Annotation> notes;
 
     /**
      * If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
@@ -557,7 +557,7 @@ public class ProcedureRequest extends DomainResource {
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="The clinical priority associated with this order." )
     protected Enumeration<ProcedureRequestPriority> priority;
 
-    private static final long serialVersionUID = 1244233109L;
+    private static final long serialVersionUID = 816393666L;
 
   /*
    * Constructor
@@ -769,60 +769,60 @@ public class ProcedureRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #timing} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+     * @return {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Type getTiming() { 
-      return this.timing;
+    public Type getScheduled() { 
+      return this.scheduled;
     }
 
     /**
-     * @return {@link #timing} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+     * @return {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public DateTimeType getTimingDateTimeType() throws Exception { 
-      if (!(this.timing instanceof DateTimeType))
-        throw new Exception("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
-      return (DateTimeType) this.timing;
+    public DateTimeType getScheduledDateTimeType() throws Exception { 
+      if (!(this.scheduled instanceof DateTimeType))
+        throw new Exception("Type mismatch: the type DateTimeType was expected, but "+this.scheduled.getClass().getName()+" was encountered");
+      return (DateTimeType) this.scheduled;
     }
 
-    public boolean hasTimingDateTimeType() throws Exception { 
-      return this.timing instanceof DateTimeType;
+    public boolean hasScheduledDateTimeType() throws Exception { 
+      return this.scheduled instanceof DateTimeType;
     }
 
     /**
-     * @return {@link #timing} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+     * @return {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Period getTimingPeriod() throws Exception { 
-      if (!(this.timing instanceof Period))
-        throw new Exception("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
-      return (Period) this.timing;
+    public Period getScheduledPeriod() throws Exception { 
+      if (!(this.scheduled instanceof Period))
+        throw new Exception("Type mismatch: the type Period was expected, but "+this.scheduled.getClass().getName()+" was encountered");
+      return (Period) this.scheduled;
     }
 
-    public boolean hasTimingPeriod() throws Exception { 
-      return this.timing instanceof Period;
+    public boolean hasScheduledPeriod() throws Exception { 
+      return this.scheduled instanceof Period;
     }
 
     /**
-     * @return {@link #timing} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+     * @return {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Timing getTimingTiming() throws Exception { 
-      if (!(this.timing instanceof Timing))
-        throw new Exception("Type mismatch: the type Timing was expected, but "+this.timing.getClass().getName()+" was encountered");
-      return (Timing) this.timing;
+    public Timing getScheduledTiming() throws Exception { 
+      if (!(this.scheduled instanceof Timing))
+        throw new Exception("Type mismatch: the type Timing was expected, but "+this.scheduled.getClass().getName()+" was encountered");
+      return (Timing) this.scheduled;
     }
 
-    public boolean hasTimingTiming() throws Exception { 
-      return this.timing instanceof Timing;
+    public boolean hasScheduledTiming() throws Exception { 
+      return this.scheduled instanceof Timing;
     }
 
-    public boolean hasTiming() { 
-      return this.timing != null && !this.timing.isEmpty();
+    public boolean hasScheduled() { 
+      return this.scheduled != null && !this.scheduled.isEmpty();
     }
 
     /**
-     * @param value {@link #timing} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+     * @param value {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public ProcedureRequest setTiming(Type value) { 
-      this.timing = value;
+    public ProcedureRequest setScheduled(Type value) { 
+      this.scheduled = value;
       return this;
     }
 
@@ -961,16 +961,16 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #notes} (Any other notes associated with this proposal or order - e.g., provider instructions.)
      */
-    public List<StringType> getNotes() { 
+    public List<Annotation> getNotes() { 
       if (this.notes == null)
-        this.notes = new ArrayList<StringType>();
+        this.notes = new ArrayList<Annotation>();
       return this.notes;
     }
 
     public boolean hasNotes() { 
       if (this.notes == null)
         return false;
-      for (StringType item : this.notes)
+      for (Annotation item : this.notes)
         if (!item.isEmpty())
           return true;
       return false;
@@ -980,36 +980,22 @@ public class ProcedureRequest extends DomainResource {
      * @return {@link #notes} (Any other notes associated with this proposal or order - e.g., provider instructions.)
      */
     // syntactic sugar
-    public StringType addNotesElement() {//2 
-      StringType t = new StringType();
+    public Annotation addNotes() { //3
+      Annotation t = new Annotation();
       if (this.notes == null)
-        this.notes = new ArrayList<StringType>();
+        this.notes = new ArrayList<Annotation>();
       this.notes.add(t);
       return t;
     }
 
-    /**
-     * @param value {@link #notes} (Any other notes associated with this proposal or order - e.g., provider instructions.)
-     */
-    public ProcedureRequest addNotes(String value) { //1
-      StringType t = new StringType();
-      t.setValue(value);
+    // syntactic sugar
+    public ProcedureRequest addNotes(Annotation t) { //3
+      if (t == null)
+        return this;
       if (this.notes == null)
-        this.notes = new ArrayList<StringType>();
+        this.notes = new ArrayList<Annotation>();
       this.notes.add(t);
       return this;
-    }
-
-    /**
-     * @param value {@link #notes} (Any other notes associated with this proposal or order - e.g., provider instructions.)
-     */
-    public boolean hasNotes(String value) { 
-      if (this.notes == null)
-        return false;
-      for (StringType v : this.notes)
-        if (v.equals(value)) // string
-          return true;
-      return false;
     }
 
     /**
@@ -1201,11 +1187,11 @@ public class ProcedureRequest extends DomainResource {
         childrenList.add(new Property("code", "CodeableConcept", "The specific procedure that is ordered. Use text if the exact nature of the procedure can't be coded.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("bodySite", "", "Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Condition)", "The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("timing[x]", "dateTime|Period|Timing", "The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, timing));
+        childrenList.add(new Property("scheduled[x]", "dateTime|Period|Timing", "The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, scheduled));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter within which the procedure proposal or request was created.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "E.g. surgeon, anaethetist, endoscopist.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("status", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("notes", "string", "Any other notes associated with this proposal or order - e.g., provider instructions.", 0, java.lang.Integer.MAX_VALUE, notes));
+        childrenList.add(new Property("notes", "Annotation", "Any other notes associated with this proposal or order - e.g., provider instructions.", 0, java.lang.Integer.MAX_VALUE, notes));
         childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
         childrenList.add(new Property("orderedOn", "dateTime", "The time when the request was made.", 0, java.lang.Integer.MAX_VALUE, orderedOn));
         childrenList.add(new Property("orderer", "Reference(Practitioner|Patient|RelatedPerson|Device)", "The healthcare professional responsible for proposing or ordering the procedure.", 0, java.lang.Integer.MAX_VALUE, orderer));
@@ -1228,13 +1214,13 @@ public class ProcedureRequest extends DomainResource {
             dst.bodySite.add(i.copy());
         };
         dst.reason = reason == null ? null : reason.copy();
-        dst.timing = timing == null ? null : timing.copy();
+        dst.scheduled = scheduled == null ? null : scheduled.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.performer = performer == null ? null : performer.copy();
         dst.status = status == null ? null : status.copy();
         if (notes != null) {
-          dst.notes = new ArrayList<StringType>();
-          for (StringType i : notes)
+          dst.notes = new ArrayList<Annotation>();
+          for (Annotation i : notes)
             dst.notes.add(i.copy());
         };
         dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
@@ -1256,7 +1242,7 @@ public class ProcedureRequest extends DomainResource {
           return false;
         ProcedureRequest o = (ProcedureRequest) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(code, o.code, true)
-           && compareDeep(bodySite, o.bodySite, true) && compareDeep(reason, o.reason, true) && compareDeep(timing, o.timing, true)
+           && compareDeep(bodySite, o.bodySite, true) && compareDeep(reason, o.reason, true) && compareDeep(scheduled, o.scheduled, true)
            && compareDeep(encounter, o.encounter, true) && compareDeep(performer, o.performer, true) && compareDeep(status, o.status, true)
            && compareDeep(notes, o.notes, true) && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(orderedOn, o.orderedOn, true)
            && compareDeep(orderer, o.orderer, true) && compareDeep(priority, o.priority, true);
@@ -1269,17 +1255,17 @@ public class ProcedureRequest extends DomainResource {
         if (!(other instanceof ProcedureRequest))
           return false;
         ProcedureRequest o = (ProcedureRequest) other;
-        return compareValues(status, o.status, true) && compareValues(notes, o.notes, true) && compareValues(orderedOn, o.orderedOn, true)
-           && compareValues(priority, o.priority, true);
+        return compareValues(status, o.status, true) && compareValues(orderedOn, o.orderedOn, true) && compareValues(priority, o.priority, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
            && (code == null || code.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (reason == null || reason.isEmpty())
-           && (timing == null || timing.isEmpty()) && (encounter == null || encounter.isEmpty()) && (performer == null || performer.isEmpty())
-           && (status == null || status.isEmpty()) && (notes == null || notes.isEmpty()) && (asNeeded == null || asNeeded.isEmpty())
-           && (orderedOn == null || orderedOn.isEmpty()) && (orderer == null || orderer.isEmpty()) && (priority == null || priority.isEmpty())
-          ;
+           && (scheduled == null || scheduled.isEmpty()) && (encounter == null || encounter.isEmpty())
+           && (performer == null || performer.isEmpty()) && (status == null || status.isEmpty()) && (notes == null || notes.isEmpty())
+           && (asNeeded == null || asNeeded.isEmpty()) && (orderedOn == null || orderedOn.isEmpty())
+           && (orderer == null || orderer.isEmpty()) && (priority == null || priority.isEmpty());
       }
 
   @Override
@@ -1297,6 +1283,8 @@ public class ProcedureRequest extends DomainResource {
   public static final String SP_PERFORMER = "performer";
   @SearchParamDefinition(name="encounter", path="ProcedureRequest.encounter", description="Encounter", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="identifier", path="ProcedureRequest.identifier", description="A unique identifier of the Procedure Request", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

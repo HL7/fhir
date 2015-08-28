@@ -130,9 +130,9 @@ private Map<String, Object> userData;
   }  
   
 	public static boolean compareDeep(List<? extends Base> e1, List<? extends Base> e2, boolean allowNull) {
-		if (e1 == null && e2 == null && allowNull)
+		if (noList(e1) && noList(e2) && allowNull)
 			return true;
-		if (e1 == null || e2 == null)
+		if (noList(e1) || noList(e2))
 			return false;
 		if (e1.size() != e2.size())
 			return false;
@@ -142,7 +142,12 @@ private Map<String, Object> userData;
 		}
 		return true;
 	}
-	public static boolean compareDeep(Base e1, Base e2, boolean allowNull) {
+	
+	private static boolean noList(List<? extends Base> list) {
+    return list == null || list.isEmpty();
+  }
+
+  public static boolean compareDeep(Base e1, Base e2, boolean allowNull) {
 		if (e1 == null && e2 == null && allowNull)
 			return true;
 		if (e1 == null || e2 == null)
