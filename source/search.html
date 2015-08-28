@@ -482,8 +482,8 @@ the supplied parameter (the whole string, including casing and accents).
 Examples:
 </p>
 <table class="grid">
- <tr><td>[base]/Patient?name=eve</td><td>any patients with a name starting with "eve" at the start of the name. This would include patients with the name "Eve", "Evelyn"</td></tr>
- <tr><td>[base]/Patient?name:contains=eve</td><td>any patients with a name starting with "eve" at the start of the name. This would include patients with the name "Eve", "Evelyn", and also "Severine"</td></tr>
+ <tr><td>[base]/Patient?name=eve</td><td>any patients with a name containing "eve" at the start of the name. This would include patients with the name "Eve", "Evelyn"</td></tr>
+ <tr><td>[base]/Patient?name:contains=eve</td><td>any patients with a name containing "eve" at any position. This would include patients with the name "Eve", "Evelyn", and also "Severine"</td></tr>
  <tr><td>[base]/Patient?name:exact=Eve</td><td>any patients with a name starting with "eve" at the start of the name. This would include patients with the name "Eve" but not "eve" or "EVE"</td></tr>
 </table>
 <p>
