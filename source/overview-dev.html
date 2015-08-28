@@ -153,6 +153,19 @@ central authority to impose common business practices. Because of this,
 the FHIR specification defines a <a href="extensibility.html">common extension framework</a>, and defines
 <a href="profiling.html">a framework for managing variability</a>.
 </p>
+<p>
+One key aspect of the variability encountered in healthcare is that the
+same infomration different is be represented at different levels of 
+detail, granularity and nesting by different parties across the system. 
+For instance, a blood pressure measure is just a simple observation, a 
+vital sign measure, or can be thought of a rich set of highly controlled 
+data that includes things like controlled vocabularies for posture, exercise etc. 
+The <a href="resourcelist.html">resources</a> defined in this specification 
+focus on the general, common use cases. Richer and more specific content 
+can be standardised by <a href="profiling.html">defining "profiles"</a> on 
+the base resources. 
+</p>
+
 
 <h3>Creating a resource</h3>
 <p>
