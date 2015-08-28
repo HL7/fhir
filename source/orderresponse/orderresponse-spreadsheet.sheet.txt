@@ -190,6 +190,12 @@
   Target Types = Patient
   Path Usage = external
 
+ -- Row 7 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Identifiers assigned to this order by the orderer or by the receiver
+  Path = OrderResponse.identifier
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

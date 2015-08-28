@@ -47,7 +47,7 @@
   Type = DomainResource
   Short Label = Specific and identified anatomical location
   Definition = Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
-  OpenEHR mapping = Archetype ID   openEHR-EHR-CLUSTER.anatomical_location.v1     \nConcept name   Anatomical Location     \nConcept description   Record details about an anatomical location.     \nKeywords   location, site, anatomical     \nCopyright   © openEHR Foundation     \nPurpose   To record details about anatomical location.     \nMisuse   Not for specifiying unilateral/bilateral occurence - this is related to an evaluation which perhaps includes multiple locations.     \nAuthor   Author name: Heather Leslie\nOrganisation: Ocean Informatics\nEmail: heather.leslie@oceaninformatics.com\nDate of Origination: 2008-11-10\n     \nTranslator   Norwegian Bokmål: Lars Bitsch-Larsen, Haukeland University Hospital of Bergen, Norway, MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.\nArabic (Syria): Mona Saleh\n     \nOther contributors   Heather Leslie, Ocean Informatics, Australia (Editor)\nIan McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor)\nDunmail Hodkinson, Black Pear Software Ltd, UK     \nReferences   Use cases: - 5LICS, midclavicular line - L forearm, 2cm anterior to the cubital fossa - Right iliac fossa - 5 cm below L tibial tuberosity - 2 cm medial to R nipple - 4 cm below R costal margin in midclavicular line - R femur - midline nose - medial aspect of R great toe nail.
+  OpenEHR mapping = Archetype ID   openEHR-EHR-CLUSTER.anatomical_location.v1      Concept name   Anatomical Location      Concept description   Record details about an anatomical location.      Keywords   location, site, anatomical      Copyright   © openEHR Foundation      Purpose   To record details about anatomical location.      Misuse   Not for specifiying unilateral/bilateral occurence - this is related to an evaluation which perhaps includes multiple locations.      Author   Author name: Heather Leslie Organisation: Ocean Informatics Email: heather.leslie@oceaninformatics.com Date of Origination: 2008-11-10       Translator   Norwegian Bokmål: Lars Bitsch-Larsen, Haukeland University Hospital of Bergen, Norway, MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine. Arabic (Syria): Mona Saleh       Other contributors   Heather Leslie, Ocean Informatics, Australia (Editor) Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor) Dunmail Hodkinson, Black Pear Software Ltd, UK      References   Use cases: - 5LICS, midclavicular line - L forearm, 2cm anterior to the cubital fossa - Right iliac fossa - 5 cm below L tibial tuberosity - 2 cm medial to R nipple - 4 cm below R costal margin in midclavicular line - R femur - midline nose - medial aspect of R great toe nail.
   To Do = RIM mappings
 
  -- Row 2 -----------------------------------
@@ -65,14 +65,14 @@
   Type = Identifier
   Short Label = Bodysite identifier
   Definition = Identifier for this instance of the anatomical location.
-  OpenEHR mapping = Specific location\n Cluster\nOptional (0..1)\nCardinality: Mandatory, repeating, unordered (1..*)
+  OpenEHR mapping = Specific location  Cluster Optional (0..1) Cardinality: Mandatory, repeating, unordered (1..*)
 
  -- Row 4 -----------------------------------
   Element = !BodySite.specificLocation
   Card. = 0..1
   Short Label = Specific anatomical location
   Definition = The Specific and identified anatomical location.
-  OpenEHR mapping = Specific location\n Cluster\nOptional (0..1)\nCardinality: Mandatory, repeating, unordered (1..*)
+  OpenEHR mapping = Specific location  Cluster Optional (0..1) Cardinality: Mandatory, repeating, unordered (1..*)
 
  -- Row 5 -----------------------------------
   Element = BodySite.code
@@ -127,7 +127,7 @@
   UML = right
   Short Label = Relative anatomical location(s)
   Definition = Qualifiers to identify non-specific location eg 5cm (distance) inferior (aspect) to the tibial tuberosity (landmark). There may be more than one relative location required to provide a cross reference.
-  OpenEHR mapping = Relative location\nCluster\nOptional, repeating (0..*)\nCardinality: Mandatory, repeating, unordered (1..*)
+  OpenEHR mapping = Relative location Cluster Optional, repeating (0..*) Cardinality: Mandatory, repeating, unordered (1..*)
 
  -- Row 11 -----------------------------------
   Element = !BodySite.relativeLocation.landmark
@@ -186,6 +186,12 @@
   Type = reference
   Description = Patient to whom bodysite belongs
   Path = BodySite.patient
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Identifier for this instance of the anatomical location
+  Path = BodySite.identifier
 
 === Sheet Profiles =====================================
 
