@@ -62,7 +62,7 @@
                   </a>
                 </xsl:when>
                 <xsl:otherwise>
-                  <xsl:value-of select="publisher"/>
+                  <xsl:value-of select="publisher/@value"/>
                 </xsl:otherwise>
               </xsl:choose>
             </b>
@@ -237,7 +237,9 @@
                   <a title="{definition/display/@value}" href="{definition/reference/@value}">
                     <xsl:value-of select="name/@value"/>
                   </a>
-                  <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value"/>
+                  <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value">
+                    <xsl:value-of select="concat(' ', .)"/>
+                  </xsl:for-each>
                 </xsl:for-each>
               </p>
             </xsl:if>
