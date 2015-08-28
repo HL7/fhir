@@ -79,6 +79,7 @@ public class ProfileUtilities {
 
   private static final String DERIVATION_EQUALS = "derivation.equals";
   public static final String DERIVATION_POINTER = "derived.pointer";
+  public static final String IS_DERIVED = "derived.fact";
   public static final String UD_ERROR_STATUS = "error-status";
 
   private final IWorkerContext context;
@@ -266,6 +267,7 @@ public class ProfileUtilities {
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           updateFromBase(outcome, currentBase);
+          markDerived(outcome);
           result.getElement().add(outcome);
           baseCursor++;
         } else if (diffMatches.size() == 1) {// one matching element in the differential
@@ -432,6 +434,12 @@ public class ProfileUtilities {
         }
       }
     }
+  }
+
+
+  private void markDerived(ElementDefinition outcome) {
+    for (ElementDefinitionConstraintComponent inv : outcome.getConstraint())
+      inv.setUserData(IS_DERIVED, true);
   }
 
 
@@ -885,9 +893,11 @@ public class ProfileUtilities {
       }
 
       // todo: constraints are cumulative. there is no replacing
+      for (ElementDefinitionConstraintComponent s : base.getConstraint()) 
+        s.setUserData(IS_DERIVED, true);
       if (derived.hasConstraint()) {
       	for (ElementDefinitionConstraintComponent s : derived.getConstraint()) {
-      	  base.getConstraint().add(s);
+      	  base.getConstraint().add(s.copy());
       	}
       }
     }
@@ -1773,7 +1783,7 @@ public class ProfileUtilities {
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws Exception {
     if (!structure.hasConstrainedType())
       throw new Exception("not the right kind of structure to generate schematrons for");
-      if (!structure.hasSnapshot())
+    if (!structure.hasSnapshot())
       throw new Exception("needs a snapshot");
 
   	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBase());
@@ -1787,7 +1797,7 @@ public class ProfileUtilities {
     // we assume that the resource is valid against the schematrons on
     // the underlying resource
     ElementDefinition ed = structure.getSnapshot().getElement().get(0);
-    generateForChildren(txt, "f:"+ed.getName(), ed, structure, base);
+    generateForChildren(txt, "f:"+ed.getPath(), ed, structure, base);
     txt.ln_o("</sch:schema>");
     txt.flush();
     txt.close();
@@ -1812,18 +1822,32 @@ public class ProfileUtilities {
       	}
       	if (doMin) {
       		txt.ln_i("<sch:rule context=\""+xpath+"\">");
-        txt.ln("      <sch:assert test=\"count(f:"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
+          txt.ln("<sch:assert test=\"count(f:"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
       		txt.ln_o("</sch:rule>");
       }
       	if (doMax) {
       		txt.ln_i("<sch:rule context=\""+xpath+"\">");
-        txt.ln("      <sch:assert test=\"count(f:"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
+          txt.ln("<sch:assert test=\"count(f:"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
       		txt.ln_o("</sch:rule>");
       	}
       }
+      
+    }
+    for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
+      if (inv.hasXpath() && !inv.hasUserData(IS_DERIVED)) {
+        if (!started) {
+          txt.ln_i("<sch:pattern>");
+          txt.ln("<sch:title>"+ed.getPath()+"</sch:title>");
+          started = true;
+        }
+        txt.ln_i("<sch:rule context=\""+xpath+"\">");
+        txt.ln("<sch:assert test=\""+inv.getXpath()+"\">"+inv.getId()+": "+inv.getHuman()+"</sch:assert>");
+        txt.ln_o("</sch:rule>");
+        
+      }
     }
     if (started)
-    txt.ln_o("  </sch:pattern>");
+      txt.ln_o("  </sch:pattern>");
     for (ElementDefinition child : children) {
       String name = tail(child.getPath());
       generateForChildren(txt, xpath+"/f:"+name, child, structure, base);
