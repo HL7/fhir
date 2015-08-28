@@ -934,7 +934,7 @@ public class ProfileUtilities {
     model.getRows().add(r);
     r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension."+ed.getName(), ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension", null, null));
     r.getCells().add(gen.new Cell());
-    r.getCells().add(gen.new Cell(null, null, null, null, null));
+    r.getCells().add(gen.new Cell(null, null, describeCardinality(ed.getSnapshot().getElement().get(0), null, new UnusedTracker()), null, null));
     r.getCells().add(gen.new Cell("", "", "Extension", null, null));
 
     Cell c = gen.new Cell("", "", "URL = "+ed.getUrl(), null, null);
