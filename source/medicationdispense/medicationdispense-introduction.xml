@@ -3,8 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This resource covers the supply of all medications to a patient.  Examples include dispensing and pick-up from an out-patient pharmacy, 
-dispensing patient-specific medications from in-patient pharmacy to ward as well as issuing a single dose from ward stock to a patient for consumption.
+This resource covers the supply of medications to  a patient.  Examples include dispensing and pick-up from an out-patient or community pharmacy, dispensing patient-specific medications from in-patient pharmacy to ward as well as issuing a single dose from ward stock to a patient for consumption. The medication dispense is the result of a Pharmacy system responding to a Medication Order.
 </p>
 </div>
 

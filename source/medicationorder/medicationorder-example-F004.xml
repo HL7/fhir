@@ -63,7 +63,7 @@
             <code value="mg"/>
         </doseQuantity>
     </dosageInstruction>         
-    <dispense>
+    <dispenseRequest>
         <validityPeriod>
             <start value="2011-05-01"/>
         </validityPeriod>
@@ -72,5 +72,5 @@
             <system value="http://snomed.info/sct"/> 
             <code value="46992007"/>
         </quantity>
-    </dispense>   
+    </dispenseRequest>   
 </MedicationOrder>

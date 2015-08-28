@@ -54,7 +54,7 @@
       </coding>
     </route>
   </dosageInstruction>
-  <dispense>
+  <dispenseRequest>
     <numberOfRepeatsAllowed value="2"/>
     <quantity>
       <value value="100"/>
@@ -68,5 +68,5 @@
       <system value="http://unitsofmeasure.org"/>
       <code value="d"/>
     </expectedSupplyDuration>
-  </dispense>
+  </dispenseRequest>
 </MedicationOrder>

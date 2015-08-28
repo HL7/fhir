@@ -100,13 +100,13 @@
 					<unit value="{tbl}"/>
 				</doseQuantity>
 			</dosageInstruction>
-			<dispense>
+			<dispenseRequest>
 				<numberOfRepeatsAllowed value="3"/>
 				<quantity>
 					<value value="30"/>
 					<unit value="{tbl}"/>
 				</quantity>
-			</dispense>
+			</dispenseRequest>
 		</MedicationOrder>
 	</contained>
 	<contained>

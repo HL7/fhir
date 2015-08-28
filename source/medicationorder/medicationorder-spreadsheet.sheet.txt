@@ -322,15 +322,15 @@
   RIM Mapping = maxDoseQuantity
 
  -- Row 24 -----------------------------------
-  Element = MedicationOrder.dispense
+  Element = MedicationOrder.dispenseRequest
   Card. = 0..1
   UML = 320;180
   Short Label = Medication supply authorization
-  Definition = Deals with details of the dispense part of the order
+  Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
   RIM Mapping = component.supplyEvent
 
  -- Row 25 -----------------------------------
-  Element = MedicationOrder.dispense.medication[x]
+  Element = MedicationOrder.dispenseRequest.medication[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Medication)
   Short Label = Product to be supplied
@@ -340,7 +340,7 @@
   RIM Mapping = consumable.role
 
  -- Row 26 -----------------------------------
-  Element = MedicationOrder.dispense.validityPeriod
+  Element = MedicationOrder.dispenseRequest.validityPeriod
   Card. = 0..1
   Type = Period
   Short Label = Time period supply is authorized for
@@ -350,7 +350,7 @@
   To Do = Check v2 mapping
 
  -- Row 27 -----------------------------------
-  Element = MedicationOrder.dispense.numberOfRepeatsAllowed
+  Element = MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   Card. = 0..1
   Type = positiveInt
   Short Label = # of refills authorized
@@ -361,7 +361,7 @@
   To Do = Can this name be shortened?
 
  -- Row 28 -----------------------------------
-  Element = MedicationOrder.dispense.quantity
+  Element = MedicationOrder.dispenseRequest.quantity
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Amount of medication to supply per dispense
@@ -370,7 +370,7 @@
   RIM Mapping = quantity
 
  -- Row 29 -----------------------------------
-  Element = MedicationOrder.dispense.expectedSupplyDuration
+  Element = MedicationOrder.dispenseRequest.expectedSupplyDuration
   Card. = 0..1
   Type = Duration
   Short Label = Days supply per dispense
