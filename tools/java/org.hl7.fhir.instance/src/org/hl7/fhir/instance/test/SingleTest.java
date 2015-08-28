@@ -29,7 +29,6 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.test;
 
 import java.io.File;
-import org.hl7.fhir.instance.test.ResourceTest;
 
 
 public class SingleTest {

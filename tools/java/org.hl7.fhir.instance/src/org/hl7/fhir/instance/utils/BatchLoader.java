@@ -1,7 +1,6 @@
 package org.hl7.fhir.instance.utils;
 
 import java.io.FileInputStream;
-
 import java.net.URISyntaxException;
 import java.util.UUID;
 import java.util.zip.ZipEntry;
@@ -14,8 +13,6 @@ import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
-
-import com.google.gson.JsonParseException;
 
 public class BatchLoader {
 

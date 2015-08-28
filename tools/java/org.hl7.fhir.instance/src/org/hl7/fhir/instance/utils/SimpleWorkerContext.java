@@ -2,6 +2,8 @@ package org.hl7.fhir.instance.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,19 +15,30 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ParserType;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DataElement;
+import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 import org.hl7.fhir.instance.validation.IResourceValidator;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.utilities.CSFileInputStream;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 
 /*
  * This is a stand alone implementation of worker context for use inside a tool.
@@ -37,58 +50,13 @@ public class SimpleWorkerContext implements IWorkerContext {
   
   // all maps are to the full URI
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
-  private Map<String, DataElement> dataElements = new HashMap<String, DataElement>();
   private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
-  private Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
   private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
-  private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
+//private Map<String, DataElement> dataElements = new HashMap<String, DataElement>();
+//  private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
   
-  private static void loadFromFile(SimpleWorkerContext theCtx, InputStream stream, String name) throws Exception {
-//    XmlParser xml = new XmlParser();
-//    Bundle f = (Bundle) xml.parse(stream);
-//    for (BundleEntryComponent e : f.getEntry()) {
-//
-//      if (e.getFullUrl() == null) {
-//        System.out.println("unidentified resource in " + name+" (no fullUrl)");
-//      }
-//      if (e.getResource() instanceof StructureDefinition)
-//        theCtx.seeProfile(e.getFullUrl(), (StructureDefinition) e.getResource());
-//      else if (e.getResource() instanceof ValueSet)
-//        theCtx.seeValueSet(e.getFullUrl(), (ValueSet) e.getResource());
-//      else if (e.getResource() instanceof StructureDefinition)
-//        theCtx.seeExtensionDefinition(e.getFullUrl(), (StructureDefinition) e.getResource());
-//      else if (e.getResource() instanceof ConceptMap)
-//        theCtx.getMaps().put(((ConceptMap) e.getResource()).getUrl(), (ConceptMap) e.getResource());
-//    }
-  }
-
-  private static void loadFromPack(SimpleWorkerContext theCtx, String path) throws Exception {
-    loadFromStream(theCtx, new CSFileInputStream(path));
-  }
-
-  private static void loadFromStream(SimpleWorkerContext theCtx, InputStream stream) throws Exception {
-    ZipInputStream zip = new ZipInputStream(stream);
-    ZipEntry ze;
-    while ((ze = zip.getNextEntry()) != null) {
-      if (ze.getName().endsWith(".xml")) {
-        String name = ze.getName();
-        loadFromFile(theCtx, zip, name);
-      }
-      zip.closeEntry();
-    }
-    zip.close();
-  }
-
-  public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source) throws Exception {
-    SimpleWorkerContext res = new SimpleWorkerContext();
-    for (String name : source.keySet()) {
-      if (name.endsWith(".xml")) {
-        loadFromFile(res, new ByteArrayInputStream(source.get(name)), name);
-      }
-    }
-    return res;
-  }
+  private FHIRToolingClient tsServer;
 
   // -- Initializations
   /**
@@ -101,14 +69,83 @@ public class SimpleWorkerContext implements IWorkerContext {
    */
   public static SimpleWorkerContext fromPack(String path) throws Exception {
     SimpleWorkerContext res = new SimpleWorkerContext();
-    loadFromPack(res, path);
+    res.loadFromPack(path);
     return res;
   }
 
   public static SimpleWorkerContext fromClassPath() throws Exception {
     SimpleWorkerContext res = new SimpleWorkerContext();
-    loadFromStream(res, SimpleWorkerContext.class.getResourceAsStream("validation.zip"));
+    res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream("validation.zip"));
     return res;
+  }
+
+  public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source) throws Exception {
+    SimpleWorkerContext res = new SimpleWorkerContext();
+    for (String name : source.keySet()) {
+      if (name.endsWith(".xml")) {
+      	res.loadFromFile(new ByteArrayInputStream(source.get(name)), name);
+      }
+    }
+    return res;
+  }
+
+  public void connectToTSServer(String url) throws URISyntaxException {
+  	tsServer = new FHIRToolingClient(url);
+  }
+
+  private void loadFromFile(InputStream stream, String name) throws Exception {
+    XmlParser xml = new XmlParser();
+    Bundle f = (Bundle) xml.parse(stream);
+    for (BundleEntryComponent e : f.getEntry()) {
+
+      if (e.getFullUrl() == null) {
+        System.out.println("unidentified resource in " + name+" (no fullUrl)");
+      }
+      if (e.getResource() instanceof StructureDefinition)
+        seeProfile(e.getFullUrl(), (StructureDefinition) e.getResource());
+      else if (e.getResource() instanceof ValueSet)
+        seeValueSet(e.getFullUrl(), (ValueSet) e.getResource());
+      else if (e.getResource() instanceof ConceptMap)
+        maps.put(((ConceptMap) e.getResource()).getUrl(), (ConceptMap) e.getResource());
+    }
+  }
+
+  private void seeValueSet(String url, ValueSet vs) throws Exception {
+  	if (valueSets.containsKey(vs.getUrl()))
+  		throw new Exception("Duplicate Profile " + vs.getUrl());
+  	valueSets.put(vs.getId(), vs);
+  	valueSets.put(vs.getUrl(), vs);
+  	if (!vs.getUrl().equals(url))
+    	valueSets.put(url, vs);
+  	if (vs.hasCodeSystem()) {
+  		codeSystems.put(vs.getCodeSystem().getSystem().toString(), vs);
+  	}
+  }
+
+  private void seeProfile(String url, StructureDefinition p) throws Exception {
+  	if (structures.containsKey(p.getUrl()))
+  		throw new Exception("Duplicate structures " + p.getUrl());
+  	structures.put(p.getId(), p);
+  	structures.put(p.getUrl(), p);
+  	if (!p.getUrl().equals(url))
+  		structures.put(url, p);
+  }
+  
+  private void loadFromPack(String path) throws Exception {
+    loadFromStream(new CSFileInputStream(path));
+  }
+
+  private void loadFromStream(InputStream stream) throws Exception {
+    ZipInputStream zip = new ZipInputStream(stream);
+    ZipEntry ze;
+    while ((ze = zip.getNextEntry()) != null) {
+      if (ze.getName().endsWith(".xml")) {
+        String name = ze.getName();
+        loadFromFile(zip, name);
+      }
+      zip.closeEntry();
+    }
+    zip.close();
   }
 
   
@@ -141,11 +178,6 @@ public class SimpleWorkerContext implements IWorkerContext {
   }
   
   @Override
-  public <T extends Resource> T fetchResource(Class<T> class_, String uri) throws EOperationOutcome, Exception {
-    throw new Exception("not done yet");
-  }
-  
-  @Override
   public <T extends Resource> boolean hasResource(Class<T> class_, String uri) {
     try {
       return fetchResource(class_, uri) != null;
@@ -164,25 +196,89 @@ public class SimpleWorkerContext implements IWorkerContext {
     return new InstanceValidator(this);
   }
   
+  @SuppressWarnings("unchecked")
+	@Override
+  public <T extends Resource> T fetchResource(Class<T> class_, String uri) throws EOperationOutcome, Exception {
+    if (class_ == StructureDefinition.class && !uri.contains("/"))
+      uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
+    
+    if (uri.startsWith("http:")) {
+      if (uri.contains("#"))
+        uri = uri.substring(0, uri.indexOf("#"));
+      if (class_ == StructureDefinition.class) {
+        if (structures.containsKey(uri))
+          return (T) structures.get(uri);
+        else
+          return null;
+      } else if (class_ == ValueSet.class) {
+        if (valueSets.containsKey(uri))
+          return (T) valueSets.get(uri);
+        else if (codeSystems.containsKey(uri))
+          return (T) codeSystems.get(uri);
+        else
+          return null;      
+      }
+    }
+    if (class_ == null && uri.contains("/")) {
+      return null;      
+    }
+      
+    throw new Error("not done yet");
+  }
+  
   
   @Override
   public ValueSet fetchCodeSystem(String system) {
-    throw new Error("not done yet");
+    return codeSystems.get(system);
   }
+  
   @Override
   public boolean supportsSystem(String system) {
-    throw new Error("not done yet");
+    if (codeSystems.containsKey(system))
+    	return true;
+    else {
+    	Conformance conf = tsServer.getConformanceStatement();
+    	for (Extension ex : ToolingExtensions.getExtensions(conf, "http://hl7.org/fhir/StructureDefinition/conformance-supported-system")) {
+    		if (system.equals(((UriType) ex.getValue()).getValue())) {
+    			return true;
+    		}
+    	}
+    }
+    return false;
   }
+  
   @Override
-  public ValueSetExpansionOutcome expandVS(ValueSet source) {
-    throw new Error("not done yet");
+  public ValueSetExpansionOutcome expandVS(ValueSet vs) {
+    try {
+    	Map<String, String> params = new HashMap<String, String>();
+    	params.put("_limit", "10000");
+    	params.put("_incomplete", "true");
+    	params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
+    	ValueSet result = tsServer.expandValueset(vs, params);
+    	return new ValueSetExpansionOutcome(result);  
+    } catch (Exception e) {
+      return new ValueSetExpansionOutcome("Error expanding ValueSet \""+vs.getUrl()+": "+e.getMessage());
+    }
   }
+  
   @Override
   public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) {
-    throw new Error("not done yet");
+    ValueSet vs = new ValueSet();
+    vs.setCompose(new ValueSetComposeComponent());
+    vs.getCompose().getInclude().add(inc);
+    ValueSetExpansionOutcome vse = expandVS(vs);
+    return vse.getValueset().getExpansion();
   }
+  
   @Override
   public ValidationResult validateCode(String system, String code, String display) {
+    try {
+    	if (codeSystems.containsKey(system)) {
+    		return verifyCode(codeSystems.get(system), code, display);
+    	} 
+    } catch (Exception e) {
+      return new ValidationResult(IssueSeverity.ERROR, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
+    }
     throw new Error("not done yet");
   }
   @Override
@@ -196,9 +292,11 @@ public class SimpleWorkerContext implements IWorkerContext {
 
   @Override
   public List<ConceptMap> findMapsForSource(String url) {
-    throw new Error("not done yet");
-    //  // if (((Reference) a.getSource()).getReference().equals(url)) {
-
+    List<ConceptMap> res = new ArrayList<ConceptMap>();
+    for (ConceptMap map : maps.values())
+      if (((Reference) map.getSource()).getReference().equals(url)) 
+        res.add(map);
+    return res;
   }
 
 //  private String version;
@@ -589,5 +687,63 @@ public class SimpleWorkerContext implements IWorkerContext {
 //  public Map<String, SearchParameter> getSearchParameters() {
 //    return searchParameters;
 //  }
+
+  private ValidationResult verifyCode(ValueSet vs, String code, String display) throws Exception {
+    if (vs.hasExpansion() && !vs.hasCodeSystem()) {
+      ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
+      if (cc == null)
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getCodeSystem().getSystem());
+      if (display == null)
+        return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(cc.getDisplay()));
+      if (cc.hasDisplay()) {
+        if (display.equalsIgnoreCase(cc.getDisplay()))
+          return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(cc.getDisplay()));
+        return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be '"+cc.getDisplay()+"'");
+      }
+      return null;
+    } else {
+      ConceptDefinitionComponent cc = findCodeInConcept(vs.getCodeSystem().getConcept(), code);
+      if (cc == null)
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getCodeSystem().getSystem());
+      if (display == null)
+        return new ValidationResult(cc);
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      if (cc.hasDisplay()) {
+        b.append(cc.getDisplay());
+        if (display.equalsIgnoreCase(cc.getDisplay()))
+          return new ValidationResult(cc);
+      }
+      for (ConceptDefinitionDesignationComponent ds : cc.getDesignation()) {
+        b.append(ds.getValue());
+        if (display.equalsIgnoreCase(ds.getValue()))
+          return new ValidationResult(cc);
+      }
+      return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be one of '"+b.toString()+"'");
+    }
+  }
+  
+  private ValueSetExpansionContainsComponent findCode(List<ValueSetExpansionContainsComponent> contains, String code) {
+    for (ValueSetExpansionContainsComponent cc : contains) {
+      if (code.equals(cc.getCode()))
+        return cc;
+      ValueSetExpansionContainsComponent c = findCode(cc.getContains(), code);
+      if (c != null)
+        return c;
+    }
+    return null;
+  }
+
+  private ConceptDefinitionComponent findCodeInConcept(List<ConceptDefinitionComponent> concept, String code) {
+    for (ConceptDefinitionComponent cc : concept) {
+      if (code.equals(cc.getCode()))
+        return cc;
+      ConceptDefinitionComponent c = findCodeInConcept(cc.getConcept(), code);
+      if (c != null)
+        return c;
+    }
+    return null;
+  }
+
+  
 
 }

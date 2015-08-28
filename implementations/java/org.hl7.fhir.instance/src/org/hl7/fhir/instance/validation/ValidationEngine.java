@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,10 +59,8 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.IParser;
-import org.hl7.fhir.instance.formats.IParser.OutputStyle;
+import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
@@ -120,9 +119,12 @@ public class ValidationEngine {
 			processJson();
 	}
 	
-  private boolean isXml() {
+  private boolean isXml() throws Exception {
+  	
 	  int x = position(source, '<'); 
 	  int j = position(source, '{');
+	  if (x == Integer.MAX_VALUE && j == Integer.MAX_VALUE)
+	  	throw new Exception("Unable to interpret the content as either XML or JSON");
 	  return (x < j);
   }
 
@@ -434,6 +436,11 @@ public class ValidationEngine {
 
 	public void setAnyExtensionsAllowed(boolean anyExtensionsAllowed) {
 		this.anyExtensionsAllowed = anyExtensionsAllowed;
+	}
+
+	public void connectToTSServer(String url) throws URISyntaxException {
+    System.out.println("  .. connect to terminology server "+url);
+    context.connectToTSServer(url);
 	}
 
 

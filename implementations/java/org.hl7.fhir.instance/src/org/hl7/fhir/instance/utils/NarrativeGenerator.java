@@ -39,7 +39,6 @@ import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.formats.FormatUtilities;
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Annotation;
@@ -69,7 +68,6 @@ import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DomainResource;
-import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumeration;
@@ -1948,15 +1946,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) throws EOperationOutcome, Exception {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.allMaps()) {
-      if (((Reference) a.getSource()).getReference().equals(vs.getUrl())) {
+    for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
         String url = "";
         ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
         if (vsr != null)
             url = (String) vsr.getUserData("filename");
         mymaps.put(a, url);
       }
-    }
 
     if (header) {
       XhtmlNode h = x.addTag("h3");
@@ -2047,14 +2043,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private boolean generateDefinition(XhtmlNode x, ValueSet vs, boolean header) throws EOperationOutcome, Exception {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.allMaps()) {
-      if (((Reference) a.getSource()).getReference().equals(vs.getUrl())) {
+    for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
         String url = "";
         ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
         if (vsr != null)
             url = (String) vsr.getUserData("filename");
         mymaps.put(a, url);
-      }
     }
     // also, look in the contained resources for a concept map
     for (Resource r : vs.getContained()) {

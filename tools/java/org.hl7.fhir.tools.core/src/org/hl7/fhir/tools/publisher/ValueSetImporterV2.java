@@ -1,6 +1,11 @@
 package org.hl7.fhir.tools.publisher;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -36,10 +41,39 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class ValueSetImporterV2 {
+  private class OIDEntry {
+    private String id;
+    private String name;
+    private String oid;
+    private String code;
+    private String ver;
+    public OIDEntry(String id, String name, String oid, String code, String ver) {
+      super();
+      this.id = id;
+      this.name = name;
+      this.oid = oid;
+      this.code = code;
+      this.ver = ver;
+    }
+    public String getId() {
+      return id;
+    }
+    public String getName() {
+      return name;
+    }
+    public String getOid() {
+      return oid;
+    }
+    public String getCode() {
+      return code;
+    }
+    
+  }
   private static final String HTTP_separator = "/";
   private List<ValidationMessage> errors; 
   private PageProcessor page;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
+  private Map<String, OIDEntry> oids = new HashMap<String, OIDEntry>();
   
   public ValueSetImporterV2(PageProcessor page, List<ValidationMessage> errors) {
     super();
@@ -48,6 +82,7 @@ public class ValueSetImporterV2 {
   }
 
   public void execute() throws Exception {
+    loadOIds();
     executeMaster();
     // now, load additional language sources
     IniFile ini = new IniFile(Utilities.path(page.getFolders().srcDir, "v2", "v2.ini"));
@@ -59,6 +94,20 @@ public class ValueSetImporterV2 {
       updateNarrative(vs);
   }
   
+  private void loadOIds() throws IOException {
+    FileInputStream fis = new FileInputStream(Utilities.path(page.getFolders().srcDir, "v2", "v2oids.txt"));
+    BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+    String line = null;
+    while ((line = br.readLine()) != null) {
+      if (!line.startsWith("//")) {
+        String[] cells = line.split("\\t");
+        String id = Utilities.padLeft(cells[0], '0', 4) + (cells.length == 5 ? "-"+cells[4] : "");
+        oids.put(id, new OIDEntry(cells[0], cells[1], cells[2], cells[3], cells.length == 5 ? cells[4] : null));
+      }
+    }
+    br.close();    
+  }
+
   private void updateNarrative(ValueSet vs) {
     XhtmlNode table = vs.getText().getDiv().getElement("table");
     List<String> langs = new ArrayList<String>(); 
@@ -244,7 +293,10 @@ public class ValueSetImporterV2 {
     vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
     ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
     vs.setCodeSystem(def);
-    def.setCaseSensitive(true);
+    OIDEntry oe = oids.get(id);
+    if (oe != null)
+      ToolingExtensions.setOID(def, "urn:oid:"+oe.getOid());
+    def.setCaseSensitive(false);
     def.setSystem("http://hl7.org/fhir/v2/" + id);
     StringBuilder s = new StringBuilder();
 
@@ -326,6 +378,9 @@ public class ValueSetImporterV2 {
     vs.setVersion(id);
     vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
     ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
+    OIDEntry oe = oids.get(id+"-"+version);
+    if (oe != null)
+      ToolingExtensions.setOID(def, "urn:oid:"+oe.getOid());
     vs.setCodeSystem(def);
     def.setCaseSensitive(true);
     def.setSystem("http://hl7.org/fhir/v2/" + id + "/" + version);

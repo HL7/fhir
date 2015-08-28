@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Aug 27, 2015 12:05+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 28, 2015 10:50+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -7016,8 +7016,9 @@ public class JsonParser extends JsonParserBase {
       res.setTextElement(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
       parseElementProperties(json.getAsJsonObject("_text"), res.getTextElement());
-    if (json.has("site"))
-      res.setSite(parseCodeableConcept(json.getAsJsonObject("site")));
+    Type site = parseType("site", json);
+    if (site != null)
+      res.setSite(site);
     if (json.has("route"))
       res.setRoute(parseCodeableConcept(json.getAsJsonObject("route")));
     if (json.has("method"))
@@ -7103,8 +7104,9 @@ public class JsonParser extends JsonParserBase {
     Type asNeeded = parseType("asNeeded", json);
     if (asNeeded != null)
       res.setAsNeeded(asNeeded);
-    if (json.has("site"))
-      res.setSite(parseCodeableConcept(json.getAsJsonObject("site")));
+    Type site = parseType("site", json);
+    if (site != null)
+      res.setSite(site);
     if (json.has("route"))
       res.setRoute(parseCodeableConcept(json.getAsJsonObject("route")));
     if (json.has("method"))
@@ -7208,8 +7210,9 @@ public class JsonParser extends JsonParserBase {
     Type asNeeded = parseType("asNeeded", json);
     if (asNeeded != null)
       res.setAsNeeded(asNeeded);
-    if (json.has("site"))
-      res.setSite(parseCodeableConcept(json.getAsJsonObject("site")));
+    Type site = parseType("site", json);
+    if (site != null)
+      res.setSite(site);
     if (json.has("route"))
       res.setRoute(parseCodeableConcept(json.getAsJsonObject("route")));
     if (json.has("method"))
@@ -7295,6 +7298,12 @@ public class JsonParser extends JsonParserBase {
       res.setNoteElement(parseString(json.get("note").getAsString()));
     if (json.has("_note"))
       parseElementProperties(json.getAsJsonObject("_note"), res.getNoteElement());
+    if (json.has("supportingInformation")) {
+      JsonArray array = json.getAsJsonArray("supportingInformation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSupportingInformation().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
     Type medication = parseType("medication", json);
     if (medication != null)
       res.setMedication(medication);
@@ -8648,16 +8657,16 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-    if (json.has("notDone"))
-      res.setNotDoneElement(parseBoolean(json.get("notDone").getAsBoolean()));
-    if (json.has("_notDone"))
-      parseElementProperties(json.getAsJsonObject("_notDone"), res.getNotDoneElement());
-    if (json.has("reasonNotDone")) {
-      JsonArray array = json.getAsJsonArray("reasonNotDone");
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("notPerformed"))
+      res.setNotPerformedElement(parseBoolean(json.get("notPerformed").getAsBoolean()));
+    if (json.has("_notPerformed"))
+      parseElementProperties(json.getAsJsonObject("_notPerformed"), res.getNotPerformedElement());
+    if (json.has("reasonNotPerformed")) {
+      JsonArray array = json.getAsJsonArray("reasonNotPerformed");
       for (int i = 0; i < array.size(); i++) {
-        res.getReasonNotDone().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+        res.getReasonNotPerformed().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("bodySite")) {
@@ -8666,12 +8675,9 @@ public class JsonParser extends JsonParserBase {
         res.getBodySite().add(parseProcedureProcedureBodySiteComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("indication")) {
-      JsonArray array = json.getAsJsonArray("indication");
-      for (int i = 0; i < array.size(); i++) {
-        res.getIndication().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
+    Type reason = parseType("reason", json);
+    if (reason != null)
+      res.setReason(reason);
     if (json.has("performer")) {
       JsonArray array = json.getAsJsonArray("performer");
       for (int i = 0; i < array.size(); i++) {
@@ -8705,20 +8711,14 @@ public class JsonParser extends JsonParserBase {
         res.getFollowUp().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("relatedItem")) {
-      JsonArray array = json.getAsJsonArray("relatedItem");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRelatedItem().add(parseProcedureProcedureRelatedItemComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
     if (json.has("notes"))
       res.setNotesElement(parseString(json.get("notes").getAsString()));
     if (json.has("_notes"))
       parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesElement());
-    if (json.has("device")) {
-      JsonArray array = json.getAsJsonArray("device");
+    if (json.has("focalDevice")) {
+      JsonArray array = json.getAsJsonArray("focalDevice");
       for (int i = 0; i < array.size(); i++) {
-        res.getDevice().add(parseProcedureProcedureDeviceComponent(array.get(i).getAsJsonObject(), res));
+        res.getFocalDevice().add(parseProcedureProcedureFocalDeviceComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("used")) {
@@ -8742,27 +8742,15 @@ public class JsonParser extends JsonParserBase {
   protected Procedure.ProcedurePerformerComponent parseProcedureProcedurePerformerComponent(JsonObject json, Procedure owner) throws Exception {
     Procedure.ProcedurePerformerComponent res = new Procedure.ProcedurePerformerComponent();
     parseBackboneProperties(json, res);
-    if (json.has("person"))
-      res.setPerson(parseReference(json.getAsJsonObject("person")));
+    if (json.has("individual"))
+      res.setIndividual(parseReference(json.getAsJsonObject("individual")));
     if (json.has("role"))
       res.setRole(parseCodeableConcept(json.getAsJsonObject("role")));
     return res;
   }
 
-  protected Procedure.ProcedureRelatedItemComponent parseProcedureProcedureRelatedItemComponent(JsonObject json, Procedure owner) throws Exception {
-    Procedure.ProcedureRelatedItemComponent res = new Procedure.ProcedureRelatedItemComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Procedure.ProcedureRelationshipType.NULL, new Procedure.ProcedureRelationshipTypeEnumFactory()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("target"))
-      res.setTarget(parseReference(json.getAsJsonObject("target")));
-    return res;
-  }
-
-  protected Procedure.ProcedureDeviceComponent parseProcedureProcedureDeviceComponent(JsonObject json, Procedure owner) throws Exception {
-    Procedure.ProcedureDeviceComponent res = new Procedure.ProcedureDeviceComponent();
+  protected Procedure.ProcedureFocalDeviceComponent parseProcedureProcedureFocalDeviceComponent(JsonObject json, Procedure owner) throws Exception {
+    Procedure.ProcedureFocalDeviceComponent res = new Procedure.ProcedureFocalDeviceComponent();
     parseBackboneProperties(json, res);
     if (json.has("action"))
       res.setAction(parseCodeableConcept(json.getAsJsonObject("action")));
@@ -8782,20 +8770,17 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("bodySite")) {
       JsonArray array = json.getAsJsonArray("bodySite");
       for (int i = 0; i < array.size(); i++) {
         res.getBodySite().add(parseProcedureRequestProcedureRequestBodySiteComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("indication")) {
-      JsonArray array = json.getAsJsonArray("indication");
-      for (int i = 0; i < array.size(); i++) {
-        res.getIndication().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
+    Type reason = parseType("reason", json);
+    if (reason != null)
+      res.setReason(reason);
     Type timing = parseType("timing", json);
     if (timing != null)
       res.setTiming(timing);
@@ -20513,7 +20498,7 @@ public class JsonParser extends JsonParserBase {
         composeStringExtras("text", element.getTextElement(), false);
       }
       if (element.hasSite()) {
-        composeCodeableConcept("site", element.getSite());
+        composeType("site", element.getSite());
       }
       if (element.hasRoute()) {
         composeCodeableConcept("route", element.getRoute());
@@ -20625,7 +20610,7 @@ public class JsonParser extends JsonParserBase {
         composeType("asNeeded", element.getAsNeeded());
       }
       if (element.hasSite()) {
-        composeCodeableConcept("site", element.getSite());
+        composeType("site", element.getSite());
       }
       if (element.hasRoute()) {
         composeCodeableConcept("route", element.getRoute());
@@ -20761,7 +20746,7 @@ public class JsonParser extends JsonParserBase {
         composeType("asNeeded", element.getAsNeeded());
       }
       if (element.hasSite()) {
-        composeCodeableConcept("site", element.getSite());
+        composeType("site", element.getSite());
       }
       if (element.hasRoute()) {
         composeCodeableConcept("route", element.getRoute());
@@ -20875,6 +20860,12 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("note", element.getNoteElement(), false);
         composeStringExtras("note", element.getNoteElement(), false);
       }
+      if (element.hasSupportingInformation()) {
+        openArray("supportingInformation");
+        for (Reference e : element.getSupportingInformation()) 
+          composeReference(null, e);
+        closeArray();
+      };
       if (element.hasMedication()) {
         composeType("medication", element.getMedication());
       }
@@ -22595,16 +22586,16 @@ public class JsonParser extends JsonParserBase {
       if (element.hasCategory()) {
         composeCodeableConcept("category", element.getCategory());
       }
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
       }
-      if (element.hasNotDoneElement()) {
-        composeBooleanCore("notDone", element.getNotDoneElement(), false);
-        composeBooleanExtras("notDone", element.getNotDoneElement(), false);
+      if (element.hasNotPerformedElement()) {
+        composeBooleanCore("notPerformed", element.getNotPerformedElement(), false);
+        composeBooleanExtras("notPerformed", element.getNotPerformedElement(), false);
       }
-      if (element.hasReasonNotDone()) {
-        openArray("reasonNotDone");
-        for (CodeableConcept e : element.getReasonNotDone()) 
+      if (element.hasReasonNotPerformed()) {
+        openArray("reasonNotPerformed");
+        for (CodeableConcept e : element.getReasonNotPerformed()) 
           composeCodeableConcept(null, e);
         closeArray();
       };
@@ -22614,12 +22605,9 @@ public class JsonParser extends JsonParserBase {
           composeProcedureProcedureBodySiteComponent(null, e);
         closeArray();
       };
-      if (element.hasIndication()) {
-        openArray("indication");
-        for (CodeableConcept e : element.getIndication()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
+      if (element.hasReason()) {
+        composeType("reason", element.getReason());
+      }
       if (element.hasPerformer()) {
         openArray("performer");
         for (Procedure.ProcedurePerformerComponent e : element.getPerformer()) 
@@ -22656,20 +22644,14 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasRelatedItem()) {
-        openArray("relatedItem");
-        for (Procedure.ProcedureRelatedItemComponent e : element.getRelatedItem()) 
-          composeProcedureProcedureRelatedItemComponent(null, e);
-        closeArray();
-      };
       if (element.hasNotesElement()) {
         composeStringCore("notes", element.getNotesElement(), false);
         composeStringExtras("notes", element.getNotesElement(), false);
       }
-      if (element.hasDevice()) {
-        openArray("device");
-        for (Procedure.ProcedureDeviceComponent e : element.getDevice()) 
-          composeProcedureProcedureDeviceComponent(null, e);
+      if (element.hasFocalDevice()) {
+        openArray("focalDevice");
+        for (Procedure.ProcedureFocalDeviceComponent e : element.getFocalDevice()) 
+          composeProcedureProcedureFocalDeviceComponent(null, e);
         closeArray();
       };
       if (element.hasUsed()) {
@@ -22705,42 +22687,23 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeProcedureProcedurePerformerComponentInner(Procedure.ProcedurePerformerComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasPerson()) {
-        composeReference("person", element.getPerson());
+      if (element.hasIndividual()) {
+        composeReference("individual", element.getIndividual());
       }
       if (element.hasRole()) {
         composeCodeableConcept("role", element.getRole());
       }
   }
 
-  protected void composeProcedureProcedureRelatedItemComponent(String name, Procedure.ProcedureRelatedItemComponent element) throws Exception {
+  protected void composeProcedureProcedureFocalDeviceComponent(String name, Procedure.ProcedureFocalDeviceComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeProcedureProcedureRelatedItemComponentInner(element);
+      composeProcedureProcedureFocalDeviceComponentInner(element);
       close();
     }
   }
 
-  protected void composeProcedureProcedureRelatedItemComponentInner(Procedure.ProcedureRelatedItemComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeEnumerationCore("type", element.getTypeElement(), new Procedure.ProcedureRelationshipTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new Procedure.ProcedureRelationshipTypeEnumFactory(), false);
-      }
-      if (element.hasTarget()) {
-        composeReference("target", element.getTarget());
-      }
-  }
-
-  protected void composeProcedureProcedureDeviceComponent(String name, Procedure.ProcedureDeviceComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProcedureProcedureDeviceComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeProcedureProcedureDeviceComponentInner(Procedure.ProcedureDeviceComponent element) throws Exception {
+  protected void composeProcedureProcedureFocalDeviceComponentInner(Procedure.ProcedureFocalDeviceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasAction()) {
         composeCodeableConcept("action", element.getAction());
@@ -22768,8 +22731,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
       }
       if (element.hasBodySite()) {
         openArray("bodySite");
@@ -22777,12 +22740,9 @@ public class JsonParser extends JsonParserBase {
           composeProcedureRequestProcedureRequestBodySiteComponent(null, e);
         closeArray();
       };
-      if (element.hasIndication()) {
-        openArray("indication");
-        for (CodeableConcept e : element.getIndication()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
+      if (element.hasReason()) {
+        composeType("reason", element.getReason());
+      }
       if (element.hasTiming()) {
         composeType("timing", element.getTiming());
       }

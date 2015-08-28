@@ -202,6 +202,12 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
     if (parent.getRoot().getElementByName("patient") != null && parent.getRoot().getElementByName("patient").typeCode().startsWith("Reference"))
       rule(errors, IssueType.STRUCTURE, parent.getName(), parent.getSearchParams().containsKey("patient"), "A resource that contains a patient reference must have a search parameter 'patient'");
+    if (parent.getRoot().getElementByName("identifier") != null) {
+      hint(errors, IssueType.STRUCTURE, parent.getName(), parent.getSearchParams().containsKey("identifier"), "A resource that contains an identifier must have a search parameter 'identifier'");
+    }
+    if (parent.getRoot().getElementByName("url") != null) {
+      hint(errors, IssueType.STRUCTURE, parent.getName(), parent.getSearchParams().containsKey("url"), "A resource that contains a url element must have a search parameter 'url'");
+    }
     for (org.hl7.fhir.definitions.model.SearchParameterDefn p : parent.getSearchParams().values()) {
       if (!usages.containsKey(p.getCode()))
         usages.put(p.getCode(), new Usage());

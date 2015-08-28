@@ -19,8 +19,12 @@ change generated self links to use semantic links if one is avilablae
 update todo.html + version history
 dstu notes format consistency + where does feedback go?
 update the way self-links are generated to make them more stable
+update self link generation
+v3/v2 value set usages
 
 update implementers safety checklist 
+extensions invariants
+generated schematrons paths
 
 Examples
 * Clem's vital signs observations

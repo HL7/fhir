@@ -157,8 +157,9 @@ public class ValueSetValidator extends BaseValidator {
           vs.getCodeSystem().getSystem().startsWith("urn:") , "Unacceptable code system url "+vs.getCodeSystem().getSystem());
       
       Set<String> codes = new HashSet<String>();
-      if (rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].codeSystem", vs.getCodeSystem().hasSystem(), "If a value set has a define, it must have a system")) {
-        rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].codeSystem", vs.getCodeSystem().hasCaseSensitiveElement() && vs.getCodeSystem().getCaseSensitive(), 
+      if (rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].codeSystem", vs.getCodeSystem().hasSystem(), "If a value set has an inline code system, it must have a system uri")) {
+        if (!vs.getId().startsWith("v2-")) 
+          rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].codeSystem", vs.getCodeSystem().hasCaseSensitiveElement() && vs.getCodeSystem().getCaseSensitive(), 
             "Value set "+nameForErrors+" ("+vs.getName()+"): All value sets that define codes must mark them as case sensitive",
             "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: All value sets that define codes must mark them as case sensitive");
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, vs.getCodeSystem().getConcept());

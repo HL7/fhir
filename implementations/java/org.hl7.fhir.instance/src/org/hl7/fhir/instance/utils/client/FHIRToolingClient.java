@@ -164,14 +164,10 @@ public class FHIRToolingClient {
   
   public Conformance getConformanceStatementQuick(boolean useOptionsVerb) {
     Conformance conformance = null;
-    try {
-      if(useOptionsVerb) {
-        conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
-      } else {
-        conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(true), getPreferredResourceFormat(), proxy).getReference();
-      }
-    } catch(Exception e) {
-      handleException("An error has occurred while trying to fetch the server's conformance statement", e);
+    if(useOptionsVerb) {
+    	conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
+    } else {
+    	conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(true), getPreferredResourceFormat(), proxy).getReference();
     }
     return conformance;
   }

@@ -166,7 +166,7 @@ public class BindingsParser {
         vs.setUserData("committee", sheet.getColumn(row, "Committee").toLowerCase());
         vs.setUserData("path", "valueset-"+vs.getId()+".html");
 
-        ToolingExtensions.setOID(vs, BindingSpecification.DEFAULT_OID_VS + cd.getId());
+        ToolingExtensions.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + cd.getId());
         vs.setUserData("csoid", BindingSpecification.DEFAULT_OID_CS + cd.getId());
       }
       

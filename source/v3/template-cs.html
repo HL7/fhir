@@ -2,33 +2,49 @@
 <!DOCTYPE HTML>
 
 
-[%settitle v3 Code System http://hl7.org/fhir/v3/{id}%]
-[%setlevel 2%]
+<%settitle v3 Code System http://hl7.org/fhir/v3/{id}%>
+<%setlevel 2%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-[%file newheader%]
+<%file newheader%>
 </head>
 <body>
-[%file newnavbar%]
+<%file newnavbar%>
 
 <div class="col-9">
 
 <%txheader l2%>
 
-<h1>v3 Code System [%id%]</h1>
+<h1>v3 Code System <%id%></h1>
 <p>
-This code system (http://hl7.org/fhir/v3/[%id%]) is defined as part of HL7 v3<%v3xref%>
+This code system (http://hl7.org/fhir/v3/<%id%>) is defined as part of HL7 v3<%v3xref%>
 </p>
-<p>
-Formal value Set definition (identifier <b>http://hl7.org/fhir/ValueSet/v3-<%id%></b>): <a href="v3-<%id%>.xml.html">XML</a> or <a href="v3-<%id%>.json.html">JSON</a>
-</p>
+<p><b>Summary</b></p>
+<table class="grid">
+ <tr><td>Defining URL:</td><td><%vsurl%></td></tr>
+ <tr><td>Name:</td><td><%vsname%></td></tr>
+ <tr><td>Definition:</td><td><%vsdef%></td></tr>
+ <tr><td>OID:</td><td><%vsoid%> (for OID based terminology systems)</td></tr>
+<%txsummary%>
+ <tr><td>Source Resource</td><td><a href="v3-<%id%>.xml.html">XML</a> / <a href="v3-<%id%>.json.html">JSON</a></td></tr>
+</table>
+
 <%conceptmaplistv3 l2%>
+
+<%vsusage%>
+
+
+<a name="definition"> </a>
+<h2>Content Logical Definition</h2>
+
+<%vscld%>
+
 
 <%v3CodeSystem%>
 
 </div>
 
-[%file newfooter%]
+<%file newfooter%>
     
 </body>
 </html>

@@ -37,7 +37,6 @@ import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -45,7 +44,6 @@ import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOut
 import org.hl7.fhir.instance.utils.EOperationOutcome;
 import org.hl7.fhir.instance.utils.IWorkerContext;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
-import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
@@ -59,8 +57,7 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  		return expansions.get(source.getUrl());
 	  	ValueSetExpander vse = new ValueSetExpanderSimple(context, ValueSetExpansionCache.this);
 	  	ValueSetExpansionOutcome vso = vse.expand(source);
-	  	if (vso.getError() != null) {
-	  	  // well, we'll see if the designated server can expand it, and if it can, we'll cache it locally
+	  	if (vso.getError() != null && cacheFolder != null) {
 	  	  try {
 	  	    vso = context.expandVS(source);
 	  	    FileOutputStream s = new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl())));
