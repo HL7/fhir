@@ -22,7 +22,6 @@
   <manufacturer>
     <reference value="http://www.a-smeds.com/fhirresource/1" />
   </manufacturer>
-  <kind value="product"/>
   <product>
     <form>
       <coding>

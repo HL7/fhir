@@ -14,7 +14,6 @@
         <reference value="Organization/f000"/>
         <display value="AstraZaneca B.V."/>
         </manufacturer> -->
-    <kind value="product"/>
     <package>
         <container>
             <coding>

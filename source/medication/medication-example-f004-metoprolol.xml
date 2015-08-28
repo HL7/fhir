@@ -14,7 +14,6 @@
         <reference value="organization/F000"/>
         <display value="Magistra"/> 
         </manufacturer> -->
-    <kind value="product"/>
     <package>
         <container>
             <coding>

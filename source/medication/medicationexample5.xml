@@ -4,7 +4,7 @@
  xmlns="http://hl7.org/fhir">
   <id value="medexample005"/>
 
-  <!-- this example is fully popluated as a package -->
+  <!-- this example is popluated as a package -->
   
   <text>
     <status value="generated"/>
@@ -22,52 +22,13 @@
   <manufacturer>
     <reference value="http://http://www.actavis.ca/default.htm/fhirresource/1" />
   </manufacturer>
-  <kind value="package"/>
-  <product>
-    <form>
+  <package>
+    <container>
       <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="385055001"/>
-        <display value="Tablet"/>
+        <code value="398124009"/>
+        <display value="drug container"/>
       </coding>
-    </form>
-    <ingredient>
-      <item>
-        <display value="Etidronate Sodium"/>
-      </item>
-      <amount>
-        <numerator>
-          <value value="400"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mg"/>
-        </numerator>
-        <denominator>
-          <value value="1"/>
-          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-          <code value="TAB"/>
-        </denominator>
-      </amount>
-    </ingredient>
-    <ingredient>
-      <item>
-        <display value="Calcium Carbonate"/>
-      </item>
-      <amount>
-        <numerator>
-          <value value="500"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mg"/>
-        </numerator>
-        <denominator>
-          <value value="1"/>
-          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-          <code value="TAB"/>
-        </denominator>
-      </amount>
-    </ingredient>
-    <batch>
-      <lotNumber value="9494949"/>
-      <expirationDate value="2017-02-22"/>
-    </batch>
-  </product>
+    </container>
+  </package>
 </Medication>

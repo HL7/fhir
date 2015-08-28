@@ -15,9 +15,7 @@ does not provide full details.
 <p>
 The medication resource allows for medications to be characterised as either a product or a package; this classification is important 
 because it affects the interpretation of a prescribed amount. For instance, is the prescribed amount 20 tablets, or 20 packages of
-50 tablets each? However the <i>kind</i> element is not required because not all contexts of use are involved with prescription (medication
-statements, for instance). Typically, however, profiles describing the use of the medication resource in a prescribing environment 
-will make the <i>kind</i> element required. 
+50 tablets each? 
 </p>
 <p>
 Depending on whether the medication is a product or a package, further details about the composition can be provided. A product

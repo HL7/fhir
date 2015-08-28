@@ -16,32 +16,11 @@
   Conformance = example
 
  -- Row 3 -----------------------------------
-  Binding Name = MedicationKind
-  Binding = code list
-  Reference = #medication-kind
-  Definition = Whether the medication is a product or a package
-  Conformance = required
-
- -- Row 4 -----------------------------------
   Binding Name = MedicationContainer
   Binding = value set
   Reference = valueset-medication-package-form-codes
   Definition = Kind of container a medication package is packaged in
   Conformance = example
-
-=== Sheet medication-kind =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = product
-  Display = Product
-  Definition = The medication is a product
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = package
-  Display = Package
-  Definition = The medication is a package - a contained group of one of more products
 
 === Sheet Invariants =====================================
 
@@ -91,17 +70,6 @@
   w5 = who.actor
 
  -- Row 5 -----------------------------------
-  Element = Medication.kind
-  Card. = 0..1
-  Summary = y
-  Type = code
-  Binding = MedicationKind
-  Short Label = product | package
-  Definition = Medications are either a single administrable product or a package that contains one or more products.
-  RIM Mapping = .player.classCode  (CONT or not)
-  w5 = class
-
- -- Row 6 -----------------------------------
   Element = Medication.product
   Card. = 0..1
   UML = 630;20
@@ -109,7 +77,7 @@
   Definition = Information that only applies to products (not packages)
   RIM Mapping = .player [classCode != CONT]
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Medication.product.form
   Card. = 0..1
   Type = CodeableConcept
@@ -119,7 +87,7 @@
   v2 Mapping = RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form
   RIM Mapping = .formCode
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Medication.product.ingredient
   Card. = 0..*
   UML = 650;120
@@ -129,7 +97,7 @@
   RIM Mapping = .scopesRole[typeCode=INGR]
   To Do = Should have an indicator distinguishing active & inactive
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Medication.product.ingredient.item
   Card. = 1..1
   Type = Reference(Substance|Medication)
@@ -138,7 +106,7 @@
   v2 Mapping = if substance: RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
   RIM Mapping = .player
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Medication.product.ingredient.amount
   Card. = 0..1
   Type = Ratio
@@ -147,25 +115,25 @@
   v2 Mapping = if substance: RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
   RIM Mapping = .quantity
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Medication.product.batch
   Card. = 0..*
   UML = 450;120
   Definition = Information about a group of medication produced or packaged from one production run.
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Medication.product.batch.lotNumber
   Card. = 0..1
   Type = string
   Definition = The assigned lot number of a batch of the specified product.
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Medication.product.batch.expirationDate
   Card. = 0..1
   Type = dateTime
   Definition = When this specific batch of product will expire.
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Medication.package
   Card. = 0..1
   UML = 0;20
@@ -174,7 +142,7 @@
   Definition = Information that only applies to packages (not products)
   RIM Mapping = .player[classCode=CONT]
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Medication.package.container
   Card. = 0..1
   Type = CodeableConcept
@@ -183,7 +151,7 @@
   Definition = The kind of container that this package comes as
   RIM Mapping = .code
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Medication.package.content
   Card. = 0..*
   UML = 40;120
@@ -191,7 +159,7 @@
   Definition = A set of components that go to make up the described item.
   RIM Mapping = .scopesRole[typeCode=CONT]
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Medication.package.content.item
   Card. = 1..1
   Type = Reference(Medication)
@@ -199,7 +167,7 @@
   Definition = Identifies one of the items in the package
   RIM Mapping = .player
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Medication.package.content.amount
   Card. = 0..1
   Type = SimpleQuantity
@@ -274,9 +242,9 @@
   Filename = medicationexample4.xml
 
  -- Row 5 -----------------------------------
-  Name = Kind
+  Name = Package
   Identity = medexample005
-  Description = Medication with <kind> element = package
+  Description = Medication popluated as a package
   Filename = medicationexample5.xml
 
  -- Row 6 -----------------------------------

@@ -14,7 +14,6 @@
         <reference value="Organization/F000"/>
         <display value="Merck"/>
         </manufacturer>-->
-    <kind value="product"/>
     <package>
         <container>
             <coding>

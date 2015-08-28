@@ -22,7 +22,6 @@
   <manufacturer>
     <reference value="http://www.novonordisk-us.com/fhirresource/1" />
   </manufacturer>
-  <kind value="product"/>
   <product>
     <form>
       <coding>

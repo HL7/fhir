@@ -14,7 +14,6 @@
         <reference value="Organization/f001"/>TODO Incorrecte verwijzing
         <display value="Eureco-Pharma B.V."/>
     </manufacturer>-->
-    <kind value="product"/> 
     <product>
         <form>
             <coding>

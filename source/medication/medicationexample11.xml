@@ -22,7 +22,6 @@
   <manufacturer>
     <reference value="http://www.tevacanada.com/fhirresource/1" />
   </manufacturer>
-  <kind value="package"/>
   <product>
     <form>
       <coding>
