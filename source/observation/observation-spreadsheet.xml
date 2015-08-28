@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Heming Yao Yao</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-20T17:47:58Z</LastSaved>
+  <LastSaved>2015-08-28T01:03:40Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,7 @@
   <WindowTopX>1035</WindowTopX>
   <WindowTopY>2895</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1977,7 +1977,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Low Range, if relevant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The value of the low bound of the reference range. If this element is omitted, the low bound of the reference range is assumed to be meaningless. (e.g. reference range is &lt;2.3)  If the low.comparator element is missing, it is assumed to be '&gt;'.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9).   If the low bound is omitted,  it is assumed to be meaningless. (e.g. reference range is &lt;=2.3).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2014,7 +2014,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">High Range, if relevant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The value of the high bound of the reference range. If this element is omitted, the high bound of the reference range is assumed to be meaningless. (e.g. reference range is &gt; 5)  If the low.comparator element is missing , it is assumed to be '&lt;'.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9).   If the high bound is omitted,  it is assumed to be meaningless. (e.g. reference range is &gt;= 2.3).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4512,12 +4512,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4525,6 +4526,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4532,8 +4534,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5023,7 +5025,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5043,6 +5044,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
