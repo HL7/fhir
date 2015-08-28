@@ -14,7 +14,6 @@ import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOut
 import org.hl7.fhir.instance.utils.EOperationOutcome;
 import org.hl7.fhir.instance.utils.IWorkerContext;
 import org.hl7.fhir.instance.utils.IWorkerContext.ValidationResult;
-import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 
 public class ValueSetCheckerSimple implements ValueSetChecker {
 
