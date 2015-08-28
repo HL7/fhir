@@ -200,7 +200,7 @@
   Path = ImmunizationRecommendation.patient
 
  -- Row 2 -----------------------------------
-  Name = vaccine-type
+  Name = vaccine-code
   Type = token
   Path = ImmunizationRecommendation.recommendation.vaccineCode
 
