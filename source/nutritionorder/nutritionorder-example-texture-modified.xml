@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/nutritionorder.xsd">
+	<id value="texturemodified"/>
+	<patient>
+		<reference value="Patient/example"/>
+		<display value="Peter Chalmers"/>
+	</patient>
+	<orderer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
+	</orderer>
+	<identifier>
+		<system value="http://goodhealthhospital.org/nutrition-orders"/>
+		<value value="123"/>
+	</identifier>
+	<dateTime value="2014-09-17"/>
+	<status value="active"/>
+	<!-- EH: use oral Diet element -->
+	<oralDiet>
+		<!-- EH:  list type of diet showing standard code and local codes -->
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="435801000124108"/>
+				<display value="Texture modified diet"/>
+			</coding>
+			<coding>
+				<system value="http://goodhealthhospital.org/diet-type-codes"/>
+				<code value="1010"/>
+				<display value="Texture modified diet"/>
+			</coding>
+			<text value="Texture modified diet"/>
+		</type>
+		<!-- EH example of three times a day starting on 2/10 -->
+		<schedule>
+			<repeat>
+				<boundsPeriod>
+					<start value="2015-02-10"/>
+				</boundsPeriod>
+				<frequency value="3"/>
+				<period value="1"/>
+				<periodUnits value="d"/>
+			</repeat>
+		</schedule>
+		<texture>
+			<modifier>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="228049004"/>
+					<display value="Chopped food"/>
+				</coding>
+				<text value="Regular, Chopped Meat"/>
+			</modifier>
+			<foodType>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="28647000"/>
+					<display value="Meat"/>
+				</coding>
+				<text value="Regular, Chopped Meat"/>
+			</foodType>
+		</texture>
+	</oralDiet>
+</NutritionOrder>
