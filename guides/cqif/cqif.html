@@ -83,6 +83,51 @@
 	<li>Distribution - Functionality required to enable a searchable artifact repository</li>
 </ul>
 
+<a name="ballot-objectives"/>
+<h3>Ballot Objectives</h3>
+
+<p>For this ballot cycle, we are presenting this implementation guide as a comment-only ballot with the objective of gathering community feedback. We welcome any comments, criticisms and suggestions on any topic, but in particular, we seek feedback on the following areas:</p>
+
+<ul>
+	<li>The representation of knowledge modules in general, and decision support artifacts in particular. The guide is constructed to allow knowledge modules to be represented either as potentially generated wrappers around existing specifications such as the Clinical Decision Support Knowledge Artifact Specification, or as first-class FHIR structures modeling the artifact content (such as order set items and rule actions) directly. Clearly there are pros and cons to both approaches; we seek community feedback on the preferred direction, or whether both options should continue to be supported.</li>
+	<li>The mechanisms used for referencing logic from within knowledge artifacts. In particular, the use of the "content" element to allow Clincal Quality Language and Expression Logical Model content to be attached directly, versus requiring such content to be addressed through a library reference.</li>
+	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any module evaluation, versus defining an evaluation specific to a given knowledge module.</li>
+	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge module repository and distribution functionality.</li>
+</ul>
+
+<a name="known-issues"/>
+<h3>Known Issues</h3>
+
+<p>At the time of this ballot, there are several issues outstanding that prevented some material from being included. The following list details these known issues:</p>
+
+<table>
+	<thead>
+		<tr><th>Issue</th><th>Description</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Coverage element</td>
+			<td>The KnowledgeModule structure should contain a "coverage" element that allows categorized topics to be represented in the same way that coverage is modeled within the Clinical Decision Support Knowledge Artifact Specification. There is an issue with the knowledge module profile definition that prevents it from being included. See the <a href="mmi-suiciderisk-orderset-example.html">Suicide Risk Order Set Example</a> for an example of coverage elements included in a knowledge module.</td>
+		</tr>
+		<tr>
+			<td>Data Requirements Filters</td>
+			<td>The data extension used to define data requirements within a knowledge module should contain a "codeFilter" element to allow the expression of terminology restrictions on data requirements, as well as a "dateFilter" element to allow the expression of date-based restrictions on data requirements. There is an issue with the knowledge module profile definition that prevents these elements from being included. See the <a href="knowledgemodule-library-example.html">Knowledge Module Library Example</a> for an example of a data requirement with a code filter applied.</td>
+		</tr>
+		<tr>
+			<td>Action Customization Expression</td>
+			<td>The action extension has a customization element that is supposed to contain a path and an expression, but only contains a path. For an example of an action with a customization expression defined, see the <a href="guidanceartifact-orderset-example.html">Respiratory Protocol Orderset Example</a>.</td>
+		</tr>
+		<tr>
+			<td>Action Subelements</td>
+			<td>The action extension is supposed to contain an "actions" element that allows each action to contain any number of sub-actions. For an example of actions with subelements defined, see the <a href="mmi-suiciderisk-orderset-example.html">Suicide Risk Order Set Example</a>.</td>
+		</tr>
+		<tr>
+			<td>Missing Examples</td>
+			<td>Several of the examples could not be included in the build because they will not validate for various reasons. Specifically, a Suicide Risk Order Set, and the Guidance Request/Response examples for the guidance operation.</td>
+		</tr>
+	</tbody>
+</table>
+
 <a name="copyright-information"/>
 <h3>Copyright Information</h3>
 

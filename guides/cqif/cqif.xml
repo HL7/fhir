@@ -96,6 +96,15 @@
     </resource>
     <resource>
 		<purpose value="example"/>
+		<name value="Guidance Artifact - Suicide Risk Order Set"/>
+		<description value="GuidanceArtifact used to define a suicide risk management Order Set"/>
+		<sourceUri value="mmi-suiciderisk-orderset-example.xml"/>
+		<exampleFor>
+			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
+		</exampleFor>
+    </resource>
+    <resource>
+		<purpose value="example"/>
 		<name value="Questionnaire - PHQ-9"/>
 		<description value="Questionnaire used to define the questions involved in the PHQ-9 health questionnaire"/>
 		<sourceUri value="questionnaire-cqif-example.xml"/>
@@ -223,6 +232,12 @@
 		  <page>
 			  <source value="guidanceartifact-orderset-example.html"/>
 			  <name value="Guidance Artifact - Order Set Example"/>
+			  <kind value="page"/>
+			  <format value="generated"/>
+		  </page>
+		  <page>
+			  <source value="mmi-suiciderisk-orderset-example.html"/>
+			  <name value="Guidance Artifact - Suicide Risk Order Set Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>

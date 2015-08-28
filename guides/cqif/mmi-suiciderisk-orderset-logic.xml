@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elm:library xmlns:elm="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <elm:identifier id="mmi-suiciderisk-orderset-logic" version="1.0.0"/>
+   <elm:schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <elm:usings>
+      <elm:def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+   </elm:usings>
+   <elm:codeSystems>
+	   <elm:def name="ParticipantType" id="http://hl7.org/fhir/participant-type"/>
+   </elm:codeSystems>
+   <elm:valueSets>
+	   <elm:def name="In-Progress Encounter" id="TBD"/>
+	   <elm:def name="Suicide Risk Assessment" id="TBD"/>
+   </elm:valueSets>
+   <elm:statements>
+		<elm:def name="Patient" context="Patient">
+			<elm:expression xsi:type="elm:SingletonFrom">
+				<elm:operand dataType="quick:Patient" templateId="patient-qicore-qicore-patient" xsi:type="elm:Retrieve"/>
+			</elm:expression>
+		</elm:def>
+		<elm:def name="Encounter" context="Patient" accessLevel="Public">
+			<elm:expression xsi:type="elm:SingletonFrom">
+				<elm:operand dataType="quick:Encounter" templateId="encounter-qicore-qicore-encounter" codeProperty="status" xsi:type="elm:Retrieve">
+					<elm:codes name="In-Progress Encounter" xsi:type="elm:ValueSetRef"/>
+				</elm:operand>
+			</elm:expression>
+		</elm:def>
+		<elm:def name="Practitioner" context="Patient" accessLevel="Public">
+			<elm:expression strict="false" xsi:type="elm:As">
+				<elm:operand path="individual" xsi:type="elm:Property">
+					<elm:source xsi:type="elm:SingletonFrom">
+						<elm:operand xsi:type="elm:Query">
+							<elm:source alias="P">
+								<elm:expression path="participant" xsi:type="elm:Property">
+									<elm:source name="Encounter" xsi:type="elm:ExpressionRef"/>
+								</elm:expression>
+							</elm:source>
+							<elm:where xsi:type="elm:Contains">
+								<elm:operand path="type" scope="P" xsi:type="elm:Property"/>
+								<elm:operand name="ToConcept" libraryName="System" xsi:type="elm:FunctionRef">
+									<elm:operand code="ATND" xsi:type="elm:Code">
+										<elm:system name="ParticipantType"/>
+									</elm:operand>
+								</elm:operand>
+							</elm:where>
+						</elm:operand>
+					</elm:source>
+				</elm:operand>
+				<elm:asTypeSpecifier name="quick:Practitioner" xsi:type="elm:NamedTypeSpecifier"/>
+			</elm:expression>
+		</elm:def>
+		<elm:def name="RiskAssessment" context="Patient" accessLevel="Public">
+			<elm:expression name="Last" xsi:type="elm:FunctionRef">
+				<elm:operand xsi:type="elm:Query">
+					<elm:source alias="R">
+						<elm:expression dataType="quick:RiskAssessment" codeProperty="method" xsi:type="elm:Retrieve">
+							<elm:codes name="Suicide Risk Assessment" xsi:type="elm:ValueSetRef"/>
+						</elm:expression>
+					</elm:source>
+					<elm:sort>
+						<elm:by direction="asc" xsi:type="elm:ByExpression">
+							<elm:expression path="date" scope="R" xsi:type="elm:Property"/>
+						</elm:by>
+					</elm:sort>
+				</elm:operand>
+			</elm:expression>
+		</elm:def>
+		<elm:def name="RiskAssessmentScore" context="Patient" accessLevel="Public">
+			<elm:expression path="outcome" xsi:type="elm:Property">
+				<elm:source xsi:type="elm:SingletonFrom">
+					<elm:operand path="prediction" xsi:type="elm:Property">
+						<elm:source name="SuicideRiskAssessment" xsi:type="elm:ExpressionRef"/>
+					</elm:operand>
+				</elm:source>
+			</elm:expression>
+		</elm:def>
+		<elm:def name="ReferralRequestFulfillmentTime" context="Patient" accessLevel="Public">
+			<elm:expression xsi:type="elm:Interval">
+				<elm:low xsi:type="elm:Today"/>
+			</elm:expression>
+		</elm:def>
+	</elm:statements>
+</elm:library>
