@@ -4262,6 +4262,11 @@
     <display value="Hospital-based outpatient hematology clinic (environment)"/>
     <display value="Hospital-based outpatient hematology clinic"/>
   </concept>
+  <concept id="56342008" display="Temperature taking (procedure)">
+    <display value="Temperature taking (procedure)"/>
+    <display value="Temperature taking"/>
+    <display value="Temperature taking, NOS"/>
+  </concept>
   <concept id="57066004" display="Cisplatin (product)">
     <display value="Cisplatin (product)"/>
     <display value="Cisplatin product"/>

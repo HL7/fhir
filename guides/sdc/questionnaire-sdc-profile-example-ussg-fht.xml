@@ -278,7 +278,7 @@
                     <linkId value="1.1.7.2.1"/>
                     <concept>
                       <system value="http://loinc.org"/>
-                      <code value="8302-2Y"/>
+                      <code value="8302-2"/>
                     </concept>
                     <text value="Mock-up item: Shown when Height &gt;= 10"/>
                     <type value="string"/>

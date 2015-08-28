@@ -629,6 +629,19 @@ public class FHIRToolingClient {
   }
 
   
+  public Parameters lookupCode(Map<String, String> params) throws Exception {
+    ResourceRequest<Resource> result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveOperationUri(ValueSet.class, "lookup", params), getPreferredResourceFormat(), proxy);
+    result.addErrorStatus(410);//gone
+    result.addErrorStatus(404);//unknown
+    result.addErrorStatus(405);
+    result.addErrorStatus(422);//Unprocessable Entity
+    result.addSuccessStatus(200);
+    result.addSuccessStatus(201);
+    if(result.isUnsuccessfulRequest()) {
+      throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
+    }
+    return (Parameters) result.getPayload();
+  }
   public ValueSet expandValueset(ValueSet source, Map<String, String> params) throws Exception {
     List<Header> headers = null;
     ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand", params), 

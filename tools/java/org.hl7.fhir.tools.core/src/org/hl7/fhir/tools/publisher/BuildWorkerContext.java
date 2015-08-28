@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
@@ -39,10 +40,12 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Parameters;
+import org.hl7.fhir.instance.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SearchParameter;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -346,6 +349,16 @@ public class BuildWorkerContext implements IWorkerContext {
   public static class Concept {
     private String display; // preferred
     private List<String> displays = new ArrayList<String>();
+    public String shortN;
+
+    public Concept() {
+      
+    }
+
+    public Concept(String d) {
+      display = d;
+      displays.add(d);
+    }
 
     public boolean has(String d) {
       if (display.equalsIgnoreCase(d))
@@ -478,8 +491,13 @@ public class BuildWorkerContext implements IWorkerContext {
   }
 
   private ValidationResult verifyLoinc(String code, String display) throws Exception {
-    if (!loincCodes.containsKey(code))
-      return new ValidationResult(IssueSeverity.ERROR, "Unknown Loinc Code "+code);
+    if (!loincCodes.containsKey(code)) {
+      String d = lookupLoinc(code);
+      if (d != null)
+        loincCodes.put(code, new Concept(d));
+      else
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Loinc Code "+code);
+    }
     Concept lc = loincCodes.get(code);
     if (display == null)
       return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(lc.display));
@@ -623,6 +641,7 @@ public class BuildWorkerContext implements IWorkerContext {
     while (code != null) {
       Concept c = new Concept();
       c.display = code.getAttribute("long");
+      c.shortN = code.getAttribute("short"); 
       if (!code.getAttribute("long").equalsIgnoreCase(code.getAttribute("short")))
         c.displays.add(code.getAttribute("short"));
       loincCodes.put(code.getAttribute("id"), c);
@@ -630,6 +649,26 @@ public class BuildWorkerContext implements IWorkerContext {
     }
   }
 
+  public void saveLoinc(String filename) throws IOException {
+    XMLWriter xml = new XMLWriter(new FileOutputStream(filename), "UTF-8");
+    xml.setPretty(true);
+    xml.start();
+    xml.enter("loinc");
+    List<String> codes = new ArrayList<String>();
+    codes.addAll(loincCodes.keySet());
+    Collections.sort(codes);
+    for (String c : codes) {
+      xml.attribute("id", c);
+      Concept cc = loincCodes.get(c);
+      xml.attribute("short", cc.shortN);
+      xml.attribute("long", cc.display);
+      xml.element("concept");
+    }
+    xml.exit("loinc");
+    xml.end();
+    xml.close();
+  }
+  
   public boolean verifiesSystem(String system) {
     return true;
   }
@@ -686,6 +725,35 @@ public class BuildWorkerContext implements IWorkerContext {
     }
   }
   
+  private String lookupLoinc(String code) throws Exception {
+    if (true) { //(!triedServer || serverOk) {
+      try {
+        triedServer = true;
+        serverOk = false;
+        // for this, we use the FHIR client
+        if (client == null) {
+          client = new FHIRToolingClient(tsServer);
+        }
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("code", code);
+        params.put("system", "http://loinc.org");
+        Parameters result = client.lookupCode(params);
+        serverOk = true;
+
+        for (ParametersParameterComponent p : result.getParameter()) {
+          if (p.getName().equals("display"))
+            return ((StringType) p.getValue()).asStringValue();
+        }
+        throw new Exception("Did not find LOINC code in return values");
+      } catch (Exception e) {
+        serverOk = false;
+        throw e;
+      }
+    } else
+      throw new Exception("Server is not available");
+  }
+
+
   private ValueSetExpansionOutcome expandOnServer(ValueSet vs, String cacheFn) throws Exception {
     if (!triedServer || serverOk) {
       JsonParser parser = new JsonParser();

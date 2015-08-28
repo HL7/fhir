@@ -930,71 +930,91 @@ public class ProfileUtilities {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
 
+    boolean deep = false;
+    boolean vdeep = false;
+    for (ElementDefinition eld : ed.getSnapshot().getElement()) {
+      deep = deep || eld.getPath().contains("Extension.extension.");
+      vdeep = vdeep || eld.getPath().contains("Extension.extension.extension.");
+    }
     Row r = gen.new Row();
     model.getRows().add(r);
     r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension."+ed.getName(), ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension", null, null));
     r.getCells().add(gen.new Cell());
     r.getCells().add(gen.new Cell(null, null, describeCardinality(ed.getSnapshot().getElement().get(0), null, new UnusedTracker()), null, null));
-    r.getCells().add(gen.new Cell("", "", "Extension", null, null));
 
+    if (full || vdeep) {
+      r.getCells().add(gen.new Cell("", "", "Extension", null, null));
+
+      r.setIcon(deep ? "icon_extension_complex.png" : "icon_extension_simple.png", deep ? HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX : HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
+      List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
+      for (ElementDefinition child : children)
+        if (!child.getPath().endsWith(".id"))
+          genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, pkp, true, defFile, true, full, corePath);
+    } else if (deep) {
+      List<ElementDefinition> children = new ArrayList<ElementDefinition>();
+      for (ElementDefinition ted : ed.getSnapshot().getElement()) {
+        if (ted.getPath().equals("Extension.extension"))
+          children.add(ted);
+      }
+
+      r.getCells().add(gen.new Cell("", "", "Extension", null, null));
+      r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+      
+      for (ElementDefinition c : children) {
+        ElementDefinition ved = getValueFor(ed, c);
+        ElementDefinition ued = getUrlFor(ed, c);
+        if (ved != null && ued != null) {
+          Row r1 = gen.new Row();
+          r.getSubRows().add(r1);
+          r1.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension."+ed.getName(), ((UriType) ued.getFixed()).getValue(), null, null));
+          r1.getCells().add(gen.new Cell());
+          r1.getCells().add(gen.new Cell(null, null, describeCardinality(c, null, new UnusedTracker()), null, null));
+          genTypes(gen, pkp, r1, ved, defFile, ed, corePath);
+          r1.getCells().add(gen.new Cell(null, null, c.getDefinition(), null, null));
+          r1.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
+        }
+      }
+    } else  {
+      ElementDefinition ved = null;
+      for (ElementDefinition ted : ed.getSnapshot().getElement()) {
+        if (ted.getPath().startsWith("Extension.value"))
+          ved = ted;
+      }
+
+      genTypes(gen, pkp, r, ved, defFile, ed, corePath);
+
+      r.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
+    }
     Cell c = gen.new Cell("", "", "URL = "+ed.getUrl(), null, null);
     c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, ed.getName()+": "+ed.getDescription(), null));
     c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ed), null));
     r.getCells().add(c);
 
-    boolean deep = false;
-    for (ElementDefinition eld : ed.getSnapshot().getElement())
-      deep = deep || eld.getPath().contains("Extension.extension.");
-
-    r.setIcon(deep ? "icon_extension_complex.png" : "icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
-    List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
-    for (ElementDefinition child : children)
-      if (!child.getPath().endsWith(".id"))
-        genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, pkp, true, defFile, true, full, corePath);
 
     return gen.generate(model, corePath);
     }
 
-  private void genSimpleExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, StructureDefinition ext, ProfileKnowledgeProvider pkp, String corePath) throws Exception {
-    Row r = gen.new Row();
-    rows.add(r);
-    r.setAnchor("value");
-    ElementDefinition e = ext.getSnapshot().getElement().get(0);
-    String name;
-    if (e.getType().size() == 1)
-      name = "value"+Utilities.capitalize(e.getType().get(0).getCode());
-    else
-      name = "value[x]";
-
-    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension.value[x]", name, e.getDefinition(), null));
-    r.getCells().add(gen.new Cell());
-    r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
-    genTypes(gen, pkp, r, e, null, null, corePath);
-
-    Cell c = generateDescription(gen, r, e, null, true, null, null, pkp, null, corePath);
-    c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null));
+  private ElementDefinition getUrlFor(StructureDefinition ed, ElementDefinition c) {
+    int i = ed.getSnapshot().getElement().indexOf(c) + 1;
+    while (i < ed.getSnapshot().getElement().size() && ed.getSnapshot().getElement().get(i).getPath().startsWith(c.getPath()+".")) {
+      if (ed.getSnapshot().getElement().get(i).getPath().equals(c.getPath()+".url"))
+        return ed.getSnapshot().getElement().get(i);
+      i++;
+    }
+    return null;
   }
 
-//  private void genComplexExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, StructureDefinition ext, ProfileKnowledgeProvider pkp) throws Exception {
-//    Row r = gen.new Row();
-//    rows.add(r);
-//    r.setAnchor(ext.getName());
-//    ElementDefinition e = ext.getElement().get(0);
-//    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getName(), ext.getName(), e.getDefinition(), null));
-//    r.getCells().add(gen.new Cell());
-//    r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
-//    if (ext.getElement().size() == 1) {
-//      r.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
-//      genTypes(gen, pkp, r, e, null, null);
-//    } else {
-//      r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
-//      r.getCells().add(gen.new Cell());
-//    }
-//
-//    Cell c = generateDescription(gen, r, e, null, true, ext.getUrl(), null, pkp, null);
-//    c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null));
-//
-//  }
+
+  private ElementDefinition getValueFor(StructureDefinition ed, ElementDefinition c) {
+    int i = ed.getSnapshot().getElement().indexOf(c) + 1;
+    while (i < ed.getSnapshot().getElement().size() && ed.getSnapshot().getElement().get(i).getPath().startsWith(c.getPath()+".")) {
+      if (ed.getSnapshot().getElement().get(i).getPath().startsWith(c.getPath()+".value"))
+        return ed.getSnapshot().getElement().get(i);
+      i++;
+    }
+    return null;
+  }
+
 
   private Cell genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile, String corePath) throws Exception {
     Cell c = gen.new Cell();
@@ -1208,7 +1228,7 @@ public class ProfileUtilities {
             left.getPieces().get(0).setHint("Extension URL = "+element.getType().get(0).getProfile());
             genCardinality(gen, element, row, hasDef, used, extDefn.getSnapshot().getElement().get(0));
             ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
-            if (valueDefn != null && !valueDefn.getMax().equals("0"))
+            if (valueDefn != null && !"0".equals(valueDefn.getMax()))
                genTypes(gen, pkp, row, valueDefn, profileBaseFileName, profile, corePath);
              else // if it's complex, we just call it nothing
                 // genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
@@ -1217,12 +1237,15 @@ public class ProfileUtilities {
           }
         } else {
           genCardinality(gen, element, row, hasDef, used, null);
-          genTypes(gen, pkp, row, element, profileBaseFileName, profile, corePath);
+          if ("0".equals(element.getMax()))
+            row.getCells().add(gen.new Cell());            
+          else
+            genTypes(gen, pkp, row, element, profileBaseFileName, profile, corePath);
           generateDescription(gen, row, element, null, used.used, null, null, pkp, profile, corePath);
         }
       } else {
         genCardinality(gen, element, row, hasDef, used, null);
-        if (hasDef)
+        if (hasDef && !"0".equals(element.getMax()))
           genTypes(gen, pkp, row, element, profileBaseFileName, profile, corePath);
         else
           row.getCells().add(gen.new Cell());

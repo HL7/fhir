@@ -672,6 +672,10 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 		element(null, name, content);
 	}
 
+  public void element(String name) throws IOException {
+    element(null, name, null);
+  }
+
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#text(java.lang.String)
 	 */

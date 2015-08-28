@@ -1,6 +1,6 @@
 id	Name	OID	id	ver
-1	SEX	2.16.840.1.133883.18.1	sex	
-1	Administrative Sex	2.16.840.1.133883.18.2	administrativeSex	
+// 1	SEX	2.16.840.1.133883.18.1	sex 2.1
+1	Administrative Sex	2.16.840.1.133883.18.2	administrativeSex
 2	Marital Status	2.16.840.1.133883.18.179	maritalStatus	
 3	Event type	2.16.840.1.133883.18.4	eventType	
 4	Patient Class	2.16.840.1.133883.18.5	patientClass	
@@ -105,7 +105,7 @@ id	Name	OID	id	ver
 191	Type of Referenced Data	2.16.840.1.133883.18.102	typeOfReferencedData	
 193	Amount class	2.16.840.1.133883.18.103	amountClass	
 200	Name Type	2.16.840.1.133883.18.104	nameType	
-200	Name Type	2.16.840.1.133883.18.105	nameType2	
+// 200	Name Type	2.16.840.1.133883.18.105	nameType2	
 201	Telecommunication use code	2.16.840.1.133883.18.106	telecommunicationUseCode	
 202	Telecommunication equipment type	2.16.840.1.133883.18.107	telecommunicationEquipmentType	
 203	Identifier type	2.16.840.1.133883.18.108	identifierType	

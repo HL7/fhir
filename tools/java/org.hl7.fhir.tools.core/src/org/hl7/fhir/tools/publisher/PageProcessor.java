@@ -272,8 +272,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     workerContext = new BuildWorkerContext(definitions, client, codeSystems, valueSets, conceptMaps, profiles);
   }
 
-  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
-//  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
+ //  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
+  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
   public final static String WEB_PUB_NAME = "DSTU2 Ballot Source";
   public final static String CI_PUB_NAME = "Current Build";
@@ -6149,6 +6149,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void saveSnomed() throws Exception {
     workerContext.saveSnomed(Utilities.path(folders.srcDir, "snomed", "snomed.xml"));
+    workerContext.saveLoinc(Utilities.path(folders.srcDir, "loinc", "loinc.xml"));
   }
   
   public void loadLoinc() throws Exception {
