@@ -258,28 +258,34 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A unique identifier of the Procedure Request
+  Path = ProcedureRequest.identifier
+
+ -- Row 2 -----------------------------------
   Name = subject
   Type = reference
   Description = Search by subject
   Path = ProcedureRequest.subject
 
- -- Row 2 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = patient
   Type = reference
   Description = Search by subject - a patient
   Path = ProcedureRequest.subject
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = orderer
   Type = reference
   Path = ProcedureRequest.orderer
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = performer
   Type = reference
   Path = ProcedureRequest.performer
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = encounter
   Type = reference
   Path = ProcedureRequest.encounter

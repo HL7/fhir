@@ -354,67 +354,73 @@
   Path = Condition.code
 
  -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A unique identifier of the condition record
+  Path = Condition.identifier
+
+ -- Row 3 -----------------------------------
   Name = clinicalstatus
   Type = token
   Description = The clinical status of the condition
   Path = Condition.clinicalStatus
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = severity
   Type = token
   Description = The severity of the condition
   Path = Condition.severity
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = category
   Type = token
   Description = The category of the condition
   Path = Condition.category
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = onset
   Type = date
   Description = Date related onsets (dateTime and Period)
   Path = Condition.onset[x]
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = onset-info
   Type = string
   Description = Other onsets (boolean, age, range, string)
   Path = Condition.onset[x]
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = encounter
   Type = reference
   Path = Condition.encounter
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = asserter
   Type = reference
   Path = Condition.asserter
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = date-recorded
   Type = date
   Description = A date, when the Condition statement was documented
   Path = Condition.dateRecorded
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = evidence
   Type = token
   Path = Condition.evidence.code
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = body-site
   Type = token
   Path = Condition.bodySite
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = stage
   Type = token
   Path = Condition.stage.summary
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = patient
   Type = reference
   Path = Condition.patient
