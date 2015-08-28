@@ -1278,7 +1278,7 @@ public class ProfileUtilities {
             genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, false, snapshot, corePath);
         if (!snapshot && (extensions == null || !extensions))
           for (ElementDefinition child : children)
-            if (!child.getPath().endsWith(".id"))
+            if (child.getPath().endsWith(".extension"))
               genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, true, false, corePath);
       }
     }
