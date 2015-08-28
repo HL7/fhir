@@ -373,8 +373,8 @@
 
  -- Row 26 -----------------------------------
   Element = Procedure.notes
-  Card. = 0..1
-  Type = string
+  Card. = 0..*
+  Type = Annotation
   Short Label = Additional information about procedure
   Definition = Any other notes about the procedure - e.g. the operative notes
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value

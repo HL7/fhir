@@ -4,8 +4,9 @@
 <h2>Scope and Usage</h2>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 <p>
-A <i>Procedure Request</i> is a record of a request for a procedure to be performed. 
-It can be used to represent a procedure that is planned, that is proposed, or that is ordered.
+A <i>Procedure Request</i> is a record of a request for a procedure to be performed. It can 
+be used to represent a procedure that is planned, that is proposed, or that is ordered, as distinguished by 
+the value of the ProcedureRequestStatus field.
 </p>
 <p>
 A procedure is an activity 

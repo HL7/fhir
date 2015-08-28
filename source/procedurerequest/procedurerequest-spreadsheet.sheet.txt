@@ -167,15 +167,15 @@
   Comments = Only used if not implicit in code found in ProcedureRequest.type
 
  -- Row 7 -----------------------------------
-  Element = ProcedureRequest.indication
-  Card. = 0..*
-  Type = CodeableConcept
+  Element = ProcedureRequest.reason[x]
+  Card. = 0..1
+  Type = CodeableConcept|Reference(Condition)
   Short Label = Indication
   Definition = The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.
   QUICK mapping = Action.indication.reason
 
  -- Row 8 -----------------------------------
-  Element = ProcedureRequest.timing[x]
+  Element = ProcedureRequest.scheduled[x]
   Card. = 0..1
   Type = dateTime|Period|Timing
   Short Label = Procedure timing schedule
@@ -214,7 +214,7 @@
  -- Row 12 -----------------------------------
   Element = ProcedureRequest.notes
   Card. = 0..*
-  Type = string
+  Type = Annotation
   Short Label = Notes
   Definition = Any other notes associated with this proposal or order - e.g., provider instructions.
   QUICK mapping = ClinicalStatement.additionalText

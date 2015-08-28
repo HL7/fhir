@@ -37,7 +37,7 @@
       <display value="On examination - abdominal pain - right iliac"/>
     </coding>
   </reasonCodeableConcept>
-  <timingDateTime value="2013-04-05"/>
+  <scheduledDateTime value="2013-04-05"/>
   <encounter>
     <reference value="Encounter/example"/>
   </encounter>

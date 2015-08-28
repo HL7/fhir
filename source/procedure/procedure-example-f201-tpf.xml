@@ -50,5 +50,7 @@
     <display value="Roel's encounter on January 28th, 2013"/>
   </encounter>
   <!--No outcomes, reports, complications or follow-ups were available-->
-  <notes value="Eerste neo-adjuvante TPF-kuur bij groot proces in sphenoid met intracraniale uitbreiding."/>
+  <notes> 
+    <text value="Eerste neo-adjuvante TPF-kuur bij groot proces in sphenoid met intracraniale uitbreiding."/>
+  </notes> 
 </Procedure>

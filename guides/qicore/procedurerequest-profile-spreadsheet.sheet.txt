@@ -156,7 +156,7 @@
   QDM Mapping = reason
 
  -- Row 14 -----------------------------------
-  Element = ProcedureRequest.timing[x]
+  Element = ProcedureRequest.scheduled[x]
   Must Support = Y
   QDM Mapping = start datetime, stop datetime
 
