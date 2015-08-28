@@ -1277,7 +1277,7 @@ public class ProfileUtilities {
       }
       if (element.hasSlicing()) {
         if (standardExtensionSlicing(element)) {
-          used.used = false;
+          used.used = element.hasType() && element.getType().get(0).hasProfile();
           showMissing = false;
         } else {
           row.setIcon("icon_slice.png", HeirarchicalTableGenerator.TEXT_ICON_SLICE);

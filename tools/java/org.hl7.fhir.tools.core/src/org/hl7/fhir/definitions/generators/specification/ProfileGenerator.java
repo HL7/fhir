@@ -918,7 +918,10 @@ public class ProfileGenerator {
         else
           ce.getSlicing().setRules(SlicingRules.OPEN);
         for (int i = 1; i < e.getDiscriminator().size(); i++) { // we've already process the first in the list
-          ce.getSlicing().addDiscriminator(e.getDiscriminator().get(i).trim());
+          String s = e.getDiscriminator().get(i).trim();
+          if (s.contains("|"))
+            throw new Exception("illegal discriminator \""+s+"\" at "+path);
+          ce.getSlicing().addDiscriminator(s);
         }
         //        ce = new ElementDefinition();
         //        elements.add(ce);

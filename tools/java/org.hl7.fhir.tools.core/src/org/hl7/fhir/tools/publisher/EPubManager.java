@@ -97,7 +97,8 @@ public class EPubManager implements FileNotifier {
 
   public void produce() throws FileNotFoundException, Exception {
     ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"));
-    zip.addMimeTypeFile("mimetype", Utilities.path(page.getFolders().rootDir, "tools", "epub", "mimetype"));
+//    zip.addMimeTypeFile("mimetype", Utilities.path(page.getFolders().rootDir, "tools", "epub", "mimetype"));
+    zip.addBytes("mimetype", new String("application/epub+zip").getBytes("UTF-8"), false);
     zip.addFileName("META-INF/container.xml", Utilities.path(page.getFolders().rootDir, "tools", "epub", "container.xml"), false);
     zip.addBytes("OEBPS/content.opf", generateContentFile(), false);
     zip.addBytes("OEBPS/toc.ncx", generateIndexFile(), false);
