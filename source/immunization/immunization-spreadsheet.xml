@@ -2049,7 +2049,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Immunization.vaccinationProtocol.doseTarget</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Immunization.vaccinationProtocol.targetDisease</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..*</Data><NamedCell
@@ -2059,7 +2059,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">VaccinationProtocolDoseTarget</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">VaccinationProtocoltargetDisease</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6679,7 +6679,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s146"><Data ss:Type="String">VaccinationProtocolDoseTarget</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">VaccinationProtocoltargetDisease</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The disease target of the vaccination protocol</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>

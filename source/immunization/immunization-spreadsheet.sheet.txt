@@ -37,7 +37,7 @@
   Conformance = example
 
  -- Row 6 -----------------------------------
-  Binding Name = VaccinationProtocolDoseTarget
+  Binding Name = VaccinationProtocoltargetDisease
   Binding = value set
   Reference = valueset-vaccination-protocol-dose-target
   Definition = The disease target of the vaccination protocol
@@ -365,10 +365,10 @@
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].text
 
  -- Row 31 -----------------------------------
-  Element = Immunization.vaccinationProtocol.doseTarget
+  Element = Immunization.vaccinationProtocol.targetDisease
   Card. = 1..*
   Type = CodeableConcept
-  Binding = VaccinationProtocolDoseTarget
+  Binding = VaccinationProtocoltargetDisease
   Short Label = Disease immunized against
   Definition = The targeted disease
   RIM Mapping = outboundRelationship.target[classCode=OBS].code
