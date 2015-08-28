@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+ <id value="example-media"/>
+  <event>
+    <type>
+        <system value="http://nema.org/dicom/dicm"/>
+        <code value="110106"/>
+        <display value="Export"/>
+    </type>
+    <subtype>
+        <system value="urn:oid:1.3.6.1.4.1.19376.1.2"/>
+        <code value="ITI-32"/>
+        <display value="Distribute Document Set on Media"/>
+    </subtype>
+    <action value="R"/>
+    <dateTime value="2015-08-27T23:42:24Z"/>
+    <outcome value="0"/>
+  </event>
+  <participant>
+  <!-- Source active participant, the software making the PIX query
+  UserId - The identity of the Patient Identifier Cross-reference Consumer Actor facility and sending application from the HL7 message; 
+  concatenated together, separated by the | character. 
+  AlternativeUserId - Process ID
+  -->
+    <role>
+      <coding>
+        <system value="http://nema.org/dicom/dicm"/>
+        <code value="110153"/>
+        <display value="Source Role ID"/>
+      </coding>
+    </role>
+	<userId>
+		<value value="ExportToMedia.app"/>
+	</userId>
+    <requestor value="false"/>
+  </participant>
+  <participant>
+  <!--  The Human using the software, if known  -->
+	<userId>
+		<value value="95"/>
+	</userId>
+    <altId value="601847123"/>
+    <name value="Grahame Grieve"/>
+    <requestor value="true"/>
+  </participant>
+  <participant>
+  <!--  The media exported onto  -->
+    <name value="Media title: Hello World"/>
+    <requestor value="false"/>
+    <media>
+   
+        <system value="http://nema.org/dicom/dicm"/>
+        <code value="110033"/>
+        <display value="DVD"/>
+   
+    </media>
+	</participant>
+  <source>
+    <identifier>
+		<value value="hl7connect.healthintersections.com.au"/>
+	</identifier>
+  </source>
+  <object>
+  <!--
+  The Patient
+  -->
+    <identifier>
+      <value value="e3cdfc81a0d24bd^^^&amp;2.16.840.1.113883.4.2&amp;ISO"/>
+    </identifier>
+    <type>
+		<system value="http://hl7.org/fhir/object-type"/>
+		<code value="1"/>
+		<display value="Person"/>
+	</type>
+    <role>
+		<system value="http://hl7.org/fhir/object-role"/>
+		<code value="1"/>
+		<display value="Patient"/>
+	</role>
+  </object>
+  <object>
+  <!-- The SubmissionSet identifier -->
+    <identifier>
+	   <type>
+	     <coding>
+	      <system value="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd"/>
+	      <code value="IHE XDS Metadata"/>
+		  <display value="submission set classificationNode"/>
+		</coding>
+	   </type>
+       <value value="e3cdfc81a0d24bd^^^&amp;2.16.840.1.113883.4.2&amp;ISO"/>
+    </identifier>
+    <type>
+		<system value="http://hl7.org/fhir/object-type"/>
+		<code value="2"/>
+		<display value="System Object"/>
+	</type>
+    <role>
+		<system value="http://hl7.org/fhir/object-role"/>
+		<code value="20"/>
+		<display value="Job"/>
+	</role>
+  </object>
+  <object>
+  <!-- The Document Manifest exported -->
+    <reference>
+      <reference value="DocumentManifest/example"/>
+    </reference>
+    <type>
+		<system value="http://hl7.org/fhir/object-type"/>
+		<code value="2"/>
+		<display value="System Object"/>
+	</type>
+  </object>
+</AuditEvent>

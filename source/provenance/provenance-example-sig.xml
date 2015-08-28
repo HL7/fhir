@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+  <id value="signature"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>
+  </text>
+  <!-- 
+    where possible, provenance targets should be version specific,
+    so that there is no ambiguity about which version of the 
+    record this relates to
+  -->
+  <target>
+    <reference value="DocumentReference/90f55916-9d15-4b8f-87a9-2d7ade8670c8"/>    
+  </target>
+  <recorded value="2015-08-27T08:39:24+10:00"/>
+  <reason>
+    <coding>
+		<system value="http://hl7.org/fhir/v3/ActReason"/>
+		<code value="TREAT"/>
+		<display value="treatment"/>
+    </coding>
+  </reason>
+  <activity>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
+      <code value="AU"/>
+      <display value="authenticated"/>
+    </coding>
+  </activity>
+  
+  <!-- signer = Harold Hippocrates -->
+  <agent>
+    <role>
+      <system value="http://hl7.org/fhir/provenance-participant-role"/>
+      <code value="verifier"/>
+    </role>
+    <actor>
+      <reference value="Practitioner/xcda-author"/>
+    </actor>
+    <!-- very often, the user won't have a known system - these aren't available 
+      for security system log ons. But where you can define it, you should -->
+    <userId>
+      <system value="http://acme.com/fhir/users/sso"/>      
+      <value value="hhd"/>
+    </userId>
+  </agent>
+  <signature>
+  <!-- verification signature -->
+    <type>
+		<system value="http://hl7.org/fhir/valueset-signature-type"/>
+		<code value="1.2.840.10065.1.12.1.5"/>
+		<display value="Verification"/>
+	</type>
+	<when value="2015-08-27T08:39:24+10:00"/>
+    <whoReference>
+      <reference value="Practitioner/xcda-author"/>
+    </whoReference>	
+	<contentType value="application/signature+xml"/>
+	<blob value="Li4u"/>
+  </signature>
+</Provenance>

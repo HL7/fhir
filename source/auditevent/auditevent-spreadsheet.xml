@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Moehrke, John (GE Healthcare)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-26T21:44:20Z</LastSaved>
+  <LastSaved>2015-08-28T02:07:59Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -856,7 +857,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
@@ -1113,7 +1113,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.code (type, subtype and action are pre-coordinated or sent as translations)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@EventId</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">EventId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1153,7 +1153,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.code (type, subtype and action are pre-coordinated or sent as translations)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@EventTypeCode</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">EventTypeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1193,7 +1193,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.code (type, subtype and action are pre-coordinated or sent as translations)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@EventActionCode</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">EventActionCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1233,7 +1233,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@EventDateTime</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">EventDateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Activity.when</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1275,7 +1275,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.actionNegationInd</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@EventOutcomeIndicator</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">EventOutcomeIndicator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1313,7 +1313,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.outboundRelationship[typeCode=OUT].target.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@EventOutcomeDescription</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">EventOutcomeDescription</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1353,7 +1353,8 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">* .reasonCode [ControlActReason when Act.class = CACT Control Act]&#10;*.outboundRelationship[typeCode=RSON].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">EventPurposeOfUse</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Activity.Activity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Provenance.reason, Provenance.activity</Data><NamedCell
@@ -1515,7 +1516,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@UserId</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">UserId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Agent.Identity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1555,7 +1556,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.id (distinguish id type by root)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@AlternativeUserId</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">AlternativeUserId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Agent.Identity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1594,7 +1595,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@UserName</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">UserName</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Agent.Identity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1634,7 +1635,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">If participation.typeCode was author, then true</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@UserIsRequestor</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">UserIsRequestor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1711,7 +1712,8 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">ActPolicyType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantRoleIDCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Provenance.policy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1826,7 +1828,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">pre-coordinated into URL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@NetworkAccessPointID</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">NetworkAccessPointID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Agent.Location</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1866,7 +1868,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">pre-coordinated into URL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@NetworkAccessPointTypeCode</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">NetworkAccessPointTypeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2017,7 +2019,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.scopedRole[classCode=LOCE].player.desc</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@AuditEnterpriseSiteId</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">AuditEnterpriseSiteId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2056,7 +2058,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@AuditSourceId</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">AuditSourceId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2175,7 +2177,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.id.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@ParticipantObjectID</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantObjectID and ParticipantObjectIDTypeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2213,7 +2215,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">[self]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@ParticipantObjectID</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantObjectID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Provenance.target, Provenance.entity.reference</Data><NamedCell
@@ -2291,7 +2293,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">[self::Act].code or role.player.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@ParticipantObjectTypeCode</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantObjectTypeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Entity.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2333,7 +2335,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">role.code (not sure what this would mean for an Act)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@ParticipantObjectTypeCodeRole</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantObjectTypeCodeRole</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Entity.role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2373,7 +2375,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">target of ObservationEvent[code=&quot;lifecycle&quot;].value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@ParticipantObjectDataLifeCycle</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantObjectDataLifeCycle</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Entity.role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2414,7 +2416,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.confidentialityCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@ParticipantObjectSensitivity</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantObjectSensitivity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2604,7 +2606,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@type</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantObjectDetail.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2640,7 +2642,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">.value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">@value</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ParticipantObjectDetail.value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4431,12 +4433,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>40</TopRowBottomPane>
+   <TopRowBottomPane>24</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4444,6 +4447,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4451,7 +4455,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>20</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6597,13 +6601,13 @@
     <Cell ss:StyleID="s146"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">Export to Media</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Export of DocumentManifest to Media</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">example-media</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">audit-event-example-media.xml</Data></Cell>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"/>
@@ -6913,8 +6917,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
