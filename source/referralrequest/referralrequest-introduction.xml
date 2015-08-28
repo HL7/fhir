@@ -73,6 +73,10 @@ Referrals may be targeted (identifying a specific Practitioner or Organization t
 (merely identifying the type of care desired).  The <a href="order.html">Order</a> and <a href="orderresponse.html">OrderResponse</a>
 resources may be used to help manage such workflows
 </p>
+<p>
+A ReferralRequest should not be confused with an <a href="appointment.html">Appointment</a> as appointments are intended for 
+booking/scheduling purposes.
+</p>
 </div>
 
 <!--
