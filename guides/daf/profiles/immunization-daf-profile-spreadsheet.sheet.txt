@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = VaccineTypesCVX
+  Binding Name = VaccineCodesCVX
   Binding = value set
   Reference = valueset-cvx
   Definition = This identifies the CVX code system
@@ -49,11 +49,11 @@
   QUICK mapping = performanceTime
 
  -- Row 4 -----------------------------------
-  Element = Immunization.vaccineType
+  Element = Immunization.vaccineCode
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
-  Binding = VaccineTypesCVX
+  Binding = VaccineCodesCVX
   Short Label = Vaccine Product Type (bind to CVX)
   QUICK mapping = vaccine
 

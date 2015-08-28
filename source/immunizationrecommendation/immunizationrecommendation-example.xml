@@ -10,13 +10,13 @@
   </patient>
   <recommendation>
     <date value="2015-02-09T11:04:15.817-05:00"/>
-    <vaccineType>
+    <vaccineCode>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="14745005"/>
         <display value="Hepatitis A vaccine"/>
       </coding>
-    </vaccineType>
+    </vaccineCode>
     <doseNumber value="1"/>
     <forecastStatus>
       <coding>

@@ -1484,7 +1484,7 @@ See wiki for guidance</Font>
 			</Row>
 			<Row ss:AutoFitHeight="0" ss:Height="150">
 				<Cell ss:StyleID="s86">
-					<Data ss:Type="String">ImmunizationRecommendation.recommendation.vaccineType</Data>
+					<Data ss:Type="String">ImmunizationRecommendation.recommendation.vaccineCode</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
@@ -1508,7 +1508,7 @@ See wiki for guidance</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
-					<Data ss:Type="String">VaccineType</Data>
+					<Data ss:Type="String">VaccineCode</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s87">
@@ -9889,7 +9889,7 @@ See wiki for guidance</Font>
 				</Cell>
 				<Cell ss:StyleID="s87"/>
 				<Cell ss:StyleID="s117">
-					<Data ss:Type="String">ImmunizationRecommendation.recommendation.vaccineType</Data>
+					<Data ss:Type="String">ImmunizationRecommendation.recommendation.vaccineCode</Data>
 				</Cell>
 				<Cell ss:StyleID="s118"/>
 			</Row>
@@ -12189,7 +12189,7 @@ Comment the row by starting with '!'</Font>
 			</Row>
 			<Row ss:AutoFitHeight="0">
 				<Cell ss:StyleID="s145">
-					<Data ss:Type="String">VaccineType</Data>
+					<Data ss:Type="String">VaccineCode</Data>
 				</Cell>
 				<Cell ss:StyleID="s78">
 					<Data ss:Type="String">The type of vaccine administered</Data>
@@ -12201,7 +12201,7 @@ Comment the row by starting with '!'</Font>
 					<Data ss:Type="String">example</Data>
 				</Cell>
 				<Cell ss:StyleID="s117">
-					<Data ss:Type="String">http://hl7.org/fhir/ValueSet/vaccinetype</Data>
+					<Data ss:Type="String">http://hl7.org/fhir/ValueSet/vaccine-code</Data>
 				</Cell>
 				<Cell ss:StyleID="s114">
 					<Data ss:Type="String"/>

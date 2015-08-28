@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICoreVaccineTypeCVX
+  Binding Name = QICoreVaccineCodeCVX
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/daf-cvx
   Definition = This identifies the CVX code system
@@ -32,9 +32,9 @@
   QDM Mapping = start datetime
 
  -- Row 3 -----------------------------------
-  Element = Immunization.vaccineType
+  Element = Immunization.vaccineCode
   Must Support = Y
-  Binding = QICoreVaccineTypeCVX
+  Binding = QICoreVaccineCodeCVX
   QDM Mapping = primary code
 
  -- Row 4 -----------------------------------

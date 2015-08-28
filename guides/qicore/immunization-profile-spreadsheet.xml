@@ -1214,13 +1214,13 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.vaccineType</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.vaccineCode</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreVaccineTypeCVX</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreVaccineCodeCVX</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
@@ -5630,7 +5630,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">QICoreVaccineTypeCVX</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">QICoreVaccineCodeCVX</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">This identifies the CVX code system</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">preferred</Data></Cell>

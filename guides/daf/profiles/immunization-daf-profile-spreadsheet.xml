@@ -1281,7 +1281,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Immunization.vaccineType</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Immunization.vaccineCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1291,7 +1291,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">VaccineTypesCVX</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">VaccineCodesCVX</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -9493,7 +9493,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">VaccineTypesCVX</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">VaccineCodesCVX</Data></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">This identifies the CVX code system</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">preferred</Data></Cell>

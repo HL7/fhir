@@ -2,10 +2,10 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = VaccineType
+  Binding Name = VaccineCode
   Binding = value set
-  Reference = valueset-vaccinetype
-  Definition = The type of vaccine administered
+  Reference = valueset-vaccine-code
+  Definition = The code for vaccine product administered
   Conformance = example
 
  -- Row 2 -----------------------------------
@@ -77,7 +77,7 @@
   Element = Immunization
   Type = DomainResource
   Short Label = Immunization event information
-  Definition = Immunization event information
+  Definition = Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
   v2 Mapping = VXU_V04
   RIM Mapping = SubstanceAdministration
   w5 = clinical
@@ -104,16 +104,17 @@
   w5 = when.init
 
  -- Row 4 -----------------------------------
-  Element = Immunization.vaccineType
+  Element = Immunization.vaccineCode
   Card. = 1..1
   Type = CodeableConcept
-  Binding = VaccineType
+  Binding = VaccineCode
   Short Label = Vaccine product administered
   Definition = Vaccine that was administered or was to be administered
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code
   v2 Mapping = RXA-5-administered code
   RIM Mapping = .code
-  w5 = class
+  Committee Notes = #6128
+  w5 = what
 
  -- Row 5 -----------------------------------
   Element = Immunization.patient
@@ -365,7 +366,7 @@
 
  -- Row 31 -----------------------------------
   Element = Immunization.vaccinationProtocol.doseTarget
-  Card. = 1..1
+  Card. = 1..*
   Type = CodeableConcept
   Binding = VaccinationProtocolDoseTarget
   Short Label = Disease immunized against
@@ -473,10 +474,10 @@
   Path = Immunization.patient
 
  -- Row 15 -----------------------------------
-  Name = vaccine-type
+  Name = vaccine-code
   Type = token
-  Description = Vaccine Product Type Administered
-  Path = Immunization.vaccineType
+  Description = Vaccine Product Administered
+  Path = Immunization.vaccineCode
 
  -- Row 16 -----------------------------------
   Name = subject

@@ -16,9 +16,9 @@
   Conformance = example
 
  -- Row 3 -----------------------------------
-  Binding Name = VaccineType
+  Binding Name = VaccineCode
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/vaccinetype
+  Reference = http://hl7.org/fhir/ValueSet/vaccine-code
   Definition = The type of vaccine administered
   Conformance = example
 
@@ -73,10 +73,10 @@
   RIM Mapping = .partipication[typeCode=AUTH].time
 
  -- Row 6 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.vaccineType
+  Element = ImmunizationRecommendation.recommendation.vaccineCode
   Card. = 1..1
   Type = CodeableConcept
-  Binding = VaccineType
+  Binding = VaccineCode
   Short Label = Vaccine recommendation applies to
   Definition = Vaccine that pertains to the recommendation
   v2 Mapping = OBX-5-observation value : OBX-3-observation identifier e { 30956-7 | 38890-0 }
@@ -202,7 +202,7 @@
  -- Row 2 -----------------------------------
   Name = vaccine-type
   Type = token
-  Path = ImmunizationRecommendation.recommendation.vaccineType
+  Path = ImmunizationRecommendation.recommendation.vaccineCode
 
  -- Row 3 -----------------------------------
   Name = identifier
