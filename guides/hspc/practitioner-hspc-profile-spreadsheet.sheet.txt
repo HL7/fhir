@@ -118,7 +118,7 @@
  -- Row 9 -----------------------------------
   Element = Practitioner.practitionerRole
   Profile Name = PractitionerRole
-  Discriminator = Practitioner.practitionerRole.managingOrganization, Practitioner.practitionerRole.role|false|open
+  Discriminator = Practitioner.practitionerRole.managingOrganization|false|open, Practitioner.practitionerRole.role
 
  -- Row 10 -----------------------------------
   Element = Practitioner.practitionerRole.role
