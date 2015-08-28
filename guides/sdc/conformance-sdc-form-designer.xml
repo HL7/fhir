@@ -886,7 +886,7 @@
     <resource>
       <type value="Questionnaire"/>
       <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-"/>
+        <reference value="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">

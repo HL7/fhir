@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<url value="http://hl7.org/fhir/ValueSet/questionnaire-category"/>
+	<name value="Questionnaire Category Codes"/>
+	<status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare"/>
+		</telecom>
+	</contact>
+	<description value="Example list of potential categegories for questionnaires"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="273601006"/>
+        <display value="Mental status questionnaire"/>
+      </concept>
+      <concept>
+        <code value="273820006"/>
+        <display value="Social support questionnaire"/>
+      </concept>
+      <concept>
+        <code value="273479001"/>
+        <display value="General health questionnaire"/>
+      </concept>
+      <concept>
+        <code value="273384008"/>
+        <display value="Consumer satisfaction questionnaire"/>
+      </concept>
+      <concept>
+        <code value="304794009"/>
+        <display value="Administrative form"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -144,7 +144,7 @@
   Type = dateTime
 
  -- Row 21 -----------------------------------
-  Element = AllergyIntolerance.reaction.extension
+  Element = !AllergyIntolerance.reaction.extension
   Profile Name = AllergyIntolerance.reaction.duration
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration}

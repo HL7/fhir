@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
   <id value="questionnaire-sdc-profile-example"/>
   <meta>
     <lastUpdated value="2014-05-15T17:25:15Z"/>
@@ -636,6 +636,7 @@
         <group>
           <linkId value="root"/>
           <title value="Medication or Other Substance"/>
+          <required value="true"/>
           <group>
             <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
               <valueCode value="header"/>
@@ -1250,6 +1251,7 @@
         <group>
           <linkId value="root"/>
           <title value="Healthcare Event Reporting Form (HERF) Hospital Version 1.2"/>
+          <required value="true"/>
           <group>
             <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
               <valueCode value="header"/>
@@ -1676,6 +1678,7 @@
         <group>
           <linkId value="root"/>
           <title value="Diagnosis NCI Standard Template"/>
+          <required value="true"/>
           <group>
             <linkId value="3921053v1.0"/>
             <title value="Mandatory Diagnosis Questions"/>
@@ -2296,6 +2299,7 @@
         <group>
           <linkId value="root"/>
           <title value="Demography NCI Standard Template"/>
+          <required value="true"/>
           <group>
             <linkId value="3702891v4.0"/>
             <title value="Mandatory Demography Questions"/>
@@ -11056,6 +11060,7 @@
         <group>
           <linkId value="root"/>
           <title value="Adverse Event/Serious Adverse Event CTCAE v4 NCI Standard Template"/>
+          <required value="true"/>
           <group>
             <linkId value="3556213v2.0"/>
             <title value="Mandatory Adverse Event Questions"/>

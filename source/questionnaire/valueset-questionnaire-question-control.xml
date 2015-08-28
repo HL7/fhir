@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<url value="http://hl7.org/fhir/ValueSet/questionnaire-question-control"/>
+	<name value="Questionnaire Question UI Control Codes"/>
+	<status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare"/>
+		</telecom>
+	</contact>
+	<description value="Starter set of user interface controls that might be used when capturing data from Questionnaire questions"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/questionnaire-question-control"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="autocomplete"/>
+      <display value="Auto-complete"/>
+      <definition value="A control which provides a list of potential matches based on text entered into a control.  Used for large choice sets where text-matching is an appropriate discovery mechanism"/>
+    </concept>
+    <concept>
+      <code value="drop-down"/>
+      <display value="Drop down"/>
+      <definition value="A control where an item (or multiple items) can be selected from a list that is only displayed when the user is editing the field"/>
+    </concept>
+    <concept>
+      <code value="check-box"/>
+      <display value="Check-box"/>
+      <definition value="A control where choices are listed with a box beside them.  The box can be toggled to select or de-select a given choice.  Multiple selections may be possible"/>
+    </concept>
+    <concept>
+      <code value="lookup"/>
+      <display value="Lookup"/>
+      <definition value="A control where editing an item spawns a separate dialog box or screen permitting a user to navigate, filter or otherwise discover an appropriate match.  Useful for large choice sets where text matching is not an appropriate discovery mechanism.  Such screens must generally be tuned for the specific choice list structure"/>
+    </concept>
+    <concept>
+      <code value="radio-button"/>
+      <display value="Radio Button"/>
+      <definition value="A control where choices are listed with a button beside them.  The box can be toggled to select or de-select a given choice.  Selecting one item deselects all others"/>
+    </concept>
+    <concept>
+      <code value="slider"/>
+      <display value="Slider"/>
+      <definition value="A control where an axis is displayed between the high and low values and the control can be visiually manipulated to select a value anywhere on the axis"/>
+    </concept>
+    <concept>
+      <code value="spinner"/>
+      <display value="Spinner"/>
+      <definition value="A control where a list of numeric or other ordered values can be scrolled through via arrows"/>
+    </concept>
+    <concept>
+      <code value="text-box"/>
+      <display value="Text Box"/>
+      <definition value="A control where a user can type in their answer freely"/>
+    </concept>
+  </codeSystem>
+</ValueSet>

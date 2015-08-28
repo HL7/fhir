@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Questionnaire xmlns="http://hl7.org/fhir">
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
   <id value="3141"/>
   <text>
     <status value="generated"/>
@@ -52,6 +52,7 @@
   <group>
     <linkId value="1"/>
     <title value="Cancer Quality Forum Questionnaire 2012"/>
+    <required value="true"/>
     <group>
     <!--   COMORBIDITY   -->
     <!--   First main section of the form, questions about comorbidity   -->

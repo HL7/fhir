@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Questionnaire xmlns="http://hl7.org/fhir">
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
   <id value="questionnaire-sdc-profile-example-loinc"/>
   <text>
     <status value="generated"/>
@@ -716,6 +716,7 @@
         <valueString value="color:#0000FF"/>
       </extension>
     </title>
+    <required value="true"/>
     <group>
       <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
         <valueCode value="header"/>

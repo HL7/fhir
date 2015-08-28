@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir">
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
 	<!-- This example demonstrates the CQIF-Questionnaire profile of Questionnaire to represent dynamic logic in a Questionnaire -->
 	<id value="questionnaire-cqif-example"/>
 	<meta>
@@ -31,6 +31,7 @@
 			<display value="PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9"/>
 		</concept>
 		<text value="Your responses to this questionnaire will help your doctor diagnose and manage your mental health. In responding to the question, please consider how often have you been bothered by any of the following problems over the last 2 weeks?"/>
+		<required value="true"/>
 		<question>
 			<linkId value="LittleInterest"/>
 			<concept>
@@ -151,7 +152,7 @@
 		</question>
 		-->
 		<question>
-		    <!-- ValidationFailure: Element matches more than one source
+			<!-- ValidationFailure: Element matches more than one source
 			<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-expression">
 				<valueString value="CalculateTotalScore"/>
 			</extension>

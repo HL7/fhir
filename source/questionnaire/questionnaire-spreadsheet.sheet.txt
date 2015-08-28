@@ -139,8 +139,14 @@
  -- Row 3 -----------------------------------
   Id = 3
   Context = Questionnaire
-  English = If root, group must be \'required\'
-  XPath = not(exists(lloyd-fix-me)) or (f:group/f:required/@value=\'true\')
+  English = If root group must be \"required\"
+  XPath = f:group/f:required/@value=\'true\'
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Context = Questionnaire.group.question
+  English = A question must use either option or options, not both
+  XPath = not(f:options and f:option)
 
 === Sheet Data Elements =====================================
 
@@ -236,6 +242,7 @@
   Element = Questionnaire.group
   Card. = 1..1
   Aliases = Section
+  Summary = Y
   UML = right
   Inv. = 3
   Type = =Group
@@ -258,6 +265,7 @@
  -- Row 11 -----------------------------------
   Element = Questionnaire.group.title
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Label = Name to be displayed for group
   Definition = The human-readable name for this section of the questionnaire
@@ -268,6 +276,7 @@
  -- Row 12 -----------------------------------
   Element = Questionnaire.group.concept
   Card. = 0..*
+  Summary = Y
   Type = Coding
   Binding = QuestionnaireGroupConcept
   Short Label = Concept that represents this section on a questionnaire
@@ -391,6 +400,7 @@
  -- Row 24 -----------------------------------
   Element = Questionnaire.group.question.options
   Card. = 0..1
+  Inv. = 4
   Type = Reference(ValueSet)
   Short Label = Valueset containing permitted answers
   Definition = Reference to a valueset containing the a list of codes representing permitted answers for the question
@@ -398,6 +408,15 @@
   RIM Mapping = Not supported - MIF/templating layer to capture value set
 
  -- Row 25 -----------------------------------
+  Element = Questionnaire.group.question.option
+  Card. = 0..*
+  Inv. = 4
+  Type = Coding
+  Short Label = Permitted answer
+  Definition = For a \"choice\" question, identifies one of the permitted answers for the question.
+  RIM Mapping = Not supported - MIF/templating layer to capture value set
+
+ -- Row 26 -----------------------------------
   Element = Questionnaire.group.question.group
   Card. = 0..*
   Type = @Questionnaire.group
