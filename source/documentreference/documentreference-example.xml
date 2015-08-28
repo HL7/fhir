@@ -61,17 +61,24 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <description value="Physical"/>
   <securityLabel>
     <coding>
-      <system value="http://ihe.net/xds/connectathon/confidentialityCodes"/>
-      <code value="1.3.6.1.4.1.21367.2006.7.101"/>
-      <display value="Clinical-Staff"/>
+		<system value="http://hl7.org/fhir/v3/Confidentiality"/>
+		<code value="V"/>
+		<display value="very restricted"/>
     </coding>
   </securityLabel>
   <content>
-    <contentType value="application/hl7-v3+xml"/>
-    <language value="en-US"/>
-    <url value="http://example.org/xds/mhd/Binary/07a6483f-732b-461e-86b6-edb665c45510"/>  
-    <size value="3654"/>
-    <hash value="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
+    <attachment>
+      <contentType value="application/hl7-v3+xml"/>
+      <language value="en-US"/>
+      <url value="http://example.org/xds/mhd/Binary/07a6483f-732b-461e-86b6-edb665c45510"/>  
+      <size value="3654"/>
+      <hash value="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
+	</attachment>
+    <format>
+        <system value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+        <code value="urn:ihe:pcc:handp:2008"/>
+        <display value="History and Physical Specification"/>
+    </format>
   </content>
   <context>
     <encounter>

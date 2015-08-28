@@ -11,7 +11,7 @@
     record this relates to
   -->
   <target>
-    <reference value="DocumentReference/90f55916-9d15-4b8f-87a9-2d7ade8670c8"/>    
+    <reference value="DocumentReference/example"/>    
   </target>
   <recorded value="2015-08-27T08:39:24+10:00"/>
   <reason>

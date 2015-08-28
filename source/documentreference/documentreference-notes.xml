@@ -7,7 +7,7 @@
   indexes built from the resources. Typically, this is done using the search parameters described below. Given that documents may have other documents that replace or append them, clients should always check these relationships when accessing documents</li>
   
 </ul>
-
+<!--   No longer needed now that we have format code vocabulary
 <h3>Document Formats</h3>
 <p>
 In addition to a <code>.content.contentType</code>, there is also a <i>format</i> element of type 
@@ -43,7 +43,7 @@ Several organizations define codes for document formats:
 Note that IHE specifies that their URNs and OIDs are codes in the code system <code>urn:oid:1.3.6.1.4.1.19376.1.2.3</code>.
 HL7 and ASTM URIs are in the general URI code system <code>urn:ietf:rfc:3986</code>.
 </p>
-
+-->
 <h3>Generating a Document Reference</h3>
 <p>
 A client can ask a server to generate a document reference from a document.

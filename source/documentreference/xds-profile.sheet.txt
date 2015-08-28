@@ -177,19 +177,14 @@
   Comments = Enforcement and issues related to highly sensitive documents are beyond the scope of XDS (see security section). confidentialityCode is part of a codification scheme and value set enforced by the Document Registry
 
  -- Row 20 -----------------------------------
-  Element = DocumentReference.format
-  Card. = 1..1
-  Type = Coding
-  Short Label = XDSDocumentEntry.formatCode
-  Definition = Code globally uniquely specifying the format of the document. Along with the typeCode, it should provide sufficient information to allow any potential XDS Document Consumer to know if it will be able to process the document. The formatCode shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template (e.g., for a CDA Document, the fact that it complies with a CDA schema, possibly a template and the choice of a content-specific style sheet).
-  Comments = Format codes may be specified by multiple organizations. Format codes defined by ITI shall have names with the prefix urn:ihe:iti:. Format codes defined by other IHE domains shall have names with the prefix urn:ihe:???domain initials???: Format codes defined by the Affinity Domain shall have names with the prefix urn:ad:???name of affinity domain???: Affinity Domains shall be unique. The prefixes described here are not assumed to be exhaustive.
+  Element = DocumentReference.content
 
  -- Row 21 -----------------------------------
-  Element = DocumentReference.content
+  Element = DocumentReference.content.attachment
   Type = Attachment
 
  -- Row 22 -----------------------------------
-  Element = DocumentReference.content.language
+  Element = DocumentReference.content.attachment.language
   Card. = 0..1
   Type = code
   Short Label = XDSDocumentEntry.languageCode
@@ -197,21 +192,21 @@
   Comments = This value may further be restricted by the registry according to XDS Affinity Domain specific policy.
 
  -- Row 23 -----------------------------------
-  Element = DocumentReference.content.contentType
+  Element = DocumentReference.content.attachment.contentType
   Card. = 1..1
   Type = code
   Short Label = XDSDocumentEntry.mimeType
   Definition = MIME type of the document in the Repository.
 
  -- Row 24 -----------------------------------
-  Element = DocumentReference.content.size
+  Element = DocumentReference.content.attachment.size
   Card. = 0..1
   Type = unsignedInt
   Short Label = XDSDocumentEntry.size
   Definition = Size in bytes of the byte stream that was provided in the Register and Provide Transaction and stored by the XDS Document Repository. This value is computed by the Document Repository and included in the Register Documents Set Transaction.
 
  -- Row 25 -----------------------------------
-  Element = DocumentReference.content.hash
+  Element = DocumentReference.content.attachment.hash
   Card. = 0..1
   Type = base64Binary
   Short Label = XDSDocumentEntry.hash
@@ -219,23 +214,31 @@
   Comments = This value is computed by the Document Repository and used by the Document Registry for detecting the improper resubmission of XDS Documents. If present, shall have a single value. If this attribute is received in a Provide & Register Document Set-b [ITI-41] transaction, it shall be verified by the repository with the actual hash value of the submitted document; an XDSRepositoryMetadataError shall be returned on mismatch
 
  -- Row 26 -----------------------------------
-  Element = DocumentReference.content.url
+  Element = DocumentReference.content.attachment.url
   Card. = 0..1
   Type = uri
   Short Label = repository location (by implication & configuration)
   Definition = Where to access the document
 
  -- Row 27 -----------------------------------
+  Element = DocumentReference.content.format
+  Card. = 1..1
+  Type = Coding
+  Short Label = XDSDocumentEntry.formatCode
+  Definition = Code globally uniquely specifying the format of the document. Along with the typeCode, it should provide sufficient information to allow any potential XDS Document Consumer to know if it will be able to process the document. The formatCode shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template (e.g., for a CDA Document, the fact that it complies with a CDA schema, possibly a template and the choice of a content-specific style sheet).
+  Comments = Format codes may be specified by multiple organizations. Format codes defined by ITI shall have names with the prefix urn:ihe:iti:. Format codes defined by other IHE domains shall have names with the prefix urn:ihe:???domain initials???: Format codes defined by the Affinity Domain shall have names with the prefix urn:ad:???name of affinity domain???: Affinity Domains shall be unique. The prefixes described here are not assumed to be exhaustive.
+
+ -- Row 28 -----------------------------------
   Element = DocumentReference.context
   Card. = 0..1
   Short Label = event codes, service Start & Stop time, and facility type
   Definition = Clinical context of document - eventCodeList, serviceStart & Stop time, and facility type
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = DocumentReference.context.encounter
   Card. = 0..0
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = DocumentReference.context.event
   Card. = 0..*
   Type = CodeableConcept
@@ -243,7 +246,7 @@
   Definition = This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a \"History and Physical Report\" in which the procedure being documented is necessarily a \"History and Physical\" act
   Comments = An event can further specialize the act inherent in the typeCode, such as where it is simply \"Procedure Report\" and the procedure was a \"colonoscopy\". If one or more eventCodes are included, they shall not conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as ???key words??? for certain types of queries
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = DocumentReference.context.period
   Card. = 1..1
   Type = Period
@@ -251,12 +254,12 @@
   Definition = The start and stop time of the service being documented took place
   Comments = At least a start date SHALL be provided
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = DocumentReference.context.practiceSetting
   Type = CodeableConcept
   Short Label = XDSDocumentEntry.practiceSettingCode
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = DocumentReference.context.facilityType
   Card. = 0..1
   Type = CodeableConcept
