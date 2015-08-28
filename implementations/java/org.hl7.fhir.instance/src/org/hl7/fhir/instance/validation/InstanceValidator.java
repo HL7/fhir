@@ -49,7 +49,6 @@ import org.hl7.fhir.instance.utils.EOperationOutcome;
 import org.hl7.fhir.instance.utils.IWorkerContext;
 import org.hl7.fhir.instance.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 import org.hl7.fhir.instance.validation.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
