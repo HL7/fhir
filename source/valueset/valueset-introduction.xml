@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 The FHIR terminology specification is based two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
@@ -33,6 +34,7 @@ such as LOINC etc - these have their own distribution formats .
 </p>
 </div>
 <div>
+<a name="relationships"> </a>
 <h2>Boundaries and Relationships</h2>
 <ul>
  <li>Value sets are used in <a href="structuredefinition.html">StructureDefinitions</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
@@ -48,6 +50,7 @@ such as LOINC etc - these have their own distribution formats .
 </div>
 
 <div>
+<a name="context"> </a>
 <h2>Background and Context</h2>
 
 <p>

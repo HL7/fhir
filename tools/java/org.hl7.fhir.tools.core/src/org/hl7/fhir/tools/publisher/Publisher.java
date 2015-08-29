@@ -384,7 +384,7 @@ public class Publisher implements URIResolver {
     //
 
     Publisher pub = new Publisher();
-    pub.page = new PageProcessor(PageProcessor.DEV_TS_SERVER); 
+    pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER); 
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
     if (hasParam(args, "-rdf")) {
       pub.isGenerate = false;
@@ -4706,7 +4706,7 @@ public class Publisher implements URIResolver {
     try {
       // TextFile.stringToFile(src, "c:\\temp\\text.html");
       XhtmlDocument doc = new XhtmlParser().parse(src, "html");
-      insertSectionNumbersInNode(doc, st, link, level, new BooleanHolder());
+      insertSectionNumbersInNode(doc, st, link, level, new BooleanHolder(), null);
       if (doch != null)
         doch.doc = doc;
       return new XhtmlComposer().compose(doc);
@@ -4734,7 +4734,7 @@ public class Publisher implements URIResolver {
     private boolean value;
   }
 
-  private void insertSectionNumbersInNode(XhtmlNode node, SectionTracker st, String link, int level, BooleanHolder registered) throws Exception {
+  private void insertSectionNumbersInNode(XhtmlNode node, SectionTracker st, String link, int level, BooleanHolder registered, XhtmlNode parent) throws Exception {
     // while we're looking, mark external references explicitly
     if (node.getNodeType() == NodeType.Element && node.getName().equals("a") &&
         node.getAttribute("href") != null && node.getAttribute("no-external") == null && (node.getAttribute("href").startsWith("http:") || node.getAttribute("href").startsWith("https:"))) {
@@ -4751,6 +4751,7 @@ public class Publisher implements URIResolver {
         && (node.getName().equals("h1") || node.getName().equals("h2") || node.getName().equals("h3") || node.getName().equals("h4")
             || node.getName().equals("h5") || node.getName().equals("h6"))) {
       String v = st.getIndex(Integer.parseInt(node.getName().substring(1)));
+      String sv = v;
       if (!st.isIg() && !registered.value) {
         TocEntry t = new TocEntry(v, node.allText(), link, st.isIg());
         if (!page.getToc().containsKey(v)) {
@@ -4759,32 +4760,52 @@ public class Publisher implements URIResolver {
           registered.value = true;
         } // else
           // System.out.println("-- duplicate TOC --> "+v+" = "+t.getLink()+" ("+t.getText()+") in place of "+page.getToc().get(v).getLink()+" ("+page.getToc().get(v).getText()+")");
-      }
+      } else if (parent != null)
+        sv = findSemanticLink(parent, node, sv); 
       node.addText(0, " ");
       XhtmlNode span = node.addTag(0, "span");
       span.setAttribute("class", "sectioncount");
       span.addText(v);
-      XhtmlNode a = span.addTag("a");
-      a.setAttribute("name", v);
+      if (sv.equals(v)) {
+        XhtmlNode a = span.addTag("a");
+        a.setAttribute("name", v);
         a.addText(" "); // bug in some browsers?
-        node.addText(" ");
-        a = node.addTag("a");
-        a.setAttribute("href", link+"#"+v);
-        a.setAttribute("title", "link to here");
-        a.setAttribute("class", "self-link");
-        XhtmlNode img = a.addTag("img");
-        String s = "target.png";
-        for (int i = 0; i < level; i++)
-          s = "../"+s;
-        img.attribute("src", s);
+      }
+      node.addText(" ");
+      XhtmlNode a = node.addTag("a");
+      a.setAttribute("href", link+"#"+sv);
+      a.setAttribute("title", "link to here");
+      a.setAttribute("class", "self-link");
+      XhtmlNode img = a.addTag("img");
+      String s = "target.png";
+      for (int i = 0; i < level; i++)
+        s = "../"+s;
+      img.attribute("src", s);
 
     }
     if (node.getNodeType() == NodeType.Document
         || (node.getNodeType() == NodeType.Element && !(node.getName().equals("div") && "sidebar".equals(node.getAttribute("class"))))) {
       for (XhtmlNode n : node.getChildNodes()) {
-        insertSectionNumbersInNode(n, st, link, level, registered);
+        insertSectionNumbersInNode(n, st, link, level, registered, node);
       }
     }
+  }
+
+  private String findSemanticLink(XhtmlNode parent, XhtmlNode child, String def) {
+    int i = parent.getChildNodes().indexOf(child) - 1;
+    while (i >= 0) {
+      XhtmlNode f = parent.getChildNodes().get(i);
+      if (f.getNodeType() == NodeType.Text) {
+        if (!Utilities.isWhitespace(f.getContent()))
+          break;
+      } else if (f.getNodeType() == NodeType.Element) {
+        if (f.getName().equals("a") && f.hasAttribute("name")) {
+          return f.getAttribute("name");
+        } else break;
+      }
+      i--;
+    }
+    return def;
   }
 
   private void cachePage(String filename, String source, String title, boolean includeInBook) throws Exception {

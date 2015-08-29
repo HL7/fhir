@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="identification"> </a>
 <h2>Identifier and Version</h2>
 <p>
 The <i>identifier</i> and <i>version</i> elements may be used to reference this value set in a design, a profile, a 
@@ -8,6 +9,7 @@ on the possible values of these elements.  These elements are generally not need
 implementations as they can make use of the innate identifier and versioning mechanism associated with the resource
 </p>
 
+<a name="inline"> </a>
 <h2>Value Sets with In-line Code Systems</h2>
 
 <p>
@@ -60,6 +62,7 @@ used in <a href="datatypes.html#coding">Coding</a> instances that refer to the c
 Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.
 </p>
 
+<a name="compositions"> </a>
 <h2>Value Sets that include codes defined elsewhere</h2>
 
 <p>
@@ -114,6 +117,7 @@ even if a value set is referenced explicitly in the Coding. The alternative disp
 specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text.
 </p>
  
+<a name="multiples"> </a>
 <h2>Value Sets with multiple code systems</h2> 
 <p>
 Value sets may select codes from multiple code systems - either 
@@ -131,6 +135,7 @@ Best Practice Note: mixing definitional systems offers the potential for
 confusing, overlapping, and inconsistent definitions. Creating value sets that cross
 code systems should be done with care to avoid creating definitional confusion.
 </p>
+<a name="csnote"> </a>
 <h3>Code systems Note</h3>
 <p>
 How filters are used with various code systems:

@@ -2437,7 +2437,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append(invs.get(n));
     }
     if (b.length() > 0)
-      return "<h3>Constraints</h3><ul>"+b+"</ul>";
+      return "<a name=\"invs\"> </a>\r\n<h3>Constraints</h3><ul>"+b+"</ul>";
     else
       return "";
   }

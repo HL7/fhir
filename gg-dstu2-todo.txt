@@ -1,37 +1,42 @@
 To do task list for DSTU2
 
-282 open tasks
+In the DSTU:
+Content:
+- Resource guide
+- json + XML  profile formats (EK)
+- clarify the usage of profile to close off unused things
+- update implementers safety checklist 
+- 7788 - where does this go? 
+- resolving the bundle reference thing
+
+examples
+- pcd-001 message example
+- Clem's vital signs observations
+- Russian ECG example 
+- provenance examples for security
+
+generating:
+extensions invariants
+generated schematrons paths - more work on slicing
+
+publishing QA:
+- update the way self-links are generated to make them more stable
+- dstu notes format consistency + where does feedback go?
+- update todo.html + version history
+- check all redirects 
+- fix up UML diagrams (per Dave's work)
+- v3/v2 value set usages
+
+tooling 
+- update validation to refer to authority source
+- search - value set / profile / IG / core / v3 / v2
+- More RDF work
+
+
+ouside the DSTU:
+
 http://fhir.org
 remove disqus
-update validation to refer to authority source
-check all redirects / publishing QA
-expansion - revisit handling of value sets that are too large
-search - value set / profile / IG / core / v3 / v2
-fix links in narrative embedded in html pages
-json / profile format (EK)
-xml / profile format (EK)
-Resource guide
-More RDF work
-fix up UML diagrams (per Dave's work)
-clarify the usage of profile to close off unused things
-pcd-001 message example
-change generated self links to use semantic links if one is avilablae
-update todo.html + version history
-dstu notes format consistency + where does feedback go?
-update the way self-links are generated to make them more stable
-update self link generation
-v3/v2 value set usages
-argonaut page
-update implementers safety checklist 
-extensions invariants
-generated schematrons paths
-
-
-Examples
-* Clem's vital signs observations
-* Russian ECG example 
-* provenance examples for security
-
 
 
 
