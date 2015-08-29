@@ -116,8 +116,8 @@
     <code>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="21665-5"/>
-            <display value="EGFR gene mutation analysis"/>
+            <code value="55233-1"/>
+            <display value="Genetic analysis master panel ­Blood or Tissue by Molecular genetics method"/>
         </coding>
     </code>
     <subject>
