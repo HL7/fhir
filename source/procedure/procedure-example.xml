@@ -5,9 +5,9 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Routine Appendectomy</div>
   </text>
-  <patient>
+  <subject>
     <reference value="Patient/example"/>
-  </patient>
+  </subject>
   <status value="completed"/>
   <code>
     <coding>
@@ -21,10 +21,10 @@
       <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
   </reasonCodeableConcept> 
   <performer>
-    <individual>
+    <actor>
       <reference value="Practitioner/example"/>
       <display value="Dr Cecil Surgeon"/>
-    </individual>
+    </actor>
   </performer>
   <performedDateTime value="2013-04-05"/>
   <followUp>

@@ -10,19 +10,11 @@
   Conformance = extensible
 
  -- Row 2 -----------------------------------
-  Binding Name = Procedure-bodySite
+  Binding Name = ProcedureProgress
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = Codes describing anatomical locations
-  Description = This value set identifies the codings for body sites
-  Conformance = preferred
-
- -- Row 3 -----------------------------------
-  Binding Name = Procedure-approach-bodySite
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/approach-site-codes
-  Definition = Codes describing anatomical locations
-  Description = This value set identifies the codings for approach body sites
-  Conformance = preferred
+  Reference = valueset-procedure-progress-status-codes
+  Definition = A code to describe a detailed status/stage of the procedure
+  Description = Codes representing the possible status of a procedure
+  Conformance = example
 
 === Sheet Search =====================================

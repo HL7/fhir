@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
   <id value="example-implant"/>
-  <patient>
+  <subject>
     <reference value="Patient/example"/>
-  </patient>
+  </subject>
   <status value="completed"/>
   <code>
     <coding>
@@ -17,10 +17,10 @@
     <text value="Bradycardia"/>
   </reasonCodeableConcept> 
   <performer>
-    <individual>
+    <actor>
       <reference value="Practitioner/example"/>
       <display value="Dr Cecil Surgeon"/>
-    </individual>
+    </actor>
   </performer>
   <performedDateTime value="2015-04-05"/>
   <followUp>

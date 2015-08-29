@@ -142,13 +142,15 @@
 
  -- Row 11 -----------------------------------
   Element = ProcedureRequest.bodySite
+  Card. = 0..*
   Must Support = Y
+  Type = CodeableConcept
+  Binding = QICoreBodySite
   QDM Mapping = anatomical location site
 
  -- Row 12 -----------------------------------
-  Element = ProcedureRequest.bodySite.site[x]
+  Element = !ProcedureRequest.bodySite.site[x]
   Type = CodeableConcept| Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
-  Binding = QICoreBodySite
 
  -- Row 13 -----------------------------------
   Element = ProcedureRequest.reason[x]

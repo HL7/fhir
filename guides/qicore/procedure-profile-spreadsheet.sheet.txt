@@ -68,7 +68,7 @@
   Element = Procedure.extension
   Profile Name = Procedure.causedBy
   Card. = 0..*
-  Type = Reference(AllergyIntolerance){http://hl7.org/fhir/StructureDefinition/qicore-allergyintolerance} | Reference(DiagnosticReport){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticreport}  | Reference(FamilyMemberHistory){http://hl7.org/fhir/StructureDefinition/qicore-familymemberhistory} |Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/qicore-imagingstudy} | Reference(Immunization){http://hl7.org/fhir/StructureDefinition/qicore-immunization}  | Reference(ImmunizationRecommendation){http://hl7.org/fhir/StructureDefinition/qicore-immunizationrec}  | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/qicore-medicationadministration} | Reference(MedicationOrder){http://hl7.org/fhir/StructureDefinition/qicore-medicationorder} | Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement} | Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/qicore-procedure}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-causedBy}
 
  -- Row 7 -----------------------------------
   Element = Procedure.NotPerformed
@@ -88,15 +88,16 @@
  -- Row 10 -----------------------------------
   Element = Procedure.bodySite
   Must Support = Y
+  Type = CodeableConcept
+  Binding = QICoreBodySite
   QDM Mapping = anatomical location site
 
  -- Row 11 -----------------------------------
-  Element = Procedure.bodySite.site[x]
+  Element = !Procedure.bodySite.site[x]
   Type = CodeableConcept|Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
-  Binding = QICoreBodySite
 
  -- Row 12 -----------------------------------
-  Element = Procedure.patient
+  Element = Procedure.subject
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
 
@@ -114,7 +115,7 @@
   Must Support = Y
 
  -- Row 16 -----------------------------------
-  Element = Procedure.performer.individual
+  Element = Procedure.performer.actor
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
 
  -- Row 17 -----------------------------------

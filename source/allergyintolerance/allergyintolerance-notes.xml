@@ -11,42 +11,114 @@ relevant to the document); or asserting that allergies were not reviewed and are
 with the high level of clinical certainty (e.g. additional testing, rechallenging). </p>
 <p>Prior to adding a new allergy/intolerance, a list of existing negated and refuted reactions should be reviewed
 and reconciled.</p>
-
-<p>
-<b>Allergies Not Reviewed</b>
-</p>
-<p>If a sending system does not have any information about allergies being reviewed, then the <a href="list.html">List</a> resource 
-should be used to indicate the List.emptyReason.code="notasked".</p>
-<p>
+  
+  <p>
+    <b>Allergies Not Reviewed, Not Asked</b>
+  </p>
+  <p>When a sending system does not have any information about allergies being reviewed or the statement is 
+    about Allergies not being asked yet, then the <a href="list.html">List</a> resource 
+    should be used to indicate the List.emptyReason.code="notasked".
+  </p>
+ 
+<p>  
 <b>Allergies Reviewed, None Identified</b>
 </p>
-<p>If allergies are reviewed and none are identified, then the corresponding negation code should be populated 
-in the AllergyIntolerance.substance.code of a resource. A set of codes to negate all kinds of allergies or a specific group of allergies 
-has been added to the <a href="valueset-allergyintolerance-substance-code.html">AllergyIntolerance Substance</a> value set.</p>
+
+  <p>
+    Systems should use the List.emptyReason when a statement is about the full scope of the list 
+    (i.e. the patient has no known allergies or intolerances of any type), while it will use negated AllergyIntolerance 
+    instances when the record is more fine-grained (e.g. no drug allergies, no food allergies, no nut allergies, etc.)  
+  </p>
+  
+  <p>
+    However, it's possible to include negation statements that apply at the level of the whole list and it's also possible 
+    to have separate lists for things like medication allergies vs. food allergies,  where that's appropriate to the architecture.  
+    Also note that care should be used when adding new AllergyIntolerances to a list to ensure that any negation statements 
+    that are voided by the addition of a new record are removed from the list.  
+    E.g. If the list contains a "no known food allergies" record and you add an "intolerance to grape flavor" record, 
+    then be sure you remove the "no known food allergies" record.
+  </p>
+  
 <div class="example">
-<p>No Known Allergies</p>
+  <p>No Known Allergies, using the <a href="list.html">List</a> resource</p>
 <pre>
-  &lt;substance&gt;
+  &lt;List xmlns=&quot;http://hl7.org/fhir&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://hl7.org/fhir ..\..\schema\list.xsd&quot;&gt;
+ &lt;id value=&quot;example-empty-allergy&quot;/&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt; The patient is not aware of any allergies.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/text&gt;
+&lt;code&gt;
     &lt;coding&gt;
-      &lt;system value=&quot;http://snomed.info/sct‎&quot;/&gt;
-      &lt;value value=&quot;160244002&quot;/&gt;
-      &lt;display value=&quot;No Known Allergies&quot;/&gt;
+      &lt;system value=&quot;http://loinc.org&quot;/&gt;
+      &lt;code value=&quot;52472-8&quot;/&gt;
+      &lt;display value=&quot;Allergies and Adverse Drug Reactions&quot;/&gt;
     &lt;/coding&gt;
-  &lt;/substance&gt;
+    &lt;text value=&quot;Current Allergy List&quot;/&gt;
+  &lt;/code&gt;
+  &lt;source&gt;
+    &lt;reference value=&quot;Patient/example&quot;/&gt;
+  &lt;/source&gt;
+  &lt;status value=&quot;current&quot;/&gt;
+  &lt;date value=&quot;2012-11-26T07:30:23+11:00&quot;/&gt;
+  &lt;mode value=&quot;snapshot&quot;/&gt;
+  &lt;emptyReason&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://hl7.org/fhir/special-values&quot;/&gt;
+      &lt;code value=&quot;nil-known&quot;/&gt;
+      &lt;display value=&quot;Nil Known&quot;/&gt;
+    &lt;/coding&gt;
+    &lt;text value=&quot;The patient is not aware of any allergies.&quot;/&gt;
+  &lt;/emptyReason&gt;
+&lt;/List&gt;
 </pre>
-<p>No Known Food Allergies</p>
-<pre>
-  &lt;substance&gt;
+ <p> No Known Food Allergies and Medication Allergy List</p>
+  <pre>
+  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;List xmlns=&quot;http://hl7.org/fhir&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://hl7.org/fhir ..\..\schema\list.xsd&quot;&gt;
+  &lt;id value=&quot;current-allergies&quot;/&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;Patient Peter Chalmers, DOB = Dec 25, 1974, MRN = 12345 (Acme Healthcare) has the following allergies&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;No known food allergies&lt;/li&gt;
+        &lt;li&gt;Allergenic extract, penicillin (high)&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;code&gt;
     &lt;coding&gt;
-      &lt;system value=&quot;http://snomed.info/sct‎&quot;/&gt;
-      &lt;value value=&quot;429625007&quot;/&gt;
-      &lt;display value=&quot;No Known Food Allergies&quot;/&gt;
+      &lt;system value=&quot;http://loinc.org&quot;/&gt;
+      &lt;code value=&quot;52472-8&quot;/&gt;
+      &lt;display value=&quot;Allergies and Adverse Drug Reactions&quot;/&gt;
     &lt;/coding&gt;
-  &lt;/substance&gt;
+    &lt;text value=&quot;Current Allergy List&quot;/&gt;
+  &lt;/code&gt;
+  &lt;source&gt;
+    &lt;reference value=&quot;Patient/example&quot;/&gt;
+  &lt;/source&gt;
+  &lt;status value=&quot;current&quot;/&gt;
+  &lt;date value=&quot;2015-07-14T23:10:23+11:00&quot;/&gt;
+  &lt;mode value=&quot;snapshot&quot;/&gt;
+  &lt;entry&gt;
+    &lt;item&gt; 
+      &lt;reference value=&quot;AllergyIntolerance/nofoodallergies&quot;/&gt;
+    &lt;/item&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;item&gt; 
+      &lt;reference value=&quot;AllergyIntolerance/penicillin&quot;/&gt;
+    &lt;/item&gt;
+  &lt;/entry&gt;  
+&lt;/List&gt;
+
 </pre>
 </div>
 
-<p>If new allergy is discovered, the negated allergy record, such as "No Known Allergies", must be updated with the "refuted" status - 
+<p>If new allergy is discovered, the negated allergy record must be updated with the "refuted" status - 
 to ensure that systems referring to this record are aware that this is no longer true.</p>
 
 <blockquote>

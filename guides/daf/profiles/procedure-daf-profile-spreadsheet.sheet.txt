@@ -30,7 +30,7 @@
   Type = Identifier
 
  -- Row 3 -----------------------------------
-  Element = Procedure.patient
+  Element = Procedure.subject
   Card. = 1..1
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
@@ -62,7 +62,7 @@
   Must Support = Y
 
  -- Row 8 -----------------------------------
-  Element = Procedure.performer.individual
+  Element = Procedure.performer.actor
   Card. = 0..1
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}

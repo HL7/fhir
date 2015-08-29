@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/procedure.xsd">
   <id value="f002"/>
-    <patient>
+    <subject>
         <reference value="Patient/F001"/>
         <display value="P. van de Heuvel"/>
-    </patient>
+    </subject>
     <status value="completed"/>
     <code>
         <coding>
@@ -14,22 +14,20 @@
         </coding>
     </code>
     <bodySite>
-        <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="39607008"/>
                 <display value="Lung structure"/>
             </coding>
-        </siteCodeableConcept>
     </bodySite>
     <reasonCodeableConcept>
       <text value="Malignant tumor of lung"/>
     </reasonCodeableConcept>
     <performer>
-        <individual>
+        <actor>
             <reference value="Practitioner/F003"/>
             <display value="M.I.M. Versteegh"/>
-        </individual>
+        </actor>
         <role>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->

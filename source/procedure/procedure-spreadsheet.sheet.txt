@@ -151,10 +151,10 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Procedure.patient
+  Element = Procedure.subject
   Card. = 1..1
   Summary = y
-  Type = Reference(Patient)
+  Type = Reference(Patient|Group)
   Short Label = Who procedure was performed on
   Definition = The person on whom the procedure was performed
   RIM Mapping = .participation[typeCode=SBJ].role
@@ -217,13 +217,15 @@
   Card. = 0..*
   Summary = y
   UML = right
-  Short Label = Precise location details
+  Type = CodeableConcept
+  Binding = BodySite
+  Short Label = Target body sites
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
   RIM Mapping = .targetSiteCode
   To Do = Is this approach or target site? RIM mapping inconsistent with ProcedureRequest which lists target site. Recommend calling field targetBodySite or targetSite.
 
  -- Row 10 -----------------------------------
-  Element = Procedure.bodySite.site[x]
+  Element = !Procedure.bodySite.site[x]
   Card. = 1..1
   Summary = Y
   Type = CodeableConcept|Reference(BodySite)
@@ -252,10 +254,10 @@
   RIM Mapping = .participation[typeCode=PFM]
 
  -- Row 13 -----------------------------------
-  Element = Procedure.performer.individual
+  Element = Procedure.performer.actor
   Card. = 0..1
   Summary = y
-  Type = Reference(Practitioner|Patient|RelatedPerson)
+  Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
   Short Label = The reference to the practitioner
   Definition = The practitioner who was involved in the procedure
   RIM Mapping = .role
@@ -267,7 +269,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = ProcedurePerformerRole
-  Short Label = The role the person was in
+  Short Label = The role the actor was in
   Definition = E.g. surgeon, anaethetist, endoscopist
   RIM Mapping = .functionCode
 
@@ -430,25 +432,31 @@
   Path = Procedure.performed[x]
 
  -- Row 4 -----------------------------------
-  Name = patient
-  Type = reference
-  Description = The identity of a patient to list procedures  for
-  Path = Procedure.patient
-
- -- Row 5 -----------------------------------
   Name = performer
   Type = reference
-  Path = Procedure.performer.individual
+  Path = Procedure.performer.actor
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = location
   Type = reference
   Path = Procedure.location
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = encounter
   Type = reference
   Path = Procedure.encounter
+
+ -- Row 7 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Search by subject
+  Path = Procedure.subject
+
+ -- Row 8 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Search by subject - a patient
+  Path = Procedure.subject
 
 === Sheet Profiles =====================================
 
