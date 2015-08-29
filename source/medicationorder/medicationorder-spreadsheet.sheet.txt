@@ -230,7 +230,7 @@
   Card. = 0..1
   Type = string
   Short Label = Dosage instructions expressed as text
-  Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+  Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.
   v2 Mapping = RXE-7.2-Provider\'s Administration Instructions.text / RXO-7.2-Provider\'s Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction
   RIM Mapping = text
 
@@ -248,7 +248,7 @@
   Card. = 0..1
   Type = Timing
   Short Label = When medication should be administered
-  Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
+  Definition = The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.
   v2 Mapping = RDS:TQ1
   RIM Mapping = effectiveTime
 
@@ -354,7 +354,7 @@
   Card. = 0..1
   Type = positiveInt
   Short Label = # of refills authorized
-  Definition = An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  “3 repeats”, then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
+  Definition = An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
   Comments = If displaying \"number of authorized refills\", subtract 1 from this number.
   v2 Mapping = RXE-12-Number of Refills
   RIM Mapping = repeatNumber

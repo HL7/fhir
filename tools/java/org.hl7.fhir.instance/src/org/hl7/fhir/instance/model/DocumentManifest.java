@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 28, 2015 22:46-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -162,7 +162,7 @@ public class DocumentManifest extends DomainResource {
          * Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Related Identifier", formalDefinition="Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing." )
+        @Description(shortDefinition="Identifiers of things that are related", formalDefinition="Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing." )
         protected Identifier identifier;
 
         /**
@@ -376,10 +376,10 @@ public class DocumentManifest extends DomainResource {
     protected StringType description;
 
     /**
-     * The manifest list.
+     * The list of Documents included in the manifest.
      */
     @Child(name = "content", type = {}, order=10, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Contents of the manifest", formalDefinition="The manifest list." )
+    @Description(shortDefinition="The items included", formalDefinition="The list of Documents included in the manifest." )
     protected List<DocumentManifestContentComponent> content;
 
     /**
@@ -824,7 +824,7 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #content} (The manifest list.)
+     * @return {@link #content} (The list of Documents included in the manifest.)
      */
     public List<DocumentManifestContentComponent> getContent() { 
       if (this.content == null)
@@ -842,7 +842,7 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #content} (The manifest list.)
+     * @return {@link #content} (The list of Documents included in the manifest.)
      */
     // syntactic sugar
     public DocumentManifestContentComponent addContent() { //3
@@ -915,7 +915,7 @@ public class DocumentManifest extends DomainResource {
         childrenList.add(new Property("source", "uri", "Identifies the source system, application, or software that produced the document manifest.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("status", "code", "The status of this document manifest.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the \"title\".", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("content", "", "The manifest list.", 0, java.lang.Integer.MAX_VALUE, content));
+        childrenList.add(new Property("content", "", "The list of Documents included in the manifest.", 0, java.lang.Integer.MAX_VALUE, content));
         childrenList.add(new Property("related", "", "Related identifiers or resources associated with the DocumentManifest.", 0, java.lang.Integer.MAX_VALUE, related));
       }
 
@@ -1023,7 +1023,7 @@ public class DocumentManifest extends DomainResource {
   public static final String SP_IDENTIFIER = "identifier";
   @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
   public static final String SP_RECIPIENT = "recipient";
-  @SearchParamDefinition(name="relatedid", path="DocumentManifest.related.identifier", description="Related Identifier", type="token" )
+  @SearchParamDefinition(name="relatedid", path="DocumentManifest.related.identifier", description="Identifiers of things that are related", type="token" )
   public static final String SP_RELATEDID = "relatedid";
 
 }

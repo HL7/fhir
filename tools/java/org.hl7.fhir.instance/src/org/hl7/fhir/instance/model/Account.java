@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 28, 2015 22:46-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -682,7 +682,7 @@ public class Account extends DomainResource {
     return ResourceType.Account;
    }
 
-  @SearchParamDefinition(name="balance", path="Account.balance", description="How much is in account?", type="number" )
+  @SearchParamDefinition(name="balance", path="Account.balance", description="How much is in account?", type="quantity" )
   public static final String SP_BALANCE = "balance";
   @SearchParamDefinition(name="patient", path="Account.subject", description="What is account tied to?", type="reference" )
   public static final String SP_PATIENT = "patient";

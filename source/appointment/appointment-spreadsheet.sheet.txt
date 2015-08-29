@@ -160,8 +160,8 @@
   Element = Appointment
   Type = DomainResource
   Short Label = A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)
-  RIM Mapping = Act (ActMood = ActMoodAppointment or ActMoodAppointmentRequest)
   iCal Mapping = VEVENT
+  RIM Mapping = Act (ActMood = ActMoodAppointment or ActMoodAppointmentRequest)
   w5 = administration
 
  -- Row 2 -----------------------------------
@@ -171,9 +171,9 @@
   Type = Identifier
   Short Label = External Ids for this item
   Definition = This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  iCal Mapping = UID
   v2 Mapping = SCH-1, SCH-2, ARQ-1, ARQ-2
   RIM Mapping = .id
-  iCal Mapping = UID
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -217,9 +217,9 @@
   Type = unsignedInt
   Short Label = The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority)
   Comments = Seeking implementer feedback on this property and how interoperable it is.\n\nUsing an extension to record a codeableconcept for named values may be tested at a future connectathon
+  iCal Mapping = PRIORITY
   v2 Mapping = ARQ-12, SCH-11.6 / TQ1-9
   RIM Mapping = .priorityCode
-  iCal Mapping = PRIORITY
   w5 = class
 
  -- Row 7 -----------------------------------
@@ -227,9 +227,9 @@
   Card. = 0..1
   Type = string
   Short Label = The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field
+  iCal Mapping = DESCRIPTION
   v2 Mapping = NTE-3
   RIM Mapping = .text
-  iCal Mapping = DESCRIPTION
 
  -- Row 8 -----------------------------------
   Element = Appointment.start
@@ -292,8 +292,8 @@
   Type = string
   Short Label = Additional comments about the appointment
   Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, “patient should proceed immediately to infusion room upon arrival”\n\nWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
-  v2 Mapping = NTE-3
   iCal Mapping = COMMENT
+  v2 Mapping = NTE-3
 
  -- Row 16 -----------------------------------
   Element = Appointment.order
@@ -309,8 +309,8 @@
   Card. = 1..*
   UML = right
   Short Label = List of participants involved in the appointment
-  v2 Mapping = PID, AIP, AIG, AIL
   iCal Mapping = ATTENDEE component to be created
+  v2 Mapping = PID, AIP, AIG, AIL
 
  -- Row 18 -----------------------------------
   Element = Appointment.participant.type
@@ -320,8 +320,8 @@
   Binding = ParticipantType
   Short Label = Role of participant in the appointment
   Comments = The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
-  v2 Mapping = AIP-4, AIG-4
   iCal Mapping = n/a
+  v2 Mapping = AIP-4, AIG-4
 
  -- Row 19 -----------------------------------
   Element = Appointment.participant.actor
@@ -329,9 +329,9 @@
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
   Short Label = A Person, Location/HealthcareService or Device that is participating in the appointment
+  iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not \"information-only\"
   v2 Mapping = PID-3-Patient ID List | AIL-3 | AIG-3 | AIP-3
   RIM Mapping = performer | reusableDevice | subject | location
-  iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not \"information-only\"
   w5 = who
 
  -- Row 20 -----------------------------------
@@ -342,8 +342,8 @@
   Binding = ParticipantRequired
   Short Label = required | optional | information-only
   Definition = Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
-  RIM Mapping = performer.performIndicator
   iCal Mapping = ROLE=REQ-PARTICIPANT (roleparam)
+  RIM Mapping = performer.performIndicator
 
  -- Row 21 -----------------------------------
   Element = Appointment.participant.status
@@ -352,8 +352,8 @@
   Binding = ParticipationStatus
   Short Label = accepted | declined | tentative | needs-action
   Definition = Participation status of the Patient
-  v2 Mapping = AIP-12, AIG-14
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
+  v2 Mapping = AIP-12, AIG-14
 
  -- Row 22 -----------------------------------
   Element = !Appointment.participant.observation

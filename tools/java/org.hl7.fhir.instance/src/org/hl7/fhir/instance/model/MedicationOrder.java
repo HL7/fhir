@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Aug 29, 2015 00:49+1000 for FHIR v0.5.0
+// Generated on Fri, Aug 28, 2015 22:46-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -177,10 +177,10 @@ public class MedicationOrder extends DomainResource {
     @Block()
     public static class MedicationOrderDosageInstructionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+         * Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.
          */
         @Child(name = "text", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Dosage instructions expressed as text", formalDefinition="Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication." )
+        @Description(shortDefinition="Dosage instructions expressed as text", formalDefinition="Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing." )
         protected StringType text;
 
         /**
@@ -191,10 +191,10 @@ public class MedicationOrder extends DomainResource {
         protected CodeableConcept additionalInstructions;
 
         /**
-         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
+         * The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".  This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.
          */
         @Child(name = "timing", type = {Timing.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="When medication should be administered", formalDefinition="The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"." )
+        @Description(shortDefinition="When medication should be administered", formalDefinition="The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing." )
         protected Timing timing;
 
         /**
@@ -256,7 +256,7 @@ public class MedicationOrder extends DomainResource {
       }
 
         /**
-         * @return {@link #text} (Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
+         * @return {@link #text} (Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
         public StringType getTextElement() { 
           if (this.text == null)
@@ -276,7 +276,7 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #text} (Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
+         * @param value {@link #text} (Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
         public MedicationOrderDosageInstructionComponent setTextElement(StringType value) { 
           this.text = value;
@@ -284,14 +284,14 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @return Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+         * @return Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.
          */
         public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
-         * @param value Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+         * @param value Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.
          */
         public MedicationOrderDosageInstructionComponent setText(String value) { 
           if (Utilities.noString(value))
@@ -329,7 +329,7 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         * @return {@link #timing} (The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".  This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.)
          */
         public Timing getTiming() { 
           if (this.timing == null)
@@ -345,7 +345,7 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         * @param value {@link #timing} (The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".  This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.)
          */
         public MedicationOrderDosageInstructionComponent setTiming(Timing value) { 
           this.timing = value;
@@ -606,9 +606,9 @@ public class MedicationOrder extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("text", "string", "Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("text", "string", "Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
-          childrenList.add(new Property("timing", "Timing", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("timing", "Timing", "The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
           childrenList.add(new Property("site[x]", "CodeableConcept|Reference(BodySite)", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient.", 0, java.lang.Integer.MAX_VALUE, route));
@@ -668,7 +668,7 @@ public class MedicationOrder extends DomainResource {
   }
 
     @Block()
-    public static class MedicationOrderDispenseComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class MedicationOrderDispenseRequestComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
          */
@@ -684,10 +684,10 @@ public class MedicationOrder extends DomainResource {
         protected Period validityPeriod;
 
         /**
-         * An integer indicating the number of repeats of the Dispense.  UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
+         * An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
          */
         @Child(name = "numberOfRepeatsAllowed", type = {PositiveIntType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="# of refills authorized", formalDefinition="An integer indicating the number of repeats of the Dispense.  UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill." )
+        @Description(shortDefinition="# of refills authorized", formalDefinition="An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets." )
         protected PositiveIntType numberOfRepeatsAllowed;
 
         /**
@@ -709,7 +709,7 @@ public class MedicationOrder extends DomainResource {
     /*
      * Constructor
      */
-      public MedicationOrderDispenseComponent() {
+      public MedicationOrderDispenseRequestComponent() {
         super();
       }
 
@@ -753,7 +753,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #medication} (Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.)
          */
-        public MedicationOrderDispenseComponent setMedication(Type value) { 
+        public MedicationOrderDispenseRequestComponent setMedication(Type value) { 
           this.medication = value;
           return this;
         }
@@ -764,7 +764,7 @@ public class MedicationOrder extends DomainResource {
         public Period getValidityPeriod() { 
           if (this.validityPeriod == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDispenseComponent.validityPeriod");
+              throw new Error("Attempt to auto-create MedicationOrderDispenseRequestComponent.validityPeriod");
             else if (Configuration.doAutoCreate())
               this.validityPeriod = new Period(); // cc
           return this.validityPeriod;
@@ -777,18 +777,18 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #validityPeriod} (Design Comments: This indicates the validity period of a prescription (stale dating the Prescription)  It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.  Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.)
          */
-        public MedicationOrderDispenseComponent setValidityPeriod(Period value) { 
+        public MedicationOrderDispenseRequestComponent setValidityPeriod(Period value) { 
           this.validityPeriod = value;
           return this;
         }
 
         /**
-         * @return {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense.  UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
+         * @return {@link #numberOfRepeatsAllowed} (An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
         public PositiveIntType getNumberOfRepeatsAllowedElement() { 
           if (this.numberOfRepeatsAllowed == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDispenseComponent.numberOfRepeatsAllowed");
+              throw new Error("Attempt to auto-create MedicationOrderDispenseRequestComponent.numberOfRepeatsAllowed");
             else if (Configuration.doAutoCreate())
               this.numberOfRepeatsAllowed = new PositiveIntType(); // bb
           return this.numberOfRepeatsAllowed;
@@ -803,24 +803,24 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense.  UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
+         * @param value {@link #numberOfRepeatsAllowed} (An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
-        public MedicationOrderDispenseComponent setNumberOfRepeatsAllowedElement(PositiveIntType value) { 
+        public MedicationOrderDispenseRequestComponent setNumberOfRepeatsAllowedElement(PositiveIntType value) { 
           this.numberOfRepeatsAllowed = value;
           return this;
         }
 
         /**
-         * @return An integer indicating the number of repeats of the Dispense.  UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
+         * @return An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
          */
         public int getNumberOfRepeatsAllowed() { 
           return this.numberOfRepeatsAllowed == null || this.numberOfRepeatsAllowed.isEmpty() ? 0 : this.numberOfRepeatsAllowed.getValue();
         }
 
         /**
-         * @param value An integer indicating the number of repeats of the Dispense.  UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
+         * @param value An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
          */
-        public MedicationOrderDispenseComponent setNumberOfRepeatsAllowed(int value) { 
+        public MedicationOrderDispenseRequestComponent setNumberOfRepeatsAllowed(int value) { 
             if (this.numberOfRepeatsAllowed == null)
               this.numberOfRepeatsAllowed = new PositiveIntType();
             this.numberOfRepeatsAllowed.setValue(value);
@@ -833,7 +833,7 @@ public class MedicationOrder extends DomainResource {
         public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDispenseComponent.quantity");
+              throw new Error("Attempt to auto-create MedicationOrderDispenseRequestComponent.quantity");
             else if (Configuration.doAutoCreate())
               this.quantity = new SimpleQuantity(); // cc
           return this.quantity;
@@ -846,7 +846,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #quantity} (The amount that is to be dispensed for one fill.)
          */
-        public MedicationOrderDispenseComponent setQuantity(SimpleQuantity value) { 
+        public MedicationOrderDispenseRequestComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -857,7 +857,7 @@ public class MedicationOrder extends DomainResource {
         public Duration getExpectedSupplyDuration() { 
           if (this.expectedSupplyDuration == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDispenseComponent.expectedSupplyDuration");
+              throw new Error("Attempt to auto-create MedicationOrderDispenseRequestComponent.expectedSupplyDuration");
             else if (Configuration.doAutoCreate())
               this.expectedSupplyDuration = new Duration(); // cc
           return this.expectedSupplyDuration;
@@ -870,7 +870,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #expectedSupplyDuration} (Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.  In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.)
          */
-        public MedicationOrderDispenseComponent setExpectedSupplyDuration(Duration value) { 
+        public MedicationOrderDispenseRequestComponent setExpectedSupplyDuration(Duration value) { 
           this.expectedSupplyDuration = value;
           return this;
         }
@@ -879,13 +879,13 @@ public class MedicationOrder extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
           childrenList.add(new Property("validityPeriod", "Period", "Design Comments: This indicates the validity period of a prescription (stale dating the Prescription)  It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.  Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.", 0, java.lang.Integer.MAX_VALUE, validityPeriod));
-          childrenList.add(new Property("numberOfRepeatsAllowed", "positiveInt", "An integer indicating the number of repeats of the Dispense.  UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.", 0, java.lang.Integer.MAX_VALUE, numberOfRepeatsAllowed));
+          childrenList.add(new Property("numberOfRepeatsAllowed", "positiveInt", "An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.", 0, java.lang.Integer.MAX_VALUE, numberOfRepeatsAllowed));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The amount that is to be dispensed for one fill.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("expectedSupplyDuration", "Duration", "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.  In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.", 0, java.lang.Integer.MAX_VALUE, expectedSupplyDuration));
         }
 
-      public MedicationOrderDispenseComponent copy() {
-        MedicationOrderDispenseComponent dst = new MedicationOrderDispenseComponent();
+      public MedicationOrderDispenseRequestComponent copy() {
+        MedicationOrderDispenseRequestComponent dst = new MedicationOrderDispenseRequestComponent();
         copyValues(dst);
         dst.medication = medication == null ? null : medication.copy();
         dst.validityPeriod = validityPeriod == null ? null : validityPeriod.copy();
@@ -899,9 +899,9 @@ public class MedicationOrder extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof MedicationOrderDispenseComponent))
+        if (!(other instanceof MedicationOrderDispenseRequestComponent))
           return false;
-        MedicationOrderDispenseComponent o = (MedicationOrderDispenseComponent) other;
+        MedicationOrderDispenseRequestComponent o = (MedicationOrderDispenseRequestComponent) other;
         return compareDeep(medication, o.medication, true) && compareDeep(validityPeriod, o.validityPeriod, true)
            && compareDeep(numberOfRepeatsAllowed, o.numberOfRepeatsAllowed, true) && compareDeep(quantity, o.quantity, true)
            && compareDeep(expectedSupplyDuration, o.expectedSupplyDuration, true);
@@ -911,9 +911,9 @@ public class MedicationOrder extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof MedicationOrderDispenseComponent))
+        if (!(other instanceof MedicationOrderDispenseRequestComponent))
           return false;
-        MedicationOrderDispenseComponent o = (MedicationOrderDispenseComponent) other;
+        MedicationOrderDispenseRequestComponent o = (MedicationOrderDispenseRequestComponent) other;
         return compareValues(numberOfRepeatsAllowed, o.numberOfRepeatsAllowed, true);
       }
 
@@ -1147,11 +1147,11 @@ public class MedicationOrder extends DomainResource {
     protected List<MedicationOrderDosageInstructionComponent> dosageInstruction;
 
     /**
-     * Deals with details of the dispense part of the order.
+     * Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
      */
-    @Child(name = "dispense", type = {}, order=12, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Medication supply authorization", formalDefinition="Deals with details of the dispense part of the order." )
-    protected MedicationOrderDispenseComponent dispense;
+    @Child(name = "dispenseRequest", type = {}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Medication supply authorization", formalDefinition="Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department." )
+    protected MedicationOrderDispenseRequestComponent dispenseRequest;
 
     /**
      * Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.
@@ -1172,7 +1172,7 @@ public class MedicationOrder extends DomainResource {
      */
     protected MedicationOrder priorPrescriptionTarget;
 
-    private static final long serialVersionUID = 244755395L;
+    private static final long serialVersionUID = 619326051L;
 
   /*
    * Constructor
@@ -1712,26 +1712,26 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #dispense} (Deals with details of the dispense part of the order.)
+     * @return {@link #dispenseRequest} (Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.)
      */
-    public MedicationOrderDispenseComponent getDispense() { 
-      if (this.dispense == null)
+    public MedicationOrderDispenseRequestComponent getDispenseRequest() { 
+      if (this.dispenseRequest == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.dispense");
+          throw new Error("Attempt to auto-create MedicationOrder.dispenseRequest");
         else if (Configuration.doAutoCreate())
-          this.dispense = new MedicationOrderDispenseComponent(); // cc
-      return this.dispense;
+          this.dispenseRequest = new MedicationOrderDispenseRequestComponent(); // cc
+      return this.dispenseRequest;
     }
 
-    public boolean hasDispense() { 
-      return this.dispense != null && !this.dispense.isEmpty();
+    public boolean hasDispenseRequest() { 
+      return this.dispenseRequest != null && !this.dispenseRequest.isEmpty();
     }
 
     /**
-     * @param value {@link #dispense} (Deals with details of the dispense part of the order.)
+     * @param value {@link #dispenseRequest} (Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.)
      */
-    public MedicationOrder setDispense(MedicationOrderDispenseComponent value) { 
-      this.dispense = value;
+    public MedicationOrder setDispenseRequest(MedicationOrderDispenseRequestComponent value) { 
+      this.dispenseRequest = value;
       return this;
     }
 
@@ -1817,7 +1817,7 @@ public class MedicationOrder extends DomainResource {
         childrenList.add(new Property("note", "string", "Extra information about the prescription that could not be conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("dosageInstruction", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
-        childrenList.add(new Property("dispense", "", "Deals with details of the dispense part of the order.", 0, java.lang.Integer.MAX_VALUE, dispense));
+        childrenList.add(new Property("dispenseRequest", "", "Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.", 0, java.lang.Integer.MAX_VALUE, dispenseRequest));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));
         childrenList.add(new Property("priorPrescription", "Reference(MedicationOrder)", "A link to a resource representing an earlier order or prescription that this order supersedes.", 0, java.lang.Integer.MAX_VALUE, priorPrescription));
       }
@@ -1845,7 +1845,7 @@ public class MedicationOrder extends DomainResource {
           for (MedicationOrderDosageInstructionComponent i : dosageInstruction)
             dst.dosageInstruction.add(i.copy());
         };
-        dst.dispense = dispense == null ? null : dispense.copy();
+        dst.dispenseRequest = dispenseRequest == null ? null : dispenseRequest.copy();
         dst.substitution = substitution == null ? null : substitution.copy();
         dst.priorPrescription = priorPrescription == null ? null : priorPrescription.copy();
         return dst;
@@ -1866,7 +1866,7 @@ public class MedicationOrder extends DomainResource {
            && compareDeep(status, o.status, true) && compareDeep(dateEnded, o.dateEnded, true) && compareDeep(reasonEnded, o.reasonEnded, true)
            && compareDeep(patient, o.patient, true) && compareDeep(prescriber, o.prescriber, true) && compareDeep(encounter, o.encounter, true)
            && compareDeep(reason, o.reason, true) && compareDeep(note, o.note, true) && compareDeep(medication, o.medication, true)
-           && compareDeep(dosageInstruction, o.dosageInstruction, true) && compareDeep(dispense, o.dispense, true)
+           && compareDeep(dosageInstruction, o.dosageInstruction, true) && compareDeep(dispenseRequest, o.dispenseRequest, true)
            && compareDeep(substitution, o.substitution, true) && compareDeep(priorPrescription, o.priorPrescription, true)
           ;
       }
@@ -1888,7 +1888,7 @@ public class MedicationOrder extends DomainResource {
            && (patient == null || patient.isEmpty()) && (prescriber == null || prescriber.isEmpty())
            && (encounter == null || encounter.isEmpty()) && (reason == null || reason.isEmpty()) && (note == null || note.isEmpty())
            && (medication == null || medication.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
-           && (dispense == null || dispense.isEmpty()) && (substitution == null || substitution.isEmpty())
+           && (dispenseRequest == null || dispenseRequest.isEmpty()) && (substitution == null || substitution.isEmpty())
            && (priorPrescription == null || priorPrescription.isEmpty());
       }
 
