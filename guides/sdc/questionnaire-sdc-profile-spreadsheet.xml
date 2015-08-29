@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-28T20:23:22Z</LastSaved>
+  <LastSaved>2015-08-28T20:34:47Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>25920</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1000,6 +1000,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5160,7 +5161,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8590,7 +8590,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Not published</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="120">
+   <Row ss:Height="300">
     <Cell ss:StyleID="s126"><Data ss:Type="String">endpoint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Resource</Data><NamedCell
@@ -8614,7 +8614,7 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">The base URL for the server to which questionnaire response associated with this questionnaire should be submitted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Indicates that the form has been designed with an expectation that it will be submitted to the specified URI.  If multiple endpoints are specified, expectation is that answers are submitted to all endpoints</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Indicates that the form has been designed with an expectation that it will be submitted to the specified URI.  If multiple endpoints are specified, expectation is that answers are submitted to all endpoints.&#10;&#10;If no end-point is specified, then the form is not exclusively designed to be submitted to a specific site.  If and where the form needs to be submitted or how the form should be internally processed must be inferred from external context or system business rules.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -9484,8 +9484,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
