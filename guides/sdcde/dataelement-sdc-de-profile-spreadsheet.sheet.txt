@@ -492,7 +492,7 @@
   Element = DataElement.element.binding.valueSetReference
   Card. = 1..1
   Must Support = Y
-  Type = Reference(ValueSet)
+  Type = Reference(ValueSet) {http://hl7.org/fhir/StructureDefinition/sdcde-valueset}
 
  -- Row 73 -----------------------------------
   Element = DataElement.element.binding.valueSetReference.extension

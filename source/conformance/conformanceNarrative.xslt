@@ -102,9 +102,7 @@
                 <xsl:for-each select="fhirVersion/@value">
                   <tr>
                     <th>FHIR Version:</th>
-                    <td>
-                      <xsl:value-of select="."/>
-                    </td>
+                    <td>$ver$</td>
                   </tr>
                 </xsl:for-each>
                 <xsl:for-each select="acceptnknown/@value">

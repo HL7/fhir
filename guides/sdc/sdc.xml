@@ -11,10 +11,10 @@
 			<valueUri value="dataelement-sdc-profile-spreadsheet.xml"/>
 		</extension>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
+			<valueUri value="questionnaire-sdc-profile-spreadsheet.xml"/>
 		</extension>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="questionnaire-sdc-profile-spreadsheet.xml"/>
+			<valueUri value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
 		</extension>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="valueset-sdc-profile-spreadsheet.xml"/>
@@ -123,6 +123,54 @@
 			<name value="Security Details"/>
 			<kind value="page"/>
 		</page>
+    <page>
+      <source value="dataelement-sdc.html"/>
+      <name value="Data Element"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="sdc-element.html"/>
+        <name value="Data Element Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="questionnaire-sdc.html"/>
+      <name value="Questionnaire"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="sdc-questionnaire.html"/>
+        <name value="Questionnaire Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="questionnaireresponse-sdc.html"/>
+      <name value="Questionnaire Response"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="sdc-response.html"/>
+        <name value="Questionnaire Response Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="valueset-sdc.html"/>
+      <name value="Value Set"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="sdc-valueset.html"/>
+        <name value="Value Set Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
 		<page>
 			<source value="registry.html"/>
 			<name value="Registry"/>

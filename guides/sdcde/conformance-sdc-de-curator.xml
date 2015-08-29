@@ -15,7 +15,7 @@
             <tbody>
                <tr>
                   <th>FHIR Version:</th>
-                  <td>0.2</td>
+                  <td>$ver$</td>
                </tr>
                <tr>
                   <th>Supported formats:</th>
@@ -316,6 +316,8 @@
          </table>
       </div>
    </text>
+   
+   
   
   
   <name value="SDC Data Element Curator"/>

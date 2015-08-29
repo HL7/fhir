@@ -19,7 +19,7 @@
   Element = QuestionnaireResponse.questionnaire
   Card. = 1..1
   Must Support = y
-  Type = Reference(Questionnaire)
+  Type = Reference(Questionnaire) {http://hl7.org/fhir/StructureDefinition/sdc-questionnaire}
 
  -- Row 4 -----------------------------------
   Element = QuestionnaireResponse.status
@@ -116,9 +116,9 @@
 
  -- Row 20 -----------------------------------
   Element = QuestionnaireResponse.group.question.answer.value[x]
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
-  Type = boolean|date|dateTime|time|instant|decimal|integer|string|Coding|Attachment|Reference(Any)
+  Type = boolean|date|dateTime|time|instant|decimal|integer|string|Coding|uri|Quantity|Attachment|Reference(Any)
 
  -- Row 21 -----------------------------------
   Element = QuestionnaireResponse.group.question.answer.group
