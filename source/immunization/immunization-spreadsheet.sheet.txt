@@ -285,6 +285,7 @@
   UML = 380;240
   Short Label = Details of a reaction that follows immunization
   Definition = Categorical data indicating that an adverse event is associated in time to an immunization
+  Comments = A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case,  it should be recorded as a new [AllergyIntolerance](allergyintolerance.html)resource instance as most systems won\'t query against  past Immunization.reaction elements.
   v2 Mapping = OBX-3
   RIM Mapping = Observation[classCode=obs].code
 
