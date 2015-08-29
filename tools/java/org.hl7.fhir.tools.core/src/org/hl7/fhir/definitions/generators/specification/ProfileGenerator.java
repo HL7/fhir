@@ -146,6 +146,8 @@ public class ProfileGenerator {
   }
 
   private Map<String, DataElement> des = new HashMap<String, DataElement>();
+  private static int extensionCounter;
+  private static int profileCounter = 0;
   
   private void generateElementDefinition(ElementDefinition ed, ElementDefinition parent) {
     String id = ed.getPath().replace("[x]", "X");
@@ -1106,6 +1108,10 @@ public class ProfileGenerator {
       ElementDefinitionConstraintComponent con = new ElementDefinitionConstraintComponent();
       Invariant inv = e.getInvariants().get(in);
       con.setKey(inv.getId());
+      if (!con.hasKey()) {
+        profileCounter++;
+        con.setKey("prf-"+Integer.toString(profileCounter ));
+      }
       con.setRequirements(inv.getRequirements());
       if (Utilities.noString(inv.getSeverity()))
         con.setSeverity(ConstraintSeverity.ERROR);
@@ -1418,6 +1424,10 @@ public class ProfileGenerator {
       ElementDefinitionConstraintComponent con = new ElementDefinitionConstraintComponent();
       Invariant inv = src.getInvariants().get(in);
       con.setKey(inv.getId());
+      if (!con.hasKey()) {
+        extensionCounter++;
+        con.setKey("exd-"+Integer.toString(extensionCounter));
+      }
       con.setRequirements(inv.getRequirements());
       if (Utilities.noString(inv.getSeverity()))
         con.setSeverity(ConstraintSeverity.ERROR);

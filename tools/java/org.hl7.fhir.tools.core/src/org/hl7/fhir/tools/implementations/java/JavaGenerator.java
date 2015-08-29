@@ -534,13 +534,13 @@ public boolean doesCompile() {
   }
 
   private Boolean checkNeedsCompile(List<JavaClass> dependencies) {
-    for (JavaClass jc : dependencies) {
-      if (jc.doCompile == null)
-        jc.doCompile = checkNeedsCompile(jc.dependencies);
-      if (jc.doCompile)
-        return true;
-    }
-    return false;
+//    for (JavaClass jc : dependencies) {
+//      if (jc.doCompile == null)
+//        jc.doCompile = checkNeedsCompile(jc.dependencies);
+//      if (jc.doCompile)
+//        return true;
+//    }
+    return true;
   }
 
   private List<JavaClass> determineDependencies(JavaClass jc, Map<String, JavaClass> classes) throws IOException {

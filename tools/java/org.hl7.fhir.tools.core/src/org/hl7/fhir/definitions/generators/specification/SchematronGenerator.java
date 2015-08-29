@@ -3,119 +3,69 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xml.SchematronWriter;
+import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
+import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 
-public class SchematronGenerator  extends TextStreamWriter {
+public class SchematronGenerator {
 			
 	private PageProcessor page;
-
-  private class Assert {
-    private String test;
-    private String message; 
-  }
+  private SchematronWriter sch;
   
-	private class Rule {
-	  private String name; 
-    private List<Assert> asserts = new ArrayList<Assert>();	  
-    private void assrt(String test, String message) {
-      Assert a = new Assert();
-      a.test = test;
-      a.message = message;
-      asserts.add(a);
-    }
-	}
-	private class Section {
-	  private String title;
-	  private List<Rule> rules = new ArrayList<Rule>();
-	  
-	  private Rule rule(String name) {
-	    for (Rule r : rules) {
-	      if (r.name.equals(name))
-	        return r;
-	    }
-	    Rule r = new Rule();
-	    r.name = name;
-	    rules.add(r);
-	    return r;
-	  }
-	}
-	
   public SchematronGenerator(OutputStream out, PageProcessor page) throws UnsupportedEncodingException {
-    super(out);
+    super();
     this.page = page;
+    sch = new SchematronWriter(out);
   }
 
-  private List<Section> sections = new ArrayList<SchematronGenerator.Section>();
+
   
 	public void generate(Definitions definitions) throws Exception {
     insertGlobalRules();
     for (ResourceDefn root : definitions.getResources().values()) {
-      Section s = new Section();
-      s.title = root.getName();
-      sections.add(s);
+      Section s = sch.addSection(root.getName());
       ArrayList<String> parents = new ArrayList<String>();
       generateInvariants(s, null, root.getRoot(), definitions, parents, root.getName());
-      // root.getName()
     }
-	  dump(null);	  
-	}
-
-	private void dump(String rn) throws IOException {
-	  ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-	  ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
-	  ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
-	  ln("<sch:ns prefix=\"h\" uri=\"http://www.w3.org/1999/xhtml\"/>");
-	  if (rn != null) {
-	    ln("<!-- ");
-	    ln("  This file contains just the constraints for the resource "+rn);
-	    ln("  It is provided for documentation purposes. When actually validating,");
-	    ln("  always use fhir-invariants.sch (because of the way containment works)");
-	    ln("  Alternatively you can use this file to build a smaller version of");
-	    ln("  fhir-invariants.sch (the contents are identical; only include those ");
-	    ln("  resources relevant to your implementation).");
-	    ln("-->");
-	  }
-
-	  for (Section s : sections) {
-	    ln_i("<sch:pattern>");
-	    ln("<sch:title>"+s.title+"</sch:title>");
-	    for (Rule r : s.rules) {
-	      ln_i("<sch:rule context=\"//"+r.name+"\">");
-	      for (Assert a : r.asserts) 
-	        ln("<sch:assert test=\""+Utilities.escapeXml(a.test)+"\">"+Utilities.escapeXml(a.message)+"</sch:assert>");
-        ln_o("</sch:rule>");
-	    }
-	    ln_o("</sch:pattern>");
-	  }  
-	  ln_o("</sch:schema>");
-	  flush();
-	  close();
+    Set<StructureDefinition> processed = new HashSet<StructureDefinition>(); 
+    for (StructureDefinition exd : page.getWorkerContext().getExtensionDefinitions().values()) {
+      if (exd.getSnapshot().getElement().get(0).hasConstraint() && !processed.contains(exd)) {
+        processed.add(exd);
+        Section s = sch.addSection("Extension: "+exd.getName());
+        Rule r = s.rule("//f:extension[@url='"+exd.getUrl()+"']");
+        for (ElementDefinitionConstraintComponent inv : exd.getSnapshot().getElement().get(0).getConstraint()) {
+          r.assrt(inv.getXpath().replace("\"", "'"), inv.getKey()+": "+inv.getHuman());
+        }
+      }
+    }
+    sch.dump(null);	  
 	}
 
   private void insertGlobalRules() throws IOException {
-    Section s = new Section();
-    s.title = "Global";
-    sections.add(s);
-    s.rule("f:*").assrt("@value|f:*|h:div", "global-1: All FHIR elements must have a @value or children");
+    Section s = sch.addSection("Global");
+    s.rule("//f:*").assrt("@value|f:*|h:div", "global-1: All FHIR elements must have a @value or children");
 	}
 
   public void generate(ResourceDefn root, Definitions definitions) throws Exception {
     insertGlobalRules();
-    Section s = new Section();
-    s.title = root.getName();
-    sections.add(s);
+    Section s = sch.addSection(root.getName());
     ArrayList<String> parents = new ArrayList<String>();
     generateInvariants(s, null, root.getRoot(), definitions, parents, root.getName());
-    dump(root.getName());
+    sch.dump(root.getName());
   }
 
 	private ElementDefn getType(TypeRef tr, Definitions definitions) throws Exception {
@@ -184,7 +134,7 @@ public class SchematronGenerator  extends TextStreamWriter {
         c++;
     }
     if (c > 0) {
-      Rule r = section.rule(path);
+      Rule r = section.rule("//"+path);
 	    for (Invariant inv : ed.getInvariants().values()) {
 	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
 	        if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
@@ -197,6 +147,12 @@ public class SchematronGenerator  extends TextStreamWriter {
 
   private boolean isSpecialType(String tn) {
     return tn.equals("xhtml");
+  }
+
+
+
+  public void close() throws IOException {
+    sch.close();
   }
 
 }

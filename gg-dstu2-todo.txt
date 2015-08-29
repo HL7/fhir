@@ -26,6 +26,7 @@ publishing QA:
 - check all redirects 
 - fix up UML diagrams (per Dave's work)
 - v3/v2 value set usages
+- html form
 
 tooling 
 - update validation to refer to authority source
