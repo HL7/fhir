@@ -47,6 +47,22 @@
   Code = vertical
   Definition = List choices down the vertical axis
 
+=== Sheet Extensions-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = extension[@url=\'http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs\']?
+  English = minOccurs can\'t be more than one if required is false
+  XPath = f:valueInteger/@value=0 or parent::*/f:required/@value=\'true\'
+  Severity = Error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = extension[@url=\'http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs\']?
+  English = maxOccurs can\'t be more than one if repeats is false
+  XPath = f:valueInteger/@value<=1 or parent::*/f:repeats/@value=\'true\'
+  Severity = Error
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
