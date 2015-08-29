@@ -121,14 +121,8 @@ public class XSDBaseGenerator {
       genStructure(e);
     for (String n : definitions.getBaseResources().keySet()) {
       ResourceDefn r = definitions.getBaseResources().get(n);
-      genResource(n, r);
-      if (!r.isAbstract()) {
-        write("  <xs:element name=\""+r.getName()+"\" type=\""+r.getName()+"\">\r\n");
-        write("    <xs:annotation>\r\n");
-        write("      <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(r.getDefinition())+"</xs:documentation>\r\n");
-        write("    </xs:annotation>\r\n");
-        write("  </xs:element>\r\n");
-        
+      if (r.isAbstract()) {
+        genResource(n, r);
       }
     }
     // todo: what to do about this? 

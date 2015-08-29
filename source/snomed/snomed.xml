@@ -2,17 +2,6 @@
 
 <!-- the build tool builds these from the designated snomed server, when it can -->
 <snomed>
-  <concept id=" 53120007" display="Upper limb structure (body structure)">
-    <display value="Arm"/>
-    <display value="Upper limb structure"/>
-    <display value="Upper limb structure (body structure)"/>
-    <display value="Upper extremity"/>
-    <display value="Upper extremity, NOS"/>
-    <display value="Upper limb, NOS"/>
-    <display value="Forelimb, NOS"/>
-    <display value="Upper limb"/>
-    <display value="Upper extremity, including shoulder, arm, forearm, wrist, and hand"/>
-  </concept>
   <concept id="10001005" display="Bacterial sepsis (disorder)">
     <display value="Bacterial septicemia"/>
     <display value="Bacterial septicemia, NOS"/>
@@ -780,6 +769,7 @@
     <display value="Inpatient stay 9 days"/>
     <display value="Inpatient stay 9 days (finding)"/>
   </concept>
+  <concept id="1857005" display="Congenital rubella syndrome (disorder)"/>
   <concept id="188340000" display="Malignant tumor of craniopharyngeal duct (disorder)">
     <display value="Malignant tumor of craniopharyngeal duct"/>
     <display value="Malignant neoplasm of craniopharyngeal duct"/>

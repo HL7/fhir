@@ -4046,7 +4046,7 @@ public class Publisher implements URIResolver {
       String src = TextFile.fileToString(page.getFolders().srcDir + "template-conformance-pack.html");
       src = page.processConformancePackageIncludes(pack, src, intro, notes, resourceName, ig);
       if (st != null)
-        src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html",  1, null);
+        src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html",  0, null);
       else if (ig != null && !ig.isCore())
         src = addSectionNumbers(pack.getId() + ".html", pack.getId(), src, null, 1, null, ig);
        
