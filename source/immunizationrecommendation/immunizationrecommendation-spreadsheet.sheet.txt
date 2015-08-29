@@ -228,7 +228,7 @@
 
  -- Row 6 -----------------------------------
   Name = dose-sequence
-  Type = token
+  Type = number
   Path = ImmunizationRecommendation.recommendation.protocol.doseSequence
 
  -- Row 7 -----------------------------------
