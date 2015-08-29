@@ -63,6 +63,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  *
  */
 public class ProfileUtilities {
+
   private final boolean ADD_REFERENCE_TO_TABLE = true;
 
 
@@ -1804,32 +1805,69 @@ public class ProfileUtilities {
 
   }
 
+  private class Slicer extends ElementDefinitionSlicingComponent {
+    String criteria = "";
+    String name = "";   
+    boolean check;
+    public Slicer(boolean cantCheck) {
+      super();
+      this.check = cantCheck;
+    }
+  }
+  
+  private Slicer generateSlicer(ElementDefinition child, ElementDefinitionSlicingComponent slicing, StructureDefinition structure) {
+    // given a child in a structure, it's sliced. figure out the slicing xpath
+    if (child.getPath().endsWith(".extension")) {
+      ElementDefinition ued = getUrlFor(structure, child);
+      if ((ued == null || !ued.hasFixed()) && !(child.getType().get(0).hasProfile()))
+        return new Slicer(false);
+      else {
+      Slicer s = new Slicer(true);
+      String url = (ued == null || !ued.hasFixed()) ? child.getType().get(0).getProfile().get(0).asStringValue() : ((UriType) ued.getFixed()).asStringValue();
+      s.name = " with URL = '"+url+"'";
+      s.criteria = "[@url = '"+url+"']";
+      return s;
+      }
+    } else
+      return new Slicer(false);
+  }
 
   private void generateForChildren(TextStreamWriter txt, String xpath, ElementDefinition ed, StructureDefinition structure, StructureDefinition base) throws IOException {
   	boolean started = false;
     //    generateForChild(txt, structure, child);
     List<ElementDefinition> children = getChildList(structure, ed);
+    String sliceName = null;
+    ElementDefinitionSlicingComponent slicing = null;
     for (ElementDefinition child : children) {
       String name = tail(child.getPath());
+      if (child.hasSlicing()) {
+        sliceName = name;
+        slicing = child.getSlicing();        
+      } else if (!name.equals(sliceName))
+        slicing = null;
+      
       ElementDefinition based = getByPath(base, child.getPath());
       boolean doMin = (child.getMin() > 0) && (based == null || (child.getMin() != based.getMin()));
       boolean doMax =  !child.getMax().equals("*") && (based == null || (!child.getMax().equals(based.getMax())));
-      if (doMin || doMax) {
-      	if (!started) {
-        	txt.ln_i("<sch:pattern>");
-          txt.ln("<sch:title>"+ed.getPath()+"</sch:title>");
-          started = true;
-      	}
-      	if (doMin) {
-      		txt.ln_i("<sch:rule context=\""+xpath+"\">");
-          txt.ln("<sch:assert test=\"count(f:"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
-      		txt.ln_o("</sch:rule>");
-      }
-      	if (doMax) {
-      		txt.ln_i("<sch:rule context=\""+xpath+"\">");
-          txt.ln("<sch:assert test=\"count(f:"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
-      		txt.ln_o("</sch:rule>");
-      	}
+      Slicer slicer = slicing == null ? new Slicer(true) : generateSlicer(child, slicing, structure);
+      if (slicer.check) {
+        if (doMin || doMax) {
+          if (!started) {
+            txt.ln_i("<sch:pattern>");
+            txt.ln("<sch:title>"+xpath+"</sch:title>");
+            started = true;
+          }
+          if (doMin) {
+            txt.ln_i("<sch:rule context=\""+xpath+"\">");
+            txt.ln("<sch:assert test=\"count(f:"+name+slicer.criteria+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+slicer.name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
+            txt.ln_o("</sch:rule>");
+          }
+          if (doMax) {
+            txt.ln_i("<sch:rule context=\""+xpath+"\">");
+            txt.ln("<sch:assert test=\"count(f:"+name+slicer.criteria+") &lt;= "+child.getMax()+"\">"+name+slicer.name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
+            txt.ln_o("</sch:rule>");
+          }
+        }
       }
       
     }
@@ -1855,7 +1893,9 @@ public class ProfileUtilities {
   }
 
 
-	private ElementDefinition getByPath(StructureDefinition base, String path) {
+
+
+  private ElementDefinition getByPath(StructureDefinition base, String path) {
 		for (ElementDefinition ed : base.getSnapshot().getElement()) {
 			if (ed.getPath().equals(path))
 				return ed;

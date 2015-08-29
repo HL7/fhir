@@ -484,7 +484,7 @@ Examples:
 <table class="grid">
  <tr><td>[base]/Patient?name=eve</td><td>any patients with a name containing "eve" at the start of the name. This would include patients with the name "Eve", "Evelyn"</td></tr>
  <tr><td>[base]/Patient?name:contains=eve</td><td>any patients with a name containing "eve" at any position. This would include patients with the name "Eve", "Evelyn", and also "Severine"</td></tr>
- <tr><td>[base]/Patient?name:exact=Eve</td><td>any patients with a name starting with "eve" at the start of the name. This would include patients with the name "Eve" but not "eve" or "EVE"</td></tr>
+ <tr><td>[base]/Patient?name:exact=Eve</td><td>any patients with a name that is exactly "Eve". Note that this would not include patients with the name "eve" or "EVE"</td></tr>
 </table>
 <p>
 An additional modifier <code>:text</code>
@@ -637,7 +637,7 @@ The syntax for the value follows the form:
  <li><b>[parameter]=[prefix][number]|[system]|[code]</b> matches a quantity with the given unit</li>
 </ul>
 <p>
-The prefix optional, and is as described <a href="#prefix">above</a>. Example searches:
+The prefix optional, and is as described <a href="#prefix">above</a>, both regarding how precision and comparator/range operators are interpreted. Example searches:
 </p>
 
 <table>
@@ -1539,16 +1539,6 @@ Cross-map between search parameter types and Data types:
   <td><%xcm integer:reference%></td> <!-- reference -->
   <td><%xcm integer:quantity%></td> <!-- quantity -->
   <td><%xcm integer:uri%></td> <!-- uri -->
- </tr>
- <tr>
-  <td><a href="datatypes.html#oid">oid</a></td>
-  <td><%xcm oid:number%></td> <!-- number -->
-  <td><%xcm oid:date%></td> <!-- date -->
-  <td><%xcm oid:string%></td> <!-- string -->
-  <td><%xcm oid:token%></td> <!-- token -->
-  <td><%xcm oid:reference%></td> <!-- reference -->
-  <td><%xcm oid:quantity%></td> <!-- quantity -->
-  <td><%xcm oid:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#string">string</a></td>

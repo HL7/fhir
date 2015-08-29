@@ -145,7 +145,7 @@
 
  -- Row 5 -----------------------------------
   Name = balance
-  Type = number
+  Type = quantity
   Path = Account.balance
 
  -- Row 6 -----------------------------------

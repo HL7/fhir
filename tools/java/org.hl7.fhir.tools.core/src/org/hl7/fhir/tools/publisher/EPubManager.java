@@ -36,6 +36,7 @@ public class EPubManager implements FileNotifier {
   public static final String EOT_TYPE = "application/vnd.ms-fontobject";
   public static final String BIN_TYPE = "application/octet-stream";
   public static final String SVG_TYPE = "application/avg";
+  public static final boolean WANT_EPUB = false;
 
   private class Entry {
     private String filename;
@@ -96,15 +97,16 @@ public class EPubManager implements FileNotifier {
   }
 
   public void produce() throws FileNotFoundException, Exception {
-    ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"));
-//    zip.addMimeTypeFile("mimetype", Utilities.path(page.getFolders().rootDir, "tools", "epub", "mimetype"));
-    zip.addBytes("mimetype", new String("application/epub+zip").getBytes("UTF-8"), false);
-    zip.addFileName("META-INF/container.xml", Utilities.path(page.getFolders().rootDir, "tools", "epub", "container.xml"), false);
-    zip.addBytes("OEBPS/content.opf", generateContentFile(), false);
-    zip.addBytes("OEBPS/toc.ncx", generateIndexFile(), false);
-    build(zip);
-    zip.close();
-    
+    if (WANT_EPUB) {
+      ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"));
+      //    zip.addMimeTypeFile("mimetype", Utilities.path(page.getFolders().rootDir, "tools", "epub", "mimetype"));
+      zip.addBytes("mimetype", new String("application/epub+zip").getBytes("UTF-8"), false);
+      zip.addFileName("META-INF/container.xml", Utilities.path(page.getFolders().rootDir, "tools", "epub", "container.xml"), false);
+      zip.addBytes("OEBPS/content.opf", generateContentFile(), false);
+      zip.addBytes("OEBPS/toc.ncx", generateIndexFile(), false);
+      build(zip);
+      zip.close();
+    }
 //    new EpubReader().readEpub(new FileInputStream(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")));
 //    zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub.zip"));
 //    zip.addFileName("fhir-v"+page.getVersion()+".epub", Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"), false);

@@ -500,6 +500,13 @@
     <display value="Urethral structure"/>
     <display value="Urethral structure (body structure)"/>
   </concept>
+  <concept id="14189004" display="Measles (disorder)">
+    <display value="Measles"/>
+    <display value="Rubeola"/>
+    <display value="Morbilli"/>
+    <display value="Measles without mention of complication"/>
+    <display value="Measles (disorder)"/>
+  </concept>
   <concept id="14745005" display="Hepatitis A virus vaccine (product)">
     <display value="Hepatitis A virus vaccine (product)"/>
     <display value="Hepatitis A vaccine"/>
@@ -1727,6 +1734,14 @@
     <display value="Radiology techniques"/>
     <display value="Radiographic imaging - action (qualifier value)"/>
   </concept>
+  <concept id="27836007" display="Pertussis (disorder)">
+    <display value="Pertussis"/>
+    <display value="Whooping cough, NOS"/>
+    <display value="Infection due to Bordetella pertussis"/>
+    <display value="Whooping cough"/>
+    <display value="WC - Whooping cough"/>
+    <display value="Pertussis (disorder)"/>
+  </concept>
   <concept id="278450005" display="Finger-prick sampling (procedure)">
     <display value="Finger stick"/>
     <display value="Finger puncture"/>
@@ -2312,6 +2327,13 @@
     <display value="Legal married state"/>
     <display value="Legally married (finding)"/>
   </concept>
+  <concept id="36653000" display="Rubella (disorder)">
+    <display value="Rubella"/>
+    <display value="Rubella, NOS"/>
+    <display value="German measles"/>
+    <display value="Rubella without mention of complication"/>
+    <display value="Rubella (disorder)"/>
+  </concept>
   <concept id="36682004" display="Physiotherapist (occupation)">
     <display value="PT - Physiotherapist"/>
     <display value="Physical therapist"/>
@@ -2343,6 +2365,14 @@
     <display value="Entire left forearm"/>
     <display value="Left forearm"/>
     <display value="Entire left forearm (body structure)"/>
+  </concept>
+  <concept id="36989005" display="Mumps (disorder)">
+    <display value="Mumps"/>
+    <display value="Mumps, NOS"/>
+    <display value="Epidemic parotitis"/>
+    <display value="Infectious parotitis"/>
+    <display value="Mumps without mention of complication"/>
+    <display value="Mumps (disorder)"/>
   </concept>
   <concept id="371041009" display="Embolic stroke (disorder)">
     <display value="Embolic stroke (disorder)"/>
@@ -2869,11 +2899,24 @@
     <display value="BAL procedure"/>
     <display value="BAL - Bronchoalveolar lavage"/>
   </concept>
+  <concept id="397430003" display="Diphtheria due to Corynebacterium diphtheriae (disorder)">
+    <display value="Diphtheria due to corynebacterium diphtheriae (disorder)"/>
+    <display value="Diphtheria due to corynebacterium diphtheriae"/>
+    <display value="Diphtheria due to Corynebacterium diphtheriae (disorder)"/>
+    <display value="Diphtheria due to Corynebacterium diphtheriae"/>
+  </concept>
   <concept id="39748002" display="Bilirubin, direct measurement (procedure)">
     <display value="Bilirubin, conjugated measurement, serum"/>
     <display value="Bilirubin, direct measurement"/>
     <display value="Bilirubin, conjugated measurement"/>
     <display value="Bilirubin, direct measurement (procedure)"/>
+  </concept>
+  <concept id="398102009" display="Acute poliomyelitis (disorder)">
+    <display value="Acute poliomyelitis (disorder)"/>
+    <display value="Acute poliomyelitis"/>
+    <display value="Polio"/>
+    <display value="PM - Poliomyelitis"/>
+    <display value="Poliomyelitis"/>
   </concept>
   <concept id="398124009" display="Drug container (physical object)">
     <display value="Drug container (physical object)"/>
@@ -3605,6 +3648,11 @@
   <concept id="434746001" display="Specimen vial (physical object)">
     <display value="Specimen vial (physical object)"/>
     <display value="Specimen vial"/>
+  </concept>
+  <concept id="435801000124108" display="Texture modified diet (regime/therapy)">
+    <display value="Texture modified diet (regime/therapy)"/>
+    <display value="Texture modified diet"/>
+    <display value="Alter the consistency of foods to optimize chewing and swallowing. (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
   </concept>
   <concept id="438660002" display="Specimen from prosthetic device (specimen)">
     <display value="Specimen from prosthetic device (specimen)"/>
@@ -4483,6 +4531,7 @@
     <display value="Creatinine measurement, NOS"/>
     <display value="Creatinine measurement (procedure)"/>
   </concept>
+  <concept id="709410003" display="Haemophilus influenzae type b infection (disorder)"/>
   <concept id="71252005" display="Cervix uteri structure (body structure)">
     <display value="Uterine cervix"/>
     <display value="Uterine cervix, NOS"/>
@@ -4571,6 +4620,13 @@
     <display value="High"/>
     <display value="Elevated"/>
     <display value="High (qualifier value)"/>
+  </concept>
+  <concept id="76902006" display="Tetanus (disorder)">
+    <display value="Tetanus"/>
+    <display value="Lockjaw"/>
+    <display value="Infection due to Clostridium tetani"/>
+    <display value="Tetanus with trismus"/>
+    <display value="Tetanus (disorder)"/>
   </concept>
   <concept id="77068002" display="Cholesterol measurement (procedure)">
     <display value="Cholesterol measurement"/>
