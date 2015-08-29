@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Procedure Progress Status Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the procedure performance process"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/procedure-progress-status-code"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="a"/>
+      <display value="In Operating Room"/>
+      <definition value="A patient is in the Operating Room"/>
+    </concept>
+    <concept>
+      <code value="b"/>
+      <display value="Prepared"/>
+      <definition value="The patient is prepared for a procedure"/>
+    </concept>
+    <concept>
+      <code value="c"/>
+      <display value="Anesthesia induced"/>
+      <definition value="The patient is under anesthesia"/>
+    </concept>
+    <concept>
+      <code value="d"/>
+      <display value="Opened (skin)"/>
+    </concept>
+    <concept>
+      <code value="e"/>
+      <display value="Closed (skin)"/>
+    </concept>
+    <concept>
+      <code value="f"/>
+      <display value="In Recovery Room"/>
+      <definition value="The patient is in the recovery room"/>
+    </concept>
+  </codeSystem>
+</ValueSet>
