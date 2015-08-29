@@ -12,13 +12,26 @@
 <a name="SDC"> </a> 
 <h2>Structured Data Capture (SDC) Implementation Guide</h2>
 <p>
-This implementation guide is intended to support clinical systems in the creation and population of forms with patient-specific data.  It defines a mechanism for
-linking questions in forms to pre-defined data elements to enable systems to automatically populate portions of the form based on existing data, either locally or
-by invoking an operation on a third-party system.
+The SDC specification provides an infrastructure to standardize the capture and expanded use of patient-level data collected within an EHR.
+</p>
+<p>
+This includes two components:
+</p>
+<ul>
+<li>
+Support more sophisticated questionnaire/form use-cases such as those needed for research, oncology, pathology and other clinical domains.
+</li>
+<li>
+Support pre-population and auto-population of EHR data into forms/questionnaires for uses outside direct clinical care (patient safety, adverse event reporting, public health reporting, etc.).
+</li>
+</ul>
+<p>
+A third component – defining standards for the sharing of common data element definitions between registries to enable broader and more consistent data element use is addressed in a
+<a href="../sdcde/sdcde.html">second companion implementation guide</a>.
 </p>
 <p>
 This implementation guide is prepared as a U.S. Realm Specification on behalf of the 
-Structured Data Capture - an effort under the <a href="http://www.healthit.gov/newsroom/about-onc">U.S. Office of the National Coordinator (ONC)</a>'s Standards and Infrastructure (S &amp; I) Framework.
+Structured Data Capture project - an effort under the <a href="http://www.healthit.gov/newsroom/about-onc">U.S. Office of the National Coordinator (ONC)</a>'s Standards and Infrastructure (S &amp; I) Framework.
 However, much of the content is likely to be useable in other jurisdictions.  The only portions of this specification that may be problematic for use of this implementation guide in some
 jurisdictions are the bindings to terminologies such as SNOMED CT and RxNorm.  The workflow, constraints and extensions used should all have broad applicability.
 </p>
