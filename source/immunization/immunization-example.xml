@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Authored by Joginder Madra-->
 <Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\immunization.xsd">
-  <id value="example"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Authored by Joginder Madra</div>
-  </text>
-  <date value="2013-01-10"/>
-  <vaccineCode>
-    <coding>
-      <system value="urn:oid:1.2.36.1.2001.1005.17"/>
-      <code value="FLUVAX"/>
-    </coding>
-    <text value="Fluvax	(Influenza)"/>
-  </vaccineCode> 
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
-  <wasNotGiven value="false"/>
-  <reported value="false"/>
-  <performer>
-    <reference value="Practitioner/example"/>
-  </performer>  
-  <lotNumber value="AAJN11K"/>
-  <expirationDate value="2015-02-15"/>  
+	<id value="example"/>
+	<status value="completed"/>
+	<date value="2013-01-10"/>
+	<vaccineCode>
+		<coding>
+			<system value="urn:oid:1.2.36.1.2001.1005.17"/>
+			<code value="FLUVAX"/>
+		</coding>
+		<text value="Fluvax	(Influenza)"/>
+	</vaccineCode>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<wasNotGiven value="false"/>
+	<reported value="false"/>
+	<performer>
+		<reference value="Practitioner/example"/>
+	</performer>
+	<lotNumber value="AAJN11K"/>
+	<expirationDate value="2015-02-15"/>
 </Immunization>

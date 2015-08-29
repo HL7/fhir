@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10005</WindowHeight>
-  <WindowWidth>25440</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowHeight>8505</WindowHeight>
+  <WindowWidth>25260</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>-15</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -171,7 +171,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="61" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="62" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="314.25"/>
@@ -906,6 +906,25 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Immunization.status</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ImplementationGuide.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1409,9 +1428,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>49</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1419,7 +1438,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1427,8 +1445,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>54</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveRow>36</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

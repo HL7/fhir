@@ -57,6 +57,13 @@
   Definition = The reason for the determining if a vaccination should count or why vaccination should not count.
   Conformance = example
 
+ -- Row 9 -----------------------------------
+  Binding Name = ImmunizationStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/medication-admin-status
+  Definition = A set of codes indicating the current status of an Immunization
+  Conformance = required
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -93,17 +100,33 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Immunization.date
+  Element = Immunization.status
   Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ImmunizationStatus
+  Short Label = in-progress | on-hold | completed | entered-in-error | stopped
+  Definition = Indicates the current status of the vaccination event
+  Comments = Will generally be set to show that the immunizationhas been completed.
+  RIM Mapping = statusCode
+  Committee Notes = #7867
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = Immunization.date
+  Card. = 0..1
   Type = dateTime
   Short Label = Vaccination administration date
   Definition = Date vaccine administered or was to be administered
+  Comments = When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value
   v2 Mapping = RXA-3-date/time start of administration
   RIM Mapping = .effectiveTime
+  Committee Notes = #7887
   w5 = when.init
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Immunization.vaccineCode
   Card. = 1..1
   Type = CodeableConcept
@@ -116,7 +139,7 @@
   Committee Notes = #6128
   w5 = what
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Immunization.patient
   Card. = 1..1
   Type = Reference(Patient)
@@ -127,7 +150,7 @@
   Committee Notes = PID, PD1, NK1 | #3705
   w5 = who.focus
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Immunization.wasNotGiven
   Card. = 1..1
   Is Modifier = Y
@@ -138,7 +161,7 @@
   Committee Notes = #5169, #3762, #5351
   w5 = status
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Immunization.reported
   Card. = 1..1
   Type = boolean
@@ -149,7 +172,7 @@
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported=true)
   w5 = who.source
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Immunization.performer
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -160,7 +183,7 @@
   RIM Mapping = .participation[typeCode=PRF].COCT_MT090102UV
   w5 = who.actor
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Immunization.requester
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -171,7 +194,7 @@
   RIM Mapping = outboundRelationship.target[classCode=SBADM].participation[typeCode=AUT].COCT_MT090102UV
   w5 = who.cause
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Immunization.encounter
   Card. = 0..1
   Type = Reference(Encounter)
@@ -182,7 +205,7 @@
   Committee Notes = #3840
   w5 = context
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Immunization.manufacturer
   Card. = 0..1
   Type = Reference(Organization)
@@ -192,7 +215,7 @@
   v2 Mapping = RXA-17-substance manufacturer name
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=ORG]
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Immunization.location
   Card. = 0..1
   Type = Reference(Location)
@@ -202,7 +225,7 @@
   RIM Mapping = .participation[typeCode=LOC].COCT_MT240000UV
   w5 = where
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Immunization.lotNumber
   Card. = 0..1
   Type = string
@@ -212,7 +235,7 @@
   v2 Mapping = RXA-15-substance lot number
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Immunization.expirationDate
   Card. = 0..1
   Type = date
@@ -221,7 +244,7 @@
   v2 Mapping = RXA-16-substance expiration date
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Immunization.site
   Card. = 0..1
   Type = CodeableConcept
@@ -232,7 +255,7 @@
   v2 Mapping = RXR-2-administration site
   RIM Mapping = observation.targetSiteCode
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Immunization.route
   Card. = 0..1
   Type = CodeableConcept
@@ -243,7 +266,7 @@
   v2 Mapping = RXR-1-route
   RIM Mapping = .routeCode
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Immunization.doseQuantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -252,16 +275,17 @@
   v2 Mapping = RXA-6-administered amount / RXA-7.1-administered units.code
   RIM Mapping = .doseQuantity
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Immunization.note
   Card. = 0..*
   Summary = Y
   Type = Annotation
   Short Label = Vaccination notes
   Definition = Extra information about the immunization that is not conveyed by the other attributes.
+  RIM Mapping = note
   Committee Notes = #7866
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Immunization.explanation
   Card. = 0..1
   UML = down
@@ -269,7 +293,7 @@
   Definition = Reasons why a vaccine was or was not administered
   RIM Mapping = n/a
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Immunization.explanation.reason
   Card. = 0..*
   Type = CodeableConcept
@@ -278,7 +302,7 @@
   Definition = Reasons why a vaccine was administered
   RIM Mapping = [actionNegationInd=false].reasonCode
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Immunization.explanation.reasonNotGiven
   Card. = 0..*
   Type = CodeableConcept
@@ -288,7 +312,7 @@
   v2 Mapping = RXA-18
   RIM Mapping = [actionNegationInd=true].reasonCode
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Immunization.reaction
   Card. = 0..*
   UML = 380;240
@@ -299,7 +323,7 @@
   RIM Mapping = Observation[classCode=obs].code
   Committee Notes = #7765
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Immunization.reaction.date
   Card. = 0..1
   Type = dateTime
@@ -308,7 +332,7 @@
   v2 Mapping = OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the V2.x VXU message - most likely would appear in OBX segments if at all )
   RIM Mapping = .effectiveTime
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Immunization.reaction.detail
   Card. = 0..1
   Type = Reference(Observation)
@@ -317,7 +341,7 @@
   v2 Mapping = OBX-5
   RIM Mapping = .value
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Immunization.reaction.reported
   Card. = 0..1
   Type = boolean
@@ -326,7 +350,7 @@
   v2 Mapping = (no such concept seems to exist for allergy/adverse reaction in V2.x)
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported=true)
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Immunization.vaccinationProtocol
   Card. = 0..*
   UML = right
@@ -335,7 +359,7 @@
   v2 Mapping = (V2.x doesn\'t seem to provide for this)
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM]
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Immunization.vaccinationProtocol.doseSequence
   Card. = 1..1
   Type = positiveInt
@@ -343,7 +367,7 @@
   Definition = Nominal position in a series
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].sequenceNumber
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Immunization.vaccinationProtocol.description
   Card. = 0..1
   Type = string
@@ -351,7 +375,7 @@
   Definition = Contains the description about the protocol under which the vaccine was administered
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].text
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Immunization.vaccinationProtocol.authority
   Card. = 0..1
   Type = Reference(Organization)
@@ -359,7 +383,7 @@
   Definition = Indicates the authority who published the protocol?  E.g. ACIP
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].participation[typeCode=AUT].COCT_MT090200UV
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Immunization.vaccinationProtocol.series
   Card. = 0..1
   Type = string
@@ -367,7 +391,7 @@
   Definition = One possible path to achieve presumed immunity against a disease - within the context of an authority
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM]
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Immunization.vaccinationProtocol.seriesDoses
   Card. = 0..1
   Type = positiveInt
@@ -375,7 +399,7 @@
   Definition = The recommended number of doses to achieve immunity.
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].text
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Immunization.vaccinationProtocol.targetDisease
   Card. = 1..*
   Type = CodeableConcept
@@ -384,7 +408,7 @@
   Definition = The targeted disease
   RIM Mapping = outboundRelationship.target[classCode=OBS].code
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Immunization.vaccinationProtocol.doseStatus
   Card. = 1..1
   Type = CodeableConcept
@@ -394,7 +418,7 @@
   Comments = May need to differentiate between status declarations by a provider vs. a CDS engine
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].playedRole[classCode=INGR].scopedRole.scoper[classCode=MMAT].playedRole[classCode=HLTHCHRT].participation[typeCode=SBJ].observation[classCode=OBS].value
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Immunization.vaccinationProtocol.doseStatusReason
   Card. = 0..1
   Type = CodeableConcept
@@ -491,10 +515,10 @@
   Path = Immunization.vaccineCode
 
  -- Row 16 -----------------------------------
-  Name = subject
-  Type = reference
-  Description = The patient for the vaccination record
-  Path = Immunization.patient
+  Name = status
+  Type = token
+  Description = Immunization event status
+  Path = Immunization.status
 
 === Sheet Profiles =====================================
 

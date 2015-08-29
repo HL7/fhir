@@ -27,85 +27,89 @@
   QDM Mapping = Medication, administered
 
  -- Row 2 -----------------------------------
-  Element = Immunization.date
+  Element = Immunization.status
   Must Support = Y
   QDM Mapping = start datetime
 
  -- Row 3 -----------------------------------
+  Element = Immunization.date
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
   Element = Immunization.vaccineCode
   Must Support = Y
   Binding = QICoreVaccineCodeCVX
   QDM Mapping = primary code
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Immunization.patient
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Immunization.wasNotGiven
   Must Support = Y
   QDM Mapping = negation rationale
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Immunization.performer
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Immunization.requester
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Immunization.encounter
   Must Support = Y
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Immunization.manufacturer
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Immunization.location
   Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Immunization.explanation
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Immunization.explanation.reason
   Must Support = Y
   QDM Mapping = reason
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Immunization.explanation.reasonNotGiven
   Must Support = Y
   QDM Mapping = negation rationale
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Immunization.reaction
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Immunization.reaction.detail
   Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Immunization.vaccinationProtocol
   QDM Mapping = frequency
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Immunization.vaccinationProtocol.authority
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Immunization.doseQuantity
   Must Support = Y
   QDM Mapping = dose
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Immunization.site
   Binding = DAFBodySite
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Immunization.route
   Must Support = Y
   QDM Mapping = route

@@ -195,51 +195,46 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = subject
-  Type = reference
-  Path = ImmunizationRecommendation.patient
-
- -- Row 2 -----------------------------------
   Name = vaccine-code
   Type = token
   Path = ImmunizationRecommendation.recommendation.vaccineCode
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = identifier
   Type = token
   Path = ImmunizationRecommendation.identifier
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = date
   Type = date
   Path = ImmunizationRecommendation.recommendation.date
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = dose-number
   Type = number
   Path = ImmunizationRecommendation.recommendation.doseNumber
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = status
   Type = token
   Path = ImmunizationRecommendation.recommendation.forecastStatus
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = dose-sequence
   Type = token
   Path = ImmunizationRecommendation.recommendation.protocol.doseSequence
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = support
   Type = reference
   Path = ImmunizationRecommendation.recommendation.supportingImmunization
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = information
   Type = reference
   Path = ImmunizationRecommendation.recommendation.supportingPatientInformation
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = patient
   Type = reference
   Path = ImmunizationRecommendation.patient
