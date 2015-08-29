@@ -96,7 +96,7 @@ For SDC purposes, server systems claiming to support roles that require support 
 (<a href="conformance-sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
 </p>
 <ul>
-  <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
+  <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>questionnaireRef</code>, <code>subject</code> and <code>content</code></li>
   <li>Support <code>content</code> parameters consisting of a <a href="[%fhir-path%]http.html#binary">Binary</a> resource containing a C-CDA* document</li>
   <li>Populate the returned <a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a> instance for all questions referencing
   <a href="[%fhir-path%]dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
@@ -118,13 +118,15 @@ and <a href="http://www.ihe.net/Technical_Framework/upload/IHE_QRPH_Suppl_PRPH_C
 specifications.
 </p>
 <p>
-Systems supporting the <code>populate</code> operation SHALL be able to use the <a href="[%fhir-path%]extension-questionnaire-dereference.html">deReference</a> 
-extension to trace the linkage from Questionniare question to DataElement to support mapping.  As well, systems MAY also choose to support the use of the
+Systems supporting the <code>populate</code> operation are encouraged to support using the <a href="[%fhir-path%]extension-questionnaire-dereference.html">deReference</a> 
+extension to trace the linkage from Questionniare question to DataElement to support mapping.  As well, systems may also choose to support the use of the
 <a href="[%fhir-path%]extension-questionnaire-demap.html">deMap</a> extension to support maintaining of question &lt;-&gt; data element links outside 
 the questionnaire itself.  If using this approach, the <a href="[%fhir-path%]conceptmap.html">ConceptMap</a>.<code>sourceUri</code> equal to the full resource id of the Questionnaire and
 a <code>targetUri</code> of the base URL for the DataElement end-point of the server to which data elements will be mapped.  The 
 <code>ConceptMap.element.code</code> and <code>ConceptMap.element.map.code</code> will correspond to the question linkId and the data element
-local id, respectively.
+local id, respectively.  Support for alternative mechanisms including ConceptMaps directly from Questionnaire questions to data sources, Questionnaire
+extensions providing mappings direct to data sources or use of Questionnaire.group.question.concept are all acceptable mechanisms for executing <code>populate</code>
+functionality.
 </p>
 
 <p>
