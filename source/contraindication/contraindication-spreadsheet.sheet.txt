@@ -131,8 +131,8 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner|Device)
-  Short Label = Who found issue?
-  Definition = Identifies the provider or software that identified the
+  Short Label = The provider or device that identified the issue
+  Definition = Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review
   RIM Mapping = .participation[typeCode=AUT].role[classCode=ASSIGNED]
   To Do = Is this 80%?
   w5 = who.author
