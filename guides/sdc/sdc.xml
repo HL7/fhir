@@ -46,8 +46,8 @@
 		</resource>
 		<resource>
 			<purpose value="example"/>
-			<name value="CCDA-Gender"/>
-			<description value="FHIR Gender with mapping to CCDA"/>
+			<name value="C-CDA-Gender"/>
+			<description value="FHIR Gender with mapping to C-CDA"/>
 			<sourceUri value="dataelement-sdc-profile-example.xml"/>
 			<exampleFor>
 				<reference value="dataelement-sdc-profile-spreadsheet.xml"/>

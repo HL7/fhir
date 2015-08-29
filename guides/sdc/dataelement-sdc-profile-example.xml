@@ -21,8 +21,8 @@
   </contact>
   <date value="2015-02-04"/>
   <mapping>
-    <identity value="ccda"/>
-    <uri value="http://hl7.org/CCDA-not-a-real-url"/>
+    <identity value="c-cda"/>
+    <uri value="http://hl7.org/C-CDA-not-a-real-url"/>
     <name value="Consolidated CDA R2"/>
   </mapping>
   <element>
@@ -38,7 +38,7 @@
       </valueSetReference>
     </binding>
     <mapping>
-      <identity value="ccda"/>
+      <identity value="c-cda"/>
       <language value="xpath"/>
       <map value="/ClinicalDocument/recordTarget/patientRole/patient/administrativeGender"/>
     </mapping>
