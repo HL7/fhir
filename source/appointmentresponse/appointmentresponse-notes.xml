@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-    <h2>Notes:</h2>
+ <a name="notes"> </a>
+   <h2>Notes:</h2>
     <ul>
         <li>Timezones and Recurring Appointments</li>
         <p>Recurring appointments need to have the timezone in which the values were entered in defined.

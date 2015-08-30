@@ -1,6 +1,7 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 <b>QuestionnaireResponse</b> provides a complete or partial list of answers to a set of questions.  The questions may be included directly or by
@@ -33,6 +34,7 @@ groups and questions are answered and that answers fit constraints in terms of c
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 The <b>QuestionnaireResponse</b> resource captures the responses to a questionnaire, while <a href="questionnaire.html">Questionnaire</a> represents

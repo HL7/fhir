@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 This resource is primarily used for recording which device performed an action and can also be used to track device location. It is also used for prescribing and dispensing devices for patient use. 
@@ -10,6 +11,7 @@ If the device is implanted in a patient, then the patient element will be presen
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 These are the device related resources

@@ -2,6 +2,7 @@
 
 <div>
 
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 
 <p>
@@ -30,6 +31,7 @@ the entire resource creates security concerns that must be managed by the server
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Once a subscription is created, any newly created or updated resources 

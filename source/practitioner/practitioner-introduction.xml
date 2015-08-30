@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 Practitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal 
@@ -20,6 +21,7 @@ Practitioners include (but are not limited to):
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 The Resource SHALL NOT be used for persons involved without a formal responsibility like individuals taking care for friends, 
@@ -29,6 +31,7 @@ resource, use <a href="relatedperson.html">RelatedPerson</a>.
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
 Practitioner performs different roles within the same or even different organizations. Depending on jurisdiction and custom, 

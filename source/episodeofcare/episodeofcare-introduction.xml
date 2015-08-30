@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
   <div>
+<a name="scope"> </a>
     <h2>Scope and Usage</h2>
     <p>
       The EpisodeOfCare Resource contains information about an association of a Patient with a Healthcare Provider for a period
@@ -35,7 +36,8 @@
     </p>
   </div>
   <div>
-    <h2>Boundaries and Relationships</h2>
+ <a name="bnr"> </a>
+   <h2>Boundaries and Relationships</h2>
     <p>
       The primary difference between the EpisodeOfCare and the Encounter is that the Encounter records the details of an
       activity directly relating to the patient, while the EpisodeOfCare is the container that can link a series of Encounters
@@ -52,7 +54,8 @@
   </div>
 
   <div>
-    <h2>Background and Context</h2>
+ <a name="bnc"> </a>
+   <h2>Background and Context</h2>
     <p>
       Systems collect a coherent group of activities (such as encounters) related to a patient's health condition or problem often referred to as a Care Episode.
       Information about an episode is often shared across systems, and in some cases organizational and disciplinary boundaries.

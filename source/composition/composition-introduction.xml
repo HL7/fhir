@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p> 
 A Composition is also the basic structure from which <a href="documents.html">FHIR Documents</a> - 
@@ -20,6 +21,7 @@ to make more granular updates with individual provenance statements.
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Composition is a structure for grouping information for purposes of persistance and attestability.  There
@@ -70,6 +72,7 @@ system, or as specified by any applicable profiles.
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <a name="status"> </a>
 <h3>Composition Status Codes</h3>

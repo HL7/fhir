@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 The provenance resource tracks information about the activity that created a version of a resource, including the entities, and agents involved in producing a resource.
@@ -15,6 +16,7 @@ Audit Event resources are often (though not exclusively) created by the applicat
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <a name="overlap"> </a>
 <p>
@@ -28,6 +30,7 @@ though overlap can occur.
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
 The provenance resource is based on the <a href="http://www.w3.org/TR/2013/NOTE-prov-overview-20130430/">W3C Provenance specification</a>, 

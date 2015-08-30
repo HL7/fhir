@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 
 <p>
@@ -14,6 +15,7 @@ The composition of the material can be specified in terms of a mix of other mate
 </div>
 
 <div> 
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2> 
 <p>
 A medication is a substance that is packaged and used as an administered medication. 

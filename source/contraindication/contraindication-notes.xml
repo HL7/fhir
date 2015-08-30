@@ -12,6 +12,7 @@ In some cases, a contraindication might be associated with a single record.  Whe
 If there is a strong need to point from an implicated resource to Contraindication and containment is not appropriate, an extension can be used.
 </p>
 
+<a name="open"> </a>
 <h2>Open Issues</h2>
 <ul>
   <li>Would this be better named something like <i>Issue</i> or <i>ClinicalIssue</i> or <i>Precaution</i> or something like that?</li>

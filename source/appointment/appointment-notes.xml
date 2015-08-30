@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="typical"> </a>
 	<h2>Typical Status Transition Examples:</h2>
 
 	<h3>Typical Flow of statuses for an appointment:</h3>
@@ -382,6 +383,7 @@
 		</tr>
 	</table>	
 	
+<a name="notes"> </a>
 	<h2>Notes:</h2>
 	<ul>
 		<li>Placer/Filler (HL7 v2)</li>

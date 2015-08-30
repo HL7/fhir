@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 This special resource type is used to represent the <a href="operations.html">operation</a> request and response. 
@@ -8,6 +9,7 @@ This special resource type is used to represent the <a href="operations.html">op
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 This special resource has no other use than for operation parameters, and there is no RESTful end=point associated with it. 

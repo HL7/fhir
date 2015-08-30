@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities.xhtml;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -334,5 +335,17 @@ public class XhtmlNode {
 		}
 		
 	}
+
+  public XhtmlNode getElementByIndex(int i) {
+    int c = 0;
+    for (XhtmlNode n : childNodes)
+      if (n.getNodeType() == NodeType.Element) {
+        if (c == i)
+          return n;
+        else
+          c++;
+      }
+    return null;
+  }
 
 }

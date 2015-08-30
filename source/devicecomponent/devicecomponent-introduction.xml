@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 The DeviceComponent resource is used to describe the characteristics, operational status and capabilities of a medical-related component of a medical device. It can be a physical component that is integrated inside the device, a removable physical component, or a non-physical component that allows physiological measurement data and its derived data to be grouped in a hierarchical information organization. 
@@ -14,6 +15,7 @@ For the initial scope, this DeviceComponent resource is only applicable to descr
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 The DeviceComponent allows us to change the configuration of the device without having to change the device resource instance. The life-cycle of the configuration may be completely different than the one of the device itself.
@@ -31,6 +33,7 @@ There are several related resources
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <h3>Structure of a DeviceComponent Resource</h3>
 

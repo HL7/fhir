@@ -15,6 +15,7 @@ Grahame's OAuth extensions:
   </extension>
 </extension>
 -->
+<a name="oo"> </a>
 
 <h2>Using Operation Outcome Resources</h2>
 <p>
@@ -32,6 +33,7 @@ Operation outcomes returned SHOULD be in alignment with the HTTP response code. 
 one of the issues should have a severity of "error", indicating the reason for the failure.
 </p>
 
+<a name="loc"> </a>
 <h2>Using the Location Element</h2>
 <p>
 Each issue in an operation outcome may have a location reported. 

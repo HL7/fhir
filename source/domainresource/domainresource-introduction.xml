@@ -2,6 +2,7 @@
 
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 A domain resource is an resource that:
@@ -19,6 +20,7 @@ As an abstract resource, this resource is never created directly; instead, one o
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 
 <p>

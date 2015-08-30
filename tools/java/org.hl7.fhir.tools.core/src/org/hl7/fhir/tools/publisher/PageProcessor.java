@@ -5059,11 +5059,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           } else if (x.getChildNodes().isEmpty()) {
             log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"] must have at least an h2", LogMessageType.Error);
             return;
-          } else if (!x.getFirstElement().getName().equals("h2")) { 
+          } else if (!x.getFirstElement().getName().equals("h2") && !(x.getFirstElement().getName().equals("a") && x.getElementByIndex(1).getName().equals("h2"))) { 
             log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"] must start with an h2", LogMessageType.Error);
             return;
           } else {
-            String s = x.getFirstElement().allText();
+            XhtmlNode fn = x.getFirstElement().getName().equals("h2") ? x.getFirstElement() : x.getElementByIndex(1);
+            String s = fn.allText();
             if (! ((s.equals("Scope and Usage")) || (s.equals("Boundaries and Relationships")) || (s.equals("Background and Context")) ) ) {
               log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"]/h2 must be either 'Scope and Usage', 'Boundaries and Relationships', or 'Background and Context'", LogMessageType.Error);
               return;
@@ -5091,7 +5092,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             boolean found = false;
             for (XhtmlNode n : x.getChildNodes()) {
               if (!found)
-                found = n == x.getFirstElement();
+                found = n == fn;
               else {
                 if ("h1".equals(n.getName()) || "h2".equals(n.getName())) {
                   log("file \""+filename+"\": content of a <div> inner section cannot contain h1 or h2 headings", LogMessageType.Error);

@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 A <b>Questionnaire</b> is an organized collection of questions intended to solicit information from patients, providers or other individuals involved
@@ -39,6 +40,7 @@ more sophisticated questionnaires and forms.
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 <b>Questionnaires</b> differ from <a href="list.html">Lists</a> because <a href="list.html">Lists</a> group existing resources, while <b>Questionnaires</b> group
@@ -49,6 +51,7 @@ must generally be maintained as a single structure.  The latter would focus on r
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
 Groups and questions that make up a Questionnaire can be explicitly coded to refer to externally defined numbering or identification of questions and sections on

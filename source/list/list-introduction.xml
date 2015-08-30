@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 The List resource is a flat, possibly ordered, collection of records. List resources are used in many places, 
@@ -30,6 +31,7 @@ the list by RESTful means, or after a document is processed. For example, a List
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 There are five mechanisms in FHIR for communicating collections of resources:

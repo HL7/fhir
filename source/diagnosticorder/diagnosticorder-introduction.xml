@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
+<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
 		<p>
 A <i>Diagnostic Order</i> is a record of a request for a set of diagnostic investigations to be performed.
@@ -23,6 +24,8 @@ issue a report that references the requests that it fulfills.
 </p>
 	</div>
 	<div>
+ <a name="bnr"> </a>
+ 
 		<h2>Boundaries and Relationships</h2>
 		<p>
 DiagnosticOrder is closely related to other types of "request" resources, particularly ReferralRequest and ProcedureRequest. In fact, for some services, it may be appropriate to use any one of these resources to request that the service be performed. Which one is used may be driven by organization practice and by context. When it is unclear which to use, the following principles may be helpful:

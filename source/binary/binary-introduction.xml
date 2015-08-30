@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 There are situations where it is useful or required to handle pure binary content using the same framework as other 
@@ -22,6 +23,7 @@ feed directly rather than leaving them by reference).
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 This resource is generally used as the target of a <a href="documentreference.html">Document Reference</a> or an <a href="datatypes.html#Attachment">Attachment</a>, when a FHIR server finds it convenient to manage the content within the same overall REST framework as the other resources.

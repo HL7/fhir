@@ -15,6 +15,7 @@ See below for further discussion</li>
 <li>The Contact for a Patient has an element <i>organization</i>, this is for use with guardians or business related contacts where just the organization is relevant.</li>
 </ul>
 
+<a name="ids"> </a>
 <h2>Patient id's and Patient resource id's</h2>
 <p>A Patient record's Resource Id can never change. For this reason the identifiers with 
 which humans are concerned (often called MRN - Medical Record Number, or UR - Unit Record) should not 

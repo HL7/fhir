@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 This resource covers the supply of medications to  a patient.  Examples include dispensing and pick-up from an out-patient or community pharmacy, dispensing patient-specific medications from in-patient pharmacy to ward as well as issuing a single dose from ward stock to a patient for consumption. The medication dispense is the result of a Pharmacy system responding to a Medication Order.
@@ -8,6 +9,7 @@ This resource covers the supply of medications to  a patient.  Examples include 
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 <b>The Medication domain includes a number of related resources</b>
@@ -38,6 +40,7 @@ This resource does not deal with the supply or transfer of non-medication relate
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>    
     The supply and the associated administration instructions may not exactly follow the original order (prescription) either because some details were left for completion at this point in the process, or because the dispenser exercised their clinical judgment to make some appropriate modification.

@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 A diagnostic report is the set of information that is typically provided by a diagnostic service
@@ -26,6 +27,7 @@ The DiagnosticReport resource does not yet provide full support for detailed str
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <!--p>
 The DiagnosticReport resource has the following aspects:
@@ -59,6 +61,7 @@ The results are assembled in "groups" which are nested structures of Observation
 
 </div>
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Note that many diagnostic processes are procedures that generate observations and diagnostic reports. In many cases, such an observation does not require an explicit representation of the procedure used to create the observation, but where there are details of interest about how the diagnostic procedure was performed, the <a href="procedure.html">Procedure resource</a> is used to describe the activity.

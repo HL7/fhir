@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 This resource applies to various circumstances where there is a concern about an existing or proposed set of clinical activity.  The issue could relate to multiple actions/proposed actions or could be specific to a single action.  
@@ -21,6 +22,7 @@ Similarly this resource is not to be used to capture clinical facts that may imp
 
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 This resources only applies to documenting a risk associated with a specific planned or ongoing action, not a general propensity to risk.  The latter would be handled using <a href="allergyintolerance.html">AllergyIntolerance</a> for substance-specific issues or <a href="flag.html">Flag</a> for other types of issues.
@@ -31,6 +33,7 @@ indicate that a requested action was rejected due to a clinical issue and the Co
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
 Contraindications are typically identified by decision support systems.  However, they may also be captured directly by clinicians.  The latter typically happens for one of two reasons:

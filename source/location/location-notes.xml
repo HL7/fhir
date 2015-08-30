@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
+<a name="notes"> </a>
 <h2>Notes</h2>
 <ul>
 <li>Multiple Organizations or Practitioners may provide services at a Location. These references are not kept in Location, but can be found
@@ -33,6 +34,7 @@ Some of Location's data elements are only relevant when mode is 'instance' and s
 <li>Location.managingOrganization</li>
 </ul>
 
+<a name="example"> </a>
 	<h2>Example Location Heirachy</h2>
 	<p>
 		An example location heirachy should help give some guidance as to one example

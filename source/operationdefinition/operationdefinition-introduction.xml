@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 The OperationDefinition resource provides a formal computable definition of an <a href="operations.html">operation</a> or <a href="search.html#advanced">a named query</a>.
@@ -16,6 +17,7 @@ See below for further information about these, and about how Operations and Name
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Operation Definitions are published to define operations that servers can implement in a common fashion. 

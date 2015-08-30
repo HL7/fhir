@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 This resource captures predicted outcomes for a patient or population on the basis of source information.  Examples include:
@@ -19,6 +20,7 @@ on existing knowledge and previous experience.
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Risk assessments are a specialized type of observation.  We use a specialized resource to provide a simpler mechanism to capture of a series of risks and to associate those risks with time-ranges, probabilities, etc.  All risk assertions are captured at one time based on a single set of source inputs.  Capture of a single risk MAY be done using the <a href="observation.html">Observation</a> class, particularly in circumstances where it's treated as a generic observation, but for consistency, all risk assessments and prognosis SHOULD be captured using <b>RiskAssessment</b>.
@@ -46,6 +48,7 @@ general risks to a subject, not generally based on a reaction.
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
 Risk Assessments can be determined manually by health-care providers based on their professional expertise, by using an algorithmic scoring system or through a combination.  Risk assessments can also be computed by decision support systems.  <a href="operationdefinition.html">OperationDefinitions</a> may be defined by servers to generate risk assessments based on particular combinations of source resources or other inputs.

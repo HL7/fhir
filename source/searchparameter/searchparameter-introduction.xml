@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 todo
@@ -8,6 +9,7 @@ todo
 </div> 
 
 <div> 
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2> 
 <ul>
  <li>Profiles are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
@@ -18,6 +20,7 @@ todo
 </div> 
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
 Implementers should be familiar with with the 

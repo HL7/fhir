@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
-		<h2>Scope and Usage</h2>
+	<a name="scope"> </a>
+	<h2>Scope and Usage</h2>
 		<p>Any material sample:</p>
 		<ul>
 			<li>taken from a biological entity, living or dead</li>
@@ -15,7 +16,8 @@ Some specimens are biological and can contain one or more components including b
 </p>
 	</div>
 	<div>
-		<h2>Background and Context</h2>
+		<a name="bnc"> </a>
+<h2>Background and Context</h2>
 		<p>
 The current definition of the specimen resource contains only basic information about specimen containers. It does not
 address the recursive nature of containers or the tracking of the location of a container within its parent container

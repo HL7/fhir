@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="dedate"> </a>
   <h2>De-normalized Data</h2>
   <p>
     Most of the properties of the Person resource are replicated within the other resources that they
@@ -12,6 +13,7 @@
     up to date.
   </p>
   
+<a name="linking"> </a>
   <h2>
     Person and Linking
   </h2>
@@ -24,6 +26,7 @@
     resource to relate these elements together identifying them as the same individual.
   </p>
 
+<a name="xdomain"> </a>
   <h2>
   Cross-Domain Patient Directory
   </h2>
@@ -37,6 +40,7 @@
     be created with an assurance level of level3.
   </p>
   
+<a name="xdomain2"> </a>
   <h2>
     Cross-Domain Provider Directory
   </h2>
@@ -46,6 +50,7 @@
     person resource with a <i>link</i> for each of the practitioner resources located in other organizations.
   </p>
 
+<a name="portal"> </a>
   <h2>
     Client Portal
   </h2>

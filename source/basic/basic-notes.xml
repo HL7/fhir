@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="why"> </a>
 <h2>Why not custom resources?</h2>
 <p>
 Technically, nothing prevents implementers from going off and defining their own resources containing
@@ -43,6 +44,7 @@ handling custom resource requirements in a safe manner may be explored.  Ideas a
 strategies for managing this issue are welcome.
 </p>
 
+<a name="docs"> </a>
 <h2>Documents and narrative-only resources</h2>
 <p>
 Documents are constructed of sections, where a key part of each section is the narrative.  The narratives
@@ -62,6 +64,7 @@ fully encode pieces of the free-form narrative found in the Basic resource.  If 
 for the meaning of the content, extensions can also be used.
 </p>
 
+<a name="bp"> </a>
 <h2>Best practices for using 'Basic'</h2>
 <p>
 There are several good practices to follow when making use of the Basic resource:
@@ -91,6 +94,7 @@ There are several good practices to follow when making use of the Basic resource
   Profile can also be used to define additional search criteria appropriate for the resource.</li>
 </ol>
 
+<a name="ref"> </a>
 <h2>Referencing Basic resources</h2>
 <p>
 None of the standard resources will have direct references to Basic, aside from those that allow linking to

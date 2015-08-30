@@ -2,6 +2,7 @@
 
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 This specification defines a series of different types of resource that can be used to exchange and/or store data 
@@ -34,6 +35,7 @@ Basic definitions:
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 
 <p>

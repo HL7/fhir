@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns 
@@ -27,6 +28,7 @@ provide a clinical or workflow context for a set of observations. Expected uses 
 
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>In contrast to the Observation resource, the <a href="diagnosticreport.html">DiagnosticReport</a> resource typically includes additional clinical context and and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations.  Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.</p>
 <p>

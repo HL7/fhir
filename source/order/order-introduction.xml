@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
+<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
 		<p>
 An order resource describes a request that an action be performed. An order is 
@@ -20,6 +21,7 @@ implicit in the order details.
 </p>
 	</div>
 	<div>
+<a name="bnc"> </a>
 		<h2>Background and Context</h2>
 		<h3>Separation of Order and Order details</h3>
 		<p>
@@ -74,6 +76,7 @@ in these contexts.
 </p>
 	</div>
 	<div>
+<a name="bnr"> </a>
 		<h2>Boundaries and Relationships</h2>
 		<p>
 			As described above, the split between the Order resource and the domain order resources is that  Order is a <b>workflow</b> resource, not a clinical resource. It is used to manage fulfillment requests and other state transitions for the 'real' clinical orders - <a href="deviceuserequest.html">DeviceUseRequest</a>, <a href="diagnosticorder.html">DiagnosticOrder</a>,  <a href="medicationorder.html">MedicationOrder</a>, <a href="nutritionorder.html">NutritionOrder</a> and <a href="procedurerequest.html">ProcedureRequest</a>.

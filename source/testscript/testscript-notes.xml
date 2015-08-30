@@ -15,6 +15,7 @@
 			padding: 0;
 		}
 </style>
+<a name="notes"> </a>
 	
 <h2>Notes</h2>
 <br/>
@@ -802,6 +803,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 <p>The "metadata.capabilities.required" and "metadata.capabilities.validated" elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose "metadata.capabilities.validated" flag is true are the primary focus of the test script.</p>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="ops"> </a>
 
 <h2 id="operations-table">Operations</h2>
 
@@ -903,6 +905,8 @@ and TestScript.teardown.action.operation elements. The operation elements should
     <td colspan="9">The <a href="testscript-definitions.html#TestScript.setup.action.operation.url">url</a> element will contain the full HTTP URL for the operation. This should rarely be used in test scripts.  One possible application would be to test if the Location header returned in a response is pointing to an expected resource.  See <a href="testscript-search.xml.html">testscript-search example</a>.</td>
   </tr>
 </table>
+
+<a name="assert"> </a>
 
 <h2 id="assertion-table">Assertions</h2>
 <table class="grid">

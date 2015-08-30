@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 
+<a name="safety"> </a>
 <h2>Safety and Security</h2>
 <p>
 Executing each of the channels documented below involves the server
@@ -19,6 +20,7 @@ Emails should generally be secured using some technique such as
 <a href="http://directproject.org/">Direct</a>.
 </p>
 
+<a name="errors"> </a>
 <h2>Managing Subscriptions and Errors</h2>
 <p>
 A subscription is defined by creating the subscription on the server.
@@ -58,6 +60,7 @@ deletes it at the specified time.
 </p>
  
 
+<a name="channels"> </a>
 <h2>Channels</h2>
 
 <h3>REST Hook</h3>

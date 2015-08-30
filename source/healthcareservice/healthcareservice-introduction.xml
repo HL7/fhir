@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 	<div>
+<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
 		<p>
 			The HealthcareService resource is used to describe a single healthcare service or
@@ -52,7 +53,8 @@
 	</div>
 
 	<div>
-		<h2>Boundaries and Relationships</h2>
+	<a name="bnr"> </a>
+	<h2>Boundaries and Relationships</h2>
 		<p>
 			The HealthcareService resource can be used with the Schedule resource to define actual availability
 			of the service. This would be done by using the Schedule's Actor property.

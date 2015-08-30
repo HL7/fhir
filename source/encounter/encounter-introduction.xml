@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p> 
 A patient encounter is further characterized by the setting in which it takes place. Amongst them are ambulatory,
@@ -48,6 +49,7 @@ histories) a status history component is included.
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p> 
 The Encounter resource is not to be used to store appointment information, the Appointment resource is intended to be used for that.

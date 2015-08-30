@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 Performing a clinical assessment is a fundamental part of a clinician's workflow, performed repeatedly throughout the day. 
@@ -36,6 +37,7 @@ draw the attention of reviewers and implementers to the following issues:
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 There is another related clinical concept often called an "assessment": assessment Tools such as Apgar (also known as "Assessment Scales").
@@ -47,6 +49,7 @@ during the assessment process.
 </div>
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
 An important background to understanding this resource is <a href="http://wiki.hl7.org/index.php?title=Clinical_Assessment">the FHIR wiki page for clinical assessment</a>. In particular,

@@ -13,11 +13,9 @@ examples
 - provenance examples for security
 
 generating:
-extensions invariants
-generated schematrons paths - more work on slicing
+- generated schematrons paths - more work on slicing
 
 publishing QA:
-- update the way self-links are generated to make them more stable
 - dstu notes format consistency + where does feedback go?
 - update todo.html + version history
 - check all redirects 

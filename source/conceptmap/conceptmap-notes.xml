@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="notes"> </a>
 <h2>Notes</h2>
 <ul>
  <li>The value of the <i>system</i> and <i>code</i> element are the same as used by the <a href="datatypes.html#Coding">Coding</a> data type</li>

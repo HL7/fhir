@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 A flag is a warning or notification of some sort presented to the user - who may be a clinician or some other person involve in patient care. It usually represents
@@ -63,6 +64,7 @@ should see particular flags, will vary by interoperability community.
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Flags may highlight a highly condensed view of information found in the <a href="allergyintolerance.html">AllergyIntolerance</a>, 

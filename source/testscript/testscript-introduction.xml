@@ -1,6 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
+
 <h2>Scope and Usage</h2>
 <p>
 The TestScript resource is used to define tests that can be executed on one or more FHIR servers. The TestScript resource would typically contain
@@ -29,6 +31,7 @@ It may not be possible to fully automate the latter goal (especially with regard
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 The TestScript resource should <b>NOT</b> be used to represent Clinical tests, Prescriptions, or any other Healthcare related concept. 
@@ -54,6 +57,8 @@ using a combination of the following resources:
 </div>
 
 <div>
+<a name="bnc"> </a>
+
 <h2>Background and Context</h2>
 <p>
 <h3>Background</h3>

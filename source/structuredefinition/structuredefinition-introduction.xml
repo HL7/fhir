@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
 The StructureDefinition resource describes a structure - a set of data element definitions, and their associated rules of usage.
@@ -18,6 +19,7 @@ set of structure definitions</a> for all resources and data types is published.
 </div> 
 
 <div> 
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2> 
 <ul>
  <li>StructureDefinitions are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
@@ -31,6 +33,7 @@ set of structure definitions</a> for all resources and data types is published.
 </div> 
 
 <div>
+<a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
 Implementers should be familiar with with the 
