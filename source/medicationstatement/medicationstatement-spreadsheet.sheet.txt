@@ -136,7 +136,7 @@
   Type = code
   Binding = MedicationStatementStatus
   Short Label = active | completed | entered-in-error | intended
-  Definition = A code specifying the state of the medication used that this statement is about.  Generally this will be active or completed state.
+  Definition = A code representing the patient or other source’s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
 
  -- Row 7 -----------------------------------
   Element = MedicationStatement.wasNotTaken
