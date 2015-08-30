@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 
-[%settitle Guide to Resources%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+[%settitle Guide to Resources%]
 [%file newheader%]
 </head>
 <body>
@@ -19,7 +19,7 @@ In order to use FHIR to create solutions for integration requirements, implement
 problems to resources and their content. 
 </p>
 <p>
-The resources are classified into 5 sections:
+The resources are classified into 6 sections:
 </p>
 <ol>
  <li><a href="#clinical"><b>Clinical</b></a>: The content of a clinical record </li>
@@ -31,11 +31,61 @@ The resources are classified into 5 sections:
 </ol>
 <p>
 This page describes the resources and their functional intent in more detail to assist implementers to 
-understand their purpose and scope, and their supporting ontology.
+understand their purpose and scope, and their supporting classifications.
+</p>
+
+<p>
+Where to find common concepts in this specification:
+</p>
+<table class="grid">
+ <tr>
+  <td><b>Concept</b></td>
+  <td><b>Example</b></td>
+  <td><b>Where to find</b></td>
+ </tr>
+ 
+ <tr><td colspan="3"><b>Clinical Findings</b></td></tr>
+ <tr><td>Laboratory Results</td><td>Blood panels such as CBC with Differential, Liver Panel, etc)</td><td><a href="diagnosticreport.html">DiagnosticReport</a> with <a href="observation.html">Observations</a></td></tr>
+ <tr><td>Imaging Study Findings</td><td>CT Scans, MRI, Plain Radiographs, Ultrasounds)</td><td><a href="diagnosticreport.html">DiagnosticReport</a> (some with <a href="observation.html">Observations</a>)</td></tr>
+ <tr><td>Diagnostic Test Results</td><td>EKG, pulmonary function test, EEG)</td><td><a href="observation.html">Observations</a> (and maybe a <a href="diagnosticreport.html">DiagnosticReport</a>)</td></tr>
+ <tr><td>Vital Signs</td><td>Temperature, Blood Pressure, Heart Rate, Respiratory Rate)</td><td><a href="observation.html">Observation</a></td></tr>
+ <tr><td>Other Physical Exam Findings</td><td>Auscultation findings)</td><td><a href="observation.html">Observation</a></td></tr>
+ <tr><td>Pulmonary Artery Catheter readings</td><td>Pulmonary artery pressure)</td><td><a href="observation.html">Observation</a></td></tr>
+ 
+ <tr><td colspan="3"><b>Patient Problems, Allergies and Adverse Events</b></td></tr> 
+ <tr><td>Allergy</td><td>Food or drug allergies</td><td><a href="allergyintolerance.html">AllergyIntolerance</a> </td></tr>
+ <tr><td>Clinical Diagnosis</td><td>Diabetes, Congestive Heart Failure</td><td><a href="condition.html">Condition</a> </td></tr>
+ <tr><td>Adverse Event / Reaction</td><td>Adverse reaction to an agent, falls, adverse surgical events, hospital infections</td><td>(not done yet)</td></tr>
+ 
+ <tr><td colspan="3"><b>Patient History</b></td></tr>
+ <tr><td>Chief Complaint</td><td>Cough, Pain, Fever, Fatigue</td><td><a href="condition.html">Condition</a> </td></tr>
+ <tr><td>Past Surgical History</td><td>Appendectomy, Hernia repair</td><td><a href="procedure.html">Procedure</a> </td></tr>
+ <tr><td>Past Medical History</td><td>Diabetes, Congestive heart failure</td><td><a href="condition.html">Condition</a> </td></tr>
+ <tr><td>MAR (Medication Administration Record)</td><td>Warfarin 5mg PO administered on 12/10/2013 at 3pm</td><td><a href="medicationadministration.html">MedicationAdministration</a> </td></tr>
+ <tr><td>Home Meds</td><td>Warfarin 5mg, 30 day supply, dispensed on 12/01/2013</td><td><a href="medicationstatement.html">MedicationStatement</a> </td></tr>
+ <tr><td>Social History</td><td>Sexual behavior, Smoking status, Alcohol intake, Illicit drug use</td><td><a href="observation.html">Observation</a> </td></tr>
+ <tr><td>Family History</td><td>Mother has diabetes</td><td><a href="familymemberhistory.html">FamilyMemberHistory</a> </td></tr>
+ <tr><td>Signs &amp; Symptoms</td><td>from a review of systems- Pain, Fever</td><td><a href="condition.html">Condition</a> </td></tr>
+
+ <tr><td colspan="3"><b>Suggested Physician Orders </b></td></tr>
+ <tr><td>Proposal for a laboratory test</td><td>A blood panel, a stool analysis</td><td><a href="diagnosticorder.html">DiagnosticOrder</a> </td></tr>
+ <tr><td>Proposal for an imaging procedure</td><td>CT Scan, MRI, X-Rays</td><td><a href="diagnosticorder.html">DiagnosticOrder</a> </td></tr>
+ <tr><td>Proposed Diet Order</td><td>An oral diet order</td><td><a href="nutritionorder.html">NutritionOrder</a> </td></tr>
+ <tr><td>Proposed respiratory order</td><td>Oxygen delivery</td><td>Not done yet</td></tr>
+ <tr><td>Proposed Medications</td><td>Aspirin, Lisinopril</td><td><a href="medicationorder.html">MedicationOrder</a> </td></tr>
+ <tr><td>Proposed Supply</td><td>Wheel Chair, Food Tray</td><td><a href="supplyrequest.html">SupplyRequest</a> </td></tr>
+ 
+ <tr><td colspan="3"><b>Interdisciplinary Care Planning</b></td></tr>
+ <tr><td>Patient Goal</td><td>Reduce risk of falls, lose weight</td><td><a href="goal.html">Goal</a> (as part of a <a href="careplan.html">CarePlan</a>)</td></tr>
+ <tr><td>Intervention</td><td>Patient assessments</td><td><a href="procedurerequest.html">ProcedureRequest</a> </td></tr>
+</table>
+
+<p>
+In addition, to the information on this page, see also <a href="usecases.html">Common Use Cases</a>.
 </p>
 
 <a name="w5"> </a>
-<h3>Resource Ontology</h3>
+<h3>Resource Classification</h3>
 
 <p>
 In addition to the overall classification above, Resources and the data elements in them are 
@@ -83,7 +133,7 @@ the event they are concerned with passes.
 <h4>General</h4>
 
 <p>
-  <code>AllergyIntolerance</code>, <code>Condition</code>, and <code>Procedure</code> are the base resources that appear throughout 
+  <code>AllergyIntolerance</code>, <code>Condition</code>, and <code>Procedure</code> are common resources that appear throughout 
   the patient record - summaries of the patient status or history. 
   
   <code>FamilyMemberHistory</code> tracks significant health issues for relatives of the patient, since these are signficant risk factors for the patient.
@@ -104,12 +154,12 @@ the event they are concerned with passes.
 
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
-<tr><td><a href="allergyintolerance.html">AllergyIntolerance</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td><a href="lifecycle.html#current">current List</a></td></tr>
-<tr><td><a href="condition.html">Condition</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td><a href="lifecycle.html#current">current List</a></td></tr>
-<tr><td><a href="procedure.html">Procedure</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Cliinical Workflow</a></td></tr>
+<tr><td><a href="allergyintolerance.html">AllergyIntolerance</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td>This has a <a href="lifecycle.html#current">Current List</a></td></tr>
+<tr><td><a href="condition.html">Condition</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td>This has a <a href="lifecycle.html#current">Current List</a></td></tr>
+<tr><td><a href="procedure.html">Procedure</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
 <tr><td><a href="familymemberhistory.html">FamilyMemberHistory</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="clinicalimpression.html">ClinicalImpression</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
-<tr><td><a href="riskassessment.html">RiskAssessment</a></td><td><a href="#present">Present</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Cliinical Workflow</a></td></tr>
+<tr><td><a href="riskassessment.html">RiskAssessment</a></td><td><a href="#present">Present</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
 <tr><td><a href="contraindication.html">Contraindication</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
 </table>
 
@@ -137,617 +187,473 @@ and <code>VisionPrescription</code> contains the details of visual aids requeste
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="careplan.html">CarePlan</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
-<tr><td><a href="goal.html">Goal</a></td><td><a href="#future">Future</a></td><td>Act</td><td>Cliinical Workflow</td></tr>
-<tr><td><a href="referralrequest.html">ReferralRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Cliinical Workflow</a></td></tr>
-<tr><td><a href="procedurerequest.html">ProcedureRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Cliinical Workflow</a></td></tr>
+<tr><td><a href="goal.html">Goal</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
+<tr><td><a href="referralrequest.html">ReferralRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical"><a href="lifecycle.html#clinical">Clinical Workflow</a></a></td></tr>
+<tr><td><a href="procedurerequest.html">ProcedureRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical"><a href="lifecycle.html#clinical">Clinical Workflow</a></a></td></tr>
 <tr><td><a href="nutritionorder.html">NutritionOrder</a></td><td><a href="#future">Future</a>/<a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="visionprescription.html">VisionPrescription</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
 </table>
 
+<h4>Medication Management</h4>
 
-<table>
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Medications</b></td>
-</tr>
-<tr>
-  <td colspan="2">Supporting the medication process</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Immunization</td>
-  <td>Past, RIM: Act. [%resdesc Immunization%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Immunization<br/>Recommendation</td>
-  <td>Future, RIM: Act. [%resdesc ImmunizationRecommendation%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Medication</td>
-  <td>Unrelated, RIM: Role. [%resdesc Medication%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Medication<br/>Administration</td>
-  <td>Past, RIM: Act<br/>Cliinical Workflow. [%resdesc MedicationAdministration%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>MedicationDispense</td>
-  <td>Past, RIM: Act<br/>Cliinical Workflow. [%resdesc MedicationDispense%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>MedicationOrder</td>
-  <td>Future, RIM: Act<br/>Request/Order<br/>Current List. [%resdesc MedicationOrder%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>MedicationStatement</td>
-  <td>Ongoing/Past, RIM: Act<br/>Entity Availibility Life cycle<br/>Current List. [%resdesc MedicationStatement%]</td>
-</tr>
+<p>
+Supports the medication and immunization processes. Some points of note:
+</p>
+<ul>
+ <li>Prescription = a <code>MedicationOrder</code></li>
+ <li>In some records, medication orders, administration, and statements may not be well differentiated. Generally, use <code>MedicationStatement</code> if records are unclear</li>
+ <li>A medication chart (or variants) will use multiple different types of medication resources</li>
+ <li>When prescribing is done by external code systems (e.g. most ambulatory prescribing), the <code>Medication</code> resource is not used; it is generally used for formulary and custom formulations</li>
+</ul>
+ 
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="immunization.html">Immunization</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="immunization.html">Immunization</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="medication.html">Medication</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+<tr><td><a href="medication.html">Medication</a></td><td><a href="#medication">Medication</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
+<tr><td><a href="medicationdispense.html">MedicationDispense</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
+<tr><td><a href="medicationorder.html">MedicationOrder</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a>. This has a <a href="lifecycle.html#current">current List</a></td></tr>
+<tr><td><a href="medicationstatement"></a>MedicationStatement</td><td><a href="#ongoing">Ongoing</a> / <a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a>. This has a <a href="lifecycle.html#current">Current List</a></td></tr>
+</table>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Diagnostics</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2">Resources concerned with observing the patient, and the diagnostic service process built around this</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>BodySite</td>
-  <td>Unrelated, RIM: Role. [%resdesc BodySite%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DiagnosticOrder</td>
-  <td>Future, RIM: Act<br/>Request/Order. [%resdesc DiagnosticOrder%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DiagnosticReport</td>
-  <td>Past, RIM: Act<br/>Entity Availibility. [%resdesc DiagnosticReport%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ImagingObject<br/>Selection</td>
-  <td>Past, RIM: Act. [%resdesc ImagingObjectSelection%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ImagingStudy</td>
-  <td>Past, RIM: Act. [%resdesc ImagingStudy%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Observation</td>
-  <td>Past, RIM: Act. [%resdesc Observation%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Specimen</td>
-  <td>Unrelated, RIM: Role<br/>Entity Availibility. [%resdesc Specimen%]</td>
-</tr>
+<h4>Diagnostics</h4>
 
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><hr/></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><h3>Administrative Resources</h3></td>
-</tr>
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Individuals</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Patient</td>
-  <td>Unrelated, RIM: Role<br/>Entity Availibility. [%resdesc Patient%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Practitioner</td>
-  <td>Unrelated, RIM: Role. [%resdesc Practitioner%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>RelatedPerson</td>
-  <td>Unrelated, Role. [%resdesc RelatedPerson%]</td>
-</tr>
+<p>
+Resources concerned with observing the patient, and the diagnostic service process built around this. 
+The <code>Observation</code> resource is a widely used general purpose tool. Typical uses include
+recording the following kinds of data:
+</p>
+<ul>
+ <li>Laboratory Results</li>
+ <li>Vital Signs (including Blood Pressure)</li>
+ <li>Physical Examinations</li>
+ <li>Social history (e.g. Smoking History)</li>
+</ul>
+<p>
+and many more things beside. Note that 'everything is an observation', but implementations should not 
+use Observation where <a href="condition.html">Condition</a> is more appropriate. 
+</p>
+<p>
+<code>DiagnosticOrder</code> and <code>DiagnosticReport</code> support the overall diagnostic process. 
+A Diagnostic report connects the process of 'reporting', linking process identifiers, visual 
+presenations of a report, and conclusions/interpretations with the raw Observations. Diagnostic
+Orders capture the request from an authorized clinician that initiates the diagnostic process.
+<code>Specimen</code> and <code>BodySite</code> are used to record the details of specimen collection
+though BodySite can also be used with other resources (e.g. Operation location details on a procedure).
+</p>
+<p>
+The resources <code>ImagingObjectSelection</code> and <code>ImagingStudy</code> are provided to make links to diagnostic
+images available within the clinical record, where the actual images will be provided by 
+dedicated systems (the <a href="media.html">Media</a> resource is intended for sharing 
+actual images directly, which is not generally suitable for high resolution high volume
+diagnostic images).
+</p>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Groups</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Group</td>
-  <td>Unrelated, RIM: Entity. [%resdesc Group%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Healthcare<br/>Service</td>
-  <td>Unrelated, RIM: Role. [%resdesc HealthcareService%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Organization</td>
-  <td>Unrelated, RIM: Role<br/>Entity Availibility. [%resdesc Organization%]</td>
-</tr>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Entities</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Location</td>
-  <td>Unrelated, RIM: Role<br/>Entity Availibility. [%resdesc Location%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Person</td>
-  <td>Unrelated, RIM: Entity. [%resdesc Person%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Substance</td>
-  <td>Unrelated, RIM: Entity. [%resdesc Substance%]</td>
-</tr>
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="observation.html">Observation</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="diagnosticreport.html">DiagnosticReport</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
+<tr><td><a href="diagnosticorder.html">DiagnosticOrder</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
+<tr><td><a href="specimen.html">Specimen</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
+<tr><td><a href="bodysite.html">BodySite</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+<tr><td><a href="imagingobjectselection.html">ImagingObjectSelection</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="imagingstudy.html">ImagingStudy</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+</table>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Device</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Device</td>
-  <td>Unrelated, RIM: Role. [%resdesc Device%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DeviceComponent</td>
-  <td>Unrelated, RIM: Role. [%resdesc DeviceComponent%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DeviceMetric</td>
-  <td>Unrelated, RIM: Role. [%resdesc DeviceMetric%]</td>
-</tr>
+<h3>Administrative Resources</h3>
 
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><hr/></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><h3>Work Flow</h3></td>
-</tr>
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Encounter</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Communication</td>
-  <td>Past, RIM: Act<br/>Cliinical Workflow. [%resdesc Communication%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Encounter</td>
-  <td>Future/ Ongoing/Past, RIM: Act<br/>Cliinical Workflow. [%resdesc Encounter%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>EpisodeOfCare</td>
-  <td>Ongoing, RIM: Act. [%resdesc EpisodeOfCare%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Flag</td>
-  <td>Ongoing, Act<br/>Entity Availibility. [%resdesc Flag%]</td>
-</tr>
+<p>
+These resources are provide support for identifing
+the various entities that are involved in healthcare: 
+people, organizations, substances, devices, etc.
+</p>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Scheduling	</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Appointment</td>
-  <td>Future, RIM: Act. [%resdesc Appointment%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Appointment<br/>Response</td>
-  <td>Future, RIM: Act. [%resdesc AppointmentResponse%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Schedule</td>
-  <td>Future, RIM: Act. [%resdesc Schedule%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Slot</td>
-  <td>Future, RIM: Act. [%resdesc Slot%]</td>
-</tr>
+<h4>Individuals</h4>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Order</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Communication<br/>Request</td>
-  <td>Future, RIM: Act<br/>Request/Order. [%resdesc CommunicationRequest%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DeviceUseRequest</td>
-  <td>Present, RIM: Act<br/>Request/Order. [%resdesc DeviceUseRequest%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DeviceUseStatement</td>
-  <td>Past, RIM: Act. [%resdesc DeviceUseStatement%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Order</td>
-  <td>Present, RIM: Act. [%resdesc Order%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>OrderResponse</td>
-  <td>Present, RIM: Act. [%resdesc OrderResponse%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ProcessRequest</td>
-  <td>Present, RIM: Act<br/>Request/Order. colspan="3">[%resdesc ProcessRequest%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ProcessResponse</td>
-  <td>Present, RIM: Act. [%resdesc ProcessResponse%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>SupplyDelivery</td>
-  <td>Present, RIM: Act. [%resdesc SupplyDelivery%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>SupplyRequest</td>
-  <td>Future, RIM: Act. [%resdesc SupplyRequest%]</td>
-</tr>
+<p>
+The <code>Patient</code> resource represents the recipient of healthcare. This concept
+is not always referred to as a 'patient' - other words such as client, customer, resident
+etc are commonly used, but in this specification, the recipient of healthcare is 
+simply known as the patient. The patient resource includes basic demographics and 
+next of kin information.
+</p>
+<p>
+The <code>Practitioner</code> resource is used to identify and describe any person
+(or even animal) involved in the provision of care, including doctors, nurses, 
+clerical staff, specialist support staff, etc. 
+</p>
+<p>
+<code>RelatedPerson</code> is used to describe individuals who are related 
+to the patient who are involved in the healthcare process, beyond merely 
+being next of kin - they may sign documents, administer medications, be the 
+source of information, or simply provide care by chance at an accident. 
+</p>
 
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><hr/></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><h3>Infrastructure</h3></td>
-</tr>
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Information</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>AuditEvent</td>
-  <td>Past, RIM: Act. [%resdesc AuditEvent%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Provenance</td>
-  <td>Past, RIM: Act. [%resdesc Provenance%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Questionnaire</td>
-  <td>Past, RIM: Act<br/>Entity Availibility. [%resdesc Questionnaire%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Questionnaire<br/>Response</td>
-  <td>Past, RIM: Act<br/>Entity Availibility. [%resdesc QuestionnaireResponse%]</td>
-</tr>
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="patient.html">Patient</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
+<tr><td><a href="practitioner.html">Practitioner</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+<tr><td><a href="relatedperson.html">RelatedPerson</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+</table>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Documents</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Composition</td>
-  <td>Unrelated, RIM: Document. [%resdesc Composition%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DocumentManifest</td>
-  <td>Unrelated, RIM: Document<br/>Entity Availibility. [%resdesc DocumentManifest%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DocumentReference</td>
-  <td>Unrelated, RIM: Document<br/>Entity Availibility. [%resdesc DocumentReference%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>List</td>
-  <td>Unrelated, RIM: Act. [%resdesc List%]</td>
-</tr>
+<h4>Groups</h4>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Structures</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Basic</td>
-  <td>Unrelated, RIM: InfrastructureRoot. [%resdesc Basic%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Binary</td>
-  <td>Unrelated, RIM: Entity. [%resdesc Binary%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Bundle</td>
-  <td>Unrelated, RIM: Entity. [%resdesc Bundle%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Media</td>
-  <td>Past, RIM: Act. [%resdesc Media%]</td>
-</tr>
+<p>
+In most provision of healthcare, some <code>Organization</code> is responsible and accountable
+for the care, and references appear throughout the clinical record. The organization is 
+a legal entity that may operate at multiple locations. A <code>HealthcareService</code>
+represents the services offered by one or more organizations at a single location.
+</p>
+<p>
+A <code>Group</code> is used to describe one or more individuals - usually people, though
+other kinds of entities are allowed. Typically, these are used with aggregate reporting,
+though sometimes care is provided to a set of individuals at once (some counselling
+procedures, public health procedures, herds of cattle, etc).
+</p>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Exchange</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>MessageHeader</td>
-  <td>Present, RIM: Act. [%resdesc MessageHeader%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>OperationOutcome</td>
-  <td>Present, RIM: Act. [%resdesc OperationOutcome%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Parameters</td>
-  <td>Unrelated, RIM: InfrastructureRoot. [%resdesc Parameters%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Subscription</td>
-  <td>Present, RIM: Act. [%resdesc Subscription%]</td>
-</tr>
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="organization.html">Organization</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+<tr><td><a href="healthcareservice.html">HealthcareService</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+<tr><td><a href="group.html">Group</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
+</table>
 
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><hr/></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><h3>Conformance</h3></td>
-</tr>
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Terminology</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ConceptMap</td>
-  <td>Unrelated, . [%resdesc ConceptMap%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>NamingSystem</td>
-  <td>Unrelated, . [%resdesc NamingSystem%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ValueSet</td>
-  <td>Unrelated, . [%resdesc ValueSet%]</td>
-</tr>
+<h4>Entities</h4>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Content</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>DataElement</td>
-  <td>Unrelated, Entity Availibility. [%resdesc DataElement%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Structure<br/>Definition</td>
-  <td>Unrelated, . [%resdesc StructureDefinition%]</td>
-</tr>
+<p>
+<code>Location</code> - for where things happen. Locations are either by instance (e.g. 
+this particular room at a given address or GPS coordinates) or by kind (e.g. the back
+of some ambulance). The same applies to <code>Substance</code>, for some kind of 
+meterial (e.g. chemical) used in healthcare - it may refer to an identified instance 
+(e.g. bottle) or a kind of chemical. 
+</p>
+<p>
+The <code>Person</code> resource is used to track associations between different
+patient records across the provision of healthcare (e.g. "master patient indexes").
+Person resources are not referred directly from other resources; their use is for 
+dedicated person registries.
+</p>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Behavior</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Conformance</td>
-  <td>Unrelated, n/a. [%resdesc Conformance%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>OperationDefinition</td>
-  <td>Unrelated, . [%resdesc OperationDefinition%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>SearchParameter</td>
-  <td>Unrelated, . [%resdesc SearchParameter%]</td>
-</tr>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Misc.</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ImplementationGuide</td>
-  <td>Unrelated, . [%resdesc ImplementationGuide%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>TestScript</td>
-  <td>Unrelated, . [%resdesc TestScript%]</td>
-</tr>
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="location.html">Location</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
+<tr><td><a href="substance.html">Substance</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
+<tr><td><a href="person.html">Person</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
+</table>
 
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><hr/></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"><h3>Financial</h3></td>
-</tr>
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Support</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Coverage</td>
-  <td>Ongoing, RIM: Act. [%resdesc Coverage%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>EligibilityRequest</td>
-  <td>Present, RIM: Act. [%resdesc EligibilityRequest%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>EligibilityResponse</td>
-  <td>Present, RIM: Act. [%resdesc EligibilityResponse%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>EnrollmentRequest</td>
-  <td>Present, RIM: Act. [%resdesc EnrollmentRequest%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>EnrollmentResponse</td>
-  <td>Present, RIM: Act. [%resdesc EnrollmentResponse%]</td>
-</tr>
+<h4>Device</h4>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Billing</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Claim</td>
-  <td>Present, RIM: Act. [%resdesc Claim%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ClaimResponse</td>
-  <td>Present, RIM: Act. [%resdesc ClaimResponse%]</td>
-</tr>
+<p>
+<code>Device</code> is used to track non-consumable manufactured materials through the
+healthcare process. It includes implants, large instruments, non-medical things (including
+software), and containers. Devices - and therefore the device resource - have may purposes,
+including stock control, locating devices, and tracking implants.
+</p>
+<p>
+<code>DeviceComponent</code> and <code>DeviceMetric</code> are used to report the status
+and characteristics of the kinds of medical devices that produce a stream of one or 
+more data points (<a href="observation.html">observations</a>), usually about a patient. 
+</p>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Payments</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>PaymentNotice</td>
-  <td>Past, RIM: Act. [%resdesc PaymentNotice%]</td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>Payment<br/>Reconciliation</td>
-  <td>Past, RIM: Act. [%resdesc PaymentReconciliation%]</td>
-</tr>
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="device.html">Device</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+<tr><td><a href="devicecomponent.html">DeviceComponent</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+<tr><td><a href="devicemetric.html">DeviceMetric</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+</table>
 
-<tr style="background-color: #eeeeee">
-  <td colspan="2"><b>Other</b></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td colspan="2"></td>
-</tr>
-<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
-<tr>
-  <td>ExplanationOfBenefit</td>
-  <td>Past, RIM: Act. [%resdesc ExplanationOfBenefit%]</td>
-</tr>
+<h3>Work Flow</h3>
 
+<h4>Encounters</h4>
+
+<p>
+<code>Encounter</code> tracks an interaction between a patient and healthcare provider(s).
+Specifically, this resource tracks the administrative details of the interaction, not the
+clinical details (though these usual link to it). Aliases for this include 
+'admission', 'consultation', and sometimes 'appointment'. Encounters may be nested - e.g. 
+when the patient goes to physiotherapy as part of a hospital admission.
+</p>
+<p>
+An <code>EpisodeofCare</code> is a association between a patient and a care provider
+that may last over several encounters. The purpose of EpisodeOfCare is track a provider
+(person or organization) that has an interest in the ongoing care of the patient.
+</p>
+<p>
+A <code>Communication</code> is a record of a formal communication with a 
+patient or another party with an interest in their care - a letter, email, phone call etc. 
+</p>
+<p>
+A <code>Flag</code> is warning maintained in the system that alerts care providers to potential
+issues they should be aware of when providing care to a patient, or at a location.
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="encounter.html">Encounter</a></td><td><a href="#future">Future</a> / <a href="#ongoing">Ongoing</a> / <a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="episodeofcare.html">EpisodeOfCare</a></td><td><a href="#ongoing"></a></td><td>Act</td><td></td></tr>
+<tr><td><a href="communication.html">Communication</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
+<tr><td><a href="flag.html">Flag</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
+</table>
+
+<h4>Scheduling</h4>
+
+<p>
+These resources are concerned with planning times and locations for future delivery of care:
+</p>
+<ul>
+ <li>A <code>Schedule</code> describes a set of times in the future that a service or individual may be available</li>
+ <li>A <code>Slot</code> is an instance of a time in a schedule that may be reserved</li>
+ <li>An <code>Appointment</code> is proposed or confirmed future event, with a list of participants who may or may not have confirmed their attendance</li>
+ <li>An <code>AppointmentResponse</code> is an individual's acceptance or rejection of an appointment</li>
+</ul>
+<p>
+The scheduling systems is closely aligned with the iCal system so that systems may leverage web bookings while maintaing integrity with the rest of the clinical record.
+</p>
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="appointment.html">Appointment</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="appointmentresponse.html">AppointmentResponse</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="schedule.html">Schedule</a></td><td><a href="#future">Future</a></td><td></td><td></td></tr>
+<tr><td><a href="slot.html">Slot</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
+</table>
+
+<h4>Order Management</h4>
+
+<p>
+Todo: these resources are all draft. Bringing them to maturity and testing this is a major ongoing focus of the FHIR project.
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="communicationrequest.html">CommunicationRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
+<tr><td><a href="deviceuserequest.html">DeviceUseRequest</a></td><td><a href="#present">Present</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
+<tr><td><a href="deviceusestatement.html">DeviceUseStatement</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="order.html">Order</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="orderresponse.html">OrderResponse</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="processrequest.html">ProcessRequest</a></td><td><a href="#present">Present</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
+<tr><td><a href="processresponse.html">ProcessResponse</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="supplydelivery.html">SupplyDelivery</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="supplyrequest.html">SupplyRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
+</table>
+
+<h3>Infrastructure</h3>
+
+<p>
+These resources provide generally useful functionality, and/or are referenced directly from the 
+base FHIR framework (<a href="http.html">RESTful API</a>, <a href="messaging.html">messaging</a>, 
+<a href="documents.html">documents</a>).
+</p>
+
+<h4>Information Management</h4>
+
+<p>
+<code>Questionnaire</code> and <code>QuestionnaireResponse</code> are for general purpose data collection
+from a patient or other information source- the set of questions, and the individuals response (answers to the 
+questions). A questionnaire can contain any kind of data, including the data represented in all other
+resources; it is anticpated that the data will be processed into the other kind of resources for further
+usage and exchange.
+</p>
+<p>
+The <code>Provenance</code> resource is used to make statements about the where 
+a resource came from - that is, who, what, why, when and where for it's creation. 
+This may be used in assessing the integrity, reliability and usefulness of a resource
+or the data in it. Note that many resources contain some limited amount of this
+information directly, because it is deemed essential to using/finding/filtering/understanding
+the resource directly. Whenever information is found in both a resource, and in the 
+provenance statements for the resource, it is expected to be the same.
+</p>
+<p>
+An <code>AuditEvent</code> is an observation by a system that a record was altered (created, 
+updated, deleted), with audit information about the event. Typically, the provenance record
+is created before the resource is altered, by the (sub)system causing the change to the 
+resource, while the audit record is created after the change by the (sub)system responsible
+for storing it. 
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="questionnaire.html">Questionnaire</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="questionnaireresponse.html">QuestionnaireResponse</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="provenance.html">Provenance</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="auditevent.html">AuditEvent</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+</table>
+
+<h4>Documents</h4>
+
+<p>
+In clinical practice, there are use cases for both exchanging information in a highly
+granular form, and for exchanging it in packages known as 'documents'. This specification
+provides two different kinds of support for creating and exchanging documents:
+</p>
+<ul>
+ <li><code>Composition</code> allows for the construction of a detailed <a href="documents.html">document package</a> using a resources for all the details of the document</li>
+ <li><code>DocumentReference</code> and <code>DocumentManifest</code> are used for referring to and/or exchanging external documents (CDA, PDF, other kinds of records etc) either as single documents or groups of documents respectively</li>
+</ul>
+<p>
+The <code>List</code> resource is used to link a set of other kinds of resources into a singe list. This might 
+be done for many reasons - maintaining a list of work to do, or patients of interest, or a set of current problems for a patient. 
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="composition.html">Composition</a></td><td><a href="#unrelated">Unrelated</a></td><td>Unrelated</td><td></td></tr>
+<tr><td><a href="documentmanifest.html">DocumentManifest</a></td><td><a href="#unrelated">Unrelated</a></td><td>Document</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
+<tr><td><a href="documentreference.html">DocumentReference</a></td><td><a href="#unrelated"></a></td><td>Document</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
+<tr><td><a href="list.html">List</a></td><td><a href="#unrelated">Unrelated</a></td><td>Act</td><td></td></tr>
+</table>
+
+<h4>Structures</h4>
+
+<p>
+Basic support structures with general usefulness:
+</p>
+<ul>
+ <li><code>Media</code> stores an image, video, or sound recording, with metadata that can be used to link it into the rest of the healthcare record as represented in resources</li>
+ <li><code>Binary</code> is a container for content of any type, to include content that in some format other than a FHIR resource </li>
+ <li><code>Bundle</code> acts as an envelope for a set of other resources as they are gathered toegether for exchange. Bundles may be long lived (documents) or very short lived (search results)</li>
+ <li><code>Basic</code> is a general container that can be used to represent data for which a specific resource doesn't yet exist (general extension point)</li>
+</ul>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="media.html">Media</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="binary.html">Binary</a></td><td><a href="#">Unrelated</a></td><td>Entity</td><td></td></tr>
+<tr><td><a href="bundle.html">Bundle</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
+<tr><td><a href="basic.html">Basic</a></td><td><a href="#unrelated">Unrelated</a></td><td>InfrastructureRoot</td><td></td></tr>
+</table>
+
+<h4>Exchange</h4>
+
+<p>
+These resources support the exchange process directly:
+</p>
+<ul>
+ <li><code>MessageHeader</code> is the header for a message - identifies it context, sender and reciever, and content</li>
+ <li><code>OperationOutcome</code> is returned to indicate the detailed outcome of a particular FHIR operation or interaction - success, or failure</li>
+ <li><code>Parameters</code> is input or output to <a href="operations.html">Operations</a></li>
+ <li><code>Subscription</code> allows one system to subscribe to events on another system</li>
+</ul>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="messageheader.html">MessageHeader</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="operationoutcome.html">OperationOutcome</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="parameters.html">Parameters</a></td><td><a href="#present">Present</a></td><td>InfrastructureRoot</td><td></td></tr>
+<tr><td><a href="subscription.html">Subscription</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+</table>
+
+<h3>Conformance</h3>
+
+<p>
+This specification is a base platform specification that defines a set of 
+general capabilities. Specific systems build on top of that to create 
+interoperable solutions by <a href="profiling.html">making a set of 
+conformance rules</a>. These conformance rules are supported by a 
+this set of "conformance" resources.
+</p>
+
+<h4>Terminology</h4>
+
+<p>
+A <code>ValueSet</code> defines a set of codes from a <a href="terminologies.html">code system</a>
+that are used for validation, lookup etc. A <code>ConceptMap</code> maps value sets between different
+code systems.
+</p>
+<p>
+A <code>NamingSystem</code> resource represents and external provider of codes 
+or identifiers (e.g. a external code system such as SNOMED CT, or an identification system such
+as an institution MRN. The naming system resource exists to share the identification and registration
+of these systems, to foster consistency in their identification.
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="valueset.html">ValueSet</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="conceptmap.html">ConceptMap</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="namingsystem.html">NamingSystem</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+</table>
+
+<h4>Content</h4>
+
+<p>
+<code>StructureDefinition</code> and <code>DataElement</code> both describe a
+set of data elements that can represent data for the purposes of collection, 
+analysis and exchange. They have slightly different purposes:
+</p>
+<ul>
+ <li>StructureDefinition is used specifically to describe the structures used by or with this specification</li>
+ <li>DataElement describes more general data items that are represented and exchanged in many formats and/or contexts</li>
+</ul>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="structuredefinition.html">StructureDefinition</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="dataelement.html">DataElement</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
+</table>
+
+<h4>Behavior</h4>
+
+<p>
+A <code>Conformance</code> is a statement of a set of system capabilities 
+for use as system discovery, or conformance expectations.
+</p>
+<p>
+An <code>OperationDefinition</code> describes an operation that can be 
+executed on a server, and a <code>SearchParameter</code> defines 
+a search parameter that can be used on a server. 
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="conformance.html">Conformance</a></td><td><a href="#">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="operationdefinition.html">OperationDefinition</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="searchparameter.html">SearchParameter</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+</table>
+
+<h4>Miscellaneous</h4>
+
+<p>
+<code>ImplementationGuide</code> is used to gather all the other resources
+into a single package for publication, and also to define the bounds of 
+an interoperability solution.
+</p>
+
+<p>
+A <code>TestScript</code> specifies a series of operations and outcomes
+that a system is expected to meet. Test Scripts are for develpoment and
+acceptance testing, but may also be considered for use with production
+systems, if the tests are carefully constructed and vetted.
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="implementationguide.html">ImplementationGuide</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="testscript.html">TestScript</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+</table>
+
+<h3>Financial</h3>
+
+<p>
+These resources are all in draft 
+status, and more details will be 
+provided here in due course.
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="coverage.html">Coverage</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="eligibilityrequest.html">EligibilityRequest</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="eligibilityresponse.html">EligibilityResponse</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="claim.html">Claim</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="claimresponse.html">ClaimResponse</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="paymentnotice.html">PaymentNotice</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="paymentreconciliation.html">PaymentReconciliation</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 </table>
 
 </div>
