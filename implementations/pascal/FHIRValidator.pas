@@ -116,6 +116,12 @@ Type
     function rule(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean; overload;
     function rule(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; path : String; thePass : boolean; msg : String) : boolean; overload;
     function warning(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean;
+    function hint(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean;
+    procedure bpCheck(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; line, col : integer; literalPath : String; test : boolean; message : String);
+
+    function empty(element : TWrapperElement) : boolean;
+    Function resolveInBundle(entries : TAdvList<TWrapperElement>; ref, fullUrl, type_, id : String) : TWrapperElement;
+    function getProfileForType(type_ : String) : TFHIRStructureDefinition;
 
     procedure validateSections(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
     procedure validateBundleReference(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
@@ -151,7 +157,7 @@ Type
 implementation
 
 uses
-  FHIRParserBase;
+  FHIRParserBase, FHIRUtilities;
   
 { TElementInfo }
 
@@ -1038,101 +1044,140 @@ end;
 //firstBase := ebase = nil ? base : ebase;
 
 procedure TFHIRInstanceValidator.validateSections(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
-    TAdvList<TWrapperElement> sections := TAdvList<TWrapperElement>.create();
-    focus.getNamedChildren('entry', sections);
-    int i := 0;
-    for (TWrapperElement section : sections) begin
-      TNodeStack localStack := stack.push(section,  1, nil, nil);
-			validateBundleReference(errors, entries, section.getNamedChild('content'), 'Section Content', localStack, fullUrl, 'Composition', id);
-      validateSections(errors, entries, section, localStack, fullUrl, id);
-      i++;
-    end;
-  end;
-    
-procedure TFHIRInstanceValidator.validateBundleReference(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id, String);
+var
+  sections : TAdvList<TWrapperElement>;
+  section : TWrapperElement;
+  i : integer;
+  localStack : TNodeStack;
 begin
-    if (ref <> nil ) and ( !Utilities.noString(ref.getNamedChildValue('reference'))) begin
-      TWrapperElement target := resolveInBundle(entries, ref.getNamedChildValue('reference'), fullUrl, type, id);
-      rule(errors, IssueTypeINVALID, target.line(), target.col(), stack.addToLiteralPath('reference'), target <> nil, 'Unable to resolve the target of the reference in the bundle ('+name+')');
-    end;
+  sections := TAdvList<TWrapperElement>.create();
+  focus.getNamedChildren('entry', sections);
+  i := 0;
+  for section in sections do
+  begin
+    localStack := stack.push(section,  1, nil, nil);
+    validateBundleReference(errors, entries, section.getNamedChild('content'), 'Section Content', localStack, fullUrl, 'Composition', id);
+    validateSections(errors, entries, section, localStack, fullUrl, id);
+    inc(i);
   end;
-  
-  private TWrapperElement resolveInBundle(entries : TAdvList<TWrapperElement>, String ref, String fullUrl, String type, String id) begin
-    if (Utilities.isAbsoluteUrl(ref)) begin
-      // if the reference is absolute, then you resolve by fullUrl. No other thinking is required. 
-      for (TWrapperElement entry : entries) begin
-        String fu := entry.getNamedChildValue('fullUrl');
-        if (ref = fu))
-          return entry;
+end;
+
+procedure TFHIRInstanceValidator.validateBundleReference(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
+var
+  target : TWrapperElement;
+begin
+  if (ref <> nil) and (ref.getNamedChildValue('reference') <> '') then
+  begin
+    target := resolveInBundle(entries, ref.getNamedChildValue('reference'), fullUrl, type_, id);
+    rule(errors, IssueTypeINVALID, target.line(), target.col(), stack.addToLiteralPath(['reference']), target <> nil, 'Unable to resolve the target of the reference in the bundle ('+name+')');
+  end;
+end;
+
+function isAbsoluteUrl(s : String) : boolean;
+begin
+  result := false;
+end;
+
+Function TFHIRInstanceValidator.resolveInBundle(entries : TAdvList<TWrapperElement>; ref, fullUrl, type_, id : String) : TWrapperElement;
+var
+  entry, res, resource : TWrapperElement;
+  fu, u, t, i, et, eid : String;
+  parts : TArray<String>;
+begin
+  result := nil;
+  if (isAbsoluteUrl(ref)) then
+  begin
+    // if the reference is absolute, then you resolve by fullUrl. No other thinking is required.
+    for entry in entries do
+    begin
+      fu := entry.getNamedChildValue('fullUrl');
+      if (ref = fu) then
+      begin
+        result := entry;
+        exit;
       end;
-      return nil;
-    end; else begin
-      // split into base, type, and id
-      String u := nil;
-      if (fullUrl <> nil ) and ( fullUrl.endsWith(type+'/'+id))
-        // fullUrl := complex
-        u := fullUrl.substring((type+'/'+id).length())+ref;
-      String[] parts := ref.split('\\/');
-      if (parts.length >:= 2) begin
-        String t := parts[0];
-        String i := parts[1];
-        for (TWrapperElement entry : entries) begin
-          String fu := entry.getNamedChildValue('fullUrl');
-          if (u <> nil ) and ( fullUrl = u))
-            return entry;
-          if (u = nil) begin
-            TWrapperElement res := entry.getNamedChild('resource');
-            TWrapperElement resource := res.getFirstChild();
-            String et := resource.getResourceType();
-            String eid := resource.getNamedChildValue('id');
-            if (t = et) ) and ( i = eid))
-              return entry;
-          end;
+    end;
+  end
+  else
+  begin
+    // split into base, type, and id
+    u := '';
+    if (fullUrl <> '') and (fullUrl.endsWith(type_+'/'+id)) then
+      // fullUrl := complex
+      u := fullUrl.substring((type_+'/'+id).length)+ref;
+    parts := ref.split(['\\/']);
+    if (length(parts) >= 2) then
+    begin
+      t := parts[0];
+      i := parts[1];
+      for entry in entries do
+      begin
+        fu := entry.getNamedChildValue('fullUrl');
+        if (u <> '') and (fullUrl = u) then
+        begin
+          result := entry;
+          exit;
+        end;
+        if (u = '') then
+        begin
+          res := entry.getNamedChild('resource');
+          resource := res.getFirstChild();
+          et := resource.getResourceType();
+          eid := resource.getNamedChildValue('id');
+          if (t = et) and (i = eid) then
+            result := entry;
         end;
       end;
-      return nil;
     end;
   end;
-    
-  private StructureDefinition getProfileForType(String type) ; begin
-    return context.fetchResource(StructureDefinition.class, 'http://hl7.org/fhir/StructureDefinition/'+type);
-  end;
+end;
 
-  procedure TFHIRInstanceValidator.validateObservation(errors : TAdvList<TValidationMessage>, element : TWrapperElement, stack : TNodeStack) begin
-    // all observations should have a subject, a performer, and a time
+function TFHIRInstanceValidator.getProfileForType(type_ : String) : TFHIRStructureDefinition;
+begin
+  result := Fcontext.fetchResource<TFHIRStructureDefinition>('http://hl7.org/fhir/StructureDefinition/'+type_);
+end;
 
-    bpCheck(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, element.getNamedChild('subject') <> nil, 'All observations should have a subject');
-    bpCheck(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, element.getNamedChild('performer') <> nil, 'All observations should have a performer');
-    bpCheck(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, element.getNamedChild('effectiveDateTime') <> nil ) or ( element.getNamedChild('effectivePeriod') <> nil , 'All observations should have an effectiveDateTime or an effectivePeriod');
-  end;
+procedure TFHIRInstanceValidator.validateObservation(errors : TAdvList<TValidationMessage>; element : TWrapperElement; stack : TNodeStack);
+begin
+  // all observations should have a subject, a performer, and a time
+  bpCheck(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, element.getNamedChild('subject') <> nil, 'All observations should have a subject');
+  bpCheck(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, element.getNamedChild('performer') <> nil, 'All observations should have a performer');
+  bpCheck(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, (element.getNamedChild('effectiveDateTime') <> nil) or (element.getNamedChild('effectivePeriod') <> nil), 'All observations should have an effectiveDateTime or an effectivePeriod');
+end;
 
-  procedure TFHIRInstanceValidator.bpCheck(errors : TAdvList<TValidationMessage>, IssueType invalid, int line, int col, String literalPath, boolean test, String message) begin
-  	if (bpWarnings <> nil) begin
-    switch (bpWarnings) begin
-    case Error: rule(errors, invalid, line, col, literalPath, test, message);
-    case Warning: warning(errors, invalid, line, col, literalPath, test, message);
-    case Hint: hint(errors, invalid, line, col, literalPath, test, message);
-    default: // do nothing
-    end;
+procedure TFHIRInstanceValidator.bpCheck(errors : TAdvList<TValidationMessage>; t: TFHIRIssueType; line, col : integer; literalPath : String; test : boolean; message : String);
+ begin
+  case bpWarnings of
+    bpwlHint: hint(errors, t, line, col, literalPath, test, message);
+    bpwlWarning: warning(errors, t, line, col, literalPath, test, message);
+    bpwlError: rule(errors, t, line, col, literalPath, test, message);
+    bpwlIgnore: ; // do nothing
   end;
-  end;
-  
-  procedure TFHIRInstanceValidator.validateElement(errors : TAdvList<TValidationMessage>, profile : TFHIRStructureDefinition, ElementDefinition definition, StructureDefinition cprofile, ElementDefinition context, element : TWrapperElement, String actualType, stack : TNodeStack) ; begin
-    // irrespective of what element it is, it cannot be empty
-  	if (element.isXml()) begin
-      rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, FormatUtilities.FHIR_NS = element.getNamespace()), 'Namespace mismatch - expected "'+FormatUtilities.FHIR_NS+'", found "'+element.getNamespace()+'"');
-      rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, !element.hasNamespace('http://www.w3.org/2001/XMLSchema-instance'), 'Schema Instance Namespace is not allowed in instances');
-      rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, !element.hasProcessingInstruction(), 'No Processing Instructions in resources');
-  	end;
-    rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, !empty(element), 'Elements must have some content (@value, extensions, or children elements)');
-    
-    // get the list of direct defined children, including slices
-    List<ElementDefinition> childDefinitions := ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
+end;
 
-    // 1. List the children, and remember their exact path (convenience)
-    List<ElementInfo> children := new ArrayList<InstanceValidator.ElementInfo>();
-    ChildIterator iter := new ChildIterator(stack.literalPath, element);
-    while (iter.next()) 
+procedure TFHIRInstanceValidator.validateElement(errors : TAdvList<TValidationMessage>; profile : TFHIRStructureDefinition; definition : TFHIRElementDefinition; cprofile : TFHIRStructureDefinition;
+                  context : TFHIRElementDefinition; element : TWrapperElement; actualType : String; stack : TNodeStack);
+var
+  childDefinitions : TAdvList<TFHIRElementDefinition>;
+  children : TAdvList<TElementInfo>;
+  iter : TChildIterator;
+begin
+  // irrespective of what element it is, it cannot be empty
+	if (element.isXml()) then
+  begin
+    rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, FHIR_NS = element.getNamespace(), 'Namespace mismatch - expected "'+FHIR_NS+'", found "'+element.getNamespace()+'"');
+    rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, not element.hasNamespace('http://www.w3.org/2001/XMLSchema-instance'), 'Schema Instance Namespace is not allowed in instances');
+    rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, not element.hasProcessingInstruction(), 'No Processing Instructions in resources');
+  end;
+  rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, not empty(element), 'Elements must have some content (@value, extensions, or children elements)');
+
+  // get the list of direct defined children, including slices
+  childDefinitions := getChildMap(profile, definition.Name, definition.Path, definition.NameReference);
+
+  // 1. List the children, and remember their exact path (convenience)
+  children := TAdvList<TElementInfo>.create();
+  iter := TChildIterator.create(stack.literalPath, element);
+    while (iter.next())
     	children.add(new ElementInfo(iter.name(), iter.element(), iter.path(), iter.count()));
     
     // 2. assign children to a definition
@@ -1364,7 +1409,7 @@ begin
 //  private String mergePath(String path1, String path2) begin
 //    // path1 is xpath path
 //    // path2 is dotted path 
-//    String[] parts := path2.split('\\.');
+//    TArray<String> parts := path2.split('\\.');
 //    StringBuilder b := new StringBuilder(path1);
 //    for (int i := 1; i < parts.length -1; i++)
 //      b.append('/f:'+parts[i]);
@@ -1372,7 +1417,7 @@ begin
 //  end;
 
   private boolean isBundleEntry(String path) begin
-    String[] parts := path.split('\\/');
+    TArray<String> parts := path.split('\\/');
     if (path.startsWith('/f:'))
       return parts.length > 2 ) and ( parts[parts.length-1].startsWith('f:resource') ) and ( (parts[parts.length-2] = 'f:entry') ) or ( parts[parts.length-2].startsWith('f:entry['));
     else
@@ -1494,7 +1539,7 @@ begin
   end;
 
   private String tryParse(String ref) throws EOperationOutcome, Exception begin
-    String[] parts := ref.split('\\/');
+    TArray<String> parts := ref.split('\\/');
     switch (parts.length) begin
     case 1:
       return nil;
@@ -1635,7 +1680,7 @@ begin
 //    String s := path.replace('/f:', '.');
 //    while (s.contains('['))
 //      s := s.substring(0, s.indexOf('['))+s.substring(s.indexOf(']')+1);
-//    String[] parts := s.split('\\.');
+//    TArray<String> parts := s.split('\\.');
 //    int i := 0;
 //    while (i < parts.length ) and ( !context.getProfiles().containsKey(parts[i].toLowerCase()))
 //      i++;

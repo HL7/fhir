@@ -16,12 +16,13 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8923</WindowHeight>
-  <WindowWidth>18514</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>739</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -845,8 +846,7 @@
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.142857142857139"
-   ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="411"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -895,28 +895,26 @@
     ss:RefersTo="='Data Elements'!R1C1:R106C24" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="106" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="65.142857142857139"
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:Width="228"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="78"/>
    <Column ss:StyleID="s69" ss:Width="30"/>
-   <Column ss:StyleID="s69" ss:Width="35.142857142857139"/>
+   <Column ss:StyleID="s69" ss:Width="35.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="29.142857142857142"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="27"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="107.14285714285714"
-    ss:Span="1"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="107.25" ss:Span="1"/>
    <Column ss:Index="10" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s69" ss:Width="51.857142857142854" ss:Span="1"/>
+   <Column ss:StyleID="s69" ss:Width="51.75" ss:Span="1"/>
    <Column ss:Index="13" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120.85714285714286"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120.75"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="162"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:Index="21" ss:StyleID="s69" ss:AutoFitWidth="0"
-    ss:Width="104.14285714285714"/>
+   <Column ss:Index="21" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="104.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="51"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="66"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120"/>
@@ -1027,7 +1025,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">clinical</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">clinical.medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3925,10 +3923,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3941,12 +3940,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3963,14 +3961,13 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s101" ss:DefaultColumnWidth="65.142857142857139"
+   x:FullRows="1" ss:StyleID="s101" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s101" ss:AutoFitWidth="0"
-    ss:Width="116.14285714285714"/>
-   <Column ss:StyleID="s101" ss:Width="56.142857142857146"/>
-   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="233.14285714285714"/>
-   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="204.85714285714286"/>
-   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="198.85714285714286"/>
+   <Column ss:Index="2" ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:StyleID="s101" ss:Width="56.25"/>
+   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="233.25"/>
+   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="321"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
@@ -4016,7 +4013,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:reasonNotTaken) and f:wasNotTaken/@value='false')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="27.964285714285715">
+   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">2</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Reason for use</Data></Cell>
@@ -4499,13 +4496,13 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="31" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.142857142857139"
+   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="71.142857142857139"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="57"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="110.14285714285714"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="110.25"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="210"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="383.14285714285711"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="383.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s113">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell
@@ -4780,18 +4777,15 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.142857142857139"
+   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="131.14285714285714"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="125.14285714285714"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="131.25"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="125.25"/>
    <Column ss:StyleID="s112" ss:Width="24"/>
-   <Column ss:StyleID="s112" ss:Width="26.142857142857142"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="107.14285714285714"
-    ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s112" ss:AutoFitWidth="0"
-    ss:Width="222.85714285714286"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="254.14285714285714"
-    ss:Span="1"/>
+   <Column ss:StyleID="s112" ss:Width="26.25"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="107.25" ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="222.75"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="254.25" ss:Span="1"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -5413,17 +5407,15 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.142857142857139"
+   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="83.142857142857139"
-    ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s112" ss:AutoFitWidth="0"
-    ss:Width="198.85714285714286"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="158.14285714285717"/>
-   <Column ss:StyleID="s112" ss:Width="107.14285714285714"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="83.25" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="158.25"/>
+   <Column ss:StyleID="s112" ss:Width="107.25"/>
    <Column ss:StyleID="s112" ss:Width="114"/>
    <Column ss:StyleID="s112" ss:Width="120"/>
-   <Column ss:StyleID="s112" ss:Width="128.14285714285714"/>
+   <Column ss:StyleID="s112" ss:Width="128.25"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Event Code</Data><Comment
@@ -5714,7 +5706,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R1C4"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.142857142857139"
+   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="165"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="282"/>
@@ -5995,13 +5987,12 @@
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="38" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s139" ss:DefaultColumnWidth="261"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s139" ss:Width="89.142857142857139"/>
-   <Column ss:StyleID="s139" ss:Width="27.857142857142858"/>
-   <Column ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="338.14285714285711"/>
+   <Column ss:StyleID="s139" ss:Width="89.25"/>
+   <Column ss:StyleID="s139" ss:Width="27.75"/>
+   <Column ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="338.25"/>
    <Column ss:StyleID="s139" ss:Width="57"/>
-   <Column ss:StyleID="s139" ss:Width="206.14285714285714" ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s139" ss:AutoFitWidth="0"
-    ss:Width="69.857142857142861"/>
+   <Column ss:StyleID="s139" ss:Width="206.25" ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="69.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -6406,22 +6397,20 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.142857142857139"
+   x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s112" ss:Width="201.85714285714283"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="275.14285714285717"/>
+   <Column ss:StyleID="s112" ss:Width="201.75"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Column ss:StyleID="s112" ss:Width="51"/>
    <Column ss:StyleID="s112" ss:Width="45"/>
    <Column ss:StyleID="s112" ss:Width="147"/>
-   <Column ss:StyleID="s112" ss:Width="173.14285714285714"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="98.142857142857139"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="89.142857142857139"/>
+   <Column ss:StyleID="s112" ss:Width="173.25"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="98.25"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="89.25"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="173.14285714285714"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="165.85714285714283"
-    ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s112" ss:AutoFitWidth="0"
-    ss:Width="107.14285714285714"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="173.25"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Binding Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -6925,7 +6914,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6962,14 +6950,13 @@
     ss:RefersTo="='medication-statement-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="47" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s139" ss:DefaultColumnWidth="65.142857142857139"
+   x:FullRows="1" ss:StyleID="s139" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s139" ss:Width="81"/>
-   <Column ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="35.142857142857139"/>
+   <Column ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="35.25"/>
    <Column ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="156"/>
    <Column ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="81" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s139" ss:AutoFitWidth="0"
-    ss:Width="245.14285714285714"/>
+   <Column ss:Index="6" ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
    <Column ss:Index="9" ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="243"/>
    <Row ss:AutoFitHeight="0">

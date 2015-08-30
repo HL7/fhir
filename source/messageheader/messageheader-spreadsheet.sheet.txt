@@ -47,7 +47,7 @@
   Requirements = Many implementations are not prepared to use REST and need a messaging based infrastructure
   v2 Mapping = MSH / MSA / ERR
   RIM Mapping = Message
-  w5 = infrastructure
+  w5 = infrastructure.exchange
 
  -- Row 2 -----------------------------------
   Element = MessageHeader.identifier

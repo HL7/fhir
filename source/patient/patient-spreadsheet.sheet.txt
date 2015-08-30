@@ -78,7 +78,7 @@
   Requirements = Tracking patient is the center of the healthcare process
   CDA Mapping = ClinicalDocument.recordTarget.patientRole
   RIM Mapping = Patient[classCode=PAT]
-  w5 = administration
+  w5 = administrative.individual
 
  -- Row 2 -----------------------------------
   Element = Patient.identifier

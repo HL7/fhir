@@ -58,7 +58,7 @@
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
   v2 Mapping = N/A
   RIM Mapping = Observation[classCode=ALRT, moodCode=EVN)
-  w5 = clinical
+  w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = Contraindication.patient

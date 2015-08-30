@@ -21,7 +21,7 @@
   Definition = Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don\'t map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
   Requirements = Need some way to safely (without breaking interoperability) allow implementers to exchange content not supported by the initial set of declared resources.
   RIM Mapping = Act, Entity or Role
-  w5 = infrastructure
+  w5 = infrastructure.structure
 
  -- Row 2 -----------------------------------
   Element = Basic.identifier

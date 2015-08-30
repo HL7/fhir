@@ -137,7 +137,7 @@
   Definition = A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts
   Requirements = An implementation guide is able to define default profiles that must apply to any use of a resource, so validation services may need to take one or more implementation guide resources when validating
   RIM Mapping = n/a
-  w5 = infrastructure
+  w5 = conformance.misc
 
  -- Row 2 -----------------------------------
   Element = ImplementationGuide.url

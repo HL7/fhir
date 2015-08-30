@@ -43,6 +43,7 @@
   Short Label = Delivery of Supply
   Definition = Record of delivery of what is supply
   RIM Mapping = Supply[moodCode=RQO]
+  w5 = workflow.order
 
  -- Row 2 -----------------------------------
   Element = !SupplyDelivery.kind

@@ -67,7 +67,7 @@
   Short Label = Definition of an operation or a named query
   Definition = A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)
   RIM Mapping = n/a
-  w5 = infrastructure
+  w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
   Element = OperationDefinition.url

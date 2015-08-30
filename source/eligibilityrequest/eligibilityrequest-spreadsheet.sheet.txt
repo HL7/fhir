@@ -10,6 +10,7 @@
   Type = DomainResource
   Short Label = Eligibility request
   Definition = This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
+  w5 = financial.support
 
  -- Row 2 -----------------------------------
   Element = !Identification

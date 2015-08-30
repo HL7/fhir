@@ -233,7 +233,7 @@
   Definition = Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance
   Requirements = To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance.
   Comments = Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.
-  w5 = clinical
+  w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = AllergyIntolerance.identifier

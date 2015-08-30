@@ -186,7 +186,7 @@
   Comments = Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as Lab reports, etc
   v2 Mapping = OBX
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
-  w5 = clinical
+  w5 = clinical.diagnostics
 
  -- Row 2 -----------------------------------
   Element = Observation.identifier

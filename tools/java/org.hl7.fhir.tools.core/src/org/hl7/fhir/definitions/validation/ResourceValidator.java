@@ -153,8 +153,9 @@ public class ResourceValidator extends BaseValidator {
 
     rule(errors, IssueType.REQUIRED,  rd.getName(), rd.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, IssueType.REQUIRED,  rd.getName(), rd.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
+    rule(errors, IssueType.REQUIRED,  rd.getName(), !Utilities.noString(rd.getRoot().getW5()), "A resource must have a W5 category"); 
     
-    if (warning(errors, IssueType.REQUIRED, rd.getName(), hasW5Mappings(rd) || "infrastructure".equals(rd.getRoot().getW5()), "A resource must have w5 mappings")) {
+    if (warning(errors, IssueType.REQUIRED, rd.getName(), hasW5Mappings(rd) || rd.getName().equals("Binary") || rd.getName().equals("OperationOutcome"), "A resource must have w5 mappings")) {
       String w5Order = listW5Elements(rd);
       String w5CorrectOrder = listW5Correct(rd);
       if (!w5Order.equals(w5CorrectOrder)) {
@@ -470,8 +471,14 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, path, e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
     hint(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
     
-    if (!Utilities.noString(e.getW5()))
-      rule(errors, IssueType.INVALID, path, definitions.getW5s().containsKey(e.getW5()), "The w5 value '"+e.getW5()+"' is illegal");
+    if (!Utilities.noString(e.getW5())) {
+      if (path.contains("."))
+        rule(errors, IssueType.INVALID, path, definitions.getW5s().containsKey(e.getW5()), "The w5 value '"+e.getW5()+"' is illegal");
+      else {
+        String[] vs = e.getW5().split("\\."); 
+        rule(errors, IssueType.INVALID, path, vs.length ==2 && definitions.getW5s().containsKey(vs[0]) && definitions.getW5s().get(vs[0]).getSubClasses().contains(vs[1]), "The w5 value '"+e.getW5()+"' is illegal");
+      }
+    }
     if (e.getName().equals("subject"))
       warning(errors, IssueType.STRUCTURE, path, !e.typeCode().equals("Reference(Patient)"), "Elements with name 'subject' cannot be a reference to just a patient"); // make this an error...
     if (e.getName().equals("patient"))

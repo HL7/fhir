@@ -94,7 +94,7 @@
   Short Label = An instance of a medical-related component of a medical device
   Definition = Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
   Comments = For the initial scope, this DeviceComponent resource is only applicable to describe a single node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard and that does not represent a metric. Examples for such a node are MDS, VMD, or Channel.
-  w5 = administration
+  w5 = administrative.device
 
  -- Row 2 -----------------------------------
   Element = DeviceComponent.type

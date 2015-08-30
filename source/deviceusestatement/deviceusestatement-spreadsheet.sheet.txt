@@ -10,7 +10,7 @@
   Type = DomainResource
   Definition = A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
   QUICK mapping = DeviceUsePerformanceOccurrence
-  w5 = clinical
+  w5 = workflow.order
 
  -- Row 2 -----------------------------------
   Element = DeviceUseStatement.bodySite[x]

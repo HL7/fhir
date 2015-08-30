@@ -79,7 +79,7 @@
   v2 Mapping = OM1
   RIM Mapping = Observation[classCode=OBS, moodCode=DEFN]
   11179 Mapping = Data_Element
-  w5 = infrastructure
+  w5 = conformance.content
 
  -- Row 2 -----------------------------------
   Element = DataElement.url

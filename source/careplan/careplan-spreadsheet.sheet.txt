@@ -209,6 +209,7 @@
   Definition = Describes the intention of how one or more practitioners intend to deliver care for a particular patient for a period of time, possibly limited to care for a specific condition or set of conditions.
   RIM Mapping = Act[classCode=PCPR, moodCode=INT]
   Committee Notes = At present, this resource combines the concepts of CarePlan and CareTeam.  Should they be split?
+  w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
   Element = CarePlan.identifier

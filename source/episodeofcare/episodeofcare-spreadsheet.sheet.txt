@@ -56,7 +56,7 @@
   Type = DomainResource
   Short Label = An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility
   Definition = An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
-  w5 = clinical
+  w5 = workflow.encounter
 
  -- Row 2 -----------------------------------
   Element = EpisodeOfCare.identifier

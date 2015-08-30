@@ -48,7 +48,7 @@
   Type = DomainResource
   Short Label = A record of information transmitted from a sender to a receiver
   Definition = An occurrence of information being transmitted. E.g., an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
-  w5 = administration
+  w5 = workflow.encounter
 
  -- Row 2 -----------------------------------
   Element = Communication.identifier

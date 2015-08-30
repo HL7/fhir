@@ -83,7 +83,7 @@
   Short Label = A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference
   Definition = A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference
   RIM Mapping = Act[classCode=\"DGIMG\", moodCode=\"EVN\"]
-  w5 = infrastructure
+  w5 = infrastructure.structure
 
  -- Row 2 -----------------------------------
   Element = Media.type

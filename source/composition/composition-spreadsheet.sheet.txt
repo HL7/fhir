@@ -153,7 +153,7 @@
   Comments = While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical
   CDA Mapping = ClinicalDocument
   RIM Mapping = Document[classCode=\"DOC\" and moodCode=\"EVN\" and isNormalAct()]
-  w5 = infrastructure
+  w5 = infrastructure.documents
 
  -- Row 2 -----------------------------------
   Element = Composition.identifier

@@ -110,6 +110,7 @@ signatures.html
 			<page title="How FHIR fits into an EHR" filename="ehr-fm.html"/>
 			<page title="Status Code Map" filename="sc.html"/>
 			<page title="W5 Map" filename="w5.html"/>
+			<page title="Namespace List" filename="ns.html"/>
       
 			<page title="Ballot Intro" filename="ballot-intro.html"/>
 		</page>
@@ -228,7 +229,6 @@ signatures.html
 			<page type="resource" resource="Organization"/>
 			<page type="resource" resource="HealthcareService"/>
 			<page type="resource" resource="Account"/>
-			<page type="resource" resource="Contract"/>
 			<page type="resource" resource="ProcessRequest"/>
 			<page type="resource" resource="ProcessResponse"/>
 			<page type="resource" resource="Device"/>

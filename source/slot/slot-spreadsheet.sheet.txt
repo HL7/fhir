@@ -49,7 +49,7 @@
   Type = DomainResource
   Short Label = A slot of time on a schedule that may be available for booking appointments
   iCal Mapping = (refer to the Availability resource for the header mapping details)
-  w5 = administration
+  w5 = workflow.scheduling
 
  -- Row 2 -----------------------------------
   Element = Slot.identifier

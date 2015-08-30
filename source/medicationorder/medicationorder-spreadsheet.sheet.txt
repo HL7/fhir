@@ -20,7 +20,7 @@
  -- Row 3 -----------------------------------
   Binding Name = MedicationAsNeededReason
   Binding = unbound
-  Definition = A coded concept identifying the pre-condition that should hold prior to consuming a medication dose.  For example \"pain\", \"30 minutes prior to sexual intercourse\", \"on flare-up\", etc.
+  Definition = A coded concept identifying the precondition that should be met or evaluated prior to consuming or administering a medication dose.  For example \"pain\", \"30 minutes prior to sexual intercourse\", \"on flare-up\" etc.
 
  -- Row 4 -----------------------------------
   Binding Name = MedicationAdministrationSite
@@ -106,7 +106,7 @@
   Short Label = Prescription of medication to for patient
   Definition = An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationOrder\" rather than \"MedicationPrescription\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.
   RIM Mapping = CombinedMedicationRequest
-  w5 = clinical
+  w5 = clinical.medication
 
  -- Row 2 -----------------------------------
   Element = MedicationOrder.identifier
@@ -258,7 +258,7 @@
   Type = boolean | CodeableConcept
   Binding = MedicationAsNeededReason
   Short Label = Take \"as needed\" (for x)
-  Definition = If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication
+  Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  \n\nSpecifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
   RIM Mapping = boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value
 
  -- Row 18 -----------------------------------

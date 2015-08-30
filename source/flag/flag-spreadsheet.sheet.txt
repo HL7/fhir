@@ -38,7 +38,7 @@
   Short Label = Key information to flag to healthcare providers
   Definition = Prospective warnings of potential issues when providing care to the patient
   RIM Mapping = Observation[classCode=ISSUE, moodCode=EVN]
-  w5 = clinical
+  w5 = workflow.encounter
 
  -- Row 2 -----------------------------------
   Element = Flag.identifier

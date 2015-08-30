@@ -24,7 +24,7 @@
   Type = DomainResource
   Short Label = A container for slot(s) of time that may be available for booking appointments
   iCal Mapping = BEGIN:VFREEBUSY  ???  END:VFREEBUSY\n(If your fhir server provides this information via calDAV, then you may want to include addressing information in a URL section, and with the search, a DTSTART and DTEND component can be included to indicate the range of time that has been covered in the collection of slots, where these overlap the resources period values. For all slots that reference this resource, include a FREEBUSY row for each slot)
-  w5 = administration
+  w5 = workflow.scheduling
 
  -- Row 2 -----------------------------------
   Element = Schedule.identifier

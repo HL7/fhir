@@ -76,6 +76,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.JsonParser;
@@ -1802,8 +1803,19 @@ public class SpreadsheetParser {
 	private String checkW5(String value, String path) throws Exception {
     if (Utilities.noString(value))
       return null;
-    if (!definitions.getW5s().containsKey(value))
-      throw new Exception("Unknown w5 value "+value+" at "+path);
+    if (path.contains(".")) {
+      if (!definitions.getW5s().containsKey(value))
+        throw new Exception("Unknown w5 value "+value+" at "+path);
+    } else {
+      String[] vs = value.split("\\."); 
+      if (vs.length != 2)
+        throw new Exception("improper w5 value "+value+" at "+path);
+      if (!definitions.getW5s().containsKey(vs[0]))
+        throw new Exception("Unknown w5 value "+value+" at "+path);
+      W5Entry w5 = definitions.getW5s().get(vs[0]);
+      if (!w5.getSubClasses().contains(vs[1]))
+        throw new Exception("Unknown w5 value "+value+" at "+path);
+    }
     return value;
   }
 

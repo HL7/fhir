@@ -123,7 +123,7 @@
   Short Label = A set of codes drawn from one or more code systems
   Definition = A value set specifies a set of codes drawn from one or more code systems
   RIM Mapping = N/A
-  w5 = infrastructure
+  w5 = conformance.terminology
 
  -- Row 2 -----------------------------------
   Element = ValueSet.url

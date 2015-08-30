@@ -29,7 +29,7 @@
   Definition = Significant health events and conditions for a person related to the patient relevant in the context of care for the patient
   v2 Mapping = Not in scope for v2
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
-  w5 = infrastructure
+  w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = FamilyMemberHistory.identifier
@@ -121,7 +121,7 @@
   Type = boolean | Age | Range | date | string
   Short Label = Dead? How old/when?
   Definition = The actual or approximate age of the relative at the time the family member history is recorded
-  RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)\n\nFor age, you\'d hang an observation off the role
+  RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)  For age, you\'d hang an observation off the role
 
  -- Row 11 -----------------------------------
   Element = FamilyMemberHistory.note
@@ -164,7 +164,7 @@
   Short Label = When condition first manifested
   Definition = Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.
   Requirements = Age of onset of a condition in relatives is predictive of risk for the patient
-  RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"Subject Age at measurement\", value<Diagnosis].value[@xsi:typeCode=\'TS\' or \'IVL_TS\']\n\nUse originalText for string
+  RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"Subject Age at measurement\", value<Diagnosis].value[@xsi:typeCode=\'TS\' or \'IVL_TS\']  Use originalText for string
   To Do = Define/find appropriate observation code
 
  -- Row 16 -----------------------------------

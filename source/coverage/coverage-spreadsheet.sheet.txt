@@ -19,6 +19,7 @@
   Definition = Financial instrument which may be used to pay for or reimburse for health care products and services.
   Requirements = Health care programs and insurers are significant payors of health service costs
   RIM Mapping = Coverage
+  w5 = financial.support
 
  -- Row 2 -----------------------------------
   Element = Coverage.issuer
@@ -156,7 +157,7 @@
  -- Row 15 -----------------------------------
   Element = Coverage.contract
   Card. = 0..*
-  Type = Reference(Contract)
+  Type = Reference(Any)
   Short Label = Contract details
   Definition = The policy(s) which constitute this insurance coverage.
   CPhA3 (Pharmacy) Mapping = C.35

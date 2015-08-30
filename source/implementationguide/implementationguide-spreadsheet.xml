@@ -973,7 +973,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">infrastructure</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">conformance.misc</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>

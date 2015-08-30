@@ -10,6 +10,7 @@
   Type = DomainResource
   Short Label = EnrollmentResponse resource
   Definition = This resource provides Enrollment and plan details from the processing of an Enrollment resource.
+  w5 = financial.support
 
  -- Row 2 -----------------------------------
   Element = !Identification

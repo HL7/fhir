@@ -17,6 +17,7 @@
   Type = DomainResource
   Short Label = PaymentReconciliation resource
   Definition = This resource provides payment details and claim references supporting a bulk payment.
+  w5 = financial.payment
 
  -- Row 2 -----------------------------------
   Element = !Identification

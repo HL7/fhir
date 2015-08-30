@@ -32,6 +32,13 @@
   Definition = A code that explains a reason why a procedure is  required.
   Conformance = example
 
+ -- Row 6 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = A code that identifies anatomical location
+  Conformance = example
+
 === Sheet procedure-request-status =====================================
 
  -- Row 1 -----------------------------------
@@ -129,7 +136,7 @@
   Type = DomainResource
   Short Label = A request for a procedure to be performed
   Definition = A request for a procedure to be performed. May be a proposal or an order.
-  w5 = clinical
+  w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = ProcedureRequest.identifier
@@ -143,9 +150,9 @@
  -- Row 3 -----------------------------------
   Element = ProcedureRequest.subject
   Card. = 1..1
-  Type = Reference(Patient)
+  Type = Reference(Patient|Group)
   Short Label = Subject
-  Definition = The patient who will receive the procedure.
+  Definition = The patient who will receive the procedure or a group of subjects.
   QUICK mapping = ClinicalStatement.subject
   w5 = who.focus
 
@@ -162,6 +169,8 @@
  -- Row 5 -----------------------------------
   Element = ProcedureRequest.bodySite
   Card. = 0..*
+  Type = CodeableConcept
+  Binding = BodySite
   Short Label = Target body sites
   Definition = Indicates the sites on the subject\'s body where the procedure should be performed ( i.e. the target sites).
   Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
@@ -170,7 +179,7 @@
   RIM Mapping = targetSiteCode
 
  -- Row 6 -----------------------------------
-  Element = ProcedureRequest.bodySite.site[x]
+  Element = !ProcedureRequest.bodySite.site[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(BodySite)
   Short Label = Target body site

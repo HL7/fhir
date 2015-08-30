@@ -50,7 +50,7 @@
   v2 Mapping = (also see master files messages)
   RIM Mapping = Organization(classCode=ORG, determinerCode=INST)
   ServD Mapping = Organization
-  w5 = administration
+  w5 = administrative.group
 
  -- Row 2 -----------------------------------
   Element = Organization.identifier

@@ -155,7 +155,7 @@
   Comments = Referenced by an Order Request (workflow)
   v2 Mapping = ORC / ODS
   RIM Mapping = SupplyRequest
-  w5 = clinical
+  w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
   Element = NutritionOrder.patient

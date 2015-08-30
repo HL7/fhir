@@ -1009,7 +1009,7 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">infrastructure</Data><NamedCell
+    <Cell ss:StyleID="s82"><Data ss:Type="String">infrastructure.structure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

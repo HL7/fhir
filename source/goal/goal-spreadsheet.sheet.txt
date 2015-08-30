@@ -82,7 +82,7 @@
   Comments = Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
   v2 Mapping = GOL.1
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
-  w5 = clinical
+  w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
   Element = Goal.identifier

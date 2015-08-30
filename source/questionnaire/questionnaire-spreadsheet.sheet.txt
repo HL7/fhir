@@ -158,7 +158,7 @@
   Definition = A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions
   Requirements = To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.
   RIM Mapping = Observation[moodCode=DEF]
-  w5 = clinical
+  w5 = infrastructure.information
 
  -- Row 2 -----------------------------------
   Element = Questionnaire.identifier

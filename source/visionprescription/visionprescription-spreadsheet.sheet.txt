@@ -79,6 +79,7 @@
   Short Label = Prescription for Vision correction products for a patient
   Definition = An authorization for the supply of glasses and/or contact lenses to a patient.
   RIM Mapping = CombinedVisionRequest
+  w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
   Element = VisionPrescription.identifier
@@ -132,7 +133,7 @@
   Short Label = Reason or indication for writing the prescription
   Definition = Can be the reason or the indication for writing the prescription.
   v2 Mapping = ORC-16-Order Control Code Reason
-  RIM Mapping = reason.observation\nor\nreason.observation[code=ASSERTION].value
+  RIM Mapping = reason.observation or reason.observation[code=ASSERTION].value
 
  -- Row 8 -----------------------------------
   Element = VisionPrescription.dispense

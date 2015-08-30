@@ -73,7 +73,7 @@
   Short Label = Details and position information for a physical place
   Definition = Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated
   RIM Mapping = .Role[classCode=SDLC]
-  w5 = administration
+  w5 = administrative.entity
 
  -- Row 2 -----------------------------------
   Element = Location.identifier

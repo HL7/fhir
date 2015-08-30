@@ -216,7 +216,7 @@
   Definition = A container for a collection of resources
   v2 Mapping = N/A
   RIM Mapping = N/A
-  w5 = infrastructure
+  w5 = infrastructure.structure
 
  -- Row 2 -----------------------------------
   Element = Bundle.type

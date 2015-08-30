@@ -25,6 +25,7 @@
   Comments = The parameters that may be used are defined by the OperationDefinition resource
   v2 Mapping = n/a
   RIM Mapping = n/a
+  w5 = infrastructure.exchange
 
  -- Row 2 -----------------------------------
   Element = Parameters.parameter

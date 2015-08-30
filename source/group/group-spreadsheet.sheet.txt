@@ -77,7 +77,7 @@
   Definition = Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn\'t an Organization
   RIM Mapping = Entity[determinerCode=\"GRP\" or determinerCode=\"GRP_KIND\"]
   To Do = We need determiner codes that indicate we\'re talking about a group even when we haven\'t specified a specific quantity
-  w5 = administration
+  w5 = administrative.group
 
  -- Row 2 -----------------------------------
   Element = Group.identifier

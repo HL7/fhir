@@ -33,6 +33,7 @@
   Type = DomainResource
   Short Label = Remittance resource
   Definition = This resource provides the adjudication details from the processing of a Claim resource.
+  w5 = financial.billing
 
  -- Row 2 -----------------------------------
   Element = !Identification

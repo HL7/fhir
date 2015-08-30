@@ -22,7 +22,7 @@
   Type = DomainResource
   Short Label = A request to perform an action
   RIM Mapping = ControlAct[classCode=ACTN, moodCode=RQO]
-  w5 = infrastructure
+  w5 = workflow.order
 
  -- Row 2 -----------------------------------
   Element = Order.identifier

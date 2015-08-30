@@ -163,7 +163,7 @@
   Definition = A record of a request for a diagnostic investigation service to be performed.
   RIM Mapping = Observation[classCode=OBS, moodCode=RQO, code<\"diagnostic order\"]
   Committee Notes = [#5279]
-  w5 = clinical
+  w5 = clinical.diagnostics
 
  -- Row 2 -----------------------------------
   Element = DiagnosticOrder.subject

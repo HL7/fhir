@@ -57,11 +57,11 @@
 
  -- Row 1 -----------------------------------
   Element = ReferralRequest
-  Aliases = ReferralRequest\nTransferOfCare Request
+  Aliases = ReferralRequest TransferOfCare Request
   Type = DomainResource
   Short Label = A request for referral or transfer of care
   Definition = Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organisation
-  w5 = clinical
+  w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
   Element = ReferralRequest.status
@@ -91,7 +91,7 @@
   Type = CodeableConcept
   Short Label = Referral/Transition of care request type
   Definition = An indication of the type of referral (or where applicable the type of transfer of care) request
-  Comments = Examples of referral type:\n- consultation; \n       second opinion; \n        third opinion\n- Assume management\n- Request for procedure(s)\n\nHL7 v2.8 Example - Table 0336:\nS = second opinion\np = patient preference\no = provider ordered\nw = work load
+  Comments = Examples of referral type: - consultation;         second opinion;          third opinion - Assume management - Request for procedure(s)  HL7 v2.8 Example - Table 0336: S = second opinion p = patient preference o = provider ordered w = work load
   w5 = class
 
  -- Row 5 -----------------------------------
@@ -101,7 +101,7 @@
   Type = CodeableConcept
   Short Label = The clinical specialty (discipline) that the referral is requested for
   Definition = Indication of the clinical domain or discipline to which the referral or transfer of care request is sent
-  Comments = Examples:\nCardiology\nGastroenterology\nDiabetology
+  Comments = Examples: Cardiology Gastroenterology Diabetology
 
  -- Row 6 -----------------------------------
   Element = ReferralRequest.priority
@@ -143,7 +143,7 @@
   Type = Reference(Practitioner | Organization)
   Short Label = Receiver of referral / transfer of care request
   Definition = The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request
-  Comments = There will be a primary receiver.\nBut the request can be received by any number of \"copied to\" providers or organisations
+  Comments = There will be a primary receiver. But the request can be received by any number of \"copied to\" providers or organisations
   w5 = who.actor
 
  -- Row 10 -----------------------------------
@@ -173,7 +173,7 @@
   Type = CodeableConcept
   Short Label = Reason for referral / Transfer of care request
   Definition = Description of clinical condition indicating why referral/transfer of care is requested
-  Comments = Examples:\n\"2nd degree AV block\"\n\nOral Health example ReferralReasonCode:\n01 = Pathological Anomalies\n02 = Disabled (physical or mental)\n03 = Complexity of Treatment\n04 = Seizure Disorders\n05 = Extensive Surgery\n06 = Surgical Complexity\n07 = Rampant decay\n08 = Medical History (to provide details upon request)\n09 = Temporal Mandibular Joint Anomalies\n10 = Accidental Injury\n11 = Anaesthesia complications (local or general)\n12 = Developmental Anomalies\n13 = Behavioral Management
+  Comments = Examples: \"2nd degree AV block\"  Oral Health example ReferralReasonCode: 01 = Pathological Anomalies 02 = Disabled (physical or mental) 03 = Complexity of Treatment 04 = Seizure Disorders 05 = Extensive Surgery 06 = Surgical Complexity 07 = Rampant decay 08 = Medical History (to provide details upon request) 09 = Temporal Mandibular Joint Anomalies 10 = Accidental Injury 11 = Anaesthesia complications (local or general) 12 = Developmental Anomalies 13 = Behavioral Management
   w5 = why
 
  -- Row 13 -----------------------------------
@@ -193,7 +193,7 @@
   Type = CodeableConcept
   Short Label = Service(s) requested
   Definition = The service(s) that is/are requested to be provided to the patient
-  Comments = Examples:\n\"cardiac pacemaker insertion\"\n\nHL7 v3 Concept domain - ReferralReasonCode examples:\n- Specialized medical assistance\n- Other care requirement
+  Comments = Examples: \"cardiac pacemaker insertion\"  HL7 v3 Concept domain - ReferralReasonCode examples: - Specialized medical assistance - Other care requirement
   w5 = what
 
  -- Row 15 -----------------------------------
@@ -204,7 +204,7 @@
   Type = Reference (Any)
   Short Label = Additonal information to support referral or transfer of care request
   Definition = Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care
-  Comments = Examples include:\nPresenting problems/chief complaints\nMedical History\nFamily History\nAlerts\nAllergy/Intolerance and Adverse Reactions\nMedications\nObservations/Assessments (may include cognitive and fundtional assessments)\nDiagnostic Reports\nCare Plan
+  Comments = Examples include: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan
 
  -- Row 16 -----------------------------------
   Element = ReferralRequest.fulfillmentTime
@@ -215,7 +215,7 @@
   Type = Period
   Short Label = Requested service(s) fulfillment time
   Definition = The period of time within which the services identified in the referral/transfer of care is specified or required to occur
-  Requirements = Use cases:\n(1) to indicate that the requested service is not to happen before a specified date\n(2) to indicate that the requested service must happen before a specified date\n(3) to indicate that the requested service must happen during the specified dates (\"low\" and \"high\" values)
+  Requirements = Use cases: (1) to indicate that the requested service is not to happen before a specified date (2) to indicate that the requested service must happen before a specified date (3) to indicate that the requested service must happen during the specified dates (\"low\" and \"high\" values)
   w5 = when.planned
 
 === Sheet Search =====================================

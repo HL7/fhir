@@ -10,6 +10,7 @@
   Type = DomainResource
   Short Label = Enrollment request
   Definition = This resource provides the insurance Enrollment details to the insurer regarding a specified coverage.
+  w5 = financial.support
 
  -- Row 2 -----------------------------------
   Element = !Identification

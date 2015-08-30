@@ -66,7 +66,7 @@
   Type = DomainResource
   Short Label = A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection
   iCal Mapping = VEVENT
-  w5 = administration
+  w5 = workflow.scheduling
 
  -- Row 2 -----------------------------------
   Element = AppointmentResponse.identifier

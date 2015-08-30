@@ -122,7 +122,7 @@
   v2 Mapping = PPR message
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=ASSERTION, value<Diagnosis]
   To Do = * Age is questionable, you might well need a range of Age or even (in practice)  a text like \"in their teens\". => new ballot comment.  * Todo: discuss the applicability of assessing stages  * Change the description: it is circular
-  w5 = clinical
+  w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = Condition.identifier

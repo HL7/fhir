@@ -259,7 +259,7 @@
   Definition = A collection of error, warning or information messages that result from a system action
   Comments = Can result from the failure of a REST call or be part of the response message returned from a request message.  If sent with extensions overriding particular issues, might even appear as part of a request message.
   RIM Mapping = Grouping is handled through multiple repetitions from whatever context references the outcomes (no specific grouper required)
-  w5 = infrastructure
+  w5 = infrastructure.exchange
 
  -- Row 2 -----------------------------------
   Element = OperationOutcome.issue
@@ -325,3 +325,53 @@
   Comments = The root of the XPath is the resource or bundle that generated OperationOutcome.  Each XPath SHALL resolve to a single node.  The XPath syntax is used whether the referenced instance is expressed in XML or JSON.
   v2 Mapping = ERR-2
   RIM Mapping = ./location[parent::AcknowledgmentDetail]
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = OperationOutcome.extensions
+  IG Name = core
+  Filename = operationoutcome-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = 101
+  Description = General Outcome Example
+  Filename = operationoutcome-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = internal Exception
+  Identity = exception
+  Description = An error that might be returned when an unexpected exception happens on a server
+  Filename = operationoutcome-example-exception.xml
+
+ -- Row 3 -----------------------------------
+  Name = All OK
+  Identity = allok
+  Description = An operation outcome that would be returned after a successful operation
+  Filename = operationoutcome-example-allok.xml
+
+ -- Row 4 -----------------------------------
+  Name = Validation Failed
+  Identity = validationfail
+  Description = A validator has found problems with a resource
+  Filename = operationoutcome-example-validationfail.xml
+
+ -- Row 5 -----------------------------------
+  Name = Search Error
+  Identity = searchfail
+  Description = A search error (illegal modifier)
+  Filename = operationoutcome-example-searchfail.xml
+
+ -- Row 6 -----------------------------------
+  Name = Break-The-Glass Hint
+  Identity = break-the-glass
+  Description = A note that additional information might be available if Break-The-Glass is used
+  Filename = operationoutcome-example-break-the-glass.xml
+
+=== Sheet Examples =====================================

@@ -50,6 +50,7 @@
   Definition = A record of a request for a medication, substance or device used in the healthcare setting.
   RIM Mapping = Supply[moodCode=RQO]
   To Do = should there be an element for supply requester?
+  w5 = workflow.order
 
  -- Row 2 -----------------------------------
   Element = SupplyRequest.patient

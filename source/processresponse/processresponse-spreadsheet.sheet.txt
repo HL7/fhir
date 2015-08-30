@@ -17,6 +17,7 @@
   Type = DomainResource
   Short Label = ProcessResponse resource
   Definition = This resource provides processing status, errors and notes from the processing of a resource.
+  w5 = workflow.order
 
  -- Row 2 -----------------------------------
   Element = !Identification

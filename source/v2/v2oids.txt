@@ -1,4 +1,4 @@
-id	Name	OID	id	ver
+// id	Name	OID	id	ver
 // 1	SEX	2.16.840.1.133883.18.1	sex 2.1 - 2.4
 1	Administrative Sex	2.16.840.1.133883.18.2	administrativeSex
 2	Marital Status	2.16.840.1.133883.18.179	maritalStatus	

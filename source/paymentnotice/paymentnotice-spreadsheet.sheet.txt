@@ -17,6 +17,7 @@
   Type = DomainResource
   Short Label = PaymentNotice request
   Definition = This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
+  w5 = financial.payment
 
  -- Row 2 -----------------------------------
   Element = !Identification

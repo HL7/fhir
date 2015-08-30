@@ -162,7 +162,7 @@
   Short Label = A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)
   iCal Mapping = VEVENT
   RIM Mapping = Act (ActMood = ActMoodAppointment or ActMoodAppointmentRequest)
-  w5 = administration
+  w5 = workflow.scheduling
 
  -- Row 2 -----------------------------------
   Element = Appointment.identifier

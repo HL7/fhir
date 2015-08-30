@@ -260,7 +260,7 @@ import com.google.gson.JsonObject;
  * @author Grahame
  *
  */
-public class Publisher implements URIResolver {
+public class Publisher implements URIResolver, SectionNumberer {
 
   public class EValidationFailed extends Exception {
     private static final long serialVersionUID = 1L;
@@ -3080,7 +3080,6 @@ public class Publisher implements URIResolver {
 
   private void produceV2() throws Exception {
     page.log(" ...v2 Tables", LogMessageType.Process);
-
     Utilities.createDirectory(page.getFolders().dstDir + "v2");
     Utilities.clearDirectory(page.getFolders().dstDir + "v2");
     String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template.html");
@@ -3089,56 +3088,7 @@ public class Publisher implements URIResolver {
         page.getFolders().dstDir + "terminologies-v2.html");
     src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template.html");
     cachePage("terminologies-v2.html", page.processPageIncludesForBook("v2/template.html", src, "v2Vocab", null, null), "V2 Terminologies", false);
-
-    Element e = XMLUtil.getFirstChild(page.getV2src().getDocumentElement());
-    while (e != null) {
-      String st = e.getAttribute("state");
-      if ("include".equals(st)) {
-        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-        String iid = id;
-        while (iid.startsWith("0"))
-          iid = iid.substring(1);
-        Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
-        Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
-        src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl.html");
-        ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+id);
-        String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null);
-        sf = addSectionNumbers("v2" + id + ".html", "template-v2", sf, iid, 2, null, null);
-        TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
-        page.getEpub().registerExternal("v2" + File.separator + id + File.separator + "index.html");
-      } else if ("versioned".equals(st)) {
-        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-        String iid = id;
-        while (iid.startsWith("0"))
-          iid = iid.substring(1);
-        Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
-        Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
-        List<String> versions = new ArrayList<String>();
-        Element c = XMLUtil.getFirstChild(e);
-        while (c != null) {
-          if (XMLUtil.getFirstChild(c) != null && !versions.contains(c.getAttribute("namespace"))) {
-            versions.add(c.getAttribute("namespace"));
-          }
-          c = XMLUtil.getNextSibling(c);
-        }
-        int i = 0;
-        for (String ver : versions) {
-          if (!Utilities.noString(ver)) {
-            i++;
-            Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver);
-            Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver);
-            src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl-ver.html");
-            ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+FormatUtilities.makeId(ver)+"-"+id);
-            String sf = page.processPageIncludes(id + "|" + ver + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + ver + File.separator + "index.html", vs, null, "V2 Table", null);
-            sf = addSectionNumbers("v2" + id + "." + ver + ".html", "template-v2", sf, iid + "." + Integer.toString(i), 3, null, null);
-            TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
-            page.getEpub().registerExternal("v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
-          }
-        }
-      }
-      e = XMLUtil.getNextSibling(e);
-    }
-
+    new ValueSetImporterV2(page, page.getValidationErrors()).produce(this);
   }
 
   private void produceBaseProfile() throws Exception {
@@ -4604,7 +4554,8 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, dstName);
   }
 
-  private String addSectionNumbers(String file, String logicalName, String src, String id, int level, DocumentHolder doch, ImplementationGuideDefn ig) throws Exception {
+  @Override
+  public String addSectionNumbers(String file, String logicalName, String src, String id, int level, DocumentHolder doch, ImplementationGuideDefn ig) throws Exception {
     if (ig != null)
       logicalName = ig.getCode()+"::"+logicalName;
 

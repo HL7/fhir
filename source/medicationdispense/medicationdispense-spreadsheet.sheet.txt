@@ -42,7 +42,7 @@
  -- Row 6 -----------------------------------
   Binding Name = MedicationAsNeededReason
   Binding = unbound
-  Definition = A coded concept identifying the pre-condition that should hold prior to consuming a medication dose.  For example \"pain\", \"30 minutes prior to sexual intercourse\", \"on flare-up\", etc
+  Definition = A coded concept identifying the precondition that should be met or evaluated prior to consuming or administering a medication dose.  For example \"pain\", \"30 minutes prior to sexual intercourse\", \"on flare-up\" etc.
 
  -- Row 7 -----------------------------------
   Binding Name = MedicationIntendedSubstitutionType
@@ -114,7 +114,7 @@
   Definition = Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a Pharmacy system responding to a Medication Order.
   RIM Mapping = Supply[moodCode=EVN]
   Committee Notes = Need to add confidentiality
-  w5 = clinical
+  w5 = clinical.medication
 
  -- Row 2 -----------------------------------
   Element = MedicationDispense.identifier
@@ -291,7 +291,7 @@
   Type = boolean | CodeableConcept
   Binding = MedicationAsNeededReason
   Short Label = Take \"as needed\" f(or x)
-  Definition = If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication
+  Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  \n\nSpecifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
   RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
 
  -- Row 21 -----------------------------------

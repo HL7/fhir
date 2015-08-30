@@ -11,7 +11,7 @@
 <div class="col-9">
 
 <h2>Guide to resources</h2>
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">Draft</a></td></tr></table>
 
 <p>
 The FHIR specification defines a set of resources, and an infrastructure for handling resources. 
@@ -23,7 +23,7 @@ The resources are classified into 5 sections:
 </p>
 <ol>
  <li><a href="#clinical"><b>Clinical</b></a>: The content of a clinical record </li>
- <li><a href="#identification"><b>Identification</b></a>: Entities involved in the care process</li>
+ <li><a href="#identification"><b>Identification</b></a>: Supporting entities involved in the care process</li>
  <li><a href="#workflow"><b>Workflow</b></a>: Manage the healthcare process</li>
  <li><a href="#financial"><b>Financial</b></a>: Resources that support the billing and payment parts of FHIR</li>
  <li><a href="#conformance"><b>Conformance</b></a>: Resources use to manage specification, development and testing of FHIR solutions</li>
@@ -39,13 +39,13 @@ understand their purpose and scope, and their supporting ontology.
 
 <p>
 In addition to the overall classification above, Resources and the data elements in them are 
-tagged into an overall ontology that provides consistent meaning across the resources. 
+tapped into an overall ontology that provides consistent meaning across the resources. 
 </p>
 
 <p>
-One of the most fundamental aspects of a resource is its overall kind - where it fits
-into the whole picture. Some resources are records of past events, some are plans for
-the future, etc. This table summarises the known resource types:
+One of the most fundamental aspects of a resource is tense - where it fits
+into the time line. Some resources are records of past events, some are plans for
+the future, etc. This table summarises the categories:
 </p>
 <table>
  <tr> 
@@ -53,309 +53,704 @@ the future, etc. This table summarises the known resource types:
   <td><b>Description</b></td>
  </tr>
  <tr> 
-  <td><a name="Record"> </a>Record</td>
-  <td>RIM: Act in mood code EVN</td>
+  <td><a name="Record"> </a>Past</td>
+  <td>A record of an event that has happened</td>
  </tr>
  <tr> 
-  <td><a name="Warning"> </a>Warning</td>
-  <td>RIM: Act in mood code ?</td>
+  <td><a name="Warning"> </a>Present</td>
+  <td>A record that serves an exchange in real time</td>
  </tr>
  <tr> 
-  <td><a name="Plan"> </a>Plan</td>
-  <td>RIM: Act in mood code PRP?</td>
+  <td><a name="Plan"> </a>Future</td>
+  <td>A record that describes a future intent</td>
  </tr>
  <tr> 
-  <td><a name="Thing"> </a>Thing</td>
-  <td>RIM: Entity or Role? </td>
+  <td><a name="Thing"> </a>Ongoing</td>
+  <td>A record that is maintained over time that tracks the state of a patient</td>
+ </tr>
+ <tr> 
+  <td><a name="Thing"> </a>Unrelated</td>
+  <td>A record that doesn't relate to time (e.g. a fixed entity)</td>
  </tr>
 </table>
 <p>
-Todo: an explanation of the w5 ontology, along with a table summarising its principal properties
+Note that even future records end up in the past after 
+the event they are concerned with passes. 
 </p>
 
-Clinical workflow process life cycle
-
-Appointment.status: pending | booked | arrived | fulfilled | cancelled | noshow
-AppointmentResponse.participantStatus: accepted | declined | tentative | in-process | completed | needs-action
-Communication.status: in-progress | completed | suspended | rejected | failed
-Encounter.status: planned | arrived | in-progress | onleave | finished | cancelled
-EpisodeOfCare: planned | waitlist | active | onhold | finished | cancelled
-Goal.status: proposed | planned | in-progress | achieved | sustaining | cancelled | accepted | rejected
-MedicationAdministration.status: in-progress | on-hold | completed | entered-in-error | stopped
-MedicationDispense.status: in-progress | on-hold | completed | entered-in-error | stopped
-Procedure.status: in-progress | aborted | completed | entered-in-error
-
-Request/Order life cycle
-
-CommunicationRequest.status: proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed
-DeviceUseRequest.status: proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
-DiagnosticOrder.status: proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
-Goal: proposed | planned | in-progress | achieved | sustaining | cancelled | accepted | rejected
-MedicationOrder.status: active | on-hold | completed | entered-in-error | stopped | superseded | draft
-NutritionOrder: proposed | draft | planned | requested | active | on-hold | completed | cancelled
-OrderResponse.orderStatus: pending | review | rejected | error | accepted | cancelled | replaced | aborted | completed
-ProcedureRequest.status: proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
-ReferralRequest.status: draft | requested | active | cancelled | accepted | rejected | completed
-VisionPrescription: 
-
-Entity status life cycle
-
-BodySite.?: 
-CarePlan: planned | active | completed
-ClinicalImpression: in-progress | completed | entered-in-error
-Contraindication: 
-Conformance.status: draft | active | retired
-DataElement: draft | active | retired
-Device.?:
-DeviceComponent.?:
-DeviceMetric.?:
-DiagnosticReport.status: registered | partial | final | corrected | appended | cancelled | entered-in-error
-DocumentManifest.status: current | superseded | entered-in-error
-DocumentReference.status: current | superseded | entered-in-error
-FamilyMemberHistory:
-Flag.status: active | inactive | entered-in-error
-Group.?
-HealthcareService.?:
-ImagingObjectSelection.?
-ImagingStudy.?:
-Immunization: 
-ImmunizationRecommendation: 
-Location.status: active | suspended | inactive
-Medication: 
-MedicationStatement.status: in-progress | completed | entered-in-error. (note: in-progress and completed are states reflecting the administration of the medication)
-Observation.status: registered | preliminary	| final	| amended	| cancelled	| entered-in-error | unknown	
-Order.?:
-Organization.active: true | false
-Patient.active: true | false
-Person.active: true | false
-Practitioner.?
-Questionnaire.status: draft | published | retired
-QuestionnaireResponse.status: in-progress | completed | amended
-RelatedPerson.?:
-RiskAssessment.?:
-Schedule.?: 
-Slot.?:
-Specimen.?:
-StructureDefinition.status: draft | active | retired
-Substance.?
-
-Clinical status life cycle
-
-AllergyIntolerance.status: unconfirmed | confirmed | resolved | refuted | entered-in-error
-Condition.clinicalStatus: active | relapse | remission | resolved
-
-
-DeviceUseStatement
-CommunicationRequest
-ProcessRequest
-ProcessResponse
-SupplyRequest
-SupplyDelivery
-Questionnaire
-QuestionnaireResponse
-Provenance
-AuditEvent
-Composition
-DocumentReference
-DocumentManifest
-List
-Media
-Basic
-Binary
-Bundle
-OperationOutcome
-MessageHeader
-Subscription
-Parameters
-ValueSet
-ConceptMap
-NamingSystem
-StructureDefinition
-DataElement
-Conformance
-OperationDefinition
-SearchParameter
-ImplementationGuide
-TestScript
-Coverage
-EligibilityRequest
-EligibilityResponse
-EnrollmentRequest
-EnrollmentResponse
-Claim
-ClaimResponse
-PaymentNotice
-PaymentReconciliation
-ExplanationOfBenefit
-
-</div>
-
-<a name="clinical"> </a>
 <h3>Clinical</h3>
 
+<h4>General</h4>
+
+<p>
+  <code>AllergyIntolerance</code>, <code>Condition</code>, and <code>Procedure</code> are the base resources that appear throughout 
+  the patient record - summaries of the patient status or history. 
+  
+  <code>FamilyMemberHistory</code> tracks significant health issues for relatives of the patient, since these are signficant risk factors for the patient.
+  
+  These resources may be found in patient, episode, and discharge summaries, and consultation records.
+</p>
+<p>
+  <code>ClinicalImpression</code> (aka ClinicalAssessment) records the core of a clinical consultation/assessment/impression.
+  When an single text note is inserted directly in the patient record, this is typically a 
+  ClinicalImpression.summary. A <code>RiskAssessment</code> is an assessment - usually, but not necessarily, by 
+  a decision support engine of the likely outcomes of some course of action for a patient. 
+</p>  
+<p>
+  A <code>Contraindication</code> is an active alert that there is a clinical issue with/between one or more active or 
+  proposed clinical actions for a patient. One way it may be used is as part of an error message in response
+  to an attepted operation.
+</p>
+
 <table class="grid">
-  <tr>
-    <td><b>Resource</b></td>
-    <td><b>Usage</b></td>
-    <td><b>Type</b></td>
-  </tr>
-  <tr>
-    <td colspan="3" style="background-color: #eeeeee"><b>General:</b> These are the resources that appear everywhere, in patient, episode, and discharge summaries</td>
-  </tr>  
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="allergyintolerance.html">AllergyIntolerance</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td><a href="lifecycle.html#current">current List</a></td></tr>
+<tr><td><a href="condition.html">Condition</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td><a href="lifecycle.html#current">current List</a></td></tr>
+<tr><td><a href="procedure.html">Procedure</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Cliinical Workflow</a></td></tr>
+<tr><td><a href="familymemberhistory.html">FamilyMemberHistory</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="clinicalimpression.html">ClinicalImpression</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="riskassessment.html">RiskAssessment</a></td><td><a href="#present">Present</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Cliinical Workflow</a></td></tr>
+<tr><td><a href="contraindication.html">Contraindication</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+</table>
 
-  <tr>
-    <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
-    <td>[%resdesc AllergyIntolerance%]</td>
-    <td>Warning</td>
-  </tr>
-  <tr>
-    <td><a href="condition.html">Condition</a> (Problem)</td>
-    <td>[%resdesc Condition%]</td>
-    <td>Record</td>
-  </tr>
-  <tr>
-    <td><a href="procedure.html">Procedure</a></td>
-    <td>[%resdesc Procedure%]</td>
-    <td>Record</td>
-  </tr>
-  <tr>
-    <td><a href="familymemberhistory.html">FamilyMemberHistory</a></td>
-    <td>[%resdesc FamilyMemberHistory%]</td>
-    <td>Record</td>
-  </tr>
-  
-  <tr>
-    <td colspan="3" style="background-color: #eeeeee"><b>Clinical Process:</b> These resources support the clinical process - evaluating patients, and referring them to other care providers </td>
-  </tr>  
-  <tr>
-    <td><a href="referralrequest.html">ReferralRequest</a></td>
-    <td>[%resdesc ReferralRequest%]</td>
-    <td>Event</td>
-  </tr>
-  <tr>
-    <td><a href="procedurerequest.html">ProcedureRequest</a></td>
-    <td>[%resdesc ProcedureRequest%]</td>
-    <td>Event</td>
-  </tr>
-  <tr>
-    <td><a href="contraindication.html">Contraindication</a></td>
-    <td>[%resdesc Contraindication%]</td>
-    <td>Warning</td>
-  </tr>
-  <tr>
-    <td><a href="riskassessment.html">RiskAssessment</a></td>
-    <td>[%resdesc RiskAssessment%]</td>
-    <td>Record</td>
-  </tr>
-  <tr>
-    <td><a href="clinicalimpression.html">ClinicalImpression</a></td>
-    <td>[%resdesc ClinicalImpression%]</td>
-    <td>Event</td>
-  </tr>
+<h4>Care Provision</h4>
 
-  <tr>
-    <td colspan="3" style="background-color: #eeeeee"><b>Care Provision:</b> Resources related to planning a patient's care</td>
-  </tr>  
-  
-  
-  <tr>
-    <td><a href="careplan.html">CarePlan</a></td>
-    <td>[%resdesc CarePlan%]</td>
-    <td>Plan</td>
-  </tr>
-  <tr>
-    <td><a href="goal.html">Goal</a></td>
-    <td>[%resdesc Goal%]</td>
-    <td>Plan</td>
-  </tr>
-  <tr>
-    <td><a href="nutritionorder.html">NutritionOrder</a></td>
-    <td>[%resdesc NutritionOrder%]</td>
-    <td>Plan</td>
-  </tr>
-  <tr>
-    <td><a href="visionprescription.html">VisionPrescription</a></td>
-    <td>[%resdesc VisionPrescription%]</td>
-    <td>Record</td>
-  </tr>
+<p>
+These resources support planning of care provision - care and treatment plans.
+</p>
+<p>
+<code>CarePlan</code> and <code>Goal</code> are the primary structures around which future planning for the patient
+is based. These are used to define future planned care for a patient, and may be 
+updated and adjusted as ongoing care is provided.
+</p>
+<p>
+<code>ReferralRequest</code> is the basis for a proposed/requested transfer of care from
+one clinician to another. Typically, these are associated with a transfer 
+of records, and a physical relocation of the patient, but neither of these 
+are required. A <code>ProcedureRequest</code> records a request for a procedure to be carried out. 
+</p>
+<p>
+<code>NutritionOrder</code> is a request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient
+and <code>VisionPrescription</code> contains the details of visual aids requested for a patient.
+</p>
 
-  <tr>
-    <td colspan="3" style="background-color: #eeeeee"><b>Medication:</b> Supporting the medication process</td>
-  </tr>  
-  
-  <tr>
-    <td><a href="medication.html">Medication</a></td>
-    <td>[%resdesc Medication%]</td>
-    <td>Thing</td>
-  </tr>
-  <tr>
-    <td><a href="medicationorder.html">MedicationOrder</a></td>
-    <td>[%resdesc MedicationOrder%]</td>
-    <td>Instruction</td>
-  </tr>
-  <tr>
-    <td><a href="medicationadministration.html">MedicationAdministration</a></td>
-    <td>[%resdesc MedicationAdministration%]</td>
-    <td>Record</td>
-  </tr>
-  <tr>
-    <td><a href="medicationdispense.html">MedicationDispense</a></td>
-    <td>[%resdesc MedicationDispense%]</td>
-    <td>Record</td>
-  </tr>
-  <tr>
-    <td><a href="medicationstatement.html">MedicationStatement</a></td>
-    <td>[%resdesc MedicationStatement%]</td>
-    <td>Record</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="background-color: #eeeeee"><b>Medication:</b> Supporting the medication process</td>
-  </tr>  
-  <tr>
-    <td><a href="immunization.html">Immunization</a></td>
-    <td>[%resdesc Immunization%]</td>
-    <td>Record</td>
-  </tr>
-  <tr>
-    <td><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td>
-    <td>[%resdesc ImmunizationRecommendation%]</td>
-    <td>Plan</td>
-  </tr>
-</table>  
-<!--
-  <tr>
-    <td colspan="3" style="background-color: #eeeeee"><b>Diagnostics:</b> Support for interations with the diagnostic process</td>
-  </tr>  
-  
-</ul>
-</td><td style="border-left: 1px solid #eeeeee">
-<p><b>:</b></p>
-<ul>
-  <li><a title="[%resdesc Observation%]" href="observation.html">Observation</a>[%fmm Observation%]</li>
-  <li><a title="[%resdesc DiagnosticReport%]" href="diagnosticreport.html">DiagnosticReport</a>[%fmm DiagnosticReport%]</li>
-  <li><a title="[%resdesc DiagnosticOrder%]" href="diagnosticorder.html">DiagnosticOrder</a>[%fmm DiagnosticOrder%]</li>
-  <li><a title="[%resdesc ImagingStudy%]" href="imagingstudy.html">ImagingStudy</a>[%fmm ImagingStudy%]</li>
-  <li><a title="[%resdesc ImagingObjectSelection%]" href="imagingobjectselection.html">ImagingObjectSelection</a>[%fmm ImagingObjectSelection%]</li>
-  <li><a title="[%resdesc Specimen%]" href="specimen.html">Specimen</a>[%fmm Specimen%]</li>
-  <li><a title="[%resdesc BodySite%]" href="bodysite.html">BodySite</a>[%fmm BodySite%]</li>
--->
-  
-<a name="identification"> </a>
-<h3>Identification</h3>
-
-<a name="workflow"> </a>
-<h3>Workflow</h3>
-
-<a name="financial"> </a>
-<h3>Financial</h3>
-
-<a name="conformance"> </a>
-<h3>Conformance</h3>
-
-<a name="infrastructure"> </a>
-<h3>Infrastructure</h3>
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="careplan.html">CarePlan</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="goal.html">Goal</a></td><td><a href="#future">Future</a></td><td>Act</td><td>Cliinical Workflow</td></tr>
+<tr><td><a href="referralrequest.html">ReferralRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Cliinical Workflow</a></td></tr>
+<tr><td><a href="procedurerequest.html">ProcedureRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Cliinical Workflow</a></td></tr>
+<tr><td><a href="nutritionorder.html">NutritionOrder</a></td><td><a href="#future">Future</a>/<a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="visionprescription.html">VisionPrescription</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
+</table>
 
 
+<table>
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Medications</b></td>
+</tr>
+<tr>
+  <td colspan="2">Supporting the medication process</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Immunization</td>
+  <td>Past, RIM: Act. [%resdesc Immunization%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Immunization<br/>Recommendation</td>
+  <td>Future, RIM: Act. [%resdesc ImmunizationRecommendation%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Medication</td>
+  <td>Unrelated, RIM: Role. [%resdesc Medication%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Medication<br/>Administration</td>
+  <td>Past, RIM: Act<br/>Cliinical Workflow. [%resdesc MedicationAdministration%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>MedicationDispense</td>
+  <td>Past, RIM: Act<br/>Cliinical Workflow. [%resdesc MedicationDispense%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>MedicationOrder</td>
+  <td>Future, RIM: Act<br/>Request/Order<br/>Current List. [%resdesc MedicationOrder%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>MedicationStatement</td>
+  <td>Ongoing/Past, RIM: Act<br/>Entity Availibility Life cycle<br/>Current List. [%resdesc MedicationStatement%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Diagnostics</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2">Resources concerned with observing the patient, and the diagnostic service process built around this</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>BodySite</td>
+  <td>Unrelated, RIM: Role. [%resdesc BodySite%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DiagnosticOrder</td>
+  <td>Future, RIM: Act<br/>Request/Order. [%resdesc DiagnosticOrder%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DiagnosticReport</td>
+  <td>Past, RIM: Act<br/>Entity Availibility. [%resdesc DiagnosticReport%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ImagingObject<br/>Selection</td>
+  <td>Past, RIM: Act. [%resdesc ImagingObjectSelection%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ImagingStudy</td>
+  <td>Past, RIM: Act. [%resdesc ImagingStudy%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Observation</td>
+  <td>Past, RIM: Act. [%resdesc Observation%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Specimen</td>
+  <td>Unrelated, RIM: Role<br/>Entity Availibility. [%resdesc Specimen%]</td>
+</tr>
+
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><hr/></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><h3>Administrative Resources</h3></td>
+</tr>
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Individuals</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Patient</td>
+  <td>Unrelated, RIM: Role<br/>Entity Availibility. [%resdesc Patient%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Practitioner</td>
+  <td>Unrelated, RIM: Role. [%resdesc Practitioner%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>RelatedPerson</td>
+  <td>Unrelated, Role. [%resdesc RelatedPerson%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Groups</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Group</td>
+  <td>Unrelated, RIM: Entity. [%resdesc Group%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Healthcare<br/>Service</td>
+  <td>Unrelated, RIM: Role. [%resdesc HealthcareService%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Organization</td>
+  <td>Unrelated, RIM: Role<br/>Entity Availibility. [%resdesc Organization%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Entities</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Location</td>
+  <td>Unrelated, RIM: Role<br/>Entity Availibility. [%resdesc Location%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Person</td>
+  <td>Unrelated, RIM: Entity. [%resdesc Person%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Substance</td>
+  <td>Unrelated, RIM: Entity. [%resdesc Substance%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Device</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Device</td>
+  <td>Unrelated, RIM: Role. [%resdesc Device%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DeviceComponent</td>
+  <td>Unrelated, RIM: Role. [%resdesc DeviceComponent%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DeviceMetric</td>
+  <td>Unrelated, RIM: Role. [%resdesc DeviceMetric%]</td>
+</tr>
+
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><hr/></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><h3>Work Flow</h3></td>
+</tr>
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Encounter</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Communication</td>
+  <td>Past, RIM: Act<br/>Cliinical Workflow. [%resdesc Communication%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Encounter</td>
+  <td>Future/ Ongoing/Past, RIM: Act<br/>Cliinical Workflow. [%resdesc Encounter%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>EpisodeOfCare</td>
+  <td>Ongoing, RIM: Act. [%resdesc EpisodeOfCare%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Flag</td>
+  <td>Ongoing, Act<br/>Entity Availibility. [%resdesc Flag%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Scheduling	</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Appointment</td>
+  <td>Future, RIM: Act. [%resdesc Appointment%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Appointment<br/>Response</td>
+  <td>Future, RIM: Act. [%resdesc AppointmentResponse%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Schedule</td>
+  <td>Future, RIM: Act. [%resdesc Schedule%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Slot</td>
+  <td>Future, RIM: Act. [%resdesc Slot%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Order</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Communication<br/>Request</td>
+  <td>Future, RIM: Act<br/>Request/Order. [%resdesc CommunicationRequest%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DeviceUseRequest</td>
+  <td>Present, RIM: Act<br/>Request/Order. [%resdesc DeviceUseRequest%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DeviceUseStatement</td>
+  <td>Past, RIM: Act. [%resdesc DeviceUseStatement%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Order</td>
+  <td>Present, RIM: Act. [%resdesc Order%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>OrderResponse</td>
+  <td>Present, RIM: Act. [%resdesc OrderResponse%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ProcessRequest</td>
+  <td>Present, RIM: Act<br/>Request/Order. colspan="3">[%resdesc ProcessRequest%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ProcessResponse</td>
+  <td>Present, RIM: Act. [%resdesc ProcessResponse%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>SupplyDelivery</td>
+  <td>Present, RIM: Act. [%resdesc SupplyDelivery%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>SupplyRequest</td>
+  <td>Future, RIM: Act. [%resdesc SupplyRequest%]</td>
+</tr>
+
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><hr/></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><h3>Infrastructure</h3></td>
+</tr>
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Information</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>AuditEvent</td>
+  <td>Past, RIM: Act. [%resdesc AuditEvent%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Provenance</td>
+  <td>Past, RIM: Act. [%resdesc Provenance%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Questionnaire</td>
+  <td>Past, RIM: Act<br/>Entity Availibility. [%resdesc Questionnaire%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Questionnaire<br/>Response</td>
+  <td>Past, RIM: Act<br/>Entity Availibility. [%resdesc QuestionnaireResponse%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Documents</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Composition</td>
+  <td>Unrelated, RIM: Document. [%resdesc Composition%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DocumentManifest</td>
+  <td>Unrelated, RIM: Document<br/>Entity Availibility. [%resdesc DocumentManifest%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DocumentReference</td>
+  <td>Unrelated, RIM: Document<br/>Entity Availibility. [%resdesc DocumentReference%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>List</td>
+  <td>Unrelated, RIM: Act. [%resdesc List%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Structures</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Basic</td>
+  <td>Unrelated, RIM: InfrastructureRoot. [%resdesc Basic%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Binary</td>
+  <td>Unrelated, RIM: Entity. [%resdesc Binary%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Bundle</td>
+  <td>Unrelated, RIM: Entity. [%resdesc Bundle%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Media</td>
+  <td>Past, RIM: Act. [%resdesc Media%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Exchange</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>MessageHeader</td>
+  <td>Present, RIM: Act. [%resdesc MessageHeader%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>OperationOutcome</td>
+  <td>Present, RIM: Act. [%resdesc OperationOutcome%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Parameters</td>
+  <td>Unrelated, RIM: InfrastructureRoot. [%resdesc Parameters%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Subscription</td>
+  <td>Present, RIM: Act. [%resdesc Subscription%]</td>
+</tr>
+
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><hr/></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><h3>Conformance</h3></td>
+</tr>
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Terminology</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ConceptMap</td>
+  <td>Unrelated, . [%resdesc ConceptMap%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>NamingSystem</td>
+  <td>Unrelated, . [%resdesc NamingSystem%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ValueSet</td>
+  <td>Unrelated, . [%resdesc ValueSet%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Content</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>DataElement</td>
+  <td>Unrelated, Entity Availibility. [%resdesc DataElement%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Structure<br/>Definition</td>
+  <td>Unrelated, . [%resdesc StructureDefinition%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Behavior</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Conformance</td>
+  <td>Unrelated, n/a. [%resdesc Conformance%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>OperationDefinition</td>
+  <td>Unrelated, . [%resdesc OperationDefinition%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>SearchParameter</td>
+  <td>Unrelated, . [%resdesc SearchParameter%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Misc.</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ImplementationGuide</td>
+  <td>Unrelated, . [%resdesc ImplementationGuide%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>TestScript</td>
+  <td>Unrelated, . [%resdesc TestScript%]</td>
+</tr>
+
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><hr/></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"><h3>Financial</h3></td>
+</tr>
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Support</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Coverage</td>
+  <td>Ongoing, RIM: Act. [%resdesc Coverage%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>EligibilityRequest</td>
+  <td>Present, RIM: Act. [%resdesc EligibilityRequest%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>EligibilityResponse</td>
+  <td>Present, RIM: Act. [%resdesc EligibilityResponse%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>EnrollmentRequest</td>
+  <td>Present, RIM: Act. [%resdesc EnrollmentRequest%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>EnrollmentResponse</td>
+  <td>Present, RIM: Act. [%resdesc EnrollmentResponse%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Billing</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Claim</td>
+  <td>Present, RIM: Act. [%resdesc Claim%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ClaimResponse</td>
+  <td>Present, RIM: Act. [%resdesc ClaimResponse%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Payments</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>PaymentNotice</td>
+  <td>Past, RIM: Act. [%resdesc PaymentNotice%]</td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>Payment<br/>Reconciliation</td>
+  <td>Past, RIM: Act. [%resdesc PaymentReconciliation%]</td>
+</tr>
+
+<tr style="background-color: #eeeeee">
+  <td colspan="2"><b>Other</b></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td colspan="2"></td>
+</tr>
+<tr><td><a href=".html"></a></td><td><a href="#"></a></td><td> </td><td></td></tr>
+<tr>
+  <td>ExplanationOfBenefit</td>
+  <td>Past, RIM: Act. [%resdesc ExplanationOfBenefit%]</td>
+</tr>
+
+</table>
+
+</div>
 
 [%file newfooter%]
 

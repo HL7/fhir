@@ -30,9 +30,11 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.tools.publisher.ValueSetImporterV2.TableRegistration;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
@@ -41,6 +43,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class ValueSetImporterV2 {
+
+  public class TableRegistration {
+    private List<String> versionPoints = new ArrayList<String>(); 
+  }
+
   private class OIDEntry {
     private String id;
     private String name;
@@ -74,6 +81,7 @@ public class ValueSetImporterV2 {
   private PageProcessor page;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private Map<String, OIDEntry> oids = new HashMap<String, OIDEntry>();
+  private Map<String, TableRegistration> tables = new HashMap<String, TableRegistration>();
   
   public ValueSetImporterV2(PageProcessor page, List<ValidationMessage> errors) {
     super();
@@ -95,6 +103,10 @@ public class ValueSetImporterV2 {
   }
   
   private void loadOIds() throws IOException {
+    oids.clear();
+    valuesets.clear();
+    tables.clear();
+    
     FileInputStream fis = new FileInputStream(Utilities.path(page.getFolders().srcDir, "v2", "v2oids.txt"));
     BufferedReader br = new BufferedReader(new InputStreamReader(fis));
     String line = null;
@@ -102,7 +114,15 @@ public class ValueSetImporterV2 {
       if (!line.startsWith("//")) {
         String[] cells = line.split("\\t");
         String id = Utilities.padLeft(cells[0], '0', 4) + (cells.length == 5 ? "-"+cells[4] : "");
-        oids.put(id, new OIDEntry(cells[0], cells[1], cells[2], cells[3], cells.length == 5 ? cells[4] : null));
+        oids.put(id, new OIDEntry(cells[0], cells[1], cells[2], cells[3], cells.length > 4 ? cells[4] : null));
+        if (cells.length > 4) {
+          if (!tables.containsKey(Utilities.padLeft(cells[0], '0', 4))) {
+            TableRegistration tr = new TableRegistration();
+            tables.put(Utilities.padLeft(cells[0], '0', 4), tr);
+          }
+          tables.get(Utilities.padLeft(cells[0], '0', 4)).versionPoints.add(cells[4]);
+        } else 
+          tables.put(id, new TableRegistration());
       }
     }
     br.close();    
@@ -241,36 +261,31 @@ public class ValueSetImporterV2 {
 
     Element e = XMLUtil.getFirstChild(page.getV2src().getDocumentElement());
     while (e != null) {
-      String st = e.getAttribute("state");
-      if ("include".equals(st)) {
-        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-        ValueSet vs = buildV2Valueset(id, e);
-        valuesets.add(vs);
-        vs.setId("v2-"+FormatUtilities.makeId(id));
-        vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
-        page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-        page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
-        page.getValueSets().put(vs.getUrl(), vs);
-        page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
-      } else if ("versioned".equals(st)) {
-        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-        List<String> versions = new ArrayList<String>();
-        Element c = XMLUtil.getFirstChild(e);
-        while (c != null) {
-          if (XMLUtil.getFirstChild(c) != null && !versions.contains(c.getAttribute("namespace"))) {
-            versions.add(c.getAttribute("namespace"));
-          }
-          c = XMLUtil.getNextSibling(c);
-        }
-        for (String ver : versions) {
-          ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
+      String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
+      if (tables.containsKey(id)) {
+        if (tables.get(id).versionPoints.isEmpty()) {
+          ValueSet vs = buildV2Valueset(id, e);
           valuesets.add(vs);
-          vs.setId("v2-"+FormatUtilities.makeId(ver)+"-"+id);
-          vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
+          vs.setId("v2-"+FormatUtilities.makeId(id));
+          vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
           page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
           page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
           page.getValueSets().put(vs.getUrl(), vs);
           page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
+        } else { // versioned
+          TableRegistration tbl = tables.get(id);
+          for (int i = 0; i < tbl.versionPoints.size(); i++) {
+            String ver = tbl.versionPoints.get(i);
+            String nver = i < tbl.versionPoints.size() - 1 ? tbl.versionPoints.get(i+1) : null;
+            ValueSet vs = buildV2ValuesetVersioned(id, ver, nver, e);
+            valuesets.add(vs);
+            vs.setId("v2-"+FormatUtilities.makeId(ver)+"-"+id);
+            vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
+            page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
+            page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
+            page.getValueSets().put(vs.getUrl(), vs);
+            page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
+          }
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -305,14 +320,17 @@ public class ValueSetImporterV2 {
     Element c = XMLUtil.getFirstChild(e);
     Map<String, String> codes = new HashMap<String, String>();
     while (c != null) {
-      desc = c.getAttribute("desc");
-      vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ( " + desc + ")");
-      vs.setName("v2 " + desc);
+      String ver = c.getAttribute("version");
+      if (!ver.contains(" ")) {
+        desc = c.getAttribute("desc");
+        vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ( " + desc + ")");
+        vs.setName("v2 " + desc);
 
-      Element g = XMLUtil.getFirstChild(c);
-      while (g != null) {
-        codes.put(g.getAttribute("code"), g.getAttribute("desc"));
-        g = XMLUtil.getNextSibling(g);
+        Element g = XMLUtil.getFirstChild(c);
+        while (g != null) {
+          codes.put(g.getAttribute("code"), g.getAttribute("desc"));
+          g = XMLUtil.getNextSibling(g);
+        }
       }
       c = XMLUtil.getNextSibling(c);
     }
@@ -327,18 +345,21 @@ public class ValueSetImporterV2 {
       String max = null;
       c = XMLUtil.getFirstChild(e);
       while (c != null) {
-        Element g = XMLUtil.getFirstChild(c);
-        while (g != null) {
-          if (cd.equals(g.getAttribute("code"))) {
-            if (min == null)
-              min = c.getAttribute("version");
-            max = c.getAttribute("version");
+        String ver = c.getAttribute("version");
+        if (!ver.contains(" ")) {
+          Element g = XMLUtil.getFirstChild(c);
+          while (g != null) {
+            if (cd.equals(g.getAttribute("code"))) {
+              if (min == null)
+                min = ver;
+              max = ver;
+            }
+            g = XMLUtil.getNextSibling(g);
           }
-          g = XMLUtil.getNextSibling(g);
         }
         c = XMLUtil.getNextSibling(c);
       }
-      String ver = ("2.1".equals(min) ? "from v2.1" : "added v" + min) + ("2.7".equals(max) ? "" : ", removed after v" + max);
+      String ver = ("2.1".equals(min) ? "from v2.1" : "added v" + min) + ("2.8.2".equals(max) ? "" : ", removed after v" + max);
       ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
       concept.setCode(cd);
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
@@ -362,7 +383,7 @@ public class ValueSetImporterV2 {
     return vs;
   }
 
-  private ValueSet buildV2ValuesetVersioned(String id, String version, Element e) throws Exception {
+  private ValueSet buildV2ValuesetVersioned(String id, String version, String endVersion, Element e) throws Exception {
     StringBuilder s = new StringBuilder();
 
     ValueSet vs = new ValueSet();
@@ -392,18 +413,24 @@ public class ValueSetImporterV2 {
     // we use the latest description of the table
     Element c = XMLUtil.getFirstChild(e);
     Map<String, String> codes = new HashMap<String, String>();
+    boolean started = false;
     while (c != null) {
-      if (version.equals(c.getAttribute("namespace"))) {
-        if (minlim == null)
-          minlim = c.getAttribute("version");
-        maxlim = c.getAttribute("version");
-        desc = c.getAttribute("desc");
-        vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ver " + version + " ( " + desc + ")");
-        Element g = XMLUtil.getFirstChild(c);
-        while (g != null) {
-          codes.put(g.getAttribute("code"), g.getAttribute("desc"));
-          g = XMLUtil.getNextSibling(g);
-        }
+      String ver = c.getAttribute("version");
+      if (!ver.contains(" ")) {
+        if ((!started && ver.equals(version)) || (started && !ver.equals(endVersion))) {
+          started = true;
+          if (minlim == null)
+            minlim = ver;
+          maxlim = ver;
+          desc = c.getAttribute("desc");
+          vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ver " + ver + " ( " + desc + ")");
+          Element g = XMLUtil.getFirstChild(c);
+          while (g != null) {
+            codes.put(g.getAttribute("code"), g.getAttribute("desc"));
+            g = XMLUtil.getNextSibling(g);
+          }
+        } else if (started)
+          started = false;
       }
       c = XMLUtil.getNextSibling(c);
     }
@@ -414,21 +441,28 @@ public class ValueSetImporterV2 {
     List<String> cs = new ArrayList<String>();
     cs.addAll(codes.keySet());
     Collections.sort(cs);
+    started = false;
     for (String cd : cs) {
       String min = null;
       String max = null;
       c = XMLUtil.getFirstChild(e);
+      started = false;
       while (c != null) {
-        if (version.equals(c.getAttribute("namespace"))) {
-          Element g = XMLUtil.getFirstChild(c);
-          while (g != null) {
-            if (cd.equals(g.getAttribute("code"))) {
-              if (min == null)
-                min = c.getAttribute("version");
-              max = c.getAttribute("version");
+        String ver = c.getAttribute("version");
+        if (!ver.contains(" ")) {
+          if ((!started && ver.equals(version)) || (started && !ver.equals(endVersion))) {
+            started = true;
+            Element g = XMLUtil.getFirstChild(c);
+            while (g != null) {
+              if (cd.equals(g.getAttribute("code"))) {
+                if (min == null)
+                  min = ver;
+                max = ver;
+              }
+              g = XMLUtil.getNextSibling(g);
             }
-            g = XMLUtil.getNextSibling(g);
-          }
+          } else if (started)
+            started = false;
         }
         c = XMLUtil.getNextSibling(c);
       }
@@ -451,6 +485,82 @@ public class ValueSetImporterV2 {
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
     return vs;
+  }
+
+  public String getIndex(Document v2src) throws IOException {
+    loadOIds();
+    StringBuilder s = new StringBuilder();
+    s.append("<table class=\"grid\">\r\n");
+    s.append(" <tr><td><b>URI</b></td><td><b>ID</b></td><td><b>Comments</b></td></tr>\r\n");
+    Element e = XMLUtil.getFirstChild(v2src.getDocumentElement());
+    while (e != null) {
+      String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
+      if (tables.containsKey(id)) {
+        String name = "";
+        // we use the latest description of the table
+        Element c = XMLUtil.getFirstChild(e);
+        while (c != null) {
+          name = c.getAttribute("desc");
+          c = XMLUtil.getNextSibling(c);
+        }
+        if (!tables.get(id).versionPoints.isEmpty()) {
+          s.append(" <tr><td>http://hl7.org/fhir/v2/").append(id).append("</td><td>").append(name).append("</td><td>").append("Version Dependent. Use one of:<ul>");
+          for (String v : tables.get(id).versionPoints)
+            s.append(" <li><a href=\"v2/").append(id).append("/").append(v).append("/index.html\">").append(v).append("+</a></li>");
+          s.append("</ul></td></tr>\r\n");
+        } else
+          s.append(" <tr><td><a href=\"v2/").append(id).append("/index.html\">http://hl7.org/fhir/v2/").append(id).append("</a></td><td>").append(name).append("</td><td></td></tr>\r\n");
+      }
+      e = XMLUtil.getNextSibling(e);
+    }
+    s.append("</table>\r\n");
+    return s.toString();
+  }
+
+  public void produce(SectionNumberer sects) throws Exception {
+    loadOIds();
+    Element e = XMLUtil.getFirstChild(page.getV2src().getDocumentElement());
+    while (e != null) {
+      String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
+      if (tables.containsKey(id)) {
+        if (tables.get(id).versionPoints.isEmpty()) {
+          String iid = id;
+          while (iid.startsWith("0"))
+            iid = iid.substring(1);
+          Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
+          Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
+          String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl.html");
+          ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+id);
+          String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null);
+          sf = sects.addSectionNumbers("v2" + id + ".html", "template-v2", sf, iid, 2, null, null);
+          TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
+          page.getEpub().registerExternal("v2" + File.separator + id + File.separator + "index.html");
+        } else {
+          String iid = id;
+          while (iid.startsWith("0"))
+            iid = iid.substring(1);
+          Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
+          Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
+          int i = 0;
+          for (String ver : tables.get(id).versionPoints) {
+            if (!Utilities.noString(ver)) {
+              i++;
+              Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver);
+              Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver);
+              String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl-ver.html");
+              ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+FormatUtilities.makeId(ver)+"-"+id);
+              String sf = page.processPageIncludes(id + "|" + ver + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + ver + File.separator + "index.html", vs, null, "V2 Table", null);
+              sf = sects.addSectionNumbers("v2" + id + "." + ver + ".html", "template-v2", sf, iid + "." + Integer.toString(i), 3, null, null);
+              TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
+              page.getEpub().registerExternal("v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
+            }
+          }
+        }
+      }
+      e = XMLUtil.getNextSibling(e);
+    }
+
+    
   }
 
 

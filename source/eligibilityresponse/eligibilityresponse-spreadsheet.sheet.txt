@@ -10,6 +10,7 @@
   Type = DomainResource
   Short Label = EligibilityResponse resource
   Definition = This resource provides eligibility and plan details from the processing of an Eligibility resource.
+  w5 = financial.support
 
  -- Row 2 -----------------------------------
   Element = !Identification

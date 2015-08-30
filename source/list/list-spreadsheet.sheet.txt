@@ -104,7 +104,7 @@
   Definition = A set of information summarized from a list of other resources
   RIM Mapping = Act[classCode<ORG,moodCode=EVN]
   To Do = RIM harmonization proposal to move LIST under GROUPER  RIM harmonization proposal to allow organizers to group roles as well as acts.
-  w5 = infrastructure
+  w5 = infrastructure.documents
 
  -- Row 2 -----------------------------------
   Element = List.identifier

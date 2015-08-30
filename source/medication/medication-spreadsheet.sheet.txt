@@ -33,7 +33,7 @@
   Short Label = Definition of a Medication
   Definition = This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
   RIM Mapping = ManufacturedProduct[classCode=ADMM]
-  w5 = clinical
+  w5 = clinical.medication
 
  -- Row 2 -----------------------------------
   Element = Medication.code

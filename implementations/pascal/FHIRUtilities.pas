@@ -7,24 +7,24 @@ All rights reserved.
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this 
+ * Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
+ * Neither the name of HL7 nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
    prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 }
 
@@ -33,7 +33,7 @@ interface
 uses
   SysUtils, Classes,
   StringSupport, GuidSupport, DateSupport, BytesSupport, OidSupport, EncodeSupport,
-  AdvObjects, AdvStringBuilders,
+  AdvObjects, AdvStringBuilders, AdvGenerics,
 
   IdSoapMime, TextUtilities, ZLib,
 
@@ -79,6 +79,8 @@ function LoadDTFromParam(value : String; lang, name : String; type_ : TFHIRTypeC
 
 function BuildOperationOutcome(lang : String; e : exception) : TFhirOperationOutcome; overload;
 Function BuildOperationOutcome(lang, message : String) : TFhirOperationOutcome; overload;
+
+function getChildMap(profile : TFHIRStructureDefinition; name, path, nameReference : String) : TAdvList<TFHIRElementDefinition>;
 
 function asUTCMin(value : TFhirInstant) : TDateTime; overload;
 function asUTCMax(value : TFhirInstant) : TDateTime; overload;
@@ -2200,6 +2202,72 @@ begin
     result := profileList[0].value
   else
     result := '';
+end;
+
+{*
+ * Given a Structure, navigate to the element given by the path and return the direct children of that element
+ *
+ * @param structure The structure to navigate into
+ * @param path The path of the element within the structure to get the children for
+ * @return A Map containing the name of the element child (not the path) and the child itself (an Element)
+ * @throws Exception
+ *}
+function getChildMap(profile : TFHIRStructureDefinition; name, path, nameReference : String) : TAdvList<TFHIRElementDefinition>;
+var
+   found : boolean;
+   e : TFhirElementDefinition;
+   p, tail : String;
+begin
+  result := TAdvList<TFHIRElementDefinition>.create();
+  // if we have a name reference, we have to find it, and iterate it's children
+  if (nameReference <> '') then
+  begin
+    found := false;
+    for e in profile.Snapshot.ElementList do
+    begin
+      if (nameReference = e.Name) then
+      begin
+        found := true;
+        path := e.Path;
+      end;
+    end;
+    if (not found) then
+      raise Exception.create('Unable to resolve name reference '+nameReference+' at path '+path);
+  end;
+
+  for e in profile.Snapshot.ElementList do
+  begin
+    p := e.Path;
+    if (path <> '') and (e.NameReference <> '') and (path.startsWith(p)) then
+    begin
+      {* The path we are navigating to is on or below this element, but the element defers its definition to another named part of the
+       * structure.
+       *}
+      if (path.length > p.length) then
+      begin
+        // The path navigates further into the referenced element, so go ahead along the path over there
+        result.free;
+        result := getChildMap(profile, name, e.NameReference+'.'+path.substring(p.length+1), '');
+        exit;
+      end
+      else
+      begin
+        // The path we are looking for is actually this element, but since it defers it definition, go get the referenced element
+        result.free;
+        result := getChildMap(profile, name, e.NameReference, '');
+        exit;
+      end;
+    end
+    else if (p.startsWith(path+'.')) then
+    begin
+      // The path of the element is a child of the path we're looking for (i.e. the parent),
+      // so add this element to the result.
+      tail := p.substring(path.length+1);
+      // Only add direct children, not any deeper paths
+      if (not tail.contains('.')) then
+        result.add(e.Link);
+    end;
+  end;
 end;
 
 end.

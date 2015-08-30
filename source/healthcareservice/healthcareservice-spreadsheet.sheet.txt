@@ -132,7 +132,7 @@
   Element = HealthcareService
   Type = DomainResource
   Short Label = The details of a Healthcare Service available at a location
-  w5 = administration
+  w5 = administrative.group
 
  -- Row 2 -----------------------------------
   Element = HealthcareService.identifier

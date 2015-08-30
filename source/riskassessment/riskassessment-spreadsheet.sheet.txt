@@ -40,10 +40,10 @@
   Type = DomainResource
   Short Label = Potential outcomes for a subject with likelihood
   Definition = An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
+  OpenEHR mapping = OpenEHR-EHR-EVALUATION.risk.v1
   v2 Mapping = N/A
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
-  OpenEHR mapping = OpenEHR-EHR-EVALUATION.risk.v1
-  w5 = clinical
+  w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = RiskAssessment.subject
@@ -52,8 +52,8 @@
   Type = Reference(Patient|Group)
   Short Label = Who/what does assessment apply to?
   Definition = The patient or group the risk assessment applies to
-  RIM Mapping = .participation[typeCode=SBJ].role
   OpenEHR mapping = Subject of Care
+  RIM Mapping = .participation[typeCode=SBJ].role
   To Do = Should this cover anything else?  Device?  Location?
   w5 = who.focus
 
@@ -84,8 +84,8 @@
   Type = Reference(Practitioner | Device)
   Short Label = Who did assessment?
   Definition = The provider or software application that performed the assessment
-  RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGNED]
   OpenEHR mapping = Information Provider
+  RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGNED]
   w5 = who.author
 
  -- Row 6 -----------------------------------
@@ -95,8 +95,8 @@
   Type = Identifier
   Short Label = Unique identifier for the assessment
   Definition = Business identifier assigned to the risk assessment
-  RIM Mapping = .id
   OpenEHR mapping = Workflow Identifier
+  RIM Mapping = .id
   w5 = id
 
  -- Row 7 -----------------------------------
@@ -118,8 +118,8 @@
   Type = Reference(Any)
   Short Label = Information used in assessment
   Definition = Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.)
-  RIM Mapping = .outboundRelationship[typeCode=DRIV].target
   OpenEHR mapping = Risk Factor; Link to Evidence
+  RIM Mapping = .outboundRelationship[typeCode=DRIV].target
 
  -- Row 9 -----------------------------------
   Element = RiskAssessment.prediction
@@ -137,8 +137,8 @@
   Binding = RiskAssessmentOutcome
   Short Label = Possible outcome for the subject
   Definition = One of the potential outcomes for the patient (e.g. remission, death,  a particular condition)
-  RIM Mapping = .value
   OpenEHR mapping = Risk
+  RIM Mapping = .value
 
  -- Row 11 -----------------------------------
   Element = RiskAssessment.prediction.probability[x]
@@ -148,8 +148,8 @@
   Short Label = Likelihood of specified outcome
   Definition = How likely is the outcome (in the specified timeframe)
   Comments = If range is used, it represents the lower and upper bounds of certainty.  E.g. 40-60%\n\nDecimal values are expressed as percentages as well (max = 100)
-  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"probability\"].value
   OpenEHR mapping = Category
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"probability\"].value
 
  -- Row 12 -----------------------------------
   Element = RiskAssessment.prediction.relativeRisk
@@ -176,8 +176,8 @@
   Type = string
   Short Label = Explanation of prediction
   Definition = Additional information explaining the basis for the prediction
-  RIM Mapping = .reasonCode.text
   OpenEHR mapping = Rationale
+  RIM Mapping = .reasonCode.text
 
  -- Row 15 -----------------------------------
   Element = RiskAssessment.mitigation

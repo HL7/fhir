@@ -36,7 +36,7 @@
   v2 Mapping = PRD (as one example)
   RIM Mapping = Role
   ServD Mapping = Provider
-  w5 = administration
+  w5 = administrative.individual
 
  -- Row 2 -----------------------------------
   Element = Practitioner.identifier

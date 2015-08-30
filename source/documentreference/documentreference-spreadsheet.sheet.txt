@@ -98,7 +98,7 @@
   Definition = A reference to a document
   Comments = Usually, this is used for documents other than those defined by FHIR
   RIM Mapping = Document[classCode=\"DOC\" and moodCode=\"EVN\"]
-  w5 = infrastructure
+  w5 = infrastructure.documents
 
  -- Row 2 -----------------------------------
   Element = DocumentReference.masterIdentifier

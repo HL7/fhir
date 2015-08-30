@@ -32,6 +32,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
@@ -161,7 +162,7 @@ import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
-
+import org.hl7.fhir.tools.publisher.PageProcessor.Pair;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -185,6 +186,18 @@ import org.w3c.dom.Element;
 import com.github.rjeschke.txtmark.Processor;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
+
+  public class Pair {
+
+    public String desc;
+    public String page;
+
+    public Pair(String desc, String page) {
+      this.desc = desc;
+      this.page = page;
+    }
+
+  }
 
   public class SectionSorter implements Comparator<String> {
 
@@ -700,6 +713,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
         src = s1 + genValueSetsTable(ig) + s3;
+      else if (com[0].equals("namespacelist"))
+        src = s1 + genNSList() + s3;
       else if (com[0].equals("extensionslist"))
         src = s1 + genExtensionsTable() + s3;
       else if (com[0].equals("igvaluesetslist"))
@@ -1881,46 +1896,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   
-  private String genV2Index() {
-    StringBuilder s = new StringBuilder();
-    s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>URI</b></td><td><b>ID</b></td><td><b>Comments</b></td></tr>\r\n");
-    Element e = XMLUtil.getFirstChild(v2src.getDocumentElement());
-    while (e != null) {
-      String src = e.getAttribute("state");
-      if ("include".equals(src) || "versioned".equals(src)) {
-        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-        String name = "";
-        // we use the latest description of the table
-        Element c = XMLUtil.getFirstChild(e);
-        while (c != null) {
-          name = c.getAttribute("desc");
-          c = XMLUtil.getNextSibling(c);
-        }
-        if ("versioned".equals(src)) {
-          
-          List<String> versions = new ArrayList<String>();   
-          
-          s.append(" <tr><td>http://hl7.org/fhir/v2/").append(id).append("</td><td>").append(id).append("</td><td>").append(name).append("<br/>Version Dependent. Use one of:<ul>");
-          c = XMLUtil.getFirstChild(e);
-          while (c != null) {
-            Element g = XMLUtil.getFirstChild(c);
-            if (g != null && !versions.contains(c.getAttribute("namespace")))
-              versions.add(c.getAttribute("namespace"));            
-            c = XMLUtil.getNextSibling(c);
-          }
-          for (String v : versions)
-            if (!Utilities.noString(v))
-              s.append(" <li><a href=\"v2/").append(id).append("/").append(v).append("/index.html\">").append(v).append("</a></li>");
-          s.append("</ul></td></tr>\r\n");
-        } else
-          s.append(" <tr><td><a href=\"v2/").append(id).append("/index.html\">http://hl7.org/fhir/v2/").append(id).append("</a></td><td>").append(name).append("</td><td></td></tr>\r\n");
-      }
-      e = XMLUtil.getNextSibling(e);
-    }
-    
-    s.append("</table>\r\n");
-    return s.toString();
+  private String genV2Index() throws IOException {
+    return new ValueSetImporterV2(this, validationErrors).getIndex(v2src);
   }
 
   private String genV3CSIndex() {
@@ -3481,6 +3458,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genValueSetsTable(ig) + s3;
       else if (com[0].equals("igvaluesetslist"))
         src = s1 + genIGValueSetsTable() + s3;
+      else if (com[0].equals("namespacelist"))
+        src = s1 + genNSList() + s3;
       else if (com[0].equals("resimplall"))
         src = s1 + genResImplList() + s3;
       else if (com[0].equals("impllist"))
@@ -3890,6 +3869,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genValueSetsTable(ig) + s3;
       else if (com[0].equals("igvaluesetslist"))
         src = s1 + genIGValueSetsTable() + s3;
+      else if (com[0].equals("namespacelist"))
+        src = s1 + genNSList() + s3;
       else if (com[0].equals("conceptmapslist"))
         src = s1 + genConceptMapsTable() + s3;
 //      else if (com[0].equals("bindingtable"))
@@ -6467,6 +6448,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //        src = s1 + genValueSetsTable() + s3;
       else if (com[0].equals("igvaluesetslist"))
         src = s1 + genIGValueSetsTable() + s3;
+      else if (com[0].equals("namespacelist"))
+        src = s1 + genNSList() + s3;
       else if (com[0].equals("conceptmapslist"))
         src = s1 + genConceptMapsTable() + s3;
 //      else if (com[0].equals("bindingtable-others"))
@@ -6596,8 +6579,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     b.append("</tr>\r\n");
     processW5(b, items, "clinical", types);
-    processW5(b, items, "administration", types);
+    processW5(b, items, "administrative", types);
+    processW5(b, items, "workflow", types);
     processW5(b, items, "infrastructure", types);
+    processW5(b, items, "conformance", types);
     
     b.append("</table>\r\n");
     
@@ -6609,7 +6594,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             .append(Utilities.escapeXml(definitions.getW5s().get(cat).getDescription())).append("</b></td></tr>\r\n");
     for (String rn : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResourceByName(rn);
-      if (cat.equals(r.getRoot().getW5())) {
+      if (r.getRoot().getW5().startsWith(cat)) {
         b.append("<tr>\r\n <td>").append(rn).append("</td>\r\n");
         for (W5Entry e : items) {
           b.append(" <td>");
@@ -6829,5 +6814,50 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     System.gc();
     
   }
+
+  private String genNSList() {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    b.append(" <tr><td><b>URL</b></td><td><b>Thing</b></td><td><b>Page</b></td></tr>");
+    Map<String, Pair> nslist = new HashMap<String, Pair>();
+    
+    for (String n : definitions.sortedResourceNames())
+      nslist.put("http://hl7.org/fhir/"+n, new Pair(n+" Resource", n.toLowerCase()+".html"));
+    for (String n : definitions.getTypes().keySet())
+      nslist.put("http://hl7.org/fhir/"+n, new Pair("Data Type "+n, definitions.getSourceFile(n)+".html#"+n));
+    for (String n : definitions.getInfrastructure().keySet())
+      nslist.put("http://hl7.org/fhir/"+n, new Pair("Data Type "+n, definitions.getSourceFile(n)+".html#"+n));
+    for (ValueSet vs : getCodeSystems().values())
+      if (vs.getCodeSystem().getSystem().startsWith("http://hl7.org/fhir"))
+        nslist.put(vs.getCodeSystem().getSystem(), new Pair("CodeSystem "+vs.getName(), vs.getUserString("path")));
+    for (ValueSet vs : getValueSets().values())
+      if (vs.getUrl().startsWith("http://hl7.org/fhir"))
+        nslist.put(vs.getUrl(), new Pair("CodeSystem "+vs.getName(), vs.getUserString("path")));
+    for (StructureDefinition sd : profiles.values())
+      if (sd.getUrl().startsWith("http://hl7.org/fhir"))
+        nslist.put(sd.getUrl(), new Pair("Profile "+sd.getName(), sd.getUserString("path")));
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions().values())
+      if (sd.getUrl().startsWith("http://hl7.org/fhir"))
+        nslist.put(sd.getUrl(), new Pair("Profile "+sd.getName(), sd.getUserString("path")));
+    for (NamingSystem nss : definitions.getNamingSystems()) {
+      String url = null;
+      for (NamingSystemUniqueIdComponent t : nss.getUniqueId()) {
+        if (t.getType() == NamingSystemIdentifierType.URI)
+          url = t.getValue();
+      }
+      if (url != null && url.startsWith("http://hl7.org/fhir"))
+        nslist.put(url, new Pair("System "+nss.getName(), nss.getUserString("path")));
+    }
+    List<String> list = new ArrayList<String>();
+    list.addAll(nslist.keySet());
+    Collections.sort(list);
+    for (String url : list) {
+      Pair p = nslist.get(url);
+      b.append(" <tr><td>"+Utilities.escapeXml(url)+"</td><td>"+Utilities.escapeXml(p.desc)+"</td><td><a href=\""+p.page+"\">"+Utilities.escapeXml(p.page)+"</a></td></tr>");
+    }
+    b.append("</table>\r\n");
+    return b.toString();
+  }
   
+
 }

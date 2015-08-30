@@ -20,7 +20,7 @@
   Requirements = Need to track persons related to the patient or the healthcare process.
   RIM Mapping = role
   Committee Notes = Patient contact is defined as a person in role. Hence RelatedPerson should also be a person in role. Struggling with V3 mappings here.
-  w5 = administration
+  w5 = administrative.individual
 
  -- Row 2 -----------------------------------
   Element = RelatedPerson.identifier

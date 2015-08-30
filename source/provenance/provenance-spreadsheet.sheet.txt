@@ -92,7 +92,7 @@
   Prov Mapping = Activity
   RIM Mapping = ControlAct[isNormalAct() and subsumes(CACT, classCode) and moodCode=EVN]
   Committee Notes = Sources of requirements: v2 EVN, Control Act, CDA, W3C provenance, ATNA
-  w5 = infrastructure
+  w5 = infrastructure.information
 
  -- Row 2 -----------------------------------
   Element = Provenance.target

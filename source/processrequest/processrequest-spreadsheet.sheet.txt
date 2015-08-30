@@ -42,6 +42,7 @@
   Type = DomainResource
   Short Label = Process request
   Definition = This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
+  w5 = workflow.order
 
  -- Row 2 -----------------------------------
   Element = !Identification

@@ -92,7 +92,7 @@
   Short Label = Sample for analysis
   Definition = Sample for analysis
   RIM Mapping = Role[classCode=SPEC]
-  w5 = clinical
+  w5 = clinical.diagnostics
 
  -- Row 2 -----------------------------------
   Element = Specimen.identifier

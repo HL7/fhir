@@ -110,7 +110,7 @@
   Type = DomainResource
   Short Label = A request for a patient to use or be given a medical device
   Definition = Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
-  w5 = clinical
+  w5 = workflow.order
 
  -- Row 2 -----------------------------------
   Element = DeviceUseRequest.bodySite[x]

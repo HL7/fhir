@@ -98,7 +98,7 @@
   Comments = This is intended to capture a single report, and is not suitable for use in displaying summary information that covers multiple reports.  For example, this resource has not been designed for laboratory cumulative reporting formats nor detailed structured reports for sequencing.
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
   Committee Notes = It\'s not clear how to handle cumulative reports
-  w5 = clinical
+  w5 = clinical.diagnostics
 
  -- Row 2 -----------------------------------
   Element = DiagnosticReport.identifier

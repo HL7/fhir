@@ -13,7 +13,7 @@
   Requirements = There are situations where it is useful or required to handle pure binary content using the same framework as other resources
   Comments = Typically, Binary resources are used for handling content such as:  * CDA Documents (i.e. with XDS) * PDF Documents * Images (the Media resource is preferred for handling images, but not possible when the content is already binary - e.g. XDS)
   RIM Mapping = N/A
-  w5 = infrastructure
+  w5 = infrastructure.structure
 
  -- Row 2 -----------------------------------
   Element = Binary.contentType

@@ -18,7 +18,7 @@
   Short Label = A map from one set of concepts to one or more other concepts
   Definition = A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models
   RIM Mapping = N/A
-  w5 = infrastructure
+  w5 = conformance.terminology
 
  -- Row 2 -----------------------------------
   Element = ConceptMap.url

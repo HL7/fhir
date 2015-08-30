@@ -514,7 +514,7 @@
   Type = DomainResource
   Short Label = A conformance statement
   Definition = A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation
-  w5 = infrastructure
+  w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
   Element = Conformance.url

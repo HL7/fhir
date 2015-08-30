@@ -49,7 +49,7 @@
   Requirements = Allows institutions to track their devices.
   RIM Mapping = Device
   Committee Notes = 6209
-  w5 = administration
+  w5 = administrative.device
 
  -- Row 2 -----------------------------------
   Element = Device.identifier

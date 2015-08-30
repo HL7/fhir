@@ -216,6 +216,7 @@
   Type = DomainResource
   Short Label = Claim, Pre-determination or Pre-authorization
   Definition = A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+  w5 = financial.billing
 
  -- Row 2 -----------------------------------
   Element = !Identification

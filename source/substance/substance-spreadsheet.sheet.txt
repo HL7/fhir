@@ -32,7 +32,7 @@
   Short Label = A homogeneous material with a definite composition
   ORIM Mapping = fhir:Substance rdfs:subClassOf   rim:Entity, [      a owl:Restriction;     owl:onProperty  rim:Act.classCode;     owl:allValuesFrom  cs:EntityClass\\#MAT   ].
   RIM Mapping = Material
-  w5 = administration
+  w5 = administrative.entity
 
  -- Row 2 -----------------------------------
   Element = Substance.identifier

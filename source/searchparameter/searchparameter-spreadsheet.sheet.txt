@@ -60,7 +60,7 @@
   Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
   v2 Mapping = n/a
   RIM Mapping = n/a
-  w5 = infrastructure
+  w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
   Element = SearchParameter.url

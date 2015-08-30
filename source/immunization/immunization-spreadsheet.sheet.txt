@@ -87,7 +87,7 @@
   Definition = Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
   v2 Mapping = VXU_V04
   RIM Mapping = SubstanceAdministration
-  w5 = clinical
+  w5 = clinical.medication
 
  -- Row 2 -----------------------------------
   Element = Immunization.identifier
