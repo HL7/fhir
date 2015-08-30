@@ -1,7 +1,9 @@
 package org.hl7.fhir.tools.utils;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -40,11 +42,9 @@ public class V2TableSourceGenerator {
   }
   
   public class TableVersion {
-    private String version;
     private String name;
     private List<TableEntry> entries = new ArrayList<TableEntry>();
-    public TableVersion(String version, String name) {
-      this.version = version;
+    public TableVersion(String name) {
       this.name = name;
     }
     public boolean hasGerman() {
@@ -63,7 +63,7 @@ public class V2TableSourceGenerator {
     }
     public void item(String version, String code, String display, String german, String table_name) {
       if (!versions.containsKey(version))
-        versions.put(version, new TableVersion(version, table_name));
+        versions.put(version, new TableVersion(table_name));
       TableEntry entry = new TableEntry();
       entry.code = code;
       entry.display = display;
@@ -135,8 +135,13 @@ public class V2TableSourceGenerator {
   }
 
   private void saveTables() throws IOException {
+    save(dest, false);
+    save(Utilities.changeFileExt(dest, "_de.xml"), true);
+  }
+
+  private void save(String filename, boolean german) throws UnsupportedEncodingException, FileNotFoundException, IOException {
     String ns = "http://hl7.org/fhir/dev";
-    XMLWriter xml = new XMLWriter(new FileOutputStream(dest), "UTF-8");
+    XMLWriter xml = new XMLWriter(new FileOutputStream(filename), "UTF-8");
     xml.setPretty(true);
     xml.start();
     xml.attribute("xmlns", ns);
@@ -161,52 +166,18 @@ public class V2TableSourceGenerator {
         for (TableEntry te : tv.entries) {
           xml.attribute("code", te.code);
           xml.attribute("desc", te.display);
-          xml.element("item");
+          if (german && te.hasGerman()) {
+            xml.enter("item");
+            xml.attribute("lang", "de");
+            xml.attribute("value", te.german);
+            xml.element("desc");
+            xml.exit("item");
+          } else
+            xml.element("item");
         }
         xml.exit("version");
       }
       xml.exit("table");
-    }
-    xml.exit("tables");
-    xml.end();
-    xml.close();
-
-    xml = new XMLWriter(new FileOutputStream(Utilities.changeFileExt(dest, "_de.xml")), "UTF-8");
-    xml.setPretty(true);
-    xml.start();
-    xml.attribute("xmlns", ns);
-    xml.enter("tables");
-    tl = new ArrayList<Integer>();
-    for (String c : tables.keySet())
-      tl.add(Integer.parseInt(c));
-    Collections.sort(tl);
-    for (Integer c : tl) {
-      String id = c.toString();
-      Table table = tables.get(id);
-      if (table.hasGerman()) {
-        xml.attribute("id", id);
-        xml.enter("table");
-        List<String> vl = new ArrayList<String>();
-        vl.addAll(table.versions.keySet());
-        Collections.sort(vl);
-        for (String v : vl) {
-          TableVersion tv = table.versions.get(v);
-          if (tv.hasGerman()) {
-            xml.attribute("version", v);
-            xml.attribute("desc", tv.name);
-            xml.enter("version");
-            for (TableEntry te : tv.entries) {
-              if (te.hasGerman()) {
-                xml.attribute("code", te.code);
-                xml.attribute("desc", te.display);
-                xml.element("item");
-              }
-            }
-            xml.exit("version");
-          }
-        }
-        xml.exit("table");
-      }
     }
     xml.exit("tables");
     xml.end();

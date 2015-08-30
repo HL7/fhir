@@ -6817,6 +6817,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String genNSList() {
     StringBuilder b = new StringBuilder();
+    b.append("<p>Redirects on this page:</p>\r\n");
+    b.append("<ul>\r\n");
+    b.append(" <li>Resources</li>\r\n");
+    b.append(" <li>Data Types</li>\r\n");
+    b.append(" <li>Code Systems</li>\r\n");
+    b.append(" <li>Value Sets</li>\r\n");
+    b.append(" <li>Extensions</li>\r\n");
+    b.append(" <li>Profiles</li>\r\n");
+    b.append(" <li>Naming Systems</li>\r\n");
+    b.append(" <li>Others From publish.ini</li>\r\n");
+    b.append("</ul>\r\n");
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tr><td><b>URL</b></td><td><b>Thing</b></td><td><b>Page</b></td></tr>");
     Map<String, Pair> nslist = new HashMap<String, Pair>();
@@ -6848,6 +6859,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (url != null && url.startsWith("http://hl7.org/fhir"))
         nslist.put(url, new Pair("System "+nss.getName(), nss.getUserString("path")));
     }
+    for (String n : ini.getPropertyNames("redirects")) {
+      String[] parts = ini.getStringProperty("redirects", n).split("\\;");
+      nslist.put(n, new Pair("System "+parts[0], parts[1]));       
+    }    
+    
     List<String> list = new ArrayList<String>();
     list.addAll(nslist.keySet());
     Collections.sort(list);
@@ -6856,6 +6872,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append(" <tr><td>"+Utilities.escapeXml(url)+"</td><td>"+Utilities.escapeXml(p.desc)+"</td><td><a href=\""+p.page+"\">"+Utilities.escapeXml(p.page)+"</a></td></tr>");
     }
     b.append("</table>\r\n");
+    b.append("<p>"+Integer.toString(list.size())+" Entries</p>\r\n");
     return b.toString();
   }
   
