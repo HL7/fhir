@@ -12,6 +12,12 @@ In some cases, a contraindication might be associated with a single record.  Whe
 If there is a strong need to point from an implicated resource to Contraindication and containment is not appropriate, an extension can be used.
 </p>
 
+<a name="workflow"/>
+<h2>Workflow Challenges</h2>
+<p>
+Contraindication is a resource that is frequently associated with workflow challenges where frequent alerts that are not clinically relevant result in clinicians tuning out (or turning off) the content and thus missing relevant alerts. Give consideration to this issue before making heavy use of this resource.
+</p>
+
 <a name="open"> </a>
 <h2>Open Issues</h2>
 <ul>

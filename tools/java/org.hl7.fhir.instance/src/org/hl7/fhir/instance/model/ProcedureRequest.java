@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 28, 2015 22:46-0400 for FHIR v0.5.0
+// Generated on Sun, Aug 30, 2015 16:16-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -330,115 +330,6 @@ public class ProcedureRequest extends DomainResource {
       }
     }
 
-    @Block()
-    public static class ProcedureRequestBodySiteComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).
-         */
-        @Child(name = "site", type = {CodeableConcept.class, BodySite.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Target body site", formalDefinition="Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites)." )
-        protected Type site;
-
-        private static final long serialVersionUID = 1429072605L;
-
-    /*
-     * Constructor
-     */
-      public ProcedureRequestBodySiteComponent() {
-        super();
-      }
-
-    /*
-     * Constructor
-     */
-      public ProcedureRequestBodySiteComponent(Type site) {
-        super();
-        this.site = site;
-      }
-
-        /**
-         * @return {@link #site} (Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).)
-         */
-        public Type getSite() { 
-          return this.site;
-        }
-
-        /**
-         * @return {@link #site} (Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).)
-         */
-        public CodeableConcept getSiteCodeableConcept() throws Exception { 
-          if (!(this.site instanceof CodeableConcept))
-            throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.site.getClass().getName()+" was encountered");
-          return (CodeableConcept) this.site;
-        }
-
-        public boolean hasSiteCodeableConcept() throws Exception { 
-          return this.site instanceof CodeableConcept;
-        }
-
-        /**
-         * @return {@link #site} (Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).)
-         */
-        public Reference getSiteReference() throws Exception { 
-          if (!(this.site instanceof Reference))
-            throw new Exception("Type mismatch: the type Reference was expected, but "+this.site.getClass().getName()+" was encountered");
-          return (Reference) this.site;
-        }
-
-        public boolean hasSiteReference() throws Exception { 
-          return this.site instanceof Reference;
-        }
-
-        public boolean hasSite() { 
-          return this.site != null && !this.site.isEmpty();
-        }
-
-        /**
-         * @param value {@link #site} (Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).)
-         */
-        public ProcedureRequestBodySiteComponent setSite(Type value) { 
-          this.site = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("site[x]", "CodeableConcept|Reference(BodySite)", "Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, site));
-        }
-
-      public ProcedureRequestBodySiteComponent copy() {
-        ProcedureRequestBodySiteComponent dst = new ProcedureRequestBodySiteComponent();
-        copyValues(dst);
-        dst.site = site == null ? null : site.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ProcedureRequestBodySiteComponent))
-          return false;
-        ProcedureRequestBodySiteComponent o = (ProcedureRequestBodySiteComponent) other;
-        return compareDeep(site, o.site, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ProcedureRequestBodySiteComponent))
-          return false;
-        ProcedureRequestBodySiteComponent o = (ProcedureRequestBodySiteComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (site == null || site.isEmpty());
-      }
-
-  }
-
     /**
      * Identifiers assigned to this order by the order or by the receiver.
      */
@@ -447,16 +338,16 @@ public class ProcedureRequest extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * The patient who will receive the procedure.
+     * The patient who will receive the procedure or a group of subjects.
      */
-    @Child(name = "subject", type = {Patient.class}, order=1, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Subject", formalDefinition="The patient who will receive the procedure." )
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=1, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Subject", formalDefinition="The patient who will receive the procedure or a group of subjects." )
     protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (The patient who will receive the procedure.)
+     * The actual object that is the target of the reference (The patient who will receive the procedure or a group of subjects.)
      */
-    protected Patient subjectTarget;
+    protected Resource subjectTarget;
 
     /**
      * The specific procedure that is ordered. Use text if the exact nature of the procedure can't be coded.
@@ -468,9 +359,9 @@ public class ProcedureRequest extends DomainResource {
     /**
      * Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).
      */
-    @Child(name = "bodySite", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "bodySite", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Target body sites", formalDefinition="Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites)." )
-    protected List<ProcedureRequestBodySiteComponent> bodySite;
+    protected List<CodeableConcept> bodySite;
 
     /**
      * The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.
@@ -557,7 +448,7 @@ public class ProcedureRequest extends DomainResource {
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="The clinical priority associated with this order." )
     protected Enumeration<ProcedureRequestPriority> priority;
 
-    private static final long serialVersionUID = 816393666L;
+    private static final long serialVersionUID = -916650578L;
 
   /*
    * Constructor
@@ -616,7 +507,7 @@ public class ProcedureRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (The patient who will receive the procedure.)
+     * @return {@link #subject} (The patient who will receive the procedure or a group of subjects.)
      */
     public Reference getSubject() { 
       if (this.subject == null)
@@ -632,7 +523,7 @@ public class ProcedureRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #subject} (The patient who will receive the procedure.)
+     * @param value {@link #subject} (The patient who will receive the procedure or a group of subjects.)
      */
     public ProcedureRequest setSubject(Reference value) { 
       this.subject = value;
@@ -640,21 +531,16 @@ public class ProcedureRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who will receive the procedure.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who will receive the procedure or a group of subjects.)
      */
-    public Patient getSubjectTarget() { 
-      if (this.subjectTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.subject");
-        else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient(); // aa
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who will receive the procedure.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who will receive the procedure or a group of subjects.)
      */
-    public ProcedureRequest setSubjectTarget(Patient value) { 
+    public ProcedureRequest setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -686,16 +572,16 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #bodySite} (Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).)
      */
-    public List<ProcedureRequestBodySiteComponent> getBodySite() { 
+    public List<CodeableConcept> getBodySite() { 
       if (this.bodySite == null)
-        this.bodySite = new ArrayList<ProcedureRequestBodySiteComponent>();
+        this.bodySite = new ArrayList<CodeableConcept>();
       return this.bodySite;
     }
 
     public boolean hasBodySite() { 
       if (this.bodySite == null)
         return false;
-      for (ProcedureRequestBodySiteComponent item : this.bodySite)
+      for (CodeableConcept item : this.bodySite)
         if (!item.isEmpty())
           return true;
       return false;
@@ -705,20 +591,20 @@ public class ProcedureRequest extends DomainResource {
      * @return {@link #bodySite} (Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).)
      */
     // syntactic sugar
-    public ProcedureRequestBodySiteComponent addBodySite() { //3
-      ProcedureRequestBodySiteComponent t = new ProcedureRequestBodySiteComponent();
+    public CodeableConcept addBodySite() { //3
+      CodeableConcept t = new CodeableConcept();
       if (this.bodySite == null)
-        this.bodySite = new ArrayList<ProcedureRequestBodySiteComponent>();
+        this.bodySite = new ArrayList<CodeableConcept>();
       this.bodySite.add(t);
       return t;
     }
 
     // syntactic sugar
-    public ProcedureRequest addBodySite(ProcedureRequestBodySiteComponent t) { //3
+    public ProcedureRequest addBodySite(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.bodySite == null)
-        this.bodySite = new ArrayList<ProcedureRequestBodySiteComponent>();
+        this.bodySite = new ArrayList<CodeableConcept>();
       this.bodySite.add(t);
       return this;
     }
@@ -1183,9 +1069,9 @@ public class ProcedureRequest extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Reference(Patient)", "The patient who will receive the procedure.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient who will receive the procedure or a group of subjects.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("code", "CodeableConcept", "The specific procedure that is ordered. Use text if the exact nature of the procedure can't be coded.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("bodySite", "", "Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, bodySite));
+        childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Condition)", "The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("scheduled[x]", "dateTime|Period|Timing", "The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, scheduled));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter within which the procedure proposal or request was created.", 0, java.lang.Integer.MAX_VALUE, encounter));
@@ -1209,8 +1095,8 @@ public class ProcedureRequest extends DomainResource {
         dst.subject = subject == null ? null : subject.copy();
         dst.code = code == null ? null : code.copy();
         if (bodySite != null) {
-          dst.bodySite = new ArrayList<ProcedureRequestBodySiteComponent>();
-          for (ProcedureRequestBodySiteComponent i : bodySite)
+          dst.bodySite = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : bodySite)
             dst.bodySite.add(i.copy());
         };
         dst.reason = reason == null ? null : reason.copy();

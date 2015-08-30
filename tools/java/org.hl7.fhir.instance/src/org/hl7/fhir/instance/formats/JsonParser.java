@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Aug 28, 2015 22:46-0400 for FHIR v0.5.0
+// Generated on Sun, Aug 30, 2015 16:16-0400 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -2957,6 +2957,8 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("requestDetail"))
+      res.setRequestDetail(parseReference(json.getAsJsonObject("requestDetail")));
     return res;
   }
 
@@ -3943,284 +3945,6 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationElement());
     if (json.has("profile"))
       res.setProfile(parseReference(json.getAsJsonObject("profile")));
-    return res;
-  }
-
-  protected Contract parseContract(JsonObject json) throws Exception {
-    Contract res = new Contract();
-    parseDomainResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-    if (json.has("issued"))
-      res.setIssuedElement(parseDateTime(json.get("issued").getAsString()));
-    if (json.has("_issued"))
-      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssuedElement());
-    if (json.has("applies"))
-      res.setApplies(parsePeriod(json.getAsJsonObject("applies")));
-    if (json.has("subject")) {
-      JsonArray array = json.getAsJsonArray("subject");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSubject().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("authority")) {
-      JsonArray array = json.getAsJsonArray("authority");
-      for (int i = 0; i < array.size(); i++) {
-        res.getAuthority().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("domain")) {
-      JsonArray array = json.getAsJsonArray("domain");
-      for (int i = 0; i < array.size(); i++) {
-        res.getDomain().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-    if (json.has("subType")) {
-      JsonArray array = json.getAsJsonArray("subType");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSubType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("action")) {
-      JsonArray array = json.getAsJsonArray("action");
-      for (int i = 0; i < array.size(); i++) {
-        res.getAction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("actionReason")) {
-      JsonArray array = json.getAsJsonArray("actionReason");
-      for (int i = 0; i < array.size(); i++) {
-        res.getActionReason().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("actor")) {
-      JsonArray array = json.getAsJsonArray("actor");
-      for (int i = 0; i < array.size(); i++) {
-        res.getActor().add(parseContractActorComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("valuedItem")) {
-      JsonArray array = json.getAsJsonArray("valuedItem");
-      for (int i = 0; i < array.size(); i++) {
-        res.getValuedItem().add(parseContractValuedItemComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("signer")) {
-      JsonArray array = json.getAsJsonArray("signer");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSigner().add(parseContractSignatoryComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("term")) {
-      JsonArray array = json.getAsJsonArray("term");
-      for (int i = 0; i < array.size(); i++) {
-        res.getTerm().add(parseContractTermComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    Type binding = parseType("binding", json);
-    if (binding != null)
-      res.setBinding(binding);
-    if (json.has("friendly")) {
-      JsonArray array = json.getAsJsonArray("friendly");
-      for (int i = 0; i < array.size(); i++) {
-        res.getFriendly().add(parseContractFriendlyLanguageComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("legal")) {
-      JsonArray array = json.getAsJsonArray("legal");
-      for (int i = 0; i < array.size(); i++) {
-        res.getLegal().add(parseContractLegalLanguageComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("rule")) {
-      JsonArray array = json.getAsJsonArray("rule");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRule().add(parseContractComputableLanguageComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    return res;
-  }
-
-  protected Contract.ActorComponent parseContractActorComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.ActorComponent res = new Contract.ActorComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("entity"))
-      res.setEntity(parseReference(json.getAsJsonObject("entity")));
-    if (json.has("role")) {
-      JsonArray array = json.getAsJsonArray("role");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRole().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    return res;
-  }
-
-  protected Contract.ValuedItemComponent parseContractValuedItemComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.ValuedItemComponent res = new Contract.ValuedItemComponent();
-    parseBackboneProperties(json, res);
-    Type entity = parseType("entity", json);
-    if (entity != null)
-      res.setEntity(entity);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-    if (json.has("effectiveTime"))
-      res.setEffectiveTimeElement(parseDateTime(json.get("effectiveTime").getAsString()));
-    if (json.has("_effectiveTime"))
-      parseElementProperties(json.getAsJsonObject("_effectiveTime"), res.getEffectiveTimeElement());
-    if (json.has("quantity"))
-      res.setQuantity(parseSimpleQuantity(json.getAsJsonObject("quantity")));
-    if (json.has("unitPrice"))
-      res.setUnitPrice(parseMoney(json.getAsJsonObject("unitPrice")));
-    if (json.has("factor"))
-      res.setFactorElement(parseDecimal(json.get("factor").getAsBigDecimal()));
-    if (json.has("_factor"))
-      parseElementProperties(json.getAsJsonObject("_factor"), res.getFactorElement());
-    if (json.has("points"))
-      res.setPointsElement(parseDecimal(json.get("points").getAsBigDecimal()));
-    if (json.has("_points"))
-      parseElementProperties(json.getAsJsonObject("_points"), res.getPointsElement());
-    if (json.has("net"))
-      res.setNet(parseMoney(json.getAsJsonObject("net")));
-    return res;
-  }
-
-  protected Contract.SignatoryComponent parseContractSignatoryComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.SignatoryComponent res = new Contract.SignatoryComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setType(parseCoding(json.getAsJsonObject("type")));
-    if (json.has("party"))
-      res.setParty(parseReference(json.getAsJsonObject("party")));
-    if (json.has("signature"))
-      res.setSignatureElement(parseString(json.get("signature").getAsString()));
-    if (json.has("_signature"))
-      parseElementProperties(json.getAsJsonObject("_signature"), res.getSignatureElement());
-    return res;
-  }
-
-  protected Contract.TermComponent parseContractTermComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.TermComponent res = new Contract.TermComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-    if (json.has("issued"))
-      res.setIssuedElement(parseDateTime(json.get("issued").getAsString()));
-    if (json.has("_issued"))
-      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssuedElement());
-    if (json.has("applies"))
-      res.setApplies(parsePeriod(json.getAsJsonObject("applies")));
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-    if (json.has("subType"))
-      res.setSubType(parseCodeableConcept(json.getAsJsonObject("subType")));
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("action")) {
-      JsonArray array = json.getAsJsonArray("action");
-      for (int i = 0; i < array.size(); i++) {
-        res.getAction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("actionReason")) {
-      JsonArray array = json.getAsJsonArray("actionReason");
-      for (int i = 0; i < array.size(); i++) {
-        res.getActionReason().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("actor")) {
-      JsonArray array = json.getAsJsonArray("actor");
-      for (int i = 0; i < array.size(); i++) {
-        res.getActor().add(parseContractTermActorComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("text"))
-      res.setTextElement(parseString(json.get("text").getAsString()));
-    if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getTextElement());
-    if (json.has("valuedItem")) {
-      JsonArray array = json.getAsJsonArray("valuedItem");
-      for (int i = 0; i < array.size(); i++) {
-        res.getValuedItem().add(parseContractTermValuedItemComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("group")) {
-      JsonArray array = json.getAsJsonArray("group");
-      for (int i = 0; i < array.size(); i++) {
-        res.getGroup().add(parseContractTermComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    return res;
-  }
-
-  protected Contract.TermActorComponent parseContractTermActorComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.TermActorComponent res = new Contract.TermActorComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("entity"))
-      res.setEntity(parseReference(json.getAsJsonObject("entity")));
-    if (json.has("role")) {
-      JsonArray array = json.getAsJsonArray("role");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRole().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    return res;
-  }
-
-  protected Contract.TermValuedItemComponent parseContractTermValuedItemComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.TermValuedItemComponent res = new Contract.TermValuedItemComponent();
-    parseBackboneProperties(json, res);
-    Type entity = parseType("entity", json);
-    if (entity != null)
-      res.setEntity(entity);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-    if (json.has("effectiveTime"))
-      res.setEffectiveTimeElement(parseDateTime(json.get("effectiveTime").getAsString()));
-    if (json.has("_effectiveTime"))
-      parseElementProperties(json.getAsJsonObject("_effectiveTime"), res.getEffectiveTimeElement());
-    if (json.has("quantity"))
-      res.setQuantity(parseSimpleQuantity(json.getAsJsonObject("quantity")));
-    if (json.has("unitPrice"))
-      res.setUnitPrice(parseMoney(json.getAsJsonObject("unitPrice")));
-    if (json.has("factor"))
-      res.setFactorElement(parseDecimal(json.get("factor").getAsBigDecimal()));
-    if (json.has("_factor"))
-      parseElementProperties(json.getAsJsonObject("_factor"), res.getFactorElement());
-    if (json.has("points"))
-      res.setPointsElement(parseDecimal(json.get("points").getAsBigDecimal()));
-    if (json.has("_points"))
-      parseElementProperties(json.getAsJsonObject("_points"), res.getPointsElement());
-    if (json.has("net"))
-      res.setNet(parseMoney(json.getAsJsonObject("net")));
-    return res;
-  }
-
-  protected Contract.FriendlyLanguageComponent parseContractFriendlyLanguageComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.FriendlyLanguageComponent res = new Contract.FriendlyLanguageComponent();
-    parseBackboneProperties(json, res);
-    Type content = parseType("content", json);
-    if (content != null)
-      res.setContent(content);
-    return res;
-  }
-
-  protected Contract.LegalLanguageComponent parseContractLegalLanguageComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.LegalLanguageComponent res = new Contract.LegalLanguageComponent();
-    parseBackboneProperties(json, res);
-    Type content = parseType("content", json);
-    if (content != null)
-      res.setContent(content);
-    return res;
-  }
-
-  protected Contract.ComputableLanguageComponent parseContractComputableLanguageComponent(JsonObject json, Contract owner) throws Exception {
-    Contract.ComputableLanguageComponent res = new Contract.ComputableLanguageComponent();
-    parseBackboneProperties(json, res);
-    Type content = parseType("content", json);
-    if (content != null)
-      res.setContent(content);
     return res;
   }
 
@@ -8667,8 +8391,8 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("patient"))
-      res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Procedure.ProcedureStatus.NULL, new Procedure.ProcedureStatusEnumFactory()));
     if (json.has("_status"))
@@ -8690,7 +8414,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("bodySite")) {
       JsonArray array = json.getAsJsonArray("bodySite");
       for (int i = 0; i < array.size(); i++) {
-        res.getBodySite().add(parseProcedureProcedureBodySiteComponent(array.get(i).getAsJsonObject(), res));
+        res.getBodySite().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     Type reason = parseType("reason", json);
@@ -8752,20 +8476,11 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  protected Procedure.ProcedureBodySiteComponent parseProcedureProcedureBodySiteComponent(JsonObject json, Procedure owner) throws Exception {
-    Procedure.ProcedureBodySiteComponent res = new Procedure.ProcedureBodySiteComponent();
-    parseBackboneProperties(json, res);
-    Type site = parseType("site", json);
-    if (site != null)
-      res.setSite(site);
-    return res;
-  }
-
   protected Procedure.ProcedurePerformerComponent parseProcedureProcedurePerformerComponent(JsonObject json, Procedure owner) throws Exception {
     Procedure.ProcedurePerformerComponent res = new Procedure.ProcedurePerformerComponent();
     parseBackboneProperties(json, res);
-    if (json.has("individual"))
-      res.setIndividual(parseReference(json.getAsJsonObject("individual")));
+    if (json.has("actor"))
+      res.setActor(parseReference(json.getAsJsonObject("actor")));
     if (json.has("role"))
       res.setRole(parseCodeableConcept(json.getAsJsonObject("role")));
     return res;
@@ -8797,7 +8512,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("bodySite")) {
       JsonArray array = json.getAsJsonArray("bodySite");
       for (int i = 0; i < array.size(); i++) {
-        res.getBodySite().add(parseProcedureRequestProcedureRequestBodySiteComponent(array.get(i).getAsJsonObject(), res));
+        res.getBodySite().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     Type reason = parseType("reason", json);
@@ -8833,15 +8548,6 @@ public class JsonParser extends JsonParserBase {
       res.setPriorityElement(parseEnumeration(json.get("priority").getAsString(), ProcedureRequest.ProcedureRequestPriority.NULL, new ProcedureRequest.ProcedureRequestPriorityEnumFactory()));
     if (json.has("_priority"))
       parseElementProperties(json.getAsJsonObject("_priority"), res.getPriorityElement());
-    return res;
-  }
-
-  protected ProcedureRequest.ProcedureRequestBodySiteComponent parseProcedureRequestProcedureRequestBodySiteComponent(JsonObject json, ProcedureRequest owner) throws Exception {
-    ProcedureRequest.ProcedureRequestBodySiteComponent res = new ProcedureRequest.ProcedureRequestBodySiteComponent();
-    parseBackboneProperties(json, res);
-    Type site = parseType("site", json);
-    if (site != null)
-      res.setSite(site);
     return res;
   }
 
@@ -9459,6 +9165,8 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("condition"))
       res.setCondition(parseReference(json.getAsJsonObject("condition")));
+    if (json.has("encounter"))
+      res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("performer"))
       res.setPerformer(parseReference(json.getAsJsonObject("performer")));
     if (json.has("identifier"))
@@ -11101,8 +10809,6 @@ public class JsonParser extends JsonParserBase {
       return parseCondition(json);
     else if (t.equals("Conformance"))
       return parseConformance(json);
-    else if (t.equals("Contract"))
-      return parseContract(json);
     else if (t.equals("Contraindication"))
       return parseContraindication(json);
     else if (t.equals("Coverage"))
@@ -11548,8 +11254,6 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Condition"))
       return true;
     if (json.has(prefix+"Conformance"))
-      return true;
-    if (json.has(prefix+"Contract"))
       return true;
     if (json.has(prefix+"Contraindication"))
       return true;
@@ -15507,6 +15211,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
+      if (element.hasRequestDetail()) {
+        composeReference("requestDetail", element.getRequestDetail());
+      }
   }
 
   protected void composeCommunicationCommunicationPayloadComponent(String name, Communication.CommunicationPayloadComponent element) throws Exception {
@@ -16687,363 +16394,6 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());
-      }
-  }
-
-  protected void composeContract(String name, Contract element) throws Exception {
-    if (element != null) {
-      prop("resourceType", name);
-      composeContractInner(element);
-    }
-  }
-
-  protected void composeContractInner(Contract element) throws Exception {
-      composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasIssuedElement()) {
-        composeDateTimeCore("issued", element.getIssuedElement(), false);
-        composeDateTimeExtras("issued", element.getIssuedElement(), false);
-      }
-      if (element.hasApplies()) {
-        composePeriod("applies", element.getApplies());
-      }
-      if (element.hasSubject()) {
-        openArray("subject");
-        for (Reference e : element.getSubject()) 
-          composeReference(null, e);
-        closeArray();
-      };
-      if (element.hasAuthority()) {
-        openArray("authority");
-        for (Reference e : element.getAuthority()) 
-          composeReference(null, e);
-        closeArray();
-      };
-      if (element.hasDomain()) {
-        openArray("domain");
-        for (Reference e : element.getDomain()) 
-          composeReference(null, e);
-        closeArray();
-      };
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
-      }
-      if (element.hasSubType()) {
-        openArray("subType");
-        for (CodeableConcept e : element.getSubType()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasAction()) {
-        openArray("action");
-        for (CodeableConcept e : element.getAction()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasActionReason()) {
-        openArray("actionReason");
-        for (CodeableConcept e : element.getActionReason()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasActor()) {
-        openArray("actor");
-        for (Contract.ActorComponent e : element.getActor()) 
-          composeContractActorComponent(null, e);
-        closeArray();
-      };
-      if (element.hasValuedItem()) {
-        openArray("valuedItem");
-        for (Contract.ValuedItemComponent e : element.getValuedItem()) 
-          composeContractValuedItemComponent(null, e);
-        closeArray();
-      };
-      if (element.hasSigner()) {
-        openArray("signer");
-        for (Contract.SignatoryComponent e : element.getSigner()) 
-          composeContractSignatoryComponent(null, e);
-        closeArray();
-      };
-      if (element.hasTerm()) {
-        openArray("term");
-        for (Contract.TermComponent e : element.getTerm()) 
-          composeContractTermComponent(null, e);
-        closeArray();
-      };
-      if (element.hasBinding()) {
-        composeType("binding", element.getBinding());
-      }
-      if (element.hasFriendly()) {
-        openArray("friendly");
-        for (Contract.FriendlyLanguageComponent e : element.getFriendly()) 
-          composeContractFriendlyLanguageComponent(null, e);
-        closeArray();
-      };
-      if (element.hasLegal()) {
-        openArray("legal");
-        for (Contract.LegalLanguageComponent e : element.getLegal()) 
-          composeContractLegalLanguageComponent(null, e);
-        closeArray();
-      };
-      if (element.hasRule()) {
-        openArray("rule");
-        for (Contract.ComputableLanguageComponent e : element.getRule()) 
-          composeContractComputableLanguageComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeContractActorComponent(String name, Contract.ActorComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractActorComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractActorComponentInner(Contract.ActorComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasEntity()) {
-        composeReference("entity", element.getEntity());
-      }
-      if (element.hasRole()) {
-        openArray("role");
-        for (CodeableConcept e : element.getRole()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeContractValuedItemComponent(String name, Contract.ValuedItemComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractValuedItemComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractValuedItemComponentInner(Contract.ValuedItemComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasEntity()) {
-        composeType("entity", element.getEntity());
-      }
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasEffectiveTimeElement()) {
-        composeDateTimeCore("effectiveTime", element.getEffectiveTimeElement(), false);
-        composeDateTimeExtras("effectiveTime", element.getEffectiveTimeElement(), false);
-      }
-      if (element.hasQuantity()) {
-        composeSimpleQuantity("quantity", element.getQuantity());
-      }
-      if (element.hasUnitPrice()) {
-        composeMoney("unitPrice", element.getUnitPrice());
-      }
-      if (element.hasFactorElement()) {
-        composeDecimalCore("factor", element.getFactorElement(), false);
-        composeDecimalExtras("factor", element.getFactorElement(), false);
-      }
-      if (element.hasPointsElement()) {
-        composeDecimalCore("points", element.getPointsElement(), false);
-        composeDecimalExtras("points", element.getPointsElement(), false);
-      }
-      if (element.hasNet()) {
-        composeMoney("net", element.getNet());
-      }
-  }
-
-  protected void composeContractSignatoryComponent(String name, Contract.SignatoryComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractSignatoryComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractSignatoryComponentInner(Contract.SignatoryComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasType()) {
-        composeCoding("type", element.getType());
-      }
-      if (element.hasParty()) {
-        composeReference("party", element.getParty());
-      }
-      if (element.hasSignatureElement()) {
-        composeStringCore("signature", element.getSignatureElement(), false);
-        composeStringExtras("signature", element.getSignatureElement(), false);
-      }
-  }
-
-  protected void composeContractTermComponent(String name, Contract.TermComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractTermComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractTermComponentInner(Contract.TermComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasIssuedElement()) {
-        composeDateTimeCore("issued", element.getIssuedElement(), false);
-        composeDateTimeExtras("issued", element.getIssuedElement(), false);
-      }
-      if (element.hasApplies()) {
-        composePeriod("applies", element.getApplies());
-      }
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
-      }
-      if (element.hasSubType()) {
-        composeCodeableConcept("subType", element.getSubType());
-      }
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
-      }
-      if (element.hasAction()) {
-        openArray("action");
-        for (CodeableConcept e : element.getAction()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasActionReason()) {
-        openArray("actionReason");
-        for (CodeableConcept e : element.getActionReason()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasActor()) {
-        openArray("actor");
-        for (Contract.TermActorComponent e : element.getActor()) 
-          composeContractTermActorComponent(null, e);
-        closeArray();
-      };
-      if (element.hasTextElement()) {
-        composeStringCore("text", element.getTextElement(), false);
-        composeStringExtras("text", element.getTextElement(), false);
-      }
-      if (element.hasValuedItem()) {
-        openArray("valuedItem");
-        for (Contract.TermValuedItemComponent e : element.getValuedItem()) 
-          composeContractTermValuedItemComponent(null, e);
-        closeArray();
-      };
-      if (element.hasGroup()) {
-        openArray("group");
-        for (Contract.TermComponent e : element.getGroup()) 
-          composeContractTermComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeContractTermActorComponent(String name, Contract.TermActorComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractTermActorComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractTermActorComponentInner(Contract.TermActorComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasEntity()) {
-        composeReference("entity", element.getEntity());
-      }
-      if (element.hasRole()) {
-        openArray("role");
-        for (CodeableConcept e : element.getRole()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeContractTermValuedItemComponent(String name, Contract.TermValuedItemComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractTermValuedItemComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractTermValuedItemComponentInner(Contract.TermValuedItemComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasEntity()) {
-        composeType("entity", element.getEntity());
-      }
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasEffectiveTimeElement()) {
-        composeDateTimeCore("effectiveTime", element.getEffectiveTimeElement(), false);
-        composeDateTimeExtras("effectiveTime", element.getEffectiveTimeElement(), false);
-      }
-      if (element.hasQuantity()) {
-        composeSimpleQuantity("quantity", element.getQuantity());
-      }
-      if (element.hasUnitPrice()) {
-        composeMoney("unitPrice", element.getUnitPrice());
-      }
-      if (element.hasFactorElement()) {
-        composeDecimalCore("factor", element.getFactorElement(), false);
-        composeDecimalExtras("factor", element.getFactorElement(), false);
-      }
-      if (element.hasPointsElement()) {
-        composeDecimalCore("points", element.getPointsElement(), false);
-        composeDecimalExtras("points", element.getPointsElement(), false);
-      }
-      if (element.hasNet()) {
-        composeMoney("net", element.getNet());
-      }
-  }
-
-  protected void composeContractFriendlyLanguageComponent(String name, Contract.FriendlyLanguageComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractFriendlyLanguageComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractFriendlyLanguageComponentInner(Contract.FriendlyLanguageComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasContent()) {
-        composeType("content", element.getContent());
-      }
-  }
-
-  protected void composeContractLegalLanguageComponent(String name, Contract.LegalLanguageComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractLegalLanguageComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractLegalLanguageComponentInner(Contract.LegalLanguageComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasContent()) {
-        composeType("content", element.getContent());
-      }
-  }
-
-  protected void composeContractComputableLanguageComponent(String name, Contract.ComputableLanguageComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeContractComputableLanguageComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeContractComputableLanguageComponentInner(Contract.ComputableLanguageComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasContent()) {
-        composeType("content", element.getContent());
       }
   }
 
@@ -22623,8 +21973,8 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      if (element.hasPatient()) {
-        composeReference("patient", element.getPatient());
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
       }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Procedure.ProcedureStatusEnumFactory(), false);
@@ -22648,8 +21998,8 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasBodySite()) {
         openArray("bodySite");
-        for (Procedure.ProcedureBodySiteComponent e : element.getBodySite()) 
-          composeProcedureProcedureBodySiteComponent(null, e);
+        for (CodeableConcept e : element.getBodySite()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasReason()) {
@@ -22714,21 +22064,6 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  protected void composeProcedureProcedureBodySiteComponent(String name, Procedure.ProcedureBodySiteComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProcedureProcedureBodySiteComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeProcedureProcedureBodySiteComponentInner(Procedure.ProcedureBodySiteComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasSite()) {
-        composeType("site", element.getSite());
-      }
-  }
-
   protected void composeProcedureProcedurePerformerComponent(String name, Procedure.ProcedurePerformerComponent element) throws Exception {
     if (element != null) {
       open(name);
@@ -22739,8 +22074,8 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeProcedureProcedurePerformerComponentInner(Procedure.ProcedurePerformerComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasIndividual()) {
-        composeReference("individual", element.getIndividual());
+      if (element.hasActor()) {
+        composeReference("actor", element.getActor());
       }
       if (element.hasRole()) {
         composeCodeableConcept("role", element.getRole());
@@ -22788,8 +22123,8 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasBodySite()) {
         openArray("bodySite");
-        for (ProcedureRequest.ProcedureRequestBodySiteComponent e : element.getBodySite()) 
-          composeProcedureRequestProcedureRequestBodySiteComponent(null, e);
+        for (CodeableConcept e : element.getBodySite()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasReason()) {
@@ -22827,21 +22162,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasPriorityElement()) {
         composeEnumerationCore("priority", element.getPriorityElement(), new ProcedureRequest.ProcedureRequestPriorityEnumFactory(), false);
         composeEnumerationExtras("priority", element.getPriorityElement(), new ProcedureRequest.ProcedureRequestPriorityEnumFactory(), false);
-      }
-  }
-
-  protected void composeProcedureRequestProcedureRequestBodySiteComponent(String name, ProcedureRequest.ProcedureRequestBodySiteComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProcedureRequestProcedureRequestBodySiteComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeProcedureRequestProcedureRequestBodySiteComponentInner(ProcedureRequest.ProcedureRequestBodySiteComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasSite()) {
-        composeType("site", element.getSite());
       }
   }
 
@@ -23597,6 +22917,9 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasCondition()) {
         composeReference("condition", element.getCondition());
+      }
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
       }
       if (element.hasPerformer()) {
         composeReference("performer", element.getPerformer());
@@ -25588,8 +24911,6 @@ public class JsonParser extends JsonParserBase {
       composeCondition("Condition", (Condition)resource);
     else if (resource instanceof Conformance)
       composeConformance("Conformance", (Conformance)resource);
-    else if (resource instanceof Contract)
-      composeContract("Contract", (Contract)resource);
     else if (resource instanceof Contraindication)
       composeContraindication("Contraindication", (Contraindication)resource);
     else if (resource instanceof Coverage)
@@ -25783,8 +25104,6 @@ public class JsonParser extends JsonParserBase {
       composeCondition(name, (Condition)resource);
     else if (resource instanceof Conformance)
       composeConformance(name, (Conformance)resource);
-    else if (resource instanceof Contract)
-      composeContract(name, (Contract)resource);
     else if (resource instanceof Contraindication)
       composeContraindication(name, (Contraindication)resource);
     else if (resource instanceof Coverage)

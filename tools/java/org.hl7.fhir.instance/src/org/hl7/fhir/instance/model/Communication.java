@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 28, 2015 22:46-0400 for FHIR v0.5.0
+// Generated on Sun, Aug 30, 2015 16:16-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -386,7 +386,19 @@ public class Communication extends DomainResource {
      */
     protected Patient subjectTarget;
 
-    private static final long serialVersionUID = -744574729L;
+    /**
+     * The communication request that was responsible for producing this communication.
+     */
+    @Child(name = "requestDetail", type = {CommunicationRequest.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="CommunicationRequest producing this message", formalDefinition="The communication request that was responsible for producing this communication." )
+    protected Reference requestDetail;
+
+    /**
+     * The actual object that is the target of the reference (The communication request that was responsible for producing this communication.)
+     */
+    protected CommunicationRequest requestDetailTarget;
+
+    private static final long serialVersionUID = -1654449146L;
 
   /*
    * Constructor
@@ -902,6 +914,50 @@ public class Communication extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #requestDetail} (The communication request that was responsible for producing this communication.)
+     */
+    public Reference getRequestDetail() { 
+      if (this.requestDetail == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Communication.requestDetail");
+        else if (Configuration.doAutoCreate())
+          this.requestDetail = new Reference(); // cc
+      return this.requestDetail;
+    }
+
+    public boolean hasRequestDetail() { 
+      return this.requestDetail != null && !this.requestDetail.isEmpty();
+    }
+
+    /**
+     * @param value {@link #requestDetail} (The communication request that was responsible for producing this communication.)
+     */
+    public Communication setRequestDetail(Reference value) { 
+      this.requestDetail = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #requestDetail} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The communication request that was responsible for producing this communication.)
+     */
+    public CommunicationRequest getRequestDetailTarget() { 
+      if (this.requestDetailTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Communication.requestDetail");
+        else if (Configuration.doAutoCreate())
+          this.requestDetailTarget = new CommunicationRequest(); // aa
+      return this.requestDetailTarget;
+    }
+
+    /**
+     * @param value {@link #requestDetail} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The communication request that was responsible for producing this communication.)
+     */
+    public Communication setRequestDetailTarget(CommunicationRequest value) { 
+      this.requestDetailTarget = value;
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers associated with this Communication that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -916,6 +972,7 @@ public class Communication extends DomainResource {
         childrenList.add(new Property("received", "dateTime", "The time when this communication arrived at the destination.", 0, java.lang.Integer.MAX_VALUE, received));
         childrenList.add(new Property("reason", "CodeableConcept", "The reason or justification for the communication.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who was the focus of this communication.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("requestDetail", "Reference(CommunicationRequest)", "The communication request that was responsible for producing this communication.", 0, java.lang.Integer.MAX_VALUE, requestDetail));
       }
 
       public Communication copy() {
@@ -953,6 +1010,7 @@ public class Communication extends DomainResource {
             dst.reason.add(i.copy());
         };
         dst.subject = subject == null ? null : subject.copy();
+        dst.requestDetail = requestDetail == null ? null : requestDetail.copy();
         return dst;
       }
 
@@ -971,7 +1029,7 @@ public class Communication extends DomainResource {
            && compareDeep(recipient, o.recipient, true) && compareDeep(payload, o.payload, true) && compareDeep(medium, o.medium, true)
            && compareDeep(status, o.status, true) && compareDeep(encounter, o.encounter, true) && compareDeep(sent, o.sent, true)
            && compareDeep(received, o.received, true) && compareDeep(reason, o.reason, true) && compareDeep(subject, o.subject, true)
-          ;
+           && compareDeep(requestDetail, o.requestDetail, true);
       }
 
       @Override
@@ -990,7 +1048,8 @@ public class Communication extends DomainResource {
            && (sender == null || sender.isEmpty()) && (recipient == null || recipient.isEmpty()) && (payload == null || payload.isEmpty())
            && (medium == null || medium.isEmpty()) && (status == null || status.isEmpty()) && (encounter == null || encounter.isEmpty())
            && (sent == null || sent.isEmpty()) && (received == null || received.isEmpty()) && (reason == null || reason.isEmpty())
-           && (subject == null || subject.isEmpty());
+           && (subject == null || subject.isEmpty()) && (requestDetail == null || requestDetail.isEmpty())
+          ;
       }
 
   @Override
@@ -1010,6 +1069,8 @@ public class Communication extends DomainResource {
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="Communication.subject", description="Focus of message", type="reference" )
   public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="request", path="Communication.requestDetail", description="CommunicationRequest producing this message", type="reference" )
+  public static final String SP_REQUEST = "request";
   @SearchParamDefinition(name="received", path="Communication.received", description="When received", type="date" )
   public static final String SP_RECEIVED = "received";
   @SearchParamDefinition(name="encounter", path="Communication.encounter", description="Encounter leading to message", type="reference" )

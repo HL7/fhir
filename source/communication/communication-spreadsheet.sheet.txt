@@ -151,6 +151,14 @@
   Definition = The patient who was the focus of this communication.
   w5 = who.focus
 
+ -- Row 15 -----------------------------------
+  Element = Communication.requestDetail
+  Card. = 0..1
+  Type = Reference(CommunicationRequest)
+  Short Label = CommunicationRequest producing this message
+  Definition = The communication request that was responsible for producing this communication.
+  w5 = context
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -207,6 +215,11 @@
   Name = patient
   Type = reference
   Path = Communication.subject
+
+ -- Row 12 -----------------------------------
+  Name = request
+  Type = reference
+  Path = Communication.requestDetail
 
 === Sheet Profiles =====================================
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Aug 28, 2015 22:46-0400 for FHIR v0.5.0
+// Generated on Sun, Aug 30, 2015 16:16-0400 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -391,14 +391,14 @@ public class Contraindication extends DomainResource {
     protected DateTimeType date;
 
     /**
-     * Identifies the provider or software that identified the.
+     * Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.
      */
     @Child(name = "author", type = {Practitioner.class, Device.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who found issue?", formalDefinition="Identifies the provider or software that identified the." )
+    @Description(shortDefinition="The provider or device that identified the issue", formalDefinition="Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review." )
     protected Reference author;
 
     /**
-     * The actual object that is the target of the reference (Identifies the provider or software that identified the.)
+     * The actual object that is the target of the reference (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
     protected Resource authorTarget;
 
@@ -697,7 +697,7 @@ public class Contraindication extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (Identifies the provider or software that identified the.)
+     * @return {@link #author} (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
     public Reference getAuthor() { 
       if (this.author == null)
@@ -713,7 +713,7 @@ public class Contraindication extends DomainResource {
     }
 
     /**
-     * @param value {@link #author} (Identifies the provider or software that identified the.)
+     * @param value {@link #author} (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
     public Contraindication setAuthor(Reference value) { 
       this.author = value;
@@ -721,14 +721,14 @@ public class Contraindication extends DomainResource {
     }
 
     /**
-     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the provider or software that identified the.)
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
     public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
-     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the provider or software that identified the.)
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
     public Contraindication setAuthorTarget(Resource value) { 
       this.authorTarget = value;
@@ -856,7 +856,7 @@ public class Contraindication extends DomainResource {
         childrenList.add(new Property("implicated", "Reference(Any)", "Indicates the resource representing the current activity or proposed activity that.", 0, java.lang.Integer.MAX_VALUE, implicated));
         childrenList.add(new Property("detail", "string", "A textual explanation of the contraindication.", 0, java.lang.Integer.MAX_VALUE, detail));
         childrenList.add(new Property("date", "dateTime", "The date or date-time when the contraindication was initially identified.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("author", "Reference(Practitioner|Device)", "Identifies the provider or software that identified the.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("author", "Reference(Practitioner|Device)", "Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("identifier", "Identifier", "Business identifier associated with the contraindication record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("reference", "uri", "The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.", 0, java.lang.Integer.MAX_VALUE, reference));
         childrenList.add(new Property("mitigation", "", "Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindication from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.", 0, java.lang.Integer.MAX_VALUE, mitigation));
@@ -927,7 +927,7 @@ public class Contraindication extends DomainResource {
     return ResourceType.Contraindication;
    }
 
-  @SearchParamDefinition(name="author", path="Contraindication.author", description="Who found issue?", type="reference" )
+  @SearchParamDefinition(name="author", path="Contraindication.author", description="The provider or device that identified the issue", type="reference" )
   public static final String SP_AUTHOR = "author";
   @SearchParamDefinition(name="category", path="Contraindication.category", description="E.g. Drug-drug, duplicate therapy, etc.", type="token" )
   public static final String SP_CATEGORY = "category";

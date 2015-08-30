@@ -78,6 +78,16 @@
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
 
  -- Row 5 -----------------------------------
+  Element = RiskAssessment.encounter
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Encounter)
+  Short Label = Where was assessment performed?
+  Definition = The encounter where the assessement was performed
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 6 -----------------------------------
   Element = RiskAssessment.performer
   Card. = 0..1
   Summary = y
@@ -88,7 +98,7 @@
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGNED]
   w5 = who.author
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = RiskAssessment.identifier
   Card. = 0..1
   Summary = y
@@ -99,7 +109,7 @@
   RIM Mapping = .id
   w5 = id
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = RiskAssessment.method
   Card. = 0..1
   Summary = y
@@ -112,7 +122,7 @@
   To Do = Is this in the 80%?
   w5 = class
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = RiskAssessment.basis
   Card. = 0..*
   Type = Reference(Any)
@@ -121,7 +131,7 @@
   OpenEHR mapping = Risk Factor; Link to Evidence
   RIM Mapping = .outboundRelationship[typeCode=DRIV].target
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = RiskAssessment.prediction
   Card. = 0..*
   UML = 320;0
@@ -130,7 +140,7 @@
   Comments = Multiple repetitions can be used to identify the same type of outcome in different timeframes as well as different types of outcomes
   RIM Mapping = .outboundRelationship[typeCode=VALUE].target[classCod=OBS, moodCode=RISK]
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = RiskAssessment.prediction.outcome
   Card. = 1..1
   Type = CodeableConcept
@@ -140,18 +150,18 @@
   OpenEHR mapping = Risk
   RIM Mapping = .value
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = RiskAssessment.prediction.probability[x]
   Card. = 0..1
   Type = decimal | Range | CodeableConcept
   Binding = RiskAssessmentProbability
   Short Label = Likelihood of specified outcome
   Definition = How likely is the outcome (in the specified timeframe)
-  Comments = If range is used, it represents the lower and upper bounds of certainty.  E.g. 40-60%\n\nDecimal values are expressed as percentages as well (max = 100)
+  Comments = If range is used, it represents the lower and upper bounds of certainty.  E.g. 40-60%  Decimal values are expressed as percentages as well (max = 100)
   OpenEHR mapping = Category
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"probability\"].value
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = RiskAssessment.prediction.relativeRisk
   Card. = 0..1
   Type = decimal
@@ -161,7 +171,7 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"relative risk\"].value
   To Do = Is this in the 80%?
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = RiskAssessment.prediction.when[x]
   Card. = 0..1
   Type = Period | Range
@@ -170,7 +180,7 @@
   Comments = If not specified, the risk applies \"over the subject\'s lifespan\"
   RIM Mapping = .effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age\"].value
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = RiskAssessment.prediction.rationale
   Card. = 0..1
   Type = string
@@ -179,7 +189,7 @@
   OpenEHR mapping = Rationale
   RIM Mapping = .reasonCode.text
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = RiskAssessment.mitigation
   Card. = 0..1
   Type = string
@@ -201,26 +211,31 @@
   Path = RiskAssessment.date
 
  -- Row 3 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = RiskAssessment.encounter
+
+ -- Row 4 -----------------------------------
   Name = performer
   Type = reference
   Path = RiskAssessment.performer
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = subject
   Type = reference
   Path = RiskAssessment.subject
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = condition
   Type = reference
   Path = RiskAssessment.condition
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = method
   Type = token
   Path = RiskAssessment.method
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = patient
   Type = reference
   Path = RiskAssessment.subject
