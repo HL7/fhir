@@ -345,6 +345,14 @@ mention the elements that are changed, without having to list the
 full structure).
 </p>
 <p>
+Note that a differential can choose not to constrain elements. 
+Doing so means that the profile will be more flexible in terms of compatibility
+with other profiles, but will require more work to support from implementing
+systems. Alternatively, a profile can constrain all optional elements to be not 
+present (max cardinality = 0) - this closes the content, which makes 
+implementation easier, but the reduces it's usefulness. 
+</p>
+<p>
 In order to properly understand a differential structure, it must be
 applied to the structure definition on which it is based. In order to save
 tools from needing to support this operation (which is computationally intensive - and

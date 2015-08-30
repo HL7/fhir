@@ -2,10 +2,7 @@ To do task list for DSTU2
 
 In the DSTU:
 Content:
-- Resource guide
 - json + XML  profile formats (EK)
-- clarify the usage of profile to close off unused things
-- update implementers safety checklist 
 - 7788 - where does this go? 
 - resolving the bundle reference thing
 
