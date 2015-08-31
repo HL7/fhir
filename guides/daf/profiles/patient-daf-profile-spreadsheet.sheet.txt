@@ -2,16 +2,6 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = AdminstrativeGender
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/administrative-gender
-  Definition = The gender of a patient used for adminstrative purposes (as opposed to clinical gender)
-  Description = Adminstrative Gender of the Patient.
-  Conformance = required
-  Uri = http://hl7.org/fhir/ValueSet/administrative-gender
-  Oid = 2.16.840.1.113883.4.642.1.24
-
- -- Row 2 -----------------------------------
   Binding Name = DAFRace
   Binding = value set
   Reference = valueset-race
@@ -21,7 +11,7 @@
   Uri = http://hl7.org/fhir/ValueSet/daf-race
   Oid = 2.16.840.1.113883.1.11.14914
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Binding Name = DAFEthnicity
   Binding = value set
   Reference = valueset-ethnicity
@@ -31,17 +21,7 @@
   Uri = http://hl7.org/fhir/ValueSet/daf-ethnicity
   Oid = 2.16.840.1.114222.4.11.837
 
- -- Row 4 -----------------------------------
-  Binding Name = DAFMaritalStatus
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-MaritalStatus
-  Definition = Marital status of the patient
-  Description = Patient\'s marital status
-  Conformance = required
-  Uri = http://hl7.org/fhir/ValueSet/v3-MaritalStatus
-  Oid = 2.16.840.1.113883.5.2
-
- -- Row 5 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = DAFGranularRace
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-Race
@@ -51,7 +31,7 @@
   Uri = http://hl7.org/fhir/ValueSet/v3-Race
   Oid = 2.16.840.1.113883.1.11.14914
 
- -- Row 6 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = DAFUSPSState
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/usps-state
@@ -61,7 +41,7 @@
   Uri = http://hl7.org/fhir/ValueSet/usps-state
   Oid = 2.16.840.1.113883.4.642.2.517
 
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = ContactRelationships
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/patient-contact-relationship
@@ -71,7 +51,7 @@
   Uri = http://hl7.org/fhir/ValueSet/patient-contact-relationship
   Oid = 2.16.840.1.113883.1.11.19563
 
- -- Row 8 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = DAFReligion
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation
@@ -194,7 +174,7 @@
 
  -- Row 15 -----------------------------------
   Element = Patient.telecom.use
-  Card. = 1..1
+  Card. = 0..1
   Must Support = y
   Type = code
 
@@ -203,7 +183,6 @@
   Card. = 0..1
   Must Support = y
   Type = code
-  Binding = AdminstrativeGender
 
  -- Row 17 -----------------------------------
   Element = Patient.birthDate
@@ -260,7 +239,6 @@
   Card. = 0..1
   Must Support = y
   Type = CodeableConcept
-  Binding = DAFMaritalStatus
 
  -- Row 26 -----------------------------------
   Element = Patient.multipleBirth[x]

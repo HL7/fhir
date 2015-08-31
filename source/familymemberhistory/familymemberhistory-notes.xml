@@ -1,3 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
+<h3>Processing information about the Femily Member History</h3>
+    <p>The Family Member History <a href="list.html">List</a> may contain other than FamilyMemberHistory resources. For example,
+        a full Family History could be a <a href="list.html">List</a> that might include a mixture of FamilyMemberHistory records 
+        as well as <a href="observation.html">Observation</a> records of things like "maternal family history of breast cancer". </p>
 </div>

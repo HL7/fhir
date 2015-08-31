@@ -59,8 +59,9 @@
   Type = Period
 
  -- Row 8 -----------------------------------
-  Element = !Observation.issued
+  Element = Observation.issued
   Card. = 0..1
+  Must Support = Y
   Type = instant
 
  -- Row 9 -----------------------------------

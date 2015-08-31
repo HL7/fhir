@@ -8,13 +8,6 @@
   Definition = Two letter USPS alphabetic codes.
   Conformance = extensible
 
- -- Row 2 -----------------------------------
-  Binding Name = !USFIPSCounty
-  Binding = value set
-  Reference = valueset-fips-county
-  Definition = FIPS codes for US counties and county equivalent entities
-  Conformance = required
-
 === Sheet DAF-Location =====================================
 
  -- Row 1 -----------------------------------
@@ -62,44 +55,35 @@
   ServD Mapping = n/a
 
  -- Row 8 -----------------------------------
-  Element = Location.address.extension
-  Profile Name = DAFCountry
-  Card. = 0..1
-  Must Support = Y
-  UML = right
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
-  Short Label = County/Parish FIPS codes
-
- -- Row 9 -----------------------------------
   Element = !Location.address.extension.extension
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding}
   Binding = USFIPSCounty
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = !Location.address.extension.extension.system
   Card. = 0..1
   Must Support = Y
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = !Location.address.extension.extension.code
   Card. = 0..1
   Must Support = Y
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Location.address.line
   Card. = 0..2
   Must Support = Y
   Type = string
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Location.address.city
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Location.address.state
   Card. = 0..1
   Must Support = Y
@@ -107,20 +91,20 @@
   Binding = USPSState
   ServD Mapping = ./Sites
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Location.address.postalCode
   Card. = 0..1
   Must Support = Y
   Type = string
   Short Label = US Zip Codes
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Location.managingOrganization
   Card. = 0..1
   Must Support = Y
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Location.status
   Card. = 0..1
   Must Support = Y

@@ -1,5 +1,11 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- content goes here -->
-
+    <p>Examples of the Family History, using the <a href="list.html">List</a> resource:</p>
+   <ul>
+       <li><a href="list-example-familyhistory-f201-roel.html">Real-world patient example</a></li>
+       <li><a href="list-example-familyhistory-genetics-profile.html">Simple genetic family member history</a></li>
+       <li><a href="list-example-familyhistory-genetics-profile-annie.html">Example for risk assessment</a></li>
+   </ul> 
+      
 </div>

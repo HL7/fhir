@@ -8,13 +8,6 @@
   Definition = Two letter USPS alphabetic codes.
   Conformance = required
 
- -- Row 2 -----------------------------------
-  Binding Name = !USFIPSCounty
-  Binding = value set
-  Reference = valueset-fips-county
-  Definition = FIPS codes for US counties and county equivalent entities
-  Conformance = required
-
 === Sheet DAF-Organization-Inv =====================================
 
 === Sheet DAF-Organization =====================================
@@ -52,44 +45,35 @@
   ServD Mapping = n/a
 
  -- Row 6 -----------------------------------
-  Element = Organization.address.extension
-  Profile Name = DAFCountry
-  Card. = 0..1
-  Must Support = Y
-  UML = right
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
-  Short Label = County/Parish FIPS codes
-
- -- Row 7 -----------------------------------
   Element = !Organization.address.extension.extension
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding}
   Binding = USFIPSCounty
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = !Organization.address.extension.extension.system
   Card. = 0..1
   Must Support = Y
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = !Organization.address.extension.extension.code
   Card. = 0..1
   Must Support = Y
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Organization.address.line
   Card. = 0..2
   Must Support = Y
   Type = string
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Organization.address.city
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Organization.address.state
   Card. = 0..1
   Must Support = Y
@@ -97,14 +81,14 @@
   Binding = USPSState
   ServD Mapping = ./Sites
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Organization.address.postalCode
   Card. = 0..1
   Must Support = Y
   Type = string
   Short Label = US Zip Codes
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Organization.active
   Card. = 0..1
   Must Support = Y

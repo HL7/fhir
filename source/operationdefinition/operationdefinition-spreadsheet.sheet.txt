@@ -382,3 +382,132 @@
   Type = Reference(StructureDefinition)
   Short Label = Profile on the type
   Definition = A profile the specifies the rules that this parameter must conform to
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = url
+  Type = uri
+  Path = OperationDefinition.url
+
+ -- Row 2 -----------------------------------
+  Name = version
+  Type = token
+  Path = OperationDefinition.version
+
+ -- Row 3 -----------------------------------
+  Name = name
+  Type = string
+  Path = OperationDefinition.name
+
+ -- Row 4 -----------------------------------
+  Name = publisher
+  Type = string
+  Path = OperationDefinition.publisher
+
+ -- Row 5 -----------------------------------
+  Name = code
+  Type = token
+  Path = OperationDefinition.code
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Path = OperationDefinition.status
+
+ -- Row 7 -----------------------------------
+  Name = date
+  Type = date
+  Path = OperationDefinition.date
+
+ -- Row 8 -----------------------------------
+  Name = kind
+  Type = token
+  Path = OperationDefinition.kind
+
+ -- Row 9 -----------------------------------
+  Name = base
+  Type = reference
+  Path = OperationDefinition.base
+
+ -- Row 10 -----------------------------------
+  Name = system
+  Type = token
+  Path = OperationDefinition.system
+
+ -- Row 11 -----------------------------------
+  Name = type
+  Type = token
+  Path = OperationDefinition.type
+
+ -- Row 12 -----------------------------------
+  Name = instance
+  Type = token
+  Path = OperationDefinition.instance
+
+ -- Row 13 -----------------------------------
+  Name = profile
+  Type = reference
+  Path = OperationDefinition.parameter.profile
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = example
+  Identity = example
+  Description = OperationDefinition example
+  Filename = operationdefinition-example.xml
+  Type = xml
+
+ -- Row 2 -----------------------------------
+  Name = vsexpansion
+  Identity = ValueSet-expand
+  Description = ValueSet Expansion
+  Filename = operation-valueset-expand.xml
+  Type = tool
+
+ -- Row 3 -----------------------------------
+  Name = vsvalidation
+  Identity = ValueSet-validate-code
+  Description = ValueSet Validation
+  Filename = operation-valueset-validate-code.xml
+  Type = tool
+
+ -- Row 4 -----------------------------------
+  Name = vslookup
+  Identity = ValueSet-lookup
+  Description = ValueSet Lookup
+  Filename = operation-valueset-lookup.xml
+  Type = tool
+
+ -- Row 5 -----------------------------------
+  Name = cmtranslate
+  Identity = ConceptMap-translate
+  Description = ConceptMap Translate
+  Filename = operation-conceptmap-translate.xml
+  Type = tool
+
+ -- Row 6 -----------------------------------
+  Name = cmclosure
+  Identity = ConceptMap-closure
+  Description = ConceptMap Closure
+  Filename = operation-conceptmap-closure.xml
+  Type = tool
+
+ -- Row 7 -----------------------------------
+  Name = qpopulate
+  Identity = Questionnaire-populate
+  Description = Questionnaire Populate
+  Filename = operation-questionnaire-populate.xml
+  Type = tool
+
+ -- Row 8 -----------------------------------
+  Name = Patient-MPI
+  Identity = patient-mpi
+  Description = Patient MPI Query
+  Filename = patient-mpi-search.xml
+  Type = xml
+
+=== Sheet Examples =====================================
