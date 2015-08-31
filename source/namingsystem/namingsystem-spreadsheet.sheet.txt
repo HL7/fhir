@@ -95,6 +95,7 @@
 
  -- Row 1 -----------------------------------
   Element = NamingSystem
+  UML = 0;0
   Type = DomainResource
   Short Label = System of unique identification
   Definition = A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.
@@ -133,7 +134,7 @@
   Element = NamingSystem.publisher
   Card. = 0..1
   Summary = y
-  UML = right
+  UML = 400;20
   Type = string
   Short Label = Name of the publisher (Organization or individual)
   Definition = The name of the individual or organization that published the naming system
@@ -221,7 +222,7 @@
  -- Row 15 -----------------------------------
   Element = NamingSystem.uniqueId
   Card. = 1..*
-  UML = down
+  UML = 400;120
   Short Label = Unique identifiers used for system
   Definition = Indicates how the system may be identified when referenced in electronic exchange
   Comments = Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.

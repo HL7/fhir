@@ -1086,6 +1086,7 @@
   Element = Conformance.messaging.endpoint
   Card. = 0..*
   Aliases = 3
+  UML = down
   Short Label = A messaging service end point
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 

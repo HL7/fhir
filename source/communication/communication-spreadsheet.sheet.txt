@@ -45,6 +45,7 @@
 
  -- Row 1 -----------------------------------
   Element = Communication
+  UML = 0;0
   Type = DomainResource
   Short Label = A record of information transmitted from a sender to a receiver
   Definition = An occurrence of information being transmitted. E.g., an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
@@ -85,6 +86,7 @@
  -- Row 6 -----------------------------------
   Element = Communication.payload
   Card. = 0..*
+  UML = 380;50
   Short Label = Message payload
   Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
 

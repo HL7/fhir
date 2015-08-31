@@ -41,6 +41,7 @@
 
  -- Row 1 -----------------------------------
   Element = MessageHeader
+  UML = 0;0
   Type = DomainResource
   Short Label = A resource that describes a message that is exchanged between systems
   Definition = The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle
@@ -88,7 +89,7 @@
   Element = MessageHeader.response
   Card. = 0..1
   Is Modifier = y
-  UML = 300;150
+  UML = 380;220
   Short Label = If this is a reply to prior message
   Definition = Information about the message that this message is a response to.  Only present if this message is a response.
   v2 Mapping = MSA
@@ -131,7 +132,7 @@
  -- Row 9 -----------------------------------
   Element = MessageHeader.source
   Card. = 1..1
-  UML = 500;50
+  UML = 420;95
   Type = =MessageSource
   Short Label = Message Source Application
   Definition = The source application from which this message originated
@@ -195,7 +196,7 @@
  -- Row 15 -----------------------------------
   Element = MessageHeader.destination
   Card. = 0..*
-  UML = 300;0
+  UML = 400;0
   Type = =MessageDestination
   Short Label = Message Destination Application(s)
   Definition = The destination application which the message is intended for

@@ -30,6 +30,7 @@
  -- Row 2 -----------------------------------
   Element = Parameters.parameter
   Card. = 0..*
+  UML = 250;0
   Short Label = Operation Parameter
   Definition = A parameter passed to or received from the operation
 

@@ -159,6 +159,7 @@
   Element = StructureDefinition
   Card. = 1..1
   Aliases = Template, Profile
+  UML = 0;0
   Type = DomainResource
   Short Label = Structural Definition
   Definition = A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types
@@ -256,7 +257,7 @@
   Element = StructureDefinition.contact
   Card. = 0..*
   Summary = y
-  UML = left
+  UML = 350;0
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
@@ -348,7 +349,7 @@
  -- Row 20 -----------------------------------
   Element = StructureDefinition.mapping
   Card. = 0..*
-  UML = left
+  UML = 350;80
   Short Label = External specification that the content is mapped to
   Definition = An external specification that the content is mapped to
 
@@ -446,7 +447,7 @@
  -- Row 31 -----------------------------------
   Element = StructureDefinition.snapshot
   Card. = 0..1
-  UML = right
+  UML = 350;160
   Inv. = 6
   Short Label = Snapshot view of the structure
   Definition = A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition
@@ -463,7 +464,7 @@
  -- Row 33 -----------------------------------
   Element = StructureDefinition.differential
   Card. = 0..1
-  UML = right
+  UML = 350;240
   Inv. = 6
   Short Label = Differential view of the structure
   Definition = A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies

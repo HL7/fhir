@@ -147,18 +147,6 @@
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
-  Context = CarePlan.activity.detail
-  English = DailyDose can only be specified if activity category is drug or food
-  XPath = (f:category/@value=(\'drug\',\'diet\')) = exists(f:dailyAmount)
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Context = CarePlan.activity.detail
-  English = Quantity can only be specified if activity category is supply
-  XPath = (f:category/@value=(\'supply\')) = exists(f:quantity)
-
- -- Row 3 -----------------------------------
   Id = 3
   Context = CarePlan.activity.detail
   English = Only provide a detail reference, or a simple detail summary
@@ -540,7 +528,6 @@
   Element = CarePlan.activity.detail.dailyAmount
   Card. = 0..1
   Aliases = daily dose
-  Inv. = 1
   Type = SimpleQuantity
   Short Label = How to consume/day?
   Definition = Identifies the quantity expected to be consumed in a given day.
@@ -551,7 +538,6 @@
  -- Row 38 -----------------------------------
   Element = CarePlan.activity.detail.quantity
   Card. = 0..1
-  Inv. = 2
   Type = SimpleQuantity
   Short Label = How much to administer/supply/consume
   Definition = Identifies the quantity expected to be supplied, addministered or consumed by the subject

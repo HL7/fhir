@@ -54,6 +54,7 @@
  -- Row 1 -----------------------------------
   Element = SearchParameter
   Card. = 1..1
+  UML = 0;0
   Type = DomainResource
   Short Label = Search Parameter for a resource
   Definition = A Search Parameter that defines a named search item that can be used to search/filter on a resource
@@ -118,6 +119,7 @@
   Element = SearchParameter.contact
   Card. = 0..*
   Summary = y
+  UML = 350;60
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.

@@ -18,7 +18,7 @@ generating:
 publishing QA:
 - dstu notes format consistency + where does feedback go?
 - update todo.html + version history
-- fix up UML diagrams (per Dave's work)
+- fix up UML diagrams 
 - v3/v2 value set usages
 - html form
 - credits page

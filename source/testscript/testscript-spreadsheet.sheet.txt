@@ -316,6 +316,7 @@
 
  -- Row 1 -----------------------------------
   Element = TestScript
+  UML = 0;0
   Type = DomainResource
   Short Label = Describes a set of tests
   Definition = TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
@@ -387,10 +388,10 @@
   Element = TestScript.contact
   Card. = 0..*
   Summary = y
+  UML = left
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
-  Display Hint = left
 
  -- Row 9 -----------------------------------
   Element = TestScript.contact.name
@@ -458,12 +459,14 @@
  -- Row 16 -----------------------------------
   Element = TestScript.metadata
   Card. = 0..1
+  UML = up
   Short Label = Required capability that is assumed to function correctly on the FHIR server being tested
   Definition = The required capability must exist and is assumed to function correctly on the FHIR server being tested.
 
  -- Row 17 -----------------------------------
   Element = TestScript.metadata.link
   Card. = 0..*
+  UML = left
   Short Label = Links to the FHIR specification
   Definition = A link to the FHIR specification that this test is covering.
 
@@ -477,6 +480,7 @@
  -- Row 19 -----------------------------------
   Element = TestScript.metadata.link.description
   Card. = 0..1
+  UML = right
   Type = string
   Short Label = Short description
   Definition = Short description of the link.
@@ -544,6 +548,7 @@
  -- Row 28 -----------------------------------
   Element = TestScript.fixture
   Card. = 0..*
+  UML = left
   Short Label = Fixture in the test script - by reference (uri)
   Definition = Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.
 
@@ -582,6 +587,7 @@
  -- Row 33 -----------------------------------
   Element = TestScript.variable
   Card. = 0..*
+  UML = right
   Short Label = Variable
   Definition = Variable is set based either on element value in response body or on header field value in the response headers.
   Comments = Variables would be set based either on XPath/JsonPath expressions against fixtures (static and response), or headerField evaluations against response headers. If variable evaluates to nodelist or anything other than a primitive value, then test engine would report error.  Variables would be used to perform clean replacements in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations. This limits the places that test engines would need to look for placeholders \"${}\".  Variables are scoped to the whole script. They are NOT evaluated at declaration. They are evaluated by test engine when used for substitutions in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations.  See example testscript-search.xml.
@@ -621,6 +627,7 @@
  -- Row 38 -----------------------------------
   Element = TestScript.setup
   Card. = 0..1
+  UML = down
   Short Label = A series of required setup operations before tests are executed
   Definition = A series of required setup operations before tests are executed.
 
@@ -641,6 +648,7 @@
  -- Row 41 -----------------------------------
   Element = TestScript.setup.action.operation
   Card. = 0..1
+  UML = left
   Short Label = An operation
   Definition = An operation.
 
@@ -725,6 +733,7 @@
  -- Row 51 -----------------------------------
   Element = TestScript.setup.action.operation.requestHeader
   Card. = 0..*
+  UML = down
   Short Label = Each operation can have one ore more header elements
   Definition = Header elements would be used to set HTTP headers.
   Comments = This gives control to test-script writers to set headers explicitly based on test requirements.  It will allow for testing using:  - \"If-Modified-Since\" and \"If-None-Match\" headers.  See http://hl7-fhir.github.io/http.html#2.1.0.5.1 - \"If-Match\" header.  See http://hl7-fhir.github.io/http.html#2.1.0.11 - Conditional Create using \"If-None-Exist\".  See http://hl7-fhir.github.io/http.html#2.1.0.13.1 - Invalid \"Content-Type\" header for negative testing. - etc.
@@ -771,6 +780,7 @@
  -- Row 57 -----------------------------------
   Element = TestScript.setup.action.operation.url
   Card. = 0..1
+  UML = right
   Type = string
   Short Label = Request URL
   Definition = Complete request URL.
@@ -927,6 +937,7 @@
  -- Row 76 -----------------------------------
   Element = TestScript.setup.action.assert.warningOnly
   Card. = 0..1
+  UML = down
   Type = boolean
   Short Label = Warning Only
   Definition = Warning Only
@@ -963,6 +974,7 @@
  -- Row 81 -----------------------------------
   Element = TestScript.test.action
   Card. = 1..*
+  UML = right
   Short Label = Action
   Definition = Action would contain either an operation or an assertion.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
@@ -985,6 +997,7 @@
  -- Row 84 -----------------------------------
   Element = TestScript.teardown
   Card. = 0..1
+  UML = left
   Short Label = A series of required clean up steps
   Definition = A series of operations required to clean up after the all the tests are executed (successfully or otherwise).
 

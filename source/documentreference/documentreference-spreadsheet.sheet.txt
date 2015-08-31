@@ -322,6 +322,7 @@
  -- Row 21 -----------------------------------
   Element = DocumentReference.content
   Card. = 1..*
+  UML = 0;300
   Short Label = Document referenced
   Definition = The document and format referenced. May be multiple content each with a different format.
   RIM Mapping = document.text
@@ -349,7 +350,7 @@
  -- Row 24 -----------------------------------
   Element = DocumentReference.context
   Card. = 0..1
-  UML = 400;130
+  UML = 400;90
   Short Label = Clinical context of document
   Definition = The clinical context in which the document was prepared
   Comments = These values are primarily added to help with searching for interesting/relevant documents
@@ -418,7 +419,7 @@
  -- Row 31 -----------------------------------
   Element = DocumentReference.context.related
   Card. = 0..*
-  UML = 400;300
+  UML = 450;300
   Short Label = Related identifiers or resources
   Definition = Related identifiers or resources associated with the DocumentReference.
   Comments = May be identifiers or resources that caused the DocumentReference or referenced Document to be created.

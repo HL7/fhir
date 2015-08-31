@@ -63,6 +63,7 @@
 
  -- Row 1 -----------------------------------
   Element = OperationDefinition
+  UML = 0;0
   Type = DomainResource
   Short Label = Definition of an operation or a named query
   Definition = A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)
@@ -139,7 +140,7 @@
   Element = OperationDefinition.contact
   Card. = 0..*
   Summary = y
-  UML = right
+  UML = 300;240
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
@@ -241,7 +242,7 @@
  -- Row 22 -----------------------------------
   Element = OperationDefinition.parameter
   Card. = 0..*
-  UML = down
+  UML = 300;0
   Short Label = Parameters for the operation/query
   Definition = The parameters for the operation/query
   Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
@@ -305,6 +306,7 @@
  -- Row 30 -----------------------------------
   Element = OperationDefinition.parameter.binding
   Card. = 0..1
+  UML = 300;150
   Short Label = ValueSet details if this is coded
   Definition = Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)
 

@@ -45,6 +45,7 @@
 
  -- Row 1 -----------------------------------
   Element = SupplyRequest
+  UML = 0;0
   Type = DomainResource
   Short Label = Request for a medication, substance or device
   Definition = A record of a request for a medication, substance or device used in the healthcare setting.
@@ -129,6 +130,7 @@
  -- Row 11 -----------------------------------
   Element = SupplyRequest.when
   Card. = 0..1
+  UML = 400;30
   Short Label = When the request should be fulfilled
   Definition = When the request should be fulfilled
 

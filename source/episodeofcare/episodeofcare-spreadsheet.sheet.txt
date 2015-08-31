@@ -53,6 +53,7 @@
  -- Row 1 -----------------------------------
   Element = EpisodeOfCare
   Aliases = Case Program Problem
+  UML = 200;0
   Type = DomainResource
   Short Label = An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility
   Definition = An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
@@ -78,7 +79,7 @@
  -- Row 4 -----------------------------------
   Element = EpisodeOfCare.statusHistory
   Card. = 0..*
-  UML = left
+  UML = 0;220
   Short Label = The status history for the EpisodeOfCare
 
  -- Row 5 -----------------------------------
@@ -150,7 +151,7 @@
  -- Row 14 -----------------------------------
   Element = EpisodeOfCare.careTeam
   Card. = 0..*
-  UML = right
+  UML = 420;220
   Short Label = The list of practitioners that may be facilitating this episode of care for specific purposes
 
  -- Row 15 -----------------------------------

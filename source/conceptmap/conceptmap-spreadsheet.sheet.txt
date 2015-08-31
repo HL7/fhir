@@ -13,7 +13,7 @@
 
  -- Row 1 -----------------------------------
   Element = ConceptMap
-  UML = 10;10
+  UML = 0;0
   Type = DomainResource
   Short Label = A map from one set of concepts to one or more other concepts
   Definition = A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models
@@ -101,7 +101,7 @@
   Element = ConceptMap.contact
   Card. = 0..*
   Summary = y
-  UML = 350;120
+  UML = 380;20
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
@@ -195,7 +195,7 @@
   Element = ConceptMap.element
   Card. = 0..*
   Aliases = code, concept, item
-  UML = 350;20
+  UML = 380;120
   Type = =SourceElement
   Short Label = Mappings for a concept from the source set
   Definition = Mappings for an individual concept in the source to one or more concepts in the target
@@ -261,7 +261,7 @@
  -- Row 27 -----------------------------------
   Element = ConceptMap.element.target.dependsOn
   Card. = 0..*
-  UML = 550;180
+  UML = 580;200
   Type = =OtherElement
   Short Label = Other elements required for this mapping (from context)
   Definition = A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value

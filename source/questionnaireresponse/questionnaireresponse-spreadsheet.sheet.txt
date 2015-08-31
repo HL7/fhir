@@ -42,6 +42,7 @@
  -- Row 1 -----------------------------------
   Element = QuestionnaireResponse
   Aliases = Form
+  UML = 0;0
   Type = DomainResource
   Short Label = A structured set of questions and their answers
   Definition = A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions
@@ -149,7 +150,7 @@
  -- Row 10 -----------------------------------
   Element = QuestionnaireResponse.group
   Card. = 0..1
-  UML = right
+  UML = 390;40
   Type = =Group
   Short Label = Grouped questions
   Definition = A group of questions to a possibly similarly grouped set of questions in the questionnaire response
@@ -208,7 +209,7 @@
   Element = QuestionnaireResponse.group.question
   Card. = 0..*
   Aliases = Responses, Contents
-  UML = down
+  UML = 410;190
   Inv. = 1
   Type = =Question
   Short Label = Questions in this group
@@ -237,7 +238,7 @@
  -- Row 19 -----------------------------------
   Element = QuestionnaireResponse.group.question.answer
   Card. = 0..*
-  UML = right
+  UML = 0;190
   Short Label = The response(s) to the question
   Definition = The respondent\'s answer(s) to the question
   Comments = We nest the value because we can\'t have a repeating structure that has variable type
