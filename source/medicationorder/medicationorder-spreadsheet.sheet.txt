@@ -31,10 +31,8 @@
 
  -- Row 5 -----------------------------------
   Binding Name = MedicationAdministrationMethod
-  Binding = value set
-  Reference = valueset-administration-method-codes
+  Binding = unbound
   Definition = A coded concept describing the technique by which the medicine is administered
-  Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = MedicationOrderStatus
@@ -146,7 +144,6 @@
   Type = dateTime
   Short Label = When prescription was stopped
   Definition = The date (and perhaps time) when the prescription was stopped
-  To Do = Rik - add RIM and V2 mappings
 
  -- Row 6 -----------------------------------
   Element = MedicationOrder.reasonEnded
@@ -154,7 +151,6 @@
   Type = CodeableConcept
   Short Label = Why prescription was stopped
   Definition = The reason why the prescription was stopped, if it was
-  To Do = Rik - add RIM and V2 mappings
 
  -- Row 7 -----------------------------------
   Element = MedicationOrder.patient

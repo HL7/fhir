@@ -39,10 +39,8 @@
 
  -- Row 6 -----------------------------------
   Binding Name = MedicationAdministrationMethod
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/administration-method-codes
+  Binding = unbound
   Definition = A coded concept describing the technique by which the medicine is administered
-  Conformance = example
 
 === Sheet medication-admin-status =====================================
 
