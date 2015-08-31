@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12504</WindowHeight>
+  <WindowHeight>12516</WindowHeight>
   <WindowWidth>25068</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -860,11 +860,11 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s180">
+  <Style ss:ID="s167">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s181">
+  <Style ss:ID="s168">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
@@ -1426,11 +1426,11 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">!CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">QICoreBodySite</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">!QICoreBodySite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3524,7 +3524,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3538,11 +3538,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4537,19 +4538,19 @@
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s150"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s180">
+   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s167">
     <Cell><Data ss:Type="String">!QICoreProcedureNotPerformedReason</Data></Cell>
     <Cell><Data ss:Type="String">Situation codes describing the reason that a procedure which might otherwise be expected, or was started, was either not performed or not completed</Data></Cell>
-    <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s181"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">preferred</Data></Cell>
     <Cell><Data ss:Type="String">valueset-procedure-not-performed-reason</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30.45" ss:StyleID="s149">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">QICoreBodySite</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Precoordinated body sites such as 'left ear'</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30.45" ss:StyleID="s168">
+    <Cell ss:StyleID="s116"><Data ss:Type="String">!QICoreBodySite</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Precoordinated body sites such as 'left ear'</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s103"><Data ss:Type="String">QICorePractitionerRole</Data></Cell>
@@ -4718,8 +4719,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
+     <RangeSelection>R4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

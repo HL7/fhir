@@ -9,7 +9,7 @@
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = QICoreBodySite
+  Binding Name = !QICoreBodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
   Definition = Precoordinated body sites such as \'left ear\'
@@ -142,10 +142,10 @@
 
  -- Row 11 -----------------------------------
   Element = ProcedureRequest.bodySite
-  Card. = 0..*
+  Card. = !0..*
   Must Support = Y
-  Type = CodeableConcept
-  Binding = QICoreBodySite
+  Type = !CodeableConcept
+  Binding = !QICoreBodySite
   QDM Mapping = anatomical location site
 
  -- Row 12 -----------------------------------
