@@ -2,23 +2,13 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = DAFAllergyIntoleranceStatus
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/allergy-intolerance-status
-  Definition = Value set for AllergyIntolerance Status.
-  Description = Values for specifying the status of an allergy that is present.
-  Conformance = required
-  Uri = http://hl7.org/fhir/ValueSet/allergy-intolerance-status
-  Oid = 2.16.840.1.113883.4.642.2.503
-
- -- Row 2 -----------------------------------
-  Binding Name = DAFManifestation
+  Binding Name = manifestation-ccda-codes
   Binding = value set
   Reference = valueset-manifestation-ccda-codes
   Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event
   Conformance = preferred
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Binding Name = DAFAllergySubstance
   Binding = value set
   Reference = valueset-substance
@@ -73,13 +63,13 @@
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
+  Binding = DAFAllergySubstance
 
  -- Row 9 -----------------------------------
   Element = AllergyIntolerance.status
   Card. = 0..1
   Must Support = Y
   Type = code
-  Binding = DAFAllergyIntoleranceStatus
 
  -- Row 10 -----------------------------------
   Element = AllergyIntolerance.criticality
@@ -88,79 +78,42 @@
   Type = code
 
  -- Row 11 -----------------------------------
-  Element = !AllergyIntolerance.type
-  Card. = 0..1
-  Type = code
-
- -- Row 12 -----------------------------------
   Element = AllergyIntolerance.category
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 13 -----------------------------------
-  Element = !AllergyIntolerance.lastOccurence
-  Card. = 0..1
-  Type = dateTime
-
- -- Row 14 -----------------------------------
-  Element = !AllergyIntolerance.comment
-  Card. = 0..1
-  Type = string
-
- -- Row 15 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = AllergyIntolerance.reaction
   Card. = 0..*
   Must Support = Y
 
- -- Row 16 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = AllergyIntolerance.reaction.substance
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFAllergySubstance
 
- -- Row 17 -----------------------------------
-  Element = !AllergyIntolerance.reaction.certainty
-  Card. = 0..1
-  Type = code
-
- -- Row 18 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = AllergyIntolerance.reaction.manifestation
   Card. = 1..*
   Must Support = Y
   Type = CodeableConcept
-  Binding = DAFManifestation
+  Binding = manifestation-ccda-codes
 
- -- Row 19 -----------------------------------
-  Element = !AllergyIntolerance.reaction.description
-  Card. = 0..1
-  Type = string
-
- -- Row 20 -----------------------------------
-  Element = AllergyIntolerance.reaction.onset
-  Card. = 0..1
-  Must Support = Y
-  Type = dateTime
-
- -- Row 21 -----------------------------------
-  Element = !AllergyIntolerance.reaction.extension
-  Profile Name = AllergyIntolerance.reaction.duration
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration}
-
- -- Row 22 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = AllergyIntolerance.reaction.severity
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 23 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = !AllergyIntolerance.reaction.exposureRoute
   Card. = 0..1
   Type = CodeableConcept
 
- -- Row 24 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = !AllergyIntolerance.reaction.notes
   Card. = 0..1
   Type = string
