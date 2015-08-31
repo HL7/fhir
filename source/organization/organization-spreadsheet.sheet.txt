@@ -206,6 +206,7 @@
   UML = right
   Short Label = Contact for the organization for a certain purpose
   Requirements = Need to keep track of assigned contact points within bigger organization
+  Comments = Where multiple contacts for the same purpose are provided there is a standard extension that can be used to determine which one is the preferred contact to use.
   RIM Mapping = .contactParty
 
  -- Row 15 -----------------------------------
