@@ -263,7 +263,6 @@
   Requirements = For some observations it may be important to know the link between an observation and a particular encounter.
   v2 Mapping = PV1
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
-  To Do = review mapping
   Committee Notes = [#3379]
   w5 = context
 
