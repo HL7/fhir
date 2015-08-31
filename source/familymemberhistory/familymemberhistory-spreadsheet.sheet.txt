@@ -10,8 +10,10 @@
 
  -- Row 2 -----------------------------------
   Binding Name = ConditionOutcome
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-outcome
   Definition = The result of the condition for the patient.  E.g. death, permanent disability, temporary disability, etc.
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = FamilyHistoryStatus
@@ -174,7 +176,7 @@
   Card. = 0..1
   Type = boolean | Age | Range | date | string
   Short Label = Dead? How old/when?
-  Definition = The actual or approximate age of the relative at the time the family member history is recorded
+  Definition = Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record
   RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)  For age, you\'d hang an observation off the role
 
  -- Row 12 -----------------------------------
@@ -247,12 +249,26 @@
  -- Row 3 -----------------------------------
   Name = code
   Type = token
+  Description = A search by a condition code
   Path = FamilyMemberHistory.condition.code
 
  -- Row 4 -----------------------------------
   Name = identifier
   Type = token
+  Description = A search by a record identifier
   Path = FamilyMemberHistory.identifier
+
+ -- Row 5 -----------------------------------
+  Name = relationship
+  Type = token
+  Description = A search by a relationship type
+  Path = FamilyMemberHistory.relationship
+
+ -- Row 6 -----------------------------------
+  Name = gender
+  Type = token
+  Description = A search by a gender code of a family member
+  Path = FamilyMemberHistory.gender
 
 === Sheet Profiles =====================================
 
