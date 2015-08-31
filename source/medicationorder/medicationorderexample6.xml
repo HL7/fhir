@@ -1,6 +1,4 @@
-<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationorder.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationorder.xsd" xmlns="http://hl7.org/fhir">
   <id value="medrx006"/>
   <text>
     <status value="generated"/>
@@ -20,7 +18,7 @@
     </extension>
   </status>
   <patient>
-    <reference value="Patient/1288992"/>
+    <reference value="Patient/f001"/>
   </patient>
   <medicationReference>
     <reference value="Medication/MedicationExample15"/>

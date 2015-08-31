@@ -1,52 +1,54 @@
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
-  <id value="meddisp008"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p><big>Capecitabine (Recurrent/Metastatic)</big></p>
-      <p>Course:</p>
-      <p>Name: Capecitabine</p>
-      <p>Agent Protocols Options:</p>
-      <p><b>Capecitabine 1000-1250 mg/m^2 PO twice daily D1-14</b></p>
-      <p>Offset: None</p>
-      <p>Cycle length: Q21D</p>
-    </div>
-  </text>
-  <status value="completed" />
-  <patient>
-    <reference value="Patient/1288992"/>
-  </patient>
-  <dispenser>
-    <reference value="Practitioner/example"/>
-  </dispenser>
-  <authorizingPrescription>
-    <reference value="MedicationOrder/medicationorderexample6" />
-  </authorizingPrescription>
-  <medicationReference>
-    <reference value="Medication/54ba8e550cf2ef25ba8bcfd2"/>
-  </medicationReference>
-  <dosageInstruction>
-    <timing>
-      <repeat>
-        <frequency value="2"/>
-        <period value="21"/>
-        <periodUnits value="d"/>
-      </repeat>
-    </timing>
-    <route>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="394899003"/>
-        <display value="oral administration of treatment"/>
-      </coding>
-    </route>
-    <doseQuantity>
-      <value value="1000"/>
-      <unit value="mg/m^2"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="ml"/>
-    </doseQuantity>
-  </dosageInstruction>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationdispense.xsd" xmlns="http://hl7.org/fhir">
+	<id value="meddisp008"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<big>Capecitabine (Recurrent/Metastatic)</big>
+			</p>
+			<p>Course:</p>
+			<p>Name: Capecitabine</p>
+			<p>Agent Protocols Options:</p>
+			<p>
+				<b>Capecitabine 1000-1250 mg/m^2 PO twice daily D1-14</b>
+			</p>
+			<p>Offset: None</p>
+			<p>Cycle length: Q21D</p>
+		</div>
+	</text>
+	<status value="completed"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<dispenser>
+		<reference value="Practitioner/example"/>
+	</dispenser>
+	<authorizingPrescription>
+		<reference value="MedicationOrder/medrx006"/>
+	</authorizingPrescription>
+	<medicationReference>
+		<reference value="Medication/f001"/>
+	</medicationReference>
+	<dosageInstruction>
+		<timing>
+			<repeat>
+				<frequency value="2"/>
+				<period value="21"/>
+				<periodUnits value="d"/>
+			</repeat>
+		</timing>
+		<route>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="394899003"/>
+				<display value="oral administration of treatment"/>
+			</coding>
+		</route>
+		<doseQuantity>
+			<value value="1000"/>
+			<unit value="mg/m^2"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="ml"/>
+		</doseQuantity>
+	</dosageInstruction>
 </MedicationDispense>

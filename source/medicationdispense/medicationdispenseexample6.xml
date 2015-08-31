@@ -1,66 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
-  <id value="meddisp006"/>
-  <status value="in-progress"/>
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
-  <dispenser>
-    <reference value="Practitioner/example"/>
-  </dispenser>
-  <authorizingPrescription>
-    <reference value="MedicationOrder/medicationorderexample4" />
-  </authorizingPrescription>
-<type>
-  <coding>
-    <system value="http:hl7.org/fhir"/>
-    <code value="FFP"/>
-    <display value="First Fill - Part Fill"/>
-  </coding>
-</type>
-  <quantity>
-    <value value="15"/>
-    <unit value="mL" />
-    <system value="http://unitsofmeasure.org"/>
-    <code value="mL"/>  
-  </quantity>
-<daysSupply>
-  <value value="30"/>
-  <unit value="Day" />
-  <system value="http://unitsofmeasure.org"/>
-  <code value="D"/>   
-</daysSupply>
-  <medicationReference> <!-- Linked to a RESOURCE Medication -->
-    <reference value="Medication/MedicationExample12"/>
-    <display value="prescribed medication"/>
-  </medicationReference>
-  <whenPrepared value="2015-03-01T10:48:00Z"/>
-  <whenHandedOver value="2015-03-01T10:59:00Z"/>
-  <dosageInstruction>
-    <timing>
-      <event value="2015-03-01"/>
-      <repeat>
-        <duration value="3"/>
-        <durationUnits value="d"/>
-        <frequency value="2"/>
-        <period value="1"/>
-        <periodUnits value="d"/>
-      </repeat>
-    </timing>
-    <asNeededBoolean value="true" />
-    <route>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="422237004"/>
-        <display value="Inhalation"/>
-      </coding>
-    </route>
-    <doseQuantity>
-      <value value="2"/>
-      <system value="http://snomed.info/sct"/>
-      <code value="415215001"/>
-    </doseQuantity>
-  </dosageInstruction>    
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationdispense.xsd" xmlns="http://hl7.org/fhir">
+	<id value="meddisp006"/>
+	<status value="in-progress"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<dispenser>
+		<reference value="Practitioner/example"/>
+	</dispenser>
+	<authorizingPrescription>
+		<reference value="MedicationOrder/medrx004"/>
+	</authorizingPrescription>
+	<type>
+		<coding>
+			<system value="http:hl7.org/fhir"/>
+			<code value="FFP"/>
+			<display value="First Fill - Part Fill"/>
+		</coding>
+	</type>
+	<quantity>
+		<value value="15"/>
+		<unit value="mL"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="mL"/>
+	</quantity>
+	<daysSupply>
+		<value value="30"/>
+		<unit value="Day"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="D"/>
+	</daysSupply>
+	<medicationReference>
+		<!-- Linked to a RESOURCE Medication -->
+		<reference value="Medication/medexample012"/>
+		<display value="prescribed medication"/>
+	</medicationReference>
+	<whenPrepared value="2015-03-01T10:48:00Z"/>
+	<whenHandedOver value="2015-03-01T10:59:00Z"/>
+	<dosageInstruction>
+		<timing>
+			<event value="2015-03-01"/>
+			<repeat>
+				<duration value="3"/>
+				<durationUnits value="d"/>
+				<frequency value="2"/>
+				<period value="1"/>
+				<periodUnits value="d"/>
+			</repeat>
+		</timing>
+		<asNeededBoolean value="true"/>
+		<route>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="422237004"/>
+				<display value="Inhalation"/>
+			</coding>
+		</route>
+		<doseQuantity>
+			<value value="2"/>
+			<system value="http://snomed.info/sct"/>
+			<code value="415215001"/>
+		</doseQuantity>
+	</dosageInstruction>
 </MedicationDispense>

@@ -29,7 +29,7 @@
     <reference value="Practitioner/example"/>
   </dispenser>
   <authorizingPrescription>
-    <reference value="MedicationOrder/example" />
+    <reference value="MedicationOrder/medicationorder-example" />
   </authorizingPrescription>
   <quantity>
     <value value="100"/>
