@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="GoalStartEvent"/>
+	<status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
+		</telecom>
+	</contact>
+	<description value="Identifies types of events that might trigger the start of a goal"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="32485007"/>
+        <display value="Admission to hospital"/>
+      </concept>
+      <concept>
+        <code value="308283009"/>
+        <display value="Discharge from hospital"/>
+      </concept>
+      <concept>
+        <code value="442137000"/>
+        <display value="Completion time of procedure"/>
+      </concept>
+      <concept>
+        <code value="386216000"/>
+        <display value="Childbirth"/>
+      </concept>
+    </include>
+	</compose>
+</ValueSet>
