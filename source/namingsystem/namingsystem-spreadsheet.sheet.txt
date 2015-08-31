@@ -134,7 +134,6 @@
   Element = NamingSystem.publisher
   Card. = 0..1
   Summary = y
-  UML = 400;20
   Type = string
   Short Label = Name of the publisher (Organization or individual)
   Definition = The name of the individual or organization that published the naming system
@@ -146,6 +145,7 @@
   Element = NamingSystem.contact
   Card. = 0..*
   Summary = y
+  UML = 400;20
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.

@@ -257,7 +257,7 @@
   Element = StructureDefinition.contact
   Card. = 0..*
   Summary = y
-  UML = 350;0
+  UML = 400;0
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
@@ -349,7 +349,7 @@
  -- Row 20 -----------------------------------
   Element = StructureDefinition.mapping
   Card. = 0..*
-  UML = 350;80
+  UML = 410;80
   Short Label = External specification that the content is mapped to
   Definition = An external specification that the content is mapped to
 
@@ -447,7 +447,7 @@
  -- Row 31 -----------------------------------
   Element = StructureDefinition.snapshot
   Card. = 0..1
-  UML = 350;160
+  UML = 400;190
   Inv. = 6
   Short Label = Snapshot view of the structure
   Definition = A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition
@@ -464,7 +464,7 @@
  -- Row 33 -----------------------------------
   Element = StructureDefinition.differential
   Card. = 0..1
-  UML = 350;240
+  UML = 400;270
   Inv. = 6
   Short Label = Differential view of the structure
   Definition = A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies
@@ -480,7 +480,7 @@
  -- Row 35 -----------------------------------
   Element = !StructureDefinition.searchParam
   Card. = 0..*
-  UML = 530;0
+  UML = 400;0
   Short Label = Additional Search params defined by this StructureDefinition
   Definition = Additional search parameters defined for this structure that implementations can support and/or make use of
 

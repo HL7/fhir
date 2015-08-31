@@ -132,7 +132,7 @@
  -- Row 1 -----------------------------------
   Element = ImplementationGuide
   Card. = 1..1
-  UML = 0;0
+  UML = 250;0
   Type = DomainResource
   Short Label = A set of rules about how FHIR is used
   Definition = A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts
@@ -207,7 +207,7 @@
   Element = ImplementationGuide.contact
   Card. = 0..*
   Summary = y
-  UML = left
+  UML = 20;0
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
@@ -279,7 +279,7 @@
   Element = ImplementationGuide.dependency
   Card. = 0..*
   Summary = Y
-  UML = left
+  UML = -20;80
   Short Label = Another Implementation guide this depends on
   Definition = Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc defined in other implementation guides
 
@@ -297,7 +297,6 @@
   Element = ImplementationGuide.dependency.uri
   Card. = 1..1
   Summary = Y
-  UML = up
   Type = uri
   Short Label = Where to find dependency
   Definition = Where the dependncy is located
@@ -307,6 +306,7 @@
   Element = ImplementationGuide.package
   Card. = 1..*
   Summary = Y
+  UML = 600;80
   Short Label = Group of resources as used in .page.package
   Definition = A logial group of resources. Logical groups can be used when building pages
 
@@ -328,7 +328,7 @@
   Element = ImplementationGuide.package.resource
   Card. = 1..*
   Summary = Y
-  UML = right
+  UML = 490;220
   Short Label = Resource in the implementation guide
   Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
 
@@ -379,7 +379,6 @@
  -- Row 28 -----------------------------------
   Element = ImplementationGuide.package.resource.exampleFor
   Card. = 0..1
-  UML = right
   Type = Reference(StructureDefinition)
   Short Label = Resource this is an example of (if applicable)
   Definition = Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions
@@ -389,6 +388,7 @@
   Element = ImplementationGuide.global
   Card. = 0..*
   Summary = Y
+  UML = 250;260
   Short Label = Profiles that apply globally
   Definition = A set of profiles that all resources covered by this implementation guide must conform to
   Comments = See (reference) for a discussion of which resources are \'covered\' by an implementation guide
@@ -423,7 +423,7 @@
   Element = ImplementationGuide.page
   Card. = 1..1
   Summary = Y
-  UML = down
+  UML = 0;180
   Short Label = Page/Section in the Guide
   Definition = A page / section in the implementation guide. The root page is the implementation guide home page
   Comments = Pages automatically become sections if they have sub-pages. By convention, the home page is called index.html

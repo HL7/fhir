@@ -574,7 +574,7 @@
  -- Row 49 -----------------------------------
   Element = ValueSet.expansion
   Card. = 0..1
-  UML = 310;215
+  UML = 360;205
   Inv. = 5
   Short Label = Used when the value set is \"expanded\"
   Definition = A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed
@@ -640,7 +640,7 @@
  -- Row 57 -----------------------------------
   Element = ValueSet.expansion.contains
   Card. = 0..*
-  UML = 210;290
+  UML = 190;290
   Short Label = Codes in the value set
   Definition = The codes that are contained in the value set expansion
 

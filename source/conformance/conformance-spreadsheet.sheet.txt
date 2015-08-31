@@ -581,6 +581,7 @@
   Element = Conformance.contact
   Card. = 0..*
   Summary = y
+  UML = 70;0
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
@@ -1076,7 +1077,7 @@
  -- Row 68 -----------------------------------
   Element = Conformance.messaging
   Card. = 0..*
-  UML = 0;190
+  UML = 0;240
   Inv. = 1
   Short Label = If messaging is supported
   Definition = A description of the messaging capabilities of the solution
@@ -1086,7 +1087,7 @@
   Element = Conformance.messaging.endpoint
   Card. = 0..*
   Aliases = 3
-  UML = down
+  UML = 0;330
   Short Label = A messaging service end point
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 
@@ -1123,7 +1124,7 @@
  -- Row 74 -----------------------------------
   Element = Conformance.messaging.event
   Card. = 1..*
-  UML = 0;0
+  UML = -20;80
   Short Label = Declare support for this event
   Definition = A description of the solution\'s support for an event at this end point.
   Comments = The same event may be listed up to two times - once as sender and once as receiver.
