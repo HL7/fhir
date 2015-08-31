@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7488</WindowHeight>
+  <WindowHeight>6636</WindowHeight>
   <WindowWidth>21696</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -3831,7 +3831,7 @@
    <FrozenNoSplit/>
    <FilterOn/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3850,7 +3850,6 @@
      <Number>0</Number>
      <ActiveRow>8</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R9</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

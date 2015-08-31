@@ -19,7 +19,26 @@ Example RelatedPersons are:
 <li>A neighbor bringing a patient to the hospital</li>
 <li>The owner or trainer of a horse</li>
 <li>A patient's attorney or guardian</li>
+<li>A Guide Dog</li>
 </ul>
 </div>
 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+	The primary distinction between a Practitioner and a RelatedPerson is based on whether;
+</p>
+<ul>
+<li>
+	a) the person/animal operates on behalf of the care delivery organization over multiple patients (Practitioner) or,
+</li>
+<li>
+	b) where the person/animal is not associated with the organization, and instead is
+	allocated tasks specifically for the RelatedPerson's Patient (RelatedPerson).
+</li>
+</ul>
+<p>
+	A standard extension <b>animalSpecies</b> can be used to indicate the species of a service animal.
+</p>
+</div>
 </div>

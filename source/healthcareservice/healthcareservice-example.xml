@@ -20,9 +20,6 @@
 			</physicalType>
 		</Location>
 	</contained>
-	<location>
-		<reference value="Location/1"/>
-	</location>
 	<serviceType>
 		<type>
 			<coding>
@@ -48,6 +45,9 @@
 			</coding>
 		</specialty>
 	</serviceType>
+	<location>
+		<reference value="Location/1"/>
+	</location>
 	<serviceName value="Consulting psychologists and/or psychology services"/>
 	<comment value="Providing Specialist psychology services to the greater Den Burg area, many years of experience dealing with PTSD issues" />
 	<extraDetails value="Several assessments are required for these specialist services, and the waiting times can be greater than 3 months at times. Existing patients are prioritized when requesting appointments on the schedule."/>
