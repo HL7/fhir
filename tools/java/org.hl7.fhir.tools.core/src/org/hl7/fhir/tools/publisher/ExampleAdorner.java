@@ -145,6 +145,8 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
     } else {
       ExampleAdornerState s = (ExampleAdornerState) state;
       if (s.getState() == State.Element) {
+        if (s.definition.typeCode().equals("Resource") && (s.path.endsWith(".entry.resource") || s.path.endsWith(".contained")) && definitions.isResource(node.getNodeName())) // account for extra element
+          return new ExampleAdornerState(State.Element, s.path, definitions.getResourceByName(node.getNodeName()).getRoot(), "", "");
         String p = s.path+"."+node.getNodeName();
         ElementDefn e = s.getDefinition().getElementByName(node.getLocalName(), true, definitions, "adorn example");
         if (e == null && definitions.hasElementDefn(s.getDefinition().typeCode())) {
@@ -236,6 +238,8 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         else 
           return null;
       ElementDefn t = s.definition;
+      if (t.typeCode().equals("Resource") && (s.path.endsWith(".entry.resource") || s.path.endsWith(".contained")) && definitions.isResource(node.getNodeName()))
+        return null;        
       ElementDefn child = t.getElementByName(node.getNodeName(), true, definitions, "adorn example");
       String p = child == null ? null : s.path+"."+child.getName();
       while (child == null && t != null && definitions.hasElementDefn(t.typeCode())) {
