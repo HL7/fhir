@@ -404,4 +404,16 @@
 			The iCalendar specification can be found at <a href="http://www.ietf.org/rfc/rfc2445.txt">http://www.ietf.org/rfc/rfc2445.txt</a>.
 		</p>
 	</ul>
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
+<p>
+<b>DSTU Note:</b> Implementer feedback on is sought on the values for Appointment.priority and how interoperable they are.
+Using an extension to record a codeableconcept for named values may be tested at a future connectathon.
+</p>
+<p>
+Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+</p>
+
+</blockquote>
+  
 </div>

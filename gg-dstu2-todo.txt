@@ -6,22 +6,10 @@ Content:
 - 7788 - where does this go? 
 - resolving the bundle reference thing
 
-examples
-- pcd-001 message example
-- Clem's vital signs observations
-- Russian ECG example 
-- provenance examples for security
-
-generating:
-- generated schematrons paths - more work on slicing
-
 publishing QA:
-- dstu notes format consistency + where does feedback go?
-- update todo.html + version history
-- fix up UML diagrams 
+- update version history
 - v3/v2 value set usages
 - html form
-- credits page
 - bread crumbs (8422)
 - build redirects 
 
@@ -35,6 +23,16 @@ ouside the DSTU:
 
 http://fhir.org
 remove disqus
+
+
+! missed the boat
+examples
+- pcd-001 message example
+- Clem's vital signs observations
+- Russian ECG example 
+- provenance examples for security
+generating:
+- generated schematrons paths - more work on slicing
 
 
 

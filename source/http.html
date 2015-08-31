@@ -416,12 +416,16 @@ the note on <a href="#transactional-integrity">transactional integrity</a> for d
 Also, see <a href="updates.html">Variations between Submitted data and Retrieved data</a> for additional discussion
 around update behavior.
 </p>
-<blockquote>
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
 <p>
-DSTU Note: The update operation updates the entire resource. Servers MAY apply some logic
+<b>DSTU Note:</b>   The update operation updates the entire resource. Servers MAY apply some logic
 and preserve some existing content based where this is known to be appropriate behavior. 
-HTTP PATCH functionality is liekely to be defined, and feedback from outcomes of implementer
+HTTP PATCH functionality is likely to be defined, and feedback from outcomes of implementer
 experimentation is welcome. 
+</p>
+<p>
+Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>
 <p>
@@ -909,12 +913,16 @@ together, and that order of the entries doesn't matter, there is a particular or
 If any resource identities (including resolved identities from conditional update/delete) overlap in steps 1-3, 
 then the transaction SHALL fail. 
 </p>
-<blockquote>
+<blockquote class="dstu-note">
+<a name="dstu-2"> </a>
 <p>
-DSTU notice: clients are able to request that operations be executed as part of a transaction. 
+<b>DSTU Note:</b>  clients are able to request that operations be executed as part of a transaction. 
 Some transactions can cause side effects, such as the creation of new resources or other 
 actions that may be difficult to fit into a transaction framework. Input regarding this 
 issue is sought during the DSTU period.
+</p>
+<p>
+Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>
 
@@ -1127,12 +1135,16 @@ wishes to delete the information.
 Both client and server systems SHOULD clearly document how transaction
 integrity is handled.
 </p>
-<blockquote>
+<blockquote class="dstu-note">
+<a name="dstu-3"> </a>
 <p>
-DSTU Note: For now, the only way to document how transaction integrity
+<b>DSTU Note:</b>  For now, the only way to document how transaction integrity
 is handled is as text in the narrative portions of the <a href="conformance.html">Conformance</a>
 resource. Feedback during the Trial use period on what - if any - of this information
 should be computable is welcome.
+</p>
+<p>
+Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>
 

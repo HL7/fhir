@@ -216,10 +216,14 @@ For each matching resource, a server will send a message to the
 nominated end-point. Most servers will require that the end-point
 is white-listed prior to allowing these kinds of subscriptions. 
 </p>
-<blockquote>
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
 <p>
-DSTU Note: the details of the message - mainly the event code - are still
-be to resolved during the trial use. Feedback is welcome.
+<b>DSTU Note:</b>  The details of the message - mainly the event code - are 
+still be to resolved during the trial use.
+</p>
+<p>
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>
 

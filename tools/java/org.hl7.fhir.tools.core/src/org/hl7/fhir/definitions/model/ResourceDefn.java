@@ -288,7 +288,7 @@ public class ResourceDefn  {
     for (Example e : examples) {
       if (e.getId().equals(id))
         return e;
-      if (e.getResourceName().equals("Bundle")) {
+      if ("Bundle".equals(e.getResourceName())) {
         List<Element> children = new ArrayList<Element>();
         XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", children);
         for (Element c : children) {

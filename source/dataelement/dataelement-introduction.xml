@@ -63,10 +63,14 @@ might either be implicit or may be explicit through an extension.  (For implemen
 <b>Note</b>: Extensions on <b>DataElement</b> that define the characteristics of a data element will typically also be applicable to <a href="profile.html">Profile</a>'s
 ElementDefinition and <a href="questionnaire.html">Questionnaire</a>'s Question data element as both are also used to define the characteristics of a data element.
 </p>
-<blockquote>
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
 <p>
-<b><a name="dstu">DSTU Issue</a></b>: Should a shared structure be used in <a href="profile.html">Profile</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
+<b>DSTU Note:</b>   Should a shared structure be used in <a href="structuredefinition.html">StructureDefinition</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
 to capture constraints on data elements, or is it acceptable for them to continue to be maintained in a separate, but "similar" manner?
+</p>
+<p>
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>
 <p>

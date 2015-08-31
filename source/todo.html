@@ -11,40 +11,18 @@
 
 <div class="col-9">
 
-
 <h2>Outstanding Issues</h2>
 
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
-
 <p>
-There are a number of issues in which input based on implementation experience is specifically sought during the trial use phase:
+This specification is currently in it's second round of trial use. Much work remains to be done. 
 </p>
-<a name="todo"> </a>
-
-<ul>
- <li><a href="profiling.html#dstu">Conformance</a>: How system profiles are used</li>
- <li><a href="managing.html#dstu">Resource Identification</a>: Managing resource identification in distributed systems</li>
- <li><a href="search.html#dstu">Search</a>: How should text search be standardized?</li>
- <li><a href="security-labels.html#dstu">Security Labels</a>: How much policy can be standardized, and how does this impact on this specification?</li>
- <li><a href="security.html#dstu">Security</a>: What use cases are there for digital signatures?</li>
- <li><a href="clinicalimpression.html#dstu">ClinicalImpression</a>: Content and workflow questions</li>
- <li><a href="careplan.html#dstu">Care Team</a>: Care Team, plus use as a template</li>
- <li><a href="dataelement.html#dstu">Data Element</a>: question about specificity</li>
- <li><a href="riskassessment.html#dstu">Risk Assessment </a>: the extent to which RiskAssessment should be included in core FHIR</li>
- <li><a href="messaging.html#dstu">Messaging</a>: Messaging has not yet been well-exercised at connectathon, so feedback based on implementation is welcome</li>
- <li><a href="bodysite.html#dstu">BodySite</a>: Does this need to be a resource, or can it just be a reusable type?</li>
-</ul>
-
 <p>
-More generally, there are still many outstanding questions about the Request/Fulfillment cycle (<a href="order.html">Order</a>/
+Specifically, there are still many outstanding questions about the Request/Fulfillment cycle (<a href="order.html">Order</a>/
 <a href="orderresponse.html">OrderResponse</a> and how various statuses and workflows associated with requests, as well as how proposals
 cascade to plans to orders to downstream/encoded orders, etc. This is a matter of ongoing investigation.
 </p>
-
-<h3>Deferred for a future version</h3>
 <p>
-Some known issues are not addressed in this version of FHIR,
-and are intended to be addressed in subsequent versions:
+In addition, the following general areas of functionality have been deferred to a future version:
 </p>
 <ul>
  <li>Adverse Event Reporting</li>
@@ -57,6 +35,44 @@ and are intended to be addressed in subsequent versions:
  <li>Use of RDF</li>
  <li>A full server side query framework</li>
 </ul>
+<p>
+For some of these, some draft content is included in the specification as draft for implementer
+consideration.
+</p>
+
+<p>
+In addition, there is a number of specific notes through the specification requesting feedback 
+from implementers:
+</p>
+<a name="todo"> </a>
+<ul>
+  <li><a href="allergyintolerance.html#dstu">AllergyIntolerance</a>: how to report 'no known allergies' of various flavors</li>
+  <li><a href="appointment.html#dstu">Appointment</a>: suitability of Appointment.priority values</li>
+  <li><a href="bodysite.html#dstu">BodySite</a>: suitability of this as a resource?</li>
+  <li><a href="careplan.html#dstu">CarePlan</a>: 2 questions about usage</li>
+  <li><a href="clinicalimpression.html#dstu">ClinicalImpression</a>: general usage questions</li>
+  <li><a href="composition.html#dstu">Composition</a>: question about title being mandatory, and about signatures</li>
+  <li><a href="conformance-rules.html#dstu">Invariants</a>: is there a replaceement for XPath?</li>
+  <li><a href="dataelement.html#dstu">DataElement</a>: question about relationship between DataElement and other resources</li>
+  <li><a href="datatypes.html#dstu">Markdown</a>: which markdown flavor can we settle on, if any?</li>
+  <li><a href="diagnosticreport.html#dstu">DiagnosticReport</a>: relationship with Observation</li>
+  <li><a href="http.html#dstu">RESTful API</a>: question about using the PATCH operation</li>
+  <li><a href="http.html#dstu-2">RESTful API</a>: what should we do about side-effects and transactions?</li>
+  <li><a href="http.html#dstu-3">RESTful API</a>: Transaction integrity and introspection</li>
+  <li><a href="managing.html#dstu">Resource Identification</a>: identifier policy rules?</li>
+  <li><a href="messaging.html#dstu">Messaging</a>: what additional events should be defined?</li>
+  <li><a href="operations.html#dstu">Operations</a>: should it be possible to execute operations asynchronously?</li>
+  <li><a href="patient.html#dstu">Patient</a>: what effect linking/merging/unlinking should have on other functionality such as the GET operation?</li>
+  <li><a href="patient.html#dstu-2">Patient</a>: Comment on MPI search query sought</li>
+  <li><a href="profiling.html#dstu">Profiling</a>: Note about need for feedback about use of profiles</li>
+  <li><a href="references.html#dstu">References</a>: Should inside out containment be allowed?</li>
+  <li><a href="riskassessment.html#dstu">RiskAssessment</a>: General usage questions</li>
+  <li><a href="search.html#dstu">Search</a>: how much should text search be standardised?</li>
+  <li><a href="search.html#dstu-2">Search</a>: Should additional rules about how _include works be made?</li>
+  <li><a href="security.html#dstu">Security</a>: Using signatures with RESTful interfaces is a poorly understood area</li>
+  <li><a href="subscription.html">Subscription</a>: Use with messaging is still to be clarified</li>
+</ul>
+
 
 </div>
 

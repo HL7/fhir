@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://h7.org/fhir/OperationDefinition/example"/>
   <version value="B"/>
   <name value="Populate Questionnaire"/>
   <status value="draft"/>
