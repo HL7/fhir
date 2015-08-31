@@ -21,11 +21,9 @@
     <given value="Adam"/>
     <prefix value="Dr"/>
   </name>
-
-		<practitionerRole>
-
+ <practitionerRole>
   <managingOrganization>
-    <reference value="Organization/1"/>
+    <reference value="Organization/f001"/>
   </managingOrganization>
 
   <!-- Referring Practitioner for the first 3 months of 2012 -->
@@ -40,5 +38,27 @@
     <start value="2012-01-01"/>
     <end value="2012-03-31"/>
   </period>
-		</practitionerRole>
+	 <location>
+		 <reference value="Location/1"/>
+		 <display value="South Wing, second floor"/>
+	 </location>
+	 <healthcareService>
+		 <reference value="HealthcareService/example"/>
+	 </healthcareService>
+ </practitionerRole>
+	<qualification>
+		<identifier>
+			<system value="http://example.org/UniversityIdentifier"/>
+			<value value="12345"/>
+		</identifier>
+		<code>
+			<text value="Bachelor of Science"/>
+		</code>
+		<period>
+			<start value="1995"/>
+		</period>
+		<issuer>
+			<display value="Example University" />
+		</issuer>
+	</qualification>
 </Practitioner>
