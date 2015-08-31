@@ -220,21 +220,21 @@
   </subject>
   <status value="active"/>
   <modified value="2012-09-10"/>
-  <concern>
+  <addresses>
     <reference value="#p1"/>
     <!-- Local reference -->
     <display value="GERDS"/>
-  </concern>
-  <concern>
+  </addresses>
+  <addresses>
     <reference value="#p2"/>
     <!-- Local reference -->
     <display value="Obesity"/>
-  </concern>
-  <concern>
+  </addresses>
+  <addresses>
     <reference value="#p3"/>
     <!-- Local reference -->
     <display value="Psoriasis"/>
-  </concern>
+  </addresses>
   <goal>
     <reference value="#g1"/>
   </goal>

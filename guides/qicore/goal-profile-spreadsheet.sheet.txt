@@ -39,36 +39,27 @@
 
  -- Row 2 -----------------------------------
   Element = Goal.extension
-  Profile Name = Goal.category
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-category}
-  Binding = QICoreGoalCategory
-  QDM Mapping = primary code
-
- -- Row 3 -----------------------------------
-  Element = Goal.extension
   Profile Name = Goal.target
   Card. = 0..*
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-target}
   QDM Mapping = target outcome
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Element = Goal.extension.extension
   Profile Name = Goal.target.measure
   Card. = 1..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-target#measure}
   Binding = QICoreObservationName
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Goal.extension.extension
   Profile Name = Goal.target.detail
   Card. = 1..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-target#detail}
   Binding = QICoreObservationCodedResult
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Goal.extension
   Profile Name = Goal.reasonRejected
   Card. = 0..1
@@ -76,9 +67,15 @@
   Binding = QICoreActReason
   QDM Mapping = negation rationale
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Goal.targetDate
   Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Goal.category
+  Must Support = Y
+  Binding = QICoreGoalCategory
+  QDM Mapping = primary code
 
  -- Row 8 -----------------------------------
   Element = Goal.subject
@@ -94,7 +91,7 @@
   Must Support = Y
 
  -- Row 11 -----------------------------------
-  Element = Goal.concern
+  Element = Goal.addresses
   Must Support = Y
   Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}| Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}| Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement}| Reference(NutritionOrder)| Reference(ProcedureRequest){http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest}| Reference(RiskAssessment)
   QDM Mapping = related to

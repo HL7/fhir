@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ValueSet/goal-priority"/>
   <name value="GoalPriority"/>
   <status value="draft"/>
   <publisher value="HL7 International - Patient Care WG"/>
@@ -11,7 +12,6 @@
     </telecom>
   </contact>
   <description value="goal priority - indicates the level of importance associated with reaching or sustaining a goal"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/goal-priority"/>
     <caseSensitive value="true"/>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="GoalCategory"/>
+  <status value="draft"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+    </telecom>
+  </contact>
+  <description value="goal category - example codes for grouping goals for filtering or presentation"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/goal-category"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="dietary"/>
+      <display value="dietary"/>
+      <definition value="Goals related to the consumption of food and/or beverages"/>
+    </concept>
+    <concept>
+      <code value="safety"/>
+      <display value="safety"/>
+      <definition value="Goals related to the personal protexction of the subject."/>
+    </concept>
+    <concept>
+      <code value="behavioral"/>
+      <display value="behavioral"/>
+      <definition value="Goals related to the manner in which the subject acts."/>
+    </concept>
+    <concept>
+      <code value="nursing"/>
+      <display value="nursing"/>
+      <definition value="Goals related to the practice of nursing or established by nurses."/>
+    </concept>
+    <concept>
+      <code value="physiotherapy"/>
+      <display value="physiotherapy"/>
+      <definition value="Goals related to the mobility and motor capability of the subject."/>
+    </concept>
+  </codeSystem>
+</ValueSet>

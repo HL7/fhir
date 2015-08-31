@@ -10,7 +10,9 @@
       <description value="Retropharyngeal abscess removal"/>
       <status value="achieved"/>
       <!-- urn:oid:2.16.840.1.113883.4.642.1.38 -->
-      <notes value="goal accomplished without complications"/>
+      <note>
+        <text value="goal accomplished without complications"/> 
+      </note>
     </Goal>
   </contained>
   <identifier>
@@ -30,11 +32,11 @@
     <end value="2013-03-08T09:30:10+01:00"/>
   </period>
   <modified value="2013-06-27T09:30:10+01:00"/>
-  <concern>
+  <addresses>
     <reference value="Condition/f201"/>
     <!--TODO Correcte referentie-->
     <display value="?????"/>
-  </concern>
+  </addresses>
   <participant>
     <member>
       <reference value="Practitioner/f001"/>

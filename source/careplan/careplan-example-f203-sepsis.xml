@@ -22,10 +22,10 @@
     <end value="2013-04-21"/>
   </period>
   <modified value="2013-03-11"/>
-  <concern>
+  <addresses>
     <reference value="Condition/f203"/>
     <display value="Roel's sepsis"/>
-  </concern>
+  </addresses>
   <participant>
     <role>
       <coding>

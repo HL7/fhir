@@ -49,10 +49,10 @@
     <start value="2013-01-01T10:30:00+00:00"/>
     <!-- No end yet as the encounter is still in progress.-->
   </period>
-  <concern>
+  <addresses>
     <reference value="#p1"/>
     <display value="obesity"/>
-  </concern>
+  </addresses>
   <participant id="part1">
     <role>
       <coding>

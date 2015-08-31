@@ -1807,6 +1807,7 @@
     <display value="Meat"/>
     <display value="Meat (substance)"/>
   </concept>
+  <concept id="289169006" display="weight loss"/>
   <concept id="28995006" display="Treated with (attribute)">
     <display value="Treated with"/>
     <display value="TW"/>
@@ -1900,6 +1901,7 @@
     <display value="Phosphorus, NOS"/>
     <display value="Phosphorus (substance)"/>
   </concept>
+  <concept id="308283009" display="Discharge from hospital"/>
   <concept id="309049000" display="Lesion sample (specimen)">
     <display value="Lesion sample"/>
     <display value="Lesion sample (specimen)"/>
@@ -2086,6 +2088,7 @@
     <display value="Amoxycillin 250mg/5mL oral suspension"/>
     <display value="Amoxycillin 250mg/5mL oral suspension (substance)"/>
   </concept>
+  <concept id="32485007" display="Admission to hospital"/>
   <concept id="325267004" display="Tolbutamide 500mg tablet">
     <display value="Tolbutamide 500mg tablet (product)"/>
     <display value="Tolbutamide 500mg tablet"/>
@@ -2526,6 +2529,7 @@
     <display value="Smear procedure (procedure)"/>
     <display value="Smear procedure"/>
   </concept>
+  <concept id="386216000" display="Childbirth"/>
   <concept id="386359008" display="Administration of drug or medicament via oral route (procedure)">
     <display value="Medication administration: oral (procedure)"/>
     <display value="Medication administration: oral"/>
@@ -3819,6 +3823,7 @@
     <display value="Ground food"/>
     <display value="Regular table foods ground into a soft, fine texture, using a baby food grinder or food chopper. Crispy or crunchy foods are not acceptable. Minimal chewing is required (Source: Academy of Nutrition and Dietetics Nutrition Informatics Committee 2013)."/>
   </concept>
+  <concept id="442137000" display="Completion time of procedure"/>
   <concept id="442651000124102" display="Adult formula (product)">
     <display value="Adult formula (product)"/>
     <display value="Adult formula"/>

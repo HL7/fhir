@@ -75,10 +75,10 @@
     <start value="2013-01-01"/>
     <end value="2013-10-01"/>
   </period>
-  <concern>
+  <addresses>
     <reference value="#p1"/>
     <display value="pregnancy"/>
-  </concern>
+  </addresses>
   <participant>
     <!-- In New Zealand, there is a Lead Maternity Carer (LMC) - often a midwife -->
     <role>

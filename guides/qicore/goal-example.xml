@@ -7,15 +7,6 @@
 			<p> A simple care goal for a patient to lose weight due to obesity.</p>
 		</div>
 	</text>
-	<extension url="http://hl7.org/fhir/StructureDefinition/goal-category">
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="289169006" />
-				<display value="weight loss"/>
-			</coding>
-		</valueCodeableConcept>
-	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/goal-target">
 		<extension url="measure">
 			<valueCodeableConcept>
@@ -56,10 +47,17 @@
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
 	</subject>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="289169006" />
+      <display value="weight loss"/>
+    </coding>
+  </category>
 	<description value="Target weight is 160 to 180 lbs."/>
 	<status value="rejected"/>
-	<concern>
+	<addresses>
 		<reference value="Condition/12345"/>
 		<display value="obesity"/>
-	</concern>
+	</addresses>
 </Goal>

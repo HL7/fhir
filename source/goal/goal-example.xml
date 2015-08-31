@@ -40,8 +40,8 @@
 	</subject>
 	<description value="Target weight is 160 to 180 lbs."/>
 	<status value="in-progress"/>
-	<concern>
+	<addresses>
 		<reference value="Condition/12345"/>
 		<display value="obesity"/>
-	</concern>
+	</addresses>
 </Goal>

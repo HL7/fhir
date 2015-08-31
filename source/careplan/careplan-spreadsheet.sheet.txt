@@ -266,7 +266,7 @@
   Requirements = Provides more detail than conveyed by category
 
  -- Row 11 -----------------------------------
-  Element = CarePlan.concern
+  Element = CarePlan.addresses
   Card. = 0..*
   Summary = Y
   Type = Reference(Condition)
@@ -579,7 +579,7 @@
  -- Row 3 -----------------------------------
   Name = condition
   Type = reference
-  Path = CarePlan.concern
+  Path = CarePlan.addresses
 
  -- Row 4 -----------------------------------
   Name = date

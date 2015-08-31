@@ -75,10 +75,10 @@
   <period>
     <end value="2013-01-01"/>
   </period>
-  <concern>
+  <addresses>
     <reference value="#p1"/>
     <display value="obesity"/>
-  </concern>
+  </addresses>
   <participant>
     <role>
       <text value="responsiblePerson"/>

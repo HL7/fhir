@@ -79,10 +79,10 @@
     <display value="Roel"/>
   </subject>
   <status value="active"/>
-  <concern>
+  <addresses>
     <reference value="Condition/f202"/>
     <display value="Roel's head-neck tumor"/>
-  </concern>
+  </addresses>
   <participant>
     <role>
       <coding>

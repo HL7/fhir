@@ -8,6 +8,20 @@
   Definition = Types of relationships between two goals
   Conformance = required
 
+ -- Row 2 -----------------------------------
+  Binding Name = GoalAcceptanceStatus
+  Binding = code list
+  Reference = #goal-acceptance-status
+  Definition = Codes indicating whether the goal has been accepted by a stakeholder
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = GoalAcceptancePriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/goal-priority
+  Definition = Codes indicating the relative priority assigned to a goal by a stakeholder
+  Conformance = example
+
 === Sheet goal-relationship-type =====================================
 
  -- Row 1 -----------------------------------
@@ -26,8 +40,38 @@
   Definition = Indicates that this goal has been replaced by the target goal
 
  -- Row 4 -----------------------------------
+  Id = 5
+  Code = component
+  Definition = Indicates that the target goal is considered to be a \"piece\" of attaining this goal.
+
+ -- Row 5 -----------------------------------
   Id = 4
   Code = other
   Definition = Indicates that the relationship is not covered by one of the pre-defined codes.  (An extension may convey more information about the meaning of the relationship.)
 
+=== Sheet goal-acceptance-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = agree
+  Display = Agree
+  Definition = Stakeholder supports pursuit of the goal
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = disagree
+  Display = Disagree
+  Definition = Stakeholder is not in support of the pursuit of the goal
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = pending
+  Display = Pending
+  Definition = Stakeholder has not yet made a decision on whether they support the goal
+
 === Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !target-quantity
+  Type = composite
+  Path = relationship.type & relationship.target

@@ -217,12 +217,12 @@
   </subject>
   <status value="active"/>
   <modified value="2012-09-10"/>
-  <concern>
+  <addresses>
     <!-- The concern points to the contained Condition. Other options are to point to a 'real' Condition resource-->
     <reference value="#p1"/>
     <!-- Local reference -->
     <display value="Asthma"/>
-  </concern>
+  </addresses>
   <goal>
     <reference value="#g1"/>
   </goal>
