@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
+	<id value="home"/>
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @example who is at home</div>
+	</text>
+	<contained>
+		<Location>
+			<id value="home"/>
+			<description value="Client's home"/>
+			<mode value="kind"/>
+		</Location>
+	</contained>
+	<status value="finished" />
+	<class value="virtual" />
+
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<participant>
+		<period>
+			<start value="2015-01-17T16:00:00+10:00"/>
+			<end value="2015-01-17T16:30:00+10:00"/>
+		</period>
+		<individual>
+			<reference value="Practitioner/example"/>
+			<display value="Dr Adam Careful"/>
+		</individual>
+	</participant>
+	<period>
+		<start value="2015-01-17T16:00:00+10:00"/>
+		<end value="2015-01-17T16:30:00+10:00"/>
+	</period>
+	<location>
+		<location>
+			<reference value="#home"/>
+			<display value="Client's home"/>
+		</location>
+		<status value="present"/>
+		<period>
+			<start value="2015-01-17T16:00:00+10:00"/>
+			<end value="2015-01-17T16:30:00+10:00"/>
+		</period>
+	</location>
+</Encounter>
