@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://hl7.org/fhir/ValueSet/care-plan-category"/>
+	<name value="Care Plan Category"/>
+	<status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
+		</telecom>
+	</contact>
+	<description value="Example codes indicating the category a care plan falls within.  Note that these are in no way complete and may not even be appropriate for some uses."/>
+	<compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <!-- Care plan (qualifier value) -->
+        <value value="278448002"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

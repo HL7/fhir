@@ -10,8 +10,10 @@
 
  -- Row 2 -----------------------------------
   Binding Name = CarePlanParticipantRole
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-participant-role
   Definition = Indicates specific responsibility of an individual within the care plan.  E.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = CarePlanActivityCategory
