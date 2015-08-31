@@ -35,63 +35,69 @@
   Type = dateTime
 
  -- Row 5 -----------------------------------
+  Element = FamilyMemberHistory.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+
+ -- Row 6 -----------------------------------
   Element = FamilyMemberHistory.name
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = FamilyMemberHistory.relationship
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = FamilyMemberHistory.born[x]
   Card. = 0..1
   Must Support = Y
   Type = Period | date | string
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = FamilyMemberHistory.age[x]
   Card. = 0..1
   Must Support = Y
   Type = Age | Range | string
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = FamilyMemberHistory.deceased[x]
   Card. = 0..1
   Must Support = Y
   Type = boolean | Age | Range | date | string
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = FamilyMemberHistory.condition
   Card. = 0..*
   Must Support = Y
 
- -- Row 11 -----------------------------------
-  Element = FamilyMemberHistory.condition.type
+ -- Row 12 -----------------------------------
+  Element = FamilyMemberHistory.condition.code
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFProblemCode
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = FamilyMemberHistory.condition.outcome
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = FamilyMemberHistory.condition.onset[x]
   Card. = 0..1
   Must Support = Y
   Type = Age | Range | string
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = FamilyMemberHistory.condition.note
   Card. = 0..1
-  Type = string
+  Type = Annotation
 
 === Sheet Search =====================================
 

@@ -5,10 +5,12 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Mother died of a stroke aged 56</div>
   </text>
+  
   <patient>
     <reference value="Patient/100"/>
     <display value="Peter Patient"/>
   </patient>
+  <status value="completed"/>
   <relationship>
     <coding>
       <system value="http://hl7.org/fhir/familial-relationship"/>
@@ -16,14 +18,14 @@
     </coding>
   </relationship>
   <condition>
-    <type>
+    <code>
      <coding>
        <system value="http://snomed.info/sct"/>
        <code value="371041009"/>
        <display value="Embolic Stroke"/>
      </coding>
      <text value='Stroke'/>
-    </type>
+    </code>
 
    <onsetQuantity>
      <value value="56" />

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Iryna Roy</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-05T19:00:24Z</LastSaved>
+  <LastSaved>2015-08-31T06:03:54Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>763</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -798,6 +798,11 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s154" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
   </Style>
  </Styles>
  <Names>
@@ -3666,7 +3671,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3679,11 +3684,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4433,7 +4439,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6266,7 +6271,8 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Codes describing anatomical locations. May include laterality</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
+    <Cell ss:StyleID="s154" ss:HRef="http://hl7.org/fhir/ValueSet/body-site"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">SNOMED CT Body site concepts</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -6590,6 +6596,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6609,8 +6616,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

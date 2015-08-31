@@ -69,19 +69,22 @@
   Must Support = Y
 
  -- Row 10 -----------------------------------
+  Element = FamilyMemberHistory.status
+
+ -- Row 11 -----------------------------------
   Element = FamilyMemberHistory.age[x]
   Must Support = Y
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = FamilyMemberHistory.deceased[x]
   Must Support = Y
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = FamilyMemberHistory.relationship
   Must Support = Y
 
- -- Row 13 -----------------------------------
-  Element = FamilyMemberHistory.condition.type
+ -- Row 14 -----------------------------------
+  Element = FamilyMemberHistory.condition.code
   Must Support = Y
   Binding = QICoreProblemCode
   QDM Mapping = primary code
