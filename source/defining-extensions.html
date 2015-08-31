@@ -40,9 +40,34 @@ to a national published standard.
 Extensions may be defined by any project or jurisdiction, up to and including international standards organizations such as HL7 itself.
 </p>
 <p>
-Before defining a new extension, attempt to reuse existing extensions defined in one of the <a href="#registration">shared registries described below</a>.
+Before defining a new extension, attempt to reuse existing extensions defined in one of the <a href="#registration">shared registries described below</a>.  As well, some concepts may be appropriate
+to adding as part of the core specification.
 </p>
 
+<a name="core"> </a>
+<h3>Core eleemnts</h3>
+<p>
+Elements are included as part of FHIR resources and data types principly on the basis of
+current world-wide usage patterns.  If a significant majority of  systems throughout the world 
+that would use a resource or data type would use an element, then that element will be included
+as part of the resource/data type.  If not, it will be left to an extension.  This holds even
+if the element is very common or even mandatory in one or two jurisdictions.
+</p>
+<p>
+Exceptions are made to this policy when FHIR wants to clearly establish a particular topic as
+falling within FHIR's scope.  (For example, the inclusion of "animal" as part of Patient is to
+clearly establish FHIR as coverying veterinary care, not an assertion that the vast majority of
+healthcare systems throughout the world deal with animals.)
+</p>
+<p>
+<a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&amp;tracker_id=677">Proposals</a>
+suggesting a new core element can be raised by anyone.  (Free registration is required.)  However, given
+the <a href="timelines.html">timelines</a> for new FHIR releases as well as the uncertainties associated
+with vetting the specification through a ballot process, it may still be necessary to define extensions
+even for elements that are likely to be supported as part of the core specification in a future release.
+</p>
+
+<a name="context"> </a>
 <h3>Context</h3>
 <p>
 Extensions are always defined against some particular context - the type of element
