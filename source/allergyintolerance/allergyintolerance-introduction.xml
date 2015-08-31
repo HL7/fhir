@@ -1,81 +1,74 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-<a name="scope"> </a>
-<h2>Scope and Usage</h2>
-<p>
+	<div>
+		<a name="scope"> </a>
+		<h2>Scope and Usage</h2>
+		<p>
 A record of a clinical assessment of an allergy or intolerance; a propensity, or a potential risk 
 to an individual, to have an adverse reaction on future exposure to the specified substance, or class 
 of substance. 
 </p>
-<p>
+		<p>
 Where a propensity is identified, to record information or evidence about a reaction event 
 that is characterised by any harmful or undesirable, physiological response that is specific 
 to the individual, and triggered by exposure of an individual to the identified substance 
 or class of substance.
 </p>
-<p>
+		<p>
 Substances include, but are not limited to: a therapeutic substance administered correctly 
 at an appropriate dosage for the individual; food; material derived from plants or animals; 
 or venom from insect stings.
 </p>
-
-<p>
-<b>Note for Reviewers</b>
-</p>
-<p>
+		<p>
+			<b>Note for Reviewers</b>
+		</p>
+		<p>
 Presently open issues for this resource:
 </p>
-<ul>
- <li>This resource represents a condition of susceptibility to a substance, with a list of supporting events and/or symptoms,
+		<ul>
+			<li>This resource represents a condition of susceptibility to a substance, with a list of supporting events and/or symptoms,
    and has no direct relationship to an event reporting framework; this will be re-assessed when adverse event reporting resource(s) and/or profiles are added to FHIR (not expected to happen prior to DSTU 2)
  </li>
- <li>Other HL7 models and the openEHR archetype have "exposure date" but this is not found in any surveyed systems, so this is left as an extension (more appropriate for adverse event reporting)</li>  
-</ul>
-
-</div>
-
-<div>
-<a name="bnr"> </a>
-<h2>Boundaries and Relationships</h2>
-<p>
+			<li>Other HL7 models and the openEHR archetype have "exposure date" but this is not found in any surveyed systems, so this is left as an extension (more appropriate for adverse event reporting)</li>
+		</ul>
+	</div>
+	<div>
+		<a name="bnr"> </a>
+		<h2>Boundaries and Relationships</h2>
+		<p>
 This resource is used to provide a single place within the health record to document a range of clinical statements about adverse reactions, including:
 </p>
-<ul>
-<li>record a clinical assessment of the individual's propensity to a potential future reaction upon re-exposure</li>
-<li>record cumulative information about the reaction to each exposure, including 'no reaction' if appropriate</li>
-</ul>
-
-<p>
+		<ul>
+			<li>record a clinical assessment of the individual's propensity to a potential future reaction upon re-exposure</li>
+			<li>record cumulative information about the reaction to each exposure, including 'no reaction' if appropriate</li>
+		</ul>
+		<p>
 Use to record information about the positive presence of the risk of an adverse reaction:
 </p>
-<ul>
-<li>to support direct clinical care of an individual</li>
-<li>as part of a managed adverse reaction or allergy/intolerance list</li>
-<li>to support exchange of information about the propensity and events related to adverse reactions</li>
-<li>to inform adverse reaction reporting</li>
-<li>to assist computerised knowledge-based activities such as clinical decision support and alerts</li>
-</ul>
-<p>
+		<ul>
+			<li>to support direct clinical care of an individual</li>
+			<li>as part of a managed adverse reaction or allergy/intolerance list</li>
+			<li>to support exchange of information about the propensity and events related to adverse reactions</li>
+			<li>to inform adverse reaction reporting</li>
+			<li>to assist computerised knowledge-based activities such as clinical decision support and alerts</li>
+		</ul>
+		<p>
 Use to record information about adverse reactions to a broad range of substances, including: biological 
 &amp; blood products; incipients and excipients in medicinal preparations; foods; metal salts; and organic chemical compounds.  
 </p>
-<p>
+		<p>
 Adverse reactions may be:
 </p>
-<ul>
-<li>an allergy (immune mediated reaction - most commonly type I hypersensitivity)</li>
-<li>an intolerance (non-immune mediated reaction) - including pseudoallergic reactions, side effects, drug 
+		<ul>
+			<li>an allergy (immune mediated reaction - most commonly type I hypersensitivity)</li>
+			<li>an intolerance (non-immune mediated reaction) - including pseudoallergic reactions, side effects, drug 
   toxicities (e.g., to gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions</li>
-</ul>
-<p>
-In clinical practice distinguishing between allergic (immune-mediated) and intolerance (non-immune mediated) reactions is difficult and often 
-not practical. Often the term "allergy" may be used in a rather generic sense which may overlap with use of "intolerance" - in practice the boundaries between these two concepts may not be well-defined or understood. Identification of the type of reaction is not a proxy for seriousness or risk of harm to the patient, which is better expressed by the manifestation in clinical practice.
-</p>
-<p>
-It is also important to note that both allergy and intolerance are based on the occurrence of an adverse reaction and a propensity to future reactions due to sensitivity to a substance that is unique to the individual, as opposed to a property of the situation, as is the case with toxicity, overdose, and drug-drug interactions.
-</p>
-<p>
+		</ul>
+		<p>
+In clinical practice distinguishing between allergic (immune-mediated) and intolerance (non-immune mediated) reactions is difficult and may 
+not be practical. Often the term "allergy" is used in a rather generic sense which may overlap with the use of "intolerance" - in practice the boundaries between these two concepts may not be well-defined or understood. The term "intolerance" should be generally applied to reactions and to the propensity for future reactions where either the sensitivity is felt to not be on an immunologic basis or when the mechanism is unknown. Identification of the type of reaction is not a proxy for seriousness or risk of harm to the patient, which is better expressed by the manifestation in clinical practice.</p>
+		<p>
+The sensitivity in the case of either an allergy or intolerance is unique to the individual, and is distinguished from those reactions that are a property of the circumstance, such as toxicity of a food or drug, overdose, drug-drug, drug-food, or drug-disease interaction (which are reactions that would be expected to occur for any individual given the same circumstances). </p>
+		<p>
 The risk of an adverse reaction event or manifestation should not be recorded without identifying a proposed causative 
 substance or class of substance. If there is uncertainty that a specific substance is the cause, this uncertainty can be 
 recorded using the 'status' data element. If there are multiple possible substances that may have caused a reaction/manifestation, 
@@ -84,79 +77,78 @@ each substance should be recorded using a separate instance of this resource wit
 If a substance, agent or class is later proven not to be the cause for a given reaction then the 'status' can be modified 
 to 'refuted'.
 </p>
-<p>
+		<p>
 This resource has been designed to allow recording of information about a specific substance (amoxicillin, 
 oysters, or bee sting venom) or, alternatively, a class of substance (eg penicillins)). If a class of substance is recorded 
 then identification of the exact substance can be recorded on a per exposure basis.
 </p>
-<p>
+		<p>
 The scope of this FHIR resource has deliberately focused on identifying a pragmatic data set that are used in 
 most clinical systems or will be suitable for most common clinical scenarios; <a href="extensibility.html">extensions
 can be used</a> to add additional detail if required. Examples of clinical situations where the extension may 
 be required include: a detailed allergist/immunologist assessment, for reporting to regulatory bodies or use 
 in a clinical trial.
 </p>
-<p>
+		<p>
 The act of recording any adverse reaction in a health record involves the clinical assessment that a potential hazard 
 exists for an individual if they are exposed to the same substance/agent/class in the future – that is, a relative 
 contraindication - and, in the absence of additional information indicating a higher level of potential risk, the default 'criticality' value should be set to 'Low Risk'. If a clinician considers that it is not safe for the individual to be deliberately re-exposed to the substance/agent again, for example, following a manifestation of a life-threatening anaphylaxis, then the 'criticality' data element should be amended to 'High Risk'. 
 </p>
-<p>
+		<p>
 A formal adverse event report to regulatory bodies is a document that will contain a broad range of information in 
 addition to the specific details about the adverse reaction. The report could utilise parts of this resource plus 
 include additional data as required per jurisdiction.
 </p>
-<p>
+		<p>
 An adverse reaction or allergy/intolerance list is a record of all identified propensities for an adverse reaction 
 for the individual upon future exposure to the substance or class, plus provides potential access to the evidence 
 provided by details about each reaction event, such as manifestation.
 </p>
-<p>
+		<p>
 Valuable first-level information that could be presented to the clinician when they need to assess propensity for 
 future reactions are:
 </p>
-<ul>
-<li>statements about previous clinical manifestations following exposure</li>
-<li>source of the information/reporter</li>
-<li>the 'criticality' flag</li>
-</ul>
-<p>
+		<ul>
+			<li>statements about previous clinical manifestations following exposure</li>
+			<li>source of the information/reporter</li>
+			<li>the 'criticality' flag</li>
+		</ul>
+		<p>
 Second-level information can be drawn from each exposure event and links to additional detailed information 
 such as history, examination and diagnoses stored elsewhere in the record, if it is available.
 </p>
-
-<p>
-<b>AllergyIntolerance and RiskAssessment</b></p>
-<p>
+		<p>
+			<b>AllergyIntolerance and RiskAssessment</b>
+		</p>
+		<p>
 AllergyIntolerance describes a specific type of risk - propensity to reaction to a substance while <a href="riskassessment.html">RiskAssessment</a> describes 
 general risks to a subject, not generally based on a reaction.
 </p>
-
-<p>
-<b>AllergyIntolerance and Immunization.reaction</b></p>
-<p>
-<a href="immunization-definitions.html#Immunization.reaction">Immunization.reaction</a> may be an indication of an allergy or intolerance. If this is deemed to be the case, a separate 
+		<p>
+			<b>AllergyIntolerance and Immunization.reaction</b>
+		</p>
+		<p>
+			<a href="immunization-definitions.html#Immunization.reaction">Immunization.reaction</a> may be an indication of an allergy or intolerance. If this is deemed to be the case, a separate 
 <a href="allergyintolerance.html">AllergyIntolerance</a> record should be created to indicate it, as most systems will not query against past Immunization.reaction.
 </p>
-
-
-<p>
-<b>Misuse</b></p>
-<ul>
-<li>The allergy/intolerance list exists as a patient safety tool to inform decision support around ordering of 
+		<p>
+			<b>Misuse</b>
+		</p>
+		<ul>
+			<li>The allergy/intolerance list exists as a patient safety tool to inform decision support around ordering of 
    medications and nutrition and to guide clinical treatment.  Other reactions triggered by physical 
    stimuli -- light, heat, cold, pressure, vibration, which may mimic allergic or intolerance reactions,  
    should be recorded as <a href="condition.html">Condition</a> on the problem list, not using AllergyIntolerance.</li>
-<li>Not to be used to record adverse events, including failures of clinical process, interventions or products. For example: 
+			<li>Not to be used to record adverse events, including failures of clinical process, interventions or products. For example: 
    abnormal use or mistakes/errors made in maladministration of an agent or substance; incorrect dosage; mislabelling; 
    harm or injury caused by an intervention or procedure; overdose/poisoning etc</li>
-<li>Not to be used as a proxy for an adverse event report. See above for how it may be used as one component of an adverse event report</li>
-<li>Not to be used for recording alerts. Alerts are handled using <a href="flag.html">Flag</a> or - where event-specific, <a href="detectedissue.html">DetectedIssue</a></li>
-<li>Not to be used for recording failed therapy</li>
-</ul>
-</div>
-
-<!-- (optional):
+			<li>Not to be used as a proxy for an adverse event report. See above for how it may be used as one component of an adverse event report</li>
+			<li>Not to be used for recording alerts. Alerts are handled using <a href="flag.html">Flag</a> or - where event-specific, <a href="detectedissue.html">DetectedIssue</a>
+			</li>
+			<li>Not to be used for recording failed therapy</li>
+		</ul>
+	</div>
+	<!-- (optional):
 <div>
 <h2>Background and Context</h2>
 <p>
@@ -164,5 +156,4 @@ Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
 -->
-
 </div>
