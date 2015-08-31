@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<url value="http://hl7.org/fhir/ValueSet/questionnaire-answers"/>
+	<name value="Questionnaire Answer Codes"/>
+	<status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare"/>
+		</telecom>
+	</contact>
+	<description value="Example list of codes for answers to questions.  (Not complete or necessarily appropriate.)"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <!-- All codes from SNOMED -->
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<url value="http://hl7.org/fhir/ValueSet/questionnaire-questions"/>
+	<name value="Questionnaire Question Codes"/>
+	<status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare"/>
+		</telecom>
+	</contact>
+	<description value="Example list of codes for questions and groups of questions.  (Not necessariliy complete or appropriate)"/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <!-- All codes from LOINC -->
+    </include>
+  </compose>
+</ValueSet>
