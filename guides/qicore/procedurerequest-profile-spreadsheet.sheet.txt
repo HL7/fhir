@@ -132,7 +132,7 @@
  -- Row 9 -----------------------------------
   Element = ProcedureRequest.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}|Reference(Group)
 
  -- Row 10 -----------------------------------
   Element = ProcedureRequest.code

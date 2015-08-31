@@ -199,7 +199,7 @@ signatures.html
 			<page type="resource" resource="ReferralRequest"/>
 			<page type="resource" resource="Procedure"/>
 			<page type="resource" resource="ProcedureRequest"/>
-			<page type="resource" resource="Contraindication"/>
+			<page type="resource" resource="DetectedIssue"/>
 			<page type="resource" resource="RiskAssessment"/>
 			<page type="resource" resource="Medication"/>
 			<page type="resource" resource="MedicationOrder"/>

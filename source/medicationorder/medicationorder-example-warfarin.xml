@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This example is used for the Contraindication-example.xml  When making updates, don't alter the medication or timing in a way that violates the contraindication -->
+<!-- This example is used for the detectedissue-example.xml  When making updates, don't alter the medication or timing in a way that violates the contraindication -->
 <MedicationOrder xmlns="http://hl7.org/fhir"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationorder.xsd">

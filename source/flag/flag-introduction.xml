@@ -48,7 +48,7 @@ or to practitioners in particular system.
     Examples of issues that should not appear <b>only</b> in flags:
 </p>
 <ul>
-<li>Potential allergy or drug interaction to planned therapy (use <a href="contraindication.html">Contraindication</a>)</li>
+<li>Potential allergy or drug interaction to planned therapy (use <a href="detectedissue.html">DetectedIssue</a>)</li>
 <li>Known adverse reaction to a substance (use <a href="allergyintolerance.html">AllergyIntolerance</a>)</li>
 </ul>    
 <p>
@@ -80,7 +80,7 @@ clinician, reporting of an adverse reaction to a regulatory authority).  These a
 </p>
 <p>
 Flags are not raised as a result of a reported or proposed action (e.g. drug-drug interactions, duplicate therapy warnings).  
-These would be handled using <a href="contraindication.html">Contraindication</a>.
+These would be handled using <a href="detectedissue.html">DetectedIssue</a>.
 </p>
 </div>
 

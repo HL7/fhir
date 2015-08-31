@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This example is used with contraindication-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
+<!-- This example is used with detectedissue-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
 <ImagingStudy xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\imagingstudy.xsd">
   <id value="example"/>
   <text>

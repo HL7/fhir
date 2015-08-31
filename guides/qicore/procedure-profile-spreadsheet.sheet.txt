@@ -75,8 +75,8 @@
   Card. = 0..1
 
  -- Row 8 -----------------------------------
-  Element = !Procedure.reasonNotPerformed
-  Card. = 0..1
+  Element = Procedure.reasonNotPerformed
+  Card. = !0..1
   QDM Mapping = negation rationale
 
  -- Row 9 -----------------------------------

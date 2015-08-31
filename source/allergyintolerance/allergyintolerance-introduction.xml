@@ -149,7 +149,7 @@ general risks to a subject, not generally based on a reaction.
    abnormal use or mistakes/errors made in maladministration of an agent or substance; incorrect dosage; mislabelling; 
    harm or injury caused by an intervention or procedure; overdose/poisoning etc</li>
 <li>Not to be used as a proxy for an adverse event report. See above for how it may be used as one component of an adverse event report</li>
-<li>Not to be used for recording alerts. Alerts are handled using <a href="flag.html">Flag</a> or - where event-specific, <a href="contraindication.html">Contraindication</a></li>
+<li>Not to be used for recording alerts. Alerts are handled using <a href="flag.html">Flag</a> or - where event-specific, <a href="detectedissue.html">DetectedIssue</a></li>
 <li>Not to be used for recording failed therapy</li>
 </ul>
 </div>

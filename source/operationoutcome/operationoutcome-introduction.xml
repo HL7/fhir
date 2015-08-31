@@ -24,11 +24,11 @@ OperationOutcomes are used in the following circumstances:
 <h2>Boundaries and Relationships</h2>
 <p>
 This resource is not used for reporting clinical or workflow issues associated with a proposed or ongoing action; 
-these would be handled using <a href="contraindication.html">ContraIndication</a> or other resources. The resource  
+these would be handled using <a href="detectedissue.html">DetectedIssue</a> or other resources. The resource  
 is not designed to be persisted or referenced from other parts of the workflow. 
 </p>
 <p>
-It is possible to have both <code>OperationOutcome</code> and <a href="contraindication.html">ContraIndication</a> together, where the OperationOutcome might 
+It is possible to have both <code>OperationOutcome</code> and <a href="detectedissue.html">DetectedIssue</a> together, where the OperationOutcome might 
 indicate that a requested action was rejected due to a clinical issue and the Contraindication provides the details of the issue.
 </p>
 

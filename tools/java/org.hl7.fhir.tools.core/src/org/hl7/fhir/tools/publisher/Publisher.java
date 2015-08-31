@@ -382,7 +382,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     //
 
     Publisher pub = new Publisher();
-    pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER);
+    pub.page = new PageProcessor(PageProcessor.DEV_TS_SERVER);
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
     if (hasParam(args, "-rdf")) {
       pub.isGenerate = false;
@@ -5502,7 +5502,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getVsValidator().validate(page.getValidationErrors(), n, vs, true, false);
 
     if (isGenerate) {
-      // page.log(" ... "+n, LogMessageType.Process);
+//      page.log(" ... "+n, LogMessageType.Process);
       if (vs.hasCodeSystem())
         generateCodeSystemPart2(vs);
 
