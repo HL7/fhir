@@ -148,7 +148,7 @@
   Id = 4
   Code = emergency
   Display = Emergency
-  Definition = An encounter where the patient needs urgent care
+  Definition = An encounter in the Emergency Care Department
 
  -- Row 5 -----------------------------------
   Id = 5
