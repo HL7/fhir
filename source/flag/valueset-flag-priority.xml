@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Flag Priority Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set is provided as an exemplar. The value set is driven by IHE Table B.8-4: Abnormal Flags, Alert Priority"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/flag-priority-code"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="PN"/>
+      <display value="No alarm"/>
+      <definition value="No alarm"/>
+    </concept>
+    <concept>
+      <code value="PL"/>
+      <display value="Low priority"/>
+      <definition value="Low priority"/>
+    </concept>
+    <concept>
+      <code value="PM"/>
+      <display value="Medium priority"/>
+      <definition value="Medium priority"/>
+    </concept>
+    <concept>
+      <code value="PH"/>
+      <display value="High priority"/>
+      <definition value="High priority"/>
+    </concept>
+  </codeSystem>
+</ValueSet>

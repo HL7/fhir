@@ -367,7 +367,7 @@
   Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurence is required e.g \'In Childhood, \'10 years ago\' the Comment element should be used.
 
  -- Row 14 -----------------------------------
-  Element = AllergyIntolerance.notes
+  Element = AllergyIntolerance.note
   Card. = 0..1
   Type = Annotation
   Short Label = Additional text not captured in other fields
@@ -450,7 +450,7 @@
   Comments = Coding of the Route of Exposure with a terminology should be used wherever possible.
 
  -- Row 23 -----------------------------------
-  Element = AllergyIntolerance.reaction.notes
+  Element = AllergyIntolerance.reaction.note
   Card. = 0..1
   Type = Annotation
   Short Label = Text about event not captured in other fields

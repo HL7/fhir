@@ -95,14 +95,14 @@
   Card. = 1..1
   Type = string|Attachment|Reference(Any)
   Short Label = Message part content
-  Definition = The communicated content (or for multi-part communications, one portion of the communication)
+  Definition = A communicated content (or for multi-part communications, one portion of the communication)
 
  -- Row 8 -----------------------------------
   Element = Communication.medium
   Card. = 0..*
   Type = CodeableConcept
-  Short Label = Communication medium
-  Definition = The communication medium, e.g., email, fax.
+  Short Label = A channel of communication
+  Definition = A channel that was used for this communication (e.g. email, fax).
 
  -- Row 9 -----------------------------------
   Element = Communication.status

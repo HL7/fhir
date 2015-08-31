@@ -1,2 +1,9 @@
 ﻿
 === Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = FlagPriority
+  Binding = value set
+  Reference = valueset-flag-priority
+  Definition = A code of the alarm
+  Conformance = example

@@ -131,14 +131,14 @@
   Element = CommunicationRequest.medium
   Card. = 0..*
   Type = CodeableConcept
-  Short Label = Communication medium
-  Definition = The communication medium to be used, e.g., email, fax
+  Short Label = A channel of communication
+  Definition = A channel that was used for this communication (e.g. email, fax).
 
  -- Row 9 -----------------------------------
   Element = CommunicationRequest.requester
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson)
-  Short Label = Requester of communication
+  Short Label = An individual who requested a communication
   Definition = The responsible person who authorizes this order, e.g., physician. This may be different than the author of the order statement, e.g., clerk, who may have entered the statement into the order entry application.
   w5 = who.cause
 
@@ -186,7 +186,7 @@
  -- Row 15 -----------------------------------
   Element = CommunicationRequest.subject
   Card. = 0..1
-  Type = Reference(Patient)
+  Type = Reference(Patient|)
   Short Label = Focus of message
   Definition = The patient who is the focus of this communication request.
   w5 = who.focus

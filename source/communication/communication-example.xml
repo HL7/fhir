@@ -20,7 +20,7 @@
       <text value="Alert"/>
    </category>
    <sender>
-     <reference value="Device/1234"/>
+     <reference value="Device/f001"/>
    </sender>
    <recipient>
     <reference value="Practitioner/21"/>

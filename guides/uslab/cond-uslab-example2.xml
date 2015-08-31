@@ -7,7 +7,7 @@ Description: USLab Reason For Study Profile Canonical Example: Lead Exposure -->
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
 	<id value="cond-uslab-example2"/>
 	<patient>
-		<reference value="Patient/uslab-example2"/>
+		<reference value="Patient/patient-uslab-example2"/>
 		<display value="Todd Lerr"/>
 	</patient>
 	<!--EH note to balloters-  these examples are  to demonstrate content and structure the clinical scenario and ICD coding is artificial and  probably wrong.--><code>
