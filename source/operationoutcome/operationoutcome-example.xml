@@ -11,7 +11,9 @@
     <severity value="error"/>
     <code value="code-invalid"/>
     <details> 
-      <text value="The code &quot;W&quot; is not known and not legal in this context (source = Acme.Interop.FHIRProcessors.Patient.processGender)"/>    </details>
+      <text value="The code &quot;W&quot; is not known and not legal in this context"/>    
+    </details>
+    <diagnostics value="Acme.Interop.FHIRProcessors.Patient.processGender line 2453"/>
     <location value="/f:Person/f:gender"/>
   </issue>
 </OperationOutcome>

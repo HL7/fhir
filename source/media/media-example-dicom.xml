@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Media xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\media.xsd">
   <id value="1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
-  <!-- 
-    this is added to demonstrate the use of extensions.
-    0002,0010 is the DICOM transfer syntax of the referenced image
-   -->
+  
+  <!--
+    This example demonstrates how to represent an image 
+    originally sourced by a DICOM acquisition device
+    as a Media resource. Whether this is appropriate depends
+    on the complexity of the image - the media resource only
+    contains crude metadata, and plain png/jpg (typically)
+    pixels. This is suitable for the bulk of simple images
+    shared as summaries with consumers, but not at all suitable 
+    for other kinds of images, or for internal radiology 
+    reporting usage    
+  -->
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -14,6 +22,10 @@
     </div>
   </text>
 
+  <!-- 
+    this is added to demonstrate the use of DICOM extensions.
+    0002,0010 is the DICOM transfer syntax of the referenced image
+   -->
   <extension url="http://nema.org/fhir/extensions#0002-0010">
     <valueUri value="urn:oid:1.2.840.10008.1.2.1"/>
   </extension>  
@@ -54,6 +66,15 @@
     <reference value="Patient/example"/>
   </subject>
  
+  <view>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="399067008"/>
+      <display value="Lateral projection"/>
+    </coding>
+  </view>
+  
+  
   <deviceName value="G.E. Medical Systems"/>
   <height value="480"/>
   <width value="640"/>

@@ -59,4 +59,8 @@ Note: Referral is likely to be incorporated as an official resource in a future 
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
+  <author>
+    <reference value="Practitioner/example"/>
+  </author>
+  <created value="2013-05-14"/>
 </Basic>

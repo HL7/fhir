@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Subscription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/subscription.xsd">
- <id value="example"/>
+ <id value="example-error"/>
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
@@ -12,7 +12,10 @@
     <value value="ext 4123"/>
   </contact>
   <reason value="Monitor new neonatal function"/>
-  <status value="requested"/>
+  <!-- server has moved the subscription to status error. 
+    the server can bring it back to like if it tries later -->
+  <status value="error"/>
+  <error value="Socket Error 10060 - can't connect to host"/>
   <channel>
     <type value="rest-hook"/>
     <endpoint value="https://biliwatch.com/customers/mount-auburn-miu/on-result"/>

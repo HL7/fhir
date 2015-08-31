@@ -206,6 +206,7 @@
   Short Label = Number of frames if > 1 (photo)
   Definition = The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
+  Default Value = 1
 
  -- Row 13 -----------------------------------
   Element = Media.duration
@@ -224,66 +225,5 @@
   Type = Attachment
   Short Label = Actual Media - reference or data
   Definition = The actual content of the media - inline or by direct reference to the media source file
-  Comments = Recommended content types: image/jpeg, image/png, image/tiff, video/mpeg, audio/mp4, application/dicom. Application/dicom can contain the transfer syntax as a parameter.\n\nFor an media that covers a period of time (video/sound), the content.creationTime is the end time. Creation time is used for tracking, organizing versions and searching
+  Comments = Recommended content types: image/jpeg, image/png, image/tiff, video/mpeg, audio/mp4, application/dicom. Application/dicom can contain the transfer syntax as a parameter.  For an media that covers a period of time (video/sound), the content.creationTime is the end time. Creation time is used for tracking, organizing versions and searching
   RIM Mapping = .text
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = type
-  Type = token
-  Path = Media.type
-
- -- Row 2 -----------------------------------
-  Name = subtype
-  Type = token
-  Path = Media.subtype
-
- -- Row 3 -----------------------------------
-  Name = identifier
-  Type = token
-  Path = Media.identifier
-
- -- Row 4 -----------------------------------
-  Name = created
-  Type = date
-  Path = Media.content.creation
-
- -- Row 5 -----------------------------------
-  Name = subject
-  Type = reference
-  Path = Media.subject
-
- -- Row 6 -----------------------------------
-  Name = operator
-  Type = reference
-  Path = Media.operator
-
- -- Row 7 -----------------------------------
-  Name = view
-  Type = token
-  Path = Media.view
-
- -- Row 8 -----------------------------------
-  Name = patient
-  Type = reference
-  Path = Media.subject
-  Target Types = Patient
-
-=== Sheet Profiles =====================================
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = Plain Photo
-  Identity = example
-  Description = Simple photo
-  Filename = media-example.xml
-
- -- Row 2 -----------------------------------
-  Name = Ultrasound
-  Identity = 1.2.840.11361907579238403408700.3.0.14.19970327150033
-  Description = Example Ultrasound Image
-  Filename = media-example-dicom.xml
-
-=== Sheet Examples =====================================

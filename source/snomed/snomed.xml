@@ -2927,6 +2927,10 @@
     <display value="Diaphragmatic hernia, NOS"/>
     <display value="Diaphragmatic hernia (disorder)"/>
   </concept>
+  <concept id="399067008" display="Lateral projection (qualifier value)">
+    <display value="Lateral projection (qualifier value)"/>
+    <display value="Lateral projection"/>
+  </concept>
   <concept id="39913001" display="Residential school infirmary (environment)">
     <display value="Residential school infirmary"/>
     <display value="Residential school clinic"/>

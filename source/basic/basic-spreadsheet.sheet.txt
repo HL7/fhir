@@ -104,6 +104,11 @@
   Type = reference
   Path = Basic.author
 
+ -- Row 6 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Basic.identifier
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

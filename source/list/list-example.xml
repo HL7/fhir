@@ -33,14 +33,24 @@
       </table>
     </div>
   </text>
+  <identifier>
+    <system value="urn:uuid:a9fcea7c-fcdf-4d17-a5e0-f26dda030b59"/>
+    <value value="23974652"/>
+  </identifier>
   <!-- This list doesn't have a code. In actual fact, 
     it's a Condition list produced at the end of an encounter 
     to a regular primary care practitioner. But the only way
     to know this is to hunt down the place it is used 
     and find out -->
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>  
   <source>
     <reference value="Patient/example"/>
   </source>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>  
   <status value="current"/>
   <date value="2012-11-25T22:17:00+11:00"/>
   <mode value="changes"/>
@@ -57,6 +67,7 @@
     <flag>
       <text value="Added"/>
     </flag>
+    <date value="2012-11-21"/>
     <item>
       <reference value="Condition/example2"/>
     </item>

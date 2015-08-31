@@ -247,4 +247,16 @@
 
 === Sheet Examples =====================================
 
+ -- Row 1 -----------------------------------
+  Name = Example
+  Identity = example
+  Description = Example Subscription
+  Filename = subscription-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Error Example
+  Identity = example-error
+  Description = Example of subscription in error status
+  Filename = subscription-example-error.xml
+
 === Sheet Examples =====================================

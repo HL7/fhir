@@ -19,10 +19,15 @@
   <subject>
     <reference value="Patient/xcda"/>
   </subject>
- 
+  <operator>
+    <reference value="Practitioner/xcda"/>
+  </operator>
+  
   <deviceName value="Acme Camera"/>
   <height value="145"/>
   <width value="126"/>
+  <!-- frames - 1 is the default value, but it can still be specified -->
+  <frames value="1"/>
   
   <content id="a1">
     <contentType value="image/gif"/>

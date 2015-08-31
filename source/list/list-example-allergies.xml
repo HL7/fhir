@@ -11,6 +11,7 @@
       </ul>
     </div>
   </text>
+  <title value="Current Allergy List"/>
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -24,6 +25,12 @@
   </source>
   <status value="current"/>
   <date value="2015-07-14T23:10:23+11:00"/>
+  <orderedBy>
+    <coding>
+      <system value="http://hl7.org/fhir/list-order"/>
+      <code value="entry-date"/>
+    </coding>
+  </orderedBy>
   <mode value="working"/>
   <entry>
     <item> 

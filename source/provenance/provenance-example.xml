@@ -82,5 +82,6 @@
       here as well
     -->
     <reference value="DocumentReference/90f55916-9d15-4b8f-87a9-2d7ade8670c8"/>    
+    <display value="CDA Document in XDS repository"/>
   </entity>
 </Provenance>

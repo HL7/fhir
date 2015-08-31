@@ -450,7 +450,7 @@
 
  -- Row 3 -----------------------------------
   Name = Report Feed
-  Identity = 72ac8493-52ac-41bd-8d5d-7258c289b5ea
+  Identity = 2763c3ea-6bce-4f15-bdc9-4b41aaceee03
   Description = Snapshot of a live feed from a laboratory
   Filename = diagnosticreport-examples-lab-text.xml
 
