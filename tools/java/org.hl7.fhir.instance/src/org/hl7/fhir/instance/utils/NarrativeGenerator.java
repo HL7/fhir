@@ -966,6 +966,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof Coding) {
       renderCoding((Coding) e, x, showCodeDetails);
       return true;
+    } else if (e instanceof Annotation) {
+      renderAnnotation((Annotation) e, x, showCodeDetails);
+      return true;
     } else if (e instanceof org.hl7.fhir.instance.model.IntegerType) {
       x.addText(Integer.toString(((org.hl7.fhir.instance.model.IntegerType) e).getValue()));
       return true;
@@ -1175,8 +1178,33 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private void renderAnnotation(Coding c, XhtmlNode x, boolean showCodeDetails) {
+  private void renderAnnotation(Annotation a, XhtmlNode x, boolean showCodeDetails) throws Exception {
+    StringBuilder s = new StringBuilder();
+    if (a.hasAuthor()) {
+      s.append("Author: ");
 
+      if (a.hasAuthorReference())
+        s.append(a.getAuthorReference().getReference());
+      else if (a.hasAuthorStringType())
+        s.append(a.getAuthorStringType().getValue());
+    }
+
+
+    if (a.hasTimeElement()) {
+      if (s.length() > 0)
+        s.append("; ");
+
+      s.append("Made: ").append(a.getTimeElement().toHumanDisplay());
+    }
+
+    if (a.hasText()) {
+      if (s.length() > 0)
+        s.append("; ");
+
+      s.append("Annotation: ").append(a.getText());
+    }
+
+    x.addText(s.toString());
   }
 
   private void renderCoding(Coding c, XhtmlNode x, boolean showCodeDetails) throws Exception {

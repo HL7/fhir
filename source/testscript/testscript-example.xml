@@ -92,6 +92,7 @@
 			<assert>
 				<label value="ReadOK"/>
 				<description value="Test for OK response"/>
+				<direction value="request"/>
 				<response value="okay"/>
 			</assert>
 		</action>
