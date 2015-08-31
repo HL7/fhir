@@ -2,48 +2,48 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = ContraindicationCategory
+  Binding Name = DetectedIssueCategory
   Binding = value set
-  Reference = valueset-contraindication-category
-  Definition = Codes identifying the general type of contraindication.  E.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc.
+  Reference = valueset-detectedissue-category
+  Definition = Codes identifying the general type of detected issue. E.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc.
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = ContraindicationMitigationAction
+  Binding Name = DetectedIssueMitigationAction
   Binding = value set
-  Reference = valueset-contraindication-mitigation-action
-  Definition = Codes describing steps taken to resolve the contraindication or other circumstances that mitigate the risk associated with the contraindication.  E.g. \'added concurrent therapy\', \'prior therapy documented\', etc.
+  Reference = valueset-detectedissue-mitigation-action
+  Definition = Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue.  E.g. \'added concurrent therapy\', \'prior therapy documented\', etc.
   Conformance = preferred
 
  -- Row 3 -----------------------------------
-  Binding Name = ContraindicationSeverity
+  Binding Name = DetectedIssueSeverity
   Binding = code list
-  Reference = #contraindication-severity
+  Reference = #detectedissue-severity
   Definition = Indicates the potential degree of impact of the identified issue on the patient
   Conformance = required
   v3 = http://hl7.org/fhir/ValueSet/v3-SeverityObservation
 
-=== Sheet contraindication-severity =====================================
+=== Sheet detectedissue-severity =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Code = high
   Display = High
-  Definition = Indicates the condition may be life-threatening or has the potential to cause permanent injury
+  Definition = Indicates the issue may be life-threatening or has the potential to cause permanent injury
   v3 = =ObservationValue.H
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = moderate
   Display = Moderate
-  Definition = Indicates the condition may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury
+  Definition = Indicates the issue may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury
   v3 = =ObservationValue.M
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = low
   Display = Low
-  Definition = Indicates the condition may result in some adverse consequences but is unlikely to substantially affect the situation of the subjec
+  Definition = Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subjec
   v3 = =ObservationValue.L
 
 === Sheet Invariants =====================================
@@ -51,8 +51,8 @@
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
-  Element = Contraindication
-  Aliases = DDI, drug-drug interaction, DetectedIssue, Alert
+  Element = DetectedIssue
+  Aliases = DDI, drug-drug interaction, Contraindication, Alert
   Type = DomainResource
   Short Label = Clinical issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
@@ -61,73 +61,73 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = Contraindication.patient
+  Element = DetectedIssue.patient
   Card. = 0..1
   Summary = y
   Type = Reference(Patient)
   Short Label = Associated patient
-  Definition = Indicates the patient whose record the contraindication is associated with.
+  Definition = Indicates the patient whose record the detected issue is associated with.
   Requirements = While the subject could be inferred by tracing the subject of the implicated resources, it\'s useful to have a direct link for query purposes.
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
  -- Row 3 -----------------------------------
-  Element = Contraindication.category
+  Element = DetectedIssue.category
   Card. = 0..1
   Aliases = type
   Summary = y
   Type = CodeableConcept
-  Binding = ContraindicationCategory
+  Binding = DetectedIssueCategory
   Short Label = E.g. Drug-drug, duplicate therapy, etc.
   Definition = Identifies the general type of issue identified.
   RIM Mapping = .code
   w5 = class
 
  -- Row 4 -----------------------------------
-  Element = Contraindication.severity
+  Element = DetectedIssue.severity
   Card. = 0..1
   Aliases = severity
   Summary = y
   Type = code
-  Binding = ContraindicationSeverity
+  Binding = DetectedIssueSeverity
   Short Label = high | moderate | low
   Definition = Indicates the degree of importance associated with the identified issue based on the potential impact on the patient
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV].value
   w5 = grade
 
  -- Row 5 -----------------------------------
-  Element = Contraindication.implicated
+  Element = DetectedIssue.implicated
   Card. = 0..*
   Aliases = cause
   Summary = y
   Type = Reference(Any)
   Short Label = Problem resource
   Definition = Indicates the resource representing the current activity or proposed activity that
-  Comments = There\'s an implicit constraint on the number of implicated resources based on Contraindication.type.  E.g. For drug-drug, there would be more than one.  For timing, there would typically only be one.
+  Comments = There\'s an implicit constraint on the number of implicated resources based on DetectedIssue.type.  E.g. For drug-drug, there would be more than one.  For timing, there would typically only be one.
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[moodCode=EVN, INT]
 
  -- Row 6 -----------------------------------
-  Element = Contraindication.detail
+  Element = DetectedIssue.detail
   Card. = 0..1
   Type = string
   Short Label = Description and context
-  Definition = A textual explanation of the contraindication
+  Definition = A textual explanation of the detected issue
   Comments = Should focus on information not covered elsewhere as discrete data - no need to duplicate the narrative.
   RIM Mapping = .text
 
  -- Row 7 -----------------------------------
-  Element = Contraindication.date
+  Element = DetectedIssue.date
   Card. = 0..1
   Summary = y
   Type = dateTime
   Short Label = When identified
-  Definition = The date or date-time when the contraindication was initially identified.
+  Definition = The date or date-time when the detected issue was initially identified.
   Requirements = No-one can be responsible for mitigation prior to the issue being identified
   RIM Mapping = .effectiveTime
   w5 = when.recorded
 
  -- Row 8 -----------------------------------
-  Element = Contraindication.author
+  Element = DetectedIssue.author
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner|Device)
@@ -138,46 +138,46 @@
   w5 = who.author
 
  -- Row 9 -----------------------------------
-  Element = Contraindication.identifier
+  Element = DetectedIssue.identifier
   Card. = 0..1
   Summary = y
   Type = Identifier
-  Short Label = Unique id for the contraindication
-  Definition = Business identifier associated with the contraindication record
-  Requirements = Allows linking instances of the same contraindication found on different servers
+  Short Label = Unique id for the detected issue
+  Definition = Business identifier associated with the detected issuerecord
+  Requirements = Allows linking instances of the same detected issue found on different servers
   RIM Mapping = .id
   w5 = id
 
  -- Row 10 -----------------------------------
-  Element = Contraindication.reference
+  Element = DetectedIssue.reference
   Card. = 0..1
   Type = uri
   Short Label = Authority for issue
-  Definition = The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified
+  Definition = The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified
   RIM Mapping = .outboundRelationship[typeCode=INST].target[classCode=ALRT, moodCode=DEFN].text.uri
   To Do = Is this in the 80%?
 
  -- Row 11 -----------------------------------
-  Element = Contraindication.mitigation
+  Element = DetectedIssue.mitigation
   Card. = 0..*
   UML = 350;0
   Short Label = Step taken to address
-  Definition = Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindication from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
+  Definition = Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
   RIM Mapping = .outboundRelationship[typeCode=MITG].target[classCode=ACT, moodCode=EVN]
   To Do = How much, if any of this is in the 80%?
 
  -- Row 12 -----------------------------------
-  Element = Contraindication.mitigation.action
+  Element = DetectedIssue.mitigation.action
   Card. = 1..1
   Type = CodeableConcept
-  Binding = ContraindicationMitigationAction
+  Binding = DetectedIssueMitigationAction
   Short Label = What mitigation?
-  Definition = Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified contraindication
+  Definition = Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue
   Comments = The \"text\" component can be used for detail or when no appropriate code exists.
   RIM Mapping = .code
 
  -- Row 13 -----------------------------------
-  Element = Contraindication.mitigation.date
+  Element = DetectedIssue.mitigation.date
   Card. = 0..1
   Type = dateTime
   Short Label = Date committed
@@ -186,7 +186,7 @@
   RIM Mapping = .effectiveTime
 
  -- Row 14 -----------------------------------
-  Element = Contraindication.mitigation.author
+  Element = DetectedIssue.mitigation.author
   Card. = 0..1
   Type = Reference(Practitioner)
   Short Label = Who is committing?
@@ -198,32 +198,32 @@
  -- Row 1 -----------------------------------
   Name = category
   Type = token
-  Path = Contraindication.category
+  Path = DetectedIssue.category
 
  -- Row 2 -----------------------------------
   Name = date
   Type = date
-  Path = Contraindication.date
+  Path = DetectedIssue.date
 
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
-  Path = Contraindication.identifier
+  Path = DetectedIssue.identifier
 
  -- Row 4 -----------------------------------
   Name = patient
   Type = reference
-  Path = Contraindication.patient
+  Path = DetectedIssue.patient
 
  -- Row 5 -----------------------------------
   Name = implicated
   Type = reference
-  Path = Contraindication.implicated
+  Path = DetectedIssue.implicated
 
  -- Row 6 -----------------------------------
   Name = author
   Type = reference
-  Path = Contraindication.author
+  Path = DetectedIssue.author
 
 === Sheet Profiles =====================================
 
@@ -233,24 +233,24 @@
   Name = Drug-drug
   Identity = ddi
   Description = Drug-drug interaction between prescription and medication statement
-  Filename = contraindication-example.xml
+  Filename = detectedissue-example.xml
 
  -- Row 2 -----------------------------------
   Name = Duplicate Therapy
   Identity = duplicate
   Description = Diagnostic order is placed when a recent image of the same body site already exists
-  Filename = contraindication-example-dup.xml
+  Filename = detectedissue-example-dup.xml
 
  -- Row 3 -----------------------------------
   Name = Drug-allergy
   Identity = allergy
   Description = Patient is allergic to an inactive ingredient in an ordered medication
-  Filename = contraindication-example-allergy.xml
+  Filename = detectedissue-example-allergy.xml
 
  -- Row 4 -----------------------------------
   Name = Lab order
   Identity = lab
   Description = Lab order is contraindicated based on a patient\'s existing medication
-  Filename = contraindication-example-lab.xml
+  Filename = detectedissue-example-lab.xml
 
 === Sheet Examples =====================================

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Contraindication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/contraindication.xsd">
+<DetectedIssue xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/detectedissue.xsd">
   <id value="lab"/>
   <text>
     <status value="generated" />
@@ -8,4 +8,4 @@
 
   <!-- insert contents here -->
   
-</Contraindication>
+</DetectedIssue>
