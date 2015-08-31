@@ -1,57 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains medictation concepts.</p>
-      
-      
-      <p>Possible sources include:</p>
-      
-      
-      <ul>
-        
-        
-        <li>SNOMED CT - Children of SCTID: xxxxxxxx &quot;xxxxxxxxxxxxxx&quot;</li>
-        
-        
-        <li>ISO 11615 - Identification of Medicinal Products</li>
-     
-      
-      </ul>
-      
-      
-      <p>SNOMED CT is being used here as the example terminology.</p>
-      
-      
-      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>  
-    
-    
-    </div>
-  </text>
-  <name value="Snomed Medication Codes"/>
-  <status value="draft"/>
-  <publisher value="FHIR Project team"/>
-  <contact>
-    <telecom>
-      <system value="other"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <description value="This value set includes all Medication codes from Snomed - provided as an exemplar"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-  <compose>
-    <include>
-      <system value="http://snomed.info/sct"/>
-      <filter>
-      <!--   SNOMED CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value"   -->
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="410942007"/>
-      </filter>
-    </include>
-  </compose>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains medictation concepts.</p>
+			<p>Possible sources include:</p>
+			<ul>
+				<li>SNOMED CT - Children of SCTID: xxxxxxxx &quot;xxxxxxxxxxxxxx&quot;</li>
+				<li>ISO 11615 - Identification of Medicinal Products</li>
+			</ul>
+			<p>SNOMED CT is being used here as the example terminology.</p>
+			<p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>
+		</div>
+	</text>
+	<url value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+	<name value="Snomed Medication Codes"/>
+	<status value="draft"/>
+	<publisher value="FHIR Project team"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="This value set includes all Medication codes from Snomed - provided as an exemplar"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<filter>
+				<!--   SNOMED CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value"   -->
+				<property value="concept"/>
+				<op value="is-a"/>
+				<value value="410942007"/>
+			</filter>
+		</include>
+	</compose>
 </ValueSet>
