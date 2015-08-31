@@ -20,7 +20,7 @@
   <WindowWidth>21696</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4070,7 +4070,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Appointment</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Only proposed or cancelled appointments can be missing start/end dates</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">(not((f:status/@value='proposed') or (f:status/@value='cancelled')) and exists(f:start) and exists(f:end))</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">((exists(f:start) and exists(f:end)) or (f:status/@value='proposed') or (f:status/@value='cancelled'))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s110"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4509,6 +4509,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4530,7 +4531,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4791,7 +4792,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6118,11 +6118,11 @@
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">ExampleRequest</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Appointment request</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">examplereq</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">appointment-example-request.xml</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
    </Row>
@@ -6478,7 +6478,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

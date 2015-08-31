@@ -152,7 +152,7 @@
   Id = 3
   Context = Appointment
   English = Only proposed or cancelled appointments can be missing start/end dates
-  XPath = (not((f:status/@value=\'proposed\') or (f:status/@value=\'cancelled\')) and exists(f:start) and exists(f:end))
+  XPath = ((exists(f:start) and exists(f:end)) or (f:status/@value=\'proposed\') or (f:status/@value=\'cancelled\'))
 
 === Sheet Data Elements =====================================
 
@@ -463,6 +463,13 @@
   Identity = 2docs
   Description = Appointment between 2 doctors to discuss MRI results
   Filename = appointment-example2doctors.xml
+  Type = xml
+
+ -- Row 3 -----------------------------------
+  Name = ExampleRequest
+  Identity = examplereq
+  Description = Appointment request
+  Filename = appointment-example-request.xml
   Type = xml
 
 === Sheet Examples =====================================

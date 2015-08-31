@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppointmentResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/appointmentresponse.xsd">
+	<id value="exampleresp"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Accept Brian MRI results discussion</div>
+	</text>
+	<identifier>
+		<system value="http://example.org/sampleappointmentresponse-identifier"/>
+		<value value="response123"/>
+	</identifier>
+	<appointment>
+		<reference value="Appointment/examplereq" />
+		<display value="Brian MRI results discussion" />
+	</appointment>
+	<start value="2013-12-25T13:15:00Z" />
+	<end value="2013-12-25T13:30:00Z" />
+	<participantType>
+		<coding>
+			<code value="attending"/>
+		</coding>
+	</participantType>
+	<actor>
+		<reference value="Practitioner/example" />
+		<display value="Dr Adam Careful" />
+	</actor>
+	<participantStatus value="tentative" />
+	<comment value="can't we try for this time, can't do mornings"/>
+</AppointmentResponse>

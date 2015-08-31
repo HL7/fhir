@@ -230,4 +230,10 @@
   Description = General Person Example
   Filename = appointmentresponse-example.xml
 
+ -- Row 2 -----------------------------------
+  Name = Example Response
+  Identity = exampleresp
+  Description = Response to renegotiate an appointmet request
+  Filename = appointmentresponse-example-req.xml
+
 === Sheet Examples =====================================
