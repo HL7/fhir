@@ -82,7 +82,7 @@
   Type = code
   Binding = SlotStatus
   Short Label = busy | free | busy-unavailable | busy-tentative
-  iCal Mapping = FREEBUSY;FBTYPE=(freeBusyType):19980314T233000Z/19980315T003000Z\nIf the freeBusyType is BUSY, then this value can be excluded
+  iCal Mapping = FREEBUSY;FBTYPE=(freeBusyType):19980314T233000Z/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded
   Committee Notes = This is not a modifier element as the status of the slot being busy is not a change in the interpretation of the slot.
 
  -- Row 6 -----------------------------------
@@ -91,7 +91,7 @@
   Summary = Y
   Type = instant
   Short Label = Date/Time that the slot is to begin
-  iCal Mapping = FREEBUSY;FBTYPE=FREE:(start)/19980315T003000Z\nIf the freeBusyType is BUSY, then this value can be excluded
+  iCal Mapping = FREEBUSY;FBTYPE=FREE:(start)/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded
   w5 = when.planned
 
  -- Row 7 -----------------------------------
@@ -100,7 +100,7 @@
   Summary = Y
   Type = instant
   Short Label = Date/Time that the slot is to conclude
-  iCal Mapping = FREEBUSY:19980314T233000Z/(end)\nIf the freeBusyType is BUSY, then this value can be excluded (as shown)
+  iCal Mapping = FREEBUSY:19980314T233000Z/(end) If the freeBusyType is BUSY, then this value can be excluded (as shown)
   w5 = when.planned
 
  -- Row 8 -----------------------------------
@@ -148,6 +148,12 @@
   Type = token
   Description = The free/busy status of the appointment
   Path = Slot.freeBusyType
+
+ -- Row 5 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A Slot Identifier
+  Path = Slot.identifier
 
 === Sheet Profiles =====================================
 

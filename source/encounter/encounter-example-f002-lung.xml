@@ -16,6 +16,13 @@
             <display value="Patient-initiated encounter"/>
         </coding>
     </type>
+    <priority>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="103391001"/>
+            <display value="Urgent"/>
+        </coding>
+    </priority>
     <patient>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
@@ -39,13 +46,6 @@
             <display value="Partial lobectomy of lung"/>
         </coding>
     </reason>
-    <priority>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="103391001"/>
-            <display value="Urgent"/>
-        </coding>
-    </priority>
     <hospitalization>
         <preAdmissionIdentifier>
             <use value="official"/>

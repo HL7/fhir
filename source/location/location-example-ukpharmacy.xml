@@ -7,6 +7,7 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">UK Pharmacies</div>
   </text>  
+  <status value="active" />
   <name value="UK Pharmacies"/>
   <description value="All Pharmacies in the United Kingdom covered by the National Pharmacy Association" />
 	<mode value="kind" />
@@ -24,5 +25,4 @@
       <display value="Jurisdiction" />
     </coding>
   </physicalType>  
-  <status value="active" />
 </Location>

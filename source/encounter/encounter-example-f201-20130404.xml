@@ -14,6 +14,13 @@
        <display value="Consultation"/>
     </coding>
  </type>
+ <priority><!--Normal priority-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="17621005"/>
+       <display value="Normal"/>
+    </coding>
+ </priority>
  <patient>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
@@ -27,13 +34,6 @@
    <text value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
  </reason>
  <!--No indication, because no referral took place-->
- <priority><!--Normal priority-->
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="17621005"/>
-       <display value="Normal"/>
-    </coding>
- </priority>
  <!--No hospitalization was deemed necessary-->
  <serviceProvider>
      <reference value="Organization/f201"/>

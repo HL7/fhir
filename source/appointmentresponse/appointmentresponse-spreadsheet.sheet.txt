@@ -75,8 +75,8 @@
   Type = Identifier
   Short Label = External Ids for this item
   Definition = This records identifiers associated with this appointment response concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate
-  iCal Mapping = UID
   RIM Mapping = .id
+  iCal Mapping = UID
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -87,6 +87,24 @@
   Short Label = Parent appointment that this response is replying to
 
  -- Row 4 -----------------------------------
+  Element = AppointmentResponse.start
+  Card. = 0..1
+  Type = instant
+  Short Label = Date/Time that the appointment is to take place, or requested new start time
+  Definition = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time.
+  Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
+  w5 = when.init
+
+ -- Row 5 -----------------------------------
+  Element = AppointmentResponse.end
+  Card. = 0..1
+  Type = instant
+  Short Label = Date/Time that the appointment is to conclude, or requested new end time
+  Definition = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
+  Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
+  w5 = when.done
+
+ -- Row 6 -----------------------------------
   Element = AppointmentResponse.participantType
   Card. = 0..*
   Summary = Y
@@ -96,17 +114,17 @@
   Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
   iCal Mapping = n/a
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = AppointmentResponse.actor
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
   Short Label = A Person, Location/HealthcareService or Device that is participating in the appointment
-  iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)
   v2 Mapping = PID-3-Patient ID List
+  iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)
   w5 = who
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = AppointmentResponse.participantStatus
   Card. = 1..1
   Is Modifier = Y
@@ -117,31 +135,13 @@
   Definition = Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = AppointmentResponse.comment
   Card. = 0..1
   Type = string
   Short Label = Additional comments about the appointment
   Definition = This comment is particularly important when the responder is declining, tentative or requesting another time to indicate the reasons why.
   iCal Mapping = COMMENT
-
- -- Row 8 -----------------------------------
-  Element = AppointmentResponse.start
-  Card. = 0..1
-  Type = instant
-  Short Label = Date/Time that the appointment is to take place, or requested new start time
-  Definition = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time.
-  Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
-  w5 = when.init
-
- -- Row 9 -----------------------------------
-  Element = AppointmentResponse.end
-  Card. = 0..1
-  Type = instant
-  Short Label = Date/Time that the appointment is to conclude, or requested new end time
-  Definition = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
-  Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
-  w5 = when.done
 
  -- Row 10 -----------------------------------
   Element = !AppointmentResponse.schedule
@@ -169,8 +169,8 @@
   Card. = 0..1
   Type = dateTime
   Short Label = Date when the response was recorded or last updated
-  iCal Mapping = DTSTAMP
   v2 Mapping = IAM-20-Statused at Date/Time
+  iCal Mapping = DTSTAMP
   w5 = when.recorded
 
 === Sheet Search =====================================
@@ -213,6 +213,12 @@
   Description = This Response is for this Location
   Path = AppointmentResponse.actor
   Target Types = Location
+
+ -- Row 7 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = An Identifier in this appointment response
+  Path = AppointmentResponse.identifier
 
 === Sheet Profiles =====================================
 

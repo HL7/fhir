@@ -10,6 +10,7 @@
   <identifier>
     <value value="B1-S.F2.1.00" />
   </identifier>
+  <status value="suspended" />
   <name value="South Wing Neuro OR 1"/>
   <description value="Old South Wing, Neuro Radiology Operation Room 1 on second floor" />
 	<mode value="instance" />
@@ -37,5 +38,4 @@
   <partOf>
     <reference value="Location/1"></reference>
   </partOf>
-  <status value="suspended" />
 </Location>

@@ -14,6 +14,13 @@
        <display value="Chemotherapy"/> 
     </coding>
  </type>
+ <priority><!--Urgent priority, because of complications-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="103391001"/>
+       <display value="Urgent"/>
+    </coding>
+ </priority>
  <patient>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
@@ -42,13 +49,6 @@
      <reference value="Procedure/f201"/>
      <display value="Roel's TPF chemotherapy on January 28th, 2013"/>
  </indication>
- <priority><!--Urgent priority, because of complications-->
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="103391001"/>
-       <display value="Urgent"/>
-    </coding>
- </priority>
  <!--No hospitalization was deemed necessary-->
  <serviceProvider>
      <reference value="Organization/f201"/>

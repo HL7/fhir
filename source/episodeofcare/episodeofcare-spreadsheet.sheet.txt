@@ -105,6 +105,13 @@
   w5 = class
 
  -- Row 8 -----------------------------------
+  Element = EpisodeOfCare.condition
+  Card. = 0..*
+  Type = Reference(Condition)
+  Short Label = A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for
+  w5 = what
+
+ -- Row 9 -----------------------------------
   Element = EpisodeOfCare.patient
   Card. = 1..1
   Summary = Y
@@ -112,7 +119,7 @@
   Short Label = The patient that this EpisodeOfCare applies to
   w5 = who.focus
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = EpisodeOfCare.managingOrganization
   Card. = 0..1
   Summary = Y
@@ -120,20 +127,13 @@
   Short Label = The organization that has assumed the specific responsibilities for the specified duration
   Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = EpisodeOfCare.period
   Card. = 0..1
   Summary = Y
   Type = Period
   Short Label = The interval during which the managing organization assumes the defined responsibility
   w5 = when.init
-
- -- Row 11 -----------------------------------
-  Element = EpisodeOfCare.condition
-  Card. = 0..*
-  Type = Reference(Condition)
-  Short Label = A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for
-  w5 = what
 
  -- Row 12 -----------------------------------
   Element = EpisodeOfCare.referralRequest

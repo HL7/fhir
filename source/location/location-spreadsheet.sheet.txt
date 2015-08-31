@@ -87,6 +87,17 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Location.status
+  Card. = 0..1
+  Is Modifier = y
+  Summary = Y
+  Type = code
+  Binding = LocationStatus
+  Short Label = active | suspended | inactive
+  RIM Mapping = .statusCode
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = Location.name
   Card. = 0..1
   Summary = Y
@@ -95,7 +106,7 @@
   Definition = Name of the location as used by humans. Does not need to be unique.
   RIM Mapping = .name
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Location.description
   Card. = 0..1
   Summary = Y
@@ -105,7 +116,7 @@
   Requirements = Humans need additional information to verify a correct location has been identified
   RIM Mapping = .playingEntity[classCode=PLC determinerCode=INSTANCE].desc
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Location.mode
   Card. = 0..1
   Is Modifier = y
@@ -118,7 +129,7 @@
   RIM Mapping = .playingEntity[classCode=PLC].determinerCode
   w5 = class
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Location.type
   Card. = 0..1
   Summary = Y
@@ -129,7 +140,7 @@
   RIM Mapping = .code
   w5 = class
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Location.telecom
   Card. = 0..*
   Type = ContactPoint
@@ -137,7 +148,7 @@
   Definition = The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites
   RIM Mapping = .telecom
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Location.address
   Card. = 0..1
   Type = Address
@@ -146,7 +157,7 @@
   Comments = This was kept as 0..1 as there is no use property on the address, so wouldn\'t be able to identify different address types
   RIM Mapping = .addr
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Location.physicalType
   Card. = 0..1
   Summary = Y
@@ -158,7 +169,7 @@
   RIM Mapping = .playingEntity [classCode=PLC].code
   w5 = class
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Location.position
   Card. = 0..1
   UML = right
@@ -167,7 +178,7 @@
   Requirements = For mobile applications and automated route-finding knowing the exact location of the Location is required
   RIM Mapping = .playingEntity [classCode=PLC determinerCode=INSTANCE].positionText
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Location.position.longitude
   Card. = 1..1
   Type = decimal
@@ -175,7 +186,7 @@
   Definition = Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Location.position.latitude
   Card. = 1..1
   Type = decimal
@@ -183,7 +194,7 @@
   Definition = Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Location.position.altitude
   Card. = 0..1
   Type = decimal
@@ -191,7 +202,7 @@
   Definition = Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Location.managingOrganization
   Card. = 0..1
   Summary = Y
@@ -201,24 +212,13 @@
   Comments = This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource.
   RIM Mapping = .scopingEntity[classCode=ORG determinerKind=INSTANCE]
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Location.partOf
   Card. = 0..1
   Type = Reference(Location)
   Short Label = Another Location which this Location is physically part of
   Requirements = For purposes of location, display and identification, knowing which locations are located within other locations is important
   RIM Mapping = .inboundLink[typeCode=PART].source[classCode=SDLC]
-
- -- Row 16 -----------------------------------
-  Element = Location.status
-  Card. = 0..1
-  Is Modifier = y
-  Summary = Y
-  Type = code
-  Binding = LocationStatus
-  Short Label = active | suspended | inactive
-  RIM Mapping = .statusCode
-  w5 = status
 
 === Sheet Search =====================================
 

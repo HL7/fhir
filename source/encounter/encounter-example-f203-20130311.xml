@@ -14,6 +14,13 @@
        <display value="Inpatient stay for nine days"/>
     </coding>
  </type>
+ <priority><!--High priority-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="394849002"/>
+       <display value="High priority"/>
+    </coding>
+ </priority>
  <patient>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
@@ -31,13 +38,6 @@
    <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
  </reason> 
 <!--No indication, because no referral took place-->
- <priority><!--High priority-->
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="394849002"/>
-       <display value="High priority"/>
-    </coding>
- </priority>
  <hospitalization> 
 <!--  <origin>
      <reference value="Location/2"/>     

@@ -441,6 +441,12 @@
   Path = Appointment.participant.actor
   Target Types = Location
 
+ -- Row 9 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = An Identifier of the Appointment
+  Path = Appointment.identifier
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

@@ -288,6 +288,16 @@
   w5 = class
 
  -- Row 9 -----------------------------------
+  Element = Encounter.priority
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = Priority
+  Short Label = Indicates the urgency of the encounter
+  v2 Mapping = PV2-25-visit priority code
+  RIM Mapping = .priorityCode
+  w5 = grade
+
+ -- Row 10 -----------------------------------
   Element = Encounter.patient
   Card. = 0..1
   Aliases = patient
@@ -299,7 +309,7 @@
   RIM Mapping = .participation[typeCode=SBJ]/role[classCode=PAT]
   w5 = who.focus
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Encounter.episodeOfCare
   Card. = 0..*
   Summary = Y
@@ -309,14 +319,14 @@
   v2 Mapping = PV1-54, PV1-53
   w5 = context
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Encounter.incomingReferral
   Card. = 0..*
   Type = Reference(ReferralRequest)
   Short Label = The Referral that initiated this encounter
   Definition = The referral request that this encounter satisfies (incoming referral)
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Encounter.participant
   Card. = 0..*
   Summary = y
@@ -326,7 +336,7 @@
   v2 Mapping = ROL
   RIM Mapping = .participation[typeCode=PFM]
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Encounter.participant.type
   Card. = 0..*
   Summary = y
@@ -337,7 +347,7 @@
   v2 Mapping = ROL-3
   RIM Mapping = .functionCode
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Encounter.participant.period
   Card. = 0..1
   Type = Period
@@ -345,7 +355,7 @@
   Definition = The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period
   v2 Mapping = ROL-5, ROL-6
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Encounter.participant.individual
   Card. = 0..1
   Summary = y
@@ -355,7 +365,7 @@
   RIM Mapping = .role
   w5 = who
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Encounter.appointment
   Card. = 0..1
   Summary = y
@@ -364,7 +374,7 @@
   v2 Mapping = SCH-1-placer appointment ID / SCH-2-filler appointment ID
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Encounter.period
   Card. = 0..1
   Type = Period
@@ -375,7 +385,7 @@
   RIM Mapping = .effectiveTime (low & high)
   w5 = when.done
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Encounter.length
   Card. = 0..1
   Type = Duration
@@ -385,7 +395,7 @@
   v2 Mapping = (PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes
   RIM Mapping = .lengthOfStayQuantity
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Encounter.reason
   Card. = 0..*
   Aliases = Indication, Admission diagnosis
@@ -399,7 +409,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Encounter.indication
   Card. = 0..*
   Aliases = Admission diagnosis
@@ -410,16 +420,6 @@
   v2 Mapping = Resources that would commonly referenced at Encounter.indication would be Condition and/or Procedure. These most closely align with DG1/PRB and PR1 respectively.
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
-
- -- Row 21 -----------------------------------
-  Element = Encounter.priority
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = Priority
-  Short Label = Indicates the urgency of the encounter
-  v2 Mapping = PV2-25-visit priority code
-  RIM Mapping = .priorityCode
-  w5 = grade
 
  -- Row 22 -----------------------------------
   Element = Encounter.hospitalization

@@ -154,14 +154,6 @@
   Committee Notes = Most questions on this resource have been about who is the organization that provides this service. So the inclusion of this property removes this ambiguity (especially with the removal of locations on the Organization)
 
  -- Row 4 -----------------------------------
-  Element = HealthcareService.location
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Location)
-  Short Label = The location where this healthcare service may be provided
-  w5 = where
-
- -- Row 5 -----------------------------------
   Element = HealthcareService.serviceCategory
   Card. = 0..1
   Summary = Y
@@ -169,7 +161,7 @@
   Short Label = Identifies the broad category of service being performed or delivered. Selecting a Service Category then determines the list of relevant service types that can be selected in the Primary Service Type
   w5 = class
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = HealthcareService.serviceType
   Card. = 0..*
   Summary = Y
@@ -177,7 +169,7 @@
   Type = =ServiceType
   Short Label = A specific type of service that may be delivered or performed
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = HealthcareService.serviceType.type
   Card. = 1..1
   Summary = Y
@@ -186,12 +178,20 @@
   Short Label = The specific type of service being delivered or performed
   Comments = Change to serviceType?
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = HealthcareService.serviceType.specialty
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Short Label = Collection of Specialties handled by the Service Site. This is more of a Medical Term
+
+ -- Row 8 -----------------------------------
+  Element = HealthcareService.location
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Location)
+  Short Label = The location where this healthcare service may be provided
+  w5 = where
 
  -- Row 9 -----------------------------------
   Element = HealthcareService.serviceName

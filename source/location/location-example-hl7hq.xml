@@ -16,6 +16,7 @@
   </text>
 
   <!-- HL7 itself -->
+  <status value="active"/>
 	<name value="Health Level Seven International"/>
 	<description value="HL7 Headquarters" />
 	<mode value="instance"/>
@@ -56,5 +57,4 @@
 	<longitude value="42.256500"/>
 	<latitude value="-83.694710"/>
   </position>
-  <status value="active"/>
 </Location>
