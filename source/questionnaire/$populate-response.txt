@@ -1,0 +1,1783 @@
+HTTP/1.1 200 OK
+[other headers]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaireresponse.xsd">
+  <id value="questionnaireresponse-sdc-example-ussg-fht-answers"/>
+  <questionnaire>
+    <reference value="Questionnaire/43127-6"/>
+  </questionnaire>
+  <status value="in-progress"/>
+  <subject>
+    <reference value="Patient/proband"/>
+  </subject>
+  <authored value="2008-01-17"/>
+  <group xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <linkId value="root"/>
+    <title value="US Surgeon General - Family Health Portrait"/>
+    <group>
+      <linkId value="0"/>
+      <question>
+        <linkId value="0.1"/>
+        <text value="Date Done"/>
+        <answer>
+          <valueDate value="2008-01-17"/>
+        </answer>
+      </question>
+    </group>
+    <group>
+      <linkId value="1"/>
+      <title value="Your health information"/>
+      <group>
+        <linkId value="1.1"/>
+        <question>
+          <linkId value="1.1.1"/>
+          <text value="Name"/>
+          <answer>
+            <valueString value="Annie Proband"/>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.2"/>
+          <text value="Gender"/>
+          <answer>
+            <valueCoding>
+              <system value="http://loinc.org"/>
+              <code value="LA3-6"/>
+              <display value="Female"/>
+            </valueCoding>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.3"/>
+          <text value="Date of Birth"/>
+          <answer>
+            <valueDate value="1966-04-04"/>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.4"/>
+          <text value="Were you born a twin?"/>
+          <answer>
+            <valueCoding>
+              <system value="http://loinc.org"/>
+              <code value="LA32-8"/>
+              <display value="No"/>
+            </valueCoding>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.5"/>
+          <text value="Were you adopted?"/>
+          <answer>
+            <valueCoding>
+              <system value="http://loinc.org"/>
+              <code value="LA32-8"/>
+              <display value="No"/>
+            </valueCoding>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.6"/>
+          <text value="Are your parents related to each other in any way other than marriage?"/>
+          <answer>
+            <valueCoding>
+              <system value="http://loinc.org"/>
+              <code value="LA32-8"/>
+              <display value="No"/>
+            </valueCoding>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.7"/>
+          <text value="Height"/>
+          <answer>
+            <valueDecimal value="63"/>
+            <group>
+              <linkId value="1.1.7.1"/>
+              <question>
+                <linkId value="1.1.7.1.1"/>
+                <text value="Units"/>
+                <answer>
+                  <valueCoding>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="[in_i]"/>
+                    <display value="inches"/>
+                  </valueCoding>
+                </answer>
+              </question>
+            </group>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.8"/>
+          <text value="Weight"/>
+          <answer>
+            <valueDecimal value="127"/>
+            <group>
+              <linkId value="1.1.8.1"/>
+              <question>
+                <linkId value="1.1.8.1.1"/>
+                <text value="Units"/>
+                <answer>
+                  <valueCoding>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="lb"/>
+                    <display value="pounds"/>
+                  </valueCoding>
+                </answer>
+              </question>
+            </group>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.9"/>
+          <text value="Body mass index (BMI) [Ratio]"/>
+          <answer>
+            <valueDecimal value="22.5"/>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.10"/>
+          <text value="Race"/>
+          <answer>
+            <valueCoding>
+              <system value="http://loinc.org"/>
+              <code value="LA4457-3"/>
+              <display value="White"/>
+            </valueCoding>
+          </answer>
+        </question>
+        <question>
+          <linkId value="1.1.11"/>
+          <text value="Ethnicity"/>
+          <answer>
+            <valueCoding>
+              <system value="http://loinc.org"/>
+              <code value="LA10602-3"/>
+              <display value="-- Mexican"/>
+            </valueCoding>
+          </answer>
+          <answer>
+            <valueCoding>
+              <system value="http://loinc.org"/>
+              <code value="LA10606-4"/>
+              <display value="-- South American"/>
+            </valueCoding>
+          </answer>
+        </question>
+      </group>
+    </group>
+    <group>
+      <linkId value="2"/>
+      <title value="Family member health information"/>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10405-1"/>
+                <display value="Daughter"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Susan"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="17"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10415-0"/>
+                <display value="Brother"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Brian"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA2-8"/>
+                <display value="Male"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="32"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+        <group>
+          <linkId value="2.1.2"/>
+          <title value="This family member's history of disease"/>
+          <question>
+            <linkId value="2.1.2.1"/>
+            <text value="Disease or Condition"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10550-4"/>
+                <display value="-- Other Cancer"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.2.2"/>
+            <text value="Age at Diagnosis"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10397-0"/>
+                <display value="30-39"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10418-4"/>
+                <display value="Sister"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Janet"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="36"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+        <group>
+          <linkId value="2.1.2"/>
+          <title value="This family member's history of disease"/>
+          <question>
+            <linkId value="2.1.2.1"/>
+            <text value="Disease or Condition"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10536-3"/>
+                <display value="-- Breast Cancer"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.2.2"/>
+            <text value="Age at Diagnosis"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10397-0"/>
+                <display value="30-39"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10419-2"/>
+                <display value="Nephew"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Ian"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA2-8"/>
+                <display value="Male"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="16"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10420-0"/>
+                <display value="Niece"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Helen"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="15"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10416-8"/>
+                <display value="Father"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Donald"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA2-8"/>
+                <display value="Male"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="52"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10425-9"/>
+                <display value="Paternal Uncle"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Eric"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA2-8"/>
+                <display value="Male"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="56"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10421-8"/>
+                <display value="Paternal Aunt"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Fiona"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="57"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+        <group>
+          <linkId value="2.1.2"/>
+          <title value="This family member's history of disease"/>
+          <question>
+            <linkId value="2.1.2.1"/>
+            <text value="Disease or Condition"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10543-9"/>
+                <display value="-- Skin Cancer"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10423-4"/>
+                <display value="Paternal Grandfather"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Bob"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA2-8"/>
+                <display value="Male"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.1"/>
+                <question>
+                  <linkId value="2.1.1.4.1.1"/>
+                  <text value="Cause of Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10537-1"/>
+                      <display value="-- Colon Cancer"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+                <question>
+                  <linkId value="2.1.1.4.1.2"/>
+                  <text value="Age at Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10400-2"/>
+                      <display value="OVER 60"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+        <group>
+          <linkId value="2.1.2"/>
+          <title value="This family member's history of disease"/>
+          <question>
+            <linkId value="2.1.2.1"/>
+            <text value="Disease or Condition"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10537-1"/>
+                <display value="-- Colon Cancer"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.2.2"/>
+            <text value="Age at Diagnosis"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10400-2"/>
+                <display value="OVER 60"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10424-2"/>
+                <display value="Paternal Grandmother"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Claire"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.1"/>
+                <question>
+                  <linkId value="2.1.1.4.1.1"/>
+                  <text value="Cause of Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10589-2"/>
+                      <display value="-- Other/Unexpected"/>
+                    </valueCoding>
+                    <group>
+                      <linkId value="2.1.1.4.1.1.1"/>
+                      <question>
+                        <text value="Please specify"/>
+                        <answer>
+                          <valueString value="Lou Gehrigs"/>
+                        </answer>
+                      </question>
+                    </group>
+                  </answer>
+                </question>
+                <question>
+                  <linkId value="2.1.1.4.1.2"/>
+                  <text value="Age at Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10400-2"/>
+                      <display value="OVER 60"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10417-6"/>
+                <display value="Mother"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Harriet"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.1"/>
+                <question>
+                  <linkId value="2.1.1.4.1.1"/>
+                  <text value="Cause of Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10539-7"/>
+                      <display value="-- Ovarian Cancer"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+                <question>
+                  <linkId value="2.1.1.4.1.2"/>
+                  <text value="Age at Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10399-6"/>
+                      <display value="50-59"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+        <group>
+          <linkId value="2.1.2"/>
+          <title value="This family member's history of disease"/>
+          <question>
+            <linkId value="2.1.2.1"/>
+            <text value="Disease or Condition"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10539-7"/>
+                <display value="-- Ovarian Cancer"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.2.2"/>
+            <text value="Age at Diagnosis"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10398-8"/>
+                <display value="40-49"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10414-3"/>
+                <display value="Maternal Uncle"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Rudy"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA2-8"/>
+                <display value="Male"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="60"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10410-1"/>
+                <display value="Maternal Aunt"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Julie"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="57"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10412-7"/>
+                <display value="Maternal Grandfather"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Ian"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA2-8"/>
+                <display value="Male"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.1"/>
+                <question>
+                  <linkId value="2.1.1.4.1.1"/>
+                  <text value="Cause of Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10558-7"/>
+                      <display value="-- Heart Attack"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+                <question>
+                  <linkId value="2.1.1.4.1.2"/>
+                  <text value="Age at Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10400-2"/>
+                      <display value="OVER 60"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10413-5"/>
+                <display value="Maternal Grandmother"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Gladys"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.1"/>
+                <question>
+                  <linkId value="2.1.1.4.1.1"/>
+                  <text value="Cause of Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10571-0"/>
+                      <display value="-- Other/Unknown"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+                <question>
+                  <linkId value="2.1.1.4.1.2"/>
+                  <text value="Age at Death"/>
+                  <answer>
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA10400-2"/>
+                      <display value="OVER 60"/>
+                    </valueCoding>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+        <group>
+          <linkId value="2.1.2"/>
+          <title value="This family member's history of disease"/>
+          <question>
+            <linkId value="2.1.2.1"/>
+            <text value="Disease or Condition"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10536-3"/>
+                <display value="-- Breast Cancer"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.2.2"/>
+            <text value="Age at Diagnosis"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10399-6"/>
+                <display value="50-59"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+        <group>
+          <linkId value="2.1.2"/>
+          <title value="This family member's history of disease"/>
+          <question>
+            <linkId value="2.1.2.1"/>
+            <text value="Disease or Condition"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10564-5"/>
+                <display value="-- Asthma"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.2.2"/>
+            <text value="Age at Diagnosis"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10395-4"/>
+                <display value="Childhood"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10411-9"/>
+                <display value="Maternal Cousin"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Karren"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="30"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+        <group>
+          <linkId value="2.1.2"/>
+          <title value="This family member's history of disease"/>
+          <question>
+            <linkId value="2.1.2.1"/>
+            <text value="Disease or Condition"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10536-3"/>
+                <display value="-- Breast Cancer"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.2.2"/>
+            <text value="Age at Diagnosis"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10397-0"/>
+                <display value="30-39"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+      <group>
+        <linkId value="2.1"/>
+        <group>
+          <linkId value="2.1.1"/>
+          <question>
+            <linkId value="2.1.1.1"/>
+            <text value="Relationship to you"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA10411-9"/>
+                <display value="Maternal Cousin"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.2"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Mary"/>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.3"/>
+            <text value="Gender"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA3-6"/>
+                <display value="Female"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.4"/>
+            <text value="Living?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA33-6"/>
+                <display value="Yes"/>
+              </valueCoding>
+              <group>
+                <linkId value="2.1.1.4.2"/>
+                <question>
+                  <linkId value="2.1.1.4.2.2"/>
+                  <text value="Age"/>
+                  <answer>
+                    <valueDecimal value="31"/>
+                  </answer>
+                </question>
+              </group>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.5"/>
+            <text value="Was this person born a twin?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+          <question>
+            <linkId value="2.1.1.6"/>
+            <text value="Was this person adopted?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://loinc.org"/>
+                <code value="LA32-8"/>
+                <display value="No"/>
+              </valueCoding>
+            </answer>
+          </question>
+        </group>
+      </group>
+    </group>
+  </group>
+</QuestionnaireResponse>

@@ -1,0 +1,21 @@
+POST [base]/Questionnnaire
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/parameters.xsd">
+  <parameter>
+    <name value="questionnaireRef"/>
+    <valueReference>
+      <reference value="http://hl7.org/fhir/Questionnaire/questionnaire-sdc-profile-example-ussg-fht"/>
+    </valueReference>
+  </parameter>
+  <parameter>
+    <name value="subject"/>
+    <valueReference>
+      <reference value="http://hl7.org/fhir/Patient/proband"/>
+    </valueReference>
+  </parameter>
+  <parameter>
+    <name value="local"/>
+    <valueBoolean value="true"/>  
+  </parameter>
+</Parameters>
