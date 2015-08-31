@@ -26,6 +26,7 @@
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
+      <status value="completed"/>
       <name value="Dave"/>
       <relationship>
         <coding>
@@ -43,6 +44,7 @@
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -73,6 +75,7 @@
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -103,6 +106,7 @@
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -133,6 +137,7 @@
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
+      <status value="completed"/>
       <name value="Eve"/>
       <relationship>
         <coding>
@@ -164,6 +169,7 @@
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -194,6 +200,7 @@
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -224,6 +231,7 @@
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
+      <status value="completed"/>
       <name value="Alice"/>
       <relationship>
         <coding>

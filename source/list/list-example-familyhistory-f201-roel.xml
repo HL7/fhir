@@ -9,6 +9,7 @@
         <reference value="Patient/f201"/>
         <display value="Roel"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -18,13 +19,13 @@
       </relationship>
       <deceasedBoolean value="false"/>
       <condition>
-        <type>
+        <code>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="39839004"/>
             <display value="Diaphragmatic hernia"/>
           </coding>
-        </type>
+        </code>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -36,6 +37,7 @@
         <reference value="Patient/f201"/>
         <display value="Roel"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -45,13 +47,13 @@
       </relationship>
       <deceasedBoolean value="true"/>
       <condition>
-        <type>
+        <code>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="115665000"/>
             <display value="Atopy"/>
           </coding>
-        </type>
+        </code>
         <outcome>
           <coding>
             <system value="http://snomed.info/sct"/>

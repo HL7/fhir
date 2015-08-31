@@ -53,6 +53,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Harriet"/>
       <relationship>
         <coding>
@@ -68,13 +69,13 @@
         <code value="a"/>
       </deceasedQuantity>
       <condition>
-        <type>
+        <code>
           <coding>
             <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
             <code value="C4908"/>
             <display value="Ovarian Carcinoma"/>
           </coding>
-        </type>
+        </code>
         <onsetQuantity>
           <value value="45"/>
           <unit value="years"/>
@@ -123,6 +124,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Donald"/>
       <relationship>
         <coding>
@@ -147,6 +149,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Gladys"/>
       <relationship>
         <coding>
@@ -162,13 +165,13 @@
         <code value="a"/>
       </deceasedQuantity>
       <condition>
-        <type>
+        <code>
           <coding>
             <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
             <code value="C4872"/>
             <display value="Breast Carcinoma"/>
           </coding>
-        </type>
+        </code>
         <onsetQuantity>
           <value value="55"/>
           <unit value="years"/>
@@ -185,6 +188,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Ian"/>
       <relationship>
         <coding>
@@ -208,6 +212,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Claire"/>
       <relationship>
         <coding>
@@ -231,6 +236,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Bob"/>
       <relationship>
         <coding>
@@ -246,13 +252,13 @@
         <code value="a"/>
       </deceasedQuantity>
       <condition>
-        <type>
+        <code>
           <coding>
             <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
             <code value="C2955"/>
             <display value="Colorectal Carcinoma"/>
           </coding>
-        </type>
+        </code>
         <onsetQuantity>
           <value value="72"/>
           <unit value="years"/>
@@ -301,6 +307,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Brian"/>
       <relationship>
         <coding>
@@ -317,13 +324,13 @@
       </ageQuantity>
       <deceasedBoolean value="false"/>
       <condition>
-        <type>
+        <code>
           <coding>
             <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
             <code value="C2955"/>
             <display value="Rectal Carcinoma"/>
           </coding>
-        </type>
+        </code>
         <onsetQuantity>
           <value value="32"/>
           <unit value="years"/>
@@ -372,6 +379,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Janet"/>
       <relationship>
         <coding>
@@ -389,13 +397,13 @@
       </ageQuantity>
       <deceasedBoolean value="false"/>
       <condition>
-        <type>
+        <code>
           <coding>
             <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
             <code value="C2924"/>
             <display value="Ductal Carcinoma In Situ of the Breast"/>
           </coding>
-        </type>
+        </code>
         <onsetQuantity>
           <value value="35"/>
           <unit value="years"/>
@@ -412,6 +420,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
         <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -466,6 +475,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Ian"/>
       <relationship>
         <coding>
@@ -522,6 +532,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <name value="Helen"/>
       <relationship>
         <coding>
@@ -538,7 +549,7 @@
       </ageQuantity>
       <deceasedBoolean value="false"/>
       <condition>
-        <type>
+        <code>
           <coding>
            <!--No system or OID for NCBI Entrez yet -->
           <code value="657"/>
@@ -550,7 +561,7 @@
             <display value="BRCA2"/>
           </coding>
           <text value="BRCA2 breast cancer 2, early onset"/>
-        </type>
+        </code>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -561,6 +572,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -615,6 +627,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -669,6 +682,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -723,6 +737,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -737,13 +752,13 @@
         <code value="a"/>
       </ageQuantity>
       <condition>
-        <type>
+        <code>
           <coding>
             <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
             <code value="C3224"/>
             <display value="Melanoma"/>
           </coding>
-        </type>
+        </code>
       </condition>
     </FamilyMemberHistory>
   </contained>
@@ -786,6 +801,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -840,6 +856,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -862,6 +879,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -910,6 +928,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -925,13 +944,13 @@
         <code value="a"/>
       </ageQuantity>
     <condition>
-        <type>
+        <code>
           <coding>
             <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
             <code value="C4872"/>
             <display value="Breast Carcinoma"/>
           </coding>
-        </type>
+        </code>
         <onsetQuantity>
           <value value="30"/>
           <unit value="years"/>
@@ -980,6 +999,7 @@
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
+      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>

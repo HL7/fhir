@@ -4624,7 +4624,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.subject</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Search by subject - a patient</Data></Cell>
    </Row>
@@ -4809,7 +4809,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
