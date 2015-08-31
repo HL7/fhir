@@ -15,6 +15,13 @@ The sender and receivers may be patients, practitioners, related persons, organi
 <li>A notification to a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
 <li>Patient educational material sent by a provider to a patient</li>
 </ul>
+<p>
+Non-patient specific communication use cases may include:
+</p>
+<ul>
+<li>A nurse call from a hall bathroom</li>
+<li>Advisory for battery service from a pump</li>
+</ul>
 </div>
 
 <!-- (recommended): -->
@@ -35,6 +42,19 @@ a record of a particular communication is itself maintaned as part of the review
 of certain precautions to take or issues to be aware of.  The flags are continuously present as an ongoing reminder.  This is 
 distinct from <b>Communication</b> where there is a specific intended sender and receiver and the information is delivered only
 once.
+</p>
+
+<p><b>Communication and Encounter</b></p>
+<p>
+The Communication is about the transfer of information (which may or may not occur as part of an encounter), while Encounter 
+is about the coming together (in person or virtually) of a Patient with a Practitioner.  Communication does not deal with 
+the duration of a call, it represents the fact that information was transferred at a particular point in time.
+</p>
+<p>
+The phone calls involving the Patient should be handled using <a href="encounter.html">Encounter</a>.  Phone calls not involving the patient 
+(e.g. between practitioners or practitioner to relative) that are tracked for billing or other purposes can use Communication 
+to represent the information transferred, but are not ideal to represent the call itself.  
+A better mechanism for handling such calls will be explored in a future release.
 </p>
 </div>
 
