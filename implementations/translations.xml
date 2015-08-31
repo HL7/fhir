@@ -136,10 +136,6 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="es">Conformidad</translation>
 		<translation lang="fr">Conformité</translation>
 	</item>
-	<item id="Contraindication">
-		<translation lang="en">Contraindication</translation>
-		<translation lang="fr">Contre-indication</translation>
-	</item>
 	<item id="Coverage">
 		<translation lang="en">Coverage</translation>
 		<translation lang="zh">覆盖范围</translation>
@@ -151,6 +147,11 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="zh">公共数据元素</translation>
 		<translation lang="es">ElementoDatos</translation>
 		<translation lang="fr">ElementDonnées</translation>
+	</item>
+	<item id="DetectedIssue">
+		<translation lang="en">DetectedIssue</translation>
+		<translation lang="es">Problema-Detectado</translation>
+		<translation lang="fr">Problème Détecté</translation>
 	</item>
 	<item id="Device">
 		<translation lang="en">Device</translation>
