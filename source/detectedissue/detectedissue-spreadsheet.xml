@@ -24,7 +24,8 @@
   <WindowWidth>20250</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3687,7 +3688,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5789,7 +5789,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Drug-drug</Data><NamedCell
+    <Cell ss:StyleID="s138"><Data ss:Type="String">!Drug-drug</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Drug-drug interaction between prescription and medication statement</Data><NamedCell
@@ -5803,7 +5803,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Duplicate Therapy</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">!Duplicate Therapy</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Diagnostic order is placed when a recent image of the same body site already exists</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">duplicate</Data></Cell>
@@ -5812,7 +5812,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Drug-allergy</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">!Drug-allergy</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Patient is allergic to an inactive ingredient in an ordered medication</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">allergy</Data></Cell>
@@ -5821,7 +5821,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Lab order</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">!Lab order</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Lab order is contraindicated based on a patient's existing medication</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">lab</Data></Cell>
@@ -6153,6 +6153,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6172,8 +6173,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
