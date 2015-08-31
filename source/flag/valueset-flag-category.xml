@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ValueSet/flag-category"/>
+  <name value="Flag Category"/>
+  <status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare"/>
+		</telecom>
+	</contact>
+	<description value="Example list of detail codes for flagged issues.  (Not complete or necessarily appropriate.)"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/flag-category"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="diet"/>
+      <display value="Diet"/>
+      <definition value="Flags relating to the subject's dietary needs"/>
+    </concept>
+    <concept>
+      <code value="drug"/>
+      <display value="Drug"/>
+      <definition value="Flags related to the patient's medications"/>
+    </concept>
+    <concept>
+      <code value="lab"/>
+      <display value="Lab"/>
+      <definition value="Flags related to performing laboratory tests and related processes (e.g. phlebotamy)"/>
+    </concept>
+    <concept>
+      <code value="admin"/>
+      <display value="Administrative"/>
+      <definition value="Flags relating to administrative and financial processes"/>
+    </concept>
+    <concept>
+      <code value="contact"/>
+      <display value="Subject contact"/>
+      <definition value="Flags relating to coming into contact with the patient"/>
+    </concept>
+  </codeSystem>
+</ValueSet>
