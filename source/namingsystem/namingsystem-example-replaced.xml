@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="example-replaced"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>
+        <b>Deprecated SNOMED CT Spanish Registration</b>
+      </p>
+      
+      <p> oid: 2.16.840.1.113883.6.96.1 - deprecated <b>Do Not Use</b></p>
+    </div>
+  </text>
+  <name value="SNOMED CT Spanish"/>
+  <status value="retired"/>
+  <kind value="codesystem"/>
+  <publisher value="Not HL7!"/>
+  <date value="2005-01-25"/>
+  <description value="This was a wrong registration for the spanish editions of SNOMED CT. Do not use"/>
+  <uniqueId>
+    <type value="oid"/>
+    <value value="2.16.840.1.113883.6.96.1"/>
+  </uniqueId>
+  <replacedBy>
+    <reference value="NamingSystem/example"/>
+  </replacedBy>
+</NamingSystem>

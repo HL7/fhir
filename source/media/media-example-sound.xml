@@ -13,7 +13,7 @@
     <reference value="Patient/xcda"/>
   </subject>
   <operator>
-    <reference value="Practitioner/xcda"/>
+    <reference value="Practitioner/xcda-author"/>
   </operator>
   
   <duration value="65"/>

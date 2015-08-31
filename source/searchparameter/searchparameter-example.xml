@@ -4,14 +4,20 @@
   <id value="example"/>
   <url value="http://hl7.org/fhir/SearchParameter/example"/>
   <name value="Example Search Parameter"/>
+  <status value="draft"/>
+  <experimental value="false"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
   <contact>
+  <name value="[string]"/><!-- 0..1 Name of a individual to contact -->
     <telecom>
       <system value="other"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
+  <date value="2013-10-23"/>
+  
 <!--  this is the canonical definition for the _id search parameter  -->
+  <requirements value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
   <code value="_id"/>
   <base value="Resource"/>
   <type value="token"/>
@@ -19,3 +25,5 @@
   <xpath value="f:*/f:id"/>
   <xpathUsage value="normal"/>
 </SearchParameter>
+
+

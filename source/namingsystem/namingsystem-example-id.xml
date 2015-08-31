@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="example-id"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b>Australian IHI Number</b>
+      </p>
+      
+      <p> oid: 1.2.36.1.2001.1003.0</p>
+      
+      <p> uri: http://ns.electronichealth.net.au/id/hi/ihi/1.0</p>
+    
+    </div>
+  </text>
+  <name value="Austalian Healthcare Identifier - Individual"/>
+  <status value="active"/>
+  <kind value="identifier"/>
+  <publisher value="HL7 Australia on behalf of NEHTA"/>
+  <contact>
+    <name value="HL7 Australia FHIR Team"/>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7-australia.wikispaces.com/FHIR+Australia"/>
+    </telecom>
+  </contact> 
+  <responsible value="HI Service Operator / NEHTA"/>
+  <date value="2015-08-31"/>
+  <type> 
+    <coding> 
+      <system value="http://hl7.org/fhir/v2/0203"/>
+      <code value="NI"/>
+      <display value="National unique individual identifier"/>
+    </coding>
+    <text value="IHI"/> 
+  </type>  
+  <description value="Australian HI Identifier as established by relevant regulations etc"/>
+  <useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="AU"/>
+    </coding>
+  </useContext>
+  <usage value="Used in Australia for identifying patients"/>
+  <uniqueId>
+    <type value="oid"/>
+    <value value="1.2.36.1.2001.1003.0"/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://ns.electronichealth.net.au/id/hi/ihi/1.0"/>
+    <preferred value="true"/>
+    <period>
+      <start value="2015-08-21"/>
+    </period>
+  </uniqueId>
+</NamingSystem>

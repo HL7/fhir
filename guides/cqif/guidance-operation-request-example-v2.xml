@@ -20,7 +20,7 @@
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-initiatingPerson">
           <valueReference>
-            <reference value="Practitioner/1"/>
+            <reference value="Practitioner/example"/>
           </valueReference>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-systemUserType">
@@ -42,7 +42,7 @@
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-receivingPerson">
           <valueReference>
-            <reference value="Practitioner/1"/>
+            <reference value="Practitioner/example"/>
           </valueReference>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-guidance-recipientType">

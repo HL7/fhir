@@ -365,6 +365,6 @@
   Type = CodeableConcept
   Binding = TimingAbbreviation
   Short Label = QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +
-  Definition = A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes
+  Definition = A code for the timing pattern. Some codes such as BID are uniquitious, but many institutions define their own additional codes
   Comments = A repeat should always be defined except for the common codes BID, TID, QID, AM and PM, which all systems are required to understand
   RIM Mapping = QSC.code

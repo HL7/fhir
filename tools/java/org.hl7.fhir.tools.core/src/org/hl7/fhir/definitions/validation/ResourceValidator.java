@@ -87,6 +87,7 @@ public class ResourceValidator extends BaseValidator {
   private Translations translations;
   private final Map<String, ValueSet> codeSystems;
   private SpellChecker speller;
+  private int maxElementLength;
   
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
@@ -97,6 +98,18 @@ public class ResourceValidator extends BaseValidator {
 		this.translations = translations;
 		this.codeSystems = map;
 		speller = new SpellChecker(srcFolder, definitions);
+		int l = 0;
+		for (String n : definitions.getTypes().keySet())
+		  l = Math.max(l, n.length());
+    for (String n : definitions.getPrimitives().keySet())
+      l = Math.max(l, n.length());
+    for (String n : definitions.getStructures().keySet())
+      l = Math.max(l, n.length());
+    for (String n : definitions.getConstraints().keySet())
+      l = Math.max(l, n.length());
+    for (String n : definitions.getInfrastructure().keySet())
+      l = Math.max(l, n.length());
+		maxElementLength = (60 - 7) - l;
 	}
 
   // public void setConceptDomains(List<ConceptDomain> conceptDomains) {
@@ -181,7 +194,7 @@ public class ResourceValidator extends BaseValidator {
         hint(errors, IssueType.REQUIRED,  rd.getName(), false, "A resource must have an 'entered in error' status"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
         
     String s = rd.getRoot().getMapping(Definitions.RIM_MAPPING);
-    warning(errors, IssueType.REQUIRED, rd.getName(), !Utilities.noString(s), "RIM Mapping is required");
+    hint(errors, IssueType.REQUIRED, rd.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
     for (Operation op : rd.getOperations()) {
       warning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), false), "Operation must have an example request");
@@ -415,7 +428,10 @@ public class ResourceValidator extends BaseValidator {
         name.equals("Conformance") || 
         name.equals("MessageHeader") || 
         name.equals("Subscription") || 
-       name.equals("DataElement") || 
+        name.equals("ImplementationGuide") ||
+        name.equals("DataElement") || 
+        name.equals("NamingSystem") || 
+        name.equals("SearchParameter") || 
         name.equals("Provenance") || 
         name.equals("Query") || 
         name.equals("ValueSet") ||         
@@ -444,6 +460,7 @@ public class ResourceValidator extends BaseValidator {
 	    names.put(e.getName(), 0);
     names.put(e.getName(), names.get(e.getName())+1);
 	  
+    rule(errors, IssueType.STRUCTURE, path, e.getName().length() < maxElementLength, "Name "+e.getName()+" is too long (max element name length = "+Integer.toString(maxElementLength));
     rule(errors, IssueType.STRUCTURE, path, isValidToken(e.getName(), !path.contains(".")), "Name "+e.getName()+" is not a valid element name");
 	  rule(errors, IssueType.STRUCTURE, path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
@@ -560,7 +577,7 @@ public class ResourceValidator extends BaseValidator {
 		}
 
     String s = e.getMapping(Definitions.RIM_MAPPING);
-    warning(errors, IssueType.REQUIRED, path, !needsRimMapping || !Utilities.noString(s), "RIM Mapping is required");
+    hint(errors, IssueType.REQUIRED, path, !needsRimMapping || !Utilities.noString(s), "RIM Mapping is required");
 
     needsRimMapping = needsRimMapping && !"n/a".equalsIgnoreCase(s) && !Utilities.noString(s);
     

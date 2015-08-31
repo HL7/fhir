@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <name value="Populate Questionnaire (SDC)"/>
+  <version value="B"/>
+  <name value="Populate Questionnaire"/>
   <status value="draft"/>
   <kind value="operation"/>
-  <publisher value="U.S. Office of the National Coordinator (ONC)"/>
+  <publisher value="Acme Healthcare Services"/>
   <contact>
+    <name value="System Administrator"/>
     <telecom>
-      <system value="other"/>
-      <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+      <system value="email"/>
+      <value value="beep@coyote.acme.com"/>
     </telecom>
   </contact>
-  <date value="2014-08-04"/>
-  <description value="This operation defines a constrained version of the &#39;populate&#39; operation that reflects the expectations for conformance with the Structured Data Capture implementation guide."/>
+  <date value="2015-08-04"/>
+  <description value="Limited implementation of the Populate Questionnaire implemenation"/>
   <code value="populate"/>
-  <notes value="The constraints reflected here are not intended to prevent implementers from supporting additional parameters or capabilities of the operation, merely to establish a minimum baseline expectation."/>
-  <system value="true"/>
+  <notes value="Only implemented for Labs and Medications so far"/>
+  <base>
+    <reference value="OperationDefinition/Questionnaire-populate"/>
+  </base>
+  <system value="false"/>
   <type value="Questionnaire"/>
   <instance value="true"/>
   <parameter>
-    <name value="identifier"/>
+    <name value="subject"/>
     <use value="in"/>
-    <min value="0"/>
+    <min value="1"/>
     <max value="1"/>
-    <type value="uri"/>
+    <documentation value="The resource that is to be the *QuestionnaireResponse.subject*. The [[[QuestionnaireResponse]]]
+     instance will reference the provided subject.  In addition, if the *local* parameter is
+     set to true, server information about the specified subject will be used to populate the
+     instance."/>
+    <type value="Reference"/>
   </parameter>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The partially (or fully)-populated set of answers for the specified Questionnaire"/>
+    <type value="QuestionnaireResponse"/>
+  </parameter>
+  
 </OperationDefinition>

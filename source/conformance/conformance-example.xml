@@ -27,8 +27,11 @@
   <url value="68D043B5-9ECF-4559-A57A-396E0D452311"/>
   <version value="20130510"/>
   <name value="ACME EHR Conformance statement"/>
+  <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="ACME Corporation"/>
   <contact>
+    <name value="System Administrator"/>
     <telecom>
       <system value="email"/>
       <value value="wile@acme.org"/>
@@ -36,24 +39,28 @@
   </contact>
   <date value="2012-01-04"/>
   <description value="This is the FHIR conformance statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
+  <requirements value="Main EHR conformance statement, published for contracting and operational support"/>
+  <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
   <kind value="instance"/>
   <software>
     <name value="EHR"/>
     <version value="0.00.020.2134"/>
+    <releaseDate value="2012-01-04"/>
   </software>
   <implementation>
     <description value="main EHR at ACME"/>
     <url value="http://10.2.3.4/fhir"/>
   </implementation>
-<!--  while the FHIR infrastructure is turning over prior to development, a version is 
+  
+  <!--  while the FHIR infrastructure is turning over prior to development, a version is 
     required. Note that this may be rescinded later?  -->
-  <fhirVersion value="0.07"/>
-<!--  this system accepts unknown content in the resources  -->
+  <fhirVersion value="0.5.0"/>
+  <!--  this system accepts unknown content in the resources  -->
   <acceptUnknown value="both"/>
-<!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
+  <!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
   <format value="xml"/>
   <format value="json"/>
-<!--  in a real conformance statement, it's unlikely that a single conformance statement 
+  <!--  in a real conformance statement, it's unlikely that a single conformance statement 
     would declare conformance for REST, messaging and documents, though it is legal. 
     This example does so in order to show all the parts of a conformance statement  -->
   <rest>
@@ -61,7 +68,25 @@
       one of these. It can easily be edited by hand - copy this, replace the metadata above, 
       delete the messaging and document stuff below, and then replace the details appropriately.  -->
     <mode value="server"/>
-  <!--  zero or more of these - declaration of support for a resource  -->
+    <documentation value="Main FHIR endpoint for acem health"/>
+    <security> 
+      <!-- cors support is highly recommended - mandatory if using SMART on FHIR-->
+      <cors value="true"/>
+      <service>
+         <coding>
+          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <code value="SMART-on-FHIR"/>
+        </coding>
+      </service>
+      <description value="See Smart on FHIR documentation"/>
+      <certificate>  
+        <type value="application/jwt"/>
+        <!-- base JWT. this blob is not valid -->
+        <blob value="IHRoaXMgYmxvYiBpcyBub3QgdmFsaWQ="/>
+      </certificate>
+    </security>    
+    
+    <!--  zero or more of these - declaration of support for a resource  -->
     <resource>
       <type value="Patient"/>
     <!--  let's assume that HL7 has stood up a profile registry at http://fhir.hl7.org/fhir 
@@ -77,6 +102,7 @@
       </interaction>
       <interaction>
         <code value="vread"/>
+        <documentation value="Only supported for patient records since 12-Dec 2012"/>
       </interaction>
       <interaction>
         <code value="update"/>
@@ -90,6 +116,34 @@
       <interaction>
         <code value="history-type"/>
       </interaction>
+      <versioning value="versioned-update"/>
+      <readHistory value="true"/>
+      <!-- this server doesn't let the clients create identities -->
+      <updateCreate value="false"/>
+      <!-- it's good to support conditional create on patients; this solves a common middleware problem -->
+      <conditionalCreate value="true"/> 
+      <conditionalUpdate value="false"/><!-- 0..1 If allows/uses conditional update -->
+      <conditionalDelete value="not-supported"/>
+      <searchInclude value="Organization"/>
+      <searchRevInclude value="Person"/>
+      <searchParam>  
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-identifier"/>
+        <type value="token"/>
+        <documentation value="Only supports search by institution MRN"/>
+        <modifier value="missing"/>
+     </searchParam>
+      <searchParam>  
+        <name value="careprovider"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-careprovider"/>
+        <type value="reference"/>
+        <!-- there's not a lot of value in saying this, since it's the only 
+          choice anyway. but in other cases it's pretty important -->
+        <target value="Organization"/>
+        <modifier value="missing"/>
+        <chain value="name"/>
+        <chain value="identifier"/>
+     </searchParam>
     </resource>
     <interaction>
       <code value="transaction"/>
@@ -97,29 +151,45 @@
     <interaction>
       <code value="history-system"/>
     </interaction>
+   
+    <compartment value="http://hl7.org/fhir/compartment/Patient"/>
   </rest>
 <!--  a messaging conformance statement. Applications are not required to make a conformance 
     statement with regard to messaging, though there is active argument that they should.   -->
+ 
   <messaging>
-  <!--  how to tell whether this llp is a server or a client?  -->
+    <endpoint>  
+     <protocol>
+       <system value="http://hl7.org/fhir/message-transport"/>
+       <code value="mllp"/>
+     </protocol>
+     <!-- LLP server at 10.1.1.10 on port 9234 -->
+     <address value="mllp:10.1.1.10:9234"/>
+    </endpoint>
+    <reliableCache value="30"/>
+    <documentation value="ADT A08 equivalent for external system notifications"/>
     <event>
+
       <code>
         <system value="http://hl7.org/fhir/message-type"/>
         <code value="admin-notify"/>
       </code>
+      <category value="Consequence"/>
+      <!--  this a receiver - i.e. answers. Not neccessariy a server (though this is)  -->
       <mode value="receiver"/>
-    <!--  this a receiver - i.e. answers. Not neccessariy a serve"  -->
       <focus value="Patient"/>
-    <!--  specify a profile for the request person. Very often there's no point profiling 
-        the response, it's not interesting  -->
+      <!--  specify a profile for the request person. Very often there's no 
+        point profiling the response, it's not interesting  -->
       <request>
-        <reference value="StructureDefinition/101"/>
+        <reference value="StructureDefinition/daf-patient"/>
       </request>
       <response>
-        <reference value="StructureDefinition/101"/>
+        <reference value="StructureDefinition/MessageHeader"/>
       </response>
+      <documentation value="Notification of an update to a patient resource. changing the links is not supported"/>
     </event>
   </messaging>
+  
 <!--  a document conformance statement  -->
   <document>
     <mode value="consumer"/>

@@ -301,7 +301,7 @@
   Path = NamingSystem.responsible
 
  -- Row 7 -----------------------------------
-  Name = idtype
+  Name = id-type
   Type = token
   Path = NamingSystem.uniqueId.type
 
@@ -331,7 +331,7 @@
   Path = NamingSystem.contact.telecom
 
  -- Row 13 -----------------------------------
-  Name = replacedby
+  Name = replaced-by
   Type = reference
   Path = NamingSystem.replacedBy
 
@@ -347,18 +347,32 @@
  -- Row 1 -----------------------------------
   Name = namingsystem-example
   Identity = example
-  Description = Example of how to use Naming System
+  Description = Example of how to use Naming System for a code system
   Filename = namingsystem-example.xml
   Type = xml
 
  -- Row 2 -----------------------------------
+  Name = namingsystem-example-id
+  Identity = example-id
+  Description = Example of naming system for an identifier
+  Filename = namingsystem-example-id.xml
+  Type = xml
+
+ -- Row 3 -----------------------------------
+  Name = namingsystem-example-replaced
+  Identity = example-replaced
+  Description = Example of a deprecated naming system
+  Filename = namingsystem-example-replaced.xml
+  Type = xml
+
+ -- Row 4 -----------------------------------
   Name = namingsystem-registry
   Identity = registry
   Description = Common US Driver\'s license identification
   Filename = namingsystem-registry.xml
   Type = xml
 
- -- Row 3 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = namingsystem-terminologies
   Identity = terminologies
   Description = Defined Code systems

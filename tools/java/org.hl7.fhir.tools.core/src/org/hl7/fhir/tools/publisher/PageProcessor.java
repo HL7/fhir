@@ -80,6 +80,7 @@ import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.Definitions.NamespacePair;
 import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
@@ -162,7 +163,6 @@ import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
-import org.hl7.fhir.tools.publisher.PageProcessor.Pair;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -186,18 +186,6 @@ import org.w3c.dom.Element;
 import com.github.rjeschke.txtmark.Processor;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
-
-  public class Pair {
-
-    public String desc;
-    public String page;
-
-    public Pair(String desc, String page) {
-      this.desc = desc;
-      this.page = page;
-    }
-
-  }
 
   public class SectionSorter implements Comparator<String> {
 
@@ -3870,7 +3858,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("igvaluesetslist"))
         src = s1 + genIGValueSetsTable() + s3;
       else if (com[0].equals("namespacelist"))
-        src = s1 + genNSList() + s3;
+        src = s1 + s3;
       else if (com[0].equals("conceptmapslist"))
         src = s1 + genConceptMapsTable() + s3;
 //      else if (com[0].equals("bindingtable"))
@@ -5009,7 +4997,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private static final String HTML_PREFIX1 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_PREFIX2 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";
-  
+
   public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition, ResourceDefn r, List<String> tabs, ImplementationGuideDefn ig) throws Exception {
     if (!new CSFile(filename).exists()) {
       TextFile.stringToFile(HTML_PREFIX1+"\r\n<!-- content goes here -->\r\n\r\n"+HTML_SUFFIX, filename);
@@ -6816,7 +6804,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
   }
 
-  private String genNSList() {
+  private String genNSList() throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<p>Redirects on this page:</p>\r\n");
     b.append("<ul>\r\n");
@@ -6827,54 +6815,83 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(" <li>Extensions</li>\r\n");
     b.append(" <li>Profiles</li>\r\n");
     b.append(" <li>Naming Systems</li>\r\n");
+    b.append(" <li>Examples</li>\r\n");
+    b.append(" <li>Compartments</li>\r\n");
+    b.append(" <li>Data Elements</li>\r\n");
+    b.append(" <li>Search Parameters</li>\r\n");
+    b.append(" <li>Implementation Guides</li>\r\n");
+    b.append(" <li>SIDs</li>\r\n");
     b.append(" <li>Others From publish.ini</li>\r\n");
     b.append("</ul>\r\n");
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tr><td><b>URL</b></td><td><b>Thing</b></td><td><b>Page</b></td></tr>");
-    Map<String, Pair> nslist = new HashMap<String, Pair>();
     
     for (String n : definitions.sortedResourceNames())
-      nslist.put("http://hl7.org/fhir/"+n, new Pair(n+" Resource", n.toLowerCase()+".html"));
+      definitions.addNs("http://hl7.org/fhir/"+n, n+" Resource", n.toLowerCase()+".html");
     for (String n : definitions.getTypes().keySet())
-      nslist.put("http://hl7.org/fhir/"+n, new Pair("Data Type "+n, definitions.getSourceFile(n)+".html#"+n));
+      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSourceFile(n)+".html#"+n);
+    for (String n : definitions.getStructures().keySet())
+      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSourceFile(n)+".html#"+n);
+    for (String n : definitions.getPrimitives().keySet())
+      definitions.addNs("http://hl7.org/fhir/"+n, "Primitive Data Type "+n, definitions.getSourceFile(n)+".html#"+n);
+    for (String n : definitions.getConstraints().keySet())
+      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type Profile "+n, definitions.getSourceFile(n)+".html#"+n);
     for (String n : definitions.getInfrastructure().keySet())
-      nslist.put("http://hl7.org/fhir/"+n, new Pair("Data Type "+n, definitions.getSourceFile(n)+".html#"+n));
+      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSourceFile(n)+".html#"+n);
     for (ValueSet vs : getCodeSystems().values())
       if (vs.getCodeSystem().getSystem().startsWith("http://hl7.org/fhir"))
-        nslist.put(vs.getCodeSystem().getSystem(), new Pair("CodeSystem "+vs.getName(), vs.getUserString("path")));
+        definitions.addNs(vs.getCodeSystem().getSystem(), "CodeSystem "+vs.getName(), vs.getUserString("path"));
     for (ValueSet vs : getValueSets().values())
       if (vs.getUrl().startsWith("http://hl7.org/fhir"))
-        nslist.put(vs.getUrl(), new Pair("CodeSystem "+vs.getName(), vs.getUserString("path")));
+        definitions.addNs(vs.getUrl(), "CodeSystem "+vs.getName(), vs.getUserString("path"));
+    for (ConceptMap cm : getConceptMaps().values())
+      if (cm.getUrl().startsWith("http://hl7.org/fhir"))
+        definitions.addNs(cm.getUrl(), "Concept Map"+cm.getName(), cm.getUserString("path"));
     for (StructureDefinition sd : profiles.values())
       if (sd.getUrl().startsWith("http://hl7.org/fhir"))
-        nslist.put(sd.getUrl(), new Pair("Profile "+sd.getName(), sd.getUserString("path")));
+        definitions.addNs(sd.getUrl(), "Profile "+sd.getName(), sd.getUserString("path"));
     for (StructureDefinition sd : workerContext.getExtensionDefinitions().values())
       if (sd.getUrl().startsWith("http://hl7.org/fhir"))
-        nslist.put(sd.getUrl(), new Pair("Profile "+sd.getName(), sd.getUserString("path")));
+        definitions.addNs(sd.getUrl(), "Profile "+sd.getName(), sd.getUserString("path"));
     for (NamingSystem nss : definitions.getNamingSystems()) {
       String url = null;
+      definitions.addNs("http://hl7.org/fhir/NamingSystem/"+nss.getId(), "System "+nss.getName(), nss.getUserString("path"));
       for (NamingSystemUniqueIdComponent t : nss.getUniqueId()) {
         if (t.getType() == NamingSystemIdentifierType.URI)
           url = t.getValue();
       }
       if (url != null && url.startsWith("http://hl7.org/fhir"))
-        nslist.put(url, new Pair("System "+nss.getName(), nss.getUserString("path")));
+        definitions.addNs(url, "System "+nss.getName(), nss.getUserString("path"));
     }
     for (String n : ini.getPropertyNames("redirects")) {
       String[] parts = ini.getStringProperty("redirects", n).split("\\;");
-      nslist.put(n, new Pair("System "+parts[0], parts[1]));       
+      definitions.addNs(n, "System "+parts[0], parts[1]);       
     }    
+    for (ImplementationGuideDefn ig : definitions.getIgs().values()) {
+      if (!ig.isCore()) {
+        definitions.addNs("http://hl7.org/fhir/ImplementationGuide/"+ig.getCode(), ig.getName(), ig.getHomePage());
+        definitions.addNs("http://hl7.org/fhir/"+ig.getCode(), ig.getName(), ig.getHomePage());
+      }
+    }
+    for (Compartment t : definitions.getCompartments()) {
+      definitions.addNs(t.getUri(), t.getName(), "compartments.html#"+t.getName());      
+    }
     
     List<String> list = new ArrayList<String>();
-    list.addAll(nslist.keySet());
+    list.addAll(definitions.getRedirectList().keySet());
     Collections.sort(list);
     for (String url : list) {
-      Pair p = nslist.get(url);
-      b.append(" <tr><td>"+Utilities.escapeXml(url)+"</td><td>"+Utilities.escapeXml(p.desc)+"</td><td><a href=\""+p.page+"\">"+Utilities.escapeXml(p.page)+"</a></td></tr>");
+      NamespacePair p = definitions.getRedirectList().get(url);
+      b.append(" <tr><td>"+Utilities.escapeXml(url)+"</td><td>"+hsplt(Utilities.escapeXml(p.desc))+"</td><td><a href=\""+p.page+"\">"+hsplt(Utilities.escapeXml(p.page))+"</a></td></tr>");
     }
     b.append("</table>\r\n");
     b.append("<p>"+Integer.toString(list.size())+" Entries</p>\r\n");
+    definitions.clearRedirectList();
     return b.toString();
+  }
+
+  private String hsplt(String s) {
+    return s.replace(".", "\u200B.").replace("-", "\u200B-").replace("/", "\u200B/");
   }
   
 

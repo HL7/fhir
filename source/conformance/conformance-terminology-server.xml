@@ -229,21 +229,9 @@
       </definition>
     </operation>
     <operation>
-      <name value="batch-validate"/>
-      <definition>
-        <reference value="OperationDefinition/ValueSet-batch-validate"/>
-      </definition>
-    </operation>
-    <operation>
       <name value="translate"/>
       <definition>
         <reference value="OperationDefinition/ConceptMap-translate"/>
-      </definition>
-    </operation>
-    <operation>
-      <name value="batch-translate"/>
-      <definition>
-        <reference value="OperationDefinition/ConceptMap-batch-translate"/>
       </definition>
     </operation>
     <operation>

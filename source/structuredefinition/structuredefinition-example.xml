@@ -3,18 +3,48 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <url value="http://hl7.org/fhir/StructureDefinition/example"/>
+  <identifier>
+    <!-- for use in a CDA template Id, though this particular profile couldn't be -->
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="1.2.36.90146595217.4.2"/>
+  </identifier>
+  <version value="2"/>
   <name value="Example Lipid Profile"/>
+  <!-- Quite often this has the same value as name, but not always -->
+  <display value="Example Lipid Profile"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="Grahame Grieve"/>
+  <publisher value="Health Intersections Pty Ltd"/>
   <contact>
+    <name value="Grahame Grieve"/>
     <telecom>
-      <system value="other"/>
+      <system value="email"/>
       <value value="grahame@healthintersections.com.au"/>
     </telecom>
   </contact>
   <date value="2012-05-12"/>
   <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
+  <useContext>
+    <!-- based on Australian recommendations -->
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="AU"/>
+    </coding>    
+  </useContext>
+  <requirements value="Provide an example to demonstrate how to use StructureDefinition"/><!-- 0..1 Scope and Usage this structure definition is for -->
+  <copyright value="Createive Commons 0, per FHIR specification"/>
+  <code>
+    <system value="http://snomed.info/sct"/>
+    <code value="314079002"/>
+    <display value="314079002"/>
+  </code>
+  <fhirVersion value="0.5.0"/><!-- 0..1 FHIR Version this StructureDefinition targets -->
+  <mapping> 
+    <identity value="m1"/>
+    <uri value="https://www.rcpa.edu.au/getattachment/0961c6d1-ec80-4500-8dc0-de516500e05b/Lipid-and-lipoprotein-testing.aspx"/>
+    <name value="RCPA Lipid Report recommendations"/>
+    <comments value="Actual mappings haven't yet been filled out"/>
+   </mapping>
   <kind value="resource"/>
   <constrainedType value="DiagnosticReport"/>
   <abstract value="false"/>

@@ -1034,6 +1034,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (BundleEntryComponent entry : bnd.getEntry()) {
       NamingSystem ns = (NamingSystem) entry.getResource();
       entry.setFullUrl("http://hl7.org/fhir/NamingSystem/"+ns.getId());
+      String url = null;
+      for (NamingSystemUniqueIdComponent t : ns.getUniqueId()) {
+        if (t.getType() == NamingSystemIdentifierType.URI)
+          url = t.getValue();
+      }
+      if (url != null) {
+        if (url.startsWith("http://hl7.org/fhir"))
+          page.getDefinitions().addNs(url, "System "+ns.getName(), ns.getUserString("path"));
+        page.getDefinitions().addNs(entry.getFullUrl(), ns.getId(), "terminologies-systems.html#"+url);
+      }
     }
     List<String> names = new ArrayList<String>();
     names.addAll(page.getCodeSystems().keySet());
@@ -1556,25 +1566,62 @@ public class Publisher implements URIResolver, SectionNumberer {
       return true;
     if (!page.getDefinitions().hasResource(ref.getType()))
       return false;
+    if (ref.getId().startsWith("#")) 
+      return false;
+    String id = ref.getId(); // extractId(ref.getId(), ref.getType());
     ResourceDefn r = page.getDefinitions().getResourceByName(ref.getType());
     for (Example e : r.getExamples()) {
-      if (!ref.getId().startsWith("#")) {
-        String id = ref.getId(); // extractId(ref.getId(), ref.getType());
-        if (id.equals(e.getId())) {
-          e.getInbounds().add(src);
+      if (id.equals(e.getId())) {
+        e.getInbounds().add(src);
+        return true;
+      }
+      if (e.getXml() != null) {
+        if (resolveLinkInBundle(ref, src, e, id))
           return true;
-        }
+      }
+    }
+    // didn't find it? well, we'll look through all the other examples looking for bundles that contain it
+    for (ResourceDefn rt : page.getDefinitions().getResources().values()) {
+      for (Example e : rt.getExamples()) {
         if (e.getXml() != null) {
-          if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
-            List<Element> entries = new ArrayList<Element>();
-            XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
-            for (Element c : entries) {
-              String _id = XMLUtil.getNamedChild(c, "id").getTextContent();
-              if (id.equals(_id) || _id.equals("http://hl7.org/fhir/" + ref.getType() + "/" + id)) {
-                e.getInbounds().add(src);
-                return true;
-              }
-            }
+          if (resolveLinkInBundle(ref, src, e, id))
+            return true;
+        }
+      }      
+    }
+    // still not found? 
+    if (ref.type.equals("ConceptMap"))
+      return page.getConceptMaps().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId());
+    if (ref.type.equals("StructureDefinition")) {
+      if (page.getDefinitions().hasResource(ref.getId()))
+        return true;
+      if (page.getProfiles().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId()) || page.getWorkerContext().getExtensionDefinitions().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId())) 
+        return true;
+      for (Profile cp : page.getDefinitions().getPackList()) 
+        for (ConstraintStructure p : cp.getProfiles())
+          if (p.getId().equals(id))
+            return true;
+      for (ResourceDefn rd : page.getDefinitions().getResources().values())
+        for (Profile cp : rd.getConformancePackages())
+          for (ConstraintStructure p : cp.getProfiles()) 
+            if (p.getId().equals(id))
+              return true;
+    }
+    return false;
+  }
+    
+  private boolean resolveLinkInBundle(ExampleReference ref, Example src, Example e, String id) {
+    if (e.getXml().getDocumentElement().getLocalName().equals("Bundle")) {
+      List<Element> entries = new ArrayList<Element>();
+      XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
+      for (Element c : entries) {
+        Element resh = XMLUtil.getNamedChild(c, "resource");
+        if (resh != null) {
+          Element res = XMLUtil.getFirstChild(resh);
+          String _id = XMLUtil.getNamedChildValue(res, "id");
+          if (id.equals(_id) && ref.getType().equals(res.getLocalName())) {
+            e.getInbounds().add(src);
+            return true;
           }
         }
       }
@@ -3590,6 +3637,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       String id = XMLUtil.getNamedChildValue(xdoc.getDocumentElement(), "id");
       if (!page.getDefinitions().getBaseResources().containsKey(rt) && !id.equals(e.getId()))
         throw new Error("Resource in "+prefix +n + ".xml needs an id of value=\""+e.getId()+"\"");
+      page.getDefinitions().addNs("http://hl7.org/fhir/"+rt+"/"+id, "Example", prefix +n + ".html");
       if (rt.equals("ValueSet") || rt.equals("ConceptMap") || rt.equals("Conformance")) {
         // for these, we use the reference implementation directly
         DomainResource res = (DomainResource) new XmlParser().parse(new FileInputStream(file));
@@ -3613,6 +3661,9 @@ public class Publisher implements URIResolver, SectionNumberer {
           boolean wantSave = false;
           for (Element entry : entries) {
             Element ers = XMLUtil.getFirstChild(XMLUtil.getNamedChild(entry, "resource"));
+            id = XMLUtil.getNamedChildValue(ers, "id");
+            if (id != null)
+              page.getDefinitions().addNs("http://hl7.org/fhir/"+ers.getLocalName()+"/"+id, "Example", prefix +n + ".html", true);
             if (ers != null) {
               String ert = ers.getLocalName();
               String s = null;

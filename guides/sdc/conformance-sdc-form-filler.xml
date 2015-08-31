@@ -423,7 +423,7 @@
   <date value="2014-07-06"/>
   <description value="This profile defines the expected capabilities of the ''SDC Form Filler'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for retrieving pre-defined forms, requesting pre-population of forms and/or auto-populating forms, guiding the user through verifying populated data and submitting completed or partially-completed forms."/>
   <kind value="requirements"/>
-  <fhirVersion value="0.2"/>
+  <fhirVersion value="0.5.0"/>
   <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>

@@ -50,7 +50,7 @@
   w5 = infrastructure.exchange
 
  -- Row 2 -----------------------------------
-  Element = MessageHeader.identifier
+  Element = !MessageHeader.identifier
   Card. = 1..1
   Type = id
   Short Label = Id of this message
@@ -307,76 +307,71 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = src-id
-  Type = token
-  Path = MessageHeader.identifier
-
- -- Row 2 -----------------------------------
   Name = timestamp
   Type = date
   Path = MessageHeader.timestamp
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = event
   Type = token
   Path = MessageHeader.event
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = response-id
   Type = token
   Path = MessageHeader.response.identifier
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = code
   Type = token
   Path = MessageHeader.response.code
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = source
   Type = string
   Path = MessageHeader.source.name
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = source-uri
   Type = uri
   Path = MessageHeader.source.endpoint
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = destination
   Type = string
   Path = MessageHeader.destination.name
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = destination-uri
   Type = uri
   Path = MessageHeader.destination.endpoint
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = data
   Type = reference
   Path = MessageHeader.data
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = receiver
   Type = reference
   Path = MessageHeader.receiver
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = author
   Type = reference
   Path = MessageHeader.author
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = responsible
   Type = reference
   Path = MessageHeader.responsible
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = enterer
   Type = reference
   Path = MessageHeader.enterer
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = target
   Type = reference
   Path = MessageHeader.destination.target
@@ -387,7 +382,7 @@
 
  -- Row 1 -----------------------------------
   Name = General Example
-  Identity = example
+  Identity = 1cbdfb97-5859-48a4-8301-d54eab818d68
   Description = A typical message header
   Filename = messageheader-example.xml
 
@@ -400,7 +395,7 @@
  -- Row 3 -----------------------------------
   Name = Link Response
   Identity = 3a0707d3-549e-4467-b8b8-5a2ab3800efe
-  Description = A response to a request tp link two patients
+  Description = A response to a request to link two patients
   Filename = message-response-link.xml
 
 === Sheet Examples =====================================

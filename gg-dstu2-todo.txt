@@ -18,11 +18,12 @@ generating:
 publishing QA:
 - dstu notes format consistency + where does feedback go?
 - update todo.html + version history
-- check all redirects 
 - fix up UML diagrams (per Dave's work)
 - v3/v2 value set usages
 - html form
 - credits page
+- bread crumbs (8422)
+- build redirects 
 
 tooling 
 - update validation to refer to authority source

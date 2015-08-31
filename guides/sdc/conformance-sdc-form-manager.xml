@@ -471,7 +471,7 @@
   <date value="2014-07-06"/>
   <description value="This profile defines the expected capabilities of the ''SDC Form Manager'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data."/>
   <kind value="requirements"/>
-  <fhirVersion value="0.2"/>
+  <fhirVersion value="0.5.0"/>
   <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>

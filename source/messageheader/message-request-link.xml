@@ -7,6 +7,7 @@
     <fullUrl value="urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b"/>
     <resource>
       <MessageHeader>
+        <id value="efdd254b-0e09-4164-883e-35cf3871715f"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
@@ -15,7 +16,6 @@
            
           </div>
         </text>
-        <identifier value="efdd254b-0e09-4164-883e-35cf3871715f"/>
         <timestamp value="2015-07-14T11:15:33+10:00"/>
         <event>
           <system value="http://hl7.org/fhir/message-events"/>
@@ -27,6 +27,9 @@
         <destination>
           <endpoint value="http://acme.com/ehr/fhir"/>
         </destination>
+        <responsible>
+          <reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
+        </responsible>
       <!--  this message is posted to http://acme.com/ehr/fhir, 
              with an event 'link' to link 2 patient records, and nominates
              2 patients on the server  -->

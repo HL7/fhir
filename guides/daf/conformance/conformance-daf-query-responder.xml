@@ -1731,7 +1731,7 @@
   <date value="2015-04-02"/>
   <description value="This profile defines the expected capabilities of the DAF Responder actor when conforming to the DAF FHIR implementation guide."/>
   <kind value="requirements"/>
-  <fhirVersion value="0.4.0"/>
+  <fhirVersion value="0.5.0"/>
   <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>

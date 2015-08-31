@@ -20,7 +20,7 @@
     <reference value="Patient/xcda"/>
   </subject>
   <operator>
-    <reference value="Practitioner/xcda"/>
+    <reference value="Practitioner/xcda-author"/>
   </operator>
   
   <deviceName value="Acme Camera"/>

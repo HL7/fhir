@@ -149,7 +149,7 @@ public class ProfileGenerator {
   private static int extensionCounter;
   private static int profileCounter = 0;
   
-  private void generateElementDefinition(ElementDefinition ed, ElementDefinition parent) {
+  private void generateElementDefinition(ElementDefinition ed, ElementDefinition parent) throws Exception {
     String id = ed.getPath().replace("[x]", "X");
     if (id.length() > 64)
       id = id.substring(0, 64);
@@ -157,6 +157,7 @@ public class ProfileGenerator {
     DataElement de;
     if (des.containsKey(id)) {
       de = des.get(id);
+      // do it again because we now have more information to generate with
       de.getElement().clear();
       de.getExtension().clear();
     } else {
@@ -164,6 +165,8 @@ public class ProfileGenerator {
       de.setId(id);
       des.put(id, de);
       de.setUrl("http://hl7.org/fhir/DataElement/"+de.getId());
+      if (de.getId().contains("."))
+        definitions.addNs(de.getUrl(), "Data Element "+ed.getPath(), definitions.getSrcFile(de.getId().substring(0, de.getId().indexOf(".")))+"-definitions.html#"+de.getId());
       if (dataElements != null)
         dataElements.addEntry().setResource(de).setFullUrl(de.getUrl());
     }
@@ -786,6 +789,7 @@ public class ProfileGenerator {
     sp.setCode(spd.getCode());
     sp.setDate(genDate.getTime());
     sp.setPublisher(p.getPublisher());
+    definitions.addNs(sp.getUrl(), "Search Parameter: "+sp.getName(), rn.toLowerCase()+".html#search");
     for (StructureDefinitionContactComponent tc : p.getContact()) {
       SearchParameterContactComponent t = sp.addContact();
       t.setNameElement(tc.getNameElement().copy());

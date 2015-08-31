@@ -60,16 +60,6 @@
       <definition value="Get a conformance statement for the system"/>
     </concept>
     <concept>
-      <code value="batch-translate"/>
-      <display value="$batch-translate"/>
-      <definition value="Batch Mode Translation"/>
-    </concept>
-    <concept>
-      <code value="batch-validate"/>
-      <display value="$batch-validate"/>
-      <definition value="Batch Mode Validation"/>
-    </concept>
-    <concept>
       <code value="closure"/>
       <display value="$closure"/>
       <definition value="Closure Table Maintenance"/>

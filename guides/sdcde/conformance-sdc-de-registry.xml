@@ -492,7 +492,7 @@
   <date value="2014-07-06"/>
   <description value="This profile defines the expected capabilities of the ''SDC Data Element Manager'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms."/>
   <kind value="requirements"/>
-  <fhirVersion value="0.2"/>
+  <fhirVersion value="0.5.0"/>
   <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>

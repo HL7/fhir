@@ -251,7 +251,7 @@
   Card. = 1..1
   Type = code
   Binding = !
-  Short Label = Name of the parameter
+  Short Label = Name in Parameters.parameter.name or in URL
   Definition = The name of used to identify the parameter
   Comments = This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore
 
@@ -454,26 +454,47 @@
 
  -- Row 1 -----------------------------------
   Name = vsexpansion
-  Identity = vs-expand
+  Identity = ValueSet-expand
   Description = ValueSet Expansion
   Filename = operation-valueset-expand.xml
   Type = tool
 
  -- Row 2 -----------------------------------
   Name = vsvalidation
-  Identity = vs-validate
+  Identity = ValueSet-validate-code
   Description = ValueSet Validation
   Filename = operation-valueset-validate-code.xml
   Type = tool
 
  -- Row 3 -----------------------------------
+  Name = vslookup
+  Identity = ValueSet-lookup
+  Description = ValueSet Lookup
+  Filename = operation-valueset-lookup.xml
+  Type = tool
+
+ -- Row 4 -----------------------------------
   Name = cmtranslate
-  Identity = cm-translate
+  Identity = ConceptMap-translate
   Description = ConceptMap Translate
   Filename = operation-conceptmap-translate.xml
   Type = tool
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
+  Name = cmclosure
+  Identity = ConceptMap-closure
+  Description = ConceptMap Closure
+  Filename = operation-conceptmap-closure.xml
+  Type = tool
+
+ -- Row 6 -----------------------------------
+  Name = qpopulate
+  Identity = Questionnaire-populate
+  Description = Questionnaire Populate
+  Filename = operation-questionnaire-populate.xml
+  Type = tool
+
+ -- Row 7 -----------------------------------
   Name = Patient-MPI
   Identity = patient-mpi
   Description = Patient MPI Query

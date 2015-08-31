@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>16575</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>7</ActiveSheet>
@@ -1718,7 +1718,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Name of the parameter</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Name in Parameters.parameter.name or in URL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The name of used to identify the parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3950,7 +3950,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3968,7 +3968,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>24</ActiveRow>
      <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
@@ -6006,7 +6006,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="44" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s139" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s139" ss:Width="88.5"/>
@@ -6052,7 +6052,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">ValueSet Expansion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">vs-expand</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ValueSet-expand</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">operation-valueset-expand.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6064,8 +6064,17 @@
     <Cell ss:StyleID="s143"><Data ss:Type="String">vsvalidation</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">tool</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">ValueSet Validation</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">vs-validate</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ValueSet-validate-code</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">operation-valueset-validate-code.xml</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s143"><Data ss:Type="String">vslookup</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">tool</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">ValueSet Lookup</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ValueSet-lookup</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">operation-valueset-lookup.xml</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"><Data ss:Type="Boolean">0</Data></Cell>
    </Row>
@@ -6073,8 +6082,26 @@
     <Cell ss:StyleID="s143"><Data ss:Type="String">cmtranslate</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">tool</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">ConceptMap Translate</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">cm-translate</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConceptMap-translate</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">operation-conceptmap-translate.xml</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s143"><Data ss:Type="String">cmclosure</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">tool</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">ConceptMap Closure</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConceptMap-closure</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">operation-conceptmap-closure.xml</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s143"><Data ss:Type="String">qpopulate</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">tool</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Questionnaire Populate</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Questionnaire-populate</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">operation-questionnaire-populate.xml</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"><Data ss:Type="Boolean">0</Data></Cell>
    </Row>
@@ -6431,7 +6458,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

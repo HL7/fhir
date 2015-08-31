@@ -120,12 +120,12 @@ response messages. In these cases, the asynchronous message pattern
 </p>
 
 
-<h3>MessageHeader.identifiers</h3>
+<h3>MessageHeader Identifiers</h3>
 <p>
 An incoming message contains two identifiers: the Bundle.id and
-the <a href="messageheader.html">MessageHeader</a>.identifier.
+the <a href="messageheader.html">MessageHeader</a>.id.
 Each time a new message is created, it SHALL be assigned an identifier
-(MessageHeader.identifier) that is unique within that message stream.
+(MessageHeader.id) that is unique within that message stream.
 Note that since message streams are often merged with other streams,
 it is recommended that the identifier should be globally unique.
 This can be achieved by using a UUID or an OID. Each time a message is sent,
@@ -134,8 +134,8 @@ the Bundle.id should be changed to a new value.
 <p>
 When a receiver receives and processes the message, it responds with a
 new message with a new identifier, wrapped in a bundle which also has a new id.
-The response message also quotes the request MessageHeader.identifier so that
-the source system can relate the response to its request.
+The response message also quotes the request MessageHeader.id in 
+MessageHeader.response.identifier so that the source system can relate the response to its request.
 </p>
 
 <a name="reliable"> </a>
@@ -155,20 +155,20 @@ the following when it receives no response to a message within a
 configured timeout period:
 </p>
 <table class="grid">
- <tr><td>Consequence</td><td>Resend the same message (with the same identifier) with the same Bundle.id</td></tr>
- <tr><td>Currency</td><td>Resend the same message (with the same identifier) with a different Bundle.id</td></tr>
- <tr><td>Notification</td><td>Resend the same message (with the same identifier) with a different Bundle.id</td></tr>
+ <tr><td>Consequence</td><td>Resend the same message (with the same MessageHeader.id) with the same Bundle.id</td></tr>
+ <tr><td>Currency</td><td>Resend the same message (with the same MessageHeader.id) with a different Bundle.id</td></tr>
+ <tr><td>Notification</td><td>Resend the same message (with the same MessageHeader.id) with a different Bundle.id</td></tr>
 </table>
 <p>
 When a receiver implements reliable messaging, it SHALL check the incoming Bundle.id
-and MessageHeader.identifier against a cache of previously received messages. The
+and MessageHeader.id against a cache of previously received messages. The
 correct action to take depends on what is received:
 </p>
 <table class="grid">
- <tr><td>Both the Bundle.id and MessageHeader.identifier have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
+ <tr><td>Both the Bundle.id and MessageHeader.id have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
  <tr><td>Both envelope and message already received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
- <tr><td>The MessageHeader.identifier has already been received, but the Bundle.id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
- <tr><td>The Bundle.id has already been received, but the MessageHeader.identifier is new</td><td>This is an error - Bundle.id values should never be reused</td></tr>
+ <tr><td>The MessageHeader.id has already been received, but the Bundle.id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
+ <tr><td>The Bundle.id has already been received, but the MessageHeader.id is new</td><td>This is an error - Bundle.id values should never be reused</td></tr>
 </table>
 <p>
 The duration period for caching does generally not need to be very long. At a minimum, it
@@ -187,7 +187,7 @@ to be performed on a patient. This is considered to be a message of <b>Consequen
 orders should not be created (in practice there are usually human review processes that
 catch multiple orders, but repeat orders create entropy in the system that is harmful).
 The EHR sends a message where the Bundle.id is UUID 1 (72edc4e0-6708-42ab-9734-f56721882c10),
-with a MessageHeader.identifier of UUID 2 (dad53a57-dcb4-4f18-b066-7239eb4b5229).
+with a MessageHeader.id of UUID 2 (dad53a57-dcb4-4f18-b066-7239eb4b5229).
 </p>
 <p>
 The EHR system never receives a response to the message; it does not know whether the request
@@ -217,14 +217,14 @@ In this second example, a Clinical EHR needs to know what appointment slots are 
 for a particular imaging procedure. This is a message of <b>Currency</b>: available slots are
 ever disappearing, and ordering a slot that has become unavailable is a waste of time for
 the humans and systems involved. The EHR sends a message where the Bundle.id is
-UUID 3 (4c7f5cb2-5964-4d42-b719-e0227461818c), with a MessageHeader.identifier is
+UUID 3 (4c7f5cb2-5964-4d42-b719-e0227461818c), with a MessageHeader.id is
 UUID 4 (63ed7d68-b2cc-421d-ba1c-a6c7785581f2).
 </p>
 <p>
 The EHR system never receives a response to the message; it does not know whether the request
 message got lost, or the imaging management systems was unable to process the request, or whether
 it successfully processed the message and the response was lost. In this case, the EHR system
-resends the message with same MessageHeader.identifier (UUID 4), but creates a new Bundle.id (c7c17fe4-9560-49c7-b2ae-42636476fb86).
+resends the message with same MessageHeader.id (UUID 4), but creates a new Bundle.id (c7c17fe4-9560-49c7-b2ae-42636476fb86).
 </p>
 <p>
 In this case, the imaging system successfully received the message, and processed it. When
@@ -239,9 +239,9 @@ on the imaging management system responded.
 <p>
 Note that the existence of active intermediaries (or "middleware") creates the need
 for this protocol - the original sender matches the response to the request based on the
-MessageHeader.identifier, and so an active intermediary that choose the re-initiate a query that
-it previously relayed cannot change the MessageHeader.identifier. This protocol avoids the need for
-the MessageHeader.identifier to change, and only requires change to the Bundle.id which is never
+MessageHeader.id, and so an active intermediary that choose the re-initiate a query that
+it previously relayed cannot change the MessageHeader.id. This protocol avoids the need for
+the MessageHeader.id to change, and only requires change to the Bundle.id which is never
 the basis for context linking outside the immediate message exchange protocol described
 here.
 </p>
@@ -496,7 +496,7 @@ Here's an example:
     &lt;fullUrl value=&quot;urn:uuid:6080d4a7-5e05-45dc-96d5-f75329564d1f&quot;/&gt;
     &lt;resource&gt;
       &lt;MessageHeader&gt;
-			  &lt;!-- no id needed for the message header resource --&gt;
+			  &lt;id value="cac8143e-6138-4f45-b086-bb8ebf976aae"&gt;
         &lt;!-- normal message header stuff --&gt;
         &lt;event&gt;
           &lt;system value=&quot;urn:ietf:rfc:3986&quot;/&gt;

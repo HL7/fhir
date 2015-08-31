@@ -9,7 +9,7 @@
 				<reference value="Organization/1"/>
 			</initiatingOrganization>
 			<initiatingPerson>
-				<reference value="Practitioner/1"/>
+				<reference value="Practitioner/example"/>
 			</initiatingPerson>
 			<systemUserType>
 				<coding>

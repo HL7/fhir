@@ -447,9 +447,9 @@
 
  -- Row 3 -----------------------------------
   Id = 3
-  Context = Conformance.messaging
+  Context = Conformance
   English = Messaging end point is required (and is only permitted) when statement is for an implementation
-  XPath = exists(f:endpoint) = (f:kind/@value = \'implementation\')
+  XPath = exists(f:messaging/f:endpoint) = (f:kind/@value = \'instance\')
 
  -- Row 4 -----------------------------------
   Id = 7
@@ -712,7 +712,7 @@
   Card. = 1..1
   Summary = y
   Type = id
-  Short Label = FHIR Version
+  Short Label = FHIR Version the system uses
   Definition = The version of the FHIR specification on which this conformance statement is based
 
  -- Row 24 -----------------------------------

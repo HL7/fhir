@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
+ 
   <id value="example"/>
   <url value="http://hl7.org/fhir/daf"/>
   <version value="0"/>
@@ -32,16 +33,47 @@
   </useContext>
   <copyright value="Published by ONC under the standard FHIR license (CC0)"/>
   <fhirVersion value="0.5.0"/>
+  <dependency> 
+   <type value="reference"/>
+   <!-- when there's a uscore realm implemenation guide, DAF will use it -->
+   <uri value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
+  </dependency>
   <package>
     <name value="test"/>
+    <description value="Base package (not broken up into multiple packages)"/>
     <resource>
       <purpose value="example"/>
+      <name value="Test Example"/>
+      <description value="A test example to show how a package works"/>
+      <!-- used when generating invariants -->
+      <acronym value="daf-tst"/>
       <sourceUri value="test.html"/>
+      <exampleFor>
+        <reference value="StructureDefinition/daf-patient"/>
+      </exampleFor>
     </resource>
   </package>
+  <global>
+   <!-- all patients have to conform to daf-patient -->
+   <type value="Patient"/>
+   <profile>
+     <reference value="StructureDefinition/daf-patient"/>
+   </profile>
+  </global>
+  <!-- standard FHIR stylesheet. This doesn't need to be an absolute http reference, 
+    but the publishing tool gets confused if it isn't  -->
+  <binary value="http://h7.org/fhir/fhir.css"/>
   <page>
     <source value="example.html"/>
     <name value="Example Page"/>
     <kind value="page"/>
+    <page>
+      <source value="list.html"/>
+      <name value="Value Set Page"/>
+      <kind value="list"/>
+      <type value="ValueSet"/>
+      <package value="test"/>
+      <format value="text/html"/>
+    </page>
   </page>
 </ImplementationGuide>

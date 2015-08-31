@@ -7,6 +7,7 @@
     <fullUrl value="urn:uuid:d9d296d8-5afd-42e1-a0ce-3344e0e003ed"/>
     <resource>
       <MessageHeader>
+        <id value="caf609cf-c3a7-4be3-a3aa-356b9bb69d4f"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
@@ -15,7 +16,6 @@
            
           </div>
         </text>
-        <identifier value="caf609cf-c3a7-4be3-a3aa-356b9bb69d4f"/>
         <timestamp value="2015-07-14T11:15:33+10:00"/>
         <event>
           <system value="http://hl7.org/fhir/message-events"/>
@@ -24,6 +24,9 @@
         <response>
           <identifier value="efdd254b-0e09-4164-883e-35cf3871715f"/>
           <code value="ok"/>
+          <details>
+            <reference value="OperationOutcome/03f9aa7d-b395-47b9-84e0-053678b6e4e3"/>
+          </details>
         </response>
         <source>
           <endpoint value="http://acme.com/ehr/fhir"/>
@@ -31,6 +34,9 @@
         <destination>
           <endpoint value="http://example.org/clients/ehr-lite"/>
         </destination>
+        <receiver>
+          <reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
+        </receiver>
       <!--  this message is posted to http://acme.com/ehr/fhir, 
              with an event 'link' to link 2 patient records, and nominates
              2 patients on the server  -->
@@ -42,6 +48,27 @@
         </data>
       </MessageHeader>
     </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:03f9aa7d-b395-47b9-84e0-053678b6e4e3"/>
+    <resource>
+      <OperationOutcome>
+        <id value="03f9aa7d-b395-47b9-84e0-053678b6e4e3"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            MPI approval rating: 80%
+          </div>
+        </text>
+        <issue>
+          <severity value="information"/>
+          <code value="informational"/>
+          <details>
+            <text value="MPI approval rating: 80%"/>
+          </details>
+        </issue>
+      </OperationOutcome>
+    </resource>  
   </entry>
   <entry>
     <fullUrl value="http://acme.com/ehr/fhir/Patient/pat1"/>

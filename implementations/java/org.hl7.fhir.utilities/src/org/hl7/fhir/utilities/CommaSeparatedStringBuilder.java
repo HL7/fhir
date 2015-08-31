@@ -8,11 +8,19 @@ package org.hl7.fhir.utilities;
 public class CommaSeparatedStringBuilder {
 
   boolean first = true;
+  String sep = ", ";
   StringBuilder b = new StringBuilder();
+
+  public CommaSeparatedStringBuilder() {
+  }
+  
+  public CommaSeparatedStringBuilder(String sep) {
+    this.sep = sep;
+  }
 
   public void append(String value) {
     if (!first)
-      b.append(", ");
+      b.append(sep);
     b.append(value);
     first = false;    
     

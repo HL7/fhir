@@ -18,6 +18,7 @@
 <h1>Resource Formats</h1>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 <p>
+
 This page documents how the content of the resources are described. 
 In actual exchange, resources can be represented in the following
 formats: <a href="xml.html">XML</a> and <a href="json.html">JSON</a>. 
@@ -179,21 +180,63 @@ of the language. In XML schema, these become an xs:choice of element.
 The UML diagrams represent the same content as a series of classes that represent
 the elements of a resource. 
 </p>
-<p style="text-alignment: left">
-<%svg uml-example%>
-</p>
+
+<svg height="200.0" width="741.9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">  
+  <defs>
+    <filter id="shadow13" height="200%" width="200%" y="0" x="0">
+      <feOffset result="offOut" dx="3" dy="3" in="SourceGraphic"/>
+      <feColorMatrix result="matrixOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix" in="offOut"/>
+      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"/>
+      <feBlend in2="blurOut" in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+  <g>
+      <rect height="64.0" style="fill:#f0f8ff;stroke:black;stroke-width:1" width="213.2" filter="url(#shadow13)" rx="4" y="0.0" ry="4" x="190.0"/>
+      <line style="stroke:dimgrey;stroke-width:1" y1="28.0" y2="28.0" x2="403.2" x1="190.0"/>
+      <text fill="black" class="diagram-class-title" y="20.0" x="296.6">
+        <a xlink:href="#uml">NameA</a>
+      </text>
+      <text fill="black" class="diagram-class-detail" y="42.0" x="196.0">
+        <a xlink:href="datatypes-definitions.html#Timing.event">
+          <title>Documentation</title>element</a> : <a xlink:href="#uml">[type]</a> [0..*]</text>
+      <text fill="black" class="diagram-class-detail" y="56.0" x="196.0">
+        <a xlink:href="datatypes-definitions.html#Timing.code">
+          <title>Documentation</title>nameB</a> : <a xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a xlink:href="#uml">
+          <title>Value Set Description (Strength=Preferred)</title>Value Set Name</a>? »</text><g>
+        <rect height="65.0" style="fill:#f0f8ff;stroke:black;stroke-width:1" width="241.89999999999998" filter="url(#shadow13)" rx="4" y="110.0" ry="4" x="200.0"/>
+        <line style="stroke:dimgrey;stroke-width:1" y1="138.0" y2="138.0" x2="441.9" x1="200.0"/>
+        <text fill="black" class="diagram-class-title" y="130.0" x="320.95">NameC</text>
+        <text fill="black" class="diagram-class-detail" y="152.0" x="206.0">
+          <a xlink:href="datatypes-definitions.html#Timing.repeat.bounds_x_">
+            <title>Documentation</title>value[x]</a> : <a xlink:href="formats.html#umlchoice">Type</a> [0..1] « <a xlink:href="#uml">Type1</a>|<a xlink:href="#uml">Type2</a>|<a xlink:href="#">Type3</a> »</text>
+        <text fill="black" class="diagram-class-detail" y="166.0" x="206.0">
+          <a xlink:href="#uml">
+            <title>Docuementation</title>reference</a> : <a xlink:href="references.html">Reference</a> [0..1] « <a xlink:href="#uml">Resource1</a>|<a xlink:href="#uml">Resource2</a> »</text>
+    </g>
+  </g>
+  <line style="stroke:navy;stroke-width:1" y1="64.0" y2="110.0" x2="307.578612716763" x1="301.1040462427746"/>
+  <polygon transform="rotate(81.98816698671709 301.1040462427746 64.0)" style="fill:navy;stroke:navy;stroke-width:1" points="301.1040462427746,64.0 307.1040462427746,68.0 313.1040462427746,64.0 307.1040462427746,60.0 301.1040462427746,64.0"/>
+  <rect height="18.0" style="fill:white;stroke:black;stroke-width:0" width="24.0" y="80.0" x="292.0"/>
+  <text fill="black" class="diagram-class-linkage" y="90.0" x="304.0">
+    <a xlink:href="datatypes-definitions.html#Timing.repeat">
+      <title>Documentation</title>nameC</a>
+  </text>
+  <text fill="black" class="diagram-class-linkage" y="106.0" x="307.578612716763">[0..1]</text>
+</svg>
+
 <p>
-Where an element can have a choice of data types, these are represented by listing the type names separated by the "|" character. 
 The elements and types are links to the formal definitions of the parts. The UML diagrams also show the 
 bindings, and these are hyperlinks to the value set details.
 </p>
+<a name="umlchoice"> </a>
 <p>
-These UML diagrams are intended to communicate the contents of the resource
-to a human, and are not suitable for code generation using standard UML code 
-generation tools (see the <a href="downloads.html">eCore reference implementation</a> for UML related code generation). 
+Where an element can have a choice of data types, or is a <a href="references.html">Reference</a> these are 
+represented by showing the common type ("Reference" or "Type"), and then showing the applicable type names or 
+resource types in a stereotype, separated by the "|" character. "Type" is not formally otherwise defined by
+this specification, but is a super type of all the data types. 
 </p>
 <p>
-The actual order of the elements in XML cannot be determined from the diagram, nor whether a UML property becomes an element or an attribute. 
+The actual order of the elements in XML cannot be determined from the diagram, nor whether a UML property becomes an element or an attribute in the XML representation. 
 </p>
 
 <a name="wire"> </a>

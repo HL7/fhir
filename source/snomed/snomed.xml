@@ -1999,6 +1999,11 @@
     <display value="5-FU"/>
     <display value="Fluorouracil (substance)"/>
   </concept>
+  <concept id="314079002" display="Hyperlipidemia screening test (procedure)">
+    <display value="Hyperlipidaemia screening test"/>
+    <display value="Hyperlipidemia screening test"/>
+    <display value="Hyperlipidemia screening test (procedure)"/>
+  </concept>
   <concept id="315619001" display="Family history of myocardial infarction in male relative of first degree, age known (situation)">
     <display value="Family history of myocardial infarction in male relative of first degree, age known (situation)"/>
     <display value="Family history of myocardial infarction in male relative of first degree, age known"/>

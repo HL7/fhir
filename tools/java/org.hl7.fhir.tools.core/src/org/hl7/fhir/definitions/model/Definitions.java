@@ -57,6 +57,20 @@ import org.hl7.fhir.instance.model.ValueSet;
  */
 public class Definitions {
 
+  public class NamespacePair {
+
+    public String desc;
+    public String page;
+    private boolean notUnique;
+
+    public NamespacePair(String desc, String page, boolean notUnique) {
+      this.desc = desc;
+      this.page = page;
+      this.notUnique = notUnique;
+    }
+
+  }
+
   public class PageInformation {
 
     private String fmm;
@@ -160,6 +174,8 @@ public class Definitions {
   private Map<String, String> typePages = new HashMap<String, String>();
   private Map<String, String> pageTitles = new HashMap<String, String>();
   private Map<String, Set<String>> searchRules = new HashMap<String, Set<String>>();
+  private Map<String, NamespacePair> redirectList = new HashMap<String, NamespacePair>();
+  
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -668,5 +684,30 @@ public class Definitions {
     this.loaded = loaded;
   }
 
+  public void addNs(String url, String name, String page) throws Exception {
+    addNs(url, name, page, false);
+  }
   
+  public void addNs(String url, String name, String page, boolean notUnique) throws Exception {
+    if (!url.startsWith("http://hl7.org/fhir")) 
+      throw new Exception("namespace wrong: "+url);  
+    else if (redirectList == null) 
+      throw new Exception("namespace missed the boat");  
+    else if (!redirectList.containsKey(url)) 
+      redirectList.put(url, new NamespacePair(name, page, notUnique));
+    else if (!notUnique) {
+      if (redirectList.get(url).notUnique)
+        redirectList.put(url, new NamespacePair(name, page, notUnique));
+      else if (!redirectList.get(url).page.equals(page))
+        throw new Exception("namespace conflict: "+url+", page "+page+" vs "+redirectList.get(url).page);
+    }
+  }
+
+  public Map<String, NamespacePair> getRedirectList() {
+    return redirectList;
+  }
+  
+  public void clearRedirectList() {
+    redirectList = null;
+  }
 }
