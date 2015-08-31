@@ -2,6 +2,10 @@
 <!--Authored by Joginder Madra-->
 <Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\immunization.xsd">
 	<id value="example"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"/>
+	</identifier>
 	<status value="completed"/>
 	<date value="2013-01-10"/>
 	<vaccineCode>
@@ -19,6 +23,84 @@
 	<performer>
 		<reference value="Practitioner/example"/>
 	</performer>
+	<requester>
+		<reference value="Practitioner/example"/>
+	</requester>
+	<encounter>
+		<reference value="Encounter/example"/>
+	</encounter>
+	<manufacturer>
+		<reference value="Organization/hl7"/>
+	</manufacturer>
+	<location>
+		<reference value="Location/1"/>
+	</location>
 	<lotNumber value="AAJN11K"/>
 	<expirationDate value="2015-02-15"/>
+	<site>
+		<coding>
+			<system value="http://hl7.org/fhir/v3/ActSite"/>
+			<code value="LA"/>
+			<display value="left arm"/>
+		</coding>
+	</site>
+	<route>
+		<coding>
+			<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
+			<code value="IM"/>
+			<display value="Injection, intramuscular"/>
+		</coding>
+	</route>
+	<doseQuantity>
+		<value value="5"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="mg"/>
+	</doseQuantity>
+	<note>
+		<text value="Notes on adminstration of vaccine"/>
+	</note>
+	<explanation>
+		<reason>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="429060002"/>
+			</coding>
+		</reason>
+	</explanation>
+	<reaction>
+		<date value="2013-01-10"/>
+		<detail>
+			<reference value="Observation/example"/>
+		</detail>
+		<reported value="true"/>
+	</reaction>
+	<vaccinationProtocol>
+		<doseSequence value="1"/>
+		<description value="Vaccination Protocol Sequence 1"/>
+		<authority>
+			<reference value="Organization/hl7"/>
+		</authority>
+		<series value="Vaccination Series 1"/>
+		<seriesDoses value="2"/>
+		<targetDisease>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="1857005"/>
+			</coding>
+		</targetDisease>
+		<doseStatus>
+			<coding>
+				<system value="http://hl7.org/fhir/vaccination-protocol-dose-status"/>
+				<code value="count"/>
+				<display value="Counts"/>
+			</coding>
+		</doseStatus>
+		<doseStatusReason>
+			<coding>
+				<system value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>
+				<code value="coldchbrk"/>
+				<display value="Cold chain break"/>
+			</coding>
+		</doseStatusReason>
+	</vaccinationProtocol>
 </Immunization>
