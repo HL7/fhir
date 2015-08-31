@@ -38,9 +38,6 @@
         <display value="Prescribed"/>
       </coding>
     </flag>
-    <flag>
-      <text value="Review required"/>
-    </flag>
     <item> 
       <display value="hydroxocobalamin"/>
     </item>

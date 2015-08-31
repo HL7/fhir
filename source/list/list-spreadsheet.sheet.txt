@@ -238,11 +238,11 @@
 
  -- Row 14 -----------------------------------
   Element = List.entry.flag
-  Card. = 0..*
+  Card. = 0..1
   Type = CodeableConcept
   Binding = ListItemFlag
-  Short Label = Workflow information about this item
-  Definition = The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list
+  Short Label = Status/Workflow information about this item
+  Definition = The flag allows the system constructing the list to indicate the role and significance of the item in the list
   Requirements = This field is present to support various clinical uses of lists, such as a discharge summary medication list, where flags specify whether the medication was added, modified, or deleted from the list
   Comments = The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Deleted can only be used if the List.mode is \"changes\"
   RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
