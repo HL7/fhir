@@ -300,6 +300,7 @@ signatures.html
 			<page type="resource" resource="ProfessionalClaim"/> -->
 <!--			<page type="resource" resource="SupportingDocumentation"/> -->
 <!--			<page type="resource" resource="VisionClaim"/> -->
+			<page type="resource" resource="Contract"/>
 		</page>
 	</page>
 </fhir>

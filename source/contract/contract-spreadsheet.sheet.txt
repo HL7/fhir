@@ -68,6 +68,7 @@
   Short Label = Contract
   Definition = A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
   RIM Mapping = FinancialContract
+  w5 = financial.other
 
  -- Row 2 -----------------------------------
   Element = Contract.identifier

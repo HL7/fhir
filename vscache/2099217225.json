@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:0df8653d-23a1-44ec-beea-2e52b0bab37d","timestamp":"2015-08-31T19:59:46Z","contains":[{"system":"http://snomed.info/sct","code":"429060002","display":"Procedure to meet occupational requirement (procedure)"},{"system":"http://snomed.info/sct","code":"281657000","display":"Travel vaccinations (procedure)"}]}}
