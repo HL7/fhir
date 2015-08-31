@@ -72,6 +72,7 @@
 
  -- Row 1 -----------------------------------
   Element = Group
+  UML = 0;0
   Type = DomainResource
   Short Label = Group of multiple entities
   Definition = Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn\'t an Organization
@@ -150,7 +151,7 @@
  -- Row 8 -----------------------------------
   Element = Group.characteristic
   Card. = 0..*
-  UML = right
+  UML = 300;0
   Short Label = Trait of group members
   Definition = Identifies the traits shared by members of the group
   Requirements = Needs to be a generic mechanism for identifying what individuals can be part of a group
@@ -199,6 +200,7 @@
  -- Row 13 -----------------------------------
   Element = Group.member
   Card. = 0..*
+  UML = 200;180
   Inv. = 1
   Short Label = Who or what is in group
   Definition = Identifies the resource instances that are members of the group.

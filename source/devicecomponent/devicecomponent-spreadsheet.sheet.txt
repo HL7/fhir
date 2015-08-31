@@ -90,6 +90,7 @@
 
  -- Row 1 -----------------------------------
   Element = DeviceComponent
+  UML = 0;0
   Type = DomainResource
   Short Label = An instance of a medical-related component of a medical device
   Definition = Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
@@ -162,7 +163,7 @@
  -- Row 10 -----------------------------------
   Element = DeviceComponent.productionSpecification
   Card. = 0..*
-  UML = right
+  UML = 420;50
   Short Label = Production specification of the component
   Definition = Describes the production specification such as component revision, serial number, etc.
 

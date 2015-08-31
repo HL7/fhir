@@ -850,6 +850,8 @@ public class SvgGenerator extends BaseGenerator {
     BindingSpecification b = e.getBinding();
     if (e.hasBinding() && b.getBinding() != BindingMethod.Unbound) {
       String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName();
+      if (name.toLowerCase().endsWith(" codes"))
+        name = name.substring(0, name.length()-5);
       if (name.length() > 30)
         name = name.substring(0, 29)+"...";
       if (b.getStrength() == BindingStrength.EXAMPLE)
@@ -977,6 +979,8 @@ public class SvgGenerator extends BaseGenerator {
       if (hasBinding) {
         BindingSpecification b = e.getBinding();
         String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName();
+        if (name.toLowerCase().endsWith(" codes"))
+          name = name.substring(0, name.length()-5);
         if (name.length() > 30)
           name = name.substring(0, 29)+"...";
         String link = getBindingLink(prefix, e);

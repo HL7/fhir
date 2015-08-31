@@ -152,7 +152,7 @@
  -- Row 11 -----------------------------------
   Element = Practitioner.practitionerRole
   Card. = 0..*
-  UML = right
+  UML = 400;20
   Short Label = The list of Roles/Organizations that the Practitioner is associated with
   RIM Mapping = .(Role)
 
@@ -223,7 +223,7 @@
  -- Row 18 -----------------------------------
   Element = Practitioner.qualification
   Card. = 0..*
-  UML = right
+  UML = 380;180
   Short Label = Qualifications obtained by training and certification
   v2 Mapping = CER?
   RIM Mapping = ./indirectAuthority/QualifiedEntity[code < qualifiedEntity]

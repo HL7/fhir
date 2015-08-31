@@ -130,6 +130,7 @@
 
  -- Row 1 -----------------------------------
   Element = HealthcareService
+  UML = 0;0
   Type = DomainResource
   Short Label = The details of a Healthcare Service available at a location
   w5 = administrative.group
@@ -172,7 +173,7 @@
   Element = HealthcareService.serviceType
   Card. = 0..*
   Summary = Y
-  UML = right
+  UML = 350;0
   Type = =ServiceType
   Short Label = A specific type of service that may be delivered or performed
 
@@ -293,7 +294,7 @@
  -- Row 23 -----------------------------------
   Element = HealthcareService.availableTime
   Card. = 0..*
-  UML = right
+  UML = 380;100
   Short Label = A Collection of times that the Service Site is available
   Comments = More detailed availability information may be provided in associated Schedule/Slot resources.
 
@@ -328,7 +329,7 @@
  -- Row 28 -----------------------------------
   Element = HealthcareService.notAvailable
   Card. = 0..*
-  UML = right
+  UML = 400;250
   Short Label = The HealthcareService is not available during this period of time due to the provided reason
 
  -- Row 29 -----------------------------------

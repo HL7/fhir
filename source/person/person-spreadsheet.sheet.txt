@@ -39,6 +39,7 @@
 
  -- Row 1 -----------------------------------
   Element = Person
+  UML = 0;0
   Type = DomainResource
   Short Label = A generic person record
   Definition = Demographics and administrative information about a person independent of a specific health-related context
@@ -226,7 +227,7 @@
  -- Row 17 -----------------------------------
   Element = Person.link
   Card. = 0..*
-  UML = 300;90
+  UML = 350;40
   Short Label = Link to a resource that concerns the same actual person
   RIM Mapping = outboundLink
 
