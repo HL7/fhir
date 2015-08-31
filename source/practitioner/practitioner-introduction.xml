@@ -17,6 +17,7 @@ Practitioners include (but are not limited to):
 <li>social workers, professional home carers, official volunteers</li>
 <li>receptionists handling patient registration</li>
 <li>IT personnel merging or unmerging patient records</li>
+<li>Service animal (e.g. Ward assigned dog capable of detecting cancer in patients)</li>
 </ul>
 </div>
 
@@ -26,7 +27,22 @@ Practitioners include (but are not limited to):
 <p>
 The Resource SHALL NOT be used for persons involved without a formal responsibility like individuals taking care for friends, 
 relatives or neighbors. These can be registered as a Patient's Contact.  If performing some action or being referenced by another
-resource, use <a href="relatedperson.html">RelatedPerson</a>.
+resource, use the <a href="relatedperson.html">RelatedPerson</a> resource.
+</p>
+<p>
+	The primary distinction between a Practitioner and a RelatedPerson is based on whether:
+</p>
+<ul>
+<li>
+	The person/animal operates on behalf of the care delivery organization over multiple patients (Practitioner) or,
+</li>
+<li>
+	Where the person/animal is not associated with the organization, and instead is
+	allocated tasks specifically for the RelatedPerson's Patient (RelatedPerson).
+</li>
+</ul>
+<p>
+	A standard extension <b>animalSpecies</b> can be used to indicate the species of a service animal.
 </p>
 </div>
 
