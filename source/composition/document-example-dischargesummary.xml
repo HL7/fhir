@@ -472,7 +472,7 @@
         </substance>
         <status value="confirmed"/>
         <criticality value="CRITH"/>
-        <type value="immune"/>
+        <type value="allergy"/>
         <reaction>
           <manifestation>
             <coding>

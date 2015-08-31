@@ -1,10 +1,10 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-A record of a clinical assessment of an Allergy or Intolerance; a propensity, or a potential risk 
+A record of a clinical assessment of an allergy or intolerance; a propensity, or a potential risk 
 to an individual, to have an adverse reaction on future exposure to the specified substance, or class 
 of substance. 
 </p>
@@ -64,12 +64,12 @@ Use to record information about Adverse Reactions to a broad range of substances
 Adverse reactions may be:
 </p>
 <ul>
-<li>an immune mediated reaction - Types I-VI (including allergic reactions and hypersensitivities)</li>
-<li>a non-immune mediated reaction - including pseudoallergic reactions, side effects, intolerances, drug 
-  toxicities (eg to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions</li>
+<li>an allergy (immune mediated reaction - most commonly type I hypersensitivity)</li>
+<li>an intolerance (non-immune mediated reaction) - including pseudoallergic reactions, side effects, drug 
+  toxicities (e.g., to gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions</li>
 </ul>
 <p>
-In clinical practice distinguishing between immune-mediated and non-immune mediated reactions is difficult and often 
+In clinical practice distinguishing between allergic (immune-mediated) and intolerance (non-immune mediated) reactions is difficult and often 
 not practical. Identification of the type of reaction is not a proxy for seriousness or risk of harm to the patient, 
 which is better expressed by the manifestation in clinical practice.
 </p>
