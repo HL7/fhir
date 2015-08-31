@@ -382,11 +382,13 @@
  -- Row 19 -----------------------------------
   Element = Encounter.reason
   Card. = 0..*
+  Aliases = Indication, Admission diagnosis
   Summary = y
   Type = CodeableConcept
   Binding = EncounterReason
   Short Label = Reason the encounter takes place (code)
-  Definition = Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.
+  Definition = Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis
+  Comments = For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)
   v2 Mapping = EVN-4-event reason code / PV2-3-admit reason (note: PV2-3 is nominally constrained to inpatient admissions; V2.x makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )
   RIM Mapping = .reasonCode
   w5 = why
@@ -395,9 +397,10 @@
   Element = Encounter.indication
   Card. = 0..*
   Aliases = Admission diagnosis
-  Type = Reference(Any)
+  Type = Reference(Condition|Procedure)
   Short Label = Reason the encounter takes place (resource)
   Definition = Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure
+  Comments = For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)
   v2 Mapping = Resources that would commonly referenced at Encounter.indication would be Condition and/or Procedure. These most closely align with DG1/PRB and PR1 respectively.
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
@@ -560,7 +563,8 @@
   Card. = 0..*
   UML = 0;150
   Short Label = List of locations the patient has been at
-  Definition = List of locations at which the patient has been
+  Definition = List of locations at which the patient has been during this encounter
+  Comments = Virtual encounters can be recorded in the ancounter by specifying a location reference to a location of type \"kind\" such as \"client\'s home\" and an ecnounter.class = \"virtual\"
   RIM Mapping = .participation[typeCode=LOC]
 
  -- Row 40 -----------------------------------
@@ -652,55 +656,67 @@
   Path = Encounter.indication
 
  -- Row 9 -----------------------------------
+  Name = condition
+  Type = reference
+  Path = Encounter.indication
+  Target Types = Condition
+
+ -- Row 10 -----------------------------------
+  Name = procedure
+  Type = reference
+  Path = Encounter.indication
+  Target Types = Procedure
+
+ -- Row 11 -----------------------------------
   Name = location
   Type = reference
   Path = Encounter.location.location
   Target Types = Location
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = location-period
   Type = date
   Path = Encounter.location.period
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = type
   Type = token
   Path = Encounter.type
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = special-arrangement
   Type = token
   Path = Encounter.hospitalization.specialArrangement
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = part-of
   Type = reference
   Path = Encounter.partOf
   Target Types = Encounter
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = participant
   Type = reference
   Path = Encounter.participant.individual
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = participant-type
   Type = token
   Path = Encounter.participant.type
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = episodeofcare
   Type = reference
   Path = Encounter.episodeOfCare
   Target Types = EpisodeOfCare
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = incomingreferral
   Type = reference
   Path = Encounter.incomingReferral
   Target Types = ReferralRequest
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = practitioner
   Type = reference
   Path = Encounter.participant.individual
@@ -723,42 +739,48 @@
   Filename = encounter-example.xml
 
  -- Row 2 -----------------------------------
+  Name = example-home
+  Identity = home
+  Description = Encounter example - virtual encounter
+  Filename = encounter-example-home.xml
+
+ -- Row 3 -----------------------------------
   Name = April 4th 2013
   Identity = f201
   Description = Real-world encounter example
   Filename = encounter-example-f201-20130404.xml
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = January 28th 2013
   Identity = f202
-  Description = Real-world encounter example
+  Description = Real-world encounter example (with primaryDiagnosis extension added)
   Filename = encounter-example-f202-20130128.xml
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = March 11th 2013
   Identity = f203
   Description = Real-world encounter example
   Filename = encounter-example-f203-20130311.xml
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = Heart
   Identity = f001
   Description = Real-world encounter example
   Filename = encounter-example-f001-heart.xml
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = Lung
   Identity = f002
   Description = Real-world encounter example
   Filename = encounter-example-f002-lung.xml
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = Abscess
   Identity = f003
   Description = Real-world encounter example
   Filename = encounter-example-f003-abscess.xml
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = XCDA
   Identity = xcda
   Description = for Clinical Document example patient

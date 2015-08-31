@@ -32,6 +32,9 @@
         <code value="min" />
     </length>
     <reason>
+		<extension url="http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis">
+			<valuePositiveInt value="1"/>
+		</extension>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="18099001"/>

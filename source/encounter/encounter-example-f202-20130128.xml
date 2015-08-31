@@ -30,9 +30,15 @@
     <code value="258701004"/>
  </length>
  <reason>
+		<extension url="http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis">
+			<valuePositiveInt value="2"/>
+		</extension>
    <text value="The patient is treated for a tumor."/>
  </reason>
  <indication>
+		<extension url="http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis">
+			<valuePositiveInt value="1"/>
+		</extension>
      <reference value="Procedure/f201"/>
      <display value="Roel's TPF chemotherapy on January 28th, 2013"/>
  </indication>
