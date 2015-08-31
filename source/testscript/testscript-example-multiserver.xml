@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/testscript.xsd">
+<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
 	<id value="multiserver"/>
 	<text><status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: multiserver</p><p><b>name</b>: Multiserver Test Script</p><p><b>description</b>: Multiserver Test Script</p><h3>Fixtures</h3><table><tr><td>-</td><td><b>Resource</b></td></tr><tr><td>*</td><td><a>Patient/patient-example.xml</a></td></tr></table><blockquote><p><b>setup</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>ContentType</b></td><td><b>Destination</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>create</td><td>xml</td><td>0</td><td>F1</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Read Patient</p><p><b>description</b>: Read the patient from server 0.</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/implement/standards/FHIR-Develop/patient.html</a></td><td>FHIR Patient</td></tr></table><blockquote><p><b>operation</b></p><p><b>type</b>: create</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Create Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#create</a></p><p><b>required</b>: true</p></blockquote><blockquote><p><b>operation</b></p><p><b>type</b>: read</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Read Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#read</a></p><p><b>validated</b>: true</p></blockquote></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Write Patient</p><p><b>description</b>: Write the patient read from server 0 to server 1.</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/implement/standards/FHIR-Develop/patient.html</a></td><td>FHIR Patient</td></tr></table><blockquote><p><b>operation</b></p><p><b>type</b>: create</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Create Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#create</a></p><p><b>required</b>: true</p></blockquote><blockquote><p><b>operation</b></p><p><b>type</b>: read</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Read Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#read</a></p><p><b>validated</b>: true</p></blockquote></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Update Patient</p><p><b>description</b>: Update the patient on server 0 with the one read from server 1.</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/implement/standards/FHIR-Develop/patient.html</a></td><td>FHIR Patient</td></tr></table><blockquote><p><b>operation</b></p><p><b>type</b>: create</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Create Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#create</a></p><p><b>required</b>: true</p></blockquote><blockquote><p><b>operation</b></p><p><b>type</b>: read</p><p><b>resource</b>: Patient</p><p><b>description</b>: Patient Read Operation</p><p><b>link</b>: <a>http://hl7.org/implement/standards/FHIR-Develop/http.html#read</a></p><p><b>validated</b>: true</p></blockquote></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>teardown</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div></text>
     <url value="http://hl7.org/fhir/TestScript/multiserver"/>
@@ -9,7 +9,7 @@
 	<multiserver value="true"/>
 	<fixture id="F1">
 		<resource>	
-			<reference value="Patient/patient-example.xml"/>
+			<reference value="Patient/example"/>
 		</resource>
 	</fixture>
 	<setup>
@@ -18,14 +18,14 @@
 				<url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
 				<description value="FHIR Patient"/>
 			</link>			
-			<capabilities>
+			<capability>
 				<required value="true"/>
 				<description value="Patient Create Operation"/>
 				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
 				<conformance>
-					<reference value="Conformance/PatientCreate.xml" />
+					<reference value="Conformance/example" />
 				</conformance>
-			</capabilities>			
+			</capability>			
 		</metadata>		
 		<action>
 			<operation>
@@ -42,14 +42,14 @@
 		<name value="Read Patient"/>
 		<description value="Read the patient from server 0."/>
 		<metadata>
-			<capabilities>
+			<capability>
 				<validated value="true"/>
 				<description value="Patient Read Operation"/>
 				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
 				<conformance>
-					<reference value="Conformance/PatientRead.xml" />
+					<reference value="Conformance/example" />
 				</conformance>
-			</capabilities>			
+			</capability>			
 		</metadata>				
 		<action>
 			<operation>
@@ -91,22 +91,22 @@
 		<name value="Write Patient"/>
 		<description value="Write the patient read from server 0 to server 1."/>
 		<metadata>
-			<capabilities>
+			<capability>
 				<validated value="true"/>
 				<description value="Patient Create Operation"/>
 				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
 				<conformance>
-					<reference value="Conformance/PatientCreate.xml" />
+					<reference value="Conformance/example" />
 				</conformance>
-			</capabilities>				
-			<capabilities>
+			</capability>				
+			<capability>
 				<validated value="true"/>
 				<description value="Patient Read Operation"/>
 				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
 				<conformance>
-					<reference value="Conformance/PatientRead.xml" />
+					<reference value="Conformance/example" />
 				</conformance>
-			</capabilities>			
+			</capability>			
 		</metadata>				
 		<action>
 			<operation>
@@ -173,14 +173,14 @@
 		<name value="Update Patient"/>
 		<description value="Update the patient on server 0 with the one read from server 1."/>
 		<metadata>
-			<capabilities>
+			<capability>
 				<validated value="true"/>
 				<description value="Patient Update Operation"/>
 				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
 				<conformance>
-					<reference value="Conformance/PatientUpdate.xml" />
+					<reference value="Conformance/example" />
 				</conformance>
-			</capabilities>			
+			</capability>			
 		</metadata>			
 		<action>
 			<operation>
