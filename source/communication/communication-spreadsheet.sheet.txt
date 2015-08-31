@@ -78,7 +78,7 @@
  -- Row 5 -----------------------------------
   Element = Communication.recipient
   Card. = 0..*
-  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)
   Short Label = Message recipient
   Definition = The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication.
   w5 = who.focus
@@ -95,7 +95,7 @@
   Card. = 1..1
   Type = string|Attachment|Reference(Any)
   Short Label = Message part content
-  Definition = An individual message part for multi-part messages.
+  Definition = The communicated content (or for multi-part communications, one portion of the communication)
 
  -- Row 8 -----------------------------------
   Element = Communication.medium

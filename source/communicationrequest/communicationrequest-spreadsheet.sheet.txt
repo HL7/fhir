@@ -125,7 +125,7 @@
   Card. = 1..1
   Type = string|Attachment|Reference(Any)
   Short Label = Message part content
-  Definition = An individual message part for multi-part messages
+  Definition = The communicated content (or for multi-part communications, one portion of the communication)
 
  -- Row 8 -----------------------------------
   Element = CommunicationRequest.medium
@@ -161,9 +161,9 @@
   w5 = context
 
  -- Row 12 -----------------------------------
-  Element = CommunicationRequest.scheduledTime
+  Element = CommunicationRequest.scheduled[x]
   Card. = 0..1
-  Type = dateTime
+  Type = dateTime|Period
   Short Label = When scheduled
   Definition = The time when this communication is to occur.
   w5 = when.planned
@@ -176,7 +176,7 @@
   Definition = The reason or justification for the communication request.
 
  -- Row 14 -----------------------------------
-  Element = CommunicationRequest.orderedOn
+  Element = CommunicationRequest.requestedOn
   Card. = 0..1
   Type = dateTime
   Short Label = When ordered or proposed
@@ -243,12 +243,12 @@
  -- Row 9 -----------------------------------
   Name = time
   Type = date
-  Path = CommunicationRequest.scheduledTime
+  Path = CommunicationRequest.scheduledDateTime
 
  -- Row 10 -----------------------------------
-  Name = ordered
+  Name = requested
   Type = date
-  Path = CommunicationRequest.orderedOn
+  Path = CommunicationRequest.requestedOn
 
  -- Row 11 -----------------------------------
   Name = subject

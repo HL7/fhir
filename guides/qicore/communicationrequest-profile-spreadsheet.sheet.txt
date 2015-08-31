@@ -85,7 +85,7 @@
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
 
  -- Row 12 -----------------------------------
-  Element = CommunicationRequest.orderedOn
+  Element = CommunicationRequest.requestedOn
   Must Support = Y
   QDM Mapping = start datetime, stop datetime
 
@@ -99,7 +99,7 @@
   QDM Mapping = reason
 
  -- Row 15 -----------------------------------
-  Element = CommunicationRequest.scheduledTime
+  Element = CommunicationRequest.scheduled[x]
   QDM Mapping = start datetime, stop datetime
 
 === Sheet Search =====================================
