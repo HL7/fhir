@@ -71,11 +71,11 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-causedBy}
 
  -- Row 7 -----------------------------------
-  Element = Procedure.NotPerformed
+  Element = !Procedure.NotPerformed
   Card. = 0..1
 
  -- Row 8 -----------------------------------
-  Element = Procedure.reasonNotPerformed
+  Element = !Procedure.reasonNotPerformed
   Card. = 0..1
   QDM Mapping = negation rationale
 
@@ -99,7 +99,7 @@
  -- Row 12 -----------------------------------
   Element = Procedure.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group)
 
  -- Row 13 -----------------------------------
   Element = Procedure.status
@@ -116,7 +116,7 @@
 
  -- Row 16 -----------------------------------
   Element = Procedure.performer.actor
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | \nReference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
 
  -- Row 17 -----------------------------------
   Element = Procedure.performer.role

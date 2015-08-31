@@ -83,7 +83,7 @@
  -- Row 8 -----------------------------------
   Element = Goal.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group) | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
 
  -- Row 9 -----------------------------------
   Element = Goal.status
