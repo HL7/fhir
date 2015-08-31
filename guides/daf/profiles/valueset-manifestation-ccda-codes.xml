@@ -2,7 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/valueset-manifestation-ccda-codes.xml"/>
-  <name value="C-CDA Problems Value Set"/>
+  <name value="Manifestation C-CDA codes"/>
   <status value="draft"/>
   <publisher value="DAF Project team"/>
   <contact>
