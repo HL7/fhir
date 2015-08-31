@@ -63,6 +63,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  *
  */
 public class ProfileUtilities {
+
   private final boolean ADD_REFERENCE_TO_TABLE = true;
 
 
@@ -79,6 +80,7 @@ public class ProfileUtilities {
 
   private static final String DERIVATION_EQUALS = "derivation.equals";
   public static final String DERIVATION_POINTER = "derived.pointer";
+  public static final String IS_DERIVED = "derived.fact";
   public static final String UD_ERROR_STATUS = "error-status";
 
   private final IWorkerContext context;
@@ -266,6 +268,7 @@ public class ProfileUtilities {
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           updateFromBase(outcome, currentBase);
+          markDerived(outcome);
           result.getElement().add(outcome);
           baseCursor++;
         } else if (diffMatches.size() == 1) {// one matching element in the differential
@@ -432,6 +435,12 @@ public class ProfileUtilities {
         }
       }
     }
+  }
+
+
+  private void markDerived(ElementDefinition outcome) {
+    for (ElementDefinitionConstraintComponent inv : outcome.getConstraint())
+      inv.setUserData(IS_DERIVED, true);
   }
 
 
@@ -885,9 +894,11 @@ public class ProfileUtilities {
       }
 
       // todo: constraints are cumulative. there is no replacing
+      for (ElementDefinitionConstraintComponent s : base.getConstraint()) 
+        s.setUserData(IS_DERIVED, true);
       if (derived.hasConstraint()) {
       	for (ElementDefinitionConstraintComponent s : derived.getConstraint()) {
-      	  base.getConstraint().add(s);
+      	  base.getConstraint().add(s.copy());
       	}
       }
     }
@@ -960,9 +971,9 @@ public class ProfileUtilities {
           children.add(ted);
       }
 
-    r.getCells().add(gen.new Cell("", "", "Extension", null, null));
+      r.getCells().add(gen.new Cell("", "", "Extension", null, null));
       r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
-
+      
       for (ElementDefinition c : children) {
         ElementDefinition ved = getValueFor(ed, c);
         ElementDefinition ued = getUrlFor(ed, c);
@@ -1033,7 +1044,7 @@ public class ProfileUtilities {
           types.add(tt);
         }
       } else
-      return c;
+        return c;
     }
 
     boolean first = true;
@@ -1264,7 +1275,7 @@ public class ProfileUtilities {
           if ("0".equals(element.getMax()))
             row.getCells().add(gen.new Cell());            
           else
-          genTypes(gen, pkp, row, element, profileBaseFileName, profile, corePath);
+            genTypes(gen, pkp, row, element, profileBaseFileName, profile, corePath);
           generateDescription(gen, row, element, null, used.used, null, null, pkp, profile, corePath);
         }
       } else {
@@ -1277,7 +1288,7 @@ public class ProfileUtilities {
       }
       if (element.hasSlicing()) {
         if (standardExtensionSlicing(element)) {
-          used.used = false;
+          used.used = element.hasType() && element.getType().get(0).hasProfile();
           showMissing = false;
         } else {
           row.setIcon("icon_slice.png", HeirarchicalTableGenerator.TEXT_ICON_SLICE);
@@ -1773,7 +1784,7 @@ public class ProfileUtilities {
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws Exception {
     if (!structure.hasConstrainedType())
       throw new Exception("not the right kind of structure to generate schematrons for");
-      if (!structure.hasSnapshot())
+    if (!structure.hasSnapshot())
       throw new Exception("needs a snapshot");
 
   	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBase());
@@ -1787,43 +1798,94 @@ public class ProfileUtilities {
     // we assume that the resource is valid against the schematrons on
     // the underlying resource
     ElementDefinition ed = structure.getSnapshot().getElement().get(0);
-    generateForChildren(txt, "f:"+ed.getName(), ed, structure, base);
+    generateForChildren(txt, "f:"+ed.getPath(), ed, structure, base);
     txt.ln_o("</sch:schema>");
     txt.flush();
     txt.close();
 
   }
 
+  private class Slicer extends ElementDefinitionSlicingComponent {
+    String criteria = "";
+    String name = "";   
+    boolean check;
+    public Slicer(boolean cantCheck) {
+      super();
+      this.check = cantCheck;
+    }
+  }
+  
+  private Slicer generateSlicer(ElementDefinition child, ElementDefinitionSlicingComponent slicing, StructureDefinition structure) {
+    // given a child in a structure, it's sliced. figure out the slicing xpath
+    if (child.getPath().endsWith(".extension")) {
+      ElementDefinition ued = getUrlFor(structure, child);
+      if ((ued == null || !ued.hasFixed()) && !(child.getType().get(0).hasProfile()))
+        return new Slicer(false);
+      else {
+      Slicer s = new Slicer(true);
+      String url = (ued == null || !ued.hasFixed()) ? child.getType().get(0).getProfile().get(0).asStringValue() : ((UriType) ued.getFixed()).asStringValue();
+      s.name = " with URL = '"+url+"'";
+      s.criteria = "[@url = '"+url+"']";
+      return s;
+      }
+    } else
+      return new Slicer(false);
+  }
 
   private void generateForChildren(TextStreamWriter txt, String xpath, ElementDefinition ed, StructureDefinition structure, StructureDefinition base) throws IOException {
   	boolean started = false;
     //    generateForChild(txt, structure, child);
     List<ElementDefinition> children = getChildList(structure, ed);
+    String sliceName = null;
+    ElementDefinitionSlicingComponent slicing = null;
     for (ElementDefinition child : children) {
       String name = tail(child.getPath());
+      if (child.hasSlicing()) {
+        sliceName = name;
+        slicing = child.getSlicing();        
+      } else if (!name.equals(sliceName))
+        slicing = null;
+      
       ElementDefinition based = getByPath(base, child.getPath());
       boolean doMin = (child.getMin() > 0) && (based == null || (child.getMin() != based.getMin()));
       boolean doMax =  !child.getMax().equals("*") && (based == null || (!child.getMax().equals(based.getMax())));
-      if (doMin || doMax) {
-      	if (!started) {
-        	txt.ln_i("<sch:pattern>");
+      Slicer slicer = slicing == null ? new Slicer(true) : generateSlicer(child, slicing, structure);
+      if (slicer.check) {
+        if (doMin || doMax) {
+          if (!started) {
+            txt.ln_i("<sch:pattern>");
+            txt.ln("<sch:title>"+xpath+"</sch:title>");
+            started = true;
+          }
+          if (doMin) {
+            txt.ln_i("<sch:rule context=\""+xpath+"\">");
+            txt.ln("<sch:assert test=\"count(f:"+name+slicer.criteria+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+slicer.name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
+            txt.ln_o("</sch:rule>");
+          }
+          if (doMax) {
+            txt.ln_i("<sch:rule context=\""+xpath+"\">");
+            txt.ln("<sch:assert test=\"count(f:"+name+slicer.criteria+") &lt;= "+child.getMax()+"\">"+name+slicer.name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
+            txt.ln_o("</sch:rule>");
+          }
+        }
+      }
+      
+    }
+    for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
+      if (inv.hasXpath() && !inv.hasUserData(IS_DERIVED)) {
+        if (!started) {
+          txt.ln_i("<sch:pattern>");
           txt.ln("<sch:title>"+ed.getPath()+"</sch:title>");
           started = true;
-      	}
-      	if (doMin) {
-      		txt.ln_i("<sch:rule context=\""+xpath+"\">");
-        txt.ln("      <sch:assert test=\"count(f:"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
-      		txt.ln_o("</sch:rule>");
-      }
-      	if (doMax) {
-      		txt.ln_i("<sch:rule context=\""+xpath+"\">");
-        txt.ln("      <sch:assert test=\"count(f:"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
-      		txt.ln_o("</sch:rule>");
-      	}
+        }
+        txt.ln_i("<sch:rule context=\""+xpath+"\">");
+        txt.ln("<sch:assert test=\""+inv.getXpath()+"\">"+inv.getId()+": "+inv.getHuman()+"</sch:assert>");
+        txt.ln_o("</sch:rule>");
+        
       }
     }
     if (started)
-    txt.ln_o("  </sch:pattern>");
+      txt.ln_o("  </sch:pattern>");
     for (ElementDefinition child : children) {
       String name = tail(child.getPath());
       generateForChildren(txt, xpath+"/f:"+name, child, structure, base);
@@ -1831,7 +1893,9 @@ public class ProfileUtilities {
   }
 
 
-	private ElementDefinition getByPath(StructureDefinition base, String path) {
+
+
+  private ElementDefinition getByPath(StructureDefinition base, String path) {
 		for (ElementDefinition ed : base.getSnapshot().getElement()) {
 			if (ed.getPath().equals(path))
 				return ed;

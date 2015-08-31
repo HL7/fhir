@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Sun, Aug 30, 2015 16:16-0400 for FHIR v0.5.0
+// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
 
 public enum ResourceType {
     Account,

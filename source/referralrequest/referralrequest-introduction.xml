@@ -71,9 +71,13 @@ likely with a status of "proposed".  The <a href="careplan.html">CarePlan</a> re
 requests for combinations of services.  Likewise, ReferralRequest may be referenced as part of a CarePlan.
 </p>
 <p>
-Referrals may be targeted (identifying a specific Practitioner or Organization to perform the requested care) or untargeted
+A ReferralRequest may be targeted (identifying a specific Practitioner or Organization to perform the requested care) or untargeted
 (merely identifying the type of care desired).  The <a href="order.html">Order</a> and <a href="orderresponse.html">OrderResponse</a>
-resources may be used to help manage such workflows
+resources may be used to help manage such workflows.
+</p>
+<p>
+A ReferralRequest might be fulfilled by a <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="encounter.html">Encounter</a>,
+<a href="procedure.html">Procedure</a>,  or other assessment-related resource.
 </p>
 <p>
 A ReferralRequest should not be confused with an <a href="appointment.html">Appointment</a> as appointments are intended for 

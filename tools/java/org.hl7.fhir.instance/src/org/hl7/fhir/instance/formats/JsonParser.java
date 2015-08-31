@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Aug 30, 2015 16:16-0400 for FHIR v0.5.0
+// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -9063,6 +9063,10 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("specialty"))
@@ -22792,6 +22796,10 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }

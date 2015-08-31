@@ -297,7 +297,7 @@
   Type = Range | SimpleQuantity
   Short Label = Amount of medication per dose
   Definition = The amount of therapeutic or other substance given at one administration event.
-  Comments = Note that this specifies the quantity of the specified medication, not the quantity of active ingredient(s).  The prescribed strength can be calculated by multiplying the doseQuantity by the strength of each active ingredient in the prescribed Medication. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule.
+  Comments = Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug xyz. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
   v2 Mapping = RXE-23-Give Rate Amount / RXE-24.1-Give Rate Units.code / RXE-24.3-Give Rate Units.name of coding system
   RIM Mapping = doseQuantity
 
@@ -306,8 +306,8 @@
   Card. = 0..1
   Type = Ratio|Range
   Short Label = Amount of medication per unit of time
-  Definition = Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
-  Comments = It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, each change should be captured as a distinct \"dosage\" repetition, except for titration orders.
+  Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of \'1\' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours
+  Comments = It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationOrder with an updated rate, or captured with a new MedicationOrder with the new rate.
   v2 Mapping = RXE-22-Give Per (Time Unit)
   RIM Mapping = rateQuantity
 

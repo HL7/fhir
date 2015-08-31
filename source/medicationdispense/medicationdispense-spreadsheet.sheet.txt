@@ -339,8 +339,7 @@
   Card. = 0..1
   Type = Ratio|Range
   Short Label = Amount of medication per unit of time
-  Definition = Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
-  Comments = It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, each change should be captured as a distinct \"dosage\" repetition, except for titration orders.
+  Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of \'1\' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours
   v2 Mapping = RXE-22-Give Per (Time Unit)
   RIM Mapping = .rateQuantity
 
