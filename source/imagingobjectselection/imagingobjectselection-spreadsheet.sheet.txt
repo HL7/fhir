@@ -144,6 +144,7 @@
  -- Row 1 -----------------------------------
   Element = ImagingObjectSelection
   Aliases = Manifest, XDS-I summary, Key Images, KOS
+  UML = 0;0
   Type = DomainResource
   Short Label = Key Object Selection
   Definition = A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
@@ -159,8 +160,8 @@
   Short Label = Instance UID
   Definition = Instance UID of the DICOM KOS SOP Instances represented in this resource.
   Requirements = DICOM SOP Instance is always assigned with a unique identifier (UID).
-  RIM Mapping = .id
   DICOM Mapping = (0008,0018) - SOP Instance UID (of the Key Object Selection SOP Class)
+  RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -171,8 +172,8 @@
   Definition = A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingObjectSelection.
   Requirements = SOP Instances in ImagingObjectSelection must be from the same patient.
   Comments = SOP instances selected in the ImagingObjectSelection can be from different studies, but must be of the same patient.
-  RIM Mapping = .participation[typeCode=SBJ].role
   DICOM Mapping = (0010,0010) - Patient Name (0010,0020) - Patient ID (0010,0021) - Issuer of Patient ID
+  RIM Mapping = .participation[typeCode=SBJ].role
   w5 = who.focus
 
  -- Row 4 -----------------------------------
@@ -215,14 +216,14 @@
   Short Label = Authoring time of the selection
   Definition = Date and time when the selection of the referenced instances were made. It is (typically) diffeent from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
   Requirements = Date and time when the selection was made can be important to understand the content of selection.
-  RIM Mapping = .effectiveTime
   DICOM Mapping = (0040,A032) - Observation Date Time
+  RIM Mapping = .effectiveTime
   w5 = when.recorded
 
  -- Row 8 -----------------------------------
   Element = ImagingObjectSelection.study
   Card. = 1..*
-  UML = right
+  UML = 400;40
   Type = =Study
   Short Label = Study identity of the selected instances
   Definition = Study identity and locating information of the DICOM SOP instances in the selection.
@@ -281,7 +282,7 @@
  -- Row 14 -----------------------------------
   Element = ImagingObjectSelection.study.series
   Card. = 1..*
-  UML = right
+  UML = 480;200
   Type = =Series
   Short Label = Series identity of the selected instances
   Definition = Series indentity and locating information of the DICOM SOP instances in the selection
@@ -332,7 +333,7 @@
  -- Row 19 -----------------------------------
   Element = ImagingObjectSelection.study.series.instance
   Card. = 1..*
-  UML = down
+  UML = 280;200
   Type = =Instance
   Short Label = The selected instance
   Definition = Identity and locating information of the selected DICOM SOP instances
@@ -396,7 +397,7 @@
  -- Row 25 -----------------------------------
   Element = ImagingObjectSelection.study.series.instance.frames
   Card. = 0..*
-  UML = left
+  UML = 40;200
   Type = =Frames
   Short Label = The frame set
   Definition = Identity and location information of the frames in the selected instance

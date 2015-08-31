@@ -357,7 +357,7 @@
  -- Row 15 -----------------------------------
   Element = CarePlan.activity
   Card. = 0..*
-  UML = 250;0
+  UML = 350;0
   Short Label = Action to occur as part of plan
   Definition = Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
   Requirements = Allows systems to prompt for performance of planned activities, validate plans against best practice.
@@ -396,7 +396,7 @@
  -- Row 19 -----------------------------------
   Element = CarePlan.activity.detail
   Card. = 0..1
-  UML = 250;250
+  UML = 350;200
   Inv. = 3
   Short Label = In-line definition of activity
   Definition = A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn\'t know about specific resources such as procedure etc

@@ -270,7 +270,7 @@
   Card. = 0..*
   Aliases = DICOM, Slides, Scans
   Summary = Y
-  UML = 360;125
+  UML = 400;125
   Short Label = Key images associated with this report
   Definition = A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
   Requirements = Many diagnostic services include images in the report as part of their service

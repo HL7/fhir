@@ -28,6 +28,7 @@
 
  -- Row 1 -----------------------------------
   Element = ImmunizationRecommendation
+  UML = 0;0
   Type = DomainResource
   Short Label = Guidance or advice relating to an immunization
   Definition = A patient’s point-in-time immunization and recommendation (i.e. forecasting a patient’s immunization eligibility according to a published schedule) with optional supporting justification.
@@ -61,7 +62,7 @@
   Element = ImmunizationRecommendation.recommendation
   Card. = 1..*
   Summary = Y
-  UML = right
+  UML = 300;120
   Short Label = Vaccine administration recommendations
   Definition = Vaccine administration recommendations
   RIM Mapping = .outboundRelationship[typeCode=\'COMP\'].target[classCode=SBADM, moodCode=RMD]
@@ -112,7 +113,7 @@
  -- Row 9 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.dateCriterion
   Card. = 0..*
-  UML = 0;150
+  UML = 350;0
   Short Label = Dates governing proposed immunization
   Definition = Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.
   v2 Mapping = OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue
@@ -140,7 +141,7 @@
  -- Row 12 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.protocol
   Card. = 0..1
-  UML = 300;150
+  UML = 0;150
   Short Label = Protocol used by recommendation
   Definition = Contains information about the protocol under which the vaccine was administered
   RIM Mapping = .inboundRelationship[typeCode=INST].source[classCode=SBADM, moodCode=DEF]

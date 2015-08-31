@@ -133,6 +133,7 @@
 
  -- Row 1 -----------------------------------
   Element = Procedure
+  UML = 0;0
   Type = DomainResource
   Short Label = An action that was or is currently being performed on a patient
   Definition = An action that is or was performed on a patient. This can be a physical \'thing\' like an operation, or less invasive like counseling or hypnotherapy
@@ -216,7 +217,6 @@
   Element = Procedure.bodySite
   Card. = 0..*
   Summary = y
-  UML = right
   Type = CodeableConcept
   Binding = BodySite
   Short Label = Target body sites
@@ -248,7 +248,7 @@
   Element = Procedure.performer
   Card. = 0..*
   Summary = y
-  UML = left
+  UML = 400;80
   Short Label = The people who performed the procedure
   Definition = Limited to \'real\' people rather than equipment
   RIM Mapping = .participation[typeCode=PFM]
@@ -344,7 +344,6 @@
  -- Row 22 -----------------------------------
   Element = !Procedure.relatedItem
   Card. = 0..*
-  UML = right
   Short Label = A procedure that is related to this one
   Definition = Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure
   RIM Mapping = .outboundRelationship[typeCode=TRIG and target[classCode=PROC, moodCode=EVN]]
@@ -384,7 +383,7 @@
  -- Row 27 -----------------------------------
   Element = Procedure.focalDevice
   Card. = 0..*
-  UML = left
+  UML = 420;180
   Short Label = Device changed in procedure
   Definition = A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
 
@@ -457,6 +456,7 @@
   Type = reference
   Description = Search by subject - a patient
   Path = Procedure.subject
+  Target Types = Patient
 
 === Sheet Profiles =====================================
 

@@ -2137,6 +2137,11 @@
     <display value="Hospital-based outpatient rheumatology clinic"/>
     <display value="Hospital-based outpatient rheumatology clinic (environment)"/>
   </concept>
+  <concept id="333346007" display="Silver nitrate 20% solution (product)">
+    <display value="Silver nitrate 20% solution (product)"/>
+    <display value="Silver nitrate 20% solution"/>
+    <display value="Silver nitrate 20% solution (substance)"/>
+  </concept>
   <concept id="33463005" display="Liquid substance (substance)">
     <display value="Fluid"/>
     <display value="Liquid substance"/>
@@ -2391,6 +2396,11 @@
     <display value="Moderate to severe (qualifier value)"/>
     <display value="Moderate to severe"/>
   </concept>
+  <concept id="372687004" display="Amoxicillin (substance)">
+    <display value="Amoxicillin (substance)"/>
+    <display value="Amoxicillin"/>
+    <display value="Amoxycillin"/>
+  </concept>
   <concept id="3729002" display="Hospital-based outpatient pediatric clinic (environment)">
     <display value="Hospital-based outpatient paediatric clinic"/>
     <display value="Hospital-based outpatient pediatric clinic"/>
@@ -2571,6 +2581,13 @@
   <concept id="391040000" display="At risk of osteoporotic fracture">
     <display value="At risk of osteoporotic fracture (finding)"/>
     <display value="At risk of osteoporotic fracture"/>
+  </concept>
+  <concept id="392259005" display="Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)">
+    <display value="Co-amoxiclav 875mg/125mg tablet (product)"/>
+    <display value="Co-amoxiclav 875mg/125mg tablet"/>
+    <display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)"/>
+    <display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet"/>
+    <display value="Amoxicillin + clavulanic acid 875mg/125mg tablet"/>
   </concept>
   <concept id="39350007" display="Private physicians&#39; group office (environment)">
     <display value="Private physicians&#39; group office"/>
@@ -2886,6 +2903,11 @@
     <display value="Anaphylaxis"/>
     <display value="Anaphylactic reaction"/>
     <display value="Anaphylaxis (disorder)"/>
+  </concept>
+  <concept id="395938000" display="Clavulanate potassium (substance)">
+    <display value="Clavulanate potassium (substance)"/>
+    <display value="Clavulanate potassium"/>
+    <display value="Potassium clavulanate"/>
   </concept>
   <concept id="39607008" display="Lung structure (body structure)">
     <display value="Lung structure"/>

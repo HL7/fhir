@@ -288,7 +288,7 @@
  -- Row 20 -----------------------------------
   Element = Immunization.explanation
   Card. = 0..1
-  UML = down
+  UML = 410;320
   Short Label = Administration / non-administration reasons
   Definition = Reasons why a vaccine was or was not administered
   RIM Mapping = n/a
@@ -315,7 +315,7 @@
  -- Row 23 -----------------------------------
   Element = Immunization.reaction
   Card. = 0..*
-  UML = 380;240
+  UML = 410;0
   Short Label = Details of a reaction that follows immunization
   Definition = Categorical data indicating that an adverse event is associated in time to an immunization
   Comments = A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case,  it should be recorded as a new [AllergyIntolerance](allergyintolerance.html) resource instance as most systems won\'t query against  past Immunization.reaction elements.
@@ -353,7 +353,7 @@
  -- Row 27 -----------------------------------
   Element = Immunization.vaccinationProtocol
   Card. = 0..*
-  UML = right
+  UML = 410;90
   Short Label = What protocol was followed
   Definition = Contains information about the protocol(s) under which the vaccine was administered
   v2 Mapping = (V2.x doesn\'t seem to provide for this)

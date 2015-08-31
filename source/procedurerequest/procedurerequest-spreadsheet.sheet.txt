@@ -297,6 +297,7 @@
   Type = reference
   Description = Search by subject - a patient
   Path = ProcedureRequest.subject
+  Target Types = Patient
 
  -- Row 4 -----------------------------------
   Name = orderer

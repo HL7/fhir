@@ -53,6 +53,7 @@
 
  -- Row 1 -----------------------------------
   Element = ImagingStudy
+  UML = 0;0
   Type = DomainResource
   Short Label = A set of images produced in single study (one or more series of references images)
   Definition = Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
@@ -240,7 +241,7 @@
  -- Row 18 -----------------------------------
   Element = ImagingStudy.series
   Card. = 0..*
-  UML = right
+  UML = 320;50
   Short Label = Each study has one or more series of instances
   Definition = Each study has one or more series of images or other content
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBSSER, moodCode=EVN]
@@ -396,7 +397,7 @@
  -- Row 35 -----------------------------------
   Element = ImagingStudy.series.instance
   Card. = 0..*
-  UML = right
+  UML = 620;70
   Short Label = A single SOP instance from the series
   Definition = A single SOP Instance within the series, e.g., an image, or presentation state.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DGIMG, moodCode=EVN]

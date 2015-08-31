@@ -215,7 +215,7 @@
  -- Row 13 -----------------------------------
   Element = MedicationOrder.dosageInstruction
   Card. = 0..*
-  UML = 320;0
+  UML = 420;0
   Short Label = How medication should be taken
   Definition = Indicates how the medication is to be used by the patient
   Comments = When the dose or rate is intended to change over the entire administration period, eg. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. Another common example in institutional settings is \'titration\' of an IV medication dose to maintain a specific stated hemodynamic value or range e.g. durg x to be administered to maintain AM (arterial mean) greater than 65.
@@ -320,7 +320,7 @@
  -- Row 24 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Card. = 0..1
-  UML = 320;180
+  UML = 400;240
   Short Label = Medication supply authorization
   Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
   RIM Mapping = component.supplyEvent
@@ -376,7 +376,7 @@
  -- Row 30 -----------------------------------
   Element = MedicationOrder.substitution
   Card. = 0..1
-  UML = 0;200
+  UML = 0;260
   Short Label = Any restrictions on medication substitution?
   Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
   RIM Mapping = subjectOf.substitutionPersmission

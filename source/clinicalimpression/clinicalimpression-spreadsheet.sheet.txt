@@ -55,6 +55,7 @@
 
  -- Row 1 -----------------------------------
   Element = ClinicalImpression
+  UML = 0;0
   Type = DomainResource
   Short Label = A clinical assessment performed when planning treatments and management strategies for a patient
   Definition = A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient\'s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score
@@ -135,7 +136,7 @@
  -- Row 10 -----------------------------------
   Element = ClinicalImpression.investigations
   Card. = 0..*
-  UML = right
+  UML = 400;0
   Short Label = One or more sets of investigations (signs, symptions, etc)
   Definition = One or more sets of investigations (signs, symptions, etc). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes
 
@@ -172,7 +173,7 @@
  -- Row 15 -----------------------------------
   Element = ClinicalImpression.finding
   Card. = 0..*
-  UML = right
+  UML = 400;140
   Short Label = Possible or likely findings and diagnoses
   Definition = Specific findings or diagnoses that was considered likely or relevant to ongoing treatment
 
@@ -202,7 +203,7 @@
  -- Row 19 -----------------------------------
   Element = ClinicalImpression.ruledOut
   Card. = 0..*
-  UML = right
+  UML = 400;280
   Short Label = Diagnosis considered not possible
   Definition = Diagnosis considered not possible
 

@@ -115,7 +115,7 @@
 
  -- Row 1 -----------------------------------
   Element = Condition
-  UML = 200;0
+  UML = 0;0
   Type = DomainResource
   Short Label = Detailed information about conditions, problems or diagnoses
   Definition = Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary
@@ -273,7 +273,7 @@
  -- Row 15 -----------------------------------
   Element = Condition.stage
   Card. = 0..1
-  UML = -20;0
+  UML = 370;0
   Short Label = Stage/grade, usually assessed formally
   Definition = Clinical stage or grade of a condition. May include formal severity assessments
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"stage/grade\"]
@@ -300,7 +300,7 @@
  -- Row 18 -----------------------------------
   Element = Condition.evidence
   Card. = 0..*
-  UML = -70;150
+  UML = 370;180
   Short Label = Supporting evidence
   Definition = Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed
   Comments = The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both
@@ -328,7 +328,6 @@
  -- Row 21 -----------------------------------
   Element = Condition.bodySite
   Card. = 0..*
-  UML = 500;0
   Type = CodeableConcept
   Binding = BodySite
   Short Label = Anatomical location, if relevant

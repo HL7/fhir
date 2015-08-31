@@ -28,7 +28,7 @@
 
  -- Row 1 -----------------------------------
   Element = Medication
-  UML = 300;0
+  UML = 200;0
   Type = DomainResource
   Short Label = Definition of a Medication
   Definition = This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
@@ -72,7 +72,7 @@
  -- Row 5 -----------------------------------
   Element = Medication.product
   Card. = 0..1
-  UML = 630;20
+  UML = 450;120
   Short Label = Administrable medication details
   Definition = Information that only applies to products (not packages)
   RIM Mapping = .player [classCode != CONT]
@@ -90,7 +90,7 @@
  -- Row 7 -----------------------------------
   Element = Medication.product.ingredient
   Card. = 0..*
-  UML = 650;120
+  UML = 480;240
   Short Label = Active or inactive ingredient
   Definition = Identifies a particular constituent of interest in the product
   Comments = The ingredients need not be a complete list; usually only active ingredients are listed
@@ -118,7 +118,7 @@
  -- Row 10 -----------------------------------
   Element = Medication.product.batch
   Card. = 0..*
-  UML = 450;120
+  UML = 280;240
   Definition = Information about a group of medication produced or packaged from one production run.
 
  -- Row 11 -----------------------------------
@@ -136,7 +136,7 @@
  -- Row 13 -----------------------------------
   Element = Medication.package
   Card. = 0..1
-  UML = 0;20
+  UML = 0;120
   Type = code
   Short Label = Details about packaged medications
   Definition = Information that only applies to packages (not products)
@@ -154,7 +154,7 @@
  -- Row 15 -----------------------------------
   Element = Medication.package.content
   Card. = 0..*
-  UML = 40;120
+  UML = 20;240
   Short Label = What is  in the package?
   Definition = A set of components that go to make up the described item.
   RIM Mapping = .scopesRole[typeCode=CONT]
