@@ -141,7 +141,12 @@
     </page>
     <page>
       <source value="daf-intro.html"/>
-      <name value="Introduction"/>
+      <name value="DAF Initiative Overview"/>
+      <kind value="page"/>
+    </page>
+	<page>
+      <source value="daf-ig.html"/>
+      <name value="DAF FHIR IG Overview"/>
       <kind value="page"/>
     </page>
     <page>
