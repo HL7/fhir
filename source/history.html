@@ -31,7 +31,6 @@ notes:
 
 <a name="history"> </a>
 <h2>Version History</h2>
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
 This is the developmental version of FHIR. The only changes tracked here are 
@@ -43,7 +42,7 @@ Note that a full archive history of everything is available
 
 <a name="rules"> </a>
 <h3>How FHIR Versioning works</h3>
-<p><i>This section is draft</i></p>
+
 <p>
 The FHIR version policy is based on <a href="http://semver.org/">Semantic versioning</a>, but with 
 some differences due to fact that FHIR is a specification, not a software API.
@@ -53,7 +52,8 @@ There is a single development version of FHIR. This undergoes cycles of developm
 managed by HL7. Each major cycle of development is concluded by a formal ballot, and then 
 a new specification is published. In version control terms, each published specification is a 
 branch off the development trunk, which may then itself undergo further change as 
-HL7 maintains the published specification. 
+HL7 maintains the published specification (though such changes are usually extremely
+minimal). 
 </p>
 <p>
 The following kinds of changes may be made to the specification:
@@ -66,7 +66,7 @@ The following kinds of changes may be made to the specification:
  <li>Breaking changes would mean that previously conformant applications are not longer conformant</li>
 </ul>
 <p>
-Note that the following are, by definition, considered non-breaking changes, even though some implementations (including the reference implementations) may not be able to handle these changes without error:</p>
+Note that the following are, by definition, considered non-breaking changes, even though some implementations (including the reference implementations) may not be able to handle some consequences of these changes without error:</p>
 <ul>
  <li>creation of new resources</li>
  <li>adding new elements in an existing resource</li>
@@ -158,7 +158,42 @@ template:
  
 notes: do not list revision in the version 
 --> 
-
+ 
+	<tr>
+		<td>0.5.0</td>
+		<td>
+      <p><b>DSTU QA Preview, Aug 31, 2015</b></p>
+      <p>This version had extensive change as a result of the May DSTU ballot, ongoing testing, and the open change proposals (over 800 gForge tasks). Howe extensive the changes were is best illustrated by the size of the 
+        <a href="http://wiki.hl7.org/index.php?title=FHIR_Breaking_changes_between_DSTU_2_ballot_and_final">list of changes labelled 'breaking change'</a> - 158 changes of 1317 total tasks. This is a list of the most important changes:</p>
+      <ul>
+        <li>General: introduced the <a href="">maturity framework</a></li>
+        <li><a href="">RESTful API</a>: add batch, several clarifications around versioning &amp; transactional integrity, changed Bundle URL resolution rules</li>
+        <li><a href="">Search</a>: changed the way &lt;&gt; etc works, added _list parameter, changed rules around contained and included resources</li>
+        <li>Formats: added a <a href="">note about whitespace in XML</a>, added <a href="">code generation schemas</a></li>
+        <li>Data Types:
+          <ul>
+            <li>New data types: <a href="datatypes.html#markdown">markdown</a>, <a href="datatypes.html#Annotation">Annotation</a>, </li>
+            <li>changed data types: <a href="datatypes.html#Coding">Coding</a>, <a href="datatypes.html#Quantity">Quantity</a>, <a href="datatypes.html#Signature">Signature</a>, <a href="datatypes.html#Timing">Timing</a>, <a href="datatypes.html#Address">Address</a>, <a href="datatypes.html#ContactPoint">ContactPoint</a></li>
+            <li>changes to <a href="elementdefinition.html">ElementDefinition</a>: add base, make type.profile repeat, remove invariant.name and replace with invariant.requirements, remove binding.name, add min/max value</li>
+          </ul>
+        </li>
+        <li>Resources:
+          <ul>
+            <li>New resources: <a href="account.html">Account</a>, <a href="implementationguide.html">ImplementationGuide</a>, <a href="testscript.html">TestScript</a></li>
+            <li>renamed: contraindication -&gt; <a href="detectedissue.html">DetectedIssue</a>, MedicationPrescription -&gt; <a href="medicationorder.html">MedicationOrder</a>, QuestinnaireAnswers -&gt; <a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
+            <li>removed: Supply</li>
+            <li>changed: almost all resources - too many to list (1300+ tasks worth of changes) - add, remove elements, change types, references, definitions &amp; value sets, re-order elements, provide much more documentation and new examples</li>
+          </ul>
+        </li>
+        <li>Implementation Guide:
+          <ul>
+            <li>Add <a href="cqif/cqif.html">Clinical Quality Improvement Framework (CQIF)</a></li>
+            <li>Move <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut content</a> out</li>
+          </ul>
+        </li>
+      </ul>
+    </td>
+	</tr>
 	<tr>
 		<td>0.5.0</td>
 		<td>

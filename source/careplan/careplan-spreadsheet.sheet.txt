@@ -24,8 +24,10 @@
 
  -- Row 4 -----------------------------------
   Binding Name = CarePlanActivityType
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-care-plan-activity
   Definition = Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.
+  Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = CarePlanActivityStatus
@@ -36,18 +38,24 @@
 
  -- Row 6 -----------------------------------
   Binding Name = CarePlanActivityStatusReason
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/goal-status-reason
   Definition = Describes why the current activity has the status it does.  E.g. \"Recovering from injury\" as a reason for non-started or on-hold, \"Patient does not enjoy activity\" as a reason for cancelling a planned activity
+  Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = CarePlanCategory
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-care-plan-category
   Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans.  E.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", etc.
+  Conformance = example
 
  -- Row 8 -----------------------------------
   Binding Name = CarePlanActivityReason
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-activity-reason
   Definition = Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as \"general wellness\", prohylaxis, surgical preparation, etc.
+  Conformance = example
 
  -- Row 9 -----------------------------------
   Binding Name = CarePlanRelationship
@@ -55,6 +63,13 @@
   Reference = #care-plan-relationship
   Definition = Codes identifying the types of relationships between two plans.
   Conformance = required
+
+ -- Row 10 -----------------------------------
+  Binding Name = CarePlanProduct
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/medication-codes
+  Definition = A product supplied or administered as part of a care plan activity
+  Conformance = example
 
 === Sheet care-plan-status =====================================
 
@@ -521,6 +536,7 @@
   Element = CarePlan.activity.detail.product[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Medication|Substance)
+  Binding = CarePlanProduct
   Short Label = What is to be administered/supplied
   Definition = Identifies the food, drug or other product to be consumed or supplied in the activity.
   v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code

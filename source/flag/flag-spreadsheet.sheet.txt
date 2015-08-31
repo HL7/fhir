@@ -6,6 +6,21 @@
   Binding = code list
   Reference = #flag-status
   Definition = Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or entered in error
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = FlagCategory
+  Binding = value set
+  Reference = valueset-flag-category
+  Definition = A general category for flags for filtering/display purposes
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = FlagCode
+  Binding = value set
+  Reference = valueset-flag-code
+  Definition = Detail codes identifying specific flagged issues
+  Conformance = example
 
 === Sheet flag-status =====================================
 
@@ -55,6 +70,7 @@
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
+  Binding = FlagCategory
   Short Label = Clinical, administrative, etc.
   Definition = Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
   RIM Mapping = .code
@@ -115,6 +131,7 @@
   Card. = 1..1
   Summary = Y
   Type = CodeableConcept
+  Binding = FlagCode
   Short Label = Partially deaf, Requires easy open caps, No permanent address, etc.
   Definition = The coded value or textual component of the flag to display to the user
   RIM Mapping = .value

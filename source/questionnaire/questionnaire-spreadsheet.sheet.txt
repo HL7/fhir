@@ -3,13 +3,17 @@
 
  -- Row 1 -----------------------------------
   Binding Name = QuestionnaireGroupConcept
-  Binding = Unbound
-  Definition = Codes for questionnaires and groupings of questionnaire questions
+  Binding = value set
+  Reference = valueset-questionnaire-questions
+  Definition = Codes for groupings of questionnaire questions
+  Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = QuestionConcept
-  Binding = Unbound
+  Binding = value set
+  Reference = valueset-questionnaire-questions
   Definition = Codes corresponding to individual questions
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = QuestionnaireStatus
@@ -24,6 +28,13 @@
   Reference = #answer-format
   Definition = The expected format of an answer
   Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = QuestionnaireQuestionOption
+  Binding = value set
+  Reference = valueset-questionnaire-answers
+  Definition = Allowed values to answer questions
+  Conformance = example
 
 === Sheet questionnaire-status =====================================
 
@@ -350,6 +361,7 @@
   Element = Questionnaire.group.question.concept
   Card. = 0..*
   Type = Coding
+  Binding = QuestionConcept
   Short Label = Concept that represents this question on a questionnaire
   Definition = Identifies a how this question is known in a particular terminology such as LOINC.
   Requirements = Allows linking of questions (and their answers) to formal terminologies
@@ -412,6 +424,7 @@
   Card. = 0..*
   Inv. = 4
   Type = Coding
+  Binding = QuestionnaireQuestionOption
   Short Label = Permitted answer
   Definition = For a \"choice\" question, identifies one of the permitted answers for the question.
   RIM Mapping = Not supported - MIF/templating layer to capture value set

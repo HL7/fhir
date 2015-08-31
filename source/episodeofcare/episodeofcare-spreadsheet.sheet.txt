@@ -8,6 +8,13 @@
   Definition = The status of the encounter
   Conformance = required
 
+ -- Row 2 -----------------------------------
+  Binding Name = EpisodeOfCareTeamRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/participant-role
+  Definition = Type of participation expected by a team member
+  Conformance = example
+
 === Sheet episode-of-care-status =====================================
 
  -- Row 1 -----------------------------------
@@ -158,6 +165,7 @@
   Element = EpisodeOfCare.careTeam.role
   Card. = 0..*
   Type = CodeableConcept
+  Binding = EpisodeOfCareTeamRole
   Short Label = The role that this team member is taking within this episode of care
 
  -- Row 16 -----------------------------------

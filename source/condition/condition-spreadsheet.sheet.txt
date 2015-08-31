@@ -58,6 +58,13 @@
   Description = SNOMED CT Body site concepts
   Conformance = example
 
+ -- Row 9 -----------------------------------
+  Binding Name = ConditionStage
+  Binding = value set
+  Reference = valueset-condition-stage
+  Definition = Codes describing condition stages (e.g. Cancer stages)
+  Conformance = example
+
 === Sheet condition-ver-status =====================================
 
  -- Row 1 -----------------------------------
@@ -283,6 +290,7 @@
   Card. = 0..1
   Inv. = 1
   Type = CodeableConcept
+  Binding = ConditionStage
   Short Label = Simple summary (disease specific)
   Definition = A simple summary of the stage such as \"Stage 3\". The determination of the stage is disease-specific
   RIM Mapping = .value
