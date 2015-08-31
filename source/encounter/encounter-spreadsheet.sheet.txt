@@ -425,8 +425,8 @@
   Element = Encounter.hospitalization
   Card. = 0..1
   UML = 350;200
-  Short Label = Details about an admission to a clinic
-  Definition = Details about an admission to a clinic
+  Short Label = Details about the admission to a healthcare service
+  Comments = This admission does not just include the inpatient context, but also other contexts such as outpatients and community clinics, and potentially aged care facilities.\n\nThe duation recorded in the period of this encounter covers the entire scope of this hospitalization record.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]
 
  -- Row 23 -----------------------------------
