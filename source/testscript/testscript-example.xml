@@ -71,6 +71,7 @@
 		</action>
 		<action>
 			<assert>
+				<direction value="request"/>
 				<responseCode value="201"/>
 			</assert>
 		</action>
