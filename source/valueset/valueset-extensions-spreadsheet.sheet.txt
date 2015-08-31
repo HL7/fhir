@@ -14,36 +14,31 @@
   Path = #otherName.name
 
  -- Row 2 -----------------------------------
-  Name = category
-  Type = token
-  Path = #category
-
- -- Row 3 -----------------------------------
   Name = keyword
   Type = string
   Path = #keyWord
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = !user
   Type = string
   Path = #usage.user
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = workflow
   Type = token
   Path = #workflowStatus
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = effective
   Type = date
   Path = #effectiveDate
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = end
   Type = date
   Path = #expirationDate
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = author
   Type = string
   Path = #author

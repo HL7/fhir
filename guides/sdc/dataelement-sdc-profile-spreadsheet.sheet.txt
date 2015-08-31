@@ -29,7 +29,7 @@
 
  -- Row 4 -----------------------------------
   Element = DataElement.version
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !string
 
@@ -40,56 +40,56 @@
   Type = !string
 
  -- Row 6 -----------------------------------
-  Element = DataElement.useContext
-  Card. = 0..*
-  Must Support = Y
-  Type = !CodeableConcept
-
- -- Row 7 -----------------------------------
-  Element = DataElement.experimental
-  Card. = 0..1
-  Must Support = Y
-  Type = !boolean
-
- -- Row 8 -----------------------------------
   Element = DataElement.status
   Card. = 1..1
   Must Support = Y
   Type = !code
 
- -- Row 9 -----------------------------------
-  Element = DataElement.date
-  Card. = 0..1
+ -- Row 7 -----------------------------------
+  Element = DataElement.experimental
+  Card. = !0..1
   Must Support = Y
-  Type = !dateTime
+  Type = !boolean
 
- -- Row 10 -----------------------------------
-  Element = DataElement.copyright
-  Card. = 0..1
-  Must Support = Y
-  Type = !string
-
- -- Row 11 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = DataElement.publisher
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = string
 
- -- Row 12 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = DataElement.contact
-  Card. = 0..*
+  Card. = !0..*
   Must Support = Y
 
- -- Row 13 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = !DataElement.contact.name
-  Card. = 0..1
+  Card. = !0..1
   Type = !string
 
- -- Row 14 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = DataElement.contact.telecom
-  Card. = 0..*
+  Card. = !0..*
   Must Support = Y
   Type = !ContactPoint
+
+ -- Row 12 -----------------------------------
+  Element = DataElement.date
+  Card. = !0..1
+  Must Support = Y
+  Type = !dateTime
+
+ -- Row 13 -----------------------------------
+  Element = DataElement.useContext
+  Card. = !0..*
+  Must Support = Y
+  Type = !CodeableConcept
+
+ -- Row 14 -----------------------------------
+  Element = DataElement.copyright
+  Card. = !0..1
+  Must Support = Y
+  Type = !string
 
  -- Row 15 -----------------------------------
   Element = DataElement.stringency
@@ -99,7 +99,7 @@
 
  -- Row 16 -----------------------------------
   Element = DataElement.mapping
-  Card. = 0..*
+  Card. = !0..*
   Must Support = Y
 
  -- Row 17 -----------------------------------
@@ -110,69 +110,69 @@
 
  -- Row 18 -----------------------------------
   Element = DataElement.mapping.uri
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !uri
 
  -- Row 19 -----------------------------------
   Element = DataElement.mapping.name
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !string
 
  -- Row 20 -----------------------------------
   Element = DataElement.mapping.comments
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !string
 
  -- Row 21 -----------------------------------
   Element = DataElement.element
-  Card. = 0..*
+  Card. = !1..*
   Must Support = Y
   Type = !ElementDefinition{http://hl7.org/fhir/StructureDefinition/elementdefinition-de}
 
  -- Row 22 -----------------------------------
-  Element = DataElement.element.extension
-  Profile Name = minLength
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/minLength}
-
- -- Row 23 -----------------------------------
-  Element = DataElement.element.extension
-  Profile Name = regex
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/regex}
-
- -- Row 24 -----------------------------------
-  Element = DataElement.element.extension
-  Profile Name = entryFormat
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/entryFormat}
-
- -- Row 25 -----------------------------------
-  Element = DataElement.element.extension
-  Profile Name = maxDecimalPlaces
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/maxDecimalPlaces}
-
- -- Row 26 -----------------------------------
   Element = DataElement.element.extension
   Profile Name = question
   Card. = 0..*
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/elementdefinition-question}
 
- -- Row 27 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = DataElement.element.extension
   Profile Name = allowedUnits
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits}
+
+ -- Row 24 -----------------------------------
+  Element = DataElement.element.extension
+  Profile Name = minLength
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/minLength}
+
+ -- Row 25 -----------------------------------
+  Element = DataElement.element.extension
+  Profile Name = regex
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/regex}
+
+ -- Row 26 -----------------------------------
+  Element = DataElement.element.extension
+  Profile Name = entryFormat
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/entryFormat}
+
+ -- Row 27 -----------------------------------
+  Element = DataElement.element.extension
+  Profile Name = maxDecimalPlaces
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/maxDecimalPlaces}
 
  -- Row 28 -----------------------------------
   Element = DataElement.element.path
@@ -182,33 +182,33 @@
 
  -- Row 29 -----------------------------------
   Element = DataElement.element.representation
-  Card. = 0..0
+  Card. = !0..0
 
  -- Row 30 -----------------------------------
   Element = DataElement.element.name
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !string
 
  -- Row 31 -----------------------------------
   Element = DataElement.element.label
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !string
 
  -- Row 32 -----------------------------------
   Element = DataElement.element.code
-  Card. = 0..*
+  Card. = !0..*
   Must Support = Y
   Type = !Coding
 
  -- Row 33 -----------------------------------
   Element = DataElement.element.slicing
-  Card. = 0..0
+  Card. = !0..0
 
  -- Row 34 -----------------------------------
   Element = DataElement.element.short
-  Card. = 0..1
+  Card. = !0..0
   Type = string
 
  -- Row 35 -----------------------------------
@@ -219,19 +219,19 @@
 
  -- Row 36 -----------------------------------
   Element = DataElement.element.comments
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !string
 
  -- Row 37 -----------------------------------
   Element = DataElement.element.requirements
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !string
 
  -- Row 38 -----------------------------------
   Element = DataElement.element.alias
-  Card. = 0..*
+  Card. = !0..*
   Must Support = Y
   Type = !string
 
@@ -258,20 +258,21 @@
 
  -- Row 43 -----------------------------------
   Element = DataElement.element.type.code
-  Card. = 1..1
+  Card. = !1..1
   Must Support = Y
   Type = !code
 
  -- Row 44 -----------------------------------
   Element = DataElement.element.type.profile
-  Card. = 0..0
+  Card. = !0..0
 
  -- Row 45 -----------------------------------
   Element = DataElement.element.type.aggregation
-  Card. = 0..0
+  Card. = !0..0
 
  -- Row 46 -----------------------------------
   Element = DataElement.element.nameReference
+  Card. = !0..0
 
  -- Row 47 -----------------------------------
   Element = DataElement.element.defaultValue[x]
@@ -285,11 +286,11 @@
 
  -- Row 49 -----------------------------------
   Element = DataElement.element.fixed[x]
-  Card. = 0..0
+  Card. = !0..0
 
  -- Row 50 -----------------------------------
   Element = DataElement.element.pattern[x]
-  Card. = 0..0
+  Card. = !0..0
 
  -- Row 51 -----------------------------------
   Element = DataElement.element.example[x]
@@ -327,77 +328,47 @@
   Must Support = Y
 
  -- Row 57 -----------------------------------
-  Element = DataElement.element.constraint.key
-  Card. = 0..0
-  Must Support = Y
-  Type = !id
-
- -- Row 58 -----------------------------------
-  Element = DataElement.element.constraint.name
-  Card. = 0..0
-  Must Support = Y
-  Type = !string
-
- -- Row 59 -----------------------------------
-  Element = DataElement.element.constraint.severity
-  Card. = 0..0
-  Must Support = Y
-  Type = !code
-
- -- Row 60 -----------------------------------
-  Element = DataElement.element.constraint.human
-  Card. = 0..0
-  Must Support = Y
-  Type = !string
-
- -- Row 61 -----------------------------------
-  Element = DataElement.element.constraint.xpath
-  Card. = 0..0
-  Must Support = Y
-  Type = !string
-
- -- Row 62 -----------------------------------
   Element = DataElement.element.mustSupport
   Card. = 0..0
   Type = !boolean
 
- -- Row 63 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = DataElement.element.isModifier
-  Card. = 0..0
+  Card. = !0..0
 
- -- Row 64 -----------------------------------
+ -- Row 59 -----------------------------------
   Element = DataElement.element.isSummary
-  Card. = 0..0
+  Card. = !0..0
 
- -- Row 65 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = DataElement.element.binding
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
 
- -- Row 66 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = DataElement.element.binding.strength
-  Card. = 0..1
+  Card. = !1..1
   Must Support = Y
   Type = !code
 
- -- Row 67 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = DataElement.element.binding.description
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !string
 
- -- Row 68 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = DataElement.element.binding.valueSetReference
   Card. = 1..1
   Must Support = Y
   Type = Reference(ValueSet)
 
- -- Row 69 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = DataElement.element.mapping
-  Card. = 0..1
+  Card. = 0..*
   Must Support = Y
 
- -- Row 70 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = DataElement.element.mapping.extension
   Profile Name = MappingEquivalence
   Card. = 1..1
@@ -405,29 +376,29 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/elementdefinition-equivalence}
   Comments = ...We only care about mappings that are equivalent - as only these are safe for mapping purposes.
 
- -- Row 71 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = DataElement.element.mapping.extension.valueCode
   Card. = 1..1
   Must Support = Y
   Type = code
   Value = equivalent
 
- -- Row 72 -----------------------------------
+ -- Row 67 -----------------------------------
   Element = DataElement.element.mapping.identity
-  Card. = 1..1
+  Card. = !1..1
   Must Support = y
-  Type = id
+  Type = !id
 
- -- Row 73 -----------------------------------
+ -- Row 68 -----------------------------------
   Element = DataElement.element.mapping.language
-  Card. = 0..1
+  Card. = !0..1
   Must Support = Y
   Type = !code
   Binding = DEXMappingLanguage
 
- -- Row 74 -----------------------------------
+ -- Row 69 -----------------------------------
   Element = DataElement.element.mapping.map
-  Card. = 1..1
+  Card. = !1..1
   Must Support = Y
   Type = !string
   Definition = This should be expressed as \"[uri for object class code system]#[code for object class code system] | [uri for property code system]#[code for property code system]\"

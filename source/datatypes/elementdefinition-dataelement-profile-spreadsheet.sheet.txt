@@ -41,19 +41,15 @@
 
  -- Row 10 -----------------------------------
   Element = ElementDefinition.slicing.discriminator
-  Card. = 0..0
 
  -- Row 11 -----------------------------------
   Element = ElementDefinition.slicing.description
-  Card. = 0..0
 
  -- Row 12 -----------------------------------
   Element = ElementDefinition.slicing.ordered
-  Card. = 0..0
 
  -- Row 13 -----------------------------------
   Element = ElementDefinition.slicing.rules
-  Card. = 0..0
 
  -- Row 14 -----------------------------------
   Element = ElementDefinition.short

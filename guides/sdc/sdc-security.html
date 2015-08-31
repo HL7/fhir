@@ -28,13 +28,16 @@ particularly those related to:
   <li><a href="[%fhir-path%]security.html#binding">Authorization/Access Control</a></li>
   <li><a href="[%fhir-path%]security.html#audit">Audit Logging</a></li>
   <li><a href="[%fhir-path%]security.html#signatures">Digital Signatures</a></li>
+  <li><a href="[%fhir-path%]security-labels.html">Security Labels</a></li>
 </ul>
 <p>
 For the purposes of SDC, security conformance rules are as follows:
 </p>
 <ul>
-  <li>Systems SHALL use TLS version 1.0 or higher with bi-directional certificate validation for all transmissions not 
-  taking place over a secure network connection.<br/>
+  <li>Systems SHALL use TLS version 1.1 or higher for all transmissions containing patient-identifiable information and not 
+  taking place over a secure network connection.  Such transmissions SHOULD use bi-directional certificate validation<br/>
+  <li>Systems SHOULD use TLS version 1.1 or higher when retrieving Questionnaires intended to capture patient-identifiable information
+  to reduce the risk of form tampering.</li>
   (Using TLS even within a secured network environment is still encouraged to provide defense in depth.)</li>
   <li>Systems SHALL use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level)</li>
   <li>Systems SHALL use either IHE's ATNA standard for audit logging or an equivalent using the <a href="[%fhir-path%]auditevent.html">AuditEvent</a>
@@ -43,6 +46,20 @@ For the purposes of SDC, security conformance rules are as follows:
   <a href="[%fhir-path%]provenance.html">Provenance</a> resource to record such signatures.</li>
 </ul>
 
+<a href="integrity"> </a>
+<h3>Transaction Integrity</h3>
+<p>
+In some cases, the recipient of a completed <a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a> may require that the response
+be accompanied by a <a href="[%fhir-path%]provenance.html">Provenance</a> or, more rarely an <a href="[%fhir-path%]auditevent.html">AuditEvent</a>
+as part of a single unit of work.  (Audit is typically managed by the server and client locally or by a shared service that does not store the
+clinical information.)  This can be accomplished by mechanisms outside the scope of this implementation guide by using
+FHIR <a href="[%fhir-path%]messaging.html">messages</a> or FHIR <a href="[%fhir-path%]documents.html">documents</a>.  However, within the scope of
+this implementation guide, this is accomplished in pseudo-RESTful fashion using the <a href="[%fhir-path%]http.html#transaction">Transaction</a>
+mechanism.  Regardless of means, the Provenance and/or AuditEvent event point to the QuestionnaireResponse by full version-specific URL using the
+<code>Provenance.entity.reference</code> and <code>AuditEvent.object.reference</code> elements.
+</p>
+
+<a href="consent"> </a>
 <h4>Consent</h4>
 <p>
 The SDC workflow envisions the sharing of patient-identifiable healthcare information from 
