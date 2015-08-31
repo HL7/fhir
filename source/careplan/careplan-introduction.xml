@@ -8,7 +8,10 @@ Care Plans are used in many of areas of healthcare with a variety of scopes.
 They can be as simple as a general practitioner keeping track of when their 
 patient is next due for a tetanus immunization through to a detailed plan for
 an oncology patient covering diet, chemotherapy, radiation, lab work and
-counseling with detailed timing relationships, pre-conditions and goals.
+counseling with detailed timing relationships, pre-conditions and goals. They may
+be used in veterinary care or clinical research to describe the care of a herd or
+other collection of animals.  In public health, they may describe education or
+immunization campaigns.
 </p>
 <p>
 This resource takes an intermediate approach to complexity.  It captures basic details about
@@ -43,9 +46,16 @@ understanding of actions to be taken
 </li>
 </ul>
 <p>
-Comments are welcome about the appropriateness of the proposed level of 
-granularity, whether it's too much detail for what most systems need, or not
-sufficient for common essential use cases.
+Note that this resource represents a specific plan instance for a particular patient or group.
+It is not intended to be used to define generic plans or protocols that are independent of a
+specific individual or group.  I.e. It represents a specific intent, not a general definition.
+Protocols and order sets will be supported through future resources.
+</p>
+<p>
+This resource can be used to represent both proposed plans (for example, recommendations from
+a decision support engine or returned as part of a consult report) as well as active plans.  The
+nature of the plan is communicated by the status.  Some systems may need to filter CarePlans to ensure
+that only appropriate plans are exposed via a given user interface.
 </p>
 </div>
 
@@ -64,6 +74,11 @@ goals and/or participants together to provide some degree of context.
 CarePlans can be tied to specific <a href="condition.html">Conditions</a> however they can also be 
 condition-independent and instead focused on a particular type of care (e.g. psychological, nutritional)
 or the care delivered by a particular practitioner or group of practitioners.
+</p>
+<p>
+An <a href="immunizationrecommendation.html">ImmunizationRecommendation</a> can be interpretted as a narrow
+type of Care Plan dealing only with immunization events.  Where such information could appear in either
+resource, the immunization-specific resource is preferred.
 </p>
 </div>
 

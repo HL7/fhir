@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
   <id value="asthma"/>
   <text>
     <status value="generated"/>
@@ -15,7 +14,7 @@
   <!-- The provenance resource. Identifies the author and date created-->
   <contained>
     <Provenance>
-      <id value='prov1'/>
+      <id value="prov1"/>
       <target>
         <reference value="#cp1"/>
         <display value="This Careplan"/>
@@ -26,14 +25,9 @@
           <system value="http://hl7.org/fhir/provenance-participant-role"/>
           <code value="author"/>
         </role>
-        <type>
-          <system value="http://hl7.org/fhir/provenance-participant-type"/>
-          <code value="practitioner"/>
-        </type>
-        <referenceReference>
-          <reference value="mailto:david.hay25@gmail.com"/>
-        </referenceReference>
-        <display value="David Hay"/>
+        <actor>
+          <display value="David Hay"/>
+        </actor>
       </agent>
       <!-- Indicate that the patient (Eve) was also an author of this plan -->
       <agent>
@@ -41,14 +35,10 @@
           <system value="http://hl7.org/fhir/provenance-participant-role"/>
           <code value="author"/>
         </role>
-        <type>
-          <system value="http://hl7.org/fhir/provenance-participant-type"/>
-          <code value="person"/>
-        </type>
-        <referenceReference>
+        <actor>
           <reference value="Patient/1"/>
-        </referenceReference>
-        <display value="Eve Everywoman"/>
+          <display value="Eve Everywoman"/>
+        </actor>
       </agent>
     </Provenance>
   </contained>
@@ -68,14 +58,13 @@
         </coding>
         <text value="Asthma"/>
       </code>
-      <clinicalStatus value="confirmed"/>
+      <verificationStatus value="confirmed"/>
     </Condition>
   </contained>
   <!-- The medication that the prescription refers to -->
   <contained>
     <Medication>
       <id value="med1"/>
-      <name value="Prednisone 5mg tablet"/>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -100,81 +89,81 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </patient>
-      <medication>
+      <medicationReference>
         <reference value="#med1"/>
         <display value="Prednisone 5mg tablet"/>
-      </medication>
+      </medicationReference>
       <dosageInstruction>
         <text value="Take 6 tablets once a day for 2 days"/>
-        <scheduledTiming>
+        <timing>
           <repeat>
             <count value="12"/>
             <period value="1"/>
             <periodUnits value="d"/>
           </repeat>
-        </scheduledTiming>
+        </timing>
       </dosageInstruction>
       <dosageInstruction>
         <text value="Take 5 tablets once a day for 2 days"/>
-        <scheduledTiming>
+        <timing>
           <repeat>
             <count value="10"/>
             <period value="1"/>
             <periodUnits value="d"/>
           </repeat>
-        </scheduledTiming>
+        </timing>
         <doseQuantity>
           <value value="5"/>
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
         <text value="Take 4 tablets once a day for 2 days"/>
-        <scheduledTiming>
+        <timing>
           <repeat>
             <count value="8"/>
             <period value="1"/>
             <periodUnits value="d"/>
           </repeat>
-        </scheduledTiming>
+        </timing>
         <doseQuantity>
           <value value="4"/>
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
         <text value="Take 3 tablets once a day for 2 days"/>
-        <scheduledTiming>
+        <timing>
           <repeat>
             <count value="6"/>
             <period value="1"/>
             <periodUnits value="d"/>
           </repeat>
-        </scheduledTiming>
+        </timing>
         <doseQuantity>
           <value value="3"/>
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
         <text value="Take 2 tablets once a day for 2 days"/>
-        <scheduledTiming>
+        <timing>
           <repeat>
             <count value="4"/>
             <period value="1"/>
             <periodUnits value="d"/>
           </repeat>
-        </scheduledTiming>
+        </timing>
         <doseQuantity>
           <value value="2"/>
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
         <text value="Take 1 tablet once a day for 2 days"/>
-        <scheduledTiming>
+        <timing>
           <repeat>
             <count value="2"/>
             <period value="1"/>
             <periodUnits value="d"/>
           </repeat>
-        </scheduledTiming>
+        </timing>
         <doseQuantity>
           <value value="1"/>
         </doseQuantity>
@@ -185,7 +174,7 @@
     <Goal>
       <id value="g1"/>
       <!-- An extension that specifies the minimum peak flow target for this person. Its coded so that UI's can display this in charts for example-->
-      <extension url='http://hl7.org/fhir/StructureDefinition/goal-target'>
+      <extension url="http://hl7.org/fhir/StructureDefinition/goal-target">
         <extension url="goal-target.measure">
           <valueCodeableConcept>
             <coding>
@@ -203,10 +192,10 @@
           </valueRange>
         </extension>
       </extension>
-      <patient>
+      <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </patient>
+      </subject>
       <description value="Maintain Peak flow above 500"/>
       <status value="in-progress"/>
     </Goal>
@@ -214,18 +203,18 @@
   <contained>
     <Goal>
       <id value="g1"/>
-      <patient>
+      <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </patient>
+      </subject>
       <description value="Eve will aim to record Peak Flow daily. An activity is created to prompt her."/>
       <status value="in-progress"/>
     </Goal>
   </contained>
-  <patient>
+  <subject>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
-  </patient>
+  </subject>
   <status value="active"/>
   <modified value="2012-09-10"/>
   <concern>
@@ -243,7 +232,7 @@
   <!-- This activity specifies that the patient take a peak flow daily -->
   <activity>
     <detail>
-      <category value="observation"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="observation"/></coding></category>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -263,7 +252,7 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </performer>
-      <note value="Daily Peak Flow Measurement"/>
+      <description value="Daily Peak Flow Measurement"/>
     </detail>
   </activity>
   <activity>
@@ -272,7 +261,9 @@
       <reference value="#rx1"/>
       <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
     </actionResulting>
-    <notes value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
+    <progress>
+      <text value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
+    </progress>
     <detail>
       <extension url="http://example.org/StructureDefinition/trigger">
         <extension url="trigger.code">
@@ -289,14 +280,16 @@
           </valueQuantity>
         </extension>
       </extension>
-      <category value="drug"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="drug"/></coding></category>
       <status value="not-started"/>
       <prohibited value="false"/>
-      <note value="Eve will start oral steroids if the peakflow drops below 350"/>
+      <description value="Eve will start oral steroids if the peakflow drops below 350"/>
     </detail>
   </activity>
   <activity>
-    <notes value="In response to a peakflow below 250, seek urgent Medical Assistance. This can be life threatening."/>
+    <progress>
+      <text value="In response to a peakflow below 250, seek urgent Medical Assistance. This can be life threatening."/>
+    </progress>
     <!-- Specifies that this activity (get medical help) is only triggered when the peak flow drops below 250-->
     <detail>
       <extension url="http://example.org/StructureDefinition/trigger">
@@ -314,10 +307,10 @@
           </valueQuantity>
         </extension>
       </extension>
-      <category value="encounter"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
       <status value="not-started"/>
       <prohibited value="false"/>
-      <note value="Get Medical assistance immediately"/>
+      <description value="Get Medical assistance immediately"/>
     </detail>
   </activity>
 </CarePlan>

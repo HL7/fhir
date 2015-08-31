@@ -78,8 +78,8 @@
   Element = Goal
   UML = 0;0
   Type = DomainResource
-  Short Label = Describes the intended objective(s) of patient care
-  Definition = Describes the intended objective(s) of patient care, for example, weight loss, restoring an activity of daily living, etc.
+  Short Label = Describes the intended objective(s) for a patient, group or organization
+  Definition = Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.;
   Comments = Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
   v2 Mapping = GOL.1
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
@@ -96,13 +96,13 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Goal.patient
+  Element = Goal.subject
   Card. = 0..1
   Summary = Y
-  Type = Reference(Patient)
-  Short Label = The patient for whom this goal is intended for
-  Definition = Identifies the patient/subject whose intended care is described by the plan.
-  Requirements = Goals are associated with a patient.
+  Type = Reference(Patient | Group | Organization)
+  Short Label = Who this goal is intended for
+  Definition = Identifies the patient, group or organization for whom the goal is being established.
+  Requirements = Subject is optional to support annonymized reporting
   v2 Mapping = PID-3-patient ID list
   RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
   w5 = who.focus
@@ -214,7 +214,13 @@
  -- Row 1 -----------------------------------
   Name = patient
   Type = reference
-  Path = Goal.patient
+  Path = Goal.subject
+  Target Types = Patient
+
+ -- Row 2 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = Goal.subject
 
 === Sheet Profiles =====================================
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../fhir-all-xsd%20Mar/careplan.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd"
  xmlns="http://hl7.org/fhir">
     <text>
         <status value="additional"></status>
@@ -24,14 +24,15 @@
             </patient>
             <code>
                 <!-- Could coded if we wanted to...-->
-                <text value="Overseas encounter"/>
+                <text value="Obesity"/>
             </code>
+            <verificationStatus value="confirmed"/>
        </Condition>
     </contained>
-    <patient>
-        <url value="Patient/100"/>
+    <subject>
+        <reference value="Patient/100"/>
         <display value="Peter James Chalmers"/>
-    </patient>
+    </subject>
     <status value="active"/>
     <period>
         <!-- This is the time the plan started - i.e. when they arrived-->
@@ -51,7 +52,7 @@
             <text value='nurse'></text>
         </role>
         <member>
-            <url value="Practitioner/101"/>
+            <reference value="Practitioner/101"/>
             <display value="Nurse Nancy"/>
         </member>
     </participant>
@@ -64,65 +65,79 @@
             <text value='doctor'></text>
         </role>
         <member>
-            <url value="Practitioner/100"/>
+            <reference value="Practitioner/100"/>
             <display value="Doctor Dave"/>
         </member>
     </participant>
     
     <goal>
-      <description value="Complete consultation"/>
+      <display value="Complete consultation"/>
     </goal>
     <activity>
         <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed.-->
-        <category value="encounter"></category>
-        <code>
-            <coding>
-                <system value="http://example.org/local"/>
-                <code value='nursecon'/>
-            </coding>
-            <text value="Nurse Consultation"></text>
-        </code>
-        <status value="completed"/>
-        <prohibited value="false"></prohibited>
-        <timingPeriod>
-            <!-- the nurse saw that patient between 10:38 and 10:50 -->
-            <start value ="2013-01-01T10:38:00+00:00"/>
-            <end value ="2013-01-01T10:50:00+00:00"/>            
-        </timingPeriod>
-        <performer>
-            <!-- refer to the participant (the nurse) in this resource-->
-          <reference value="#part1"/>
-          <display value="Nurse Nancy"/>
-        </performer>
-        <actionTaken>
+        <actionResulting>
             <!-- This is a link to the nurse encounter. The assumption is that all contacts with practitioners
             are modelled as separate encounters. Ideally, there will be  a 'master/parent' encounter that ties them together.
             If there is a single encounter, then all participants will be linked to that encounter.-->
-            <url value="Encounter/1000"/>
-        </actionTaken>
+            <reference value="Encounter/1000"/>
+        </actionResulting>
+        <detail>
+          <category>
+            <coding>
+              <system value="http://hl7.org/fhir/care-plan-activity-category"/>
+              <code value="encounter"/>
+            </coding>
+          </category>
+          <code>
+              <coding>
+                  <system value="http://example.org/local"/>
+                  <code value='nursecon'/>
+              </coding>
+              <text value="Nurse Consultation"></text>
+          </code>
+          <status value="completed"/>
+          <prohibited value="false"></prohibited>
+          <scheduledPeriod>
+              <!-- the nurse saw that patient between 10:38 and 10:50 -->
+              <start value ="2013-01-01T10:38:00+00:00"/>
+              <end value ="2013-01-01T10:50:00+00:00"/>            
+          </scheduledPeriod>
+          <performer>
+              <!-- refer to the participant (the nurse) in this resource-->
+            <reference value="#part1"/>
+            <display value="Nurse Nancy"/>
+          </performer>
+        </detail>
     </activity>
     <activity>
         <!-- This activity is for the encounter with the doctor. It is scheduled, but not yet started,
             so there is no timing[x]  or actionTaken element yet -->
-        <category value="encounter"></category>
-        <code>
+        <detail>
+          <category>
             <coding>
-                <system value="http://example.org/local"/>
-                <code value='doccon'/>
+              <system value="http://hl7.org/fhir/care-plan-activity-category"/>
+              <code value="encounter"/>
             </coding>
-            <text value="Doctor Consultation"></text>
-        </code>
-        
-        <!-- The status is 'scheduled' so the doctor knows the patient is waiting.  --> 
-        
-        <status value="scheduled"/>
-        <prohibited value="false"></prohibited>
-
-        <performer>
-            <!-- refer to the participant (the nurse) in this resource-->
-            <reference value="#part2"/>
-            <display value="Doctor Dave"/>
-        </performer>
+          </category>
+          <code>
+              <coding>
+                  <system value="http://example.org/local"/>
+                  <code value='doccon'/>
+              </coding>
+              <text value="Doctor Consultation"></text>
+          </code>
+          
+          <!-- The status is 'scheduled' so the doctor knows the patient is waiting.  --> 
+          
+          <status value="scheduled"/>
+          <prohibited value="false"></prohibited>
+  
+          <performer>
+              <!-- refer to the participant (the nurse) in this resource-->
+              <reference value="#part2"/>
+              <display value="Doctor Dave"/>
+          </performer>
+        </detail>
     </activity>
 </CarePlan>
 

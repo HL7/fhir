@@ -34,10 +34,10 @@
 			</valueRange>
 		</extension>
 	</extension>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
-	</patient>
+	</subject>
 	<description value="Target weight is 160 to 180 lbs."/>
 	<status value="in-progress"/>
 	<concern>

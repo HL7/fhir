@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
   <id value="preg"/>
   <text>
     <status value="additional"/>
@@ -54,10 +53,10 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <patient>
+      <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </patient>
+      </subject>
       <description value="Maintain patient's health throughout pregnancy and ensure a healthy child"/>
       <status value="in-progress"/>
     </Goal>
@@ -66,10 +65,10 @@
   <extension url="http://example.org/DoNotUse/careplan#lmp">
     <valueDateTime value="2013-01-01"/>
   </extension>
-  <patient>
+  <subject>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
-  </patient>
+  </subject>
   <status value="active"/>
   <period>
     <!-- The likely duration of the pregnancy -->
@@ -87,7 +86,7 @@
         <system value="http://example.org/mysys"/>
         <code value="lmc"/>
       </coding>
-      <text value='Midwife'/>
+      <text value="Midwife"/>
     </role>
     <member>
       <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc... -->
@@ -102,7 +101,7 @@
         <system value="http://example.org/mysys"/>
         <code value="obs"/>
       </coding>
-      <text value='Obstretitian'/>
+      <text value="Obstretitian"/>
     </role>
     <member>
       <!-- This links to the clinician resource, so we get all tha stuff related to that like address, contact etc... -->
@@ -120,13 +119,13 @@
       <valueUri value="http://orionhealth.com/fhir/careplan/1andetails"/>
     </extension>
     <detail>
-      <category value="encounter"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
       <code>
         <coding>
           <system value="http://example.org/mySystem"/>
           <code value="1an"/>
         </coding>
-        <text value='First Antenatal encounter'/>
+        <text value="First Antenatal encounter"/>
       </code>
       <status value="scheduled"/>
       <prohibited value="false"/>
@@ -143,8 +142,7 @@
         <reference value="#pr1"/>
         <display value="Mavis Midwife"/>
       </performer>
-      <note value="The first antenatal encounter. This is where a detailed physical examination is performed.
-            and the pregnanacy discussed with the mother-to-be."/>
+      <description value="The first antenatal encounter. This is where a detailed physical examination is performed.             and the pregnanacy discussed with the mother-to-be."/>
       <!-- This is a booked encounter with Mavis Midwife for the first antenatal checkup. 
         This entry is only made after the appointment (a planned encounter) has been made.
         Commented out for now because Encounter hasn't been defined yet
@@ -157,14 +155,14 @@
   <activity>
     <detail>
       <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
-      <category value="encounter"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
       <code>
         <!-- The code is just for an antenatal encounter. There are many of these, the first is special... -->
         <coding>
           <system value="http://example.org/mySystem"/>
           <code value="an"/>
         </coding>
-        <text value='Follow-up Antenatal encounter'/>
+        <text value="Follow-up Antenatal encounter"/>
       </code>
       <status value="not-started"/>
       <prohibited value="false"/>
@@ -182,7 +180,7 @@
         <reference value="#pr1"/>
         <display value="Mavis Midwife"/>
       </performer>
-      <note value="The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter"/>
+      <description value="The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter"/>
     </detail>
   </activity>
   <!-- 
@@ -194,13 +192,13 @@
   <activity>
     <detail>
       <!-- This will be the delivery. It is not yet scheduled. -->
-      <category value="encounter"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
       <code>
         <coding>
           <system value="http://example.org/mySystem"/>
           <code value="del"/>
         </coding>
-        <text value='Delivery'/>
+        <text value="Delivery"/>
       </code>
       <status value="not-started"/>
       <prohibited value="false"/>
@@ -224,7 +222,7 @@
         <reference value="#pr1"/>
         <display value="Mavis Midwife"/>
       </performer>
-      <note value="The delivery."/>
+      <description value="The delivery."/>
     </detail>
   </activity>
 </CarePlan>

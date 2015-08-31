@@ -1,22 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
   <id value="f203"/>
   <contained>
     <Goal>
       <id value="goal"/>
-      <patient>
+      <subject>
         <reference value="Patient/f201"/>
         <display value="Roel"/>
-      </patient>
+      </subject>
       <description value="Check whether further treatment of sepsis/pulmonary abcess is required"/>
       <status value="cancelled"/>
     </Goal>
   </contained>
-  <patient>
+  <subject>
     <!--It entails Roel's careplan-->
     <reference value="Patient/f201"/>
     <display value="Roel"/>
-  </patient>
+  </subject>
   <status value="completed"/>
   <period>
     <start value="2013-04-14"/>
@@ -58,7 +57,7 @@
   </goal>
   <activity>
     <detail>
-      <category value="observation"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="observation"/></coding></category>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>

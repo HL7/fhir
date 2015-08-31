@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
   <id value="f202"/>
   <contained>
     <Medication>
@@ -66,19 +65,19 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <patient>
+      <subject>
         <reference value="Patient/f201"/>
         <display value="Roel"/>
-      </patient>
+      </subject>
       <description value="Elimination of the spenoid bone tumor"/>
       <status value="in-progress"/>
     </Goal>
   </contained>
-  <patient>
+  <subject>
     <!--It entails Roel's careplan-->
     <reference value="Patient/f201"/>
     <display value="Roel"/>
-  </patient>
+  </subject>
   <status value="active"/>
   <concern>
     <reference value="Condition/f202"/>
@@ -106,7 +105,7 @@
       <display value="Roel's Chemotherapy"/>
     </actionResulting>
     <detail>
-      <category value="procedure"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="procedure"/></coding></category>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -116,9 +115,9 @@
       </code>
       <status value="in-progress"/>
       <prohibited value="false"/>
-      <product>
+      <productReference>
         <reference value="#tpf"/>
-      </product>
+      </productReference>
     </detail>
   </activity>
 </CarePlan>

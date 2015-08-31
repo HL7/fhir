@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
   <id value="example"/>
   <text>
     <status value="additional"/>
@@ -60,18 +59,18 @@
           </valueQuantity>
         </extension>
       </extension>
-      <patient>
+      <subject>
         <reference value="Patient/example"/>
         <display value="Peter James Chalmers"/>
-      </patient>
+      </subject>
       <description value="Target weight is 80 kg"/>
       <status value="planned"/>
     </Goal>
   </contained>
-  <patient>
+  <subject>
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
-  </patient>
+  </subject>
   <status value="active"/>
   <period>
     <end value="2013-01-01"/>
@@ -82,7 +81,7 @@
   </concern>
   <participant>
     <role>
-      <text value='responsiblePerson'/>
+      <text value="responsiblePerson"/>
     </role>
     <member>
       <reference value="Patient/example"/>
@@ -91,7 +90,7 @@
   </participant>
   <participant>
     <role>
-      <text value='adviser'/>
+      <text value="adviser"/>
     </role>
     <member>
       <reference value="#pr1"/>
@@ -103,7 +102,7 @@
   </goal>
   <activity>
     <detail>
-      <category value="observation"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="observation"/></coding></category>
       <code>
         <text value="a code for weight measurement"/>
       </code>

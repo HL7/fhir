@@ -81,7 +81,7 @@
   Must Support = Y
 
  -- Row 8 -----------------------------------
-  Element = Goal.patient
+  Element = Goal.subject
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
 

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
   <id value="gpvisit"/>
   <text>
     <status value="additional"/>
@@ -32,18 +31,18 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <patient>
+      <subject>
         <reference value="Patient/100"/>
         <display value="Peter James Chalmers"/>
-      </patient>
+      </subject>
       <description value="Complete consultation"/>
       <status value="planned"/>
     </Goal>
   </contained>
-  <patient>
+  <subject>
     <reference value="Patient/100"/>
     <display value="Peter James Chalmers"/>
-  </patient>
+  </subject>
   <status value="active"/>
   <period>
     <!-- This is the time the plan started - i.e. when they arrived-->
@@ -58,9 +57,9 @@
     <role>
       <coding>
         <system value="http://example.org/local"/>
-        <code value='nur'/>
+        <code value="nur"/>
       </coding>
-      <text value='nurse'/>
+      <text value="nurse"/>
     </role>
     <member>
       <reference value="Practitioner/13"/>
@@ -71,9 +70,9 @@
     <role>
       <coding>
         <system value="http://example.org/local"/>
-        <code value='doc'/>
+        <code value="doc"/>
       </coding>
-      <text value='doctor'/>
+      <text value="doctor"/>
     </role>
     <member>
       <reference value="Practitioner/14"/>
@@ -92,11 +91,11 @@
     </actionResulting>
     <detail>
       <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed.-->
-      <category value="encounter"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
       <code>
         <coding>
           <system value="http://example.org/local"/>
-          <code value='nursecon'/>
+          <code value="nursecon"/>
         </coding>
         <text value="Nurse Consultation"/>
       </code>
@@ -118,11 +117,11 @@
     <detail>
       <!-- This activity is for the encounter with the doctor. It is scheduled, but not yet started,
               so there is no timing[x]  or actionTaken element yet -->
-      <category value="encounter"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
       <code>
         <coding>
           <system value="http://example.org/local"/>
-          <code value='doccon'/>
+          <code value="doccon"/>
         </coding>
         <text value="Doctor Consultation"/>
       </code>

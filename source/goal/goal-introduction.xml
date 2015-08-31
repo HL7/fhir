@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-A Goal in health care services delivery is an expressed desired health state to be achieved by a subject of care (or family/group) 
+A Goal in health care services delivery is generally an expressed desired health state to be achieved by a subject of care (or family/group) 
 over a period or at a specific point of time.  This desired target health state may be achieved as a result of health care 
 intervention(s) or resulting from natural recovery over time.  For example:
 </p>
@@ -23,6 +23,22 @@ goal to maintain skin integrity)
 
 <p>
 Goals may address the prevention of illness, cure or mitigation of a condition, prolongation of life, or mitigation of pain and discomfort.
+</p>
+
+<p>
+When dealing with groups, goals may also reflect health state, such as a reduction of addiction behaviors.  However, they may also reflect
+population health objectives such as eduction, screening, etc.
+</p>
+
+<p>
+Organizational goals are typically not health state specific but may instead identify measurement targets such as infection control, cost
+management, patient satisfaction, etc.
+</p>
+
+<p>
+Note that this resource represents a specific goal instance for a particular patient, group, etc.
+It is not intended to be used to define types of "potential" goals as part of an order set
+or protocol.  These requirements will be supported as part of future resources.
 </p>
 </div>
 

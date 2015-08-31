@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
   <id value="f201"/>
   <contained>
     <Goal>
       <id value="goal"/>
-      <patient>
+      <subject>
         <reference value="Patient/f201"/>
         <display value="Roel"/>
-      </patient>
+      </subject>
       <description value="Re-established renal function with at least healthy nutrients."/>
       <status value="achieved"/>
     </Goal>
   </contained>
-  <patient>
+  <subject>
     <!--It entails Roel's careplan-->
     <reference value="Patient/f201"/>
     <display value="Roel"/>
-  </patient>
-  <status value="planned"/>
+  </subject>
+  <status value="draft"/>
   <!--This careplan is "ended", but was never closed in the EHR, wherefore the status is "planned"-->
   <period>
     <start value="2013-03-11"/>
@@ -61,7 +60,7 @@
   <activity>
     <!--Potassium supplement-->
     <detail>
-      <category value="diet"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="diet"/></coding></category>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -73,10 +72,10 @@
       <prohibited value="false"/>
       <scheduledString value="daily"/>
       <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
-      <product>
+      <productReference>
         <reference value="Substance/f203"/>
         <display value="Potassium"/>
-      </product>
+      </productReference>
       <dailyAmount>
         <value value="80"/>
         <unit value="mmol"/>
@@ -88,7 +87,7 @@
   <activity>
     <!--Echo of the kidney-->
     <detail>
-      <category value="observation"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="observation"/></coding></category>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>

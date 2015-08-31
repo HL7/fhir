@@ -10,7 +10,7 @@
   Card. = 0..0
 
  -- Row 3 -----------------------------------
-  Element = CarePlan.patient
+  Element = CarePlan.subject
   Card. = 1..1
 
  -- Row 4 -----------------------------------
@@ -20,41 +20,53 @@
   Value = active
 
  -- Row 5 -----------------------------------
-  Element = CarePlan.period
+  Element = CarePlan.context
   Card. = 0..0
 
  -- Row 6 -----------------------------------
-  Element = CarePlan.author
+  Element = CarePlan.period
   Card. = 0..0
 
  -- Row 7 -----------------------------------
-  Element = CarePlan.modified
+  Element = CarePlan.author
   Card. = 0..0
 
  -- Row 8 -----------------------------------
-  Element = CarePlan.category
+  Element = CarePlan.modified
   Card. = 0..0
 
  -- Row 9 -----------------------------------
-  Element = CarePlan.concern
+  Element = CarePlan.category
   Card. = 0..0
 
  -- Row 10 -----------------------------------
-  Element = CarePlan.support
+  Element = CarePlan.description
   Card. = 0..0
 
  -- Row 11 -----------------------------------
-  Element = CarePlan.participant
+  Element = CarePlan.concern
   Card. = 0..0
 
  -- Row 12 -----------------------------------
-  Element = CarePlan.goal
+  Element = CarePlan.support
   Card. = 0..0
 
  -- Row 13 -----------------------------------
-  Element = CarePlan.activity
+  Element = CarePlan.relatedPlan
   Card. = 0..0
 
  -- Row 14 -----------------------------------
-  Element = CarePlan.notes
+  Element = CarePlan.participant
+  Card. = 0..0
+
+ -- Row 15 -----------------------------------
+  Element = CarePlan.goal
+  Card. = 0..0
+
+ -- Row 16 -----------------------------------
+  Element = CarePlan.activity
+  Card. = 0..0
+
+ -- Row 17 -----------------------------------
+  Element = CarePlan.note
   Card. = 0..0

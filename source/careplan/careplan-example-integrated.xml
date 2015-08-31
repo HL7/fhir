@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
   <id value="integrate"/>
   <text>
     <status value="generated"/>
@@ -163,10 +162,10 @@
   <contained>
     <Goal>
       <id value="g1"/>
-      <patient>
+      <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </patient>
+      </subject>
       <description value="Eve will lose weight and reduce her GERDS symptoms by improving her diet"/>
       <status value="in-progress"/>
     </Goal>
@@ -174,10 +173,10 @@
   <contained>
     <Goal>
       <id value="g2"/>
-      <patient>
+      <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </patient>
+      </subject>
       <description value="Eve will improve her GERDS symptoms"/>
       <status value="in-progress"/>
     </Goal>
@@ -185,10 +184,10 @@
   <contained>
     <Goal>
       <id value="g3"/>
-      <patient>
+      <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </patient>
+      </subject>
       <description value="Eve will increase her energy by being more active"/>
       <status value="in-progress"/>
     </Goal>
@@ -196,10 +195,10 @@
   <contained>
     <Goal>
       <id value="g4"/>
-      <patient>
+      <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </patient>
+      </subject>
       <description value="Eve will set up her medications and take as prescribed"/>
       <status value="in-progress"/>
     </Goal>
@@ -207,18 +206,18 @@
   <contained>
     <Goal>
       <id value="g5"/>
-      <patient>
+      <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </patient>
+      </subject>
       <description value="Eve will restart her light treatments"/>
       <status value="in-progress"/>
     </Goal>
   </contained>
-  <patient>
+  <subject>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
-  </patient>
+  </subject>
   <status value="active"/>
   <modified value="2012-09-10"/>
   <concern>
@@ -252,12 +251,15 @@
     <reference value="#g5"/>
   </goal>
   <activity>
-    <notes value="9/10/12 Eve eats one meal a day with her parents"/>
+    <progress>
+      <time value="2012-09-10"/>
+      <text value="Eve eats one meal a day with her parents"/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/StructureDefinition/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g1"/>
       </goal>
@@ -266,16 +268,19 @@
       <scheduledPeriod>
         <start value="2012-09-10"/>
       </scheduledPeriod>
-      <note value="Eve will review photos of high and low density foods and share with her parents"/>
+      <description value="Eve will review photos of high and low density foods and share with her parents"/>
     </detail>
   </activity>
   <activity>
-    <notes value="9/10/12 Eve will sleep in her bed more often than the couch"/>
+    <progress>
+      <time value="2012-09-10"/>
+      <text value="Eve will sleep in her bed more often than the couch"/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g1"/>
       </goal>
@@ -284,7 +289,7 @@
       <scheduledPeriod>
         <start value="2012-09-10"/>
       </scheduledPeriod>
-      <note value="Eve will ask her dad to asist her to put the head of her bed on blocks"/>
+      <description value="Eve will ask her dad to asist her to put the head of her bed on blocks"/>
     </detail>
   </activity>
   <activity>
@@ -292,7 +297,7 @@
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g2"/>
       </goal>
@@ -301,16 +306,23 @@
       <scheduledPeriod>
         <start value="2012-09-10"/>
       </scheduledPeriod>
-      <note value="Eve will reduce her intake of coffee and chocolate"/>
+      <description value="Eve will reduce her intake of coffee and chocolate"/>
     </detail>
   </activity>
   <activity>
-    <notes value="8/27/12 Eve would like to try for 5 days a week.  9/10/12 Eve is still walking the dogs."/>
+    <progress>
+      <time value="2012-08-27"/>
+      <text value="Eve would like to try for 5 days a week."/>
+    </progress>
+    <progress>
+      <time value="2012-09-10"/>
+      <text value="Eve is still walking the dogs."/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g3"/>
       </goal>
@@ -319,16 +331,23 @@
       <scheduledPeriod>
         <start value="2012-08-27"/>
       </scheduledPeriod>
-      <note value="Eve will walk her friend's dog up and down a big hill 15-30 minutes 3 days a week"/>
+      <description value="Eve will walk her friend's dog up and down a big hill 15-30 minutes 3 days a week"/>
     </detail>
   </activity>
   <activity>
-    <notes value="8/13/12 Eve walked 4 times the last week.  9/10/12 Eve did not walk to her parents the last week, but has plans to start again"/>
+    <progress>
+      <time value="2012-08-13"/>
+      <text value="Eve walked 4 times the last week."/>
+    </progress>
+    <progress>
+      <time value="2012-09-10"/>
+      <text value="Eve did not walk to her parents the last week, but has plans to start again"/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g3"/>
       </goal>
@@ -337,7 +356,7 @@
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
-      <note value="Eve will walk 3 blocks to her parents house twice a week"/>
+      <description value="Eve will walk 3 blocks to her parents house twice a week"/>
     </detail>
   </activity>
   <activity>
@@ -345,7 +364,7 @@
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-08-13"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g4"/>
       </goal>
@@ -354,16 +373,23 @@
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
-      <note value="Eve will us a calendar to check off after medications are taken"/>
+      <description value="Eve will us a calendar to check off after medications are taken"/>
     </detail>
   </activity>
   <activity>
-    <notes value="8/13/12 After restarting the vinegar soaks the psoriasis is improved and Eve plans to treat the remainder with light treatments.  She plans to start this week.  8/27/12 Since her skin is improved Eve has not been using the light treatment as often, maybe once a week.  She would like to increase to 3 times a week again"/>
+    <progress>
+      <time value="2012-08-13"/>
+      <text value="After restarting the vinegar soaks the psoriasis is improved and Eve plans to treat the remainder with light treatments.  She plans to start this week."/>
+    </progress>
+    <progress>
+      <time value="2012-08-27"/>
+      <text value="Since her skin is improved Eve has not been using the light treatment as often, maybe once a week.  She would like to increase to 3 times a week again"/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-08-27"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g5"/>
       </goal>
@@ -372,16 +398,19 @@
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
-      <note value="Eve will use her lights MWF after her shower for 3 minutes"/>
+      <description value="Eve will use her lights MWF after her shower for 3 minutes"/>
     </detail>
   </activity>
   <activity>
-    <notes value="7/23/12 Eve created a chart as a reminer to take the medications that do not fit in her pill box"/>
+    <progress>
+      <time value="2012-07-23"/>
+      <text value="Eve created a chart as a reminer to take the medications that do not fit in her pill box"/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g4"/>
       </goal>
@@ -390,16 +419,23 @@
       <scheduledPeriod>
         <start value="2012-07-10"/>
       </scheduledPeriod>
-      <note value="Eve will use a calendar of a chart to help her remember when to take her medications"/>
+      <description value="Eve will use a calendar of a chart to help her remember when to take her medications"/>
     </detail>
   </activity>
   <activity>
-    <notes value="7/30/12 will be able to esume exercise.  8/13/12 Eve prefers to focus on walking at this time"/>
+    <progress>
+      <time value="2012-07-30"/>
+      <text value="Will be able to esume exercise."/>
+    </progress>
+    <progress>
+      <time value="2012-08-13"/>
+      <text value="Eve prefers to focus on walking at this time"/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-08-23"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g3"/>
       </goal>
@@ -408,7 +444,7 @@
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
-      <note value="Eve will start using stretch bands and one step 2 days a week Mon/Wed 6-7am and maybe Friday afternoon"/>
+      <description value="Eve will start using stretch bands and one step 2 days a week Mon/Wed 6-7am and maybe Friday afternoon"/>
     </detail>
   </activity>
   <activity>
@@ -416,7 +452,7 @@
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-07-23"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g4"/>
       </goal>
@@ -425,16 +461,19 @@
       <scheduledPeriod>
         <start value="2012-07-10"/>
       </scheduledPeriod>
-      <note value="Eve will match a printed medication worksheet with the medication bottles at home"/>
+      <description value="Eve will match a printed medication worksheet with the medication bottles at home"/>
     </detail>
   </activity>
   <activity>
-    <notes value="7/16/12 Eve now has some of her medications set up in pill packs by her pharmacist"/>
+    <progress>
+      <time value="2012-07-16"/>
+      <text value="Eve now has some of her medications set up in pill packs by her pharmacist"/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-07-16"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g4"/>
       </goal>
@@ -443,16 +482,23 @@
       <scheduledPeriod>
         <start value="2012-07-10"/>
       </scheduledPeriod>
-      <note value="Eve will get a medication box to sort her pills.  She will have one for scheduled medications and one for as needed"/>
+      <description value="Eve will get a medication box to sort her pills.  She will have one for scheduled medications and one for as needed"/>
     </detail>
   </activity>
   <activity>
-    <notes value="7/30/12 Eve will be able to resume exercise on 7/30/12.  8/13/12 -hold until &quot;less busy&quot;"/>
+    <progress>
+      <time value="2012-07-12"/>
+      <text value="Eve will be able to resume exercise on 7/30/12"/>
+    </progress>
+    <progress>
+      <time value="2012-08-13"/>
+      <text value="hold until &#34;less busy&#34;"/>
+    </progress>
     <detail>
       <extension url="http://example.org/DoNotUse/General/RevisionDate">
         <valueDate value="2012-08-13"/>
       </extension>
-      <category value="other"/>
+      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="other"/></coding></category>
       <goal>
         <reference value="#g3"/>
       </goal>
@@ -461,8 +507,10 @@
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
-      <note value="Eve will open &quot;The Firm&quot; DVD workout package and listen to it"/>
+      <description value="Eve will open &#34;The Firm&#34; DVD workout package and listen to it"/>
     </detail>
   </activity>
-  <notes value="Patient family is not ready to commit to goal setting at this time.  Goal setting will be addressed in the future"/>
+  <note>
+    <text value="Patient family is not ready to commit to goal setting at this time.  Goal setting will be addressed in the future"/>
+  </note>
 </CarePlan>
