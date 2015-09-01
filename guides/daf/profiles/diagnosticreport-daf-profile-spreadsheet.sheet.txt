@@ -76,6 +76,7 @@
   Card. = 0..*
   Must Support = Y
   Type = Coding
+  Short Label = Standard and local codes may be included here by repeating the coding element with a different coding.system.
   Committee Notes = 11/24/2014 EH:LOINC Slice
 
  -- Row 6 -----------------------------------
