@@ -21,11 +21,11 @@ at once, but this requires that the implementation guides are compatible (see <a
 Implementation Guides contain two different types of resource references: .
 </p>
 <ul>
- <li>Contents: A set of logical statements which implementations must conformn to. These are almost always <a href="infrastructure.html#conformance">conformnce resources</a></li>
+ <li>Contents: A set of logical statements which implementations must conformn to. These are almost always <a href="infrastructure.html#conformance">conformance resources</a></li>
  <li>Examples: Examples that illustrate the intent of the profiles defined in the implementation guide. These can be any kind of resource</li>
 </ul>
 <p>
-An applications <a href="conformance.html">Conformance Statement</a> may identify one or more implementation guides that an application conformns to.
+An applications <a href="conformance.html">Conformance Statement</a> may identify one or more implementation guides that an application conforms to.
 </p>
 </div>
 
