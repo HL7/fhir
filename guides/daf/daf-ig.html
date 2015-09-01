@@ -15,7 +15,7 @@
 <a name="daf-ig"> </a> 
 <h3>DAF FHIR IG Overview and Conformance Requirements</h3>
 <p>
-The DAF FHIR IG contains four sections:
+The DAF FHIR IG contains four sections:alle
 <ul>
 	<li>Definitions, Interpretations and Requirements common to all DAF actors</li>
 	<li>Conformance Requirements for each DAF actor</li>
@@ -43,11 +43,7 @@ In the context of DAF profiles, <i>Supported</i> on any data element SHALL be in
 </ul>
 </p>
 <p>
-<b>Value Set bindings and interpretation:</b> In the context of DAF profiles, value set bindings (required, extensible) for specific data elements SHALL be interpreted as follows:
-<ul>
-	<li>DAF Responders SHALL use the codes from the value sets identified by the DAF profiles, unless the value set does not contain codes that can be used at any level of granularity. 
-	For example, if the value set allows red, green and blue and your concept is "navy", you cannot use a new code, you have to use "blue" which subsumes this concept.  However, if your concept is "white", you can use a new code.</li>
-</ul>
+	<b>Value Set bindings and interpretation:</b> In the context of DAF profiles, value set bindings (required, extensible) for specific data elements follow FHIR <a href="[%fhir-path%]terminologies.html#strength">terminology</a> requirements.
 </p>
 <p>
 <b>FHIR Infrastructure usage: </b>DAF uses <a href="[%fhir-path%]http.html">FHIR RESTful API</a> based on HTTP protocol along with <a href="[%fhir-path%]datatypes.html">FHIR data types</a>, <a href="[%fhir-path%]search.html">FHIR search</a> and both xml and json <a href="[%fhir-path%]formats.html">FHIR Resource Formats</a>.
@@ -172,7 +168,7 @@ In addition to deriving the granular data elements from the MU2 conceptual data 
 		  </tr>
 		  <tr>
 			<td>MedicationAllergies list, Problem list, Medication List, Immunizations, Encounters, Laboratory Result Values</td>
-			<td><a href="list-daf.html">DAFAllergyIntoleranceList</a>, <a href="list-daf.html">DAFProblemList</a>,
+			<td><a href="list-daf.html">DAFAllergyList</a>, <a href="list-daf.html">DAFProblemList</a>,
 				<a href="list-daf.html">DAFMedicationList</a>, <a href="list-daf.html">DAFImmunizationList</a>,
 				<a href="list-daf.html">DAFEncounterList</a>, <a href="list-daf.html">DAFResultsList</a></td>
 			<td><a href="[%fhir-path%]list.html">List</a></td>
