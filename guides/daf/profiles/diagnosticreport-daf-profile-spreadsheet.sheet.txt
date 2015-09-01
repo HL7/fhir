@@ -11,7 +11,7 @@
  -- Row 2 -----------------------------------
   Binding Name = USDiagnosis
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/uslab-clinical-findings
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
   Definition = SNOMED CT findings codes provided as adjunct diagnosis to the report
   Conformance = preferred
 

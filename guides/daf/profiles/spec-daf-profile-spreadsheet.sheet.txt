@@ -150,7 +150,7 @@
 
  -- Row 16 -----------------------------------
   Element = Specimen.accessionIdentifier
-  Card. = 1..1
+  Card. = 0..1
   Aliases = Filler ID
   Must Support = Y
   Requirements = For Laboratory reporting this element is required.
