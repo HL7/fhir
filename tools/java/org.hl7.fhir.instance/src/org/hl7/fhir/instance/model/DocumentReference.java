@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
+// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -1873,6 +1873,10 @@ public class DocumentReference extends DomainResource {
     return ResourceType.DocumentReference;
    }
 
+  @SearchParamDefinition(name="related-ref", path="DocumentReference.context.related.ref", description="Related Resource", type="reference" )
+  public static final String SP_RELATEDREF = "related-ref";
+  @SearchParamDefinition(name="related-id", path="DocumentReference.context.related.identifier", description="Identifer of related objects or events", type="token" )
+  public static final String SP_RELATEDID = "related-id";
   @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
   public static final String SP_INDEXED = "indexed";
   @SearchParamDefinition(name="location", path="DocumentReference.content.attachment.url", description="Uri where the data can be found", type="uri" )
@@ -1887,8 +1891,6 @@ public class DocumentReference extends DomainResource {
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="securitylabel", path="DocumentReference.securityLabel", description="Document security-tags", type="token" )
   public static final String SP_SECURITYLABEL = "securitylabel";
-  @SearchParamDefinition(name="relatedid", path="DocumentReference.context.related.identifier", description="Identifer of related objects or events", type="token" )
-  public static final String SP_RELATEDID = "relatedid";
   @SearchParamDefinition(name="setting", path="DocumentReference.context.practiceSetting", description="Additional details about where the content was created (e.g. clinical specialty)", type="token" )
   public static final String SP_SETTING = "setting";
   @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
@@ -1919,8 +1921,6 @@ public class DocumentReference extends DomainResource {
   public static final String SP_AUTHENTICATOR = "authenticator";
   @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
   public static final String SP_RELATIONSHIP = "relationship";
-  @SearchParamDefinition(name="relatedref", path="DocumentReference.context.related.ref", description="Related Resource", type="reference" )
-  public static final String SP_RELATEDREF = "relatedref";
   @SearchParamDefinition(name="language", path="DocumentReference.content.attachment.language", description="Human language of the content (BCP-47)", type="token" )
   public static final String SP_LANGUAGE = "language";
   @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )

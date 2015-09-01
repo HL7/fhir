@@ -110,7 +110,7 @@
     <valueUri value="2.16.840.1.113883.4.642.2.444"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/lipid-ldl-codes"/>
-  <version value="0.5.0"/>
+  <version value="1.0.0"/>
   <name value="LDLCodes"/>
   <status value="draft"/>
   <experimental value="false"/>

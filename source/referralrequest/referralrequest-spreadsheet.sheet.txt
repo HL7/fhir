@@ -1,4 +1,4 @@
-
+﻿
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -79,7 +79,7 @@
   Card. = 0..*
   Is Modifier = N
   Type = Identifier
-  Short Label = Identifier of request
+  Short Label = Business Identifier
   Definition = Business Id that uniquely identifies the referral/care transfer request instance
   w5 = id
 
@@ -161,7 +161,7 @@
   Card. = 0..1
   Is Modifier = N
   Type = Reference(Encounter)
-  Short Label = Encounter
+  Short Label = Originating encounter
   Definition = The encounter at which the request for referral or transfer of care is initiated
   w5 = context
 
@@ -201,7 +201,7 @@
   Is Modifier = N
   Summary = Y
   Type = CodeableConcept
-  Short Label = Service(s) requested
+  Short Label = What actions are requested as part of referral?
   Definition = The service(s) that is/are requested to be provided to the patient
   Comments = Examples: \"cardiac pacemaker insertion\"  HL7 v3 Concept domain - ReferralReasonCode examples: - Specialized medical assistance - Other care requirement
   w5 = what

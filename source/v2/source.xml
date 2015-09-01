@@ -20409,7 +20409,6 @@ les">
       <item code="RR" desc="Railroad Retirement number"/>
       <item code="RRI" desc="Regional registry ID"/>
       <item code="RRP" desc="Railroad Retirement Provider"/>
-      <item code="An identifier for a provi" desc=""/>
       <item code="SID" desc="Specimen ID"/>
       <item code="SL" desc="State license"/>
       <item code="SN" desc="Subscriber Number"/>
@@ -20509,7 +20508,6 @@ les">
       <item code="PN" desc="Person number"/>
       <item code="PNT" desc="Temporary Living Subject Number"/>
       <item code="PPIN" desc="Medicare/CMS Performing Provider Identification Number"/>
-      <item code="An Identifier for a provider a" desc=""/>
       <item code="PPN" desc="Passport number"/>
       <item code="PRC" desc="Permanent Resident Card Number"/>
       <item code="PRN" desc="Provider number"/>
@@ -20521,7 +20519,6 @@ les">
       <item code="RR" desc="Railroad Retirement number"/>
       <item code="RRI" desc="Regional registry ID"/>
       <item code="RRP" desc="Railroad Retirement Provider"/>
-      <item code="An identifier for a provider r" desc=""/>
       <item code="SID" desc="Specimen ID"/>
       <item code="SL" desc="State license"/>
       <item code="SN" desc="Subscriber Number"/>
@@ -20621,7 +20618,6 @@ les">
       <item code="PN" desc="Person number"/>
       <item code="PNT" desc="Temporary Living Subject Number"/>
       <item code="PPIN" desc="Medicare/CMS Performing Provider Identification Number"/>
-      <item code="An Identifier for a provider a" desc=""/>
       <item code="PPN" desc="Passport number"/>
       <item code="PRC" desc="Permanent Resident Card Number"/>
       <item code="PRN" desc="Provider number"/>
@@ -20633,7 +20629,6 @@ les">
       <item code="RR" desc="Railroad Retirement number"/>
       <item code="RRI" desc="Regional registry ID"/>
       <item code="RRP" desc="Railroad Retirement Provider"/>
-      <item code="An identifier for a provider r" desc=""/>
       <item code="SID" desc="Specimen ID"/>
       <item code="SL" desc="State license"/>
       <item code="SN" desc="Subscriber Number"/>
@@ -20733,7 +20728,6 @@ les">
       <item code="PN" desc="Person number"/>
       <item code="PNT" desc="Temporary Living Subject Number"/>
       <item code="PPIN" desc="Medicare/CMS Performing Provider Identification Number"/>
-      <item code="An Identifier for a provider a" desc=""/>
       <item code="PPN" desc="Passport number"/>
       <item code="PRC" desc="Permanent Resident Card Number"/>
       <item code="PRN" desc="Provider number"/>
@@ -20745,7 +20739,6 @@ les">
       <item code="RR" desc="Railroad Retirement number"/>
       <item code="RRI" desc="Regional registry ID"/>
       <item code="RRP" desc="Railroad Retirement Provider"/>
-      <item code="An identifier for a provider r" desc=""/>
       <item code="SID" desc="Specimen ID"/>
       <item code="SL" desc="State license"/>
       <item code="SN" desc="Subscriber Number"/>
@@ -32883,7 +32876,6 @@ les">
       <item code="PRN" desc="given as needed"/>
       <item code="PRNxxx" desc="where xxx is some frequency code (e.g., PRNQ6H); given as needed over the frequency period."/>
       <item code="Once" desc="one time only.  This is also the default when this component is null."/>
-      <item code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
       <item code="A" desc="Ante (before)"/>
       <item code="P" desc="Post (after)"/>
       <item code="I" desc="Inter (e.g., between this meal and the next, between dinner and sleep"/>
@@ -32913,7 +32905,6 @@ les">
       <item code="PRN" desc="given as needed"/>
       <item code="PRNxxx" desc="where xxx is some frequency code"/>
       <item code="Once" desc="one time only."/>
-      <item code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
       <item code="A" desc="Ante (before)"/>
       <item code="P" desc="Post (after)"/>
       <item code="I" desc="Inter"/>
@@ -32943,7 +32934,6 @@ les">
       <item code="PRN" desc="given as needed"/>
       <item code="PRNxxx" desc="where xxx is some frequency code"/>
       <item code="Once" desc="one time only."/>
-      <item code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
       <item code="A" desc="Ante (before)"/>
       <item code="P" desc="Post (after)"/>
       <item code="I" desc="Inter"/>
@@ -32973,7 +32963,6 @@ les">
       <item code="PRN" desc="given as needed"/>
       <item code="PRNxxx" desc="where xxx is some frequency code"/>
       <item code="Once" desc="one time only."/>
-      <item code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
       <item code="A" desc="Ante (before)"/>
       <item code="P" desc="Post (after)"/>
       <item code="I" desc="Inter"/>
@@ -33003,7 +32992,6 @@ les">
       <item code="PRN" desc="given as needed"/>
       <item code="PRNxxx" desc="where xxx is some frequency code"/>
       <item code="Once" desc="one time only."/>
-      <item code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
       <item code="A" desc="Ante (before)"/>
       <item code="P" desc="Post (after)"/>
       <item code="I" desc="Inter"/>
@@ -33033,7 +33021,6 @@ les">
       <item code="PRN" desc="given as needed"/>
       <item code="PRNxxx" desc="where xxx is some frequency code"/>
       <item code="Once" desc="one time only."/>
-      <item code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
       <item code="A" desc="Ante (before)"/>
       <item code="P" desc="Post (after)"/>
       <item code="I" desc="Inter"/>
@@ -33063,7 +33050,6 @@ les">
       <item code="PRN" desc="given as needed"/>
       <item code="PRNxxx" desc="where xxx is some frequency code"/>
       <item code="Once" desc="one time only."/>
-      <item code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
       <item code="A" desc="Ante (before)"/>
       <item code="P" desc="Post (after)"/>
       <item code="I" desc="Inter"/>
@@ -33093,7 +33079,6 @@ les">
       <item code="PRN" desc="given as needed"/>
       <item code="PRNxxx" desc="where xxx is some frequency code"/>
       <item code="Once" desc="one time only."/>
-      <item code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
       <item code="A" desc="Ante (before)"/>
       <item code="P" desc="Post (after)"/>
       <item code="I" desc="Inter"/>
@@ -59318,8 +59303,6 @@ les">
       <item code="RQO" desc="Request-Order"/>
       <item code="EVN" desc="Event"/>
       <item code="EVN.CRT" desc="Event Criterion"/>
-      <item code="Similar uses of above moods ma" desc=""/>
-      <item code="E.g. Use in Care Plans," desc=""/>
       <item code="EXP" desc="Expectation"/>
     </version>
     <version version="2.8.2" desc="Mood Codes">
@@ -59331,8 +59314,6 @@ les">
       <item code="RQO" desc="Request-Order"/>
       <item code="EVN" desc="Event"/>
       <item code="EVN.CRT" desc="Event Criterion"/>
-      <item code="Similar uses of above moods ma" desc=""/>
-      <item code="E.g. Use in Care Plans," desc=""/>
       <item code="EXP" desc="Expectation"/>
     </version>
   </table>

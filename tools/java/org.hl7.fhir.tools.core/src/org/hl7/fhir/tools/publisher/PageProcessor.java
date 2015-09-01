@@ -276,12 +276,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
   public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
-  public final static String WEB_PUB_NAME = "DSTU2 Ballot Source";
+  public final static String WEB_PUB_NAME = "DSTU2 QA Preview";
   public final static String CI_PUB_NAME = "Current Build";
   
   public final static String WEB_PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
-          "This is the DSTU2 <b>ballot</b> version of FHIR, and not intended for implementation. See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
+          "This is the DSTU2 QA Preview.  It is suitable for implementation, though QA around spelling/grammar etc is ongoing. The <a href=\"iglist.html\">Implementation Guides</a> are still undergoing development. See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
           "</p>\r\n";
   
   public final static String CI_PUB_NOTICE = 
@@ -2608,8 +2608,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    if (!isDict && !n.equals("elementdefinition-de")) // todo: do this properly
-      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
+//    if (!isDict && !n.equals("elementdefinition-de")) // todo: do this properly
+//      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
     b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
 
@@ -2832,8 +2832,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
     if (!isAbstract)
       b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
-    if (!isAbstract)
-      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
+//    if (!isAbstract)
+//      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 
@@ -6886,7 +6886,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     b.append("</table>\r\n");
     b.append("<p>"+Integer.toString(list.size())+" Entries</p>\r\n");
-    definitions.clearRedirectList();
     return b.toString();
   }
 

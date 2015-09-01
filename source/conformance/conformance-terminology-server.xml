@@ -30,7 +30,7 @@
   <software>
     <name value="ACME Terminology Server"/>
   </software>
-  <fhirVersion value="0.5.0"/>
+  <fhirVersion value="1.0.0"/>
 <!--  this can be either, but accepting unknown elements is 
     preferred for forwards compatibility (Not that it matters during the DSTU period) -->
   <acceptUnknown value="both"/>

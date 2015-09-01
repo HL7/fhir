@@ -80,7 +80,7 @@
     <valueUri value="urn:oid:2.16.840.1.113883.4.642.2.63"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/care-plan-activity-category"/>
-  <version value="0.5.0"/>
+  <version value="1.0.0"/>
   <name value="CarePlanActivityCategory"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -102,7 +102,7 @@
       <valueUri value="urn:oid:2.16.840.1.113883.4.642.1.63"/>
     </extension>
     <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-    <version value="0.5.0"/>
+    <version value="1.0.0"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="diet"/>

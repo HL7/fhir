@@ -32,7 +32,7 @@
     </coding>
   </useContext>
   <copyright value="Published by ONC under the standard FHIR license (CC0)"/>
-  <fhirVersion value="0.5.0"/>
+  <fhirVersion value="1.0.0"/>
   <dependency> 
    <type value="reference"/>
    <!-- when there's a uscore realm implemenation guide, DAF will use it -->

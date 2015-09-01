@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
+// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -1422,10 +1422,6 @@ public class NamingSystem extends DomainResource {
   public static final String SP_RESPONSIBLE = "responsible";
   @SearchParamDefinition(name="status", path="NamingSystem.status", description="draft | active | retired", type="token" )
   public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="idtype", path="NamingSystem.uniqueId.type", description="oid | uuid | uri | other", type="token" )
-  public static final String SP_IDTYPE = "idtype";
-  @SearchParamDefinition(name="replacedby", path="NamingSystem.replacedBy", description="Use this instead", type="reference" )
-  public static final String SP_REPLACEDBY = "replacedby";
   @SearchParamDefinition(name="type", path="NamingSystem.type", description="e.g. driver,  provider,  patient, bank etc", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="date", path="NamingSystem.date", description="Publication Date(/time)", type="date" )
@@ -1438,6 +1434,8 @@ public class NamingSystem extends DomainResource {
   public static final String SP_KIND = "kind";
   @SearchParamDefinition(name="publisher", path="NamingSystem.publisher", description="Name of the publisher (Organization or individual)", type="string" )
   public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="id-type", path="NamingSystem.uniqueId.type", description="oid | uuid | uri | other", type="token" )
+  public static final String SP_IDTYPE = "id-type";
   @SearchParamDefinition(name="name", path="NamingSystem.name", description="Human-readable label", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="context", path="NamingSystem.useContext", description="Content intends to support these contexts", type="token" )
@@ -1446,6 +1444,8 @@ public class NamingSystem extends DomainResource {
   public static final String SP_VALUE = "value";
   @SearchParamDefinition(name="telecom", path="NamingSystem.contact.telecom", description="Contact details for individual or publisher", type="token" )
   public static final String SP_TELECOM = "telecom";
+  @SearchParamDefinition(name="replaced-by", path="NamingSystem.replacedBy", description="Use this instead", type="reference" )
+  public static final String SP_REPLACEDBY = "replaced-by";
 
 }
 

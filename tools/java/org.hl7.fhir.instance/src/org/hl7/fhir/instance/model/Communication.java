@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
+// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -163,10 +163,10 @@ public class Communication extends DomainResource {
     @Block()
     public static class CommunicationPayloadComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * An individual message part for multi-part messages.
+         * A communicated content (or for multi-part communications, one portion of the communication).
          */
         @Child(name = "content", type = {StringType.class, Attachment.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Message part content", formalDefinition="An individual message part for multi-part messages." )
+        @Description(shortDefinition="Message part content", formalDefinition="A communicated content (or for multi-part communications, one portion of the communication)." )
         protected Type content;
 
         private static final long serialVersionUID = -1763459053L;
@@ -187,14 +187,14 @@ public class Communication extends DomainResource {
       }
 
         /**
-         * @return {@link #content} (An individual message part for multi-part messages.)
+         * @return {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public Type getContent() { 
           return this.content;
         }
 
         /**
-         * @return {@link #content} (An individual message part for multi-part messages.)
+         * @return {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public StringType getContentStringType() throws Exception { 
           if (!(this.content instanceof StringType))
@@ -207,7 +207,7 @@ public class Communication extends DomainResource {
         }
 
         /**
-         * @return {@link #content} (An individual message part for multi-part messages.)
+         * @return {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public Attachment getContentAttachment() throws Exception { 
           if (!(this.content instanceof Attachment))
@@ -220,7 +220,7 @@ public class Communication extends DomainResource {
         }
 
         /**
-         * @return {@link #content} (An individual message part for multi-part messages.)
+         * @return {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public Reference getContentReference() throws Exception { 
           if (!(this.content instanceof Reference))
@@ -237,7 +237,7 @@ public class Communication extends DomainResource {
         }
 
         /**
-         * @param value {@link #content} (An individual message part for multi-part messages.)
+         * @param value {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public CommunicationPayloadComponent setContent(Type value) { 
           this.content = value;
@@ -246,7 +246,7 @@ public class Communication extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("content[x]", "string|Attachment|Reference(Any)", "An individual message part for multi-part messages.", 0, java.lang.Integer.MAX_VALUE, content));
+          childrenList.add(new Property("content[x]", "string|Attachment|Reference(Any)", "A communicated content (or for multi-part communications, one portion of the communication).", 0, java.lang.Integer.MAX_VALUE, content));
         }
 
       public CommunicationPayloadComponent copy() {
@@ -309,13 +309,13 @@ public class Communication extends DomainResource {
     protected Resource senderTarget;
 
     /**
-     * The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication.
+     * The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
      */
-    @Child(name = "recipient", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Message recipient", formalDefinition="The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication." )
+    @Child(name = "recipient", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Group.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Message recipient", formalDefinition="The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time)." )
     protected List<Reference> recipient;
     /**
-     * The actual objects that are the target of the reference (The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication.)
+     * The actual objects that are the target of the reference (The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).)
      */
     protected List<Resource> recipientTarget;
 
@@ -328,10 +328,10 @@ public class Communication extends DomainResource {
     protected List<CommunicationPayloadComponent> payload;
 
     /**
-     * The communication medium, e.g., email, fax.
+     * A channel that was used for this communication (e.g. email, fax).
      */
     @Child(name = "medium", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Communication medium", formalDefinition="The communication medium, e.g., email, fax." )
+    @Description(shortDefinition="A channel of communication", formalDefinition="A channel that was used for this communication (e.g. email, fax)." )
     protected List<CodeableConcept> medium;
 
     /**
@@ -511,7 +511,7 @@ public class Communication extends DomainResource {
     }
 
     /**
-     * @return {@link #recipient} (The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication.)
+     * @return {@link #recipient} (The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).)
      */
     public List<Reference> getRecipient() { 
       if (this.recipient == null)
@@ -529,7 +529,7 @@ public class Communication extends DomainResource {
     }
 
     /**
-     * @return {@link #recipient} (The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication.)
+     * @return {@link #recipient} (The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).)
      */
     // syntactic sugar
     public Reference addRecipient() { //3
@@ -551,7 +551,7 @@ public class Communication extends DomainResource {
     }
 
     /**
-     * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication.)
+     * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).)
      */
     public List<Resource> getRecipientTarget() { 
       if (this.recipientTarget == null)
@@ -600,7 +600,7 @@ public class Communication extends DomainResource {
     }
 
     /**
-     * @return {@link #medium} (The communication medium, e.g., email, fax.)
+     * @return {@link #medium} (A channel that was used for this communication (e.g. email, fax).)
      */
     public List<CodeableConcept> getMedium() { 
       if (this.medium == null)
@@ -618,7 +618,7 @@ public class Communication extends DomainResource {
     }
 
     /**
-     * @return {@link #medium} (The communication medium, e.g., email, fax.)
+     * @return {@link #medium} (A channel that was used for this communication (e.g. email, fax).)
      */
     // syntactic sugar
     public CodeableConcept addMedium() { //3
@@ -963,9 +963,9 @@ public class Communication extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Identifiers associated with this Communication that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("category", "CodeableConcept", "The type of message conveyed such as alert, notification, reminder, instruction, etc.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("sender", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The entity (e.g., person, organization, clinical information system, or device) which was the source of the communication.", 0, java.lang.Integer.MAX_VALUE, sender));
-        childrenList.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient));
+        childrenList.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)", "The entity (e.g., person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("payload", "", "Text, attachment(s), or resource(s) that was communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, payload));
-        childrenList.add(new Property("medium", "CodeableConcept", "The communication medium, e.g., email, fax.", 0, java.lang.Integer.MAX_VALUE, medium));
+        childrenList.add(new Property("medium", "CodeableConcept", "A channel that was used for this communication (e.g. email, fax).", 0, java.lang.Integer.MAX_VALUE, medium));
         childrenList.add(new Property("status", "code", "The status of the transmission.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter within which the communication was sent.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("sent", "dateTime", "The time when this communication was sent.", 0, java.lang.Integer.MAX_VALUE, sent));
@@ -1077,7 +1077,7 @@ public class Communication extends DomainResource {
   public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="identifier", path="Communication.identifier", description="Unique identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="medium", path="Communication.medium", description="Communication medium", type="token" )
+  @SearchParamDefinition(name="medium", path="Communication.medium", description="A channel of communication", type="token" )
   public static final String SP_MEDIUM = "medium";
   @SearchParamDefinition(name="recipient", path="Communication.recipient", description="Message recipient", type="reference" )
   public static final String SP_RECIPIENT = "recipient";

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
+// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -739,7 +739,7 @@ public class Substance extends DomainResource {
   public static final String SP_CONTAINERIDENTIFIER = "container-identifier";
   @SearchParamDefinition(name="category", path="Substance.category", description="The category of the substance", type="token" )
   public static final String SP_CATEGORY = "category";
-  @SearchParamDefinition(name="quantity", path="Substance.instance.quantity", description="Amount of substance in the package", type="number" )
+  @SearchParamDefinition(name="quantity", path="Substance.instance.quantity", description="Amount of substance in the package", type="quantity" )
   public static final String SP_QUANTITY = "quantity";
   @SearchParamDefinition(name="code", path="Substance.code", description="The code of the substance", type="token" )
   public static final String SP_CODE = "code";

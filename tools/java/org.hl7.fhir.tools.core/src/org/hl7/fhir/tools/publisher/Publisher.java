@@ -98,6 +98,7 @@ import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.Definitions.NamespacePair;
 import org.hl7.fhir.definitions.model.Definitions.PageInformation;
 import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -365,7 +366,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private Map<String, Long> dates = new HashMap<String, Long>();
   private Map<String, Boolean> buildFlags = new HashMap<String, Boolean>();
   private IniFile cache;
-  private WebMaker wm;
   private String svnStated;
   private String singleResource;
   private String singlePage;
@@ -625,6 +625,31 @@ public class Publisher implements URIResolver, SectionNumberer {
       e.printStackTrace();
       System.exit(1);
     }
+  }
+
+  private void generateRedirects() throws Exception {
+    page.log("Produce "+Integer.toString(page.getDefinitions().getRedirectList().size())+" Redirects", LogMessageType.Process);
+    for (String n : page.getDefinitions().getRedirectList().keySet()) {
+      NamespacePair nsp = page.getDefinitions().getRedirectList().get(n);
+      generateRedirect(n, nsp.desc, nsp.page);
+    }
+  }
+
+  private void generateRedirect(String n, String desc, String pn) throws Exception {
+    if (!n.startsWith("http://hl7.org/fhir/"))
+      throw new Error("wrong path");
+    n = n.substring(20);
+    String level = "../";
+    for (char c : n.toCharArray())
+      if (c == '/')
+        level = level +"../";
+    
+    String fullFileName = Utilities.path(page.getFolders().dstDir, n.replace("/", File.separator));
+    Utilities.createDirectory(fullFileName);
+    String page = "<html>\r\n<head>\r\n<title>Redirect Page for "+Utilities.escapeXml(desc)+" </title>\r\n<meta http-equiv=\"REFRESH\" content=\"0;url="+
+       level+pn+"\"></HEAD>\r\n</head>\r\n<body>\r\nThis page is a redirect to "+level+pn+"\r\n</body>\r\n</html>\r\n";
+    TextFile.stringToFile(page, Utilities.path(fullFileName, "index.html"));
+    
   }
 
   @SuppressWarnings("unchecked")
@@ -1736,7 +1761,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             // building
             // the web build, all generators that can compile, must compile
             // without error.
-            if (gen.getName().equals("java") || web)
+            if (gen.getName().equals("java")) // || web)
               throw new Exception("Compile " + gen.getName() + " failed");
             else
               page.log("Compile " + gen.getName() + " failed, still going on.", LogMessageType.Error);
@@ -1767,16 +1792,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     if (buildFlags.get("all")) {
       if (web) {
-        if (!new File(page.getFolders().archiveDir).exists())
-          throw new Exception("Unable to build HL7 copy with no archive directory (sync svn at one level up the tree)");
-
-        page.log("Produce HL7 copy", LogMessageType.Process);
-        wm = new WebMaker(page.getFolders(), page.getVersion(), page.getIni(), page.getDefinitions());
-        wm.produceHL7Copy();
-      }
-      if (new File(page.getFolders().archiveDir).exists() && !noArchive) {
-        page.log("Produce Archive copy", LogMessageType.Process);
-        produceArchive();
+        generateRedirects();
       }
     }
   }
@@ -2631,7 +2647,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     if (web) {
       page.getQa().commit(page.getFolders().rootDir);
-      wm.addPage("qa.html");
     }
   }
 
@@ -3562,7 +3577,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     html = page.processPageIncludes(prefix+profile.getId().toLowerCase() + "-questionnaire.xml.html", html, (isResource ? "resource-questionnaire:" : "profile-questionnaire:") + profile.getId(), null, null, null, "Questionnaire", ig);
     TextFile.stringToFile(html, page.getFolders().dstDir + prefix+ profile.getId().toLowerCase() + "-questionnaire.xml.html");
 
-    if (web) {
+    if (false) {
       File tmpTransform = Utilities.createTempFile("tmp", ".html");
       //    if (web) {
       HashMap<String, String> params = new HashMap<String, String>();

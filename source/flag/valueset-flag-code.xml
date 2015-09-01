@@ -2,7 +2,7 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
 	<id value="flag-code"/>
 	<url value="http://hl7.org/fhir/ValueSet/flag-code"/>
-	<version value="0.5.0"/>
+	<version value="1.0.0"/>
 	<name value="Flag Code"/>
 	<status value="draft"/>
 	<publisher value="HL7 International - Patient Care WG"/>

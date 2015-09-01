@@ -463,7 +463,7 @@
   <date value="2014-07-06"/>
   <description value="This profile defines the expected capabilities of the ''SDC Form Designer'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining forms ([[Questionnaire]] resource instances) that include references to [[DataElement]] resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms."/>
   <kind value="requirements"/>
-  <fhirVersion value="0.5.0"/>
+  <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>

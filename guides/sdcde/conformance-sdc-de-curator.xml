@@ -332,7 +332,7 @@
   <date value="2014-07-06"/>
   <description value="This profile defines the expected capabilities of the ''SDC Data Element Curator'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR Data Element Exchange implementation guide]].  This role is responsible for defining and updating data elements stored in a repository."/>
   <kind value="requirements"/>
-  <fhirVersion value="0.5.0"/>
+  <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>

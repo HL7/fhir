@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
+// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -368,6 +368,8 @@ public class Basic extends DomainResource {
   public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="code", path="Basic.code", description="Kind of Resource", type="token" )
   public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="identifier", path="Basic.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

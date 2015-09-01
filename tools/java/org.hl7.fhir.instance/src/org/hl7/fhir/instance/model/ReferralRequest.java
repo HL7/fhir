@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
+// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -199,7 +199,7 @@ public class ReferralRequest extends DomainResource {
      * Business Id that uniquely identifies the referral/care transfer request instance.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Identifier of request", formalDefinition="Business Id that uniquely identifies the referral/care transfer request instance." )
+    @Description(shortDefinition="Business Identifier", formalDefinition="Business Id that uniquely identifies the referral/care transfer request instance." )
     protected List<Identifier> identifier;
 
     /**
@@ -270,7 +270,7 @@ public class ReferralRequest extends DomainResource {
      * The encounter at which the request for referral or transfer of care is initiated.
      */
     @Child(name = "encounter", type = {Encounter.class}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Encounter", formalDefinition="The encounter at which the request for referral or transfer of care is initiated." )
+    @Description(shortDefinition="Originating encounter", formalDefinition="The encounter at which the request for referral or transfer of care is initiated." )
     protected Reference encounter;
 
     /**
@@ -303,7 +303,7 @@ public class ReferralRequest extends DomainResource {
      * The service(s) that is/are requested to be provided to the patient.
      */
     @Child(name = "serviceRequested", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Service(s) requested", formalDefinition="The service(s) that is/are requested to be provided to the patient." )
+    @Description(shortDefinition="What actions are requested as part of referral?", formalDefinition="The service(s) that is/are requested to be provided to the patient." )
     protected List<CodeableConcept> serviceRequested;
 
     /**

@@ -112,7 +112,7 @@ signatures.html
 			<page title="W5 Map" filename="w5.html"/>
 			<page title="Namespace List" filename="ns.html"/>
       
-			<page title="Ballot Intro" filename="ballot-intro.html"/>
+<!--			<page title="Ballot Intro" filename="ballot-intro.html"/> -->
 		</page>
     
 		<page title="Implementation" filename="implementation.html">

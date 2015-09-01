@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Sun, Aug 30, 2015 19:45-0400 for FHIR v0.5.0
+// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
 
 public enum ResourceType {
     Account,
@@ -22,9 +22,10 @@ public enum ResourceType {
     ConceptMap,
     Condition,
     Conformance,
-    Contraindication,
+    Contract,
     Coverage,
     DataElement,
+    DetectedIssue,
     Device,
     DeviceComponent,
     DeviceMetric,
@@ -138,12 +139,14 @@ public enum ResourceType {
       return "condition";
     case Conformance:
       return "conformance";
-    case Contraindication:
-      return "contraindication";
+    case Contract:
+      return "contract";
     case Coverage:
       return "coverage";
     case DataElement:
       return "dataelement";
+    case DetectedIssue:
+      return "detectedissue";
     case Device:
       return "device";
     case DeviceComponent:

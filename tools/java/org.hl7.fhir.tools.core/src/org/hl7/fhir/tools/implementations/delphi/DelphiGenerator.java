@@ -3322,8 +3322,9 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public boolean doesCompile() {
-    String dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\Studio\\16.0\\bin\\dcc64.exe";
-    return new File(dcc).exists();
+//    String dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\Studio\\16.0\\bin\\dcc64.exe";
+//    return new File(dcc).exists();
+    return false;
   }
 
   @Override
