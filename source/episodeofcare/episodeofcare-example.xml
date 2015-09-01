@@ -8,7 +8,10 @@
 			was on leave from 22 Sept - 24 Sept while in respite care
     </div>
   </text>
-
+  <identifier>
+    <system value="http://example.org/sampleepisodeofcare-identifier"/>
+    <value value="123"/>
+  </identifier>
   <status value="active" />
   <statusHistory>
     <status value="planned" />
@@ -44,6 +47,10 @@
         <display value="Home and Community Care Package"/>
     </coding>
   </type>
+  <condition>
+	  <reference value="Condition/example" />
+	  <display value="Severe burn of left ear" />
+  </condition>
   <patient>
     <reference value="Patient/example"/>
   </patient>
@@ -53,6 +60,9 @@
   <period>
     <start value="2014-09-01"/>
   </period>
+  <referralRequest>
+    <display value="Referral from Example Aged Care Services"/>
+  </referralRequest>
   <careManager>
     <reference value="Practitioner/14"/>
     <display value="Amanda Assigned" />

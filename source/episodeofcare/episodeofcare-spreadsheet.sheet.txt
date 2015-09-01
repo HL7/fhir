@@ -87,7 +87,7 @@
   Element = EpisodeOfCare.statusHistory
   Card. = 0..*
   UML = 0;220
-  Short Label = The status history for the EpisodeOfCare
+  Short Label = The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource)
 
  -- Row 5 -----------------------------------
   Element = EpisodeOfCare.statusHistory.status
