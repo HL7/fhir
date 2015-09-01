@@ -59,6 +59,12 @@
       <concept>
         <code value="3140-1"/>
       </concept>
+      <concept>
+        <code value="59408-5"/>
+      </concept>
+      <concept>
+        <code value="8478-0"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
