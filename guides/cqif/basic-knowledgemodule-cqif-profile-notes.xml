@@ -1,0 +1,15 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<a name="examples"> </a>
+<h3>Knowledge Module Examples</h3>
+<ul>
+ <li><a href="knowledgemodule-example.html">Stand-Alone Module</a>: KnowledgeModule used to define a Guideline Appropriate Ordering module</li>
+ <li><a href="knowledgemodule-library-example.html">Library</a>: KnowledgeModule used to expose a CQL library as a knowledge module</li>
+</ul>
+    
+</div>
+
+
+
+
+

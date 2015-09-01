@@ -1,0 +1,18 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<a name="examples"> </a>
+<h3>Examples</h3>
+<ul>
+ <li><a href="guidanceartifact-hedreference-example.html">GHeD Reference</a>: GuidanceArtifact used to expose an existing HeD artifact as a knowledge module</li>
+ <li><a href="guidanceartifact-ecarule-example.html">ECA Rule</a>: GuidanceArtifact used to define an ECA Rule</li>
+ <li><a href="guidanceartifact-documentationtemplate-example.html">Documentation Template</a>: GuidanceArtifact used to define a Documentation Template</li>
+ <li><a href="guidanceartifact-orderset-example.html">Order Set</a>: GuidanceArtifact used to define an Order Set</li>
+ <li><a href="mmi-suiciderisk-orderset-example.xml.html">Suicide Risk Order Set</a>: GuidanceArtifact used to define a suicide risk management Order Set</li>
+</ul>
+
+</div>
+
+
+
+
+

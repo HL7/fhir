@@ -20,12 +20,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7305</WindowHeight>
-  <WindowWidth>20250</WindowWidth>
+  <WindowHeight>16575</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1009,7 +1009,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">notes</Data></Cell>
-    <Cell ss:StyleID="s83"/>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">basic-knowledgemodule-cqif-profile-notes.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
@@ -1025,6 +1025,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3565,7 +3566,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

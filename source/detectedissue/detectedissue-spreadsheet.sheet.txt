@@ -102,7 +102,7 @@
   Summary = y
   Type = Reference(Any)
   Short Label = Problem resource
-  Definition = Indicates the resource representing the current activity or proposed activity that
+  Definition = Indicates the resource representing the current activity or proposed activity that is potentially problematic
   Comments = There\'s an implicit constraint on the number of implicated resources based on DetectedIssue.type.  E.g. For drug-drug, there would be more than one.  For timing, there would typically only be one.
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[moodCode=EVN, INT]
 
