@@ -536,13 +536,13 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       if (isGenerate && web && buildFlags.get("all")) { 
         page.log("Clear Directory", LogMessageType.Process);
-        Utilities.clearDirectory(page.getFolders().dstDir);
-        Utilities.createDirectory(page.getFolders().dstDir + "html");
-        Utilities.createDirectory(page.getFolders().dstDir + "examples");
-        for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs())
-          if (!ig.isCore())
-            Utilities.createDirectory(page.getFolders().dstDir + ig.getCode());
       }
+      Utilities.clearDirectory(page.getFolders().dstDir);
+      Utilities.createDirectory(page.getFolders().dstDir + "html");
+      Utilities.createDirectory(page.getFolders().dstDir + "examples");
+      for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs())
+        if (!ig.isCore())
+          Utilities.createDirectory(page.getFolders().dstDir + ig.getCode());
       
       if (buildFlags.get("all")) {
         copyStaticContent();
