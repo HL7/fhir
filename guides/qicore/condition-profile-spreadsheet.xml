@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9780</WindowHeight>
-  <WindowWidth>20352</WindowWidth>
+  <WindowHeight>15648</WindowHeight>
+  <WindowWidth>30720</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -1087,6 +1087,94 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s199">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s225">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s226">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s227">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s228">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s229">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s230">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s231">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s232">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s233">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s234">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s235">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s236">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1695,7 +1783,7 @@
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">!QICoreProblemSeverity</Data><NamedCell
+    <Cell ss:StyleID="s225"><Data ss:Type="String">!QICoreProblemSeverity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1810,7 +1898,7 @@
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreConditionStage</Data><NamedCell
+    <Cell ss:StyleID="s199"><Data ss:Type="String">!QICoreConditionStage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1881,33 +1969,33 @@
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.evidence.code</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:StyleID="s232">
+    <Cell ss:StyleID="s225"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s226"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s226"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s227"><Data ss:Type="String">!Condition.evidence.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">!QICoreConditionEvidence</Data><NamedCell
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">!QICoreConditionEvidence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s231"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3434,9 +3522,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3448,12 +3536,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6105,20 +6192,20 @@
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s161"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="36.75">
-    <Cell ss:StyleID="s125"><Data ss:Type="String">QICoreConditionStage</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">A period or phase in the course of a disease</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">valueset-condition-stage</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Value set indicating the period or phase in the course of a disease</Data></Cell>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s161"/>
+   <Row ss:AutoFitHeight="0" ss:Height="36.75" ss:StyleID="s236">
+    <Cell ss:StyleID="s225"><Data ss:Type="String">!QICoreConditionStage</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">A period or phase in the course of a disease</Data></Cell>
+    <Cell ss:StyleID="s233"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s234"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s234"><Data ss:Type="String">valueset-condition-stage</Data></Cell>
+    <Cell ss:StyleID="s233"><Data ss:Type="String">Value set indicating the period or phase in the course of a disease</Data></Cell>
+    <Cell ss:StyleID="s233"/>
+    <Cell ss:StyleID="s233"/>
+    <Cell ss:StyleID="s233"/>
+    <Cell ss:StyleID="s233"/>
+    <Cell ss:StyleID="s233"/>
+    <Cell ss:StyleID="s233"/>
+    <Cell ss:StyleID="s235"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33.75" ss:StyleID="s179">
     <Cell ss:StyleID="s117"><Data ss:Type="String">!QICoreConditionEvidence</Data></Cell>
@@ -6514,8 +6601,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

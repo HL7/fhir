@@ -18,7 +18,7 @@
   Conformance = example
 
  -- Row 3 -----------------------------------
-  Binding Name = QICoreConditionStage
+  Binding Name = !QICoreConditionStage
   Binding = value set
   Reference = valueset-condition-stage
   Definition = A period or phase in the course of a disease
@@ -131,7 +131,7 @@
  -- Row 16 -----------------------------------
   Element = Condition.stage.summary
   Must Support = Y
-  Binding = QICoreConditionStage
+  Binding = !QICoreConditionStage
 
  -- Row 17 -----------------------------------
   Element = Condition.stage.assessment
@@ -140,7 +140,7 @@
   Element = Condition.evidence
 
  -- Row 19 -----------------------------------
-  Element = Condition.evidence.code
+  Element = !Condition.evidence.code
   Binding = !QICoreConditionEvidence
 
  -- Row 20 -----------------------------------
