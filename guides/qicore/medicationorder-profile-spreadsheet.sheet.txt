@@ -158,16 +158,16 @@
   QDM Mapping = reason
 
  -- Row 24 -----------------------------------
-  Element = MedicationOrder.dispense
+  Element = MedicationOrder.dispenseRequest
   Must Support = Y
 
  -- Row 25 -----------------------------------
-  Element = MedicationOrder.dispense.medication
+  Element = MedicationOrder.dispenseRequest.medication
   Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
   Binding = !QICoreMedicationCodes
 
  -- Row 26 -----------------------------------
-  Element = !MedicationOrder.dispense.numberOfRepeatsAllowed
+  Element = !MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   QDM Mapping = refils
 
 === Sheet Search =====================================
