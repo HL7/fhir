@@ -20,7 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4829,7 +4829,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="52" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s113" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="124.5"/>
@@ -4838,6 +4838,8 @@
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="106.5" ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="222.75"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="253.5" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s113" ss:Width="87"/>
+   <Column ss:StyleID="s113" ss:Width="94.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s125"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -4875,6 +4877,8 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional usage notes for an operation</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Example.Request</Data></Cell>
+    <Cell><Data ss:Type="String">Example.Response</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="360">
     <Cell ss:StyleID="s115"><Data ss:Type="String">populate</Data><NamedCell
@@ -4892,6 +4896,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">While it is theoretically possible for a [[[QuestionnaireResponse]]] instance to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  A client **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.  Complex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondant, answering only those questions that are enabled based on previously answered questions.  However doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  It will be up to the client to appropriately prune the final populated questionnaire once human review has taken place.  Invoking this operation with the ''content'' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a &quot;trusted&quot; system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">$populate-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$populate-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s118"><Data ss:Type="String">populate.identifier</Data></Cell>
@@ -5441,10 +5447,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5457,11 +5464,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6574,7 +6580,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s148"><Data ss:Type="String">QuestionConcept</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Codes corresponding to individual questions</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
@@ -6619,7 +6625,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s148"><Data ss:Type="String">QuestionnaireQuestionOption</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Allowed values to answer questions</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
@@ -6993,7 +6999,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
