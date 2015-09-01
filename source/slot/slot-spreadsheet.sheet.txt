@@ -144,7 +144,7 @@
   Path = Slot.start
 
  -- Row 4 -----------------------------------
-  Name = fbtype
+  Name = fb-type
   Type = token
   Description = The free/busy status of the appointment
   Path = Slot.freeBusyType

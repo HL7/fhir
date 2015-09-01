@@ -4440,7 +4440,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Appointment date/time.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"><Data ss:Type="String">fbtype</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">fb-type</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Slot.freeBusyType</Data></Cell>
@@ -4650,6 +4650,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
