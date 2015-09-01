@@ -182,7 +182,7 @@
   Path = AppointmentResponse.appointment
 
  -- Row 2 -----------------------------------
-  Name = partstatus
+  Name = part-status
   Type = token
   Description = The participants acceptance status for this appointment
   Path = AppointmentResponse.participantStatus

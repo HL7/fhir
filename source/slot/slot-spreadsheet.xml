@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9204</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>6636</WindowHeight>
+  <WindowWidth>21696</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>682</TabRatio>
@@ -4419,7 +4419,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"><Data ss:Type="String">slottype</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">slot-type</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Slot.type</Data></Cell>
@@ -4650,7 +4650,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

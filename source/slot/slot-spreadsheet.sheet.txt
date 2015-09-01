@@ -126,7 +126,7 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = slottype
+  Name = slot-type
   Type = token
   Description = The type of appointments that can be booked into the slot
   Path = Slot.type

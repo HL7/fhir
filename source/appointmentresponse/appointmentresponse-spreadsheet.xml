@@ -20,7 +20,7 @@
   <WindowWidth>21696</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4445,7 +4445,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">The appointment that the response is attached to</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">partstatus</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">part-status</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">AppointmentResponse.participantStatus</Data></Cell>
@@ -4670,6 +4670,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4689,8 +4690,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6336,7 +6337,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
