@@ -27,6 +27,12 @@
   Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event
   Conformance = preferred
 
+ -- Row 5 -----------------------------------
+  Binding Name = DAFSubstance
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-substance
+  Conformance = preferred
+
 === Sheet QICore-AllergyIntolerance-Inv =====================================
 
  -- Row 1 -----------------------------------
@@ -76,6 +82,7 @@
  -- Row 7 -----------------------------------
   Element = AllergyIntolerance.substance
   Must Support = Y
+  Binding = DAFSubstance
   QDM Mapping = primary code
 
  -- Row 8 -----------------------------------
