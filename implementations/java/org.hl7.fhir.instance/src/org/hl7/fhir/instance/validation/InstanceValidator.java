@@ -43,6 +43,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ETooCostly;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.EOperationOutcome;
 import org.hl7.fhir.instance.utils.IWorkerContext;
@@ -791,34 +792,30 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
   
   private IWorkerContext context;
-  private ProfileUtilities utilities;
-  private ValueSetExpansionCache cache;
+  private ValueSetExpanderFactory cache;
   private boolean requiresResourceId;
 	private List<String> extensionDomains = new ArrayList<String>();
 	private boolean anyExtensionsAllowed;
   
-  public InstanceValidator(IWorkerContext context) throws Exception {
+  public InstanceValidator(IWorkerContext theContext) throws Exception {
     super();
-    this.context = context;
+    this.context = theContext;
     source = Source.InstanceValidator;
-    cache = new ValueSetExpansionCache(context, null);
-    utilities = new ProfileUtilities(context);
+    cache = new ValueSetExpansionCache(theContext, null);
   }  
 
   
-  public InstanceValidator(IWorkerContext context, ValueSetExpansionCache cache) throws Exception {
+  public InstanceValidator(IWorkerContext theContext, ValueSetExpanderFactory theValueSetExpander) throws Exception {
     super();
-    this.context = context;
+    this.context = theContext;
     source = Source.InstanceValidator;
-    this.cache = cache;
-    utilities = new ProfileUtilities(context);
+    this.cache = theValueSetExpander;
   }  
 
   
   public IWorkerContext getContext() {
 		return context;
 	}
-  
   /*
    * The actual base entry point
    */
@@ -893,7 +890,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         String p = stack.addToLiteralPath("meta", "profile", ":"+Integer.toString(i));
         if (rule(errors, IssueType.INVALID, element.line(), element.col(), p, !Utilities.noString(ref), "StructureDefinition reference invalid")) {
           StructureDefinition pr = context.fetchResource(StructureDefinition.class, ref);
-          if (warning(errors, IssueType.INVALID, element.line(), element.col(), p, pr != null, "StructureDefinition reference could not be resolved")) {
+          if (warning(errors, IssueType.INVALID, element.line(), element.col(), p, pr != null, "StructureDefinition reference \"{0}\" could not be resolved", ref)) {
             if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), p, pr.hasSnapshot(), "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
               validateElement(errors, pr, pr.getSnapshot().getElement().get(0), null, null, element, element.getName(), stack);
             }
@@ -1801,10 +1798,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getValueSet())+": "+e.getMessage());
                 }
               }
-            } else if (binding.hasValueSet())
+            } else if (binding.hasValueSet()) {
               hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding by URI reference cannot be checked");
-            else 
-              hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding has no source, so can't be checked");
+            } else { 
+              hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding for path " + path + " has no source, so can't be checked");
+            }
           }
         }
     }
@@ -1840,17 +1838,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return false;
   }
 
-  private void checkCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement element, StructureDefinition profile, ElementDefinition context) throws EOperationOutcome, Exception {
-    if (context != null && context.hasBinding()) {
-      ElementDefinitionBindingComponent binding = context.getBinding();
+  private void checkCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement element, StructureDefinition profile, ElementDefinition theElementCntext) throws EOperationOutcome, Exception {
+    if (theElementCntext != null && theElementCntext.hasBinding()) {
+      ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
       if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, binding != null, "Binding for "+path+" missing (cc)")) {
         if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
-          ValueSet vs = resolveBindingReference(binding.getValueSet());
-          if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "ValueSet "+describeReference(binding.getValueSet())+" not found")) {
+          ValueSet unexpandedVs = resolveBindingReference(binding.getValueSet());
+          if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, unexpandedVs != null, "ValueSet "+describeReference(binding.getValueSet())+" not found")) {
+            ValueSet vs;
             try {
-              ValueSetExpansionOutcome exp = cache.getExpander().expand(vs);
-              vs = exp.getValueset();
-              if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "Unable to expand value set for "+describeReference(binding.getValueSet()))) {
                 boolean found = false;
                 boolean any = false;
                 WrapperElement c = element.getFirstChild();
@@ -1859,34 +1855,54 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     any = true;
                     String system = c.getNamedChildValue("system");
                     String code = c.getNamedChildValue("code");
-                    if (system != null && code != null)
+                    if (system != null && code != null) {
+                      ValueSetExpansionOutcome exp = cache.getExpander().expand(unexpandedVs);
+                      vs = exp != null ? exp.getValueset() : null;
+                      if (vs == null) {
+                        if (binding.getStrength() != BindingStrength.REQUIRED) {
+                          ValidationResult validationResult = context.validateCode(system, code, null);
+                          if (validationResult.isOk()) {
+                            found = true;
+                          } else {
+                            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Unable to validate code \"{0}\" in code system \"{1}\"", code, system);
+                            return;
+                          }
+                        }
+                      }
+                      if (found == false) {
+                        if (!warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "Unable to expand value set for "+describeReference(binding.getValueSet()))) {
+                          return;
+                        }
+                      }
                       found = found || codeInExpansion(vs, system, code);
+                    }
                   }
                   c = c.getNextSibling();
                 }
                 if (!any && binding.getStrength() == BindingStrength.REQUIRED)
-                  warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, found, "No code provided, and value set "+describeReference(binding.getValueSet())+" ("+vs.getUrl()+") is required");
+                  warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, found, "No code provided, and value set "+describeReference(binding.getValueSet())+" ("+unexpandedVs.getUrl()+") is required");
                 if (any)
                   if (binding.getStrength() == BindingStrength.PREFERRED)
-                    hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, found, "None of the codes are in the example value set "+describeReference(binding.getValueSet())+" ("+vs.getUrl()+")");
+                    hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, found, "None of the codes are in the example value set "+describeReference(binding.getValueSet())+" ("+unexpandedVs.getUrl()+")");
                   else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                    warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, found, "None of the codes are in the expected value set "+describeReference(binding.getValueSet())+" ("+vs.getUrl()+")");
-              }
+                    warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, found, "None of the codes are in the expected value set "+describeReference(binding.getValueSet())+" ("+unexpandedVs.getUrl()+")");
+              
             } catch (Exception e) {
               if (e.getMessage() == null) {
-                warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getValueSet())+": --Null--");
+                warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Exception opening value set "+unexpandedVs.getUrl()+" for "+describeReference(binding.getValueSet())+": --Null--");
 //              } else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct")) {
 //                hint(errors, IssueType.CODEINVALID, path, suppressLoincSnomedMessages, "Snomed value set - not validated");
 //              } else if (!e.getMessage().contains("unable to find value set http://loinc.org")) { 
 //                hint(errors, IssueType.CODEINVALID, path, suppressLoincSnomedMessages, "Loinc value set - not validated");
               } else
-                warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getValueSet())+": "+e.getMessage());
+                warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Exception opening value set "+unexpandedVs.getUrl()+" for "+describeReference(binding.getValueSet())+": "+e.getMessage());
             }
           }
-        } else if (binding.hasValueSet())
+        } else if (binding.hasValueSet()) {
           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding by URI reference cannot be checked");
-        else 
-          hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding has no source, so can't be checked");
+        } else { 
+          hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding for path " + path + " has no source, so can't be checked");
+        }
       }
     }
   }
