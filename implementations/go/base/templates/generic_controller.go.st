@@ -5,21 +5,18 @@ import (
 	"log"
 	"net/http"
 	"os"
-	<if(searchBySubject || searchByPatient || searchByCode)>
-	"strings"
-	<endif>
 	"errors"
 
 	"github.com/gorilla/context"
 	"github.com/gorilla/mux"
 	"github.com/intervention-engine/fhir/models"
+	"github.com/intervention-engine/fhir/search"
 	"gopkg.in/mgo.v2/bson"
 )
 
 func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	var result []models.<ModelName>
-	c := Database.C("<LowerCaseModelName>s")
-	<if(searchBySubject || searchByPatient)>
+	c := Database.C("<CollectionName>")
 
 	r.ParseForm()
 	if (len(r.Form) == 0) {
@@ -29,52 +26,13 @@ func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.
 			http.Error(rw, err.Error(), http.StatusInternalServerError)
 		}
 	} else {
-		for key, value := range r.Form {
-			splitKey := strings.Split(key, ":")
-			<if(searchByPatient)>
-			if splitKey[0] == "patient" {
-				err := c.Find(bson.M{"patient.referenceid": value[0]}).All(&result)
-				if err != nil {
-					http.Error(rw, err.Error(), http.StatusInternalServerError)
-				}
-			}
-			<else>
-			if splitKey[0] == "subject" {
-				err := c.Find(bson.M{"subject.referenceid": value[0]}).All(&result)
-				if err != nil {
-					http.Error(rw, err.Error(), http.StatusInternalServerError)
-				}
-			}
-			<endif>
-		}
-	}
-	<elseif(searchByCode)>
-	r.ParseForm()
-	if len(r.Form) == 0 {
-		iter := c.Find(nil).Limit(100).Iter()
-		err := iter.All(&result)
+		searcher := search.NewMongoSearcher(Database)
+		query := search.Query{Resource: "<ModelName>", Query: r.URL.RawQuery}
+		err := searcher.CreateQuery(query).All(&result)
 		if err != nil {
 			http.Error(rw, err.Error(), http.StatusInternalServerError)
 		}
-	} else {
-		codeValue := r.Form.Get("code")
-		splitCode := strings.Split(codeValue, "|")
-		if len(splitCode) > 1 {
-			codeSystem := splitCode[0]
-			code := splitCode[1]
-			err := c.Find(bson.M{"code.coding.system": codeSystem, "code.coding.code": code}).All(&result)
-			if err != nil {
-				http.Error(rw, err.Error(), http.StatusInternalServerError)
-			}
-		}
 	}
-	<else>
-	iter := c.Find(nil).Limit(100).Iter()
-	err := iter.All(&result)
-	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
-	}
-	<endif>
 	
 	var <LowerCaseModelName>EntryList []models.BundleEntryComponent
 	for i := range result {
@@ -110,7 +68,7 @@ func Load<ModelName>(r *http.Request) (*models.<ModelName>, error) {
 		return nil, errors.New("Invalid id")
 	}
 
-	c := Database.C("<LowerCaseModelName>s")
+	c := Database.C("<CollectionName>")
 	result := models.<ModelName>{}
 	err := c.Find(bson.M{"_id": id.Hex()}).One(&result)
 	if err != nil {
@@ -142,7 +100,7 @@ func <ModelName>CreateHandler(rw http.ResponseWriter, r *http.Request, next http
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 	}
 
-	c := Database.C("<LowerCaseModelName>s")
+	c := Database.C("<CollectionName>")
 	i := bson.NewObjectId()
 	<LowerCaseModelName>.Id = i.Hex()
 	err = c.Insert(<LowerCaseModelName>)
@@ -181,7 +139,7 @@ func <ModelName>UpdateHandler(rw http.ResponseWriter, r *http.Request, next http
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 	}
 
-	c := Database.C("<LowerCaseModelName>s")
+	c := Database.C("<CollectionName>")
 	<LowerCaseModelName>.Id = id.Hex()
 	err = c.Update(bson.M{"_id": id.Hex()}, <LowerCaseModelName>)
 	if err != nil {
@@ -204,7 +162,7 @@ func <ModelName>DeleteHandler(rw http.ResponseWriter, r *http.Request, next http
 		http.Error(rw, "Invalid id", http.StatusBadRequest)
 	}
 
-	c := Database.C("<LowerCaseModelName>s")
+	c := Database.C("<CollectionName>")
 
 	err := c.Remove(bson.M{"_id": id.Hex()})
 	if err != nil {

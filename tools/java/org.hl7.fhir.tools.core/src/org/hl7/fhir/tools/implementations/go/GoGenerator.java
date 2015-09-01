@@ -38,9 +38,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
 
-import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
@@ -85,6 +83,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         Map<String, String> dirs = new HashMap<String, String>() {{
             put("modelDir", Utilities.path(basedDir, "app", "models"));
+            put("searchDir", Utilities.path(basedDir, "app", "search"));
             put("serverDir", Utilities.path(basedDir, "app", "server"));
         }};
 
@@ -112,14 +111,18 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
             generateMgoModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions, "encoding/json");
-            generateGoController(entry.getKey(), entry.getValue(), dirs.get("serverDir"), templateGroup);
+            generateGoController(entry.getKey(), dirs.get("serverDir"), templateGroup);
         }
 
         generateGoUtil(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
+        generateMongoCollectionNames(namesAndDefinitions.keySet(), dirs.get("searchDir"), templateGroup);
+        generateSearchParameterDictionary(definitions, dirs.get("searchDir"), templateGroup);
 
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "fhirdatetime.go")), new File(dirs.get("modelDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "mongo_search.go")), new File(dirs.get("searchDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "search_param_types.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server.go")), new File(Utilities.path(basedDir, "app")));
@@ -142,28 +145,12 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         model.generate();
     }
 
-    private void generateGoController(String name, ResourceDefn def, String controllerDir, STGroup templateGroup) throws IOException {
+    private void generateGoController(String name, String controllerDir, STGroup templateGroup) throws IOException {
         File controllerFile = new File(Utilities.path(controllerDir, name.toLowerCase() + ".go"));
         ST controllerTemplate = templateGroup.getInstanceOf("generic_controller.go");
 
-        boolean searchBySubject = false;
-        boolean searchByPatient = false;
-        boolean searchByCode = false;
-
-        // This algorithm for generating search controllers is better than before, but should
-        // eventually be replaced by a much more comprehensive solution.
-        if (def.getRoot().getElementByName("subject") != null) {
-            searchBySubject = true;
-        } else if (def.getRoot().getElementByName("patient") != null) {
-            searchByPatient = true;
-        } else if (def.getRoot().getElementByName("code") != null) {
-            searchByCode = true;
-        }
-
-        controllerTemplate.add("searchBySubject", searchBySubject);
-        controllerTemplate.add("searchByPatient", searchByPatient);
-        controllerTemplate.add("searchByCode", searchByCode);
         controllerTemplate.add("ModelName", name);
+        controllerTemplate.add("CollectionName", getMongoCollectionName(name));
         controllerTemplate.add("LowerCaseModelName", name.toLowerCase());
 
         Writer controllerWriter = new BufferedWriter(new FileWriter(controllerFile));
@@ -236,6 +223,264 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         controllerWriter.write(utilTemplate.render());
         controllerWriter.flush();
         controllerWriter.close();
+    }
+
+    private void generateMongoCollectionNames(Set<String> resourceNames, String outputDir, STGroup templateGroup) throws IOException {
+        // Sort the resources by name just for consistent (diff-able) output
+        ArrayList<String> resourceList = new ArrayList<String>(resourceNames);
+        Collections.sort(resourceList);
+
+        HashMap<String, String> collectionMap = new HashMap<String, String>();
+        for (String resource : resourceList) {
+            collectionMap.put(resource, getMongoCollectionName(resource));
+        }
+
+        ST utilTemplate = templateGroup.getInstanceOf("mongo_collection_names.go");
+        utilTemplate.add("Resources", resourceList);
+        utilTemplate.add("Collections", collectionMap);
+
+        File outputFile = new File(Utilities.path(outputDir, "mongo_collection_names.go"));
+        Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
+        controllerWriter.write(utilTemplate.render());
+        controllerWriter.flush();
+        controllerWriter.close();
+    }
+
+    private void generateSearchParameterDictionary(Definitions definitions, String outputDir, STGroup templateGroup) throws IOException {
+        ArrayList<ResourceSearchInfo> searchInfos = new ArrayList<ResourceSearchInfo>(definitions.getResources().size());
+        for (ResourceDefn defn: definitions.getResources().values()) {
+            ResourceSearchInfo searchInfo = new ResourceSearchInfo(defn.getName());
+            for (SearchParameterDefn p : defn.getSearchParams().values()) {
+                if (p.getPaths().isEmpty() && p.getComposites().isEmpty()) {
+                    System.err.println("No search paths or composites provided for " + defn.getName() + "/" + p.getCode());
+                    continue;
+                }
+
+                SearchParam param = new SearchParam(p.getCode(), p.getType());
+                for (String path: p.getPaths()) {
+                    try {
+                        ElementDefn el = defn.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
+                        path = enhancePath(definitions, defn, path);
+                        // Add each path and type
+                        for (TypeRef typeRef : el.getTypes()) {
+                            if (el.getTypes().size() > 1) {
+                                // There is a bug (at least I think it is a bug) in Observation that results in a
+                                // fixed path (like "valueDateTime") having multiple types ("Period" and "dateTime").
+                                // The following "if" block fixes that:
+                                if (!path.endsWith("[x]")) {
+                                    if (!path.toLowerCase().contains(typeRef.getName().toLowerCase())) {
+                                        continue;
+                                    }
+                                }
+
+                                if (searchParamTypeSupportsDataType(param.getType(), typeRef.getName())) {
+                                    String fixedPath = path.replace("[x]", Utilities.capitalize(typeRef.getName()));
+                                    param.addPath(new SearchPath(fixedPath, typeRef.getName()));
+                                }
+                            } else {
+                                String fixedPath = path.replace("[x]", "");
+                                param.addPath(new SearchPath(fixedPath, typeRef.getName()));
+                            }
+                        }
+                    } catch (Exception e) {
+                        System.err.println("Couldn't process search parameter " + p.getCode() + " path: " + path);
+                    }
+                }
+                param.sortPaths(); // Sort the path list so that the final result is deterministic
+
+                for (String comp : p.getComposites()) {
+                    param.addComposite(comp);
+                }
+                param.sortComposites();
+
+                searchInfo.addSearchParam(param);
+            }
+            searchInfo.sortSearchParams(); // Sort the param list so that the final result is deterministic
+            searchInfos.add(searchInfo);
+        }
+
+        // Sort the resource search infos so that the final result is deterministic
+        Collections.sort(searchInfos, new Comparator<ResourceSearchInfo>() {
+            @Override
+            public int compare(ResourceSearchInfo a, ResourceSearchInfo b) {
+                return a.name.compareTo(b.name);
+            }
+        });
+
+        ST utilTemplate = templateGroup.getInstanceOf("search_parameter_dictionary.go");
+        utilTemplate.add("ResourceSearchInfos", searchInfos);
+
+        File outputFile = new File(Utilities.path(outputDir, "search_parameter_dictionary.go"));
+        Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
+        controllerWriter.write(utilTemplate.render());
+        controllerWriter.flush();
+        controllerWriter.close();
+    }
+
+    private String enhancePath(Definitions definitions, ResourceDefn resource, String path) {
+        StringBuilder newPath = new StringBuilder();
+
+        String[] parts = path.split("\\.");
+        // Intentionally skip first part (resource name) then detect and mark arrays in path
+        for (int i = 1; i < parts.length; i++) {
+            try {
+                String partialPath = String.join(".", Arrays.copyOfRange(parts, 0, i+1));
+                ElementDefn el = resource.getRoot().getElementForPath(partialPath, definitions, "resolving search parameter path", true);
+                if (el.getMaxCardinality() > 1) {
+                    newPath.append("[]");
+                }
+                newPath.append(parts[i]).append(".");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (newPath.length() > 0) {
+            newPath.deleteCharAt(newPath.length()-1);
+        }
+        return newPath.toString();
+    }
+
+
+    private static class ResourceSearchInfo {
+        private final String name;
+        private final List<SearchParam> searchParams;
+
+        public ResourceSearchInfo(String name) {
+            this.name = name;
+            this.searchParams = new ArrayList<SearchParam>();
+            addDefaultSearchParams();
+        }
+
+        private void addDefaultSearchParams() {
+            SearchParam param = new SearchParam("_id", SearchParameterDefn.SearchType.string);
+            param.addPath(new SearchPath("_id", "string"));
+            searchParams.add(param);
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public List<SearchParam> getSearchParams() {
+            return searchParams;
+        }
+
+        public void sortSearchParams() {
+            Collections.sort(searchParams, new Comparator<SearchParam>() {
+                @Override
+                public int compare(SearchParam a, SearchParam b) {
+                    int ret = a.name.compareTo(b.name);
+                    if (ret == 0) {
+                        ret = a.type.compareTo(b.type);
+                    }
+                    return ret;
+                }
+            });
+        }
+
+        public void addSearchParam(SearchParam param) {
+            searchParams.add(param);
+        }
+    }
+
+    private static class SearchParam {
+        private final String name;
+        private final SearchParameterDefn.SearchType type;
+        private final List<SearchPath> paths;
+        private final List<String> composites;
+
+        public SearchParam(String name, SearchParameterDefn.SearchType type) {
+            this.name = name;
+            this.type = type;
+            this.paths = new ArrayList<SearchPath>();
+            this.composites = new ArrayList<String>();
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public SearchParameterDefn.SearchType getType() {
+            return type;
+        }
+
+        public List<SearchPath> getPaths() {
+            return paths;
+        }
+
+        public List<String> getComposites() {
+            return composites;
+        }
+
+        public void sortPaths() {
+            Collections.sort(paths, new Comparator<SearchPath>() {
+                @Override
+                public int compare(SearchPath a, SearchPath b) {
+                    int ret = a.path.compareTo(b.path);
+                    if (ret == 0) {
+                        ret = a.type.compareTo(b.type);
+                    }
+                    return ret;
+                }
+            });
+        }
+
+        public void sortComposites() {
+            Collections.sort(composites);
+        }
+
+        public void addPath(SearchPath path) {
+            paths.add(path);
+        }
+
+        public void addComposite(String composite) {
+            composites.add(composite);
+        }
+    }
+
+    private static class SearchPath {
+        private final String path;
+        private final String type;
+
+        public SearchPath(String path, String type) {
+            this.path = path;
+            this.type = type;
+        }
+
+        public String getPath() {
+            return path;
+        }
+
+        public String getType() {
+            return type;
+        }
+    }
+
+    private boolean searchParamTypeSupportsDataType(SearchParameterDefn.SearchType searchType, String dataType) {
+        switch (searchType) {
+            case composite:
+                // TODO: Support composite
+                break;
+            case number:
+                return Arrays.asList("decimal", "integer", "unsignedInt", "positiveInt").contains(dataType);
+            case string:
+                return Arrays.asList("string", "Address", "HumanName").contains(dataType);
+            case date:
+                return Arrays.asList("date", "dateTime", "instant", "Period", "Timing").contains(dataType);
+            case quantity:
+                return Arrays.asList("Quantity", "Money", "SimpleQuantity", "Duration", "Count", "Distance", "Age").contains(dataType);
+            case reference:
+                return "Reference".equals(dataType);
+            case token:
+                return Arrays.asList("boolean", "code", "string", "CodeableConcept", "Coding", "ContactPoint", "Identifier").contains(dataType);
+            case uri:
+                return "uri".equals(dataType);
+        }
+        return false;
+    }
+
+    private String getMongoCollectionName(String resourceName) {
+        return Utilities.pluralizeMe(resourceName.toLowerCase());
     }
 
     @Override
