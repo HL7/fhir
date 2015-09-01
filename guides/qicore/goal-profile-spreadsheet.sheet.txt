@@ -74,7 +74,7 @@
  -- Row 7 -----------------------------------
   Element = Goal.category
   Must Support = Y
-  Binding = QICoreGoalCategory
+  Binding = !QICoreGoalCategory
   QDM Mapping = primary code
 
  -- Row 8 -----------------------------------
