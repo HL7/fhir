@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11175</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -1489,7 +1489,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Reference(Any)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Reference(Contract)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3867,7 +3867,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3875,6 +3875,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3882,8 +3883,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
