@@ -534,6 +534,16 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       prsr.parse(page.getGenDate(), page.getValidationErrors());
 
+      if (isGenerate && web && buildFlags.get("all")) { 
+        page.log("Clear Directory", LogMessageType.Process);
+        Utilities.clearDirectory(page.getFolders().dstDir);
+        Utilities.createDirectory(page.getFolders().dstDir + "html");
+        Utilities.createDirectory(page.getFolders().dstDir + "examples");
+        for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs())
+          if (!ig.isCore())
+            Utilities.createDirectory(page.getFolders().dstDir + ig.getCode());
+      }
+      
       if (buildFlags.get("all")) {
         copyStaticContent();
       }
@@ -546,17 +556,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       checkAllOk();
 
       if (isGenerate) {
-        if (web) {
-          page.log("Clear Directory", LogMessageType.Process);
-          Utilities.clearDirectory(page.getFolders().dstDir);
-        }
-        Utilities.createDirectory(page.getFolders().dstDir + "html");
-        Utilities.createDirectory(page.getFolders().dstDir + "examples");
-        for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs())
-          if (!ig.isCore())
-            Utilities.createDirectory(page.getFolders().dstDir + ig.getCode());
-
-
         String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
         generateECore(prsr.getECoreParseResults(), eCorePath);
         produceSpecification(eCorePath);

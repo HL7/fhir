@@ -100,6 +100,17 @@ Type
 		Constructor create(name : String; element : TWrapperElement; path : String; count : integer);
   end;
 
+  TChildIterator = class (TAdvObject)
+  private
+  public
+    constructor Create(path : String; element : TWrapperElement);
+    function next : boolean;
+    function name : String;
+    function element : TWrapperElement;
+    function path : String;
+    function count : integer;
+  end;
+
   TBestPracticeWarningLevel = (bpwlIgnore, bpwlHint, bpwlWarning, bpwlError);
   TCheckDisplayOption = (cdoIgnore, cdopCheck, cdoCheckCaseAndSpace, cdoCheckCase, cdoCheckSpace);
 
@@ -122,6 +133,8 @@ Type
     function empty(element : TWrapperElement) : boolean;
     Function resolveInBundle(entries : TAdvList<TWrapperElement>; ref, fullUrl, type_, id : String) : TWrapperElement;
     function getProfileForType(type_ : String) : TFHIRStructureDefinition;
+    function nameMatches(name, tail : String) : boolean;
+    function sliceMatches(element : TWrapperElement; path : String; slice, ed: TFHIRElementDefinition; profile : TFHIRStructureDefinition) : boolean;
 
     procedure validateSections(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
     procedure validateBundleReference(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
@@ -1161,6 +1174,9 @@ var
   childDefinitions : TAdvList<TFHIRElementDefinition>;
   children : TAdvList<TElementInfo>;
   iter : TChildIterator;
+  slice, ed: TFHIRElementDefinition;
+  process, match : boolean;
+  ei : TElementInfo;
 begin
   // irrespective of what element it is, it cannot be empty
 	if (element.isXml()) then
@@ -1177,50 +1193,60 @@ begin
   // 1. List the children, and remember their exact path (convenience)
   children := TAdvList<TElementInfo>.create();
   iter := TChildIterator.create(stack.literalPath, element);
-    while (iter.next())
-    	children.add(new ElementInfo(iter.name(), iter.element(), iter.path(), iter.count()));
-    
+    while (iter.next()) do
+    	children.add(TElementInfo.create(iter.name(), iter.element(), iter.path(), iter.count()));
+
     // 2. assign children to a definition
-    // for each definition, for each child, check whether it belongs in the slice 
-    ElementDefinition slice := nil;
-    for (ElementDefinition ed : childDefinitions) begin
-    	boolean process := true;
+    // for each definition, for each child, check whether it belongs in the slice
+    slice := nil;
+    for ed in childDefinitions do
+    begin
+    	process := true;
     	// where are we with slicing
-    	if (ed.hasSlicing()) begin
-    		if (slice <> nil ) and ( slice.getPath() = ed.getPath()))
-    			throw new Exception('Slice encountered midway through path on '+slice.getPath());
+    	if (ed.Slicing <> nil) then
+      begin
+    		if (slice <> nil ) and (slice.Path = ed.Path) then
+    			raise Exception.create('Slice encountered midway through path on '+slice.Path);
     		slice := ed;
     		process := false;
-    	end; else if (slice <> nil ) and ( !slice.getPath() = ed.getPath()))
+    	end
+      else if (slice <> nil) and (slice.Path <> ed.Path) then
     		slice := nil;
 
-    	if (process) begin
-    	for (ElementInfo ei : children) begin
-    			boolean match := false;
-    		if (slice = nil) begin
-    			match := nameMatches(ei.name, tail(ed.getPath()));
-    		end; else begin
-    				if (nameMatches(ei.name, tail(ed.getPath())))
+    	if (process) then
+      begin
+    	  for ei in children do
+        begin
+    			match := false;
+          if (slice = nil) then
+          begin
+      			match := nameMatches(ei.name, tail(ed.Path));
+      		end
+          else
+          begin
+    				if nameMatches(ei.name, tail(ed.Path)) then
     					match := sliceMatches(ei.element, ei.path, slice, ed, profile);
-    		end;
-    		if (match) begin
-    				if (rule(errors, IssueTypeINVALID, ei.line(), ei.col(), ei.path, ei.definition = nil, 'Element matches more than one slice'))
-    				ei.definition := ed;
-    		end;
-    	end;
-    end;
-    	end;
-    for (ElementInfo ei : children) 
+      		end;
+    	  	if (match) then
+          begin
+      		  if (rule(errors, IssueTypeINVALID, ei.line(), ei.col(), ei.path, ei.definition = nil, 'Element matches more than one slice')) then
+      				ei.definition := ed;
+      		end;
+    	  end;
+      end;
+  	end;
+    !
+    for (ElementInfo ei : children)
       if (ei.path.endsWith('.extension'))
         rule(errors, IssueTypeINVALID, ei.line(), ei.col(), ei.path, ei.definition <> nil, 'Element is unknown or does not match any slice (url:=\''+ei.element.getAttribute('url')+'\')');
-      else 
+      else
         rule(errors, IssueTypeINVALID, ei.line(), ei.col(), ei.path, (ei.definition <> nil) ) or ( (!ei.element.isXml() ) and ( ei.element.getName() = 'fhir_comments')), 'Element is unknown or does not match any slice');
-     
+
     // 3. report any definitions that have a cardinality problem
     for (ElementDefinition ed : childDefinitions) begin
     	if (ed.getRepresentation().isEmpty()) begin // ignore xml attributes
     	int count := 0;
-      for (ElementInfo ei : children) 
+      for (ElementInfo ei : children)
       	if (ei.definition = ed)
       		count++;
   		if (ed.getMin() > 0) begin
@@ -1349,9 +1375,9 @@ begin
     if (childDefinitions.isEmpty()) begin
     	// going to look at the type
     	if (ed.getType().Count = 0)
-    		throw new Exception('Error in profile for '+path+' no children, no type');
+    		raise Exception.create('Error in profile for '+path+' no children, no type');
     	if (ed.getType().Count > 1)
-    		throw new Exception('Error in profile for '+path+' multiple types defined in slice discriminator');
+    		raise Exception.create('Error in profile for '+path+' multiple types defined in slice discriminator');
     	StructureDefinition type;
     	if (ed.getType()[0).hasProfile())
     		type := context.fetchResource(StructureDefinition.class, ed.getType()[0).getProfile()[0).getValue());

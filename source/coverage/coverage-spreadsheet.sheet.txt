@@ -157,7 +157,7 @@
  -- Row 15 -----------------------------------
   Element = Coverage.contract
   Card. = 0..*
-  Type = Reference(Any)
+  Type = Reference(Contract)
   Short Label = Contract details
   Definition = The policy(s) which constitute this insurance coverage.
   CPhA3 (Pharmacy) Mapping = C.35
