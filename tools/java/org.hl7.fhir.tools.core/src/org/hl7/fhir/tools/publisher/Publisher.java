@@ -382,7 +382,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     //
 
     Publisher pub = new Publisher();
-    pub.page = new PageProcessor(PageProcessor.DEV_TS_SERVER);
+    pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER);
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
     if (hasParam(args, "-rdf")) {
       pub.isGenerate = false;
@@ -647,7 +647,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     Utilities.createDirectory(fullFileName);
     String page = "<html>\r\n<head>\r\n<title>Redirect Page for "+Utilities.escapeXml(desc)+" </title>\r\n<meta http-equiv=\"REFRESH\" content=\"0;url="+
        level+pn+"\"></HEAD>\r\n</head>\r\n<body>\r\nThis page is a redirect to "+level+pn+"\r\n</body>\r\n</html>\r\n";
-    TextFile.stringToFile(page, Utilities.path(fullFileName, "index.html"));
+    String fn = Utilities.path(fullFileName, "index.html");
+    if (!(new File(fn).exists()))
+      TextFile.stringToFile(page, fn);
     
   }
 

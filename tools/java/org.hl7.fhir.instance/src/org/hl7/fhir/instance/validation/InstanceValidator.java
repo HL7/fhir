@@ -1096,7 +1096,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   			rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(), "Element '"+stack.getLiteralPath()+"."+tail(ed.getPath())+"': minimum required = "+Integer.toString(ed.getMin())+", but only found "+Integer.toString(count));
     		}
   		if (ed.hasMax() && !ed.getMax().equals("*")) {
-  			rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), count <= Integer.parseInt(ed.getMax()), "Element "+tail(ed.getPath())+" @ "+stack.getLiteralPath()+": max allowed = "+Integer.toString(ed.getMin())+", but found "+Integer.toString(count));
+  			rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), count <= Integer.parseInt(ed.getMax()), "Element "+tail(ed.getPath())+" @ "+stack.getLiteralPath()+": max allowed = "+ed.getMax()+", but found "+Integer.toString(count));
     		}
       
     	}
