@@ -24,7 +24,7 @@
   Conformance = preferred
 
  -- Row 4 -----------------------------------
-  Binding Name = QICoreEncounterDiet
+  Binding Name = !QICoreEncounterDiet
   Binding = value set
   Reference = valueset-encounter-diet
   Definition = The dietary preferences for the patient in the encounter
@@ -178,7 +178,7 @@
 
  -- Row 26 -----------------------------------
   Element = Encounter.hospitalization.dietPreference
-  Binding = QICoreEncounterDiet
+  Binding = !QICoreEncounterDiet
 
  -- Row 27 -----------------------------------
   Element = Encounter.hospitalization.destination

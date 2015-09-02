@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13368</WindowHeight>
-  <WindowWidth>25812</WindowWidth>
+  <WindowHeight>12516</WindowHeight>
+  <WindowWidth>27708</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -986,7 +986,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s224">
+  <Style ss:ID="s189">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -994,61 +994,26 @@
    </Borders>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s225">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s226">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s227">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s228">
+  <Style ss:ID="s190">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s229">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s230">
+  <Style ss:ID="s191">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
-  <Style ss:ID="s231">
+  <Style ss:ID="s192">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s232">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s193">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
@@ -1853,31 +1818,31 @@
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s227">
-    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s225"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s225"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s226"><Data ss:Type="String">!Encounter.appointment</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:StyleID="s105">
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Encounter.appointment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6" ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s228"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s231"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s231"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s231"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s231"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6" ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2058,7 +2023,7 @@
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">QICoreEncounterDiet</Data><NamedCell
+    <Cell ss:StyleID="s190"><Data ss:Type="String">!QICoreEncounterDiet</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3697,7 +3662,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3711,12 +3676,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R20</RangeSelection>
+     <ActiveRow>26</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6385,20 +6350,20 @@
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">QICoreEncounterDiet</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">The dietary preferences for the patient in the encounter</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">valueset-encounter-diet</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">The dietary preferences for the patient in the encounter</Data></Cell>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s149"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s193">
+    <Cell ss:StyleID="s189"><Data ss:Type="String">!QICoreEncounterDiet</Data></Cell>
+    <Cell ss:StyleID="s190"><Data ss:Type="String">The dietary preferences for the patient in the encounter</Data></Cell>
+    <Cell ss:StyleID="s191"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s191"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s191"><Data ss:Type="String">valueset-encounter-diet</Data></Cell>
+    <Cell ss:StyleID="s190"><Data ss:Type="String">The dietary preferences for the patient in the encounter</Data></Cell>
+    <Cell ss:StyleID="s191"/>
+    <Cell ss:StyleID="s191"/>
+    <Cell ss:StyleID="s191"/>
+    <Cell ss:StyleID="s191"/>
+    <Cell ss:StyleID="s191"/>
+    <Cell ss:StyleID="s191"/>
+    <Cell ss:StyleID="s192"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">QICorePriority</Data></Cell>
@@ -6763,8 +6728,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <RangeSelection>R6C2:R6C6</RangeSelection>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
