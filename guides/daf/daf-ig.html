@@ -86,7 +86,7 @@ In addition, within each profile, granular data elements are listed in the "Mean
 While many of these granular data elements were not explicitly mentioned in ONC or CMS Meaningful Use regulations, they are derived from the ONC 2014 Edition S&amp;CC, which references other HL7 standards such as C-CDA, and HL7 v2.5.1 implementation guides for lab reporting and immunizations.  
 These standards identify granular data elements to represent the MU2 conceptual data elements and hence are identified in the individual DAF profiles. 
 For example, MU2 simply says "Medication Allergies" are required. On review of C-CDA an implementer would find that the Allergy Substance, Reaction, etc. are part of what comprises a Medication Allergy along with specific constraints on what is required and optional.
-In addition to deriving the granular data elements from the MU2 conceptual data elements and referenced standards, the DAF community further refined these data elements as DAF priority data elements in the individual profiles. 
+In addition to deriving the granular data elements from the MU2 conceptual data elements and referenced standards, the DAF community further refined these data elements as DAF priority data elements in the individual profiles. For sake of brevity the DAF profiles are referred to as DAF-Resource name. 
 </p>
 	<table class="grid">
         <thead>
@@ -99,83 +99,83 @@ In addition to deriving the granular data elements from the MU2 conceptual data 
         <tbody>
           <tr>
 			<td>Medication allergies</td>
-			<td><a href="allergyintolerance-daf.html">DAFAllergyIntolerance</a></td>
+			<td><a href="allergyintolerance-daf.html">DAF-AllergyIntolerance</a></td>
 			<td><a href="[%fhir-path%]allergyintolerance.html">AllergyIntolerance</a></td>
 		  </tr>
 		  <tr>
 			<td>Laboratory Order(s)</td>
-			<td><a href="diagnosticorder-daf.html">DAFDiagnosticOrder</a></td>
+			<td><a href="diagnosticorder-daf.html">DAF-DiagnosticOrder</a></td>
 			<td><a href="[%fhir-path%]diagnosticorder.html">DiagnosticOrder</a></td>
 		  </tr>
 		  <tr>
 			<td>Laboratory Test(s)</td>
-			<td><a href="diagnosticreport-daf.html">DAFDiagnosticReport</a></td>
+			<td><a href="diagnosticreport-daf.html">DAF-DiagnosticReport</a></td>
 			<td><a href="[%fhir-path%]diagnosticreport.html">DiagnosticReport</a></td>
 		  </tr>		  
 		  <tr>
 			<td>Encounter Diagnoses</td>
-			<td><a href="encounter-daf.html">DAFEncounter</a></td>
+			<td><a href="encounter-daf.html">DAF-Encounter</a></td>
 			<td><a href="[%fhir-path%]encounter.html">Encounter</a></td>
 		  </tr>
 		  <tr>
 			<td>Family Health History</td>
-			<td><a href="familymemberhistory-daf.html">DAFFamilyMemberHistory</a></td>
+			<td><a href="familymemberhistory-daf.html">DAF-FamilyMemberHistory</a></td>
 			<td><a href="[%fhir-path%]familymemberhistory.html">FamilyMemberHistory</a></td>
 		  </tr>
 		  <tr>
 			<td>Immunizations</td>
-			<td><a href="immunization-daf.html">DAFImmunization</a></td>
+			<td><a href="immunization-daf.html">DAF-Immunization</a></td>
 			<td><a href="[%fhir-path%]immunization.html">Immunization</a></td>
 		  </tr>
 		  <tr>
 			<td>Laboratory Result Value(s)</td>
-			<td><a href="observation-daf-results.html">DAFLabResults</a></td>
+			<td><a href="observation-daf-results.html">DAF-LabResults</a></td>
 			<td><a href="[%fhir-path%]observation.html">Observation</a></td>
 		  </tr>
 		  <tr>
 			<td>Medications</td>
-			<td><a href="daf-medicationusage.html">DAF profiles for medications</a>, <a href="medication-daf.html">DAFMedication</a>, 
-			<a href="medicationstatement-daf.html">DAFMedicationStatement</a>, <a href="medicationadministration-daf.html">DAFMedicationAdministration</a>,
-				<a href="medicationdispense-daf.html">DAFMedicationDispense</a>, <a href="medicationorder-daf.html">DAFMedicationOrder</a></td>
+			<td><a href="daf-medicationusage.html">DAF profiles for medications</a>, <a href="medication-daf.html">DAF-Medication</a>, 
+			<a href="medicationstatement-daf.html">DAF-MedicationStatement</a>, <a href="medicationadministration-daf.html">DAF-MedicationAdministration</a>,
+				<a href="medicationdispense-daf.html">DAF-MedicationDispense</a>, <a href="medicationorder-daf.html">DAF-MedicationOrder</a></td>
 			<td><a href="[%fhir-path%]medication.html">Medication</a>, <a href="[%fhir-path%]medicationstatement.html">MedicationStatement</a>, 
 				<a href="[%fhir-path%]medicationadministration.html">MedicationAdministration</a>, <a href="[%fhir-path%]medicationdispense.html">MedicationDispense</a>, 
 				<a href="[%fhir-path%]medicationorder.html">MedicationOrder</a></td>
 		  </tr>
 		  <tr>
 			<td>Patient name, Sex, Date of Birth, Race, Ethnicity, Preferred Language</td>
-			<td><a href="patient-daf.html">DAFPatient</a></td>
+			<td><a href="patient-daf.html">DAF-Patient</a></td>
 			<td><a href="[%fhir-path%]patient.html">Patient</a></td>
 		  </tr>
 		  <tr>
 			<td>Problems</td>
-			<td><a href="condition-daf.html">DAFCondition (Problem)</a></td>
+			<td><a href="condition-daf.html">DAF-Condition (Problem)</a></td>
 			<td><a href="[%fhir-path%]condition.html">Condition</a></td>
 		  </tr>
 		  <tr>
 			<td>Procedures</td>
-			<td><a href="procedure-daf.html">DAFProcedure</a></td>
+			<td><a href="procedure-daf.html">DAF-Procedure</a></td>
 			<td><a href="[%fhir-path%]procedure.html">Procedure</a></td>
 		  </tr>
 		  <tr>
 			<td>Smoking status</td>
-			<td><a href="observation-daf-smokingstatus.html">DAFSmokingStatus</a></td>
+			<td><a href="observation-daf-smokingstatus.html">DAF-SmokingStatus</a></td>
 			<td><a href="[%fhir-path%]observation.html">Observation</a></td>
 		  </tr>
 		  <tr>
 			<td>Vital Signs (Height, weight, BP, BMI) </td>
-			<td><a href="observation-daf-vitalsigns.html">DAFVitalSigns</a></td>
+			<td><a href="observation-daf-vitalsigns.html">DAF-VitalSigns</a></td>
 			<td><a href="[%fhir-path%]observation.html">Observation</a></td>
 		  </tr>
 		  <tr>
 			<td>MedicationAllergies list, Problem list, Medication List, Immunizations, Encounters, Laboratory Result Values</td>
-			<td><a href="list-daf.html">DAFAllergyList</a>, <a href="list-daf.html">DAFProblemList</a>,
-				<a href="list-daf.html">DAFMedicationList</a>, <a href="list-daf.html">DAFImmunizationList</a>,
-				<a href="list-daf.html">DAFEncounterList</a>, <a href="list-daf.html">DAFResultsList</a></td>
+			<td><a href="list-daf.html">DAF-AllergyList</a>, <a href="list-daf.html">DAF-ProblemList</a>,
+				<a href="list-daf.html">DAF-MedicationList</a>, <a href="list-daf.html">DAF-ImmunizationList</a>,
+				<a href="list-daf.html">DAF-EncounterList</a>, <a href="list-daf.html">DAF-ResultsList</a></td>
 			<td><a href="[%fhir-path%]list.html">List</a></td>
 		  </tr>
 		  <tr>
 			<td></td>
-			<td>DAF Supporting Profiles:<a href="daf-organization.html">DAFOrganization</a>, <a href="daf-location.html">DAFLocation</a>, <a href="daf-pract.html">DAFPractitioner</a>, <a href="daf-substance.html">DAFSubstance</a>,<a href="daf-relatedperson.html">DAFRelatedPerson</a></td>
+			<td>DAF Supporting Profiles:<a href="daf-organization.html">DAF-Organization</a>, <a href="daf-location.html">DAF-Location</a>, <a href="daf-pract.html">DAF-Practitioner</a>, <a href="daf-substance.html">DAF-Substance</a>,<a href="daf-relatedperson.html">DAF-RelatedPerson</a></td>
 			<td><a href="[%fhir-path%]organization.html">Organization</a>, <a href="[%fhir-path%]location.html">Location</a>, <a href="[%fhir-path%]practitioner.html">Practitioner</a>, <a href="[%fhir-path%]substance.html">Substance</a>,<a href="[%fhir-path%]relatedperson.html"> RelatedPerson</a></td>
 		  </tr>	
 		</tbody>
