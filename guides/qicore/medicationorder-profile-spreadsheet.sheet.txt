@@ -162,8 +162,8 @@
   Must Support = Y
 
  -- Row 25 -----------------------------------
-  Element = MedicationOrder.dispenseRequest.medication
-  Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Element = MedicationOrder.dispenseRequest.medication[x]
+  Type = CodeableConcept|Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
   Binding = !QICoreMedicationCodes
 
  -- Row 26 -----------------------------------

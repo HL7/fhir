@@ -36,7 +36,7 @@
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location} | Reference(Group) | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
 
  -- Row 6 -----------------------------------
-  Element = Flag.author
+  Element = !Flag.author
 
  -- Row 7 -----------------------------------
   Element = Flag.code

@@ -134,17 +134,17 @@
   Binding = !QICoreConditionStage
 
  -- Row 17 -----------------------------------
-  Element = Condition.stage.assessment
+  Element = !Condition.stage.assessment
 
  -- Row 18 -----------------------------------
-  Element = Condition.evidence
+  Element = !Condition.evidence
 
  -- Row 19 -----------------------------------
   Element = !Condition.evidence.code
   Binding = !QICoreConditionEvidence
 
  -- Row 20 -----------------------------------
-  Element = Condition.evidence.detail
+  Element = !Condition.evidence.detail
 
  -- Row 21 -----------------------------------
   Element = Condition.bodySite

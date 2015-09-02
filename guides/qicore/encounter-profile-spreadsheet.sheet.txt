@@ -177,7 +177,7 @@
   Must Support = Y
 
  -- Row 26 -----------------------------------
-  Element = Encounter.hospitalization.dietPreference
+  Element = !Encounter.hospitalization.dietPreference
   Binding = !QICoreEncounterDiet
 
  -- Row 27 -----------------------------------
