@@ -46,7 +46,7 @@ The DAF List profile mapping to Meaningful Use data elements and FHIR Resources 
 		  <tr>
 			<td>Medication Allergies</td>
 			<td>No known Allergies</td>
-			<td>List (Empty DAFAllergyIntoleranceList with coded List.emptyReason)</td>
+		  	<td><a href="daf-allergyintolerance.html">DAF-AllergyIntolerance</a> profile with appropriate negation code in AllergyIntolerence.substance.</td>
 		  </tr>
 		  <tr>
 			<td>Medications List*</td>
@@ -65,18 +65,13 @@ The DAF List profile mapping to Meaningful Use data elements and FHIR Resources 
 		  </tr>
 		  <tr>
 		    <td>Immunizations</td>
-			<td>No known Immunizations</td>
-			<td>List (Empty DAFImmunizationList with coded List.emptyReason)</td>
+			<td>No Immunization given</td>
+		  	<td><a href="daf-immunization.html">DAF-Immunization</a> profile with appropriate code in immunization.explanation.reasonNotGiven.</td>
 		  </tr>
 		  <tr>
 			<td>Laboratory Result Values</td>
 			<td>List of lab results</td>
 			<td>List using DAFResultsList profile</td>
-		  </tr>
-		  <tr>
-		    <td>Laboratory Result Values</td>
-			<td>No known Laboratory Results</td>
-			<td>List (Empty DAFResultsList with coded List.emptyReason)</td>
 		  </tr>
 		  <tr>
 		    <td>Encounter Diagnoses</td>

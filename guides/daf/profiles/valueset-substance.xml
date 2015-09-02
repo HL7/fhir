@@ -8,7 +8,7 @@
       
       <p>
         
-        <b>DAF Substance-Reactant for Intolerance</b>
+        <b>DAF Substance-Reactant for Intolerance and Negation Codes</b>
       
       </p>
       
@@ -64,7 +64,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.1"/>
   </extension>
-  <name value="DAF Substance-Reactant for Intolerance"/>
+  <name value="DAF Substance-Reactant for Intolerance and Negation Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -80,5 +80,24 @@
     <import value="http://hl7.org/fhir/ValueSet/daf-substance-rxnorm"/>
     <import value="http://hl7.org/fhir/ValueSet/daf-substance-unii"/>
     <import value="http://hl7.org/fhir/ValueSet/daf-substance-sct"/>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="160244002"/>
+        <display value="No Known Allergies"/>
+      </concept>
+      <concept>
+        <code value="429625007"/>
+        <display value="No Known Food Allergies"/>
+      </concept>
+      <concept>
+        <code value="409137002"/>
+        <display value="No Known Drug Allergies"/>
+      </concept>
+      <concept>
+        <code value="428607008"/>
+        <display value="No Known Environmental Allergy"/>
+      </concept>
+    </include>
   </compose>
 </ValueSet>
