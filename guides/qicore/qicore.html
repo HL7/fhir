@@ -85,7 +85,9 @@
 <a name="harmonization"></a>
 <h3>Relationship to Other Initiatives</h3>
 
-<p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="[%fhir-path%]daf/daf.html">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
+<p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="[%fhir-path%]daf/daf.html">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF, because they are needed for quality measures. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF, allowing QICore to be used outside the U.S. Realm. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
+
+<p>In general, where DAF defines its own value sets, QICore uses the same value sets. This assures the alignment of the two sets of profiles. The binding strengths may not be the same, however, and in many cases value sets that are required by DAF are only preferred in QICore. The weaker binding allows QICore to be used outside the U.S. Realm. In the U.S. Realm, compliance with QICore SHALL requires simultaneous compliance with DAF; therefore, any value set required by DAF SHALL be required by QICore.</p>
 
 <p>QICore's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QICore extensions will not create future conflicts. One initiative that provided reviews and feedback was the <a href="http://www.opencimi.org/">Clinical Information Modeling Initiative (CIMI)</a> through the <a href="http://www.opencimi.org/healthcare-services-platform-consortium">Healthcare Services Platform Consortium (HSPC)</a>. </p>
 
@@ -308,6 +310,7 @@
 	<li>The resources in "Any" references SHALL conform to QICore profiles if the base resource has a QICore profile</li>
 	<li>Applications SHALL NOT process resource instances that include unknown modifying attributes</li>
 	<li>Applications SHOULD using the preferred value sets</li>
+	<li>In the U.S. Realm, applications SHALL be simultaneously compliant with QICore profiles and DAF profiles. As such, the more restrictive bindings between DAF and QICore SHALL be adhered to. For example, all value sets that are required in DAF SHALL be required by QICore, regardless of the binding strength in QICore.</li>
 </ul>
 
 
