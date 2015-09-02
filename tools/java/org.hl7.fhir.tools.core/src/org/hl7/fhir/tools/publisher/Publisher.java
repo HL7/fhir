@@ -36,6 +36,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -54,6 +55,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.zip.ZipEntry;
 
 import javax.xml.XMLConstants;
@@ -1218,6 +1220,11 @@ public class Publisher implements URIResolver, SectionNumberer {
     rest.getSecurity().setDescription("This is the conformance statement to declare that the server supports SMART-on-FHIR. See the SMART-on-FHIR docs for the extension that would go with such a server");
 
     if (full) {
+      /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
+      TreeMap<String, SearchParameterDefn> sortedSearchParams = null;
+      StringBuffer sbResourceType = new StringBuffer("\t\tList<LabelKeyValueBean> resourceCriteria;\n\n");
+      /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
+
       for (String rn : page.getDefinitions().sortedResourceNames()) {
         ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
         ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
@@ -1248,7 +1255,47 @@ public class Publisher implements URIResolver, SectionNumberer {
               res.getSearchRevInclude().add(new StringType(rni+"."+ii.getCode()));
           }
         }
+        /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
+        sortedSearchParams = new TreeMap<String, SearchParameterDefn>(rd.getSearchParams());
+
+        for (SearchParameterDefn i : sortedSearchParams.values()) {
+          sbResourceType.append("\t\tresourceCriteria.add(new LabelKeyValueBean(\"");
+          sbResourceType.append(i.getDescription());
+          sbResourceType.append("\", \"");
+          sbResourceType.append(i.getCode());
+          sbResourceType.append("\", \"\", \"");
+          sbResourceType.append(getSearchParamType(i.getType()));
+          sbResourceType.append("\", \"");
+          sbResourceType.append(i.getPaths());
+          sbResourceType.append("\"));\n");
+        }
+
+        sbResourceType.append("\t\tresourceTypeCriteria.put(\"");
+        sbResourceType.append(rn);
+        sbResourceType.append("\", resourceCriteria);\n\n");
+        /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
       }
+
+      /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
+      FileWriter fileOut = null;
+      try {
+        File fResourceType = new File(page.getFolders().dstDir + "ResourceType.java");
+        fileOut = new FileWriter(fResourceType);
+        fileOut.append(sbResourceType);
+      }
+      catch (Exception e) {
+        // Swallow this for now
+      }
+      finally {
+        try {
+          if (fileOut != null) {
+            fileOut.close();
+          }
+        } catch (IOException ioEx) {
+          ioEx.printStackTrace();
+        }
+      }
+      /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
 
       genConfInteraction(conf, rest, SystemRestfulInteraction.TRANSACTION, "Implemented per the specification (or Insert other doco here)");
       genConfInteraction(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM, "Implemented per the specification (or Insert other doco here)");
