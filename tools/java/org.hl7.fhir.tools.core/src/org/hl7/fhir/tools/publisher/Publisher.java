@@ -36,7 +36,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -55,7 +54,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.zip.ZipEntry;
 
 import javax.xml.XMLConstants;
@@ -536,7 +534,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       prsr.parse(page.getGenDate(), page.getValidationErrors());
 
-      if (isGenerate && web && buildFlags.get("all")) { 
+      if (isGenerate && web && buildFlags.get("all")) {
         page.log("Clear Directory", LogMessageType.Process);
       }
       Utilities.clearDirectory(page.getFolders().dstDir);
@@ -545,7 +543,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs())
         if (!ig.isCore())
           Utilities.createDirectory(page.getFolders().dstDir + ig.getCode());
-      
+
       if (buildFlags.get("all")) {
         copyStaticContent();
       }
@@ -644,7 +642,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (char c : n.toCharArray())
       if (c == '/')
         level = level +"../";
-    
+
     String fullFileName = Utilities.path(page.getFolders().dstDir, n.replace("/", File.separator));
     Utilities.createDirectory(fullFileName);
     String page = "<html>\r\n<head>\r\n<title>Redirect Page for "+Utilities.escapeXml(desc)+" </title>\r\n<meta http-equiv=\"REFRESH\" content=\"0;url="+
@@ -652,7 +650,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String fn = Utilities.path(fullFileName, "index.html");
     if (!(new File(fn).exists()))
       TextFile.stringToFile(page, fn);
-    
+
   }
 
   @SuppressWarnings("unchecked")
@@ -1220,11 +1218,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     rest.getSecurity().setDescription("This is the conformance statement to declare that the server supports SMART-on-FHIR. See the SMART-on-FHIR docs for the extension that would go with such a server");
 
     if (full) {
-      /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
-      TreeMap<String, SearchParameterDefn> sortedSearchParams = null;
-      StringBuffer sbResourceType = new StringBuffer("\t\tList<LabelKeyValueBean> resourceCriteria;\n\n");
-      /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
-
       for (String rn : page.getDefinitions().sortedResourceNames()) {
         ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
         ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
@@ -1255,47 +1248,7 @@ public class Publisher implements URIResolver, SectionNumberer {
               res.getSearchRevInclude().add(new StringType(rni+"."+ii.getCode()));
           }
         }
-        /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
-        sortedSearchParams = new TreeMap<String, SearchParameterDefn>(rd.getSearchParams());
-
-        for (SearchParameterDefn i : sortedSearchParams.values()) {
-          sbResourceType.append("\t\tresourceCriteria.add(new LabelKeyValueBean(\"");
-          sbResourceType.append(i.getDescription());
-          sbResourceType.append("\", \"");
-          sbResourceType.append(i.getCode());
-          sbResourceType.append("\", \"\", \"");
-          sbResourceType.append(getSearchParamType(i.getType()));
-          sbResourceType.append("\", \"");
-          sbResourceType.append(i.getPaths());
-          sbResourceType.append("\"));\n");
-        }
-
-        sbResourceType.append("\t\tresourceTypeCriteria.put(\"");
-        sbResourceType.append(rn);
-        sbResourceType.append("\", resourceCriteria);\n\n");
-        /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
       }
-
-      /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
-      FileWriter fileOut = null;
-      try {
-        File fResourceType = new File(page.getFolders().dstDir + "ResourceType.java");
-        fileOut = new FileWriter(fResourceType);
-        fileOut.append(sbResourceType);
-      }
-      catch (Exception e) {
-        // Swallow this for now
-      }
-      finally {
-        try {
-          if (fileOut != null) {
-            fileOut.close();
-          }
-        } catch (IOException ioEx) {
-          ioEx.printStackTrace();
-        }
-      }
-      /* AEGIS 2015 - WRITE RESOURCE SEARCH PARAMS */
 
       genConfInteraction(conf, rest, SystemRestfulInteraction.TRANSACTION, "Implemented per the specification (or Insert other doco here)");
       genConfInteraction(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM, "Implemented per the specification (or Insert other doco here)");
@@ -1639,7 +1592,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       return true;
     if (!page.getDefinitions().hasResource(ref.getType()))
       return false;
-    if (ref.getId().startsWith("#")) 
+    if (ref.getId().startsWith("#"))
       return false;
     String id = ref.getId(); // extractId(ref.getId(), ref.getType());
     ResourceDefn r = page.getDefinitions().getResourceByName(ref.getType());
@@ -1660,29 +1613,29 @@ public class Publisher implements URIResolver, SectionNumberer {
           if (resolveLinkInBundle(ref, src, e, id))
             return true;
         }
-      }      
+      }
     }
-    // still not found? 
+    // still not found?
     if (ref.type.equals("ConceptMap"))
       return page.getConceptMaps().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId());
     if (ref.type.equals("StructureDefinition")) {
       if (page.getDefinitions().hasResource(ref.getId()))
         return true;
-      if (page.getProfiles().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId()) || page.getWorkerContext().getExtensionDefinitions().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId())) 
+      if (page.getProfiles().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId()) || page.getWorkerContext().getExtensionDefinitions().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId()))
         return true;
-      for (Profile cp : page.getDefinitions().getPackList()) 
+      for (Profile cp : page.getDefinitions().getPackList())
         for (ConstraintStructure p : cp.getProfiles())
           if (p.getId().equals(id))
             return true;
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         for (Profile cp : rd.getConformancePackages())
-          for (ConstraintStructure p : cp.getProfiles()) 
+          for (ConstraintStructure p : cp.getProfiles())
             if (p.getId().equals(id))
               return true;
     }
     return false;
   }
-    
+
   private boolean resolveLinkInBundle(ExampleReference ref, Example src, Example e, String id) {
     if (e.getXml().getDocumentElement().getLocalName().equals("Bundle")) {
       List<Element> entries = new ArrayList<Element>();
