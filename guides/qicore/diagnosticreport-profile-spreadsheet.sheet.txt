@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICoreAdjunctDiagnosis
+  Binding Name = !QICoreAdjunctDiagnosis
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/uslab-clinical-findings
   Definition = SNOMED CT findings codes provided as adjunct diagnosis to the report
@@ -101,6 +101,6 @@
  -- Row 15 -----------------------------------
   Element = DiagnosticReport.codedDiagnosis
   Must Support = Y
-  Binding = QICoreAdjunctDiagnosis
+  Binding = !QICoreAdjunctDiagnosis
 
 === Sheet Search =====================================

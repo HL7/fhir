@@ -23,7 +23,7 @@
   Conformance = example
 
  -- Row 4 -----------------------------------
-  Binding Name = QICorePractitionerRole
+  Binding Name = !QICorePractitionerRole
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/practitioner-role
   Conformance = example
@@ -120,7 +120,7 @@
 
  -- Row 17 -----------------------------------
   Element = Procedure.performer.role
-  Binding = QICorePractitionerRole
+  Binding = !QICorePractitionerRole
 
  -- Row 18 -----------------------------------
   Element = Procedure.performed[x]
