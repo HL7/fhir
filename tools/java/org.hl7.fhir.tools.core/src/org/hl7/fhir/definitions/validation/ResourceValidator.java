@@ -127,7 +127,7 @@ public class ResourceValidator extends BaseValidator {
 	// }
 	// }
 
-  public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) {
+  public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) throws Exception {
     rule(errors, IssueType.STRUCTURE, structure.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
     checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure), new ArrayList<String>());
   }
@@ -142,7 +142,7 @@ public class ResourceValidator extends BaseValidator {
     return false;
   }
 
-  public List<ValidationMessage> checkStucture(String name, ElementDefn structure) {
+  public List<ValidationMessage> checkStucture(String name, ElementDefn structure) throws Exception {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     checkStucture(errors, name, structure);
     return errors;
@@ -448,7 +448,7 @@ public class ResourceValidator extends BaseValidator {
   
 	//todo: check that primitives *in datatypes* don't repeat
 	
-	private int checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping, boolean optionalParent, boolean hasSummary, List<String> vsWarns) {
+	private int checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping, boolean optionalParent, boolean hasSummary, List<String> vsWarns) throws Exception {
 //	  for (TypeRef t : e.getTypes()) {
 //  	  if (!typeCounter.containsKey(t.getName()))
 //	      typeCounter.put(t.getName(), 1);
@@ -742,9 +742,10 @@ public class ResourceValidator extends BaseValidator {
 //    return errors;
 //  }
   
-	private void check(List<ValidationMessage> errors, String path, BindingSpecification cd, String sd, ElementDefn e)  {
+	private void check(List<ValidationMessage> errors, String path, BindingSpecification cd, String sd, ElementDefn e) throws Exception  {
     // basic integrity checks
-    for (DefinedCode c : cd.getAllCodes()) {
+    List<DefinedCode> ac = cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), false);
+    for (DefinedCode c : ac) {
       String d = c.getCode();
       if (Utilities.noString(d))
         d = c.getId();
@@ -769,7 +770,7 @@ public class ResourceValidator extends BaseValidator {
     if (cd.getBinding() == BindingMethod.CodeList) {
       if (path.toLowerCase().endsWith("status")) {
         if (rule(errors, IssueType.STRUCTURE, path, definitions.getStatusCodes().containsKey(path), "Status element not registered in status-codes.xml")) {
-          for (DefinedCode c : cd.getAllCodes()) {
+          for (DefinedCode c : ac) {
             boolean ok = false;
             for (String s : definitions.getStatusCodes().get(path)) {
               String[] parts = s.split("\\,");
@@ -782,7 +783,7 @@ public class ResourceValidator extends BaseValidator {
         }
       }
       StringBuilder b = new StringBuilder();
-      for (DefinedCode c : cd.getAllCodes()) {
+      for (DefinedCode c : ac) {
         b.append(" | ").append(c.getCode());
       }
       if (sd.equals("*")) {
@@ -793,8 +794,9 @@ public class ResourceValidator extends BaseValidator {
       if (sd.contains("|")) {
         String esd = b.substring(3);
         rule(errors, IssueType.STRUCTURE, path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
-      } else
-        rule(errors, IssueType.STRUCTURE, path, cd.getStrength() != BindingStrength.REQUIRED || cd.getAllCodes().size() > 20 || cd.getAllCodes().size() == 1 || !hasGoodCode(cd.getAllCodes()) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
+      } else {
+        rule(errors, IssueType.STRUCTURE, path, cd.getStrength() != BindingStrength.REQUIRED || ac.size() > 20 || ac.size() == 1 || !hasGoodCode(ac) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
+      }
     }
     boolean isComplex = !e.typeCode().equals("code");
 

@@ -977,7 +977,20 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private void generateEnum(ElementDefn e) throws Exception {
     String tn = typeNames.get(e);
     BindingSpecification cd = e.getBinding();
-    enumSizes.put(tn, cd.getAllCodes().size());
+    List<DefinedCode> ac = cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true);
+    
+    // this is a work around for an erroneous definition. It should be an error not patched here
+    Set<String> codes = new HashSet<String>();
+    List<DefinedCode> deletes = new ArrayList<DefinedCode>();
+    for (DefinedCode dc : ac) {
+      if (codes.contains(dc.getCode().toLowerCase()))
+        deletes.add(dc);
+      else
+        codes.add(dc.getCode().toLowerCase());
+    }
+    ac.removeAll(deletes);
+    
+    enumSizes.put(tn, ac.size());
 
 
     String prefix = tn.substring(5);
@@ -992,11 +1005,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       con.append("  CODES_"+tn+" : Array["+tn+"] of String = (");
       constants.add(tn);
 
-      int l = cd.getAllCodes().size();
+      int l = ac.size();
       int i = 0;
       def.append("    "+prefix+"Null,  {@enum.value "+prefix+"Null Value is missing from Instance }\r\n");
       con.append("'', ");
-      for (DefinedCode c : cd.getAllCodes()) {
+      for (DefinedCode c : ac) {
         i++;
         String cc = c.getCode();
         if (cc.equals("-"))
@@ -1367,8 +1380,16 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     String tn = null;
     if (e.typeCode().equals("code") && e.hasBinding()) {
       BindingSpecification cd = e.getBinding();
-      if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
+      if (cd != null && (cd.getBinding() == BindingSpecification.BindingMethod.CodeList)) {
         tn = "TFhir"+enumName(getTitle(getCodeList(cd.getReference()).substring(1)));
+        if (!enumNames.contains(tn)) {
+          enumNames.add(tn);
+          enums.add(e);
+        }
+        typeNames.put(e,  tn);
+      }
+      if (cd != null && (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet)) {
+        tn = "TFhir"+enumName(getTitle(getCodeList(urlTail(cd.getReference()))));
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
           enums.add(e);
@@ -1396,6 +1417,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         }
       }
     }
+  }
+
+  private String urlTail(String reference) {
+    return reference.substring(reference.lastIndexOf('/')+1);
   }
 
   private Object getElementForPath(ElementDefn root, String pathname) throws Exception {

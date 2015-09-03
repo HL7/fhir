@@ -94,9 +94,9 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     cd.getValueSet().setUserData("java-generated", true);
 	  
 		write("    public enum "+tns+" {\r\n");
-		int l = cd.getAllCodes().size();
+		int l = cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true).size();
 		int i = 0;
-		for (DefinedCode c : cd.getAllCodes()) {
+		for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
 			i++;
 			String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
@@ -114,7 +114,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 		write("        public static "+tns+" fromCode(String codeString) throws Exception {\r\n");
 		write("            if (codeString == null || \"\".equals(codeString))\r\n");
 		write("                return null;\r\n");
-		for (DefinedCode c : cd.getAllCodes()) {
+		for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
 			String cc = Utilities.camelCase(c.getCode());
 			cc = makeConst(cc);
 			write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
@@ -125,7 +125,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
 		write("        public String toCode() {\r\n");
 		write("          switch (this) {\r\n");
-		for (DefinedCode c : cd.getAllCodes()) {
+		for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
 			String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
 			write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
@@ -136,7 +136,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("        public String getSystem() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getAllCodes()) {
+    for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+c.getSystem()+"\";\r\n");
@@ -147,7 +147,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("        public String getDefinition() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getAllCodes()) {
+    for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
@@ -158,7 +158,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("        public String getDisplay() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getAllCodes()) {
+    for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
@@ -177,7 +177,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 		write("      if (codeString == null || \"\".equals(codeString))\r\n");
     write("            if (codeString == null || \"\".equals(codeString))\r\n");
     write("                return null;\r\n");
-    for (DefinedCode c : cd.getAllCodes()) {
+    for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
@@ -186,7 +186,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
     write("    public String toCode("+tns+" code) {\r\n");
-    for (DefinedCode c : cd.getAllCodes()) {
+    for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");

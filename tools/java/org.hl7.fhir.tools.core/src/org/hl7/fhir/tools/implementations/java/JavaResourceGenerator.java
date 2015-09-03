@@ -527,7 +527,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		if (cd.isShared())
 		  return;
 		cd.getValueSet().setUserData("java-generated", true);
-		List<DefinedCode> codes = cd.getAllCodes();
+		List<DefinedCode> codes = cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true);
 		
 		write("    public enum "+tns+" {\r\n");
 		int l = codes.size();

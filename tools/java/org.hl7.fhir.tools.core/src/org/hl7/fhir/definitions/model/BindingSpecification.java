@@ -29,10 +29,12 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
@@ -365,21 +367,48 @@ public class BindingSpecification {
     ToolResourceUtilities.updateUsage(valueSet, usageContext);
   }
 
-  public List<DefinedCode> getAllCodes() {
-    if (allCodes == null) {
+  public List<DefinedCode> getAllCodes(Map<String, ValueSet> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete) throws Exception {
+    if (allCodes == null || allCodes.size() == 0) {
       allCodes = new ArrayList<DefinedCode>();
       if (valueSet != null) {
-        if (valueSet.hasCodeSystem()) 
-          for (ConceptDefinitionComponent c : valueSet.getCodeSystem().getConcept())
-            processCode(c, valueSet.getCodeSystem().getSystem(), null);
-        if (valueSet.hasCompose()) {
-          for (ConceptSetComponent cc : valueSet.getCompose().getInclude())
-            for (ConceptReferenceComponent c : cc.getConcept())
-              processCode(c, cc.getSystem());
-        }
+        getAllCodesForValueSet(codeSystems, valueSets, wantComplete, valueSet);
       }   
     }
     return allCodes;
+  }
+
+  private void getAllCodesForValueSet(Map<String, ValueSet> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete, ValueSet vs) throws Exception {
+    if (vs.hasCodeSystem()) 
+      for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept())
+        processCode(c, vs.getCodeSystem().getSystem(), null);
+    if (vs.hasCompose()) {
+      for (UriType ci : vs.getCompose().getImport()) {
+        if (valueSets != null) {
+          ValueSet vs1 = valueSets.get(ci.getValue());
+          if (vs1 != null) {
+            getAllCodesForValueSet(codeSystems, valueSets, wantComplete, vs1);
+          } else if (wantComplete)
+            throw new Exception("Unable to resolve valueset "+ci.asStringValue());
+        } else if (wantComplete)
+          throw new Exception("Unable to expand value set "); 
+      }
+      for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
+        if (cc.hasFilter() && wantComplete)
+          throw new Exception("Filters are not supported in this context (getting all codes for code generation");
+        if (!cc.hasConcept()) {
+          if (codeSystems != null) {
+            ValueSet vs1 = codeSystems.get(cc.getSystem());
+            if (vs1 != null) {
+              getAllCodesForValueSet(codeSystems, valueSets, wantComplete, vs1);
+            } else if (wantComplete)
+              throw new Exception("Unable to resolve code system "+cc.getSystem());
+          } else if (wantComplete)
+            throw new Exception("Unable to expand value set "); 
+        } else 
+          for (ConceptReferenceComponent c : cc.getConcept())
+            processCode(c, cc.getSystem());
+      }
+    }
   }
 
   private void processCode(ConceptReferenceComponent c, String system) {

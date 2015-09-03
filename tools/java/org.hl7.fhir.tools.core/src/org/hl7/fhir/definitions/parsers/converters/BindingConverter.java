@@ -48,7 +48,7 @@ import org.hl7.fhir.utilities.Utilities;
 public class BindingConverter 
 {
 	public static List<BindingDefn> buildBindingsFromFhirModel( 
-			Collection<org.hl7.fhir.definitions.model.BindingSpecification> bindings, CompositeTypeDefn parent )
+			Collection<org.hl7.fhir.definitions.model.BindingSpecification> bindings, CompositeTypeDefn parent ) throws Exception
 	{
 		List<BindingDefn> result = new ArrayList<BindingDefn>();
 		
@@ -64,7 +64,7 @@ public class BindingConverter
 	}
 	
 	public static BindingDefn buildBindingFromFhirModel( org.hl7.fhir.definitions.model.BindingSpecification spec,
-				CompositeTypeDefn parent)
+				CompositeTypeDefn parent) throws Exception
 	{
 		BindingDefn result = FhirFactory.eINSTANCE.createBindingDefn();
 		
@@ -94,8 +94,7 @@ public class BindingConverter
 		
 		//ValueSet vs = spec.getValueSet();
 		//if (vs != null && vs.hasDefine())
-		for( org.hl7.fhir.definitions.model.DefinedCode code : spec.getAllCodes() )
-		{
+		for( org.hl7.fhir.definitions.model.DefinedCode code : spec.getAllCodes(null, null, false)) {
 			convertFromFhirDefinedCode(result.getCode(), code, null);
 		}
 		
